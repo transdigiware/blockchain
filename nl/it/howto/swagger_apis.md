@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -10,11 +10,12 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Interazione con la rete utilizzando le API Swagger
 {: #ibp-swagger}
@@ -23,7 +24,7 @@ subcollection: blockchain
 
 {:shortdesc}
 
-Prima di iniziare, devi creare un'istanza del servizio [{{site.data.keyword.blockchain}} Platform ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) su {{site.data.keyword.cloud_notm}} e creare, o aderire a, una rete blockchain piano Starter <!--or Enterprise Plan -->.
+Prima di iniziare, devi creare una [istanza del servizio {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} su {{site.data.keyword.cloud_notm}} e creare o aderire a una rete blockchain del piano Starter<!--or Enterprise Plan -->.
 
 
 ## Richiamo delle credenziali di rete
@@ -33,14 +34,12 @@ Accedi al Monitoraggio della rete della tua rete Blockchain e apri la schermata 
 
 La **Figura 1** mostra la schermata "API":
 ![Schermata API](../images/API_screen_starter.png "Schermata API")
-*Figura 1. API*
 
 Se stai utilizzando piano Starter, è possibile passare da un'organizzazione all'altra nel Monitoraggio della rete. Con piano Starter, le due organizzazioni sono configurate per impostazione predefinita. Passare da un'organizzazione all'altra può essere utile per provare le API REST dalla prospettiva di ciascuna organizzazione. Per ottenere le credenziali per un'altra organizzazione nella tua rete, fai clic sul tuo nome utente nell'angolo superiore destro della console Monitoraggio della rete. Nel menu che si apre, fai clic sulla freccia a discesa accanto all'organizzazione per visualizzare tutte le organizzazioni. Seleziona l'organizzazione a cui desideri passare e visualizza le credenziali di rete associate.
 
 La **Figura 2** mostra come passare da un'organizzazione all'altra:
 
-![Switch tra le organizzazioni](../images/switch_orgs_starter.gif "Switch tra le organizzazioni")  
-*Figura 2. Switch tra le organizzazioni*
+![Switch tra le organizzazioni](../images/switch_orgs_starter.gif "Switch tra le organizzazioni"){: gif}
 
 
 ## Autorizzazione delle API Swagger
@@ -54,8 +53,7 @@ Utilizzando l'autenticazione di tipo Autenticazione di base, qualsiasi credenzia
 
 La **Figura 3** mostra il processo per autorizzare le API Swagger:
 
-![Autorizza API](../images/swaggerUIAuthorize.gif "Autorizza API")  
-*Figura 3. Autorizza API*
+![Autorizza API](../images/swaggerUIAuthorize.gif "Autorizza API"){: gif}
 
 
 ## Prova delle API
@@ -65,27 +63,24 @@ Fai clic sulla API REST che vuoi eseguire e fai clic sul pulsante **Provalo ades
 
 La **Figura 4** mostra il pulsante "Try it out" nella "IU Swagger":
 
-![Pulsante Try it out nella IU Swagger](../images/swaggerUITryItOut.png "Pulsante Try it out nella IU Swagger")  
-*Figura 4. Pulsante "Try it out" nella "IU Swagger"*
+![Pulsante Try it out nella IU Swagger](../images/swaggerUITryItOut.png "Pulsante Try it out nella IU Swagger")
 
 Dopo che hai fatto clic sul pulsante **Try it out**, puoi immettere i parametri obbligatori per utilizzare la API. Puoi trovare `networkID` nelle tue credenziali di rete e trovare gli altri parametri nel tuo Monitoraggio della rete. Dopo che hai immesso i parametri, fai clic su **Esegui** per eseguire la chiamata API REST sulla tua rete.
 
 La **Figura 5** mostra i parametri nella "IU Swagger":
 
 ![Parametri nell'IU Swagger](../images/swaggerUIParams.png "Parametri nell'IU Swagger")  
-*Figura 5. Immissione dei parametri*  
 
 Dopo che hai fatto clic su **Esegui**, puoi vedere la risposta della chiamata API sulla tua rete. Puoi anche vedere un comando CURL che può richiamare la API direttamente dalla tua riga di comando.
 
 La **Figura 6** mostra il comando CURL, l'URL e il corpo della risposta della API:
 
-![Risposta della API nell'IU Swagger](../images/swaggerUICurlResponse.png "Risposta della API nell'IU Swagger")  
-*Figura 6. Risposta della API*    
+![Risposta della API nell'IU Swagger](../images/swaggerUICurlResponse.png "Risposta della API nell'IU Swagger")    
 
 ## Disabilitazione dell'accesso API
 {: #ibp-swagger-turn-off}
 
-Per impostazione predefinita, tutti gli utenti con un ruolo non Revisore in IBM Cloud possono visualizzare e utilizzare le **Credenziali di rete** visibili nel pannello delle API Swagger e possono pertanto gestire la loro rete utilizzando le API. Tuttavia, se preferisci non esporre le tue credenziali di rete API Swagger nell'IU, puoi copiare e proteggere i tuoi valori di chiave e segreto esistenti e generare delle nuove credenziali che non sono valide per l'uso con le API Swagger. Viene fornito un indicatore denominato resetCredentials che ti consente di controllare l'accesso completando la seguente procedura:
+Per impostazione predefinita, tutti gli utenti con un ruolo non Revisore in {{site.data.keyword.cloud_notm}} possono visualizzare e utilizzare le **Credenziali di rete** visibili nel pannello delle API Swagger e possono pertanto gestire la loro rete utilizzando le API. Tuttavia, se preferisci non esporre le tue credenziali di rete API Swagger nell'IU, puoi copiare e proteggere i tuoi valori di chiave e segreto esistenti e generare delle nuove credenziali che non sono valide per l'uso con le API Swagger. Viene fornito un indicatore denominato resetCredentials che ti consente di controllare l'accesso completando la seguente procedura:
 
 1. Attieniti alla procedura per generare delle nuove credenziali di rete, come descritto nel [dashboard Credenziali del servizio](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
 2. Tuttavia, nella casella **Aggiungi parametri di configurazione inline**, incolla il seguente valore:

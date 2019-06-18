@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -10,24 +10,28 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:gif: data-image-type='gif'}
 
 # Introduzione a piano Starter
 {: #getting-started-with-starter-plan}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform piano Starter ti offre una rete blockchain preconfigurata con un singolo clic. Esegue il provisioning di una rete con autorizzazioni con la configurazione di due [organizzazioni](/docs/services/blockchain/glossary.html#glossary-organization), un [peer](/docs/services/blockchain/glossary.html#glossary-peer) per ciascuna organizzazione e un [canale](/docs/services/blockchain/glossary.html#glossary-channel) per impostazione predefinita. Dopo che la rete è stata creata, puoi ridimensionare e aggiungere ulteriori organizzazioni e peer alla tua rete. Queste reti sono destinate agli utenti che non hanno esperienza con {{site.data.keyword.blockchainfull_notm}} Platform. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
 {:shortdesc}
 
 Piano Starter ti consente di acquisire e sviluppare competenze con {{site.data.keyword.blockchainfull_notm}} Platform, eseguire applicazioni di esempio, testare le tue applicazioni e simulare uno scenario con più organizzazioni. Questa esercitazione introduttiva ti guiderà nell'utilizzo del piano Starter per iniziare a sviluppare e utilizzare una rete blockchain.
 
-Se non hai dimestichezza con {{site.data.keyword.blockchainfull_notm}} Platform e blockchain, puoi trovare ulteriori informazioni su blockchain controllando la [panoramica dei componenti fondamentali](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview) delle reti sviluppate sull'open source [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric). Puoi inoltre controllare [Hyperledger Fabric documentation ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html "Introduction to Blockchain").
+Se non hai dimestichezza con {{site.data.keyword.blockchainfull_notm}} Platform e blockchain, puoi trovare ulteriori informazioni su blockchain controllando la [panoramica dei componenti fondamentali](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview) delle reti sviluppate sulla base dell'[Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) open-source. Puoi anche consultare la [documentazione di Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}.
 
-**Nota**: {{site.data.keyword.blockchainfull_notm}} Platform piano Starter è un ambiente di sviluppo e test e non è adatto per i carichi di lavoro di produzione. Se ti serve un ambiente di produzione, vedi [Informazioni sul piano Enterprise](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+**Nota**: {{site.data.keyword.blockchainfull_notm}} Platform piano Starter è un ambiente di sviluppo e test  non è adatto per i carichi di lavoro di produzione. Se ti serve un ambiente di produzione, vedi [Informazioni sul piano Enterprise](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
 
 ## Panoramica
 {: #getting-started-with-starter-plan-overview}
@@ -67,16 +71,16 @@ Dopo aver formato il tuo consorzio, devi scrivere il chaincode, noto anche come 
 
 Puoi ottenere una [rete](/docs/services/blockchain/glossary.html#glossary-network) piano Starter con la configurazione predefinita immediatamente dopo che hai creato un'istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform.
 
-1. Individua il [servizio blockchain ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) nel catalogo {{site.data.keyword.cloud_notm}}.
+1. Individua il [servizio Blockchain ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} nel catalogo {{site.data.keyword.cloud_notm}}.
     **Nota**: devi accedere con il tuo account a pagamento {{site.data.keyword.cloud_notm}}. Se non hai un account, fai clic sul pulsante **Registrati per creare**. Dopo aver creato un account gratuito, aggiornalo a un tipo **Pagamento a consumo** andando in **Gestisci** > **Fatturazione e utilizzo** > **Fatturazione** nella console {{site.data.keyword.cloud_notm}} e facendo clic su **Aggiungi carta di credito**.
 2. Scegli la regione in {{site.data.keyword.cloud_notm}} per creare la rete.
 3. Seleziona la tua organizzazione e il tuo spazio Cloud Foundry per creare la rete.
 4. Scegli **Piano di appartenenza Starter** dalla tabella dei piani di prezzi.
 5. Fai clic sul pulsante **Crea**. Nota: se sei invitato ad aderire a una rete, puoi vedere un pannello di benvenuto a comparsa. Per creare una rete, scegli **Procedi alla tua rete** e fai clic su **Continua**. Per aderire a una rete, vedi il passo 5 in [Adesione a una rete](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-joining-a-network).
-  Ora sei pronti a usare la tua rete piano Starter con la configurazione predefinita. La rete è in esecuzione con una ordinante (noto come un servizio ordini "SOLO"), due organizzazioni, una CA e un peer per ogni organizzazione. Viene anche creato un canale predefinito.
+  Ora sei pronti a usare la tua rete piano Starter con la configurazione predefinita. La rete è in esecuzione con una ordinante (noto come un servizio di ordine "SOLO"), due organizzazioni, una CA e un peer per ogni organizzazione. Viene anche creato un canale predefinito.
 6. Fai clic sul pulsante **Avvia**.
 
-Puoi trovare la tua istanza del servizio blockchain nel tuo [Dashboard del servizio {{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} - Dashboard del servizio").
+Puoi trovare la tua istanza del servizio blockchain nel tuo [dashboard del servizio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 
 ## Invio di un invito ai membri
@@ -95,7 +99,7 @@ Puoi invitare altre [organizzazioni](/docs/services/blockchain/glossary.html#glo
 
 Se sei invitato da un iniziatore di rete, riceverai una notifica email con le istruzioni su come aderire alla rete. Attieniti alle istruzioni nell'email e diventerai uno dei membri nella rete.
 
-Devi creare un'istanza del servizio [{{site.data.keyword.blockchainfull_notm}} Platform ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) con l'opzione di adesione piano Starter in {{site.data.keyword.cloud_notm}}.
+Devi creare una [istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} con l'opzione di adesione al piano Starter in {{site.data.keyword.cloud_notm}}.
 
 1. Accedi con il tuo account {{site.data.keyword.cloud_notm}}. Se non hai un account, fai clic sul pulsante **Registrati per creare**.
 2. Seleziona l'organizzazione Cloud Foundry dove vuoi memorizzare la tua rete {{site.data.keyword.blockchain}}.
@@ -103,7 +107,7 @@ Devi creare un'istanza del servizio [{{site.data.keyword.blockchainfull_notm}} P
 4. Fai clic sul pulsante **Crea**. La pagina dell'istanza del servizio si apre con un pannello di benvenuto a comparsa. Nota: puoi scegliere di aderire a una rete o continuare a crearne una tua. Per creare una rete, vedi il passo 4 in [Creazione di una rete](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-creating-a-network).
 5. Nel pannello di benvenuto, scegli **Unisciti a una rete esistente**, seleziona la rete a cui aderire dall'elenco a discesa e fai clic su **Continua**.
 
-Puoi trovare la tua istanza del servizio blockchain nel [Dashboard del servizio {{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} - Dashboard del servizio").
+Puoi trovare la tua istanza del servizio blockchain nel [dashboard del servizio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 ## Creare canali
 {: #getting-started-with-starter-plan-create-channels}
@@ -117,13 +121,13 @@ Per ulteriori informazioni, vedi [Creazione di un canale](/docs/services/blockch
 
 Il [chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode), a cui a volte viene fatto riferimento come agli smart contract, è il software che ti consente di leggere e aggiornare i dati sul libro mastro blockchain. Il chaincode può trasformare la logica di business in un programma eseguibile accettato e verificato da tutti i membri della rete blockchain.
 
-Consulta l'esercitazione [sviluppo del chaincode](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts) per ulteriori informazioni su come iniziare a scrivere il chaincode, nonché sulle funzioni Fabric a cui è possibile accedere tramite il chaincode.
+vedi l'esercitazione [sviluppo del chaincode](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts) per ulteriori informazioni su come iniziare a scrivere il chaincode, nonché sulle funzioni Fabric a cui è possibile accedere tramite il chaincode.
 
 ## Installazione e istanziazione del tuo chaincode
 {: #getting-started-with-starter-plan-install-instantiate-chaincode}
 Dopo aver aderito ai canali e sviluppato la tua logica di business, devi installare il chaincode sui peer nella rete. Puoi utilizzare il monitoraggio della rete per installare ed istanziare il chaincode sui peer della tua organizzazione, nonché aggiornarlo per facilitare lo sviluppo continuo.
 
-Per ulteriori informazioni sull'installazione e l'istanziazione del tuo chaincode, consulta [Installazione, istanziazione e aggiornamento di un chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
+Per ulteriori informazioni sull'installazione e l'istanziazione del tuo chaincode, vedi [Installazione, istanziazione e aggiornamento di un chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
 
 ## Monitoraggio delle risorse di rete
@@ -140,14 +144,14 @@ Dopo che hai creato una rete piano Starter in {{site.data.keyword.cloud_notm}}, 
 ### Richiamo dalla pagina dell'istanza del servizio
 {: #getting-started-with-starter-plan-retrieve-service-instance}
 
-Sei nella pagina dell'istanza del servizio subito dopo aver creato un'istanza del servizio. Puoi anche fare clic sul tuo servizio nel [dashboard del servizio {{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} - Dashboard del servizio") per aprire la tua pagina dell'istanza del servizio.
+Sei nella pagina dell'istanza del servizio subito dopo aver creato un'istanza del servizio. Puoi anche fare clic sul tuo servizio nel [dashboard del servizio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external} per aprire la tua pagina dell'istanza del servizio.
 
 Richiama le tue credenziali del servizio attenendoti alla seguente procedura:
 1. Nella pagina dell'istanza del servizio, fai clic su **Credenziali del servizio** nel navigatore a sinistra per visualizzare la schermata "Credenziali del servizio".
 2. Fai clic su **Nuova credenziale** nella schermata "Credenziali del servizio".
 3. Nella schermata "Aggiungi nuova credenziale", dai un nome alla credenziale e immetti **{"type": "service_instance_token"}** nel campo "Aggiungi parametro di configurazione inline". Fai clic su **Aggiungi**. La nuova credenziale viene aggiunta nella tabella. Puoi fare clic su **Visualizza credenziali** nella colonna "AZIONI" per visualizzare i dettagli della credenziale. Questa credenziale contiene la chiave API e il segreto, che puoi utilizzare per autorizzare le API.
 
-![Richiamo delle credenziali della rete](images/service_credentials.gif "Richiamo delle credenziali della rete")
+![Richiamo delle credenziali della rete](images/service_credentials.gif "Richiamo delle credenziali della rete"){: gif}
 
 ### Richiamo nel Monitoraggio della rete
 {: #getting-started-with-starter-plan-network-creds}
@@ -161,7 +165,7 @@ Puoi richiamare il profilo di connessione nella schermata "Panoramica" nel tuo M
 
 {{site.data.keyword.blockchainfull_notm}} Platform presenta diverse API REST in Swagger che puoi utilizzare per gestire i nodi, i canali, i peer e i membri della tua rete. Le tue applicazioni possono utilizzare queste API per controllare importanti risorse di rete senza usare il Monitoraggio della rete.
 
-Per ulteriori informazioni, consulta [Interazione con la rete utilizzando le API Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger)
+Per ulteriori informazioni, vedi [Interazione con la rete utilizzando le API Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger)
 
 ## Reimpostazione di una rete
 {: #getting-started-with-starter-plan-reset-nw}
@@ -181,4 +185,4 @@ Tra le reti del piano Starter ed Enterprise, è possibile migrare solo il chainc
 
 Se vuoi eliminare, o uscire da, una rete, puoi eliminare l'istanza del servizio blockchain dal tuo dashboard {{site.data.keyword.cloud_notm}}.
 
-Prima di uscire da una rete, assicurati di non essere un membro di alcun canale sulla rete. Altrimenti, riscontrerai degli errori quando esci dalla rete. Una rimozione di un membro del canale deve completare il processo di aggiornamento del canale. Per ulteriori informazioni sul processo di aggiornamento del canale, consulta [Aggiornamento di un canale](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).{:note}
+Prima di uscire da una rete, assicurati di non essere un membro di alcun canale sulla rete. Altrimenti, riscontrerai degli errori quando esci dalla rete. Una rimozione di un membro del canale deve completare il processo di aggiornamento del canale. Per ulteriori informazioni sul processo di aggiornamento del canale, vedi [Aggiornamento di un canale](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).{:note}

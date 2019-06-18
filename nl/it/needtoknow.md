@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,16 +17,17 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Dichiarazione di non responsabilità
 {: #disclaimer}
 
 **ATTENZIONE:** devi riesaminare le seguenti informazioni prima di utilizzare qualsiasi piano {{site.data.keyword.blockchainfull}}.
 
-## Istruzione di supporto IBM
+## Dichiarazione di supporto {{site.data.keyword.IBM_notm}}
 {: #disclaimer-support-statement}
 
-La lunga tradizione di {{site.data.keyword.IBM}} di leadership nel campo dell'innovazione continua con le offerte {{site.data.keyword.blockchainfull_notm}} Platform su {{site.data.keyword.cloud_notm}}. Blockchain è una tecnologia in rapido sviluppo destinata a cambiare profondamente il settore finanziario, le catene di approvvigionamento locali e globali e il supporto logistico in qualsiasi numero di spazi di business. Attraverso vari programmi di adozione precoce, i clienti e business partner {{site.data.keyword.IBM_notm}} hanno portato attivamente la blockchain a diventare una soluzione industriale. {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} è uno di questi programmi. **Come con qualsiasi nuova tecnologia, gli utenti di {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} devono essere consapevoli della possibilità di cambiamenti rapidi e importanti**.
+La lunga tradizione di {{site.data.keyword.IBM_notm}} di leadership nel campo dell'innovazione continua con le offerte {{site.data.keyword.blockchainfull_notm}} Platform su {{site.data.keyword.cloud_notm}}. Blockchain è una tecnologia in rapido sviluppo destinata a cambiare profondamente il settore finanziario, le catene di approvvigionamento locali e globali e il supporto logistico in qualsiasi numero di spazi di business. Attraverso vari programmi di adozione precoce, i clienti e business partner {{site.data.keyword.IBM_notm}} hanno portato attivamente la blockchain a diventare una soluzione industriale. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} è uno di questi programmi. **Come con qualsiasi nuova tecnologia, gli utenti di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} devono essere consapevoli della possibilità di cambiamenti rapidi e importanti**.
 {:shortdesc}
 
 L'architettura che sta dietro {{site.data.keyword.blockchainfull_notm}} è il progetto Hyperledger della Linux Foundation. Ogni contributo della community open source apporta miglioramenti a Hyperledger Fabric ma può presentare delle difficoltà di adozione. **{{site.data.keyword.IBM_notm}} mette in guardia contro la definizione o lo scambio di risorse finanziarie<!--, or any assets of value,--> direttamente sulle reti blockchain di Hyperledger Fabric**.
@@ -35,10 +35,10 @@ L'architettura che sta dietro {{site.data.keyword.blockchainfull_notm}} è il pr
 {{site.data.keyword.IBM_notm}} non fornisce supporto per le reti che utilizzano Hyperledger Composer in produzione, compresi la CLI Composer, le API JavaScript, il server REST e Web Playground.
 {:note}
 
-## Istruzione open source 
+## Istruzione open source
 {: #disclaimer-open-source-statement}
 
-I piani di offerta {{site.data.keyword.blockchainfull_notm}} su {{site.data.keyword.cloud_notm}} sono sviluppati sullo stack Hyperledger Fabric della Linux Foundation. I membri del progetto Hyperledger, compresa {{site.data.keyword.IBM_notm}}, continuano a contribuire ai vari progetti secondari che ricadono nell'ambito di Hyperledger.  Tutti i contributi sono revisionati, controllati e testati dalla community.
+I piani di offerta {{site.data.keyword.blockchainfull_notm}} su {{site.data.keyword.cloud_notm}} sono sviluppati sullo stack Hyperledger Fabric di Linux Foundation. I membri del progetto Hyperledger, compresa {{site.data.keyword.IBM_notm}}, continuano a contribuire ai vari progetti secondari che ricadono nell'ambito di Hyperledger.  Tutti i contributi sono revisionati, controllati e testati dalla community.
 
 ## Istruzione di supporto del chaincode
 {: #disclaimer-chaincode-support-statement}

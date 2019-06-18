@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2387px"
+   height="1001px"
+   viewBox="0 0 2387 1001"
+   version="1.1"
+   id="svg74"
+   sodipodi:docname="IBP-Diagram.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata80">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs78" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview76"
+     showgrid="false"
+     inkscape:zoom="0.60829493"
+     inkscape:cx="1220.3705"
+     inkscape:cy="503.06156"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Group-3" />
+  <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+  <title
+     id="title2">IBP_Deployment 2</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <g
+     id="IBP_Deployment-2"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <rect
+       fill="#FFFFFF"
+       x="0"
+       y="0"
+       width="2387"
+       height="1001"
+       id="rect6" />
+    <g
+       id="Group"
+       opacity="0.866699219"
+       transform="translate(524.000000, 107.000000)">
+      <rect
+         id="Rectangle"
+         stroke="#FFFFFF"
+         fill="#011688"
+         x="0.5"
+         y="0.5"
+         width="1124"
+         height="853" />
+      <text
+         id="IBM-Blockchain-Platf"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         font-size="37.07"
+         font-weight="500"
+         fill="#FFFFFF">
+        <tspan
+           x="193.9768"
+           y="83"
+           id="tspan9">IBM Blockchain Platform</tspan>
+      </text>
+      <text
+         id="The-service-that-all"
+         font-family="IBMPlexSans, IBM Plex Sans"
+         font-size="28.07"
+         font-weight="normal"
+         fill="#FFFFFF">
+        <tspan
+           x="192"
+           y="128"
+           id="tspan12">Il servizio che ti consente di distribuire e gestire i tuoi </tspan>
+        <tspan
+           x="192"
+           y="165"
+           id="tspan14">nodi Hyperledger Fabric.</tspan>
+      </text>
+    </g>
+    <g
+       id="g21"
+       transform="translate(574.000000, 153.000000)">
+      <circle
+         id="Oval"
+         stroke="#979797"
+         fill="#FFFFFF"
+         cx="51"
+         cy="36"
+         r="36" />
+      <rect
+         id="rect19"
+         stroke="#FFFCFC"
+         fill="#011688"
+         x="0.5"
+         y="186.5"
+         width="1021"
+         height="109" />
+    </g>
+    <g
+       id="g25"
+       transform="translate(572.000000, 797.000000)"
+       fill="#011688"
+       stroke="#FFFAFA">
+      <rect
+         id="rect23"
+         x="0.5"
+         y="0.5"
+         width="1021"
+         height="109" />
+    </g>
+    <g
+       id="Group-3"
+       transform="translate(574.000000, 459.000000)">
+      <g
+         id="g29"
+         fill="#011688"
+         stroke="#FFFBFB">
+        <rect
+           id="rect27"
+           x="0.5"
+           y="0.5"
+           width="1021"
+           height="327" />
+      </g>
+      <g
+         id="g33"
+         transform="translate(35.000000, 102.000000)"
+         fill="#FFFFFF"
+         stroke="#979797">
+        <rect
+           id="rect31"
+           x="0.5"
+           y="0.5"
+           width="294"
+           height="173" />
+      </g>
+      <g
+         id="g37"
+         transform="translate(350.000000, 102.000000)"
+         fill="#FFFFFF"
+         stroke="#979797">
+        <rect
+           id="rect35"
+           x="0.5"
+           y="0.5"
+           width="327"
+           height="173" />
+      </g>
+      <g
+         id="g41"
+         transform="translate(698.000000, 101.000000)"
+         fill="#FFFFFF"
+         stroke="#979797">
+        <rect
+           id="rect39"
+           x="0.5"
+           y="0.5"
+           width="294"
+           height="174" />
+      </g>
+      <text
+         id="Hyperledger-Fabric-C"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         font-size="37.07"
+         font-weight="500"
+         fill="#FFFFFF">
+        <tspan
+           x="244.420285"
+           y="63"
+           id="tspan43">Componenti di Hyperledger Fabric</tspan>
+      </text>
+      <text
+         id="Certificate-Authorit"
+         font-size="25.07"
+         font-weight="500"
+         line-spacing="32"
+         x="-36"
+         style="font-weight:500;font-size:25.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#000000">
+        <tspan
+           x="78"
+           y="181"
+           id="tspan46">Autorità di</tspan>
+        <tspan
+           x="78"
+           y="213"
+           id="tspan48">certificazione (CA)</tspan>
+      </text>
+      <text
+         id="Peer"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         font-size="25.07"
+         font-weight="500"
+         fill="#000000">
+        <tspan
+           x="484.80045"
+           y="198"
+           id="tspan51">Peer</tspan>
+      </text>
+      <text
+         id="Ordering-Service"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         font-size="25.07"
+         font-weight="500"
+         line-spacing="31"
+         fill="#000000">
+        <tspan
+           x="787.76239"
+           y="185.39513"
+           id="tspan54">Servizio di </tspan>
+        <tspan
+           x="795.58423"
+           y="216.39513"
+           id="tspan56">ordinazione</tspan>
+      </text>
+    </g>
+    <text
+       id="Blockchain-Service"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       font-size="37.07"
+       font-weight="500"
+       fill="#000000">
+      <tspan
+         x="530.003655"
+         y="79"
+         id="tspan60">Servizio blockchain</tspan>
+    </text>
+    <text
+       id="text65"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       font-size="37.07"
+       font-weight="500"
+       fill="#FFFFFF">
+      <tspan
+         x="780.89699"
+         y="409"
+         id="tspan63">Console di IBM Blockchain Platform (IU)</tspan>
+    </text>
+    <g
+       id="IBP_2_0_Service_Tile_Icon"
+       transform="translate(585.000000, 152.000000)"
+       fill="#13171A"
+       fill-rule="nonzero">
+      <path
+         d="M41.5,0 C18.5801829,-1.25125444e-15 2.80686807e-15,16.5654643 0,37 C-2.80686807e-15,57.4345357 18.5801829,74 41.5,74 C64.4198171,74 83,57.4345357 83,37 C83,27.1869899 78.6276911,17.7758951 70.8449314,10.8370491 C63.0621717,3.89820309 52.5064843,6.00873572e-16 41.5,0 Z M23.34375,50.875 L18.15625,50.875 L18.15625,23.125 L23.34375,23.125 L23.34375,50.875 Z M57.0625,57.8125 L25.9375,57.8125 L25.9375,53.1875 L57.0625,53.1875 L57.0625,57.8125 Z M57.0625,20.8125 L25.9375,20.8125 L25.9375,16.1875 L57.0625,16.1875 L57.0625,20.8125 Z M64.84375,50.875 L59.65625,50.875 L59.65625,23.125 L64.84375,23.125 L64.84375,50.875 Z"
+         id="Shape" />
+    </g>
+    <text
+       id="text71"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       font-size="37.07"
+       font-weight="500"
+       fill="#FFFFFF">
+      <tspan
+         x="680.3421"
+         y="866"
+         id="tspan69">IBM Blockchain Platform Extension for VS Code  </tspan>
+    </text>
+  </g>
+</svg>

@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -32,7 +32,7 @@ Questo manuale ti aiuta a comprendere i prezzi per i piani di adesione {{site.da
 
 *Figura 1. Panoramica dei prezzi di {{site.data.keyword.blockchainfull_notm}} Platform*
 
-Il costo mensile viene addebitato ogni giorno su base proporzionale. Ad esempio, un membro (costo di adesione associato di $1.000) di due peer (costo per ogni peer di $1.000 X 2 peer) deve pagare $3.000 ogni mese. Se il mese ha 30 giorni, il membro paga $ 100 ($3.000/30) ogni giorno. Per ulteriori informazioni su come pagare per le tue reti, consulta [Modalità di pagamento](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
+Il costo mensile viene addebitato ogni giorno su base proporzionale. Ad esempio, un membro (costo di adesione associato di $1.000) di due peer (costo per ogni peer di $1.000 X 2 peer) deve pagare $3.000 ogni mese. Se il mese ha 30 giorni, il membro paga $ 100 ($3.000/30) ogni giorno. Per ulteriori informazioni su come pagare per le tue reti, vedi [Modalità di pagamento](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
 
 
 ## Componenti di base della rete
@@ -42,19 +42,19 @@ Per comprendere i prezzi, dobbiamo iniziare con un'introduzione ai componenti di
 
 -	**Organizzazioni** – Qualsiasi entità che deve mantenere una copia del libro mastro blockchain e deve convalidare le transazioni. Ci possono essere più organizzazioni blockchain per una singola società.
 -	**Peer** – Il nodo associato a un'organizzazione che contiene il libro mastro blockchain e convalida le transazioni. I peer sono associati a una singola organizzazione blockchain.
--	**Servizio di ordinazione** – Composto da un singolo ordinante (SOLO) o da una raccolta di ordinanti. Il servizio ordini mette in sequenza le transazioni, crea blocchi e invia questi blocchi ai peer per la convalida.
+-	**Servizio di ordine** – Composto da un singolo ordinante (SOLO) o da una raccolta di ordinanti. Il servizio di ordine mette in sequenza le transazioni, crea blocchi e invia questi blocchi ai peer per la convalida.
 -	**CA (Certificate Authority, Autorità di certificazione)** – Emette certificati digitali per scopi di identificazione a qualsiasi componente di rete interattivo.
 
-{{site.data.keyword.blockchainfull_notm}} Platform offre due piani di adesione, il **piano Starter** e il **piano Enterprise**, che puoi scegliere in {{site.data.keyword.cloud_notm}}. Entrambi i piani ti consentono di creare organizzazioni e ti forniscono una CA (Certificate Authority, Autorità di certificazione). I piani differiscono per quanto riguarda peer, CA e servizio ordini.
+{{site.data.keyword.blockchainfull_notm}} Platform offre due piani di adesione, il **piano Starter** e il **piano Enterprise**, che puoi scegliere in {{site.data.keyword.cloud_notm}}. Entrambi i piani ti consentono di creare organizzazioni e ti forniscono una CA (Certificate Authority, Autorità di certificazione). I piani differiscono per quanto riguarda peer, CA e servizio di ordine.
 
-Il piano Enterprise ti fornisce CA e peer altamente disponibili con un servizio ordini con tolleranza agli errori di arresto anomalo. Il piano Starter non ha opzioni di alta disponibilità e utilizza un servizio ordini di base di tipo SOLO. Per tale motivo, il piano Starter è progettato per essere il punto d'ingresso a {{site.data.keyword.blockchainfull_notm}} Platform per ambienti di sviluppo, test e PoC (proof-of-concept). Il piano Enterprise è l'opzione per le reti pronte per gli ambienti pilota e di produzione.
+Il piano Enterprise ti fornisce CA e peer altamente disponibili con un servizio di ordine con tolleranza agli errori di arresto anomalo. Il piano Starter non ha opzioni di alta disponibilità e utilizza un servizio di ordine di base di tipo SOLO. Per tale motivo, il piano Starter è progettato per essere il punto d'ingresso a {{site.data.keyword.blockchainfull_notm}} Platform per ambienti di sviluppo, test e PoC (proof-of-concept). Il piano Enterprise è l'opzione per le reti pronte per gli ambienti pilota e di produzione.
 
 ## Elementi chiave dei prezzi
 {: #ibp-pricing-key-elements}
 
 Il piano Starter e il piano Enterprise hanno due elementi di prezzo:
 
-- **Costo di adesione** – Copre la creazione dell'organizzazione e l'accesso a servizio ordini e CA e viene addebitato in base alle **singole istanze**. Incluso in questo elemento di prezzi, {{site.data.keyword.blockchainfull_notm}} Platform gestisce il servizio ordini e la CA per conto della tua rete. Questo costo è necessario per avere accesso a una rete creata su {{site.data.keyword.blockchainfull_notm}} Platform.
+- **Costo di adesione** – Copre la creazione dell'organizzazione e l'accesso a servizio di ordine e CA e viene addebitato in base alle **singole istanze**. Incluso in questo elemento di prezzi, {{site.data.keyword.blockchainfull_notm}} Platform gestisce il servizio di ordine e la CA per conto della tua rete. Questo costo è necessario per avere accesso a una rete creata su {{site.data.keyword.blockchainfull_notm}} Platform.
 
   -	Il piano Starter ti consente un numero *illimitato* di organizzazioni per ogni singola adesione e la capacità di passare da un'organizzazione all'altra nel monitoraggio della rete. Poiché il piano Starter è progettato per gli ambenti di sviluppo, test e PoC, puoi eseguire una simulazione negli ambienti con più organizzazioni. **Nota** che l'archiviazione di rete totale è limitata a 20 GB, compresi componenti, chaincode e dati del libro mastro. Le tue organizzazioni simulate condividono l'archiviazione di 20-GB nella rete blockchain.
 
@@ -65,10 +65,9 @@ Il piano Starter e il piano Enterprise hanno due elementi di prezzo:
 ### Esempio di costo di adesione
 {: #ibp-pricing-example}
 
-La Figura 2 mostra un esempio di istanze di rete che può aiutare a comprendere il costo di adesione. Nella figura, lo specifico account {{site.data.keyword.cloud_notm}} esegue il provisioning di tre istanze di rete: una istanza di piano Enterprise con il nome *Blockchain-11* e due istanze di piano Starter con i nomi *Blockchain-cz* e *Blockchain-da*. Ogni istanza richiede un servizio ordini e una CA propri. In questo caso, questo specifico account {{site.data.keyword.cloud_notm}} deve pagare tre costi di adesione, uno per ciascuna istanza di rete.
+La Figura 2 mostra un esempio di istanze di rete che può aiutare a comprendere il costo di adesione. Nella figura, lo specifico account {{site.data.keyword.cloud_notm}} esegue il provisioning di tre istanze di rete: una istanza di piano Enterprise con il nome *Blockchain-11* e due istanze di piano Starter con i nomi *Blockchain-cz* e *Blockchain-da*. Ogni istanza richiede un servizio di ordine e una CA propri. In questo caso, questo specifico account {{site.data.keyword.cloud_notm}} deve pagare tre costi di adesione, uno per ciascuna istanza di rete.
 
-![Istanze di rete blockchain](../images/ibp_instance_example.png "Istanze di rete blockchain")  
-*Figura 2. Istanze di rete blockchain*
+![Istanze di rete blockchain](../images/ibp_instance_example.png "Istanze di rete blockchain")
 
 
 ## Prezzi del piano Starter

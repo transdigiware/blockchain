@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -10,13 +10,14 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # Distribuzione delle reti di business sul piano Starter ed Enterprise
 {: #deploying-a-business-network}
@@ -53,7 +54,7 @@ Puoi trovare la tua versione Fabric aprendo la [finestra Preferenze della rete](
 
 3. All'interno del profilo di connessione, scendi finché non vedi 'registrar'. All'interno di 'registrar', in 'enrollId' c'è una proprietà **enrollSecret**. Richiama il segreto e salvane una copia.
 
-    ![Richiamo del segreto di amministrazione](images/get_enroll_secret.gif "Richiamo del segreto di amministrazione ")
+    ![Richiamo del segreto di amministrazione](images/get_enroll_secret.gif "Richiamo del segreto di amministrazione "){: gif}
 
 ### Passo due: Creazione di una scheda dell'Autorità di certificazione
 {: #deploying-a-business-network-CA-card}
@@ -85,18 +86,18 @@ Il segreto richiamato nel passo precedente sarà utilizzato per creare una sched
 
   Sostituisci `enrollSecret` nel comando precedente con il segreto di amministrazione (admin secret) richiamato dal profilo di connessione. Il comando `composer identity request` crea una directory `credentials` che contiene i file `.pem` di certificato.
 
-### Passo tre: aggiunta di certificati all'istanza piano Starter
+### Passo tre: Aggiunta di certificati all'istanza piano Starter
 {: #deploying-a-business-network-add-certs-to-starter-plan}
 
 I certificati devono essere aggiunti alla rete piano Starter. Per praticità, puoi aggiungerli utilizzando il Monitoraggio della rete di {{site.data.keyword.blockchainfull_notm}} Platform. I certificati devono essere aggiunti; i peer devono essere quindi riavviati e i certificati devono essere sincronizzati nel canale. Il certificato necessario si trova nel file `admin-pub.pem` che è stato generato dal comando precedente, che è una directory `credentials`.
 
 1. Nel Monitoraggio della rete del piano Starter, fai clic sulla scheda **Membri**, su **Certificati** e quindi su **Aggiungi certificato**. Passa alla tua directory `credentials` e copia e incolla i contenuti del file `admin-pub.pem` nella casella del certificato. Invia il certificato e riavvia i peer. Nota: il riavvio dei peer necessita di un minuto.
 
-    ![Aggiungi certificati](images/add_cert.gif "Aggiungi certificati")
+    ![Aggiungi certificati](images/add_cert.gif "Aggiungi certificati"){: gif}
 
 2. Successivamente, i certificati devono essere sincronizzati nel canale. Fai clic sulla scheda **Canali**, poi sul pulsante **Azioni**, su **Sincronizza certificato** e **Invia**.
 
-    ![Sincronizza certificati](images/sync_cert.gif "Sincronizza certificati")
+    ![Sincronizza certificati](images/sync_cert.gif "Sincronizza certificati"){: gif}
 
 ### Passo quattro: Creazione di una scheda di rete di business di amministrazione
 {: #deploying-a-business-network-create-admin-card}

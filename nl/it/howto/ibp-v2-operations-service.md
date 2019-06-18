@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: logging levels, metrics, health check, peer, orderer
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,7 +22,7 @@ subcollection: blockchain
 # Gestione dei nodi con Operations Service
 {: #operations_service}
 
-{{site.data.keyword.blockchainfull}} Platform v2.0 si basa su Hyperledger Fabric v1.4.1. La piattaforma supporta la funzione Operations Service che offre un'API “operations” RESTful per gli operatori per eseguire i controlli di integrità del nodo, eseguire il pull delle metriche operative dai nodi peer e ordinante e gestire i livelli di log. Il peer e l'ordinante ospitano un server HTTP che offre l'API “operations” RESTful.  Per ulteriori informazioni su Operations Service, vedi [The Operations Service ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html "The Operations Service"){:new_window}.
+{{site.data.keyword.blockchainfull}} Platform si basa su Hyperledger Fabric v1.4.1. La piattaforma supporta la funzione Operations Service che offre un'API “operations” RESTful per gli operatori per eseguire i controlli di integrità del nodo, eseguire il pull delle metriche operative dai nodi peer e ordinante e gestire i livelli di log. Il peer e l'ordinante ospitano un server HTTP che offre l'API “operations” RESTful.  Per ulteriori informazioni su Operations Service, vedi [The Operations Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}.
 {:shortdesc}
 
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 {: #operations_service_consideration_limitation}
 
 - Tutti i nodi peer e ordinanti sono configurati con `clientAuthRequired: false` in modo che sia possibile accedere al programma di controllo dell'integrità. Poiché `clientAuthRequired` è impostato su `false` e inoltre il TLS mutuale è disabilitato, quando accedi al server REST, devi trasmettere le identità TLS per poter eseguire l'autenticazione. Questa impostazione garantisce che solo gli utenti con le chiavi appropriate possano visualizzare i log corrispondenti.
-- Solo il modello di pull delle metriche basato su [Prometheus ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus) è supportato per ora.
+- Al momento è supportato solo il modello di estrazione delle metriche basato su [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external}.
 
 ## Prima di cominciare
 {: #operations_service_before_you_begin}
@@ -98,7 +98,7 @@ Devi raccogliere le seguenti informazioni dal tuo peer o ordinante.
 {:important}
 
 
-## Controllo dell'integrità del nodo 
+## Controllo dell'integrità del nodo
 {: #operations_service_health_check}
 
 Esegui il comando `curl -k <peer-endpoint>/healthz` o `curl -k <orderer-endpoint>/healthz` per controllare l'integrità del nodo peer o ordinante. Ad esempio:
@@ -108,7 +108,7 @@ curl -k https://169.46.208.93:3210/healthz
 ```
 {:codeblock}
 
-Per ulteriori informazioni sui controlli di integrità, vedi [Health checks ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks "Health checks").
+Per ulteriori informazioni sui controlli di integrità, vedi l'argomento relativo ai [controlli di integrità](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}.
 
 
 ## Visualizzazione delle metriche
@@ -129,7 +129,7 @@ curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcert
 {:codeblock}
 
 
-Per ulteriori informazioni sulle metriche, vedi [Metrics ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics "Metrics").
+Per ulteriori informazioni sulle metriche, vedi l'argomento relativo alle [metriche](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}.
 
 
 ## Visualizzazione dei livelli di registrazione
@@ -162,7 +162,7 @@ Puoi visualizzare un risultato simile al seguente esempio:
 ## Impostazione dei livelli di registrazione
 {: #operations_service_log_level_set}
 
-Per modificare le impostazioni del livello di registrazione esistente, immetti il seguente comando, che utilizza il metodo `PUT` con il corpo JSON formato da un solo attributo denominato `spec`. Sostituisci `<log-level>` con i tuoi livelli di registrazione previsti. Per ulteriori informazioni sui livelli di registrazione che puoi impostare, vedi [Logging specification ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification "Logging specification") nella documentazione Hyperledger Fabric.
+Per modificare le impostazioni del livello di registrazione esistente, immetti il seguente comando, che utilizza il metodo `PUT` con il corpo JSON formato da un solo attributo denominato `spec`. Sostituisci `<log-level>` con i tuoi livelli di registrazione previsti. Per ulteriori informazioni sui livelli di registrazione che puoi impostare, vedi l'argomento relativo alla [specifica della registrazione](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external} nella documentazione di Hyperledger Fabric.
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -182,4 +182,4 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 ```
 -->
 
-Per ulteriori informazioni sulla configurazione del livello di log, vedi [Log level management ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management "Log level management") nella documentazione Hyperledger Fabric.
+Per ulteriori informazioni sulla configurazione dei livelli di log, vedi l'argomento relativo alla [gestione dei livelli di log](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external} nella documentazione di Hyperledger Fabric.

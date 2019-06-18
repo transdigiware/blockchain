@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Enterprise Plan, production-ready network
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +18,9 @@ subcollection: blockchain
 
 # Informazioni su piano Enterprise
 {: #enterprise-plan-about}
+
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform piano Enterprise è un'offerta pronta per la produzione per le organizzazioni che desiderano creare o aderire a una rete blockchain per attività aziendali reali. Questo piano fornisce l'infrastruttura chiave insieme agli strumenti e al supporto per avviare facilmente una rete blockchain pronta per la produzione e altamente sicura. In data 15 maggio 2018 viene eseguito l'upgrade del piano Enterprise da Hyperledger Fabric V1.0 alla V1.1. Tutte le reti create dopo il 15 maggio 2018 solo al livello Fabric V1.1. Tuttavia, le reti che sono state creata precedentemente rimarranno al livello V1.0.
 {:shortdesc}
@@ -34,26 +37,26 @@ La gestione della tua rete su {{site.data.keyword.blockchainfull_notm}} Platform
 * Upgrade senza problemi di tutto lo stack di codice.
 * Supporto tecnico 24/7 integrato nel portale.
 * Stack di sicurezza consolidato senza accesso privilegiato, resistenza a malware e manomissioni, crittografia al 100% e molte altre funzioni per le reti con dati sensibili nei settori regolamentati.
-* Backup offsite delle reti Enterprise eseguito ogni 24 ore. In casi di emergenza, queste reti possono essere ripristinate sullo stesso sito o su un sito alternativo.
+* Backup offsite delle reti Enterprise eseguito ogni 24 ore. Se si verifica un'emergenza, queste reti possono essere ripristinate sullo stesso sito o su un sito alternativo.
 
 **Note:**
 - Il piano Enterprise fornisce un ambiente di produzione. Se hai bisogno di un ambiente di sviluppo e test, vedi [Informazioni su piano Starter](/docs/services/blockchain/starter_plan.html#starter-plan-about).
-- {{site.data.keyword.blockchainfull_notm}} Platform è un servizio di piattaforma su {{site.data.keyword.cloud_notm}} e tutte le offerte di adesione rispettano i termini dei servizi [{{site.data.keyword.cloud_notm}} termini dei servizi ![Icona link esterno](images/external_link.svg "Icona link esterno")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "{{site.data.keyword.cloud_notm}}") negli SLA (service level agreement). Il provisioning delle reti piano Enterprise viene eseguito in un data center in una singola area geografica. Per un elenco delle aree geografiche disponibili, vedi [Ubicazioni di {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+- {{site.data.keyword.blockchainfull_notm}} Platform è un servizio di piattaforma su {{site.data.keyword.cloud_notm}} e tutte le offerte di adesione si attengono ai [termini dei servizi {{site.data.keyword.cloud_notm}}](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} negli SLA (Service Level Agreement). Il provisioning delle reti piano Enterprise viene eseguito in un data center in una singola area geografica. Per un elenco delle aree geografiche disponibili, vedi [Ubicazioni di {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
-Per i membri che inizieranno la rete, IBM fornisce un'interfaccia grafica utente (GUI) per assistere passo dopo passo l'iniziatore della rete nelle procedure chiave per configurare la rete e fornirla. Ciò include l'invito di altri membri e l'impostazione delle regole di governance. Per ulteriori informazioni, vedi [Governance della rete piano Enterprise](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan). Dopo che la rete è stata distribuita, è disponibile un'interfaccia grafica utente (GUI), il Monitoraggio della rete, per monitorare lo stato e l'attività della rete, gestire le attività di rete chiave tra cui le nuove distribuzioni, l'aggiunta o la rimozione di membri, il ciclo di vita del chaincode e la gestione dei canali e per cercare assistenza tecnica. Per ulteriori informazioni, consulta [Utilizzo del Monitoraggio della rete](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
+Per i membri che inizieranno la rete, {{site.data.keyword.IBM_notm}} fornisce un'interfaccia grafica utente (GUI) per assistere passo dopo passo l'iniziatore della rete nelle procedure chiave per configurare la rete ed eseguirne il provisioning. Ciò include l'invito di altri membri e l'impostazione delle regole di governance. Per ulteriori informazioni, vedi [Governance della rete piano Enterprise](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan). Dopo che la rete è stata distribuita, è disponibile un'interfaccia grafica utente (GUI), il Monitoraggio della rete, per monitorare lo stato e l'attività della rete, gestire le attività di rete chiave tra cui le nuove distribuzioni, l'aggiunta o la rimozione di membri, il ciclo di vita del chaincode e la gestione dei canali e per cercare assistenza tecnica. Per ulteriori informazioni, vedi [Utilizzo del Monitoraggio della rete](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
 
-Registrati ora per la tua [adesione a {{site.data.keyword.blockchainfull_notm}}![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod).
+Registrati ora per la tua [adesione a {{site.data.keyword.blockchainfull_notm}}](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}.
 
-{{site.data.keyword.blockchainfull_notm}} Platform è sviluppato con componenti Hyperledger Fabric chiave, che includono un'Autorità di certificazione (CA) e almeno 1 peer (massimo 6).  Piano Enterprise fornisce anche un servizio ordini Kafka con tolleranza di errori anomali per i membri della rete.
+{{site.data.keyword.blockchainfull_notm}} Platform è sviluppato con componenti Hyperledger Fabric chiave, che includono un'Autorità di certificazione (CA) e almeno 1 peer (massimo 6).  Piano Enterprise fornisce anche un servizio di ordine Kafka con tolleranza di errori anomali per i membri della rete.
 
 La CA Fabric è l'Autorità di certificazione fornita con piano Enterprise. Sono fornite due CA intermedie per membro, che concedono l'adesione alla rete. Utilizzando la CA, il membro può anche fornire i certificati di adesione agli utenti della rete.
 
 È importante comprendere che l'accodamento di una transazione al libro mastro si articola in tre fasi:
 1. Simulazione e approvazione della transazione (peer)
-2. Ordine (servizio ordini)
+2. Ordine (servizio di ordine)
 3. Convalida e commit (peer)
 
-I peer Fabric appartenenti ai membri sono l'interfaccia o il gateway per le applicazioni per eseguire il chaincode, fornendo la logica di business per eseguire le transazioni sul libro mastro. Tutte le transazioni devono essere approvate. Gli altri membri della rete concedono questa approvazione. Dopo l'approvazione, le transazioni vengono inviate a un servizio ordini fornito da IBM.
+I peer Fabric appartenenti ai membri sono l'interfaccia o il gateway per le applicazioni per eseguire il chaincode, fornendo la logica di business per eseguire le transazioni sul libro mastro. Tutte le transazioni devono essere approvate. Gli altri membri della rete concedono questa approvazione. Dopo l'approvazione, le transazioni vengono inviate a un servizio di ordine fornito da {{site.data.keyword.IBM_notm}}.
 
 Oltre ai componenti blockchain principali, l'opzione di adesione Enterprise fornisce un'infrastruttura con memorizzazione di dati e comunicazioni protetti (TLS) e un'alta disponibilità.  Mentre le reti Fabric condividono queste risorse d'infrastruttura, viene fornito un isolamento per i nodi componente Fabric in una rete e ciascun nodo viene eseguito in un contenitore Docker sicuro che protegge l'ambiente di esecuzione.
 

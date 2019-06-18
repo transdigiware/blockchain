@@ -2,44 +2,49 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
-keywords: troubleshooting, debug, why, what does this mean, how can I, when I 
+keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:pre: .pre}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:pre: .pre}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Risoluzione dei problemi
 {: #ibp-v2-troubleshooting}
 
 Si possono verificare dei problemi generali quando utilizzi la console per gestire i nodi, i canali o gli smart contract. In molti casi, puoi risolvere questi problemi seguendo pochi semplici passi.
+{:shortdesc}
 
 - [Quando passo il puntatore del mouse sul mio nodo, lo stato è `Status unavailable`, che significa?](#ibp-v2-troubleshooting-status-unavailable)
 - [Quando passo il puntatore del mouse sul mio nodo, lo stato è `Status undetectable`, che significa?](#ibp-v2-troubleshooting-status-undetectable)
-- [Perché le mie operazioni del nodo hanno esisto negativo dopo che creo il mio peer o ordinante?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry1)
-- [Perché il mio peer non si avvia?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry2)
-- [Perché l'installazione, l'iniziazione o l'upgrade del mio smart contract hanno esito negativo?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry1)
-- [Come posso visualizzare i miei log del contenitore dello smart contract?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
+- [Perché le mie operazioni del nodo hanno esisto negativo dopo che creo il mio peer o ordinante?](#ibp-console-build-network-troubleshoot-entry1)
+- [Perché il mio peer non si avvia?](#ibp-console-build-network-troubleshoot-entry2)
+- [Perché l'installazione, l'iniziazione o l'upgrade del mio smart contract hanno esito negativo?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Come posso visualizzare i miei log del contenitore dello smart contract?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Il mio canale, gli smart contract e le identità sono scomparsi dalla console. Come posso recuperarli?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
-- [Perché sto ricevendo l'errore `An error occurred when updating channel` mentre provo ad aggiungere un'organizzazione al mio canale?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-update-channel)
-- [Il mio cluster Kubernetes è scaduto. Che significa?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-cluster-expired)
-- [Perché le transazioni che invio da VS Code hanno esito negativo?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
+- [Perché sto ottenendo l'errore `Unable to authenticate with the enroll ID and secret you provided` quando creo una nuova definizione di MSP dell'organizzazione?](#ibp-v2-troubleshooting-create-msp)
+- [Perché sto ricevendo l'errore `An error occurred when updating channel` mentre provo ad aggiungere un'organizzazione al mio canale?](#ibp-v2-troubleshooting-update-channel)
+- [Il mio cluster Kubernetes è scaduto. Che significa?](#ibp-v2-troubleshooting-cluster-expired)
+- [Perché le transazioni che invio da VS Code hanno esito negativo?](#ibp-v2-troubleshooting-anchor-peer)
+- [Quando eseguo l'accesso alla mia console, ottengo un errore 401 Non autorizzato.](#ibp-v2-troubleshooting-console-401)
 
 ## Quando passo il puntatore del mouse sul mio nodo, lo stato è `Status unavailable`, che significa?
 {: #ibp-v2-troubleshooting-status-unavailable}
+{: troubleshoot}
 
 Lo stato del nodo nel tile per il mio nodo CA, peer o ordinante è grigio, il che indica che lo stato del nodo non è disponibile. Idealmente, quando passi il puntatore del mouse su qualsiasi nodo, il suo stato dovrebbe essere `Running`.
 {: tsSymptoms}
@@ -54,6 +59,7 @@ Se si tratta di un nuovo nodo, attendi qualche minuto che la distribuzione venga
 
 ## Quando passo il puntatore del mouse sul mio nodo, lo stato è `Status undetectable`, che significa?
 {: #ibp-v2-troubleshooting-status-undetectable}
+{: troubleshoot}
 
 Lo stato del nodo nel tile per il nodo peer od ordinante è giallo, il che indica che lo stato del nodo non può essere rilevato. Idealmente, quando passi il puntatore del mouse su qualsiasi nodo, il suo stato dovrebbe essere `Running`.
 {: tsSymptoms}
@@ -78,10 +84,11 @@ Il programma di controllo dell'integrità può ora essere eseguito sul nodo e no
 
 ## Perché le mie operazioni del nodo hanno esisto negativo dopo che creo il mio peer o ordinante?
 {: #ibp-console-build-network-troubleshoot-entry1}
+{: troubleshoot}
 
 È possibile che tu stia riscontrando un errore durante la gestione di un nodo esistente. Quando questo si verifica, è spesso utile consultare i log del nodo.  
 
-Ad esempio, quando tenti di gestire il nodo, l'azione potrebbe avere esito negativo.
+Ad esempio, quando provi a gestire il nodo, l'azione potrebbe non riuscire.
 {: tsSymptoms}
 
 Dopo aver creato un nuovo peer o ordinante, a seconda della tua configurazione di archiviazione del cluster, potrebbero essere necessari alcuni minuti perché il nodo diventi operativo.
@@ -92,6 +99,7 @@ Controlla il tuo dashboard Kubernetes e assicurati che lo stato del peer o del n
 
 ## Perché il mio peer non si avvia?
 {: #ibp-console-build-network-troubleshoot-entry2}
+{: troubleshoot}
 
 È possibile che tu stia riscontrando questo errore per molti motivi.
 
@@ -99,17 +107,18 @@ Il log del peer include `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERRO 001 
 {: tsSymptoms}
 
 - Questo errore può verificarsi nelle seguenti condizioni:
-  - Quando hai creato la definizione MSP dell'organizzazione peer o ordinante, hai specificato un segreto e un ID di registrazione che corrispondono a un'identità del tipo `peer` e non `client`. Deve essere del tipo `client`.
-  - Quando hai creato la definizione MSP dell'organizzazione peer o ordinante, hai specificato un segreto e un ID di registrazione che non corrispondono a quelli dell'identità amministratore dell'organizzazione corrispondente.
+  - Quando hai creato la definizione di MSP dell'organizzazione del peer o ordinante, hai specificato un segreto e un ID di registrazione che corrispondono a un'identità del tipo `peer` e non `client`. Deve essere del tipo `client`.
+  - Quando hai creato la definizione di MSP dell'organizzazione del peer o ordinante, hai specificato un segreto e un ID di registrazione che non corrispondono a quelli dell'identità amministratore dell'organizzazione corrispondente.
   - Quando hai creato il peer o l'ordinante, hai specificato il segreto e l'ID di registrazione di un'identità che non è del tipo 'peer'.
 
 - Apri il tuo nodo CA peer o ordinante e visualizza le identità registrate elencate nella tabella **Utenti registrati**.
-- Elimina il peer o l'ordinante e ricrealo, stando attendo a specificare il segreto e l'ID di registrazione corretti.
-- Tieni presente che prima di creare il peer o l'ordinante, devi creare un ID di amministratore dell'organizzazione, di tipo 'client'. Assicurati di specificare lo stesso ID di quello di registrazione quando crei la definizione MSP dell'organizzazione. Consulta queste istruzioni per [registrare le identità del peer](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) e queste istruzioni per [registrare le identità dell'ordinante](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
+- Elimina il peer o l'ordinante e ricrealo, stando attento a specificare il segreto e l'ID di registrazione corretti.
+- Tieni presente che prima di creare il peer o l'ordinante, devi creare un ID di amministratore dell'organizzazione, di tipo 'client'. Assicurati di specificare lo stesso ID di quello di registrazione quando crei la definizione di MSP dell'organizzazione. vedi queste istruzioni per [registrare le identità del peer](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) e queste istruzioni per [registrare le identità dell'ordinante](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## Perché l'installazione, l'iniziazione o l'upgrade del mio smart contract hanno esito negativo?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
+{: troubleshoot}
 
 È possibile che tu stia riscontrando un errore durante l'installazione, l'iniziazione o l'upgrade di uno smart contract.  Ad esempio, quanto tenti di installare uno smart contract su un peer, hai il seguente errore `An error occurred when installing smart contract on peer.`
 {: tsSymptoms}
@@ -124,6 +133,7 @@ Puoi ricevere questo errore se questa versione dello smart contract esiste già 
 
 ## Come posso visualizzare i miei log del contenitore dello smart contract?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
+{: troubleshoot}
 
 Potresti dover visualizzare i tuo log del contenitore dello smart contract o del chaincode per eseguire il debug di un problema con lo smart contract.
 {: tsSymptoms}
@@ -133,14 +143,15 @@ Segui queste istruzioni per [visualizzare i tuoi log del contenitore](/docs/serv
 
 ## Il mio canale, gli smart contract e le identità sono scomparsi dalla console. Come posso recuperarli?
 {: #ibp-v2-troubleshooting-browser-storage}
+{: troubleshoot}
 
 Le tue identità del portafoglio della console sono costituite da un certificato di firma e una chiave privata che ti permettono di gestire i tuoi componenti blockchain ma essi vengono archiviati solo nella tua memoria locale del browser. Sei responsabile per la protezione e la gestione di queste identità. Ti consigliamo di esportarle nel tuo file system dopo averle create. Se crei un nuovo nodo, associa un'identità dal tuo portafoglio della console al nodo. Questa identità amministratore è quella che ti consente di gestire il nodo. Quando passi da un browser a un altro o a un browser su una macchina differente, queste identità non sono più presenti nel tuo portafoglio. Pertanto, non puoi gestire i componenti.
 {: tsSymptoms}
 
-Una delle nuove funzioni di {{site.data.keyword.blockchainfull_notm}} Platform 2.0 è che ora sei responsabile della protezione e della gestione dei tuoi certificati. Pertanto, vengono conservati solo nella memoria locale del browser per consentirti di gestire il componente. Se stai utilizzando una finestra del browser privata e passi a un altro browser o a una finestra del browser non privata, le identità che hai creato saranno scomparse dal portafoglio della console nella nuova sessione del browser. Pertanto, è necessario che esporti al tuo file system le identità dal portafoglio della console nella tua sessione del browser privata. Puoi quindi importarle nella tua sessione del browser non privata, se occorrono. Altrimenti, non c'è modo di recuperarle.
+Una delle nuove funzioni di {{site.data.keyword.blockchainfull_notm}} Platform è che ora sei responsabile della protezione e della gestione dei tuoi certificati. Pertanto, vengono conservati solo nella memoria locale del browser per consentirti di gestire il componente. Se stai utilizzando una finestra del browser privata e passi a un altro browser o a una finestra del browser non privata, le identità che hai creato saranno scomparse dal portafoglio della console nella nuova sessione del browser. Pertanto, è necessario che esporti al tuo file system le identità dal portafoglio della console nella tua sessione del browser privata. Puoi quindi importarle nella tua sessione del browser non privata, se occorrono. Altrimenti, non c'è modo di recuperarle.
 {: tsCauses}
 
-- Ogni volta che crei una nuova definizione MSP dell'organizzazione, generi delle chiavi per un'identità a cui è consentito gestire l'organizzazione. Pertanto, durante tale processo devi fare clic sui pulsanti **Genera** e **Esporta** per archiviare l'identità generata nel tuo portafoglio della console e salvarla nel tuo file system come un file JSON.
+- Ogni volta che crei una nuova definizione di MSP dell'organizzazione, generi delle chiavi per un'identità a cui è consentito gestire l'organizzazione. Pertanto, durante tale processo devi fare clic sui pulsanti **Genera** e **Esporta** per archiviare l'identità generata nel tuo portafoglio della console e salvarla nel tuo file system come un file JSON.
 - Per risolvere questo problema nel tuo browser, devi importare tali identità e associarle al nodo corrispondente:
   - Nel browser in cui stai riscontrando il problema, fai clic sulla scheda **Portafoglio** e poi su **Aggiungi identità** per importare il file JSON nel tuo portafoglio.
   - Fai clic su **Carica JSON** e seleziona il file JSON che hai esportato utilizzando il pulsante **Aggiungi file**.
@@ -152,8 +163,22 @@ Una delle nuove funzioni di {{site.data.keyword.blockchainfull_notm}} Platform 2
 - Ripeti questo processo per ogni identità presente nel portafoglio del browser originale.
 {: tsResolve}
 
+## Perché sto ottenendo l'errore `Unable to authenticate with the enroll ID and secret you provided` quando creo una nuova definizione di MSP dell'organizzazione?
+{: #ibp-v2-troubleshooting-create-msp}
+{: troubleshoot}
+
+Quando provi a creare una nuova definizione di MSP dell'organizzazione dalla scheda Organizzazioni, riscontri l'errore `Unable to authenticate with the enroll ID and secret you provided`.
+{: tsSymptoms}
+
+Questo errore si verifica quando il valore che hai specificato per il segreto di registrazione non è valido per l'ID di registrazione che hai selezionato nella sezione `Generate organization admin certificate` del pannello.
+{: tsCauses}
+
+Verifica di aver selezionato l'ID di registrazione dell'amministratore dell'organizzazione corretto dall'elenco a discesa degli ID di registrazione e immetti il valore corretto per il segreto di registrazione.
+{: tsResolve}
+
 ## Perché sto ricevendo l'errore `An error occurred when updating channel` mentre provo ad aggiungere un'organizzazione al mio canale?
 {: #ibp-v2-troubleshooting-update-channel}
+{: troubleshoot}
 
 Quando tenti di aggiungere un'altra organizzazione a un canale, l'aggiornamento non riesce con il messaggio `An error occurred when updating channel`.
 {: tsSymptoms}
@@ -166,6 +191,7 @@ Sul pannello **Aggiorna canale**, scorri in basso fino all'**ID MSP del programm
 
 ## Il mio cluster Kubernetes è scaduto. Cosa significa?
 {: #ibp-v2-troubleshooting-cluster-expired}
+{: troubleshoot}
 
 Ho ricevuto un'email che mi informa che il mio cluster {{site.data.keyword.IBM_notm}} Kubernetes Service sta per scadere o che il suo stato è `Expired`. Oppure, non sei in grado di accedere alla console dopo 30 giorni.
 {: tsSymptoms}
@@ -178,6 +204,7 @@ Non è possibile eseguire la migrazione da un cluster gratuito a un cluster a pa
 
 ## Perché le transazioni che invio da VS Code hanno esito negativo?
 {: #ibp-v2-troubleshooting-anchor-peer}
+{: troubleshoot}
 
 Le transazioni inviate da VS Code hanno esito negativo con un errore simile a:
 ```
@@ -189,3 +216,18 @@ Questo errore si verifica se stai utilizzando la funzione di rilevamento dei ser
 {: tsCauses}
 
 Segui il passo tre dell'[argomento sui dati privati](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) nell'esercitazione sulla distribuzione di uno smart contract per configurare i tuoi peer di ancoraggio.
+
+## Quando eseguo l'accesso alla mia console, ottengo un errore 401 Non autorizzato.
+{: #ibp-v2-troubleshooting-console-401}
+{: troubleshoot}
+
+Quando provo ad eseguire l'accesso alla mia console, non sono in grado di accedere alla console dal mio browser. Se controllo i log del browser, posso trovare l'errore 401 Non autorizzato.
+{: tsSymptoms}
+
+La tua sessione della console del browser va in timeout dopo **8 ore** di inattività. Se una sessione diventa inattiva, la console impedirà all'utente non attivo di eseguire azioni.
+{: tsCauses}
+
+Se la tua sessione è diventata inattiva, puoi provare ad aggiornare semplicemente il tuo browser. Se non funziona, chiudi il browser, comprese **tutte** le schede e le finestre. Apri nuovamente l'URL, Ti verrà richiesto di eseguire l'accesso.
+
+Come prassi ottimale, dovresti avere già archiviato i tuoi certificati e le tue identità sul tuo file system. Se ti capita di utilizzare una finestra in incognito, tutti i certificati vengono eliminati dall'archiviazione locale del browser quando chiudi il browser. Dopo aver eseguito nuovamente l'accesso, dovrai reimportare le tue identità e i tuoi certificati.
+{: note}

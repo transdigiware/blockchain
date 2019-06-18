@@ -10,11 +10,12 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Creazione o unione di una rete con le API Swagger
 {: #swagger-network}
@@ -26,17 +27,17 @@ subcollection: blockchain
 ## Richiamo delle credenziali di autenticazione di base della API
 {: #swagger-network-retrieve-id-token}
 
-Prima di iniziare, devi creare un'istanza del servizio [{{site.data.keyword.blockchainfull_notm}} Platform ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) con piano Starter o piano Enterprise in {{site.data.keyword.cloud_notm}}.
+Prima di iniziare, devi creare una [istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} con il piano Starter o il piano Enterprise in {{site.data.keyword.cloud_notm}}.
 
 Per utilizzare le API Swagger per creare o unire una rete, hai bisogno delle credenziali di autenticazione di base per assicurarti di avere l'accesso all'istanza del servizio in {{site.data.keyword.cloud_notm}}.
 
-1. Nel tuo [dashboard {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources), apri l'istanza del servizio che hai creato.
+1. Nel tuo [dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}, apri l'istanza del servizio che hai creato.
 2. Fai clic su **Credenziali del servizio** dal navigator di sinistra.
 3. Fai clic sul pulsante "Nuova credenziale" nella pagina **Credenziali del servizio** per creare una nuova credenziale.
     1. Fornisci un nome alla credenziale, ad esempio *CreateJoin*.
     2. Immetti **{"type": "service_instance_token"}** nel campo "Aggiungi parametro di configurazione inline".
     3. Fai clic sul pulsante **Aggiungi**.
-    ![Richiama credenziali del servizio](../images/service_credentials.gif "Richiama credenziali del servizio")
+    ![Richiama credenziali del servizio](../images/service_credentials.gif "Richiama credenziali del servizio"){: gif}
 4. Dopo avere creato la nuova credenziale, fai clic su **Visualizza credenziali** nell'intestazione **AZIONI** di tale credenziale. I contenuti della credenziale sono simili al seguente esempio:
 
     ```

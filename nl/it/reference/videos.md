@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ Puoi guardare le serie di video introduttivi per avere ulteriori informazioni su
 Le serie di video sono in una playlist e vengono riprodotte continuamente nel riquadro del video sottostante. Puoi anche clic sull'icona di menu nell'angolo superiore sinistro del video per aprire la playlist e passare a un altro video.
 {:note}
 
-## Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}
+## Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-videos-ibp-v2}
 
 Guarda la seguente [serie di video]( http://ibm.biz/BlockchainPlatformSeries) per saperne di più su {{site.data.keyword.blockchainfull_notm}} Platform e su come puoi iniziare a creare la tua rete.

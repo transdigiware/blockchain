@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: chaincode endorsement policy, install chaincode, instantiate chaincode, update chaincode
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -20,7 +20,7 @@ subcollection: blockchain
 {: #install-instantiate-chaincode}
 
 
-Il chaincode è il software che incapsula la logica di business e le istruzioni transazionali per la creazione e la modifica di asset nel libro mastro. Il chaincode può essere scritto in diversi linguaggi e {{site.data.keyword.blockchainfull}} Platform supporta il chaincode Go e Node.js. Un chaincode viene eseguito in un contenitore Docker associato a un qualsiasi peer che deve interagire con esso. Per ulteriori informazioni sullo sviluppo del chaincode, vedi le [esercitazioni per il chaincode ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html).
+Il chaincode è il software che incapsula la logica di business e le istruzioni transazionali per la creazione e la modifica di asset nel libro mastro. Il chaincode può essere scritto in diversi linguaggi e {{site.data.keyword.blockchainfull}} Platform supporta il chaincode Go e Node.js. Un chaincode viene eseguito in un contenitore Docker associato a un qualsiasi peer che deve interagire con esso. Per ulteriori informazioni sullo sviluppo del chaincode, vedi [Chaincode Tutorials](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html){: external}.
 {:shortdesc}
 
 Il chaincode viene installato su un peer e quindi viene istanziato su un canale. **Tutti i membri che desiderano inviare transazioni o leggere i dati utilizzando un chaincode, devono installare il chaincode sul proprio peer.** Un chaincode è definito dal suo nome e dalla sua versione. Sia il nome che la versione del chaincode installato devono essere coerenti tra i peer di un canale.
@@ -40,7 +40,7 @@ Devi installare il chaincode su ogni peer che eseguirà questo chaincode. Per in
 
 2. Nel pannello a comparsa **Installa chaincode**, immetti il nome e la versione del tuo chaincode. **Nota**: le stringhe di nome e versione verranno utilizzate nelle applicazioni per interagire con il chaincode installato. Fai clic sul pulsante **Sfoglia** e accedi tramite il tuo file system locale alla posizione in cui sono memorizzati i file di origine chaincode. Seleziona uno o più di file di origine chaincode da installare sul peer. Quindi, seleziona il tuo linguaggio chaincode dal menu a discesa **Tipo chaincode**.
 
-Puoi installare il chaincode caricando uno o più file GO o NODE oppure puoi caricare il chaincode in un file .zip. L'utilizzo di un file .zip preserverà la struttura di directory completa del tuo chaincode. Ciò sarà utile se vuoi includere dei pacchetti di dipendenze oppure utilizzare gli indici con CouchDB. Per ulteriori informazioni su CouchDB e su come configurare gli indici, vedi [Passi ottimali quando si utilizza CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) nell'esercitazione Sviluppo di applicazioni. Puoi anche trovare informazioni sulla [gestione delle dipendenze esterne per il chaincode scritto in GO ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){:new_window} nella documentazione di Hyperledger Fabric.
+Puoi installare il chaincode caricando uno o più file GO o NODE oppure puoi caricare il chaincode in un file .zip. L'utilizzo di un file .zip preserverà la struttura di directory completa del tuo chaincode. Ciò sarà utile se vuoi includere dei pacchetti di dipendenze oppure utilizzare gli indici con CouchDB. Per ulteriori informazioni su CouchDB e su come configurare gli indici, vedi [Passi ottimali quando si utilizza CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) nell'esercitazione Sviluppo di applicazioni. Puoi anche trovare informazioni sulla [gestione delle dipendenze esterne per il chaincode scritto in Go](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} nella documentazione di Hyperledger Fabric.
 
   ![Installa chaincode](../images/chaincode_install.png "Installa chaincode")
 
@@ -79,7 +79,7 @@ Quando utilizzi il Monitoraggio della rete per impostare la tua politica di appr
 
 * **Utilizza JSON per specificare una politica avanzata:** utilizza le politiche avanzate per richiedere le approvazioni da amministratori o membri importanti oppure per dare un maggior peso alle approvazioni di specifici membri.
 
-  Il modo più facile per specificare una politica avanzata consiste nell'iniziare creando una politica semplice utilizzando la schermata dell'IU. Fai quindi clic sul pulsante **Politica avanzata**, che compila automaticamente una versione JSON della politica con gli stessi membri e le stesse regole da te impostati nella politica semplice. Puoi quindi modificare il JSON per scrivere una versione più avanzata. Per ulteriori informazioni sulla scrittura di politiche di approvazione in JSON, consulta la [documentazione dell'SDK Node Hyperledger Fabric![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest). <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies)-->
+  Il modo più facile per specificare una politica avanzata consiste nell'iniziare creando una politica semplice utilizzando la schermata dell'IU. Fai quindi clic sul pulsante **Politica avanzata**, che compila automaticamente una versione JSON della politica con gli stessi membri e le stesse regole da te impostati nella politica semplice. Puoi quindi modificare il JSON per scrivere una versione più avanzata. Per ulteriori informazioni sulla scrittura delle politiche di approvazione in JSON, vedi la [documentazione dell'SDK Node di Hyperledger Fabric](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}. <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies){: external}-->
 
   ![Politica di approvazione avanzata](../images/advanced_endorsement.png "Politica di approvazione avanzata")
 

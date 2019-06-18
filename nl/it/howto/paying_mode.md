@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -79,7 +79,7 @@ Un membro della rete può coprire le spese per uno o più altri membri della ret
 {: #paying-mode-limitation}
 - Poiché tutti i membri sono all'interno dell'account {{site.data.keyword.cloud_notm}} dei pagatori, il pagatore ha accesso alle istanze blockchain di tutti i membri e può impersonarli. Pertanto, questa modalità di pagamento viene utilizzata al meglio per gli ambienti PoC o nei casi in cui il pagatore si occupi di tutta la gestione di {{site.data.keyword.blockchainfull_notm}} Platform e ai membri venga fornita solo un'applicazione.  
 - Tutti i membri nell'organizzazione Cloud Foundry del pagatore possono vedere tutti gli spazi nell'organizzazione.  Non possono tuttavia modificare le organizzazioni perché non dispongono degli accessi.  
-- Tieni presente che qualsiasi membro nell'organizzazione Cloud Foundry del pagatore può vedere gli ID IBM Cloud degli altri membri nella stessa organizzazione Cloud Foundry.  
+- Tieni presente che qualsiasi membro nell'organizzazione Cloud Foundry del pagatore può vedere gli ID {{site.data.keyword.cloud_notm}} degli altri membri nella stessa organizzazione Cloud Foundry.  
 - Dopo aver aggiunto tutti i membri all'account {{site.data.keyword.cloud_notm}} del pagatore e avere assegnato loro l'accesso per eseguire il provisioning delle istanze blockchain e aderire alla rete, il pagatore dà anche ai membri l'accesso per creare altri servizi, il che potrebbe causare degli addebiti aggiuntivi. Tutti i membri possono firmare un accordo con la fiducia che non creeranno alcun servizio non autorizzato nei loro account per causare costi aggiuntivi all'account del pagatore.  
 
 ## Lasciare che un membro paghi per te
