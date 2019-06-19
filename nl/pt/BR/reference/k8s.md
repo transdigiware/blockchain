@@ -2,13 +2,13 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-05-16"
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,7 +20,7 @@ subcollection: blockchain
 # Kubernetes
 {: #k8s-overview}
 
-O console do {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta é implementado em um cluster Kubernetes por meio do {{site.data.keyword.cloud_notm}} Kubernetes Service. Kubernetes é um sistema de software livre para automatizar a implementação, ajuste de escala e gerenciamento de aplicativos
+O {{site.data.keyword.blockchainfull_notm}} Platform permite provisionar componentes de blockchain em seu cluster {{site.data.keyword.cloud_notm}} Kubernetes. Kubernetes é um sistema de software livre para automatizar a implementação, ajuste de escala e gerenciamento de aplicativos
 conteinerizados.
 {:shortdesc}
 
@@ -28,8 +28,7 @@ O Kubernetes fornece um ambiente de gerenciamento centralizado em contêiner. El
 
 O diagrama a seguir explica a arquitetura do Kubernetes. Para obter mais explicações sobre nós, contêineres e pod, consulte a seção [Objetos principais do Kubernetes](#k8s-overview-key-obj) abaixo.
 
-![Diagrama de arquitetura do Kubernetes](../images/k8s-archi-diagram.svg "Arquitetura do {{site.data.keyword.cloud_notm}} Kubernetes Service")
-*Figura 1. Diagrama de arquitetura do Kubernetes*
+![Diagrama da arquitetura do Kubernetes](../images/k8s-archi-diagram.svg "Arquitetura do {{site.data.keyword.cloud_notm}} Kubernetes Service")
 
 
 ## {{site.data.keyword.cloud_notm}} Kubernetes Service
@@ -38,9 +37,9 @@ O diagrama a seguir explica a arquitetura do Kubernetes. Para obter mais explica
 O {{site.data.keyword.cloud_notm}} Kubernetes Service entrega ferramentas poderosas combinando contêineres do Docker, a tecnologia do Kubernetes, uma experiência do usuário interativa e segurança e isolamento integrados para automatizar a implementação, a operação, o ajuste de escala e o monitoramento de apps conteinerizados em um cluster de hosts de cálculo.
 
 Para obter mais informações sobre o {{site.data.keyword.cloud_notm}} Kubernetes Service, consulte os tópicos a seguir na documentação do {{site.data.keyword.cloud_notm}} Kubernetes Service:
-- Tecnologia do serviço [{{site.data.keyword.cloud_notm}} Kubernetes ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology "Documentação da tecnologia do serviço {{site.data.keyword.cloud_notm}} Kubernetes")
-- [Por que o {{site.data.keyword.cloud_notm}} Kubernetes Service ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](/docs/containers?topic=containers-cs_ov#cs_ov "Documentação Por que o {{site.data.keyword.cloud_notm}} Kubernetes Service")
-- [Definindo sua estratégia do Kubernetes ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](/docs/containers?topic=containers-strategy#strategy "Definindo sua estratégia do Kubernetes")
+- [Tecnologia do {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology){: external}
+- [Por que o {{site.data.keyword.cloud_notm}} Kubernetes Service?](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
+- [Definindo sua estratégia do Kubernetes](/docs/containers?topic=containers-strategy#strategy){: external}
 
 
 ## Objetos principais do Kubernetes
@@ -52,7 +51,7 @@ Para obter mais informações sobre o {{site.data.keyword.cloud_notm}} Kubernete
 
 - **Nó**
 
-  Um nó é uma máquina do trabalhador no Kubernetes. Um nó pode ser uma VM ou máquina física, dependendo do cluster. Cada nó contém os serviços necessários para executar pods e é gerenciado pelos componentes principais. Os serviços em um nó incluem o tempo de execução do contêiner, `kubelet` e `kube-proxy`. Para obter mais informações, consulte a [seção Nó do Kubernetes ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://kubernetes.io/docs/concepts/architecture/nodes/ "seção Nó do Kubernetes") na documentação do Kubernetes.
+  Um nó é uma máquina do trabalhador no Kubernetes. Um nó pode ser uma VM ou máquina física, dependendo do cluster. Cada nó contém os serviços necessários para executar pods e é gerenciado pelos componentes principais. Os serviços em um nó incluem o tempo de execução do contêiner, `kubelet` e `kube-proxy`. Para obter mais informações, consulte a seção [Nó do Kubernetes](https://kubernetes.io/docs/concepts/architecture/nodes/){: external} na documentação do Kubernetes.
 
 - **Contêiner**
 
@@ -60,4 +59,4 @@ Para obter mais informações sobre o {{site.data.keyword.cloud_notm}} Kubernete
 
 - **Pod**
 
-  O menor e mais simples objeto do Kubernetes. Um Pod representa um conjunto de contêineres em execução em seu cluster. Um Pod geralmente é configurado para executar um único contêiner primário. Ele também pode executar contêineres sidecar opcionais que incluem recursos complementares, como criação de log. Os pods são comumente gerenciados por uma Implementação. Para obter mais informações, consulte a [seção Pod do Kubernetes ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://kubernetes.io/docs/concepts/workloads/pods/pod/) na documentação do Kubernetes.
+  O menor e mais simples objeto do Kubernetes. Um Pod representa um conjunto de contêineres em execução em seu cluster. Um Pod geralmente é configurado para executar um único contêiner primário. Ele também pode executar contêineres sidecar opcionais que incluem recursos complementares, como criação de log. Os pods são comumente gerenciados por uma Implementação. Para obter mais informações, consulte a seção [Pod do Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/){: external} na documentação do Kubernetes.

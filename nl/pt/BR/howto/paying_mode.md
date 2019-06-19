@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-03-05"
+  years: 2018, 2019
+lastupdated: "2019-05-31"
+
+keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,7 +30,7 @@ Observe que quando várias organizações constroem um consórcio, recomenda-se 
 ## Pré-requisitos
 {: #paying-mode-prereq}
 
-Cada membro de rede deve ter uma conta paga do {{site.data.keyword.cloud_notm}}, por exemplo, uma conta do tipo **Pré-pago**, para que seja possível criar as instâncias de serviço do {{site.data.keyword.blockchainfull_notm}} Platform no {{site.data.keyword.cloud_notm}}. Se você não tiver uma conta, [registre](https://cloud.ibm.com/registration/) uma e faça upgrade dela para uma conta paga. Para fazer upgrade de sua conta para um tipo Pré-pago, acesse **Gerenciar** > **Faturamento e uso** > **Faturamento** no console do {{site.data.keyword.cloud_notm}} e clique em **Incluir cartão de crédito**.
+Cada membro de rede deve ter uma conta paga do {{site.data.keyword.cloud_notm}}, por exemplo, uma conta do tipo **Pré-pago**, para que seja possível criar as instâncias de serviço do {{site.data.keyword.blockchainfull_notm}} Platform no {{site.data.keyword.cloud_notm}}. Se você não tiver uma conta, [registre](https://cloud.ibm.com/registration) uma e faça upgrade dela para uma conta paga. Para fazer upgrade de sua conta para um tipo Pré-pago, acesse **Gerenciar** > **Faturamento e uso** > **Faturamento** no console do {{site.data.keyword.cloud_notm}} e clique em **Incluir cartão de crédito**.
 
 
 ## Pagando as suas próprias taxas
@@ -63,12 +65,12 @@ Um membro na rede pode cobrir as taxas de um ou mais outros membros de rede na m
 3. O pagador cria uma rede de blockchain do {{site.data.keyword.blockchainfull_notm}} Platform e convida outros membros para a rede de blockchain no Monitor da rede. Para obter mais informações sobre convidar membros de rede, veja [Membros](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
 4. Cada membro então recebe um e-mail de notificação que contém um convite para associar-se à rede. O membro pode concluir as etapas a seguir para se associar à rede.
    1. Clique no botão "Continuar" no e-mail de notificação, que o levará para a página de serviço de blockchain no {{site.data.keyword.cloud_notm}}.
-   2. Efetue login no {{site.data.keyword.cloud_notm}} e assegure-se de usar a organização e o espaço corretos do {{site.data.keyword.cloud_notm}}, aos quais o pagador o incluiu.
+   2. Efetue login no {{site.data.keyword.cloud_notm}} e assegure-se de usar a organização e o espaço do {{site.data.keyword.cloud_notm}} corretos, nos quais o pagador o inclui.
       1. No console do {{site.data.keyword.cloud_notm}}, clique no avatar do perfil no canto superior direito.
       2. Escolha a conta do pagador na lista suspensa **Conta**.  Observe que a conta e a organização na qual você provisiona a instância de serviço de blockchain será aquela que será cobrada.  
    3. No catálogo do {{site.data.keyword.cloud_notm}}, procure **Blockchain** e crie uma instância de serviço.
       1. No campo **Nome do serviço**, digite um nome descritivo para o seu reconhecimento futuro.
-      2. Verifique se a organização e o espaço são aqueles aos quais o pagador o incluiu.
+      2. Verifique se a organização e o espaço são aqueles nos quais o pagador o inclui.
       3. Selecione o plano de associação com o qual criar a sua instância de rede. Seu plano de associação deve ser o mesmo que aquele com o qual o pagador cria a rede.
       4. Clique **Criar**.
    4. Após você criar a instância de serviço de blockchain, siga o assistente para se associar à rede.  Para obter mais informações, veja [Associando-se a uma rede](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
@@ -77,7 +79,7 @@ Um membro na rede pode cobrir as taxas de um ou mais outros membros de rede na m
 {: #paying-mode-limitation}
 - Como todos os membros estão dentro da conta do {{site.data.keyword.cloud_notm}} de pagadores, o pagador tem acesso a instâncias de blockchain de todos os membros e pode personificá-los. Portanto, esse modo de pagamento é usado melhor em ambientes PoC ou nos casos em que o pagador está manipulando todo o gerenciamento do {{site.data.keyword.blockchainfull_notm}} Platform e os membros estão recendo apenas um aplicativo.  
 - Qualquer membro na Organização do Cloud Foundry do pagador pode ver todos os espaços na organização.  No entanto, eles não podem editar ou modificar as organizações porque eles não têm acessos.  
-- Esteja ciente de que qualquer membro na Organização do Cloud Foundry do pagador pode ver os IDs do IBM Cloud de outros membros na mesma Organização do Cloud Foundry.  
+- Esteja ciente de que qualquer membro na organização do Cloud Foundry do pagador pode ver os IDs do {{site.data.keyword.cloud_notm}} de outros membros na mesma organização do Cloud Foundry.  
 - Após incluir todos os membros na conta do {{site.data.keyword.cloud_notm}} do pagador e designar a eles acesso para provisionarem instâncias de blockchain e se associarem à rede, o pagador também estará dando aos membros acesso para criarem outros serviços, o que pode causar encargos adicionais. Todos os membros podem assinar um contrato com a confiança de que não criarão nenhum serviço não autorizado em suas contas para causar um custo extra para a conta do pagador.  
 
 ## Deixar um membro pagar por você
@@ -99,7 +101,7 @@ Uma alternativa de inclusão de contas de outros membros na conta do pagador, os
 ### Limitação conhecida
 {: #paying-mode-let-other-pay-limitation}
 
-Depois de incluir a conta do {{site.data.keyword.cloud_notm}} do pagador como gerenciador de faturamento na conta de outros membros e outros membros comprarem quaisquer outros serviços usando suas contas, o pagador também precisará cobrir essas taxas. Todos os membros podem assinar um contrato com a confiança de que não criarão nenhum serviço não autorizado em suas contas para causar um custo extra para a conta do pagador.  
+Depois de incluir a conta do {{site.data.keyword.cloud_notm}} do pagador como gerente de faturamento na conta de outros membros e outros membros comprarem quaisquer outros serviços usando sua conta, o pagador precisará cobrir essas taxas também. Todos os membros podem assinar um contrato com a confiança de que não criarão nenhum serviço não autorizado em suas contas para causar um custo extra para a conta do pagador.  
 
 
 ## Transferindo Bilhetes para Outros Membros

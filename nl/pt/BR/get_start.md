@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-04"
+
+keywords: blockchain network, Enterprise Plan, getting started tutorial
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,12 +20,15 @@ subcollection: blockchain
 # Introdução ao Plano Corporativo
 {: #getting-started-with-enterprise-plan}
 
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note}-->
+
 O {{site.data.keyword.blockchainfull}} Platform Enterprise Plan fornece uma rede de blockchain com alta segurança, integridade, escalabilidade e desempenho. É possível provisionar rapidamente uma rede totalmente funcional e usar o Monitor de rede, que é um painel da GUI, para executar imediatamente o [chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode) e aplicativos sem a necessidade de projetar e configurar uma rede do zero.
 {:shortdesc}
 
 **Nota**: o {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan fornece um ambiente de produção. Se você precisar de um ambiente de desenvolvimento e teste, veja [Sobre o Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about).
 
-Este tutorial apresenta os pré-requisitos e as etapas que você precisa seguir para obter uma rede do Enterprise Plan que está hospedada no ambiente altamente disponível e seguro do {{site.data.keyword.IBM_notm}}.
+Este tutorial apresenta os pré-requisitos e etapas que você precisa seguir para obter uma rede do Enterprise Plan que é hospedada no ambiente altamente disponível e seguro do {{site.data.keyword.IBM_notm}}.
 
 As etapas a seguir indicam o fluxo básico para ativar uma rede de Enterprise Plan com múltiplos [membros](/docs/services/blockchain/glossary.html#glossary-member) de rede:
 1. Um **inicializador de rede**, como um tipo especial de membro de rede, cria a rede e define políticas de controle. O inicializador de rede pode, então, convidar outras [organizações](/docs/services/blockchain/glossary.html#glossary-organization) para se associarem a essa rede como membros de rede. Para obter mais informações, veja [Criando uma rede](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network).
@@ -36,9 +41,9 @@ As etapas a seguir indicam o fluxo básico para ativar uma rede de Enterprise Pl
 ## Criando uma rede
 {: #getting-started-with-enterprise-plan-create-network}
 
-Antes de iniciar, é necessário criar uma instância de serviço do [{{site.data.keyword.blockchain}} Platform ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) no {{site.data.keyword.cloud_notm}}. É necessário efetuar login com o seu ID do {{site.data.keyword.cloud_notm}}. Se você não tiver um ID, clique no botão **Inscreva-se para criar**. Renomeie o serviço e os nomes de credenciais para sua instância para que você possa reconhecê-lo facilmente no futuro. Selecione a região, a organização e o espaço do {{site.data.keyword.cloud_notm}}, na qual é possível implementar sua rede do {{site.data.keyword.blockchain}}. Em seguida, selecione **Plano de associação corporativa** na tabela de planos de precificação e clique no botão **Criar**.
+Antes de iniciar, é necessário criar uma [instância de serviço do {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} no {{site.data.keyword.cloud_notm}}. É necessário efetuar login com o seu ID do {{site.data.keyword.cloud_notm}}. Se você não tiver um ID, clique no botão **Inscreva-se para criar**. Renomeie o serviço e os nomes de credenciais para sua instância para que você possa reconhecê-lo facilmente no futuro. Selecione a região, a organização e o espaço do {{site.data.keyword.cloud_notm}}, na qual é possível implementar sua rede do {{site.data.keyword.blockchain}}. Em seguida, selecione **Plano de associação corporativa** na tabela de planos de precificação e clique no botão **Criar**.
 
-É possível localizar sua instância de serviço do {{site.data.keyword.blockchain}} Platform em seu painel do serviço [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/resources "Painel do serviço {{site.data.keyword.cloud_notm}}").
+É possível localizar a instância de serviço do {{site.data.keyword.blockchain}} Platform em seu [painel de serviço do {{site.data.keyword.cloud_notm}} ](https://cloud.ibm.com/resources){: external}.
 
 Se você for um inicializador de rede, clique no botão **Criar rede** para iniciar uma rede do {{site.data.keyword.blockchain}}. Siga o assistente para concluir a configuração básica de sua rede e de seus recursos.
 ![Assistente de criação de rede](images/create_network_name.png "Assistente de criação de rede")
@@ -64,9 +69,9 @@ Agora você implementar com êxito uma rede do {{site.data.keyword.blockchain}} 
 ## Participando de uma rede
 {: #getting-started-with-enterprise-plan-join-nw}
 
-Semelhante à criação de uma rede, é necessário criar uma instância de serviço do [{{site.data.keyword.blockchain}} Platform ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) no {{site.data.keyword.cloud_notm}}. É necessário efetuar login com o seu ID do {{site.data.keyword.cloud_notm}}. Se você não tiver um ID, clique no botão **Inscreva-se para criar**. Renomeie o serviço e os nomes de credenciais para sua instância para que você possa reconhecê-lo facilmente no futuro. Selecione a região, a organização e o espaço do {{site.data.keyword.cloud_notm}}, na qual é possível implementar sua rede do {{site.data.keyword.blockchain}}. Em seguida, selecione **Plano de associação corporativa** na tabela de planos de precificação e clique no botão **Criar**.
+Semelhante à criação de uma rede, é necessário criar uma [instância de serviço do{{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} no {{site.data.keyword.cloud_notm}}. É necessário efetuar login com o seu ID do {{site.data.keyword.cloud_notm}}. Se você não tiver um ID, clique no botão **Inscreva-se para criar**. Renomeie o serviço e os nomes de credenciais para sua instância para que você possa reconhecê-lo facilmente no futuro. Selecione a região, a organização e o espaço do {{site.data.keyword.cloud_notm}}, na qual é possível implementar sua rede do {{site.data.keyword.blockchain}}. Em seguida, selecione **Plano de associação corporativa** na tabela de planos de precificação e clique no botão **Criar**.
 
-É possível localizar sua instância de serviço do {{site.data.keyword.blockchain}} Platform no painel do serviço [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/resources "Painel do serviço {{site.data.keyword.cloud_notm}}").
+É possível localizar a instância de serviço do {{site.data.keyword.blockchain}} Platform no [painel de serviço do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 Se você for um membro de rede convidado, clique no botão **Convite pendente ->**, selecione a rede à qual você deseja se associar na lista suspensa e clique no botão **Associar-se à rede!** . Siga o assistente para visualizar a configuração básica de sua rede e configure os seus próprios recursos de rede.
 ![Assistente Associar-se à rede](images/join_network_name.png "Assistente Associar-se à rede")
@@ -82,9 +87,9 @@ Se você for um membro de rede convidado, clique no botão **Convite pendente ->
 ## Configurando recursos de rede e ambiente
 {: #getting-started-with-enterprise-plan-config}
 
-1. Entre em seu Monitor de Rede após criar ou participar de uma rede do {{site.data.keyword.blockchain}}. O Monitor de rede é um painel da GUI no qual é possível gerenciar e controlar informações de status da rede. Para obter mais informações, consulte [Monitor de Rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
+1. Entre em seu Monitor de Rede após criar ou participar de uma rede do {{site.data.keyword.blockchain}}. O Monitor de rede é um painel da GUI no qual é possível gerenciar e controlar informações de status da rede. Para obter mais informações, consulte [Monitor de rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
 2. Inclua seus próprios peers na rede. Se você já incluiu peers suficientes, ignore esta etapa. Os peers executam chaincode e eles são o terminal para interagir com seus aplicativos. Clique em **Incluir peers** na tela "Visão Geral" e selecione a quantidade e o tamanho de seus peers. Para obter mais informações, consulte  [ Visão Geral ](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview).
-3. Configure um canal. Todos os membros no mesmo canal recebem um livro razão específico do canal, o que fornece isolamento e confidencialidade dos dados. Para obter mais informações sobre como criar um canal, veja [Criando um canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel). Se você for um membro do canal convidado a se associar a um canal, receberá uma notificação por e-mail com um link para o assistente que permite que se associe ao canal.
+3. Configure um canal. Todos os membros no mesmo canal recebem um livro razão específico do canal, o que fornece isolamento e confidencialidade dos dados. Para obter mais informações sobre como criar um canal, veja [Criando um canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel). Se você for um membro do canal que é convidado a se associar a um canal, você receberá uma notificação por e-mail com um link para o assistente que permite associar-se ao canal.
 4. Associe peers ao canal. Apenas peers que estão associados ao canal podem acessar seu livro-razão. Para obter mais informações, consulte [Canais](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels).
 5. Instale e instancie o chaincode. Todos os membros do canal precisam instalar o mesmo chaincode com o mesmo nome e versão em cada peer que executará o chaincode. Após você instalar o chaincode, precisará instanciá-lo no canal antes de poder usá-lo. Para obter mais informações, veja [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
@@ -98,7 +103,7 @@ Após você criar uma rede de Enterprise Plan no {{site.data.keyword.cloud_notm}
 
 ### Recuperando por meio da página da instância de serviço
 {: #getting-started-with-enterprise-plan-retrieve-svc-ins}
-Você estará na página da instância de serviço logo após criar uma instância de serviço. Também é possível clicar em seu serviço no painel do serviço [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/resources "Painel do serviço {{site.data.keyword.cloud_notm}}") para abrir a página de sua instância de serviço.
+Você estará na página da instância de serviço logo após criar uma instância de serviço. Também é possível clicar em seu serviço no [painel de serviço do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external} para abrir sua página da instância de serviço.
 
 Recupere as suas credenciais de serviço com as etapas a seguir:
 1. Na página da instância de serviço, clique em **Credenciais de serviço** no navegador esquerdo para mostrar a tela "Credenciais de serviço".
@@ -114,7 +119,7 @@ Recupere as suas credenciais de serviço com as etapas a seguir:
 
 ## Ativando aplicativos para interagirem com a rede
 {: #getting-started-with-enterprise-plan-enable-apps}
-Os aplicativos alavancam as APIs do SDK para interagirem com os seus recursos de rede do {{site.data.keyword.blockchain}}. É necessário incluir as informações do terminal de API de seus recursos de rede em seu aplicativo para que o aplicativo possa finalmente direcionar os seus peers com solicitações de transação. É possível, então, incluir as informações do terminal de API no Monitor de Rede. Os aplicativos podem ser hospedados em seu sistema de arquivos local ou em {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Desenvolvendo aplicativos](/docs/services/blockchain/v10_application.html#dev-app).
+Os aplicativos alavancam as APIs do SDK para interagirem com os seus recursos de rede do {{site.data.keyword.blockchain}}. É necessário incluir as informações do terminal de API de seus recursos de rede em seu aplicativo para que o aplicativo possa finalmente direcionar os seus peers com solicitações de transação. É possível, então, incluir as informações do terminal de API no Monitor de Rede. Os aplicativos podem ser hospedados em seu sistema de arquivos local ou em {{site.data.keyword.cloud_notm}}.
 
 ## Monitorando recursos de rede
 {: #getting-started-with-enterprise-plan-monitor-resources}

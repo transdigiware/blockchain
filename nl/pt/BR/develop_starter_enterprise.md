@@ -2,24 +2,27 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-05-31"
+
+keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # Implementando redes de negócios no Starter e no Enterprise Plan
 {: #deploying-a-business-network}
 
-O {{site.data.keyword.IBM}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs JavaScript, o servidor REST e o Web Playground.
+A {{site.data.keyword.IBM}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs de JavaScript, o servidor REST e o Web Playground.
 {:note}
 
 As [redes de negócios](/docs/services/blockchain/glossary.html#glossary-business-network) podem ser desenvolvidas e implementadas nas redes do Starter e do Enterprise Plan usando o ambiente de desenvolvedor do {{site.data.keyword.blockchainfull_notm}} Platform e o conjunto de ferramentas do desenvolvedor do Hyperledger Composer.
@@ -51,7 +54,7 @@ Assegure-se de ter instalado o Node v8.9 ou superior, o npm v5.x e o Hyperledger
 
 3. Dentro do perfil de conexão, vá até o fim até você ver 'registrar'. Dentro de 'registrar', sob 'enrollId' há uma propriedade **enrollSecret**. Recupere o segredo e salve uma cópia dele.
 
-    ![Retrieve admin secret](images/get_enroll_secret.gif "Retrieve admin secret")
+    ![Recuperar segredo de administrador](images/get_enroll_secret.gif "Recuperar segredo de administrador"){: gif}
 
 ### Etapa dois: criar uma placa de autoridade de certificação
 {: #deploying-a-business-network-CA-card}
@@ -90,11 +93,11 @@ Os certificados devem ser incluídos na rede do Starter Plan. Por conveniência,
 
 1. No monitor de rede do Starter Plan, clique na guia **Membros**, em **Certificados** e em **Incluir certificado**. Acesse o seu diretório `credentials` e copie e cole o conteúdo do arquivo `admin-pub.pem` na caixa de certificado. Envie o certificado e reinicie os peers. Nota: reiniciar os peers leva um minuto.
 
-    ![Incluir certificados](images/add_cert.gif "Incluir certificados")
+    ![Incluir certificados](images/add_cert.gif "Incluir certificados"){: gif}
 
 2. Em seguida, os certificados devem ser sincronizados no canal. Clique na guia **Canais**, em seguida, no botão **Ações** e, em seguida, em **Sincronizar certificado** e **Enviar**.
 
-    ![Sync certificates](images/sync_cert.gif "Sync certificates")
+    ![Sincronizar certificados](images/sync_cert.gif "Sincronizar certificados"){: gif}
 
 ### Etapa quatro: criar uma placa de rede de negócios de administrador
 {: #deploying-a-business-network-create-admin-card}
@@ -186,7 +189,7 @@ Assegure-se de que você tenha instalado o ambiente do desenvolvedor do {{site.d
 
 É necessário o acesso a uma instância do Enterprise Plan do {{site.data.keyword.blockchainfull_notm}} Platform e ter criado seus peers antecipadamente. Para obter mais informações sobre o {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan, veja a [Visão geral do Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
 
-### Etapa um: criar um perfil de conexão para o IBM Blockchain Platform
+### Etapa um: criar um perfil de conexão para o {{site.data.keyword.blockchainfull_notm}} Platform
 {: #deploying-a-business-network-create-connection-profile}
 
 1. Crie um diretório para armazenar os seus detalhes de conexão, por exemplo:

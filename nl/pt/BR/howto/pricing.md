@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2019-03-05"
+
+keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -54,7 +56,7 @@ O Starter Plan e o Enterprise Plan têm dois elementos de precificação:
 
 - **Taxa de associação** – cobre a criação da organização, o acesso ao serviço de pedido e autoridade de certificação e é cobrada em uma base **por instância**. Incluído nesse elemento de precificação, o {{site.data.keyword.blockchainfull_notm}} Platform manipula o serviço de pedido e a autoridade de certificação em nome de sua rede. Essa taxa é necessária para ter acesso a uma rede construída no {{site.data.keyword.blockchainfull_notm}} Platform.
 
-  -	O Starter Plan permite organizações *ilimitadas* por associação e a capacidade de alternar entre organizações no Monitor de rede. Como o Starter Plan é projetado para desenvolvimento, teste e ambientes do POC, é possível simular nos ambientes de múltiplas organizações. **Observe** que o armazenamento de rede total é limitado a 20 GB, incluindo os componentes, o chaincode e os dados de livro-razão. As suas organizações simuladas compartilham o armazenamento de 20 GB na rede de blockchain.
+  -	O Starter Plan permite organizações *ilimitadas* por associação e a capacidade de alternar entre organizações no Monitor de rede. Como o Starter Plan é projetado para desenvolvimento, teste e ambientes do POC, é possível simular nos ambientes de múltiplas organizações. **Observe** que o armazenamento de rede total é limitado a 20 GB, incluindo os componentes, o chaincode e os dados do livro-razão. Suas organizações simuladas compartilham o armazenamento de 20 GB na rede de blockchain.
 
   -	O Enterprise permite uma única organização por associação. Como o Enterprise foi projetado para ambientes pilotos e de produção, você é vinculado à sua organização específica.
 
@@ -65,8 +67,7 @@ O Starter Plan e o Enterprise Plan têm dois elementos de precificação:
 
 A Figura 2 mostra um exemplo de instâncias de rede, que pode ajudar a entender a taxa de associação. Na figura, a conta do {{site.data.keyword.cloud_notm}} específica provisiona três instâncias de rede: uma instância do Enterprise Plan com o nome de *Blockchain-11* e duas instâncias do Starter Plan com o nome de *Blockchain-cz* e *Blockchain-da*. Cada instância requer o seu próprio serviço de pedido e de autoridade de certificação. Nesse caso, essa conta do {{site.data.keyword.cloud_notm}} específica precisa pagar três taxas de associação, uma para cada instância de rede.
 
-![Instâncias de rede de Blockchain](../images/ibp_instance_example.png "Instâncias de rede de Blockchain")  
-*Figura 2. Instâncias de rede de Blockchain*
+![Instâncias de rede de Blockchain](../images/ibp_instance_example.png "Instâncias de rede de Blockchain")
 
 
 ## Precificação do Starter Plan
@@ -139,7 +140,7 @@ Também é possível remover um peer da configuração de rede padrão do Starte
 ## Precificação do Enterprise Plan
 {: #ibp-pricing-enterprise-plan}
 
-O {{site.data.keyword.blockchainfull_notm}} Platform não fornece configuração padrão para uma rede do Enterprise Plan. É possível escolher a configuração com a qual você gostaria de começar. Quando você estiver pronto para usar o Enterprise Plan, deverá ter um bom entendimento do que a sua configuração de rede deve ser. Como uma melhor prática de alta disponibilidade, é altamente recomendável um mínimo de dois peers por organização para assegurar que a sua organização não tenha uma indisponibilidade da rede.
+O {{site.data.keyword.blockchainfull_notm}} Platform não fornece configuração padrão para uma rede do Enterprise Plan. É possível escolher a configuração com a qual você gostaria de começar. Quando você estiver pronto para usar o Enterprise Plan, deverá ter um bom entendimento do que a sua configuração de rede deve ser. Como uma melhor prática de alta disponibilidade, recomendamos fortemente um mínimo de dois peers por organização para assegurar que sua organização não experiencie uma indisponibilidade de rede.
 
 Se você estiver em uma rede do Enterprise Plan com o outro membro de rede e cada um incluir dois peers para sua organização, cada uma das contas será refletida na Figura 7.
 
