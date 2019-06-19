@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -40,15 +40,12 @@ subcollection: blockchain
 
 컨소시엄의 각 조직은 루트 CA로 알려진 자체 인증 기관을 운영해야 합니다. 이 인증 기관(또는 중간 CA)은 조직에 속하는 모든 ID를 작성하고 각 ID에 설명 인증서 및 개인 키를 발행합니다. 이러한 키는 인증 기관에 의해 서명되고
 조직의 구성원이 조치에 서명 및 확인하는 데 사용합니다. 컨소시엄에 가입하면
-다른 조직에서 사용자의 CA 서명을 인식하고 피어 및 애플리케이션이 올바른 참가자임을 확인할 수 있습니다. Hyperledger Fabric의
-멤버십에 대한 자세한 정보는 Fabric 문서에서 [멤버십 개념 주제 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html "멤버십")를
-참조하십시오.
+다른 조직에서 사용자의 CA 서명을 인식하고 피어 및 애플리케이션이 올바른 참가자임을 확인할 수 있습니다. Hyperledger Fabric의 멤버십에 대한 자세한 정보는 Fabric 문서에서 [멤버십 개념 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external}를 참조하십시오. 
 
 조직이 컨소시엄에 가입하기 전에 **MSP(Membership Services Provider)**로
 알려진 조직 정의를 작성해야 합니다. MSP에는 다음 정보가 포함됩니다.
 - **루트 인증 기관**에 의해 서명된 인증서. 이 인증서는 노드, 채널 및 애플리케이션의 ID를 확인하는 데 사용됩니다.
-- **TLS CA**에 의해 서명된 인증서. 루트 TLS 인증서는 사용자의 피어가 교차 조직 gossip에 참가할 수 있도록
-허용하며 이는 Hyperledger Fabric의 [**개인용 데이터** 콜렉션](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) 및 [서비스 발견 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "서비스 발견") 기능을 사용하기 위해 필수입니다.
+- **TLS CA**에 의해 서명된 인증서. 루트 TLS 인증서는 사용자의 피어가 교차 조직 gossip에 참가할 수 있도록 허용하며, Hyperledger Fabric의 [**개인용 데이터** 콜렉션](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) 및 [서비스 발견](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} 기능을 사용하는 데 필요합니다. 
 - **MSP ID**. MSP ID는 컨소시엄 내에서 조직의 정규 이름입니다. 노드 및 애플리케이션에 대한 MSP ID를 기억해야 합니다.
 - **Peer admin** 및 **Org Admin** ID의 **Admin 인증서**. 이러한 인증서는
 순서 지정 서비스로 전달되며 조직 내의 어떤 ID가 채널 작성 또는 편집이 가능한지 확인하는 데 사용됩니다. 콘솔을 사용하여 순서 지정자 또는 피어를 작성하는 경우
@@ -109,7 +106,7 @@ MSP 정의에 제공된 관리자 인증서를 사용하여 콘솔 지갑에 내
 
 **이 옵션은 인증서가 블록체인 ID 관리에 사용되는 방법에 익숙한 고급 사용자를 대상으로 합니다.**
 
-{{site.data.keyword.IBM_notm}}에서 호스팅되지 않는 **외부 CA**에서 피어 또는 순서 지정 서비스의 인증서를 사용하려는 경우 피어 또는 순서 지정 서비스 조직 MSP 정의를 표시하는 MSP 정의 JSON 파일을 빌드해야 합니다. 
+{{site.data.keyword.IBM_notm}}에서 호스팅되지 않는 **외부 CA**에서 피어 또는 순서 지정 서비스의 인증서를 사용하려는 경우 피어 또는 순서 지정 서비스 조직 MSP 정의를 표시하는 MSP 정의 JSON 파일을 빌드해야 합니다.
 
 모든 인증서는 base64 형식으로 인코딩되어야 합니다.
 {:important}
@@ -153,14 +150,14 @@ cat <cert.pem> | base64 $FLAG
 - **organization_id**: 콘솔에서 이 MSP를 내부적으로 표시하는 데 사용할 ID를 지정합니다.
 - **root_certs**: (선택사항) `base64` 형식으로 된 외부 CA에서 하나 이상의 루트 인증서가 포함된 배열을 붙여넣습니다. CA 루트 인증서 또는 중간 CA 인증서를 제공해야 하며, 둘 다 제공할 수도 있습니다.
 - **intermediate_certs**: (선택사항) `base64` 형식으로 된 외부 중간 CA에서 하나 이상의 인증서가 포함된 배열을 붙여넣습니다. CA 루트 인증서 또는 중간 CA 인증서를 제공해야 하며, 둘 다 제공할 수도 있습니다.
-- **admins**: `base64` 형식으로 된 조직 관리자의 서명 인증서에 붙여넣습니다. 
+- **admins**: `base64` 형식으로 된 조직 관리자의 서명 인증서에 붙여넣습니다.
 - **tls_root_certs**: (선택사항) `base64` 형식으로 된 외부 TLS CA에서 하나 이상의 루트 인증서가 포함된 배열을 붙여넣습니다. 외부 TLS CA 루트 인증서 또는 외부 중간 TLS CA 인증서를 제공해야 하며, 둘 다 제공할 수도 있습니다.
 - **tls_intermediate_certs**: (선택사항) `base64` 형식으로 된 중간 TLS CA에서 하나 이상의 인증서가 포함된 배열을 붙여넣습니다. 외부 TLS CA 루트 인증서 또는 외부 중간 TLS CA 인증서를 제공해야 하며, 둘 다 제공할 수도 있습니다.  
 
 다음 추가 필드가 MSP 정의에도 사용 가능하지만 필수는 아닙니다.
-- **organizational_unit_identifiers**: 이 MSP의 유효한 멤버가 X.509 인증서에 포함되어야 하는 OU(Organizational Units)의 목록입니다. 이는 다중 조직이 동일한 신뢰 루트 및 중간 CA를 활용할 때 사용되는 선택적 구성 매개변수이고, 다중 조직은 멤버를 위해 OU 필드를 예약했습니다. 조직은 종종 다중 조직 단위로 구분되고 각 조직 단위에는 일련의 책임이 있습니다. 예를 들어, ORG1 조직에는 개별적인 비즈니스 부문을 반영하도록 ORG1-MANUFACTURING 및 ORG1-DISTRIBUTION OU가 모두 포함될 수 있습니다. CA에서 X.509 인증서를 발행하면 인증서의 OU 필드는 ID가 속하는 비즈니스 부문을 지정합니다. 자세한 정보는 [ID 분류 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification "ID 분류")의 Fabric 문서에서 이 주제를 참조하십시오.   
-- **fabric_node_OUs**: ID 분류를 사용으로 설정하는 패브릭 특정 OU입니다. `NodeOUs`에는 OU를 기반으로 클라이언트, 피어 및 순서 지정자를 구분하는 방법에 대한 정보가 포함되어 있습니다. 사용을 true로 설정하여 검사가 실행되면 MSP는 ID 유형이 `client`, `peer` 또는 `orderer`인 경우 ID가 유효하다고 간주합니다. ID는 이러한 특수 OU 중 하나여야 합니다. Fabric Service Discovery 문서에서 [MSP에서 `fabric_node_OU`를 지정하는 방법 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query "구성 조회")에 대한 예는 이 주제를 참조하십시오. 
-- **revocation_list**: 더 이상 유효하지 않은 인증서 목록입니다. X.509 기반 ID의 경우 이 ID는 SKI(Subject Key Identifier) 및 AKI(Authority Access Identifier)로 알려진 문자열의 쌍이며, 인증서가 취소되지 않았는지 확인하기 위해 X.509 인증서를 사용할 때마다 선택됩니다. [인증서 취소 목록 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity "인증서 또는 ID 취소")에 대한 자세한 정보는 Fabric 문서의 이 주제를 참조하십시오.
+- **organizational_unit_identifiers**: 이 MSP의 유효한 멤버가 X.509 인증서에 포함되어야 하는 OU(Organizational Units)의 목록입니다. 이는 다중 조직이 동일한 신뢰 루트 및 중간 CA를 활용할 때 사용되는 선택적 구성 매개변수이고, 다중 조직은 멤버를 위해 OU 필드를 예약했습니다. 조직은 종종 다중 조직 단위로 구분되고 각 조직 단위에는 일련의 책임이 있습니다. 예를 들어, ORG1 조직에는 개별적인 비즈니스 부문을 반영하도록 ORG1-MANUFACTURING 및 ORG1-DISTRIBUTION OU가 모두 포함될 수 있습니다. CA에서 X.509 인증서를 발행하면 인증서의 OU 필드는 ID가 속하는 비즈니스 부문을 지정합니다. 자세한 정보는 [ID 분류](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external}에 대한 Fabric 문서에서 이 주제를 참조하십시오.   
+- **fabric_node_OUs**: ID 분류를 사용으로 설정하는 패브릭 특정 OU입니다. `NodeOUs`에는 OU를 기반으로 클라이언트, 피어 및 순서 지정자를 구분하는 방법에 대한 정보가 포함되어 있습니다. 사용을 true로 설정하여 검사가 실행되면 MSP는 ID 유형이 `client`, `peer` 또는 `orderer`인 경우 ID가 유효하다고 간주합니다. ID는 이러한 특수 OU 중 하나여야 합니다. [MSP에서 `fabric_node_OU`를 지정하는 방법](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external}의 예는 Fabric Service Discovery 문서에서 이 주제를 참조하십시오. 
+- **revocation_list**: 더 이상 유효하지 않은 인증서 목록입니다. X.509 기반 ID의 경우 이 ID는 SKI(Subject Key Identifier) 및 AKI(Authority Access Identifier)로 알려진 문자열의 쌍이며, 인증서가 취소되지 않았는지 확인하기 위해 X.509 인증서를 사용할 때마다 선택됩니다. [인증서 취소 목록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}에 대한 자세한 정보는 Fabric 문서에서 이 주제를 참조하십시오. 
 
 예를 들어, JSON 파일은 다음과 유사합니다.
 

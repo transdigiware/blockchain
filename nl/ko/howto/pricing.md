@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -67,8 +67,7 @@ subcollection: blockchain
 
 그림 2는 네트워크 인스턴스의 예를 보여주며, 이를 통해 멤버십 요금을 파악할 수 있습니다. 그림에서 특정 {{site.data.keyword.cloud_notm}} 계정은 세 가지 네트워크 인스턴스, 즉 이름이 *Blockchain-11*인 하나의 엔터프라이즈 플랜 인스턴스와 이름이 *Blockchain-cz* 및 *Blockchain-da*인 두 개의 스타터 플랜 인스턴스를 프로비저닝합니다. 각 인스턴스에는 고유 순서 지정 서비스와 CA가 필요합니다. 이 경우 이 특정 {{site.data.keyword.cloud_notm}} 계정은 세 가지 멤버십 요금(네트워크 인스턴스마다 하나씩)을 지불해야 합니다.
 
-![블록체인 네트워크 인스턴스](../images/ibp_instance_example.png "블록체인 네트워크 인스턴스")  
-*그림 2. 블록체인 네트워크 인스턴스*
+![블록체인 네트워크 인스턴스](../images/ibp_instance_example.png "블록체인 네트워크 인스턴스")
 
 
 ## 스타터 플랜 가격

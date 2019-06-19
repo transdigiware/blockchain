@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,16 +17,17 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # 면책사항
 {: #disclaimer}
 
 **주의:** {{site.data.keyword.blockchainfull}} 플랜을 사용하기 전에 다음 정보를 검토해야 합니다.
 
-## IBM 지원 설명
+## {{site.data.keyword.IBM_notm}} 지원 설명
 {: #disclaimer-support-statement}
 
-{{site.data.keyword.IBM}}은 오랜 시간 혁신의 선두 자리를 지켜왔으며 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.blockchainfull_notm}} Platform 오퍼링을 통해 여전히 그 역할을 계속하고 있습니다. 블록체인은 금융 산업, 로컬 및 글로벌 공급 체인과 많은 비즈니스 영역에서 업무 조직에 관한 지원을 중단하도록 보호되는 기술입니다. 다양한 조기 도입 프로그램을 통해 {{site.data.keyword.IBM_notm}} 고객 및 비즈니스 파트너는 산업용 솔루션으로서 블록체인을 활발하게 이용해 오고 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}가 그러한 프로그램 중 하나입니다. **다른 새 기술의 경우와 같이 {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} 사용자는 신속하고 근본적인 변화의 가능성에 대해 인지하고 있어야 합니다.**
+{{site.data.keyword.IBM_notm}}은 오랜 시간 혁신의 선두 자리를 지켜왔으며 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.blockchainfull_notm}} Platform 오퍼링을 통해 여전히 그 역할을 계속하고 있습니다. 블록체인은 금융 산업, 로컬 및 글로벌 공급 체인과 많은 비즈니스 영역에서 업무 조직에 관한 지원을 중단하도록 보호되는 기술입니다. 다양한 조기 도입 프로그램을 통해 {{site.data.keyword.IBM_notm}} 고객 및 비즈니스 파트너는 산업용 솔루션으로서 블록체인을 활발하게 이용해 오고 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform for{{site.data.keyword.cloud_notm}}가 이러한 프로그램 중 하나입니다. **다른 새 기술의 경우와 같이 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 사용자는 신속하고 근본적인 변화의 가능성에 대해 인지하고 있어야 합니다.**
 {:shortdesc}
 
 {{site.data.keyword.blockchainfull_notm}}을 뒷받침하는 아키텍처는 Linux Foundation의 Hyperledger Fabric 프로젝트입니다. 각 오픈 소스 커뮤니티 컨트리뷰션은 Hyperledger Fabric을 개선하지만 적용에 어려움이 있을 수 있습니다. **{{site.data.keyword.IBM_notm}}은 Hyperledger Fabric 블록체인 네트워크에서 금융 자산을 직접 정의하거나 교환하는 것에 대해 경고하고 있습니다**.

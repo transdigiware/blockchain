@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,7 +20,7 @@ subcollection: blockchain
 # 용어집
 {: #glossary}
 
-이 주제에서는 이 문서에 나오는 {{site.data.keyword.blockchainfull}} 플랫폼 특정 용어를 정의합니다. 용어와 Hyperledger Fabric 개념과 관련된 용어의 용어집에 대해 더 자세히 알아보려면 [Hyperledger Fabric 용어집 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html)을 참조하십시오.
+이 주제에서는 이 문서에 나오는 {{site.data.keyword.blockchainfull}} 플랫폼 특정 용어를 정의합니다. 용어와 Hyperledger Fabric 개념과 관련된 용어의 용어집에 대해 더 자세히 알아보려면 [Hyperledger Fabric 용어집](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}을 참조하십시오.
 {:shortdesc}
 
 ## 구성원(Member)
@@ -78,7 +78,6 @@ subcollection: blockchain
 ## 세계 상태(World state)
 {: #glossary-world-state}
 [현재 상태(Current state)](/docs/services/blockchain/glossary.html#glossary-current-state)를 참조하십시오.
-
 ## 순서 지정자(Orderer)
 {: #glossary-orderer}
 네트워크 구성원의 트랜잭션을 수집하고 트랜잭션의 순서를 지정하고 블록으로 번들화하는 노드입니다. 그런 다음 이러한 블록이 피어에 분배되고 피어는 블록을 확인한 다음 각 채널의 원장에 추가합니다. 순서 지정자는 각 구성원에 연결된 암호 ID 자료를 포함하고 클라이언트 및 피어의 ID를 인증하여 네트워크에 액세스합니다. 노드의 순서 지정 노드 또는 콜렉션에서 제공하는 전체 기능을 **순서 지정 서비스(ordering service)**라고 합니다.
@@ -165,15 +164,15 @@ subcollection: blockchain
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric을 사용하면 피어가 순서 지정 서비스에 의존하지 않고 서로 중요한 네트워크 정보를 수집할 수 있습니다. [gossip 데이터 전파 프로코톨 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html)에서는 피어에서 서로 메시지를 교환하는 안전하고 신뢰할 수 있으며 확장 가능한 방법을 제공합니다. 예를 들어, 지연, 네트워크 가동 중단 또는 다른 이유로 인해 피어에서 일부 블록이 누락된 경우 gossip 메시징을 사용하여 누락된 블록을 보유하고 있는 다른 피어와 연락하여 현재 원장 상태와 동기화할 수 있습니다.
+Hyperledger Fabric을 사용하면 피어가 순서 지정 서비스에 의존하지 않고 서로 중요한 네트워크 정보를 수집할 수 있습니다. [gossip 데이터 전파 프로코톨](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external}은 피어 간에 서로 메시지를 교환할 수 있는 안전하고 신뢰할 수 있으며 확장 가능한 방법을 제공합니다. 예를 들어, 지연, 네트워크 가동 중단 또는 다른 이유로 인해 피어에서 일부 블록이 누락된 경우 gossip 메시징을 사용하여 누락된 블록을 보유하고 있는 다른 피어와 연락하여 현재 원장 상태와 동기화할 수 있습니다.
 
 ## HSM
 {: #glossary-hsm}
-하드웨어 보안 모듈(Hardware Security Module)입니다. On-Demand 암호화, 키 관리 및 키 스토리지를 관리 서비스로 제공합니다. HSM은 암호화 처리의 리소스 집약적 태스크를 처리하는 물리적 어플라이언스이며 애플리케이션에 대한 대기 시간을 줄입니다. 자세한 정보는 [하드웨어 보안 모듈 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/hardware-security-module)을 참조하십시오.
+하드웨어 보안 모듈(Hardware Security Module)입니다. On-Demand 암호화, 키 관리 및 키 스토리지를 관리 서비스로 제공합니다. HSM은 암호화 처리의 리소스 집약적 태스크를 처리하는 물리적 어플라이언스이며 애플리케이션에 대한 대기 시간을 줄입니다. 자세한 정보는 [하드웨어 보안 모듈](https://www.ibm.com/cloud/hardware-security-module){: external}을 참조하십시오. 
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/)은 모듈식 아키텍처로 블록체인 애플리케이션 또는 솔루션을 개발하기 위한 기초적인 역할을 하도록 Linux Foundation이 호스팅하는 비즈니스 블록체인 프레임워크입니다. 합의 및 멤버십 서비스와 같은 Hyperledger Fabric 컴포넌트는 플러그 앤 플레이입니다.
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}은 모듈식 아키텍처로 블록체인 애플리케이션 또는 솔루션을 개발하기 위한 기초적인 역할을 하도록 Linux Foundation이 호스팅하는 비즈니스 블록체인 프레임워크입니다. 합의 및 멤버십 서비스와 같은 Hyperledger Fabric 컴포넌트는 플러그 앤 플레이입니다.
 
 ## Kafka
 {: #glossary-kafka}
@@ -189,11 +188,11 @@ CouchDB와 함께 엔터프라이즈 플랜 네트워크의 상태 데이터베�
 
 ## Raft
 {: #glossary-raft}
-Raft는 `etcd`의 [Raft 프로토콜 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://raft.github.io/raft.pdf) 구현을 기반으로 하는 충돌 결함 허용(CFT) 순서 지정 서비스입니다. Raft는 리더 노드가 선택되고(채널별) 팔로워에서 해당 의사결정을 복제하는 "리더 및 팔로워" 모델을 따릅니다. Raft 순서 지정 서비스는 Kafka 기반 순서 지정 서비스보다 설정 및 관리가 더 용이해야 하며 이러한 노드의 클러스터는 {{site.data.keyword.blockchainfull_notm}} Platform을 사용하여 작성될 수 있습니다.
+Raft는 `etcd`의 [Raft 프로토콜](https://raft.github.io/raft.pdf){: external} 구현을 기반으로 하는 충돌 결함 허용(CFT) 순서 지정 서비스입니다. Raft는 리더 노드가 선택되고(채널별) 팔로워에서 해당 의사결정을 복제하는 "리더 및 팔로워" 모델을 따릅니다. Raft 순서 지정 서비스는 Kafka 기반 순서 지정 서비스보다 설정 및 관리가 더 용이해야 하며 이러한 노드의 클러스터는 {{site.data.keyword.blockchainfull_notm}} Platform을 사용하여 작성될 수 있습니다.
 
 ## SDK
 {: #glossary-sdk}
-Hyperledger Fabric은 두 개의 SDK(Software Development Kit)를 지원합니다 (노드 SDK 및 Java SDK).  노드 SDK는 NPM을 통해 설치 가능하고 Java SDK는 Maven을 통해 설치 가능합니다.  SDK에는 사용 가능한 API의 문서와 함께 고유 git 저장소, 즉 [Fabric 노드 SDK ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://github.com/hyperledger/fabric-sdk-node) 및 [Fabric Java SDK ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://github.com/hyperledger/fabric-sdk-java)가 있습니다. Hyperledger Fabric Client SDK는 클라이언트 애플리케이션과 블록체인 네트워크 간 상호작용을 사용 가능하게 합니다.
+Hyperledger Fabric은 두 개의 SDK(Software Development Kit)를 지원합니다 (노드 SDK 및 Java SDK).  노드 SDK는 NPM을 통해 설치 가능하고 Java SDK는 Maven을 통해 설치 가능합니다.  SDK는 사용 가능한 API의 문서와 함께 고유 git 저장소, 즉 [Fabric 노드 SDK](https://github.com/hyperledger/fabric-sdk-node){: external} 및 [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}를 제공합니다. Hyperledger Fabric Client SDK는 클라이언트 애플리케이션과 블록체인 네트워크 간 상호작용을 사용 가능하게 합니다.
 
 ## SignCert
 {: #glossary-sign-cert}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -11,7 +11,7 @@ subcollection: blockchain
 ---
 
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,9 +28,9 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform은 블록체인 컴포넌트를 작성하고, 가져오고, 편집하고, 삭제하며 로깅, 알림 및 콘솔 설정을 관리하기 위한 RESTful API를 노출합니다. API 및 해당 SDK를 사용하여 블록체인 네트워크와 상호작용하는 애플리케이션을 개발할 수 있습니다.
 {: shortdesc}
 
-이 튜토리얼에서는{{site.data.keyword.blockchainfull_notm}} Platform API를 사용하여 블록체인 네트워크를 빌드하는 일반 플로우를 소개합니다. 각 API에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](/apidocs/blockchain "{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서"){: new_window}를 참조하십시오.
+이 튜토리얼에서는{{site.data.keyword.blockchainfull_notm}} Platform API를 사용하여 블록체인 네트워크를 빌드하는 일반 플로우를 소개합니다. 각 API에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서](/apidocs/blockchain){: external}를 참조하십시오. 
 
-이러한 API는 {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} v0.1.77 이상과 호환 가능합니다. 버전을 확인하려면 `https://[your_console_url]/version.txt`를 찾아보십시오. 여기서 *`[your_console_url]`*은 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔의 URL입니다(예: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt).
+이러한 API는 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} v0.1.77 이상과만 호환 가능합니다. 버전을 확인하려면 `https://[your_console_url]/version.txt`를 찾아보십시오. 여기서 *`[your_console_url]`*은 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔의 URL입니다 (예: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt).
 {:note}
 
 ## 시작하기 전에
@@ -46,13 +46,13 @@ API를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform으로 작
 ### 서비스 인증 정보 검색
 {: #ibp-v2-apis-retrieve-service-credentials}
 
-{{site.data.keyword.cloud_notm}}의 {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스에 액세스할 수 있으려면 기본 인증 정보가 필요합니다. 
+{{site.data.keyword.cloud_notm}}의 {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스에 액세스할 수 있으려면 기본 인증 정보가 필요합니다.
 
-1. [{{site.data.keyword.cloud_notm}} 리소스 목록 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources)에서 사용자가 작성한 블록체인 서비스 인스턴스를 여십시오.
+1. [{{site.data.keyword.cloud_notm}} 리소스 목록](https://cloud.ibm.com/resources){: external}에서 사용자가 작성한 블록체인 서비스 인스턴스를 여십시오. 
 2. 왼쪽 네비게이터에서 **서비스 인증 정보**를 클릭하십시오.
-3. **서비스 인증 정보** 페이지에서 "새 인증 정보" 단추를 클릭하여 새 인증 정보를 작성하십시오.
+3. **서비스 인증 정보** 페이지에서 **새 인증 정보** 단추를 클릭하여 새 인증 정보를 작성하십시오. 
   1. 인증 정보 이름(예: *UseAPIs*)을 제공하십시오.
-  2. "인라인 구성 매개변수 추가" 필드를 공백으로 둘 수 있습니다.
+  2. **인라인 구성 매개변수 추가** 필드는 비워 둘 수 있습니다. 
   3. **추가** 단추를 클릭하십시오.
 4. 새 인증 정보가 작성된 후 이 인증 정보의 **조치** 헤더 아래에서 **인증 정보 보기**를 클릭하십시오. 인증 정보의 컨텐츠는 다음 예제와 유사합니다.
 
@@ -119,14 +119,14 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-[{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](/apidocs/blockchain "{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서")에서 각 API에 대한 예제 curl 명령이 제공됩니다.
+각 API에 대한 예제 curl 명령은 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서](/apidocs/blockchain){: external}에 제공됩니다. 
 
 또한 API 참조 문서에서 **시험 사용** 기능을 사용하여 API 호출을 애플리케이션에 추가하기 전에 테스트할 수 있습니다. **시험 사용** 기능을 사용하려면 {{site.data.keyword.cloud_notm}}에 로그인되어 있어야 합니다. 드롭 다운 목록에서 임의의 서비스 인스턴스를 선택할 수 있습니다. 모든 API 요청이 API 엔드포인트에 지정된 네트워크에 전송됩니다.
 
 ## 제한사항
 {: #ibp-v2-apis-limitations}
 
-{{site.data.keyword.cloud_notm}} 네트워크의 다른 {{site.data.keyword.blockchainfull_notm}} Platform에서 기존 CA, 피어 및 순서 지정자 노드만 가져올 수 있습니다.
+다른 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 네트워크에서는 기존 CA, 피어 및 순서 지정자 노드만 가져올 수 있습니다. 
 
 ## API를 사용하여 네트워크 빌드
 {: #ibp-v2-apis-build-with-apis}
@@ -168,7 +168,7 @@ API를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 인스
 ## API를 사용하여 네트워크 가져오기
 {: #ibp-v2-apis-import-with-apis}
 
-API를 사용하여 API 또는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 통해 작성된 {{site.data.keyword.blockchainfull_notm}} 컴포넌트를 {{site.data.keyword.blockchainfull_notm}} Platform 2.0의 다른 서비스 인스턴스로 가져올 수도 있습니다.
+API를 사용하여 API 또는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 통해 작성된 {{site.data.keyword.blockchainfull_notm}} 컴포넌트를 {{site.data.keyword.blockchainfull_notm}} Platform의 다른 서비스 인스턴스로 가져올 수도 있습니다.
 
 1. [`POST /ak/api/v1/components/ca`](/apidocs/blockchain?code=try#import-a-ca)를 호출하여 CA를 가져오십시오.
 
@@ -198,9 +198,9 @@ Fabric CA 클라이언트를 사용하여 CA를 작동시킬 수 있습니다. �
 ### Fabric CA 클라이언트 설정
 {: #ibp-v2-apis-setup-fabric-ca-client}
 
-1. 로컬 파일 시스템에 [Fabric CA 클라이언트를 다운로드 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client "Fabric CA 클라이언트 다운로드") 하십시오.
+1. [패브릭 CA 클라이언트](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external}를 로컬 파일 시스템으로 다운로드하십시오. 
 
-  Fabric CA 클라이언트를 얻는 가장 간단한 방법은 모든 Fabric 도구 바이너리를 직접 다운로드하는 것입니다. 명령행을 사용하여 바이너리를 다운로드하려는 디렉토리로 이동한 후 다음 [Curl ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl "Curl") 명령을 실행하여 페치하십시오.
+  Fabric CA 클라이언트를 얻는 가장 간단한 방법은 모든 Fabric 도구 바이너리를 직접 다운로드하는 것입니다. 명령행을 사용하여 바이너리를 다운로드하려는 디렉토리로 이동한 후 다음 [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} 명령을 실행하여 페치하십시오. 
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.0 1.4.0 -d -s
@@ -360,7 +360,7 @@ tree
   ```
 
   구성 파일을 작성할 때를 대비하여 위의 명령의 `"enrollid"` 및 `"enrollsecret"`을 저장해야 합니다.
-{: important}
+  {: important}
 
   ID는 한 번만 등록할 수 있습니다. 문제점이 발생하면 새 사용자 이름과 비밀번호를 사용하여 명령을 시도하십시오. 보안 조치로 각 ID 및 수반하는 enrollID 및 secret을 사용하여 하나의 피어만 배치하십시오. 여러 컴포넌트에 대해 하나의 **관리자** ID를 사용할 수 있지만(권장하는 배치 전략임) 피어 ID 및 비밀번호를 재사용하지 마십시오.
 
@@ -489,7 +489,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-다음 명령을 실행하여 TLS CA에 대한 관리자로 등록하십시오. TLS CA 관리자의 등록 ID 및 비밀번호는 기본 CA와 동일합니다. 따라서 아래 명령은 [CA 관리자](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin)로 등록하는 데 사용한 것과 동일하며 여기에 TLS CA 이름만 사용합니다. TLS CA 이름은 콘솔의 CA **설정** 패널에 있는 **TLS CA 이름** 값 또는 `CA 작성` API에서 리턴된 `"tlsca_name"` 값입니다. 
+다음 명령을 실행하여 TLS CA에 대한 관리자로 등록하십시오. TLS CA 관리자의 등록 ID 및 비밀번호는 기본 CA와 동일합니다. 따라서 아래 명령은 [CA 관리자](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin)로 등록하는 데 사용한 것과 동일하며 여기에 TLS CA 이름만 사용합니다. TLS CA 이름은 콘솔의 CA **설정** 패널에 있는 **TLS CA 이름** 값 또는 `CA 작성` API에서 리턴된 `"tlsca_name"` 값입니다.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -667,7 +667,7 @@ API를 사용하여 피어 또는 순서 지정자를 작성하려면 구성 파
 **API를 사용 중인 경우:**
 [`GET /ak/api/v1/components`](https://test.cloud.ibm.com/apidocs/blockchain?code=try#get-all-components)를 호출하여 CA의 연결 정보를 가져올 수 있습니다. `Fabric CA 작성` API를 사용하여 CA를 작성한 경우 응답 본문에서 필요한 정보를 찾을 수도 있습니다.
 
-- `"cahost"` 및 `"caport"` 값은 응답 본문 또는 내보낸 JSON 파일의 `ca_url` 필드에 표시됩니다. 예를 들어, `ca_url`이 https://9.30.94.174:30167인 경우 `"cahost"`는 `9.30.94.174`이고 `"caport"`는 `30167`입니다.
+- `"cahost"` 및 `"caport"` 값은 응답 본문 또는 내보낸 JSON 파일의 `ca_url` 필드에 표시됩니다.  예를 들어, `ca_url`이 https://9.30.94.174:30167인 경우 `"cahost"`는 `9.30.94.174`이고 `"caport"`는 `30167`입니다.
 - `"caname"`은 CA를 배치할 때 지정된 CA의 이름입니다. 이는 응답 본문 또는 내보낸 JSON 파일의 `ca_name` 필드 값입니다.
 - `"cacert"`는 CA의 base64로 인코딩된 TLS 인증서입니다. 이는 응답 본문 또는 내보낸 JSON 파일의 `pem` 필드 값입니다.
 

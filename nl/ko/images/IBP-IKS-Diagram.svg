@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2387px"
+   height="1160px"
+   viewBox="0 0 2387 1160"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="IBP-IKS-Diagram.svg">
+  <metadata
+     id="metadata271">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview269"
+     showgrid="false"
+     inkscape:zoom="0.54629242"
+     inkscape:cx="1166.9574"
+     inkscape:cy="580"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     inkscape:snap-text-baseline="true" />
+  <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+  <title
+     id="title4">IBP_Deployment</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8">
+    <rect
+       id="path-1"
+       x="146"
+       y="648"
+       width="1527"
+       height="275" />
+    <mask
+       id="mask-2"
+       maskContentUnits="userSpaceOnUse"
+       maskUnits="objectBoundingBox"
+       x="0"
+       y="0"
+       width="1527"
+       height="275"
+       fill="white">
+      <use
+         xlink:href="#path-1"
+         id="use12" />
+    </mask>
+  </defs>
+  <g
+     id="IBP_Deployment"
+     stroke-width="1"
+     stroke="none"
+     fill-rule="evenodd"
+     fill="none">
+    <rect
+       x="0"
+       y="0"
+       width="2387"
+       height="1160"
+       id="rect15"
+       fill="#FFFFFF" />
+    <g
+       id="Group"
+       transform="translate(50.000000, 105.000000)"
+       opacity="0.866699219">
+      <rect
+         id="Rectangle"
+         x="0.5"
+         y="0.5"
+         width="1124"
+         height="1035"
+         stroke="#FFFFFF"
+         fill="#011688" />
+      <text
+         id="IBM-Blockchain-Platf"
+         font-size="37.07"
+         font-weight="500"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         fill="#FFFFFF">
+        <tspan
+           x="193.9768"
+           y="83"
+           id="tspan20">IBM Blockchain Platform</tspan>
+      </text>
+      <text
+         id="The-service-that-all"
+         font-size="28.07"
+         font-weight="normal"
+         font-family="IBMPlexSans, IBM Plex Sans"
+         fill="#FFFFFF">
+        <tspan
+           x="192"
+           y="128"
+           id="tspan23">Hyperledger Fabric <tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4401">노드를 배치하고 관리할 수</tspan>
+</tspan>
+        <tspan
+           x="192"
+           y="165"
+           id="tspan25"
+           style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">있는 서비스입니다.</tspan>
+      </text>
+    </g>
+    <g
+       id="g27"
+       transform="translate(100.000000, 151.000000)">
+      <circle
+         id="Oval"
+         cx="51"
+         cy="36"
+         r="36"
+         stroke="#979797"
+         fill="#FFFFFF" />
+      <rect
+         id="rect30"
+         x="0.5"
+         y="186.5"
+         width="1021"
+         height="109"
+         stroke="#FFFCFC"
+         fill="#011688" />
+    </g>
+    <g
+       id="g32"
+       transform="translate(100.000000, 989.000000)"
+       stroke="#FFFAFA"
+       fill="#011688">
+      <rect
+         id="rect34"
+         x="0.5"
+         y="0.5"
+         width="1021"
+         height="108" />
+    </g>
+    <g
+       id="Group-3"
+       transform="translate(100.000000, 457.000000)">
+      <g
+         id="g37"
+         stroke="#FFFBFB"
+         fill="#011688">
+        <rect
+           id="rect39"
+           x="0.5"
+           y="0.5"
+           width="1021"
+           height="520" />
+      </g>
+      <g
+         id="g41"
+         transform="translate(35.000000, 102.000000)"
+         stroke="#979797"
+         fill="#FFFFFF">
+        <rect
+           id="rect43"
+           x="0.5"
+           y="0.5"
+           width="294"
+           height="393" />
+      </g>
+      <g
+         id="g45"
+         transform="translate(350.000000, 102.000000)"
+         stroke="#979797"
+         fill="#FFFFFF">
+        <rect
+           id="rect47"
+           x="0.5"
+           y="0.5"
+           width="327"
+           height="393" />
+      </g>
+      <g
+         id="g49"
+         transform="translate(698.000000, 101.000000)"
+         stroke="#979797"
+         fill="#FFFFFF">
+        <rect
+           id="rect51"
+           x="0.5"
+           y="0.5"
+           width="294"
+           height="393" />
+      </g>
+      <text
+         id="Hyperledger-Fabric-C"
+         font-size="37.07"
+         font-weight="500"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         fill="#FFFFFF">
+        <tspan
+           x="244.420285"
+           y="63"
+           id="tspan54">Hyperledger Fabric <tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4405">컴포넌트</tspan>
+</tspan>
+      </text>
+      <text
+         id="CA"
+         font-size="20.07"
+         font-weight="500"
+         line-spacing="32"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         fill="#000000">
+        <tspan
+           x="166"
+           y="333"
+           id="tspan62">CA</tspan>
+      </text>
+      <g
+         id="Group-2"
+         transform="translate(389.000000, 256.000000)">
+        <g
+           id="g65"
+           stroke="#011688"
+           fill="#FFFFFF">
+          <rect
+             id="rect67"
+             x="0.5"
+             y="0.5"
+             width="112"
+             height="72" />
+        </g>
+        <text
+           id="Peer"
+           font-size="20.07"
+           font-weight="500"
+           line-spacing="32"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#000000">
+          <tspan
+             x="33.2352941"
+             y="40"
+             id="tspan70"
+             style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">피어</tspan>
+        </text>
+      </g>
+      <rect
+         id="rect72"
+         x="126.5"
+         y="294.5"
+         width="112"
+         height="72"
+         stroke="#011688" />
+      <rect
+         id="rect74"
+         x="789.5"
+         y="294.5"
+         width="112"
+         height="72"
+         stroke="#011688" />
+      <text
+         id="Orderer"
+         font-size="20.07"
+         font-weight="500"
+         line-spacing="32"
+         x="-18"
+         style="font-weight:500;font-size:20.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#000000">
+        <tspan
+           x="792"
+           y="335"
+           id="tspan77"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gulim;-inkscape-font-specification:Gulim">순서 지정자</tspan>
+      </text>
+      <g
+         id="g79"
+         transform="translate(525.000000, 256.000000)"
+         stroke="#011688"
+         fill="#FFFFFF">
+        <rect
+           id="rect81"
+           x="0.5"
+           y="0.5"
+           width="112"
+           height="72" />
+      </g>
+      <g
+         id="g88"
+         transform="translate(389.000000, 344.000000)"
+         stroke="#011688"
+         fill="#FFFFFF">
+        <rect
+           id="rect90"
+           x="0.5"
+           y="0.5"
+           width="112"
+           height="72" />
+      </g>
+      <text
+         id="CouchDB"
+         font-size="20.07"
+         font-weight="500"
+         line-spacing="32"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         fill="#000000">
+        <tspan
+           x="403"
+           y="384"
+           id="tspan93">CouchDB</tspan>
+      </text>
+      <text
+         id="text95"
+         font-size="25.07"
+         font-weight="500"
+         font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+         fill="#000000">
+        <tspan
+           x="475.80045"
+           y="160"
+           id="tspan97"
+           style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">피어</tspan>
+      </text>
+    </g>
+    <g
+       id="g104"
+       transform="translate(1236.000000, 105.000000)">
+      <rect
+         id="rect106"
+         x="0.5"
+         y="0.5"
+         width="1124"
+         height="1035"
+         stroke="#979797"
+         fill="#1E1E1F"
+         opacity="0.703822545" />
+      <g
+         id="Group-6"
+         transform="translate(481.000000, 236.000000)">
+        <rect
+           id="rect109"
+           x="0.5"
+           y="0.5"
+           width="577"
+           height="513"
+           stroke="#FFFBFB"
+           fill="#FFFFFF" />
+        <rect
+           id="rect111"
+           x="0.5"
+           y="546.5"
+           width="577"
+           height="227"
+           stroke="#FFFBFB"
+           fill="#C9C5C5" />
+        <g
+           id="g113"
+           transform="translate(64.000000, 110.000000)"
+           stroke="#979797"
+           fill="#FFFFFF">
+          <rect
+             id="Rectangle-2"
+             x="0.5"
+             y="0.5"
+             width="460"
+             height="348" />
+        </g>
+        <text
+           id="Cluster"
+           font-size="37.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#2E2E2E">
+          <tspan
+             x="223.66724"
+             y="52"
+             id="tspan117"
+             style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">클러스터 </tspan>
+        </text>
+        <text
+           id="Persistent-storage"
+           font-size="37.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#000000">
+          <tspan
+             x="129.82409"
+             y="602"
+             id="tspan120"
+             style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">지속적 스토리지 </tspan>
+        </text>
+        <text
+           id="(ex:-4-CPU-x-16GB-RA"
+           font-size="21.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#2E2E2E"
+           opacity="0.624906994">
+          <tspan
+             x="174.01936"
+             y="79"
+             id="tspan123">(<tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4421">예</tspan>
+: 4 CPU x 16GB RAM)</tspan>
+        </text>
+        <text
+           id="Separate,-physical-s"
+           font-size="21.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#000000"
+           opacity="0.825683594">
+          <tspan
+             x="153.477855"
+             y="629"
+             id="tspan126"
+             style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">별도의 물리적 스토리지</tspan>
+        </text>
+        <text
+           id="Worker-node"
+           font-size="25.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#000000">
+          <tspan
+             x="216.330405"
+             y="166"
+             id="tspan129"
+             style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">작업자 노드</tspan>
+        </text>
+        <g
+           id="g131"
+           transform="translate(115.000000, 201.000000)"
+           stroke="#979797"
+           fill="#FFFFFF">
+          <rect
+             id="rect133"
+             x="0.5"
+             y="0.5"
+             width="365"
+             height="223" />
+        </g>
+        <g
+           id="g135"
+           transform="translate(167.000000, 278.000000)"
+           stroke="#979797"
+           fill="#FFFFFF">
+          <rect
+             id="rect137"
+             x="0.5"
+             y="0.5"
+             width="261"
+             height="98" />
+        </g>
+        <text
+           id="Pod"
+           font-size="25.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#000000">
+          <tspan
+             x="268.13756"
+             y="249"
+             id="tspan140"><tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4423">팟</tspan>
+(Pod)</tspan>
+        </text>
+        <text
+           id="App-containers"
+           font-size="25.07"
+           font-weight="500"
+           x="20"
+           style="font-weight:500;font-size:25.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#000000">
+          <tspan
+             x="230.07951"
+             y="332"
+             id="tspan143"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gulim;-inkscape-font-specification:Gulim">앱 컨테이너</tspan>
+        </text>
+        <g
+           id="g145"
+           transform="translate(106.000000, 650.000000)"
+           stroke="#979797"
+           fill="#FFFFFF">
+          <rect
+             id="rect147"
+             x="0.5"
+             y="0.5"
+             width="365"
+             height="73" />
+        </g>
+        <text
+           id="File-storage-(defaul"
+           font-size="25.07"
+           font-weight="500"
+           font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+           fill="#000000">
+          <tspan
+             x="168.275415"
+             y="694"
+             id="tspan150"
+             style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">파일 스토리지(기본값)</tspan>
+        </text>
+      </g>
+    </g>
+    <rect
+       id="rect152"
+       x="1122.5"
+       y="648.5"
+       width="547"
+       height="274"
+       stroke="#FFFBFB"
+       fill="#BFEEF6" />
+    <use
+       id="use154"
+       mask="url(#mask-2)"
+       xlink:href="#path-1"
+       stroke-dasharray="7"
+       stroke-width="4"
+       stroke="#0A0909" />
+    <text
+       id="Containers"
+       font-size="25.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1151.3236"
+         y="711"
+         id="tspan157"
+         style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">컨테이너</tspan>
+    </text>
+    <text
+       id="Blockchain-Service"
+       font-size="37.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="56.003655"
+         y="77"
+         id="tspan160">Blockchain <tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4399">서비스</tspan>
+</tspan>
+    </text>
+    <text
+       id="text162"
+       font-size="37.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#FFFFFF">
+      <tspan
+         x="306.89699"
+         y="408"
+         id="tspan164">IBM Blockchain Platform <tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4403">콘솔</tspan>
+(UI)</tspan>
+    </text>
+    <text
+       id="text166"
+       font-size="37.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#FFFFFF">
+      <tspan
+         x="206.3421"
+         y="1058"
+         id="tspan168">IBM Blockchain Platform Extension for VS Code  </tspan>
+    </text>
+    <text
+       id="Infrastructure-resou"
+       font-size="37.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1251.05361"
+         y="77"
+         id="tspan171"
+         style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">인프라 리소스</tspan>
+    </text>
+    <text
+       id="IBM-Cloud-Kubernetes"
+       font-size="37.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#FFFFFF">
+      <tspan
+         x="1402.04529"
+         y="177"
+         id="tspan174">IBM Cloud Kubernetes Service</tspan>
+    </text>
+    <text
+       id="Your-compute-and-mem"
+       font-size="28.07"
+       font-weight="normal"
+       font-family="IBMPlexSans, IBM Plex Sans"
+       fill="#FFFFFF">
+      <tspan
+         x="1402"
+         y="222"
+         id="tspan177"
+         style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">블록체인 인스턴스에 할당하는컴퓨팅 및 메모리입니다.</tspan>
+    </text>
+    <g
+       id="container-service-logo-3aec89a836"
+       transform="translate(1297.000000, 151.000000)"
+       fill-rule="nonzero">
+      <path
+         d="M0,20 C0,20.8749039 0.488889414,21.7501334 1.46567591,22.4139659 L24.445463,38.0296642 C26.3996976,39.3576549 29.597987,39.3579806 31.5525523,38.0296642 L54.5339933,22.416246 C55.5114414,21.7524135 56,20.8768582 56,20.0016286 L56,46.9760936 C56,47.8513231 55.5114414,48.7265527 54.5339933,49.3907109 L31.5525523,65.0041291 C29.597987,66.3321198 26.3996976,66.3317941 24.445463,65.0041291 L1.46567591,49.3881051 C0.488558636,48.7242726 0,47.849043 0,46.9734877 L0,20 Z"
+         id="Path"
+         fill="#000000" />
+      <path
+         d="M0,19.1721786 C0,20.0533282 0.488886526,20.9348058 1.46566725,21.6033772 L17.7626566,32.7558566 L24.4476341,28.1818179 C26.4021878,26.844347 29.6004584,26.8446751 31.5546814,28.1818179 L38.2376742,32.7565127 L54.534002,21.6060016 C55.5114442,20.9371021 56,20.0556245 56,19.174147 L56,19.161681 C56,18.2798753 55.5114442,17.3983977 54.5343327,16.7298263 L31.5560045,1.00265206 C29.6004584,-0.334162673 26.4025186,-0.334162673 24.4479648,1.00232401 L1.46665958,16.7272019 C0.489217302,17.3957733 0,18.2775789 0,19.1587285 L0,46 L0,19.1721786 Z"
+         id="path183"
+         fill="#0F6FFF" />
+    </g>
+    <path
+       id="Line"
+       d="M1907.5,601.5 L1119.5,601.5 L1119.5,596.5 L1907.5,596.5 L1907.5,584.5 L1936.5,599 L1907.5,613.5 L1907.5,601.5 Z"
+       fill-rule="nonzero"
+       fill="#0CCAEB" />
+    <path
+       id="path186"
+       d="M1907.5,601.5 L1119.5,601.5 L1119.5,596.5 L1907.5,596.5 L1907.5,584.5 L1936.5,599 L1907.5,613.5 L1907.5,601.5 Z"
+       fill-rule="nonzero"
+       fill="#0CCAEB" />
+    <path
+       id="path188"
+       d="M1839.91082,1026.44355 L1605.25194,808.631548 L1608.65348,804.966914 L1843.31236,1022.77892 L1851.47605,1013.9838 L1862.86646,1044.34015 L1831.74713,1035.23867 L1839.91082,1026.44355 Z"
+       fill-rule="nonzero"
+       fill="#0CCAEB" />
+    <path
+       id="path190"
+       d="M1910.21327,697.391307 L1609.54241,810.721092 L1607.77891,806.042411 L1908.44977,692.712626 L1904.21736,681.483791 L1936.46787,684.82365 L1914.44568,708.620142 L1910.21327,697.391307 Z"
+       fill-rule="nonzero"
+       fill="#0CCAEB" />
+    <circle
+       id="circle192"
+       cx="141"
+       cy="565"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="1"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="135"
+         y="570"
+         id="tspan195">1</tspan>
+    </text>
+    <circle
+       id="circle197"
+       cx="1709"
+       cy="597"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="text199"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1703"
+         y="602"
+         id="tspan201">1</tspan>
+    </text>
+    <circle
+       id="circle203"
+       cx="1709"
+       cy="597"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="text205"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1703"
+         y="602"
+         id="tspan207">1</tspan>
+    </text>
+    <circle
+       id="circle209"
+       cx="1758"
+       cy="597"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="2"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1752"
+         y="602"
+         id="tspan212">2</tspan>
+    </text>
+    <circle
+       id="circle214"
+       cx="1807"
+       cy="597"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="3"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1801"
+         y="602"
+         id="tspan217">3</tspan>
+    </text>
+    <circle
+       id="circle219"
+       cx="455"
+       cy="564"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="text221"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="449"
+         y="569"
+         id="tspan223">2</tspan>
+    </text>
+    <circle
+       id="circle225"
+       cx="804"
+       cy="563"
+       r="19"
+       stroke="#979797"
+       fill="#0CCAEB" />
+    <text
+       id="text227"
+       font-size="21.07"
+       font-weight="400"
+       line-spacing="32"
+       font-family="IBMPlexSans-Medium, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="798"
+         y="568"
+         id="tspan229">3</tspan>
+    </text>
+    <g
+       id="IBP_2_0_Service_Tile_Icon"
+       transform="translate(111.000000, 150.000000)"
+       fill-rule="nonzero"
+       fill="#13171A">
+      <path
+         d="M41.5,0 C18.5801829,-1.25125444e-15 2.80686807e-15,16.5654643 0,37 C-2.80686807e-15,57.4345357 18.5801829,74 41.5,74 C64.4198171,74 83,57.4345357 83,37 C83,27.1869899 78.6276911,17.7758951 70.8449314,10.8370491 C63.0621717,3.89820309 52.5064843,6.00873572e-16 41.5,0 Z M23.34375,50.875 L18.15625,50.875 L18.15625,23.125 L23.34375,23.125 L23.34375,50.875 Z M57.0625,57.8125 L25.9375,57.8125 L25.9375,53.1875 L57.0625,53.1875 L57.0625,57.8125 Z M57.0625,20.8125 L25.9375,20.8125 L25.9375,16.1875 L57.0625,16.1875 L57.0625,20.8125 Z M64.84375,50.875 L59.65625,50.875 L59.65625,23.125 L64.84375,23.125 L64.84375,50.875 Z"
+         id="Shape" />
+    </g>
+    <rect
+       id="rect245"
+       x="1279.5"
+       y="415.5"
+       width="391"
+       height="156"
+       stroke="#FFFBFB"
+       fill="#BFEEF6" />
+    <text
+       id="text247"
+       font-size="25.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1307.13756"
+         y="462"
+         id="tspan249"><tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4407">팟</tspan>
+(Pod)</tspan>
+    </text>
+    <rect
+       id="rect251"
+       transform="translate(1694.005872, 748.641444) rotate(-21.000000) translate(-1694.005872, -748.641444) "
+       x="1613.00587"
+       y="724.641444"
+       width="162"
+       height="48"
+       fill="#0CCAEB" />
+    <text
+       id="CPU-&amp;-Memory"
+       transform="translate(1693.063607, 748.557439) rotate(-21.000000) translate(-1693.063607, -748.557439) "
+       font-size="18.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1630.64983"
+         y="755.557439"
+         id="tspan254">CPU <tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4453">및 메모리</tspan>
+</tspan>
+    </text>
+    <rect
+       id="rect256"
+       transform="translate(1679.103925, 902.031000) rotate(43.000000) translate(-1679.103925, -902.031000) "
+       x="1615.60392"
+       y="880.531"
+       width="127"
+       height="43"
+       fill="#0CCAEB" />
+    <text
+       id="Storage"
+       transform="translate(1678.679494, 902.568135) rotate(42.000000) translate(-1678.679494, -902.568135) "
+       font-size="18.07"
+       font-weight="500"
+       font-family="IBMPlexSans-SemiBold, IBM Plex Sans"
+       fill="#000000">
+      <tspan
+         x="1646.35226"
+         y="909.568135"
+         id="tspan259"
+         style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">스토리지</tspan>
+    </text>
+    <text
+       id="*-Storage-cost-is-no"
+       font-size="17.07"
+       font-weight="normal"
+       font-family="IBMPlexSans, IBM Plex Sans"
+       fill="#2E2E2E">
+      <tspan
+         x="1749.15916"
+         y="1094"
+         id="tspan267">* Kubernetes <tspan
+   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan4425">클러스터 비용에는 스토리지 비용이 포함되지 않습니다.</tspan>
+</tspan>
+    </text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="1310.5098"
+     y="497.25647"
+     id="text4415"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4417"
+       x="1310.5098"
+       y="497.25647"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim">각 Fabric 컴포넌트는 개별 </tspan><tspan
+       sodipodi:role="line"
+       x="1310.5098"
+       y="522.25647"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim"
+       id="tspan4419">팟(Pod)에 배치됩니다.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="1151.5085"
+     y="869.88177"
+     id="text4447"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4449"
+       x="1151.5085"
+       y="869.88177"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:Gulim;-inkscape-font-specification:Gulim">* 다이어그램에는 콘솔과 통신하거나 로그를 수집하는 데 사용되는 </tspan><tspan
+       sodipodi:role="line"
+       x="1151.5085"
+       y="888.63177"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:Gulim;-inkscape-font-specification:Gulim"
+       id="tspan4451">배치, 컴포넌트에 대한 컨테이너가 포함되어 있지 않습니다.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="1151"
+     y="746"
+     id="text4455"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4457"
+       x="1151"
+       y="746"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim">각 컴포넌트는 Kubernetes 팟(Pod) 내에</tspan><tspan
+       sodipodi:role="line"
+       x="1151"
+       y="771"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim"
+       id="tspan4459">배치되는 컨테이너로 구성되며</tspan><tspan
+       sodipodi:role="line"
+       x="1151"
+       y="796"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim"
+       id="tspan4461">Kubernetes 대시보드에 표시됩니다.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="257.07019"
+     y="596.39514"
+     id="text4463"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4465"
+       x="257.07019"
+       y="596.39514"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:Gulim;-inkscape-font-specification:Gulim">인증</tspan><tspan
+       sodipodi:role="line"
+       x="257.07019"
+       y="627.64514"
+       id="tspan4467"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:Gulim;-inkscape-font-specification:Gulim">기관</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="953.49567"
+     y="597.39514"
+     id="text4469"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4471"
+       x="953.49567"
+       y="597.39514"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:Gulim;-inkscape-font-specification:Gulim;text-align:center;text-anchor:middle">순서 지정</tspan><tspan
+       sodipodi:role="line"
+       x="953.49567"
+       y="628.64514"
+       id="tspan4473"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:Gulim;-inkscape-font-specification:Gulim;text-align:center;text-anchor:middle">서비스</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="627.90137"
+     y="756.66571"
+     id="text4475"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4477"
+       x="627.90137"
+       y="756.66571"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim">스마트 계약</tspan></text>
+</svg>

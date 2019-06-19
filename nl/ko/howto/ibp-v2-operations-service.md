@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: logging levels, metrics, health check, peer, orderer
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,7 +22,7 @@ subcollection: blockchain
 # 오퍼레이션 서비스를 사용하여 노드 운영
 {: #operations_service}
 
-{{site.data.keyword.blockchainfull}} Platform v2.0은 Hyperledger Fabric v1.4.1을 기반으로 합니다. 이 플랫폼은 운영자가 노드 상태 검사를 수행하고, 피어 및 순서 지정자 노드에서 운영 메트릭을 가져오고, 로깅 레벨을 관리하기 위한 RESTful "오퍼레이션" API를 제공하는 오퍼레이션 서비스 기능을 지원합니다. 피어 및 순서 지정자 호스트는 RESTful "오퍼레이션" API를 제공하는 HTTP 서버를 호스팅합니다. 오퍼레이션 서비스에 대한 자세한 정보는 [오퍼레이션 서비스 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html "오퍼레이션 서비스"){:new_window}를 참조하십시오.
+{{site.data.keyword.blockchainfull}} Platform은 Hyperledger Fabric v1.4.1을 기반으로 합니다. 이 플랫폼은 운영자가 노드 상태 검사를 수행하고, 피어 및 순서 지정자 노드에서 운영 메트릭을 가져오고, 로깅 레벨을 관리하기 위한 RESTful "오퍼레이션" API를 제공하는 오퍼레이션 서비스 기능을 지원합니다. 피어 및 순서 지정자 호스트는 RESTful "오퍼레이션" API를 제공하는 HTTP 서버를 호스팅합니다.  오퍼레이션 서비스에 대한 자세한 정보는 [오퍼레이션 서비스](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}를 참조하십시오.
 {:shortdesc}
 
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 {: #operations_service_consideration_limitation}
 
 - 모든 피어 및 순서 지정자 노드는 상태 검사기에 액세스할 수 있도록 `clientAuthRequired: false`로 구성됩니다. `clientAuthRequired`가 `false`로 설정되고 상호 TLS가 사용으로 설정되었으므로 인증할 수 있으려면 REST 서버에 액세스할 때 TLS ID를 전달해야 합니다. 이 설정은 적절한 키가 있는 사용자만 해당 로그를 볼 수 있도록 합니다.
-- 현재 [Prometheus ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus)를 기반으로 모델을 가져오는 메트릭만 지원됩니다.
+- 현재는 [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external} 기반의 모델을 가져오는 메트릭만 지원됩니다. 
 
 ## 시작하기 전에
 {: #operations_service_before_you_begin}
@@ -108,7 +108,7 @@ curl -k https://169.46.208.93:3210/healthz
 ```
 {:codeblock}
 
-상태 검사에 대한 자세한 정보는 [상태 검사 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks "상태 검사")를 참조하십시오.
+상태 검사에 대한 자세한 정보는 [상태 검사](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}를 참조하십시오. 
 
 
 ## 메트릭 보기
@@ -129,7 +129,7 @@ curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcert
 {:codeblock}
 
 
-자세한 정보는 [메트릭 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics "메트릭")을 참조하십시오.
+메트릭에 대한 자세한 정보는 [메트릭](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}을 참조하십시오. 
 
 
 ## 로깅 레벨 보기
@@ -162,7 +162,7 @@ curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/or
 ## 로깅 레벨 설정
 {: #operations_service_log_level_set}
 
-기존 로깅 레벨 설정을 변경하려면 다음 명령을 실행하십시오. 이 명령은 `spec`이라는 단일 속성으로 구성된 JSON 본문에 `PUT` 메소드를 사용합니다. `<log-level>`을 예상 로깅 레벨로 바꾸십시오. 설정할 수 있는 로깅 레벨에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로깅 스펙 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification "로깅 스펙")을 참조하십시오.
+기존 로깅 레벨 설정을 변경하려면 다음 명령을 실행하십시오. 이 명령은 `spec`이라는 단일 속성으로 구성된 JSON 본문에 `PUT` 메소드를 사용합니다. `<log-level>`을 예상 로깅 레벨로 바꾸십시오. 설정할 수 있는 로깅 레벨에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로깅 스펙](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external}을 참조하십시오. 
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -182,4 +182,4 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 ```
 -->
 
-로그 레벨 구성에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로그 레벨 관리 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management "로그 레벨 관리")를 참조하십시오.
+로그 레벨 구성에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로그 레벨 관리](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external}를 참조하십시오. 

@@ -10,11 +10,12 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Swagger API를 사용하여 네트워크 작성 또는 가입
 {: #swagger-network}
@@ -26,17 +27,17 @@ subcollection: blockchain
 ## API에 대한 기본 인증 정보 검색
 {: #swagger-network-retrieve-id-token}
 
-시작하기 전에 {{site.data.keyword.cloud_notm}}에서 스타터 플랜 또는 엔터프라이즈 플랜을 사용하여 [{{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod)를 작성해야 합니다.
+시작하기 전에 {{site.data.keyword.cloud_notm}}에서 스타터 플랜 또는 엔터프라이즈 플랜을 사용하여 [{{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스 ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 작성해야 합니다. 
 
 Swagger API를 사용하여 네트워크를 작성하거나 가입하려면 {{site.data.keyword.cloud_notm}}의 서비스 인스턴스에 액세스할 수 있도록 하는 기본 인증 정보가 필요합니다.
 
-1. [{{site.data.keyword.cloud_notm}} 대시보드 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources)에서 작성한 서비스 인스턴스를 여십시오.
+1. [{{site.data.keyword.cloud_notm}} 대시보드](https://cloud.ibm.com/resources){: external}에서 사용자가 작성한 서비스 인스턴스를 여십시오. 
 2. 왼쪽 네비게이터에서 **서비스 인증 정보**를 클릭하십시오.
 3. **서비스 인증 정보** 페이지에서 "새 인증 정보" 단추를 클릭하여 새 인증 정보를 작성하십시오.
     1. 인증 정보에 이름을 지정하십시오(예: *CreateJoin*).
     2. "인라인 구성 매개변수 추가" 필드에 **{"type": "service_instance_token"}**을 입력하십시오.
     3. **추가** 단추를 클릭하십시오.
-    ![서비스 인증 정보 검색](../images/service_credentials.gif "서비스 인증 정보 검색")
+    ![서비스 인증 정보 검색](../images/service_credentials.gif "서비스 인증 정보 검색"){: gif}
 4. 새 인증 정보가 작성된 후 이 인증 정보의 **조치** 헤더 아래에서 **인증 정보 보기**를 클릭하십시오. 인증 정보의 컨텐츠는 다음 예제와 유사합니다.
 
     ```

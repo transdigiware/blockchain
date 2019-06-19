@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: chaincode endorsement policy, install chaincode, instantiate chaincode, update chaincode
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -20,7 +20,7 @@ subcollection: blockchain
 {: #install-instantiate-chaincode}
 
 
-체인코드는 원장의 자산 작성 및 수정을 위한 비즈니스 로직 및 트랜잭션 명령어를 캡슐화하는 소프트웨어입니다. 체인코드는 여러 다른 언어로 쓸 수 있으며 {{site.data.keyword.blockchainfull}} Platform에서는 Go와 Node.js 체인코드를 지원합니다. 체인코드는 상호작용해야 하는 피어와 연관된 Docker 컨테이너에서 실행됩니다. 체인코드 개발에 대한 자세한 정보는 [체인코드 튜토리얼 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html)을 참조하십시오.
+체인코드는 원장의 자산 작성 및 수정을 위한 비즈니스 로직 및 트랜잭션 명령어를 캡슐화하는 소프트웨어입니다. 체인코드는 여러 다른 언어로 쓸 수 있으며 {{site.data.keyword.blockchainfull}} Platform에서는 Go와 Node.js 체인코드를 지원합니다. 체인코드는 상호작용해야 하는 피어와 연관된 Docker 컨테이너에서 실행됩니다. 체인코드 개발에 대한 자세한 정보는 [체인코드 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html){: external}을 참조하십시오.
 {:shortdesc}
 
 체인코드가 피어에 설치된 다음 채널에서 인스턴스화됩니다. **체인코드를 사용하여 트랜잭션을 제출하거나 데이터를 읽으려는 모든 구성원은 피어에 체인코드를 설치해야 합니다.** 체인코드는 해당 이름과 버전으로 정의됩니다. 설치된 체인코드의 이름과 버전은 채널의 전체 피어에서 일관되어야 합니다.
@@ -40,7 +40,7 @@ subcollection: blockchain
 
 2. **체인코드 설치** 팝업 패널에서 체인코드의 이름과 버전을 입력하십시오. 설치된 체인코드와 상호작용할 애플리케이션에서 이름 및 버전 문자열이 사용된다는 점을 **참고**하십시오. **찾아보기** 단추를 클릭하고 체인코드 소스 파일이 저장되는 로컬 파일 시스템으로 이동하십시오. 피어에 설치할 하나 이상의 체인코드 소스 파일을 선택하십시오. 그런 다음 **체인코드 유형** 드롭 다운에서 체인코드 언어를 선택하십시오.
 
-단일 또는 다중 GO 또는 NODE 파일을 업로드하여 체인코드를 설치하거나 .zip 파일 내에 체인코드를 업로드할 수 있습니다. .zip 파일 사용 시 완전한 디렉토리 구조로 체인코드를 유지보수합니다. 이는 종속 항목 패키지를 포함하거나 CouchDB에서 인덱스를 사용하려는 경우에 유용합니다. CouchDB에 관한 자세한 정보와 인덱스 설정 방법은 애플리케이션 개발 튜토리얼의 [CouchDB 사용 시의 우수 사례](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)를 참조하십시오. Hyperledger Fabric 문서의 [Go로 작성된 체인코드의 외부 종속 항목 관리 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){:new_window}에서 정보를 찾을 수도 있습니다.
+단일 또는 다중 GO 또는 NODE 파일을 업로드하여 체인코드를 설치하거나 .zip 파일 내에 체인코드를 업로드할 수 있습니다. .zip 파일 사용 시 완전한 디렉토리 구조로 체인코드를 유지보수합니다. 이는 종속 항목 패키지를 포함하거나 CouchDB에서 인덱스를 사용하려는 경우에 유용합니다. CouchDB에 관한 자세한 정보와 인덱스 설정 방법은 애플리케이션 개발 튜토리얼의 [CouchDB 사용 시의 우수 사례](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)를 참조하십시오. 이 정보는 Hyperledger Fabric 문서의 [Go로 작성된 체인코드의 외부 종속 항목 관리](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external}에서 찾을 수도 있습니다. 
 
   ![체인코드 설치](../images/chaincode_install.png "체인코드 설치")
 
@@ -79,7 +79,7 @@ subcollection: blockchain
 
 * **JSON을 사용하여 고급 정책 지정:** 고급 정책을 사용하여 중요한 구성원이나 관리자의 보증을 요구하거나 특정 구성원의 보증에 가중치를 부여하십시오.
 
-  고급 정책을 지정하는 가장 쉬운 방법은 UI 화면을 통해 단순 정책을 빌드하여 시작하는 것입니다. 그런 다음 **고급 정책** 단추를 클릭하면 정책의 JSON 버전이 단순 정책에서 설정한 경우와 동일한 구성원과 규칙으로 자동으로 채워집니다. 그런 다음 고급 버전을 작성하도록 JSON을 편집할 수 있습니다. JSON으로 보증 정책을 작성하는 방법에 대한 자세한 정보는 [Hyperledger Fabric 노드 SDK 문서![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest)를 참조하십시오. <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies)-->
+  고급 정책을 지정하는 가장 쉬운 방법은 UI 화면을 통해 단순 정책을 빌드하여 시작하는 것입니다. 그런 다음 **고급 정책** 단추를 클릭하면 정책의 JSON 버전이 단순 정책에서 설정한 경우와 동일한 구성원과 규칙으로 자동으로 채워집니다. 그런 다음 고급 버전을 작성하도록 JSON을 편집할 수 있습니다. 보증 정책을 JSON으로 작성하는 방법에 대한 자세한 정보는 [Hyperledger Fabric 노드 SDK 문서](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}를 참조하십시오. <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies){: external}-->
 
   ![고급 보증 정책](../images/advanced_endorsement.png "고급 보증 정책")
 

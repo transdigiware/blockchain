@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -28,7 +28,7 @@ subcollection: blockchain
 ## 인증 기관
 {: #managing-certificates-network-ca}
 
-인증 기관(CA)에서 네트워크의 ID를 제공합니다. CA는 여러 당사자 간에 신뢰 앵커 역할을 하며 공개적으로 신뢰할 수 있는 공증인으로 간주할 수 있습니다. 디지털 ID를 캡슐화하는 루트 CA에서 서명한 인증서를 네트워크의 모든 엔티티에 제공합니다. 이 인증서는 네트워크에서 수행되는 확인 오퍼레이션과 모든 서명의 신뢰 루트입니다. 인증 기관을 사용하여 ID를 설정하는 방법에 관한 자세한 정보는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/identity/identity.html)를 참조하십시오.
+인증 기관(CA)에서 네트워크의 ID를 제공합니다. CA는 여러 당사자 간에 신뢰 앵커 역할을 하며 공개적으로 신뢰할 수 있는 공증인으로 간주할 수 있습니다. 디지털 ID를 캡슐화하는 루트 CA에서 서명한 인증서를 네트워크의 모든 엔티티에 제공합니다. 이 인증서는 네트워크에서 수행되는 확인 오퍼레이션과 모든 서명의 신뢰 루트입니다. 인증 기관을 사용하여 ID를 설정하는 방법에 대한 자세한 정보는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.2/identity/identity.html){: external}를 참조하십시오. 
 
 네트워크의 각 구성원은 자체 CA를 보유하고 있습니다. 조직 CA에서 관리자, 피어 또는 애플리케이션과 같이 조직이 보유한 모든 엔티티와 컴포넌트에 대한 요청에 서명합니다. 네트워크에 원격 피어 또는 새 애플리케이션을 추가하려면 인증 기관에 새 ID를 등록해야 합니다(등록). 그러면 CA에서 네트워크와 상호작용하는 데 필요한 인증서를 새 엔티티에 제공할 수 있습니다(등록).
 
@@ -108,19 +108,19 @@ Signature Algorithm: ecdsa-with-SHA256
 ## TLS 인증서 사용
 {: #managing-certificates-tls}
 
-[전송 계층 보안 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm)(TLS)은 Hyperledger Fabric의 신뢰 모델에 임베드됩니다. {{site.data.keyword.blockchainfull_notm}} Platform의 모든 컴포넌트에서는 TLS를 사용하여 서로 인증하고 통신합니다. 따라서 통신의 유효성을 검증하고 암호화하려면 플랫폼에서 발행한 TLS 인증서를 호출에 첨부해야 합니다. 이 튜토리얼에서 설명한 기타 인증서를 통해 네트워크 관리 및 트랜잭션 기능을 보호합니다. TLS 인증서는 네트워크에 대한 호출을 보호하는 데 사용합니다.
+TLS([Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm))는 Hyperledger Fabric의 신뢰 모델에 임베드됩니다. {{site.data.keyword.blockchainfull_notm}} Platform의 모든 컴포넌트에서는 TLS를 사용하여 서로 인증하고 통신합니다. 따라서 통신의 유효성을 검증하고 암호화하려면 플랫폼에서 발행한 TLS 인증서를 호출에 첨부해야 합니다. 이 튜토리얼에서 설명한 기타 인증서를 통해 네트워크 관리 및 트랜잭션 기능을 보호합니다. TLS 인증서는 네트워크에 대한 호출을 보호하는 데 사용합니다.
 
 TLS 인증서는 플랫폼에서 공개적으로 발행하며 모든 네트워크 컴포넌트에 대해 동일합니다. 멤버십 플랜 및 클라우드 위치에 따라 다음 링크에서 TLS 인증서를 다운로드할 수 있습니다. [인증 정보 프로파일](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile)에서도 TLS 인증서를 찾을 수 있습니다. 애플리케이션이나 명령행에서 참조할 수 있는 위치라면 어디든 이 인증서를 둘 수 있습니다.
 
 - 스타터 플랜의 TLS 인증서
-  - 미국: [us01.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert "us01.blockchain.ibm.com.cert"); [us02.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert "us02.blockchain.ibm.com.cert");
-    [us03.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us03.blockchain.ibm.com.cert "us03.blockchain.ibm.com.cert"); [us04.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us04.blockchain.ibm.com.cert "us04.blockchain.ibm.com.cert");
-  [us05.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us05.blockchain.ibm.com.cert "us05.blockchain.ibm.com.cert"); [us06.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us06.blockchain.ibm.com.cert "us06.blockchain.ibm.com.cert");
-  [us07.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us07.blockchain.ibm.com.cert "us07.blockchain.ibm.com.cert"); [us08.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us08.blockchain.ibm.com.cert "us08.blockchain.ibm.com.cert")
-  - 영국: [uk01.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk01.blockchain.ibm.com.cert "uk01.blockchain.ibm.com.cert"); [uk02.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk02.blockchain.ibm.com.cert "uk02.blockchain.ibm.com.cert");
-  [uk03.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk03.blockchain.ibm.com.cert "uk03.blockchain.ibm.com.cert"); [uk04.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk04.blockchain.ibm.com.cert "uk04.blockchain.ibm.com.cert")
-  - 시드니: [aus01.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert "aus01.blockchain.ibm.com.cert")
-- [엔터프라이즈 플랜의 TLS 인증서 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert)
+  - 미국: [us01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert){: external}; [us02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert){: external};
+  [us03.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us03.blockchain.ibm.com.cert){: external}; [us04.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us04.blockchain.ibm.com.cert){: external};
+  [us05.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us05.blockchain.ibm.com.cert){: external}; [us06.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us06.blockchain.ibm.com.cert){: external};
+  [us07.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us07.blockchain.ibm.com.cert){: external}; [us08.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us08.blockchain.ibm.com.cert){: external}
+  - 영국: [uk01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk01.blockchain.ibm.com.cert){: external}; [uk02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk02.blockchain.ibm.com.cert){: external};
+  [uk03.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk03.blockchain.ibm.com.cert){: external}; [uk04.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk04.blockchain.ibm.com.cert){: external}
+  - 시드니: [aus01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert){: external}
+- [엔터프라이즈 플랜의 TLS 인증서](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
 모든 {{site.data.keyword.blockchainfull_notm}} Platform 네트워크에서는 서버 측 TLS를 사용합니다. 해당 TLS는 네트워크가 클라이언트를 인증하는 데 필요합니다. 엔터프라이즈 플랜 네트워크에서는 애플리케이션 보안을 강화하기 위해 클라이언트와 서버에서 서로를 인증하는 상호 TLS를 사용합니다. 클라이언트 측 TLS 인증서(상호 TLS용)는 클라이언트 CA에서 발행하고 네트워크마다 고유합니다. 엔터프라이즈 플랜 네트워크를 사용하는 경우 상호 TLS를 사용하는 것이 좋습니다. 상호 TLS에 관한 자세한 정보는 [상호 TLS 지시사항](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-mutual-tls)을 참조하십시오.
 
@@ -168,7 +168,7 @@ Certificate:
 ## MSP(Membership Service Provider)
 {: #managing-certificates-msp}
 
-{{site.data.keyword.blockchainfull_notm}} Platform의 컴포넌트에서는 MSP(Membership Services Provider)를 통해 ID를 이용합니다. MSP는 CA에서 발행하는 인증서를 네트워크 및 채널 역할과 연관시킵니다. MSP에 관한 자세한 정보는 [Hyperledger Fabric 문서의 멤버십 개념 주제 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/membership/membership.html "Hyperledger Fabric 문서의 멤버십 개념 주제")를 참조하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform의 컴포넌트에서는 MSP(Membership Services Provider)를 통해 ID를 이용합니다. MSP는 CA에서 발행하는 인증서를 네트워크 및 채널 역할과 연관시킵니다. MSP에 대한 자세한 정보는 [Hyperledger Fabric 문서의 멤버십 개념 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.2/membership/membership.html){: external}를 참조하십시오. 
 
 Fabric의 MSP 폴더에는 구조가 정의되어 있습니다. Fabric CA client를 사용하여 등록하는 경우 클라이언트에서는 다음 하위 폴더를 사용하여 로컬 파일 시스템의 MSP 폴더에 인증서를 저장합니다.
 
@@ -187,7 +187,7 @@ Fabric의 MSP 폴더에는 구조가 정의되어 있습니다. Fabric CA client
 - **admincerts:** 이 폴더에는 이 조직이나 컴포넌트의 관리자 목록이 들어 있습니다. 명령행 또는 SDK에서 원격 피어를 작동시키는 경우 이 폴더에 signCert를 업로드해야 합니다. Fabric CA client를 사용하는 경우 관리자 인증서로 인식될 해당 signCert를 포함하고 있는 사용자의 MSP에서 admincerts 폴더도 필요합니다.
 - **tls:** 다른 네트워크 컴포넌트와 통신하는 데 사용하는 TLS 인증서를 저장하는 폴더입니다.
 
-MSP의 구조에 관한 자세한 정보는 Hyperledger Fabric 문서에서 [멤버십 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/membership/membership.html "멤버십") 및 [Membership Service Providers ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/msp.html "Membership Service Providers")를 참조하십시오.
+MSP의 구조에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [멤버십](https://hyperledger-fabric.readthedocs.io/en/release-1.2/membership/membership.html){: external} 및 [멤버십 서비스 제공자](https://hyperledger-fabric.readthedocs.io/en/release-1.2/msp.html){: external}를 참조하십시오. 
 
 ## Fabric CA Client를 사용하여 등록
 {: #managing-certificates-enroll-register-caclient}
@@ -213,10 +213,10 @@ MSP의 구조에 관한 자세한 정보는 Hyperledger Fabric 문서에서 [멤
 
 3. 사용하는 서비스 플랜, 위치 및 클러스터에 따라 {{site.data.keyword.cloud_notm}}에서 TLS 인증서를 다운로드하십시오. 인증 기관의 URL을 기준으로 서비스 플랜을 찾을 수 있습니다.
   - 스타터 플랜의 TLS 인증서
-    - 미국: [us01.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert "us01.blockchain.ibm.com.cert"); [us02.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert "us02.blockchain.ibm.com.cert"); [us03.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us03.blockchain.ibm.com.cert "us03.blockchain.ibm.com.cert"); [us04.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us04.blockchain.ibm.com.cert "us04.blockchain.ibm.com.cert"); [us05.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us05.blockchain.ibm.com.cert "us05.blockchain.ibm.com.cert"); [us06.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us06.blockchain.ibm.com.cert "us06.blockchain.ibm.com.cert"); [us07.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us07.blockchain.ibm.com.cert "us07.blockchain.ibm.com.cert"); [us08.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us08.blockchain.ibm.com.cert "us08.blockchain.ibm.com.cert")
-    - 영국: [uk01.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk01.blockchain.ibm.com.cert "uk01.blockchain.ibm.com.cert"); [uk02.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk02.blockchain.ibm.com.cert "uk02.blockchain.ibm.com.cert"); [uk03.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk03.blockchain.ibm.com.cert "uk03.blockchain.ibm.com.cert"); [uk04.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk04.blockchain.ibm.com.cert "uk04.blockchain.ibm.com.cert")
-    - 시드니: [aus01.blockchain.ibm.com.cert ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert "aus01.blockchain.ibm.com.cert")
-  - [엔터프라이즈 플랜의 TLS 인증서 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert)
+    - 미국: [us01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert){: external}; [us02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert){: external}; [us03.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us03.blockchain.ibm.com.cert){: external}; [us04.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us04.blockchain.ibm.com.cert){: external}; [us05.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us05.blockchain.ibm.com.cert){: external}; [us06.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us06.blockchain.ibm.com.cert){: external}; [us07.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us07.blockchain.ibm.com.cert){: external}; [us08.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us08.blockchain.ibm.com.cert){: external}
+    - 영국: [uk01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk01.blockchain.ibm.com.cert){: external}; [uk02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk02.blockchain.ibm.com.cert){: external}; [uk03.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk03.blockchain.ibm.com.cert){: external}; [uk04.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk04.blockchain.ibm.com.cert){: external}
+    - 시드니: [aus01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert){: external}
+  - [엔터프라이즈 플랜의 TLS 인증서](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
   컨텐츠를 폴더(예: ``$HOME/tls``)에 저장하십시오. 이 단계는 데이터 플로우가 연결에서 암호화되도록 허용합니다.
 

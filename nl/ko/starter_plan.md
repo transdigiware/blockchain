@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,9 +17,13 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # 스타터 플랜 정보
 {: #starter-plan-about}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform 스타터 플랜은 조직이 다중 조직 블록체인 네트워크를 시뮬레이션하고 신속하게 애플리케이션을 개발하며 샘플 스마트 계약 및 비즈니스 네트워크에 대한 작업을 수행할 수 있도록 하는 엔트리 레벨 옵션입니다. 또한 다른 멤버십 옵션과 동일한 UI 경험을 제공하여 학습 과정을 줄여줍니다. 2018년 10월 4일 이후에 작성된 새 스타터 플랜 네트워크는 Hyperledger Fabric V1.2.1에 빌드됩니다. 이전 스타터 플랜 네트워크는 Fabric V1.1.0 레벨로 유지됩니다.
 {:shortdesc}
@@ -30,13 +33,12 @@ subcollection: blockchain
 테스트 환경으로 사용하여 소규모로
 네트워크의 멤버십 또는 트랜잭션 볼륨을 시작할 수 있습니다.
 
- 스타터 플랜 네트워크를 배치하려면 {{site.data.keyword.cloud_notm}}에서 [스타터 멤버십 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod)에
-가입하십시오. 네트워크 개발을 시작할 준비가 되었을 때 [스타터 플랜 시작하기](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)를 방문하십시오.
+ 스타터 플랜 네트워크를 배치하려면 {{site.data.keyword.cloud_notm}}에서 [스타터 멤버십](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}에 지금 가입하십시오. 네트워크 개발을 시작할 준비가 되었을 때 [스타터 플랜 시작하기](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)를 방문하십시오.
 
 
 **참고:**
 - {{site.data.keyword.blockchainfull_notm}} Platform 스타터 플랜은 개발 및 테스트 환경이며 프로덕션 워크로드에는 적합하지 않습니다. 프로덕션 환경이 필요한 경우 [엔터프라이즈 플랜 정보](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)를 참조하십시오.
-- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.cloud_notm}}의 플랫폼 서비스이며 모든 멤버십 오퍼링은 서비스 레벨 계약(SLA)의 [{{site.data.keyword.cloud_notm}} 서비스 이용 약관 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "{{site.data.keyword.cloud_notm}} 서비스 이용 약관")을 따릅니다. 스타터 플랜은 단일 지역의 데이터 센터에서 프로비저닝됩니다. 사용 가능한 지역의 목록은 [{{site.data.keyword.blockchainfull_notm}} Platform 위치](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)를 참조하십시오.
+- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.cloud_notm}}의 플랫폼 서비스로, 모든 멤버십 오퍼링은 서비스 레벨 계약(SLA)의 [{{site.data.keyword.cloud_notm}} 서비스 이용 약관](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external}을 따릅니다. 스타터 플랜은 단일 지역의 데이터 센터에서 프로비저닝됩니다. 사용 가능한 지역의 목록은 [{{site.data.keyword.blockchainfull_notm}} Platform 위치](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)를 참조하십시오.
 
 ## 스타터 플랜이 제공하는 내용
 {: #starter-plan-about-what-starter-plan-offers}
@@ -78,9 +80,8 @@ subcollection: blockchain
 - **스타터 플랜 버전 및 업그레이드**
     - 2018년 10월 4일 이후에 작성된 새 스타터 플랜 네트워크는 Hyperledger Fabric V1.2.1에 빌드됩니다. 이전 스타터 플랜 네트워크는 Fabric V1.1.0 레벨로 유지됩니다.
     - 이전 스타터 플랜 네트워크에 추가된 새 피어는 Fabric v1.2.1에 빌드됩니다. 역호환성으로 인해 네트워크의 성능이 영향을 받지 않습니다.
-    - 채널을 작성하거나 업데이트하는 경우 추가 고급 [채널 구성 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html "채널 구성") 설정 및 [액세스 제어 목록 ![외부 링크 아이콘 ](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html "액세스 제어 목록")을 사용할 수 있는 옵션이 제공됩니다.
-    - Hyperledger Fabric v1.2의 [서비스 발견 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "서비스 발견") 및 [개인용 데이터![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html "개인용 데이터")
-기능은 스타터 플랜에서 지원되지 않습니다.
+    - 채널을 작성하거나 업데이트하는 경우 고급 [채널 구성](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html){: external} 설정 및 [액세스 제어 목록](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html){: external}을 사용할 수 있는 옵션이 제공됩니다. 
+    - Hyperledger Fabric v1.2의 [서비스 발견](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} 및 [개인용 데이터](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external} 기능은 스타터 플랜에서 지원되지 않습니다. 
     - Fabric V1.1.0에 있는 이전 스타터 플랜 네트워크를 [재설정](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-reset-network)하면 새 네트워크는 Fabric V1.2 레벨에 있습니다. 네트워크를 재설정하면 새 네트워크에 체인코드 또는 .bna 파일을 설치하고 이전 네트워크의 멤버를 다시 초대해야 합니다.
 - **새 리소스 제한사항**
     스타터 플랜은 각 피어에 1개의 CPU 및 4Gi RAM을 지정하고 피어를 포함하는 각 {{site.data.keyword.cloud_notm}} 서비스 인스턴스에 20Gi 스토리지를 지정합니다. 체인코드 컨테이너와 원장 블록은 가장 리소스 집약적인 네트워크 컴포넌트입니다. 네트워크에 피어가 많거나 많은 블록을 생성하거나 대규모 체인코드 파일을 사용하는 사용자는 리소스 제한사항이 성능에 민치는 영향을 경험할 수 있습니다. [네트워크 모니터의 "개요" 화면](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-storage)에서 스토리지의 네트워크 사용량을 볼 수 있습니다.

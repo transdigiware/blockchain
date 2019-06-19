@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -32,9 +32,7 @@ ID를 가져야 합니다. 이러한 ID는 {{site.data.keyword.blockchainfull_no
 
 CA는 자체 CA를 유지보수하는 컨소시엄 내의 각 조직과 함께 여러 당사자 간에 신뢰 앵커 역할을 하며 공개적으로
 신뢰할 수 있는 공증인과 유사합니다. CA는 조직에 속하는 ID를 작성하고 각 ID에 서명 인증서 및 개인 키를 발행합니다. 이러한
-키로 인해 모든 노드 및 애플리케이션이 조치에 서명하고 확인할 수 있습니다. CA가 ID를
-설정하기 위해 사용되는 방법에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [ID 주제 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html "ID")를
-참조하십시오.
+키로 인해 모든 노드 및 애플리케이션이 조치에 서명하고 확인할 수 있습니다. CA를 사용하여 ID를 설정하는 방법에 관한 자세한 정보는 Hyperledger Fabric 문서에서 [ID 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external}를 참조하십시오. 
 
 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용하여 CA를 작성하는 경우,
 엔드포인트 URL이 동일한 두 개의 CA, 즉, 루트 CA와 TLS CA가 작성됩니다. 이러한 두 CA를 콘솔의 **노드** 페이지의 동일한 표시 이름 아래에서
@@ -84,15 +82,11 @@ CA에 새로운 ID를 등록할 때 다음 정보를 입력해야 합니다.
 - **유형**: CA가 배치될 때 관리자가 CA에 의해 발행되는 ID의 유형을 지정합니다. ID 유형의
 일반적인 예는 피어, 순서 지정자 및 클라이언트(애플리케이션) 등입니다. 사용 가능한 유형 목록에서 이 사용자의 ID 유형을 선택하십시오.
 - **소속**: (선택사항) 고급 사용자에만 해당됩니다. 이 필드는 CA에 대한 소속이 정의된 경우에만 표시됩니다. 소속은 이 사용자와 연관시킬 조직의 파트입니다. 예를 들어,
-애플리케이션 또는 피어를 작동시키는 부서 또는 단위일 수 있습니다. 특정 CA 관리자가 사용자의 소속을 설정하여 조직 내 자체 부서 내의 사용자만 등록할 수 있도록 제한할 수 있습니다. CA 소속은 Fabric CA [affiliation 명령 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command "affiliation 명령")을 사용하여 정의됩니다.
+애플리케이션 또는 피어를 작동시키는 부서 또는 단위일 수 있습니다. 특정 CA 관리자가 사용자의 소속을 설정하여 조직 내 자체 부서 내의 사용자만 등록할 수 있도록 제한할 수 있습니다. CA 소속은 Fabric CA [Affiliation 명령](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command){: external}을 사용하여 정의됩니다. 
 - **최대 등록 수:** 필요에 따라 이 ID를 사용하여 인증서를 등록하거나 생성할 수 있는 횟수를 입력할 수 있습니다. 제한된 등록 수를
 지정하면 노드 및 애플리케이션의 보안을 강화하는 데 도움이 됩니다. 무제한 등록으로 기본값이 지정됩니다.
-- **속성**: 필요에 따라, 사용자에 대해 임의의
-[속성 기반 액세스 제어 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#attribute-based-access-control "속성 기반 액세스 제어") 속성을
-사용할 수 있습니다. 예를 들어, 이 절을 사용하여 새 ID를 등록할 수 있는 권한으로
-[다른 CA 관리자를 작성](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity)할 수 있습니다. Fabric CA
-사용자 안내서의 [새 ID 등록 ![외부  링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity "새 ID 등록")
-절에서 사용 가능한 Fabric CA 속성의 전체 목록을 볼 수 있습니다.
+- **속성**: 필요에 따라, 사용자에 대해 임의의 [속성 기반 액세스 제어](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#attribute-based-access-control){: external} 속성을 지정할 수 있습니다. 예를 들어, 이 절을 사용하여 새 ID를 등록할 수 있는 권한으로
+[다른 CA 관리자를 작성](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity)할 수 있습니다. 사용 가능한 Fabric CA 속성의 전체 목록은 Fabric CA 사용자 안내서의 [새 ID 등록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} 섹션에서 볼 수 있습니다. 
 
 CA 개요 패널에서 **사용자 등록** 단추를 클릭하여 새 사용자를 작성하십시오. 이 태스크를
 수행하기 전에 새 사용자를 등록하는 기능이 있는 ID를 사용하여 [ID를 설정](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity)했는지
@@ -119,9 +113,7 @@ CA 개요 패널에서 **사용자 등록** 단추를 클릭하여 새 사용자
 사이드 패널 4에서 **속성 추가** 단추를 클릭하십시오. `hf.Registrar.Roles`의 **속성 이름**을
 제공하십시오. **속성 값**으로 `*`을 입력하십시오. 또한 이 패널을 사용하여
 클라이언트, 피어 등의 특정 유형 또는 특정 소속 내의 의 ID 유형만 등록할 수 있는 ID를 작성할 수 있습니다. ID 및 ID가 발행한 모든 인증서를
-취소할 수 있는 기능이 있는 ID도 작성할 수 있습니다. Fabric CA
-사용자 안내서의 [새 ID 등록 ![외부  링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity "새 ID 등록")
-절에서 속성의 전체 목록을 볼 수 있습니다.
+취소할 수 있는 기능이 있는 ID도 작성할 수 있습니다. 속성의 전체 목록은 Fabric CA 사용자 안내서의 [새 ID 등록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} 섹션에서 볼 수 있습니다. 
 
 ## ID 등록
 {: #ibp-console-identities-enroll}
@@ -170,7 +162,7 @@ CA 관리자에 대해 설정한 최대 등록 수에 대해 계수됩니다. �
 ## 인증서 만기
 {: #ibp-console-identities-expiration}
 
-{{site.data.keyword.blockchainfull_notm}} Platform 2.0 CA를 사용하여 생성된 인증서는 일 년 후에 만기됩니다. 만기
+{{site.data.keyword.blockchainfull_notm}} Platform CA를 사용하여 생성된 인증서는 1년 후에 만기됩니다. 만기
 기간은 Fabric SDK, Fabric CA 클라이언트 또는 콘솔을 사용하여 생성된 인증서와 동일합니다. 인증서가
 만기되면 애플리케이션이 더 이상 네트워크와 상호작용할 수 없으며 새 인증서를 생성하려면 다시 등록해야 합니다. 사용자의 등록 제한이 적용되는 경우
 새 사용자를 등록한 다음 등록할 수 있습니다.
@@ -236,7 +228,7 @@ Signature Algorithm: ecdsa-with-SHA256
 개요 화면에서 **ID 추가** 단추를 사용하여 전자 지갑에 직접
 ID를 가져올 수 있습니다. 이 단추를 클릭하면 ID의 서명 인증서 및 개인 키를 추가할 수 있는 사이드 패널이 열립니다.
 - **이름:** 참조용으로만 사용되는 ID 이름을 입력하십시오.
-- **인증서:** CA를 사용하여 생성한 ID의 서명 인증서(base64 또는 PEM 형식)가 포함된 파일을 업로드하십시오. 
+- **인증서:** CA를 사용하여 생성한 ID의 서명 인증서(base64 또는 PEM 형식)가 포함된 파일을 업로드하십시오.
 - **개인 키:** CA를 사용하여 생성한 ID의 개인 키(base64 또는 PEM 형식)가 포함된 파일을 업로드하십시오.
 
 
@@ -276,4 +268,4 @@ ID를 클릭하면 해당 인증서 및 개인 키를 base64 형식으로 표시
 
 콘솔을 사용하여 순서 지정자 또는 피어를 작성하는 경우 **ID 연관** 패널이 표시됩니다. 조직 MSP 정의 내에 인증서도
 있는 지갑에서 ID를 선택하십시오. 또한 채널을 작성하거나 편집할 때도 **ID 연관** 섹션에서
-관리자 ID를 선택해야 합니다. 이렇게 하면 콘솔에서 피어, 순서 지정자 및 순서 지정 서비스 컨소시엄과 통신할 때 사용할 ID를 알 수 있습니다. 현재 피어 또는 순서 지정 서비스와 연관된 ID가 노드 패널의 왼쪽에 이름, 노드 위치 및 Fabric 버전 아래 표시됩니다. 
+관리자 ID를 선택해야 합니다. 이렇게 하면 콘솔에서 피어, 순서 지정자 및 순서 지정 서비스 컨소시엄과 통신할 때 사용할 ID를 알 수 있습니다. 현재 피어 또는 순서 지정 서비스와 연관된 ID가 노드 패널의 왼쪽에 이름, 노드 위치 및 Fabric 버전 아래 표시됩니다.
