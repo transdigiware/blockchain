@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
-keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multi-cloud
+keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multicloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -25,7 +25,7 @@ subcollection: blockchain
 以下の手順では、Amazon Web Services (AWS) のクイック・スタート・テンプレートを使用して、{{site.data.keyword.blockchainfull}} Platform for AWS ピアを作成してから、このピアを {{site.data.keyword.blockchainfull_notm}} Platform 上のネットワークに接続する方法を説明します。
 {:shortdesc}
 
-AWS について詳しくは、[AWS の概要ドキュメント ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://d1.awsstatic.com/whitepapers/aws-overview.pdf "AWS の概要ドキュメント") を参照してください。
+AWS について詳しくは、[AWS の概要ドキュメント](https://d1.awsstatic.com/whitepapers/aws-overview.pdf){: external}を参照してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS を使用すると、ピアは {{site.data.keyword.cloud_notm}} 上の既存のスターターまたはエンタープライズ・プラン・ネットワークの接続プロファイル、Hyperledger Fabric 認証局 (CA)、および順序付けサービスを利用して、AWS クイック・スタート・テンプレートを介してトランザクションを処理できます。 クイック・スタートでは、AWS CloudFormation テンプレートを使用してピアをデプロイできます。 このテンプレートは、スターターまたはエンタープライズ・プラン・ネットワークに接続されている、AWS がホストする {{site.data.keyword.blockchainfull_notm}} Platform ピアを迅速に構成、デプロイ、および実行する必要がある IT インフラストラクチャーの意思決定者とシステム管理者を対象としています。 このテンプレートを使用して、AWS で新しい仮想プライベート・クラウド (VPC) を作成したり、既存の VPC にピアをデプロイしたりできます。
 
@@ -41,7 +41,7 @@ AWS について詳しくは、[AWS の概要ドキュメント ![外部リン�
 ## 前提条件
 {: #remote-peer-aws-prerequisites}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS ピア (リモート・ピア) を使用するには、{{site.data.keyword.blockchainfull_notm}} Platform 上でホストされているブロックチェーン・ネットワークのメンバーである組織が必要です。 IBM Cloud 上のネットワーク・モニターを使用して、ネットワーク資格情報およびネットワークの API エンドポイントにアクセスする必要があります。 ブロックチェーン・ネットワークのメンバーではない場合は、ネットワークを作成するか、ネットワークに参加する必要があります。 詳しくは、[ネットワークの作成](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network)または[ネットワークへの参加](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS ピア (リモート・ピア) を使用するには、{{site.data.keyword.blockchainfull_notm}} Platform 上でホストされているブロックチェーン・ネットワークのメンバーである組織が必要です。 {{site.data.keyword.cloud_notm}} 上のネットワーク・モニターを使用して、ネットワーク資格情報およびネットワークの API エンドポイントにアクセスする必要があります。 ブロックチェーン・ネットワークのメンバーではない場合は、ネットワークを作成するか、ネットワークに参加する必要があります。 詳しくは、[ネットワークの作成](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network)または[ネットワークへの参加](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)を参照してください。
 
 ピアのデフォルト VPC インスタンス・タイプは `m4.xlarge` です。  CPU、メモリー、およびストレージの要件に基づいて、選択するインスタンス・タイプを最適化する必要があります。 ピアには、少なくとも以下が必要です。  
 -	2 基の CPU
@@ -64,7 +64,7 @@ AWS について詳しくは、[AWS の概要ドキュメント ![外部リン�
 ## ステップ 1: AWS アカウントの準備
 {: #remote-peer-aws-account}
 
-1. AWS アカウントがまだない場合は、[こちら ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://aws.amazon.com "https//aws/amazon.com") から画面の指示に従って AWS アカウントを作成してください。
+1. AWS アカウントをまだ持っていない場合は、[こちら](https://aws.amazon.com){: external}から画面の説明に従って AWS アカウントを作成します。
 
 2. ナビゲーション・バーの地域セレクターを使用して、AWS にピアをデプロイする場所となる AWS 地域を選択します。
 
@@ -78,7 +78,6 @@ AWS について詳しくは、[AWS の概要ドキュメント ![外部リン�
 構成時に、ネットワークの API エンドポイントをピアに提供する必要があります。 ピアはこれらのエンドポイントを使用し、{{site.data.keyword.blockchainfull_notm}} Platform のネットワークを検索して接続できます。 ネットワーク・モニターの**「概要」**画面で、**「リモート・ピアの構成 (Remote Peer Configuration)」**ボタンをクリックします。
 
 ![リモート・ピアの構成 (Remote Peer Configuration)](../images/myresources_starter.png "リモート・ピアの構成 (Remote Peer Configuration)")
-*図 1. 「リモート・ピアの構成」パネル*
 
 ポップアップ・ウィンドウが開き、以下のフィールドの値が表示されます。 以下のフィールドの値を保存してください。これらの値は、AWS クイック・スタート・テンプレートを使用してピアを構成する際に必要になります。
 
@@ -109,14 +108,13 @@ echo -e "<CERT>" > admin.pem
 
 1. {{site.data.keyword.blockchainfull_notm}} Platform で、ネットワークのネットワーク・モニターにログインします。 ネットワーク・モニターの「認証局」画面では、ネットワークに登録されたすべての ID を表示できます (管理者やクライアント・アプリケーションなど)。
   ![CA 画面](../images/CA_screen_starter.png "CA 画面")
-  *図 2. CA 画面*
 
 2. パネルの**「ユーザーの追加」**ボタンをクリックします。 ポップアップ画面が開き、下のフィールドに入力した後に、ピアをネットワークに登録できます。 **「ID」と「機密事項」の値は、後でクイック・スタート・テンプレートでピアを構成するときのために保存してください。**
   - **登録 ID:** ピア用に使用することを希望する名前であり、ピアの構成時には`登録 ID` と呼ばれます。 今後使用するため、**この値を保存します**。
   - **機密事項の登録:** ピア用に使用することを希望するパスワードであり、ピアの構成時には`登録機密事項`と呼ばれます。 今後使用するため、**この値を保存します**。
   - **タイプ:** このフィールドには `peer` を選択します。
   - **所属 (Affiliation):** これは `org1` など、ピアが属する組織での所属です。 新しい所属を指定することも、既存の所属を使用することもできます。
-  - **最大登録数:** このフィールドを使用して、この ID を使用した証明書のエンロールまたは生成の回数を制限できます。指定しない場合、値はデフォルトで無制限の登録に設定されます。
+  - **最大登録数:** このフィールドを使用して、この ID を使用した証明書のエンロールまたは生成の回数を制限できます。 指定しない場合、値はデフォルトで無制限の登録に設定されます。
 
   フィールドに入力した後に、**「送信」**をクリックしてピアを登録します。 登録されたピアは、ネットワーク上の ID としてテーブルに表示されます。 セキュリティー対策として、各 ID および付随する登録 ID と機密事項を使用してデプロイするピアは 1 つのみにします。 ピア ID とパスワードは再使用しないでください。
 
@@ -125,11 +123,11 @@ echo -e "<CERT>" > admin.pem
 
 このクイック・スタート・リファレンス・デプロイメントを実行する際に使用する AWS サービスのコストはユーザー側で負担します。 このクイック・スタートを使用するための追加コストは発生しません。 詳細については、このクイック・スタートで使用する必要がある各 AWS サービスの価格設定ページを参照してください。 価格は変更される場合があります。
 
-1. 次のいずれかのオプションを選択して、AWS CloudFormation テンプレートを自身の AWS アカウント内に起動します。 オプションを選択するための参考情報については、このガイドで既出のデプロイメント・オプションを参照してください。各デプロイメントの完了には約 10 分かかります。  
+1. 次のいずれかのオプションを選択して、AWS CloudFormation テンプレートを自身の AWS アカウント内に起動します。 オプションを選択するための参考情報については、このガイドで既出のデプロイメント・オプションを参照してください。 各デプロイメントの完了には約 10 分かかります。  
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を AWS 上の新規 VPC にデプロイします ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://fwd.aws/v43nk "{{site.data.keyword.blockchainfull_notm}} Platform for AWS を AWS 上の新規 VPC にデプロイします")。  
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を AWS 上の新規 VPC にデプロイします](https://fwd.aws/v43nk){: external}。  
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を AWS 上の既存 VPC にデプロイします ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://fwd.aws/zrP4g "{{site.data.keyword.blockchainfull_notm}} Platform for AWS を AWS 上の既存 VPC にデプロイします")。
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を AWS 上の既存 VPC にデプロイします](https://fwd.aws/zrP4g){: external}。
 
   **重要:**     
   {{site.data.keyword.blockchainfull_notm}} Platform for AWS を既存の VPC にデプロイする場合は、ご使用の VPC が、データベース・インスタンス用の異なるアベイラビリティー・ゾーン内の 2 つのパブリック・サブネットを有していることを確認してください。 これらのサブネットの経路テーブル内には、NAT ゲートウェイまたは NAT インスタンスが含まれている必要があります。その結果として、インスタンスをインターネットに公開することなく、インスタンスがパッケージとソフトウェアをダウンロードすることが可能になります。 Amazon VPC の資料の説明に従って、DHCP オプションでドメイン名オプションを構成する必要もあります。  
@@ -159,8 +157,8 @@ echo -e "<CERT>" > admin.pem
 | | | |
 | **ネットワーク構成** | |
 | `アベイラビリティー・ゾーン (Availability Zones)` |VPC 内のサブネット用に使用する 2 つのアベイラビリティー・ゾーン。 注: 論理順序は保持されます。 | |
-| `SSH アクセス CIDR の許可 (Allowed SSH access CIDR)` | IBM Blockchain ピア・インスタンスへの外部 SSH アクセスのための [CIDR ブロック ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPC とサブネット") が許可されます。 0.0.0.0/0 に設定することで、任意の場所からのアクセスを許可できます (非推奨)。 | |
-| `PeerEndpointAccessCIDR` | IBM Blockchain ピア・インスタンスへの外部 gRPC アクセスのための [CIDR ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPC とサブネット") ブロックが許可されます。 通常は 0.0.0.0/0 に設定して、任意の場所からのアクセスを許可します (非推奨)。 | |
+| `SSH アクセス CIDR の許可 (Allowed SSH access CIDR)` | {{site.data.keyword.blockchain_notm}} ピア・インスタンスへの外部 SSH アクセスを許可する [CIDR ブロック](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external}。0.0.0.0/0 に設定することで、任意の場所からのアクセスを許可できます (非推奨)。 | |
+| `PeerEndpointAccessCIDR` | {{site.data.keyword.blockchainfull_notm}} ピア・インスタンスへの外部 gRPC アクセスを許可する [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} ブロック。通常は 0.0.0.0/0 に設定して、任意の場所からのアクセスを許可します (非推奨)。 | |
 | | | |
 | **Amazon EC2 の構成** | | |
 | `InstanceType` | ピア・インスタンス用の EC2 インスタンスのタイプ。 | m4.xlarge |
@@ -175,7 +173,7 @@ echo -e "<CERT>" > admin.pem
 | `ピア 2 登録 ID (Peer 2 enroll ID)` | 2 つ目のピアの {{site.data.keyword.blockchainfull_notm}} Platform UI の「認証局」パネルに入力した登録 ID。 | |
 | `ピア 2 登録機密事項 (Peer 2 enroll secret)` | 2 つ目のピアの {{site.data.keyword.blockchainfull_notm}} Platform UI の「認証局」パネルに入力した登録機密事項。 | |
 | | | |
-|**IBM Blockchain サービス資格情報 (IBM Blockchain Service Credentials)**| | |
+|**{{site.data.keyword.blockchainfull_notm}} サービス資格情報**| | |
 | `組織 MSP (Organization MSP)` | この値は、{{site.data.keyword.blockchainfull_notm}} Platform UI で確認できます。 「概要」パネルの「リモート・ピアの構成」ボタンをクリックして、この情報をコピーしてここに貼り付けます。 | |
 | `認証局 (CA) 名 (Certificate Authority (CA) Name)` | この値は、{{site.data.keyword.blockchainfull_notm}} Platform UI で確認できます。 「概要」パネルの「リモート・ピアの構成」ボタンをクリックして、この情報をコピーしてここに貼り付けます。| |
 | `認証局 (CA) URL (Certificate Authority (CA) URL)` | この値は、{{site.data.keyword.blockchainfull_notm}} Platform UI で確認できます。 「概要」パネルの「リモート・ピアの構成」ボタンをクリックして、この情報 (ポートを含む) をコピーしてここに貼り付けます。 指定していない場合、デフォルトのポートは 443 です。 | |
@@ -203,7 +201,7 @@ echo -e "<CERT>" > admin.pem
 
  - ご使用の VPC が、データベース・インスタンス用の異なるアベイラビリティー・ゾーン内の 2 つのプライベート・サブネットを有していることを確認します。 これらのサブネットの経路テーブル内には、NAT ゲートウェイまたは NAT インスタンスが含まれている必要があります。その結果として、インスタンスをインターネットに公開することなく、インスタンスがパッケージとソフトウェアをダウンロードすることが可能になります。
 
- - [Amazon VPC の資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html "DHCP オプション・セット") の説明に従って、DHCP オプションでドメイン名オプションを構成してください。  
+ - [Amazon VPC の資料](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html){: external}の説明に従って、DHCP オプションでドメイン名オプションを構成してください。  
 
 - 既存の VPC に関連付けられたセキュリティー・グループを作成し、ポート 22 および 7051 のインバウンド・ルールをこのセキュリティー・グループに追加してください。 ポート 22 上の TCP 接続は、生成されたインスタンスへの SSH アクセスを可能にする一方で、ポート 7051 上の TCP 接続は、ピア・インスタンスへの外部 gRPC アクセスを可能にします (Fabric ツール CLI および Fabric SDK を使用してピアを操作するために必要)。 クイック・スタートを起動するときに、これらの VPC 設定の入力を求めるプロンプトが出されます。
 
@@ -228,8 +226,7 @@ echo -e "<CERT>" > admin.pem
 
 AWS CloudFormation テンプレートによってスタックが正常に作成されると、2 つの {{site.data.keyword.blockchainfull_notm}} Platform for AWS ピア・インスタンスがユーザーの AWS アカウント内で実行されます。 これらのインスタンスの名前は、クイック・スタート・テンプレートで指定された`「組織 MSP (Organization MSP)」`と`「ピアの登録 ID (Peer enroll id)」`の組み合わせに基づいて付与されます。 例えば、`org1-remotepeer1` などです。  
 
-![AWS EC2 インスタンス上のピア](../images/remote_peer_AWS_EC2_instances.png "AWS EC2 インスタンス上のピア")  
-*図 3. AWS EC2 インスタンス上のピア*
+![AWS EC2 インスタンス上のピア](../images/remote_peer_AWS_EC2_instances.png "AWS EC2 インスタンス上のピア")
 
 ピアが実行されていることを確認するには、以下のようにします。
 
@@ -257,7 +254,7 @@ AWS CloudFormation テンプレートによってスタックが正常に作成�
    ash-zbc07b.4.secure.blockchain.ibm.com:21239
    ```
 
-   - **organizations** を検索して、組織の名前を見つけます。 この組織はピアの登録に使用した組織と同じである必要があります。 組織の名前をその関連 `mspid` とともに見つけることができます。 この値は、ネットワーク・モニターの「概要」パネルにも表示されます。**「リモート・ピアの構成」**ボタンをクリックします。 この値は、`「組織 MSP」`に表示されます。 `mspid` の値をメモしておきます。
+   - **organizations** を検索して、組織の名前を見つけます。 この組織はピアの登録に使用した組織と同じである必要があります。 組織の名前をその関連 `mspid` とともに見つけることができます。 この値は、ネットワーク・モニターの「概要」パネルにも表示されます。 **「リモート・ピアの構成」**ボタンをクリックします。 この値は、`「組織 MSP」`に表示されます。 `mspid` の値をメモしておきます。
 
    - まだの場合は、`docker exec -it peer sh` を実行して、ピア・コンテナー内でシェル・セッションを作成します。
 
@@ -348,10 +345,10 @@ AWS CloudFormation テンプレートによってスタックが正常に作成�
 の下にあります)。 この設定では、スタックの状態が保持され、インスタンスは実行されたままになるため、問題をトラブルシューティングできます (`%ProgramFiles%\Amazon\EC2ConfigService` 内と `C:\cfn\log` 内のログ・ファイルを参照してください)。
 
   - 「失敗時にロールバック (Rollback on failure)」を`「いいえ」`に設定すると、このスタックの
-  AWS 料金が引き続き発生します。 トラブルシューティングが終了したら、必ずこのスタックを削除してください。 詳しくは、AWS の Web サイトで [Troubleshooting AWS CloudFormation ![External linkicon](../images/external_link.svg "外部リンク・アイコン")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html "Troubleshooting AWS CloudFormation") を参照してください。
+  AWS 料金が引き続き発生します。 トラブルシューティングが終了したら、必ずこのスタックを削除してください。 詳しくは、AWS の Web サイトで [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html){: external} を参照してください。
 
 * **Q**. AWS CloudFormation テンプレートをデプロイしたときに、サイズ制限のエラーが発生しました。
-* **A**. IBM 側で提供されている場所からまたは別の S3 バケットからクイック・スタート・テンプレートを起動することをお勧めします。 ご使用のコンピューター上のローカル・コピーからまたは S3 以外の場所からテンプレートをデプロイする場合、スタックの作成時にテンプレート・サイズの制限が適用される可能性があります。 AWS CloudFormation の制限について詳しくは、[AWS の資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html "AWS CloudFormation の制限") を参照してください。
+* **A**. IBM 側で提供されている場所からまたは別の S3 バケットからクイック・スタート・テンプレートを起動することをお勧めします。 ご使用のコンピューター上のローカル・コピーからまたは S3 以外の場所からテンプレートをデプロイする場合、スタックの作成時にテンプレート・サイズの制限が適用される可能性があります。 AWS CloudFormation の制限について詳しくは、[AWS の資料](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html){: external}を参照してください。
 
 ## 次の作業
 {: #remote-peer-aws-whats-next}
@@ -367,7 +364,7 @@ AWS でピアをセットアップした後に、いくつかの操作ステッ�
 ## セキュリティーに関する考慮事項
 {: #remote-peer-aws-security}
 
-AWS クラウドは、アプリケーションとデータを迅速かつ安全にデプロイすることを支援するスケーラブルで信頼性の高いプラットフォームを提供します。 AWS インフラストラクチャー上でシステムを構築した場合、セキュリティーに関する責任はユーザーと AWS の間で共有されます。 この共有モデルによってユーザー側の運用負荷を軽減できます。ホスト・オペレーティング・システムや仮想化層から、サービスの運用場所となる設備の物理的セキュリティーにいたるまで、AWS によって各種のコンポーネントが操作、管理、および制御されるからです。 その一方でユーザー側では、ゲスト・オペレーティング・システムの責任と管理 (更新およびセキュリティー・パッチを含む)、他の関連アプリケーション、および AWS で提供されるセキュリティー・グループ・ファイアウォールの構成を担当します。 AWS 上のセキュリティーについて詳しくは、[AWS クラウド・セキュリティー ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://aws.amazon.com/security/ "AWS クラウド・セキュリティー") を参照してください。
+AWS クラウドは、アプリケーションとデータを迅速かつ安全にデプロイすることを支援するスケーラブルで信頼性の高いプラットフォームを提供します。 AWS インフラストラクチャー上でシステムを構築した場合、セキュリティーに関する責任はユーザーと AWS の間で共有されます。 この共有モデルによってユーザー側の運用負荷を軽減できます。ホスト・オペレーティング・システムや仮想化層から、サービスの運用場所となる設備の物理的セキュリティーにいたるまで、AWS によって各種のコンポーネントが操作、管理、および制御されるからです。 その一方でユーザー側では、ゲスト・オペレーティング・システムの責任と管理 (更新およびセキュリティー・パッチを含む)、他の関連アプリケーション、および AWS で提供されるセキュリティー・グループ・ファイアウォールの構成を担当します。 AWS のセキュリティーについて詳しくは、[AWS クラウド・セキュリティー](https://aws.amazon.com/security/){: external}を参照してください。
 
 ### AWS の ID とアクセスの管理 (IAM)
 {: #remote-peer-aws-iam}
@@ -392,7 +389,7 @@ AWS クラウドは、アプリケーションとデータを迅速かつ安全�
 #### データ・セキュリティー
 {: #remote-peer-aws-security-data}
 
-{{site.data.keyword.blockchainfull_notm}} Platform エンタープライズ・プランでは、[対称鍵暗号 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html "対称暗号方式") に基づくディスク全体の暗号化を使用して、ネットワークで使用されるすべてのデータを保護します。 ご使用の環境でも同様のステップを実行して、ピア・データを保護する必要があります。
+{{site.data.keyword.blockchainfull_notm}} Platform のエンタープライズ・プランでは、[対称鍵暗号](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html){: external}に基づくディスク全体の暗号化を使用して、ネットワークで使用されるすべてのデータを保護します。 ご使用の環境でも同様のステップを実行して、ピア・データを保護する必要があります。
 
 levelDB または couchDB のどちらを使用している場合でも、状態データベース内のデータは暗号化されません。 アプリケーション・レベルの暗号化によって、状態データベースに保管されているデータを保護できます。
 
@@ -418,13 +415,13 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### TLS
 {: #remote-peer-aws-security-tls}
 
-[Transport Layer Security![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm "SSL または TLS ハンドシェークの概要") (TLS) は、Hyperledger Fabric の信頼モデルに組み込まれています。 {{site.data.keyword.blockchainfull_notm}} Platform のすべてのコンポーネントは、TLS を使用して認証し、相互に通信します。 したがって、{{site.data.keyword.blockchainfull_notm}} Platform のネットワーク・コンポーネントは、ピアとの TLS ハンドシェークを実行できる必要があります。 これに関連して、ホワイト・リストなどを使用して、クライアント・アプリからピアまでファイアウォールでパススルーできる必要があります。
+[Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} (TLS) は、Hyperledger Fabric の信頼モデルに組み込まれています。 {{site.data.keyword.blockchainfull_notm}} Platform のすべてのコンポーネントは、TLS を使用して認証し、相互に通信します。 したがって、{{site.data.keyword.blockchainfull_notm}} Platform のネットワーク・コンポーネントは、ピアとの TLS ハンドシェークを実行できる必要があります。 これに関連して、ホワイト・リストなどを使用して、クライアント・アプリからピアまでファイアウォールでパススルーできる必要があります。
 
 
 #### メンバーシップ・サービス・プロバイダーの構成
 {: #remote-peer-aws-security-MSP}
 
-{{site.data.keyword.blockchainfull_notm}} Platform のコンポーネントは、メンバーシップ・サービス・プロバイダー (MSP) を介して ID を使用します。 MSP は、CA から発行された証明書をネットワークおよびチャネルの役割に関連付けます。 MSP とピアの連係について詳しくは、こちらの[トピック](/docs/services/blockchain/certificates.html#managing-certificates-msp)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform のコンポーネントは、メンバーシップ・サービス・プロバイダー (MSP) を介して ID を使用します。 MSP は、CA から発行された証明書を、ネットワークとチャネルの役割に関連付けます。MSP とピアの連係について詳しくは、こちらの[トピック](/docs/services/blockchain/certificates.html#managing-certificates-msp)を参照してください。
 
 #### アプリケーション・セキュリティー
 {: #remote-peer-aws-security-appl}
@@ -434,5 +431,5 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 ## ライセンスおよび料金
 {: #remote-peer-aws-license-pricing-aws}
 
-クイック・スタートによって有効化されるデプロイメント・ソリューションを使用できるようになるには、{{site.data.keyword.blockchainfull_notm}} Platform for AWS の Community Edition ライセンス・バージョンを受け入れる必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform for AWS (クイック・スタート・オファリングによって提供されるすべてのパッケージと、これらから派生したパッケージを含む) は、実動用に使用されることは想定されていません。 IBM は、コードへのアクセスの許可とこのコードの使用の許可を取り消すことを決定する場合があります。
+クイック・スタートによって有効化されるデプロイメント・ソリューションを使用できるようになるには、{{site.data.keyword.blockchainfull_notm}} Platform for AWS の Community Edition ライセンス・バージョンを受け入れる必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform for AWS (クイック・スタート・オファリングによって提供されるすべてのパッケージと、これらから派生したパッケージを含む) は、実動用に使用されることは想定されていません。 {{site.data.keyword.IBM_notm}} は、コードへのアクセスの許可とこのコードの使用の許可を取り消すことを決定する場合があります。
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS ソフトウェアのご使用条件には、ライセンス交付条件の詳細が記載されています。 クイック・スタートを起動すると、ご使用条件を読んで、これらの条件に同意するように求められます。

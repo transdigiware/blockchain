@@ -10,11 +10,12 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Swagger API を使用したネットワークの作成または参加
 {: #swagger-network}
@@ -26,17 +27,17 @@ subcollection: blockchain
 ## API の基本認証資格情報の取得
 {: #swagger-network-retrieve-id-token}
 
-始める前に、{{site.data.keyword.cloud_notm}} でスターター・プランまたはエンタープライズ・プランを使用して [{{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンス ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) を作成する必要があります
+始める前に、{{site.data.keyword.cloud_notm}} でスターター・プランまたはエンタープライズ・プランを使用して [{{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンス](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}を作成する必要があります。
 
 Swagger API を使用してネットワークの作成または参加を行うには、{{site.data.keyword.cloud_notm}} のサービス・インスタンスに確実にアクセスできるようにするために基本認証資格情報が必要です。
 
-1. [{{site.data.keyword.cloud_notm}} ダッシュボード ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources) で、作成したサービス・インスタンスを開きます。
+1. [{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/resources){: external}で、作成したサービス・インスタンスを開きます。
 2. 左側のナビゲーターで**「サービス資格情報」**をクリックします。
 3. **「サービス資格情報」**ページの「新規資格情報」ボタンをクリックして、新規資格情報を作成します。
     1. 資格情報に *CreateJoin* などの名前を付けます。
     2. 「インラインの構成パラメーターの追加」フィールドに **{"type": "service_instance_token"}** と入力します。
     3. **「追加」**ボタンをクリックします。
-    ![サービス資格情報の取得](../images/service_credentials.gif "サービス資格情報の取得")
+    ![サービス資格情報の取得](../images/service_credentials.gif "サービス資格情報の取得"){: gif}
 4. 新しい資格情報が作成されたら、この資格情報の**「アクション」**ヘッダーの下にある**「資格情報の表示」**をクリックします。 資格情報の内容は、以下の例のようになります。
 
     ```

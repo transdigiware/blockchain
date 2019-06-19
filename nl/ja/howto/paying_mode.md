@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -79,7 +79,7 @@ subcollection: blockchain
 {: #paying-mode-limitation}
 - すべてのメンバーは支払者の {{site.data.keyword.cloud_notm}} アカウント内にあるため、支払者はすべてのメンバーのブロックチェーン・インスタンスにアクセスでき、偽名を使用できます。 したがって、この支払いモードは PoC 環境、または支払者が {{site.data.keyword.blockchainfull_notm}} プラットフォームのすべての管理を処理し、かつ、メンバーにはアプリケーションのみが提供される場合に最適です。  
 - 支払者の Cloud Foundry 組織のすべてのメンバーは、組織内のすべてのスペースを表示できます。  ただし、それらのメンバーにはアクセス権限がないため、組織を編集または変更することはできません。  
-- 支払者の Cloud Foundry 組織のすべてのメンバーが、同じ Cloud Foundry 組織内の他のメンバーの IBM Cloud ID を参照できることに注意してください。  
+- 支払者の Cloud Foundry 組織のすべてのメンバーが、同じ Cloud Foundry 組織内の他のメンバーの {{site.data.keyword.cloud_notm}} ID を参照できることに注意してください。  
 - すべてのメンバーが支払者の {{site.data.keyword.cloud_notm}} アカウントに追加され、ブロックチェーン・インスタンスをプロビジョンするためのアクセス権限が割り当てられ、ネットワークに参加した後に、支払者はメンバーに他のサービスを作成するためのアクセス権限も付与しますが、これは追加料金が発生する可能性があります。 すべてのメンバーは、支払者のアカウントに追加コストがかかるような無許可のサービスをアカウント内で作成しないことを示す信頼の契約に署名する場合があります。  
 
 ## メンバーに支払いを行ってもらう場合

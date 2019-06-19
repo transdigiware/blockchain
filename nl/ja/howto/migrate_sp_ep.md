@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -44,7 +44,7 @@ subcollection: blockchain
 - **影響を受けるリソース:** チェーンコード (スマート・コントラクト)、クライアント・アプリケーション。 この場合も、チェーンコードが Fabric v1.2 コンポーネントまたは v1.1 ネットワークと互換性のない機能のいずれを利用しているのかに注意してください。
 - **所要時間:** 基本的なネットワークをスターター・プランからエンタープライズ・プランにマイグレーションするのに、少なくとも半日かかります。
 - **既存の台帳データ**は、スターター・プラン・ネットワークからエンタープライズ・プラン・ネットワークに移行できません。テスト・データが実稼働環境に存在するのは、適切でないためです。
-- **Hyperledger Composer** IBM では、実動の Hyperledger Composer を使用するネットワークをサポートしていません。これには Composer CLI、JavaScript API、REST サーバー、および Web Playground が含まれます。
+- **Hyperledger Composer:** {{site.data.keyword.IBM_notm}} では、実動の Hyperledger Composer を使用するネットワークをサポートしていません。これには Composer CLI、JavaScript API、REST サーバー、および Web Playground が含まれます。
 
 **注:** *基本的な* ネットワークとは、2 つの組織と、ピア 2 つ、チャネル 1 つ、チェーンコード・ファイル 1 つが存在するものです。 マイグレーションにかかる実際の時間は、エンタープライズ・プラン・ネットワークに必要なネットワーク・コンポーネントの規模と複雑さに応じて異なります。
 
@@ -77,7 +77,7 @@ subcollection: blockchain
 ### チェーンコードのマイグレーション
 {: #migrate_starter_to_enterprise_cc}
 
-チェーンコードは、外部のローカル環境で開発するものであり、クライアント・アプリケーションによって呼び出されます。 スターター・プラン・ネットワークでテストしたチェーンコードを、エンタープライズ・プラン・ネットワーク上の選択したピアにインストールしてインスタンス化するには、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc "チェーンコードのインストール、インスタンス化、および更新")の説明に従ってください。
+チェーンコードは、外部のローカル環境で開発するものであり、クライアント・アプリケーションによって呼び出されます。 スターター・プラン・ネットワークでテストしたチェーンコードを、エンタープライズ・プラン・ネットワーク上の選択したピアにインストールしてインスタンス化するには、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc)の説明に従ってください。
 
 ### クライアント・アプリケーションの更新
 {: #migrate_starter_to_enterprise_app}

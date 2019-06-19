@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -10,11 +10,12 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Swagger API を使用したネットワークとの対話
 {: #ibp-swagger}
@@ -23,7 +24,7 @@ subcollection: blockchain
 
 {:shortdesc}
 
-始める前に、{{site.data.keyword.cloud_notm}} 上に [{{site.data.keyword.blockchain}} Platform サービス・インスタンス ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) を作成し、Starter Plan <!--or Enterprise Plan -->ブロックチェーン・ネットワークを作成するか結合しておく必要があります。
+始める前に、{{site.data.keyword.cloud_notm}} で [{{site.data.keyword.blockchain}} Platform サービス・インスタンス](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}を作成し、スターター・プランの<!--or Enterprise Plan -->ブロックチェーン・ネットワークを作成するかネットワークに参加しておく必要があります。
 
 
 ## ネットワーク資格情報の取得
@@ -33,14 +34,12 @@ subcollection: blockchain
 
 **図 1** に「API」画面を示します。
 ![「API」画面](../images/API_screen_starter.png "「API」画面")
-*図 1. API*
 
 Starter Plan を使用している場合は、ネットワーク・モニターで組織を切り替えることができます。 Starter Plan では、デフォルトで 2 つの組織が構成されています。 組織の切り替えは、各組織の観点から REST API を試す場合に役立ちます。 ネットワーク内の別の組織の資格情報を取得するには、ネットワーク・モニター・コンソールの右上隅に表示されるユーザー名をクリックします。 開いたメニューで、組織の横にあるドロップダウン矢印をクリックして、すべての組織を表示します。 切り替え先の組織を選択して、関連するネットワーク資格情報を表示します。
 
 次の**図 2** は、組織を切り替える方法を示しています。
 
-![組織間の切り替え](../images/switch_orgs_starter.gif "組織間の切り替え")  
-*図 2. 組織間の切り替え*
+![組織間の切り替え](../images/switch_orgs_starter.gif "組織間の切り替え"){: gif}
 
 
 ## Swagger API の許可
@@ -54,8 +53,7 @@ Swagger UI で、**「許可 (Authorize)」**ボタンをクリックします�
 
 **図 3** は、Swagger API を許可するプロセスを示しています。
 
-![API の許可](../images/swaggerUIAuthorize.gif "API の許可")  
-*図 3. API の許可*
+![API の許可](../images/swaggerUIAuthorize.gif "API の許可"){: gif}
 
 
 ## API の試行
@@ -65,27 +63,24 @@ Swagger UI で、**「許可 (Authorize)」**ボタンをクリックします�
 
 **図 4** に、「Swagger UI」での「試行する」ボタンを示します。
 
-![Swagger UI での「試行する」ボタン](../images/swaggerUITryItOut.png "Swagger UI での「試行する」ボタン")  
-*図 4. 「Swagger UI」での「試行する」ボタン*
+![Swagger UI での「試行する」ボタン](../images/swaggerUITryItOut.png "Swagger UI での「試行する」ボタン")
 
 **「Try it out」**ボタンをクリックした後、API を使用するための必須パラメーターを入力することができます。 `networkID` はネットワーク資格情報で、その他のパラメーターはネットワーク・モニターで見つけることができます。 パラメーターを入力したら、**「実行」**をクリックしてネットワークに対して REST API 呼び出しを実行します。
 
 **図 5** に「Swagger UI」でのパラメーターを示します。
 
 ![Swagger UI でのパラメーター](../images/swaggerUIParams.png "Swagger UI でのパラメーター")  
-*図 5. パラメーターの入力*  
 
 **「Execute」**をクリックすると、ネットワークに対する API 呼び出しの応答を確認することができます。 また、コマンド・ラインから API を直接呼び出すことができる CURL コマンドも確認することができます。
 
 **図 6** に、API 応答本文、URL、および CURL コマンドを示します。
 
-![Swagger UI での API 応答](../images/swaggerUICurlResponse.png "Swagger UI での API 応答")  
-*図 6. API 応答*    
+![Swagger UI での API 応答](../images/swaggerUICurlResponse.png "Swagger UI での API 応答")    
 
 ## API アクセスの無効化
 {: #ibp-swagger-turn-off}
 
-デフォルトでは、IBM Cloud の監査員以外の役割を持つすべてのユーザーが、Swagger API のパネルに表示される**ネットワーク資格情報**を参照および使用できるので、Swagger API を使用してネットワークを管理できます。 しかし、Swagger API のネットワーク資格情報を UI で公開したくない場合は、既存のキーとシークレットの値をコピーして安全に保管したうえで、Swagger API を使用できない資格情報を新たに生成することもできます。 このアクセスを制御できるように resetCredentials という名前のフラグが用意されています。制御する手順は以下のとおりです。
+デフォルトでは、{{site.data.keyword.cloud_notm}} の監査員以外の役割を持つすべてのユーザーが、Swagger API のパネルに表示される**ネットワーク資格情報**を参照および使用できるので、Swagger API を使用してネットワークを管理できます。 しかし、Swagger API のネットワーク資格情報を UI で公開したくない場合は、既存のキーとシークレットの値をコピーして安全に保管したうえで、Swagger API を使用できない資格情報を新たに生成することもできます。 このアクセスを制御できるように resetCredentials という名前のフラグが用意されています。制御する手順は以下のとおりです。
 
 1. [サービス資格情報ダッシュボード](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token)に記載している手順で、新しいネットワーク資格情報を生成します。
 2. ただし、**「インラインの構成パラメーターの追加」**ボックスには以下の値を貼り付けます。
@@ -99,7 +94,7 @@ Swagger UI で、**「許可 (Authorize)」**ボタンをクリックします�
 
 これで、ユーザーが UI から Swagger API のパネルにアクセスすると、UI の**ネットワーク資格情報**には、ネットワークを管理できない汎用的なキーとシークレット値が表示されるようになります。 その資格情報を使用して API 要求を送信しても、処理されません。  
 
-後から有効なネットワーク資格情報を UI で公開する場合は、単に上記の手順を繰り返して新しい資格情報を生成します。ただし、そのときは**「インラインの構成パラメーターの追加」**ボックスをブランクのままにします。パラメーターを指定する必要はありません。
+後から有効なネットワーク資格情報を UI で公開する場合は、単に上記の手順を繰り返して新しい資格情報を生成します。ただし、そのときは**「インラインの構成パラメーターの追加」**ボックスをブランクのままにします。 パラメーターを指定する必要はありません。
 
 これで、元の有効な資格情報が UI の**ネットワーク資格情報**に表示され、Swagger API の認証に使用できるようになります。
 

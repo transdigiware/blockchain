@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -10,13 +10,14 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # スターター・プランおよびエンタープライズ・プランへのビジネス・ネットワークのデプロイ
 {: #deploying-a-business-network}
@@ -53,7 +54,7 @@ Fabric のバージョンは、ネットワーク・モニターで[「ネット
 
 3. 接続プロファイル内で、「registrar」が表示されるまで下方向に移動します。 「registrar」内の「enrollId」の下に、**enrollSecret** というプロパティーがあります。 このシークレットを取得して、そのコピーを保存します。
 
-    ![管理シークレットの取得](images/get_enroll_secret.gif "管理シークレットの取得")
+    ![管理シークレットの取得](images/get_enroll_secret.gif "管理シークレットの取得"){: gif}
 
 ### ステップ 2: 認証局カードの作成
 {: #deploying-a-business-network-CA-card}
@@ -92,11 +93,11 @@ Fabric のバージョンは、ネットワーク・モニターで[「ネット
 
 1. スターター・プランのネットワーク・モニターで、**「メンバー」**タブ、**「証明書」**、**「証明書の追加」**の順にクリックします。 `credentials` ディレクトリーに移動し、証明書ボックス内の `admin-pub.pem` ファイルの内容をコピー・アンド・ペーストします。 証明書を送信し、ピアを再始動します。 注: ピアの再始動には 1 分ほどかかります。
 
-    ![証明書の追加](images/add_cert.gif "証明書の追加")
+    ![証明書の追加](images/add_cert.gif "証明書の追加"){: gif}
 
 2. 次に、証明書をチャネル上で同期させる必要があります。 **「チャネル」**タブ、**「アクション」**ボタン、**「証明書の同期 (Sync Certificate)」**、および **「送信」**の順にクリックします。
 
-    ![証明書の同期](images/sync_cert.gif "証明書の同期")
+    ![証明書の同期](images/sync_cert.gif "証明書の同期"){: gif}
 
 ### ステップ 4: 管理ビジネス・ネットワーク・カードの作成
 {: #deploying-a-business-network-create-admin-card}

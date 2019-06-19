@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ subcollection: blockchain
 一連のビデオはプレイ・リストになっていて、下のビデオ・フレームで連続再生されます。 また、ビデオの左上隅にあるメニュー・アイコンをクリックすると、プレイ・リストが開き、別のビデオに切り替えることができます。
 {:note}
 
-## {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} の概説
+## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} の概説
 {: #ibp-videos-ibp-v2}
 
 {{site.data.keyword.blockchainfull_notm}} Platform の詳細や独自のネットワークの構築を開始する方法については、以下の[一連のビデオ]( http://ibm.biz/BlockchainPlatformSeries)をご覧ください。

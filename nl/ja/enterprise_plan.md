@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Enterprise Plan, production-ready network
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +18,9 @@ subcollection: blockchain
 
 # エンタープライズ・プランについて
 {: #enterprise-plan-about}
+
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform エンタープライズ・プランは、実際の業務でブロックチェーン・ネットワークを作成する (またはそれに参加する) ことを考慮している組織向けの、実動環境に対応したオファリングです。 このプランには主要なインフラストラクチャーおよびツールとサポートが含まれているため、セキュリティーが高く、実働環境に対応したネットワークを簡単に開始できます。 エンタープライズ・プランは、2018 年 5 月 15 日に Hyperledger Fabric V1.0 から V1.1 にアップグレードされました。 2018 年 5 月 15 日より後に作成したすべてのネットワークが Fabric V1.1 レベルになります。 ただし、以前に作成されたネットワークは、Fabric V1.0 レベルのままです。
 {:shortdesc}
@@ -34,15 +37,15 @@ subcollection: blockchain
 * コード・スタック全体のシームレスなアップグレード。
 * ポータルに統合した毎日 24 時間態勢のテクニカル・サポート。
 * 厳しい規制がかけられている業界の機密データをやり取りするネットワークに対応した堅牢なセキュリティー・スタック。特権的なアクセス権はなく、マルウェアや改ざんへの対策や 100% の暗号化などの多彩な機能が盛り込まれています。
-* エンタープライズ・ネットワークは、24 時間に 1 回、オフサイトにバックアップされます。 災害が発生した場合、これらのネットワークは、同じサイトまたは別のサイトにリストアできます。
+* エンタープライズ・ネットワークは、24 時間に 1 回、オフサイトにバックアップされます。 災害が発生した場合、これらのネットワークは、同じサイトまたは代替サイトにリストアできます。
 
 **注:**
 - エンタープライズ・プランは実稼働環境を提供します。 開発/テスト用の環境が必要な場合は、[スターター・プランについて](/docs/services/blockchain/starter_plan.html#starter-plan-about)を参照してください。
-- {{site.data.keyword.blockchainfull_notm}} Platform は {{site.data.keyword.cloud_notm}} のプラットフォーム・サービスであり、すべてのメンバーシップ・オファリングはサービス・レベル・アグリーメント (SLA) に関する [{{site.data.keyword.cloud_notm}} サービスのご利用条件 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "{{site.data.keyword.cloud_notm}} サービスのご利用条件") に従っています。 エンタープライズ・プランのネットワークは、単一の地域の 1 つのデータ・センターにプロビジョンされます。 使用可能な地域のリストについては、[{{site.data.keyword.blockchainfull_notm}} Platform のロケーション](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
+- {{site.data.keyword.blockchainfull_notm}} Platform は {{site.data.keyword.cloud_notm}} のプラットフォーム・サービスであり、すべてのメンバーシップ・オファリングはサービス・レベル・アグリーメント (SLA) に関する [{{site.data.keyword.cloud_notm}} サービスのご利用条件](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external}に従っています。 エンタープライズ・プランのネットワークは、単一の地域の 1 つのデータ・センターにプロビジョンされます。 使用可能な地域のリストについては、[{{site.data.keyword.blockchainfull_notm}} Platform のロケーション](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
 
-ネットワークを始めようとしているメンバーのために、IBM は、ネットワークをセットアップしてプロビジョンするための重要な手順をネットワーク・イニシエーターに案内するグラフィカル・ユーザー・インターフェースを用意しています。 例えば、他のメンバーを招待したり、ガバナンス・ルールを設定したりする手順を案内します。 詳しくは、[エンタープライズ・プラン・ネットワークの管理](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan)を参照してください。 ネットワークをデプロイした後、ネットワーク・モニターという対話式グラフィカル・ユーザー・インターフェースを使用すると、ネットワークの正常性とアクティビティーをモニターしたり、主要なネットワーク・アクティビティー (新規デプロイメント、メンバーの追加/削除、チェーンコードのライフサイクル、チャネル管理などの作業) を管理したり、技術サポートを利用したりできます。 詳しくは、[ネットワーク・モニターの使用](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard)を参照してください。
+ネットワークを始めようとしているメンバーのために、{{site.data.keyword.IBM_notm}} は、ネットワークをセットアップしてプロビジョンするための重要な手順をネットワーク・イニシエーターに案内するグラフィカル・ユーザー・インターフェースを用意しています。 例えば、他のメンバーを招待したり、ガバナンス・ルールを設定したりする手順を案内します。 詳しくは、[エンタープライズ・プラン・ネットワークの管理](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan)を参照してください。 ネットワークをデプロイした後、ネットワーク・モニターという対話式グラフィカル・ユーザー・インターフェースを使用すると、ネットワークの正常性とアクティビティーをモニターしたり、主要なネットワーク・アクティビティー (新規デプロイメント、メンバーの追加/削除、チェーンコードのライフサイクル、チャネル管理などの作業) を管理したり、技術サポートを利用したりできます。 詳しくは、[ネットワーク・モニターの使用](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard)を参照してください。
 
-今すぐ [{{site.data.keyword.blockchainfull_notm}} メンバーシップ ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) に登録してください。
+今すぐ [{{site.data.keyword.blockchainfull_notm}} メンバーシップ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}に登録してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform は、1 つの認証局 (CA) と 1 つ以上のピア (最大 6) を含む、重要な Hyperledger Fabric コンポーネントで作成されます。  エンタープライズ・プランは、ネットワーク・メンバーにクラッシュ・フォールト・トレラント (CFT) Kafka 順序付けサービスも提供します。
 
@@ -53,7 +56,7 @@ Fabric CA は、エンタープライズ・プランで提供される認証局�
 2. 順序付け (順序付けサービス)
 3. 検証とコミット (ピア)
 
-メンバーが所有する Fabric ピアは、アプリケーションがチェーンコードを実行するためのインターフェースまたはゲートウェイであり、台帳に対してトランザクションを実行するためのビジネス・ロジックを提供します。 すべてのトランザクションが承認される必要があります。 ネットワークの他のメンバーがこの承認を実行します。 承認の後に、トランザクションは IBM 提供の順序付けサービスに送信されます
+メンバーが所有する Fabric ピアは、アプリケーションがチェーンコードを実行するためのインターフェースまたはゲートウェイであり、台帳に対してトランザクションを実行するためのビジネス・ロジックを提供します。 すべてのトランザクションが承認される必要があります。 ネットワークの他のメンバーがこの承認を実行します。 承認の後に、トランザクションは {{site.data.keyword.IBM_notm}} 提供の順序付けサービスに送信されます
 
 中核となるブロックチェーン・コンポーネントに加えて、エンタープライズ・メンバーシップ・オプションでは、セキュアなデータ・ストレージ、通信 (TLS)、高可用性を備えたインフラストラクチャーが提供されます。  これらのインフラストラクチャー・リソースは複数の Fabric ネットワークで共有されますが、ネットワーク内の Fabric コンポーネント・ノードには独立した環境が用意され、各ノードは実行環境を保護するセキュアな Docker コンテナーで実行されます。
 

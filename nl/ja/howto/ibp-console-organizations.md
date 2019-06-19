@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -30,11 +30,11 @@ subcollection: blockchain
 
 Hyperledger Fabric をベースとする {{site.data.keyword.blockchainfull_notm}} Platform は、許可制ブロックチェーン・ネットワークを構築します。 参加者がトランザクションを送信し、台帳上の資産と対話するには、その参加者がネットワークに認識されている必要があります。 Fabric では、コンソーシアムと呼ばれる、招待された組織のグループを介してアイデンティティーを認識します。 コンソーシアムの各組織は、有効な資格情報をメンバーに発行し、そのメンバーがネットワークの参加者になれるようにすることができます。 その後、参加者はブロックチェーン・ノードを操作し、クライアント・アプリケーションからトランザクションを送信できます。
 
-コンソーシアムの各組織は、ルート CA と呼ばれる独自の認証局を運用する必要があります。 この認証局 (またはその中間 CA) が、組織に属するすべての ID を作成し、各 ID に署名証明書と秘密鍵を発行します。それらの鍵には CA の署名が付いており、組織のメンバーは、これらを使用してアクションの署名付けと検証を行います。 コンソーシアムに参加した組織は、他の組織の CA の署名を認識し、その組織のピアやアプリケーションが有効な参加者であることを検証できます。 Hyperledger Fabric のメンバーシップについて詳しくは、Fabric 資料の[メンバーシップの概念についてのトピック ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html "Membership") を参照してください。
+コンソーシアムの各組織は、ルート CA と呼ばれる独自の認証局を運用する必要があります。 この認証局 (またはその中間 CA) が、組織に属するすべての ID を作成し、各 ID に署名証明書と秘密鍵を発行します。 それらの鍵には CA の署名が付いており、組織のメンバーは、これらを使用してアクションの署名付けと検証を行います。 コンソーシアムに参加した組織は、他の組織の CA の署名を認識し、その組織のピアやアプリケーションが有効な参加者であることを検証できます。 Hyperledger Fabric のメンバーシップについて詳しくは、Fabric 資料の[メンバーシップの概念についてのトピック](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external}を参照してください。
 
 コンソーシアムに参加する組織は、**メンバーシップ・サービス・プロバイダー (MSP)** と呼ばれる組織定義を作成しておく必要があります。 この MSP には以下の情報が含まれています。
 - **ルート認証局**によって署名された証明書。 この証明書は、ノード、チャネル、およびアプリケーションのアイデンティティーを検証するために使用されます。
-- **TLS CA** によって署名された証明書。 ルート TLS 証明書を使用することにより、ピアは組織間のゴシップに参加できます。このゴシップは、Hyperledger Fabric の[**プライベート・データ**・コレクション](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)および[サービス・ディスカバリー ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Service discovery") の機能を利用するために必要です。
+- **TLS CA** によって署名された証明書。 ルート TLS 証明書を使用することにより、ピアは組織間のゴシップに参加できます。このゴシップは、Hyperledger Fabric の[**プライベート・データ**・コレクション](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)および[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}の機能を利用するために必要です。
 - **MSP ID**。 MSP ID は、コンソーシアム内の組織の正式名です。 ノードとアプリケーションの MSP ID を覚えておく必要があります。
 - **ピア管理者** ID および**組織管理者** ID の**管理者証明書**。 これらの証明書は、順序付けサービスに渡されて、チャネルの作成または編集を許可されている組織内の ID を確認するために使用されます。 コンソールを使用して順序付けプログラムまたはピアを作成すると、MSP 内の管理者証明書がそれらの新しいノードにデプロイされます。 そして、コンソールまたはクライアント・アプリケーションから、それらの証明書を使用することで、そのピアまたは順序付けプログラムを操作することができます。
 
@@ -63,11 +63,11 @@ Hyperledger Fabric をベースとする {{site.data.keyword.blockchainfull_notm
   3. ID をコンソール・ウォレットに追加します。 コンソールを使用して作成されたノードまたはチャネルは、MSP からの証明書を使用して、どのユーザーが有効な管理者であるかをチェックします。 そのため、MSP に管理者証明書を追加するために使用したものと同じ署名証明書と秘密鍵のペアが、コンソール・ウォレット内に保管されている必要があります。
 
   **「MSP 定義の作成 (Create MSP definition)」**パネルを使用して、管理者 ID に対してこれらの操作を実行できます。 ルート CA を選択したら、**「組織管理者証明書の生成 (Generate organization admin certificate)」**セクションで以下の手順を実行します。
-  1. ルート CA に登録した管理者 ID の登録 ID と登録シークレットを入力します。 登録 ID と登録シークレットを入力したら、コンソール・ウォレットに ID を表示するときの名前を選択します。
-  2. **「生成」**をクリックします。 これにより、証明書と秘密鍵が生成され、それらの鍵がコンソール・ウォレットに自動的に追加されます。ウォレットでは、管理者 ID はこのパネルで選択した名前で表示されます。 これらの鍵は、ブラウザーのローカル・ストレージにしか保管されないので、ブラウザーを変更すると、コンソール・ウォレットに表示されなくなります。 元のブラウザーから ID をエクスポートし、新しいブラウザーのコンソール・ウォレットにインポートする必要があります。
+  1. ルート CA に登録した管理者 ID の登録 ID と登録機密事項を入力します。 登録 ID と登録機密事項を入力したら、コンソール・ウォレットに ID を表示するときの名前を選択します。
+  2. **「生成」**をクリックします。 これにより、証明書と秘密鍵が生成され、それらの鍵がコンソール・ウォレットに自動的に追加されます。 ウォレットでは、管理者 ID はこのパネルで選択した名前で表示されます。 これらの鍵は、ブラウザーのローカル・ストレージにしか保管されないので、ブラウザーを変更すると、コンソール・ウォレットに表示されなくなります。 元のブラウザーから ID をエクスポートし、新しいブラウザーのコンソール・ウォレットにインポートする必要があります。
   3. 次に、**「エクスポート」**をクリックしてファイル・システムに鍵ペアをダウンロードし、安全な場所に保管します。
 
-- サイド・パネルの**「管理者 (オプション)」**セクションに管理者の署名証明書鍵が含まれています。**「組織管理者証明書の生成 (Generate organization admin certificate)」**セクションを使用して生成した証明書は、**「管理者証明書 (admin certificate)」**フィールドの最初の行にあります。 複数の管理者 ID を使用してネットワークを操作する場合、追加のノード管理者または組織管理者の証明書を**「管理者証明書 (admin certificate)」**フィールドに貼り付けることができます。
+- サイド・パネルの**「管理者 (オプション)」**セクションに管理者の署名証明書鍵が含まれています。 **「組織管理者証明書の生成 (Generate organization admin certificate)」**セクションを使用して生成した証明書は、**「管理者証明書 (admin certificate)」**フィールドの最初の行にあります。 複数の管理者 ID を使用してネットワークを操作する場合、追加のノード管理者または組織管理者の証明書を**「管理者証明書 (admin certificate)」**フィールドに貼り付けることができます。
 
 管理者証明書は MSP 定義を使用してノードおよびチャネルに渡されるので、ノード管理者と組織管理者の各証明書が MSP に保管されていることを確認する必要があります。 コンソールを使用して順序付けプログラム、ピア、またはチャネルを作成するときに、コンソール・ウォレットにエクスポートしたいずれかの ID を、MSP 定義に指定されている管理者証明書に**関連付ける**必要があります。 **「ID の関連付け (Associate identity)」**セクションまたはパネルが表示されたら、MSP 定義の作成時に生成してウォレットに保存した ID を選択します。
 
@@ -127,9 +127,9 @@ cat <cert.pem> | base64 $FLAG
 - **tls_intermediate_certs**: (オプション) 中間 TLS CA で作成された `base64` 形式の証明書を 1 つ以上含む配列を貼り付けます。 外部 TLS CA のルート証明書または外部中間 TLS の CA 証明書のどちらかを指定する必要があります。両方を指定することもできます。  
 
 MSP 定義では、以下の追加フィールドも使用できますが、必須ではありません。
-- **organizational_unit_identifiers**: この MSP の有効なメンバーの各 X.509 証明書に含める必要がある組織単位 (OU) のリスト。 これは、複数の組織で同じトラスト・ルートと中間 CA を利用し、組織ごとに自組織メンバーのために OU フィールドを予約している場合に使用するオプションの構成パラメーターです。 多くの場合、組織は職務ごとに複数の組織単位 (OU) に分割されます。 例えば、ORG1 組織には、製造業務と販売業務という別々の基幹業務を表す ORG1-MANUFACTURING と ORG1-DISTRIBUTION という OU があるかもしれません。 CA が発行する X.509 証明書の OU フィールドには、そのアイデンティティーが属する基幹業務が指定されます。 詳しくは、Fabric の資料の [Identity Classification ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification "Identity Classification") のトピックを参照してください。  
-- **fabric_node_OUs**: アイデンティティー分類を可能にする Fabric 固有の OU。 `NodeOUs` には、クライアント、ピア、順序付けプログラムをそれぞれの OU に基づいて区別する方法についての情報が含まれます。 Enabled を true に設定してチェックを実施する場合、MSP は、アイデンティティーが `client`、`peer`、または `orderer` のアイデンティティーである場合に、そのアイデンティティーを有効と見なします。 アイデンティティーには、このような特別な OU のうちの 1 つだけを指定する必要があります。 Fabric Service Discovery の資料のトピックで、[MSP で `fabric_node_OU` を指定する方法 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query "Configuration query") の例を参照してください。
-- **revocation_list**: 有効でなくなった証明書のリスト。 X.509 ベースのアイデンティティーの場合、これらのアイデンティティーは、Subject Key Identifier (SKI) および Authority Access Identifier (AKI) と呼ばれるストリングのペアであり、X.509 証明書を使用するときには、必ず、証明書が失効していないかどうかを確認するためにチェックされます。 [証明書失効リスト ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity "証明書またはアイデンティティーの失効") について詳しくは、Fabric の資料のトピックを参照してください。
+- **organizational_unit_identifiers**: この MSP の有効なメンバーの各 X.509 証明書に含める必要がある組織単位 (OU) のリスト。 これは、複数の組織で同じトラスト・ルートと中間 CA を利用し、組織ごとに自組織メンバーのために OU フィールドを予約している場合に使用するオプションの構成パラメーターです。 多くの場合、組織は職務ごとに複数の組織単位 (OU) に分割されます。 例えば、ORG1 組織には、製造業務と販売業務という別々の基幹業務を表す ORG1-MANUFACTURING と ORG1-DISTRIBUTION という OU があるかもしれません。 CA が発行する X.509 証明書の OU フィールドには、そのアイデンティティーが属する基幹業務が指定されます。 詳しくは、Fabric の資料の [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} のトピックを参照してください。  
+- **fabric_node_OUs**: アイデンティティー分類を可能にする Fabric 固有の OU。 `NodeOUs` には、クライアント、ピア、順序付けプログラムをそれぞれの OU に基づいて区別する方法についての情報が含まれます。 Enabled を true に設定してチェックを実施する場合、MSP は、アイデンティティーが `client`、`peer`、または `orderer` のアイデンティティーである場合に、そのアイデンティティーを有効と見なします。 アイデンティティーには、このような特別な OU のうちの 1 つだけを指定する必要があります。 Fabric Service Discovery の資料のトピックで、[MSP で `fabric_node_OU` を指定する方法](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external}の例を参照してください。
+- **revocation_list**: 有効でなくなった証明書のリスト。 X.509 ベースのアイデンティティーの場合、これらのアイデンティティーは、Subject Key Identifier (SKI) および Authority Access Identifier (AKI) と呼ばれるストリングのペアであり、X.509 証明書を使用するときには、必ず、証明書が失効していないかどうかを確認するためにチェックされます。 [証明書失効リスト](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}について詳しくは、Fabric の資料のトピックを参照してください。
 
 例えば、以下のような JSON ファイルになります。
 
@@ -153,7 +153,7 @@ MSP 定義では、以下の追加フィールドも使用できますが、必�
 
 この定義を MSP 定義 `JSON` ファイルとして保存します。  
 
-ピア・ノードまたは順序付けサービス・ノードの組織を定義し、外部 CA からの証明書を使用する MSP 定義を構成しました。これで、[外部 CA からの証明書をピアまたは順序付けプログラムに使用する手順](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca)に戻ることができます。
+ピア・ノードまたは順序付けサービス・ノードの組織を定義し、外部 CA からの証明書を使用する MSP 定義を構成しました。 これで、[外部 CA からの証明書をピアまたは順序付けプログラムに使用する手順](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca)に戻ることができます。
 
 ## MSP のインポート
 {: #console-organizations-import-msp}

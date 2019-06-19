@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-05-31"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -28,7 +28,7 @@ subcollection: blockchain
 ## アプリケーションの接続と可用性
 {: #best-practices-app-connectivity-availability}
 
-Hyperledger Fabric の[トランザクション・フロー ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "トランザクション・フロー"){:new_window} には複数のコンポーネントが関わり、その中でクライアント・アプリケーションはユニークな役割を果たします。 SDK は、承認を受けるためにトランザクション提案をピアに送信します。 その後、SDK は、承認された提案を収集して順序付けサービスに送信します。すると、順序付けサービスが、トランザクションのブロックをチャネル台帳に追加するためにピアに送信します。 実動アプリケーションの開発者は、SDK とネットワークの間の対話を管理して効率性と可用性を確保しておく必要があります。
+Hyperledger Fabric の[トランザクション・フロー ](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}には複数のコンポーネントが関わり、その中でクライアント・アプリケーションはユニークな役割を果たします。 SDK は、承認を受けるためにトランザクション提案をピアに送信します。 その後、SDK は、承認された提案を収集して順序付けサービスに送信します。すると、順序付けサービスが、トランザクションのブロックをチャネル台帳に追加するためにピアに送信します。 実動アプリケーションの開発者は、SDK とネットワークの間の対話を管理して効率性と可用性を確保しておく必要があります。
 
 ### トランザクションの管理
 {: #best-practices-app-managing-transactions}
@@ -37,11 +37,11 @@ Hyperledger Fabric の[トランザクション・フロー ![外部リンク・
 
 チェーンコードが実行されていない場合は、そのチェーンコードに送信された最初のトランザクション提案によって、チェーンコードが開始されます。 チェーンコードの開始中は、他のすべての提案は、チェーンコードが現在開始中であることを示すエラーを受け取り、拒否されます。 これはトランザクションの無効化とは異なります。 チェーンコードの開始中に提案が拒否された場合、アプリケーション・クライアントは、チェーンコードが開始された後に、拒否された提案を再送信する必要があります。 アプリケーション・クライアントは、メッセージ・キューを使用してトランザクション提案の消失を防止できます。
 
-チャネル・ベースのイベント・サービスを使用して、トランザクションのモニターやメッセージ・キューの作成を行うことができます。 [channelEventHub ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/ChannelEventHub.html "channelEventHub"){:new_window} クラスは、トランザクション、ブロック、およびチェーンコードのイベントに基づいてリスナーを登録できます。 チャネル eventhub のチャネル・ベースのリスナーは、複数のチャネルに拡張したり、チャネルが異なるトラフィックを区別したりできます。
+チャネル・ベースのイベント・サービスを使用して、トランザクションのモニターやメッセージ・キューの作成を行うことができます。 [channelEventHub](https://fabric-sdk-node.github.io/ChannelEventHub.html){: external} クラスは、トランザクション、ブロック、およびチェーンコードのイベントに基づいてリスナーを登録できます。 チャネル eventhub のチャネル・ベースのリスナーは、複数のチャネルに拡張したり、チャネルが異なるトラフィックを区別したりできます。
 
 古い EventHub クラスではなく channelEventHub を使用することをお勧めします。 eventHub は単一スレッドであり、チャネル全体のリスナーをスローダウンまたはハングさせる可能性があるすべてのチャネルからのイベントが含まれます。 eventHub クラスは、イベントが配信されることを保証しません。また、欠落したイベントを追跡するために、特定のポイント (ブロック番号など) からイベントを取得する方法も提供しません。
 
-**注:** ピア EventHub クラスは、Fabric SDK の今後のリリースで非推奨になります。 ピア EventHub クラスを使用する既存のアプリケーションがある場合は、代わりにチャネル EventHub クラスを使用するようにアプリケーションを更新してください。 詳しくは、Node SDK の資料の [How to use the channel-based event service ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "How to use the channel-based event service"){:new_window} を参照してください。
+**注:** ピア EventHub クラスは、Fabric SDK の今後のリリースで非推奨になります。 ピア EventHub クラスを使用する既存のアプリケーションがある場合は、代わりにチャネル EventHub クラスを使用するようにアプリケーションを更新してください。 詳しくは、Node SDK の資料の [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} を参照してください。
 
 ### ネットワーク接続のオープンとクローズ
 {: #best-practices-app-connections}
@@ -56,7 +56,7 @@ var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.pee
 アプリケーションとネットワークの間の接続を管理する際には、以下の推奨事項を考慮してください。
 
 - 新規接続をオープンしてトランザクションを送信する代わりに、ネットワークと対話するときにピア・オブジェクトと順序付けプログラム・オブジェクトを再利用します。 ピア・オブジェクトと順序付けプログラム・オブジェクトを再利用すると、リソースを節約でき、パフォーマンスが向上します。  
-- ネットワーク・コンポーネントへの永続的な接続を維持するには、[gRPC キープアライブ ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://github.com/grpc/grpc/blob/master/doc/keepalive.md "gRPC キープアライブ") を使用します。 キープアライブは gRPC 接続をアクティブのままにし、「未使用」接続がクローズされないようにします。 以下のピア接続の例では、gRPC オプションを [ConnectionOpts ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/global.html#ConnectionOpts "接続") オブジェクトに追加します。 gRPC オプションは、{{site.data.keyword.blockchainfull_notm}} Platform が推奨する値に設定されます。  
+- ネットワーク・コンポーネントへの永続的な接続を維持するには、[gRPC キープアライブ](https://github.com/grpc/grpc/blob/master/doc/keepalive.md){: external}を使用します。 キープアライブは gRPC 接続をアクティブのままにし、「未使用」接続がクローズされないようにします。 以下のピア接続の例では、gRPC オプションを [ConnectionOpts](https://fabric-sdk-node.github.io/global.html#ConnectionOpts){: external} オブジェクトに追加します。 gRPC オプションは、{{site.data.keyword.blockchainfull_notm}} Platform が推奨する値に設定されます。  
   ```
   var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null},
   "grpcOptions": {
@@ -72,7 +72,7 @@ var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.pee
 
   推奨値が設定されたこれらの変数は、ネットワーク接続プロファイルの `"peers"` セクションにもあります。 [SDK で接続プロファイル](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile)を使用してネットワーク・エンドポイントに接続すると、推奨オプションがアプリケーションに自動的にインポートされます。
 
-- 接続が不要になった場合は、`peer.close()` コマンドと `orderer.close()` コマンドを使用してリソースを解放し、パフォーマンスの低下を防ぎます。 詳しくは、Node SDK の資料の[ピアの close ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Peer.html#close__anchor "ピアの close") クラスと[順序付けプログラムの close![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Orderer.html#close__anchor "順序付けプログラムの close") クラスを参照してください。 接続プロファイルを使用してピアおよび順序付けプログラムをチャネル・オブジェクトに追加した場合は、`channel.close()` コマンドを使用して、そのチャネルに割り当てられているすべての接続をクローズできます。
+- 接続が不要になった場合は、`peer.close()` コマンドと `orderer.close()` コマンドを使用してリソースを解放し、パフォーマンスの低下を防ぎます。 詳しくは、Node SDK の資料の[ピアの close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} クラスと[順序付けプログラムの close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} クラスを参照してください。 接続プロファイルを使用してピアおよび順序付けプログラムをチャネル・オブジェクトに追加した場合は、`channel.close()` コマンドを使用して、そのチャネルに割り当てられているすべての接続をクローズできます。
 
 ### 可用性の高いアプリケーション
 {: #best-practices-app-ha-app}
@@ -91,7 +91,7 @@ Fabric V1.1 レベルのエンタープライズ・プラン・ネットワー�
 - `enrollSecret`: 証明書を取得するために使用する登録シークレット
 - `x-tlsCAName`: アプリケーションでの相互 TLS を使用した通信を可能にするための証明書を取得する際に使用する CA 名。
 
-相互 TLS をサポートするようにアプリケーションを更新する方法について詳しくは、[How to configure mutual TLS ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html "相互 tls"){:new_window} を参照してください。
+相互 TLS をサポートするようにアプリケーションを更新する方法について詳しくは、[How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external} を参照してください。
 
 
 ## (オプション) Fabric SDK でのタイムアウト値の設定
@@ -149,7 +149,7 @@ Fabric SDK は、クライアント・アプリケーションにブロックチ
 ```
 {:codeblock}
 
-Node SDK を使用する場合は、呼び出されるメソッド内にタイムアウト値を直接指定できます。 例えば、以下の行を使用して、[チェーンコードのインスタンス化 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal "sendInstantiateProposal") のタイムアウト値を 5 分に拡大できます。
+Node SDK を使用する場合は、呼び出されるメソッド内にタイムアウト値を直接指定できます。 例えば、以下の行を使用して、[チェーンコードのインスタンス化](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}のタイムアウト値を 5 分に拡大できます。
 ```
 channel.sendInstantiateProposal(request, 300000);
 ```
@@ -160,7 +160,7 @@ channel.sendInstantiateProposal(request, 300000);
 
 状態データベースに CouchDB を使用している場合、チェーンコードからチャネルの状態データに対する JSON データ照会を実行できます。 JSON 照会用に索引を作成してチェーンコードで使用することを強くお勧めします。 索引があれば、ネットワークがトランザクションとエントリーの追加ブロックをワールド・ステートに追加するときに、アプリケーションで効率的にデータを取得できます。
 
-CouchDB について、および索引をセットアップする方法について詳しくは、Hyperledger Fabric の資料で [CouchDB as the State Database ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html "CouchDB as the State Database"){:new_window} を参照してください。 [Fabric CouchDB チュートリアル ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html) にも、索引をチェーンコードで使用する例があります。
+CouchDB について、および索引をセットアップする方法について詳しくは、Hyperledger Fabric の資料で [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external} を参照してください。 [Fabric CouchDB チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}にも、索引をチェーンコードで使用する例があります。
 
 CouchDB データベース全体をスキャンする照会にはチェーンコードを使用しないでください。 完全なデータベース・スキャンでは、応答時間が長くなり、ネットワークのパフォーマンスが低下します。 次のような手順により、長時間かかる照会を防止および対処できます。
 - チェーンコードを使用して索引をセットアップします。
@@ -168,10 +168,10 @@ CouchDB データベース全体をスキャンする照会にはチェーンコ
 - 照会が複雑になると、パフォーマンスが低下し、索引を使用する可能性も低くなります。
 - テーブルや索引の完全スキャンが発生する演算子 (`$or`、`$in`、`$regex` など) の使用は避けてください。
 
-照会で索引を使用する例や、最適なパフォーマンスが得られる照会のタイプについては、Fabric CouchDB チュートリアル ![外部リンク・アイコン](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes) を参照してください。
+照会で索引を使用する例や、最適なパフォーマンスが得られる照会のタイプについては、[Fabric CouchDB チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}を参照してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform 上のピアには queryLimit が設定されているため、状態データベースから返されるエントリー数は 10,000 個に制限されます。 1 つの照会で queryLimit に達する場合は、複数の照会を使用することで残りの結果を取得できます。 範囲照会の結果を追加で取得する必要がある場合には、前の照会で返された最後のキーを使用して次の照会を開始します。 JSON 照会の結果がさらに必要な場合は、データ内のいずれかの変数で照会をソートしてから、前の照会で返された最後の値を次の照会の「より大」フィルターで使用します。
 
 集計またはレポート作成のためにデータベース全体を照会しないでください。 アプリケーションの中でダッシュボードを作成したり大量のデータを収集したりする場合は、ブロックチェーン・ネットワークのデータを複製したオフチェーン・データベースを照会します。 これにより、ネットワークのパフォーマンスを低下させたり、トランザクションを中断したりすることなく、ブロックチェーン上のデータを把握できます。
 
-オフチェーン・データ・ストアは、Fabric SDK に用意されているチャネル・ベースのイベント・サービス・クライアントを使用して作成できます。 例えば、ブロック・リスナーを使用して、チャネル台帳に追加される最新のトランザクションを取得できます。 有効なトランザクションからのトランザクションの読み取り/書き込みセットを使用して、別のデータベースに格納されているワールド・ステートのコピーを更新できます。 詳しくは、Node SDK の資料の [How to use the channel-based event service ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "How to use the channel-based event service"){:new_window} を参照してください。
+オフチェーン・データ・ストアは、Fabric SDK に用意されているチャネル・ベースのイベント・サービス・クライアントを使用して作成できます。 例えば、ブロック・リスナーを使用して、チャネル台帳に追加される最新のトランザクションを取得できます。 有効なトランザクションからのトランザクションの読み取り/書き込みセットを使用して、別のデータベースに格納されているワールド・ステートのコピーを更新できます。 詳しくは、Node SDK の資料の [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} を参照してください。

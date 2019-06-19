@@ -2,44 +2,49 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
-keywords: troubleshooting, debug, why, what does this mean, how can I, when I 
+keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:pre: .pre}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:pre: .pre}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # トラブルシューティング
 {: #ibp-v2-troubleshooting}
 
 コンソールを使用してノード、チャネル、またはスマート・コントラクトを管理する際に、一般的な問題が発生する場合があります。 多くの場合、いくつかの簡単なステップを実行することで、これらの問題から復旧することが可能です。
+{:shortdesc}
 
 - [ノードにマウスオーバーすると、状況が「`状況を表示できません (Status unavailable)`」になります。これはどういう意味ですか?](#ibp-v2-troubleshooting-status-unavailable)
 - [ノードにマウスオーバーすると、状況が「`状況を検出できません (Status undetectable)`」になります。これはどういう意味ですか?](#ibp-v2-troubleshooting-status-undetectable)
-- [ピアまたは順序付けプログラムの作成後にノード操作が失敗するのはなぜですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry1)
-- [ピアを開始できないのはなぜですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry2)
-- [スマート・コントラクトのインストール、インスタンス化、またはアップグレードが失敗するのはなぜですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry1)
-- [スマート・コントラクトのコンテナー・ログを表示するにはどうしたらよいですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
+- [ピアまたは順序付けプログラムの作成後にノード操作が失敗するのはなぜですか?](#ibp-console-build-network-troubleshoot-entry1)
+- [ピアを開始できないのはなぜですか?](#ibp-console-build-network-troubleshoot-entry2)
+- [スマート・コントラクトのインストール、インスタンス化、またはアップグレードが失敗するのはなぜですか?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [スマート・コントラクトのコンテナー・ログを表示するにはどうしたらよいですか?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [コンソールにチャネル、スマート・コントラクト、ID が表示されなくなりました。 どうすれば元に戻せますか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
-- [組織をチャネルに追加しようとするとエラー `An error occurred when updating channel` が発生するのはなぜですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-update-channel)
-- [Kubernetes クラスターの有効期限が切れました。 これはどういう意味ですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-cluster-expired)
-- [VS Code から実行するトランザクションが失敗するのはなぜですか?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
+- [新規組織 MSP 定義の作成時に、`「指定された登録 ID とシークレットで認証できません (Unable to authenticate with the enroll ID and secret you provided)」`というエラーが表示されるのはなぜですか?](#ibp-v2-troubleshooting-create-msp)
+- [組織をチャネルに追加しようとするとエラー `An error occurred when updating channel` が発生するのはなぜですか?](#ibp-v2-troubleshooting-update-channel)
+- [Kubernetes クラスターの有効期限が切れました。 これはどういう意味ですか?](#ibp-v2-troubleshooting-cluster-expired)
+- [VS Code から実行するトランザクションが失敗するのはなぜですか?](#ibp-v2-troubleshooting-anchor-peer)
+- [コンソールにログインすると、401 無許可エラーが表示されるのはなぜですか?](#ibp-v2-troubleshooting-console-401)
 
 ## ノードにマウスオーバーすると、状況が「`状況が不明です (Status unavailable)`」になります。これはどういう意味ですか?
 {: #ibp-v2-troubleshooting-status-unavailable}
+{: troubleshoot}
 
 CA、ピア、または順序付けプログラムのノードのタイルに表示されるノード状況がグレーになります。ノードの状況が得られないという意味です。 理想的には、ノードにマウスオーバーすると、ノードの状況が「`実行中`」と表示されます。
 {: tsSymptoms}
@@ -53,6 +58,7 @@ CA、ピア、または順序付けプログラムのノードのタイルに表
 
 ## ノードにマウスオーバーすると、状況が「`状況を検出できません (Status undetectable)`」になります。これはどういう意味ですか?
 {: #ibp-v2-troubleshooting-status-undetectable}
+{: troubleshoot}
 
 ピアまたは順序付けプログラムのノードのタイルに表示されるノード状況が黄色になります。黄色は、ノードの状況を検出できないという意味です。 理想的には、ノードにマウスオーバーすると、ノードの状況が「`実行中`」と表示されます。
 {: tsSymptoms}
@@ -77,6 +83,7 @@ CA、ピア、または順序付けプログラムのノードのタイルに表
 
 ## ピアまたは順序付けプログラムの作成後にノード操作が失敗するのはなぜですか?
 {: #ibp-console-build-network-troubleshoot-entry1}
+{: troubleshoot}
 
 既存のノードを管理する際に、エラーが発生することがあります。 その場合、ノード・ログを参照すると役立つことが多くあります。  
 
@@ -91,6 +98,7 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 
 ## ピアを開始できないのはなぜですか?
 {: #ibp-console-build-network-troubleshoot-entry2}
+{: troubleshoot}
 
 このエラーは、さまざまな状況の下で発生する可能性があります。
 
@@ -109,6 +117,7 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 
 ## スマート・コントラクトのインストール、インスタンス化、またはアップグレードが失敗するのはなぜですか?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
+{: troubleshoot}
 
 スマート・コントラクトのインストール、インスタンス化、またはアップグレードの際に、エラーが発生することがあります。  例えば、ピア上でスマート・コントラクトをインストールしようとすると、エラー `An error occurred when installing smart contract on peer` で失敗します。
 {: tsSymptoms}
@@ -123,6 +132,7 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 
 ## スマート・コントラクトのコンテナー・ログを表示するにはどうしたらよいですか?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
+{: troubleshoot}
 
 スマート・コントラクト (チェーンコード) のコンテナー・ログを表示して、スマート・コントラクトの問題をデバッグする必要が生じることがあります。
 {: tsSymptoms}
@@ -132,11 +142,12 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 
 ## コンソールにチャネル、スマート・コントラクト、ID が表示されなくなりました。 どうすれば元に戻せますか?
 {: #ibp-v2-troubleshooting-browser-storage}
+{: troubleshoot}
 
-コンソール・ウォレットの ID は、ブロックチェーン・コンポーネントの管理に使用できる署名証明書と秘密鍵で構成されますが、これらの ID はブラウザーのローカル・ストレージのみに保管されます。これらの ID の保護と管理は、お客様の責任となります。 これらの ID の作成後に、ファイル・システムにエクスポートすることをお勧めします。 新しいノードを作成する際には、必ずコンソール・ウォレットの ID をそのノードと関連付けます。 この管理者 ID を使用して、ノードを管理します。 ブラウザーを切り替えるか、別のマシン上のブラウザーに変更すると、これらの ID はウォレット内からなくなります。 そのため、コンポーネントを管理できなくなります。
+コンソール・ウォレットの ID は、ブロックチェーン・コンポーネントの管理に使用できる署名証明書と秘密鍵で構成されますが、これらの ID はブラウザーのローカル・ストレージのみに保管されます。 これらの ID の保護と管理は、お客様の責任となります。 これらの ID の作成後に、ファイル・システムにエクスポートすることをお勧めします。 新しいノードを作成する際には、必ずコンソール・ウォレットの ID をそのノードと関連付けます。 この管理者 ID を使用して、ノードを管理します。 ブラウザーを切り替えるか、別のマシン上のブラウザーに変更すると、これらの ID はウォレット内からなくなります。 そのため、コンポーネントを管理できなくなります。
 {: tsSymptoms}
 
-{{site.data.keyword.blockchainfull_notm}} Platform 2.0 の新機能の 1 つとして、お客様自身が証明書の保護と管理を行うようになったということがあります。 したがって、コンポーネントを管理できるように、証明書がブラウザーのローカル・ストレージ内のみに保持されます。 プライベート・ブラウザー・ウィンドウを使用している時に、別のブラウザー・ウィンドウやプライベートではないブラウザー・ウィンドウに切り替えると、新しいブラウザー・セッションでは、作成した ID がコンソール・ウォレットから失われます。 したがって、プライベート・ブラウザー・セッションのコンソール・ウォレットからファイル・システムに ID をエクスポートしておく必要があります。 そうすれば、必要に応じて、プライベートではないブラウザー・セッションにインポートできます。 そうしない場合、リカバリーの方法はありません。
+{{site.data.keyword.blockchainfull_notm}} Platform の新機能の 1 つとして、お客様自身が証明書の保護と管理を行うようになったということがあります。 したがって、コンポーネントを管理できるように、証明書がブラウザーのローカル・ストレージ内のみに保持されます。 プライベート・ブラウザー・ウィンドウを使用している時に、別のブラウザー・ウィンドウやプライベートではないブラウザー・ウィンドウに切り替えると、新しいブラウザー・セッションでは、作成した ID がコンソール・ウォレットから失われます。 したがって、プライベート・ブラウザー・セッションのコンソール・ウォレットからファイル・システムに ID をエクスポートしておく必要があります。 そうすれば、必要に応じて、プライベートではないブラウザー・セッションにインポートできます。 そうしない場合、リカバリーの方法はありません。
 {: tsCauses}
 
 - 新しく組織の MSP 定義を作成する際には、必ず組織の管理に使用できる ID の鍵を生成します。 したがって、このプロセス中に、**「生成」**ボタンをクリックしてから**「エクスポート」**ボタンをクリックして、生成した ID をコンソール・ウォレット内に保管してから、JSON ファイルとしてファイル・システムに保存しなければなりません。
@@ -151,8 +162,22 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 - 元のブラウザーのウォレット内にあった ID ごとに、このプロセスを繰り返します。
 {: tsResolve}
 
+## 新規組織 MSP 定義の作成時に、`「指定された登録 ID とシークレットで認証できません (Unable to authenticate with the enroll ID and secret you provided)」`というエラーが表示されるのはなぜですか?
+{: #ibp-v2-troubleshooting-create-msp}
+{: troubleshoot}
+
+「組織」タブから新規組織 MSP 定義を作成しようとすると、`「指定された登録 ID とシークレットで認証できません (Unable to authenticate with the enroll ID and secret you provided)」`というエラーが表示されます。
+{: tsSymptoms}
+
+このエラーは、登録シークレットに指定した値が、パネルの`「組織管理者証明書の生成 (Generate organization admin certificate)」`セクションで選択した登録 ID に対して無効である場合に発生します。
+{: tsCauses}
+
+「登録 ID」ドロップダウン・リストから組織管理者の正しい登録 ID を選択したことを確認し、登録シークレットに正しい値を入力してください。
+{: tsResolve}
+
 ## 組織をチャネルに追加しようとするとエラー `An error occurred when updating channel` が発生するのはなぜですか?
 {: #ibp-v2-troubleshooting-update-channel}
+{: troubleshoot}
 
 別の組織をチャネルに追加しようとすると、メッセージ `An error occurred when updating channel` で更新が失敗します。
 {: tsSymptoms}
@@ -165,6 +190,7 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 
 ## Kubernetes クラスターの有効危険が切れました。 これはどういう意味ですか?
 {: #ibp-v2-troubleshooting-cluster-expired}
+{: troubleshoot}
 
 {{site.data.keyword.IBM_notm}} Kubernetes Service クラスターの有効期限がもうすぐ切れるという E メールを受け取りました。または、クラスターの状況が「`有効期限切れ (Expired)`」と表示されます。 または、30 日後にコンソールにアクセスできなくなりました。
 {: tsSymptoms}
@@ -177,6 +203,7 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 
 ## VS Code から実行するトランザクションが失敗するのはなぜですか?
 {: #ibp-v2-troubleshooting-anchor-peer}
+{: troubleshoot}
 
 VS Code からトランザクションを実行すると、以下のようなエラーが出て失敗します。
 ```
@@ -188,3 +215,18 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 {: tsCauses}
 
 スマート・コントラクトのデプロイに関するチュートリアルの[プライベート・データのトピック](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)にあるステップ 3 を実行して、アンカー・ピアを構成してください。
+
+## コンソールにログインすると、401 無許可エラーが表示されるのはなぜですか?
+{: #ibp-v2-troubleshooting-console-401}
+{: troubleshoot}
+
+コンソールにログインしようとしても、ブラウザーからコンソールにアクセスできません。ブラウザーのログを確認すると、エラー 401 無許可が見つかることがあります。
+{: tsSymptoms}
+
+非アクティブな状態が **8 時間**続くと、ブラウザー・コンソール・セッションがタイムアウトになります。セッションが非アクティブになると、コンソールはその非アクティブなユーザーにアクションを実行させないようにします。
+{: tsCauses}
+
+セッションが非アクティブになった場合は、単にブラウザーを最新表示してみてください。それで解決しない場合は、**すべての**タブとウィンドウを含め、ブラウザーを閉じてください。もう一度 URL を開きます。ログインを求められます。
+
+ベスト・プラクティスとして、あらかじめ証明書と ID をファイル・システムに保管しておくことをお勧めします。シークレット・ウィンドウを使用してしまうと、ブラウザーを閉じるときにブラウザーのローカル・ストレージからすべての証明書が削除されます。再ログインした後、ID と証明書を再インポートする必要があります。
+{: note}

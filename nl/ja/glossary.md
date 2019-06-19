@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,7 +20,7 @@ subcollection: blockchain
 # 用語集
 {: #glossary}
 
-このトピックでは、この資料に記載されている {{site.data.keyword.blockchainfull}} プラットフォーム固有の用語を定義します。 用語の詳細な意味、および Hyperledger Fabric の概念に関連する用語の用語集は、[Hyperledger Fabric の用語集 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html) を参照してください。
+このトピックでは、この資料に記載されている {{site.data.keyword.blockchainfull}} プラットフォーム固有の用語を定義します。 用語の詳細な意味、および Hyperledger Fabric の概念に関連する用語の用語集は、[Hyperledger Fabric の用語集](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}を参照してください。
 {:shortdesc}
 
 ## 資産
@@ -61,7 +61,7 @@ subcollection: blockchain
 
 ## コンソール
 {: #glossary-console}
-{{site.data.keyword.blockchainfull_notm}} Platform 内のユーザー・インターフェースの名前。ユーザーはコンソールを使用して、デプロイメントを表示、作成、および管理できます。公開鍵および秘密鍵は、コンソールが実行されているブラウザーにローカルでのみ格納されるため、ユーザーは自分の鍵を完全に制御できます。
+{{site.data.keyword.blockchainfull_notm}} Platform 内のユーザー・インターフェースの名前。 ユーザーはコンソールを使用して、デプロイメントを表示、作成、および管理できます。 公開鍵および秘密鍵は、コンソールが実行されているブラウザーにローカルでのみ格納されるため、ユーザーは自分の鍵を完全に制御できます。
 
 ## 共同事業体
 {: #glossary-consortium}
@@ -69,11 +69,11 @@ subcollection: blockchain
 
 ## CouchDB
 {: #glossary-couchdb}
-{{site.data.keyword.blockchainfull_notm}} Platform およびスターター・プラン・ネットワーク内の状態データベースに対して使用される、データのリッチ・クエリーを可能にする文書ストア。CouchDB は LevelDB と並んで、エンタープライズ・プラン・ネットワークのオプションでもあります。
+{{site.data.keyword.blockchainfull_notm}} Platform およびスターター・プラン・ネットワーク内の状態データベースに対して使用される、データのリッチ・クエリーを可能にする文書ストア。 CouchDB は LevelDB と並んで、エンタープライズ・プラン・ネットワークのオプションでもあります。
 
 ## 現在の状態
 {: #glossary-current-state}
-台帳の現在の状態は、チェーン・トランザクション・ログに含まれるすべてのキーの最新の値を表します。 現在の状態は、チャネルに認識されているすべての最新のキー値を表すため、**ワールド・ステート**と呼ばれることもあります。スマート・コントラクトは、現在の状態のデータに対してトランザクション・プロポーザルを実行します。現在の状態は、キーの値が変更されるか、新しいキーが追加されるたびに変化します。最新のキーと値のペアを変更するには、そのペアが既知でなければならないため、現在の状態はトランザクション・フローにとって重要です。ピアは、ブロック内の有効なトランザクションごとに、最新の値を台帳の現在の状態にコミットします。 現在の状態は、ピアに関連付けられている状態データベースに格納されます。
+台帳の現在の状態は、チェーン・トランザクション・ログに含まれるすべてのキーの最新の値を表します。 現在の状態は、チャネルに認識されているすべての最新のキー値を表すため、**ワールド・ステート**と呼ばれることもあります。 スマート・コントラクトは、現在の状態のデータに対してトランザクション・プロポーザルを実行します。 現在の状態は、キーの値が変更されるか、新しいキーが追加されるたびに変化します。最新のキーと値のペアを変更するには、そのペアが既知でなければならないため、現在の状態はトランザクション・フローにとって重要です。 ピアは、ブロック内の有効なトランザクションごとに、最新の値を台帳の現在の状態にコミットします。 現在の状態は、ピアに関連付けられている状態データベースに格納されます。
 
 ## 動的メンバーシップ
 {: #glossary-dynamic-memership}
@@ -93,15 +93,15 @@ subcollection: blockchain
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric では、順序付けサービスに依存せずに、ピアどうしで重要なネットワーク情報を収集できます。 [ゴシップ・データ配布プロトコル ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html) により、安全、確実、スケーラブルなピア間のメッセージ交換が可能になっています。 例えば、遅延、ネットワーク障害、その他の理由でいくつかのブロックがピアに存在しない場合、ピアは、ゴシップ・メッセージングを使用して、欠落ブロックを所有している他のピアと通信し、最新の台帳状態に同期できます。
+Hyperledger Fabric では、順序付けサービスに依存せずに、ピアどうしで重要なネットワーク情報を収集できます。 [ゴシップ・データ配布プロトコル](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external}により、安全、確実、スケーラブルなピア間のメッセージ交換が可能になっています。 例えば、遅延、ネットワーク障害、その他の理由でいくつかのブロックがピアに存在しない場合、ピアは、ゴシップ・メッセージングを使用して、欠落ブロックを所有している他のピアと通信し、最新の台帳状態に同期できます。
 
 ## HSM
 {: #glossary-hsm}
-ハードウェア・セキュリティー・モジュール。 オンデマンド暗号化、鍵管理、および鍵格納をマネージド・サービスとして提供します。 HSM は、リソース集中型の暗号化処理タスクを処理し、アプリケーションの待ち時間を削減する物理アプライアンスです。 詳しくは、[ハードウェア・セキュリティー・モジュール![「外部リンク」アイコン](images/external_link.svg "「外部リンク」アイコン」")](https://www.ibm.com/cloud/hardware-security-module) を参照してください。
+ハードウェア・セキュリティー・モジュール。 オンデマンド暗号化、鍵管理、および鍵格納をマネージド・サービスとして提供します。 HSM は、リソース集中型の暗号化処理タスクを処理し、アプリケーションの待ち時間を削減する物理アプライアンスです。 詳しくは、[Hardware Security Module](https://www.ibm.com/cloud/hardware-security-module){: external} を参照してください。
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![「外部リンク」アイコン](images/external_link.svg "「外部リンク」アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) は Linux Foundation がホストするビジネス・ブロックチェーン・フレームワークで、ブロックチェーン・アプリケーションまたはソリューションを、モジュラー・アーキテクチャーで開発するための基盤として機能します。 コンセンサス・サービスやメンバーシップ・サービスなどの Hyperledger Fabric コンポーネントは、プラグ・アンド・プレイです。
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external} は Linux Foundation がホストするビジネス・ブロックチェーン・フレームワークで、ブロックチェーン・アプリケーションまたはソリューションを、モジュラー・アーキテクチャーで開発するための基盤として機能します。 コンセンサス・サービスやメンバーシップ・サービスなどの Hyperledger Fabric コンポーネントは、プラグ・アンド・プレイです。
 
 ## インストール
 {: #glossary-install}
@@ -113,7 +113,7 @@ Hyperledger Fabric では、順序付けサービスに依存せずに、ピア�
 
 ## Kafka
 {: #glossary-kafka}
-ブロックチェーン・ネットワーク内で順序付けサービス・ノードのクラスターとなる Hyperledger Fabric のコンセンサス・プラグイン実装。 Kafka 実装および Raft 実装は、実動ネットワークのための実装です。ただし、Raft の順序付けサービス・クラスターのみがネイティブにサポートされ、{{site.data.keyword.blockchainfull_notm}} Platform を使用して作成できます。
+ブロックチェーン・ネットワーク内で順序付けサービス・ノードのクラスターとなる Hyperledger Fabric のコンセンサス・プラグイン実装。 Kafka 実装および Raft 実装は、実動ネットワークのための実装です。 ただし、Raft の順序付けサービス・クラスターのみがネイティブにサポートされ、{{site.data.keyword.blockchainfull_notm}} Platform を使用して作成できます。
 
 ## 台帳
 {: #glossary-ledger}
@@ -129,7 +129,7 @@ CouchDB とともに、エンタープライズ・プラン・ネットワーク
 
 ## MSP
 {: #glossary-msp}
-**Membership Service Provider** (メンバーシップ・サービス・プロバイダー) の省略形。これは、組織に関連付けられているエンティティーの証明書を発行する CA のルート証明書、および組織の管理者の署名付き証明書を含む、組織の定義を提供します。MSP はピア・ノードまたは順序付けノードのローカル・レベルにも存在し、ノードの管理者ユーザーを検証する認証メカニズムです。{{site.data.keyword.blockchainfull_notm}} Platform では、あるコンソールから別のコンソールに MSP をエクスポートできます。このためユーザーは、あるコンソールで組織を作成し、その組織を別のコンソールにインポートして、操作 (例えば、チャネルを作成するために) することができます。MSP を順序付けサービスにインポートして、チャネルを作成し、チャネルに参加することを許可されている組織のリストである「コンソーシアム」を形成することもできます。
+**Membership Service Provider** (メンバーシップ・サービス・プロバイダー) の省略形。これは、組織に関連付けられているエンティティーの証明書を発行する CA のルート証明書、および組織の管理者の署名付き証明書を含む、組織の定義を提供します。 MSP はピア・ノードまたは順序付けノードのローカル・レベルにも存在し、ノードの管理者ユーザーを検証する認証メカニズムです。 {{site.data.keyword.blockchainfull_notm}} Platform では、あるコンソールから別のコンソールに MSP をエクスポートできます。このためユーザーは、あるコンソールで組織を作成し、その組織を別のコンソールにインポートして、操作 (例えば、チャネルを作成するために) することができます。 MSP を順序付けサービスにインポートして、チャネルを作成し、チャネルに参加することを許可されている組織のリストである「コンソーシアム」を形成することもできます。
 
 ## ネットワーク
 {: #glossary-network}
@@ -165,7 +165,7 @@ CouchDB とともに、エンタープライズ・プラン・ネットワーク
 
 ## Raft
 {: #glossary-raft}
-Raft は、`etcd` での [Raft プロトコル ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://raft.github.io/raft.pdf) の実装に基づく、クラッシュ・フォールト・トレラント (CFT) 順序付けサービスです。Raft は「リーダーとフォロワー」モデルに従います。このモデルでは、リーダー・ノードが (チャネルごとに) 選ばれ、その決定がフォロワーによって複製されます。Raft の順序付けサービスは、Kafka ベースの順序付けサービスよりも設定と管理が簡単です。また、{{site.data.keyword.blockchainfull_notm}} Platform を使用して、これらのノードのクラスターを作成できます。
+Raft は、`etcd` での [Raft プロトコル](https://raft.github.io/raft.pdf){: external}の実装に基づく、クラッシュ・フォールト・トレラント (CFT) 順序付けサービスです。 Raft は「リーダーとフォロワー」モデルに従います。このモデルでは、リーダー・ノードが (チャネルごとに) 選ばれ、その決定がフォロワーによって複製されます。 Raft の順序付けサービスは、Kafka ベースの順序付けサービスよりも設定と管理が簡単です。また、{{site.data.keyword.blockchainfull_notm}} Platform を使用して、これらのノードのクラスターを作成できます。
 
 ## サービス資格情報
 {: #glossary-service-credentials}
@@ -173,7 +173,7 @@ Raft は、`etcd` での [Raft プロトコル ![外部リンク・アイコン]
 
 ## SDK
 {: #glossary-sdk}
-Hyperledger Fabric は 2 つの Software Development Kit (SDK) をサポートします。 ノード SDK および Java SDK です。  ノード SDK は NPM を介して、Java SDK は Maven を介してインストールできます。  SDK には独自の git リポジトリー、つまり [ファブリック・ノード SDK ![「外部リンク」アイコン](images/external_link.svg "「外部リンク」アイコン")](https://github.com/hyperledger/fabric-sdk-node) および[ファブリック Java SDK ![「外部リンク」アイコン](images/external_link.svg "「外部リンク」アイコン")](https://github.com/hyperledger/fabric-sdk-java) があり、使用可能な API の資料が付いています。 Hyperledger Fabric のクライアント SDK は、クライアント・アプリケーションとブロックチェーン・ネットワーク間の対話を可能にします。
+Hyperledger Fabric は 2 つの Software Development Kit (SDK) をサポートします。 ノード SDK および Java SDK です。  ノード SDK は NPM を介して、Java SDK は Maven を介してインストールできます。  SDK には独自の git リポジトリー、つまり [ファブリック・ノード SDK](https://github.com/hyperledger/fabric-sdk-node){: external} および[ファブリック Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external} があり、使用可能な API の資料が付いています。 Hyperledger Fabric のクライアント SDK は、クライアント・アプリケーションとブロックチェーン・ネットワーク間の対話を可能にします。
 
 ## 署名付き証明書
 {: #glossary-sign-cert}
@@ -185,7 +185,7 @@ Hyperledger Fabric は 2 つの Software Development Kit (SDK) をサポート�
 
 ## Solo
 {: #glossary-solo}
-ブロックチェーン・ネットワーク内で単一の順序付けサービス・ノードとなる Hyperledger Fabric のコンセンサス・プラグイン実装。 スターター・プラン・ネットワークは Solo 実装を使用します。Solo 実装は実動ネットワーク用ではありません。Solo の代わりは、Raft クラスターと Kafka クラスターです。
+ブロックチェーン・ネットワーク内で単一の順序付けサービス・ノードとなる Hyperledger Fabric のコンセンサス・プラグイン実装。 スターター・プラン・ネットワークは Solo 実装を使用します。 Solo 実装は実動ネットワーク用ではありません。 Solo の代わりは、Raft クラスターと Kafka クラスターです。
 
 ## 状態データベース
 {: #glossary-state-database}
