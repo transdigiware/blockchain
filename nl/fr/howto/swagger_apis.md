@@ -1,27 +1,30 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-03"
+  years: 2018, 2019
+lastupdated: "2019-05-31"
+
+keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Interaction avec le réseau à l'aide d'API Swagger
 {: #ibp-swagger}
 
-{{site.data.keyword.blockchainfull_notm}} Platform expose dans Swagger un certain nombre d'API REST que vous pouvez utiliser pour gérer les noeuds, les homologues et les membres de votre réseau. Vos applications peuvent recourir à ces API pour gérer d'importantes ressources réseau sans utiliser le moniteur réseau.
+{{site.data.keyword.blockchainfull_notm}} Platform expose dans Swagger un certain nombre d'API REST que vous pouvez utiliser pour gérer les noeuds, les homologues et les membres de votre réseau. Vos applications peuvent recourir à ces API pour gérer d'importantes ressources réseau sans utiliser le Moniteur réseau.
 
 {:shortdesc}
 
-Avant de commencer, vous devez créer une [instance de service {{site.data.keyword.blockchain}} Platform ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) sur {{site.data.keyword.cloud_notm}} et créer ou rejoindre le réseau de <!--or Enterprise Plan -->blockchain d'un plan Starter.
+Avant de commencer, vous devez créer une [instance de service {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}} et créer ou rejoindre un réseau plan Starter <!--or Enterprise Plan -->.
 
 
 ## Extraction des données d'identification réseau
@@ -30,15 +33,13 @@ Avant de commencer, vous devez créer une [instance de service {{site.data.keywo
 Accédez au Moniteur réseau de votre réseau de blockchain et ouvrez l'écran "API" dans le navigateur de gauche. Vous pouvez voir vos données d'identification réseau pour les API REST. Vous pourrez autoriser ultérieurement les API à l'aide des valeurs de "key" et "secret" affichées ici, puis exécuter les API avec "network_id" comme paramètre. Cliquez sur **Afficher le secret** pour afficher la valeur de la zone de valeur confidentielle. Copiez les valeurs des zones key, secret et network_id, que vous pouvez utiliser plus tard dans l'interface utilisateur Swagger.
 
 La **Figure 1** illustre l'écran "API" :
-![Ecran API](../images/API_screen_starter.png "Ecran API")
-*Figure 1. API*
+![Ecran des API](../images/API_screen_starter.png "Ecran des API")
 
 Si vous utilisez le plan Starter, il est possible de basculer entre les organisations dans le Moniteur réseau. Avec le plan Starter, deux organisations sont configurées par défaut. le basculement entre organisations peut être utile pour tester les API REST du point de vue de chaque organisation. Pour obtenir les données d'identification d'une autre organisation de votre réseau, cliquez sur votre nom d'utilisateur dans l'angle supérieur droit de la console Moniteur réseau. Dans le menu qui s'ouvre, cliquez sur la flèche déroulante en regard de la vue Organisation pour afficher toutes les organisations. Sélectionnez l'organisation vers laquelle vous voulez basculer et afficher les données d'identification réseau associées.
 
 La **Figure 2** illustre le basculement entre organisations :
 
-![Basculement entre organisations](../images/switch_orgs_starter.gif "Basculement entre organisations")  
-*Figure 2. Basculement entre organisations*
+![Basculement entre organisations](../images/switch_orgs_starter.gif "Basculement entre organisations"){: gif}
 
 
 ## Autorisation d'API Swagger
@@ -52,8 +53,7 @@ Avec l'authentification de base, les données d'identification que vous indiquez
 
 La **Figure 3** illustre la procédure d'autorisation d'API Swagger :
 
-![Autorisation des API](../images/swaggerUIAuthorize.gif "Autorisation des API")  
-*Figure 3. Autorisation des API*
+![Autorisation des API](../images/swaggerUIAuthorize.gif "Autorisation des API"){: gif}
 
 
 ## Test des API
@@ -63,27 +63,24 @@ Cliquez sur l'API REST que vous voulez exécuter puis sur le bouton **Essayez**.
 
 La **Figure 4** illustre le bouton "Essayez" dans l'interface utilisateur Swagger :
 
-![Bouton Essayez dans l'interface utilisateur Swagger](../images/swaggerUITryItOut.png "Bouton Essayez dans l'interface utilisateur Swagger")  
-*Figure 4. Bouton "Essayez" dans l'interface utilisateur Swagger*
+![Bouton Essayez dans l'interface utilisateur Swagger](../images/swaggerUITryItOut.png "Bouton Essayez dans l'interface utilisateur Swagger")
 
 Après avoir cliqué sur le bouton **Essayez**, vous pouvez entrer les paramètres requis pour utiliser l'API. Vous pouvez trouver la valeur `networkID` dans vos données d'identification réseau et les autres paramètres dans votre Moniteur réseau. Après voir entré les paramètres, cliquez sur **Exécuter** pour lancer l'appel d'API REST sur votre réseau.
 
 La **Figure 5** illustre les paramètres dans l'interface utilisateur Swagger :
 
 ![Paramètres dans l'interface utilisateur Swagger](../images/swaggerUIParams.png "Paramètres dans l'interface utilisateur Swagger")  
-*Figure 5. Saisie des paramètres*  
 
 Après avoir cliqué sur **Exécuter**, vous pouvez observer la réponse de l'appel d'API sur votre réseau. Vous pouvez aussi voir une commande CURL permettant d'appeler directement l'API depuis votre ligne de commande.
 
 La **Figure 6** illustre le corps de la réponse de l'API, l'URL, et la commande CURL :
 
-![Réponse d'API dans l'interface utilisateur Swagger](../images/swaggerUICurlResponse.png "Réponse d'API dans l'interface utilisateur Swagger")  
-*Figure 6. Réponse d'API*    
+![Réponse d'API dans l'interface utilisateur Swagger](../images/swaggerUICurlResponse.png "Réponse d'API dans l'interface utilisateur Swagger")    
 
 ## Désactivation de l'accès à l'API
 {: #ibp-swagger-turn-off}
 
-Par défaut, tous les utilisateurs ayant un rôle autre que Auditeur dans IBM Cloud, peuvent afficher et utiliser les **Données d'identification réseau** visibles dans le panneau des API Swagger et par conséquent gérer votre réseau à l'aide des API. Toutefois, si vous préférez ne pas exposer vos données d'identification réseau API Swagger dans l'interface utilisateur, vous pouvez copier et sécuriser votre valeurs de clé et de secret existantes et générer de nouvelles données d'identification qui ne sont pas valides pour utilisation avec les API Swagger. Un indicateur, nommé resetCredentials, est fourni pour vous permettre de contrôler l'accès en procédant comme suit :
+Par défaut, tous les utilisateurs ayant un rôle autre que Auditeur dans {{site.data.keyword.cloud_notm}}, peuvent afficher et utiliser les **Données d'identification réseau** visibles dans le panneau des API Swagger et par conséquent gérer votre réseau à l'aide des API. Toutefois, si vous préférez ne pas exposer vos données d'identification réseau API Swagger dans l'interface utilisateur, vous pouvez copier et sécuriser votre valeurs de clé et de secret existantes et générer de nouvelles données d'identification qui ne sont pas valides pour utilisation avec les API Swagger. Un indicateur, nommé resetCredentials, est fourni pour vous permettre de contrôler l'accès en procédant comme suit :
 
 1. Suivez les étapes permettant de générer de nouvelles données d'identification réseau, comme décrit dans le [tableau de bord des données d'identification du service](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
 2. Toutefois, dans la zone **Ajouter des paramètres de configuration en ligne**, collez la valeur suivante :

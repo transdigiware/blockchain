@@ -2,13 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-06-18"
+
+keywords: IBM Blockchain Platform offerings, IBM Cloud Private, AWS, VS code extension, IBM Cloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -16,6 +17,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Initiation à {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-ibp}
@@ -23,7 +25,8 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform fournit une offre de blockchain en tant que service (BaaS) de pile gérée et complète qui vous permet de déployer des composants de blockchain dans les environnements de votre choix. L'environnement peut être {{site.data.keyword.cloud_notm}}, sur site via {{site.data.keyword.cloud_notm}} Private, et des clouds tiers, comme Amazon Web Services (AWS). Dans ce tutoriel, nous vous guiderons tout au long du processus général de configuration d'un réseau de blockchain de base avec {{site.data.keyword.blockchainfull_notm}} Platform.
 {:shortdesc}
 
-**Important :** Avant d'utiliser une offre d'{{site.data.keyword.blockchainfull_notm}} Platform, lisez les informations relatives aux données techniques et à l'aide dans la section [Clause de protection](/docs/services/blockchain/needtoknow.html#disclaimer).
+Avant d'utiliser une offre d'{{site.data.keyword.blockchainfull_notm}} Platform, lisez les informations relatives aux données techniques et à l'aide dans la section [Clause de protection](/docs/services/blockchain/needtoknow.html#disclaimer).
+{: important}
 
 
 ## Avant de commencer
@@ -33,53 +36,49 @@ subcollection: blockchain
 
 | **Offres** | **Eléments inclus** | **Règle facturation** | **Plateforme cloud** |
 | ------------------------- |-----------|-----------|-----------|-----------|
-| [Extension **{{site.data.keyword.blockchainfull_notm}} Platform pour VSCode**](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode) | Les développeurs peuvent démarrer avec l'environnement de développement intégré qui fournit un explorateur et des commandes accessibles depuis la palette de commandes pour le développement rapide de contrats intelligents. | Gratuit | S'exécute sur votre machine locale |
-| [**Plan Starter**](/docs/services/blockchain/starter_plan.html#starter-plan-about) | Réseau géré par {{site.data.keyword.IBM_notm}} avec niveaux de service de base, environnement de développement et de tests | Abonnement mensuel | {{site.data.keyword.cloud_notm}} |
-| [**Plan Enterprise**](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about) | Réseau géré par {{site.data.keyword.IBM_notm}} avec services avancés et environnement prêt pour la production d'entreprise | Abonnement mensuel | {{site.data.keyword.cloud_notm}} |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform version 2.0 gratuite bêta**](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview) | Console {{site.data.keyword.blockchainfull_notm}} Platform pour le déploiement et la gestion de composants de blockchain dans votre cluster Kubernetes {{site.data.keyword.cloud_notm}} | Gratuit pour version bêta | {{site.data.keyword.cloud_notm}} |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private**](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) | Autorité de certification déployable, Service de tri et chartes Helm d'homologue | [Tarification VPC](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about-pricing) et Free Community Edition | {{site.data.keyword.cloud_notm}} Private |
+| [Extension **{{site.data.keyword.blockchainfull_notm}} Platform pour VS**](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode) | Les développeurs peuvent démarrer avec l'environnement de développement intégré qui fournit un explorateur et des commandes accessibles depuis la palette de commandes pour le développement rapide de contrats intelligents. | Gratuit | S'exécute sur votre machine locale |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview) | Console {{site.data.keyword.blockchainfull_notm}} Platform et API qui peuvent être utilisées pour déployer et pour déployer et gérer des composants de blockchain dans votre cluster {{site.data.keyword.cloud_notm}} Kubernetes | [Tarification VPC 0,29 dollars/VPC-heure](/docs/services/blockchain/howto/pricing-saas.html) | {{site.data.keyword.cloud_notm}} |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) | Console {{site.data.keyword.blockchainfull_notm}} Platform déployée dans un cluster {{site.data.keyword.cloud_notm}} Private à l'aide d'une charte Helm Kubernetes | [Tarification VPC](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) | {{site.data.keyword.cloud_notm}} Private |
 | [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about) | Modèle de démarrage rapide AWS pour le déploiement d'homologues distants situés à l'extérieur d'{{site.data.keyword.cloud_notm}} | Gratuit | AWS |
 
 *Figure 1. Offres {{site.data.keyword.blockchainfull_notm}} Platform*
 
-N'utilisez pas le plan Starter ou la version 2.0 bêta gratuite en production. Il s'agit d'un environnement de développement et de test qui ne convient pas aux charges de travail en production.
-{: important}
 
 ## Etape 1 : Obtenir une offre
 {: #get-started-ibp-step1}
 
 Vérifiez que vous disposez de la licence de compte cloud ou PPA pour obtenir une offre {{site.data.keyword.blockchainfull_notm}} Platform.
 
-* **Extension {{site.data.keyword.blockchainfull_notm}} Platform pour VSCode**
+* **Extension de code {{site.data.keyword.blockchainfull_notm}} Platform pour VS**
 
-  Cette extension VSCode est disponible gratuitement dans l'extension [Visual Studio Marketplace ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform "{{site.data.keyword.blockchainfull_notm}} Platform pour VSCode") et elle peut être utilisée pour développer, déboguer et tester des contrats intelligents en vue d'une possible déploiement dans {{site.data.keyword.blockchainfull_notm}}.
+  Cette extension VS Code est disponible gratuitement dans l'extension [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} et elle peut être utilisée pour développer, déboguer et tester des contrats intelligents en vue d'un possible déploiement dans {{site.data.keyword.blockchainfull_notm}}.
 
-* **Plan Starter**, **Plan Enterprise** et **{{site.data.keyword.blockchainfull_notm}} Platform version 2.0 gratuite bêta**
+* **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
 
-  Ces offres sont disponibles dans {{site.data.keyword.cloud_notm}} et vous pouvez les trouver dans le [tableau de bord du Catalogue ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/catalog "Catalogue") d'{{site.data.keyword.cloud_notm}}.
+  Cette offre est disponible dans le tableau de bord du catalogue [{{site.data.keyword.cloud_notm}} ](https://cloud.ibm.com/catalog){: external} de {{site.data.keyword.cloud_notm}}.
 
-* **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private**
+* **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
 
-  Cette offre est fournie en tant que charte Helm déployable et elle comporte à la fois une édition payante et une édition Community gratuite. Vous pouvez télécharger la version Enterprise Edition depuis [Passport Advantage Online ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://www.ibm.com/software/passportadvantage/pao_customer.html) ou télécharger l'édition Community gratuite depuis [GitHub ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://github.com/IBM/charts/blob/master/repo/stable/ibm-blockchain-platform-dev-1.0.2.tgz).
+  Cette offre est fournie en tant que charte Helm déployable via [Passport Advantage Online](https://www.ibm.com/software/passportadvantage/pao_customer.html).
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
 
-  Cette offre est disponible dans AWS et vous pouvez déployer un homologue de blockchain dans AWS à l'aide d'un [modèle de démarrage rapide![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/).
+  Cette offre est disponible dans AWS et vous pouvez déployer un homologue de blockchain dans AWS à l'aide d'un [modèle de démarrage rapide](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/){: external}.
 
 ## Etape 2 : Déployer {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-ibp-step2}
 
-* **Plan Starter**, **Plan Enterprise** et **{{site.data.keyword.blockchainfull_notm}} Platform version 2.0 gratuite bêta**
+* **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
 
-  Connectez-vous à {{site.data.keyword.cloud_notm}} et créez une instance de service avec l'offre. Si vous utilisez un plan Starter, vous pouvez obtenir un réseau de blockchain avec une configuration par défaut juste après avoir [créé l'instance de service](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan). Si vous utilisez un plan Enterprise ou {{site.data.keyword.blockchainfull_notm}} Platform version 2.0 gratuite bêta, vous devez suivre les instructions de l'assistant pour terminer la configuration initiale de votre réseau. Pour plus d'informations, voir [Création d'un réseau de plan Enterprise](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) ou [Déploiement de {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+  Connectez-vous à {{site.data.keyword.cloud_notm}} et créez une instance de service avec l'offre. Suivez les instructions de l'assistant pour terminer la configuration initiale de votre réseau. Pour plus d'informations, voir [Initiation à {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
 
-* **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private**
+* **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
 
-  Avant de déployer un réseau, vous devez [importer la charte Helm dans {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/helm_install_icp.html#helm-install). Ensuite, vous pouvez [déployer vos composants à partir d'une autorité de certification](/docs/services/blockchain/ibp_for_icp_deployment_guide.html#step-three-set-up-your-cas) pour générer votre réseau.
+  Avant de déployer un réseau, vous devez installer la charte Helm dans un cluster {{site.data.keyword.cloud_notm}} Private. Ensuite, vous pouvez déployer la console {{site.data.keyword.blockchainfull_notm}} Platform et l'utiliser pour déployer et gérer des composants de blockchain dans votre cluster local. Pour plus d'informations, voir [Initiation à {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/get-started-console-icp.html#get-started-console-icp).
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
 
-  Cette offre est disponible dans AWS et vous pouvez déployer un homologue de blockchain dans AWS à l'aide d'un [modèle de démarrage rapide![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/).
+  Cette offre est disponible dans AWS et vous pouvez déployer un homologue de blockchain dans AWS à l'aide d'un [modèle de démarrage rapide](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/){: external}.
 
 ## Etapes suivantes
 {: #get-started-ibp-next-steps}

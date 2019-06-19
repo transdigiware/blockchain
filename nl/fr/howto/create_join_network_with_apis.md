@@ -4,15 +4,18 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-20"
 
+keywords: Swagger APIs, create a network, join a network, authentication credential
+
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Création ou association à un réseau à l'aide d'API Swagger
 {: #swagger-network}
@@ -24,17 +27,17 @@ subcollection: blockchain
 ## Extraction de données d'identification de base pour l'API
 {: #swagger-network-retrieve-id-token}
 
-Avant de commencer, vous devez créer une instance de service [{{site.data.keyword.blockchainfull_notm}} Platform ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) avec un plan Starter ou un plan Enterprise dans {{site.data.keyword.cloud_notm}}.
+Avant de commencer, vous devez créer une instance de service [{{site.data.keyword.blockchainfull_notm}} Platform ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}  avec un plan Starter ou un plan Enterprise dans {{site.data.keyword.cloud_notm}}.
 
 Pour utiliser des API Swagger afin de créer ou de rejoindre un réseau, vous avez besoin de données d'identification de base afin de garantir que vous avez accès à l'instance de service dans {{site.data.keyword.cloud_notm}}.
 
-1. Dans votre tableau de bord [{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/resources), ouvrez l'instance de service que vous avez créée.
+1. Dans votre tableau de bord [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}, ouvrez l'instance de service que vous avez créée. 
 2. Cliquez sur **Données d'identification du service** dans le navigateur de gauche.
 3. Cliquez sur le bouton "Nouvelles données d'identification" dans la page **Données d'identification du service** pour créer de nouvelles données d'identification.
     1. Attribuez un nom à ces données d'identification, par exemple *CreateJoin*.
     2. Entrez **{"type": "service_instance_token"}** dans la zone "Ajouter des paramètres de configuration en ligne".
     3. Cliquez sur le bouton **Ajouter**.
-    ![Extraction des données d'identification du service](../images/service_credentials.gif "Extraction des données d'identification du service")
+    ![Extraction des données d'identification du service](../images/service_credentials.gif "Extraction des données d'identification du service"){: gif}
 4. Une fois les nouvelles données d'identification créées, cliquez sur **Afficher les données d'identification** sous l'en-tête **ACTIONS** de ces données d'identification. Le contenu des données d'identification est semblable à l'exemple suivant :
 
     ```

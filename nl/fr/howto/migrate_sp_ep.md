@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-17"
+  years: 2018, 2019
+lastupdated: "2019-05-31"
+
+keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -42,7 +44,7 @@ Avant de migrer depuis votre réseau de plan Starter vers un réseau de plan Ent
 - **Ressources affectées :** Code blockchain (contrats intelligents), applications client. Tenez compte également du fait que votre code blockchain optimise composant en version 1.2 de Fabric ou une fonctionnalité qui n'est pas compatible avec les réseaux en version 1.1.
 - **Temps nécessaire :** Une demi-journée est au moins nécessaire pour migrer un réseau de base d'un plan Starter vers un plan Enterprise.
 - **Données de registre existant** : Elles ne peuvent pas être déplacées de réseaux de plan Starter vers des réseaux de plan Enterprise car il n'est pas approprié que des données de test existent dans un environnement de production.
-- **Hyperledger Composer** IBM n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.
+- **Hyperledger Composer:** {{site.data.keyword.IBM_notm}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.
 
 **Remarque :** Un réseau *de base* comporte deux organisations avec deux homologues, un seul canal et un seul code blockchain ou fichier. Le temps réel nécessaire à la migration peut varier selon la taille et la complexité des composants réseau dont vous avez besoin dans le réseau de plan Enterprise.
 
@@ -75,8 +77,7 @@ Vous pourriez recréer la configuration des organisations (membres), des canaux 
 ### Migration du code blockchain
 {: #migrate_starter_to_enterprise_cc}
 
-Le code blockchain est développé en externe dans votre environnement local et il est appelé par vos applications client. Pour installer et instancier du code blockchain, qui a été testé dans votre réseau de plan Starter, sur certains homologues de votre réseau de plan Enterprise, suivez les instructions de la section [Installation, instanciation et mise à jour d'un code blockchain](/docs/services/blockchain
-/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
+Le code blockchain est développé en externe dans votre environnement local et il est appelé par vos applications client. Pour installer et instancier du code blockchain, qui a été testé dans votre réseau de plan Starter, sur certains homologues de votre réseau de plan Enterprise, suivez les instructions de la section [Installation, instanciation et mise à jour d'un code blockchain](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
 
 ### Mise à jour des applications client
 {: #migrate_starter_to_enterprise_app}

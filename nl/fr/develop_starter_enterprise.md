@@ -2,25 +2,27 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-05-31"
+
+keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # Déploiement de réseaux d'entreprise dans un plan Starter et Enterprise
 {: #deploying-a-business-network}
 
-{{site.data.keyword.IBM}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.
-{:note}
+{{site.data.keyword.IBM}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.{:note}
 
 Des [réseaux d'entreprise](/docs/services/blockchain/glossary.html#glossary-business-network) peuvent être développés et déployés dans un des réseaux de plan Starter et Enterprise à l'aide de l'environnement développeur d'{{site.data.keyword.blockchainfull_notm}} Platform et du jeu d'outils de développeur Hyperledger Composer.
 {:shortdesc}
@@ -51,7 +53,7 @@ Pour connaître votre version Fabric, ouvriez la [fenêtre Préférences réseau
 
 3. Dans le profil de connexion, accédez à la section 'registrar'. Dans 'registrar', sous 'enrollId' figure une propriété **enrollSecret**. Récupérez la valeur confidentielle et enregistrez une copie de celle-ci.
 
-    ![Extraire la valeur confidentielle admin](images/get_enroll_secret.gif "Extraire la valeur confidentielle admin")
+    ![Extraire la valeur confidentielle admin](images/get_enroll_secret.gif "Extraire la valeur confidentielle admin"){: gif}
 
 ### Etape 2 : Créer une carte d'autorité de certification
 {: #deploying-a-business-network-CA-card}
@@ -90,11 +92,11 @@ Les certificats doivent être ajoutés au réseau de plan Starter. Pour plus de 
 
 1. Dans le Moniteur réseau du plan Starter, cliquez sur l'onglet **Membres**, **Certificats**, puis **Ajouter un certificat**. Accédez à votre répertoire `credentials`, puis copiez et collez le contenu du fichier `admin-pub.pem` dans la zone de certificat. Soumettez le certificat et redémarrez les homologues. Remarque : le redémarrage des homologues prend une minute.
 
-    ![Ajouter des certificats](images/add_cert.gif "Ajouter des certificats")
+    ![Ajouter des certificats](images/add_cert.gif "Ajouter des certificats"){: gif}
 
 2. Ensuite, les certificats doivent être synchronisés sur le canal. Cliquez sur l'onglet **Canaux**, puis sur le bouton **Actions**, puis sur **Synchroniser le certificat** et **Soumettre**.
 
-    ![Synchroniser des certificats](images/sync_cert.gif "Synchroniser des certificats")
+    ![Synchroniser des certificats](images/sync_cert.gif "Synchroniser des certificats"){: gif}
 
 ### Etape 4 : Créer une carte de réseau d'entreprise admin
 {: #deploying-a-business-network-create-admin-card}
@@ -186,7 +188,7 @@ Vous devez vérifier que vous avez installé l'environnement de développeur de 
 
 Vous devez accéder à une instance du plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform et vous devez avoir créé vos homologues au préalable. Pour plus d'informations sur le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform, voir [Présentation du plan Enterprise](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
 
-### Etape 1 : Créer un profil de connexion pour IBM Blockchain Platform
+### Etape 1 : Créer un profil de connexion pour {{site.data.keyword.blockchainfull_notm}} Platform
 {: #deploying-a-business-network-create-connection-profile}
 
 1. Créez un répertoire dans lequel stocker vos détails de connexion, par exemple :

@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-03-05"
+  years: 2018, 2019
+lastupdated: "2019-05-31"
+
+keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,7 +30,7 @@ Remarque : Lorsque plusieurs organisations génèrent un consortium, il leur est
 ## Prérequis
 {: #paying-mode-prereq}
 
-Chaque membre du réseau doit disposer d'un compte {{site.data.keyword.cloud_notm}} payant, par exemple du type **Paiement à la carte**, afin de pouvoir créer des instances de service {{site.data.keyword.blockchainfull_notm}} Platform sur {{site.data.keyword.cloud_notm}}. Si vous n'avez pas de compte, [souscrivez à un compte](https://cloud.ibm.com/registration/) et mettez-le à niveau vers un compte payant. Pour mettre à niveau votre compte vers un compte de type Paiement à la carte, accédez à **Gérer** > **Facturation et utilisation** > **Facturation** dans la console {{site.data.keyword.cloud_notm}}, puis cliquez sur **Ajouter une carte de crédit**.
+Chaque membre du réseau doit disposer d'un compte {{site.data.keyword.cloud_notm}} payant, par exemple du type **Paiement à la carte**, afin de pouvoir créer des instances de service {{site.data.keyword.blockchainfull_notm}} Platform sur {{site.data.keyword.cloud_notm}}. Si vous n'avez pas de compte, [souscrivez à un compte](https://cloud.ibm.com/registration) et mettez-le à niveau vers un compte payant. Pour mettre à niveau votre compte vers un compte de type Paiement à la carte, accédez à **Gérer** > **Facturation et utilisation** > **Facturation** dans la console {{site.data.keyword.cloud_notm}}, puis cliquez sur **Ajouter une carte de crédit**.
 
 
 ## Paiement de vos frais
@@ -77,7 +79,7 @@ Un membre du réseau peut couvrir les frais d'un ou de plusieurs autres membres 
 {: #paying-mode-limitation}
 - Etant donné que tous les membres figurent dans le compte {{site.data.keyword.cloud_notm}} des débiteurs, le débiteur a accès à toutes les instances de blockchain des membres et il peut en emprunter l'identité. Par conséquent, ce mode de paiement est le mieux adapté pour les environnements PoC, ou dans le cas où le débiteur traite toutes les opérations de gestion d'{{site.data.keyword.blockchainfull_notm}} Platform et lorsque les membres sont fournis avec une seule application.  
 - Tous les membres de l'organisation Cloud Foundry du débiteur peuvent voir tous les espaces au sein de l'organisation.  Toutefois, ils ne peuvent pas éditer ou modifier les organisations car ils ne disposent pas des accès.  
-- Sachez que tous les membres de l'organisation Cloud Foundry du débiteur peuvent voir les ID IBM des autres membres de la même organisation Cloud Foundry.  
+- Sachez que tous les membres de l'organisation Cloud Foundry du débiteur peuvent voir les ID {{site.data.keyword.cloud_notm}} des autres membres de la même organisation Cloud Foundry.  
 - Une fois que tous les membres ont été ajoutés au compte {{site.data.keyword.cloud_notm}} du débiteur et que l'accès leur est accordé pour mettre à disposition les instances de blockchain et rejoindre le réseau, le débiteur accorde également aux membres l'accès à la création d'autres services, ce qui peut entraîner des frais supplémentaires. Tous les membres peuvent signer un accord indiquant qu'ils ne créeront pas de services non autorisés dans leurs comptes pour provoquer un coût supplémentaire sur le compte du débiteur.  
 
 ## Comment laisser un membre payer pour vous

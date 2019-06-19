@@ -2,13 +2,15 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-05-31"
+
+keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,11 +30,11 @@ Vous pouvez également utiliser la console pour gérer les organisations qui son
 
 {{site.data.keyword.blockchainfull_notm}} Platform repose sur Hyperledger Fabric et génère des réseaux de blockchain privés. Les participants doivent être connus du réseau pour pouvoir soumettre des transactions et interagir avec les ressources sur le registre. Fabric reconnaît l'identité via un groupe d'organisations invitées, appelé consortium. Les organisations de ce consortium peuvent émettre des données d'identification valides pour leurs membres et les laisser devenir participants sur le réseau. Ces participants peuvent ensuite exploiter des noeuds de blockchain et soumettre des transactions depuis des applications client.
 
-Chaque organisation du consortium doit utiliser sa propre autorité de certification, appelée autorité de certification racine. Cette autorité de certification (ou ses autorités de certification intermédiaires) crée toutes les identités qui appartiennent à votre organisation et elle émet pour chaque identité une clé publique et une clé privée. Ces clés sont signées par l'autorité de certification et utilisées par les membres de votre organisation pour signer et vérifier leurs actions. Le fait de rejoindre le consortium permet à d'autres organisations de reconnaître la signature de vos autorités de certification, et de vérifier que vos homologues et applications son des participants valides. Pour plus d'informations sur l'appartenance dans Hyperledger Fabric, voir la [rubrique relative au concept d'appartenance ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html "Appartenance") dans la documentation Fabric.
+Chaque organisation du consortium doit utiliser sa propre autorité de certification, appelée autorité de certification racine. Cette autorité de certification (ou ses autorités de certification intermédiaires) crée toutes les identités qui appartiennent à votre organisation et elle émet pour chaque identité un certificat signataire et une clé privée. Ces clés sont signées par l'autorité de certification et utilisées par les membres de votre organisation pour signer et vérifier leurs actions. Le fait de rejoindre le consortium permet à d'autres organisations de reconnaître la signature de vos autorités de certification, et de vérifier que vos homologues et applications son des participants valides. Pour plus d'informations sur l'appartenance dans Hyperledger Fabric, voir la [rubrique relative au concept d'appartenance](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} dans la documentation Fabric.
 
 Pour pouvoir rejoindre un consortium, votre organisation doit créer une définition d'organisation appelée **Membership Services Provider (MSP)**. La définition MSP contient les informations suivantes :
 - Un certificat signé par votre **autorité de certification racine**. Ce certificat est utilisé pour vérifier l'identité de vos noeuds, canaux, et applications.
-- Un certificat signé par votre **autorité de certification TLS**. Un certificat TLS racine permet à vos homologues de participer à une communication gossip entre organisations, ce qui est nécessaire pour bénéficier des fonctions de [collecte de **données privées** ](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) et de [reconnaissance de service ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Reconnaissance de service") d'Hyperledger Fabric.
+- Un certificat signé par votre **autorité de certification TLS**. Un certificat TLS racine permet à vos homologues de participer à une communication gossip entre organisations, ce qui est nécessaire pour bénéficier des fonctions [**Private data** collections](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) et [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} d'Hyperledger Fabric.
 - **ID MSP**. L'ID MSP est le nom formel de votre organisation au sein du consortium. Vous devez retenir l'ID MSP pour vos noeuds et applications.
 - **Certificats admin** de vos identités **Admin homologue** et **Admin org**. Ces certificats sont transmis au service de tri et sont utilisés pour vérifier les identités de votre organisation qui sont autorisées à créer ou à éditer des canaux. Lorsque vous utilisez la console pour créer un service de tri ou un homologue, les certificats admin au sein de la définition MSP sont déployés dans le nouveau noeud. Ces certificats peuvent ensuite être utilisés pour exploiter les homologues ou les services de tri à partir de votre console ou d'une application client.
 
@@ -56,16 +58,16 @@ Utilisez l'onglet **Organisations** pour générer une définition MSP pour votr
 
 - Vous pouvez également utiliser la section **Détails d'autorité de certification racine** pour générer l'un des certificats admin de vos organisations. Avant de créer la définition MSP de votre organisation, vous devez enregistrer les admin de votre organisation et de votre noeud auprès de votre autorité de certification racine. Vous devez ensuite effectuer les étapes suivantes afin d'utiliser ces identités pour exploiter votre réseau :
 
-  1. Créer une paire de clés publiques et privées pour chaque identité admin.
-  2. Fournir la clé publique (certificat) de chaque identité admin dans la définition MSP.
-  3. Ajouter l'identité à votre portefeuille de console. Les noeuds ou les canaux créés par la console utilisent les certificats de la définition MSP pour vérifier qui est un administrateur valide. Par conséquent, la même paire de clés publiques et privées que vous avez utilisée pour ajouter un certificat admin à la définition MSP doit être stockée dans votre portefeuille de console.
+  1. Créer un certificat signataire et une clé privée pour chaque identité admin.
+  2. Fournir le certificat signataire de chaque identité admin dans la définition MSP.
+  3. Ajouter l'identité à votre portefeuille de console. Les noeuds ou les canaux créés par la console utilisent les certificats de la définition MSP pour vérifier qui est un administrateur valide. Par conséquent, la même paire de certificat signataire et de clé privée que vous avez utilisée pour ajouter un certificat admin à la définition MSP doit être stockée dans votre portefeuille de console.
 
   Vous pouvez utiliser le panneau **Créer une définition de MSP** pour effectuer ces actions pour l'une de vos identités admin. Après avoir sélectionné votre autorité de certification racine, procédez comme suit dans la section **Génération d'un certificat admin de l'organisation** :
   1. Entrez l'ID et le secret d'inscription d'une identité admin enregistrée auprès de votre autorité de certification racine. Après avoir entré l'ID et le secret d'inscription, choisissez le nom d'affichage de l'identité dans votre portefeuille de console.
-  2. Cliquez sur **Générer**. Un nouvel ensemble de clés publiques et privées est généré et les clés sont ajoutées automatiquement à votre portefeuille de console. Vous pouvez ensuite rechercher votre identité admin dans votre portefeuille en utilisant le nom que vous avez sélectionné sur ce panneau. Ces clés sont stockées dans l'espace de stockage local de votre navigateur ; par conséquent, si vous changez de navigateur, elles ne seront pas dans votre portefeuille de console. Vous devrez exporter les identités depuis votre navigateur d'origine et les importer dans le portefeuille de console de votre nouveau navigateur.
+  2. Cliquez sur **Générer**. Un certificat et une clé privée sont générés et les clés sont ajoutées automatiquement à votre portefeuille de console. Vous pouvez ensuite rechercher votre identité admin dans votre portefeuille en utilisant le nom que vous avez sélectionné sur ce panneau. Ces clés sont stockées dans l'espace de stockage local de votre navigateur ; par conséquent, si vous changez de navigateur, elles ne seront pas dans votre portefeuille de console. Vous devrez exporter les identités depuis votre navigateur d'origine et les importer dans le portefeuille de console de votre nouveau navigateur.
   3. Ensuite, cliquez sur **Exporter** pour télécharger la paire de clés sur votre système de fichiers et la sécuriser.
 
-- La section **Administrateurs (facultative)** du panneau latéral contient les clés publiques de vos admins. Le certificat que vous avez généré à partir de la section **Génération d'un certificat admin de l'organisation** figure sur la première ligne de la zone **admin certificate**. Si vous souhaitez utiliser plusieurs identités pour l'exploitation de votre réseau, vous pouvez coller les certificats des admins de noeud ou d'organisation supplémentaires dans les zones **admin certificate**.
+- La section **Administrateurs (facultative)** du panneau latéral contient les certificats signataires de vos admins. Le certificat que vous avez généré à partir de la section **Génération d'un certificat admin de l'organisation** figure sur la première ligne de la zone **admin certificate**. Si vous souhaitez utiliser plusieurs identités pour l'exploitation de votre réseau, vous pouvez coller les certificats des admins de noeud ou d'organisation supplémentaires dans les zones **admin certificate**.
 
 Comme vos certificats admin sont transmis à vos noeuds et canaux à l'aide de la définition MSP, vous devez vous assurer que chacun de vos certificats admin de noeud ou d'organisation est stocké dans la définition MSP. Lorsque vous utilisez la console pour créer un service de tri, un homologue ou un canal, vous devez **associer** l'une des identités exportées dans votre portefeuille de console aux certificats admin qui ont été fournis à la définition MSP. Lorsque vous êtes dans une section ou un panneau **Associer une identité**, sélectionnez une identité que vous avez générée et sauvegardée dans le portefeuille lors de la création de la définition MSP.
 
@@ -76,7 +78,21 @@ Une fois que vous avez sélectionné votre autorité de certification racine, l'
 
 **Cette option est destinée aux utilisateurs expérimentés uniquement qui connaissent bien l'utilisation des certificats dans la gestion des identités de blockchain.**
 
-Si vous préférez utiliser des certificats pour votre homologue ou service de tri à partir d'une **autorité de certification externe**, qui n'est pas hébergée par {{site.data.keyword.IBM_notm}}, vous devez générer un fichier JSON de définition MSP qui représente la définition MSP de l'organisation de l'homologue ou service de tri. Créez un fichier JSON en utilisant le format suivant :
+Si vous préférez utiliser des certificats pour votre homologue ou service de tri à partir d'une **autorité de certification externe**, qui n'est pas hébergée par {{site.data.keyword.IBM_notm}}, vous devez générer un fichier JSON de définition MSP qui représente la définition MSP de l'organisation de l'homologue ou service de tri.
+
+Notez que tous les certificats doivent être codés au format base64.
+{:important}
+
+Vous pouvez convertir le contenu de votre fichier certificat, `<cert.pem>` du format `PEM` en une chaîne base64, en exécutant la commande suivante sur votre machine locale :
+
+```
+export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
+cat <cert.pem> | base64 $FLAG
+```
+{:codeblock}
+
+
+Créez un fichier JSON en utilisant le format suivant :
 
 ```
 {
@@ -111,9 +127,9 @@ Si vous préférez utiliser des certificats pour votre homologue ou service de t
 - **tls_intermediate_certs** : (facultatif) collez un tableau contenant un ou plusieurs certificats de l'autorité de certification TLS intermédiaire au format `base64`. Vous devez fournir un certificat racine d'autorité de certification TLS externe ou un certificat d'autorité de certification TLS intermédiaire externe ; vous pouvez aussi fournir les deux.  
 
 Les zones supplémentaires suivantes sont également disponibles dans votre définition MSP mais elles ne sont pas obligatoires :
-- **organizational_unit_identifiers** : liste des unités organisationnelles que les membres valides de cet MSP doivent inclure dans leur certificat X.509. Il s'agit d'un paramètre de configuration facultatif qui est utilisé lorsque plusieurs organisations optimisent la même racine de confiance et des autorités de certification intermédiaires, et qu'elles ont réservé une zone d'unité organisationnelle pour leurs membres. Une organisation est souvent divisée en plusieurs unités organisationnelles, chacune ayant un certain nombre de responsabilités. Par exemple, l'organisation ORG1 peuvent avoir les unités organisationnelles ORG1-MANUFACTURING et ORG1-DISTRIBUTION pour refléter ces différents secteurs d'activité. Lorsqu'une autorité de certification émet des certificats X.509, la zone Unité organisationnelle du certificat indique le secteur d'activité auquel appartient l'identité. Pour plus d'informations, consultez cette rubrique dans la Fabric [Identity Classification ![Icône de lien externe](../images/external_link.svg "Icône de lien externe") ](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification "Identity Classification").  
-- **fabric_node_OUs** : unités organisationnelles spécifiques à Fabric qui permettent la classification des identités. `NodeOUs` contient des informations sur la manière de distinguer les clients, les homologues et les services de tri en fonction de l'unité organisationnelle. Si la vérification est imposée, par la définition de Activé sur true, le MSP considère qu'une identité est valide s'il s'agit de l'identité d'un `client`, d'un `homologue` ou d'un `service de tri`. Une identité doit avoir uniquement l'une de ces unités organisationnelles spéciales. Consultez la rubrique contenant un exemple d'indication de `fabric_node_OU` dans un MSP dans la [documentation Fabric Service Discovery![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query).
-- **revocation_list** : liste des certificats qui ne sont plus valides. Pour les identités basées sur X.509, ces identificateurs sont des paires de chaînes, appelées identificateur de clé de sujet (SKI) et identificateur d'accès de droits (AKI), et ils sont activés chaque fois que le certificat X.509 est utilisé pour vérifier que le certificat n'est pas révoqué. Consultez la documentation Fabric pour plus d'informations sur les [listes de révocation de certificat![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity "Revoking a certificate or identity").
+- **organizational_unit_identifiers** : liste des unités organisationnelles que les membres valides de cet MSP doivent inclure dans leur certificat X.509. Il s'agit d'un paramètre de configuration facultatif qui est utilisé lorsque plusieurs organisations optimisent la même racine de confiance et des autorités de certification intermédiaires, et qu'elles ont réservé une zone d'unité organisationnelle pour leurs membres. Une organisation est souvent divisée en plusieurs unités organisationnelles, chacune ayant un certain nombre de responsabilités. Par exemple, l'organisation ORG1 peuvent avoir les unités organisationnelles ORG1-MANUFACTURING et ORG1-DISTRIBUTION pour refléter ces différents secteurs d'activité. Lorsqu'une autorité de certification émet des certificats X.509, la zone Unité organisationnelle du certificat indique le secteur d'activité auquel appartient l'identité. Pour plus d'informations, consultez la rubrique [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} dans la documentation Fabric.  
+- **fabric_node_OUs** : unités organisationnelles spécifiques à Fabric qui permettent la classification des identités. `NodeOUs` contient des informations sur la manière de distinguer les clients, les homologues et les services de tri en fonction de l'unité organisationnelle. Si la vérification est imposée, par la définition de Activé sur true, le MSP considère qu'une identité est valide s'il s'agit de l'identité d'un `client`, d'un `homologue` ou d'un `service de tri`. Une identité doit avoir uniquement l'une de ces unités organisationnelles spéciales. Consultez la rubrique contenant un exemple d'[indication de `fabric_node_OU` dans un MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} dans la documentation Fabric Service Discovery.
+- **revocation_list** : liste des certificats qui ne sont plus valides. Pour les identités basées sur X.509, ces identificateurs sont des paires de chaînes, appelées identificateur de clé de sujet (SKI) et identificateur d'accès de droits (AKI), et ils sont activés chaque fois que le certificat X.509 est utilisé pour vérifier que le certificat n'est pas révoqué. Consultez la documentation Fabric pour plus d'informations sur les [listes de révocation de certificat](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
 
 Par exemple, votre fichier JSON peut ressembler à ceci :
 
@@ -135,18 +151,7 @@ Par exemple, votre fichier JSON peut ressembler à ceci :
 ```
 {:codeblock}
 
-Notez que tous les certificats doivent être codés au format base64.
-{:important}
-
-Vous pouvez convertir le contenu de votre fichier certificat, `<cert.pem>` du format `PEM` en une chaîne base64, en exécutant la commande suivante sur votre machine locale :
-
-```
-export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
-cat <cert.pem> | base64 $FLAG
-```
-{:codeblock}
-
-Sauvegardez cette définition dans un fichier `JSON`.  
+Sauvegardez cette définition dans un fichier `JSON` de définition MSP.  
 
 Vous avez créé une définition MSP, qui définit l'organisation des noeuds de votre homologue ou service de tri et utilisé les certificats d'une autorité de certification externe. Vous pouvez maintenant revenir aux instructions qui décrivent [Comment utiliser les certificats d'une autorité de certification externe avec votre homologue ou service de tri](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
 
