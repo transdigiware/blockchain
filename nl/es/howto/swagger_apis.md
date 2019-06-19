@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -10,11 +10,12 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Cómo interactuar con la red con las API de Swagger
 {: #ibp-swagger}
@@ -23,7 +24,7 @@ subcollection: blockchain
 
 {:shortdesc}
 
-Antes de empezar, debe crear una [instancia de servicio de {{site.data.keyword.blockchain}} Platform ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) en {{site.data.keyword.cloud_notm}} y crear o unir una red blockchain del Plan inicial <!--or Enterprise Plan -->.
+Antes de empezar, debe crear una [instancia de servicio de {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} en {{site.data.keyword.cloud_notm}} y crear o unir una red blockchain del Plan inicial <!--or Enterprise Plan -->.
 
 
 ## Recuperación de credenciales de red
@@ -31,16 +32,14 @@ Antes de empezar, debe crear una [instancia de servicio de {{site.data.keyword.b
 
 Entre en el supervisor de red de la red blockchain y abra la pantalla "API" desde el navegador izquierdo. Verá sus credenciales de red para la API REST. Luego autorizará a las API mediante los valores "key" y "secret" que se muestran aquí y ejecutará las API con el valor "network_id" como parámetro. Pulse **Mostrar secreto** para revelar el valor del campo de secreto. Copie los valores de los campos de clave, secreto e id de red, que podrá utilizar más tarde en la IU de Swagger.
 
-La **Figura 1** muestra la pantalla "API":
+En la **Figura 1** se muestra la pantalla "API":
 ![Pantalla API](../images/API_screen_starter.png "Pantalla API")
-*Figura 1. API*
 
 Si utiliza el Plan inicial, puede cambiar de organización en el supervisor de red. Con el plan inicial, hay dos organizaciones configuradas de forma predeterminada. Cambiar de una organización a otra puede resultar útil para probar las API REST desde la perspectiva de cada organización. Para obtener las credenciales correspondientes a otra organización de la red, pulse su nombre en la esquina superior derecha de la consola del supervisor de red. En el menú que se abre, pulse la flecha desplegable que hay junto a la organización para ver todas las organizaciones. Seleccione la organización a la que desea cambiar y cuyas credenciales de red asociadas desea ver.
 
 **Figura 2** muestra cómo cambiar de organización:
 
-![Cambiar de organización](../images/switch_orgs_starter.gif "Cambiar de organización")  
-*Figura 2. Cambiar de organización*
+![Cambiar de organización](../images/switch_orgs_starter.gif "Cambiar de organización"){: gif}
 
 
 ## Autorización de las API de Swagger
@@ -54,8 +53,7 @@ Con la autenticación Basic Auth, las credenciales que especifique en la ventana
 
 La **Figura 3** muestra el proceso para autorizar las API de Swagger:
 
-![Autorizar API](../images/swaggerUIAuthorize.gif "Autorizar API")  
-*Figura 3. Autorizar API*
+![Autorizar API](../images/swaggerUIAuthorize.gif "Autorizar API"){: gif}
 
 
 ## Prueba de las API
@@ -65,27 +63,24 @@ Pulse la API REST que desea ejecutar y pulse el botón **Pruébelo**.
 
 La **Figura 4** muestra el botón "Pruébelo" en la "IU de Swagger":
 
-![Botón Pruébelo en la IU de Swagger](../images/swaggerUITryItOut.png "Botón Pruébelo en la IU de Swagger")  
-*Figura 4. Botón "Pruébelo" en la "IU de Swagger"*
+![Botón Pruébelo en la IU de Swagger](../images/swaggerUITryItOut.png "Botón Pruébelo en la IU de Swagger")
 
 Después de pulsar el botón **Pruébelo**, puede especificar los parámetros necesarios para utilizar la API. Puede buscar `networkID` en las credenciales de red y buscar otros parámetros en el Supervisor de red. Después de especificar los parámetros, pulse **Ejecutar** para ejecutar la llamada de API REST en la red.
 
 La **Figura 5** muestra parámetros en la "IU de Swagger":
 
 ![Parámetros de la IU de Swagger](../images/swaggerUIParams.png "Parámetros de la IU de Swagger")  
-*Figura 5. Especificar parámetros*  
 
 Después de pulsar **Ejecutar**, puede ver la respuesta de la llamada de API en la red. También puede ver un mandato CURL que puede invocar la API directamente desde la línea de mandatos.
 
 La **Figura 6** muestra el cuerpo de respuesta de la API, el URL y el mandato CURL:
 
-![Respuesta de API en la IU de Swagger](../images/swaggerUICurlResponse.png "Respuesta de API en la IU de Swagger")  
-*Figura 6. Respuesta de API*    
+![Respuesta de API en la IU de Swagger](../images/swaggerUICurlResponse.png "Respuesta de API en la IU de Swagger")    
 
 ## Inhabilitación del acceso de API
 {: #ibp-swagger-turn-off}
 
-De forma predeterminada, todos los usuarios que tengan un rol que no sea Auditor en IBM Cloud, pueden ver y utilizar las
+De forma predeterminada, todos los usuarios que tengan un rol que no sea Auditor en {{site.data.keyword.cloud_notm}} pueden ver y utilizar las
 **credenciales de red** visibles en el panel de API de Swagger y, por lo tanto, pueden gestionar la red utilizando las API. No obstante, si prefiere no exponer las credenciales de red de la API de Swagger en la interfaz de usuario, puede copiar y proteger los valores de clave y de secreto existentes y generar nuevas credenciales que sean válidas para su uso con las API de Swagger. Se proporciona un distintivo, denominado resetCredentials, que le permite controlar el acceso realizando los pasos siguientes:
 
 1. Siga los pasos para generar una nueva credencial de red tal como se describe en el

@@ -176,7 +176,7 @@ En la tabla siguiente se muestran los parámetros configurables de la plataforma
 | `Configuración de clasificador`| Puede personalizar la configuración del clasificador pegando su propio archivo de configuración `orderer.yaml` en este campo. Para ver un archivo `orderer.yaml` de ejemplo, consulte la [configuración de ejemplo de `orderer.yaml` ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/orderer.yaml) **Solo para usuarios avanzados**. | ninguno | no |
 | `Secreto de MSP de organización (obligatorio)`| Especifique el nombre del objeto de secreto que contiene las claves y los certificados de MSP de organización. | ninguno | sí |
 | `Persistencia de datos de clasificador habilitada` | Los datos estarán disponibles cuando se reinicie el contenedor. Si no está marcada esta opción, se perderán todos los datos en el caso de una migración tras error o de un reinicio del pod. | marcada | no |
-| `Utilizar suministro dinámico de clasificador` | Marcar para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
+| `Utilizar suministro dinámico de clasificador` | Marque esta opción para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
 | `Repositorio de imágenes de clasificador` | Ubicación del diagrama de Helm de clasificador. Este campo se rellena automáticamente con la vía de acceso instalada. Si utiliza Community Edition y no tiene acceso a Internet, cambie este campo a la ubicación donde haya descargado la imagen de clasificador de Fabric. | ibmcom/ibp-fabric-orderer | no |
 | `Etiqueta de imagen de Docker de clasificador`| Un registro de la imagen de Docker. Este campo se rellena automáticamente con la versión de la imagen. No lo modifique.| 1.4.0 | sí |
 | `Tipo de consenso de clasificador`| El tipo de consenso del servicio de ordenación. | SOLO | sí |
@@ -191,12 +191,12 @@ En la tabla siguiente se muestran los parámetros configurables de la plataforma
 | `Tipo de servicio de clasificador` | Se usa para especificar si los [puertos externos se deben exponer ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) en el igual. Seleccione NodePort para exponer los puertos externamente (recomendado), y ClusterIP para no exponer los puertos. LoadBalancer y ExternalName no se admiten en este release | NodePort | sí |
 | `Solicitud de CPU de clasificador`| Especifique el número mínimo de CPU a asignar al clasificador. | 1 | sí |
 | `Límite de CPU de clasificador`| Especifique el número máximo de CPU a asignar al clasificador. | 2 | sí |
-| `Solicitud de memoria de clasificador`| Especifique la cantidad mínima de memoria a asignar al clasificador. | 1Gi | sí |
-| `Límite de memoria de clasificador`| Especifique la cantidad máxima de memoria a asignar al clasificador. | 2Gi | sí |
+| `Solicitud de memoria de clasificador`| Especifique la cantidad mínima de memoria a asignar al clasificador. | 1 Gi | sí |
+| `Límite de memoria de clasificador`| Especifique la cantidad máxima de memoria a asignar al clasificador. | 2 Gi | sí |
 | `Solicitud de CPU de proxy web gRPC`| Especifique el número mínimo de CPU en milicpus (m) a asignar al proxy web gRPC. | 100 m | sí |
 | `Límite de CPU de proxy web gRPC`| Especifique el número máximo de CPU en milicpus (m) a asignar al proxy web gRPC. | 200 m | sí |
-| `Solicitud de memoria de proxy web gRPC`| Especifique la cantidad mínima de memoria a asignar al proxy web gRPC. | 100Mi | sí |
-| `Límite de memoria de proxy web gRPC`| Especifique la cantidad máxima de memoria a asignar al proxy web gRPC. | 200Mi | sí |
+| `Solicitud de memoria de proxy web gRPC`| Especifique la cantidad mínima de memoria a asignar al proxy web gRPC. | 100 Mi | sí |
+| `Límite de memoria de proxy web gRPC`| Especifique la cantidad máxima de memoria a asignar al proxy web gRPC. | 200 Mi | sí |
 
 
 ### Utilización de la línea de mandatos de Helm para instalar el release de Helm

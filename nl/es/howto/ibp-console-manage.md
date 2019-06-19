@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 
 # Administración de la consola
@@ -31,13 +32,13 @@ Hay varias acciones que puede realizar para gestionar el comportamiento de la co
 ## Adición y eliminación de usuarios de la consola
 {: #ibp-console-manage-console-add-remove}
 
-Cada usuario que acceda a la consola debe tener asignada una política de acceso con un rol de usuario de {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) definido. La política determina qué acciones puede realizar el usuario dentro de la consola. La consola de {{site.data.keyword.blockchainfull}} Platform se suministra con la dirección de correo electrónico del propietario de {{site.data.keyword.cloud_notm}} como administrador de la consola.  De forma predeterminada, se otorga a este usuario de {{site.data.keyword.cloud_notm}} el rol de **Gestor** para el servicio {{site.data.keyword.blockchainfull}} Platform 2.0 en IAM. A continuación, el administrador de la consola puede otorgar acceso a la consola a otros usuarios mediante la interfaz de usuario de IAM. Para obtener más información sobre acerca de IAM, consulte [¿Qué es IAM? ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo") ](/docs/iam?topic=iam-iamoverview#iamoverview "¿Qué es IAM?").  
+Cada usuario que acceda a la consola debe tener asignada una política de acceso con un rol de usuario de {{site.data.keyword.cloud}} Identity and Access Management (IAM) definido. La política determina qué acciones puede realizar el usuario dentro de la consola. La consola de {{site.data.keyword.blockchainfull_notm}} Platform se suministra con la dirección de correo electrónico del propietario de {{site.data.keyword.cloud_notm}} como administrador de la consola.  De forma predeterminada, se otorga a este usuario de {{site.data.keyword.cloud_notm}} el rol de **Gestor** para el servicio {{site.data.keyword.blockchainfull_notm}} Platform en IAM. A continuación, el administrador de la consola puede otorgar acceso a la consola a otros usuarios mediante la interfaz de usuario de IAM. Para obtener más información sobre IAM, consulte [Qué es IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}.  
 
-Cuando [utilice IAM para invitar usuarios ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/docs/iam?topic=iam-iamuserinv#iamuserinv "Utilizar IAM para invitar usuarios"), necesitará completar los pasos siguientes para configurar sus roles y el acceso a la consola:
+Cuando [utilice IAM para invitar usuarios](/docs/iam?topic=iam-iamuserinv#iamuserinv){: external}, tendrá que seguir los pasos siguientes para configurar sus roles y el acceso a la consola:
  1. En la barra de menús, pulse **Gestionar** > **Acceso (IAM)** y, a continuación, seleccione **Usuarios**.
  2. Pulse **Invitar usuario**.
  3. Escriba la dirección de correo electrónico del usuario o los usuarios.
- 4. En la lista desplegable **Servicios**, seleccione **Blockchain Platform 2.0**.
+ 4. En la lista desplegable **Servicios**, seleccione **Blockchain Platform**.
  5. Desplácese hacia abajo hasta **Seleccionar roles**.
  6. En **Asignar roles de acceso al servicio**, elija un rol para el usuario, que puede ser **Gestor**, **Escritor** y **Lector**.
  7. Pulse **Invitar a usuarios**.
@@ -50,7 +51,7 @@ Cuando [utilice IAM para invitar usuarios ![Icono de enlace externo](../images/e
 
  Los permisos son acumulativos. Si selecciona un rol **Gestor**, el usuario también podrá realizar todas las acciones de **Escritor** y de **Lector** sin que necesite marcar dichos roles de forma adicional.   Del mismo modo, un usuario con el rol `Escritor` podrá realizar todas las acciones del rol **Lector**. Para el acceso a la consola, solo necesita seleccionar un rol en **Roles de acceso al servicio**; no es necesario que seleccione nada en **Roles de acceso a la plataforma**. Marque el rol correspondiente en **Asignar rol de acceso a la plataforma** cuando sea importante que la instancia de servicio sea visible en el panel de control de {{site.data.keyword.cloud_notm}} del usuario invitado.
 
-![Actualizar versión de Kubernetes](../images/AddICPUser.gif)
+![Añadir usuarios](../images/AddICPUser.gif){: gif}
 
 
 Tras añadir nuevos usuarios a la consola, es posible que los usuarios no puedan ver todos los nodos, canales o código de encadenamiento que despliegan otros usuarios. Para trabajar con estos componentes, cada usuario necesita importar las identidades asociadas en su propia cartera de consola. Para obtener más información, consulte [Almacenamiento de identidades en la cartera de la consola](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
@@ -65,9 +66,9 @@ Si necesita modificar el rol de un usuario:
  6. En **Asignar roles de acceso al servicio**, elija un rol para el usuario, que puede ser **Gestor**, **Escritor** y **Lector**.
  7. Pulse **Asignar**.
 
-Cuando necesite eliminar el acceso a la consola de un usuario, siga las instrucciones del tema [Eliminación de usuarios de IAM ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/docs/iam?topic=iam-remove#remove "Eliminación de usuarios").
+Cuando tenga que eliminar el acceso de un usuario a la consola, siga las instrucciones del [tema sobre eliminación de usuarios de IAM](/docs/iam?topic=iam-remove#remove){: external}.
 
-### Asignar roles de acceso a usuarios individuales o grupos de usuarios en IAM
+### Asignación de roles de acceso a usuarios individuales o a grupos de usuarios en IAM
 {: #ibp-console-manage-console-users-groups}
 
 Cuando establezca políticas de {{site.data.keyword.cloud_notm}} IAM, puede asignar roles a un usuario individual o a un grupo de usuarios.
@@ -110,31 +111,37 @@ Solo puede ver los registros de la consola si ha iniciado la sesión como admini
 ### Visualización de los registros de la consola
 {: #ibp-console-manage-console-node-logs}
 
-El servicio {{site.data.keyword.IBM_notm}} Kubernetes recopila los registros de sus iguales, clasificadores y entidades emisoras de certificados. Siga los pasos siguientes para ver los registros de los nodos desde el clúster en el que ha desplegado la red de {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+El servicio {{site.data.keyword.IBM_notm}} Kubernetes recopila los registros de sus iguales, clasificadores y entidades emisoras de certificados. Siga los pasos siguientes para ver los registros de los nodos desde el clúster en el que ha desplegado la red de {{site.data.keyword.blockchainfull_notm}} Platform.
 
-1. Abra el [panel de control de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/resources) y vaya a la pantalla de visión general del clúster del servicio {{site.data.keyword.IBM_notm}} Kubernetes.
+Para localizar más fácilmente los registros de nodo, resulta útil filtrar por el espacio de nombres que se utilizó cuando se desplegaron los nodos.
+Para localizar el espacio de nombres, abra cualquier nodo de CA en la consola y pulse el icono **Valores**. Visualice el valor del **URL de punto final de entidad emisora de certificados**. Por ejemplo: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+
+El espacio de nombres es la primera parte del URL que empieza por la letra `n` y va seguida de una serie aleatoria de seis caracteres alfanuméricos. En el ejemplo anterior, el valor del espacio de nombres es `n2734d0`.
+
+1. Abra el [panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external} y vaya a la pantalla de visión general del clúster del servicio {{site.data.keyword.IBM_notm}} Kubernetes.
 2. Sobre la pantalla de visión general del clúster, pulse **Panel de control de Kubernetes**.
-3. Dentro del panel de control de Kubernetes, utilice la lista desplegable de espacio de nombres del panel de navegación de la izquierda para cambiar el espacio de nombres por la instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform. El nombre de la instancia de servicio será una serie larga de letras y números. Encontrará el nombre de la instancia de servicio al principio del URL de la consola de {{site.data.keyword.blockchainfull_notm}} Platform.
+3. En el panel de control de Kubernetes, utilice la lista desplegable **Espacio de nombres** de navegación de la izquierda para cambiar al espacio de nombres correspondiente a la instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform que ha descubierto arriba.
 4. En el panel de navegación izquierdo, pulse **Pods** para ver la lista de los pods de nodo que ha desplegado.
-5. Pulse sobre un pod. Luego pulse **Ver registros** en el menú superior para abrir los registros del nodo. Sobre los registros, puede utilizar el menú desplegable que hay después de **Registros de** para ver los registros de los distintos contenedores del pod. Por ejemplo, el igual y la base de datos de estado (CouchDB, por ejemplo) se ejecutan en distintos contenedores y generan registros diferentes.
+5. Pulse sobre un pod. Luego pulse **Registros** en el menú superior para abrir los registros del nodo. Sobre los registros, puede utilizar el menú desplegable que hay después de **Registros de** para ver los registros de los distintos contenedores del pod. Por ejemplo, el igual y la base de datos de estado (CouchDB, por ejemplo) se ejecutan en distintos contenedores y generan registros diferentes.
 
-De forma predeterminada, los registros de los nodos se recopilan localmente dentro del clúster. También puede utilizar el servicio Log Analysis de {{site.data.keyword.cloud_notm}} o un servicio de terceros para recopilar, almacenar y analizar los registros de la red. Para obtener más información, consulte [Registro y supervisión del servicio {{site.data.keyword.IBM_notm}} Kubernetes ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/containers?topic=containers-health#health "Registro y supervisión del servicio {{site.data.keyword.IBM_notm}} Kubernetes"). Se recomienda aprovechar el servicio [{{site.data.keyword.cloud_notm}} LogDNA ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "Gestión de registros de clúster de Kubernetes con IBM Log Analysis con LogDNA"), que permite analizar fácilmente los registros en tiempo real.
+De forma predeterminada, los registros de los nodos se recopilan localmente dentro del clúster. También puede utilizar los servicios de {{site.data.keyword.cloud_notm}}
+o un servicio de terceros para recopilar, almacenar y analizar los registros de la red. Para obtener más información, consulte [Registro y supervisión para el servicio Kubernetes de {{site.data.keyword.IBM_notm}}](https://cloud.ibm.com/docs/containers?topic=containers-health#health){: external}. Se recomienda utilizar el servicio [LogDNA de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external}, que le permite analizar fácilmente los registros en tiempo real.
 
 ### Visualización de los registros de contenedor de contratos inteligentes
 {: #ibp-console-manage-console-container-logs}
 
 Si detecta problemas con el contrato inteligente, puede consultar los registros del contrato inteligente, o el código de encadenamiento, y del contenedor para depurar un problema:
 
-- Abra el panel de control de Kubernetes y pulse sobre el pod igual en el que se ejecuta el contrato inteligente.
-- Pulse el enlace `exec` en el panel de control para ejecutar exec sobre el pod. De forma predeterminada, apunta a un contenedor igual.
-- Cambie al contenedor `dind` seleccionándolo en la lista desplegable.
-- Ejecute el mandato `docker ps -a` para ver la lista de contenedores de código de encadenamiento.
-- Ejecute `docker logs <chaincode-container-ID>` sustituyendo `<chaincode-container-ID>` por el ID de su contenedor de código de encadenamiento.
+- Abra el panel de control de Kubernetes, filtre por [espacio de nombres](#ibp-console-manage-console-node-logs) y pulse el pod igual en el que se ejecuta el contrato inteligente.
+- Pulse el enlace `Registros` en el panel de control. De forma predeterminada, apunta a un contenedor igual.
+- Vaya al contenedor `fluentd` seleccionándolo en la lista desplegable.  
 
-## Instalar parches para los nodos
+Todos los registros de contrato inteligentes se pueden ver en esta ventana y se pueden descargar mediante el icono de descarga del panel.
+
+## Instalación de parches para los nodos
 {: #ibp-console-manage-patch}
 
-Es posible que sea necesario actualizar con el tiempo las imágenes de docker subyacentes de IBM Hyperledger Fabric para los nodos de igual, CA y clasificador, por ejemplo, con actualizaciones de seguridad o a un nuevo release puntual de Fabric. El texto **Parche disponible** sobre el mosaico de un nodo es el indicador de que hay un parche disponible y se puede instalar en el nodo siempre que esté preparado. Estos parches son opcionales, pero recomendables.   
+Es posible que sea necesario actualizar con el tiempo las imágenes de docker subyacentes de {{site.data.keyword.IBM_notm}} Hyperledger Fabric para los nodos de igual, CA y clasificador, por ejemplo, con actualizaciones de seguridad o a un nuevo release puntual de Fabric. El texto **Parche disponible** sobre el mosaico de un nodo es el indicador de que hay un parche disponible y se puede instalar en el nodo siempre que esté preparado. Estos parches son opcionales, pero recomendables.  No puede aplicar parches a nodos que se han importado en la consola.
 
 Los parches se aplican a los nodos de uno en uno. Mientras se aplica un parche, el nodo no estará disponible para procesar solicitudes ni transacciones. Por lo tanto, para evitar cualquier interrupción del servicio, siempre que sea posible debe asegurarse de que haya otro nodo del mismo tiempo disponible para procesar solicitudes. La instalación de parches en un nodo tarda alrededor de un minuto en completarse y, cuando la actualización haya finalizado, el nodo estará listo para procesar solicitudes.
 {:note}
@@ -152,4 +159,4 @@ Si utiliza un clúster gratuito del servicio {{site.data.keyword.cloud_notm}} Ku
 4. Desplácese hasta el triángulo **Clústeres de Kubernetes** y amplíelo para ver el clúster gratuito.
 5. Si aparece su clúster gratuito, pulse sobre el menú de acción y, a continuación, pulse **Suprimir** para suprimir el clúster gratuito.
 
-Cuando se hayan completado estas acciones, puede seguir los [pasos originales](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) para crear un nuevo clúster de Kubernetes y una instancia de servicio de blockchain desde la página del catálogo de IBM Cloud.
+Cuando se hayan completado estas acciones, puede seguir los [pasos originales](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) para crear un nuevo clúster de Kubernetes y una instancia de servicio de blockchain desde la página del catálogo de {{site.data.keyword.cloud_notm}}.

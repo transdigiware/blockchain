@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -11,7 +11,7 @@ subcollection: blockchain
 ---
 
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -29,10 +29,9 @@ subcollection: blockchain
 {: shortdesc}
 
 Esta guía de aprendizaje presenta el flujo genérico para crear una red blockchain con las API de
-{{site.data.keyword.blockchainfull_notm}} Platform. Para obtener más información sobre cada API, consulte la
-[Documentación de referencia de API de {{site.data.keyword.blockchainfull_notm}} Platform ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/apidocs/blockchain "Documentación de referencia de API de {{site.data.keyword.blockchainfull_notm}} "){: new_window}.
+{{site.data.keyword.blockchainfull_notm}} Platform. Para obtener más información acerca de cada API, consulte la [documentación de consulta de API de {{site.data.keyword.blockchainfull_notm}} Platform](/apidocs/blockchain){: external}.
 
-Estas API son compatibles únicamente con {{site.data.keyword.blockchainfull_notm}} Platform on
+Estas API solo son compatibles con {{site.data.keyword.blockchainfull_notm}} Platform for
 {{site.data.keyword.cloud_notm}} v0.1.77 o superior. Para comprobar la versión, vaya a
 `https://[your_console_url]/version.txt`, donde
 *`[your_console_url]`* es el URL de la consola de {{site.data.keyword.blockchainfull_notm}} Platform. Por ejemplo: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt
@@ -57,12 +56,12 @@ Para poder utilizar las API para acceder a la red blockchain que cree con
 Necesita una credencial de autenticación básica para asegurarse de tener acceso a la instancia de servicio de
 {{site.data.keyword.blockchainfull_notm}} Platform en {{site.data.keyword.cloud_notm}}.
 
-1. En la lista de recursos de [{{site.data.keyword.cloud_notm}}
-![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/resources), abra la instancia de servicio de blockchain que haya creado.
+1. En la [lista de recursos de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external},
+abra la instancia de servicio de blockchain que haya creado.
 2. Pulse **Credenciales de servicio** en el navegador izquierdo.
-3. Pulse el botón "Nueva credencial" en la página **Credenciales de servicio** para crear una credencial nueva.
+3. Pulse el botón **Nueva credencial** en la página **Credenciales de servicio** para crear una credencial nueva.
   1. Proporcione un nombre para la credencial, por ejemplo, *UseAPIs*.
-  2. Puede dejar el campo "Añadir parámetro de configuración en línea" en blanco.
+  2. Puede dejar el campo **Añadir parámetro de configuración en línea** en blanco.
   3. Pulse el botón **Añadir**.
 4. Una vez que se cree la nueva credencial, pulse **Ver credenciales** bajo la cabecera **ACTIONS** de esta credencial. El contenido de la credencial es similar al ejemplo siguiente:
 
@@ -130,8 +129,7 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-Se proporcionan mandatos curl de ejemplo para cada API de la [Documentación de referencia de API de {{site.data.keyword.blockchainfull_notm}} Platform
-![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/apidocs/blockchain "Documentación de referencia de API de {{site.data.keyword.blockchainfull_notm}} ").
+Se proporcionan mandatos curl de ejemplo para cada API en la [documentación de consulta de API de {{site.data.keyword.blockchainfull_notm}} Platform](/apidocs/blockchain){: external}.
 
 Además, puede utilizar la función **Pruébelo** de la documentación de referencia de API para probar las llamadas a la API antes de añadirlas a las aplicaciones. Necesita haber iniciado sesión en {{site.data.keyword.cloud_notm}} para poder utilizar la función
 **Pruébelo**. Puede seleccionar cualquier instancia de servicio en la lista desplegable. Todas las solicitudes de API se envían a la red especificada en el punto final de API.
@@ -139,8 +137,8 @@ Además, puede utilizar la función **Pruébelo** de la documentación de refere
 ## Limitaciones
 {: #ibp-v2-apis-limitations}
 
-Puede importar únicamente nodos de CA, igual y clasificador existentes de otras redes de
-{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}.
+Solo puede importar nodos de CA, igual y clasificador existentes de otras redes de
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Creación de una red utilizando las API
 {: #ibp-v2-apis-build-with-apis}
@@ -187,7 +185,7 @@ La credencial de servicio utilizada para la autenticación de API debe tener el 
 ## Importar una red utilizando las API
 {: #ibp-v2-apis-import-with-apis}
 
-También puede utilizar las API para importar componentes de {{site.data.keyword.blockchainfull_notm}} creados mediante las API o la consola de {{site.data.keyword.blockchainfull_notm}} Platform en otra instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+También puede utilizar las API para importar componentes de {{site.data.keyword.blockchainfull_notm}} creados mediante las API o la consola de {{site.data.keyword.blockchainfull_notm}} Platform en otra instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform.
 
 1. Importe una CA llamando a [`POST /ak/api/v1/components/ca`](/apidocs/blockchain?code=try#import-a-ca).
 
@@ -219,9 +217,9 @@ Puede utilizar el cliente de CA de Fabric para trabajar con las CA. Ejecute los 
 ### Configurar el cliente de CA de Fabric
 {: #ibp-v2-apis-setup-fabric-ca-client}
 
-1. Descargue el [cliente de CA de Fabric ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client "Descargar el cliente de CA de Fabric") en el sistema de archivos local.
+1. Descargue el [cliente de CA de Fabric](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external} en el sistema de archivos local.
 
-  La forma más fácil de obtener el cliente de CA de Fabric es descargar todos los binarios de herramientas de Fabric directamente. Vaya al directorio en el que desee descargar los binarios con la línea de mandatos, y obténgalos ejecutando el mandato [Curl ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl "Curl") siguiente.
+  La forma más fácil de obtener el cliente de CA de Fabric es descargar todos los binarios de herramientas de Fabric directamente. Vaya al directorio en el que desea descargar los binarios con la línea de mandatos y cáptelos con el siguiente mandato [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external}.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.0 1.4.0 -d -s

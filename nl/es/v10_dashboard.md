@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # Utilización del supervisor de red
 {: #ibp-dashboard}
@@ -50,7 +51,6 @@ En la pantalla "Visión general" se muestra información de estado en tiempo rea
 En la **Figura 1**, se muestra la pantalla "Visión general":
 
 ![Pantalla Visión general](images/myresources.png "Visión general de red")
-*Figura 1. Visión general de red*
 
 ### Acciones de nodo
 {: #ibp-dashboard-node-actions}
@@ -89,7 +89,6 @@ El **Plan inicial** crea un igual para cada una de las dos organizaciones que se
 En la **Figura 2** se muestra el separador "Almacenamiento" que muestra el consumo de almacenamiento de la red.
 
 ![Separador Almacenamiento de la pantalla Visión general](images/monitor_storage_starter.png "Almacenamiento")
-*Figura 2. Almacenamiento*
 
 El diagrama "Recursos" muestra el espacio de almacenamiento que utilizan los iguales y las entidades emisoras de certificados. Todas las organizaciones que cree o que invite a la red están incluidas en esta agrupación. Las organizaciones que consumen recursos aparecen en la pantalla en la segunda viñeta.
 
@@ -106,7 +105,6 @@ La pantalla "Miembros" contiene dos separadores para visualizar información de 
 **Figura 3** muestra la pantalla inicial "Miembros" que muestra los miembros de la red en el separador "Miembros":
 
 ![Separador Miembros de la pantalla Miembros](images/monitor_members.png "Miembros de red")
-*Figura 3. Miembros de la red*
 
 Puede invitar a otros miembros del separador "Miembros" para que se añadan a aquellos que ha invitado inicialmente al crear la red. Para invitar a un miembro a la red, especifique el nombre de la institución y la dirección de correo electrónico del operador y pulse **Añadir miembro**. Una red puede tener un total de 15 miembros (incluido el iniciador de red). Para eliminar un miembro de la red, pulse el símbolo de "eliminación" al final de la fila del miembro.
 
@@ -115,7 +113,6 @@ Puede invitar a otros miembros del separador "Miembros" para que se añadan a aq
 En la **Figura 4** se muestra la ventana "Añadir miembro".
 
 ![Añadir miembro](images/invite_member_starter.png "Añadir miembro")
-*Figura 4. Añadir miembro*
 
 Al pulsar **Añadir miembro**, se le ofrecerán dos opciones:
 - **Invitar a un miembro**. Puede invitar a otras organizaciones a que pasen a ser miembros de la red. Luego las organizaciones invitadas pueden unirse y colaborar con usted en la red.
@@ -128,11 +125,8 @@ Al pulsar **Añadir miembro**, se le ofrecerán dos opciones:
 En la **Figura 5** se muestra la pantalla inicial "Miembros" con los certificados de los miembros en el separador "Certificados":
 
 ![Separador Certificados de la pantalla Miembros](images/monitor_certificates.png "Certificados")
-*Figura 5. Certificados*
 
 Los operadores pueden gestionar los certificados de miembros de la misma institución en el separador "Certificados". Pulse **Añadir certificado** para abrir el panel "Añadir certificado". Indique un nombre para el certificado, pegue los certificados del lado de cliente en formato PEM en el campo "Clave" y pulse **Enviar**. Debe reiniciar sus iguales antes de que certificados del lado de cliente entren en vigor.
-
-Para obtener información sobre cómo generar su clave de certificado, consulte [Inscripción de la aplicación](/docs/services/blockchain/v10_application.html#dev-app-enroll).
 
 ## Canales
 {: #ibp-dashboard-channels}
@@ -142,7 +136,6 @@ Los canales, consistentes en un subconjunto de miembros de red que desean realiz
 En la **Figura 6** se muestra la pantalla inicial del panel de control con una visión general de todos los canales de la red:
 
 ![Canales](images/channels.png "Canales")
-*Figura 6. Canales*
 
 La creación de un canal genera un libro mayor específico del canal. Para obtener más información, consulte [Creación de un canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel).
 
@@ -159,7 +152,6 @@ Cuando cree un canal o se le invite a un nuevo canal, recibirá una notificació
 En la **Figura 7**, se muestra la pantalla "Notificaciones":
 
 ![Notificaciones](images/notifications.png "Notificaciones")
-*Figura 7. Notificaciones*
 
 Las solicitudes se agrupan en los subseparadores "Todas", "Pendientes" y "Completadas". Los números tras la cabecera del subseparador indican el número de solicitudes de cada subseparador.
    * Puede encontrar todas las solicitudes en el subseparador "Todas".
@@ -178,9 +170,8 @@ La tabla de la pantalla "Entidad emisora de certificados" (CA) muestra todas las
 En la **Figura 8** se muestra la pantalla "Entidad emisora de certificados":
 
 ![Entidad emisora de certificados](images/CA_screen.png "Entidad emisora de certificados")
-*Figura 8. Entidad emisora de certificados*
 
-Pulse el botón **Generar certificado** situado junto a la identidad de administrador para obtener un nuevo certificado público y una clave privada de la entidad emisora de certificados. El campo **Certificado** contiene el certificado público, al que también se denomina signCert o certificado de inscripción, justo encima de la **Clave privada**. Puede pulsar el icono de copia que hay al final de cada campo para copiar el valor. Este panel se puede utilizar como alternativa a la generación de un par de claves pública y privada para una aplicación cliente que utiliza el SDK de Fabric. Para obtener más información, consulte la [guía de aprendizaje de desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app). **Tenga en cuenta** que {{site.data.keyword.blockchainfull_notm}} Platform no almacena estos certificados. Tiene que guardarlos y almacenarlos de forma segura.
+Pulse el botón **Generar certificado** situado junto a la identidad de administrador para obtener un nuevo certificado público y una clave privada de la entidad emisora de certificados. El campo **Certificado** contiene el certificado público, al que también se denomina signCert o certificado de inscripción, justo encima de la **Clave privada**. Puede pulsar el icono de copia que hay al final de cada campo para copiar el valor. Este panel se puede utilizar como alternativa a la generación de un par de claves pública y privada para una aplicación cliente que utiliza el SDK de Fabric. **Tenga en cuenta** que {{site.data.keyword.blockchainfull_notm}} Platform no almacena estos certificados. Tiene que guardarlos y almacenarlos de forma segura.
 
 Pulse el botón **Añadir usuario** para registrar una nueva identidad en la organización. En la ventana emergente **Añadir usuario**, rellene los campos siguientes y luego pulse **Enviar**.
   - **ID de inscripción:** el nombre de la nueva identidad, a la que a veces se denomina `ID de inscripción`. **Guarde este valor**, ya que necesitará utilizarlo cuando configure un igual remoto o inscriba una nueva aplicación.
@@ -199,7 +190,6 @@ Puede obtener más información sobre la CA en la guía de aprendizaje de [Gesti
 En la **Figura 9** se muestra la pantalla "API":
 
 ![API](images/API_screen.png "API")
-*Figura 9. API*
 
 Pulse el enlace **IU de Swagger** para abrir la IU de Swagger. Tenga en cuenta que debe autorizar la IU de Swagger con sus credenciales de red (que encontrará en esta página de API) para poder ejecutar las API. Para obtener más información, consulte [Cómo interactuar con la red con las API de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
 
@@ -213,7 +203,6 @@ El Plan inicial y el Plan empresarial proporcionan un entorno de desarrollo con 
 En la **Figura 10** se muestra la pantalla "Desarrollar código":
 
 ![Desarrollar código](images/write_code.png "Desarrollar código")
-*Figura 10. Desarrollar código*
 
 Para obtener más información sobre el desarrollo y el despliegue de las redes empresariales, consulte [Despliegue de redes empresariales en el plan inicial y de empresa](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network).
 
@@ -225,7 +214,6 @@ El código de encadenamiento, que también se conoce como "contrato inteligente"
 En la **Figura 11** se muestra la pantalla "Instalar código":
 
 ![Instalar código](images/chaincode_install_overview.png "Instalar código")
-*Figura 11. Instalar código*
 
 El código de encadenamiento se instala en primer lugar en el sistema de archivos del igual y, a continuación, se crea una instancia en un canal. Para obtener más información, consulte [Instalación, creación de instancias y actualización de un código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
@@ -237,7 +225,6 @@ Las aplicaciones de ejemplo le ayudan a comprender mejor una red blockchain y el
 En la **Figura 12** se muestra la pantalla "Probar ejemplos":
 
 ![Probar ejemplos](images/sample_overview_ep.png "Probar ejemplos")
-*Figura 12. Ejemplos*
 
 ## Obtener ayuda
 {: #ibp-dashboard-support}
@@ -247,14 +234,13 @@ La pantalla "Obtener ayuda" contiene un separador "Soporte" que proporciona una 
 En la **Figura 13** se muestra la información en el separador "Soporte" inicial:
 
 ![Soporte](images/support.png "Soporte")
-*Figura 13. Soporte de Blockchain*
 
 ### Foros de soporte y recursos de Blockchain
 {: #ibp-dashboard-support-forums}
 
 Utilice los recursos del separador "Soporte" para resolver problemas y obtener ayuda de {{site.data.keyword.IBM_notm}} y la comunidad de Fabric. Para obtener más información sobre los enlaces del separador "Soporte", consulte [Recursos y foros de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) en [Obtención de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
 
-[{{site.data.keyword.IBM_notm}} dWAnswers ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://developer.ibm.com/answers/smartspace/blockchain/index.html){:new_window} es un foro de la comunidad para usuarios de {{site.data.keyword.blockchainfull_notm}} Platform y de Hyperledger Fabric y está supervisado por expertos de IBM. Puede buscar respuestas a preguntas realizadas anteriormente o enviar una nueva pregunta. Si no puede depurar su problema ni determinar una respuesta a su pregunta, envíe un caso de soporte en el portal de servicio de {{site.data.keyword.cloud_notm}}. Para obtener más información, consulte
+[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} es un foro de la comunidad para usuarios de {{site.data.keyword.blockchainfull_notm}} Platform y de Hyperledger Fabric y está supervisado por expertos de {{site.data.keyword.IBM_notm}}. Puede buscar respuestas a preguntas realizadas anteriormente o enviar una nueva pregunta. Si no puede depurar su problema ni determinar una respuesta a su pregunta, envíe un caso de soporte en el portal de servicio de {{site.data.keyword.cloud_notm}}. Para obtener más información, consulte
 [Envío de casos de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
 
@@ -266,12 +252,10 @@ El separador "Notas del release" muestra las características más recientes de 
 En la **Figura 14** se muestran las notas del release para la interfaz de usuario del supervisor de red.
 
 ![Notas del release de helios](images/releasenotes_helios.png "Notas del release de la interfaz de usuario de Network Monitor")
-*Figura 14. Notas del release de la interfaz de usuario de Network Monitor*
 
 En la **Figura 15** se muestran las notas del release de la versión de Hyperledger Fabric y de la entidad emisora de certificados de Fabric de sus redes.
 
 ![Notas del release de Fabric](images/releasenotes_Fabric.png "Notas del release de Fabric")
-*Figura 15. Notas del release para Fabric*
 
 ## Preferencias de red
 {: #ibp-dashboard-network-preferences}
@@ -289,8 +273,7 @@ El tiempo de espera de inactividad web está establecido en **Desactivado** de f
 
 En la **Figura 16** se muestra la ventana "Preferencias de la red":
 
-![Preferencias de la red](images/network_preferences.gif "Preferencias de la red")
-*Figura 16. Preferencias de la red*
+![Preferencias de red](images/network_preferences.gif "Preferencias de red"){: gif}
 
 ### TLS mutuo (para redes del Plan empresarial)
 {: #ibp-dashboard-mutual-tls}
@@ -310,7 +293,7 @@ En el Perfil de conexión, localice la sección `certificateAuthorities` donde e
 - `enrollSecret`: Secreto de inscripción a utilizar para obtener un certificado
 - `x-tlsCAName`: Nombre de la CA a utilizar para obtener el certificado que permitirá que la aplicación se comunique con TLS mutuo.
 
-Para obtener más información sobre cómo actualizar las aplicaciones para dar soporte a TLS mutuo, consulte [Cómo configurar TLS mutuo ![icono de enlace externo](images/external_link.svg "icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html)
+Para obtener más información sobre cómo actualizar las aplicaciones para dar soporte a TLS mutuo, consulte [Cómo configurar TLS mutuo](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
 
 <!--
 
@@ -330,7 +313,6 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 En la **Figura 17** se muestra la ventana "Preferencias de la red":
 
 ![Preferencias de la red](images/network_preferences_ep_tmp.png "Preferencias de la red")
-*Figura 17. Preferencias de la red*
 
 ## Actualizar el nombre de red
 {: #ibp-dashboard-network-name}
@@ -341,8 +323,7 @@ En la parte superior izquierda del navegador del Supervisor de red, pulse sobre 
 
 En la **Figura 18** se muestran los pasos para actualizar el nombre de red del Plan inicial del nombre asignado a "Red del Plan inicial".
 
-![Actualizar nombre de red](images/update_network_name_ep.gif "Actualizar nombre de red")
-*Figura 18. Actualizar el nombre de red*
+![Actualizar nombre de red](images/update_network_name_ep.gif "Actualizar nombre de red"){: gif}
 
 
 ## Conmutar entre redes (para redes del Plan inicial)
@@ -354,8 +335,7 @@ En la parte superior izquierda del navegador del Supervisor de red, pulse el ico
 
 En la **Figura 19** se muestran los pasos para cambiar a otra red del Plan inicial.
 
-![Cambiar de red](images/switch_network.gif "Cambiar de red")
-*Figura 19. Cambiar de red*
+![Cambiar de red](images/switch_network.gif "Cambiar de red"){: gif}
 
 
 ## Restablecer red (para redes del plan Inicial)
@@ -370,4 +350,3 @@ Pulse la esquina superior derecha para abrir el menú desplegable. Pulse el bot�
 En la **Figura 20** se muestra la función "Restablecer red":
 
 ![Restablecer red](images/reset_network.png "Restablecer red")
-*Figura 20. Restablecer red*

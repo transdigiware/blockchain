@@ -146,17 +146,17 @@ En la tabla siguiente se muestran los parámetros configurables de la consola de
 | `Entrada a consola` | Especifique el nombre de host que desea utilizar para acceder a la consola de {{site.data.keyword.blockchainfull_notm}} Platform. | ninguno | no |
 | `Entrada a configtxlator` | Especifique el nombre de host que desea utilizar para acceder al servicio configtxlator. | ninguno | no |
 | `Persistencia habilitada` | Si se marca, los datos estarán disponibles cuando se reinicie el contenedor. De lo contrario, se perderán todos los datos en el caso de una migración tras error o de un reinicio del pod. | marcada | no |
-| `Utilizar suministro dinámico` | Marcar para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
+| `Utilizar suministro dinámico` | Marque esta opción para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
 | `Nombre de clase de almacenamiento`| Especifique un nombre de clase de almacenamiento exclusivo. De lo contrario, se utilizará la clase de almacenamiento predeterminada en el clúster. | ninguno | Depende de cómo se haya configurado el clúster de {{site.data.keyword.cloud_notm}} Private. Consulte al administrador del clúster. |
 | `Reclamación de volumen existente`| Especifique el nombre de una reclamación de volumen existente y deje todos los demás campos en blanco. | ninguno | no |
 | `Etiqueta de selector`| [Etiqueta de selector ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ "Etiquetas y selectores") de la PVC. | ninguno | no |
 | `Valor de selector`| [Valor de selector ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ "Etiquetas y selectores") de la PVC. | ninguno | no |
 | `Modalidad de acceso al almacenamiento`| Especifique la [modalidad de acceso](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes "modalidad de acceso") al almacenamiento para la PVC. | ReadWriteMany | sí |
 | `Nombre de volumen`| Especifique el nombre del PVC. | ninguno | sí |
-| `Solicitud de CPU` | Número mínimo de CPU que se asignarán a la consola. | 250m | sí |
-| `Límite de CPU` | Número máximo de CPU que se asignarán a la consola.| 500m | sí |
+| `Solicitud de CPU` | Número mínimo de CPU que se asignarán a la consola. | 250 m | sí |
+| `Límite de CPU` | Número máximo de CPU que se asignarán a la consola.| 500 m | sí |
 | `Solicitud de memoria` | Cantidad mínima de memoria que se asignará a la consola. | 256 Mi | sí |
-| `Límite de memoria` | Cantidad máxima de memoria que se asignará a la consola. | 1Gi | sí |
+| `Límite de memoria` | Cantidad máxima de memoria que se asignará a la consola. | 1 Gi | sí |
 
 ## Paso cuatro: configurar la IP de proxy
 {: #ibp-console-icp-config-proxy-ip}

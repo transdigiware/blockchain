@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,7 +28,7 @@ Los nodos de {{site.data.keyword.blockchainfull_notm}} Platform se basan en Hype
 ## Gestión de entidades emisoras de certificados
 {: #ibp-console-identities-manage-ca}
 
-Una CA es similar a un notario público que actúa como punto de confianza entre las múltiples partes, cada una de las cuales es una organización de un consorcio que mantiene su propia CA. La CA crea las identidades que pertenecen a su organización y emite para cada identidad un certificado para firmas y una clave privada. Estas claves son las que permiten que todos los nodos y aplicaciones firmen y verifiquen sus acciones. Para obtener más información sobre cómo se utilizan las CA para establecer una identidad, visite [el tema sobre identidades ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html "identidad") en la documentación de Hyperledger Fabric.
+Una CA es similar a un notario público que actúa como punto de confianza entre las múltiples partes, cada una de las cuales es una organización de un consorcio que mantiene su propia CA. La CA crea las identidades que pertenecen a su organización y emite para cada identidad un certificado para firmas y una clave privada. Estas claves son las que permiten que todos los nodos y aplicaciones firmen y verifiquen sus acciones. Para ver más detalles sobre cómo se utilizan las CA para establecer la identidad, consulte [el tema sobre identidad](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external} en la documentación de Hyperledger Fabric.
 
 Cuando crea una CA utilizando la consola de {{site.data.keyword.blockchainfull_notm}} Platform, se crean dos CA con el mismo URL de punto final: una CA raíz y una CA de TLS. Puede ver ambas CA bajo el mismo nombre de visualización en la página **Nodos** de la consola. La CA raíz proporciona claves a los nodos y a las aplicaciones. La CA de TLS proporciona certificados que se utilizan para proteger la comunicación dentro de la red. Para obtener más información sobre TLS en la red, consulte [Utilización de la CA de TLS](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-tlsca).
 
@@ -64,10 +64,9 @@ Debe especificar la información siguiente cuando registre una nueva identidad c
 
 - **ID de inscripción** y **Secreto de inscripción**: esta identidad tiene un ID y un secreto, análogos a un nombre de usuario y una contraseña, que se especifican durante el despliegue de la CA. Puede utilizar este ID y secreto de administrador para crear certificados con esta identidad utilizando esta consola o el cliente de CA de Fabric.
 - **Tipo**: cuando se desplegó la CA, el administrador especificó los tipos de identidades emitidos por la CA. Algunos tipos de identidad comunes de ejemplo son el igual, el clasificador y el cliente (aplicaciones). Seleccione el tipo de identidad para este usuario en la lista de tipos disponibles.
-- **Afiliación**: (Opcional) solo para usuarios avanzados. Este campo solo es visible si se han definido afiliaciones para la CA. Una afiliación es la parte de la organización que desea asociar con este usuario. Podría ser, por ejemplo, un departamento o una unidad que trabaja con una aplicación o con un igual. Se puede restringir un administrador de CA en particular para que solo pueda registrar usuarios dentro de su propio departamento dentro de una organización estableciendo su afiliación. Las afiliaciones de CA se definen utilizando el
-[Mandato de afiliación ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command "Mandato de afiliación") de la CA de Fabric.
+- **Afiliación**: (Opcional) solo para usuarios avanzados. Este campo solo es visible si se han definido afiliaciones para la CA. Una afiliación es la parte de la organización que desea asociar con este usuario. Podría ser, por ejemplo, un departamento o una unidad que trabaja con una aplicación o con un igual. Se puede restringir un administrador de CA en particular para que solo pueda registrar usuarios dentro de su propio departamento dentro de una organización estableciendo su afiliación. Las afiliaciones de CA se definen utilizando el [mandato de afiliación](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command){: external} de la CA de Fabric.
 - **Número máximo de inscripciones**: si lo desea, especifique el número de veces que puede inscribir o generar certificados utilizando esta identidad. El hecho de especificar un número limitado de inscripciones ayuda a proteger la seguridad de los nodos y de las aplicaciones. El valor predeterminado es un número ilimitado de inscripciones.
-- **Atributos**: opcionalmente, puede especificar los atributos de [control de acceso basado en atributo ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#attribute-based-access-control "control de acceso basado en atributo") que desee para el usuario. Por ejemplo, puede utilizar esta sección para [crear otro administrador de CA](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity) con autorización para registrar e inscribir nuevas identidades. Encontrará una lista completa de los atributos de CA de Fabric disponibles en la sección [Registro de una nueva identidad ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity "Registro de una nueva identidad") de la guía del usuario de CA de Fabric.
+- **Atributos**: si lo desea, puede especificar cualquier atributo de [control de acceso basado en atributos](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#attribute-based-access-control){: external} para el usuario. Por ejemplo, puede utilizar esta sección para [crear otro administrador de CA](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity) con autorización para registrar e inscribir nuevas identidades. Puede ver una lista completa de los atributos de la CA de Fabric disponibles en la sección sobre [Registro de una nueva identidad](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} de la guía de usuario de la CA de Fabric.
 
 Pulse el botón **Registrar usuario** en el panel de visión general de la CA para crear un nuevo usuario. Asegúrese de que ha [establecido la identidad](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity) utilizando una identidad que tenga capacidad para registrar nuevos usuarios antes de intentar esta tarea. Generalmente es el usuario `admin`. Si el botón es gris, significa que no ha establecido una identidad o que la identidad no puede crear nuevas identidades.  
 
@@ -88,7 +87,7 @@ máximo de inscripciones** y los **Atributos** que se han creado durante el regi
 De forma predeterminada, solo el administrador de CA que se ha creado durante el despliegue tiene capacidad para registrar nuevas identidades. También puede crear otras identidades con capacidad para registrar usuarios nuevos mediante el panel **Atributos**
 del proceso de registro.
 
-En el panel lateral 4, pulse el botón **Añadir atributo**. Especifique el **nombre de atributo** `hf.Registrar.Roles`. Especifique el **valor de atributo** `*`. También puede utilizar este panel para crear una identidad que solo pueda registrar determinados tipos de tipos de identidad, como clientes o iguales, o dentro de una determinada afiliación. También puede crear una identidad que tenga capacidad para revocar una identidad y todos los certificados que ha emitido la identidad. Encontrará una lista completa de los atributos en la sección [Registro de una nueva identidad ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity "Registro de una nueva identidad") de la guía del usuario de CA de Fabric.
+En el panel lateral 4, pulse el botón **Añadir atributo**. Especifique el **nombre de atributo** `hf.Registrar.Roles`. Especifique el **valor de atributo** `*`. También puede utilizar este panel para crear una identidad que solo pueda registrar determinados tipos de tipos de identidad, como clientes o iguales, o dentro de una determinada afiliación. También puede crear una identidad que tenga capacidad para revocar una identidad y todos los certificados que ha emitido la identidad. Encontrará una lista completa de los atributos en la sección sobre [Registro de una nueva identidad](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} de la guía de usuario de la CA de Fabric.
 
 ## Inscripción de una identidad
 {: #ibp-console-identities-enroll}
@@ -122,7 +121,7 @@ Al crear un igual o un clasificador utilizando la consola, también puede utiliz
 ## Caducidad de los certificados
 {: #ibp-console-identities-expiration}
 
-Los certificados generados mediante las CA de {{site.data.keyword.blockchainfull_notm}} Platform 2.0 caducan después de un año. El periodo de caducidad es el mismo para los certificados generados mediante los SDK de Fabric, mediante el cliente CA de Fabric o mediante la consola. Si los certificados caducan, las aplicaciones ya no podrán interactuar con la red y tendrá que volverse a inscribir para generar nuevos certificados. Si ha alcanzado el límite de inscripción de un usuario, puede registrar un nuevo usuario y luego inscribirlo.
+Los certificados generados mediante las CA de {{site.data.keyword.blockchainfull_notm}} Platform caducan después de un año. El periodo de caducidad es el mismo para los certificados generados mediante los SDK de Fabric, mediante el cliente CA de Fabric o mediante la consola. Si los certificados caducan, las aplicaciones ya no podrán interactuar con la red y tendrá que volverse a inscribir para generar nuevos certificados. Si ha alcanzado el límite de inscripción de un usuario, puede registrar un nuevo usuario y luego inscribirlo.
 
 Puede utilizar la línea de mandatos para comprobar la fecha de caducidad de los certificados. En primer lugar, deberá convertir los certificados que se encuentran en base 64 a formato PEM con el mandato siguiente en la máquina local:
 

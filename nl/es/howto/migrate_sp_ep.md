@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -45,7 +45,7 @@ Antes de migrar su red del Plan inicia a una red del Plan empresarial, lea las s
 - **Recursos afectados:** código de encadenamiento (contratos inteligentes), aplicaciones cliente. De nuevo, tenga en cuenta si el código de encadenamiento hace uso de un componente de Fabric v1.2 o de una función que no es compatible con las redes v1.1.
 - **Tiempo necesario:** tardará al menos medio día en migrar una red básica del Plan inicial a un Plan empresarial.
 - Los **datos existentes del libro mayor** no se pueden pasar de redes del Plan inicial a redes del Plan empresarial porque no resulta adecuado que los datos de prueba existan en un entorno de producción.
-- **Hyperledger Composer** IBM no proporciona soporte para redes que utilicen Hyperledger Composer en producción, incluyendo la CLI de Composer, las API de JavaScript, el servidor REST y Web Playground.
+- **Hyperledger Composer:** {{site.data.keyword.IBM_notm}} no proporciona soporte para redes que utilicen Hyperledger Composer en producción, lo que incluye la CLI de Composer, las API de JavaScript, el servidor REST y Web Playground.
 
 **Nota:** una red *básica* incluye dos organizaciones con dos iguales, un solo canal y un solo archivo de código de encadenamiento. El tiempo real para migrar puede variar en función del tamaño y de la complejidad de los componentes de red que necesite en la red del Plan empresarial.
 
@@ -79,7 +79,7 @@ Puede volver a crear la configuración de las organizaciones (miembros), canales
 ### Migrar código de encadenamiento
 {: #migrate_starter_to_enterprise_cc}
 
-El código de encadenamiento se desarrolla externamente en el entorno local y se invoca mediante las aplicaciones cliente. Para instalar y crear una instancia de código de encadenamiento, que se ha probado en su red del Plan inicial, en los iguales seleccionados de su red del Plan empresarial, siga las instrucciones de [Instalación, creación de instancias y actualización de un código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc "Instalación, creación de instancias y actualización de un código de encadenamiento").
+El código de encadenamiento se desarrolla externamente en el entorno local y se invoca mediante las aplicaciones cliente. Para instalar y crear una instancia de código de encadenamiento, que se ha probado en la red del Plan inicial, en los iguales seleccionados de la red del Plan empresarial siga las instrucciones del apartado sobre [Instalación, creación de instancias y actualización de un código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
 
 ### Actualizar aplicaciones cliente
 {: #migrate_starter_to_enterprise_app}

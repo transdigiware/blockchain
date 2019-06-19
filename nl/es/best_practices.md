@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-05-31"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -28,7 +28,7 @@ Esta guía está destinada a usuarios que ya conocen los aspectos básicos del d
 ## Conectividad y disponibilidad de las aplicaciones
 {: #best-practices-app-connectivity-availability}
 
-El [flujo de transacciones ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "flujo de transacciones"){:new_window} de Hyperledger Fabric abarca varios componentes, entre los que las aplicaciones cliente juegan un rol exclusivo. El SDK envía las propuestas de transacción a los iguales para su aprobación. Luego recopila las propuestas aprobadas que se van a enviar al servicio de ordenación, que a continuación envía bloques de transacciones a los iguales para que se añadan a los libros mayores de canal. Los desarrolladores de aplicaciones de producción deben estar preparados para gestionar las interacciones entre el SDK y sus redes para aumentar su eficiencia y disponibilidad.
+El Hyperledger Fabric [flujo de transacciones](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external} de Hyperledger Fabric abarca barios componentes, entre los que las aplicaciones cliente juegan un rol exclusivo. El SDK envía las propuestas de transacción a los iguales para su aprobación. Luego recopila las propuestas aprobadas que se van a enviar al servicio de ordenación, que a continuación envía bloques de transacciones a los iguales para que se añadan a los libros mayores de canal. Los desarrolladores de aplicaciones de producción deben estar preparados para gestionar las interacciones entre el SDK y sus redes para aumentar su eficiencia y disponibilidad.
 
 ### Gestión de transacciones
 {: #best-practices-app-managing-transactions}
@@ -37,11 +37,11 @@ Los clientes de aplicaciones deben asegurarse de que sus propuestas de transacci
 
 Si un código de encadenamiento no se está ejecutando, la primera propuesta que se envía a dicho código de encadenamiento lo inicia. Mientras se inicia el código de encadenamiento, todas las demás propuestas se rechazan con un error que indica que el código de encadenamiento se está iniciando. Esto difiere de la invalidación de la transacción. Si una propuesta se rechaza mientras se está iniciando el código de encadenamiento, los clientes de la aplicación deben volver a enviar las propuestas rechazadas después de que se inicie el código de encadenamiento. Los clientes de la aplicación pueden utilizar una cola de mensajes para evitar que se pierdan las propuestas de transacción.
 
-Puede utilizar un servicio de sucesos basado en canal para supervisar las transacciones y crear colas de mensajes. La clase [channelEventHub ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/ChannelEventHub.html "channelEventHub"){:new_window} puede registrar escuchas basados en transacción, bloque o sucesos de código de encadenamiento. Los escuchas basados en canal del concentrador de sucesos (eventhub) de canal pueden escalarse a varios canales y distinguir entre el tráfico de los distintos canales.
+Puede utilizar un servicio de sucesos basado en canal para supervisar las transacciones y crear colas de mensajes. La clase [channelEventHub](https://fabric-sdk-node.github.io/ChannelEventHub.html){: external} puede registrar escuchas en función de sucesos de transacción, bloqueo y código de cadena. Los escuchas basados en canal del concentrador de sucesos (eventhub) de canal pueden escalarse a varios canales y distinguir entre el tráfico de los distintos canales.
 
 Se recomienda que utilice channelEventHub, en lugar de la antigua clase EventHub. EventHub es de una sola hebra y contiene sucesos de todos los canales que podrían ralentizar o incluso colgar los escuchas en los canales. La clase eventHub tampoco proporciona ninguna garantía de que se entregue un suceso, ni tampoco una manera de recuperar sucesos desde un punto determinado, como un número de bloque, para realizar el seguimiento de sucesos que se hayan perdido.
 
-**Nota:** la clase EventHub del igual quedará en desuso en un release posterior del SDK de Fabric. Si tiene aplicaciones existentes que utilicen el EventHub de igual, actualice las aplicaciones para que en su lugar utilicen el EventHub de canal. Para obtener más información, consulte [Cómo utilizar el servicio de sucesos basados en canal ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "Cómo utilizar el servicio de sucesos basados en canal"){:new_window} en la documentación del SDK de Node.
+**Nota:** la clase EventHub del igual quedará en desuso en un release posterior del SDK de Fabric. Si tiene aplicaciones existentes que utilicen el EventHub de igual, actualice las aplicaciones para que en su lugar utilicen el EventHub de canal. Para obtener más información, consulte [Cómo utilizar el servicio de sucesos basado en canal](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} en la documentación del SDK de Node.
 
 ### Apertura y cierre de conexiones de red
 {: #best-practices-app-connections}
@@ -56,7 +56,7 @@ var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.pee
 Al gestionar las conexiones entre la aplicación y la red, puede tener en cuenta las recomendaciones siguientes.
 
 - Reutilice los objetos de igual y clasificador cuando interactúe con la red, en lugar de abrir nuevas conexiones para enviar transacciones. La reutilización de objetos de igual y clasificador puede ahorrar recursos y mejorar el rendimiento.  
-- Para mantener una conexión persistente con los componentes de red, utilice [estados activos de gRPC ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://github.com/grpc/grpc/blob/master/doc/keepalive.md "Estados activos de gRPC"). Los estados activos (keepalives) mantienen activa la conexión gRPC y evitan que se cierre una conexión "no utilizada". El ejemplo siguiente de conexión de igual añade opciones de gRPC al objeto de [opciones de conexión ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/global.html#ConnectionOpts "Conexión"). Las opciones de gRPC están establecidas en los valores que recomienda la plataforma {{site.data.keyword.blockchainfull_notm}}.  
+- Para mantener una conexión persistente con los componentes de red, utilice mandatos [keepalive de gRPC](https://github.com/grpc/grpc/blob/master/doc/keepalive.md){: external}. Los mandatos keepalive mantienen activa la conexión gRPC y evitan que se cierre una conexión "no utilizada". En el ejemplo siguiente de conexión de igual se añaden opciones de GRPC al objeto [Opciones de conexión](https://fabric-sdk-node.github.io/global.html#ConnectionOpts){: external}. Las opciones de gRPC están establecidas en los valores que recomienda la plataforma {{site.data.keyword.blockchainfull_notm}}.  
   ```
   var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null},
   "grpcOptions": {
@@ -72,7 +72,7 @@ Al gestionar las conexiones entre la aplicación y la red, puede tener en cuenta
 
   También puede encontrar estas variables con los valores recomendados en la sección `"peers"` del perfil de conexión de la red. Las opciones recomendadas se importarán en la aplicación de forma automática si utiliza el [perfil de conexión con el SDK](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile) para conectarse a los puntos finales de red.
 
-- Si una conexión deja de ser necesaria, utilice los mandatos `peer.close()` y `orderer.close()` para liberar recursos y evitar que se degrade el rendimiento. Para obtener más información, consulte las clases [peer close ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Peer.html#close__anchor "peer close") y [orderer close![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Orderer.html#close__anchor "orderer close") en la documentación del SDK de Node. Si ha utilizado un perfil de conexión para añadir iguales y clasificadores a un objeto de canal, puede cerrar todas las conexiones que estén asignadas a dicho canal utilizando un mandato `channel.close()`.
+- Si una conexión deja de ser necesaria, utilice los mandatos `peer.close()` y `orderer.close()` para liberar recursos y evitar que se degrade el rendimiento. Para obtener más información, consulte las clases [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} y [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} en la documentación del SDK de Node. Si ha utilizado un perfil de conexión para añadir iguales y clasificadores a un objeto de canal, puede cerrar todas las conexiones que estén asignadas a dicho canal utilizando un mandato `channel.close()`.
 
 ### Aplicaciones de alta disponibilidad
 {: #best-practices-app-ha-app}
@@ -91,7 +91,7 @@ En el Perfil de conexión, localice la sección `certificateAuthorities`, donde 
 - `enrollSecret`: Secreto de inscripción a utilizar para obtener un certificado
 - `x-tlsCAName`: Nombre de la CA a utilizar para obtener el certificado que permitirá que la aplicación se comunique con TLS mutuo.
 
-Para obtener más información sobre cómo actualizar aplicaciones para que den soporte a TLS mutuo, consulte [Cómo configurar TLS mutuo ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html "tls mutuo"){:new_window}.
+Para obtener más información sobre cómo actualizar las aplicaciones para dar soporte a TLS mutuo, consulte [Cómo configurar TLS mutuo](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
 
 
 ## (Opcional) Establecimiento de valores de tiempo de espera en los SDK de Fabric
@@ -149,7 +149,7 @@ Sin embargo, es posible que tenga que cambiar los valores predeterminados de tie
 ```
 {:codeblock}
 
-Si está utilizando el SDK de nodo, puede especificar los valores de tiempo de espera directamente en el método llamado. Como ejemplo, podría utilizar la línea siguiente para aumentar el valor de tiempo de espera para [crear una instancia de un código de encadenamiento ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal "sendInstantiateProposal") a 5 minutos.
+Si está utilizando el SDK de Node, puede especificar los valores de tiempo de espera directamente en el método llamado. Como ejemplo, puede utilizar la línea siguiente para aumentar el valor de tiempo de espera para [crear instancias de un código de cadena](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external} a 5 minutos.
 ```
 channel.sendInstantiateProposal(request, 300000);
 ```
@@ -160,8 +160,7 @@ channel.sendInstantiateProposal(request, 300000);
 
 Si utiliza CouchDB como base de datos de estado, puede realizar consultas de datos JSON desde su código de encadenamiento sobre los datos de estado del canal. Se recomienda encarecidamente crear índices para las consultas de JSON y utilizarlos en el código de encadenamiento. Los índices permiten que sus aplicaciones puedan recuperar datos de forma eficiente cuando la red añade bloques adicionales de transacciones y entradas en el escenario mundial.
 
-Para obtener más información sobre CouchDB y cómo configurar índices, consulte
-[CouchDB como base de datos de estado ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html "CouchDB como base de datos de estado"){:new_window} en la documentación de Hyperledger Fabric. También encontrará un ejemplo que utiliza un índice con código de encadenamiento en la [guía de aprendizaje de CouchDB de Fabric ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html).
+Para obtener más información sobre CouchDB y sobre cómo configurar índices, consulte [CouchDB como base de datos de estado](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external} en la documentación de Hyperledger Fabric. También encontrará un ejemplo que utiliza un índice con código de cadena en la [guía de aprendizaje de Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}.
 
 Evite el uso del código de encadenamiento en consultas que vayan a resultar en una exploración de toda la base de datos CouchDB. Las exploraciones de la base de datos de longitud completa tendrán tiempos de respuesta largos y degradarán el rendimiento de la red. Puede realizar algunos de los pasos siguientes para evitar y gestionar consultas largas:
 - Configure índices con el código de encadenamiento.
@@ -169,10 +168,10 @@ Evite el uso del código de encadenamiento en consultas que vayan a resultar en 
 - Las consultas más complejas tendrán un rendimiento inferior y será menos probable que utilicen un índice.
 - Debería intentar evitar los operadores que den como resultado una exploración de tabla completa o una exploración de índice completa, como `$or`, `$in` y `$regex`.
 
-Puede encontrar ejemplos que muestran cómo las consultas utilizan los índices y qué tipo de consultas tendrá el mejor rendimiento en la [guía de aprendizaje de CouchDB de Fabric ![Icono de enlace externo](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes).
+Encontrará ejemplos que muestran cómo las consultas utilizan índices y qué tipo de consultas ofrecerán el mejor rendimiento en la [guía de aprendizaje de Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}.
 
 Los iguales de {{site.data.keyword.blockchainfull_notm}} Platform tienen un conjunto queryLimit establecido y solo devolverán 10.000 entradas de la base de datos de estado. Si la consulta alcanza el queryLimit, puede utilizar varias consultas para obtener los resultados restantes. Si necesita más resultados de una consulta de rango, inicie las consultas posteriores con la última clave devuelta por la consulta anterior. Si necesita más resultados de las consultas JSON, ordene la consulta utilizando una de las variables de los datos y luego utilice el último valor de la consulta anterior en un filtro 'mayor que' para la siguiente consulta.
 
 No consulte la base de datos completa con fines de agregación o de elaboración de informes. Si desea crear un panel de control o recopilar gran cantidad de datos como parte de la aplicación, puede consultar una base de datos fuera de cadena que replique los datos de la red blockchain. Esto le permitirá entender los datos de blockchain sin que se degrade el rendimiento de la red ni se interrumpan las transacciones.
 
-Puede utilizar el cliente de servicios de sucesos basados en canal que proporciona el SDK de Fabric para crear un almacén de datos fuera de cadena. Por ejemplo, puede utilizar un escucha de bloques para obtener las transacciones más recientes que se añaden a un libro mayor de canal. Los conjuntos de lectura y escritura procedentes de las transacciones válidas se pueden utilizar para actualizar una copia del escenario mundial que se haya almacenado en una base de datos independiente. Para obtener más información, consulte [Cómo utilizar el servicio de sucesos basados en canal ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "Cómo utilizar el servicio de sucesos basados en canal"){:new_window} en la documentación del SDK de Node.
+Puede utilizar el cliente de servicios de sucesos basados en canal que proporciona el SDK de Fabric para crear un almacén de datos fuera de cadena. Por ejemplo, puede utilizar un escucha de bloques para obtener las transacciones más recientes que se añaden a un libro mayor de canal. Los conjuntos de lectura y escritura procedentes de las transacciones válidas se pueden utilizar para actualizar una copia del escenario mundial que se haya almacenado en una base de datos independiente. Para obtener más información, consulte [Cómo utilizar el servicio de sucesos basado en canal](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} en la documentación del SDK de Node.

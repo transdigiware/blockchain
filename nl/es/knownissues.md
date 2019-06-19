@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+
+lastupdated: "2019-06-18"
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -16,6 +16,7 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Problemas conocidos
 {: #known-issues}
@@ -24,9 +25,9 @@ En esta página se describen los problemas conocidos que se pueden encontrar al 
 {:shortdesc}
 
 Los siguientes problemas ya se han notificado:
-- **Todavía no se admite la configuración de una entidad emisora de certificados externa**. Como alternativa, puede generar y subir los certificados de administración a través del Supervisor de red. Para obtener más información, consulte [Generación de certificados del lado del cliente](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel) y la descripción del [separador "Certificados" de la pantalla "Miembros"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) del supervisor de red.
+- **Todavía no se admite la configuración de una entidad emisora de certificados externa**. Como alternativa, puede generar y subir los certificados de administración a través del Supervisor de red. Para obtener más información, consulte la descripción del [separador "Certificados" de la pantalla "Miembros"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) del supervisor de red.
 - En el Supervisor de red de una red de Plan inicial, al pulsar **Ver registros** en los nodos que se listan en la pantalla "Visión general", se abrirá la interfaz Registro de Kibana de {{site.data.keyword.cloud}}. **De forma predeterminada, kibana está preconfigurado para mostrar registros de los últimos 30 días de actividad**. Si no ha habido actividad en los últimos 30 días, verá un mensaje que indica que *No se han encontrado resultados*. Para ver otros registros, puede pulsar el icono de temporizador en la esquina superior derecha bajo el nombre de usuario y establecer un rango de tiempo más amplio, por ejemplo *Año hasta la fecha*.
-- Los registros de la red del Plan inicial los recopila el [servicio {{site.data.keyword.cloud_notm}} Log Analysis ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/log-analysis). De forma predeterminada, los registros los recopila el Plan Lite del servicio Log Analysis. Este plan es gratuito y **solo le permite buscar los primeros 500 MB de sus registros por día**. Si los registros de la red superan los 500 MB, no podrá ver registros nuevos en Kibana. Si la red genera más de 500 MB de registros, puede actualizar a una versión de pago del servicio Log Analysis.
+- Los registros de la red del Plan inicial los recopila el [servicio {{site.data.keyword.cloud_notm}} Log Analysis](https://cloud.ibm.com/catalog/services/log-analysis){: external}. De forma predeterminada, los registros los recopila el Plan Lite del servicio Log Analysis. Este plan es gratuito y **solo le permite buscar los primeros 500 MB de sus registros por día**. Si los registros de la red superan los 500 MB, no podrá ver registros nuevos en Kibana. Si la red genera más de 500 MB de registros, puede actualizar a una versión de pago del servicio Log Analysis.
 - Dado que el Plan inicial no es un entorno de producción, **las aplicaciones podrían no llegar inmediatamente a un recurso de red**.
   - Si esto sucede, se recomienda como primer paso aumentar los valores de tiempo de espera predeterminados en el SDK de Fabric. Para obtener más información sobre cómo establecer valores de tiempo de espera, consulte [Establecimiento de valores de tiempo de espera en los SDK de Fabric](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk).
   - También puede volver a intentar la solicitud a nivel de aplicación.
@@ -47,28 +48,7 @@ Los siguientes problemas ya se han notificado:
     ```
     {:codeblock}
   - Si sobrescribe el valor de tiempo de espera de los mandatos de instanciación del código de encadenamiento en los SDK, establézcalo de nuevo en el valor predeterminado o cámbielo a 300 segundos o más.
-    - Si utiliza el SDK de nodo, puede cambiar el valor de tiempo de espera del método `sendInstantiateProposal(request, timeout)`. Para obtener más información, consulte [sendInstantiateProposal(request, timeout) ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal).
+    - Si utiliza el SDK de nodo, puede cambiar el valor de tiempo de espera del método `sendInstantiateProposal(request, timeout)`. Para obtener más información, consulte [sendInstantiateProposal(request, timeout)](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}.
     - Si utiliza el SDK de Java, puede cambiar el valor de tiempo de espera del mandato `instantiateProposalRequest.setProposalWaitTime(DEPLOYWAITTIME)`, que se encuentra en el archivo `src/test/java/org/hyperledger/fabric/sdkintegration/End2endIT.java`.
 
 Para obtener soporte y ayuda con la red de {{site.data.keyword.blockchainfull_notm}} Platform en {{site.data.keyword.cloud_notm}}, consulte [Obtención de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
-
-## Actualización del código de encadenamiento para la actualización de la red del Plan empresarial
-{: #known-issues-ibp-about-chaincode-migration}
-
-Si la red del Plan empresarial está en el nivel Hyperledger Fabric V1.0, {{site.data.keyword.blockchainfull_notm}} Platform planificará una actualización para la red para migrar a Hyperledger Fabric V1.1. Con la actualización de red, si utiliza código de encadenamiento complejo con dependencias, debe actualizar las dependencias en el código de encadenamiento. De lo contrario, puede encontrar una interrupción del servicio.
-
-**Notas**:
-- Si utiliza código de encadenamiento simple con un único archivo `.go` o `.js`, no tiene que actualizar el código de encadenamiento.
-- El código de encadenamiento actualizado podría no funcionar en la red antigua; por lo tanto, debe actualizar el código de encadenamiento después de la actualización de la red planificada.
-- Puede probar el código de encadenamiento instalándolo e instanciándolo en una red del Plan inicial. Todo el código de encadenamiento que funciona en el Plan inicial también funcionará en el Plan empresarial tras la actualización de la red.
-
-Realice los pasos siguientes para actualizar el código de encadenamiento:
-1. Utilice cualquier herramienta de gestión de dependencias de terceros de Golang para actualizar el código de encadenamiento. Lo más sencillo es utilizar la misma herramienta utilizada para incluir dependencias en el archivo original. Por ejemplo, si el código de encadenamiento utiliza la herramienta **govendor** que utilizan muchas muestras de Fabric, puede ejecutar el mandato siguiente en el directorio por encima de la carpeta del proveedor para actualizar las dependencias del código de encadenamiento:
-    ```
-    govendor update all +v
-    ```
-    {:codeblock}
-
-    A continuación, puede utilizar `go build` para comprobar si el código nuevo se compila y si funciona la actualización del código de encadenamiento.
-
-2. Después de la actualización de red, puede [actualizar el código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) en el Supervisor de red.

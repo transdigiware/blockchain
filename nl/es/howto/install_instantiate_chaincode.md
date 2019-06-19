@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: chaincode endorsement policy, install chaincode, instantiate chaincode, update chaincode
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -20,7 +20,7 @@ subcollection: blockchain
 {: #install-instantiate-chaincode}
 
 
-El código de encadenamiento es un software que combina lógica empresarial e instrucciones transaccionales para crear y modificar activos en libro mayor. El código de encadenamiento puede estar escrito en distintos lenguajes, e {{site.data.keyword.blockchainfull}} Platform da soporte al código de encadenamiento Go y Node.js. Se ejecuta en un contenedor de Docker asociado a cualquier igual que necesite interactuar con el mismo. Para obtener más información sobre el desarrollo de código de encadenamiento, consulte [Guías de aprendizaje de código de encadenamiento ![icono de enlace externo](../images/external_link.svg "icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html).
+El código de encadenamiento es un software que combina lógica empresarial e instrucciones transaccionales para crear y modificar activos en libro mayor. El código de encadenamiento puede estar escrito en distintos lenguajes, e {{site.data.keyword.blockchainfull}} Platform da soporte al código de encadenamiento Go y Node.js. Se ejecuta en un contenedor de Docker asociado a cualquier igual que necesite interactuar con el mismo. Para obtener más información sobre el desarrollo de código de encadenamiento, consulte [Guías de aprendizaje de código de encadenamiento](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html){: external}.
 {:shortdesc}
 
 El código de encadenamiento se instala en un igual, y luego se crea una instancia en un canal. **Todos los miembros que desean enviar transacciones o leer datos utilizando un código de encadenamiento tienen que instalar el código de encadenamiento en su igual.** Un código de encadenamiento se define por su nombre y versión. Tanto el nombre como la versión del código de encadenamiento instalado deben ser coherentes entre los iguales de un canal.
@@ -41,7 +41,7 @@ Debe instalar el código de encadenamiento en cada igual que vaya a ejecutar dic
 2. En el panel emergente **Instalar código de encadenamiento**, especifique el nombre y la versión. **Observe** que las series de nombre y versión se utilizarán en las aplicaciones para que interactúen con el código de encadenamiento instalado. Pulse el botón **Examinar** y navegue por el sistema de archivos hasta el lugar en el que se han guardado los archivos de origen del código de encadenamiento. Seleccione uno o varios archivos de origen de código de encadenamiento para instalarlos en el igual. A continuación, seleccione el lenguaje del código de encadenamiento desde el desplegable **Tipo de código de encadenamiento**.
 
 Puede instalar el código de encadenamiento cargando un único o varios archivos GO o NODE, o puede cargar código de encadenamiento en un archivo .zip. Utilizar un archivo .zip mantendrá el código de encadenamiento con una estructura de directorios completa. Esto será útil si desea incluir paquetes de dependencias, o utilizar índices con CouchDB. Para obtener más información sobre CouchDB y cómo configurar índices, consulte
-[Prácticas recomendadas al utilizar CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) en la guía de aprendizaje de desarrollo de aplicaciones. También puede encontrar información sobre la [gestión de dependencias externas para el código de encadenamiento escrito en GO ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){:new_window} en la documentación de Hyperledger Fabric.
+[Prácticas recomendadas al utilizar CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) en la guía de aprendizaje de desarrollo de aplicaciones. También puede encontrar información sobre la [gestión de dependencias externas para el código de encadenamiento escrito en GO](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} en la documentación de Hyperledger Fabric.
 
   ![Instalar código de encadenamiento](../images/chaincode_install.png "Instalar código de encadenamiento")
 
@@ -80,7 +80,7 @@ Cuando utilice el Supervisor de red para establecer la política de aprobación,
 
 * **Utilice JSON para especificar una Política avanzada:** Utilice las políticas avanzadas para pedir recomendaciones de miembros o administradores importantes, o para dar a las recomendaciones de ciertos miembros más peso.
 
-  La manera más fácil de especificar una política avanzada es empezar por crear una política simple mediante la pantalla de la IU. A continuación, pulse el botón **Política avanzada**, que rellena automáticamente una versión de JSON de la política con los mismos miembros y reglas que se establecen en la política simple. A continuación, puede editar el JSON para grabar una versión más avanzada. Para obtener más información sobre cómo escribir políticas de aprobación en JSON, consulte la [documentación del SDK de nodo de Hyperledger Fabric![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest). <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies)-->
+  La manera más fácil de especificar una política avanzada es empezar por crear una política simple mediante la pantalla de la IU. A continuación, pulse el botón **Política avanzada**, que rellena automáticamente una versión de JSON de la política con los mismos miembros y reglas que se establecen en la política simple. A continuación, puede editar el JSON para grabar una versión más avanzada. Para obtener más información sobre cómo escribir políticas de aprobación en JSON, consulte la [documentación del SDK de Node de Hyperledger Fabric](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}. <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies){: external}-->
 
   ![Política de aprobación avanzada](../images/advanced_endorsement.png "Política de aprobación avanzada")
 

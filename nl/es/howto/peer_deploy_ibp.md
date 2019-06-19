@@ -663,7 +663,7 @@ En la tabla siguiente se muestran los parámetros configurables de la plataforma
 |`Repositorio de imágenes de CouchDB`| Solo se aplica si se ha seleccionado CouchDB como base de datos de libro mayor. Este campo se rellena automáticamente con la vía de acceso instalada. Si utiliza Community Edition y no tiene acceso a Internet, debe coincidir con el directorio donde ha descargado la imagen de CouchDB de Fabric.| ibmcom/ibp-fabric-couchdb | sí |
 | `Etiqueta de imagen de Docker de CouchDB`| Solo se aplica si se ha seleccionado CouchDB como base de datos de libro mayor. Valor de la etiqueta asociada con la imagen de CouchDB. | Se rellena automáticamente con el valor correcto.| sí |
 | `Persistencia de datos de igual habilitada`| Habilita la posibilidad de guardar permanentemente los datos después de que el clúster se reinicie o falle. Consulte [almacenamiento en Kubernetes ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/storage/ "Volúmenes") para obtener más información.  *Si no está marcada esta opción, se perderán todos los datos en el caso de una migración tras error o de un reinicio del pod.* | marcada | no |
-| `Utilizar suministro dinámico de igual`| Marcar para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
+| `Utilizar suministro dinámico de igual`| Marque esta opción para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
 | `Reclamación de volumen persistente de igual`| Solo para una reclamación nueva. Especifique un nombre para la nueva reclamación de volumen persistente (PVC) que se va a crear. | my-data-pvc | no |
 | `Nombre de clase de almacenamiento de igual`| Especifique un nombre de clase de almacenamiento para el igual. | En blanco si se crea una nueva PVC; de lo contrario, especifique la clase de almacenamiento que está asociada con la PVC existente. | no |
 | `Reclamación de volumen existente de igual`| Especifique el nombre de una reclamación de volumen existente y deje todos los demás campos en blanco. | ninguno | no |
@@ -682,19 +682,19 @@ En la tabla siguiente se muestran los parámetros configurables de la plataforma
 | `CouchDB - Utilizar suministro dinámico`| Para el contenedor de CouchDB, utilizar el almacenamiento dinámico de Kubernetes.| marcada | no |
 | `Solicitud de CPU de Docker-in-Docker`| Especifique el número mínimo de CPU a asignar al contenedor donde se ejecuta el código de encadenamiento. | 1 | sí |
 | `Límite de CPU de Docker-in-Docker`| Especifique el número máximo de CPU a asignar al contenedor donde se ejecuta el código de encadenamiento. | 2 | sí |
-| `Solicitud de memoria de Docker-in-Docker`| Especifique la cantidad mínima de memoria a asignar al contenedor donde se ejecuta el código de encadenamiento. | 1Gi | sí |
+| `Solicitud de memoria de Docker-in-Docker`| Especifique la cantidad mínima de memoria a asignar al contenedor donde se ejecuta el código de encadenamiento. | 1 Gi | sí |
 | `Límite de memoria de Docker-in-Docker`| Especifique la cantidad máxima de memoria a asignar al contenedor donde se ejecuta el código de encadenamiento. | 4 Gi | sí |
-| `Solicitud de CPU de proxy web gRPC`| Especifique el número mínimo de CPU en milicpus (m) a asignar al proxy web gRPC. | 100m | sí |
-| `Límite de CPU de proxy web gRPC`| Especifique el número máximo de CPU en milicpus (m) a asignar al proxy web gRPC. | 200m | sí |
-| `Solicitud de memoria de proxy web gRPC`| Especifique la cantidad mínima de memoria a asignar al proxy web gRPC. | 100Mi | sí |
-| `Límite de memoria de proxy web gRPC`| Especifique la cantidad máxima de memoria a asignar al proxy web gRPC. | 200Mi | sí |
+| `Solicitud de CPU de proxy web gRPC`| Especifique el número mínimo de CPU en milicpus (m) a asignar al proxy web gRPC. | 100 m | sí |
+| `Límite de CPU de proxy web gRPC`| Especifique el número máximo de CPU en milicpus (m) a asignar al proxy web gRPC. | 200 m | sí |
+| `Solicitud de memoria de proxy web gRPC`| Especifique la cantidad mínima de memoria a asignar al proxy web gRPC. | 100 Mi | sí |
+| `Límite de memoria de proxy web gRPC`| Especifique la cantidad máxima de memoria a asignar al proxy web gRPC. | 200 Mi | sí |
 | `Solicitud de CPU del igual` | Número mínimo de CPU que se asignarán al igual. | 1 | sí |
 | `Límite de CPU del igual` | Número máximo de CPU que se asignarán al igual.| 2 | sí |
-| `Solicitud de memoria del igual` | Cantidad mínima de memoria que se asignará al igual. | 1Gi | sí |
+| `Solicitud de memoria del igual` | Cantidad mínima de memoria que se asignará al igual. | 1 Gi | sí |
 | `Límite de memoria del igual` | Cantidad máxima de memoria que se asignará al igual. | 4 Gi | sí |
 | `Solicitud de CPU de CouchDB` | Número mínimo de CPU que se asignarán a CouchDB.| 1 | sí |
 | `Límite de CPU de CouchDB` | Número máximo de CPU que se asignarán a CouchDB. | 2 | sí |
-| `Solicitud de memoria de CouchDB` | Cantidad mínima de memoria que se asignará a CouchDB.| 1Gi | sí |
+| `Solicitud de memoria de CouchDB` | Cantidad mínima de memoria que se asignará a CouchDB.| 1 Gi | sí |
 | `Límite de memoria de CouchDB` | Cantidad máxima de memoria que se asignará a CouchDB. | 4 Gi | sí |
 
 

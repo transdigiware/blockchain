@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -10,13 +10,14 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # Despliegue de redes empresariales en el Plan inicial y empresarial
 {: #deploying-a-business-network}
@@ -53,7 +54,7 @@ Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](
 
 3. Dentro del perfil de conexión, vaya hacia abajo hasta que vea 'registrar'. Dentro de 'registrar', bajo 'enrollId', hay una propiedad **enrollSecret**. Recupere el secreto y guarde una copia del mismo.
 
-    ![Recuperar secreto de administración](images/get_enroll_secret.gif "Recuperar secreto de administración")
+    ![Recuperar secreto de administración](images/get_enroll_secret.gif "Recuperar secreto de administración"){: gif}
 
 ### Paso dos: crear una tarjeta de la entidad emisora de certificados
 {: #deploying-a-business-network-CA-card}
@@ -92,11 +93,11 @@ Los certificados se deben añadir a la red del Plan inicial. Para su comodidad, 
 
 1. En el supervisor de red del Plan inicial, pulse el separador **Miembros**, luego **Certificados** y, a continuación, **Añadir certificado**. Vaya al directorio `credentials`, y copie y pegue el contenido del archivo `admin-pub.pem` en el recuadro de certificado. Envíe el certificado y reinicie los iguales. Nota: reiniciar los iguales lleva un minuto.
 
-    ![Añadir certificados](images/add_cert.gif "Añadir certificados")
+    ![Añadir certificados](images/add_cert.gif "Añadir certificados"){: gif}
 
 2. A continuación, los certificados se deben sincronizar en el canal. Pulse el separador **Canales**, luego el botón **Acciones**, y luego **Sincronizar certificado** y **Enviar**.
 
-    ![Sincronizar certificados](images/sync_cert.gif "Sincronizar certificados")
+    ![Sincronizar certificados](images/sync_cert.gif "Sincronizar certificados"){: gif}
 
 ### Paso cuatro: crear una tarjeta de red empresarial de administración
 {: #deploying-a-business-network-create-admin-card}

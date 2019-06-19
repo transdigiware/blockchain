@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ Puede ver los vídeos de iniciación para aprender a utilizar {{site.data.keywor
 Los vídeos están en una lista de reproducción y se reproducen continuamente en el marco de vídeo de abajo. También puede pulsar el icono de menú en la esquina superior izquierda del vídeo para abrir la lista de reproducción y cambiar a otro vídeo.
 {:note}
 
-## Iniciación a {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}
+## Iniciación a {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-videos-ibp-v2}
 
 Vea la [serie de vídeos]( http://ibm.biz/BlockchainPlatformSeries) siguiente para obtener información sobre

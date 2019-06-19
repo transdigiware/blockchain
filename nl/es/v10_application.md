@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Fabric SDKs, client application, enroll, register, chaincode
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Desarrollo de aplicaciones con los SDK de Fabric
 {: #dev-app}
@@ -25,8 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform proporciona API que puede utilizar para conectar aplicaciones con la red blockchain. Puede utilizar los puntos finales de API en el perfil de conexión para invocar el código de encadenamiento y actualizar o consultar el libro mayor específicos del canal en sus iguales. También puede utilizar las API en [la interfaz de usuario de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) para gestionar nodos, canales y miembros de la red.
 {:shortdesc}
 
-Puede utilizar esta guía de aprendizaje para obtener información sobre cómo acceder a las API de {{site.data.keyword.blockchainfull_notm}} Platform y utilizarlas para inscribirse y registrar la aplicación con la red. También aprenderá a interactuar con la red y a enviar transacciones desde la aplicación. La guía de aprendizaje está basada en la guía de aprendizaje
-[Cómo escribir su primera aplicación ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html "Cómo escribir su primera aplicación"){:new_window} de la documentación de Hyperledger Fabric. Utilizará muchos de los archivos y mandatos de la guía de aprendizaje **Cómo escribir su primera aplicación**, pero los utilizará para interactuar con una red en la plataforma {{site.data.keyword.blockchainfull_notm}}. En esta guía de aprendizaje se describe cada paso del desarrollo de aplicaciones utilizando el SDK de nodo de Fabric Manager Hyperledger. También aprenderá a inscribir y a registrar usuarios utilizando el cliente de CA de Fabric como alternativa a la utilización del SDK.
+Puede utilizar esta guía de aprendizaje para obtener información sobre cómo acceder a las API de {{site.data.keyword.blockchainfull_notm}} Platform y utilizarlas para inscribirse y registrar la aplicación con la red. También aprenderá a interactuar con la red y a enviar transacciones desde la aplicación. La guía de aprendizaje se basa en la guía de aprendizaje sobre [Cómo escribir de su primera aplicación](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html){: external} de la documentación de Hyperledger Fabric. Utilizará muchos de los archivos y mandatos de la guía de aprendizaje **Cómo escribir su primera aplicación**, pero los utilizará para interactuar con una red en la plataforma {{site.data.keyword.blockchainfull_notm}}. En esta guía de aprendizaje se describe cada paso del desarrollo de aplicaciones utilizando el SDK de nodo de Fabric Manager Hyperledger. También aprenderá a inscribir y a registrar usuarios utilizando el cliente de CA de Fabric como alternativa a la utilización del SDK.
 
 Además de esta guía de aprendizaje, puede utilizar aplicaciones de ejemplo y código de encadenamiento que proporciona {{site.data.keyword.blockchainfull_notm}} Platform como plantillas cuando crea sus propias soluciones de negocio. Para obtener más información, consulte [Despliegue de aplicaciones de ejemplo](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
 
@@ -43,12 +42,10 @@ de una red del Plan inicial](/docs/services/blockchain/get_start_starter_plan.ht
   Después de entrar en el supervisor de red de su red, añada al menos un igual para su organización en la pantalla "Visión general". A continuación, cree al menos un canal en la red. Para obtener más información, consulte [Creación de un canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel). **Tenga en cuenta** que si utiliza una red de plan inicial, la red ya tiene un canal llamado `defaultchannel` que puede utilizar para desplegar el código de encadenamiento.
 
 - Instale las herramientas necesarias para descargar los ejemplos de Hyperledger Fabric y para utilizar el SDK de nodo.
-  * [Curl ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#install-curl "Curl") o [Git ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git"){:new_window}
-  * [Node.js ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#node-js-runtime-and-npm "Node.js"){:new_window}
+  * [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#install-curl){: external} o [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}
+  * [Node.js](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#node-js-runtime-and-npm){: external}
 
-- Instale los ejemplos de Hyperledger Fabric descargando el directorio `fabric-samples`. Puede seguir la
-[guía de iniciación
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/install.html "Guía de iniciación"){:new_window} en la documentación de Hyperledger Fabric.
+- Instale los ejemplos de Hyperledger Fabric descargando el directorio `fabric-samples`. Puede seguir la [guía de iniciación](https://hyperledger-fabric.readthedocs.io/en/release-1.2/install.html){: external} de la documentación de Hyperledger Fabric.
 
 - Vaya al directorio `fabric-samples` de la máquina local.
   * Utilice el mandato `git checkout` para utilizar la rama que corresponda a la versión de Hyperledger Fabric de sus redes. Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) en el supervisor de red.
@@ -68,9 +65,9 @@ de una red del Plan inicial](/docs/services/blockchain/get_start_starter_plan.ht
 ## Utilización de los SDK de Fabric
 {: #dev-app-fabric-sdks}
 
-Los SDK de Hyperledger Fabric ofrecen un potente conjunto de API que permiten a las aplicaciones interactuar con las redes blockchain. Encontrará la lista actualizada de los lenguajes soportados en la [Documentación de la comunidad de SDK de Hyperledger Fabric ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks "documentación de la comunidad de SDK de Hyperledger Fabric"){:new_window}. Se recomienda utilizar el SDK de nodo o el SDK de Java con la plataforma {{site.data.keyword.blockchainfull_notm}}. Encontrará más información sobre las API que proporcionan los SDK en los repositorios individuales de los SDK.
+Los SDK de Hyperledger Fabric ofrecen un potente conjunto de API que permiten a las aplicaciones interactuar con las redes blockchain. Encontrará la lista más actualizada de idiomas admitidos en la [documentación de la comunidad de SDK de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}. Se recomienda utilizar el SDK de nodo o el SDK de Java con la plataforma {{site.data.keyword.blockchainfull_notm}}. Encontrará más información sobre las API que proporcionan los SDK en los repositorios individuales de los SDK.
 
-En esta guía de aprendizaje se utiliza el [SDK de nodo ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/ "SDK de nodo"){:new_window} para registrar e inscribir la aplicación y luego utilizar la aplicación para emitir transacciones invocando y consultando el código de encadenamiento. En esta guía de aprendizaje se describe la información que debe proporcionar al SDK para que la aplicación pueda conectarse a la red blockchain. También contiene una introducción a algunas de las API que puede utilizar y cómo el SDK interactúa y envía las transacciones a la red blockchain.
+En esta guía de aprendizaje se utiliza el [SDK de Node](https://fabric-sdk-node.github.io/){: external} para registrar e inscribir la aplicación, y luego se utiliza la aplicación para emitir transacciones mediante la invocación y la consulta del código de encadenamiento. En esta guía de aprendizaje se describe la información que debe proporcionar al SDK para que la aplicación pueda conectarse a la red blockchain. También contiene una introducción a algunas de las API que puede utilizar y cómo el SDK interactúa y envía las transacciones a la red blockchain.
 
 ## Adición de puntos finales de API a la aplicación
 {: #dev-app-api-endpoints}
@@ -93,7 +90,7 @@ Debe proporcionar la aplicación los puntos finales de API de recursos de red es
                   ...
   ```
 
-Es posible que desee dirigir los recursos de red fuera de su organización con la aplicación. Por ejemplo, si una [política de aprobación](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy) de código de encadenamiento requiere aprobaciones de otras organizaciones del canal, tiene que enviar la transacción para que los iguales de dichas organizaciones puedan cumplir con la política. [Service Discovery ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "Service Discovery") en Hyperledger Fabric no recibe soporte para el Plan inicial ni para el Plan empresarial. Tendrá que obtener la información de punto final de los iguales y los certificados TLS adjuntos de otras organizaciones utilizando la sección "peers" de su perfil de conexión. Puede ponerse en contacto con los administradores de las otras organizaciones para saber qué iguales se han unido a canales particulares.{:note}
+Es posible que desee dirigir los recursos de red fuera de su organización con la aplicación. Por ejemplo, si una [política de aprobación](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy) de código de encadenamiento requiere aprobaciones de otras organizaciones del canal, tiene que enviar la transacción para que los iguales de dichas organizaciones puedan cumplir con la política. [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} de Hyperledger Fabric no recibe soporte en el Plan Inicial ni en el Plan de Empresa. Tendrá que obtener la información de punto final de los iguales y los certificados TLS adjuntos de otras organizaciones utilizando la sección "peers" de su perfil de conexión. Puede ponerse en contacto con los administradores de las otras organizaciones para saber qué iguales se han unido a canales particulares.{:note}
 
 3. Conecte la información de punto final de API a un archivo de configuración de la aplicación, como se muestra en el ejemplo siguiente:
   ```
@@ -126,7 +123,7 @@ Desde el directorio `fabcar` de la carpeta `fabric-samples`, abra el archivo `en
   ```
   {:codeblock}
 
-2. Luego el archivo crea un almacén de claves y valores (KVS) para gestionar los certificados. El SDK utiliza la clase [KeyValueStore ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/module-api.KeyValueStore.html "KeyValueStore"){:new_window} para crear el almacén de claves y valores y la clase [CryptoSuite ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/module-api.CryptoSuite.html "CryptoSuite"){:new_window} para realizar los cálculos criptográficos. A continuación encontrará el bloque de código correspondiente.
+2. Luego el archivo crea un almacén de claves y valores (KVS) para gestionar los certificados. El SDK utiliza la clase [KeyValueStore](https://fabric-sdk-node.github.io/module-api.KeyValueStore.html){: external} para crear el almacén de claves y valores y la clase [CryptoSuite](https://fabric-sdk-node.github.io/module-api.CryptoSuite.html){: external} para realizar los cálculos criptográficos. A continuación encontrará el bloque de código correspondiente.
   ```
   # create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
   Fabric_Client.newDefaultKeyValueStore({ path: store_path
@@ -146,7 +143,7 @@ Desde el directorio `fabcar` de la carpeta `fabric-samples`, abra el archivo `en
   ```
   {:codeblock}
 
-3. Después de definir el KVS, puede utilizar varios métodos de la clase [Fabric Client ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Client.html "Fabric Client"){:new_window} y la API Fabric-CA-Client <!---[FabricCAServices ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/FabricCAServices.html "FabricCAServices")---> para comunicar con el servidor de CA. Tendrá que especificar el SDK, el nombre y el URL de la entidad emisora de certificados. Abra el archivo JSON de **Perfil de conexión** desde la pantalla **Visión general** del Supervisor de red y busque las variables siguientes bajo la sección `certificateAuthorites`:
+3. Después de la definición del KVS, puede seguir diversos métodos de la clase [Fabric Client](https://fabric-sdk-node.github.io/Client.html){: external} y la API Fabric-CA-Client <!---[FabricCAServices](https://fabric-sdk-node.github.io/FabricCAServices.html){: external} ---> para establecer comunicación con el servidor de CA. Tendrá que especificar el SDK, el nombre y el URL de la entidad emisora de certificados. Abra el archivo JSON de **Perfil de conexión** desde la pantalla **Visión general** del Supervisor de red y busque las variables siguientes bajo la sección `certificateAuthorites`:
   * URL para la CA: `url` en `certificateAuthorities`
   * ID de usuario administrador: ``enrollId``
   * Contraseña de administración: ``enrollSecret``
@@ -208,9 +205,7 @@ Puede utilizar el archivo `registerUser.js` para registrar e inscribir la aplica
 
 1. Proporcione el URL y el nombre de la CA a una instancia nueva del cliente de CA de Fabric.
 
-2. Proporcione el enrollID al método `getUserContext` de la
-[clase del cliente de Fabric
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Client.html "Clase del cliente de Fabric"){:new_window} para comprobar si se ha inscrito el administrador (admin) y se tiene permitido emitir esta solicitud. Edite el bloque de código correspondiente del archivo siguiendo el ejemplo siguiente:
+2. Especifique el enrollID en el método `getUserContext` desde la [clase Fabric Client](https://fabric-sdk-node.github.io/Client.html){: external} para comprobar si `admin` se ha inscrito y tiene permiso para emitir esta solicitud. **Edite** el bloque de código correspondiente del archivo siguiendo el ejemplo siguiente:
   ```
   // be sure to change the http to https when the CA is running TLS enabled
   fabric_ca_client = new Fabric_CA_Client('https://admin:dda0c53f7b@n7413e3b503174a58b112d30f3af55016-org1-ca.us3.blockchain.ibm.com:31011', null , '<caName>', crypto_suite);
@@ -250,7 +245,7 @@ Ejecute el mandato `node registerUser.js` para registrar e inscribir `user1`. Si
 
 Como alternativa, puede registrar e inscribir la aplicación cliente utilizando el separador **Entidad emisora de certificados** del supervisor de red. Consulte esta [información](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-ca) para ver más instrucciones.
 
-## Envío de transacciones mediante la invocación y consulta de código de encadenamiento
+## Envío de transacciones mediante la invocación y consulta del código de encadenamiento
 {: #dev-app-invoke-query}
 
 La aplicación tiene que interactuar con la red completa de blockchain para enviar una transacción.
@@ -259,19 +254,19 @@ La aplicación tiene que interactuar con la red completa de blockchain para envi
 2. Las iguales que la aprueban devuelven la transacción aprobada a la aplicación.
 3. La aplicación envía la transacción aprobada al servicio de ordenación para añadir la transacción al libro mayor.
 
-Para obtener más información sobre el flujo completo de la transacción, consulte [Flujo de transacción ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")]( https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "Flujo de transacción"){:new_window} en la documentación de Hyperledger Fabric. Después de consultar esta guía de aprendizaje, visite la sección sobre [conectividad y disponibilidad de las aplicaciones](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability) para ver consejos de gestión sobre cómo el SDK interactúa con la red.
+Para obtener más información sobre el flujo de transacciones completo, consulte el apartado sobre [Flujo de transacciones](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external} en la documentación de Hyperledger Fabric. Después de consultar esta guía de aprendizaje, visite la sección sobre [conectividad y disponibilidad de las aplicaciones](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability) para ver consejos de gestión sobre cómo el SDK interactúa con la red.
 
 En los ejemplos siguientes se muestra cómo el SDK de nodo configura la topología de red, define la propuesta de transacción y luego envía la transacción a la red. Puede utilizar el archivo `invoke.js` para invocar funciones dentro del código de encadenamiento `fabcar`. Estas funciones le permiten crear y transferir activos en el libro mayor de blockchain. En esta guía de aprendizaje se utiliza la función `initLedger` para
 añadir datos nuevos a su canal y luego se utiliza el archivo `query.js` para consultar los datos.
 
-### Invocando código de encadenamiento
+### Invocación del código de encadenamiento
 {: #dev-app-invoke}
 
 Abra el archivo `invoke.js` en un editor de texto.
 
 1. Añada `var creds = require('./creds.json')` al principio del archivo. Esta línea de código permite que el archivo `invoke.js` lea la información del archivo de credenciales `creds.json`.
 
-2. Utilice la clase [Fabric Client ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Client.html "Fabric Client"){:new_window} para configurar la red fabric utilizando los puntos finales de API de sus recursos de red. En este paso define el canal y los iguales a los que el cliente enviará la propuesta y el servicio de ordenación al que el SDK enviará la transacción aprobada. **Edite** el bloque de código correspondiente de abajo. La línea `creds.peers["org1-peer1"].url` importa el url del igual desde el archivo de credenciales.
+2. Utilice la clase [Fabric Client](https://fabric-sdk-node.github.io/Client.html){: external} para configurar la red de Fabric mediante el uso de puntos finales de API de los recursos de red. En este paso define el canal y los iguales a los que el cliente enviará la propuesta y el servicio de ordenación al que el SDK enviará la transacción aprobada. **Edite** el bloque de código correspondiente de abajo. La línea `creds.peers["org1-peer1"].url` importa el url del igual desde el archivo de credenciales.
   ```
   # setup the fabric network
   var channel = fabric_client.newChannel('defaultchannel');
@@ -307,7 +302,7 @@ Abra el archivo `invoke.js` en un editor de texto.
   ```
   {:codeblock}
 
-  Después de definir la solicitud, puede enviar una [propuesta de transacción ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#sendTransactionProposal "sendTransactionProposal") a los iguales del canal. Una vez que los iguales devuelvan la propuesta, puede [enviar la transacción ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#sendTransaction "sendTransaction") al servicio de ordenación.
+  Después de definir la solicitud, puede enviar una [propuesta de transacción](https://fabric-sdk-node.github.io/Channel.html#sendTransactionProposal){: external} a los iguales del canal. Después de que los iguales devuelvan la propuesta, puede [enviar la transacción](https://fabric-sdk-node.github.io/Channel.html#sendTransaction){: external} al servicio de ordenación.
 
 4. Puede añadir un servicio de sucesos para hacer que el flujo de transacciones sea más eficiente. **Edite** la siguiente sección:
   ```
@@ -316,7 +311,7 @@ Abra el archivo `invoke.js` en un editor de texto.
   ```
   {:codeblock}
 
-  Aunque en el ejemplo se utiliza un servicio de sucesos basado en iguales, debe utilizar un escucha basado en canal. Encontrará más información en la sección sobre [gestión de transacciones](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions) y en la [documentación de SDK de nodo ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "servicio de sucesos basado en canal"){:new_window}.
+  Aunque en el ejemplo se utiliza un servicio de sucesos basado en iguales, debe utilizar un escucha basado en canal. Encontrará más información en la sección sobre [gestión de transacciones](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions) y en la [documentación de SDK de Node](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}.
 
 5. De forma predeterminada, `invoke.js` envía la transacción como `user1`. Puede editar el archivo `invoke.js` si ha registrado un nombre distinto.
 
@@ -351,12 +346,12 @@ Response is
 ```
 {:codeblock}
 
-Para obtener más información sobre la aplicación fabcar y las funciones que utiliza, visite la guía de aprendizaje sobre [Cómo escribir su primera aplicación ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html "cómo escribir su primera aplicación"){:new_window} en la documentación de Hyperledger Fabric.
+Para obtener más información sobre la aplicación fabcar y las funciones que utiliza, consulte la guía de aprendizaje completa sobre [Cómo escribir su primera aplicación](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html){: external} en la documentación de Hyperledger Fabric.
 
 ## Utilización del perfil de conexión con el SDK
 {: #dev-app-connection-profile}
 
-En lugar de importar la información de punto final a la red manualmente, puede hacer que el SDK se conecte a la red utilizando el **Perfil de conexión** desde la pantalla **Visión general** del supervisor de red. Esto agiliza el proceso de conectar con la entidad emisora de certificados para el proceso de inscripción y registro. También elimina la necesidad de definir la red fabric antes de enviar una transacción. El SDK encontrará los iguales y clasificadores en el canal relevante directamente desde el perfil de conexión. Encontrará información sobre cómo utilizar un perfil de conexión en la [documentación del SDK de nodo ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-network-config.html "guía de aprendizaje del perfil de conexión"){:new_window}.
+En lugar de importar la información de punto final a la red manualmente, puede hacer que el SDK se conecte a la red utilizando el **Perfil de conexión** desde la pantalla **Visión general** del supervisor de red. Esto agiliza el proceso de conectar con la entidad emisora de certificados para el proceso de inscripción y registro. También elimina la necesidad de definir la red fabric antes de enviar una transacción. El SDK encontrará los iguales y clasificadores en el canal relevante directamente desde el perfil de conexión. Encontrará más información sobre cómo utilizar un perfil de conexión en la [documentación de SDK de Node](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
 Podemos utilizar el archivo `invoke.js` como ejemplo para ver la eficacia de utilizar un perfil de conexión en lugar de puntos finales manuales. Puede establecer una nueva instancia del cliente de Fabric utilizando la clase `loadFromConfig`. Sustituya `var fabric_client = new Fabric_Client();` por el código siguiente.
 ```
@@ -371,9 +366,9 @@ var channel = fabric_client.newChannel('defaultchannel');
 ```
 {:codeblock}
 
-A continuación, el SDK añade los iguales y el servicio de ordenación que definidos en el canal utilizando el perfil de conexión. Esto hace que la escritura de aplicaciones sea más eficientes y facilita la actualización de las aplicaciones a medida que los miembros de la red se unen, se marchan e inician nuevos canales. Consulte la [guía de aprendizaje del perfil de conexión ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-network-config.html "guía de aprendizaje del perfil de conexión"){:new_window} de la documentación del SDK de nodo para obtener más información sobre los pasos adicionales a seguir. Puede utilizar esta [versión de la guía de aprendizaje de fabcar ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://developer.ibm.com/tutorials/cl-deploy-fabcar-sample-application-ibm-blockchain-starter-plan/){:new_window} que utiliza un perfil de conexión en lugar de conexiones de punto final manuales.
+A continuación, el SDK añade los iguales y el servicio de ordenación que definidos en el canal utilizando el perfil de conexión. Esto hace que la escritura de aplicaciones sea más eficientes y facilita la actualización de las aplicaciones a medida que los miembros de la red se unen, se marchan e inician nuevos canales. Consulte la [guía de aprendizaje del perfil de conexión](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external} en la documentación de SDK de Node para ver más pasos a seguir. Puede utilizar esta [versión de la guía de aprendizaje de fabcar](https://developer.ibm.com/tutorials/cl-deploy-fabcar-sample-application-ibm-blockchain-starter-plan/){: external}, que utiliza un perfil de conexión en lugar de conexiones manuales de punto final.
 
-[Service Discovery ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "Service Discovery") para una política de aprobación en Hyperledger Fabric no recibe soporte para el Plan inicial ni para el Plan empresarial. Sin embargo, puede enviar transacciones a iguales que están fuera de su organización para su aprobación editando el perfil de conexión. El perfil de conexión ya contiene la información de punto final y los certificados TLS de los iguales de otras organizaciones de la red de la plataforma {{site.data.keyword.blockchainfull_notm}}. Añada el nombre del igual al canal relevante en la sección "channels" del perfil para añadir el igual al canal. Se tendrá que poner en contacto con los administradores de las otras organizaciones para saber qué iguales se han unido a canales particulares.
+No se da soporte a [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} para una política de aprobación en Hyperledger Fabric para el Plan Inicial ni para el Plan de Empresa. Sin embargo, puede enviar transacciones a iguales que están fuera de su organización para su aprobación editando el perfil de conexión. El perfil de conexión ya contiene la información de punto final y los certificados TLS de los iguales de otras organizaciones de la red de la plataforma {{site.data.keyword.blockchainfull_notm}}. Añada el nombre del igual al canal relevante en la sección "channels" del perfil para añadir el igual al canal. Se tendrá que poner en contacto con los administradores de las otras organizaciones para saber qué iguales se han unido a canales particulares.
 
 ## Generación de certificados mediante el supervisor de red
 {: #dev-app-enroll-panel}
@@ -382,7 +377,7 @@ Puede utilizar el supervisor de red para generar certificados utilizando la iden
 
 Vaya al panel "Entidad emisora de certificados" del supervisor de red. Pulse el botón **Generar certificado** situado junto a la identidad de administrador para obtener un nuevo signCert y una clave privada de la entidad emisora de certificados. El campo **Certificado** contiene el signCert, justo encima de la **Clave privada**. Puede pulsar el icono de copia que hay al final de cada campo para copiar el valor. Guarde estos certificados en un lugar desde el que pueda proporcionarlos a la aplicación. **Tenga en cuenta** que {{site.data.keyword.blockchainfull_notm}} Platform no almacena estos certificados. Tiene que guardarlos y almacenarlos de forma segura.
 
-El signCert y la clave privada son suficientes para formar un contexto de usuario que pueda firmar solicitudes dentro del SDK de Node. Utilice el método [createUser ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Client.html#createUser__anchor "Crear usuario"){:new_window} de la clase de cliente (Client) para crear el objeto de contexto de usuario. Dentro del método `creatUser`, pase el nombre de identidad y el mspid al objeto de [usuario ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/global.html#UserOpts "Usuario"){:new_window}, junto con las vías de acceso a la clave privada y al signCert al objeto [cryptoContent ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/global.html#CryptoContent "Contenido criptográfico"){:new_window}.
+El signCert y la clave privada son suficientes para formar un contexto de usuario que pueda firmar solicitudes dentro del SDK de Node. Utilice el método [createUser](https://fabric-sdk-node.github.io/Client.html#createUser__anchor){: external} de la clase Client para crear el objeto de contexto de usuario. En el método `creatUser`, pase el nombre y el mspid de la entidad al objeto [user](https://fabric-sdk-node.github.io/global.html#UserOpts){: external}, junto con las vías de acceso a la clave privada y a signCert al objeto [cryptoContent](https://fabric-sdk-node.github.io/global.html#CryptoContent){: external}.
 
 Podemos utilizar el panel "Entidad emisora de certificados" y la clase `createUser` como parte de la guía de aprendizaje de desarrollo de aplicaciones como ejemplo. Si ya ha seguido la guía de aprendizaje, habrá instalado y creado una instancia del código de encadenamiento de `fabcar`, y habrá añadido algunos datos al libro mayor. Podemos utilizar los certificados para consultar el libro mayor como usuario `admin`. Siga las instrucciones anteriores para generar certificados utilizando el supervisor de red si no lo ha hecho aún.
 
@@ -418,10 +413,10 @@ Debe cargar el signCert de administrador en {{site.data.keyword.blockchainfull_n
 
 Después de que la organización cree o se una a un canal utilizando el supervisor de red o las API, puede utilizar el SDK para unir el igual al canal.
 
-1. [Capte el bloque de origen ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#getGenesisBlock "captar bloque de origen"){:new_window} del canal desde el servicio de ordenación.
-2. Pase el bloque de origen al método [unir canal ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#joinChannel "joinChannel"){:new_window} para unir su igual al canal.
+1. [Capte el bloque de origen](https://fabric-sdk-node.github.io/Channel.html#getGenesisBlock){: external} del canal desde el servicio de ordenación.
+2. Pase el bloque de origen al método [join channel](https://fabric-sdk-node.github.io/Channel.html#joinChannel){: external} para unir el igual al canal.
 
-Para utilizar el ejemplo `fabcar` para unirse a un canal, utilice el archivo `invoke.js` como punto de partida. Tiene que enviar esta solicitud como administrador en lugar de la aplicación, por lo que debe sustituir `user1` por `admin` en el método `getUserContext`. Comenzando por donde define la solicitud de invocación del código de encadenamiento en `var request = {`, sustituya el flujo de transacción por una solicitud de unir canal basada en el fragmento de código siguiente de la [documentación de SDK de nodo ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/tutorial-channel-create.html "tls mutuo"){:new_window}.
+Para utilizar el ejemplo `fabcar` para unirse a un canal, utilice el archivo `invoke.js` como punto de partida. Tiene que enviar esta solicitud como administrador en lugar de la aplicación, por lo que debe sustituir `user1` por `admin` en el método `getUserContext`. Comenzando por donde define la solicitud de invocación del código de encadenamiento en `var request = {`, sustituya el flujo de transacción por una solicitud de unir canal basada en el fragmento de código siguiente tomado de la [documentación de SDK de Node](https://fabric-sdk-node.github.io/tutorial-channel-create.html){: external}.
   ```
   let g_request = {
     txId :     tx_id
@@ -453,7 +448,7 @@ en la guía de aprendizaje sobre [Gestión de certificados](/docs/services/block
 ### Instalación de código de encadenamiento
 {: #dev-app-install-cc-sdk}
 
-Puede utilizar el método para [instalar código de encadenamiento ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Client.html#installChaincode "installChaincode"){:new_window} de la clase [Fabric Client ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Client.html "Fabric Client"){:new_window} para instalar el código de encadenamiento en el igual.
+Puede utilizar el método [install chaincode](https://fabric-sdk-node.github.io/Client.html#installChaincode){: external} de la clase [Fabric Client](https://fabric-sdk-node.github.io/Client.html){: external} para instalar el código de encadenamiento en el igual.
 
 Para utilizar el ejemplo `fabcar` para instalar el código de encadenamiento `fabcar` en el igual, utilice el archivo `query.js` como base y edítelo. Tiene que enviar esta solicitud como administrador en lugar de la aplicación, por lo que debe sustituir `user1` por `admin` en el método `getUserContext`. Sustituya el objeto de propuesta de transacción por una solicitud de instalación de código de encadenamiento utilizando el ejemplo siguiente:
 ```
@@ -473,7 +468,7 @@ Envíe este objeto a `return fabric_client.installChaincode(request);`, en lugar
 ### Creación de una instancia de un código de encadenamiento
 {: #dev-app-instantiate-cc-sdk}
 
-Para crear una instancia del código de encadenamiento, tiene que enviar una [propuesta de creación de instancia ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal "sendInstantiateProposal"){:new_window} al igual y luego enviar una [solicitud de transacción ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/Channel.html#sendTransaction "sendTransaction){:new_window} al servicio de ordenación.
+Para crear una instancia del código de encadenamiento, debe enviar una [propuesta de creación de instancia](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external} al igual y luego debe enviar una [solicitud de transacción](https://fabric-sdk-node.github.io/Channel.html#sendTransaction){: external} al servicio de ordenación.
 
 Para utilizar el ejemplo `fabcar` para crear una instancia del código de encadenamiento, utilice el archivo `invoke.js` como punto de partida. Tiene que enviar esta solicitud como administrador en lugar de la aplicación, por lo que debe sustituir `user1` por `admin` en el método `getUserContext`. Sustituya el objeto de propuesta de transacción por una solicitud de instalación de código de encadenamiento utilizando el ejemplo siguiente:
 ```

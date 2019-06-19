@@ -161,13 +161,13 @@ En la tabla siguiente se muestran los parámetros configurables de la plataforma
 | `Arquitectura del nodo trabajador de CA`| Seleccione su arquitectura de nodo trabajador de {{site.data.keyword.cloud_notm}} Private (ADM64 o S390X). | AMD64 | sí|
 | `Tipo de base de datos de CA`| El tipo de base de datos para almacenar datos de CA. Solo se admite SQLite. | SQLite | sí |
 | `Persistencia de datos de CA habilitada` | Si se marca, los datos estarán disponibles cuando se reinicie el contenedor. De lo contrario, se perderán todos los datos en el caso de una migración tras error o de un reinicio del pod. | marcada | no |
-| `Utilizar suministro dinámico de CA` | Marcar para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
+| `Utilizar suministro dinámico de CA` | Marque esta opción para habilitar el suministro dinámico para volúmenes de almacenamiento. | marcada | no |
 | `Nombre de clase de almacenamiento de CA`| Especifique un nombre de clase de almacenamiento exclusivo. De lo contrario, se utilizará la clase de almacenamiento predeterminada en el clúster. | ninguno | Depende de cómo se haya configurado el clúster de {{site.data.keyword.cloud_notm}} Private. Consulte al administrador del clúster |
 | `Reclamación de volumen existente de CA`| Especifique el nombre de una reclamación de volumen existente y deje todos los demás campos en blanco. | ninguno | no |
 | `Etiqueta de selector de CA`| [Etiqueta de selector ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ "Etiquetas y selectores") de la PVC. | ninguno | no |
 | `Valor de selector de CA`| [Valor de selector ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ "Etiquetas y selectores") de la PVC. | ninguno | no |
 | `Modalidad de acceso de almacenamiento de CA`| Especifique la [modalidad de acceso ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes "modalidad de acceso") al almacenamiento para la PVC. | ReadWriteMany | sí |
-| `Tamaño de reclamación de volumen de CA`| Elija el tamaño de disco a utilizar. | 2Gi | sí |
+| `Tamaño de reclamación de volumen de CA`| Elija el tamaño de disco a utilizar. | 2 Gi | sí |
 | `Repositorio de imágenes de CA`| Ubicación del diagrama de Helm de CA. | ibmcom/ibp-fabric-ca | sí |
 | `Etiqueta de imagen de Docker de CA`| Valor de la etiqueta asociada con la imagen de CA. Este campo se rellena automáticamente con la versión de la imagen. | 1.4.0 | sí |
 | `Repositorio de imágenes Init Docker de CA`| Ubicación de la imagen Init Docker de CA. Este campo se rellena automáticamente con la ubicación de la imagen. | ibmcom/ibp-init | sí |
@@ -179,7 +179,7 @@ En la tabla siguiente se muestran los parámetros configurables de la plataforma
 `ca-admin-name` y `ca-admin-password`. | ninguno | sí |
 | `Solicitud de CPU de CA`| Especifique el número mínimo de CPU a asignar a la CA. | 1 | sí |
 | `Límite de CPU de CA`| Especifique el número máximo de CPU a asignar a la CA. | 2 | sí |
-| `Solicitud de memoria de CA`| Especifique la cantidad mínima de memoria a asignar a la CA. | 1Gi | sí |
+| `Solicitud de memoria de CA`| Especifique la cantidad mínima de memoria a asignar a la CA. | 1 Gi | sí |
 | `Límite de memoria de CA`| Especifique la cantidad máxima de memoria a asignar a la CA. | 4 Gi | sí |
 | `Nombre de instancia TLS de CA`| Especifique el nombre de la instancia TLS de CA que se utilizará para inscribir un clasificador o un igual. | tlsca | sí |
 | `Nombre común de CSR`| Especifique el nombre común (CN) que presentará el certificado raíz de CA generado cuando se establezca contacto con él. | tlsca-common | sí |

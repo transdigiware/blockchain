@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -27,16 +27,16 @@ crear una instancia del código de encadenamiento en el canal y conectar aplicac
 ## Utilización de los SDK de Fabric para trabajar con el igual
 {: #remote-peer-aws-operate-with-sdk}
 
-Los SDK de Hyperledger Fabric ofrecen un potente conjunto de API que permiten a las aplicaciones interactuar con las redes blockchain. Encontrará la lista más reciente de lenguajes soportados y una lista de las API disponibles en los SDK de Hyperledger Fabric en la [documentación de la comunidad de SDK de Hyperledger Fabric ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks "documentación de la comunidad de SDK de Hyperledger Fabric"). Puede utilizar los SDK de Fabric para unir su igual a un canal en {{site.data.keyword.blockchainfull_notm}} Platform, instalar un código de encadenamiento en el igual y crear una instancia del código de encadenamiento en un canal.
+Los SDK de Hyperledger Fabric ofrecen un potente conjunto de API que permiten a las aplicaciones interactuar con las redes blockchain. Encontrará la lista más reciente de idiomas admitidos y la lista completa de las API disponibles dentro de los SDK de Fabric Manager Hyperledger en la [documentación de la comunidad del SDK de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}. Puede utilizar los SDK de Fabric para unir su igual a un canal en {{site.data.keyword.blockchainfull_notm}} Platform, instalar un código de encadenamiento en el igual y crear una instancia del código de encadenamiento en un canal.
 
-En las siguientes instrucciones se utiliza el [Node SDK de Fabric ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/ "SDK de Hyperledger Fabric para node.js") para trabajar con el igual y se da por supuesto que está familiarizado con el SDK. Puede utilizar la [guía de aprendizaje sobre desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app) para aprender a utilizar Node SDK antes de empezar y como guía para desarrollar aplicaciones con el igual cuando esté listo para invocar el código de encadenamiento de la consulta.
+En las siguientes instrucciones se utiliza el [SDK de Node de Fabric](https://fabric-sdk-node.github.io/){: external} para trabajar con el igual; se presupone que está familiarizado con el SDK. Puede utilizar la [guía de aprendizaje sobre desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app) para aprender a utilizar Node SDK antes de empezar y como guía para desarrollar aplicaciones con el igual cuando esté listo para invocar el código de encadenamiento de la consulta.
 
 El Inicio rápido del igual de {{site.data.keyword.blockchainfull_notm}} Platform en AWS crea dos iguales para obtener alta disponibilidad. Por lo tanto, tiene que seguir los pasos operativos para cada igual. Una vez que esté listo para consultar e invocar código de encadenamiento desde su aplicación, haga que el SDK se conecte a ambos iguales para garantizar que las [aplicaciones tengan alta disponibilidad](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app).
 
 ### Instalación de Node SDK
 {: #remote-peer-aws-operate-install-sdk}
 
-Puede utilizar NPM para instalar [Node SDK ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://fabric-sdk-node.github.io/ "SDK de Hyperledger Fabric para node.js"):
+Puede utilizar NPM para instalar el [SDK de Node](https://fabric-sdk-node.github.io/){: external}:
 ```
 npm install fabric-client@1.2
 ```
@@ -137,7 +137,7 @@ También puede trabajar con el igual desde la línea de mandatos utilizando el c
 ### Inscripción mediante el cliente de CA de Fabric
 {: #remote-peer-aws-operate-client-enroll}
 
-El primer paso consiste en generar los certificados necesarios (inscripciones) utilizando el cliente CA de Fabric. Primero tiene que instalar el cliente de CA de Fabric. Descargue los [binarios de fabric-ca v1.2.1 correspondientes a su plataforma ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/ "Índice de repositorios ") en su máquina local, extráigalos y muévalos a una carpeta como por ejemplo `$HOME/fabric-ca-remote/`.
+El primer paso consiste en generar los certificados necesarios (inscripciones) utilizando el cliente CA de Fabric. Primero tiene que instalar el cliente de CA de Fabric. Descargue los [binarios fabric-ca v1.2.1 para su plataforma](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/){: external} en la máquina local, extráigalos y muévalos a una carpeta, como por ejemplo `$HOME/fabric-ca-remote/`.
 
 1.  Prepare el entorno para que utilice el cliente CA de Fabric. Vaya al directorio al que ha movido los binarios del cliente para poder hacer referencia a los mismos directamente en sus mandatos.
     ```
@@ -292,7 +292,7 @@ En la máquina local, abra un terminal de mandatos y vaya al directorio al ha mo
 ### Configuración del contenedor de herramientas de Fabric
 {: #remote-peer-aws-operate-fabric-cli}
 
-Después de mover todos los certificados a la ubicación necesaria, puede instalar y utilizar el contenedor de herramientas de Fabric desde Docker. Estos mandatos están pensados para que se ejecuten localmente en su máquina. Asegúrese de ejecutar estos mandatos desde el directorio donde se ha guardado la carpeta de MSP. Antes de completar estos pasos, debe tener [Git ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Iniciación - Instalación de Git") instalado en la máquina local.   
+Después de mover todos los certificados a la ubicación necesaria, puede instalar y utilizar el contenedor de herramientas de Fabric desde Docker. Estos mandatos están pensados para que se ejecuten localmente en su máquina. Asegúrese de ejecutar estos mandatos desde el directorio donde se ha guardado la carpeta de MSP. Antes de seguir estos pasos, [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external} debe estar instalado en la máquina local.   
 
 Descargue la imagen de Docker de las herramientas de Fabric con el mandato siguiente:
 
@@ -513,7 +513,7 @@ Siga los pasos siguientes para actualizar el código de encadenamiento:
 
 1. Para actualizar el código de encadenamiento en cada igual en AWS, simplemente vuelva a ejecutar el proceso que ha utilizado para instalar el código de encadenamiento en los iguales mediante una aplicación cliente o un mandato de CLI. Asegúrese de especificar el nombre de código de encadenamiento que se ha utilizado originalmente. Sin embargo, esta vez incremente el número de `Versión` del código de encadenamiento.
 
-2. Después de instalar el nuevo código de encadenamiento en todos los iguales del canal, utilice el supervisor de red o el mandato de [actualización de código de encadenamiento del igual ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade) para utilizar el nuevo código de encadenamiento.
+2. Después de instalar el nuevo código de encadenamiento en todos los iguales del canal, utilice el supervisor de red o el mandato [peer chaincode upgrade](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} para actualizar el canal para que utilice el nuevo código de código.
 
 Consulte el paso dos de estas [instrucciones](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) para obtener más información sobre cómo utilizar el panel Instalar código del supervisor de red para actualizar el código de encadenamiento en el canal.
 
