@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -26,16 +26,16 @@ Dopo che hai configurato i peer {{site.data.keyword.blockchainfull}} Platform in
 ## Utilizzo degli SDK Fabric per gestire il peer
 {: #remote-peer-aws-operate-with-sdk}
 
-Gli SDK Hyperledger Fabric forniscono una potente serie di API che consentono alle applicazioni di interagire con le reti blockchain e di gestire tali reti. Puoi trovare l'elenco più aggiornato dei linguaggi supportati e l'elenco completo delle API disponibili all'interno degli SDK Hyperledger Fabric nella documentazione della [documentazione della community degli SDK Hyperledger Fabric![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks "Community degli SDK Hyperledger Fabric"). Puoi utilizzare gli SDK Fabric per unire il tuo peer a un canale su {{site.data.keyword.blockchainfull_notm}} Platform, installare un chaincode sul tuo peer e istanziare il chaincode su un canale.
+Gli SDK Hyperledger Fabric forniscono una potente serie di API che consentono alle applicazioni di interagire con le reti blockchain e di gestire tali reti. Puoi trovare l'elenco più aggiornato dei linguaggi supportati e l'elenco completo delle API disponibili all'interno degli SDK Hyperledger Fabric nella [documentazione della community degli SDK Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}. Puoi utilizzare gli SDK Fabric per unire il tuo peer a un canale su {{site.data.keyword.blockchainfull_notm}} Platform, installare un chaincode sul tuo peer e istanziare il chaincode su un canale.
 
-Le seguenti istruzioni utilizzano l'[SDK Node di Fabric ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://fabric-sdk-node.github.io/ "SDK Hyperledger Fabric per jode.js") per gestire il peer e presumono una precedente dimestichezza con l'SDK. Puoi utilizzare l'[esercitazione sullo sviluppo di applicazioni](/docs/services/blockchain/v10_application.html#dev-app) per imparare a utilizzare l'SDK Node prima di iniziare e come guida allo sviluppo di applicazioni con il tuo peer quando sei pronto ad eseguire richiami e query del chaincode.
+Le seguenti istruzioni utilizzano l'[SDK Node Fabric](https://fabric-sdk-node.github.io/){: external} per gestire il peer e presumono una precedente dimestichezza con l'SDK. Puoi utilizzare l'[esercitazione sullo sviluppo di applicazioni](/docs/services/blockchain/v10_application.html#dev-app) per imparare a utilizzare l'SDK Node prima di iniziare e come guida allo sviluppo di applicazioni con il tuo peer quando sei pronto ad eseguire richiami e query del chaincode.
 
 Il peer {{site.data.keyword.blockchainfull_notm}} Platform su Quick Start AWS crea due peer per l'alta disponibilità. Pertanto, devi seguire i passi operativi una volta per ogni peer. Quando sei pronto ad eseguire query e richiami del chaincode dalla tua applicazione, fai in modo che il tuo SDK si connetta a entrambi i peer per garantire che le tue [applicazioni siano altamente disponibili](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app).
 
 ### Installazione dell'SDK Node
 {: #remote-peer-aws-operate-install-sdk}
 
-Puoi utilizzare NPM per installare l'[SDK Node ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://fabric-sdk-node.github.io/ "SDK Hyperledger Fabric per jode.js"):
+Puoi utilizzare NPM per installare l'[SDK Node](https://fabric-sdk-node.github.io/){: external}:
 ```
 npm install fabric-client@1.2
 ```
@@ -114,7 +114,7 @@ Come membro della rete blockchain, la tua organizzazione deve essere aggiunta a 
 
     Una volta che la tua organizzazione è stata aggiunta a un canale, devi aggiungere il certificato di firma del peer al canale in modo che gli altri membri possano verificare la tua firma digitale durante le transazioni. Il peer carica il proprio certificato di firma durante l'installazione, pertanto dovrai solo sincronizzare il certificato al canale. Nella schermata "Canali" del Monitoraggio della rete, individua il canale a cui si unisce la tua organizzazione e seleziona **Sincronizza certificato** dall'elenco a discesa sotto l'intestazione **Azione**. Questa azione sincronizza i certificati su tutti i peer nel canale. Prima di immettere i comandi di unione al canale, potresti dover attendere qualche minuto in modo che la sincronizzazione del canale possa essere completata.
 
-Una volta che la tua organizzazione fa parte del canale, segui le istruzioni relative all'[Unione a un canale](/docs/services/blockchain/v10_application.html#dev-app-join-channel-sdk). Devi fornire l'URL del servizio ordini e il nome del canale.
+Una volta che la tua organizzazione fa parte del canale, segui le istruzioni relative all'[Unione a un canale](/docs/services/blockchain/v10_application.html#dev-app-join-channel-sdk). Devi fornire l'URL del servizio di ordine e il nome del canale.
 
 ### Utilizzo dell'SDK per installare il chaincode sul peer
 {: #remote-peer-aws-operate-install-cc-sdk}
@@ -135,7 +135,7 @@ Puoi gestire il tuo peer anche dalla riga di comando utilizzando il client CA Fa
 ### Iscrizione mediante il client CA Fabric
 {: #remote-peer-aws-operate-client-enroll}
 
-Il primo passo consiste nel generare i certificati richiesti (iscrizione) utilizzando il client CA Fabric. Devi installare prima il client CA Fabric. Scarica i [file binari fabric-ca v1.2.1 per la tua piattaforma ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/ "Indice dei repository") sulla tua macchina locale, estraili e spostali in una cartella, come ad esempio `$HOME/fabric-ca-remote/`.
+Il primo passo consiste nel generare i certificati richiesti (iscrizione) utilizzando il client CA Fabric. Devi installare prima il client CA Fabric. Scarica i [file binari fabric-ca v1.2.1 per la tua piattaforma](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/){: external} sulla tua macchina locale, estraili e spostali in una cartella come `$HOME/fabric-ca-remote/`.
 
 1.  Prepara il tuo ambiente per utilizzare il client CA Fabric. Passa alla directory in cui hai spostato i file binari del client in modo da poter fare riferimento a essa direttamente nei comandi.
     ```
@@ -290,7 +290,7 @@ Sulla tua macchina locale, apri un terminale di comando e passa alla directory i
 ### Configurazione del contenitore degli strumenti Fabric
 {: #remote-peer-aws-operate-fabric-cli}
 
-Dopo che hai spostato tutti i nostri certificati nell'ubicazione necessaria, puoi installare e utilizzare il contenitore degli strumenti Fabric da Docker. Questi comandi sono concepiti per essere eseguiti localmente sulla tua macchina. Assicurati di eseguire questi comandi dalla directory in cui hai memorizzato la tua cartella MSP. Prima di completare questi passi, [Git ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Getting Started - Installing Git") deve essere installato sulla tua macchina locale.   
+Dopo che hai spostato tutti i nostri certificati nell'ubicazione necessaria, puoi installare e utilizzare il contenitore degli strumenti Fabric da Docker. Questi comandi sono concepiti per essere eseguiti localmente sulla tua macchina. Assicurati di eseguire questi comandi dalla directory in cui hai memorizzato la tua cartella MSP. Prima di completare questa procedura, [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external} deve essere installato sulla tua macchina locale.   
 
 Scarica l'immagine Docker degli strumenti Fabric con il seguente comando:
 
@@ -511,8 +511,7 @@ Completa la seguente procedura per aggiornare il tuo chaincode:
 
 1. Per aggiornare il chaincode su ogni peer in AWS, è sufficiente rieseguire il processo che hai utilizzato per installare il chaincode sui peer, utilizzando un'applicazione client o un comando della CLI. Assicurati di specificare lo stesso nome chaincode utilizzato originariamente. Tuttavia, questa volta incrementa il numero di `Version` del chaincode.
 
-2. Dopo aver installato il nuovo chaincode su tutti i peer nel canale, utilizza il Monitoraggio della rete o il comando
-[peer chaincode upgrade ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade) per aggiornare il canale per utilizzare il nuovo chaincode.
+2. Dopo aver installato il nuovo chaincode su tutti i peer nel canale, utilizza il Monitoraggio della rete o il comando [peer chaincode upgrade](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} per aggiornare il canale per utilizzare il nuovo chaincode.
 
 Vedi il passo due di queste [istruzioni](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) per ulteriori informazioni sull'utilizzo del pannello Installa il codice del Monitoraggio della rete per aggiornare il chaincode sul canale.
 

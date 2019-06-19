@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-04"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -19,6 +19,9 @@ subcollection: blockchain
 
 # Introduzione a piano Enterprise
 {: #getting-started-with-enterprise-plan}
+
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note}-->
 
 {{site.data.keyword.blockchainfull}} Platform piano Enterprise fornisce una rete blockchain con sicurezza, integrità, scalabilità e prestazioni elevate. Puoi eseguire rapidamente il provisioning di una rete pienamente funzionante e utilizzare il Monitoraggio della rete, che è un dashboard GUI, per eseguire immediatamente [chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode) e applicazioni senza dover progettare e configurare una rete da zero.
 {:shortdesc}
@@ -38,9 +41,9 @@ La seguente procedura indica il flusso di base per avviare una rete piano Enterp
 ## Creazione di una rete
 {: #getting-started-with-enterprise-plan-create-network}
 
-Prima di iniziare, devi creare un'istanza del servizio di [{{site.data.keyword.blockchain}} Platform ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) su {{site.data.keyword.cloud_notm}}. Devi eseguire l'accesso con il tuo ID {{site.data.keyword.cloud_notm}}. Se non hai un ID, fai clic sul pulsante **Registrati per creare**. Rinomina i nomi di servizio e credenziali per la tua istanza in modo che tu possa riconoscerli facilmente in futuro. Seleziona la regione, l'organizzazione e lo spazio {{site.data.keyword.cloud_notm}} dove puoi distribuire la tua rete {{site.data.keyword.blockchain}}. Seleziona quindi **Piano di adesione Enterprise** dalla tabella dei piani di determinazione del prezzo e fai clic sul pulsante **Crea**.
+Prima di iniziare, devi creare una [istanza del servizio {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} su {{site.data.keyword.cloud_notm}}. Devi eseguire l'accesso con il tuo ID {{site.data.keyword.cloud_notm}}. Se non hai un ID, fai clic sul pulsante **Registrati per creare**. Rinomina i nomi di servizio e credenziali per la tua istanza in modo che tu possa riconoscerli facilmente in futuro. Seleziona la regione, l'organizzazione e lo spazio {{site.data.keyword.cloud_notm}} dove puoi distribuire la tua rete {{site.data.keyword.blockchain}}. Seleziona quindi **Piano di adesione Enterprise** dalla tabella dei piani di determinazione del prezzo e fai clic sul pulsante **Crea**.
 
-Puoi trovare la tua istanza del servizio {{site.data.keyword.blockchain}} Platform nel tuo [Dashboard del servizio {{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} - Dashboard del servizio").
+Puoi trovare la tua istanza del servizio {{site.data.keyword.blockchain}} Platform nel tuo [dashboard del servizio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 Se sei un iniziatore di rete, fai clic sul pulsante **Crea rete** per iniziare una rete {{site.data.keyword.blockchain}}. Segui la procedura guidata per completare la configurazione di base della tua rete e delle tue risorse.
 ![Procedura guidata Crea rete](images/create_network_name.png "Procedura guidata Crea rete")
@@ -58,7 +61,7 @@ Ora hai correttamente distribuito una rete {{site.data.keyword.blockchain}} che 
 * Fino a 15 membri della rete
 * Tre ordinatori e due nodi CA intermedi
 * Fino a tre piccoli peer per ogni membro
-* Un servizio ordini con tolleranza di errori anomali
+* Un servizio di ordine con tolleranza di errori anomali
 * Fino a 150 canali
 * Fino a 10 istanziazioni di chaincode per membro in Monitoraggio della rete
 
@@ -66,9 +69,9 @@ Ora hai correttamente distribuito una rete {{site.data.keyword.blockchain}} che 
 ## Adesione a una rete
 {: #getting-started-with-enterprise-plan-join-nw}
 
-Analogamente alla creazione di una rete, devi creare un'istanza del servizio di [{{site.data.keyword.blockchain}} Platform ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) su {{site.data.keyword.cloud_notm}}. Devi eseguire l'accesso con il tuo ID {{site.data.keyword.cloud_notm}}. Se non hai un ID, fai clic sul pulsante **Registrati per creare**. Rinomina i nomi di servizio e credenziali per la tua istanza in modo che tu possa riconoscerli facilmente in futuro. Seleziona la regione, l'organizzazione e lo spazio {{site.data.keyword.cloud_notm}} dove puoi distribuire la tua rete {{site.data.keyword.blockchain}}. Seleziona quindi **Piano di adesione Enterprise** dalla tabella dei piani di determinazione del prezzo e fai clic sul pulsante **Crea**.
+Analogamente alla creazione di una rete, devi creare una [istanza del servizio {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}}. Devi eseguire l'accesso con il tuo ID {{site.data.keyword.cloud_notm}}. Se non hai un ID, fai clic sul pulsante **Registrati per creare**. Rinomina i nomi di servizio e credenziali per la tua istanza in modo che tu possa riconoscerli facilmente in futuro. Seleziona la regione, l'organizzazione e lo spazio {{site.data.keyword.cloud_notm}} dove puoi distribuire la tua rete {{site.data.keyword.blockchain}}. Seleziona quindi **Piano di adesione Enterprise** dalla tabella dei piani di determinazione del prezzo e fai clic sul pulsante **Crea**.
 
-Puoi trovare la tua istanza del servizio {{site.data.keyword.blockchain}} Platform nel [Dashboard del servizio {{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} - Dashboard del servizio").
+Puoi trovare la tua istanza del servizio {{site.data.keyword.blockchain}} Platform nel [dashboard del servizio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 Se sei un membro della rete invitato, fai clic sul pulsante **Invito in attesa ->**, seleziona la rete a cui vuoi aderire dall'elenco a discesa e fai clic sul pulsante **Unisciti alla rete!**. Segui la procedura guidata per visualizzare la configurazione di base della tua rete e configurare le tue proprie risorse di rete.
 ![Procedura guidata Unisciti alla rete](images/join_network_name.png "Procedura guidata Unisciti alla rete")
@@ -84,7 +87,7 @@ Se sei un membro della rete invitato, fai clic sul pulsante **Invito in attesa -
 ## Configurazione delle risorse di rete e dell'ambiente
 {: #getting-started-with-enterprise-plan-config}
 
-1. Accedi al tuo Network Monitor dopo che hai creato, o hai aderito a, una rete {{site.data.keyword.blockchain}}. Il monitoraggio della rete è un dashboard GUI dove puoi gestire e tracciare le informazioni sullo stato della rete. Per ulteriori informazioni, consulta [Monitoraggio della rete](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
+1. Accedi al tuo Network Monitor dopo che hai creato, o hai aderito a, una rete {{site.data.keyword.blockchain}}. Il monitoraggio della rete è un dashboard GUI dove puoi gestire e tracciare le informazioni sullo stato della rete. Per ulteriori informazioni, vedi [Monitoraggio della rete](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
 2. Aggiungi i tuoi peer alla rete. Se già hai aggiunto abbastanza peer, tralascia questo passo. I peer eseguono il chaincode e sono l'endpoint per interagire con le tue applicazioni. Gai clic su **Add Peers** nella schermata "Overview" e seleziona la quantità e la dimensione dei tuoi peer. Per ulteriori informazioni, vedi [Panoramica](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview).
 3. Configura un canale. A tutti i membri nello stesso canale viene fornito un libro mastro specifico per il canale, che offre isolamento e confidenzialità dei dati. Per ulteriori informazioni su come creare un canale, vedi [Creazione di un canale](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel). Se sei un membro del canale che è stato invitato ad aderire a un canale, riceverai una notifica email con un link alla procedura guidata che ti consente di aderire al canale.
 4. Unisci i peer al canale. Solo i peer associati al canale possono accedere al suo libro mastro. Per ulteriori informazioni, vedi [Canali](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels).
@@ -100,7 +103,7 @@ Dopo che hai creato una rete piano Enterprise in {{site.data.keyword.cloud_notm}
 
 ### Richiamo dalla pagina dell'istanza del servizio
 {: #getting-started-with-enterprise-plan-retrieve-svc-ins}
-Sei nella pagina dell'istanza del servizio subito dopo aver creato un'istanza del servizio. Puoi anche fare clic sul tuo servizio nel [dashboard del servizio {{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} - Dashboard del servizio") per aprire la tua pagina dell'istanza del servizio.
+Sei nella pagina dell'istanza del servizio subito dopo aver creato un'istanza del servizio. Puoi anche fare clic sul tuo servizio nel [dashboard del servizio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external} per aprire la tua pagina dell'istanza del servizio.
 
 Richiama le tue credenziali del servizio attenendoti alla seguente procedura:
 1. Nella pagina dell'istanza del servizio, fai clic su **Credenziali del servizio** nel navigatore a sinistra per visualizzare la schermata "Credenziali del servizio".
@@ -116,7 +119,7 @@ Puoi richiamare il profilo di connessione nella schermata "Panoramica" nel tuo M
 
 ## Abilitazione delle applicazioni a interagire con la rete
 {: #getting-started-with-enterprise-plan-enable-apps}
-Le applicazioni si avvalgono delle API SDK per interagire con le tue risorse di rete {{site.data.keyword.blockchain}}. Devi aggiungere le informazioni sull'endpoint API delle tue risorse di rete nella tua applicazione in modo che l'applicazione possa alla fine avere come obiettivo i tuoi peer le richieste di transazione. Puoi quindi aggiungere le informazioni sull'endpoint API dal Monitoraggio della rete. Le applicazioni possono essere ospitate sul tuo file system locale o su {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni, vedi [Sviluppo di applicazioni](/docs/services/blockchain/v10_application.html#dev-app).
+Le applicazioni si avvalgono delle API SDK per interagire con le tue risorse di rete {{site.data.keyword.blockchain}}. Devi aggiungere le informazioni sull'endpoint API delle tue risorse di rete nella tua applicazione in modo che l'applicazione possa alla fine avere come obiettivo i tuoi peer le richieste di transazione. Puoi quindi aggiungere le informazioni sull'endpoint API dal Monitoraggio della rete. Le applicazioni possono essere ospitate sul tuo file system locale o su {{site.data.keyword.cloud_notm}}.
 
 ## Monitoraggio delle risorse di rete
 {: #getting-started-with-enterprise-plan-monitor-resources}
@@ -126,5 +129,5 @@ Dopo che una transazione è stata attivata dalla tua applicazione, puoi visualiz
 {: #getting-started-with-enterprise-plan-leave-nw}
 Se desideri uscire da una rete, elimina l'istanza del servizio blockchain dal tuo dashboard {{site.data.keyword.cloud_notm}}.
 
-Prima di uscire da una rete, assicurati di non essere un membro dei canali sulla rete. Altrimenti, riscontrerai degli errori quando esci dalla rete. Una rimozione di un membro del canale deve completare il processo di aggiornamento del canale. Per ulteriori informazioni sul processo di aggiornamento del canale, consulta [Aggiornamento di un canale](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+Prima di uscire da una rete, assicurati di non essere un membro dei canali sulla rete. Altrimenti, riscontrerai degli errori quando esci dalla rete. Una rimozione di un membro del canale deve completare il processo di aggiornamento del canale. Per ulteriori informazioni sul processo di aggiornamento del canale, vedi [Aggiornamento di un canale](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
 {:note}

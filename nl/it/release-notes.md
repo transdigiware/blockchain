@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -10,26 +10,31 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Note di rilascio
 {: #release-notes-saas-20}
 
-Utilizza queste note sulla release raggruppate in base alla data per informazioni sulle modifiche più recenti a {{site.data.keyword.blockchainfull}} Platform on {{site.data.keyword.cloud_notm}} che è sviluppato su Hyperledger Fabric v1.4.1.
+Utilizza queste note sulla release raggruppate in base alla data per informazioni sulle modifiche più recenti a {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} che è sviluppato su Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+
+## 24 maggio 2019
+{: #05-24-2019}
+
+**Protocollo di consenso Raft** Il servizio di ordine Raft a cinque nodi, consigliato per le reti di produzione, è ora disponibile. Inoltre, per scopi di sviluppo e verifica, puoi distribuire un servizio di ordine Raft a nodo singolo.
 
 ## 9 maggio 2019
 {: #05-09-2019}
 
 **Introduzione delle API della console {{site.data.keyword.blockchainfull_notm}} Platform**
 
-Sono ora disponibili delle API per eseguire il provisioning, modificare ed eliminare i nodi peer, ordinante e CA, rendendo possibile eseguire lo script di compilazione della tua rete blockchain. Utilizza la documentazione nel repository della documentazione API di [{{site.data.keyword.cloud_notm}} ![Icona link esterno](images/external_link.svg "Icona link esterno")](/apidocs/blockchain#introduction "Introduzione") per ulteriori informazioni sulle API e per provarle ad utilizzare. Inoltre, vedi l'argomento sulla [Creazione di una rete con le API](/docs/services/blockchain?topic=blockchain-ibp-v2-apis) per delle istruzioni su come utilizzare le API per creare la tua rete.  
+Sono ora disponibili delle API per eseguire il provisioning, modificare ed eliminare i nodi peer, ordinante e CA, rendendo possibile eseguire lo script di compilazione della tua rete blockchain. Utilizza la documentazione nel [repository di documentazione API {{site.data.keyword.cloud_notm}} ](/apidocs/blockchain#introduction){: external} per ulteriori informazioni sulle API e per provarle. Inoltre, vedi l'argomento sulla [Creazione di una rete con le API](/docs/services/blockchain?topic=blockchain-ibp-v2-apis) per delle istruzioni su come utilizzare le API per creare la tua rete.  
 
 **Governance del canale**  
 
@@ -42,7 +47,7 @@ Gli aggiornamenti alla governance del canale consentono alle politiche di venire
 
 Quando distribuisci un nodo, puoi ora specificare la quantità di CPU, memoria e archiviazione per i tuoi contenitori, dove applicabile. Puoi successivamente ridimensionare le loro risorse ampliandole o riducendole in base ai modelli d'uso. Per ulteriori informazioni, vedi [Allocazione di risorse](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
 
-**Utilizzo di IAM  IBM Cloud IAM (Identity and Access Management)**  
+**Utilizzo di {{site.data.keyword.cloud_notm}} IAM (Identity and Access Management)**  
 
 IAM viene utilizzato per controllare l'accesso degli utenti all'IU della console e per limitare le azioni che possono eseguire nell'IU.  Vedi questo argomento per informazioni su come [aggiungere e rimuovere utenti dalla console](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # Utilizzo del Monitoraggio della rete
 {: #ibp-dashboard}
@@ -49,7 +50,6 @@ Lo schermo "Panoramica" visualizza le informazioni sullo stato in tempo reale re
 La **Figura 1** mostra la schermata "Panoramica":
 
 ![Schermata Panoramica](images/myresources.png "Panoramica della rete")
-*Figura 1. Panoramica della rete*
 
 ### Azioni dei nodi
 {: #ibp-dashboard-node-actions}
@@ -91,11 +91,10 @@ Il **piano Starter** crea un peer per ciascuna delle due organizzazioni formate 
 La **Figura 2** mostra la scheda "Archiviazione" che visualizza l'utilizzo di archiviazione della tua rete.
 
 ![Scheda Archiviazione nella schermata Panoramica](images/monitor_storage_starter.png "Archiviazione")
-*Figura 2. Archiviazione*
 
 Il diagramma "Risorse" visualizza lo spazio di archiviazione utilizzato dai peer e dalle CA (Certificate Authority, Autorità di certificazione). Tutte le organizzazioni che crei o inviti alla tua rete sono incluse in questo pool. Le organizzazioni che utilizzano risorse sono elencate a schermo nel secondo punto elenco.
 
-Il servizio ordini utilizza l'archiviazione da un pool di risorse separato. Il tuo servizio ordini potrebbe utilizzare più risorse quando i membri della rete creano dei nuovi canali e generano dei nuovi blocchi di transazioni.
+Il servizio di ordine utilizza l'archiviazione da un pool di risorse separato. Il tuo servizio di ordine potrebbe utilizzare più risorse quando i membri della rete creano dei nuovi canali e generano dei nuovi blocchi di transazioni.
 
 ## Membri
 {: #ibp-dashboard-members}
@@ -108,7 +107,6 @@ La schermata "Membri" contiene due schede per visualizzare le informazioni sui m
 La **Figura 3** mostra la schermata "Membri" iniziale che visualizza i membri della tua rete nella scheda "Membri":
 
 ![Scheda Membri nella schermata Membri](images/monitor_members.png "Membri della rete")
-*Figura 3. Membri della rete*
 
 Puoi invitare altri membri nella scheda "Membri" per aggiungerli a quelli inizialmente invitati quando crei la rete. Per invitare un membro alla tua rete, immettere il nome dell'istituzione e l'indirizzo email dell'operatore e fai clic su **Aggiungi membro**. Una rete può avere un totale di 15 membri (compreso l'iniziatore della rete). Per rimuovere un membro dalla tua rete, fai clic sul simbolo di "rimozione" alla fine della riga del membro.
 
@@ -117,7 +115,6 @@ Puoi invitare altri membri nella scheda "Membri" per aggiungerli a quelli inizia
 La **Figura 4** mostra la finestra "Aggiungi membro".
 
 ![Aggiungi membro](images/invite_member_starter.png "Aggiungi membro")
-*Figura 4. Aggiungi membro*
 
 Quando fai clic su **Aggiungi membro**, ti verranno presentate due opzioni:
 - **Invita un membro**. Puoi invitare altre organizzazioni a diventare membri della tua rete. Le organizzazioni invitate possono quindi aderire e collaborare con te nella rete.
@@ -130,11 +127,8 @@ Quando fai clic su **Aggiungi membro**, ti verranno presentate due opzioni:
 La **Figura 5** mostra la schermata "Membri" iniziale che visualizza i certificati dei membri nella scheda "Certificati":
 
 ![Scheda Certificati nella schermata Membri](images/monitor_certificates.png "Certificati")
-*Figura 5. Certificati*
 
 Gli operatori possono gestire i certificati per i membri nella stessa istituzione nella scheda "Certificati". Fai clic su **Aggiungi certificato** per aprire il pannello "Aggiungi certificato". Dai un nome al tuo certificato, incolla i certificati lato client in formato PEM nel campo "Chiave" e fai clic su **Invia**. Devi riavviare i peer prima che i certificati lato client possano diventare effettivi.
-
-Per ulteriori informazioni sulla generazione della tua chiave di certificato, vedi [Iscrizione della tua applicazione](/docs/services/blockchain/v10_application.html#dev-app-enroll).
 
 ## Canali
 {: #ibp-dashboard-channels}
@@ -144,7 +138,6 @@ Formati da un sottoinsieme di membri della rete che vogliono eseguire transazion
 La **Figura 6** mostra la schermata dashboard iniziale che visualizza una panoramica di tutti i canali nella tua rete:
 
 ![Canali](images/channels.png "Canali")
-*Figura 6. Canali*
 
 La creazione di un canale comporta la generazione di un libro mastro specifico per il canale. Per ulteriori informazioni, vedi [Creazione di un canale](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel).
 
@@ -160,7 +153,6 @@ Quando crei un canale o viene invitato a un nuovo canale, nel Monitoraggio della
 La **Figura 7** mostra la schermata "Notifiche":
 
 ![Notifiche](images/notifications.png "Notifiche")
-*Figura 7. Notifiche*
 
 Le richieste sono raggruppate nelle sottoschede "Tutti", "In sospeso" e "Completato". I numeri dopo l'intestazione della sottoscheda indicano il numero di richieste in ciascuna sottoscheda.
    * Puoi trovare tutte le tue richieste nella sottoscheda "Tutti".
@@ -179,18 +171,17 @@ La tabella nella schermata "CA (Certificate Authority)" visualizza tutte le iden
 La **Figura 8** mostra la schermata "CA (Certificate Authority)":
 
 ![CA (Certificate Authority)](images/CA_screen.png "CA (Certificate Authority)")
-*Figura 8. CA (Certificate Authority)*
 
-Fai clic sul pulsante **Genera certificato** accanto alla tua identità amministratore per ottenere un nuovo certificato pubblico e una nuova chiave privata dalla tua CA. Il campo **Certificato** contiene il tuo certificato pubblico, indicato anche come signCert o certificato di iscrizione, appena sopra la **Chiave privata**. Puoi fare clic sull'icona di copia alla fine di ogni campo per copiare il valore. Questo pannello può essere utilizzato come un metodo alternativo per generare una coppia di chiavi pubblica e privata per un'applicazione client che utilizza l'SDK Fabric. Per ulteriori informazioni, vedi l'[esercitazione sullo sviluppo di applicazioni](/docs/services/blockchain/v10_application.html#dev-app). **Nota** che {{site.data.keyword.blockchainfull_notm}} Platform non memorizza questi certificati. Devi salvarli e memorizzarli in modo sicuro.
+Fai clic sul pulsante **Genera certificato** accanto alla tua identità di amministratore per ottenere un nuovo certificato pubblico e una nuova chiave privata dalla tua CA. Il campo **Certificato** contiene il tuo certificato pubblico, indicato anche come signCert o certificato di iscrizione, appena sopra la **Chiave privata**. Puoi fare clic sull'icona di copia alla fine di ogni campo per copiare il valore. Questo pannello può essere utilizzato come un metodo alternativo per generare una coppia di chiavi pubblica e privata per un'applicazione client che utilizza l'SDK Fabric. **Nota** che {{site.data.keyword.blockchainfull_notm}} Platform non memorizza questi certificati. Devi salvarli e memorizzarli in modo sicuro.
 
 Fai clic sul pulsante **Aggiungi utente** per registrare una nuova identità nella tua organizzazione. Nella finestra a comparsa **Aggiungi utente**, completa i seguenti campi e fai quindi clic su **Invia**.
-  - **ID di iscrizione:** questo sarà il nome della tua nuova identità, a volte indicato come `enroll ID`. **Salva questo valore**; devi utilizzarlo quando configuri un peer remoto o iscrivi una nuova applicazione.
-  - **Segreto di iscrizione:** questa sarà la password della tua identità, a volte indicato come `enroll Secret`. **Salva questo valore**; devi utilizzarlo quando configuri un peer remoto o iscrivi una nuova applicazione.
+  - **ID di registrazione:** questo sarà il nome della tua nuova identità, a volte indicato come `enroll ID`. **Salva questo valore**; devi utilizzarlo quando configuri un peer remoto o iscrivi una nuova applicazione.
+  - **Segreto di registrazione:** questa sarà la password della tua identità, a volte indicato come `enroll Secret`. **Salva questo valore**; devi utilizzarlo quando configuri un peer remoto o iscrivi una nuova applicazione.
   - **Tipo:** seleziona il tipo di identità che vuoi registrare, peer o applicazione client.
   - **Affiliazione:** questa sarà l'affiliazione all'interno della tua organizzazione, ad esempio `org1`, a cui appartiene l'identità.
-  - **Numero massimo di iscrizioni:** utilizza questo campo per limitare il numero di volte in cui puoi iscrivere o generare certificati con questa identità. Se lasci il campo vuoto, il valore predefinito è un numero illimitato di registrazioni.
+  - **Registrazioni massime:** utilizza questo campo per limitare il numero di volte in cui puoi iscrivere o generare certificati con questa identità. Se lasci il campo vuoto, il valore predefinito è un numero illimitato di registrazioni.
 
-Per ulteriori informazioni sulla tua CA, consulta l'esercitazione [Gestione dei certificati su {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates).
+Per ulteriori informazioni sulla tua CA, vedi l'esercitazione [Gestione dei certificati su {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates).
 
 ## API
 {: #ibp-dashboard-apis}
@@ -200,7 +191,6 @@ Per ulteriori informazioni sulla tua CA, consulta l'esercitazione [Gestione dei 
 La **Figura 9** mostra la schermata "API":
 
 ![API](images/API_screen.png "API")
-*Figura 9. API*
 
 Fai clic sul link **IU Swagger** per aprire l'IU Swagger. Nota: prima di eseguire le API, devi autorizzare l'IU Swagger con le tue credenziali di rete (che sono disponibili in questa pagina delle API). Per ulteriori informazioni, vedi [Interazione con la rete utilizzando le API Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
 
@@ -214,7 +204,6 @@ Il piano Starter e il piano Enterprise forniscono un ambiente di sviluppo con st
 La **Figura 10** mostra la schermata "Sviluppa il codice":
 
 ![Sviluppa il codice](images/write_code.png "Sviluppa il codice")
-*Figura 10. Sviluppa il codice*
 
 Per ulteriori informazioni sulla sviluppo e la distribuzione delle tue reti di business, vedi [Distribuzione di reti di business sul piano Starter o su quello Enterprise](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network).
 
@@ -226,19 +215,17 @@ Il chaincode, noto anche come "smart contract", è una parte di software che con
 La **Figura 11** mostra la schermata "Installa il codice":
 
 ![Installa il codice](images/chaincode_install_overview.png "Installa il codice")
-*Figura 11. Installa il codice*
 
 Un chaincode viene prima installato sul file system di un peer e viene quindi istanziato su un canale. Per ulteriori informazioni, vedi [Installazione, istanziazione e aggiornamento di un chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
 ## Prova gli esempi
 {: #ibp-dashboard-samples}
 
-Le applicazioni di esempio ti aiutano ad ottenere una migliore comprensione della rete blockchain e dello sviluppo di applicazioni. Segui i link **Visualizza in GitHub** per apprendere in che modo usare gli esempi e distribuirli a {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni su come sviluppare e distribuire i tuoi esempi, consulta [Distribuzione di applicazioni di esempio](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
+Le applicazioni di esempio ti aiutano ad ottenere una migliore comprensione della rete blockchain e dello sviluppo di applicazioni. Segui i link **Visualizza in GitHub** per apprendere in che modo usare gli esempi e distribuirli a {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni su come sviluppare e distribuire i tuoi esempi, vedi [Distribuzione di applicazioni di esempio](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
 
 La **Figura 12** mostra la schermata "Prova gli esempi":
 
 ![Prova gli esempi](images/sample_overview_ep.png "Prova gli esempi")
-*Figura 12. Esempi*
 
 ## Richiedi assistenza
 {: #ibp-dashboard-support}
@@ -248,14 +235,13 @@ La schermata "Richiedi assistenza" contiene una scheda "Supporto" che fornisce u
 La **Figura 13** visualizza le informazioni nella scheda "Supporto" iniziale:
 
 ![Supporto](images/support.png "Supporto")
-*Figura 13. Supporto Blockchain*
 
 ### Risorse blockchain e forum di supporto
 {: #ibp-dashboard-support-forums}
 
 Utilizza le risorse nella scheda "Supporto" per risolvere i problemi e richiedere assistenza da {{site.data.keyword.IBM_notm}} e dalla community di Fabric. Per ulteriori informazioni sui link nella scheda "Supporto", vedi [Risorse e forum di supporto](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) in [Richiedi assistenza](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
 
-[{{site.data.keyword.IBM_notm}} dWAnswers ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://developer.ibm.com/answers/smartspace/blockchain/index.html){:new_window} è un forum della community per gli utenti di {{site.data.keyword.blockchainfull_notm}} Platform e Hyperledger Fabric ed è monitorato dagli esperti IBM. Puoi cercare risposte a domande fatte in precedenza o inoltrare una nuova domanda. Se non riesci a eseguire il debug del tuo problema o a trovare una risposta alla tua domanda, inoltra un caso di supporto nel portale del servizio {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni, vedi [Inoltro di casi di supporto](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} è un forum della community per gli utenti di {{site.data.keyword.blockchainfull_notm}} Platform e Hyperledger Fabric ed è monitorato dagli esperti {{site.data.keyword.IBM_notm}}. Puoi cercare risposte a domande fatte in precedenza o inoltrare una nuova domanda. Se non riesci a eseguire il debug del tuo problema o a trovare una risposta alla tua domanda, inoltra un caso di supporto nel portale del servizio {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni, vedi [Inoltro di casi di supporto](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
 
 ### Note sulla release di Fabric
@@ -266,12 +252,10 @@ La scheda "Note sulla release" visualizza le funzioni più recenti della tua ret
 La **Figura 14** visualizza le note sulla release per l'IU di monitoraggio della rete.
 
 ![Note sulla release di helios](images/releasenotes_helios.png "Note sulla release dell'IU di monitoraggio della rete")
-*Figura 14. Note sulla release per l'IU di monitoraggio della rete*
 
 La **Figura 15** visualizza le note sulla release per la versione della tua rete di Hyperledger Fabric e della CA (Certificate Authority) di Fabric.
 
 ![Note sulla release di Fabric](images/releasenotes_Fabric.png "Note sulla release di Fabric")
-*Figura 15. Note sulla release per Fabric*
 
 ## Preferenze della rete
 {: #ibp-dashboard-network-preferences}
@@ -289,8 +273,7 @@ Il timeout di inattività web è impostato su **Off** per impostazione predefini
 
 La **Figura 16** mostra la finestra "Preferenze della rete".
 
-![Preferenze della rete](images/network_preferences.gif "Preferenze della rete")
-*Figura 16. Preferenze della rete*
+![Preferenze di rete](images/network_preferences.gif "Preferenze di rete"){: gif}
 
 ### TLS reciproco (per le reti piano Enterprise)
 {: #ibp-dashboard-mutual-tls}
@@ -310,7 +293,7 @@ Nel profilo di connessione, individua la sezione `certificateAuthorities` dove t
 - `enrollSecret`: il segreto di iscrizione da utilizzare per ottenere un certificato
 - `x-tlsCAName`: il nome CA da utilizzare per ottenere il certificato che consentirà all'applicazione di comunicare con il TLS reciproco.
 
-Per ulteriori informazioni sull'aggiornamento delle tue applicazioni in modo che supportino il TLS reciproco, vedi [How to configure mutual TLS ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html)
+Per ulteriori informazioni sull'aggiornamento delle tue applicazioni in modo che supportino il TLS reciproco, vedi [How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
 
 <!--
 
@@ -330,7 +313,6 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 **Figura 17** mostra la finestra "Preferenze della rete":
 
 ![Preferenze della rete](images/network_preferences_ep_tmp.png "Preferenze della rete")
-*Figura 17. Preferenze della rete*
 
 ## Aggiorna il nome della rete
 {: #ibp-dashboard-network-name}
@@ -341,8 +323,7 @@ Nella parte superiore del navigatore di sinistra in Monitoraggio della rete, fai
 
 La **Figura 18** mostra la procedura per aggiornare il nome della rete piano Starter dal nome assegnato a "Rete piano Starter".
 
-![Aggiorna il nome della rete](images/update_network_name_ep.gif "Aggiorna il nome della rete")
-*Figura 18. Aggiorna il nome della rete*
+![Aggiorna il nome della rete](images/update_network_name_ep.gif "Aggiorna il nome della rete"){: gif}
 
 
 ## Passaggio da una rete all'altra (per reti piano Starter)
@@ -354,8 +335,7 @@ Nella parte superiore del navigatore di sinistra in Monitoraggio della rete, fai
 
 La **Figura 19** mostra la procedura per passare a un'altra rete piano Starter.
 
-![Passaggio da una rete all'altra](images/switch_network.gif "Passaggio da una rete all'altra")
-*Figura 19. Passaggio da una rete all'altra*
+![Passaggio da una rete all'altra](images/switch_network.gif "Passaggio da una rete all'altra"){: gif}
 
 
 ## Reimposta rete (per reti piano Starter)
@@ -370,4 +350,3 @@ Fai clic sull'angolo superiore destro e apri il menu a discesa. Fai clic sul pul
 La **Figura 20** mostra la funzione "Reimposta rete":
 
 ![Reimposta rete](images/reset_network.png "Reimposta rete")
-*Figura 20. Reimposta rete*

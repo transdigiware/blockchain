@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -19,9 +19,9 @@ subcollection: blockchain
 # Gestione di organizzazioni
 {: #ibp-console-organizations}
 
-Puoi utilizzare la console {{site.data.keyword.blockchainfull}} Platform per creare una definizione di organizzazione formale nota come MSP (Membership Services Provider). La definizione MSP della tua organizzazione consente ad altri membri del consorzio blockchain di verificare l'identità dei tuoi nodi e delle tue applicazioni. La tua definizione MSP contiene anche i certificati di amministrazione della tua organizzazione.
+Puoi utilizzare la console {{site.data.keyword.blockchainfull}} Platform per creare una definizione di organizzazione formale nota come MSP (Membership Services Provider). La definizione di MSP della tua organizzazione consente ad altri membri del consorzio blockchain di verificare l'identità dei tuoi nodi e delle tue applicazioni. La tua definizione di MSP contiene anche i certificati di amministrazione della tua organizzazione.
 
-Puoi anche utilizzare la console per gestire quali organizzazioni sono membri della tua rete. L'amministratore del servizio ordini può utilizzare la scheda delle organizzazioni per aggiungere membri al [consorzio](/docs/services/blockchain/glossary.html#glossary-consortium) blockchain. I membri del consorzio possono quindi utilizzare la console per aggiungere i membri a canali nuovi o esistenti.
+Puoi anche utilizzare la console per gestire quali organizzazioni sono membri della tua rete. L'amministratore del servizio di ordine può utilizzare la scheda delle organizzazioni per aggiungere membri al [consorzio](/docs/services/blockchain/glossary.html#glossary-consortium) blockchain. I membri del consorzio possono quindi utilizzare la console per aggiungere i membri a canali nuovi o esistenti.
 
 **Gruppi di destinatari:** questo argomento è pensato per gli operatori di rete che sono responsabili della creazione, del monitoraggio e della gestione della rete blockchain.
 
@@ -30,13 +30,13 @@ Puoi anche utilizzare la console per gestire quali organizzazioni sono membri de
 
 {{site.data.keyword.blockchainfull_notm}} Platform è basato su Hyperledger Fabric e crea reti blockchain autorizzate. I partecipanti devono essere noti alla rete prima di poter inoltrare le transazioni e interagire con gli asset nel libro mastro. Il Fabric riconosce l'identità attraverso un gruppo di organizzazioni invitate, noto come consorzio. Le organizzazioni del consorzio sono in grado di emettere credenziali valide per i loro membri e consentire loro di diventare partecipanti alla rete. I partecipanti possono quindi utilizzare i nodi blockchain e inoltrare le transazioni dalle applicazioni client.
 
-Ogni organizzazione del consorzio deve utilizzare la propria CA (Certificate Authority), nota come CA root. Questa Certificate Authority (o le sue CA intermedie) crea tutte le identità appartenenti alla tua organizzazione ed emette per ogni identità un certificato di firma e una chiave privata. Queste chiavi sono firmate dalla CA e utilizzate dai membri della tua organizzazione per firmare e verificare le loro azioni. L'adesione al consorzio consente ad altre organizzazioni di riconoscere la firma delle tue CA e di verificare che i tuoi peer e le tue applicazioni siano partecipanti validi. Per ulteriori informazioni sull'adesione in Hyperledger Fabric, vedi l'[argomento relativo al concetto di adesione![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html "Adesione") nella documentazione di Fabric.
+Ogni organizzazione del consorzio deve utilizzare la propria CA (Certificate Authority), nota come CA root. Questa Certificate Authority (o le sue CA intermedie) crea tutte le identità appartenenti alla tua organizzazione ed emette per ogni identità un certificato di firma e una chiave privata. Queste chiavi sono firmate dalla CA e utilizzate dai membri della tua organizzazione per firmare e verificare le loro azioni. L'adesione al consorzio consente ad altre organizzazioni di riconoscere la firma delle tue CA e di verificare che i tuoi peer e le tue applicazioni siano partecipanti validi. Per ulteriori informazioni sull'adesione in Hyperledger Fabric, vedi l'[argomento relativo al concetto di adesione](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} in nella documentazione Fabric.
 
 Prima di potersi unire a un consorzio, la tua organizzazione deve creare una definizione di organizzazione nota come **MSP (Membership Services Provider)**. L'MSP contiene le seguenti informazioni:
 - Un certificato firmato dalla tua **CA (Certificate Authority, Autorità di certificazione) root**. Questo certificato viene utilizzato per verificare l'identità dei tuoi nodi, dei tuoi canali e delle tue applicazioni.
-- Un certificato firmato dalla tua **CA TLS**. Un certificato TLS root consente ai tuoi peer di partecipare al gossip tra organizzazioni, che è necessario per avvalersi delle funzioni di [raccolte di **dati privati**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) e [rilevamento dei servizi ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Rilevamento dei servizi") di Hyperledger Fabric.
+- Un certificato firmato dalla tua **CA TLS**. Un certificato TLS root consente ai tuoi peer di partecipare al gossip tra organizzazioni, che è necessario per avvalersi delle funzioni di [raccolte di **dati privati**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) e delle funzioni di [rilevamento dei servizi](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} di Hyperledger Fabric.
 - L'**ID MSP**. L'ID MSP è il nome formale della tua organizzazione all'interno del consorzio. Devi ricordarti l'ID MSP per i tuoi nodi e le tue applicazioni.
-- I **certificati di amministrazione** dalle tue identità **Amministratore peer** e **Amministratore organizzazione**. Questi certificati vengono passati al servizio ordini e vengono utilizzati per verificare quali sono le identità nella tua organizzazione a cui è consentito creare o modificare canali. Quando utilizzi la tua console per creare un ordinante o un peer, i certificati di amministrazione all'interno MSP vengono distribuiti all'interno del nuovo nodo. Questi certificati possono essere quindi utilizzati per gestire i peer o gli ordinanti dalla tua console o da un'applicazione client.
+- I **certificati di amministrazione** dalle tue identità **Amministratore peer** e **Amministratore organizzazione**. Questi certificati vengono passati al servizio di ordine e vengono utilizzati per verificare quali sono le identità nella tua organizzazione a cui è consentito creare o modificare canali. Quando utilizzi la tua console per creare un ordinante o un peer, i certificati di amministrazione all'interno MSP vengono distribuiti all'interno del nuovo nodo. Questi certificati possono essere quindi utilizzati per gestire i peer o gli ordinanti dalla tua console o da un'applicazione client.
 
 ## Gestione degli MSP nella console
 
@@ -62,7 +62,7 @@ Utilizza la scheda **Organizzazioni** per generare una definizione di MSP per la
   2. Fornisci il certificato di firma di ciascuna identità amministratore nella definizione di MSP.
   3. Aggiungi l'identità al portafoglio della tua console. I nodi o i canali creati dalla console utilizzano i certificati dall'MSP per controllare chi è un amministratore valido. Di conseguenza, lo stesso certificato di firma e la stessa chiave privata che hai utilizzato per aggiungere un certificato di amministrazione all'MSP devono essere conservati all'interno del portafoglio della tua console.
 
-  Puoi utilizzare il pannello **Crea definizione MSP** per completare queste azioni per una delle tue identità amministratore. Dopo che hai selezionato la tua CA root, completa la seguente procedura nella sezione **Generare il certificato dell'amministratore dell'organizzazione**:
+  Puoi utilizzare il pannello **Crea definizione di MSP** per completare queste azioni per una delle tue identità amministratore. Dopo che hai selezionato la tua CA root, completa la seguente procedura nella sezione **Generare il certificato dell'amministratore dell'organizzazione**:
   1. Immetti l'ID di iscrizione e il segreto di iscrizione di un'identità amministratore registrata presso la tua CA root. Dopo che hai immesso l'ID di iscrizione e il segreto di iscrizione, scegli un nome per visualizzare l'identità nel tuo portafoglio della console.
   2. Fai clic su **Genera**. Questo genererà un certificato e una chiave privata e aggiungerà automaticamente le chiavi al tuo portafoglio della console. Puoi quindi trovare la tua identità amministratore nel tuo portafoglio utilizzando il nome che hai selezionato in questo pannello. Queste chiavi vengono memorizzate solo nell'archiviazione locale del browser; pertanto, se cambi i browser, esse non saranno presenti nel tuo portafoglio della console. Dovrai esportare l'identità dal browser originale e importarla nel portafoglio della console del tuo nuovo browser.
   3. Fai quindi clic su **Esporta** per scaricare la coppia di chiavi sul tuo file system e proteggerla.
@@ -78,7 +78,7 @@ Dopo che hai selezionato la tua CA root, l'ID MSP e creato i tuoi certificati di
 
 **Questa opzione è per gli utenti avanzati che hanno dimestichezza sul modo in cui i certificati vengono utilizzati nella gestione delle identità della blockchain.**
 
-Se preferisci utilizzare i certificati per il tuo peer o servizio di ordinazione da una **CA esterna**, una che non è ospitata da {{site.data.keyword.IBM_notm}}, devi creare un file JSON di definizione MSP che rappresenta la definizione MSP dell'organizzazione del peer o del servizio di ordinazione. 
+Se preferisci utilizzare i certificati per il tuo peer o servizio di ordine da una **CA esterna**, una che non è ospitata da {{site.data.keyword.IBM_notm}}, devi creare un file JSON di definizione di MSP che rappresenta la definizione di MSP dell'organizzazione del peer o del servizio di ordine.
 
 Nota: tutti i certificati devono essere codificati in formato base64.
 {:important}
@@ -118,7 +118,7 @@ Crea un file JSON utilizzando il seguente formato:
 ```
 {:codeblock}
 
-- **organization_name**: specifica qualsiasi nome da utilizzare per identificare questa definizione MSP nella console.
+- **organization_name**: specifica qualsiasi nome da utilizzare per identificare questa definizione di MSP nella console.
 - **organization_id**: specifica un id che viene utilizzato per rappresentare questo MSP internamente nella console.
 - **root_certs**: (Facoltativo) Incolla un array che contiene uno o più certificati root dalla CA esterna in formato `base64`. Devi fornire un certificato root CA o un certificato CA intermedio; puoi anche fornire entrambi.
 - **intermediate_certs**: (facoltativo) incolla una array che contiene uno o più certificati dalla CA intermedia esterna in formato `base64`. Devi fornire un certificato root CA o un certificato CA intermedio; puoi anche fornire entrambi.
@@ -126,10 +126,10 @@ Crea un file JSON utilizzando il seguente formato:
 - **tls_root_certs**: (facoltativo) incolla un array che contiene uno o più certificati root dalla CA TLS in formato `base64`. Devi fornire un certificato root CA TLS esterna o un certificato CA TLS intermedia esterna; puoi anche fornire entrambi.
 - **tls_intermediate_certs**: (facoltativo) Incolla un array che contiene uno o più certificati dalla CA TLS intermedia in formato `base64`. Devi fornire un certificato root CA TLS esterna o un certificato CA TLS intermedia esterna; puoi anche fornire entrambi.  
 
-Nella definizione MSP sono disponibili anche i seguenti campi aggiuntivi che non sono però obbligatori.
-- **organizational_unit_identifiers**: un elenco delle unità organizzative (OU, Organizational Unit) che i membri validi di questo MSP devono includere nel loro certificato X.509. Questo è un parametro di configurazione facoltativo che viene utilizzato quando più organizzazioni si avvalgono della stessa radice di attendibilità e delle stesse CA intermedie e che hanno riservato un campo OU per i loro membri. Un'organizzazione è spesso divisa in più unità organizzative (OU, Organizational Unit), ciascuna delle quali ha uno specifico insieme di responsabilità. Ad esempio, l'organizzazione ORG1 può avere sia ORG1-MANUFACTURING che ORG1-DISTRIBUTION OUs per riflettere queste linee di business separate. Quando una CA emette i certificati X.509, il campo OU nel certificato specifica la linea di business a cui appartiene l'identità. Per ulteriori informazioni, vedi questo argomento nella documentazione di Fabric sulla [classificazione delle identità ![Icona link esterno](../images/external_link.svg "Icona link esterno") ](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification "Classificazione delle identità").  
-- **fabric_node_OUs**: OU specifiche per Fabric che abilitano la classificazione delle identità. Le `NodeOU` contengono informazioni su come distinguere client, peer e ordinanti in base alla loro OU. Se viene implementato il controllo, impostando Enabled su true, l'MSP considererà l'identità valida se è un'identità di un `client`, un `peer` o un ordinante (`orderer`). Un'identità deve avere solo una di queste OU speciali. Vedi questo argomento per un esempio di [come specificare la `fabric_node_OU` in un MSP ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query "Configuration query") nella documentazione di Fabric Service Discovery.
-- **revocation_list**: un elenco di certificati che non sono più validi. Per le identità basate su X.509, questi identificativi sono coppie di stringhe note come SKI (Subject Key Identifier) e AKI (Authority Access Identifier) e sono controllati ogni volta che si fa uso del certificato X.509 per garantire che non sia stato revocato. Vedi questo argomento nella documentazione di Fabric relativo agli [elenchi di revoca di certificati ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity "revoca di un certificato o di un'identità").
+Nella definizione di MSP sono disponibili anche i seguenti campi aggiuntivi che non sono però obbligatori.
+- **organizational_unit_identifiers**: un elenco delle unità organizzative (OU, Organizational Unit) che i membri validi di questo MSP devono includere nel loro certificato X.509. Questo è un parametro di configurazione facoltativo che viene utilizzato quando più organizzazioni si avvalgono della stessa radice di attendibilità e delle stesse CA intermedie e che hanno riservato un campo OU per i loro membri. Un'organizzazione è spesso divisa in più unità organizzative (OU, Organizational Unit), ciascuna delle quali ha uno specifico insieme di responsabilità. Ad esempio, l'organizzazione ORG1 può avere sia ORG1-MANUFACTURING che ORG1-DISTRIBUTION OUs per riflettere queste linee di business separate. Quando una CA emette i certificati X.509, il campo OU nel certificato specifica la linea di business a cui appartiene l'identità. Per ulteriori informazioni, vedi questo argomento nella documentazione Fabric relativo alla [classificazione delle identità](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external}.  
+- **fabric_node_OUs**: OU specifiche per Fabric che abilitano la classificazione delle identità. Le `NodeOU` contengono informazioni su come distinguere client, peer e ordinanti in base alla loro OU. Se viene implementato il controllo, impostando Enabled su true, l'MSP considererà l'identità valida se è un'identità di un `client`, un `peer` o un ordinante (`orderer`). Un'identità deve avere solo una di queste OU speciali. Vedi questo argomento per un esempio di [come specificare la `fabric_node_OU` in un MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} nella documentazione del rilevamento dei servizi (Service Discovery) di Fabric.
+- **revocation_list**: un elenco di certificati che non sono più validi. Per le identità basate su X.509, questi identificativi sono coppie di stringhe note come SKI (Subject Key Identifier) e AKI (Authority Access Identifier) e sono controllati ogni volta che si fa uso del certificato X.509 per garantire che non sia stato revocato. Vedi questo argomento nella documentazione Fabric per ulteriori informazioni sugli [elenchi di revoche dei certificati (o CRL, Certificate Revocation List)](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
 
 Ad esempio, il tuo file JSON sarà simile a:
 
@@ -151,14 +151,14 @@ Ad esempio, il tuo file JSON sarà simile a:
 ```
 {:codeblock}
 
-Salva questa definizione come il tuo file `JSON` della definizione MSP.  
+Salva questa definizione come il tuo file `JSON` della definizione di MSP.  
 
-Hai creato una definizione MSP, che definisce l'organizzazione per i tuoi nodi del peer o del servizio di ordinazione e utilizza i certificati da una CA esterna. Puoi ora ritornare alle istruzioni che descrivono [come utilizzare i certificati da una CA esterna con il tuo peer od ordinante](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
+Hai creato una definizione di MSP, che definisce l'organizzazione per i tuoi nodi del peer o del servizio di ordine e utilizza i certificati da una CA esterna. Puoi ora ritornare alle istruzioni che descrivono [come utilizzare i certificati da una CA esterna con il tuo peer od ordinante](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
 
 ## Importazione di un MSP
 {: #console-organizations-import-msp}
 
-Solo l'amministratore ordinante può aggiungere nuove organizzazioni al consorzio. Se sei l'amministratore ordinante, dovrai raccogliere le definizioni di MSP di tutte le organizzazioni che sono state invitate al consorzio e importare gli MSP nella console. Puoi quindi aggiungere gli MSP al servizio ordini utilizzando il nodo ordinante.
+Solo l'amministratore ordinante può aggiungere nuove organizzazioni al consorzio. Se sei l'amministratore ordinante, dovrai raccogliere le definizioni di MSP di tutte le organizzazioni che sono state invitate al consorzio e importare gli MSP nella console. Puoi quindi aggiungere gli MSP al servizio di ordine utilizzando il nodo ordinante.
 
 Dopo che l'amministratore ha creato una definizione di MSP, può utilizzare la scheda organizzazioni per scaricare l'MSP in formato JSON sul suo filesystem locale. Può quindi inviarti il file JSON MSP in un'operazione fuori banda. Vai alla scheda **Organizzazioni** e utilizza **Importa definizione dell'MSP** per importare il file MSP nella tua console. Dopo che la definizione dell'MSP è visibile nella sezione **Organizzazioni disponibili**, puoi andare al tuo nodo ordinante per [aggiungere l'organizzazione al consorzio](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
 
@@ -166,14 +166,14 @@ Dopo che l'amministratore ha creato una definizione di MSP, può utilizzare la s
 ## Aggiunta di un'organizzazione a un consorzio
 {: #console-organizations-add-consortium}
 
-Il consorzio di organizzazioni è ospitato dal servizio ordini.
+Il consorzio di organizzazioni è ospitato dal servizio di ordine.
 
-Se sei l'amministratore del servizio ordini, puoi utilizzare la console per aggiungere un'organizzazione al consorzio. Vai alla scheda **Nodi** e fai clic sul nodo di ordine. Nel pannello del nodo di ordine, sotto **Membri del consorzio**, fai clic su **Aggiungi organizzazione**. Questo aprirà un pannello laterale che ti consentirà di operare una selezione dall'elenco di definizioni di MSP disponibili che hai [importato nella tua scheda delle organizzazioni](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp). Puoi anche utilizzare l'opzione **Carica JSON** per importare il file di definizione dell'MSP creato da un'altra organizzazione direttamente.
+Se sei l'amministratore del servizio di ordine, puoi utilizzare la console per aggiungere un'organizzazione al consorzio. Vai alla scheda **Nodi** e fai clic sul nodo di ordine. Nel pannello del nodo di ordine, sotto **Membri del consorzio**, fai clic su **Aggiungi organizzazione**. Questo aprirà un pannello laterale che ti consentirà di operare una selezione dall'elenco di definizioni di MSP disponibili che hai [importato nella tua scheda delle organizzazioni](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp). Puoi anche utilizzare l'opzione **Carica JSON** per importare il file di definizione dell'MSP creato da un'altra organizzazione direttamente.
 
 ## Creazione e modifica di un canale
 {: #console-organizations-create-channel}
 
-Dopo essere stata aggiunta al consorzio, un'organizzazione può utilizzare il servizio ordini per creare un nuovo canale o poter essere aggiunta a un canale esistente. Le informazioni che ti consentono di partecipare a un canale, come l'unione dei tuoi peer al canale, l'istanziazione di smart contract e l'inoltro di transazioni, vengono fornite utilizzando le definizioni di MSP.
+Dopo essere stata aggiunta al consorzio, un'organizzazione può utilizzare il servizio di ordine per creare un nuovo canale o poter essere aggiunta a un canale esistente. Le informazioni che ti consentono di partecipare a un canale, come l'unione dei tuoi peer al canale, l'istanziazione di smart contract e l'inoltro di transazioni, vengono fornite utilizzando le definizioni di MSP.
 
 Dopo che la tua organizzazione è stata aggiunta a un consorzio, puoi creare un canale utilizzando la seguente procedura:
 
@@ -186,10 +186,10 @@ Per ulteriori informazioni su questi passi, vedi la sezione relativa alla [creaz
 ### Aggiornamento di un MSP in una definizione di canale
 {: #console-organizations-update-channel}
 
-Nel corso del tempo potresti dover aggiornare i certificati in una definizione MSP che è già associata a un canale. Quando si verifica tale situazione, segui questa procedura per aggiornare la definizione MSP di un'organizzazione nel canale:  
+Nel corso del tempo potresti dover aggiornare i certificati in una definizione di MSP che è già associata a un canale. Quando si verifica tale situazione, segui questa procedura per aggiornare la definizione di MSP di un'organizzazione nel canale:  
 
 1. Passa alla scheda **Canali** nella tua console.
 2. Fai clic sul canale che contiene l'MSP dell'organizzazione che vuoi aggiornare e aprilo.
 3. Fai clic sulla scheda **Dettagli del canale**.
 4. Fai clic sul tile del membro del canale associato che vuoi aggiornare.
-5. Se non hai ancora importato la definizione MSP aggiornata nella console, puoi caricare qui il file. **Nota:** questa azione non aggiornerà la definizione MSP associata nella scheda Organizzazioni. Se hai già aggiornato la definizione MSP nella scheda Organizzazioni della console, puoi selezionarla dall'elenco a discesa.
+5. Se non hai ancora importato la definizione di MSP aggiornata nella console, puoi caricare qui il file. **Nota:** questa azione non aggiornerà la definizione di MSP associata nella scheda Organizzazioni. Se hai già aggiornato la definizione di MSP nella scheda Organizzazioni della console, puoi selezionarla dall'elenco a discesa.

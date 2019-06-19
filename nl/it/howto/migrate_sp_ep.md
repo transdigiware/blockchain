@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -45,7 +45,7 @@ Prima di migrare dalla tua rete piano Starter a una rete piano Enterprise, esami
 - **Risorse interessate:** chaincode (smart contract), applicazioni client. Ancora una volta, fai attenzione se il tuo chaincode sta utilizzando un componente o una funzionalità Fabric v1.2 che non è compatibile con le reti v1.1.
 - **Tempo richiesto:** la migrazione di una rete di base dal piano Starter al piano Enterprise richiederà almeno mezza giornata.
 - I **Dati del libro mastro esistenti** non possono essere spostati dalle reti piano Starter alle reti piano Enterprise perché non è appropriato che i dati di test esistano in un ambiente di produzione.
-- **Hyperledger Composer** IBM non fornisce supporto per le reti che utilizzano Hyperledger Composer in produzione, compresi la CLI Composer, le API JavaScript, il server REST e Web Playground.
+- **Hyperledger Composer:** {{site.data.keyword.IBM_notm}} non fornisce supporto per le reti che utilizzano Hyperledger Composer in produzione, compresi la CLI Composer, le API JavaScript, il server REST e Web Playground.
 
 **Nota:** una rete *di base* include due organizzazioni con due peer, un singolo canale e un singolo file chaincode. Il tempo effettivo di migrazione può variare a seconda delle dimensioni e della complessità dei componenti di rete che richiedi nella rete piano Enterprise.
 
@@ -78,7 +78,7 @@ Puoi ricreare la configurazione di organizzazioni (membri), canali e peer della 
 ### Migra il chaincode
 {: #migrate_starter_to_enterprise_cc}
 
-Il chaincode viene sviluppato esternamente nel tuo ambiente locale e viene richiamato dalle tue applicazioni client. Per installare e istanziare il chaincode, che è stato testato nella tua rete piano Starter, sui peer selezionati nella tua rete piano Enterprise, segui le istruzioni riportate in [Installazione, istanziazione e aggiornamento di un chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc "Installazione, istanziazione e aggiornamento di un chaincode").
+Il chaincode viene sviluppato esternamente nel tuo ambiente locale e viene richiamato dalle tue applicazioni client. Per installare e istanziare il chaincode, che è stato testato nella tua rete piano Starter, sui peer selezionati nella tua rete piano Enterprise, segui le istruzioni riportate in [Installazione, istanziazione e aggiornamento di un chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
 
 ### Aggiorna le applicazioni client
 {: #migrate_starter_to_enterprise_app}

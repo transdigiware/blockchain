@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,7 +20,7 @@ subcollection: blockchain
 # Glossario
 {: #glossary}
 
-Questo argomento definisce i termini specifici di {{site.data.keyword.blockchainfull}} Platform che compaiono in questa documentazione. Per una comprensione più approfondita dei termini e per un glossario dei termini correlati ai concetti di Hyperledger Fabric, fai riferimento a [Hyperledger Fabric glossary ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html).
+Questo argomento definisce i termini specifici di {{site.data.keyword.blockchainfull}} Platform che compaiono in questa documentazione. Per una comprensione più approfondita dei termini e per un glossario dei termini correlati ai concetti di Hyperledger Fabric, fai riferimento al [glossario di Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
 {:shortdesc}
 
 ## Asset
@@ -37,7 +37,7 @@ Un'abbreviazione di "Certificate Authority - Autorità di certificazione", si tr
 
 ## Catena
 {: #glossary-chain}
-La catena del libro mastro è un log di transazioni strutturato come blocchi di transazioni collegati da hash. I peer ricevono i blocchi di transazioni dal servizio ordini, contrassegnano le transazioni del blocco come valide o non valide, in base alle politiche di approvazione e alle violazioni della concorrenza, e accodano il blocco alla catena hash sul file system del peer.
+La catena del libro mastro è un log di transazioni strutturato come blocchi di transazioni collegati da hash. I peer ricevono i blocchi di transazioni dal servizio di ordine, contrassegnano le transazioni del blocco come valide o non valide, in base alle politiche di approvazione e alle violazioni della concorrenza, e accodano il blocco alla catena hash sul file system del peer.
 
 ## Chaincode
 {: #glossary-chaincode}
@@ -49,7 +49,7 @@ Consiste in un sottoinsieme di membri della rete che vogliono eseguire transazio
 
 ## Client
 {: #glossary-client}
-Il client rappresenta l'entità che agisce per conto di un utente. Deve connettersi a un peer per comunicare con la blockchain. Il client può connettersi a qualsiasi peer di sua scelta. I clienti creano e quindi richiamano le transazioni. Il client inoltra un effettivo richiamo della transazione agli approvatori e trasmette le proposte di transazione al servizio ordini.
+Il client rappresenta l'entità che agisce per conto di un utente. Deve connettersi a un peer per comunicare con la blockchain. Il client può connettersi a qualsiasi peer di sua scelta. I clienti creano e quindi richiamano le transazioni. Il client inoltra un effettivo richiamo della transazione agli approvatori e trasmette le proposte di transazione al servizio di ordine.
 
 ## Profilo di connessione
 {: #glossary-connection-profile}
@@ -77,7 +77,7 @@ Lo stato corrente del libro mastro rappresenta gli ultimi valori di tutte le chi
 
 ## Adesione dinamica
 {: #glossary-dynamic-memership}
-Un membro può essere aggiunto dinamicamente alla rete da un utente con il privilegio di **registrar** (conservatore del registro). Ai membri vengono anche assegnati ruoli e attributi che controllano il loro accesso e la loro autorizzazione sulla rete. Né i ruoli né gli attributi possono essere però assegnati dinamicamente. Hyperledger Fabric supporta l'aggiunta o la rimozione di membri, peer e nodi di servizio ordini, senza compromettere il funzionamento della rete complessiva. L'adesione dinamica è critica quando le relazioni di business vengono regolate ed è necessario, per vari motivi, aggiungere o rimuovere entità.
+Un membro può essere aggiunto dinamicamente alla rete da un utente con il privilegio di **registrar** (conservatore del registro). Ai membri vengono anche assegnati ruoli e attributi che controllano il loro accesso e la loro autorizzazione sulla rete. Né i ruoli né gli attributi possono essere però assegnati dinamicamente. Hyperledger Fabric supporta l'aggiunta o la rimozione di membri, peer e nodi di servizio di ordine, senza compromettere il funzionamento della rete complessiva. L'adesione dinamica è critica quando le relazioni di business vengono regolate ed è necessario, per vari motivi, aggiungere o rimuovere entità.
 
 ## Approvazione
 {: #glossary-endorsement}
@@ -93,15 +93,15 @@ Il blocco di configurazione che inizializza un canale o una rete blockchain e ch
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric consente ai peer di raccogliere, reciprocamente, importanti informazioni sulla rete senza dover fare affidamento sul servizio ordini. Il [protocollo di diffusione dei dati gossip ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html) fornisce ai peer un modo sicuro, affidabile e scalabile per scambiare messaggi tra loro. Ad esempio, se i peer perdono alcuni blocchi a causa di ritardi, interruzioni di rete o altri motivi, possono sincronizzarsi con lo stato attuale del libro mastro utilizzando la messaggistica gossip per contattare altri peer in possesso di questi blocchi mancanti.
+Hyperledger Fabric consente ai peer di raccogliere, reciprocamente, importanti informazioni sulla rete senza dover fare affidamento sul servizio di ordine. Il [protocollo di diffusione dei dati gossip](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} fornisce ai peer un modo sicuro, affidabile e scalabile per scambiare messaggi tra loro. Ad esempio, se i peer perdono alcuni blocchi a causa di ritardi, interruzioni di rete o altri motivi, possono sincronizzarsi con lo stato attuale del libro mastro utilizzando la messaggistica gossip per contattare altri peer in possesso di questi blocchi mancanti.
 
 ## HSM
 {: #glossary-hsm}
-Hardware Security Module. Fornisce gestione delle chiavi, archiviazione delle chiavi e crittografia on-demand come un servizio gestito. HSM è un dispositivo fisico che gestisce le attività a elevato utilizzo di risorse dell'elaborazione di crittografia e riduce la latenza per le applicazioni. Per ulteriori informazioni, vedi [Hardware Security Module ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://www.ibm.com/cloud/hardware-security-module)
+Hardware Security Module. Fornisce gestione delle chiavi, archiviazione delle chiavi e crittografia on-demand come un servizio gestito. HSM è un dispositivo fisico che gestisce le attività a elevato utilizzo di risorse dell'elaborazione di crittografia e riduce la latenza per le applicazioni. Per ulteriori informazioni, vedi [Hardware Security Module](https://www.ibm.com/cloud/hardware-security-module){: external}.
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) è un framework blockchain di business ospitato da Linux Foundation che funge da base per lo sviluppo di applicazioni o soluzioni blockchain con un'architettura modulare. I componenti di Hyperledger Fabric quali i servizi di consenso e adesione sono plug-and-play.
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external} è un framework blockchain di business ospitato da Linux Foundation che funge da base per lo sviluppo di applicazioni o soluzioni blockchain con un'architettura modulare. I componenti di Hyperledger Fabric quali i servizi di consenso e adesione sono plug-and-play.
 
 ## Installare
 {: #glossary-install}
@@ -113,7 +113,7 @@ Il processo di avviare e istanziare un contenitore chaincode su uno specifico ca
 
 ## Kafka
 {: #glossary-kafka}
-L'implementazione di un plugin di consenso per Hyperledger Fabric che dà come risultato un cluster di nodi del servizio ordini nella rete blockchain. Le implementazioni Kafka e Raft sono concepite per le reti di produzione. Tuttavia, solo i cluster del servizio di ordinazione Raft sono supportati in modo nativo e possono essere creati utilizzando {{site.data.keyword.blockchainfull_notm}} Platform.
+L'implementazione di un plugin di consenso per Hyperledger Fabric che dà come risultato un cluster di nodi del servizio di ordine nella rete blockchain. Le implementazioni Kafka e Raft sono concepite per le reti di produzione. Tuttavia, solo i cluster del servizio di ordine Raft sono supportati in modo nativo e possono essere creati utilizzando {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Libro mastro
 {: #glossary-ledger}
@@ -129,13 +129,13 @@ Noti anche come "organizzazioni", i membri in una rete blockchain, analogamente 
 
 ## MSP
 {: #glossary-msp}
-Un'abbreviazione di **MSP (Membership Service Provider)**, che fornisce la definizione di un'organizzazione, incluso il certificato root della CA che ha emesso i certificati per le entità associate a tale organizzazione, nonché il certificato di firma dell'amministratore di tale organizzazione. Gli MSP esistono anche al livello locale di un peer o di un nodo di ordinazione e sono il meccanismo di autenticazione che verifica gli utenti amministratori del nodo. In {{site.data.keyword.blockchainfull_notm}} Platform, gli MSP possono essere esportati da una console ad un'altra, consentendo agli utenti di creare un'organizzazione in una console, importarla in un'altra console e utilizzarla (ad esempio, per creare un canale). Gli MSP possono inoltre essere importati in un servizio di ordinazione, formando un "consorzio", ovvero l'elenco di organizzazioni che possono creare e unire i canali.
+Un'abbreviazione di **MSP (Membership Service Provider)**, che fornisce la definizione di un'organizzazione, incluso il certificato root della CA che ha emesso i certificati per le entità associate a tale organizzazione, nonché il certificato di firma dell'amministratore di tale organizzazione. Gli MSP esistono anche al livello locale di un peer o di un nodo di ordine e sono il meccanismo di autenticazione che verifica gli utenti amministratori del nodo. In {{site.data.keyword.blockchainfull_notm}} Platform, gli MSP possono essere esportati da una console ad un'altra, consentendo agli utenti di creare un'organizzazione in una console, importarla in un'altra console e utilizzarla (ad esempio, per creare un canale). Gli MSP possono inoltre essere importati in un servizio di ordine, formando un "consorzio", ovvero l'elenco di organizzazioni che possono creare e unire i canali.
 
 ## Rete
 {: #glossary-network}
 Un'istanza di un servizio {{site.data.keyword.blockchainfull_notm}} Platform su {{site.data.keyword.cloud_notm}}.
 
-## Credenziali di rete 
+## Credenziali di rete
 {: #glossary-network-credentials}
 Visibile dalla schermata "API" del Monitoraggio della rete. Le credenziali includono la tua "chiave" (Nome utente) e il "segreto" (password) nell'IU Swagger. Devi utilizzare queste credenziali di rete per eseguire l'autenticazione prima di provare le API REST.
 
@@ -149,7 +149,7 @@ L'entità di comunicazione della blockchain. Ci sono tre tipi di nodi: CA, peer 
 
 ## Ordinante
 {: #glossary-orderer}
-Il nodo che raccoglie le transazioni dai membri della rete, ordina le transazioni e le include in blocchi. Questi blocchi vengono poi distribuiti ai peer, che verificano quindi i blocchi e li aggiungono ai libri mastro su ogni canale. Gli ordinanti contengono il materiale di identità crittografica associato a ciascun membro e autenticano l'identità dei client e dei peer per l'accesso alla rete. La funzione generale fornita da un nodo ordinante o da una raccolta di nodi, è nota come **servizio ordini**.
+Il nodo che raccoglie le transazioni dai membri della rete, ordina le transazioni e le include in blocchi. Questi blocchi vengono poi distribuiti ai peer, che verificano quindi i blocchi e li aggiungono ai libri mastro su ogni canale. Gli ordinanti contengono il materiale di identità crittografica associato a ciascun membro e autenticano l'identità dei client e dei peer per l'accesso alla rete. La funzione generale fornita da un nodo di ordine o da una raccolta di nodi, è nota come **servizio di ordine**.
 
 ## Organizzazione
 {: #glossary-organization}
@@ -165,7 +165,7 @@ Una risorsa di rete blockchain che fornisce i servizi per eseguire e convalidare
 
 ## Raft
 {: #glossary-raft}
-Raft è un servizio di ordinazione con tolleranza di errori anomali (CFT) basato su un'implementazione del [protocollo Raft ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://raft.github.io/raft.pdf) in `etcd`. Raft segue un modello “leader e follower”, dove un nodo leader viene eletto (per canale) e le sue decisioni vengono replicate dai follower. I servizi di ordinazione Raft dovrebbero essere più facili da configurare e gestire rispetto ai servizi di ordinazione basati su Kafka e può essere creato un cluster di tali nodi utilizzando {{site.data.keyword.blockchainfull_notm}} Platform.
+Raft è un servizio di ordine con tolleranza di errori anomali (CFT) basato su un'implementazione del [protocollo Raft](https://raft.github.io/raft.pdf){: external} in `etcd`. Raft segue un modello “leader e follower”, dove un nodo leader viene eletto (per canale) e le sue decisioni vengono replicate dai follower. I servizi di ordine Raft dovrebbero essere più facili da configurare e gestire rispetto ai servizi di ordine basati su Kafka e può essere creato un cluster di tali nodi utilizzando {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Credenziali del servizio
 {: #glossary-service-credentials}
@@ -173,11 +173,11 @@ Le credenziali del servizio sono in formato JSON e contengono le informazioni su
 
 ## SDK
 {: #glossary-sdk}
-Hyperledger Fabric supporta due SDK (Software Development Kit). Un SDK Node e un SDK Java.  L'SDK Node può essere installato tramite NPM e l'SDK Java tramite Maven.  Gli SDK hanno i propri repository git, ossia [SDK Node Fabric ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://github.com/hyperledger/fabric-sdk-node) e [SDK Java Fabric ![Icona link esterno](images/external_link.svg "Icona link esterno")](https://github.com/hyperledger/fabric-sdk-java), con la documentazione per le API disponibili. Gli SDK Hyperledger Fabric Client abilitano l'interazione tra la tua applicazione client e la tua rete blockchain.
+Hyperledger Fabric supporta due SDK (Software Development Kit). Un SDK Node e un SDK Java.  L'SDK Node può essere installato tramite NPM e l'SDK Java tramite Maven.  Gli SDK hanno i propri repository git, ossia [SDK Node Fabric](https://github.com/hyperledger/fabric-sdk-node){: external} e  [SDK Java Fabric](https://github.com/hyperledger/fabric-sdk-java){: external}, con la documentazione per le API disponibili. Gli SDK Hyperledger Fabric Client abilitano l'interazione tra la tua applicazione client e la tua rete blockchain.
 
 ## SignCert
 {: #glossary-sign-cert}
-Il certificato che ogni entità, che sia un'organizzazione o un amministratore, allega alla propria proposta o alle risposte alla proposta. Questi signCert sono univoci per un'entità e vengono controllati dal servizio ordini per garantire che corrispondano al signCert sul file di tale entità.
+Il certificato che ogni entità, che sia un'organizzazione o un amministratore, allega alla propria proposta o alle risposte alla proposta. Questi signCert sono univoci per un'entità e vengono controllati dal servizio di ordine per garantire che corrispondano al signCert sul file di tale entità.
 
 ## Smart contract
 {: #glossary-smart-contracts}
@@ -185,7 +185,7 @@ Vedi [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
-L'implementazione di un plugin di consenso per Hyperledger Fabric che dà come risultato un singolo nodo di servizio ordini nella rete blockchain. La rete piano Starter utilizza l'implementazione Solo. Un'implementazione Solo non è concepita per una rete di produzione. Le alternative a Solo sono i cluster Raft e Kafka.
+L'implementazione di un plugin di consenso per Hyperledger Fabric che dà come risultato un singolo nodo di servizio di ordine nella rete blockchain. La rete piano Starter utilizza l'implementazione Solo. Un'implementazione Solo non è concepita per una rete di produzione. Le alternative a Solo sono i cluster Raft e Kafka.
 
 ## Database dello stato
 {: #glossary-state-database}
@@ -201,4 +201,4 @@ Un utente è un partecipante in una rete blockchain che ha accesso indiretto al 
 
 ## Stato globale
 {: #glossary-world-state}
-Consulta [Stato corrente](/docs/services/blockchain/glossary.html#glossary-current-state).
+vedi [Stato corrente](/docs/services/blockchain/glossary.html#glossary-current-state).

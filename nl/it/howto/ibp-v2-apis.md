@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -11,7 +11,7 @@ subcollection: blockchain
 ---
 
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,9 +28,9 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform ti espone le API RESTful per creare, importare, modificare ed eliminare i tuoi componenti blockchain, nonché gestire le impostazioni della console, delle notifiche e della registrazione. Puoi utilizzare le API e gli SDK corrispondenti, per sviluppare delle applicazioni che interagiscono con la tua rete blockchain.
 {: shortdesc}
 
-Questa esercitazione introduce il flusso generico per creare una rete blockchain con le API {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni su ciascuna API, vedi la documentazione di riferimento API [documentazione di riferimento API {{site.data.keyword.blockchainfull_notm}} Platform ![Icona link esterno](../images/external_link.svg "Icona link esterno")](/apidocs/blockchain "{{site.data.keyword.blockchainfull_notm}} Platform"){: new_window}.
+Questa esercitazione introduce il flusso generico per creare una rete blockchain con le API {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni su ciascuna API, vedi la [documentazione di riferimento API {{site.data.keyword.blockchainfull_notm}} Platform](/apidocs/blockchain){: external}.
 
-Queste API sono compatibili solo con {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} v0.1.77 o superiore. Per controllare la versione, vai a `https://[your_console_url]/version.txt`, dove *`[your_console_url]`* è l'URL della tua console {{site.data.keyword.blockchainfull_notm}} Platform. Ad esempio: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt
+Queste API sono compatibili solo con {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} v0.1.77 o superiore. Per controllare la versione, vai a `https://[your_console_url]/version.txt`, dove *`[your_console_url]`* è l'URL della tua console {{site.data.keyword.blockchainfull_notm}} Platform. Ad esempio: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt
 {:note}
 
 ## Prima di cominciare
@@ -43,17 +43,17 @@ Devi avere un'istanza del servizio {{site.data.keyword.blockchainfull_notm}} Pla
 
 Per poter utilizzare le API per accedere alla tua rete blockchain che crei con {{site.data.keyword.blockchainfull_notm}} Platform, la tua applicazione deve essere in grado di autenticarsi con {{site.data.keyword.cloud_notm}} e connettersi alla tua istanza del servizio.
 
-### Richiamo delle credenziali del servizio 
+### Richiamo delle credenziali del servizio
 {: #ibp-v2-apis-retrieve-service-credentials}
 
 Hai bisogno delle credenziali di autenticazione di base per assicurarti di avere l'accesso alla tua istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}.
 
-1. Nel tuo [elenco di risorse {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://cloud.ibm.com/resources), apri l'istanza del servizio blockchain che hai creato.
+1. Nel tuo [elenco di risorse {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}, apri l'istanza del servizio blockchain che hai creato.
 2. Fai clic su **Credenziali del servizio** dal navigator di sinistra.
-3. Fai clic sul pulsante "Nuova credenziale" nella pagina **Credenziali del servizio** per creare una nuova credenziale.
+3. Fai clic sul pulsante **Nuova credenziale** nella pagina **Credenziali del servizio** per creare una nuova credenziale.
   1. Fornisci un nome alla credenziale, ad esempio *UseAPIs*.
-  2. Puoi lasciare vuoto il campo "Aggiungi parametro di configurazione inline". 
-  3. Fai clic sul pulsante **Aggiungi**. 
+  2. Puoi lasciare vuoto il campo **Aggiungi parametro di configurazione inline**.
+  3. Fai clic sul pulsante **Aggiungi**.
 4. Dopo avere creato la nuova credenziale, fai clic su **Visualizza credenziali** nell'intestazione **AZIONI** di tale credenziale. I contenuti della credenziale sono simili al seguente esempio:
 
   ```
@@ -119,14 +119,14 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-Comandi curl di esempio per ogni API nella documentazione di riferimento API [documentazione di riferimento API {{site.data.keyword.blockchainfull_notm}} ![Icona link esterno](../images/external_link.svg "Icona link esterno")](/apidocs/blockchain "{{site.data.keyword.blockchainfull_notm}} Platform").
+Dei comandi curl di esempio sono forniti per ogni API nella [documentazione di riferimento API {{site.data.keyword.blockchainfull_notm}} Platform](/apidocs/blockchain){: external}.
 
 Inoltre, puoi utilizzare la funzione **Provalo** nella documentazione di riferimento API per verificare le tue chiamate API prima di aggiungerle alle tue applicazioni. Devi aver eseguito l'accesso a {{site.data.keyword.cloud_notm}} per poter utilizzare la funzione **Provalo**. Puoi selezionare qualsiasi istanza del servizio dall'elenco a discesa. Tutte le richieste API vengono inviate alla rete specificata nell'endpoint API.
 
 ## Limitazioni
 {: #ibp-v2-apis-limitations}
 
-Puoi importare solo CA, peer e nodi di ordinazione esistenti da altre reti {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}.
+Puoi importare solo CA, peer e nodi di ordine esistenti da altre reti {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Creazione di una rete utilizzando le API
 {: #ibp-v2-apis-build-with-apis}
@@ -140,7 +140,7 @@ Puoi utilizzare le API per creare i componenti blockchain nella tua istanza di {
 
   Devi attendere l'avvio della CA. Potrebbe impiegarci diversi minuti a seconda dell'ambiente. Puoi richiamare l'API `GET <ca_url>/cainfo` per controllare lo stato della tua CA. Riceverai degli errori ripetuti, poi un codice di stato `200`, il quale indica che puoi procedere al passo successivo. Tieni presente che questa chiamata API va in timeout dopo un minuto.
 
-2. Utilizza la tua CA per registrare il tuo componente e le identità amministratore e generare i certificati necessari. Puoi utilizzare il client CA Fabric per completare la seguente procedura: 
+2. Utilizza la tua CA per registrare il tuo componente e le identità amministratore e generare i certificati necessari. Puoi utilizzare il client CA Fabric per completare la seguente procedura:
 
   - [Configura il client CA Fabric](#ibp-v2-apis-config-fabric-ca-client).
   - [Genera i certificati con il tuo amministratore CA](#ibp-v2-apis-enroll-ca-admin).
@@ -150,7 +150,7 @@ Puoi utilizzare le API per creare i componenti blockchain nella tua istanza di {
 
   Puoi anche completare questa procedura utilizzando la tua console {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni, vedi [Creazione e gestione delle identità](/docs/services/blockchain/howto/ibp-console-identities.html).
 
-3. [Crea una definizione MSP per la tua organizzazione](#ibp-v2-apis-msp) richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
+3. [Crea una definizione di MSP per la tua organizzazione](#ibp-v2-apis-msp) richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
 4. [Crea il file di configurazione](#ibp-v2-apis-config) necessario per creare un ordinante o un peer. Devi creare un file di configurazione univoco per ogni ordinante o peer che desideri creare.
 
@@ -168,7 +168,7 @@ Le credenziali del servizio utilizzate per l'autenticazione API devono avere il 
 ## Importa una rete utilizzando le API
 {: #ibp-v2-apis-import-with-apis}
 
-Puoi utilizzare le API anche per importare i componenti {{site.data.keyword.blockchainfull_notm}} creati utilizzando le API o la console {{site.data.keyword.blockchainfull_notm}} Platform in un'altra istanza del servizio di {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+Puoi utilizzare le API anche per importare i componenti {{site.data.keyword.blockchainfull_notm}} creati utilizzando le API o la console {{site.data.keyword.blockchainfull_notm}} Platform in un'altra istanza del servizio di {{site.data.keyword.blockchainfull_notm}} Platform.
 
 1. Importa una CA richiamando [`POST /ak/api/v1/components/ca`](/apidocs/blockchain?code=try#import-a-ca).
 
@@ -177,7 +177,7 @@ Puoi utilizzare le API anche per importare i componenti {{site.data.keyword.bloc
 
   Devi attendere l'avvio della CA. Potrebbe impiegarci diversi minuti a seconda dell'ambiente. Puoi richiamare [`GET /components`](https://test.cloud.ibm.com/apidocs/blockchain?code=try#get-all-components) per controllare lo stato della CA. Riceverai degli errori ripetuti prima di un codice di stato `200` per andare al passo successivo. Tieni presente che questa chiamata API va in timeout in un minuto.
 
-2. Importa una definizione MSP dell'organizzazione richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
+2. Importa una definizione di MSP dell'organizzazione richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
 
 3. Importa un ordinante richiamando [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer).
 
@@ -193,14 +193,14 @@ Le credenziali del servizio utilizzate per l'autenticazione API devono avere il 
 ## Gestione della tua CA utilizzando il client CA Fabric
 {: #ibp-v2-apis-config-fabric-ca-client}
 
-Puoi utilizzare il client CA Fabric per utilizzare le tue CA. Immetti i seguenti comandi del client CA Fabric per registrare il tuo componente e le identità amministratore e generare i certificati necessari. 
+Puoi utilizzare il client CA Fabric per utilizzare le tue CA. Immetti i seguenti comandi del client CA Fabric per registrare il tuo componente e le identità amministratore e generare i certificati necessari.
 
 ### Configurazione del client CA Fabric
 {: #ibp-v2-apis-setup-fabric-ca-client}
 
-1. Scarica il [Fabric CA client ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client "Download Fabric CA client") sul tuo file system locale.
+1. Scarica il [client CA Fabric](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external} sul tuo file system locale.
 
-  Il modo più semplice per ottenere il client CA Fabric consiste nello scaricare direttamente tutti i file binari dello strumento Fabric. Passa a una directory dove vuoi scaricare i file binari con la tua riga di comando e recuperali immettendo il seguente comando [Curl ![Icona link esterno](../images/external_link.svg "Icona link esterno")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl "Curl").
+  Il modo più semplice per ottenere il client CA Fabric consiste nello scaricare direttamente tutti i file binari dello strumento Fabric. Passa a una directory dove vuoi scaricare i file binari con la tua riga di comando e recuperali eseguendo questo comando [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external}.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.0 1.4.0 -d -s
@@ -289,9 +289,9 @@ Un'identità **amministratore CA** è stata automaticamente registrata per te qu
   ```
   {:codeblock}
 
-  Il comando `enroll` genera una serie completa di certificati, nota come cartella MSP (Membership Service Provider), ubicata nella directory in cui hai impostato il percorso su `$HOME` per il tuo client CA Fabric. Ad esempio, `$HOME/fabric-ca-client/ca-admin`. Per ulteriori informazioni sulle MSP e su cosa la cartella MSP contiene, consulta [MSP (Membership Service Provider)](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
+  Il comando `enroll` genera una serie completa di certificati, nota come cartella MSP (Membership Service Provider), ubicata nella directory in cui hai impostato il percorso su `$HOME` per il tuo client CA Fabric. Ad esempio, `$HOME/fabric-ca-client/ca-admin`. Per ulteriori informazioni sulle MSP e su cosa la cartella MSP contiene, vedi [MSP (Membership Service Provider)](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
 
-  Se il comando `enroll` ha esito negativo, consulta l'[argomento Risoluzione dei problemi](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) per le cause possibili.
+  Se il comando `enroll` ha esito negativo, vedi l'[argomento Risoluzione dei problemi](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) per le cause possibili.
 
   Puoi eseguire un comando tree per verificare di aver completato tutti i passi preliminari. Passa alla directory in cui hai archiviato i tuoi certificati. Un comando tree dovrebbe generare un risultato simile alla seguente struttura:
 
@@ -378,7 +378,7 @@ Per prima cosa, devi registrare un'identità del componente con la tua CA. Il tu
 
 Devi anche creare un'identità amministratore che puoi utilizzare per gestire la tua rete. Dovrai utilizzare questa identità per gestire componenti specifici, ad esempio installando uno smart contract sul tuo peer. Puoi anche utilizzare questa identità come un amministratore della tua organizzazione e utilizzarla per creare e modificare i canali.  
 
-Devi registrare questa nuova identità con la tua CA e utilizzarla per generare una cartella MSP. Puoi rendere questa identità un amministratore dell'organizzazione aggiungendo il suo signCert al tuo MSP dell'organizzazione. Dovrai anche aggiungere il signCert al tuo file di configurazione in modo che possa diventare il certificato amministratore dell'ordinante o del peer durante a distribuzione. Devi creare solo un'identità amministratore per la tua organizzazione. Di conseguenza, devi completare questa procedura solo una volta. Puoi utilizzare il signCert che hai generato per distribuire i tuoi peer o ordinanti. 
+Devi registrare questa nuova identità con la tua CA e utilizzarla per generare una cartella MSP. Puoi rendere questa identità un amministratore dell'organizzazione aggiungendo il suo signCert al tuo MSP dell'organizzazione. Dovrai anche aggiungere il signCert al tuo file di configurazione in modo che possa diventare il certificato amministratore dell'ordinante o del peer durante a distribuzione. Devi creare solo un'identità amministratore per la tua organizzazione. Di conseguenza, devi completare questa procedura solo una volta. Puoi utilizzare il signCert che hai generato per distribuire i tuoi peer o ordinanti.
 
 Assicurati che il tuo `$FABRIC_CA_CLIENT_HOME` sia impostato sul percorso alla MSP del tuo amministratore della CA.
 
@@ -474,7 +474,7 @@ tree
         └── user
 ```
 
-Dovrai ritornare a questa cartella quando crei la definizione MSP dell'organizzazione e i file di configurazione.
+Dovrai ritornare a questa cartella quando crei la definizione di MSP dell'organizzazione e i file di configurazione.
 {: important}
 
 ### Registrazione dell'identità del componente con la CA TLS
@@ -518,10 +518,10 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 Devi salvare i valori `"enrollid"` e `"enrollsecret"` dal comando precedente per quando creerai il tuo file di configurazione.
 {: important}
 
-## Creazione di una definizione MSP dell'organizzazione
+## Creazione di una definizione di MSP dell'organizzazione
 {: #ibp-v2-apis-msp}
 
-Puoi utilizzare le API per creare una definizione MSP dell'organizzazione richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp). Questo MSP contiene i certificati che definiscono la tua organizzazione in un consorzio blockchain, nonché i certificati di gestione che puoi utilizzare per gestire la tua rete. Se hai seguito la precedente procedura, hai già generato i certificati necessari per creare un MSP dell'organizzazione. Utilizza la seguente procedura per completare il corpo della richiesta della chiamata API.
+Puoi utilizzare le API per creare una definizione di MSP dell'organizzazione richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp). Questo MSP contiene i certificati che definiscono la tua organizzazione in un consorzio blockchain, nonché i certificati di gestione che puoi utilizzare per gestire la tua rete. Se hai seguito la precedente procedura, hai già generato i certificati necessari per creare un MSP dell'organizzazione. Utilizza la seguente procedura per completare il corpo della richiesta della chiamata API.
 
 1. Immetti `msp` come tipo (`type`) di richiesta.
 
