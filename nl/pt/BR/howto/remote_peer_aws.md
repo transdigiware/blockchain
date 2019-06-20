@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multicloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -23,7 +25,7 @@ subcollection: blockchain
 Estas instruções descrevem como usar um modelo de Iniciação Rápida do Amazon Web Services (AWS) para criar um peer do {{site.data.keyword.blockchainfull}} Platform for AWS e, em seguida, conectá-lo a uma rede em um {{site.data.keyword.blockchainfull_notm}} Platform.
 {:shortdesc}
 
-Para obter mais informações sobre o AWS, consulte o [documento da visão geral do AWS ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://d1.awsstatic.com/whitepapers/aws-overview.pdf "documento da visão geral do AWS").
+Para obter mais informações sobre a AWS, consulte o [Documento de visão geral da AWS](https://d1.awsstatic.com/whitepapers/aws-overview.pdf){: external}.
 
 O {{site.data.keyword.blockchainfull_notm}} Platform for AWS permite que os peers aproveitem o perfil de conexão, as autoridades de certificação do Hyperledger Fabric (autoridades de certificação) e o serviço de ordenação de uma rede existente do Starter ou do Enterprise Plan no {{site.data.keyword.cloud_notm}} para processar transações por meio de um modelo de Iniciação Rápida do AWS. A Iniciação Rápida permite que você implemente peers usando modelos AWS CloudFormation. Esse modelo é para os tomadores de decisão de infraestrutura de TI e administradores do sistema que desejam configurar, implementar e executar rapidamente os peers do {{site.data.keyword.blockchainfull_notm}} Platform hospedados pelo AWS que estão conectados a uma rede do Starter ou Enterprise Plan. É possível usar o modelo para construir uma nova nuvem virtual privada (VPC) no AWS ou implementar o peer em um VPC existente.
 
@@ -39,7 +41,7 @@ Antes de implementar os peers do {{site.data.keyword.blockchainfull_notm}} Platf
 ## Pré-requisitos
 {: #remote-peer-aws-prerequisites}
 
-Para usar um peer do {{site.data.keyword.blockchainfull_notm}} Platform for AWS (peer remoto), deve-se ter uma organização que seja membro de uma rede de blockchain que esteja hospedada no IBM Blockchain Platform. É necessário usar o Monitor de Rede no IBM Cloud para acessar as credenciais de rede e os terminais de API de sua rede. Se você não for membro de nenhuma rede de blockchain, precisará criar ou associar-se a uma rede. Para obter mais informações, consulte [Criando uma rede](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) ou [Associando-se a uma rede](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+Para usar um peer do {{site.data.keyword.blockchainfull_notm}} Platform for AWS (peer remoto), deve-se ter uma organização que seja um membro de uma rede de blockchain que esteja hospedada no {{site.data.keyword.blockchainfull_notm}} Platform. É necessário usar o Monitor de rede no {{site.data.keyword.cloud_notm}} para acessar as credenciais de rede e os terminais de API de sua rede. Se você não for membro de nenhuma rede de blockchain, precisará criar ou associar-se a uma rede. Para obter mais informações, consulte [Criando uma rede](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) ou [Associando-se a uma rede](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
 
 O tipo de instância VPC padrão para o peer é `m4.xlarge`.  É necessário otimizar o tipo de instância escolhido com base em seus requisitos de CPU, memória e armazenamento. O peer requer pelo menos:  
 -	2x CPU
@@ -62,7 +64,7 @@ A Iniciação Rápida fornece duas opções de implementação:
 ## Etapa um: prepare sua conta do AWS
 {: #remote-peer-aws-account}
 
-1. Se você ainda não tiver uma conta do AWS, crie uma [aqui ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://aws.amazon.com "https//aws/amazon.com") seguindo as instruções na tela.
+1. Se você ainda não tiver uma conta da AWS, crie uma [aqui](https://aws.amazon.com){: external} seguindo as instruções na tela.
 
 2. Use o seletor de região na barra de navegação para escolher a Região do AWS na qual você deseja implementar o peer no AWS.
 
@@ -76,7 +78,6 @@ A Iniciação Rápida fornece duas opções de implementação:
 É necessário fornecer os terminais de API de sua rede para seu peer durante a configuração. Esses terminais permitem que um peer localize e conecte-se à rede no {{site.data.keyword.blockchainfull_notm}} Platform. Na tela **Visão geral** de seu Monitor de rede, clique no botão **Configuração do peer remoto**.
 
 ![Configuração do peer remoto](../images/myresources_starter.png "Configuração do peer remoto")
-*Figura 1. Painel de configuração de peer remoto*
 
 Uma janela pop-up é aberta e exibe os valores dos campos a seguir. Salve os valores dos campos a seguir, eles são necessários quando você configura o peer usando o modelo de Iniciação Rápida do AWS.
 
@@ -107,14 +108,13 @@ Substitua `<CERT>` pelo valor do **Certificado TLS da Autoridade de Certificaç�
 
 1. Efetue login no Monitor de Rede de sua rede no {{site.data.keyword.blockchainfull_notm}} Platform. Na tela "Autoridade de certificação" de seu Monitor de Rede, é possível visualizar todas as identidades que foram registradas com a rede, como seus aplicativos de administrador ou cliente.
 ![Tela da autoridade de certificação](../images/CA_screen_starter.png "Tela da autoridade de certificação")
-  *Figura 2. Tela da autoridade de certificação*
 
 2. Clique no botão **Incluir usuário** no painel. Uma tela pop-up é aberta e permite que você registre seu peer na rede depois de preencher os campos abaixo. **Salve o valor do ID e do Segredo para mais tarde ao configurar seu peer no modelo de Iniciação Rápida.**
   - **ID de inscrição:** o nome que você deseja usar para seu peer, que é referido como seu `enroll ID` ao configurar seu peer. **Salve esse valor** para uso futuro.
   - **Segredo de inscrição:** a senha que você deseja usar para seu peer, que é referida como seu `enroll Secret` ao configurar o peer. **Salve esse valor** para uso futuro.
   - **Tipo:** Selecione `peer` para este campo.
   - **Afiliação:** essa é a afiliação sob sua organização, `org1`, por exemplo, à qual seu peer pertence. É possível especificar uma nova afiliação ou usar uma existente.
-  - **Máximo de inscrições:** é possível usar esse campo para limitar o número de vezes que é possível inscrever-se ou gerar certificados usando essa identidade. Se não especificado, o valor será padronizado para inscrições ilimitadas.
+  - **Máximo de inscrições:** é possível usar esse campo para limitar o número de vezes que é possível inscrever ou gerar certificados usando essa identidade. Se não especificado, o valor será padronizado para inscrições ilimitadas.
 
   Depois de preencher os campos, clique em **Enviar** para registrar o peer. O peer registrado é, então, listado na tabela como uma identidade na rede. Como uma medida de segurança, use cada identidade e o enrollID e segredo associados para implementar somente um peer. Não reutilize os IDs e senhas do peer.
 
@@ -123,16 +123,16 @@ Substitua `<CERT>` pelo valor do **Certificado TLS da Autoridade de Certificaç�
 
 Você é responsável pelo custo dos serviços do AWS que você usa enquanto executa esta implementação de referência de Iniciação Rápida. Não há custo adicional para usar esta Iniciação Rápida. Para obter detalhes completos, consulte as páginas de precificação para cada serviço do AWS que você precisa usar nessa Iniciação Rápida. Os preços estão sujeitos a mudanças.
 
-1. Escolha uma das opções a seguir para ativar o modelo do AWS CloudFormation em sua conta do AWS. Para ajudar a escolher uma opção, consulte as opções de implementação anteriormente neste guia. Cada implementação leva cerca de 10 minutos para ser concluída.  
+1. Escolha uma das opções a seguir para ativar o modelo do AWS CloudFormation em sua conta do AWS. Para obter ajuda com a escolha de uma opção, consulte as opções de implementação anteriormente neste guia. Cada implementação leva cerca de 10 minutos para ser concluída.  
 
-  * [Implemente o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um novo VPC no AWS ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://fwd.aws/v43nk "Implemente o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um novo VPC no AWS").  
+  * [Implemente o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um novo VPC na AWS](https://fwd.aws/v43nk){: external}.  
 
-  * [Implemente o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um VPC existente no AWS ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://fwd.aws/zrP4g "Implemente o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um VPC existente no AWS").
+  * [Implemente o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um VPC existente na AWS](https://fwd.aws/zrP4g){: external}.
 
   **Importante:**     
   Se você estiver implementando o {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um VPC existente, certifique-se de que seu VPC tenha duas sub-redes públicas em Zonas de Disponibilidade diferentes para as instâncias de banco de dados. Essas sub-redes requerem gateways do NAT ou instâncias do NAT em suas tabelas de rotas, para permitir que as instâncias façam download de pacotes e software sem expô-los à Internet. Você também precisará da opção de nome de domínio configurada nas opções de DHCP, conforme explicado na documentação do Amazon VPC.  
 
-  Além disso, certifique-se de criar um grupo de segurança vinculado ao VPC existente e inclua regras de entrada nas portas 22 e 7051 para esse grupo de segurança. As conexões TCP na porta 22 permitem acesso de SSH à instância gerada enquanto as conexões TCP na porta 7051 permitem acesso de gRPC externo à instância de peer (necessário para operar o peer usando a CLI das ferramentas Fabric e os SDKs do Fabric). Você será solicitado a fornecer essas configurações de VPC quando ativar a Iniciação rápida.
+  Além disso, certifique-se de criar um grupo de segurança vinculado ao VPC existente e inclua regras de entrada nas portas 22 e 7051 para esse grupo de segurança. As conexões TCP na porta 22 permitem o acesso SSH à instância gerada, enquanto as conexões TCP na porta 7051 permitem o acesso de gRPC externo à instância do peer (necessário para operar o peer usando a CLI das ferramentas do Fabric e os SDKs do Fabric). Você será solicitado a fornecer essas configurações de VPC quando ativar a Iniciação rápida.
 
 2. Verifique a região que é exibida no canto superior direito da barra de navegação e mude-a, se necessário. É aqui que a infraestrutura de rede para o peer será construída. O modelo é ativado na Região do Leste dos EUA (Ohio) por padrão.
 
@@ -157,27 +157,27 @@ A tabela a seguir lista os parâmetros configuráveis do gráfico AWS e seus val
 | | | |
 | **Configuração de rede** | |
 | `Availability Zones` |As duas Zonas de Disponibilidade a serem usadas para as sub-redes no VPC. Nota: a ordem lógica é preservada. | |
-| `Allowed SSH access CIDR` | [Bloco CIDR ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPCs e sub-redes") permitido para acesso externo ao SSH para as instâncias do IBM Blockchain Peer. Ele pode ser configurado como 0.0.0.0/0 para permitir acesso de qualquer lugar (não recomendado). | |
-| `PeerEndpointAccessCIDR` | [Bloco CIDR ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPCs e sub-redes") permitido para o acesso gRPC externo às instâncias do IBM Blockchain Peer. Geralmente configurado como 0.0.0.0/0 para permitir acesso de qualquer lugar (não recomendado). | |
+| `Allowed SSH access CIDR` | [Bloco CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} permitido para acesso externo ao SSH para as instâncias do {{site.data.keyword.blockchain_notm}} Peer. Ele pode ser configurado como 0.0.0.0/0 para permitir acesso de qualquer lugar (não recomendado). | |
+| `PeerEndpointAccessCIDR` | Bloco [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} permitido para acesso de gRPC externo para as instâncias do {{site.data.keyword.blockchainfull_notm}} Peer. Geralmente configurado como 0.0.0.0/0 para permitir acesso de qualquer lugar (não recomendado). | |
 | | | |
 | **Configuração do Amazon EC2** | | |
 | `InstanceType` | Tipo de instância EC2 para as instâncias de peer. | m4.xlarge |
 | `KeyPairName` | Nome de um par de chaves EC2 existente na região do AWS. Deve-se gerar isso. | |
 | | | |
-|** Configuração do IBM Blockchain** | |
-| `IBMBlockchainVersion` | Versão do IBM Blockchain para implementação. | 1.2.1 |
+|** {{site.data.keyword.blockchainfull_notm}}Configuração** | |
+| `IBMBlockchainVersion` | Versão do {{site.data.keyword.blockchainfull_notm}} a ser implementada. | 1.2.1 |
 | `StateDatabase` | O tipo de banco de dados a ser usado para armazenar o estado de blockchain. Essa seleção deve corresponder ao tipo de Banco de Dados de Estado usado pelo restante da rede. | CouchDB|
 | `PeerVolumeSize` | Tamanho do Volume de EBS que é usado para armazenar dados persistentes (livro-razão, banco de dados de estado, MSP) para o peer em GBs. | 100 |
-| `Peer 1 enroll ID`| O ID de Inscrição que você inseriu em seu painel Autoridade de Certificação da IU do IBM Blockchain Platform para seu primeiro peer. |  |
-| `Peer 1 enroll secret` | O Segredo de Inscrição que você inseriu em seu painel Autoridade de Certificação da IU do IBM Blockchain Platform para seu primeiro peer. | |
-| `Peer 2 enroll ID` | O ID de Inscrição que você inseriu no painel Autoridade de certificação da IU do IBM Blockchain Platform para seu segundo peer. | |
-| `Peer 2 enroll secret` | O Secret de Inscrição que você inseriu no painel Autoridade de certificação da IU do IBM Blockchain Platform para seu segundo peer. | |
+| `Peer 1 enroll ID`| O ID de inscrição que você inseriu em seu painel Autoridade de certificação da IU do {{site.data.keyword.blockchainfull_notm}} Platform para seu primeiro peer. |  |
+| `Peer 1 enroll secret` | O Segredo de inscrição que você inseriu em seu painel Autoridade de certificação da IU do {{site.data.keyword.blockchainfull_notm}} Platform para seu primeiro peer. | |
+| `Peer 2 enroll ID` | O ID de inscrição que você inseriu em seu painel Autoridade de certificação da IU do {{site.data.keyword.blockchainfull_notm}} Platform para seu segundo peer. | |
+| `Peer 2 enroll secret` | O Segredo de inscrição que você inseriu em seu painel Autoridade de certificação da IU do {{site.data.keyword.blockchainfull_notm}} Platform para seu segundo peer. | |
 | | | |
-|**Credenciais de serviço do IBM Blockchain**| | |
-| `Organization MSP` | Esse valor pode ser localizado em sua IU do IBM Blockchain Platform. Clique no botão Configuração de peer remoto no painel Visão geral e copie e cole essas informações aqui. | |
-| `Certificate Authority (CA) Name` | Esse valor pode ser localizado em sua IU do IBM Blockchain Platform. Clique no botão Configuração de peer remoto no painel Visão geral e copie e cole essas informações aqui.| |
-| `Certificate Authority (CA) URL` | Esse valor pode ser localizado em sua IU do IBM Blockchain Platform. Clique no botão Configuração do peer remoto no painel Visão geral e copie e cole essas informações aqui, incluindo a porta. Se não especificado, a porta padrão será 443. | |
-| `Certificate Authority (CA)  TLS Certificate`| Esse valor pode ser localizado em sua IU do IBM Blockchain Platform. Clique no botão Configuração de peer remoto no painel Visão geral e copie e cole essas informações aqui.| |
+|**{{site.data.keyword.blockchainfull_notm}} Credenciais de Serviço**| | |
+| `Organization MSP` | Esse valor pode ser localizado na IU do {{site.data.keyword.blockchainfull_notm}} Platform. Clique no botão Configuração de peer remoto no painel Visão geral e copie e cole essas informações aqui. | |
+| `Certificate Authority (CA) Name` | Esse valor pode ser localizado na IU do {{site.data.keyword.blockchainfull_notm}} Platform. Clique no botão Configuração de peer remoto no painel Visão geral e copie e cole essas informações aqui.| |
+| `Certificate Authority (CA) URL` | Esse valor pode ser localizado na IU do {{site.data.keyword.blockchainfull_notm}} Platform. Clique no botão Configuração do peer remoto no painel Visão geral e copie e cole essas informações aqui, incluindo a porta. Se não especificado, a porta padrão será 443. | |
+| `Certificate Authority (CA)  TLS Certificate`| Esse valor pode ser localizado na IU do {{site.data.keyword.blockchainfull_notm}} Platform. Clique no botão Configuração de peer remoto no painel Visão geral e copie e cole essas informações aqui.| |
 | | | |
 |**Outros parâmetros**| | |
 | `QSS3BucketName` | Nome do depósito S3 para os ativos de Iniciação Rápida. O nome do depósito de Iniciação Rápida pode incluir números, letras minúsculas, letras maiúsculas e hifens (-). Ele não pode iniciar ou terminar com um hífen (-). | `aws-quickstart` |
@@ -201,9 +201,9 @@ Se você estiver implementando o peer do {{site.data.keyword.blockchainfull_notm
 
  - Assegure-se de que seu VPC tenha duas sub-redes privadas em Zonas de Disponibilidade diferentes para as instâncias de banco de dados. Essas sub-redes requerem gateways do NAT ou instâncias do NAT em suas tabelas de rotas, para permitir que as instâncias façam download de pacotes e software sem expô-los à Internet.
 
- - Configure a opção de nome de domínio nas opções do DHCP, conforme explicado na documentação do [Amazon VPC ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html "Conjuntos de opções de DHCP").  
+ - Configure a opção de nome de domínio nas opções do DHCP, conforme explicado na [documentação do Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html){: external}.  
 
-- Crie um grupo de segurança vinculado ao VPC existente e inclua regras de entrada nas portas 22 e 7051 para esse grupo de segurança. As conexões TCP na porta 22 permitem acesso de SSH à instância gerada enquanto as conexões TCP na porta 7051 permitem acesso de gRPC externo à instância de peer (necessário para operar o peer usando a CLI das ferramentas Fabric e os SDKs do Fabric). Você será solicitado a fornecer essas configurações de VPC quando ativar a Iniciação rápida.
+- Crie um grupo de segurança vinculado ao VPC existente e inclua regras de entrada nas portas 22 e 7051 para esse grupo de segurança. As conexões TCP na porta 22 permitem o acesso SSH à instância gerada, enquanto as conexões TCP na porta 7051 permitem o acesso de gRPC externo à instância do peer (necessário para operar o peer usando a CLI das ferramentas do Fabric e os SDKs do Fabric). Você será solicitado a fornecer essas configurações de VPC quando ativar a Iniciação rápida.
 
  Ao implementar um peer do {{site.data.keyword.blockchainfull_notm}} Platform for AWS em um VPC existente, os parâmetros a seguir substituem os parâmetros nas seções correspondentes [acima](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc):
 
@@ -226,8 +226,7 @@ Se você estiver implementando o peer do {{site.data.keyword.blockchainfull_notm
 
 Quando o modelo AWS CloudFormation tiver criado com êxito a pilha, duas instâncias de peer do {{site.data.keyword.blockchainfull_notm}} Platform for AWS estarão em execução em sua conta do AWS. As instâncias serão nomeadas com base na combinação de `Organization MSP` e `Peer enroll id` especificada no modelo de Iniciação Rápida. Por exemplo, `org1-remotepeer1`.  
 
-![Peer em instâncias do AWS EC2](../images/remote_peer_AWS_EC2_instances.png "Peer em instâncias do AWS EC2")  
-*Figura 3. Peer em instâncias do AWS EC2*
+![Peer em instâncias do AWS EC2](../images/remote_peer_AWS_EC2_instances.png "Peer em instâncias do AWS EC2")
 
 Para verificar se o peer está em execução:
 
@@ -255,7 +254,7 @@ Execute o comando da CLI `peer channel fetch` para buscar o bloco genesis do can
    ash-zbc07b.4.secure.blockchain.ibm.com:21239
    ```
 
-   - Localize o nome de sua organização procurando **organizações**. Essa deve ser a mesma organização que você usa para registrar seu peer. É possível localizar o nome de sua organização junto com seu `mspid` associado. Esse valor também está disponível no painel Visão geral do Monitor de Rede. Clique no botão **Configuração do peer remoto**. O valor é exibido em `Organization MSP`. Anote o valor de `mspid`.
+   - Localize o nome de sua organização procurando **organizações**. Essa deve ser a mesma organização que você usa para registrar seu peer. É possível localizar o nome de sua organização junto com seu `mspid` associado. Esse valor também está disponível no painel Visão geral do Monitor de rede. Clique no botão **Configuração do peer remoto**. O valor é exibido em `Organization MSP`. Anote o valor de `mspid`.
 
    - Se você ainda não tiver feito isso, crie uma sessão de shell dentro do contêiner de peer executando `docker exec -it peer sh`.
 
@@ -308,7 +307,7 @@ Execute o comando da CLI `peer channel fetch` para buscar o bloco genesis do can
 
 4. Execute o comando da CLI de peer a seguir para buscar o bloco genesis do canal.
 
-   **IMPORTANTE:** no comando a seguir, substitua cada ocorrência de `<PEER_ENROLL_ID>` pelo ID de inscrição associado a essa instância de peer e especificado no modelo de Iniciação Rápida. Esse valor pode ser localizado executando o comando `ls /etc/hyperledger/`. Haverá duas pastas listadas: a primeira é `fabric` e a segunda é a sua `<PEER_ENROLL_ID>`.
+   **IMPORTANTE:** no comando a seguir, substitua cada ocorrência de `<PEER_ENROLL_ID>` pelo ID de inscrição associado a essa instância de peer que foi especificada no modelo de Iniciação Rápida. Esse valor pode ser localizado executando o comando `ls /etc/hyperledger/`. Haverá duas pastas listadas: a primeira é `fabric` e a segunda é a sua `<PEER_ENROLL_ID>`.
 
    ```
    CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/<PEER_ENROLL_ID>/tls/ca.crt CORE_PEER_TLS_ENABLED=true CORE_PEER_ADDRESS=${PEERADDR} CORE_PEER_LOCALMSPID=${ORGID} CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/<PEER_ENROLL_ID>/msp/ GOPATH=/ peer channel fetch 0 -o ${ORDERER_1} -c ${CHANNEL} --cafile /etc/hyperledger/<PEER_ENROLL_ID>/orderer_tlscacert.pem --tls
@@ -345,10 +344,10 @@ Execute o comando da CLI `peer channel fetch` para buscar o bloco genesis do can
 * **R**. Se o AWS CloudFormation falhar ao criar a pilha, recomendamos que você reative o modelo com Recuperar na falha configurado como `No`. (Essa configuração está em Avançado no console do AWS CloudFormation, página Opções.) Com essa configuração, o estado da pilha será retido e a instância será deixada em execução, para que você possa solucionar o problema. (Examine os arquivos de log em ` %ProgramFiles%\Amazon\EC2ConfigService` e `C:\cfn\log`.)
 
   - Ao configurar Recuperar na falha como `No`, você continuará incorrendo
-encargos do AWS para essa pilha. Certifique-se de excluir a pilha quando concluir a resolução de problemas. Para obter informações adicionais, consulte [Resolução de problemas do AWS CloudFormation ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html "Resolução de problemas do AWS CloudFormation") no website do AWS.
+encargos do AWS para essa pilha. Certifique-se de excluir a pilha quando concluir a resolução de problemas. Para obter mais informações, consulte [Resolução de problemas do AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html){: external} no website da AWS.
 
 * **P**. Eu encontrei um erro de limitação de tamanho quando implementei os modelos do AWS Cloudformation.
-* **R**. Recomendamos que você ative os modelos de Iniciação Rápida a partir do local que fornecemos ou de outro depósito S3. Se você implementar os modelos a partir de uma cópia local em seu computador ou a partir de um local não S3, poderá encontrar limitações de tamanho do modelo ao criar a pilha. Para obter mais informações sobre os limites do AWS CloudFormation, consulte a [Documentação do AWS ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html "Limites do AWS CloudFormation").
+* **R**. Recomendamos que você ative os modelos de Iniciação Rápida a partir do local que fornecemos ou de outro depósito S3. Se você implementar os modelos a partir de uma cópia local em seu computador ou a partir de um local não S3, poderá encontrar limitações de tamanho do modelo ao criar a pilha. Para obter mais informações sobre os limites do AWS CloudFormation, consulte a [Documentação da AWS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html){: external}.
 
 ## O que Vem Depois
 {: #remote-peer-aws-whats-next}
@@ -364,7 +363,7 @@ Para alavancar esse suporte de HA, também é necessário configurar seus [aplic
 ## Considerações de segurança
 {: #remote-peer-aws-security}
 
-O AWS Cloud fornece uma plataforma escalável e altamente confiável que ajuda os clientes a implementar aplicativos e dados de forma rápida e segura. Ao construir sistemas na infraestrutura do AWS, as responsabilidades de segurança são compartilhadas entre você e o AWS. Esse modelo compartilhado pode reduzir sua carga operacional à medida que o AWS opera, gerencia e controla os componentes do sistema operacional do host e da camada de virtualização até a segurança física das instalações em que os serviços operam. Por sua vez, você assume a responsabilidade e o gerenciamento do sistema operacional guest (incluindo atualizações e correções de segurança), outros aplicativos associados, bem como a configuração do firewall do grupo de segurança fornecido pelo AWS. Para obter mais informações sobre a segurança no AWS, visite o [AWS Cloud Security ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://aws.amazon.com/security/ "AWS Cloud Security").
+O AWS Cloud fornece uma plataforma escalável e altamente confiável que ajuda os clientes a implementar aplicativos e dados de forma rápida e segura. Ao construir sistemas na infraestrutura do AWS, as responsabilidades de segurança são compartilhadas entre você e o AWS. Esse modelo compartilhado pode reduzir sua carga operacional à medida que o AWS opera, gerencia e controla os componentes do sistema operacional do host e da camada de virtualização até a segurança física das instalações em que os serviços operam. Por sua vez, você assume a responsabilidade e o gerenciamento do sistema operacional guest (incluindo atualizações e correções de segurança), outros aplicativos associados, bem como a configuração do firewall do grupo de segurança fornecido pelo AWS. Para obter mais informações sobre a segurança na AWS, visite [Segurança do AWS Cloud](https://aws.amazon.com/security/){: external}.
 
 ### AWS Identity and Access Management (IAM)
 {: #remote-peer-aws-iam}
@@ -389,7 +388,7 @@ Os peers são implementados fora do {{site.data.keyword.blockchainfull_notm}} Pl
 #### Segurança de dados
 {: #remote-peer-aws-security-data}
 
-O {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan usa criptografia de disco inteiro que é baseada em [Criptografia de chave simétrica ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html "Criptografia simétrica") para proteger todos os dados que as redes usam. Deve-se executar etapas semelhantes em seu próprio ambiente para proteger seus dados do peer.
+O plano Enterprise do {{site.data.keyword.blockchainfull_notm}} Platform usa criptografia de disco inteira que é baseada em [criptografia de chave simétrica](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html){: external} para proteger todos os dados que as redes usam. Deve-se executar etapas semelhantes em seu próprio ambiente para proteger seus dados do peer.
 
 Os dados em seu banco de dados de estado, independentemente de você estar usando o levelDB ou couchDB, não são criptografados. É possível usar a criptografia de nível do aplicativo para proteger os dados em repouso em seu banco de dados de estado.
 
@@ -415,13 +414,13 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### TLS
 {: #remote-peer-aws-security-tls}
 
-[A Segurança da Camada de Transporte ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm "Uma visão geral do handshake SSL ou TLS") (TLS) é integrada ao modelo de confiança do Hyperledger Fabric. Todos os componentes no {{site.data.keyword.blockchainfull_notm}} Platform usam TLS para autenticação e comunicação entre si. Portanto, os componentes de rede no {{site.data.keyword.blockchainfull_notm}} Platform precisam ser capazes de concluir um handshake TLS com seus peers. Uma implicação disso é que você precisa ativar o intermediário, usando a lista de aplicativos confiáveis, por exemplo, em seu firewall de aplicativos clientes para seu peer.
+A [Segurança da Camada de Transporte](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} (TLS) é integrada ao modelo de confiança do Hyperledger Fabric. Todos os componentes no {{site.data.keyword.blockchainfull_notm}} Platform usam TLS para autenticação e comunicação entre si. Portanto, os componentes de rede no {{site.data.keyword.blockchainfull_notm}} Platform precisam ser capazes de concluir um handshake TLS com seus peers. Uma implicação disso é que você precisa ativar o intermediário, usando a lista de aplicativos confiáveis, por exemplo, em seu firewall de aplicativos clientes para seu peer.
 
 
 #### Configuração do Provedor de Serviços de Associação
 {: #remote-peer-aws-security-MSP}
 
-Os componentes do IBM Blockchain Platform consomem identidades por meio de Membership Service Providers (MSPs). MSPs associam os certificados que as autoridades de certificação emitem com as funções de rede e canal. Consulte este [tópico](/docs/services/blockchain/certificates.html#managing-certificates-msp) para obter mais informações sobre como os MSPs trabalham com o peer.
+Os componentes do {{site.data.keyword.blockchainfull_notm}} Platform consomem identidades via Membership Service Providers (MSPs). MSPs associam os certificados que as autoridades de certificação emitem com as funções de rede e canal. Consulte este [tópico](/docs/services/blockchain/certificates.html#managing-certificates-msp) para obter mais informações sobre como os MSPs trabalham com o peer.
 
 #### Segurança do aplicativo
 {: #remote-peer-aws-security-appl}
@@ -431,5 +430,5 @@ Como todas as chamadas de chaincode são assinadas, o Fabric gerencia a seguran�
 ## Licença e precificação
 {: #remote-peer-aws-license-pricing-aws}
 
-Deve-se aceitar uma versão da licença da Community edition do {{site.data.keyword.blockchainfull_notm}} Platform for AWS para poder usar a solução de implementação ativada pela Iniciação Rápida. O uso do {{site.data.keyword.blockchainfull_notm}} Platform for AWS (incluindo todos os pacotes fornecidos por meio da oferta de Iniciação Rápida e os pacotes derivados desses pacotes) não é destinado ao uso de produção. A IBM pode decidir desautorizar o acesso ao código e o uso desse código a qualquer momento.
+Deve-se aceitar uma versão da licença da Community edition do {{site.data.keyword.blockchainfull_notm}} Platform for AWS para poder usar a solução de implementação ativada pela Iniciação Rápida. O uso do {{site.data.keyword.blockchainfull_notm}} Platform for AWS (incluindo todos os pacotes fornecidos por meio da oferta de Iniciação Rápida e os pacotes derivados desses pacotes) não é destinado ao uso de produção. A {{site.data.keyword.IBM_notm}} pode decidir desautorizar o acesso ao código e o uso desse código a qualquer momento.
 O contrato de licença de software do {{site.data.keyword.blockchainfull_notm}} Platform for AWS contém mais detalhes sobre os termos de licenciamento. Ao ativar a Iniciação Rápida, é solicitado que você leia e concorde com os termos do contrato.

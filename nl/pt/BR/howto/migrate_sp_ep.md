@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-17"
+  years: 2018, 2019
+lastupdated: "2019-05-31"
+
+keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -42,7 +44,7 @@ Antes de migrar da rede do Starter Plan para uma rede do Enterprise Plan, é pos
 - **Recursos afetados:** chaincode (contratos inteligentes), aplicativos clientes. Novamente, esteja ciente de que seu chaincode está alavancando um componente do Fabric v1.2 ou uma funcionalidade que não é compatível com redes v1.1.
 - **Tempo necessário:** Levará pelo menos metade de um dia para migrar uma rede básica do Starter Plan para o Enterprise Plan.
 - **Os dados existentes do livro-razão** não podem ser movidos das redes do Starter Plan para as redes do Enterprise Plan porque não é apropriado que existam dados de teste em um ambiente de produção.
-- **Hyperledger Composer:** a IBM não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs JavaScript, o servidor REST e o Web Playground.
+- **Hyperledger Composer:** a {{site.data.keyword.IBM_notm}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs do JavaScript, o servidor REST e o Web Playground.
 
 **Nota:** uma rede *básica* inclui duas organizações com dois peers, um único canal e um único arquivo de chaincode. O tempo real para migrar pode variar, dependendo do tamanho e da complexidade dos componentes de rede necessários na rede do Enterprise Plan.
 
@@ -66,7 +68,7 @@ Há uma série de tarefas necessárias para preparar a movimentação para uma r
 
 É possível recriar a configuração de organizações (membros), canais e peers da rede do Starter Plan na rede do Enterprise Plan. É possível usar a IU do Monitor de rede para recriar esses recursos de rede convidando as organizações apropriadas (observe que não será possível **alternar** as organizações como no Starter), criar canais e peers (novamente, as organizações convidadas terão que criar seus próprios peers).
 
-1. Efetue login na rede do Enterprise Plan no {{site.data.keyword.cloud_notm}} e entre no Monitor de rede.
+1. Efetue login em sua rede do Enterprise Plan no {{site.data.keyword.cloud_notm}} e insira o Monitor de rede.
 2. Recrie as organizações (membros) na tela "Membros", recrie os canais na tela "Canais" e crie novamente os peers na tela "Visão geral". Para obter informações adicionais sobre como criar recursos de rede, consulte [Usando o Monitor de Rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview).
 3. Configure os canais incluindo membros e configurando políticas de canal da mesma maneira que na rede do Starter Plan.
 
@@ -75,8 +77,7 @@ Há uma série de tarefas necessárias para preparar a movimentação para uma r
 ### Migrar chaincode
 {: #migrate_starter_to_enterprise_cc}
 
-O Chaincode é desenvolvido externamente em seu ambiente local e é chamado por seus aplicativos clientes. Para instalar e instanciar o chaincode, que foi testado em sua rede do Starter Plan, em peers selecionados em sua rede do Enterprise Plan, siga as instruções em [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain
-/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
+O Chaincode é desenvolvido externamente em seu ambiente local e é chamado por seus aplicativos clientes. Para instalar e instanciar o chaincode, que foi testado na rede do Starter Plan, em peers selecionados na rede do Enterprise Plan, siga as instruções em [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
 
 ### Atualizar aplicativos clientes
 {: #migrate_starter_to_enterprise_app}

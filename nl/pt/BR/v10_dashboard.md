@@ -2,13 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -16,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # Usando o monitor de rede
 {: #ibp-dashboard}
@@ -47,7 +50,6 @@ A tela "Visão geral" exibe informações de status em tempo real sobre os seus 
 A **Figura 1** mostra a tela "Visão Geral":
 
 ![Tela de visão geral](images/myresources.png "Visão geral da rede")
-*Figura 1. Visão Geral da Rede*
 
 ### Ações do nó
 {: #ibp-dashboard-node-actions}
@@ -76,7 +78,7 @@ a quaisquer peers dos quais eles precisam de uma resposta.
 
 Os membros da rede implementam os [peers](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer) para armazenar suas cópias do livro-razão da rede e para executar o chaincode para consultar ou atualizar o livro-razão. Se a política de aprovação definir um peer como um peer de endosso, o peer também retornará resultados de aprovação para aplicativos.
 
-Clique no botão **Incluir peers** na parte superior direita para incluir nós de peer em sua rede. No painel pop-up "Incluir Peers", selecione o número e o tamanho dos nós peer que você deseja incluir. É possível incluir mais peers para as suas organizações com base em seus próprios requisitos. Você poderá estar em diferentes cenários quando precisar de mais peers. Por exemplo, talvez você deseje múltiplos peers para se associar ao mesmo canal para redundância. Cada peer processa as transações do canal e grava em suas respectivas cópias do livro-razão. Se um dos peers falhar, o outro peer (ou múltiplos outros peers) poderá continuar a processar transações e solicitações de aplicativos. Também é possível balancear simetricamente todas as solicitações de aplicativo ao longo de peers ou é possível direcionar peers diferentes para funções diferentes. Por exemplo, é possível usar um peer para consultar o livro-razão e usar outro peer para processar endossos para atualizações de livro-razão.
+Clique no botão **Incluir peers** na parte superior direita para incluir nós de peer em sua rede. No painel pop-up "Incluir Peers", selecione o número e o tamanho dos nós peer que você deseja incluir. É possível incluir mais peers para as suas organizações com base em seus próprios requisitos. Você poderá estar em diferentes cenários quando precisar de mais peers. Por exemplo, talvez você deseje múltiplos peers para se associar ao mesmo canal para redundância. Cada peer processa as transações do canal e grava em suas respectivas cópias do livro-razão. Se um dos peers falhar, o outro peer (ou múltiplos outros peers) poderá continuar processando transações e solicitações de aplicativos. Também é possível balancear simetricamente todas as solicitações de aplicativo ao longo de peers ou é possível direcionar peers diferentes para funções diferentes. Por exemplo, é possível usar um peer para consultar o livro-razão e usar outro peer para processar endossos para atualizações de livro-razão.
 
 O **Starter Plan** cria um peer para cada uma das duas organizações formadas quando a rede é iniciada por padrão.
 
@@ -86,7 +88,6 @@ O **Starter Plan** cria um peer para cada uma das duas organizações formadas q
 A **Figura 2** mostra a guia "Armazenamento" que exibe o consumo de armazenamento de sua rede.
 
 ![Guia Armazenamento na tela Visão geral](images/monitor_storage_starter.png "Armazenamento")
-*Figura 2. Armazenamento*
 
 O diagrama "Recursos" exibe o espaço de armazenamento que os peers e as autoridades de certificação usam. Todas as organizações que você cria ou convida para sua rede estão incluídas nesse conjunto. As organizações que consomem recursos são listadas na tela no segundo marcador.
 
@@ -103,7 +104,6 @@ A tela "Membros" contém duas guias para exibir informações do membro de rede 
 A **Figura 3** mostra a tela inicial "Membros", que exibe os seus membros de rede na guia "Membros":
 
 ![Guia Membros na tela Membros](images/monitor_members.png "Membros de rede")
-*Figura 3. Membros da Rede*
 
 É possível convidar outros membros na guia "Membros" para incluir naqueles que são inicialmente convidados quando você cria a rede. Para convidar um membro para sua rede, insira o nome da instituição e o endereço de e-mail do operador e clique em **Incluir membro**. Uma rede pode ter um total de 15 membros (incluindo o inicializador da rede). Para remover um membro de sua rede, clique no símbolo "remover" no final da linha do membro.
 
@@ -112,7 +112,6 @@ A **Figura 3** mostra a tela inicial "Membros", que exibe os seus membros de red
 A **Figura 4** mostra a janela "Incluir membro".
 
 ![Incluir membro](images/invite_member_starter.png "Incluir membro")
-*Figura 4. Incluir membro*
 
 Quando você clicar em **Incluir membro**, serão apresentadas duas opções:
 - **Convidar um membro**. É possível convidar outras organizações para se tornarem membros de sua rede. As organizações convidadas podem então se associar e colaborar com você na rede.
@@ -125,11 +124,8 @@ Quando você clicar em **Incluir membro**, serão apresentadas duas opções:
 A **Figura 5** mostra a tela inicial "Membros" que exibe os certificados de membro na guia "Certificados":
 
 ![Guia Certificados na tela Membros](images/monitor_certificates.png "Certificados")
-*Figura 5. Certificados*
 
 Os operadores podem gerenciar os certificados para os membros na mesma instituição na guia "Certificados". Clique em **Incluir certificado** para abrir o painel "Incluir certificado". Dê um nome ao seu certificado, cole seus certificados do lado do cliente no formato PEM no campo "Chave" e clique em **Enviar**. Você precisa reiniciar seus peers antes de os certificados do lado do cliente poderem entrar em vigor.
-
-Para obter mais informações sobre como gerar a chave de certificado, veja [Inscrevendo seu aplicativo](/docs/services/blockchain/v10_application.html#dev-app-enroll).
 
 ## Canais
 {: #ibp-dashboard-channels}
@@ -139,7 +135,6 @@ Consiste de um subconjunto de membros de rede que querem transacionar em particu
 A **Figura 6** mostra a tela do painel inicial exibindo uma visão geral de todos os canais em sua rede:
 
 ![Canais](images/channels.png "Canais")
-*Figura 6. Canais*
 
 Criar um canal resulta na geração de um livro-razão específico do canal. Para obter mais informações, consulte [Criando um canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel).
 
@@ -155,7 +150,6 @@ Quando você criar um canal ou for convidado para um novo canal, uma notificaç�
 A **Figura 7** mostra a tela "Notificações":
 
 ![Notificações](images/notifications.png "Notificações")
-*Figura 7. Notificações*
 
 As solicitações são agrupadas nas subguias "Todos", "Pendentes" e "Concluídos". Números após o cabeçalho da subguia indicam o número de solicitações em cada subguia.
    * É possível localizar todas as suas solicitações na subguia "Todos".
@@ -174,9 +168,8 @@ A tabela na tela "Autoridade de certificação" (CA) exibe todas as identidades 
 A **Figura 8** mostra a tela "Autoridade de certificação":
 
 ![Autoridade de certificação](images/CA_screen.png "Autoridade de certificação")
-*Figura 8. Autoridade de certificação*
 
-Clique no botão **Gerar certificado** ao lado de sua identidade administrativa para obter um novo certificado público e chave privada de sua CA. O campo **Certificado** contém o certificado público, também referido como signCert ou cert de inscrição, logo acima da **Chave privada**. É possível clicar no ícone de cópia no final de cada campo para copiar o valor. Esse painel pode ser usado de uma maneira alternativa para gerar um par de chaves pública e privada para um aplicativo cliente que usa o Fabric SDK. Para saber mais, visite o [tutorial de desenvolvimento de aplicativos](/docs/services/blockchain/v10_application.html#dev-app). **Observe** que o {{site.data.keyword.blockchainfull_notm}} Platform não armazena esses certificados. Você precisará salvar e armazená-los com segurança.
+Clique no botão **Gerar certificado** ao lado de sua identidade administrativa para obter um novo certificado público e chave privada de sua CA. O campo **Certificado** contém o certificado público, também referido como signCert ou cert de inscrição, logo acima da **Chave privada**. É possível clicar no ícone de cópia no final de cada campo para copiar o valor. Esse painel pode ser usado de uma maneira alternativa para gerar um par de chaves pública e privada para um aplicativo cliente que usa o Fabric SDK. **Observe** que o {{site.data.keyword.blockchainfull_notm}} Platform não armazena esses certificados. Você precisará salvar e armazená-los com segurança.
 
 Clique no botão **Incluir usuário** para registrar uma nova identidade em sua organização. Na janela pop-up **Incluir usuário**, preencha os campos a seguir e, em seguida, clique em **Enviar**.
   - **ID de inscrição:** esse será o nome de sua nova identidade que, às vezes, é referida como seu `enroll ID`. **Salve este valor** e você precisará usá-lo ao configurar um peer remoto ou inscrever um novo aplicativo.
@@ -190,26 +183,24 @@ Clique no botão **Incluir usuário** para registrar uma nova identidade em sua 
 ## APIs
 {: #ibp-dashboard-apis}
 
-O {{site.data.keyword.blockchainfull_notm}} Platform expõe uma série de APIs de REST no Swagger que podem ser usadas para gerenciar os nós, os canais, os peers e os membros de sua rede. Seus aplicativos podem usar essas APIs para controlar recursos de rede importantes sem usar o monitor de rede.
+O {{site.data.keyword.blockchainfull_notm}} Platform expõe uma série de APIs de REST no Swagger que podem ser usadas para gerenciar os nós, os canais, os peers e os membros de sua rede. Os seus aplicativos podem usar essas APIs para controlar recursos de rede importantes sem usar o Monitor de rede.
 
 A **Figura 9** mostra a tela "APIs":
 
 ![APIs](images/API_screen.png "APIs")
-*Figura 9. APIs*
 
 Clique no link **UI do Swagger** para abrir a UI do Swagger. Observe que você precisa autorizar a UI do Swagger com as suas credenciais de rede (que podem ser localizadas nessa página de APIs) antes que você possa executar as APIs. Para obter mais informações, veja [Interagindo com a rede usando APIs do Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
 
 ## Desenvolver Código
 {: #ibp-dashboard-write-code}
 
-O {{site.data.keyword.IBM_notm}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs JavaScript, o servidor REST e o Web Playground.{:note}
+A {{site.data.keyword.IBM_notm}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs de JavaScript, o servidor REST e o Web Playground.{:note}
 
 O Starter Plan e o Enterprise Plan fornecem um ambiente de desenvolvimento com ferramentas e tecnologias padrão de mercado. Depois de desenvolver uma rede, é possível implementá-la em sua rede.
 
 A **Figura 10** mostra a tela "Desenvolver código":
 
 ![Desenvolver código](images/write_code.png "Desenvolver código")
-*Figura 10. Desenvolver código*
 
 Para obter mais informações sobre como desenvolver e implementar suas redes de negócios, veja [Implementando redes de negócios no Starter e Enterprise Plan](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network).
 
@@ -221,7 +212,6 @@ O chaincode, que também é conhecido como "contrato inteligente", são as parte
 A **Figura 11** mostra a tela "Instalar código":
 
 ![Código de instalação](images/chaincode_install_overview.png "Código de instalação")
-*Figura 11. Código de instalação *
 
 Um chaincode é o primeiro instalado em um sistema de arquivos de um peer e, em seguida, instanciado em um canal. Para obter mais informações, veja [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
@@ -233,7 +223,6 @@ Os aplicativos de amostra ajudam você a entender melhor uma rede de blockchain 
 A **Figura 12** mostra a tela "Tentar amostras":
 
 ![Tentar amostras](images/sample_overview_ep.png "Tentar amostras")
-*Figura 12. Amostras*
 
 ## Obtenha ajuda
 {: #ibp-dashboard-support}
@@ -243,14 +232,13 @@ A tela "Obter ajuda" contém uma guia "Suporte" que fornece uma lista de recurso
 A **Figura 13** exibe as informações na guia "Suporte" inicial:
 
 ![Suporte](images/support.png "Suporte")
-*Figura 13. Suporte do Blockchain*
 
 ### Recursos de blockchain e fóruns de suporte
 {: #ibp-dashboard-support-forums}
 
 Use os recursos na guia "Suporte" para solucionar problemas e obter ajuda do {{site.data.keyword.IBM_notm}} e da comunidade do Fabric. Para obter mais informações sobre os links na guia "Suporte", consulte [Recursos e fóruns de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) em [Obtendo suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
 
-O [IBM dWAnswers ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://developer.ibm.com/answers/smartspace/blockchain/index.html) é um fórum de comunidade para usuários do {{site.data.keyword.blockchainfull_notm}} Platform e do Hyperledger Fabric e é monitorado por especialistas da IBM. É possível procurar respostas para perguntas apresentadas anteriormente ou enviar uma nova pergunta. Se não for possível depurar seu problema ou determinar uma resposta para sua pergunta, envie um caso de suporte no Portal de serviço do {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+O [{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} é um fórum de comunidade para usuários do {{site.data.keyword.blockchainfull_notm}} Platform e do Hyperledger Fabric e é monitorado por especialistas da {{site.data.keyword.IBM_notm}}. É possível procurar respostas para perguntas apresentadas anteriormente ou enviar uma nova pergunta. Se não for possível depurar seu problema ou determinar uma resposta para sua pergunta, envie um caso de suporte no Portal de serviço do {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
 
 ### Notas sobre a liberação do Fabric
@@ -261,12 +249,10 @@ A guia "Notas sobre a liberação" exibe os recursos mais recentes de sua rede. 
 A **Figura 14** exibe as notas sobre a liberação para a IU do Monitor de Rede.
 
 ![Notas sobre a liberação do helios](images/releasenotes_helios.png "Notas sobre a liberação da IU do Monitor de rede")
-*Figuras 14. Notas sobre o Release para a UI do Network Monitor*
 
 A **Figura 15** exibe as notas sobre a liberação para sua versão de rede do Hyperledger Fabric e a Autoridade de Certificação do Fabric.
 
 ![Notas sobre a liberação do Fabric](images/releasenotes_Fabric.png "Notas sobre a liberação do Fabric")
-*Figuras 15. Notas sobre a liberação para o Fabric*
 
 ## Preferências de rede
 {: #ibp-dashboard-network-preferences}
@@ -284,8 +270,7 @@ O tempo limite de inatividade da web é configurado para **Desligado** por padr�
 
 A **Figura 16** mostra a janela "Preferências de rede":
 
-![Preferências de rede](images/network_preferences.gif "Preferências de rede")
-*Figura 16. Preferências de Rede*
+![Preferências de rede](images/network_preferences.gif "Preferências de rede"){: gif}
 
 ### TLS mútuo (para redes Enterprise Plan)
 {: #ibp-dashboard-mutual-tls}
@@ -305,7 +290,7 @@ No campo Perfil de conexão, localize a seção `certificateAuthorities` na qual
 - `enrollSecret`: segredo de inscrição para usar para obter um certificado
 - `x-tlsCAName`: nome da autoridade de certificação para usar para obter um certificado que permitirá que o aplicativo se comunique com TLS mútuo.
 
-Para obter mais informações sobre como atualizar os seus aplicativos para suportar o TLS mútuo, veja [Como configurar o TLS mútuo ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html)
+Para obter mais informações sobre como atualizar seus aplicativos para suportar TLS mútuo, consulte [Como configurar TLS mútuo](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
 
 <!--
 
@@ -325,7 +310,6 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 A **Figura 17** mostra a janela "Preferências de rede":
 
 ![Preferências de rede](images/network_preferences_ep_tmp.png "Preferências de rede")
-*Figura 17. Preferências de Rede*
 
 ## Atualizar o nome da rede
 {: #ibp-dashboard-network-name}
@@ -336,8 +320,7 @@ Na parte superior do navegador esquerdo no Monitor de Rede, clique no nome da re
 
 A **Figura 18** mostra as etapas para atualizar o nome da rede do Starter Plan a partir do nome designado para "Rede do Starter Plan".
 
-![Atualizar o nome da rede](images/update_network_name_ep.gif "Atualizar o nome da rede")
-*Figura 18. Atualizar nome da rede*
+![Atualizar nome da rede](images/update_network_name_ep.gif "Atualizar nome da rede"){: gif}
 
 
 ## Alternar entre redes (para redes do Starter Plan)
@@ -349,8 +332,7 @@ Na parte superior do navegador esquerdo no Monitor de rede, clique no ícone de 
 
 A **Figura 19** mostra as etapas para alternar para outra rede do Starter Plan.
 
-![Alternar rede](images/switch_network.gif "Alternar rede")
-*Figura 19. Alternar rede*
+![Rede de comutação](images/switch_network.gif "Rede de comutação"){: gif}
 
 
 ## Reconfigurar rede (para redes do Starter Plan)
@@ -365,4 +347,3 @@ Clique no canto superior direito e abra o menu suspenso. Clique no botão **Reco
 A **Figura 20** mostra a função "Reconfigurar rede":
 
 ![Reconfigurar rede](images/reset_network.png "Reconfigurar rede")
-*Figura 20. Reconfigurar rede*

@@ -2,13 +2,15 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-05-31"
+
+keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,11 +30,11 @@ Também é possível usar o console para gerenciar quais organizações são mem
 
 O {{site.data.keyword.blockchainfull_notm}} Platform é baseado no Hyperledger Fabric e constrói redes de blockchain permissionárias. Os participantes precisam ser conhecidos para a rede antes de poderem enviar transações e interagir com os ativos no livro-razão. O Fabric reconhece a identidade por meio de um grupo de organizações convidadas, conhecidas como consórcio. As organizações no consórcio são capazes de emitir credenciais válidas para seus membros e permitir que eles se tornem participantes na rede. Em seguida, os participantes podem operar nós de blockchain e enviar transações por meio de aplicativos clientes.
 
-Cada organização no consórcio precisa operar sua própria Autoridade de certificação, conhecida como CA raiz. Essa Autoridade de certificação (ou suas CAs intermediárias) cria todas as identidades pertencentes à sua organização e emite para cada identidade uma chave pública e privada. Essas chaves são assinadas pela CA e usadas pelos membros de sua organização para assinar e verificar suas ações. Associar-se ao consórcio permite que outras organizações reconheçam sua assinatura de CAs e verifique se os seus peers e aplicativos são participantes válidos. Para obter mais informações sobre associação no Hyperledger Fabric, veja o [tópico de conceito Associação ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html "Associação") na documentação do Fabric.
+Cada organização no consórcio precisa operar sua própria Autoridade de certificação, conhecida como CA raiz. Essa Autoridade de Certificação (ou suas autoridades de certificação intermediárias) cria todas as identidades pertencentes à sua organização e emite para cada identidade um certificado de assinatura e uma chave privada. Essas chaves são assinadas pela CA e usadas pelos membros de sua organização para assinar e verificar suas ações. Associar-se ao consórcio permite que outras organizações reconheçam sua assinatura de CAs e verifique se os seus peers e aplicativos são participantes válidos. Para obter mais informações sobre associação no Hyperledger Fabric, consulte o [tópico de conceito Associação](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} na documentação do Fabric.
 
 Antes que sua organização possa se associar a um consórcio, ela precisa criar uma definição de organização conhecida como **Membership Services Provider (MSP)**. O MSP contém as informações a seguir:
 - Um certificado assinado por sua **Autoridade de certificação raiz **. Esse certificado é usado para verificar a identidade de seus nós, canais e aplicativos.
-- Um certificado assinado por sua **CA TLS**. Um certificado TLS raiz permite que os seus peers participem de gossip de organização cruzada, que é necessário para tirar proveito dos recursos de [coleções de **Dados privados**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) e [Descoberta de serviço ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Descoberta de serviço") do Hyperledger Fabric.
+- Um certificado assinado por sua **CA TLS**. Um certificado TLS raiz permite que seus peers participem de gossip de organização cruzada, o que é necessário para aproveitar as coleções de [**Dados privados**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) e os recursos de [Descoberta de serviço](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} do Hyperledger Fabric.
 - O  ** ID do MSP **. O ID do MSP é o nome formal de sua organização dentro do consórcio. É necessário se lembrar do ID do MSP para seus nós e aplicativos.
 - **Certificados de administrador** de suas identidades de **Administrador do peer** e **Administrador da organização**. Esses certificados são passados para o Serviço de pedido e são usados para verificar quais identidades em sua organização têm permissão para criar ou editar canais. Quando você usa seu console para criar um solicitador ou peer, os certificados de administrador dentro do MSP são implementados no novo nó. Esses certificados podem então ser usados para operar os peers ou solicitadores por meio seu console ou de um aplicativo cliente.
 
@@ -56,16 +58,16 @@ Use a guia **Organizações** para gerar uma definição do MSP para sua organiz
 
 - Também é possível usar a seção **Detalhes da autoridade de certificação raiz** para gerar um de seus certificados de administrador de organizações. Antes de criar sua definição do MSP da organização, é necessário registrar seus administradores da organização e do nó com sua CA raiz. Em seguida, é necessário concluir as etapas a seguir para usar essas identidades para operar sua rede:
 
-  1. Crie um par de chaves pública e privada para cada identidade do administrador.
-  2. Forneça a chave pública (certificado) de cada identidade de administrador na definição do MSP.
-  3. Inclua a identidade em sua carteira eletrônica do console. Os nós ou canais criados pelo console usam os certificados por meio do MSP para verificar quem é um administrador válido. Como resultado, o mesmo par de chaves pública e privada que você usou para incluir um certificado de administrador no MSP precisa ser armazenado dentro de sua carteira eletrônica do console.
+  1. Crie um certificado de assinatura e uma chave privada para cada identidade de administrador.
+  2. Forneça o certificado de assinatura de cada identidade de administrador na definição do MSP.
+  3. Inclua a identidade em sua carteira eletrônica do console. Os nós ou canais criados pelo console usam os certificados por meio do MSP para verificar quem é um administrador válido. Como resultado, o mesmo par de certificado de assinatura e chave privada que você usou para incluir um certificado de administrador no MSP precisa ser armazenado dentro de sua carteira eletrônica do console.
 
   É possível usar o painel **Criar definição do MSP** para concluir essas ações para uma de suas identidades de administrador. Depois de selecionar sua CA raiz, conclua as etapas a seguir na seção **Gerar certificado de administrador da organização**:
   1. Insira o ID de inscrição e o Segredo de inscrição de uma identidade de administrador registrada com sua CA raiz. Depois de inserir o ID de inscrição e o Segredo de inscrição, escolha um nome para exibir a identidade em sua carteira eletrônica do console.
-  2. Clique em  ** Gerar **. Isso gerará um novo conjunto de chaves públicas e privadas e incluirá automaticamente as chaves na carteira eletrônica do console. Em seguida, é possível localizar sua identidade de administrador em sua carteira eletrônica usando o nome que você selecionou nesse painel. Essas chaves são armazenadas somente em seu armazenamento local do navegador, portanto, se você mudar os navegadores, eles não estarão na carteira eletrônica do console. Será necessário exportar a identidade de seu navegador original e importá-la para a carteira eletrônica do console de seu novo navegador.
+  2. Clique em  ** Gerar **. Isso gerará um certificado e uma chave privada e incluirá automaticamente as chaves em sua carteira eletrônica do console. Em seguida, é possível localizar sua identidade de administrador em sua carteira eletrônica usando o nome que você selecionou nesse painel. Essas chaves são armazenadas somente em seu armazenamento local do navegador, portanto, se você mudar os navegadores, eles não estarão na carteira eletrônica do console. Será necessário exportar a identidade de seu navegador original e importá-la para a carteira eletrônica do console de seu novo navegador.
   3. Em seguida, clique em **Exportar** para fazer download do par de chaves em seu sistema de arquivos e protegê-lo.
 
-- A seção **Administradores (Opcional)** do painel lateral contém as chaves públicas de seus administradores. O certificado gerado com o uso da seção **Gerar certificado de administrador da organização** pode ser localizado na primeira linha do campo **certificado do administrador**. Se você desejar usar múltiplas identidades de administrador para operar a sua rede, será possível colar os certificados de administradores do nó ou da organização adicionais nos campos **certificado de administrador**.
+- A seção **Administradores (opcional)** do painel lateral contém as chaves de certificados de assinatura de seus administradores. O certificado gerado com o uso da seção **Gerar certificado de administrador da organização** pode ser localizado na primeira linha do campo **certificado do administrador**. Se você desejar usar múltiplas identidades de administrador para operar a sua rede, será possível colar os certificados de administradores do nó ou da organização adicionais nos campos **certificado de administrador**.
 
 Como os seus certificados de administrador são passados para seus nós e canais usando a definição do MSP, é necessário assegurar que cada um de seus certificados de administrador de nó e organização esteja armazenado no MSP. Quando você usa o console para criar um solicitador, peer ou canal, é necessário **Associar** uma das identidades exportadas em sua carteira eletrônica do console com os certificados de administrador que foram fornecidos para a definição do MSP. Quando você encontrar uma seção ou painel **Associar identidade**, selecione uma identidade que foi gerada e salva na carteira ao criar a definição do MSP.
 
@@ -76,7 +78,21 @@ Depois de ter selecionado sua CA raiz, o ID do MSP e criado seus certificados de
 
 **Essa opção é destinada apenas a usuários avançados familiarizados com como os certificados são usados no gerenciamento de identidade de blockchain.**
 
-Ao preferir usar certificados de uma **CA externa** que não seja hospedada pela {{site.data.keyword.IBM_notm}} para o peer ou solicitador, deve-se construir um arquivo JSON de definição do MSP que represente a definição do MSP da organização do peer ou do solicitador.  Crie um arquivo JSON usando o formato a seguir:
+Se você preferir usar certificados para seu peer ou serviço de pedido de uma **CA externa**, uma que não seja hospedada pela {{site.data.keyword.IBM_notm}}, será necessário construir um arquivo JSON de definição do MSP que represente a definição do MSP da organização de peer ou de serviço de pedido.
+
+Observe que todos os certificados devem ser codificados no formato base64.
+{:important}
+
+É possível converter o conteúdo de seu arquivo de certificado, `<cert.pem>`, do formato `PEM` para uma sequência base64 ao executar o comando a seguir em sua máquina local:
+
+```
+export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
+cat <cert.pem> | base64 $FLAG
+```
+{:codeblock}
+
+
+Crie um arquivo JSON usando o formato a seguir:
 
 ```
 {
@@ -106,14 +122,14 @@ Ao preferir usar certificados de uma **CA externa** que não seja hospedada pela
 - **organization_id**: especifique um ID a ser usado para representar esse MSP internamente no console.
 - **root_certs**: (opcional) cole uma matriz que contenha um ou mais certificados raiz da CA externa no formato `base64`. Deve-se fornecer um certificado raiz ou intermediário da CA, sendo possível fornecer ambos.
 - **intermediate_certs**: (opcional) cole uma matriz que contenha um ou mais certificados da CA intermediária externa no formato `base64`. Deve-se fornecer um certificado raiz ou intermediário da CA, sendo possível fornecer ambos.
-- **admins**: cole o signcert do administrador da organização no formato `base64`.
+- **admins**: cole o certificado de assinatura do administrador da organização no formato `base64`.
 - **tls_root_certs**: (opcional) cole uma matriz que contenha um ou mais certificados raiz da CA do TLS no formato `base64`. Deve-se fornecer um certificado raiz ou intermediário da CA externa do TLS, sendo possível fornecer ambos.
 - **tls_intermediate_certs**: (opcional) cole uma matriz que contenha um ou mais certificados da CA intermediária do TLS no formato `base64`. Deve-se fornecer um certificado raiz ou intermediário da CA externa do TLS, sendo possível fornecer ambos.  
 
 Os campos adicionais a seguir também estão disponíveis em sua definição do MSP, mas não são necessários:
-- **organizational_unit_identifiers**: uma lista de Unidades Organizacionais (OU) que os membros válidos desse MSP devem incluir em seu certificado X.509. Esse é um parâmetro de configuração opcional usado quando diversas organizações utilizam a mesma raiz de confiança e CAs intermediárias, tendo reservado um campo OU para seus membros. Uma organização é geralmente dividida em diversas unidades organizacionais (OUs), cada uma das quais possui um determinado conjunto de responsabilidades. Por exemplo, a organização ORG1 pode ter as OUs ORG1-MANUFACTURING e ORG1-DISTRIBUTION para refletir essas linhas de negócios separadas. Quando uma CA emite certificados X.509, o campo OU no certificado especifica a linha de negócios à qual a identidade pertence. Consulte este tópico na documentação do Fabric em [Classificação de identidade ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification "Classificação de identidade") para obter mais informações.  
-- **fabric_node_OUs**: OUs específicas do Fabric que ativam a classificação de identidade. `NodeOUs` contêm informações sobre como distinguir clientes, peers e solicitadores com base em sua OU. Se a verificação for cumprida, configurando Ativado como true, o MSP considerará uma identidade válida se ela for de um `client`, um `peer` ou um `orderer`. Uma identidade deve ter apenas uma dessas OUs especiais. Consulte este tópico para obter um exemplo de como especificar o `fabric_node_OU` em um MSP na documentação do [Fabric Service Discovery ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query).
-- **revocation_list**: uma lista de certificados que não são mais válidos. Para identidades baseadas em X.509, esses identificadores são pares de sequências conhecidas como Identificador de Chave de Assunto (SKI) e Identificador de Acesso à Autoridade (AKI) e são verificados sempre que o certificado X.509 está sendo usado, para garantir que ele não tenha sido revogado. Consulte este tópico na documentação do Fabric para obter mais informações sobre [Listas de revogação de certificado ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity "Revogar um certificado ou uma identidade").
+- **organizational_unit_identifiers**: uma lista de Unidades Organizacionais (OU) que os membros válidos desse MSP devem incluir em seu certificado X.509. Esse é um parâmetro de configuração opcional usado quando diversas organizações utilizam a mesma raiz de confiança e CAs intermediárias, tendo reservado um campo OU para seus membros. Uma organização é geralmente dividida em diversas unidades organizacionais (OUs), cada uma das quais possui um determinado conjunto de responsabilidades. Por exemplo, a organização ORG1 pode ter as OUs ORG1-MANUFACTURING e ORG1-DISTRIBUTION para refletir essas linhas de negócios separadas. Quando uma CA emite certificados X.509, o campo OU no certificado especifica a linha de negócios à qual a identidade pertence. Consulte este tópico na documentação do Fabric em [Classificação de identidade](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} para obter mais informações.  
+- **fabric_node_OUs**: OUs específicas do Fabric que ativam a classificação de identidade. `NodeOUs` contêm informações sobre como distinguir clientes, peers e solicitadores com base em sua OU. Se a verificação for cumprida, configurando Ativado como true, o MSP considerará uma identidade válida se ela for de um `client`, um `peer` ou um `orderer`. Uma identidade deve ter apenas uma dessas OUs especiais. Consulte esse tópico para obter um exemplo de [como especificar o `fabric_node_OU` em um MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} na documentação Descoberta de serviço do Fabric.
+- **revocation_list**: uma lista de certificados que não são mais válidos. Para identidades baseadas em X.509, esses identificadores são pares de sequências conhecidas como Identificador de Chave de Assunto (SKI) e Identificador de Acesso à Autoridade (AKI) e são verificados sempre que o certificado X.509 está sendo usado, para garantir que ele não tenha sido revogado. Consulte este tópico na documentação do Fabric para obter mais informações sobre [Listas de revogação de certificado](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
 
 Por exemplo, seu arquivo JSON seria semelhante a:
 
@@ -135,20 +151,9 @@ Por exemplo, seu arquivo JSON seria semelhante a:
 ```
 {:codeblock}
 
-Observe que todos os certificados devem ser codificados no formato base64.
-{:important}
+Salve essa definição como seu arquivo `JSON` de definição do MSP.  
 
-É possível converter o conteúdo de seu arquivo de certificado, `<cert.pem>`, do formato `PEM` para uma sequência base64 ao executar o comando a seguir em sua máquina local:
-
-```
-export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
-cat <cert.pem> | base64 $FLAG
-```
-{:codeblock}
-
-Salve essa definição como um arquivo `JSON`.  
-
-Você construiu uma definição do MSP, que define a organização para seus nós de peer ou solicitador, que usa certificados de uma CA externa. Agora, é possível retornar às instruções que descrevem [Como usar certificados de uma CA externa com seu peer ou solicitador](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
+Você construiu uma definição do MSP, que define a organização para seus nós de peer e de serviço de pedido, e usa certificados de uma CA externa. Agora, é possível retornar às instruções que descrevem [Como usar certificados de uma CA externa com seu peer ou solicitador](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
 
 ## Importando um MSP
 {: #console-organizations-import-msp}

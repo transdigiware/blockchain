@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-06-18"
+
+keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -26,27 +28,27 @@ O {{site.data.keyword.blockchainfull}} Platform fornece vários caminhos para re
 Para todas as ofertas do {{site.data.keyword.blockchainfull_notm}} Platform, é recomendável primeiramente usar [recursos de suporte digital grátis](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) para solucionar problemas e obter ajuda do {{site.data.keyword.IBM_notm}} e da Comunidade do Hyperledger Fabric. Se você usar uma rede de plano Starter ou Enterprise, será possível navegar para a tela "Suporte" em seu Monitor de Rede, que contém links para esses recursos.
 
 Se o problema não puder ser resolvido por nenhum dos [recursos de suporte digital gratuitos](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources), considere as abordagens a seguir para obter suporte para as ofertas que você usa.
-- **Starter Plan e Enterprise Plan no {{site.data.keyword.cloud_notm}}**
-  Envie um caso de suporte por meio do {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
-- **Beta 2.0 grátis do {{site.data.keyword.blockchainfull_notm}} Platform**
-  Envie um caso de suporte por meio do {{site.data.keyword.cloud_notm}}. **O suporte será limitado durante o período Beta.** Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+- **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
+  Enviar um caso de suporte por meio do {{site.data.keyword.cloud_notm}}. **O suporte é limitado para instâncias Beta da plataforma.** Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
-- **Extensão do {{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code**
-    Envie quaisquer problemas na [Extensão do {{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code](https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues "Extensão do {{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code extension").
+- **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud** Se você comprou uma licença do {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private e deseja entrar em contato com o suporte ao cliente, consulte [Acessando a Comunidade de suporte {{site.data.keyword.IBM_notm}} e abrindo um chamado de suporte](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
 
-- **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private**
-  Se você tiver comprado uma licença do {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private e desejar entrar em contato com o suporte ao cliente, veja [Acessando a Comunidade do suporte IBM e abrindo um chamado de suporte ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](http://www.ibm.com/support/docview.wss?uid=ibm10740041 "Suporte do {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private").
+  Para problemas relacionados ao {{site.data.keyword.cloud_notm}} Private, é possível aproveitar o [suporte digital gratuito e o suporte pago do {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/developerworks/community/blogs/fe25b4ef-ea6a-4d86-a629-6f87ccf4649e/entry/Learn_more_about_IBM_Cloud_Private_Support?lang=en_us){: external}.
 
-  Para problemas que estão relacionados ao {{site.data.keyword.cloud_notm}} Private, é possível aproveitar o [suporte digital grátis e o suporte pago do {{site.data.keyword.cloud_notm}} Private ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://www.ibm.com/developerworks/community/blogs/fe25b4ef-ea6a-4d86-a629-6f87ccf4649e/entry/Learn_more_about_IBM_Cloud_Private_Support?lang=en_us "Suporte do IBM Cloud Private").
-
-- **{{site.data.keyword.blockchainfull_notm}} Platform Community Edition**
-  O {{site.data.keyword.blockchainfull_notm}} Platform Comunity Edition é destinado à exploração, ao desenvolvimento e ao teste. O {{site.data.keyword.IBM_notm}} não fornece suporte para o {{site.data.keyword.blockchainfull_notm}} Platform Community Edition.
+- **Extensão Visual Studio Code do {{site.data.keyword.blockchainfull_notm}} Platform**
+  Envie qualquer problema na [extensão Visual Studio Code do {{site.data.keyword.blockchainfull_notm}} Platform](https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues){: external}.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
   A {{site.data.keyword.IBM_notm}} não fornece suporte para essa oferta e não responderá aos casos de suporte que forem abertos no {{site.data.keyword.cloud_notm}} e estiverem relacionados ao {{site.data.keyword.blockchainfull_notm}} Platform for AWS.
 
-  Para problemas que estão relacionados ao AWS, é possível usar os [fóruns de suporte da comunidade ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://forums.aws.amazon.com/index.jspa "Fóruns de suporte da comunidade AWS") e o [Suporte premium do AWS ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://aws.amazon.com/premiumsupport/ "Suporte premium do AWS").
+  Para problemas relacionados ao AWS, é possível usar os [fóruns de suporte da comunidade](https://forums.aws.amazon.com/index.jspa){: external} e o [suporte premium do AWS](https://aws.amazon.com/premiumsupport/){: external}.
+
+- **Starter Plan e Enterprise Plan no {{site.data.keyword.cloud_notm}}**
+  Envie um caso de suporte por meio do {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+
+  <!--[placeholder] Starter Plan and Enterprise Plan are deprecated on May 30. No new Starter Plan and Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+  {: note} -->
 
 ## Recursos e fóruns de suporte
 {: #blockchain-support-resources}
@@ -54,41 +56,33 @@ Se o problema não puder ser resolvido por nenhum dos [recursos de suporte digit
 **Docs do {{site.data.keyword.blockchainfull_notm}} Service**
   Os [docs do {{site.data.keyword.blockchainfull_notm}} Service](/docs/services/blockchain/index.html#get-started-ibp) fornecem orientação sobre como iniciar com o {{site.data.keyword.blockchainfull_notm}} Platform. É possível localizar tópicos correspondentes no navegador esquerdo ou procurar qualquer termo com a função de procura na parte superior.
 
-O **dWAnswers do {{site.data.keyword.IBM_notm}}**
-  [dWAnswers do {{site.data.keyword.IBM_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://developer.ibm.com/answers/smartspace/blockchain/index.html "Perguntas e respostas no espaço do Blockchain") é um fórum da comunidade para usuários do {{site.data.keyword.blockchainfull_notm}} Platform e do Hyperledger Fabric, que é monitorado por especialistas da {{site.data.keyword.IBM_notm}} e de outras empresas. É possível procurar respostas para perguntas apresentadas anteriormente ou enviar uma nova pergunta. Certifique-se de incluir a palavra-chave **blockchain** em sua nova pergunta.
+**{{site.data.keyword.IBM_notm}} dWAnswers**  
+  O [{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} é um fórum de comunidade para usuários do {{site.data.keyword.blockchainfull_notm}} Platform e do Hyperledger Fabric que é monitorado por especialistas da {{site.data.keyword.IBM_notm}}, entre outros. É possível procurar respostas para perguntas apresentadas anteriormente ou enviar uma nova pergunta. Certifique-se de incluir a palavra-chave **blockchain** em sua nova pergunta.
 
-**Aplicativos de amostra**
-[Aplicativos de amostra ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://github.com/ibm-blockchain "Aplicativos de amostra do IBM Blockchain") em **Aplicativos de amostra do Blockchain** fornece orientação e trechos de código de amostra para auxiliar no desenvolvimento de aplicativos.
+**Recursos do Hyperledger Fabric**  
+  A [documentação do Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}, o [wiki da comunidade do Fabric](https://wiki.hyperledger.org/display/fabric){: external} e o [painel do Fabric Jira](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} fornecem mais detalhes sobre a pilha do Fabric.
 
-**Recursos do Hyperledger Fabric**
-  A [documentação do Hyperledger Fabric ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/ "Hyperledger Fabric"), a [wiki da comunidade do Fabric ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://wiki.hyperledger.org/display/fabric "Fabric community wiki") e o painel do [Fabric Jira ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104 "Painel do Fabric Jira") fornecem mais detalhes sobre a pilha Fabric.
+  Também é possível conversar com um especialista do Fabric em [Rocket.Chat](https://chat.hyperledger.org/channel/fabric){: external} para obter respostas para perguntas sobre o Fabric.
 
-  Também é possível falar com um especialista em Fabric no [Rocket.Chat ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://chat.hyperledger.org/channel/fabric "Canal Rocket.Chat do Fabric") para obter respostas para perguntas sobre o Fabric.
-
-**Recursos do Hyperledger Composer**
-Como o {{site.data.keyword.IBM_notm}} não fornece suporte para o uso do Hyperledger Composer para implementação de produção, é recomendável que você participe da comunidade [Hyperledger Composer ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://chat.hyperledger.org/channel/composer "Comunidade do Hyperledger Composer") e [Stack Overflow ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://stackoverflow.com/questions/tagged/hyperledger-composer  "Perguntas do Stack Overflow identificadas como [hyperleder-composer] ") ao trabalhar em demos e provas de conceito.
+**Recursos do Hyperledger Composer**  
+  Como a {{site.data.keyword.IBM_notm}} não fornece suporte para usar o Hyperledger Composer para implementação de produção, você é encorajado a se envolver com a [comunidade do Hyperledger Composer](https://chat.hyperledger.org/channel/composer){: external} e com o [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-composer){: external} ao trabalhar em demos e provas de conceito.
 
 ## Enviando casos de suporte
 {: #blockchain-support-cases}
 
-Para problemas relacionados ao Starter ou ao Enterprise Plan, é possível enviar um caso de suporte no Portal de Serviço do [{{site.data.keyword.cloud_notm}} ![](images/external_link.svg  "Ícone de link externo")](https://cloud.ibm.com/unifiedsupport/supportcenter "Suporte").
+Para problemas relacionados ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, é possível enviar um caso de suporte no [Portal de serviço do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
 
-Se precisar de ajuda com o chaincode do Hyperledger Fabric, o Hyperledger Composer ou seus aplicativos, use os recursos da comunidade acima ou entre em contato com [Serviços do {{site.data.keyword.blockchainfull_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://www.ibm.com/blockchain/services "Transforme sua estratégia de blockchain em resultados de negócios com os Serviços do {{site.data.keyword.blockchainfull_notm}}"). Recomenda-se usar o Hyperledger Composer unicamente para demos e provas de conceito. O {{site.data.keyword.IBM_notm}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs JavaScript, o servidor REST e o Web Playground.
+Se você precisar de ajuda com o Hyperledger Fabric, o Hyperledger Composer ou seus aplicativos, use os recursos da comunidade acima ou participe dos [serviços do {{site.data.keyword.blockchainfull_notm}}](https://www.ibm.com/blockchain/services){: external}. Recomenda-se usar o Hyperledger Composer unicamente para demos e provas de conceito. A {{site.data.keyword.IBM_notm}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs de JavaScript, o servidor REST e o Web Playground.
 {:note}
 
-A resposta para seu caso de suporte depende de seu plano de suporte do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/docs/get-support/index.html#support-plans "Planos de suporte").
+A resposta ao caso de suporte depende de seu [Plano de suporte do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.
 
-- Se você comprou o **Suporte Premium** ou o **Suporte Avançado**, será possível especificar um nível de severidade em seu chamado de Sev-1 a Sev-4. Sev-1 é o mais alto nível de severidade. Os casos de suporte com níveis de severidade mais altos indicam mais urgência e serão respondidos mais rapidamente pela equipe de suporte. Para obter mais informações, consulte as ofertas de plano de suporte do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/docs/get-support/index.html#support-plans "Planos de suporte").  
+- Se você comprou o **Suporte Premium** ou o **Suporte Avançado**, será possível especificar um nível de severidade em seu chamado de Sev-1 a Sev-4. Sev-1 é o mais alto nível de severidade. Os casos de suporte com níveis de severidade mais altos indicam mais urgência e serão respondidos mais rapidamente pela equipe de suporte. Para obter mais informações, consulte [Ofertas do plano de suporte do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.  
 - Se você não comprar suporte, sua conta pré-paga ou de assinatura do {{site.data.keyword.cloud_notm}} será fornecida com um plano de **Suporte Básico** gratuito. Nesse caso, o caso de suporte será automaticamente registrado como Sev-4.
-
-**Ofertas Beta** são fornecidas com suporte mais limitado do que as liberações de Disponibilidade Geral.
-- Os casos de suporte são registrados com um nível de severidade inferior, geralmente Sev-4 ou Sev-3.
-- O suporte é fornecido em uma base 5x24. Nenhum suporte de fim de semana é fornecido.
-- Para obter mais informações, consulte o suporte do [{{site.data.keyword.cloud_notm}} para serviços Beta](https://cloud.ibm.com/docs/get-support/servicessupport.html#support-different-services "Serviço {{site.data.keyword.IBM_notm}} Beta").
 
 Siga essas etapas para enviar um caso de suporte.
 
-1. Efetue login no Portal de Serviço do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/unifiedsupport/supportcenter "Suporte") com o seu {{site.data.keyword.IBM_notm}}id.
+1. Efetue login no [Portal de serviço do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} com seu {{site.data.keyword.IBM_notm}}id.
 2. Em **Precisa de mais ajuda?** à direita da página, clique em **Criar um caso**.
 3. Preencha o formulário **Criar caso** com as suas informações pelo menos para os campos a seguir.
   - Escolha  ** Técnico **  como seu tipo de caso.

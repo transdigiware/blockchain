@@ -4,15 +4,18 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-20"
 
+keywords: Swagger APIs, create a network, join a network, authentication credential
+
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Criando ou se associando a uma rede com APIs do Swagger
 {: #swagger-network}
@@ -24,17 +27,17 @@ O {{site.data.keyword.blockchainfull}} Platform expõe uma série de APIs de RES
 ## Recuperando credenciais de autenticação básica para a API
 {: #swagger-network-retrieve-id-token}
 
-Antes de iniciar, é necessário criar uma instância de serviço do [{{site.data.keyword.blockchainfull_notm}} Platform ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) com o Starter Plan ou o Enterprise Plan no {{site.data.keyword.cloud_notm}}.
+Antes de iniciar, é necessário criar uma [instância de serviço do {{site.data.keyword.blockchainfull_notm}} Platform ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} com o plano Starter ou o plano Enterprise no {{site.data.keyword.cloud_notm}}.
 
 Para usar APIs do Swagger para criar ou se associar a uma rede, é necessária uma credencial de autenticação básica para assegurar que você tenha acesso à instância de serviço no {{site.data.keyword.cloud_notm}}.
 
-1. No painel de seu [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/external_link.svg "Ícone de link externo")](https://cloud.ibm.com/resources), abra a instância de serviço criada.
+1. No [painel do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}, abra a instância de serviço que você criou.
 2. Clique em **Credenciais de serviço** no navegador esquerdo.
 3. Clique no botão "Nova credencial" na página **Credenciais de serviço** para criar uma nova credencial.
     1. Dê à credencial um nome, por exemplo, *CreateJoin*.
     2. Insira **{"type": "service_instance_token"}** no campo "Incluir parâmetro de configuração sequencial".
     3. Clique no botão **Incluir**.
-    ![Recuperar credenciais de serviço](../images/service_credentials.gif "Recuperar credenciais de serviço")
+    ![Recuperar credenciais de serviço](../images/service_credentials.gif "Recuperar credenciais de serviço"){: gif}
 4. Após a nova credencial ser criada, clique em **Visualizar credenciais** sob o cabeçalho **AÇÕES** dessa credencial. O conteúdo da credencial é semelhante a este exemplo:
 
     ```
