@@ -2,13 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -16,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # Utilisation du Moniteur réseau
 {: #ibp-dashboard}
@@ -47,7 +50,6 @@ L'écran "Présentation" affiche des informations d'état en temps réel concern
 La **Figure 1** illustre l'écran "Présentation" :
 
 ![Présentation du réseau](images/myresources.png "Présentation du réseau")
-*Figure 1. Présentation du réseau*
 
 ### Actions de noeud
 {: #ibp-dashboard-node-actions}
@@ -87,7 +89,6 @@ Le **plan Starter** crée un homologue pour chacune des deux organisations form�
 La **Figure 2** illustre l'onglet "Stockage" qui affiche la consommation du stockage de votre réseau.
 
 ![Onglet Stockage dans l'écran Présentation](images/monitor_storage_starter.png "Stockage")
-*Figure 2. Stockage*
 
 Le diagramme "Ressources" affiche l'espace de stockage utilisé par les homologues et les autorités de certification. Toutes les organisations que vous créez ou invitez à rejoindre votre réseau sont incluses dans ce pool. Les organisations qui consomment des ressources sont répertoriés sur l'écran dans seconde puce.
 
@@ -104,7 +105,6 @@ L'écran "Membres" comporte deux onglets qui affichent des informations relative
 La **Figure 3** illustre l'écran "Membres" initial qui affiche les membres de votre réseau sous l'onglet "Membres" :
 
 ![Onglet Membres de l'écran Membres](images/monitor_members.png "Membres du réseau")
-*Figure 3. Membres du réseau*
 
 Vous pouvez inviter d'autres "membres" dans l'onglet "Membres" afin d'ajouter ceux qui sont initialement invités lorsque vous créez le réseau. Pour inviter un membre à rejoindre votre réseau, entrez le nom de l'institution et l'adresse électronique de l'opérateur et cliquez sur **Ajouter un membre**. Un réseau peut comporter au total 15 membres (initiateur du réseau compris). Pour retirer un membre de votre réseau, cliquez sur le symbole "retirer" en fin de ligne du membre.
 
@@ -113,7 +113,6 @@ Vous pouvez inviter d'autres "membres" dans l'onglet "Membres" afin d'ajouter ce
 La **Figure 4** illustre l'écran "Ajouter un membre".
 
 ![Ajouter un membre](images/invite_member_starter.png "Ajouter un membre")
-*Figure 4. Ajouter un membre*
 
 Lorsque vous cliquez sur **Ajouter un membre**, deux options vous sont proposées :
 - **Inviter un membre**. Vous pouvez inviter d'autres organisations à devenir membres du réseau. Les organisation invitées peuvent rejoindre votre réseau et collaborer avec vous.
@@ -126,11 +125,8 @@ Lorsque vous cliquez sur **Ajouter un membre**, deux options vous sont proposée
 La **Figure 5** présente l'écran "Membres" initial qui affiche les certificats de membre sous l'onglet "Certificats" :
 
 ![Onglet Certificats de l'écran Membres](images/monitor_certificates.png "Certificats")
-*Figure 5. Certificats*
 
 Les opérateurs peuvent gérer les certificats des membres d'une même institution sous l'onglet "Certificats". Cliquez sur **Ajouter le certificat** pour afficher l'écran "Ajouter le certificat". Donnez un nom à votre certificat, collez vos certificats côté client au format PEM dans la zone "Clé", puis cliquez sur **Soumettre**. Vous devez redémarrer vos homologues pour que les certificats côté client puissent être pris en compte.
-
-Pour plus d'informations sur la génération de votre clé de certificat, voir [Inscription de votre application](/docs/services/blockchain/v10_application.html#dev-app-enroll).
 
 ## Canaux
 {: #ibp-dashboard-channels}
@@ -140,7 +136,6 @@ Les canaux, qui se composent d'un sous-ensemble de membres réseau qui souhaiten
 La **Figure 6** illustre l'écran de tableau de bord initial qui affiche une présentation de tous les canaux de votre réseau.
 
 ![Canaux](images/channels.png "Canaux")
-*Figure 6. Canaux*
 
 La création d'un canal entraîne la génération d'un registre spécifique à un canal. Pour plus d'informations, voir [Création d'un canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel).
 
@@ -156,7 +151,6 @@ Lorsque vous créez un canal ou êtes invité à rejoindre un nouveau canal, une
 La **Figure 7** illustre l'écran "Notifications" :
 
 ![Notifications](images/notifications.png "Notifications")
-*Figure 7. Notifications*
 
 Les demandes sont regroupées dans les sous-onglets "Toutes", "En attente" et "Terminée". Les nombres figurant à la suite de l'en-tête du sous-onglet indiquent le nombre de demandes dans chaque sous-onglet.
    * Vous pouvez trouver toutes vos demandes sous le sous-onglet "Toutes".
@@ -175,9 +169,8 @@ Le tableau à l'écran "Autorité de certification" panneau affiche toutes les i
 La **Figure 8** illustre l'écran "Autorité de certification" :
 
 ![Autorité de certification](images/CA_screen.png "Autorité de certification")
-*Figure 8. Autorité de certification*
 
-Cliquez sur le bouton **Génération de certificat** en regard de votre identité admin pour obtenir un nouveau certificat public et une clé privée auprès de votre autorité de certification. La zone **Certificat** contient le certificat public, également appelé signCert ou certificat d'inscription, juste au-dessus de la **clé privée**. Vous pouvez cliquer sur l'icône de copie à la fin de chaque zone pour copier la valeur. Ce panneau peut être utilisé comme alternative à la génération d'une paire de clés publique et privée pour une application client qui utilise le logiciel SDK Fabric. Pour en savoir plus, voir le [tutoriel relatif au développement d'applications](/docs/services/blockchain/v10_application.html#dev-app). **Notez** qu'{{site.data.keyword.blockchainfull_notm}} Platform ne stocke pas ces certificats. Vous devez les enregistrer et les stocker en lieu sûr.
+Cliquez sur le bouton **Génération de certificat** en regard de votre identité admin pour obtenir un nouveau certificat public et une clé privée auprès de votre autorité de certification. La zone **Certificat** contient le certificat public, également appelé signCert ou certificat d'inscription, juste au-dessus de la **clé privée**. Vous pouvez cliquer sur l'icône de copie à la fin de chaque zone pour copier la valeur. Ce panneau peut être utilisé comme alternative à la génération d'une paire de clés publique et privée pour une application client qui utilise le logiciel SDK Fabric. **Notez** qu'{{site.data.keyword.blockchainfull_notm}} Platform ne stocke pas ces certificats. Vous devez les enregistrer et les stocker en lieu sûr.
 
 Cliquez sur le bouton **Ajouter un utilisateur** pour enregistrer une nouvelle identité à votre organisation. Dans la fenêtre en incrustation **Ajouter un utilisateur**, renseignez les zones suivantes, puis cliquez sur **Soumettre**.
   - **ID d'inscription :** Il s'agit du nom de votre nouvelle identité, parfois appelée `ID inscription`. **Sauvegardez cette valeur** à des fins de configuration d'un homologue distant ou d'inscription d'une nouvelle application.
@@ -191,12 +184,11 @@ Vous pouvez en savoir plus sur l'autorité de certification en consultant le tut
 ## API
 {: #ibp-dashboard-apis}
 
-{{site.data.keyword.blockchainfull_notm}} Platform expose dans Swagger un certain nombre d'API REST que vous pouvez utiliser pour gérer les noeuds, les homologues et les membres de votre réseau. Vos applications peuvent recourir à ces API pour gérer d'importantes ressources réseau sans utiliser le moniteur réseau.
+{{site.data.keyword.blockchainfull_notm}} Platform expose dans Swagger un certain nombre d'API REST que vous pouvez utiliser pour gérer les noeuds, les homologues et les membres de votre réseau. Vos applications peuvent recourir à ces API pour gérer d'importantes ressources réseau sans utiliser le Moniteur réseau.
 
 La **Figure 9** illustre l'écran "API" :
 
 ![API](images/API_screen.png "API")
-*Figure 9. API*
 
 Cliquez sur le lien **Interface utilisateur swagger** pour ouvrir l'identificateur Swagger. Notez que vous devez autoriser l'interface utilisateur swagger à l'aide de vos données d'identification réseau (qui se trouvent sur la page d'API) avant d'exécuter les API. Pour plus de détails, voir [Interaction avec le réseau à l'aide d'API Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
 
@@ -210,7 +202,6 @@ Le plan Starter et le plan Enterprise fournissent un environnement de développe
 La **Figure 10** illustre l'écran "Développement de code" :
 
 ![Développement de code](images/write_code.png "Développement de code")
-*Figure 10. Développement de code*
 
 Pour plus d'informations sur le développement et le déploiement de vos réseaux d'entreprise, voir [Déploiement de réseaux d'entreprise dans le plan Starter et le plan Enterprise](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network).
 
@@ -222,7 +213,6 @@ Le code blockchain, également appelé "contrat intelligent", est l'élément lo
 La **Figure 11** illustre l'écran "Installer le code" :
 
 ![Installer le code](images/chaincode_install_overview.png "Installer le code")
-*Figure 11. Installer le code*
 
 Un code blockchain est tout d'abord installé sur le système de fichiers d'un homologue, puis il est instancié sur un canal. Pour plus d'informations, voir [Installation, instanciation et mise à jour d'un code blockchain](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
@@ -234,24 +224,22 @@ Des modèles d'application vous permettent d'avoir une meilleure compréhension 
 La **Figure 12** illustre l'écran "Essayer les modèles" :
 
 ![Essayer les modèles](images/sample_overview_ep.png "Essayer les modèles")
-*Figure 12. Modèles*
 
 ## Obtenir de l'aide
 {: #ibp-dashboard-support}
 
-L'écran "Obtenir de l'aide" comporte un onglet "Support" qui fournit une liste des ressources pour les développeurs et un onglet "Notes sur l'édition" qui décrit les nouvelles fonctions de  {{site.data.keyword.blockchainfull_notm}} Platform.
+L'écran "Obtenir de l'aide" comporte un onglet "Support" qui fournit une liste des ressources pour les développeurs et un onglet "Notes sur l'édition" qui décrit les nouvelles fonctions de {{site.data.keyword.blockchainfull_notm}} Platform.
 
 La **Figure 13** affiche des informations sous l'onglet "Support" initial :
 
 ![Support](images/support.png "Support")
-*Figure 13. Support Blockchain*
 
 ### Ressources de blockchain et forums de support
 {: #ibp-dashboard-support-forums}
 
-Utilisez les ressources de l'onglet "Support" pour résoudre les problèmes et obtenir de l'aide auprès de {{site.data.keyword.IBM_notm}} et de la communauté  Fabric. Pour plus d'informations sur les liens de l'onglet "Support", voir [Ressources et forums de support](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) dans [Support](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
+Utilisez les ressources de l'onglet "Support" pour résoudre les problèmes et obtenir de l'aide auprès de {{site.data.keyword.IBM_notm}} et de la communauté Fabric. Pour plus d'informations sur les liens de l'onglet "Support", voir [Ressources et forums de support](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) dans [Support](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
 
-[IBM dWAnswers ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://developer.ibm.com/answers/smartspace/blockchain/index.html) est un forum de communauté pour les utilisateurs de {{site.data.keyword.blockchainfull_notm}} Platform et d'Hyperledger Fabric et il est surveillé par des experts IBM. Vous pouvez rechercher des réponses à des questions préalablement posées ou soumettre une nouvelle question. Si vous ne parvenez pas à déboguer votre problème ou à obtenir une réponse à votre question, soumettez un cas sur le portail de service {{site.data.keyword.cloud_notm}}. Pour plus d'informations, voir [Soumission de cas de support](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} est un forum de communauté pour les utilisateurs de {{site.data.keyword.blockchainfull_notm}} Platform and d'Hyperledger Fabric et il est surveillé par des experts {{site.data.keyword.IBM_notm}}. Vous pouvez rechercher des réponses à des questions préalablement posées ou soumettre une nouvelle question. Si vous ne parvenez pas à déboguer votre problème ou à obtenir une réponse à votre question, soumettez un cas sur le portail de service {{site.data.keyword.cloud_notm}}. Pour plus d'informations, voir [Soumission de cas de support](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
 
 ### Notes sur l'édition de Fabric
@@ -262,12 +250,10 @@ L'onglet "Notes sur l'édition" affiche les fonctions les plus récentes de votr
 La **Figure 14** illustre les notes sur l'édition pour l'interface utilisateur du Moniteur réseau.
 
 ![Notes sur l'édition helios](images/releasenotes_helios.png "Notes sur l'édition de l'interface utilisateur du Moniteur réseau")
-*Figures 14. Notes sur l'édition pour Helios*
 
-La **Figure 15** illustrez les notes sur l'édition pour votre version de réseau  d'Hyperledger Fabric et de l'autorité de certification Fabric.
+La **Figure 15** illustrez les notes sur l'édition pour votre version de réseau d'Hyperledger Fabric et de l'autorité de certification Fabric.
 
 ![Notes sur l'édition Fabric](images/releasenotes_Fabric.png "Notes sur l'édition de Fabric")
-*Figures 15. Notes sur l'édition pour Fabric*
 
 ## Préférences réseau
 {: #ibp-dashboard-network-preferences}
@@ -285,8 +271,7 @@ Le délai d'attente d'inactivité Web est défini sur **Désactivé** par défau
 
 La **Figure 16** illustre la fenêtre "Préférences réseau" :
 
-![Préférences réseau](images/network_preferences.gif "Préférences réseau")
-*Figure 16. Préférences réseau*
+![Préférences réseau](images/network_preferences.gif "Préférences réseau"){: gif}
 
 ### TLS mutuel (pour les réseaux de plan Enterprise)
 {: #ibp-dashboard-mutual-tls}
@@ -297,7 +282,7 @@ Les **réseaux de plan Enterprise** vous offrent la possibilité d'activer la fo
 
 Le bouton TLS mutuel est défini sur **Désactivé** par défaut. Si vous activez TLS mutuel, vous devez mettre à jour vos applications afin de prendre en charge cette fonction. Sinon, vos applications ne pourront pas communiquer avec le réseau.
 
-Pour un réseau du plan Enterprise Fabric 1.1, chaque organisation a sa propre autorité de certification TLS mutuel. Les informations nécessaires pour la connexion  à l'autorité de certification TLS mutuel sont disponibles dans le [Profil de connexion](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile) accessible depuis votre écran **Présentation** dans le Moniteur réseau en cliquant sur le bouton **Profil de connexion**. Le profil de connexion contient les informations nécessaires à la connexion à l'autorité de certification et à l'obtention des certificats dont vous avez besoin pour la connexion à votre réseau.
+Pour un réseau du plan Enterprise Fabric 1.1, chaque organisation a sa propre autorité de certification TLS mutuel. Les informations nécessaires pour la connexion à l'autorité de certification TLS mutuel sont disponibles dans le [Profil de connexion](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile) accessible depuis votre écran **Présentation** dans le Moniteur réseau en cliquant sur le bouton **Profil de connexion**. Le profil de connexion contient les informations nécessaires à la connexion à l'autorité de certification et à l'obtention des certificats dont vous avez besoin pour la connexion à votre réseau.
 
 Dans le profil de connexion, localisez la section `certificateAuthorities` où vous trouverez les attributs suivants qui sont nécessaires à l'inscription et à l'obtention des certificats pour communiquer avec votre réseau à l'aide de TLS mutuel.
 
@@ -306,7 +291,7 @@ Dans le profil de connexion, localisez la section `certificateAuthorities` où v
 - `enrollSecret` : valeur confidentielle d'inscription à utiliser pour l'obtention d'un certificat
 - `x-tlsCAName` : nom d'autorité de certification à utiliser pour l'obtention d'un certificat qui permettra à l'application de communiquer avec TLS mutuel.
 
-Pour plus d'informations sur la mise à jour de vos applications pour la prise en charge de TLS mutuel, voir [How to configure mutual TLS![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html)
+Pour plus d'informations sur la mise à jour de vos applications pour la prise en charge de TLS mutuel, voir [How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
 
 <!--
 
@@ -326,7 +311,6 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 La **Figure 17** affiche la fenêtre "Préférences réseau" :
 
 ![Préférences réseau](images/network_preferences_ep_tmp.png "Préférences réseau")
-*Figure 17. Préférences réseau*
 
 ## Mettre à jour le nom de réseau
 {: #ibp-dashboard-network-name}
@@ -337,8 +321,7 @@ Dans la partie supérieure gauche du Moniteur réseau, cliquez sur l'icône de r
 
 La **Figure 18** illustre les étapes de mise à jour du nom de réseau du plan Starter : nom affecté remplacé par "Starter Plan Network".
 
-![Mise à jour du nom réseau](images/update_network_name_ep.gif "Mise à jour du nom réseau")
-*Figure 18. Mise à jour du nom réseau*
+![Mise à jour du nom réseau](images/update_network_name_ep.gif "Mise à jour du nom réseau"){: gif}
 
 
 ## Basculement entre réseaux (pour les réseau de plan Starter)
@@ -350,8 +333,7 @@ Dans la partie supérieure gauche du Moniteur réseau, cliquez sur l'icône en f
 
 La **Figure 19** illustre les étapes de basculement vers un autre réseau du plan Starter.
 
-![Basculement entre les réseaux](images/switch_network.gif "Basculement entre les réseaux")
-*Figure 19. Basculement entre les réseaux*
+![Basculement entre les réseaux](images/switch_network.gif "Basculement entre les réseaux"){: gif}
 
 
 ## Réinitialisation de réseau (pour les réseaux de plan Starter)
@@ -366,4 +348,3 @@ Cliquez dans l'angle supérieur droit et ouvrez le menu déroulant. Cliquez sur 
 La **Figure 20** présente la fonction de "réinitialisation du réseau" :
 
 ![Réinitialiser le réseau](images/reset_network.png "Réinitialiser le réseau")
-*Figure 20. Réinitialiser le réseau*

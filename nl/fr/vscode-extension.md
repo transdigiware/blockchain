@@ -2,13 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-05-31"
+
+keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -16,313 +17,265 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
-# Outils pour contrats intelligents
+# Développement de contrats intelligents avec l'extension Visual Studio Code
 {: #develop-vscode}
 
-L'extension Visual Studio Code de {{site.data.keyword.blockchainfull}} Platform fournit un environnement au sein de Visual Studio Code pour le développement, le packaging et le déploiement de packages de contrat intelligent. Cette extension inclut également des commandes pour définir une instance locale préconfigurée d'Hyperledger Fabric pour le développement de contrat intelligent local.
 
-**Remarque :** L'extension {{site.data.keyword.blockchainfull_notm}} Platform est compatible avec les réseaux de plan Starter {{site.data.keyword.blockchainfull_notm}} Platform, et avec Hyperledger Fabric versions 1.3.x et suivantes.
+L'extension Visual Studio (VS) Code d'{{site.data.keyword.blockchainfull}} Platform fournit un environnement au sein de Visual Studio Code pour le développement, le packaging, et les tests de contrats intelligents. Vous pouvez utiliser l'extension pour créer votre projet de contrat intelligent et commencer à développer votre logique métier. Vous pouvez ensuite utiliser VS Code pour tester votre contrat intelligent sur votre machine locale en utilisant une instance préconfigurée d'Hyperledger Fabric avant de déployer le contrat intelligent dans {{site.data.keyword.blockchainfull_notm}} Platform. Ce tutoriel décrit l'utilisation de l'extension VS Code.
 
-## Prérequis
+![Flux de travail de développement de contrat intelligent classique](images/SmartContractflow.png "Flux de travail de développement de contrat intelligent classique")  
+
+<!--
+<img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f1b2" src="images/SmartContractflow.png" width="750" alt="Click a box to get more details on the process." style="width:750px;" />
+<map name="home_map1" id="home_map1">
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Create a smart contract project" title="Create a Smart contract project" shape="rect" coords="40, 73.2, 175, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Develop contract code in VS Code" title="Create key pair" shape="rect" coords="199, 73.2, 334, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="358, 73.2, 175, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-deploy" alt="Deploy locally to test and debug" title="Deploy locally to test and debug" shape="rect" coords="358, 73.2, 493, 128.2"/>
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="517, 152.2, 493, 207.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-connecting-ibp" alt="Deploy to {{site.data.keyword.cloud_notm}}" title="Deploy to {{site.data.keyword.cloud_notm}}" shape="rect" coords="700, 73.2, 835, 128.2" />
+-->
+
+Cette extension d'{{site.data.keyword.blockchainfull_notm}} Platform fonctionne en toute transparence avec une instance d'{{site.data.keyword.blockchainfull_notm}} Platform qui utilise Hyperledger Fabric versions 1.4 et suivantes.
+{: note}
+
+## Etape 1 : Installer l'extension VS Code d'{{site.data.keyword.blockchainfull_notm}} Platform sans frais
+{: #develop-vscode-install}
+
+Avant d'installer l'extension VS Code d'{{site.data.keyword.blockchainfull_notm}} Platform, vous devez effectuer les étapes prérequises.
+
+### Prérequis
 {: #develop-vscode-prerequisites}
 
-Avant d'installer l'extension Visual Studio Code de {{site.data.keyword.blockchainfull_notm}} Platform, effectuez les étapes prérequises suivantes.
+- **Installez Visual Studio Code**  
+  Installez l'éditeur de code [Visual Studio](https://code.visualstudio.com/).  
+- **Installez Yeoman**  
+  Yeoman est un outil générateur que vous pouvez utiliser pour créer le squelette de projets contrat intelligent. Installez Yeoman à l'aide de la commande suivante : `npm install -g yo`.  
+- **Installez Docker**  
+Pour exécuter l'instance préconfigurée d'Hyperledger Fabric, vérifiez que vous avez installé [Docker](https://www.docker.com/){: external}.  
+- **Système d'exploitation requis**  
+  Actuellement, cette extension est compatible avec Mac, Windows et Linux.  
+- **Versions d'Hyperledger Fabric requises**  
+  Cette extension est compatible avec Hyperledger Fabric versions 1.4.0 et suivantes.  
 
-- **Installez Yeoman**
-
-  Yeoman est un outil générateur utilisé pour créer le squelette de projets contrat intelligent. Installez Yeoman à l'aide de la commande suivante : `npm install -g yo`
-
-- **Installez le générateur Fabric pour Yeoman**
-
-  Après avoir installé Yeoman, installez le générateur Fabric pour la création du squelette de packages contrat intelligent. Installez le générateur Fabric à l'aide de la commande suivante : `npm install -g generator-fabric`
-
-- **Installez Docker**
-
-  Pour exécuter l'instance préconfigurée d'Hyperledger Fabric, vérifiez que vous avez installé [Docker ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://www.docker.com/).
-
-- **Système d'exploitation requis**
-
-  Actuellement, cette extension est compatible avec Mac, Windows et Linux.
-
-- **Versions d'Hyperledger Fabric requises**
-
-  Cette extension est compatible avec les versions 1.3.0 et suivantes d'Hyperledger Fabric.
-
-- **Versions d'Hyperledger Fabric requises**
-
-  Cette extension est compatible avec les versions 1.3.0 et suivantes d'Hyperledger Fabric.
-
-## Installation de l'extension
+### Installation de l'extension
 {: #develop-vscode-installing-the-extension}
 
-1. Accédez à la [page de place du marché de l'extension de code Visual Studio ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform) ou recherchez **{{site.data.keyword.blockchainfull_notm}} Platform** dans l'écran des extensions au sein de Visual Studio Code.
+1. Accédez à la [page de place du marché de l'extension de code Visual Studio](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} ou recherchez **{{site.data.keyword.blockchainfull_notm}} Platform** dans l'écran des extensions au sein de Visual Studio Code.
 2. Cliquez sur **Installer**.
 3. Redémarrez Visual Studio Code pour terminer l'installation de l'extension.
 
-## Palette de commandes de Visual Studio Code
-{: #develop-vscode-command-palette}
+A l'issue de l'installation, vous pouvez utiliser l'icône {{site.data.keyword.blockchainfull_notm}} sur le côté gauche du code VS pour ouvrir le panneau d'{{site.data.keyword.blockchainfull_notm}} Platform.
 
-Cette extension ajoute de nombreuses commandes à la palette de commandes Visual Studio Code. Nombre d'opérations détaillées dans ce document peuvent également être démarrées en exécutant la commande à partir de la palette de commandes Visual Studio Code.
+![Icône {{site.data.keyword.blockchainfull_notm}}](images/vscode-blockchain.png "Icône {{site.data.keyword.blockchainfull_notm}}")
 
-## Création d'un projet
+L'extension ajoute également de nombreuses commandes à la palette de commandes Visual Studio Code. Vous pouvez utiliser la palette de commandes pour effectuer la plupart des opérations qui sont décrites en détail dans ce guide.
+
+## Etape 2 : Créer un contrat intelligent
 {: #develop-vscode-creating-a-project}
 
-Pour créer un projet, procédez comme suit :
+Vous pouvez utiliser l'extension pour créer un projet de contrat intelligent dans Visual Studio Code. L'extension crée un contrat intelligent de base qui gère un exemple d'actif dans le langage de votre choix. Vous pouvez utiliser la structure d'exemple comme point de départ pour le développement de votre propre logique métier. L'extension fournit toutes les dépendances qui sont requises pour déployer votre contrat intelligent dans une instance d'Hyperledger Fabric.
 
-1. Ouvrez la palette de commandes, exécutez la commande **Blockchain: Create Smart Contract Project**.
-2. Sélectionnez la langue dans laquelle vous voulez créer un contrat intelligent, actuellement les options possibles sont le JavaScript ou le TypeScript.
-3. Créez un dossier portant le nom de votre projet, et ouvrez-le.
-4. Sélectionnez comment ouvrir votre nouveau projet. Le dossier de projet doit s'ouvrir.
+1. Ouvrez l'onglet **{{site.data.keyword.blockchainfull_notm}}**. Cliquez sur le menu déroulant dynamique dans le panneau de packages de contrat intelligent et cliquez sur **Créer un projet de contrat intelligent**.
+2. Sélectionnez le langage dans lequel vous voulez créer un contrat intelligent. Les options actuelles sont : JavaScript, TypeScript, Go et Java. **Remarque : ** {{site.data.keyword.blockchainfull_notm}} Platform ne prend pas en charge le code blockchain Java.
+3. **Si vous avez sélectionné JavaScript ou TypeScript**, choisissez un actif qui doit être géré par l'exemple de contrat. Par exemple, ***bond***.
+4. Créez un dossier portant le nom de votre projet, et ouvrez-le.
+5. Sélectionnez comment ouvrir votre nouveau projet. Le dossier de projet doit s'ouvrir.
 
-## Connexion et déconnexion d'un réseau
-{: #develop-vscode-connecting-and-disconnecting}
+Lorsque le projet s'ouvre, vous pouvez trouver le nouveau contrat intelligent dans la fenêtre de l'explorateur dans le panneau de gauche. La structure du projet dépend du langage que vous avez sélectionné. Toutefois, chaque contrat intelligent contient les mêmes éléments :
+- Le code source du contrat intelligent. Si vous avez choisi de créer un contrat Javascipt or TypeScript, l'extension génère un contrat intelligent de base à l'aide de l'API `fabric-contract-api` avec une série de fonctions qui gèrent votre exemple d'actif. Par exemple, si vous avez sélectionné ***bond***, vous trouverez les fonctions de `createBond`, `updateBond`, `readBond`, `bondExists` et `deleteBond`.
+- Un fichier test.
+- Les dépendances qui accompagnent le contrat intelligent.
 
-Lorsque vous utilisez cette extension, vous installez et instanciez les packages de contrat intelligent sur des homologues et des canaux dans votre instance Hyperledger Fabric. Cette extension peut initialiser une instance locale préconfigurés d'Hyperledger Fabric avec Docker.
-
-### Connexion à l'instance Hyperledger Fabric préconfigurée
-{: #develop-vscode-connecting-to-preconfigured-Fabric-instance}
-
-Pour vous connecter à l'instance Hyperledger Fabric préconfigurée, vérifiez d'abord que Docker est en cours d'exécution sur votre machine :
-
-1. Ouvrez l'onglet **{{site.data.keyword.blockchainfull_notm}} Platform** dans Visual Studio Code.
-2. Dans le panneau **{{site.data.keyword.blockchainfull_notm}} Platform**, cliquez sur **local_fabric**. Si Docker est en cours d'exécution, l'instance Hyperledger Fabric locale doit être téléchargée et démarrée.
-3. Une fois l'instance Hyperledger Fabric locale démarrée, double-cliquez sur **local_fabric** pour vous y connecter. Vous devriez maintenant voir un canal nommé `mychannel`.
-
-#### Redémarrage de l'exécution Hyperledger Fabric préconfigurée
-{: #develop-vscode-restarting-Fabric-runtime}
-
-Pour redémarrer l'exécution `local_fabric` :
-
-1. Cliquez avec le bouton droit sur la connexion `local_fabric` lorsqu'elle est établie.
-2. Sélectionnez **Redémarrer l'exécution Fabric**.
-
-Les conteneurs Hyperledger Fabric seront arrêtés et redémarrés.
-
-#### Désassemblage de l'exécution Hyperledger Fabric
-{: #develop-vscode-teardown-Fabric}
-
-Pour désassembler l'exécution `local_fabric` :
-
-1. Cliquez avec le bouton droit sur la connexion `local_fabric` lorsqu'elle est établie.
-2. Sélectionnez **Désassembler l'exécution Fabric**.
-
-L'exécution d'un désassemblage du réseau `local_fabric` fermera tous les conteneurs Hyperledger Fabric. **Remarque **: Cela entraînera la perte du registre et des données "world state".
-
-#### Activation du mode développement dans l'exécution Hyperledger Fabric préconfigurée
-{: #develop-vscode-enabling-development-mode-Fabric}
-
-En mode de fonctionnement normal, un homologue doit créer et gérer un conteneur de code blockchain pour exécuter des contrat intelligent instanciés. En passant au mode développement, l'homologue permet au conteneur de code blockchain de s'exécuter manuellement. L'exécution du conteneur de code blockchain manuellement, sur la ligne de commande ou sur un terminal, vous aide dans le développement et le débogage itératifs des contrats intelligents.
-
-Pour activer le mode développement avec l'exécution Hyperledger Fabric préconfigurée :
-
-1. Cliquez avec le bouton droit sur la connexion `local_fabric` lorsqu'elle est établie.
-2. Sélectionnez **Basculer en mode développement**.
-
-Le mode développement doit être activé pour permettre l'utilisation de la fonction de débogage de l'extension.
-
-### Connexion à {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan
-{: #develop-vscode-connecting-to-Starter-Plan}
-
-L'extension Visual Studio Code de {{site.data.keyword.blockchainfull_notm}} Platform peut être utilisée pour la connexion à une instance de {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan. Une fois la connexion effectuée, l'extension peut être utilisée pour développer et déployer des contrats intelligents.
-
-**Remarque :** Actuellement, l'extension n'est pas compatible avec {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan.
-
-1. Si vous ne disposez pas d'une instance de plan Starter {{site.data.keyword.blockchainfull_notm}} Platform, [créez-en une ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod).
-2. Ouvrez l'interface utilisateur {{site.data.keyword.blockchainfull_notm}} Platform en cliquant sur **Lancer**.
-3. Procédez à l'extraction de votre profil de connexion en cliquant sur **Présentation** > **Profil de connexion** > **Télécharger**.
-4. Générez les certificats d'admin requis en cliquant sur **Autorité de certification** > **Génération de certificat** et en sauvegardant le certificat et la clé privée sur votre système de fichiers.
-5. Ajoutez les certificats à votre instance {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan en cliquant sur **Membres** > **Certificats** > **Ajouter un certificat**, et en sélectionnant le certificat créé à l'étape précédente.
-6. Dans Visual Studio Code, ouvrez la vue de l'extension {{site.data.keyword.blockchainfull_notm}} Platform et cliquez sur **Ajouter nouvelle connexion**.
-7. Entrez le nom de la connexion, le chemin d'accès au profil de connexion, puis sélectionnez un portefeuille existant [ ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "Portefeuille"), ou créez un nouveau portefeuille à l'aide d'un certificat et d'une clé privée.
-
-### Connexion à votre propre instance d'Hyperledger Fabric
-{: #develop-vscode-connecting-to-own-Fabric-instance}
-
-En utilisant cette extension, vous pouvez vous connecter à une instance locale préconfigurée d'Hyperledger Fabric, ou vous pouvez vous connecter à votre propre instance Hyperledger Fabric. Si vous choisissez de vous connecter à votre propre instance de Fabric, il doit s'agir des versions 1.3.0 ou suivantes de Fabric.
-
-Pour vous connecter à votre propre instance d'Hyperledger Fabric, procédez comme suit :
-
-1. Ouvrez l'onglet **{{site.data.keyword.blockchainfull_notm}} Platform** dans Visual Studio Code.
-2. Dans le panneau **{{site.data.keyword.blockchainfull_notm}} Platform**, cliquez sur **Ajouter nouvelle connexion**.
-3. Entrez un nom pour la connexion. Ce nom sera affiché dans le panneau  **{{site.data.keyword.blockchainfull_notm}} Platform**.
-4. Entrez le chemin complet de votre profil de connexion Hyperledger Fabric.
-5. Sélectionnez un système de fichiers existant [portefeuille ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "Portefeuille"), ou créez un nouveau portefeuille de système de fichiers en entrant les chemins d'accès du certificat et de la clé privée pour votre identité Fabric.
-6. Votre connexion doit apparaître dans la liste des connexions sous `local_fabric`. Cliquez deux fois sur le nom de la connexion pour vous connecter.
-
-Si vous ne disposez pas d'une instance préexistante d'Hyperledger Fabric en version 1.3.0 ou suivante, vous pouvez vous connecter à l'aide de l'instance Hyperledger Fabric préconfigurée, ou exécuter les commandes suivantes pour extraire et marquer les images de la version 1.3.0 :
-
-```
-docker pull nexus3.hyperledger.org:10001/hyperledger/fabric-ca:amd64-1.3.0-stable
-docker tag nexus3.hyperledger.org:10001/hyperledger/fabric-ca:amd64-1.3.0-stable hyperledger/fabric-ca
-docker pull nexus3.hyperledger.org:10001/hyperledger/fabric-orderer:amd64-1.3.0-stable
-docker tag nexus3.hyperledger.org:10001/hyperledger/fabric-orderer:amd64-1.3.0-stable hyperledger/fabric-orderer
-docker pull nexus3.hyperledger.org:10001/hyperledger/fabric-peer:amd64-1.3.0-stable
-docker tag nexus3.hyperledger.org:10001/hyperledger/fabric-peer:amd64-1.3.0-stable hyperledger/fabric-peer
-docker pull nexus3.hyperledger.org:10001/hyperledger/fabric-tools:amd64-1.3.0-stable
-docker tag nexus3.hyperledger.org:10001/hyperledger/fabric-tools:amd64-1.3.0-stable hyperledger/fabric-tools
-docker pull nexus3.hyperledger.org:10001/hyperledger/fabric-ccenv:amd64-1.3.0-stable
-docker tag nexus3.hyperledger.org:10001/hyperledger/fabric-ccenv:amd64-1.3.0-stable hyperledger/fabric-ccenv
-```
-{:codeblock}
-
-### Déconnexion d'un réseau
-{: #develop-vscode-disconnecting}
-
-Une fois connecté à un réseau, vous pouvez fermer la connexion en cliquant sur l'icône de déconnexion dans l'angle supérieur droit du panneau Connexions blockchain. Vous pouvez également vous déconnecter en exécutant la commande **Disconnect from a blockchain** depuis la palette de commandes.
-
-## Edition ou suppression d'une connexion
-{: #develop-vscode-editing-or-deleting-connection}
-
-Les connexions peuvent être éditées ou supprimées dans le volet des connexions.
-
-### Edition d'une connexion
-{: #develop-vscode-editing-connection}
-
-En éditant une connexion, vous pouvez modifier le chemin du profil de connexion, le nom donné à la connexion, ainsi que les chemins d'accès aux certificats d'identité et aux clés privées.
-
-Pour éditer une connexion :
-
-1. À partir de l'extension, cliquez avec le bouton droit sur la connexion à éditer dans l'angle inférieur gauche. Un menu contextuel s'ouvre avec les options pour ajouter une identité, éditer la connexion ou supprimer la connexion.
-2. Sélectionnez **Editer une connexion**.
-3. La page **Paramètres utilisateur** s'affiche, avec les détails de connexion mis en évidence.
-4. Apportez des modifications, puis sauvegardez la page des paramètres.
-
-### Suppression d'une connexion
-{: #develop-vscode-deleting-connection}
-
-Les connexions peuvent être supprimées comme suit :
-
-1. À partir de l'extension, cliquez avec le bouton droit sur la connexion à éditer dans l'angle inférieur gauche. Un menu contextuel s'ouvre avec les options pour ajouter une identité, éditer la connexion ou supprimer la connexion.
-2. Sélectionnez **Supprimer une connexion**.
-3. Une boîte de dialogue s'affiche pour confirmer la suppression de la connexion. Cliquez sur
-**Oui**.
-
-La connexion sera supprimée.
-
-## Ajout d'identités
-{: #develop-vscode-adding-identities}
-
-Lorsque vous ajoutez une connexion, vous devez sélectionner un portefeuille contenant l'identité à utiliser, ou créer un nouveau portefeuille à l'aide de la clé privée et du certificat pour une identité. Pour plus d'informations sur les portefeuilles, consultez la [rubrique relative au portefeuille ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "Portefeuille") dans la documentation Fabric.
-
-Pour ajouter une identité à une connexion déjà établie :
-
-1. À partir de l'extension, cliquez avec le bouton droit sur la connexion à éditer dans l'angle inférieur gauche. Un menu contextuel s'ouvre avec les options pour ajouter une identité, éditer la connexion ou supprimer la connexion.
-2. Sélectionnez **Ajouter une identité**.
-3. Sélectionnez un portefeuille existant contenant l'identité à utiliser, ou créez un nouveau portefeuille en fournissant les chemins d'accès des certificats et de la clé privée.
-
-## Exploration des connexions
-{: #develop-vscode-exploring-connections}
-
-Une fois connecté à une instance Hyperledger Fabric, vous pouvez voir une liste des canaux et des homologues disponibles dans ces canaux dans le panneau **{{site.data.keyword.blockchainfull_notm}} Platform**. Prenez une  minute pour explorer votre instance Hyperledger Fabric afin de vous familiariser avec la structure. Les canaux sont répertoriés en premier au sein d'une connexion. Sous chaque canal, figure une liste des homologues qui sont membres de ce canal, ainsi qu'une liste des packages de contrat intelligent instanciés sur ce canal. Sous chaque homologue de la liste figure est une liste de tous les packages de contrat intelligent installés sur cet homologue. Vous pouvez également voir les versions de contrat intelligent qui sont installés ou instanciés.
-
-### Exportation des détails de connexion pour l'environnement d'exécution Hyperledger Fabric préconfiguré
-{: #develop-vscode-exploring-connection-details}
-
-Les détails de connexion requis pour la connexion à `local_fabric` peuvent être exportés. Les détails de la connexion `local_fabric` sont utiles pour tester les applications client destinées à la connexion ou à une interaction avec votre instance Hyperledger Fabric.
-
-Pour exporter les détails de connexion `local_fabric` :
-
-1. Démarrez l'environnement d'exécution Hyperledger Fabric préconfiguré.
-2. Cliquez avec le bouton droit sur la connexion `local_fabric`, puis sélectionnez **Exporter les détails de connexion**.
-
-Les détails de connexion sont sauvegardés dans un répertoire nommé `local_fabric` qui se trouve dans votre répertoire de projet en cours.
-
-## Création d'un package de contrat intelligent
+## Etape 3 : Packager un contrat intelligent
 {: #packaging-a-smart-contract}
 
-Lorsqu'un contrat intelligent est prêt à être déployé, il doit d'abord être packagé. Pour créer un package, procédez comme suit :
+Vous devez packager un contrat intelligent au format `.cds` avant de l'installer sur votre réseau {{site.data.keyword.blockchainfull_notm}} Platform ou le réseau Hyperledger Fabric préconfiguré. Procédez comme suit pour packager votre contrat intelligent :
 
-1. Dans Visual Studio Code, accédez au panneau **{{site.data.keyword.blockchainfull_notm}} Platform**.
-2. Dans le panneau **Packages contrat intelligent**, cliquez sur l'icône +. Si un projet de contrat intelligent est ouvert dans l'afficheur de fichiers, il sera automatiquement packagé, et il s'affichera dans le panneau **Packages contrat intelligent**. Si vous avez plusieurs dossiers contrat intelligent ouverts, vous serez invité à préciser un package. Si vous n'avez pas de dossiers de contrat intelligent ouverts, vous recevrez un message d'erreur.
+1. Dans VS Code, accédez au panneau **{{site.data.keyword.blockchainfull_notm}} Platform**. Assurez-vous qu'un projet de contrat intelligent est ouvert dans l'afficheur de fichiers.
+2. Dans le panneau **Packages contrat intelligent**, cliquez sur le menu déroulant dynamique et sélectionnez **Package a Smart Contract Project**. Vous serez invité à entrer le nom du package ainsi que la version.
+  - Si vous avez un projet de contrat intelligent, il sera automatiquement packagé et affiché dans le panneau **Packages de contrat intelligent**.
+  - Si vous avez plusieurs dossiers contrat intelligent ouverts, vous serez invité à préciser un package.
+  - Si vous n'avez pas de dossiers de contrat intelligent ouverts, vous recevrez un message d'erreur.
 
-## Installation de packages de contrats intelligents
-{: #develop-vscode-installing-smart-contract-packages}
-
-Une fois connecté à une instance d'Hyperledger Fabric, vous pouvez installer et instancier des package de contrat intelligent sur les homologues.
-
-1. Dans le panneau {{site.data.keyword.blockchainfull_notm}} Platform, accédez à l'homologue sur lequel vous voulez installer le package de contrat intelligent.
-2. Cliquez avec le bouton droit sur l'homologue sur lequel installer le package de contrat intelligent, et sélectionnez  **Installer le contrat intelligent**.
-
-## Instanciation de packages de contrat intelligent
-{: #develop-vscode-instantiating-smart-contract-packages}
-
-Pour commencer l'exécution sur un canal, il est nécessaire d'instancier d'abord un package de contrat intelligent installé.
-
-1. Connectez-vous à l'instance Hyperledger Fabric où est installé le package de contrat intelligent.
-2. Cliquez avec le bouton droit sur le canal sur lequel vous souhaitez instancier le package de contrat intelligent et cliquez sur **Instancier le contrat intelligent**.
-3. Sélectionnez le package et la version de contrat intelligent à instancier. Le package de contrat intelligent doit être installé sur un homologue qui est membre de ce canal.
-4. Entrez le nom de la fonction d'instanciation dans votre contrat intelligent.
-5. Entrez les arguments requis par votre fonction d'instanciation.
-
-## Exportation ou suppression d'un package de contrat intelligent
+### Exportation, importation et suppression d'un package de contrat intelligent
 {: #develop-vscode-exporting-deleting-smart-contract-package}
 
-Une fois qu'un package de contrat intelligent a été créé, il peut être exporté en tant que fichier `.cds` ou supprimé s'il n'est plus nécessaire.
+Une fois le package de contrat intelligent packagé, vous pouvez l'exporter depuis VS Code :
 
-Pour supprimer un package de contrat intelligent :
+1. Dans le panneau d'extension d'{{site.data.keyword.blockchainfull_notm}} Platform, cliquez avec le bouton droit de la souris sur le package de contrat intelligent et sélectionnez **Exporter le package**.
+2. Choisissez le répertoire pour la sauvegarde de votre fichier de package de contrat intelligent et cliquez sur **Exporter**.
 
-1. Dans le panneau d'extension {{site.data.keyword.blockchainfull_notm}} Platform, cliquez avec le bouton droit de la souris sur le package de contrat intelligent à supprimer.
-2. Sélectionnez **Supprimer le package**.
+Vous pouvez également importer un package de contrat intelligent dans le panneau {{site.data.keyword.blockchainfull_notm}} Platform :
 
-Le package va être supprimé et il disparaît de la liste des packages de contrat intelligent.
+1. Dans le panneau **Packages contrat intelligent**, cliquez sur le menu déroulant dynamique et sélectionnez **Importer un package**.
+2. Accédez au package de contrat intelligent que vous voulez importer, puis cliquez sur **Importer**.
 
-Pour exporter un package de contrat intelligent :
+Vous pouvez également cliquer sur **Supprimer le package** pour retirer le package de contrat intelligent de la liste des packages.
 
-1. Dans le panneau d'extension {{site.data.keyword.blockchainfull_notm}} Platform, cliquez avec le bouton droit de la souris sur le package de contrat intelligent à exporter.
-2. Sélectionnez **Exporter le package**.
-3. Choisissez le répertoire pour la sauvegarde de votre fichier de package de contrat intelligent et cliquez sur **Exporter**.
+## Etape 4 : Déployer un contrat intelligent sur un réseau Hyperledger Fabric préconfiguré
+{: #develop-vscode-deploy}
 
-## Tests et instanciation d'un package de contrat intelligent
-{: #develop-vscode-testing-instantiated-smart-contract}
+Vous pouvez utiliser VS Code pour déployer votre contrat intelligent sur un réseau Hyperledger Fabric préconfiguré créé par l'extension sur votre machine locale. Cela vous permet d'installer, d'instancier et de tester votre contrat intelligent avant de le déployer sur un réseau actif.
 
-Les tests d'un contrat intelligent peuvent être générés une fois le contrat intelligent instancié. Ils peuvent être générés en JavaScript ou en TypeScript, et exécutés ou débogués.
+### Déploiement du réseau Hyperledger Fabric préconfiguré
+{: #develop-vscode-connecting-and-disconnecting}
 
-Pour générer des tests de contrat intelligent :
+Procédez comme suit pour déployer le réseau préconfiguré :
 
-1. Assurez-vous que le contrat intelligent a été instancié.
-2. Sous **Contrats intelligents instanciés**, cliquez avec le bouton droit de la souris sur le contrat intelligent pour lequel générer des tests.
-3. Sélectionnez **Générer des tests de contrat intelligent**.
-4. Sélectionnez maintenant le langage du fichier de test, **JavaScript** ou **TypeScript**. L'extension {{site.data.keyword.blockchainfull_notm}} Platform va maintenant installer les modules npm requis et générer le fichier de test.
+1. Assurez-vous que Docker est en cours d'exécution sur votre machine.
+2. Ouvrez l'onglet **{{site.data.keyword.blockchainfull_notm}} Platform** dans VS Code.
+3. Dans le panneau **Local Fabric Ops**, cliquez sur **local fabric runtime**. Si Docker est en cours d'exécution, l'instance Hyperledger Fabric locale doit être téléchargée et démarrée.
+4. Cliquez deux fois sur **local_fabric** dans le panneau **Fabric Gateways** pour vous connecter au réseau local. Par défaut, la connexion utilise l'identité admin dans le panneau des portefeuilles Fabric. Vous pouvez créer une nouvelle identité en cliquant avec le bouton droit de la souris sur le noeud d'autorité de certification dans le panneau **Local Fabric Ops**. Cette nouvelle identité peut ensuite être ajoutée à un portefeuille et associée à la connexion **local_fabric**.
 
-Une fois le fichier de test généré, les tests peuvent être exécutés en cliquant sur le bouton **Exécuter les tests** dans le fichier.
+L'extension VS Code crée un réseau Fabric de base qui comporte un service de tri, un homologue et une autorité de certification. L'homologue est joint à un canal nommé `mychannel`. Vous pouvez trouver la liste des noeuds, organisations et canaux qui appartiennent au réseau dans le panneau **Local Fabric Ops**. Au-dessus de ces noeuds figure la liste des contrats intelligents qui sont installés et instanciés.
 
-## Débogage d'un contrat intelligent à l'aide de l'environnement d'exécution Hyperledger Fabric préconfiguré
-{: #develop-vscode-debugging}
+### Arrêt, redémarrage et suppression du réseau préconfiguré
+{: #develop-vscode-stop-Fabric-runtime}
 
-La possibilité de déboguer un contrat intelligent en local permet à un développeur de contrat intelligent d'itérer sur ses fonctions de contrat intelligent et de corriger des bogues avant d'essayer d'appeler les fonctions après instanciation. Le débogage d'un contrat intelligent vous permet d'exécuter des transactions de contrat intelligent avec des points d'arrêt et une sortie, garantissant ainsi un bon fonctionnement des transactions. Pour déboguer votre contrat intelligent :
+Vous pouvez arrêter ou redémarrer le réseau préconfigurés une fois qu'il a été créé :
 
-1. Vérifiez que vous êtes connecté à la connexion `local_fabric` qui est en mode développement.
-2. Ouvrez votre projet de contrat intelligent.
-3. Ouvrez la vue de débogage dans Visual Studio Code à l'aide de la barre de navigation de gauche.
-4. Sélectionnez la configuration de débogage de contrat intelligent dans la liste déroulante dans l'angle supérieur gauche.
-5. Préparez et installez le contrat intelligent en cliquant sur le bouton **play**.
-6. Ajoutez des points d'arrêt au contrat intelligent en cliquant sur les numéros de ligne appropriés dans fichiers de contrat intelligent.
-7. Cliquez avec le bouton droit de la souris sur le contrat intelligent et sélectionnez **Instancier**. Vous pouvez maintenant cliquer avec le bouton droit pour soumettre des transactions et l'exécution sera interrompue sur les points d'arrêt définis.
+1. Dans le panneau **Local Fabric Ops**, cliquez sur le menu déroulant dynamique.
+2. Sélectionnez **Redémarrer l'exécution Fabric** ou **Arrêter l'exécution Fabric** pour arrêter ou redémarrer le conteneur.
 
-Pour apporter des modifications à votre contrat intelligent lors du débogage, cliquez sur le bouton **Redémarrer** une fois les modifications effectuées. Redémarrer le débogage signifie que vous n'avez pas besoin d'instancier à nouveau le contrat intelligent.
+Les détails de connexion sont sauvegardés dans un répertoire nommé **local_fabric** qui se trouve dans votre répertoire de projet en cours. Vous pouvez également sélectionner **Désassembler l'exécution Fabric** pour supprimer complètement le réseau Fabric local. **Remarque :** Cela entraînera la perte du registre et des données "world state".
 
-**Remarque **: Le redémarrage du débogage stocke le contrat intelligent en mémoire locale, pour un grand nombre de modifications apportées à des contrats intelligents de grande taille, et vous devrez peut-être réinstancier le contrat intelligent.
+### Déploiement de votre contrat intelligent sur le réseau préconfiguré
+{: #develop-vscode-deploy-smart-contract}
 
-## Mise à niveau d'un contrat intelligent instancié
-{: #develop-vscode-upgrading-instantiated-smart-contract}
+Vous pouvez déployer des packages du panneau **Packages de contrat intelligent** sur un réseau préconfiguré actif.
 
-Une fois qu'un contrat intelligent a été installé sur un homologue et instancié sur un canal, il peut être mis à niveau pour déployer une version plus récente du contrat intelligent.
+Tout d'abord, vous devez installer le contrat intelligent sur un homologue :
+
+1. Dans le panneau **Local Fabric Ops**, cliquez sur **Installer un contrat intelligent**.
+2. Sélectionnez l'homologue sur lequel vous souhaitez installer le contrat intelligent.
+3. Sélectionnez le package de contrat intelligent que vous souhaitez installer, puis cliquez sur **Installer**.
+
+Ensuite, vous pouvez instancier le contrat intelligent sur un canal :
+
+1. Dans le panneau **Local Fabric Ops**, cliquez sur **Instantiate Smart Contract**.
+2. Sélectionnez le contrat intelligent installé à instancier.
+3. (facultatif) Entrez le nom de la fonction d'instanciation dans votre contrat intelligent. Si vous avez utilisé le modèle de contrat par défaut, aucune fonction d'instanciation n'est utilisée.
+4. (facultatif) Entrez les arguments requis par votre fonction d'instanciation.
+5. (facultatif) Accédez au fichier de configuration de votre collection si votre contrat intelligent utilise des données privées.
+6. Cliquez sur **Instancier**.
+
+Si vous apportez des modifications à votre code de contrat intelligent et le repackagez, vous pouvez mettre à niveau le contrat intelligent instancié afin de déployer une version plus récente sur le réseau :
 
 1. Vérifiez que le contrat intelligent à mettre à jour est instancié.
 2. Installez la nouvelle version du contrat intelligent sur un homologue du même réseau.
 3. Cliquez avec le bouton droit de la souris sur le contrat intelligent instancié, et sélectionnez **Mettre à niveau le contrat intelligent**.
-4. Vous pouvez aussi choisir une transaction à exécuter car le nouveau contrat intelligent est instancié.
+4. (facultatif) Exécutez une transaction une fois le nouveau contrat intelligent instancié.
 
-## Soumission de transactions
+### Interaction avec votre contrat intelligent
 {: #develop-vscode-submitting-transactions}
 
-Dès lors qu'un contrat intelligent est installé et instancié, les transactions peuvent être soumises depuis le panneau de connexions dans le panneau d'extension {{site.data.keyword.blockchainfull_notm}} Platform.
-
-Pour soumettre une transaction :
+Une fois qu'un contrat intelligent est installé et instancié, vous pouvez soumettre des transactions aux fonctions à l'intérieur de votre contrat intelligent à partir du panneau **Passerelles Fabric** :
 
 1. Vérifiez que votre contrat intelligent est installé et instancié, et que vous êtes connecté au réseau.
-2. Dans le volet des connexions, développez le **contrats intelligents instanciés**.
-3. Développez le contrat intelligent qui contient la transaction à soumettre.
-4. Cliquez avec le bouton droit de la souris sur la transaction à soumettre, puis sélectionnez **Soumettre la transaction**.
-5. Entrez les arguments obligatoires pour la transaction, puis appuyez sur **Entrée**.
+2. Dans le volet **Fabric Gateways**, développez le **contrats intelligents instanciés**.
+3. Développez le contrat intelligent avec lequel vous voulez interagir. Vous trouverez la liste des transactions qui sont répertoriées sous le contrat intelligent.
+4. Cliquez avec le bouton droit de la souris sur la transaction à soumettre, puis sélectionnez **Soumettre la transaction**. Par exemple, si vous avez créé et packagé l'exemple de contrat intelligent d'obligations (bonds), cliquez sur **createBond**.
+5. Entrez les arguments requis par la transaction, puis appuyez sur **Entrée**. Par exemple, entrez `["bond01","100"]` pour créer votre première obligation.
+
+### Connexion de vos applications au réseau préconfiguré
+{: #develop-vscode-exploring-connection-details}
+
+Vous pouvez tester vos applications client en les connectant au réseau préconfiguré et en soumettant les transactions à votre contrat intelligent.
+
+Tout d'abord, vous devez exporter votre profil de connexion :
+
+1. Démarrez le réseau et développez **Noeuds** dans le panneau **Local Fabric Ops**.
+2. Cliquez avec le bouton droit sur l'homologue et sélectionnez **Exporter un profil de connexion**.
+
+Vous pouvez ensuite utiliser les logiciels SDK Fabric et le profil de connexion pour inscrire votre identité admin en utilisant le nom d'utilisateur `admin` et le mot de passe `adminpw`. Vous pouvez ensuite utiliser cette identité pour appeler votre contrat intelligent ou enregistrer et inscrire des utilisateurs supplémentaires.
+
+## Etape 5 : Déboguer des contrats intelligents en mode développement
+{: #develop-vscode-development-mode}
+
+Vous pouvez exécuter le réseau préconfiguré en **Mode développement** pour développer et déboguer de manière itérative vos contrats intelligents en local, sans avoir à repackager et à mettre à niveau le contrat intelligent après chaque modification. Le débogage d'un contrat intelligent vous permet d'exécuter des transactions de contrat intelligent avec des points d'arrêt et une sortie, garantissant ainsi un bon fonctionnement des transactions.
+
+Procédez comme suit pour activer le mode développement sur le réseau préconfiguré :
+
+1. Une fois le réseau démarré, depuis le panneau **Local Fabric Ops**, développez la section **Noeuds**.
+2. Cliquez avec le bouton droit sur l'homologue et sélectionnez **Basculer en mode développement**.
+
+En mode de fonctionnement normal, un homologue crée et gère un conteneur de code blockchain pour exécuter des contrat intelligent instanciés. En passant au mode développement, l'homologue permet au conteneur de code blockchain de s'exécuter manuellement, ce qui vous permet de développer des mises à jour pour votre contrat intelligent directement sur votre réseau actif network à partir de la vue **Debug** de VS Code.
+
+1. Vérifiez que vous êtes connecté à la connexion **local_fabric** qui est en mode développement.
+2. Ouvrez votre projet de contrat intelligent.
+3. Ouvrez la vue **Debug** dans VS Code dans la barre de navigation de gauche.
+4. Sélectionnez **Debug Smart Contract configuration** dans la liste déroulante dans l'angle supérieur gauche.
+5. Préparez et installez le contrat intelligent en cliquant sur le bouton **play**.
+6. Ajoutez des points d'arrêt au contrat intelligent en cliquant sur les numéros de ligne appropriés dans fichiers de contrat intelligent.
+7. Dans la barre d'outils de débogage, cliquez sur le bouton **Blockchain** pour instancier le contrat intelligent.
+8. Dans la barre d'outils de débogage, cliquez sur le bouton **Blockchain** pour soumettre ou évaluer des transactions.
+
+Pour modifier votre contrat intelligent lors du débogage, cliquez sur le bouton **Redémarrer** une fois les modifications effectuées. Redémarrer le débogage signifie que vous n'avez pas besoin d'instancier à nouveau le contrat intelligent.
+
+## Etape 6 : Tester un contrat intelligent instancié
+{: #develop-vscode-testing-instantiated-smart-contract}
+
+Vous pouvez générer des tests pour les contrats intelligents qui sont instanciés sur les réseaux auxquels vous vous connectez. Ils peuvent être générés en **JavaScript** ou **TypeScript**, et exécutés ou débogués.
+
+1. Assurez-vous que le contrat intelligent a été instancié.
+2. Dans le volet **Fabric Gateways**, cliquez avec le bouton droit de la souris sur le contrat intelligent sous la liste de canaux pour lesquels générer des tests.
+3. Sélectionnez **Generate Smart Contract Tests**.
+4. Sélectionnez le langage du fichier de test, **JavaScript** ou **TypeScript**. L'extension {{site.data.keyword.blockchainfull_notm}} Platform va installer les modules npm requis et générer le fichier de test.
+
+Une fois le fichier de test généré, les tests peuvent être exécutés en cliquant sur le bouton **Exécuter des tests** dans le fichier.
+
+
+## Etape 7 : Se connecter à votre réseau {{site.data.keyword.blockchainfull_notm}} Platform
+{: #develop-vscode-connecting-ibp}
+
+Vous pouvez également utiliser l'extension pour vous connecter à {{site.data.keyword.blockchainfull_notm}} Platform et appeler des contrats intelligents qui sont installés et instanciés à l'aide de l'interface utilisateur de la console {{site.data.keyword.blockchainfull_notm}} Platform.
+
+Ouvrez la console {{site.data.keyword.blockchainfull_notm}} Platform qui est associée à votre instance de {{site.data.keyword.blockchainfull_notm}} Platform. Accédez à l'onglet **Smart Contracts**. Utilisez le tableau **Instantiated Smart Contracts** sous l'onglet Smart Contracts pour télécharger votre [profil de connexion](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile) sur votre système de fichiers local. Ensuite, [créez une identité d'application](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities) à l'aide de votre autorité de certification et notez l'ID d'inscription et le secret. Suivez les étapes ci-dessous pour vous connecter à {{site.data.keyword.blockchainfull_notm}} Platform depuis VS Code.
+
+1. Accédez à l'onglet _{{site.data.keyword.blockchainfull_notm}} Platform_.
+2. Dans le panneau **Fabric Gateways**, cliquez sur **+**.
+3. Entrez un nom pour la connexion.
+4. Entrez le chemin d'accès complet à votre profil de connexion. Votre connexion doit maintenant apparaître dans la liste des connexions sous **local_fabric**.
+5. Dans le panneau **Fabric Wallets**, cliquez sur **+**.
+6. Choisissez **Create a new wallet and add an identity** dans les options. Entrez un nom pour votre portefeuille et votre identité.
+7. Entrez l'ID MSP de votre organisation.
+8. Sélectionnez l'option **Select a gateway and provide an enrollment ID and secret** et choisissez la passerelle que vous avez créée plus haut.
+9. Entrez l'ID d'inscription et le secret de l'identité d'application que vous avez créés avec la console. Une nouvelle identité est créée dans le panneau **Fabric Wallets**.
+10. Vous pouvez maintenant vous connecter à instance de votre réseau {{site.data.keyword.blockchainfull_notm}} Platform. Cliquez deux fois sur le nom de connexion et sélectionnez le nom du portefeuille que vous venez de créer. Vous pouvez également associer le portefeuille que vous avez créé à la passerelle en cliquant avec le bouton droit et en sélectionnant **Associate A Wallet**. Cela permet à la connexion d'utiliser le même portefeuille chaque fois qu'une connexion est établie.
+
+Après vous être connecté à {{site.data.keyword.blockchainfull_notm}} Platform depuis VS Code, vous pouvez voir la liste des canaux que les homologues de votre organisation ont rejoint sous la passerelle. Sous chaque canal, vous pouvez voir la liste des contrats intelligents qui sont instanciés sur chaque canal et les fonctions au sein de chaque contrat intelligent. Vous pouvez soumettre des transactions à votre réseau en cliquant avec le bouton droit et en sélectionnant **Submit Transaction** et en transmettant les arguments requis. Vous pouvez également générer un fichier test pour les contrats intelligents qui sont instanciés sur vos canaux.
+
+### Ajout de portefeuilles et d'utilisateurs
+{: #develop-vscode-add-a-wallet}
+
+Procédez comme suit pour créer un nouveau portefeuille à l'aide d'un certificat et d'une clé privée :
+
+1. Dans le panneau **Fabric Wallets**, cliquez sur **+**.
+2. Choisissez **Create a new wallet and add an identity** dans les options. Entrez un nom pour votre portefeuille et votre identité.
+3. Entrez l'ID MSP de votre organisation.
+4. Choisissez d'ajouter un certificat et une clé privée.
+5. Si vous utilisez un certificat et une clé privée, recherchez le certificat et la clé privée.
+
+Vous pouvez également ajouter de nouveaux utilisateurs aux portefeuilles qui ont déjà été créés :
+
+1. Dans le panneau **Fabric Wallets**, cliquez avec le bouton droit de la souris sur un portefeuille et sélectionnez **Add Identity**.
+2. Indiquez un nom pour l'identité et un MSPID.
+3. Choisissez d'utiliser un certificat et une clé privée ou un ID d'inscription et un secret.
+4. Si vous utilisez un certificat et une clé privée, recherchez le certificat et la clé privée.
+5. Si vous utilisez un ID d'inscription et un secret, choisissez la passerelle sur laquelle vous enregistrer et entrez l'ID d'inscription et le secret.
+
+### Modification, déconnexion, et suppression de connexions
+{: #develop-vscode-editing-connection}
+
+À partir de l'extension, cliquez avec le bouton droit sur une connexion dans l'angle inférieur gauche pour ouvrir un menu contextuel avec des options pour ajouter une identité, éditer la connexion ou supprimer la connexion.
+
+Pour modifier une connexion, procédez comme suit :
+1. Sélectionnez l'option **Edit connection**. La page **User Settings** s'affiche, avec les détails de connexion mis en évidence.
+2. Apportez des modifications, puis sauvegardez la page des paramètres.
+
+Lorsque vous êtes prêt à vous déconnecter du réseau, cliquez sur l'icône **Disconnect** dans la partie supérieure droite du panneau **Fabric Gateways**.
+
+Pour supprimer une connexion, cliquez avec le bouton droit sur la connexion et sélectionnez **Delete Gateway**.

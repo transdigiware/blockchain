@@ -2,14 +2,15 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-06-18"
+
+keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
 subcollection: blockchain
 
 ---
 
-
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,69 +23,120 @@ subcollection: blockchain
 # Foire aux questions
 {: #ibp-v2-faq}
 
-- [Quelle version d'Hyperledger Fabric est utilisée avec la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform ?](#ibp-v2-faq-fabric-version)
-- [Dois-je payer pour la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform ?](#ibp-v2-faq-cost)
-- [Puis-je utiliser mon cluster {{site.data.keyword.cloud_notm}} Kubernetes Service existant ?](#ibp-v2-faq-existing-cluster)
-- [Quelle base de données les homologues utilisent-ils pour leur registre ?](#ibp-v2-faq-couchDB)
-- [Quels langages sont pris en charge pour les contrats intelligents ?](#ibp-v2-faq-cc-langs)
-- [Puis-je migrer depuis la version 2.0 bêta vers la version 2.0 en disponibilité générale ? ](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-faq-migrate)
-- [Avons-nous accès aux services de consignation et quels journaux me sont accessibles ?](#ibp-v2-faq-logs)
-- [Quel avantage présente l'utilisation de la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform par rapport à la version native d'Hyperledger Fabric ?](#ibp-v2-faq-native-fabric)
-- [Comment puis-je optimiser les performances et mettre à l'échelle ma solution {{site.data.keyword.blockchainfull_notm}} Platform ?](#ibp-v2-faq-perf-scale)
+**Général**   
 
-## Quelle version d'Hyperledger Fabric est utilisée avec la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform ?
-{: #ibp-v2-faq-fabric-version}
-{: faq}
+- [Quelle base de données les homologues utilisent-ils pour leur registre ?](#ibp-v2-faq-v2-IBP-Overview-1-3)
+- [Quels langages sont pris en charge pour les contrats intelligents ?](#ibp-v2-faq-v2-IBP-Overview-1-4)
+- [Quel avantage présente l'utilisation d'{{site.data.keyword.blockchainfull_notm}} Platform sur Hyperledger Fabric natif ? ](#ibp-v2-faq-v2-IBP-Overview-1-7)
+- [Quelle version d'Hyperledger Fabric est utilisée avec {{site.data.keyword.blockchainfull_notm}} Platform ? ](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+- [Est-il possible d'utiliser des certificats d'autorités de certification non IBM ?](#ibp-v2-faq-v2-external-certs)  
 
-La version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform utilise la version 1.4 d'Hyperledger Fabric et elle inclut une prise en charge du protocole gossip, de la reconnaissance de service et des données privées.
+**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
 
-## Dois-je payer pour la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform ?
-{: #ibp-v2-faq-cost}
-{: faq}
+- [Puis-je effectuer une mise à niveau de la version 1.0 vers la nouvelle version d'{{site.data.keyword.blockchainfull_notm}} Platform ? ](#ibp-v2-faq-v2-IBP-Overview-1-5)
+- [Que se passe-t-il si je supprime mon service {{site.data.keyword.blockchainfull_notm}} Platform ? ](#ibp-v2-faq-v2-IBP-Overview-1-8)
+- [Quelles régions sont disponibles pour le service de blockchain s'exécutant sur {{site.data.keyword.cloud_notm}} ? ](#ibp-v2-faq-v2-IBP-Overview-1-9)
+- [Puis-je utiliser mon cluster {{site.data.keyword.cloud_notm}} Kubernetes Service existant ?](#ibp-v2-faq-v2-Infrastructure-4-2)
+- [Avons-nous accès aux services de consignation et quels journaux me sont accessibles ?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
 
-La version bêta est gratuite. Cependant, des frais peuvent vous être facturés pour votre cluster {{site.data.keyword.cloud_notm}} Kubernetes, sauf si vous avez sélectionné un cluster gratuit.  Sachez toutefois que le cluster gratuit est supprimé automatiquement au bout de 30 jours conformément à la règle de service {{site.data.keyword.cloud_notm}} Kubernetes et les performances ainsi que la capacité sont limitées.  Si vous souhaitez conserver votre service au-delà de 30 jours, vous devez payer pour une instance standard du service Kubernetes. 
+**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**    
 
-## Puis-je utiliser mon cluster {{site.data.keyword.cloud_notm}} Kubernetes Service existant ?
-{: #ibp-v2-faq-existing-cluster}
-{: faq}
-
-Votre cluster Kubernetes existant est compatible avec la version bêta gratuite 2.0 d'{{site.data.keyword.blockchainfull_notm}} Platform dès lors qu'il respecte les conditions suivantes :
-- Il se situe dans la région de Dallas d'{{site.data.keyword.cloud_notm}}.
-- Il exécute la version 1.11 ou une version suivante de Kubernetes. Consultez les instructions relatives à la [mise à niveau de la version Kubernetes de votre cluster](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-updating-kubernetes).
-- Il y a suffisamment de ressources disponibles dans le cluster. Voir la rubrique relative aux [ressources minimum requises](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-resources-required) pour plus d'informations.
+- [Quels sont les avantages d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?](#ibp-v2-faq-icp-benefits)
+- [Quels sont les environnements pris en charge par {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?](#ibp-v2-faq-icp-environments)
+- [Quel est le modèle de tarification de {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?](#ibp-v2-faq-icp-pricing)
+- [Quels services dois-je installer pour pouvoir utiliser {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?](#ibp-v2-faq-icp-services)
+- [Comment puis-je estimer la taille nécessaire d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud pour mes environnements de développement, de tests et de production ?](#ibp-v2-faq-icp-sizing)
 
 ## Quelle base de données les homologues utilisent-ils pour leur registre ?
-{: #ibp-v2-faq-couchDB}
+{: #ibp-v2-faq-v2-IBP-Overview-1-3}
 {: faq}
 
-Tous les homologues déployés avec la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform utilisent la base de données CouchDB. Il n'est cependant pas possible d'interroger directement la base de données CouchDB.
+Tous les homologues qui sont déployés avec {{site.data.keyword.blockchainfull_notm}} Platform utilisent CouchDB comme base de données pour le registre.
 
 ## Quels langages sont pris en charge pour les contrats intelligents ?
-{: #ibp-v2-faq-cc-langs}
+{: #ibp-v2-faq-v2-IBP-Overview-1-4}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform prend en charge les contrats intelligents écrits en Go, Node.js et Java. Le nouveau modèle de programmation d'Hyperledger Fabric ne prend actuellement en charge que Node.js. D'autres langages seront prochainement pris en charge. Si vous souhaitez conserver votre code de l'application existant, ou encore utiliser des logiciels SDK Fabric pour des langages autres que Node.js, vous pouvez encore vous connecter au réseau de votre version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform à l'aide d'API de logiciel SDK Fabric de niveau inférieur.
+{{site.data.keyword.blockchainfull_notm}} Platform prend en charge les contrats intelligents écrits en Go et Node.js. Le nouveau modèle de programmation d'Hyperledger Fabric ne prend actuellement en charge que Node.js, mais d'autres langages seront prochainement pris en charge. Si vous souhaitez conserver votre code de l'application existant, ou encore utiliser des logiciels SDK Fabric pour des langages autres que Node.js, vous pouvez encore vous connecter à votre réseau {{site.data.keyword.blockchainfull_notm}} Platform à l'aide d'API SDK Fabric de niveau inférieur.
 
-## Puis-je migrer depuis la version 2.0 bêta vers la version 2.0 en disponibilité générale ? 
-{: #ibp-v2-faq-migrate}
+## Quel avantage présente l'utilisation d'{{site.data.keyword.blockchainfull_notm}} Platform sur Hyperledger Fabric natif ?
+{: #ibp-v2-faq-v2-IBP-Overview-1-7}
 {: faq}
 
-Vous ne pourrez pas migrer votre offre 2.0 bêta vers l'offre 2.0 en disponibilité générale.
+The {{site.data.keyword.blockchainfull_notm}} Platform permet au clients de déployer facilement un réseau de blockchain personnalisé. Vous pouvez utiliser une interface utilisateur de console intuitive pour déployer rapidement votre réseau, installer et and instancier facilement des contrats intelligents, puis surveiller vos transactions.
+
+## Quelle version d'Hyperledger Fabric est utilisée avec {{site.data.keyword.blockchainfull_notm}} Platform ?
+{: #ibp-v2-faq-v2-Hyperledger-Fabric-3-1}
+{: faq}
+
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} et {{site.data.keyword.blockchainfull_notm}} Platform for Platform for Multicloud utilisent Hyperledger Fabric version 1.4.1
+
+
+## Est-il possible d'utiliser des certificats d'autorités de certification non IBM ?
+{: #ibp-v2-faq-v2-external-certs}
+{: faq}
+
+Oui, vous pouvez fournir vos propres certificats dès lors qu'ils sont émis par une autorité de certification compatible X.509.
+
+## Puis-je effectuer une mise à niveau de la version 1.0 vers la nouvelle version d'{{site.data.keyword.blockchainfull_notm}} Platform ?
+{: #ibp-v2-faq-v2-IBP-Overview-1-5}
+{: faq}
+
+Ce n'est pas possible pour le plan Starter. Vous ne pouvez pas effectuer une mise à niveau du plan Starter vers la nouvelle version d'{{site.data.keyword.blockchainfull_notm}} Platform.
+Pour le plan Enterprise, vous pourrez effectuer une mise à niveau vers la nouvelle version d'{{site.data.keyword.blockchainfull_notm}} Platform dans le futur. Vous recevrez un e-mail pour le propriétaire du compte de l'équipe de {{site.data.keyword.blockchainfull_notm}} Platform pour vous aider.
+
+## Que se passe-t-il si je supprime mon service {{site.data.keyword.blockchainfull_notm}} Platform ?
+{: #ibp-v2-faq-v2-IBP-Overview-1-8}
+{: faq}
+
+Lorsque vous supprimez une instance de service {{site.data.keyword.blockchainfull_notm}} Platform, l'ensemble des autorités de certification, des homologues et des noeuds de tri de la blockchain sont supprimés ainsi que leur stockage associé.
+
+## Quelles régions sont disponibles pour le service de blockchain s'exécutant sur {{site.data.keyword.cloud_notm}} ?
+{: #ibp-v2-faq-v2-IBP-Overview-1-9}
+{: faq}
+
+Les régions disponibles pour {{site.data.keyword.blockchainfull_notm}} Platform sont répertoriées dans la section [Emplacements d'{{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations). Notez que vous devez créer un cluster {{site.data.keyword.cloud_notm}} Kubernetes Service dans la même région que le service de blockchain pour reconnaître le cluster. Des régions supplémentaires seront disponibles prochainement.
+
+## Puis-je utiliser mon cluster {{site.data.keyword.cloud_notm}} Kubernetes Service existant ?
+{: #ibp-v2-faq-v2-Infrastructure-4-2}
+{: faq}
+
+Votre cluster Kubernetes existant est compatible avec {{site.data.keyword.blockchainfull_notm}} Platform dès lors qu'il respecte les conditions suivantes :
+- Il exécute la version 1.11 de Kubernetes ou une version supérieure très stable.
+- Il y a suffisamment de ressources disponibles dans le cluster.
 
 ## Avons-nous accès aux services de consignation et quels journaux me sont accessibles ?
-{: #ibp-v2-faq-logs}
+{: #ibp-v2-faq-v2-Logging-and-Monitoring-11-6}
 {: faq}
 
-A compter de la version 2.0 d'{{site.data.keyword.blockchainfull_notm}} Platform, vous pouvez accéder directement aux journaux de l'homologue, de l'autorité de certification et du service de tri depuis votre tableau de bord Kubernetes. Nous vous recommandons d'utiliser le service [{{site.data.keyword.cloud_notm}} LogDNA ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "Managing Kubernetes cluster logs with IBM Log Analysis with LogDNA") qui vous permet de facilement analyser les journaux en temps réel.
+Avec {{site.data.keyword.blockchainfull_notm}} Platform, vous pouvez accéder directement aux journaux de l'homologue, de l'autorité de certification et du service de tri depuis votre tableau de bord Kubernetes. Nous vous recommandons d'utiliser le service {{site.data.keyword.cloud_notm}} LogDNA qui vous permet d'analyser facilement les journaux en temps réel.
 
-## Quel avantage présente l'utilisation de la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform par rapport à la version native d'Hyperledger Fabric ?
-{: #ibp-v2-faq-native-fabric}
+## Quels sont les avantages d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?
+{: #ibp-v2-faq-icp-benefits}
 {: faq}
 
-Avec la version 2.0 bêta gratuite d'{{site.data.keyword.blockchainfull_notm}} Platform, les clients peuvent déployer facilement un réseau de blockchain personnalisé. La plateforme inclut une console intuitive pour le déploiement rapide d'un réseau et elle permet d'installer et d'instancier facilement des contrats intelligents. Cette plateforme vous permet également de bénéficier de l'assistance d'experts {{site.data.keyword.IBM_notm}} pour le développement de vos contrats intelligents et pour la génération de votre réseau.
+Pour plus détails, voir la rubrique [Contenu d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain?topic=blockchain-console-icp-about#what-ibm-blockchain-platform-for-ibm-cloud-private-offers).
 
-## Comment puis-je optimiser les performances et mettre à l'échelle ma solution {{site.data.keyword.blockchainfull_notm}} Platform ?
-{: #ibp-v2-faq-perf-scale}
+## Quels sont les environnements pris en charge par {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?
+{: #ibp-v2-faq-icp-environments}
 {: faq}
 
-Consultez la série de blogues [ ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/ "Answering your questions on Hyperledger Fabric performance and scale") pour plus de détails sur les facteurs susceptibles d'affecter les performances de votre solution et sur la mise à l'échelle de votre blockchain.
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud prend en charge tous les environnements pris en charge par {{site.data.keyword.cloud_notm}} Private version 3.2. Pour plus d'informations, voir [Supported operating systems and platforms](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/supported_system_config/supported_os.html){: external}.
+
+## Quel est le modèle de tarification d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?
+{: #ibp-v2-faq-icp-pricing}
+{: faq}
+
+Les licences d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud [](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) sont basées sur le nombre d'UC (VPC) disponibles pour le produit. Pour plus de détails, [contactez IBM](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}.
+
+## Quels services dois-je installer pour pouvoir utiliser {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?
+{: #ibp-v2-faq-icp-services}
+{: faq}
+
+Vous devez uniquement installer {{site.data.keyword.cloud_notm}} Private version 3.2.
+
+## Comment puis-je estimer la taille nécessaire d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud pour mes environnements de développement, de tests et de production ?
+{: #ibp-v2-faq-icp-sizing}
+{: faq}
+
+Dès que vous connaissez le nombre d'autorités de certification, d'homologues et de noeuds de tri nécessaires, vous pouvez consulter le [tableau des allocations de ressources par défaut](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources) pour faire une estimation approximative des UC (VPC) requises pour votre réseau.

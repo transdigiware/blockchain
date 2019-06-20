@@ -2,13 +2,15 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-31"
+
+keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -24,16 +26,16 @@ Après que vous avez configuré des homologues {{site.data.keyword.blockchainful
 ## Utilisation de SDK Fabric pour l'exploitation de votre homologue
 {: #remote-peer-aws-operate-with-sdk}
 
-Les logiciels SDK Hyperledger Fabric fournissent un puissant jeu d'API qui permettent aux applications d'interagir et d'exploiter les réseaux de blockchain. Vous pouvez obtenir la liste la plus récente des langages pris en charge et la liste complète des API disponibles au sein des logiciels SDK Hyperledger Fabric dans la [documentation Hyperledger Fabric SDK Community![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks "documentation Hyperledger Fabric SDK Community"). Vous pouvez utiliser les logiciels SDK Fabric pour associer votre homologue à un canal sur {{site.data.keyword.blockchainfull_notm}} Platform, installer un code blockchain sur votre homologue, et instancier le code blockchain sur un canal.
+Les logiciels SDK Hyperledger Fabric fournissent un puissant jeu d'API qui permettent aux applications d'interagir et d'exploiter les réseaux de blockchain. Vous pouvez obtenir la liste la plus récente des langages pris en charge et la liste complète des API disponibles au sein des logiciels SDK Hyperledger Fabric dans la [documentation Hyperledger Fabric SDK Community](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}. Vous pouvez utiliser les logiciels SDK Fabric pour associer votre homologue à un canal sur {{site.data.keyword.blockchainfull_notm}} Platform, installer un code blockchain sur votre homologue, et instancier le code blockchain sur un canal.
 
-Les instructions suivantes utilisent le [logiciel SDK Fabric Node![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://fabric-sdk-node.github.io/ "Logiciel SDK Hyperledger Fabric for jode.js") pour exploiter l'homologue et supposent une connaissance préalable du logiciel SDK. Vous pouvez utiliser le [tutoriel de développement d'applications](/docs/services/blockchain/v10_application.html#dev-app) pour en savoir plus sur l'utilisation du logiciel SDK Node avant de commencer, et comme guide pour le développement d'applications avec votre homologue lorsque vous êtes prêt à appeler et à interroger le code blockchain.
+Les instructions suivantes utilisent le [Logiciel SDK Node Fabric](https://fabric-sdk-node.github.io/){: external} pour exploiter l'homologue et supposent une connaissance préalable du logiciel SDK. Vous pouvez utiliser le [tutoriel de développement d'applications](/docs/services/blockchain/v10_application.html#dev-app) pour en savoir plus sur l'utilisation du logiciel SDK Node avant de commencer, et comme guide pour le développement d'applications avec votre homologue lorsque vous êtes prêt à appeler et à interroger le code blockchain.
 
 Le démarrage rapide de l'homologue {{site.data.keyword.blockchainfull_notm}} Platform on AWS crée deux homologues pour la haute disponibilité. Par conséquent, vous devez suivre ces opérations une fois pour chaque homologue. Lorsque vous êtes prêt à appeler et à interroger le code blockchain depuis votre application, utilisez le logiciel SDK pour la connexion aux deux homologues pour vous assurer que les [applications sont hautement disponibles](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app).
 
 ### Installation du logiciel SDK Node
 {: #remote-peer-aws-operate-install-sdk}
 
-Vous pouvez utiliser NPM pour installer le [logiciel SDK Node![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://fabric-sdk-node.github.io/ "Logiciel SDK Hyperledger Fabric pour jode.js"):
+Vous pouvez utiliser NPM pour installer le [logiciel SDK Node](https://fabric-sdk-node.github.io/){: external} :
 ```
 npm install fabric-client@1.2
 ```
@@ -46,7 +48,7 @@ Il est recommandé d'utiliser la version 1.2 du logiciel SDK Node.
 
 Avant d'utiliser le logiciel SDK pour exploiter l'homologue, vous devez générer les certificats nécessaires (inscription) qui permettront à votre application de communiquer avec votre réseau sur {{site.data.keyword.blockchainfull_notm}} Platform et votre homologue. Suivez les étapes d'[inscription auprès du logiciel SDK](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk) avec votre identité **admin**. Le tutoriel [Développement d'applications](/docs/services/blockchain/v10_application.html#dev-app) inscrit également en tant qu'**admin**, il n'est donc pas nécessaire de modifier l'exemple de code.
 
-### Envoi par téléchargement d'un certificat signcert vers IBM Blockchain Platform
+### Envoi par téléchargement d'un certificat signcert vers {{site.data.keyword.blockchainfull_notm}} Platform
 {: #remote-peer-aws-operate-upload-SDK}
 
 Vous devez envoyer par téléchargement le certificat signataire de votre logiciel SDK au réseau sur {{site.data.keyword.blockchainfull_notm}} Platform afin que les autres membres puissent reconnaître votre signature numérique.
@@ -56,7 +58,7 @@ Vous devez envoyer par téléchargement le certificat signataire de votre logici
 ### Envoi par téléchargement d'un certificat signataire à l'homologue
 {: #remote-peer-aws-operate-upload-signcert}
 
-Vous devez également envoyer par téléchargement le certificat signataire du logiciel SDK à l'homologue distant et le redémarrer. Vous devez installer le même certificat signataire que celui que vous [avez envoyé par téléchargement à IBM Blockchain Platform](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK) au sein du conteneur homologue distant.
+Vous devez également envoyer par téléchargement le certificat signataire du logiciel SDK à l'homologue distant et le redémarrer. Vous devez installer le même certificat signataire que celui que vous [avez envoyé par téléchargement à {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK) au sein du conteneur homologue distant.
 
 Lancez SSH dans votre instance VPC en sélectionnant l'instance dans la console AWS (cliquez sur **Services > EC2 > Instances**), puis cliquez sur le bouton Connecter. Suivez les instructions d'AWS pour émettre la commande ssh.
 
@@ -133,7 +135,7 @@ Vous pouvez également exploiter votre homologue depuis la ligne de commande à 
 ### Inscription à l'aide du client d'autorité de certification Fabric
 {: #remote-peer-aws-operate-client-enroll}
 
-La première étape consiste à générer les certificats requis (inscription) à l'aide du client d'autorité de certification Fabric. Vous devez d'abord installer le client d'autorité de certification Fabric. Téléchargez les [fichiers binaires fabric-ca version 1.2.1 pour votre plateforme ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/ "Index des référentiels") sur votre machine locale, procédez à leur extraction, puis placez-les dans un  dossier, par exemple `$HOME/fabric-ca-remote/`.
+La première étape consiste à générer les certificats requis (inscription) à l'aide du client d'autorité de certification Fabric. Vous devez d'abord installer le client d'autorité de certification Fabric. Téléchargez les fichiers [fabric-ca binaries v1.2.1 de votre plateforme](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/){: external} sur votre machine locale, extrayez-les et placez-les dans un dossier, par exemple `$HOME/fabric-ca-remote/`.
 
 1.  Préparez votre environnement pour utiliser le client d'autorité de certification Fabric. Accédez au répertoire dans lequel vous avez placé les fichiers binaires du client afin de pouvoir y faire référence directement dans vos commandes.
     ```
@@ -280,7 +282,7 @@ Sur votre machine locale, ouvrez un terminal de commandes et accédez au répert
     4. Cliquez sur le bouton **Ajouter un certificat**.
     5. Dans la fenêtre **Ajouter un certificat**, donnez un nom à votre certificat, par exemple `fabrictools.pem`, collez le certificat que vous venez de copier dans le presse-papiers et cliquez sur **Soumettre**.
     6. Il vous sera peut-être demandé si vous souhaitez redémarrer les homologues. Si tel est le cas, cliquez sur **Redémarrer**.
-    7. Cliquez sur **Canaux** dans le navigateur de gauche et recherchez le canal que l'homologue va  rejoindre.
+    7. Cliquez sur **Canaux** dans le navigateur de gauche et recherchez le canal que l'homologue va rejoindre.
     8. Cliquez sur les trois points sous l'en-tête **Actions** et cliquez sur **Synchroniser le certificat**. Dans la fenêtre **Synchroniser le certificat**, cliquez sur **Soumettre**.
 
     **Remarque **: Il est important de synchroniser le certificat de canal avant que l'homologue ne rejoigne le canal ou instancie le code blockchain sur le canal. Vous devrez peut-être attendre quelques minutes le temps que le canal se synchronise avant l'exécution des commandes join channel ou l'instanciation de commandes de code blockchain.   
@@ -288,7 +290,7 @@ Sur votre machine locale, ouvrez un terminal de commandes et accédez au répert
 ### Configuration du conteneur d'outils Fabric
 {: #remote-peer-aws-operate-fabric-cli}
 
-Après avoir déplacé tous vos certificats vers l'emplacement nécessaire, vous pouvez installer et utiliser le conteneur d'outils Fabric de Docker. Ces commandes sont destinées à être exécutées en local sur votre machine. Assurez-vous d'exécuter ces commandes à partir du répertoire dans lequel vous avez stocké votre dossier MSP. Avant de terminer ces étapes, [Git ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Getting Started - Installing Git") doit être installé sur votre machine locale.   
+Après avoir déplacé tous vos certificats vers l'emplacement nécessaire, vous pouvez installer et utiliser le conteneur d'outils Fabric de Docker. Ces commandes sont destinées à être exécutées en local sur votre machine. Assurez-vous d'exécuter ces commandes à partir du répertoire dans lequel vous avez stocké votre dossier MSP. Avant de terminer ces étapes, [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external} doit être installé sur votre machine locale.   
 
 Téléchargez l'image Docker des outils Fabric à l'aide de la commande suivante :
 
@@ -378,7 +380,7 @@ la valeur de `PEERADDR` serait similaire à ceci :
     Remplacez les zones par vos informations.
       - Remplacez `<ORDERER_URL>` par le nom d'hôte et le port du service de tri du fichier `creds.json`.
       - Remplacez `<CHANNEL_NAME>` par le nom du canal que rejoint l'homologue.
-      - Remplacez `<CC_NAME>` par un nom pour faire référence à votre code blockchain. 
+      - Remplacez `<CC_NAME>` par un nom pour faire référence à votre code blockchain.
       - Remplacez `<ORGANIZATION_MSP_ID>` par le nom de l'organisation du fichier `creds.json`.
       - Remplacez `<PEER_ADDR>` par la valeur que vous avez construite à l'étape précédente.  
 
@@ -510,8 +512,7 @@ Procédez comme suit pour mettre à jour votre code blockchain :
 
 1. Pour mettre à jour le code blockchain sur chaque homologue dans AWS, relancez simplement le processus utilisé pour installer le code blockchain sur les homologues, au moyen d'une application client ou d'une commande d'interface de ligne de commande. Veillez à indiquer le même nom de code blockchain que celui utilisé initialement. Toutefois, cette fois incrémentez le numéro de `version` du code blockchain.
 
-2. Une fois le nouveau code blockchain installé sur tous les homologues du canal, utilisez le Moniteur réseau ou la commande
-[peer chaincode upgrade ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade) pour mettre à jour le canal qui va utiliser le nouveau code blockchain.
+2. Une fois le nouveau code blockchain installé sur tous les homologues du canal, utilisez le Moniteur réseau ou la commande [peer chaincode upgrade](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} pour mettre à jour le canal qui va utiliser le nouveau code blockchain.
 
 Consultez l'étape 2 des présentes [instructions](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) pour plus d'informations sur l'utilisation du panneau "Installer le code" du Moniteur réseau pour la mise à jour du code blockchain sur le canal.
 

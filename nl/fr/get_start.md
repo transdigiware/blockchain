@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-04"
+
+keywords: blockchain network, Enterprise Plan, getting started tutorial
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -17,6 +19,9 @@ subcollection: blockchain
 
 # Initiation au plan Enterprise
 {: #getting-started-with-enterprise-plan}
+
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note}-->
 
 Le plan Enterprise d'{{site.data.keyword.blockchainfull}} Platform fournit un réseau de blockchain avec un haut niveau de sécurité, d'intégrité, d'évolutivité et de performance. Vous pouvez mettre à disposition rapidement un réseau pleinement opérationnel et utiliser le Moniteur réseau, lequel se présente sous forme de tableau de bord dans l'interface graphique, pour exécuter immédiatement le [code blockchain](/docs/services/blockchain/glossary.html#glossary-chaincode) et les applications sans avoir à concevoir et à configurer un réseau à partir de zéro
 {:shortdesc}
@@ -36,9 +41,9 @@ Les étapes suivantes indiquent le flux de base permettant de lancer un réseau 
 ## Création d'un réseau
 {: #getting-started-with-enterprise-plan-create-network}
 
-Avant de commencer, vous devez créer une [instance de service d'{{site.data.keyword.blockchain}} Platform ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) sur {{site.data.keyword.cloud_notm}}. Vous devez vous connecter avec votre ID {{site.data.keyword.cloud_notm}}. Si vous n'avez pas d'ID, cliquez sur le bouton **Inscrivez-vous pour créer**. Renommez le service et les noms des données d'identification pour votre instance afin de pouvoir la reconnaître facilement dans le futur. Sélectionnez la région, l'organisation et l'espace {{site.data.keyword.cloud_notm}}, où vous pouvez déployer votre réseau {{site.data.keyword.blockchain}}. Ensuite, sélectionnez un **Plan d'appartenance d'entreprise** dans le tableau Plans de tarification et cliquez sur le bouton **Créer**.
+Avant de commencer, vous devez créer une [instance de service {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}}. Vous devez vous connecter avec votre ID {{site.data.keyword.cloud_notm}}. Si vous n'avez pas d'ID, cliquez sur le bouton **Inscrivez-vous pour créer**. Renommez le service et les noms des données d'identification pour votre instance afin de pouvoir la reconnaître facilement dans le futur. Sélectionnez la région, l'organisation et l'espace {{site.data.keyword.cloud_notm}}, où vous pouvez déployer votre réseau {{site.data.keyword.blockchain}}. Ensuite, sélectionnez un **Plan d'appartenance d'entreprise** dans le tableau Plans de tarification et cliquez sur le bouton **Créer**.
 
-Vous pouvez trouver une instance de votre service IBM {{site.data.keyword.blockchain}} Platform dans votre [Tableau de bord de service {{site.data.keyword.cloud_notm}} ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/resources "Tableau de bord de service {{site.data.keyword.cloud_notm}}").
+Vous pouvez trouver votre instance de service {{site.data.keyword.blockchain}} Platform dans votre tableau de bord de service [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 Si vous êtes un initiateur du réseau, cliquez sur le bouton **Créer un réseau** pour initier un réseau {{site.data.keyword.blockchain}}. Suivez les instructions de l'assistant pour afficher la configuration de base de votre réseau et configurer vos propres ressources réseau.
 ![Assistant Créer un réseau](images/create_network_name.png "Assistant Créer un réseau")
@@ -64,9 +69,9 @@ Vous avez maintenant déployé un réseau {{site.data.keyword.blockchain}} qui p
 ## Rejoindre un réseau
 {: #getting-started-with-enterprise-plan-join-nw}
 
-Comme pour la création d'un réseau, vous devez créer une [instance de service d'IBM {{site.data.keyword.blockchain}} Platform ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) sur {{site.data.keyword.cloud_notm}}. Vous devez vous connecter avec votre ID {{site.data.keyword.cloud_notm}}. Si vous n'avez pas d'ID, cliquez sur le bouton **Inscrivez-vous pour créer**. Renommez le service et les noms des données d'identification pour votre instance afin de pouvoir la reconnaître facilement dans le futur. Sélectionnez la région, l'organisation et l'espace {{site.data.keyword.cloud_notm}}, où vous pouvez déployer votre réseau {{site.data.keyword.blockchain}}. Ensuite, sélectionnez un **Plan d'appartenance d'entreprise** dans le tableau Plans de tarification et cliquez sur le bouton **Créer**.
+Comme pour la création d'un réseau, vous devez créer une [instance de service {{site.data.keyword.blockchain}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}}. Vous devez vous connecter avec votre ID {{site.data.keyword.cloud_notm}}. Si vous n'avez pas d'ID, cliquez sur le bouton **Inscrivez-vous pour créer**. Renommez le service et les noms des données d'identification pour votre instance afin de pouvoir la reconnaître facilement dans le futur. Sélectionnez la région, l'organisation et l'espace {{site.data.keyword.cloud_notm}}, où vous pouvez déployer votre réseau {{site.data.keyword.blockchain}}. Ensuite, sélectionnez un **Plan d'appartenance d'entreprise** dans le tableau Plans de tarification et cliquez sur le bouton **Créer**.
 
-Vous pouvez trouver une instance du service IBM {{site.data.keyword.blockchain}} Platform dans votre [Tableau de bord de service {{site.data.keyword.cloud_notm}} ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/resources "Tableau de bord de service {{site.data.keyword.cloud_notm}}").
+Vous pouvez trouver votre instance de service {{site.data.keyword.blockchain}} Platform dans le tableau de bord de service [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 Si vous êtes un membre de réseau invité, cliquez sur le bouton **Invitation en attente ->**, sélectionnez le réseau que vous voulez rejoindre dans la liste déroulante, puis cliquez sur le bouton **Rejoindre le réseau** . Suivez les instructions de l'assistant pour afficher la configuration de base de votre réseau et configurer vos propres ressources réseau.
 ![Assistant pour rejoindre le réseau](images/join_network_name.png "Assistant pour rejoindre le réseau")
@@ -98,7 +103,7 @@ Dès que vous avez créé un réseau de plan Enterprise dans {{site.data.keyword
 
 ### Extraction à partir de la page d'instance de service
 {: #getting-started-with-enterprise-plan-retrieve-svc-ins}
-Vous accédez à la page d'instance de service dès que vous créez une instance de service. Vous pouvez également cliquer sur votre service dans le [tableau de bord du service {{site.data.keyword.cloud_notm}} ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://cloud.ibm.com/resources "tableau de bord du service {{site.data.keyword.cloud_notm}} ") pour ouvrir votre page d'instance de service.
+Vous accédez à la page d'instance de service dès que vous créez une instance de service. Vous pouvez également cliquer sur votre service dans le [tableau de bord de service {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external} pour ouvrir votre page d'instance de service.
 
 Pour extraire les données d'identification de votre service, procédez comme suit :
 1. Sur la page d'instance de service, cliquez sur **Données d'identification du service** dans le navigateur de gauche pour afficher l'écran "Données d'identification du service".
@@ -114,7 +119,7 @@ Vous pouvez extraire le profil de connexion dans l'écran "Présentation" de vot
 
 ## Activation des applications pour une interaction avec le réseau
 {: #getting-started-with-enterprise-plan-enable-apps}
-Les applications optimisent les API SDK pour interagir avec vos ressources réseau {{site.data.keyword.blockchain}}. Vous devez ajouter les informations de noeud final d'API de vos ressources réseau dans votre application de sorte que celle-ci puisse finalement cibler vos homologues avec des demandes de transaction. Vous pouvez ensuite ajouter les informations de noeud final d'API depuis le moniteur réseau. Les applications peuvent être hébergées sur votre système de fichiers local ou sur {{site.data.keyword.cloud_notm}}. Pour plus d'informations, consultez [Développement d'applications](/docs/services/blockchain/v10_application.html#dev-app).
+Les applications optimisent les API SDK pour interagir avec vos ressources réseau {{site.data.keyword.blockchain}}. Vous devez ajouter les informations de noeud final d'API de vos ressources réseau dans votre application de sorte que celle-ci puisse finalement cibler vos homologues avec des demandes de transaction. Vous pouvez ensuite ajouter les informations de noeud final d'API depuis le moniteur réseau. Les applications peuvent être hébergées sur votre système de fichiers local ou sur {{site.data.keyword.cloud_notm}}.
 
 ## Surveillance des ressources réseau
 {: #getting-started-with-enterprise-plan-monitor-resources}

@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2019-03-05"
+
+keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -65,8 +67,7 @@ Le plan Starter tout comme le plan Enterprise comporte deux éléments de tarifi
 
 La figure 2 illustre un exemple d'instances réseau, ce qui peut vous aider à comprendre les frais d'appartenance. Dans cette figure, le compte {{site.data.keyword.cloud_notm}} concerné met à disposition trois instances réseau : une instance du plan Enterprise nommée *Blockchain-11* et deux instances du plan Starter nommées *Blockchain-cz* et *Blockchain-da*. Chaque instance nécessite son propre service de tri et autorité de certification. En l'occurrence, ce compte {{site.data.keyword.cloud_notm}} spécifique doit s'acquitter de trois frais d'appartenance, un pour chaque instance réseau.
 
-![Instances réseau Blockchain](../images/ibp_instance_example.png "Instances réseau Blockchain")  
-*Figure 2. Instances réseau Blockchain*
+![Instances réseau Blockchain](../images/ibp_instance_example.png "Instances réseau Blockchain")
 
 
 ## Tarification du plan Starter

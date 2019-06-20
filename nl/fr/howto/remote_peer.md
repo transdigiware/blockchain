@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: IBM Blockchain Platform, remote peer, multicloud, multicloud, private data, AWS Cloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -29,14 +31,14 @@ Vous pouvez exécuter l'homologue {{site.data.keyword.blockchainfull_notm}} Plat
 ## Remarques
 {: #remote-peer-aws-about-limitations}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS n'a pas accès à toutes les fonctionnalités ou à la prise en charge des homologues qui sont hébergés sur  {{site.data.keyword.blockchainfull_notm}} Platform. Avant d'exécuter {{site.data.keyword.blockchainfull_notm}} Platform for AWS, vérifiez que vous comprenez les restrictions et limitations suivantes :
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS n'a pas accès à toutes les fonctionnalités ou à la prise en charge des homologues qui sont hébergés sur {{site.data.keyword.blockchainfull_notm}} Platform. Avant d'exécuter {{site.data.keyword.blockchainfull_notm}} Platform for AWS, vérifiez que vous comprenez les restrictions et limitations suivantes :
 - Les homologues qui s'exécutent dans d'autres environnements de cloud ne sont pas visibles dans le Moniteur de réseau du réseau de blockchain sur {{site.data.keyword.cloud_notm}}.
 - Les homologues qui s'exécutent sur {{site.data.keyword.blockchainfull_notm}} Platform for AWS ne peuvent pas être adressés à l'aide de l'interface utilisateur swagger dans l'interface utilisateur du Moniteur réseau.
 - Vous êtes responsable de la gestion de surveillance de l'intégrité, de la sécurité, de la journalisation et de l'utilisation des ressources de vos noeuds homologues {{site.data.keyword.blockchainfull_notm}} Platform for AWS.
 - Vous pouvez connecter vos homologues {{site.data.keyword.blockchainfull_notm}} Platform for AWS uniquement aux réseaux de blockchain au niveau Fabric v1.1 ou v1.2.1. Pour connaître votre version Fabric, ouvriez la [fenêtre Préférences réseau](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) dans votre Moniteur réseau.
 - Le type de base de données de l'homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS doit correspondre au type de base de données de votre réseau blockchain, LevelDB ou CouchDB.
 - L'interface CouchDB Fauxton n'est pas disponible sur l'homologue AWS.
-- [Gossip](/docs/services/blockchain/glossary.html#glossary-gossip) pour les homologues AWS n'est pas pour l'instant pris en charge. Cela suppose que les fonctions Fabric qui dépendent de gossip, comme les [données privées ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data-arch.html "données privées") et la [reconnaissance de service![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "reconnaissance de service"), ne sont également pas pris en charge.
+- [Gossip](/docs/services/blockchain/glossary.html#glossary-gossip) pour les homologues AWS n'est pas pour l'instant pris en charge. Cela suppose que les fonctions Fabric qui dépendent de gossip, comme les [données privées](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data-arch.html){: external} et la [reconnaissance de service](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}, ne sont également pas pris en charge.
 
 ## Prérequis
 {: #remote-peer-aws-about-prereq}
@@ -54,7 +56,7 @@ Pour utiliser un homologue {{site.data.keyword.blockchainfull_notm}} Platform fo
 ## Déploiement d'un homologue AWS
 {: #remote-peer-aws-about-deploy}
 
-Utilisez le [modèle de démarrage rapide AWS ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/ "Quick Start Template") pour déployer facilement {{site.data.keyword.blockchainfull_notm}} Platform for AWS. Pour plus d'informations, voir [{{site.data.keyword.blockchainfull_notm}} Platform for AWS Quick Start Deployment Guide ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://s3.amazonaws.com/aws-quickstart/quickstart-ibm-fabric/doc/ibm-blockchain-platform-for-aws.pdf "IBM Blockchain Platform for AWS Quick Start Reference Deployment").
+Utilisez le [modèle de démarrage rapide AWS](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/){: external} pour déployer facilement {{site.data.keyword.blockchainfull_notm}} Platform for AWS. Pour plus d'informations, voir [{{site.data.keyword.blockchainfull_notm}} Platform for AWS Quick Start Deployment Guide](https://s3.amazonaws.com/aws-quickstart/quickstart-ibm-fabric/doc/ibm-blockchain-platform-for-aws.pdf){: external}.
 
 Pour plus de détails sur le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS, voir [Déploiement d'homologues dans Amazon Web Services](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws).
 
@@ -90,19 +92,18 @@ Etant donné que les réseaux de blockchain dépendent du type de données qui s
 
 Pour respecter les exigences d'hébergement de données, il est important de comprendre l'architecture Hyperledger Fabric qui est sous-jacente à {{site.data.keyword.blockchainfull_notm}} Platform. L'architecture est centrée autour de trois composants clé : autorité de certification, service de tri et homologue. Un homologue reçoit les mises à jour de l'état de tri sous la forme de blocs du service de tri et gère l'état et la registre. Par conséquent, un homologue et un service de tri ont une relation directe. Le registre contient les valeurs les plus récentes de toutes les clés et les données incluses dans les journaux de transaction.
 
-En outre, les applications client utilisent les [logiciels SDK Fabric](/docs/services/blockchain/v10_application.html#dev-app-fabric-sdks) pour envoyer des transactions aux homologues et au service de tri. Ces transactions incluent les données [read-write set ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/readwrite.html "Read-Write set semantics"), qui contiennent les paires clé-valeur sur le registre.
+En outre, les applications client utilisent les [logiciels SDK Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html){: external} pour envoyer des transactions aux homologues et au service de tri. Ces transactions incluent les données [read-write set](https://hyperledger-fabric.readthedocs.io/en/release-1.2/readwrite.html){: external}, qui contiennent les paires clé-valeur sur le registre. 
 
 Si l'hébergement de données dans le pays est une exigence pour votre entreprise, le service de tri, les homologues et les applications client doivent résider dans le même pays. Lorsqu'un réseau {{site.data.keyword.blockchainfull_notm}} Platform est créé dans {{site.data.keyword.cloud_notm}}, vous avez la possibilité de choisir un emplacement pour le réseau. <!--For a Starter Plan network, you can select from US South, United Kingdom, and Sydney. For an Enterprise Plan network, you can select from currently available locations, which include Dallas, Frankfurt, London, Sao Paulo, Tokyo, and Toronto. -->Pour plus d'informations sur les régions et les emplacements, voir [Régions et emplacements d'{{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/reference/ibp_regions.html#ibp-regions-locations). Pour appliquer l'hébergement de données dans l'un de ces pays, votre homologue doit résider dans le même pays que l'emplacement du réseau {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ### Cas d'utilisation de l'hébergement des données dans un pays
 {: #remote-peer-aws-about-data-res-use-case}
 
-Envisagez d'utiliser un réseau {{site.data.keyword.blockchainfull_notm}} Platform qui inclut le service de tri et  et l'autorité de certification ainsi qu'un consortium de quatre organisations. Ces organisations comportent un ou plusieurs noeuds homologues. Les quatre organisations font partie d'un canal unique et tous les composants de réseau résident dans la région (par exemple, Francfort) où le réseau {{site.data.keyword.blockchainfull_notm}} Platform a été déployé. Enfin, les applications client qui interagissent avec les homologues résident également en Allemagne. L'hébergement de données est géré.  
+Envisagez d'utiliser un réseau {{site.data.keyword.blockchainfull_notm}} Platform qui inclut le service de tri et l'autorité de certification ainsi qu'un consortium de quatre organisations. Ces organisations comportent un ou plusieurs noeuds homologues. Les quatre organisations font partie d'un canal unique et tous les composants de réseau résident dans la région (par exemple, Francfort) où le réseau {{site.data.keyword.blockchainfull_notm}} Platform a été déployé. Enfin, les applications client qui interagissent avec les homologues résident également en Allemagne. L'hébergement de données est géré.  
 
-![Hébergement de données lorsque tous les composants  résident dans le même pays](../images/remote_peer_data_res_1.png "Hébergement de données lorsque tous les composants résident dans le même pays")  
-*Figure 3. Hébergement de données lorsque tous les composants résident dans le même pays*
+![Hébergement de données lorsque tous les composants résident dans le même pays](../images/remote_peer_data_res_1.png "Hébergement de données lorsque tous les composants résident dans le même pays")
 
-Nous allons maintenant étudier les conséquences lorsqu'un **homologue** rejoint l'une des organisations.  Un homologue peut résider dans la même région que le reste du réseau ou en dehors de la région du réseau {{site.data.keyword.blockchainfull_notm}} Platform :
+Nous allons maintenant étudier les conséquences lorsqu'un **homologue** rejoint l'une des organisations. Un homologue peut résider dans la même région que le reste du réseau ou en dehors de la région du réseau {{site.data.keyword.blockchainfull_notm}} Platform :
 
 -	Si l'homologue réside dans le même pays que le reste du réseau, l'hébergement de données est géré. Toutes les données du registre demeurent en Allemagne comme illustré dans la **Figure 3** ci-dessus.
 -	Si l'homologue réside dans un pays différent (par exemple, les Etats-Unis), l'hébergement de données n'est plus géré car les données sur le registre homologue sont partagées à l'extérieur des frontières.
@@ -111,26 +112,25 @@ Pour résoudre ce problème, des **canaux** peuvent être utilisés pour sépare
 
 **Remarque :** Les noeuds de service de tri sont toujours situés dans la région du centre de données que vous avez sélectionné pour héberger le réseau. Il n'est pas possible d'avoir plusieurs services de tri entre les frontières. Toutefois, les homologues peuvent se situer dans le centre de données ou sur un site distant à l'extérieur de {{site.data.keyword.cloud_notm}}.
 
-![Les homologues d'hébergement de données résident à l'extérieur du pays de la région d'IBM Blockchain Platform](../images/remote_peer_data_res_2.png "Les homologues d'hébergement de données résident à l'extérieur du pays de la région d'IBM Blockchain Platform")  
-*Figure 4. Les homologues d'hébergement de données résident à l'extérieur du pays de la région d'IBM Blockchain Platform*
+![Les homologues d'hébergement de données résident à l'extérieur du pays de la région d'{{site.data.keyword.blockchainfull_notm}} Platform](../images/remote_peer_data_res_2.png "Les homologues d'hébergement de données résident à l'extérieur du pays de la région d'{{site.data.keyword.blockchainfull_notm}} Platform")
 
 Dans la **Figure 4**, l'hébergement de données n'est pas obligatoire pour `OrgC` et `OrgD`. En fait, `OrgD` inclut désormais deux homologues, `OrgD-peer1` et `OrgD-peer2`, qui résident aux *Etats-Unis*. Par conséquent, pour que `OrgA`, `OrgB` et leurs applications client et homologues respectifs qui résident en Allemagne puissent isoler les données de registre sur le canal `X`, un nouveau canal `Y` est créé pour `OrgC` et `OrgD`.
 
-Pour une meilleure compréhension du flux de données sur le réseau de {{site.data.keyword.blockchainfull_notm}} Platform, voir la[documentation Fabric sur le flux de transactions![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "Flux de transactions").
+Pour une meilleure compréhension du flux de données sur le réseau de {{site.data.keyword.blockchainfull_notm}} Platform, voir la [documentation Fabric sur le flux de transactions](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external}.
 
-A l'avenir, la nouvelle technologie dans Hyperledger Fabric améliorera la capacité à réaliser d'autres hébergements de données l'étranger en utilisant des [collectes de données privées ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html "Collectes de données privées") et zéro connaissance.
+A l'avenir, la nouvelle technologie dans Hyperledger Fabric améliorera la capacité à réaliser d'autres hébergements de données à l'étranger en utilisant des [Collectes de données privées](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external} et zéro connaissance. 
 
-- Une collecte de données privées garantit que les données privées sont partagés homologue par homologue (via le protocole gossip) sur des homologues autorisés uniquement pour voir si, par exemple, des homologues se trouvent entre les frontières d'un pays. Les données sont stockées dans une base de données privée sur l'homologue.  Le service de tri n'est pas impliqué ici et il ne voit pas les données privées. Un hachage de ces données est écrit dans les registres de chaque homologue sur le canal. Le hachage qui est utilisé pour la validation d'état fait office de preuve de la transaction, et il peut être utilisé à des fins d'audit. Des données privées sont disponibles pour les réseaux sur  {{site.data.keyword.blockchainfull_notm}} Platform qui s'exécutent dans Fabric version 1.2.1. Toutefois, la fonction Données privées n'est pas disponible pour les homologues distants.
+- Une collecte de données privées garantit que les données privées sont partagés homologue par homologue (via le protocole gossip) sur des homologues autorisés uniquement pour voir si, par exemple, des homologues se trouvent entre les frontières d'un pays. Les données sont stockées dans une base de données privée sur l'homologue.  Le service de tri n'est pas impliqué ici et il ne voit pas les données privées. Un hachage de ces données est écrit dans les registres de chaque homologue sur le canal. Le hachage qui est utilisé pour la validation d'état fait office de preuve de la transaction, et il peut être utilisé à des fins d'audit. Des données privées sont disponibles pour les réseaux sur {{site.data.keyword.blockchainfull_notm}} Platform qui s'exécutent dans Fabric version 1.2.1. Toutefois, la fonction Données privées n'est pas disponible pour les homologues distants.
 
 - Une preuve ZKP (Zero-Knowledge Proof) permet à un “approbateur” de garantir à un “vérificateur” qu'ils ont la connaissance d'une valeur confidentielle sans révéler la valeur confidentielle elle-même. Il s'agit d'un moyen de montrer que vous savez quelque chose qui répond à une instruction sans afficher ce que vous savez.
 
-Vous trouverez davantage d'informations sur ces technologies dans le livre blanc sur les [transactions privées et confidentielles avec Hyperledger Fabric ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/ "Transactions privées et confidentielles avec Hyperledger Fabric").
+Vous trouverez davantage d'informations sur ces technologies dans le livre blanc sur les [Transactions privées et confidentielles avec Hyperledger Fabric](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external}.
 
 ## Support
 {: #remote-peer-aws-about-support}
 
-IBM Blockchain Platform n'assure pas de support pour cette offre. Si vous rencontrez des problèmes liés à votre homologue, vous pouvez utiliser des ressources développeur de blockchain gratuites, des forums de support et obtenir de l'aide auprès d'{{site.data.keyword.IBM_notm}} et de la communauté Fabric. Pour plus d'informations, voir les [ressources et forums de support blockchain](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources). Vous pouvez également afficher les ressources de support à l'écran **Obtenir de l'aide** du Moniteur réseau.
+{{site.data.keyword.blockchainfull_notm}} Platform n'assure pas de support pour cette offre. Si vous rencontrez des problèmes liés à votre homologue, vous pouvez utiliser des ressources développeur de blockchain gratuites, des forums de support et obtenir de l'aide auprès d'{{site.data.keyword.IBM_notm}} et de la communauté Fabric. Pour plus d'informations, voir les [ressources et forums de support blockchain](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources). Vous pouvez également afficher les ressources de support à l'écran **Obtenir de l'aide** du Moniteur réseau.
 
-- Pour les problèmes liés à AWS, vous pouvez utiliser à la fois les [forums de support de la communauté ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://forums.aws.amazon.com/index.jspa "forums de support de la communauté AWS") et le [support premium AWS![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://aws.amazon.com/premiumsupport/ "support premium AWS").
+- Pour les problèmes liés à AWS, vous pouvez utiliser à la fois les [forums de support de la communauté](https://forums.aws.amazon.com/index.jspa){: external} et le [support premium AWS](https://aws.amazon.com/premiumsupport/){: external}.
 
 {{site.data.keyword.blockchainfull_notm}} ne prend pas en charge les cas d'utilisation qui sont ouverts dans {{site.data.keyword.cloud_notm}} et son liés à {{site.data.keyword.blockchainfull_notm}} Platform for AWS. L'édition Community est destinée à l'exploration, au développement et aux tests et elle ne doit pas être utilisée en production.

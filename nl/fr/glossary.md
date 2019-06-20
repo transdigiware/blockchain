@@ -2,11 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-05-31"
+
+keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
+
+subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -16,12 +20,12 @@ lastupdated: "2019-04-17"
 # Glossaire
 {: #glossary}
 
-Cette rubrique définit les termes spécifiques à {{site.data.keyword.blockchainfull}} Platform qui apparaissent dans cette documentation. Pour une meilleure compréhension de ces termes, et pour afficher un glossaire des termes relatifs aux concepts Hyperledger Fabric, voir la section [Glossaire Hyperledger Fabric![Icône de lien externe](images/external_link.svg "Icône de lien externe")](http://hyperledger-fabric.readthedocs.io/en/release-1.2/glossary.html).
+Cette rubrique définit les termes spécifiques à {{site.data.keyword.blockchainfull}} Platform qui apparaissent dans cette documentation. Pour une meilleure compréhension de ces termes, et pour afficher un glossaire des termes relatifs aux concepts Hyperledger Fabric, voir la section [Hyperledger Fabric glossary](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
 {:shortdesc}
 
 ## AC
 {: #glossary-CA}
-Abréviation de "Autorité de certification". Il s'agit du composant qui émet des certificats pour tous les membres participants. Ces certificats représentent l'identité d'un membre. Toutes les entités du réseau (homologues, services de tri, clients, etc.) doivent posséder une identité pour communiquer, authentifier et enfin effectuer des transactions. Ces identités sont nécessaires à toute participation directe au réseau de blockchain.
+Abréviation de "Autorité de certification". Il s'agit du composant qui émet des certificats pour tous les membres participants. Ces certificats représentent l'identité d'un membre. Toutes les entités sur le réseau (homologues, services de tri, clients et ainsi de suite) doivent posséder une identité pour communiquer, authentifier et enfin effectuer des transactions. Ces identités sont nécessaires à toute participation directe au réseau de blockchain.
 
 ## Adhésion
 {: #glossary-endorsement}
@@ -61,12 +65,15 @@ Le client représente l'entité qui agit pour le compte d'un utilisateur. Il doi
 
 ## Code blockchain
 {: #glossary-chaincode}
-
 Egalement appelé **contrats intelligents**, le code blockchain est constitué d'éléments logiciels qui contiennent un ensemble de fonctions permettant d'interroger et de mettre à jour le registre.
 
 ## Consensus
 {: #glossary-consensus}
 Processus collaboratif qui permet de conserver les transactions de registre synchronisées au sein du réseau. Le consensus garantit que les registres sont mises à jour uniquement lorsque les participants appropriés approuvent les transactions, et que les registres sont mis à jour avec les mêmes transactions dans le même ordre. De nombreux modes algorithmiques différents permettent d'atteindre ce consensus.
+
+## Console
+{: #glossary-console}
+Nom de l'interface utilisateur dans {{site.data.keyword.blockchainfull_notm}} Platform. La console permet aux utilisateurs d'afficher, de créer et de gérer leurs déploiements. Comme les clés publiques et privées sont uniquement stockées en local dans le navigateur où la console s'exécute, les utilisateurs conservent un contrôle total sur leurs clés.
 
 ## Consortium
 {: #glossary-consortium}
@@ -74,7 +81,7 @@ Groupe d'organisations autres que des services de tri non répertoriées sur le 
 
 ## CouchDB
 {: #glossary-couchdb}
-Magasin de documents utilisé pour la base de données d'état dans les réseaux du plan Starter. CouchDB est également une option pour les réseaux du plan Enterprise, de pair avec LevelDB. CouchDB prend en charge l'utilisation d'index et vous permet d'exécuter des requêtes approfondies sur les données de votre homologue.
+Magasin de documents qui permet d'exécuter des requêtes de données approfondies et qui est utilisé pour la base de données d'état dans {{site.data.keyword.blockchainfull_notm}} Platform et les réseaux du plan Starter. CouchDB est également une option pour les réseaux du plan Enterprise, de pair avec LevelDB.
 
 ## Données d'identification du service
 {: #glossary-service-credentials}
@@ -86,12 +93,11 @@ Les données d'identification sont visibles depuis l'écran "API" du Moniteur r�
 
 ## Etat en cours
 {: #glossary-current-state}
-
-L'état en cours du registre représente les valeurs les plus récentes pour toutes les clés qui sont incluses dans son journal des transactions de chaîne. Etant donné que l'état actuel représente toutes les valeurs de clé les plus récentes connues du canal, il est parfois appelé "World State". Le code blockchain exécute les propositions de transaction en fonction des données d'état actuel. L'état actuel change chaque fois que la valeur d'une clé change ou qu'une nouvelle clé est ajoutée. L'état actuel est critique pour un flux de transaction car la dernière paire clé-valeur doit être connue pour pouvoir être modifiée. Les homologues valident les valeurs les plus récentes en fonction de l'état actuel du registre pour chaque transaction valide dans un bloc. L'état actuel est stocké dans une base de données d'état d'un homologue.
+L'état en cours du registre représente les valeurs les plus récentes pour toutes les clés qui sont incluses dans son journal des transactions de chaîne. Etant donné que l'état actuel représente toutes les valeurs de clé les plus récentes connues du canal, il est parfois appelé **world state**. Les contrats intelligents exécutent les propositions de transaction en fonction des données d'état actuel. L'état actuel change chaque fois que la valeur d'une clé change ou qu'une nouvelle clé est ajoutée et il est critique pour un flux de transaction car la dernière paire clé-valeur doit être connue pour pouvoir être modifiée. Les homologues valident les valeurs les plus récentes en fonction de l'état actuel du registre pour chaque transaction valide dans un bloc. L'état actuel est stocké dans la base de données associée à un homologue.
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric permet aux homologues de regrouper d'importantes informations réseau les uns des autres sans avoir à reposer sur le service de tri. Le [protocole de dissémination de données Gossip![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://hyperledger-fabric.readthedocs.io/en/release-1.1/gossip.html) constitue un moyen sécurisé, fiable et évolutif pour que les homologues puissent échanger des messages entre eux. Par exemple, si des homologues perdent certains blocs en raison de retards, de pannes réseau, ou pour d'autres raisons, ils peuvent se synchroniser sur l'état du registre actuel en utilisant des messages Gossip pour contacter d'autres homologues en possession de ces blocs manquants.
+Hyperledger Fabric permet aux homologues de regrouper d'importantes informations réseau les uns des autres sans avoir à reposer sur le service de tri. Le [protocole de dissémination de données Gossip](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} constitue un moyen sécurisé, fiable et évolutif pour que les homologues puissent échanger des messages entre eux. Par exemple, si des homologues perdent certains blocs en raison de retards, de pannes réseau, ou pour d'autres raisons, ils peuvent se synchroniser sur l'état du registre actuel en utilisant des messages Gossip pour contacter d'autres homologues en possession de ces blocs manquants.
 
 ## Homologue
 {: #glossary-peer}
@@ -99,11 +105,11 @@ Ressource de réseau blockchain qui fournit les services permettant d'exécuter 
 
 ## HSM
 {: #glossary-hsm}
-Module de sécurité matérielle (HSM). Permet un chiffrement à la demande, la gestion des clés et le stockage de clés en tant que service géré. HSM est un dispositif physique qui gère les tâches gourmandes en ressources de chiffrement et réduit le temps de latence des applications. Pour plus d'informations, voir [Module de sécurité matérielle ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://www.ibm.com/cloud/hardware-security-module)
+Module de sécurité matérielle (HSM). Permet un chiffrement à la demande, la gestion des clés et le stockage de clés en tant que service géré. HSM est un dispositif physique qui gère les tâches gourmandes en ressources de chiffrement et réduit le temps de latence des applications. Pour plus d'informations, voir [Module de sécurité matérielle](https://www.ibm.com/cloud/hardware-security-module){: external}.
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/) est une architecture de blockchain d'entreprise hébergée par Linux Foundation pour servir de base au développement d'applications ou de solutions blockchain avec une architecture modulaire. Les composants Hyperledger Fabric comme les services de consensus et d'appartenance sont de type plug-and-play.
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external} est une architecture de blockchain d'entreprise hébergée par Linux Foundation pour servir de base au développement d'applications ou de solutions blockchain avec une architecture modulaire. Les composants Hyperledger Fabric comme les services de consensus et d'appartenance sont de type plug-and-play.
 
 ## Installer
 {: #glossary-install}
@@ -115,7 +121,7 @@ Processus consistant à démarrer et à initialiser un conteneur de code blockch
 
 ## Kafka
 {: #glossary-kafka}
-Implémentation de plug-in de consensus pour Hyperledger Fabric qui se traduit par un cluster de noeuds de service de tri dans le réseau de blockchain. Une implémentation Kafka est destinée à un réseau de production.
+Implémentation de plug-in de consensus pour Hyperledger Fabric qui se traduit par un cluster de noeuds de service de tri dans le réseau de blockchain. Les implémentations Kafka et Raft sont destinées aux réseaux de production. Cependant, seuls les clusters de service de tri Raft bénéficient d'une prise en charge native et ils peuvent être créés à l'aide de {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## LevelDB
 {: #glossary-leveldb}
@@ -123,16 +129,15 @@ Magasin clés-valeurs en option pour la base de données d'état des réseaux du
 
 ## Membre
 {: #glossary-member}
-
 Egalement appelés "organisations", les membres d'un réseau de blockchain, semblables aux membres d'un groupe, forment la structure du réseau. Un membre peut avoir la taille d'une multinationale ou d'un individu. Les membres sont inscrits sur le réseau avec un certificat qui leur accorde le droit d'utiliser le réseau en tant que fournisseur de services (par exemple, en émettant des certificats, en validant/ordonnant des transactions) ou en tant que consommateur. Le premier fournit des services de blockchain de base qui incluent la validation de transaction, le classement des transactions ainsi que des services de gestion de certificats. Les membres consommateurs utilisent le réseau pour appeler des transactions par rapport au registre partagé. Les membres peuvent comporter plusieurs homologues.
 
 ## Moniteur réseau
 {: #glossary-network-monitor}
-Tableau de bord de l'interface graphique fourni par {{site.data.keyword.blockchainfull_notm}} Platform pour afficher et gérer le réseau de blockchain.
+Tableau de bord de l'interface graphique de {{site.data.keyword.blockchainfull_notm}} Platform pour les réseaux Starter et Enterprise, qui permet aux utilisateurs d'afficher et de gérer le réseau de blockchain.
 
 ## MSP
 {: #glossary-msp}
-Membership Service Provider (Fournisseur de services aux membres).  Ensemble de mécanismes et protocoles de chiffrement pour l'émission et la validation des certificats et des identités au sein du réseau de blockchain. Les identités qui sont émises dans la portée d'un fournisseur de services d'appartenance peuvent être évaluées au sein des règles de validation des règles du fournisseur de services d'appartenance. Le fournisseur MSP est installé sur chaque homologue de canal afin de garantir que les demandes de transaction qui sont émises pour l'homologue proviennent d'une identité utilisateur authentifiée et autorisée.
+Forme abrégée de **Membership Service Provider**, qui donne la définition d'une organisation, y compris le certificat racine de l'autorité de certification qui émet des certificats pour les entités associées à cette organisation, ainsi que le certificat signataire de l'admin de cette organisation. Les MSP existent également au niveau local d'un homologue ou d'un noeud de tri, et il s'agit du mécanisme d'authentification qui vérifie les utilisateurs admin du noeud. Dans {{site.data.keyword.blockchainfull_notm}} Platform, les MSP peuvent être exportés depuis une console vers une autre, ce qui permet aux utilisateurs de créer une organisation sur une console, de l'importer sur une autre console, puis de l'utiliser (par exemple, pour créer un canal). Les MSP peuvent également être importés dans un service de tri, formant ainsi un "consortium", liste des organisations autorisées à créer et à joindre des canaux.
 
 ## Noeud
 {: #glossary-node}
@@ -150,13 +155,17 @@ Organisation, individu, application ou appareil qui interagit avec le réseau de
 {: #glossary-connection-profile}
 Le profil de connexion est visible dans l'écran "Présentation" du Moniteur réseau lorsque vous cliquez sur le bouton **Profil de connexion**. Les informations sont disponibles au format JSON et elles contiennent les informations de noeud final d'API et les ID d'inscription/valeurs confidentielles de vos ressources réseau, c'est-à-dire les homologues, les services de tri et les autorités de certification. Votre application interagit avec les ressources réseau via ces noeuds finaux d'API.
 
-## Registre
-{: #glossary-ledger}
-Le registre comprend une "chaîne de blocs" littérale qui stocke un enregistrement immuable et séquencé de transactions, ainsi qu'une base de données d'état pour le maintien de l'état en cours. Il y a un registre par canal, et les mises à jour de ce dernier sont gérées par le processus de consensus en fonction des règles d'un canal particulier.
+## Raft
+{: #glossary-raft}
+Raft est un service tri tolérant aux pannes reposant sur l'implémentation du [protocole Raft](https://raft.github.io/raft.pdf){: external} dans `etcd`. Le service de tri Raft suit un modèle de type “leader and follower” (principal et suiveur) dans lequel un noeud principal est choisi (par canal) et ses décisions sont répliquées par les suiveurs. Les services de tri Raft doivent être plus faciles à configurer et à gérer que les services de tri basés sur Kafka et un cluster de ces noeuds peut être créé à l'aide de {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Règle d'adhésion
 {: #glossary-endorsement-policy}
 Définit les noeuds homologue sur un canal qui doivent exécuter des transactions liées à une application de code blockchain spécifique, ainsi que la combinaison nécessaire de réponses (adhésions). Une règle peut exiger qu'une transaction soit validée par un nombre minimum d'homologues valideurs, un pourcentage minimum d'homologues valideurs ou par tous les homologues valideurs qui sont affectés à une application de code blockchain spécifique. Les règles peuvent être organisées en fonction de l'application et du niveau souhaité de résilience par rapport à un comportement inapproprié, qu'il soit ou non délibéré, par les homologues d'adhésion. Une transaction soumise doit respecter la règle de validation pour pouvoir être marquée comme valide par les homologues d'adhésion. Une règle distincte de validation pour l'installation et l'instanciation des transactions est également requise.
+
+## Registre
+{: #glossary-ledger}
+Le registre comprend une "chaîne de blocs" littérale qui stocke un enregistrement immuable et séquencé de transactions, ainsi qu'une base de données d'état pour le maintien de l'état en cours. Il y a un registre par canal, et les mises à jour de ce dernier sont gérées par le processus de consensus en fonction des règles d'un canal particulier.
 
 ## Réseau
 {: #glossary-network}
@@ -166,21 +175,21 @@ Instance d'un service {{site.data.keyword.blockchainfull_notm}} Platform sur {{s
 {: #glossary-asset}
 Biens matériels ou immatériels, services ou propriété représentés en tant qu'élément qui fait l'objet d'une transaction sur le réseau de blockchain.
 
-## SDK
-{: #glossary-sdk}
-Hyperledger Fabric prend en charge deux kits SDK : Node SDK et Java SDK.  Node SDK peut être installé via NPM et Java SDK via Maven.  Les kits SDK ont leurs propres référentiels Git, c'est-à-dire, [Fabric Node SDK ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://github.com/hyperledger/fabric-sdk-node) et  [Fabric Java SDK ![Icône de lien externe](images/external_link.svg "Icône de lien externe")](https://github.com/hyperledger/fabric-sdk-java), ainsi que la documentation associée aux API disponibles. Les kits SDK de Hyperledger Fabric Client permettent l'interaction entre votre application client et votre réseau de blockchain.
-
 ## Service de tri
 {: #glossary-orderer}
 Noeud qui collecte les transactions des membres réseau, trie les transactions et les regroupe dans des blocs. Ces blocs sont ensuite distribués aux homologues, lesquels vérifient les blocs et les ajoutent aux registres sur chaque canal. Les services de tri contiennent les identités de chiffrement qui sont liées à chaque membre et ils authentifient l'identité des clients et des homologues pour l'accès au réseau. La fonction globale fournie par un noeud ou une collection de noeuds de service de tri est appelée **service de tri**.
+
+## SDK
+{: #glossary-sdk}
+Hyperledger Fabric prend en charge deux kits SDK : Node SDK et Java SDK.  Node SDK peut être installé via NPM et Java SDK via Maven.  Les kits SDK ont leurs propres référentiels Git, c'est-à-dire, [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} et [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}, ainsi que la documentation associée aux API disponibles. Les kits SDK de Hyperledger Fabric Client permettent l'interaction entre votre application client et votre réseau de blockchain.
 
 ## Smart contracts
 {: #glossary-smart-contracts}
 Voir [Code blockchain](/docs/services/blockchain/glossary.html#glossary-chaincode).
 
-## SOLO
+## Solo
 {: #glossary-solo}
-Implémentation de plug-in de consensus pour Hyperledger Fabric qui se traduit par un seul service de tri dans le réseau de blockchain. Le réseau de plan Starter utilise l'implémentation SOLO. Une implémentation SOLO n'est pas destinée à un réseau de production. L'alternative au consensus SOLO est un cluster Kafka.
+Implémentation de plug-in de consensus pour Hyperledger Fabric qui se traduit par un seul service de tri dans le réseau de blockchain. Le réseau de plan Starter utilise l'implémentation Solo. Une implémentation Solo n'est pas destinée à un réseau de production. Les alternatives à Solo sont les clusters Raft et Kafka.
 
 ## Transaction
 {: #glossary-transaction}

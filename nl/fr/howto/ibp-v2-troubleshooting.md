@@ -2,47 +2,55 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-31"
+
+keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:pre: .pre}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:pre: .pre}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Traitement des incidents
 {: #ibp-v2-troubleshooting}
 
 Des problèmes généraux peuvent se produire lorsque vous utilisez la console pour gérer des noeuds, des canaux ou des contrats intelligents. Dans de nombreux cas, ces problèmes peuvent être résolus en quelques opérations simples.
+{:shortdesc}
 
-- [Lorsque je survole mon noeud, l'état est `Statut non disponible`. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-status-unavailable)
-- [Lorsque je survole mon noeud, l'état est `Statut non détectable`. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-status-undetectable)
-- [Pourquoi mes opérations de noeud échouent après la création d'un homologue ou d'un service de tri ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry1)
-- [Pourquoi mon homologue ne parvient pas à démarrer ? ](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry2)
-- [Pourquoi ne puis-je pas installer, instancier ou mettre à niveau mes contrats intelligents ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry1)
-- [Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
+- [Lorsque je survole mon noeud, le statut est `Statut non disponible`. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-status-unavailable)
+- [Lorsque je survole mon noeud, le statut est `Statut non détectable`. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-status-undetectable)
+- [Pourquoi mes opérations de noeud échouent après la création d'un homologue ou d'un service de tri ?](#ibp-console-build-network-troubleshoot-entry1)
+- [Pourquoi mon homologue ne parvient pas à démarrer ?](#ibp-console-build-network-troubleshoot-entry2)
+- [Pourquoi ne puis-je pas installer, instancier ou mettre à niveau mes contrats intelligents ?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Mon canal, mes contrats intelligents et mes identités ont disparu de la console. Comment puis-je les récupérer ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
-- [Pourquoi est-ce que je reçois le message d'erreur `Une erreur s'est produite lors de la mise à jour du canal` lorsque j'essaie d'ajouter une organisation à mon canal ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-update-channel)
-- [Mon cluster Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-cluster-expired)
-- [Pourquoi les transactions que je soumet depuis VSCode échouent ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
+- [Pourquoi est-ce que je reçois le message d'erreur `Impossible d'effectuer l'authentification avec l'ID et le secret d'inscription que vous avez fournis` lorsque je crée une nouvelle définition MSP d'organisation ?](#ibp-v2-troubleshooting-create-msp)
+- [Pourquoi est-ce que je reçois le message d'erreur `Une erreur s'est produite lors de la mise à jour du canal` lorsque j'essaie d'ajouter une organisation à mon canal ?](#ibp-v2-troubleshooting-update-channel)
+- [Mon cluster Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-cluster-expired)
+- [Pourquoi les transactions que je soumets depuis le code VS échouent ?](#ibp-v2-troubleshooting-anchor-peer)
+- [Lorsque je me connecte à ma console, pourquoi est-ce que je reçois le message d'erreur 401 unauthorized ?](#ibp-v2-troubleshooting-console-401)
 
 ## Lorsque je survole mon noeud, l'état est `Statut non disponible`. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-status-unavailable}
+{: troubleshoot}
 
 Le statut de noeud dans la vignette du noeud de l'autorité de certification, de l'homologue ou du service de tri est grisé, ce qui signifie que le statut du noeud est non disponible. Dans l'idéal, lorsque vous survolez un noeud, l'état doit être `En fonctionnement`.
 {: tsSymptoms}
 
-Ce problème peut se produire si le noeud a récemment été créé et que le processus de déploiement n'est pas terminé. Si le noeud est une autorité de certification, il est probable que le noeud n'est pas en cours d'exécution. Si le noeud est un homologue ou un service de tri, cette condition se produit lorsque le programme de diagnostic d'intégrité d'intégrité qui s'exécute sur le noeud ou le service de tri ne parvient pas à contacter le noeud. La demande de statut peut échouer avec une erreur de délai d'attente car le noeud n'a pas répondu dans un délai spécifique, le noeud est arrêté ou la connectivité du réseau est hors service.
+Ce problème peut se produire si le noeud a récemment été créé et que le processus de déploiement n'est pas terminé. Si le noeud est une autorité de certification, il est probable que le noeud n'est pas en cours d'exécution.
+Si le noeud est un homologue ou un service de tri, cette condition se produit lorsque le programme de diagnostic d'intégrité d'intégrité qui s'exécute sur le noeud ou le service de tri ne parvient pas à contacter le noeud.  La demande de statut peut échouer avec une erreur de délai d'attente car le noeud n'a pas répondu dans un délai spécifique, le noeud est arrêté ou la connectivité du réseau est hors service.
 {: tsCauses}
 
 S'il s'agit d'un nouveau noeud, attendez quelques minutes que le déploiement se termine. Si le noeud n'est pas nouveau,
@@ -51,6 +59,7 @@ S'il s'agit d'un nouveau noeud, attendez quelques minutes que le déploiement se
 
 ## Lorsque je survole mon noeud, le statut est `Statut non détectable`. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-status-undetectable}
+{: troubleshoot}
 
 Le statut de noeud dans la vignette de l'homologue ou service de tri est jaune, ce qui signifie que le statut du noeud ne peut pas être détecté. Dans l'idéal, lorsque vous survolez un noeud, l'état doit être `En fonctionnement`.
 {: tsSymptoms}
@@ -75,6 +84,7 @@ Le programme de diagnostic d'intégrité peut maintenant s'exécuter sur le noeu
 
 ## Pourquoi mes opérations de noeud échouent après la création d'un homologue ou d'un service de tri ?
 {: #ibp-console-build-network-troubleshoot-entry1}
+{: troubleshoot}
 
 Il est possible que vous rencontriez une erreur lors de la gestion d'un noeud existant. Lorsque cela arrive, il est souvent utile de consulter les journaux de ce noeud.  
 
@@ -89,6 +99,7 @@ Consultez votre tableau de bord Kubernetes et vérifiez que l'homologue ou le no
 
 ## Pourquoi mon homologue ne parvient pas à démarrer ?
 {: #ibp-console-build-network-troubleshoot-entry2}
+{: troubleshoot}
 
 Plusieurs cas de figure sont possibles pour cette erreur.
 
@@ -107,6 +118,7 @@ Le journal de l'homologue comporte `2019-02-06 19:43:24.159 UTC [main] InitCmd -
 
 ## Pourquoi ne puis-je pas installer, instancier ou mettre à niveau mes contrats intelligents ?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
+{: troubleshoot}
 
 Il est possible que vous rencontriez une erreur lors de l'installation, de l'instanciation ou de la mise à niveau d'un contrat intelligent.  Par exemple, lorsque vous essayez d'installer un contrat intelligent sur un homologue, l'opération peut échouer avec le message d'erreur `Une erreur s'est produite lors de l'installation du contrat intelligent sur l'homologue.`
 {: tsSymptoms}
@@ -121,6 +133,7 @@ Vous pouvez recevoir cette erreur si cette version de contrat intelligent existe
 
 ## Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
+{: troubleshoot}
 
 Vous devrez peut-être consulter les journaux de votre conteneur de contrat intelligent, ou de code blockchain, pour déboguer un problème de contrat intelligent.
 {: tsSymptoms}
@@ -130,11 +143,12 @@ Suivant les instructions de la rubrique relative à la [consultation des journau
 
 ## Mon canal, mes contrats intelligents et mes identités ont disparu de la console. Comment puis-je les récupérer ?
 {: #ibp-v2-troubleshooting-browser-storage}
+{: troubleshoot}
 
-Les identités de votre portefeuille de console se composent d'un paire de clés publiques et privées qui vous permet de gérer les composants de votre blockchain. Cependant, ces clés sont stockées uniquement dans le stockage local de votre navigateur. Vous êtes responsable de la sécurisation et de la gestion de ces clés. Nous vous recommandons de les exporter sur votre système de fichiers après leur création. Chaque fois que vous créez un nouveau noeud, vous associez une identité de votre portefeuille de console à ce noeud. Cette identité admin est celle qui vous permet de gérer le noeud. Lorsque vous changez de navigateur ou lorsque vous passez à un navigateur sur un autre ordinateur, ces identités ne sont plus dans votre portefeuille. Par conséquent, vous ne pouvez pas gérer les composants.
+Les identités de votre portefeuille de console se composent d'un certificat signataire et d'une clé privée qui vous permettent de gérer les composants de votre blockchain. Cependant, ces clés sont stockées uniquement dans le stockage local de votre navigateur. Vous êtes responsable de la sécurisation et de la gestion de ces clés. Nous vous recommandons de les exporter sur votre système de fichiers après leur création. Chaque fois que vous créez un nouveau noeud, vous associez une identité de votre portefeuille de console à ce noeud. Cette identité admin est celle qui vous permet de gérer le noeud. Lorsque vous changez de navigateur ou lorsque vous passez à un navigateur sur un autre ordinateur, ces identités ne sont plus dans votre portefeuille. Par conséquent, vous ne pouvez pas gérer les composants.
 {: tsSymptoms}
 
-A compter de la version 2.0 d'{{site.data.keyword.blockchainfull_notm}} Platform, vous êtes désormais responsable de la sécurisation et de la gestion de vos certificats. Par conséquent, ces derniers sont uniquement conservés dans le stockage local du navigateur pour vous permettre de gérer le composant. Si vous utilisez un navigateur privé et que vous passez à une autre fenêtre de navigateur ou dans une fenêtre de navigateur non privée, les identités que vous avez créées seront supprimé de votre portefeuille de console dans la nouvelle session de navigateur. Par conséquent, il est nécessaire d'exporter les identités depuis le portefeuille de console dans votre session de navigateur privée pour votre système de fichiers. Vous pouvez ensuite les importer dans votre session de navigateur non privée si nécessaire. Sinon, il n'est pas possible de les récupérer.
+Dans la nouvelle version d'{{site.data.keyword.blockchainfull_notm}} Platform, vous êtes désormais responsable de la sécurisation et de la gestion de vos certificats. Par conséquent, ces derniers sont uniquement conservés dans le stockage local du navigateur pour vous permettre de gérer le composant. Si vous utilisez un navigateur privé et que vous passez à une autre fenêtre de navigateur ou dans une fenêtre de navigateur non privée, les identités que vous avez créées seront supprimé de votre portefeuille de console dans la nouvelle session de navigateur. Par conséquent, il est nécessaire d'exporter les identités depuis le portefeuille de console dans votre session de navigateur privée pour votre système de fichiers. Vous pouvez ensuite les importer dans votre session de navigateur non privée si nécessaire. Sinon, il n'est pas possible de les récupérer.
 {: tsCauses}
 
 - Chaque fois que vous créez une nouvelle définition MSP d'organisation, vous générez des clés pour une identité qui est autorisée à administrer l'organisation. Par conséquent, pendant ce processus vous devez cliquer sur les boutons **Générer** et **Exporter** pour stocker l'identité générée dans votre portefeuille de console, puis la sauvegarder sur votre système de fichiers dans un fichier JSON.
@@ -149,8 +163,22 @@ A compter de la version 2.0 d'{{site.data.keyword.blockchainfull_notm}} Platform
 - Recommencez ce processus pour chaque identité figurant dans le portefeuille du navigateur d'origine.
 {: tsResolve}
 
+## Pourquoi est-ce que je reçois le message d'erreur `Impossible d'effectuer l'authentification avec l'ID et le secret d'inscription que vous avez fournis` lorsque je crée une nouvelle définition MSP d'organisation ?
+{: #ibp-v2-troubleshooting-create-msp}
+{: troubleshoot}
+
+Lorsque vous essayez de créer une la définition MSP d'une nouvelle organisation depuis l'onglet Organisations, vous recevez le message d'erreur `Impossible d'effectuer l'authentification avec l'ID et le secret d'inscription que vous avez fournis`.
+{: tsSymptoms}
+
+Cette erreur se produit lorsque la valeur que vous avez indiquée pour le secret d'inscription n'est pas valide pour l'ID d'inscription que vous avez sélectionné dans la section `Générer un certificat d'administrateur d'organisation` du panneau.
+{: tsCauses}
+
+Vérifiez que vous avez sélectionné l'ID d'inscription d'admin d'organisation correct dans la liste déroulante des ID d'inscription et entrez la valeur correcte pour le secret d'inscription.
+{: tsResolve}
+
 ## Pourquoi est-ce que je reçois le message d'erreur `Une erreur s'est produite lors de la mise à jour du canal` lorsque j'essaie d'ajouter une organisation à mon canal ?
 {: #ibp-v2-troubleshooting-update-channel}
+{: troubleshoot}
 
 Lorsque vous essayez d'ajouter une autre organisation à un canal, la mise à jour échoue avec le message `Une erreur s'est produite lors de la mise à jour du canal`.
 {: tsSymptoms}
@@ -163,6 +191,7 @@ Dans le panneau **Mettre à jour un canal**, accédez à la section **ID MSP de 
 
 ## Mon cluster Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-cluster-expired}
+{: troubleshoot}
 
 J'ai reçu un e-mail indiquant que mon cluster Kubernetes Service {{site.data.keyword.IBM_notm}} est sur le point d'expirer ou que son statuts est `Expiré`. Ou bien vous ne pouvez pas accéder à la console au bout de 30 jours.
 {: tsSymptoms}
@@ -173,10 +202,11 @@ Les clusters Kubernetes gratuits ne sont valides que pendant 30 jours.
 Il n'est pas possible de migrer depuis un cluster gratuit vers un cluster payant. Au bout de 30 jours vous ne pouvez pas accéder à la console et tous vos noeuds et certificats sont supprimés. Pour plus d'informations sur cette opération et les actions que vous pouvez effectuer, consultez la rubrique relative à l'[expiration du cluster Kubernetes](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration).
 {: tsResolve}
 
-## Pourquoi les transactions que je soumet depuis VSCode échouent ?
+## Pourquoi les transactions que je soumets depuis le code VS échouent ?
 {: #ibp-v2-troubleshooting-anchor-peer}
+{: troubleshoot}
 
-Les transactions soumises depuis VSCode échouent avec une erreur semblable à ce qui suit :
+Les transactions soumises depuis le code VS échouent avec une erreur semblable à ce qui suit :
 ```
 Error submitting transaction: No endorsement plan available for {"chaincodes":[{"name":"hello-world"}]}
 ```
@@ -186,3 +216,18 @@ Cette erreur se produit si vous utilisez la fonction Reconnaissance de service F
 {: tsCauses}
 
 Suivez l'étape 3 de la [rubrique relative aux données privées](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) dans le tutoriel Déployer un contrat intelligent pour configurer vos homologues d'ancrage.
+
+## Lorsque je me connecte à ma console, pourquoi est-ce que je reçois le message d'erreur 401 Unauthorized ?
+{: #ibp-v2-troubleshooting-console-401}
+{: troubleshoot}
+
+Lorsque j'essaie de me connecter à ma console, je ne parviens pas à accéder à cette console à partir de mon navigateur. Si je consulte les journaux du navigateur, je trouve l'erreur 401 Unauthorized.
+{: tsSymptoms}
+
+Le délai d'attente de session de la console du navigateur expire au bout de **8 heures** d'inactivité. Si une session devient inactive, la console empêchera un utilisateur inactif d'effectuer des actions.
+{: tsCauses}
+
+Si votre session est devenue inactive, vous pouvez simplement essayer d'actualiser votre navigateur. Si cela ne fonctionne pas, fermez le navigateur, y compris **tous** les onglets et toutes les fenêtres. Ouvrez de nouveau l'URL. Vous devrez vous connecter.
+
+Dans le cadre des meilleures pratique, vous devez déjà avoir enregistré vos certificats et identités sur votre système de fichiers. S'il arrive que vous utilisiez une fenêtre en mode incognito, tous les certificats sont supprimés de la mémoire locale du navigateur lorsque vous fermez ce dernier. Après vous être reconnecté, vous devez réimporter vos identités et certificats.
+{: note}

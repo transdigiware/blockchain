@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multicloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -23,7 +25,7 @@ subcollection: blockchain
 Ces instructions expliquent comment utiliser un modèle de démarrage rapide Amazon Web Services (AWS) pour créer un homologue {{site.data.keyword.blockchainfull}} Platform for AWS et le connecter ensuite à un réseau sur une plateforme {{site.data.keyword.blockchainfull_notm}} Platform.
 {:shortdesc}
 
-Pour plus d'informations sur AWS, consultez le [Document de présentation d'AWS![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://d1.awsstatic.com/whitepapers/aws-overview.pdf "Document de présentation d'AWS").
+Pour plus d'informations sur AWS, consultez le [Document de présentation d'AWS](https://d1.awsstatic.com/whitepapers/aws-overview.pdf){: external}.
 
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS permet aux homologues d'optimiser le profil de connexion, les autorités de certification Hyperledger Fabric, ainsi que le service de tri d'un réseau de plan Starter ou Enterprise existant sur {{site.data.keyword.cloud_notm}} pour le traitement des transactions via un modèle de démarrage rapide AWS. Le démarrage rapide vous permet de déployer des homologues à partir de modèles AWS CloudFormation. Ces modèles sont destinés aux décideurs d'infrastructure informatiques et aux administrateurs système qui souhaitent rapidement configurer, déployer et exécuter des homologues {{site.data.keyword.blockchainfull_notm}} Platform hébergés par AWS qui sont connectés à un réseau de plan Starter ou Enterprise. Vous pouvez utiliser ce type de modèle pour créer un cloud privé virtuel (VPC) dans AWS, ou pour déployer l'homologue dans un VPC existant.
 
@@ -39,7 +41,7 @@ Avant de déployer des homologues {{site.data.keyword.blockchainfull_notm}} Plat
 ## Prérequis
 {: #remote-peer-aws-prerequisites}
 
-Pour utiliser un homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS (homologue distant), vous devez appartenir à une organisation qui est membre d'un réseau de blockchain hébergé sur IBM Blockchain Platform. Vous devez utiliser le Moniteur réseau sur IBM Cloud pour accéder aux données d'identification du réseau et aux noeuds finaux d'API de votre réseau. Si vous n'êtes membre d'aucun un réseau de blockchain, vous devez créer ou rejoindre un réseau. Pour plus d'informations, voir [Création d'un réseau de plan](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) ou [Rejoindre un réseau](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+Pour utiliser un homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS (homologue distant), vous devez appartenir à une organisation qui est membre d'un réseau de blockchain hébergé sur {{site.data.keyword.blockchainfull_notm}} Platform. Vous devez utiliser le Moniteur réseau sur {{site.data.keyword.cloud_notm}} pour accéder aux données d'identification du réseau et aux noeuds finaux d'API de votre réseau. Si vous n'êtes membre d'aucun un réseau de blockchain, vous devez créer ou rejoindre un réseau. Pour plus d'informations, voir [Création d'un réseau de plan](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) ou [Rejoindre un réseau](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
 
 La type d'instance VPC par défaut pour l'homologue est `m4.xlarge`.  Vous devez optimiser le type d'instance que vous choisissez en fonction de vos besoins en termes d'UC, de mémoire et de stockage. L'homologue nécessite au moins :  
 -	2 UC
@@ -62,7 +64,7 @@ Le modèle de démarrage rapide fournit deux options de déploiement :
 ## Etape 1 : Préparer votre compte AWS
 {: #remote-peer-aws-account}
 
-1. Si vous n'avez pas encore de compte AWS, créez-en un [ici ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://aws.amazon.com "https//aws/amazon.com") en suivant les instructions à l'écran.
+1. Si vous n'avez pas encore de compte AWS, créez-en un [ici](https://aws.amazon.com){: external} en suivant les instructions à l'écran.
 
 2. Utilisez le sélecteur de région dans la barre de navigation pour choisir la région AWS dans laquelle vous souhaitez déployer l'homologue dans AWS.
 
@@ -76,7 +78,6 @@ Le modèle de démarrage rapide fournit deux options de déploiement :
 Vous devez fournir les noeuds finaux d'API de votre réseau à votre homologue au cours de la configuration. Ces noeuds finaux permettent à un homologue de rechercher et de se connecter au réseau sur {{site.data.keyword.blockchainfull_notm}} Platform. A l'écran **Présentation** de votre Moniteur réseau, cliquez sur le bouton **Configuration de l'homologue distant**.
 
 ![Configuration de l'homologue distant](../images/myresources_starter.png "Configuration de l'homologue distant")
-*Figure 1. Panneau Configuration de l'homologue distant*
 
 Une fenêtre en incrustation s'ouvre et affiche les valeurs des zones suivantes. Notez les valeurs des zones suivantes, elles sont nécessaires lorsque de la configuration de l'homologue à l'aide du modèle de démarrage rapide AWS.
 
@@ -107,7 +108,6 @@ Vous devez ajouter une nouvelle identité d'homologue à votre organisation sur 
 
 1. Connectez-vous au Moniteur réseau de votre réseau sur {{site.data.keyword.blockchainfull_notm}} Platform. A l'écran "Autorité de certification" de votre Moniteur réseau, vous pouvez voir toutes les identités qui sont enregistrées auprès du réseau, comme votre admin ou vos applications client.
   ![CA screen](../images/CA_screen_starter.png "CA screen")
-  *Figure 2. Ecran de l'autorité de certification*
 
 2. Cliquez sur le bouton **Ajouter un utilisateur** à l'écran. Un écran contextuel s'ouvre et vous permet d'enregistrer votre homologue sur le réseau après que vous avez rempli les zones suivantes. **Notez la valeur de l'ID et du Secret en vue d'un usage ultérieur lors de la configuration de votre homologue dans le modèle de démarrage rapide.**
   - **ID d'inscription :** Nom à utiliser pour votre homologue, référencé comme votre `ID d'inscription` lors de la configuration de votre homologue. **Notez cette valeur** en vue d'un usage ultérieur.
@@ -125,9 +125,9 @@ Vous êtes responsable du coût des services AWS que vous utilisez lorsque vous 
 
 1. Choisissez l'une des options suivantes pour lancer le modèle AWS CloudFormation dans votre compte AWS. Pour obtenir de l'aide sur le choix d'une option, consultez les options de déploiement plus haut dans ce guide. La durée d'exécution de chaque déploiement est d'environ 10 minutes.  
 
-  * [Déployer {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC sur AWS ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://fwd.aws/v43nk "Déployer {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC sur AWS").  
+  * [Déployez {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC sur AWS](https://fwd.aws/v43nk){: external}.  
 
-  * [Déployer {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant sur AWS ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://fwd.aws/zrP4g "Déployer {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un  VPC existant sur AWS").
+  * [Déployez {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant sur AWS](https://fwd.aws/zrP4g){: external}.
 
   **Important :**     
   Si vous déployez la plateforme {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant, assurez-vous que votre VPC comporte deux sous-réseaux publics dans différentes zones de disponibilité pour les instances de base de données. Ces sous-réseaux requièrent des passerelles NAT ou des instances NAT dans leurs tables de routage, pour autoriser les instances à télécharger des packages et des logiciels sans les exposer sur Internet. Vous aurez également besoin de l'option de nom de domaine configurée dans les options DHCP comme expliqué dans la documentation VPC Amazon.  
@@ -142,7 +142,7 @@ Vous êtes responsable du coût des services AWS que vous utilisez lorsque vous 
 
 Dans les tableaux suivants, les paramètres sont répertoriés par catégorie et décrits séparément pour les deux options de déploiement :
 
-  * [Paramètres pour le déploiement de  {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc)
+  * [Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc)
 
   * [Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-existvpc).
 
@@ -157,27 +157,27 @@ Le tableau suivant répertorie les paramètres configurables du graphique AWS et
 | | | |
 | **Configuration réseau** | |
 | `Availability Zones` |Les deux zones de disponibilité à utiliser pour les sous-réseaux dans le VPC. Remarque : l'ordre logique est conservé. | |
-| `Allowed SSH access CIDR` | Bloc [CIDR![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPC et sous-réseaux") autorisé pour un accès SSH externe aux instance d'homologue IBM Blockchain. Il peut être défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
-| `PeerEndpointAccessCIDR` | Bloc [CIDR autorisé![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPC et sous-réseaux") pour un accès gRPC externe aux instances d'homologue IBM Blockchain. Généralement défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
+| `Allowed SSH access CIDR` | [Bloc CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} autorisé pour un accès SSH externe aux instances d'homologue {{site.data.keyword.blockchain_notm}}. Il peut être défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
+| `PeerEndpointAccessCIDR` | Bloc [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} autorisé pour un accès gRPC externe aux instances d'homologue {{site.data.keyword.blockchainfull_notm}}. Généralement défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
 | | | |
 | **Configuration Amazon EC2** | | |
 | `InstanceType` | Type d'instance EC2 pour les instances homologues. | m4.xlarge |
 | `KeyPairName` | Nom d'une paire de clés EC2 existante au sein de la région AWS. Vous devez la générer. | |
 | | | |
-|** Configuration IBM Blockchain** | |
-| `IBMBlockchainVersion` | Version IBM Blockchain à déployer. | 1.2.1 |
+|** Configuration {{site.data.keyword.blockchainfull_notm}}** | |
+| `IBMBlockchainVersion` | Version {{site.data.keyword.blockchainfull_notm}} à déployer. | 1.2.1 |
 | `StateDatabase` | Type de base de données à utiliser pour stocker l'état blockchain. Cette sélection doit correspondre au type de base de données d'état utilisé par le reste du réseau. | CouchDB|
 | `PeerVolumeSize` | Taille du volume EBS utilisé pour stocker les données persistantes (registre, base de données d'état, MSP) pour l'homologue, en Go. | 100 |
-| `Peer 1 enroll ID`| ID d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'IBM Blockchain Platform pour votre premier homologue. |  |
-| `Peer 1 enroll secret` | Secret d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'IBM Blockchain Platform pour votre premier homologue. | |
-| `Peer 2 enroll ID` | ID d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'IBM Blockchain Platform pour votre second homologue. | |
-| `Peer 2 enroll secret` | Secret d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'IBM Blockchain Platform pour votre second homologue. | |
+| `Peer 1 enroll ID`| ID d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform pour votre premier homologue. |  |
+| `Peer 1 enroll secret` | Secret d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform pour votre premier homologue. | |
+| `Peer 2 enroll ID` | ID d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform pour votre deuxième homologue. | |
+| `Peer 2 enroll secret` | Secret d'inscription que vous avez entré dans votre écran relatif à l'autorité de certification de l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform pour votre deuxième homologue. | |
 | | | |
-|**Données d'identification du service du service IBM Blockchain**| | |
-| `Organization MSP` | Cette valeur peut se trouver dans l'interface utilisateur d'IBM Blockchain Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici. | |
-| `Certificate Authority (CA) Name` | Cette valeur peut se trouver dans l'interface utilisateur d'IBM Blockchain Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici.| |
-| `Certificate Authority (CA) URL` | Cette valeur peut se trouver dans l'interface utilisateur d'IBM Blockchain Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici, port compris. Si rien n'est indiqué, le port par défaut est 443. | |
-| `Certificate Authority (CA)  TLS Certificate`| Cette valeur peut se trouver dans l'interface utilisateur d'IBM Blockchain Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici.| |
+|**Données d'identification pour le service {{site.data.keyword.blockchainfull_notm}}**| | |
+| `Organization MSP` | Cette valeur peut se trouver dans l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici. | |
+| `Certificate Authority (CA) Name` | Cette valeur peut se trouver dans l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici.| |
+| `Certificate Authority (CA) URL` | Cette valeur peut se trouver dans l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici, port compris. Si rien n'est indiqué, le port par défaut est 443. | |
+| `Certificate Authority (CA)  TLS Certificate`| Cette valeur peut se trouver dans l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform. Cliquez sur le bouton Configuration de l'homologue distant de l'écran Présentation, puis copiez et collez ces informations ici.| |
 | | | |
 |**Autres paramètres**| | |
 | `QSS3BucketName` | Nom du compartiment S3 pour les ressources de démarrage rapide. Ce nom e compartiment peut inclure des nombres, des lettres minuscules, des lettres majuscules et des traits d'union (-). Il ne peut pas commencer ou se terminer par un trait d'union (-). | `aws-quickstart` |
@@ -201,7 +201,7 @@ Si vous déployez l'homologue {{site.data.keyword.blockchainfull_notm}} Platform
 
  - Assurez-vous que votre VPC comporte deux sous-réseaux privés dans différentes zones de disponibilité pour les instances de base de données. Ces sous-réseaux requièrent des passerelles NAT ou des instances NAT dans leurs tables de routage, pour autoriser les instances à télécharger des packages et des logiciels sans les exposer sur Internet.
 
- - Configurez l'option de nom de domaine dans les options DHCP comme décrit dans la [documentation Amazon VPC ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html "Ensembles d'options DHCP").  
+ - Configurez l'option de nom de domaine dans les options DHCP comme décrit dans la [documentation Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html){: external}.  
 
 - Créez un groupe de sécurité lié à votre VPC existant et ajoutez des règles entrantes sur les ports 22 et 7051 à ce groupe de sécurité. Les connexions TCP sur le port 22 autorisent un accès SSH à l'instance générée alors que les connexions TCP sur le port 7051 autorisent un accès gRPC externe à l'instance homologue (nécessaire pour exploiter l'homologue à l'aide de l'interface CLI des outils Fabric et de logiciels SDK). Vous serez invité à entrer ces paramètres VPC lors du lancement du démarrage rapide.
 
@@ -212,9 +212,9 @@ Si vous déployez l'homologue {{site.data.keyword.blockchainfull_notm}} Platform
 | **Configuration réseau** | | |
 | `VPCID` |	ID de votre VPC existant pour le déploiement.| |
 | `AvailabilityZone1` | Zone de disponibilité dans laquelle déployer le premier noeud homologue. | |
-| `SubnetID1` |	ID du sous-réseau à utiliser pour le premier noeud homologue. Le sous-réseau doit appartenir au VPC choisi. Pour trouver les sous-réseaux appartenant au VPC, consultez votre tableau de bord VPC AWS et  sélectionnez le menu relatif aux "sous-réseaux".| |
+| `SubnetID1` |	ID du sous-réseau à utiliser pour le premier noeud homologue. Le sous-réseau doit appartenir au VPC choisi. Pour trouver les sous-réseaux appartenant au VPC, consultez votre tableau de bord VPC AWS et sélectionnez le menu relatif aux "sous-réseaux".| |
 | `AvailabilityZone2` | Zone de disponibilité dans laquelle déployer le second noeud homologue. | |
-| `SubnetID2` |	ID du sous-réseau à utiliser pour le second noeud homologue. Le sous-réseau doit appartenir au VPC choisi. Pour trouver les sous-réseaux appartenant au VPC, consultez votre tableau de bord VPC AWS et  sélectionnez le menu relatif aux "sous-réseaux". | |
+| `SubnetID2` |	ID du sous-réseau à utiliser pour le second noeud homologue. Le sous-réseau doit appartenir au VPC choisi. Pour trouver les sous-réseaux appartenant au VPC, consultez votre tableau de bord VPC AWS et sélectionnez le menu relatif aux "sous-réseaux". | |
 | | | |
 | **Configuration Amazon EC2**| | |
 | `InstanceType` 	| Type d'instance EC2 pour les instances homologues. 	| m4.xlarge |
@@ -226,8 +226,7 @@ Si vous déployez l'homologue {{site.data.keyword.blockchainfull_notm}} Platform
 
 Lorsque le modèle AWS CloudFormation a créé la pile, deux instances homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS s'exécutent dans votre compte AWS. Ces instances seront nommées à partir d'une combinaison du `MSP de l'organisation` et de l'`ID d'inscription de l'homologue` qui est spécifié dans le modèle de démarrage rapide. Par exemple, `org1-remotepeer1`.  
 
-![Homologue sur des instances AWS EC2](../images/remote_peer_AWS_EC2_instances.png "Homologue sur des instances AWS EC2")  
-*Figure 3. Homologue sur des instances AWS EC2*
+![Homologue sur des instances AWS EC2](../images/remote_peer_AWS_EC2_instances.png "Homologue sur des instances AWS EC2")
 
 Pour vérifier que l'homologue s'exécute :
 
@@ -293,7 +292,7 @@ Exécutez la commande de l'interface CLI `peer channel fetch` pour extraire le b
 
    Remplacez les zones par vos informations.
      - Remplacez `<ORDERER_URL>` par le nom d'hôte et le port du service de tri du fichier `creds.json`.
-     - Remplacez `<CHANNEL_NAME>` par le nom du canal que va rejoindre l'homologue. 
+     - Remplacez `<CHANNEL_NAME>` par le nom du canal que va rejoindre l'homologue.
      - Remplacez `<ORGANIZATION_MSP_ID>` par le nom de l'organisation du fichier `creds.json`.
      - Remplacez `<PEER_ADDR>` par `localhost:7051`
 
@@ -308,7 +307,7 @@ Exécutez la commande de l'interface CLI `peer channel fetch` pour extraire le b
 
 4. Exécutez la commande d'interface CLI d'homologue suivante pour extraire le bloc d'origine du canal.
 
-   **IMPORTANT :** Dans la commande suivante, remplacez chaque occurrence de `<PEER_ENROLL_ID>` par l'ID d'inscription associé à cette instance homologue qui a été spécifiée dans le modèle de démarrage rapide. Cette valeur peut être trouvée en exécutant la commande `ls /etc/hyperledger/`. Deux dossiers doivent être répertoriés :`fabric`, et le second est votre `<PEER_ENROLL_ID>`. 
+   **IMPORTANT :** Dans la commande suivante, remplacez chaque occurrence de `<PEER_ENROLL_ID>` par l'ID d'inscription associé à cette instance homologue qui a été spécifiée dans le modèle de démarrage rapide. Cette valeur peut être trouvée en exécutant la commande `ls /etc/hyperledger/`. Deux dossiers doivent être répertoriés :`fabric`, et le second est votre `<PEER_ENROLL_ID>`.
 
    ```
    CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/<PEER_ENROLL_ID>/tls/ca.crt CORE_PEER_TLS_ENABLED=true CORE_PEER_ADDRESS=${PEERADDR} CORE_PEER_LOCALMSPID=${ORGID} CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/<PEER_ENROLL_ID>/msp/ GOPATH=/ peer channel fetch 0 -o ${ORDERER_1} -c ${CHANNEL} --cafile /etc/hyperledger/<PEER_ENROLL_ID>/orderer_tlscacert.pem --tls
@@ -344,10 +343,10 @@ Exécutez la commande de l'interface CLI `peer channel fetch` pour extraire le b
 * **Q**. Une erreur CREATE_FAILED s'est affichée lors du lancement du démarrage rapide.
 * **R**. Si AWS CloudFormation ne parvient pas à créer la pile, nous vous conseillons de relancer le modèle avec Rollback on failure défini sur `No`. (Ce paramètre figure sous Advanced dans la console AWS CloudFormation, page Options.) Avec ce paramètre, l'état de la pile est maintenu et l'instance continue de s'exécuter, de manière à vous permettre de résoudre le problème. (Consultez les fichiers journaux dans `%ProgramFiles%\Amazon\EC2ConfigService` et `C:\cfn\log`.)
 
-  - Lorsque vous définissez Rollback on failure sur `No`, des frais AWS continuent à vous être imputés pour cette pile. Veillez à supprimer la pile lorsque vous avez terminé l'identification et résolution des problèmes. Pour plus d'informations, voir [Troubleshooting AWS CloudFormation ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html "Troubleshooting AWS CloudFormation") sur le site Web d'AWS.
+  - Lorsque vous définissez Rollback on failure sur `No`, des frais AWS continuent à vous être imputés pour cette pile. Veillez à supprimer la pile lorsque vous avez terminé l'identification et résolution des problèmes. Pour plus d'informations, voir [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html){: external} sur le site Web d'AWS.
 
 * **Q**. Une erreur de limitation de taille s'est affichée lors du déploiement de modèles AWS Cloudformation.
-* **R**. Nous vous recommandons de lancer les modèles de démarrage rapide depuis l'emplacement fourni ou depuis un autre compartiment S3. Si vous déployez les modèles depuis une copie locale sur votre ordinateur ou à partir d'un emplacement non S3, vous risquez de rencontrer des limitations de taille de modèle lors de la création de modèle de la pile. Pour plus d'informations sur les limites AWS CloudFormation, voir la [documentation AWS![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html "Limites AWS CloudFormation").
+* **R**. Nous vous recommandons de lancer les modèles de démarrage rapide depuis l'emplacement fourni ou depuis un autre compartiment S3. Si vous déployez les modèles depuis une copie locale sur votre ordinateur ou à partir d'un emplacement non S3, vous risquez de rencontrer des limitations de taille de modèle lors de la création de modèle de la pile. Pour plus d'informations sur les limites AWS CloudFormation, voir la [documentation AWS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html){: external}.
 
 ## Etapes suivantes
 {: #remote-peer-aws-whats-next}
@@ -363,7 +362,7 @@ Pour optimiser cette prise en charge de la haute disponibilité, vous devez éga
 ## Remarques sur la sécurité
 {: #remote-peer-aws-security}
 
-AWS Cloud fournit une plateforme évolutive, hautement fiable qui aide les clients à déployer des applications et des données de manière rapide et sécurisée. Lorsque vous générez des systèmes sur l'infrastructures AWS, les responsabilités en matière de sécurité sont partagés entre vous et AWS. Ce modèle partagé peut réduire votre charge opérationnelle car AWS exploite, gère et contrôle les composants du système d'exploitation hôte et de la couche de virtualisation à la sécurité physique des installations dans lesquelles les services fonctionnent. Vous assumez la responsabilité et la gestion du système d'exploitation invité (y compris les mises à jour et les correctifs de sécurité), des autres applications associées, ainsi que la configuration du pare-feu du groupe de sécurité fourni par AWS. Pour plus d'informations sur la sécurité dans AWS, consultez  [AWS Cloud Security ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://aws.amazon.com/security/ "AWS Cloud Security").
+AWS Cloud fournit une plateforme évolutive, hautement fiable qui aide les clients à déployer des applications et des données de manière rapide et sécurisée. Lorsque vous générez des systèmes sur l'infrastructures AWS, les responsabilités en matière de sécurité sont partagés entre vous et AWS. Ce modèle partagé peut réduire votre charge opérationnelle car AWS exploite, gère et contrôle les composants du système d'exploitation hôte et de la couche de virtualisation à la sécurité physique des installations dans lesquelles les services fonctionnent. Vous assumez la responsabilité et la gestion du système d'exploitation invité (y compris les mises à jour et les correctifs de sécurité), des autres applications associées, ainsi que la configuration du pare-feu du groupe de sécurité fourni par AWS. Pour plus d'informations sur la sécurité dans AWS, consultez [AWS Cloud Security](https://aws.amazon.com/security/){: external}.
 
 ### AWS Identity and Access Management (IAM)
 {: #remote-peer-aws-iam}
@@ -388,7 +387,7 @@ Les homologues sont déployés à l'extérieur d'{{site.data.keyword.blockchainf
 #### Sécurité des données
 {: #remote-peer-aws-security-data}
 
-Le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform  utilise le chiffrement de disque intégral qui repose sur la [cryptographie symétrique ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html "Cryptographie symétrique") pour protéger l'ensemble des données utilisées par le réseau. Vous devez suivre des étapes similaires dans votre environnement pour protéger les données de votre homologue.
+Le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform utilise le chiffrement de disque intégral qui repose sur le [chiffrement de clé symétrique](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html){: external} pour protéger l'ensemble des données utilisées par les réseaux. Vous devez suivre des étapes similaires dans votre environnement pour protéger les données de votre homologue.
 
 Les données de votre base de données d'état, que vous utilisiez levelDB ou couchDB, ne sont pas chiffrées. Vous pouvez utiliser le chiffrement au niveau de l'application afin de protéger les données au repos dans votre base de données d'état.
 
@@ -414,13 +413,13 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### TLS
 {: #remote-peer-aws-security-tls}
 
-[Transport Layer Security ![Icône de lien externe](../images/external_link.svg "Icône de lien externe")](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm "Une présentation de l'établissement de liaison SSL ou TLS") (TLS) est intégré au modèle de confiance d'Hyperledger Fabric. Tous les composants sur {{site.data.keyword.blockchainfull_notm}} Platform utilisent TLS pour s'authentifier et communiquer entre eux. Par conséquent, les composants réseau sur {{site.data.keyword.blockchainfull_notm}} Platform doivent pouvoir effectuer un établissement de liaison TLS avec vos homologues. Ceci implique entre autres que vous devez activer le passe-système, en utilisant des listes blanches par exemple, dans le pare-feu entre vos applications client et votre homologue.
+[Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} (TLS) est intégré au modèle de confiance d'Hyperledger Fabric. Tous les composants sur {{site.data.keyword.blockchainfull_notm}} Platform utilisent TLS pour s'authentifier et communiquer entre eux. Par conséquent, les composants réseau sur {{site.data.keyword.blockchainfull_notm}} Platform doivent pouvoir effectuer un établissement de liaison TLS avec vos homologues. Ceci implique entre autres que vous devez activer le passe-système, en utilisant des listes blanches par exemple, dans le pare-feu entre vos applications client et votre homologue.
 
 
 #### Configuration de Membership Service Provider (Fournisseur de services aux membres)
 {: #remote-peer-aws-security-MSP}
 
-Les composants d'IBM Blockchain Platform consomment des identités via des Fournisseur de services aux membres (MSP). Les MSP associent les certificats émis par les autorités de certification à des rôles de réseau et de canal. Pour plus d'informations sur la façon dont les MSP fonctionnent avec les homologues distants, consultez cette [rubrique](/docs/services/blockchain/certificates.html#managing-certificates-msp).
+Les composants d'{{site.data.keyword.blockchainfull_notm}} Platform consomment des identités via des Fournisseur de services aux membres (MSP). Les MSP associent les certificats émis par les autorités de certification à des rôles de réseau et de canal. Pour plus d'informations sur la façon dont les MSP fonctionnent avec les homologues distants, consultez cette [rubrique](/docs/services/blockchain/certificates.html#managing-certificates-msp).
 
 #### Sécurité des applications
 {: #remote-peer-aws-security-appl}
@@ -430,5 +429,4 @@ Tous les appels de code blockchain étant signés, Fabric gère la sécurité de
 ## Licence et tarification
 {: #remote-peer-aws-license-pricing-aws}
 
-Vous devez accepter la version de licence de l'édition Community de {{site.data.keyword.blockchainfull_notm}} Platform for AWS pour pouvoir utiliser la solution de déploiement activée par le démarrage rapide. L'utilisation de  {{site.data.keyword.blockchainfull_notm}} Platform for AWS  (y compris tous les packages fournis via l'offre de démarrage rapide, et les packages dérivés de ces derniers) n'est pas destinée à des fins de production. Ibm peut décider d'annuler l'autorisation d'accès au code, et l'utilisation de ce code, à tout moment.
-Le contrat de licence de logiciel {{site.data.keyword.blockchainfull_notm}} Platform for AWS comporte plus de détails sur les termes de la licence. Lorsque vous lancez le démarrage rapide, vous êtes invité à lire et accepter les termes du contrat.
+Vous devez accepter la version de licence de l'édition Community de {{site.data.keyword.blockchainfull_notm}} Platform for AWS pour pouvoir utiliser la solution de déploiement activée par le démarrage rapide. L'utilisation de  {{site.data.keyword.blockchainfull_notm}} Platform for AWS  (y compris tous les packages fournis via l'offre de démarrage rapide, et les packages dérivés de ces derniers) n'est pas destinée à des fins de production. {{site.data.keyword.IBM_notm}} peut décider d'annuler l'autorisation d'accès au code, et l'utilisation de ce code, à tout moment. Le contrat de licence de logiciel {{site.data.keyword.blockchainfull_notm}} Platform for AWS comporte plus de détails sur les termes de la licence. Lorsque vous lancez le démarrage rapide, vous êtes invité à lire et accepter les termes du contrat.
