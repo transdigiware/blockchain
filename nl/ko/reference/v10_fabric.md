@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -23,14 +23,14 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} 네트워크는 Linux Foundation의 Hyperledger Project 내 블록체인 프로젝트 중 하나인 Hyperledger Fabric 스택에 빌드됩니다. 모든 사용자 및 컴포넌트에 알려진 ID가 있는 "권한 부여된" 네트워크입니다. 서명/확인 로직이 모든 통신 터치포인트마다 구현되어 있으며, 트랜잭션이 일련의 보증 및 유효성 검증 검사를 통해 승인되었습니다. 이런 의미에서 익명성을 승격하고 트랜잭션의 유효성을 검증하기 위해 암호화된 화폐 및 과도한 컴퓨팅 의무에 의존하도록 되어 있는 기존 블록체인 구현과 크게 다릅니다.
 {:shortdesc}
 
-Hyperledger Fabric은 확장성 및 성능을 확장하기 위해 모듈식 아키텍처를 제공합니다. 이 주제에서는 Hyperledger Fabric의 일부 주요 컴포넌트를 소개합니다. Hyperledger Fabric에 대한 전체 소개는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}를 참조하십시오.
+Hyperledger Fabric은 확장성 및 성능을 확장하기 위해 모듈식 아키텍처를 제공합니다. 이 주제에서는 Hyperledger Fabric의 일부 주요 컴포넌트를 소개합니다. Hyperledger Fabric에 대한 전체 소개는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}를 참조하십시오. 
 
 ## 피어
 {: #hyperledger-fabric-peer}
 
-실제 레벨에서 블록체인 네트워크는 주로 피어 노드로(또는 피어 노드로만) 구성됩니다. 피어는 원장 및 스마트 계약(["체인코드" ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html "체인코드 네임스페이스")에 포함됨)을 호스팅함에 따라 네트워크의 기본 요소가 됩니다. 좀 더 정확하게 피어는 원장의 **인스턴스**를 호스팅하고 스마트 계약의 **인스턴스**를 호스팅합니다. 스마트 계약 및 원장이 네트워크에서 공유된 프로세스와 공유된 정보를 각각 캡슐화하는 데 사용되므로 이러한 피어의 측면은 Fabric 네트워크에서 실제로 수행하는 항목을 이해하는 데 적합한 시작점이 되도록 합니다.
+실제 레벨에서 블록체인 네트워크는 주로 피어 노드로(또는 피어 노드로만) 구성됩니다. 피어는 원장 및 스마트 계약(["체인코드"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}에 포함됨)을 호스팅하므로 네트워크의 기본 요소입니다. 좀 더 정확하게 피어는 원장의 **인스턴스**를 호스팅하고 스마트 계약의 **인스턴스**를 호스팅합니다. 스마트 계약 및 원장이 네트워크에서 공유된 프로세스와 공유된 정보를 각각 캡슐화하는 데 사용되므로 이러한 피어의 측면은 Fabric 네트워크에서 실제로 수행하는 항목을 이해하는 데 적합한 시작점이 되도록 합니다.
 
-특히 피어에 대해 자세히 알아보려면 Fabric 커뮤니티 문서에서 [this document focusing just on peers![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html)를 참조하십시오.
+특히 피어에 대해 자세히 알아보려면 Fabric 커뮤니티 문서에서 [this document focusing just on peers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external}를 참조하십시오. 
 
 ## 인증 기관(Certificate Authority)
 {: #hyperledger-fabric-certificate-authority}
@@ -42,14 +42,14 @@ Hyperledger Fabric은 확장성 및 성능을 확장하기 위해 모듈식 아�
 
 네트워크 멤버십을 통한 이 인증 기반 제어 및 조치는 구성원들이 특정 사용자 ID별로 개인용 및 기밀 채널, 애플리케이션 및 데이터에 대한 액세스를 제한할 수 있도록 합니다.
 
-Hyperledger Fabric Certificate Authority(CA) 컴포넌트에 대한 자세한 정보는 [Fabric CA User’s Guide ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){:new_window}를 참조하십시오.
+Hyperledger Fabric Certificate Authority 컴포넌트에 대한 자세한 정보는 [Fabric CA User’s Guide](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){: external}를 참조하십시오. 
 
 ## 멤버십 서비스 제공자(Membership Service Provider)
 {: #hyperledger-fabric-membership-service-provider}
 
 Hyperledger Fabric에는 인증서 발행과 유효성 검증 및 사용자 인증 이면의 모든 암호화 메커니즘 및 프로토콜의 추상 개념을 제공하기 위한 **Membership Service Provider(MSP)** 컴포넌트가 포함되어 있습니다. MSP는 각 채널 피어에 설치되어 피어에 발행된 트랜잭션 요청이 인증되고 권한이 부여된 사용자 ID에서 시작하는지 확인합니다.
 
-Hyperledger Fabric Membership Services Provider(MSP) 컴포넌트에 대한 자세한 정보는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}에서 [ 멤버십 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){:new_window}을 참조하십시오.
+Hyperledger Fabric Membership Services Provider(MSP) 컴포넌트에 대한 자세한 정보는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}에서 [멤버십](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external}을 참조하십시오. 
 
 ## 순서 지정 서비스
 {: #hyperledger-fabric-ordering-service}
@@ -70,7 +70,7 @@ Hyperledger Fabric Membership Services Provider(MSP) 컴포넌트에 대한 자�
 거부됩니다. 또한 순서 지정자가 채널 구성 변경에 대한 권한과 같이 트랜잭션 채널 내의 동작의 유효성을
 검증합니다.
 
-Hyperledger Fabric은 현재 SOLO(하나의 순서 지정 노드) 및 Kafka 기반의 순서 지정 서비스 구현을 둘 다 지원합니다. Hyperledger Fabric 순서 지정 서비스에 대한 자세한 정보는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}에서 [Bringing up a Kafka-based Ordering Service ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){:new_window}를 참조하십시오.
+Hyperledger Fabric은 현재 SOLO(하나의 순서 지정 노드) 및 Kafka 기반의 순서 지정 서비스 구현을 둘 다 지원합니다. Hyperledger Fabric 순서 지정 서비스에 대한 자세한 정보는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}에서 [Bringing up a Kafka-based Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){: external}를 참조하십시오. 
 
 ## Fabric SDK
 {: #hyperledger-fabric-fabric-sdks}
@@ -91,7 +91,7 @@ Hyperledger Fabric은 Node.js SDK 및 Java SDK를 둘 다 전달하고, 블록�
 * 특정 트랜잭션, 블록 또는 키에 대한 원장 조회
 * 채널에서 이벤트 모니터(예: 트랜잭션의 커미트 성공)
 
-Fabric SDK에 대한 자세한 정보는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}에서 [Hyperledger Fabric SDK![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/fabric-sdks.html){:new_window}를 참조하십시오.
+Fabric SDK에 대한 자세한 정보는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}에서 [Hyperledger Fabric SDK](https://hyperledger-fabric.readthedocs.io/en/release-1.4/fabric-sdks.html){: external}를 참조하십시오. 
 
 ## 트랜잭션 플로우
 {: #hyperledger-fabric-transaction-flow}
@@ -99,8 +99,7 @@ Fabric SDK에 대한 자세한 정보는 [Hyperledger Fabric 문서 ![외부 링
 데이터 일관성 및 무결성을 확보하기 위해 Hyperledger Fabric은 클라이언트 인증, 보증, 순서 지정 및 원장에 대한 커미트를 포함하는 트랜잭션 플로우를 통해 다중 체크포인트를 구현합니다.
 
 **그림 1**은 Hyperledger Fabric 블록체인 네트워크의 트랜잭션 플로우를 보여줍니다.
-![트랜잭션 플로우](../images/v10_txflow.png "Hyperledger Fabric 네트워크의 트랜잭션 플로우")
-*그림 1. Hyperledger Fabric 네트워크의 트랜잭션 플로우*
+![트랜잭션 플로우](../images/v10_txflow.svg "Hyperledger Fabric 네트워크의 트랜잭션 플로우")
 
 Hyperledger Fabric 네트워크에서는 조회 및 트랜잭션을 위한 데이터의 플로우가 채널의 피어에 트랜잭션 요청을 제출하여 클라이언트 측 애플리케이션에서 시작됩니다. 네트워크에서 데이터의 초기 플로우는 조회 및 트랜잭션 모두에 공통입니다.
 
@@ -113,7 +112,6 @@ Hyperledger Fabric 네트워크에서는 조회 및 트랜잭션을 위한 데�
 	* 유효성 검증 프로세스에 실패하는 트랜잭션은 블록에서 올바르지 않음으로 표시되며, 블록이 채널의 원장에 추가됩니다.
 	* 유효한 모든 트랜잭션은 수정된 키/값 쌍에 따라 상태 데이터베이스를 업데이트합니다.
 
-**gossip 데이터 분배 프로토콜**은 피어 사이에서 동기화된 원장을 확인하기 위해 채널에서 원장 데이터를 지속적으로 브로드캐스트합니다. 자세한 정보는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}에서
-[Gossip data dissemination protocol ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){:new_window}을 참조하십시오.
+**gossip 데이터 분배 프로토콜**은 피어 사이에서 동기화된 원장을 확인하기 위해 채널에서 원장 데이터를 지속적으로 브로드캐스트합니다. 자세한 정보는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}에서 [gossip 데이터 분배 프로토콜](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external}을 참조하십시오. 
 
-트랜잭션 플로우에 대한 단계별 소개는 [Hyperledger Fabric 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}에서 [Transaction Flow ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){:new_window}를 참조하십시오.
+트랜잭션 플로우에 대한 단계별 소개는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}에서 [트랜잭션 플로우](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}를 참조하십시오. 

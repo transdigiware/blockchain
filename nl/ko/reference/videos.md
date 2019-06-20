@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ subcollection: blockchain
 동영상 시리즈는 재생 목록에 있으며 아래 동영상 프레임에서 연속으로 재생됩니다. 동영상의 왼쪽 상단에서 메뉴 아이콘을 클릭하여 재생 목록을 열고 다른 동영상으로 전환할 수 있습니다.
 {:note}
 
-## {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} 시작하기
+## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 시작하기
 {: #ibp-videos-ibp-v2}
 
 {{site.data.keyword.blockchainfull_notm}} Platform 및 자체 네트워크 빌드를 시작할 수 있는 방법에 대해 자세히 알아보려면 다음 [동영상 시리즈]( http://ibm.biz/BlockchainPlatformSeries)를 시청하십시오.

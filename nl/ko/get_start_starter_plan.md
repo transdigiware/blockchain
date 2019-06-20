@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -10,22 +10,26 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:gif: data-image-type='gif'}
 
 # 스타터 플랜 시작하기
 {: #getting-started-with-starter-plan}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform 스타터 플랜은 한 번의 클릭으로 사전 구성된 블록체인 네트워크를 제공합니다. 스타터 플랜은 기본적으로 두 개의 [조직](/docs/services/blockchain/glossary.html#glossary-organization), 각각의 조직당 하나의 [피어](/docs/services/blockchain/glossary.html#glossary-peer) 및 하나의 [채널](/docs/services/blockchain/glossary.html#glossary-channel)이 구성되어 있는 권한 부여된 네트워크를 프로비저닝합니다. 네트워크가 작성된 후에는 조직 및 피어를 스케일링하고 네트워크에 추가할 수 있습니다. 이러한 네트워크는 {{site.data.keyword.blockchainfull_notm}} Platform을 처음 사용하는 초보 사용자용입니다. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
 {:shortdesc}
 
 스타터 플랜을 사용하면 {{site.data.keyword.blockchainfull_notm}} Platform에 대한 기술을 학습하고 개발하며 샘플 애플리케이션을 실행하고 고유 애플리케이션을 테스트하고 다중 조직 시나리오를 시뮬레이션할 수 있습니다. 이 시작하기 튜토리얼은 스타터 플랜을 사용하여 블록체인 네트워크에서 개발 및 트랜잭션을 시작하는 방법을 안내합니다.
 
-{{site.data.keyword.blockchainfull_notm}} Platform 및 블록체인을 처음 사용하는 경우 오픈 소스인 [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric)에 빌드된 네트워크의 [기본 컴포넌트 개요](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview)를 검토하여 블록체인에 대해 자세히 알아볼 수 있습니다. 또한 [Hyperledger Fabric 문서 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html "블록체인 소개")를 검토할 수 있습니다.
+{{site.data.keyword.blockchainfull_notm}} Platform 및 블록체인을 처음 사용하는 경우 오픈 소스인 [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric)에 빌드된 네트워크의 [기본 컴포넌트 개요](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview)를 검토하여 블록체인에 대해 자세히 알아볼 수 있습니다. [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}를 검토할 수도 있습니다. 
 
 **참고**: {{site.data.keyword.blockchainfull_notm}} Platform 스타터 플랜은 개발 및 테스트 환경이며 프로덕션 워크로드에는 적합하지 않습니다. 프로덕션 환경이 필요한 경우 [엔터프라이즈 플랜 정보](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)를 참조하십시오.
 
@@ -67,8 +71,8 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스를 작성한 후 즉시 기본 구성의 스타터 플랜 [네트워크](/docs/services/blockchain/glossary.html#glossary-network)를 가져올 수 있습니다.
 
-1. {{site.data.keyword.cloud_notm}} 카탈로그에서 [Blockchain 서비스 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod)를 찾으십시오.
-    **참고**: {{site.data.keyword.cloud_notm}} 유료 계정으로 로그인해야 합니다. 계정이 없는 경우, **회원가입하기** 단추를 클릭하십시오. 무료 평가판 계정을 작성한 후 {{site.data.keyword.cloud_notm}} 콘솔에서 **관리** > **청구 및 사용량** > **청구**로 이동하고 **신용카드 추가**를 클릭하여 **종량과금제** 유형으로 업그레이드하십시오.
+1. {{site.data.keyword.cloud_notm}} 카탈로그에서 [Blockchain 서비스](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 찾으십시오.
+     **참고**: {{site.data.keyword.cloud_notm}} 유료 계정으로 로그인해야 합니다. 계정이 없는 경우, **회원가입하기** 단추를 클릭하십시오. 무료 평가판 계정을 작성한 후 {{site.data.keyword.cloud_notm}} 콘솔에서 **관리** > **청구 및 사용량** > **청구**로 이동하고 **신용카드 추가**를 클릭하여 **종량과금제** 유형으로 업그레이드하십시오.
 2. 네트워크를 작성할 {{site.data.keyword.cloud_notm}}의 지역을 선택하십시오.
 3. 네트워크를 작성할 Cloud Foundry 조직 및 영역을 선택하십시오.
 4. 가격 플랜 테이블에서 **스타터 멤버십 플랜**을 선택하십시오.
@@ -76,7 +80,7 @@ subcollection: blockchain
   이제 기본 구성의 스타터 플랜 네트워크를 사용할 준비가 되었습니다. 네트워크는 하나의 순서 지정자("SOLO" 순서 지정 서비스로 알려짐), 두 개의 조직, 하나의 CA 및 각 조직당 하나의 피어와 함께 실행됩니다. 기본 채널도 작성됩니다.
 6. **실행** 단추를 클릭하십시오.
 
-[{{site.data.keyword.cloud_notm}} 서비스 대시보드 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} 서비스 대시보드")에서 블록체인 서비스 인스턴스를 찾을 수 있습니다.
+블록체인 서비스 인스턴스는 [{{site.data.keyword.cloud_notm}} 서비스 대시보드](https://cloud.ibm.com/resources){: external}에서 찾을 수 있습니다. 
 
 
 ## 구성원 초대
@@ -95,7 +99,7 @@ subcollection: blockchain
 
 네트워크 개시자에게 초대된 경우 네트워크 가입 방법에 대한 지시사항이 포함된 이메일 알림을 수신합니다. 이메일의 지시사항을 따르십시오. 그러면 네트워크의 구성원 중 하나가 됩니다.
 
-{{site.data.keyword.cloud_notm}}에서 스타터 플랜 멤버십 옵션을 사용하여 [{{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod)를 작성해야 합니다.
+{{site.data.keyword.cloud_notm}}에서 스타터 플랜 멤버십 옵션을 사용하여 [{{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 작성해야 합니다. 
 
 1. {{site.data.keyword.cloud_notm}} 계정으로 로그인하십시오. 계정이 없는 경우, **회원가입하기** 단추를 클릭하십시오.
 2. {{site.data.keyword.blockchain}} 네트워크를 저장할 Cloud Foundry 조직을 선택하십시오.
@@ -103,7 +107,7 @@ subcollection: blockchain
 4. **작성** 단추를 클릭하십시오. 서비스 인스턴스 페이지는 팝업 환영 패널에서 열립니다. 네트워크에 가입하거나 계속 고유 네트워크를 작성하도록 선택할 수 있습니다. 네트워크를 작성하려면 [네트워크 작성](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-creating-a-network)의 4단계를 참조하십시오.
 5. 환영 패널에서 **기존 네트워크 가입**를 선택하고 드롭 다운 목록에서 가입할 네트워크를 선택한 다음 **계속**을 클릭하십시오.
 
-[{{site.data.keyword.cloud_notm}} 서비스 대시보드 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} 서비스 대시보드")에서 블록체인 서비스 인스턴스를 찾을 수 있습니다.
+블록체인 서비스 인스턴스는 [{{site.data.keyword.cloud_notm}} 서비스 대시보드](https://cloud.ibm.com/resources){: external}에서 찾을 수 있습니다. 
 
 ## 채널 작성
 {: #getting-started-with-starter-plan-create-channels}
@@ -140,14 +144,14 @@ subcollection: blockchain
 ### 서비스 인스턴스 페이지에서 검색
 {: #getting-started-with-starter-plan-retrieve-service-instance}
 
-서비스 인스턴스를 작성하면 바로 서비스 인스턴스 페이지가 나타납니다. 또한 [{{site.data.keyword.cloud_notm}} 서비스 대시보드 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} 서비스 대시보드")에서 서비스를 클릭하여 서비스 인스턴스 페이지를 열 수 있습니다.
+서비스 인스턴스를 작성하면 바로 서비스 인스턴스 페이지가 나타납니다. [{{site.data.keyword.cloud_notm}} 서비스 대시보드](https://cloud.ibm.com/resources){: external}의 서비스를 클릭하여 서비스 인스턴스 페이지를 열 수도 있습니다. 
 
 다음 단계에 따라 서비스 인증 정보를 검색하십시오.
 1. 서비스 인스턴스 페이지의 왼쪽 네비게이터에서 **서비스 인증 정보**를 클릭하여 "서비스 인증 정보" 화면을 표시하십시오.
 2. "서비스 인증 정보" 화면에서 **새 인증 정보**를 클릭하십시오.
 3. "새 인증 정보 추가" 화면에서 인증 정보에 이름을 지정하고 "인라인 구성 매개변수 추가" 필드에 **{"type": "service_instance_token"}**을 입력하십시오. **추가**를 클릭하십시오. 새 인증 정보가 테이블에 추가됩니다. "조치" 열 아래의 **인증 정보 보기**를 클릭하여 인증 정보 세부사항을 볼 수 있습니다. 이 인증 정보에는 API에 권한을 부여하는 데 사용할 수 있는 API 키 및 시크릿이 포함됩니다.
 
-![네트워크 인증 정보 검색](images/service_credentials.gif "네트워크 인증 정보 검색")
+![네트워크 인증 정보 검색](images/service_credentials.gif "네트워크 인증 정보 검색"){: gif}
 
 ### 네트워크 모니터에서 검색
 {: #getting-started-with-starter-plan-network-creds}

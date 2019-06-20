@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,7 +22,7 @@ subcollection: blockchain
 # 블록체인 컴포넌트 개요
 {: #blockchain-component-overview}
 
-{{site.data.keyword.blockchainfull}} Platform의 컴포넌트 및 구조는 {{site.data.keyword.IBM_notm}}이 주도적으로 제공하는 오픈 소스 권한의 블록체인 솔루션인 [Hyperledger Fabric ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/)의 기본 인프라 및 도구를 기반으로 합니다. Fabric 기반의 네트워크에는 다양한 유스 케이스를 지원하기 위해 많은 구성에 배치될 수 있는 여러 표준 컴포넌트가 포함됩니다.
+{{site.data.keyword.blockchainfull}} Platform의 컴포넌트 및 구조는 {{site.data.keyword.IBM_notm}}이 주도적으로 제공하는 오픈 소스 권한의 블록체인 솔루션인 [Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}의 기본 인프라 및 도구를 기반으로 합니다. Fabric 기반의 네트워크에는 다양한 유스 케이스를 지원하기 위해 많은 구성에 배치될 수 있는 여러 표준 컴포넌트가 포함됩니다.
 
 Fabric 네트워크의 더욱 포괄적인 보기와 이를 포함하는 컴포넌트의 연관성에 대해 알아보려면 네트워크 시작과 발전 방법을 보여주는 Fabric 커뮤니티 문서의 [블록체인 네트워크의 구조에 대한 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/network/network.html)를 참조하십시오.
 
@@ -39,7 +39,7 @@ Fabric을 기반으로 하는 네트워크의 컴포넌트에 대한 상위 레�
 
 Fabric 기반 블록체인 네트워크의 기본 요소는 ID 및 권한입니다. ID는 CA가 발행하는 x.509 인증서의 양식을 취하고 사용자를 *식별*하는 점에서 신용 카드와 유사하며, 이를 통해 ID에 대한 속성을 포함할 수 있습니다. 그런 다음 이 인증서는 컴포넌트 또는 채널 레벨에서 MSP 폴더에 포함하여 권한에 연결됩니다. 예를 들어, 피어 MSP에는 **admins**라고 하는 MSP 서브폴더가 있습니다. 인증서가 해당 관리자 폴더 내부에 있는 사용자가 피어의 관리자입니다. 이는 해당 피어의 관리자에게 허용된 조치를 수행할 수 있는 기능이 있음을 의미합니다. 피어 내부의 유효성 검증 시스템은 인증서를 서명하여 식별되는 사용자가 관리 조치를 수행하려고 할 때마다 검사를 수행합니다. 인증서가 "admin" 폴더 내에 있는 인증서와 일치합니까? 일치하는 경우 조치를 수행할 수 있습니다. 일치하지 않는 경우 조치를 수행하기 위한 요청이 거부됩니다.
 
-{{site.data.keyword.blockchainfull_notm}} Platform CA는 [Hyperledger Fabric-CA ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/ "Hyperledger Fabric CA")를 기반으로 하나 x.509 인증서를 기반으로 하는 PKI를 사용하는 한 다른 CA를 사용하는 것도 가능합니다. 다중 레벨의 CA일 수 있으며 일반적으로 다중 레벨의 CA여야 합니다. 일반적으로 네트워크의 "루트 CA"는 "중간 CA"에 인증서를 제공하는 경우를 제외하고는 노출되지 않으며, 인증서가 사용자 및 컴포넌트에 직접 발행되거나 더 많은 계층의 중간 CA에 발행됩니다. 인증 기관이 ID 및 멤버십을 설정하기 위해 사용되는 방법에 대한 자세한 사항은 [ID 관련 Hyperledger Fabric 문서![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html) 및 [멤버십 관련 Hyperledger Fabric 문서 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html)를 참조하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform CA는 [Hyperledger Fabric-CA](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){: external}를 기반으로 하지만, x.509 인증서를 기반으로 하는 PKI를 사용하는 한 다른 CA를 사용하는 것도 가능합니다. 다중 레벨의 CA일 수 있으며 일반적으로 다중 레벨의 CA여야 합니다. 일반적으로 네트워크의 "루트 CA"는 "중간 CA"에 인증서를 제공하는 경우를 제외하고는 노출되지 않으며, 인증서가 사용자 및 컴포넌트에 직접 발행되거나 더 많은 계층의 중간 CA에 발행됩니다. ID 및 멤버십을 설정하는 데 인증 기관이 사용되는 방법에 대한 자세한 사항은 [ID 관련 Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external} 및 [멤버십 관련 Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external}를 참조하십시오. 
 
 ## 순서 지정 서비스
 {: #blockchain-component-overview-orderer}
@@ -48,19 +48,19 @@ Fabric 기반 블록체인 네트워크의 기본 요소는 ID 및 권한입니�
 
 실제 레벨에서 일반적으로 이 순서 지정 기능에는 통칭하여 "순서 지정 서비스"라고 하는 순서 지정자 세트가 필요합니다.
 
-순서 지정 서비스에 대한 자세한 정보는 [순서 지정 서비스 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html)를 참조하십시오.
+순서 지정 서비스에 대한 자세한 정보는 [순서 지정 서비스](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html){: external}를 참조하십시오. 
 
 ## 피어
 {: #blockchain-component-overview-peer}
 
-실제 레벨에서 블록체인 네트워크는 주로 피어 노드로(또는 피어 노드로만) 구성됩니다. 피어는 원장 및 스마트 계약([" 체인코드" ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html "체인코드 네임스페이스")에 포함됨)을 호스팅하므로 네트워크의 기본 요소입니다. 좀 더 정확하게 피어는 원장의 **인스턴스**를 호스팅하고 스마트 계약의 **인스턴스**를 호스팅합니다. 스마트 계약 및 원장이 네트워크에서 공유된 프로세스와 공유된 정보를 각각 캡슐화하는 데 사용되므로 이러한 피어의 측면은 Fabric 네트워크에서 실제로 수행하는 항목을 이해하는 데 적합한 시작점이 되도록 합니다.
+실제 레벨에서 블록체인 네트워크는 주로 피어 노드로(또는 피어 노드로만) 구성됩니다. 피어는 원장 및 스마트 계약(["체인코드"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}에 포함됨)을 호스팅하므로 네트워크의 기본 요소입니다. 좀 더 정확하게 피어는 원장의 **인스턴스**를 호스팅하고 스마트 계약의 **인스턴스**를 호스팅합니다. 스마트 계약 및 원장이 네트워크에서 공유된 프로세스와 공유된 정보를 각각 캡슐화하는 데 사용되므로 이러한 피어의 측면은 Fabric 네트워크에서 실제로 수행하는 항목을 이해하는 데 적합한 시작점이 되도록 합니다.
 
-특히 피어에 대해 자세히 알아보려면 Fabric 커뮤니티 문서에서 [this document focusing just on peers![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html)를 참조하십시오.
+특히 피어에 대해 자세히 알아보려면 Fabric 커뮤니티 문서에서 [this document focusing just on peers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external}를 참조하십시오. 
 
 ## 채널
 {: #blockchain-component-overview-channels}
 
-채널은 네트워크 구성원 간의 계층과 무관한 통신을 제공하는 메커니즘입니다. 구성원 서브세트 간에 여러 채널이 작성될 수 있으므로 [개인정보 보호를 구현하는 많은 메커니즘 중 하나를 지원 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/ "Hyperledger Fabric을 사용하는 개인 및 기밀 트랜잭션")합니다. 블록체인 네트워크의 데이터는 채널 원장에 저장됩니다. 채널 원장은 채널에 가입한 조직의 피어에서 호스팅됩니다. 채널 및 채널 사용 방법에 대한 자세한 정보는 [Hyperledger Fabric 문서![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/channels.html)를 참조하십시오.
+채널은 네트워크 구성원 간의 계층과 무관한 통신을 제공하는 메커니즘입니다. 구성원 서브세트 간에 여러 채널을 작성할 수 있으므로 [개인정보 보호를 구현하는 많은 메커니즘](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external} 중 하나를 지원합니다. 블록체인 네트워크의 데이터는 채널 원장에 저장됩니다. 채널 원장은 채널에 가입한 조직의 피어에서 호스팅됩니다. 채널 및 채널 사용 방법에 대한 자세한 정보는 [Hyperledger Fabric 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.4/channels.html){: external}를 참조하십시오. 
 
 ## 스마트 계약(Smart contracts)
 {: #blockchain-component-overview-smart-contracts}
@@ -76,7 +76,7 @@ Fabric 기반 블록체인 네트워크의 기본 요소는 ID 및 권한입니�
 
 {{site.data.keyword.blockchainfull_notm}} Platform과 같은 Fabric 기반 네트워크의 클라이언트 애플리케이션은 기본 인프라(예: API, SDK 및 스마트 계약)를 활용하여 더 높은 추상화 레벨에서 클라이언트 상호작용(호출 및 조회)을 허용합니다.
 
-애플리케이션이 Fabric 기반 네트워크와 상호작용하는 방법을 보려면 Hyperledger Fabric 문서에서 [애플리케이션 개발 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "애플리케이션 개발") 주제를 확인하십시오. [애플리케이션 작성](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) 주제를 방문하여 애플리케이션을 {{site.data.keyword.blockchainfull_notm}} Platform에 연결하는 방법을 알아볼 수도 있습니다.
+애플리케이션이 Fabric 기반 네트워크와 상호작용하는 방법을 보려면 Hyperledger Fabric 문서에서 [애플리케이션 개발](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} 주제를 확인하십시오. [애플리케이션 작성](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) 주제를 방문하여 애플리케이션을 {{site.data.keyword.blockchainfull_notm}} Platform에 연결하는 방법을 알아볼 수도 있습니다.
 
 ## 네트워크의 예
 {: #blockchain-component-overview-example-network}
@@ -84,5 +84,3 @@ Fabric 기반 블록체인 네트워크의 기본 요소는 ID 및 권한입니�
 **그림 1**은 네 구성원(각각 두 개의 피어를 소유), 암호 ID 자료 분배를 담당하는 인증 기관 및 정책과 네트워크 참가자를 정의하는 순서 지정 서비스로 구성되는 배치된 블록체인 네트워크의 예를 설명합니다. 파란색 채널에는 네트워크 구성원 넷이 모두 포함되어 있고 노란색 채널은 세 구성원(은행 B, C, D)으로만 제한됩니다. 또한, 은행 A는 네트워크 개시자의 역할을 하며 은행 D는 노란색 채널의 컨텍스트에서 구성원으로서만 존재한다는 것을 알 수 있습니다. 마지막으로, 올바르게 서명된 x509 인증서를 소유하고 있는 애플리케이션 또는 사용자는 네트워크에서 피어에 호출을 전송할 수 있습니다.
 
 ![블록체인 네트워크](images/blockchain_network_2-01.png "블록체인 네트워크의 예")
-
-*그림 1. 데이터를 격리하기 위해 채널을 활용하는 구성원 넷이 포함된 블록체인 네트워크의 예*

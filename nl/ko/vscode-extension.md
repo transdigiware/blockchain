@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Visual Studio Code 확장을 사용하여 스마트 계약 개발
 {: #develop-vscode}
@@ -25,19 +25,17 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull}} Platform Visual Studio(VS) Code 확장은 Visual Studio Code 내에 스마트 계약을 개발, 패키지 및 테스트하기 위한 환경을 제공합니다. 이 확장을 사용하여 스마트 계약 프로젝트를 작성하고 비즈니스 로직 개발을 시작할 수 있습니다. 그런 다음 {{site.data.keyword.blockchainfull_notm}} Platform에 스마트 계약을 배치하기 전에 VS Code를 사용하여 Hyperledger Fabric의 사전 구성된 인스턴스로 로컬 시스템의 스마트 계약을 테스트할 수 있습니다. 이 튜토리얼에서는 VS Code 확장을 사용하는 방법에 대해 설명합니다.
 
-
-![일반적인 스마트 계약 개발 워크플로우](images/SmartContractflow.png "일반적인 스마트 계약 개발 워크플로우")
-*그림 1. {{site.data.keyword.blockchainfull_notm}} Platform VS Code 확장*을 사용한 일반적인 스마트 계약 개발 워크플로우  
+![일반적인 스마트 계약 개발 워크플로우](images/SmartContractflow.png "일반적인 스마트 계약 개발 워크플로우")  
 
 <!--
 <img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f1b2" src="images/SmartContractflow.png" width="750" alt="Click a box to get more details on the process." style="width:750px;" />
 <map name="home_map1" id="home_map1">
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Create a smart contract project" title="Create a Smart contract project" shape="rect" coords="157.05, 52.53, 283.62, 127.11" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Develop contract code in VS Code" title="Create key pair" shape="rect" coords="300.97, 52.53, 427.54, 127.11" />
-<area href="/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="157.05, 131.8, 283.62, 206.37" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-deploy" alt="Deploy locally to debug" title="Deploy locally to debug" shape="rect" coords="300.97, 131.8, 427.54, 206.37" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="443.95, 131.8, 570.53, 206.37" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-connecting-ibp" alt="Deploy to IBM Cloud" title="Deploy to IBM Cloud" shape="rect" coords="585.53, 131.8, 712.1, 206.37" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Create a smart contract project" title="Create a Smart contract project" shape="rect" coords="40, 73.2, 175, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Develop contract code in VS Code" title="Create key pair" shape="rect" coords="199, 73.2, 334, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="358, 73.2, 175, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-deploy" alt="Deploy locally to test and debug" title="Deploy locally to test and debug" shape="rect" coords="358, 73.2, 493, 128.2"/>
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="517, 152.2, 493, 207.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-connecting-ibp" alt="Deploy to {{site.data.keyword.cloud_notm}}" title="Deploy to {{site.data.keyword.cloud_notm}}" shape="rect" coords="700, 73.2, 835, 128.2" />
 -->
 
 {{site.data.keyword.blockchainfull_notm}} Platform 확장은 Hyperledger Fabric 버전 1.4 이상을 사용하는 {{site.data.keyword.blockchainfull_notm}} Platform의 모든 인스턴스에서 원활하게 작동합니다.
@@ -56,7 +54,7 @@ subcollection: blockchain
 - **Yeoman 설치**  
   Yeoman은 스켈레톤 스마트 계약 프로젝트를 작성하는 데 사용할 수 있는 생성기 도구입니다. `npm install -g yo` 명령을 사용하여 Yeoman을 설치하십시오.  
 - **Docker 설치**  
-Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://www.docker.com/)를 설치했는지 확인하십시오.  
+  Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker](https://www.docker.com/){: external}를 설치했는지 확인하십시오.   
 - **운영 체제 요구사항**  
 현재 확장은 Mac, Windows 및 Linux와 호환 가능합니다.  
 - **Hyperledger Fabric 버전 요구사항**  
@@ -65,11 +63,13 @@ Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker !
 ### 확장 설치
 {: #develop-vscode-installing-the-extension}
 
-1. [Visual Studio Code 확장 마켓플레이스 페이지 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)로 이동하거나 Visual Studio Code 내 확장 패널에서 **{{site.data.keyword.blockchainfull_notm}} Platform**을 검색하십시오.
+1. [Visual Studio Code 확장 마켓플레이스 페이지](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}로 이동하거나, Visual Studio Code 내 확장 패널에서 **{{site.data.keyword.blockchainfull_notm}} Platform**을 검색하십시오. 
 2. **설치**를 클릭하십시오.
 3. Visual Studio Code를 다시 시작하여 확장 설치를 완료하십시오.
 
 설치 후 VS Code 왼쪽에 있는 {{site.data.keyword.blockchainfull_notm}} 아이콘을 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform 패널을 열 수 있습니다.
+
+![{{site.data.keyword.blockchainfull_notm}} 아이콘](images/vscode-blockchain.png "{{site.data.keyword.blockchainfull_notm}} 아이콘")
 
 이 확장은 Visual Studio Code 명령 팔레트에 새 명령을 추가합니다. 명령 팔레트를 사용하여 이 안내서에 자세히 설명되어 있는 많은 오퍼레이션을 완료할 수 있습니다.
 
@@ -80,12 +80,12 @@ Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker !
 
 1. **{{site.data.keyword.blockchainfull_notm}}** 탭을 여십시오. 스마트 계약 패키지 분할창에서 오버플로우 메뉴를 클릭하고 **스마트 계약 프로젝트 작성**을 클릭하십시오.
 2. 스마트 계약을 작성할 언어를 선택하십시오. 현재 옵션은 JavaScript, TypeScript, Go 및 Java입니다. **참고:** {{site.data.keyword.blockchainfull_notm}} Platform은 Java 체인코드를 지원하지 않습니다.
-3. 예제 계약에서 관리될 자산을 선택하십시오(예: ***채권***).
+3. **JavaScript 또는 TypeScript를 선택한 경우**, 예제 계약에서 관리할 자산을 선택하십시오. (예: ***채권***).
 4. 프로젝트의 이름으로 폴더를 작성하고 이를 여십시오.
 5. 새 프로젝트를 여는 방법을 선택하십시오. 이제 프로젝트 폴더가 열려야 합니다.
 
 프로젝트가 열리면 왼쪽 분할창의 탐색기 창에서 새 스마트 계약을 찾을 수 있습니다. 프로젝트의 구조는 선택한 언어에 따라 다릅니다. 그러나 각 스마트 계약에는 다음과 같은 동일한 요소가 포함됩니다.
-- 스마트 계약의 소스 코드. 이 확장은 예제 자산을 관리하는 일련의 함수에 `fabric-contract-api`를 사용하여 기본 스마트 계약을 빌드합니다. 예를 들어, ***채권***을 선택한 경우 `createBond`, `updateBond`, `readBond`, `bondExists` 및 `deleteBond` 함수를 찾습니다.
+- 스마트 계약의 소스 코드. Javascipt 또는 TypeScript 계약을 작성하도록 선택한 경우 이 확장은 예제 자산을 관리하는 일련의 함수에 `fabric-contract-api`를 사용하여 기본 스마트 계약을 빌드합니다. 예를 들어, ***채권***을 선택한 경우 `createBond`, `updateBond`, `readBond`, `bondExists` 및 `deleteBond` 함수를 찾습니다.
 - 테스트 파일
 - 수반하는 스마트 계약 종속 항목
 
@@ -95,7 +95,7 @@ Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker !
 {{site.data.keyword.blockchainfull_notm}} Platform 네트워크 또는 사전 구성된 Hyperledger Fabric 네트워크에서 설치하기 전에 스마트 계약을 `.cds` 형식으로 패키지해야 합니다. 스마트 계약을 패키지하려면 다음 단계를 완료하십시오.
 
 1. VS Code에서 **{{site.data.keyword.blockchainfull_notm}} Platform** 패널로 이동하십시오. 스마트 계약 프로젝트가 파일 뷰어에 열려 있는지 확인하십시오.
-2. **스마트 계약 패키지** 분할창에서 **+**를 클릭하십시오.
+2. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **스마트 계약 프로젝트 패키지**를 선택하십시오. 패키지의 이름과 버전을 묻는 메시지가 표시됩니다. 
   - 하나의 스마트 계약 프로젝트가 있는 경우 자동으로 패키지되고 **스마트 계약 패키지** 분할창에 표시됩니다.
   - 여러 스마트 계약 폴더가 열려 있으면 어떠한 스마트 계약 폴더를 패키지할 것인지를 묻는 메시지가 표시됩니다.
   - 스마트 계약 폴더가 열려 있지 않으면 오류 메시지가 표시됩니다.
@@ -110,7 +110,7 @@ Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker !
 
 기존 스마트 계약 패키지를 {{site.data.keyword.blockchainfull_notm}} Platform 분할창으로 가져올 수도 있습니다.
 
-1. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **패키지 가져오기**를 선택하십시오.
+1. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **패키지 가져오기**를 선택하십시오. 
 2. 가져올 스마트 계약 패키지를 찾아보고 **가져오기**를 클릭하십시오.
 
 **패키지 삭제**를 클릭하여 스마트 계약 패키지를 패키지 목록에서 제거할 수도 있습니다.
@@ -175,7 +175,7 @@ VS Code 확장은 하나의 순서 지정자, 하나의 피어 및 하나의 인
 스마트 계약이 설치되고 인스턴스화된 후 **Fabric 게이트웨이** 분할창을 사용하여 트랜잭션을 스마트 계약 내부의 기능에 제출할 수 있습니다.
 
 1. 스마트 계약이 설치되고 인스턴스화되었으며 네트워크에 연결되어 있는지 확인하십시오.
-2. 연결 분할창에서 **인스턴스화된 스마트 계약**을 펼치히십시오.
+2. **Fabric 게이트웨이** 분할창에서 **인스턴스화된 스마트 계약**을 펼치십시오. 
 3. 상호작용할 스마트 계약을 펼치십시오. 스마트 계약 아래에 나열된 트랜잭션 목록을 찾습니다.
 4. 제출할 트랜잭션을 마우스 오른쪽 단추로 클릭하고 **트랜잭션 제출**을 선택하십시오. 예를 들어, 예제 채권 스마트 계약을 작성하고 패키지한 경우 **createBond**를 클릭하십시오.
 5. 트랜잭션에 필요한 인수를 입력하고 **Enter**를 누르십시오. 예를 들어, 첫 번째 채권을 작성하려면 `["bond01","100"]`을 입력하십시오.
@@ -221,7 +221,7 @@ VS Code 확장은 하나의 순서 지정자, 하나의 피어 및 하나의 인
 사용자가 연결하는 네트워크에서 인스턴스화된 스마트 계약에 대한 테스트를 생성할 수 있습니다. 테스트는 **JavaScript** 또는 **TypeScript**로 생성되고 실행되거나 디버깅될 수 있습니다.
 
 1. 스마트 계약이 인스턴스화되었는지 확인하십시오.
-2. **인스턴스화된 스마트 계약** 아래에서 테스트를 생성할 스마트 계약을 오른쪽 마우스 단추로 클릭하십시오.
+2. **Fabric 게이트웨이** 분할창의 채널 목록 아래에서 테스트를 생성할 스마트 계약을 마우스 오른쪽 단추로 클릭하십시오. 
 3. **스마트 계약 테스트 생성**을 선택하십시오.
 4. 테스트 파일의 언어를 **JavaScript** 또는 **TypeScript** 중에서 선택하십시오. {{site.data.keyword.blockchainfull_notm}} Platform 확장이 필수 npm 모듈을 설치하고 테스트 파일을 빌드합니다.
 

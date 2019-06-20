@@ -2,44 +2,49 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
-keywords: troubleshooting, debug, why, what does this mean, how can I, when I 
+keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:pre: .pre}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:pre: .pre}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # 문제점 해결
 {: #ibp-v2-troubleshooting}
 
 콘솔을 사용하여 노드, 채널 또는 스마트 계약을 관리할 때 일반 문제가 발생할 수 있습니다. 대부분의 경우 몇 개의 간단한 단계를 수행하면 이러한 문제점으로부터 복구할 수 있습니다.
+{:shortdesc}
 
 - [내 노드 위에 마우스를 올려 놓으면 상태는 `Status unavailable`이 됩니다. 이는 무엇을 의미합니까?](#ibp-v2-troubleshooting-status-unavailable)
 - [내 노드 위에 마우스를 올려 놓으면 상태는 `Status undetectable`이 됩니다. 이는 무엇을 의미합니까?](#ibp-v2-troubleshooting-status-undetectable)
-- [피어 또는 순서 지정자를 작성한 후 내 노드 작동이 실패하는 이유는 무엇입니까? ](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry1)
-- [피어가 시작하지 못하는 이유는 무엇입니까?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry2)
-- [스마트 계약 설치, 인스턴스화 또는 업그레이드에 실패하는 이유는 무엇입니까? ](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry1)
-- [스마트 계약 컨테이너 로그를 보려면 어떻게 해야 합니까? ](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
+- [피어 또는 순서 지정자를 작성한 후 내 노드 작동이 실패하는 이유는 무엇입니까? ](#ibp-console-build-network-troubleshoot-entry1)
+- [피어가 시작하지 못하는 이유는 무엇입니까?](#ibp-console-build-network-troubleshoot-entry2)
+- [스마트 계약 설치, 인스턴스화 또는 업그레이드에 실패하는 이유는 무엇입니까? ](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [스마트 계약 컨테이너 로그를 보려면 어떻게 해야 합니까? ](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [채널, 스마트 계약 및 ID가 콘솔에서 사라졌습니다. 어떻게 하면 되돌릴 수 있습니까?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
-- [내 채널에 조직을 추가하려고 할 때 `채널 업데이트 중 오류 발생` 오류가 발생하는 이유는 무엇입니까?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-update-channel)
-- [내 Kubernetes 클러스터가 만료되었습니다. 이는 무엇을 의미합니까?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-cluster-expired)
-- [VS Code에서 제출하는 트랜잭션이 실패하는 이유는 무엇입니까?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
+- [조직 MSP 정의를 새로 작성할 때 `제공한 등록 ID와 시크릿으로 인증할 수 없음` 오류가 표시되는 이유는 무엇입니까?](#ibp-v2-troubleshooting-create-msp)
+- [내 채널에 조직을 추가하려고 할 때 `채널 업데이트 중 오류 발생` 오류가 발생하는 이유는 무엇입니까?](#ibp-v2-troubleshooting-update-channel)
+- [내 Kubernetes 클러스터가 만료되었습니다. 이는 무엇을 의미합니까?](#ibp-v2-troubleshooting-cluster-expired)
+- [VS Code에서 제출하는 트랜잭션이 실패하는 이유는 무엇입니까?](#ibp-v2-troubleshooting-anchor-peer)
+- [내 콘솔에 로그인하면 401 권한 없음 오류가 표시됩니다.](#ibp-v2-troubleshooting-console-401)
 
 ## 내 노드 위에 마우스를 올려 놓으면 상태는 `Status unavailable`이 됩니다. 이는 무엇을 의미합니까?
 {: #ibp-v2-troubleshooting-status-unavailable}
+{: troubleshoot}
 
 CA, 피어 또는 순서 지정자 노드에 대한 타일의 노드 상태가 회색이며, 이는 노드의 상태가 사용 불가능함을 의미합니다. 이상적으로 노드 위에 마우스를 올려 놓으면 노드 상태는 `Running`이어야 합니다.
 {: tsSymptoms}
@@ -54,6 +59,7 @@ CA, 피어 또는 순서 지정자 노드에 대한 타일의 노드 상태가 �
 
 ## 내 노드 위에 마우스를 올려 놓으면 상태는 `Status undetectable`이 됩니다. 이는 무엇을 의미합니까?
 {: #ibp-v2-troubleshooting-status-undetectable}
+{: troubleshoot}
 
 피어 또는 순서 지정자 노드에 대한 타일의 노드 상태가 노란색이며, 이는 노드의 상태가 발견될 수 없음을 의미합니다. 이상적으로 노드 위에 마우스를 올려 놓으면 노드 상태는 `Running`이어야 합니다.
 {: tsSymptoms}
@@ -78,6 +84,7 @@ CA, 피어 또는 순서 지정자 노드에 대한 타일의 노드 상태가 �
 
 ## 피어 또는 순서 지정자를 작성한 후 내 노드 작동이 실패하는 이유는 무엇입니까?
 {: #ibp-console-build-network-troubleshoot-entry1}
+{: troubleshoot}
 
 기존 노드를 관리할 때 오류가 발생할 수 있습니다. 이런 경우에는 대개 노드 로그를 참조하는 것이 유용합니다.  
 
@@ -92,6 +99,7 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 ## 피어가 시작하지 못하는 이유는 무엇입니까?
 {: #ibp-console-build-network-troubleshoot-entry2}
+{: troubleshoot}
 
 이 오류는 다양한 상황에서 발생할 수 있습니다.
 
@@ -100,16 +108,17 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 - 이 오류는 다음 상황에서 발생할 수 있습니다.
   - 피어 또는 순서 지정자의 조직 MSP 정의를 작성할 때 `client`가 아닌 `peer` 유형의 ID에 해당하는 등록 ID 및 시크릿을 지정했습니다. `client` 유형이어야 합니다.
-  - 피어 또는 순서 지정자의 조직 MSP 정의를 작성할 때 해당 조직 관리자 ID의 등록 ID 또는 시크릿과 일치하지 않는 등록 ID 및 시크릿을 지정했습니다.
-  - 피어 또는 순서 지정자를 작성할 때 'peer' 유형이 아닌 ID의 등록 ID 및 시크릿을 지정했습니다.
+  - 피어 또는 순서 지정자의 조직 MSP 정의를 작성할 때 해당 조직 관리자 ID의 등록 ID 또는 시크릿과 일치하지 않는 등록 ID 및 시크릿을 지정했습니다. 
+  - 피어 또는 순서 지정자를 작성할 때 'peer' 유형이 아닌 ID의 등록 ID 및 시크릿을 지정했습니다. 
 
 - 피어 또는 순서 지정자 CA 노드를 열고 **등록된 사용자** 테이블에 나열된 등록된 ID를 확인하십시오.
-- 피어 또는 순서 지정자를 삭제하고 올바른 등록 ID 및 시크릿을 신중히 지정하여 다시 작성하십시오.
+- 피어 또는 순서 지정자를 삭제하고 올바른 등록 ID 및 시크릿을 신중히 지정하여 다시 작성하십시오. 
 - 피어 또는 순서 지정자를 작성하기 전에 'client' 유형의 조직 관리자 ID를 작성해야 합니다. 조직 MSP 정의를 작성할 때 등록 ID와 동일한 ID를 지정해야 합니다. [피어 ID 등록](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) 및 [순서 지정자 ID 등록](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer)에 대해서는 이러한 지침을 참조하십시오.
 {: tsResolve}
 
 ## 스마트 계약 설치, 인스턴스화 또는 업그레이드에 실패하는 이유는 무엇입니까?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
+{: troubleshoot}
 
 스마트 계약을 설치, 인스턴스화 또는 업그레이드할 때 오류가 발생할 수 있습니다.  예를 들어 스마트 계약을 피어에 설치하려고 할 때 `피어에 스마트 계약을 설치할 때 오류가 발생했습니다.`라는 오류가 발생하면서 실패합니다.
 {: tsSymptoms}
@@ -124,6 +133,7 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 ## 스마트 계약 컨테이너 로그를 보려면 어떻게 해야 합니까?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
+{: troubleshoot}
 
 스마트 계약 문제를 디버깅하기 위해 스마트 계약 또는 체인코드, 컨테이너 로그를 확인해야 할 수도 있습니다.
 {: tsSymptoms}
@@ -133,11 +143,12 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 ## 채널, 스마트 계약 및 ID가 콘솔에서 사라졌습니다. 어떻게 하면 되돌릴 수 있습니까?
 {: #ibp-v2-troubleshooting-browser-storage}
+{: troubleshoot}
 
 콘솔 지갑 ID는 블록체인 컴포넌트를 관리할 수 있도록 하는 서명 인증서 및 개인 키로 구성되지만, 브라우저 로컬 스토리지에만 저장됩니다. 이러한 ID를 보호하고 관리할 책임은 사용자에게 있습니다. 해당 ID를 작성한 후 파일 시스템으로 내보내는 것이 좋습니다. 노드를 새로 작성할 때 콘솔 지갑의 ID를 노드와 연관시키십시오. 이 관리자 ID를 사용하여 노드를 관리할 수 있습니다. 브라우저를 전환하거나 다른 시스템의 브라우저로 변경할 경우 해당 ID는 더 이상 지갑에 없습니다. 따라서 컴포넌트를 관리할 수 없습니다.
 {: tsSymptoms}
 
-{{site.data.keyword.blockchainfull_notm}} Platform 2.0의 새로운 기능 중 하나는 이제 인증서를 보호하고 관리하는 책임이 사용자에게 있다는 점입니다. 따라서 사용자가 컴포넌트를 관리할 수 있도록 인증서가 브라우저 로컬 스토리지에만 저장됩니다. 개인용 브라우저 창을 사용한 후 다른 브라우저 또는 개인용이 아닌 브라우저 창으로 전환하는 경우 작성한 ID가 새 브라우저 세션의 콘솔 지갑에서 사라집니다. 그러므로 ID를 개인용 브라우저 세션의 콘솔 지갑에서 파일 시스템으로 내보내야 합니다. 그런 다음 ID가 필요한 경우 ID를 개인용이 아닌 브라우저 세션에 가져올 수 있습니다. 그렇지 않으면 ID를 복구할 수 있는 방법이 없습니다.
+{{site.data.keyword.blockchainfull_notm}} Platform의 새로운 기능 중 하나는 이제 인증서를 보안 설정하고 관리하는 책임이 사용자에게 있다는 점입니다. 따라서 사용자가 컴포넌트를 관리할 수 있도록 인증서가 브라우저 로컬 스토리지에만 저장됩니다. 개인용 브라우저 창을 사용한 후 다른 브라우저 또는 개인용이 아닌 브라우저 창으로 전환하는 경우 작성한 ID가 새 브라우저 세션의 콘솔 지갑에서 사라집니다. 그러므로 ID를 개인용 브라우저 세션의 콘솔 지갑에서 파일 시스템으로 내보내야 합니다. 그런 다음 ID가 필요한 경우 ID를 개인용이 아닌 브라우저 세션에 가져올 수 있습니다. 그렇지 않으면 ID를 복구할 수 있는 방법이 없습니다.
 {: tsCauses}
 
 - 새 조직 MSP 정의를 새로 작성할 때 언제든지 조직을 관리할 수 있는 ID에 대한 키를 생성할 수 있습니다. 따라서 해당 프로세스 중에는 **생성** 및 **내보내기** 단추를 차례로 클릭하여 생성된 ID를 콘솔 지갑에 저장한 후 파일 시스템에 JSON 파일로 저장해야 합니다.
@@ -152,8 +163,22 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 - 원래 브라우저의 지갑에 있었던 각 ID에 대해 이 프로세스를 반복하십시오.
 {: tsResolve}
 
+## 조직 MSP 정의를 새로 작성할 때 `제공한 등록 ID와 시크릿으로 인증할 수 없음` 오류가 표시되는 이유는 무엇입니까? 
+{: #ibp-v2-troubleshooting-create-msp}
+{: troubleshoot}
+
+조직 탭에서 조직 MSP 정의를 새로 작성하려고 하면 `제공한 등록 ID와 시크릿으로 인증할 수 없음` 오류가 발생합니다.
+{: tsSymptoms}
+
+이 오류는 등록 시크릿에 대해 지정한 값이 패널의 `조직 관리자 인증서 생성` 섹션에서 선택한 등록 ID에 올바르지 않은 경우에 발생합니다.
+{: tsCauses}
+
+등록 ID 드롭 다운 입력에서 올바른 조직 관리자 등록 ID를 선택했는지 확인한 후 올바른 등록 시크릿 값을 입력하십시오.
+{: tsResolve}
+
 ## 내 채널에 조직을 추가하려고 할 때 `채널 업데이트 중 오류 발생` 오류가 발생하는 이유는 무엇입니까?
 {: #ibp-v2-troubleshooting-update-channel}
+{: troubleshoot}
 
 채널에 다른 조직을 추가하려고 하면 `채널 업데이트 중 오류 발생` 메시지와 함께 업데이트가 실패합니다.
 {: tsSymptoms}
@@ -166,6 +191,7 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 ## 내 Kubernetes 클러스터가 만료되었습니다. 이는 무엇을 의미합니까?
 {: #ibp-v2-troubleshooting-cluster-expired}
+{: troubleshoot}
 
 내 {{site.data.keyword.IBM_notm}} Kubernetes Service 클러스터가 만료될 예정이며 해당 상태가 `Expired`라는 이메일을 수신했습니다. 또는 30일 후에는 콘솔에 액세스할 수 없습니다.
 {: tsSymptoms}
@@ -178,6 +204,7 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 ## VS Code에서 제출하는 트랜잭션이 실패하는 이유는 무엇입니까?
 {: #ibp-v2-troubleshooting-anchor-peer}
+{: troubleshoot}
 
 VS Code에서 제출된 트랜잭션이 다음과 유사한 오류와 함께 실패합니다.
 ```
@@ -189,3 +216,18 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 {: tsCauses}
 
 앵커 피어를 구성하려면 스마트 계약 배치 튜토리얼에서 [개인용 데이터 주제](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)의 3단계를 따르십시오.
+
+## 내 콘솔에 로그인하면 401 권한 없음 오류가 표시됩니다. 
+{: #ibp-v2-troubleshooting-console-401}
+{: troubleshoot}
+
+내 콘솔에 로그인하려고 할 때 브라우저에서 콘솔에 액세스할 수 없습니다. 브라우저 로그를 확인하면 401 권한 없음 오류가 발견됩니다.
+{: tsSymptoms}
+
+비활동 시간 **8시간**이 경과하면 브라우저 콘솔 세션의 제한시간이 초과됩니다. 세션이 비활성화되면 비활성 사용자는 콘솔에서 어떠한 조치도 수행할 수 없습니다.
+{: tsCauses}
+
+세션이 비활성화되면 브라우저를 새로 고쳐 보십시오. 작동하지 않을 경우 **모든** 탭과 창을 포함한 브라우저를 닫으십시오. URL을 다시 여십시오. 로그인해야 합니다. 
+
+우수 사례로, 인증서와 ID를 이미 파일 시스템에 저장했을 수 있습니다. 익명 창을 사용하는 경우 브라우저를 닫으면 모든 인증서가 브라우저의 로컬 스토리에서 삭제됩니다. 다시 로그인한 후에 ID와 인증서를 다시 가져와야 합니다.
+{: note}

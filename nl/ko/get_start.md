@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-04"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -19,6 +19,9 @@ subcollection: blockchain
 
 # 엔터프라이즈 플랜 시작하기
 {: #getting-started-with-enterprise-plan}
+
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note}-->
 
 {{site.data.keyword.blockchainfull}} Platform은 높은 보안, 무결성, 확장성 및 성능을 가진 블록체인 네트워크를 제공합니다. 정상 작동되는 네트워크를 신속하게 프로비저닝하고 GUI 대시보드인 네트워크 모니터를 사용하면 처음부터 네트워크를 설계하고 구성하지 않고도 즉시 [체인코드](/docs/services/blockchain/glossary.html#glossary-chaincode) 및 애플리케이션을 실행할 수 있습니다.
 {:shortdesc}
@@ -32,15 +35,15 @@ subcollection: blockchain
 2. 초대된 **네트워크 구성원**은 {{site.data.keyword.blockchain}} 네트워크에 가입하기 위한 지시사항을 제공하는 이메일 알림을 수신합니다. 이메일 알림의 지시사항 외에도 [네트워크 가입](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)의 단계를 따를 수도 있습니다.
 3. 네트워크를 작성하거나 가입한 후 모든 **네트워크 구성원**은 네트워크 모니터에 들어가 네트워크 리소스를 구성하고 관리할 수 있습니다. 네트워크 구성원의 그룹으로 [채널](/docs/services/blockchain/glossary.html#glossary-channel)을 설정하여 채널 구성원만 액세스할 수 있는 채널 특정 원장에서 개인용 트랜잭션을 실행할 수 있습니다. 네트워크 모니터에서 고유 피어를 채널에 가입시킨 다음 이 피어에서 체인코드를 설치하고 인스턴스화할 수도 있습니다. 자세한 정보는 [네트워크 리소스 및 환경 구성](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-config)을 참조하십시오.
 4. **애플리케이션 개발자**는 애플리케이션을 개발한 후 애플리케이션과 네트워크 간 상호작용을 가능하게 합니다. 자세한 정보는 [애플리케이션이 네트워크와 상호작용할 수 있도록 설정](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-enable-apps)을 참조하십시오.
-5. **네트워크 운영자**는 네트워크 모니터에서 자신의 채널에 대한 트랜잭션을 모니터합니다. 자세한 정보는 [네트워크 리소스 모니터링](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-monitor-resources)을 참조하십시오.
+5. **네트워크 운영자**는 네트워크 모니터에서 자신의 채널에 대한 트랜잭션을 모니터링합니다. 자세한 정보는 [네트워크 리소스 모니터링](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-monitor-resources)을 참조하십시오.
 
 
 ## 네트워크 작성
 {: #getting-started-with-enterprise-plan-create-network}
 
-시작하기 전에 {{site.data.keyword.cloud_notm}}에서 [{{site.data.keyword.blockchain}} Platform 서비스 인스턴스 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod)를 작성해야 합니다. {{site.data.keyword.cloud_notm}} ID로 로그인해야 합니다. ID가 없는 경우, **회원가입하기** 단추를 클릭하십시오. 나중에 쉽게 알아볼 수 있도록 사용자의 인스턴스에 대한 서비스 및 인증 정보 이름을 바꾸십시오. {{site.data.keyword.blockchain}} 네트워크를 배치할 수 있는 {{site.data.keyword.cloud_notm}} 지역, 조직 및 영역을 선택하십시오. 그런 다음 가격 플랜 테이블에서 **엔터프라이즈 멤버십 플랜**을 선택하고 **작성** 단추를 클릭하십시오.
+시작하기 전에 {{site.data.keyword.cloud_notm}}에서 [{{site.data.keyword.blockchain}} Platform 서비스 인스턴스](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 작성해야 합니다. {{site.data.keyword.cloud_notm}} ID로 로그인해야 합니다. ID가 없는 경우, **회원가입하기** 단추를 클릭하십시오. 나중에 쉽게 알아볼 수 있도록 사용자의 인스턴스에 대한 서비스 및 인증 정보 이름을 바꾸십시오. {{site.data.keyword.blockchain}} 네트워크를 배치할 수 있는 {{site.data.keyword.cloud_notm}} 지역, 조직 및 영역을 선택하십시오. 그런 다음 가격 플랜 테이블에서 **엔터프라이즈 멤버십 플랜**을 선택하고 **작성** 단추를 클릭하십시오.
 
-{{site.data.keyword.blockchain}} Platform 서비스 인스턴스를 [{{site.data.keyword.cloud_notm}} 서비스 대시보드 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} 서비스 대시보드")에서 찾을 수 있습니다.
+{{site.data.keyword.blockchain}} Platform 서비스 인스턴스는 [{{site.data.keyword.cloud_notm}} 서비스 대시보드](https://cloud.ibm.com/resources){: external}에서 찾을 수 있습니다. 
 
 네트워크 개시자인 경우, **네트워크 작성** 단추를 클릭하여 {{site.data.keyword.blockchain}} 네트워크를 시작하십시오. 마법사를 따라서 사용자의 네트워크 및 리소스의 기본 구성을 완료하십시오.
 ![네트워크 작성 마법사](images/create_network_name.png "네트워크 작성 마법사")
@@ -66,9 +69,9 @@ subcollection: blockchain
 ## 네트워크 가입
 {: #getting-started-with-enterprise-plan-join-nw}
 
-네트워크 작성과 비슷하게 {{site.data.keyword.cloud_notm}}에서 [{{site.data.keyword.blockchain}} Platform 서비스 인스턴스 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod)를 작성해야 합니다. {{site.data.keyword.cloud_notm}} ID로 로그인해야 합니다. ID가 없는 경우, **회원가입하기** 단추를 클릭하십시오. 나중에 쉽게 알아볼 수 있도록 사용자의 인스턴스에 대한 서비스 및 인증 정보 이름을 바꾸십시오. {{site.data.keyword.blockchain}} 네트워크를 배치할 수 있는 {{site.data.keyword.cloud_notm}} 지역, 조직 및 영역을 선택하십시오. 그런 다음 가격 플랜 테이블에서 **엔터프라이즈 멤버십 플랜**을 선택하고 **작성** 단추를 클릭하십시오.
+네트워크 작성의 경우와 마찬가지로, {{site.data.keyword.cloud_notm}}에서 [{{site.data.keyword.blockchain}} Platform 서비스 인스턴스](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 작성해야 합니다. {{site.data.keyword.cloud_notm}} ID로 로그인해야 합니다. ID가 없는 경우, **회원가입하기** 단추를 클릭하십시오. 나중에 쉽게 알아볼 수 있도록 사용자의 인스턴스에 대한 서비스 및 인증 정보 이름을 바꾸십시오. {{site.data.keyword.blockchain}} 네트워크를 배치할 수 있는 {{site.data.keyword.cloud_notm}} 지역, 조직 및 영역을 선택하십시오. 그런 다음 가격 플랜 테이블에서 **엔터프라이즈 멤버십 플랜**을 선택하고 **작성** 단추를 클릭하십시오.
 
-{{site.data.keyword.blockchain}} Platform 서비스 인스턴스를 [{{site.data.keyword.cloud_notm}} 서비스 대시보드 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} 서비스 대시보드")에서 찾을 수 있습니다.
+{{site.data.keyword.blockchain}} Platform 서비스 인스턴스는 [{{site.data.keyword.cloud_notm}} 서비스 대시보드](https://cloud.ibm.com/resources){: external}에서 찾을 수 있습니다. 
 
 초대된 네트워크 구성원인 경우 **초대 보류 중 ->** 단추를 클릭하고 드롭 다운 목록에서 가입할 네트워크를 선택하고 **네트워크 가입** 단추를 클릭하십시오. 마법사를 따라서 네트워크의 네트워크 기본 구성을 보고 고유 네트워크 리소스를 구성하십시오.
 ![네트워크 가입 마법사](images/join_network_name.png "네트워크 가입 마법사")
@@ -100,7 +103,7 @@ subcollection: blockchain
 
 ### 서비스 인스턴스 페이지에서 검색
 {: #getting-started-with-enterprise-plan-retrieve-svc-ins}
-서비스 인스턴스를 작성하면 바로 서비스 인스턴스 페이지가 나타납니다. 또한 [{{site.data.keyword.cloud_notm}} 서비스 대시보드 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} 서비스 대시보드")에서 서비스를 클릭하여 서비스 인스턴스 페이지를 열 수 있습니다.
+서비스 인스턴스를 작성하면 바로 서비스 인스턴스 페이지가 나타납니다. [{{site.data.keyword.cloud_notm}} 서비스 대시보드](https://cloud.ibm.com/resources){: external}의 서비스를 클릭하여 서비스 인스턴스 페이지를 열 수도 있습니다. 
 
 다음 단계에 따라 서비스 인증 정보를 검색하십시오.
 1. 서비스 인스턴스 페이지의 왼쪽 네비게이터에서 **서비스 인증 정보**를 클릭하여 "서비스 인증 정보" 화면을 표시하십시오.
@@ -116,7 +119,7 @@ subcollection: blockchain
 
 ## 애플리케이션이 네트워크와 상호작용할 수 있도록 설정
 {: #getting-started-with-enterprise-plan-enable-apps}
-애플리케이션은 SDK API를 활용하여 {{site.data.keyword.blockchain}} 네트워크 리소스와 상호작용합니다. 애플리케이션이 트랜잭션 요청으로 피어를 결국 대상으로 지정할 수 있도록 애플리케이션에서 네트워크 리소스의 API 엔드포인트 정보를 추가해야 합니다. 그런 다음 네트워크 모니터에서 API 엔드포인트 정보를 추가할 수 있습니다. 애플리케이션은 로컬 파일 시스템 또는 {{site.data.keyword.cloud_notm}}에 호스팅될 수 있습니다. 자세한 정보는 [애플리케이션 개발](/docs/services/blockchain/v10_application.html#dev-app)을 참조하십시오.
+애플리케이션은 SDK API를 활용하여 {{site.data.keyword.blockchain}} 네트워크 리소스와 상호작용합니다. 애플리케이션이 트랜잭션 요청으로 피어를 결국 대상으로 지정할 수 있도록 애플리케이션에서 네트워크 리소스의 API 엔드포인트 정보를 추가해야 합니다. 그런 다음 네트워크 모니터에서 API 엔드포인트 정보를 추가할 수 있습니다. 애플리케이션은 로컬 파일 시스템 또는 {{site.data.keyword.cloud_notm}}에 호스팅될 수 있습니다.
 
 ## 네트워크 리소스 모니터링
 {: #getting-started-with-enterprise-plan-monitor-resources}

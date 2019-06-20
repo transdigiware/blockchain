@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -44,7 +44,7 @@ subcollection: blockchain
 - **영향 받는 리소스:** 체인코드(스마트 계약), 클라이언트 애플리케이션. 다시 한 번, 체인코드가 v1.1 네트워크와 호환되지 않는 Fabric v1.2 컴포넌트 또는 기능을 활용하고 있는지 여부를 확인하십시오.
 - **필요한 시간:** 스타터 플랜에서 엔터프라이즈 플랜으로 기본 네트워크를 마이그레이션하는 데 최소 한나절이 소요될 수 있습니다.
 - **기존 원장 데이터**는 스타터 플랜 네트워크에서 엔터프라이즈 플랜 네트워크로 이동할 수 없습니다. 테스트 데이터를 프로덕션 환경에 두는 것은 적합하지 않기 때문입니다.
-- **Hyperledger Composer** IBM은 Composer CLI, JavaScript API, REST 서버 및 웹 플레이그라운드를 포함하여 프로덕션에서 Hyperledger Composer를 사용하는 네트워크를 지원하지 않습니다.
+- **Hyperledger Composer:** {{site.data.keyword.IBM_notm}}은 Composer CLI, JavaScript API, REST 서버 및 웹 플레이그라운드를 포함하여 프로덕션에서 Hyperledger Composer를 사용하는 네트워크를 지원하지 않습니다. 
 
 **참고:** *기본* 네트워크에는 두 개의 피어, 단일 채널 및 단일 체인코드 파일이 포함된 두 개의 조직이 있습니다. 실제 마이그레이션 시간은 엔터프라이즈 플랜 네트워크에 필요한 네트워크 컴포넌트의 크기와 복잡도에 따라 달라질 수 있습니다.
 
@@ -77,7 +77,7 @@ subcollection: blockchain
 ### 체인코드 마이그레이션
 {: #migrate_starter_to_enterprise_cc}
 
-체인코드는 로컬 환경에서 외부적으로 개발하고 클라이언트 애플리케이션에서 호출합니다. 스타터 플랜 네트워크에서 테스트된 체인코드를 엔터프라이즈 플랜 네트워크의 선택한 피어에 설치하고 인스턴스화하려면 [체인코드 설치, 인스턴스화 및 업데이트](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc "체인코드 설치, 인스턴스화 및 업데이트")의 지시사항을 따르십시오.
+체인코드는 로컬 환경에서 외부적으로 개발하고 클라이언트 애플리케이션에서 호출합니다. 스타터 플랜 네트워크에서 테스트된 체인코드를 엔터프라이즈 플랜 네트워크의 선택한 피어에 설치하고 인스턴스화하려면 [체인코드 설치, 인스턴스화 및 업데이트](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc)의 지시사항을 따르십시오. 
 
 ### 클라이언트 애플리케이션 업데이트
 {: #migrate_starter_to_enterprise_app}

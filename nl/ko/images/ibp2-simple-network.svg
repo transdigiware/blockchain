@@ -1,33 +1,115 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
 <svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="Layer_1"
-   data-name="Layer 1"
-   viewBox="0 0 1018.61 776.28"
    version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1018.6 774"
+   style="enable-background:new 0 0 1018.6 774;"
+   xml:space="preserve"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="ibp2-simple-network.svg"
-   inkscape:export-filename="X:\PUB\ABD141\ART\WORK\ship5\ibp2-simple-network.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-  <metadata
-     id="metadata156">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
+   sodipodi:docname="ibp2-simple-network.svg"><metadata
+     id="metadata154"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs152"><linearGradient
+       id="linearGradient4286"
+       osb:paint="solid"><stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop4288" /></linearGradient><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4286"
+       id="linearGradient4292"
+       gradientUnits="userSpaceOnUse"
+       x1="272.64521"
+       y1="172.14189"
+       x2="320.93274"
+       y2="172.14189"
+       gradientTransform="translate(-134.48876,7.1467456)" /><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4286"
+       id="linearGradient4309"
+       gradientUnits="userSpaceOnUse"
+       x1="272.6452"
+       y1="172.14189"
+       x2="320.93274"
+       y2="172.14189"
+       gradientTransform="translate(-134.48876,7.1467456)" /><linearGradient
+       y2="172.14189"
+       x2="320.93274"
+       y1="172.14189"
+       x1="272.6452"
+       gradientTransform="translate(-134.48876,7.1467456)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4317"
+       xlink:href="#linearGradient4286"
+       inkscape:collect="always" /><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4286"
+       id="linearGradient4361"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(27.413386,22.971715)"
+       x1="272.6452"
+       y1="172.14189"
+       x2="320.93274"
+       y2="172.14189" /><linearGradient
+       y2="172.14189"
+       x2="320.93274"
+       y1="172.14189"
+       x1="272.6452"
+       gradientTransform="translate(27.413386,22.971715)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4369"
+       xlink:href="#linearGradient4286"
+       inkscape:collect="always" /><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4286"
+       id="linearGradient4404"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(265.20325,133.4909)"
+       x1="272.6452"
+       y1="172.14189"
+       x2="320.93274"
+       y2="172.14189" /><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4286"
+       id="linearGradient4545"
+       gradientUnits="userSpaceOnUse"
+       x1="272.6452"
+       y1="172.14189"
+       x2="320.93274"
+       y2="172.14189"
+       gradientTransform="translate(-134.48876,7.1467456)" /><linearGradient
+       y2="172.14189"
+       x2="320.93274"
+       y1="172.14189"
+       x1="272.6452"
+       gradientTransform="translate(-134.48876,7.1467456)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4553"
+       xlink:href="#linearGradient4286"
+       inkscape:collect="always" /><linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4286"
+       id="linearGradient4586"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-27.424278,71.774969)"
+       x1="272.6452"
+       y1="172.14189"
+       x2="320.93274"
+       y2="172.14189" /></defs><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1"
@@ -37,422 +119,292 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1015"
-     id="namedview154"
+     inkscape:window-height="1017"
+     id="namedview150"
      showgrid="false"
-     inkscape:zoom="1.5271226"
-     inkscape:cx="507.82"
-     inkscape:cy="381.05003"
+     inkscape:zoom="1.5035377"
+     inkscape:cx="512.7"
+     inkscape:cy="379.9"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="Layer_1" />
-  <defs
-     id="defs3">
-    <style
-       id="style5">.cls-1{fill:#dcdcdc;}.cls-2{fill:#5a6872;}.cls-20,.cls-3{fill:#011688;stroke:#857b7b;}.cls-13,.cls-3,.cls-6{stroke-width:0.25px;}.cls-14,.cls-16,.cls-19,.cls-33,.cls-4,.cls-7{isolation:isolate;font-family:IBMPlexSans-Medium, IBM Plex Sans;font-weight:500;}.cls-14,.cls-4{font-size:19px;}.cls-13,.cls-16,.cls-19,.cls-24,.cls-29,.cls-4,.cls-6{fill:#fff;}.cls-5{letter-spacing:-0.02em;}.cls-24,.cls-6{stroke:#fff;}.cls-7{font-size:16px;}.cls-14,.cls-32,.cls-33,.cls-7{fill:#010f5e;}.cls-8{letter-spacing:-0.02em;}.cls-9{letter-spacing:0em;}.cls-10{letter-spacing:-0.02em;}.cls-11{letter-spacing:0em;}.cls-12{fill:#565656;stroke:#000;stroke-miterlimit:10;}.cls-13{stroke:#979797;}.cls-15{fill:#0ccaeb;}.cls-16,.cls-19{font-size:14px;}.cls-16{letter-spacing:-0.01em;}.cls-17{letter-spacing:0em;}.cls-18{letter-spacing:-0.01em;}.cls-21{letter-spacing:0em;}.cls-22{letter-spacing:0.01em;}.cls-23{letter-spacing:-0.01em;}.cls-25{letter-spacing:0em;}.cls-26{letter-spacing:0.01em;}.cls-27{letter-spacing:-0.01em;}.cls-28{letter-spacing:0em;}.cls-30,.cls-31{fill:none;}.cls-30{stroke:#001588;}.cls-31{stroke:#12c3f4;stroke-width:2px;}.cls-33{font-size:12px;}.cls-34{letter-spacing:0em;}.cls-35{letter-spacing:0.01em;}.cls-36{letter-spacing:-0.01em;}</style>
-  </defs>
-  <title
-     id="title7">ibp-v2-build-network_Raft</title>
-  <rect
+     inkscape:current-layer="Layer_1" /><style
+     type="text/css"
+     id="style3">
+	.st0{fill:#DCDCDC;stroke:#DCDCDC;}
+	.st1{fill:#5A6872;}
+	.st2{fill:#011688;stroke:#857B7B;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'IBMPlexSans-Medium';}
+	.st5{font-size:19px;}
+	.st6{fill:#FFFFFF;stroke:#FFFFFF;}
+	.st7{fill:#010F5E;}
+	.st8{font-size:16px;}
+	.st9{fill:#0CCAEB;}
+	.st10{font-size:14px;}
+	.st11{fill:#FFFFFF;stroke:#979797;}
+	.st12{fill:#011688;}
+	.st13{fill:none;stroke:#001588;}
+	.st14{fill:none;stroke:#FFFFFF;}
+	.st15{fill:none;stroke:#12C3F4;stroke-width:2;}
+	.st16{font-size:12px;}
+</style><title
+     id="title5">ibp-v2-build-network_Raft</title><rect
      id="Rectangle"
-     class="cls-1"
-     x="83.82"
-     y="120.73"
-     width="848"
-     height="549"
-     inkscape:export-xdpi="90"
-     inkscape:export-ydpi="90" />
-  <g
-     id="UI-Icon_checkmark--outline_ui-05"
-     data-name="UI-Icon/checkmark--outline/$ui-05">
-    <path
+     x="89.2"
+     y="120.1"
+     class="st0"
+     width="847"
+     height="548" /><g
+     id="UI-Icon_checkmark--outline_ui-05"><path
        id="Oval-2"
-       class="cls-2"
-       d="M350.82,277.23a6.5,6.5,0,1,0-6.5-6.5A6.49,6.49,0,0,0,350.82,277.23Zm0,1.5a8,8,0,1,1,8-8A8,8,0,0,1,350.82,278.73Z" />
-    <polygon
+       class="st1"
+       d="M355.6,276.1c3.6,0,6.5-2.9,6.5-6.5s-2.9-6.5-6.5-6.5s-6.5,2.9-6.5,6.5l0,0   C349.1,273.2,352,276.1,355.6,276.1L355.6,276.1z M355.6,277.6c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S360.1,277.6,355.6,277.6z" /><polygon
        id="check"
-       class="cls-2"
-       points="354.12 267.43 355.52 268.83 349.62 274.73 346.12 271.33 347.52 269.93 349.62 271.93 354.12 267.43" />
-  </g>
-  <rect
+       class="st1"
+       points="359,266.3 360.4,267.7 354.5,273.6 351,270.2 352.4,268.8 354.5,270.8  " /></g><rect
      id="Rectangle-2"
-     data-name="Rectangle"
-     class="cls-3"
-     x="108.32"
-     y="158.23"
+     x="113.2"
+     y="157.1"
+     class="st2"
      width="347"
-     height="151" />
-  <text
-     class="cls-4"
-     transform="translate(127.03 192.73)"
-     id="text14"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">조직 1<tspan
-   class="cls-5"
-   x="13.53"
-   y="0"
-   id="tspan16"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="20.44"
-   y="0"
-   id="tspan18"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-</text>
-  <rect
+     height="151" /><rect
      id="Rectangle-3"
-     data-name="Rectangle"
-     class="cls-6"
-     x="391.32"
-     y="146.23"
+     x="396.1"
+     y="145.1"
+     class="st6"
      width="105"
-     height="35" />
-  <text
-     class="cls-7"
-     transform="translate(414 169.73)"
-     id="text21"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">조직1 <tspan
-   style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-   id="tspan4286">CA</tspan>
-</text>
-  <rect
+     height="35" /><rect
      id="Rectangle-4"
-     data-name="Rectangle"
-     class="cls-6"
-     x="333.32"
-     y="214.23"
+     x="338.1"
+     y="213.1"
+     class="st6"
      width="105"
-     height="55" />
-  <text
-     class="cls-7"
-     transform="translate(348.19 237.73)"
-     id="text32"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">조직1 <tspan
-   style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-   id="tspan4288">MSP</tspan>
-</text>
-  <text
-     class="cls-7"
-     transform="translate(351.44 257.73)"
-     id="text38"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">정의</text>
-  <rect
-     id="Rectangle-5"
-     data-name="Rectangle"
-     class="cls-6"
-     x="129.32"
-     y="212.23"
+     height="55" /><rect
+     id="Rectangle-9"
+     x="134.1"
+     y="211.1"
+     class="st6"
      width="105"
-     height="61" />
-  <text
-     class="cls-7"
-     transform="translate(141.95 248.73)"
-     id="text41"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">
-    <tspan
-       class="cls-10"
-       id="tspan43"
-       style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">피어 조직1</tspan>
-    <tspan
-       class="cls-11"
-       x="9.71"
-       y="0"
-       id="tspan45"
-       style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-    <tspan
-       class="cls-8"
-       x="48.8"
-       y="0"
-       id="tspan47"
-       style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-    <tspan
-       x="54.62"
-       y="0"
-       id="tspan49"
-       style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-  </text>
-  <path
-     id="Line-2"
-     class="cls-12"
-     d="M190.42,409.23l-.1-131.5v-.5h1v.5l.1,131.5h4l-4.5,9-4.5-9Z" />
-  <ellipse
-     id="Oval"
-     class="cls-13"
-     cx="345.32"
-     cy="396.23"
-     rx="194.5"
-     ry="51.5" />
-  <text
-     class="cls-14"
-     id="text53"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19px;font-family:Gulim;-inkscape-font-specification:Gulim;isolation:isolate;fill:#010f5e"
-     x="308.57001"
-     y="401.73001">채널 1</text>
-  <g
-     id="Group-3">
-    <path
+     height="61" /><g
+     id="Group-3"><path
        id="Fill-1"
-       class="cls-15"
-       d="M230.72,234.73h51v39c-25.5,0-25.5,14.9-51,6.4Z" />
-  </g>
-  <text
-     class="cls-16"
-     id="text57"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;font-family:Gulim;-inkscape-font-specification:Gulim;letter-spacing:-0.01em;isolation:isolate;fill:#ffffff"
-     x="226.82001"
-     y="258.73001">
-    <tspan
-       class="cls-17"
-       x="233.86"
-       y="258.73001"
-       id="tspan59"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gulim;-inkscape-font-specification:Gulim;letter-spacing:0em">원장</tspan>
-    <tspan
-       class="cls-18"
-       x="249.93001"
-       y="258.73001"
-       id="tspan61"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gulim;-inkscape-font-specification:Gulim;letter-spacing:-0.01em" />
-    <tspan
-       class="cls-17"
-       x="257.37"
-       y="258.73001"
-       id="tspan63"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Gulim;-inkscape-font-specification:Gulim;letter-spacing:0em" />
-  </text>
-  <text
-     class="cls-19"
-     transform="translate(278.52 258.73)"
-     id="text65" />
-  <text
-     class="cls-19"
-     transform="translate(234.82 273.73)"
-     id="text67">
-    <tspan
-       style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-       id="tspan4284">X</tspan>
-  </text>
-  <rect
-     id="Rectangle-6"
-     data-name="Rectangle"
-     class="cls-20"
-     x="507.83"
-     y="280.6"
+       class="st9"
+       d="M235.6,233.6h51v39c-25.5,0-25.5,14.9-51,6.4V233.6z" /></g><text
+     transform="matrix(1 0 0 1 262.76 257.59)"
+     class="st3 st4 st10"
+     id="text53" />
+<text
+     transform="matrix(1 0 0 1 270.2 257.59)"
+     class="st3 st4 st10"
+     id="text55" />
+<ellipse
+     id="Oval"
+     class="st11"
+     cx="350.1"
+     cy="395.1"
+     rx="194.5"
+     ry="51.5" /><rect
+     id="Rectangle-10"
+     x="524.2"
+     y="286.6"
+     class="st2"
      width="347"
-     height="214.5" />
-  <text
-     class="cls-4"
-     transform="translate(527.78 315.1)"
-     id="text70"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">순서 지정 서비스 조직<tspan
-   class="cls-21"
-   x="13.53"
-   y="0"
-   id="tspan72"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="20.71"
-   y="0"
-   id="tspan74"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-22"
-   x="102.47"
-   y="0"
-   id="tspan76"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="109.91"
-   y="0"
-   id="tspan78"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-23"
-   x="124.68"
-   y="0"
-   id="tspan80"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="134.25"
-   y="0"
-   id="tspan82"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-5"
-   x="162.83"
-   y="0"
-   id="tspan84"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="169.74"
-   y="0"
-   id="tspan86"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-</text>
-  <rect
-     id="Rectangle-7"
-     data-name="Rectangle"
-     class="cls-24"
-     x="722.25"
-     y="268.6"
-     width="173.58"
-     height="35" />
-  <text
-     class="cls-7"
-     transform="translate(737.7 292.1)"
-     id="text89"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">순서 지정
-서비스<tspan
-   class="cls-28"
-   x="124.06"
-   y="0"
-   id="tspan103"
-   style="-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">CA</tspan>
-</text>
-  <rect
-     id="Rectangle-8"
-     data-name="Rectangle"
-     class="cls-24"
-     x="704.83"
-     y="365.65"
-     width="135.83"
-     height="55" />
-  <text
-     class="cls-7"
-     transform="translate(711.87 389.45)"
-     id="text108"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">순서 지정 서비스<tspan
-   class="cls-25"
-   x="11.39"
-   y="0"
-   id="tspan110"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-11"
-   x="17.44"
-   y="0"
-   id="tspan112"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-26"
-   x="84.62"
-   y="0"
-   id="tspan114"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-11"
-   x="90.89"
-   y="0"
-   id="tspan116"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-27"
-   x="103.33"
-   y="0"
-   id="tspan118"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="111.39"
-   y="0"
-   id="tspan120"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-</text>
-  <text
-     class="cls-7"
-     id="text122"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Gulim;-inkscape-font-specification:Gulim;isolation:isolate;fill:#010f5e"
-     x="732.56"
-     y="409.45001"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
-   id="tspan4290">MSP</tspan>
- 정의</text>
-  <g
-     id="Group-18">
-    <g
-       id="Group-5">
-      <polygon
-         id="Fill-1-2"
-         data-name="Fill-1"
-         class="cls-29"
-         points="529.83 331.6 689.33 331.6 689.33 468.13 529.83 468.13 529.83 331.6" />
-      <polygon
+     height="214.5" /><rect
+     id="Rectangle-11"
+     x="738.6"
+     y="274.6"
+     class="st6"
+     width="173.6"
+     height="35" /><rect
+     id="Rectangle-12"
+     x="721.2"
+     y="371.6"
+     class="st6"
+     width="135.8"
+     height="55" /><rect
+     id="Rectangle-13"
+     x="552.7"
+     y="408.6"
+     class="st12"
+     width="10"
+     height="10" /><g
+     id="Group-18"><g
+       id="Group-5"><polygon
+         id="Fill-1-3"
+         class="st3"
+         points="546.2,337.6 705.7,337.6 705.7,474.1 546.2,474.1   " /><polygon
          id="Stroke-3"
-         class="cls-30"
-         points="529.83 468.13 689.33 468.13 689.33 331.6 529.83 331.6 529.83 468.13" />
-    </g>
-  </g>
-  <circle
-     class="cls-31"
-     cx="609.58"
-     cy="413.1"
-     r="32.14"
-     id="circle128" />
-  <circle
-     class="cls-32"
-     cx="578.71"
-     cy="406.59"
-     r="8.35"
-     id="circle130" />
-  <circle
-     class="cls-32"
-     cx="609.58"
-     cy="383.07"
-     r="8.35"
-     id="circle132" />
-  <circle
-     class="cls-32"
-     cx="640.31"
-     cy="406.59"
-     r="8.35"
-     id="circle134" />
-  <circle
-     class="cls-32"
-     cx="591.35"
-     cy="440.95"
-     r="8.35"
-     id="circle136" />
-  <circle
-     class="cls-32"
-     cx="626.27"
-     cy="440.95"
-     r="8.35"
-     id="circle138" />
-  <text
-     class="cls-33"
-     transform="translate(546.33 357.53)"
-     id="text140"
-     style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">순서 지정 서비스 노드<tspan
-   class="cls-34"
-   x="8.54"
-   y="0"
-   id="tspan142"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="13.08"
-   y="0"
-   id="tspan144"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-35"
-   x="63.47"
-   y="0"
-   id="tspan146"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="68.17"
-   y="0"
-   id="tspan148"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   class="cls-36"
-   x="77.5"
-   y="0"
-   id="tspan150"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-<tspan
-   x="83.54"
-   y="0"
-   id="tspan152"
-   style="-inkscape-font-specification:Gulim;font-family:Gulim;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" />
-</text>
+         class="st13"
+         points="546.2,474.1 705.7,474.1 705.7,337.6 546.2,337.6   " /></g></g><line
+     class="st14"
+     x1="182.6"
+     y1="272.1"
+     x2="182.6"
+     y2="367.1"
+     id="line122" /><circle
+     class="st15"
+     cx="625.9"
+     cy="419.1"
+     r="32.1"
+     id="circle124" /><circle
+     class="st7"
+     cx="595"
+     cy="412.6"
+     r="8.3"
+     id="circle126" /><circle
+     class="st7"
+     cx="625.9"
+     cy="389.1"
+     r="8.3"
+     id="circle128" /><circle
+     class="st7"
+     cx="656.6"
+     cy="412.6"
+     r="8.3"
+     id="circle130" /><circle
+     class="st7"
+     cx="607.7"
+     cy="446.9"
+     r="8.3"
+     id="circle132" /><circle
+     class="st7"
+     cx="642.6"
+     cy="446.9"
+     r="8.3"
+     id="circle134" /><text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4292);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+     x="136.43788"
+     y="186.01776"
+     id="text4282"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4284"
+       x="136.43788"
+       y="186.01776"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:url(#linearGradient4292);fill-opacity:1">조직 1</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4404);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="536.12988"
+     y="312.36194"
+     id="text4282-6-9"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4284-6-9"
+       x="536.12988"
+       y="312.36194"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:url(#linearGradient4404);fill-opacity:1">순서 지정 서비스 조직</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4586);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="243.50235"
+     y="250.64598"
+     id="text4282-0"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4284-2"
+       x="243.50235"
+       y="250.64598"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:url(#linearGradient4586);fill-opacity:1">원장 </tspan><tspan
+       sodipodi:role="line"
+       x="243.50235"
+       y="269.396"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:url(#linearGradient4586);fill-opacity:1"
+       id="tspan4582">X</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="409.70511"
+     y="168.76079"
+     id="text4588"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4590"
+       x="409.70511"
+       y="168.76079"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1">조직 1 CA</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="145.58322"
+     y="247.75348"
+     id="text4588-2"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4590-6"
+       x="145.58322"
+       y="247.75348"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1">피어 조직 1</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="348.37659"
+     y="235.77376"
+     id="text4588-2-4"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4590-6-8"
+       x="348.37659"
+       y="235.77376"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1">조직 1 MSP</tspan><tspan
+       sodipodi:role="line"
+       x="348.37659"
+       y="256.08624"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1"
+       id="tspan4628">정의</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="326.34778"
+     y="398.53036"
+     id="text4588-2-4-8"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="326.34778"
+       y="398.53036"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1"
+       id="tspan4628-7">채널 1</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="746.57684"
+     y="298.10529"
+     id="text4588-2-4-9"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="746.57684"
+       y="298.10529"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1"
+       id="tspan4628-1">순서 지정 서비스 CA</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="726.6239"
+     y="392.54922"
+     id="text4588-2-4-4"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4590-6-8-6"
+       x="726.6239"
+       y="392.54922"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1">순서 지정 서비스</tspan><tspan
+       sodipodi:role="line"
+       x="726.6239"
+       y="412.86172"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1"
+       id="tspan4628-6">MSP 정의</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="563.0097"
+     y="354.63861"
+     id="text4588-2-4-89"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       x="563.0097"
+       y="354.63861"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:Gulim;-inkscape-font-specification:Gulim;fill:#010f5e;fill-opacity:1"
+       id="tspan4628-4">순서 지정 서비스 노드</tspan></text>
 </svg>

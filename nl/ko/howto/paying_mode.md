@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -79,7 +79,7 @@ subcollection: blockchain
 {: #paying-mode-limitation}
 - 모든 구성원이 지급인의 {{site.data.keyword.cloud_notm}} 계정 내에 있으므로 지급인은 모든 구성원의 블록체인 인스턴스에 액세스할 수 있으며 이를 위장할 수 있습니다. 따라서 이 지불 모드는 PoC 환경의 경우 또는 지급인이 {{site.data.keyword.blockchainfull_notm}} Platform의 모든 관리를 처리하고 구성원에게 애플리케이션만 제공되는 경우에 가장 적합합니다.  
 - 지급인의 Cloud Foundry 조직에 있는 모든 구성원은 조직의 모든 영역을 볼 수 있습니다.  하지만 액세스 권한이 없으므로 조직을 편집하거나 수정할 수 없습니다.  
-- 지급인의 Cloud Foundry 조직에 있는 모든 구성원은 동일한 Cloud Foundry 조직의 기타 구성원의 IBM Cloud ID를 볼 수 있습니다.  
+- 지급인의 Cloud Foundry 조직에 있는 모든 구성원은 동일한 Cloud Foundry 조직의 기타 구성원의 {{site.data.keyword.cloud_notm}} ID를 볼 수 있습니다.   
 - 지급인의 {{site.data.keyword.cloud_notm}} 계정에 모든 구성원을 추가하고 블록체인 인스턴스를 프로비저닝하고 네트워크에 가입하는 액세스 권한을 지정하면, 지급인은 다른 서비스를 작성하는 액세스 권한을 구성원에게 제공하며 이로 인해 추가 요금이 발생할 수 있습니다. 모든 구성원은 지급인의 계정에 추가 비용을 초래하는 무단 서비스를 자신의 계정에서 작성하지 않는다는 계약에 서명할 수 있습니다.  
 
 ## 구성원이 사용자 대신 지불하도록 허용

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -26,16 +26,16 @@ AWS에 {{site.data.keyword.blockchainfull}} Platform 피어를 설정한 다음 
 ## Fabric SDK를 사용하여 피어 운영
 {: #remote-peer-aws-operate-with-sdk}
 
-Hyperledger Fabric SDK에서는 애플리케이션에서 블록체인 네트워크와 상호작용하고 운영하는 데 사용할 수 있는 강력한 API 세트를 제공합니다. [Hyperledger Fabric SDK 커뮤니티 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks "Hyperledger Fabric SDK 커뮤니티 문서")에서 Hyperledger Fabric SDK 내에서 지원되는 최신 언어 목록과 사용 가능한 전체 API 목록을 찾을 수 있습니다. Fabric SDK를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 채널에 피어를 가입시키고 피어에 체인코드를 설치하며 채널에서 체인코드를 인스턴스화할 수 있습니다.
+Hyperledger Fabric SDK에서는 애플리케이션에서 블록체인 네트워크와 상호작용하고 운영하는 데 사용할 수 있는 강력한 API 세트를 제공합니다. 지원되는 최신 언어 목록과 사용 가능한 전체 API 목록은 [Hyperledger Fabric SDK 커뮤니티 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}에서 찾을 수 있습니다. Fabric SDK를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 채널에 피어를 가입시키고 피어에 체인코드를 설치하며 채널에서 체인코드를 인스턴스화할 수 있습니다.
 
-다음 지시사항에서는 [Fabric Node SDK ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/ "Hyperledger Fabric SDK for jode.js")를 사용하여 피어를 운영하고 이미 SDK에 익숙하다고 가정합니다. [애플리케이션 개발 튜토리얼](/docs/services/blockchain/v10_application.html#dev-app)은 시작하기 전에 Node SDK를 사용하는 방법을 알아보고 체인코드를 호출하여 조회할 준비가 되었을 때 피어로 애플리케이션을 개발하기 위한 안내서로 사용할 수 있습니다.
+다음 지시사항에서는 [Fabric Node SDK](https://fabric-sdk-node.github.io/){: external}를 사용하여 피어를 운영하고 이미 SDK에 익숙하다고 가정합니다. [애플리케이션 개발 튜토리얼](/docs/services/blockchain/v10_application.html#dev-app)은 시작하기 전에 Node SDK를 사용하는 방법을 알아보고 체인코드를 호출하여 조회할 준비가 되었을 때 피어로 애플리케이션을 개발하기 위한 안내서로 사용할 수 있습니다.
 
 AWS 빠른 시작의 {{site.data.keyword.blockchainfull_notm}} Platform 피어는 고가용성을 위해 두 개의 피어를 작성합니다. 따라서 피어마다 해당 오퍼레이션 단계를 한 번씩 수행해야 합니다. 애플리케이션에서 체인코드를 조회하고 호출할 준비가 되면 [애플리케이션의 고가용성](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app)을 위해 SDK를 두 피어 모두에 연결하십시오.
 
 ### Node SDK 설치
 {: #remote-peer-aws-operate-install-sdk}
 
-NPM을 사용하여 [Node SDK ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/ "Hyperledger Fabric SDK for jode.js")를 설치할 수 있습니다.
+NPM을 사용하여 [Node SDK](https://fabric-sdk-node.github.io/){: external}를 설치할 수 있습니다. 
 ```
 npm install fabric-client@1.2
 ```
@@ -135,8 +135,7 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 ### Fabric CA Client를 사용하여 등록
 {: #remote-peer-aws-operate-client-enroll}
 
-첫 번째 단계에서는 Fabric CA Client를 사용하여 필요한 인증서(등록)를 생성합니다. 먼저 Fabric CA Client를 설치해야 합니다. [플랫폼에 대한 fabric-ca 바이너리 v1.2.1 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/ "저장소 색인")을
-로컬 시스템에 다운로드하여 압축을 푼 다음 `$HOME/fabric-ca-remote/` 등의 폴더로 이동하십시오.
+첫 번째 단계에서는 Fabric CA Client를 사용하여 필요한 인증서(등록)를 생성합니다. 먼저 Fabric CA Client를 설치해야 합니다. [플랫폼에 대한 fabric-ca 바이너리 v1.2.1](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/){: external}을 로컬 시스템에 다운로드하여 압축을 푼 다음 `$HOME/fabric-ca-remote/` 등의 폴더로 이동하십시오. 
 
 1.  Fabric CA Client를 사용하도록 환경을 준비하십시오. 명령에서 직접 참조할 수 있도록 클라이언트 바이너리 파일을 이동한 디렉토리로 변경하십시오.
     ```
@@ -292,8 +291,7 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 ### Fabric 도구 컨테이너 설정
 {: #remote-peer-aws-operate-fabric-cli}
 
-모든 인증서를 필요한 위치로 옮기면 Docker의 Fabric 도구 컨테이너를 설치하고 사용할 수 있습니다. 이러한 명령은 시스템에서 로컬로 실행됩니다. 사용자의 MSP 폴더를 저장한 디렉토리에서 이러한 명령을 실행했는지 확인하십시오. 해당 단계를 완료하려면 [Git ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "시작하기 - Git 설치")가
-로컬 시스템에 설치되어 있어야 합니다.   
+모든 인증서를 필요한 위치로 옮기면 Docker의 Fabric 도구 컨테이너를 설치하고 사용할 수 있습니다. 이러한 명령은 시스템에서 로컬로 실행됩니다. 사용자의 MSP 폴더를 저장한 디렉토리에서 이러한 명령을 실행했는지 확인하십시오. 이러한 단계를 완료하려면 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}이 로컬 시스템에 설치되어 있어야 합니다.    
 
 다음 명령을 사용하여 Fabric 도구 Docker 이미지를 다운로드하십시오.
 
@@ -516,7 +514,7 @@ docker logs peer
 
 1. AWS의 각 피어에서 체인코드를 업데이트하려면 클라이언트 애플리케이션이나 CLI 명령을 사용하여 피어에 체인코드를 설치하는 데 사용한 프로세스를 다시 실행하기만 하면 됩니다. 원래 사용된 이름과 동일한 체인코드 이름을 지정하십시오. 그러나 이번에는 체인코드 `Version` 번호를 증가시킵니다.
 
-2. 채널의 모든 피어에 새 체인코드를 설치한 다음 네트워크 모니터 또는 [피어 체인코드 업그레이드 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade) 명령을 사용하여 새 체인코드를 사용하도록 채널을 업데이트하십시오.
+2. 채널의 모든 피어에 새 체인코드를 설치한 다음 네트워크 모니터 또는 [피어 체인코드 업그레이드](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} 명령을 사용하여 새 체인코드를 사용하도록 채널을 업데이트하십시오.
 
 네트워크 모니터의 코드 설치 패널을 사용하여 채널에서 체인코드를 업데이트하는 데 관한 자세한 정보는 해당 [지시사항](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) 중 2단계를 참조하십시오.
 

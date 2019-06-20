@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -39,7 +39,7 @@ subcollection: blockchain
 조정이 필요할 수 있습니다.
 - **네트워크 운영자**는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을
 사용하여 조직의 노드를 배치하고 네트워크에 스마트 계약을 설치하는 관리자입니다.
-- **애플리케이션 개발자**는 일반 사용자가 이용할 클라이언트 애플리케이션을 빌드합니다. 개발자는 [Hyperledger Fabric SDK![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks "Hyperledger Fabric SDK"){:new_window}를 사용하여 스마트 계약에 작성된 트랜잭션을 호출합니다.
+- **애플리케이션 개발자**는 일반 사용자가 이용할 클라이언트 애플리케이션을 빌드합니다. 개발자는 [Hyperledger Fabric SDK](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks){: external}를 사용하여 스마트 계약에 작성된 트랜잭션을 호출합니다. 
 
 사용자가 **네트워크 운영자**인 경우,
 다음 단계를 완료해야만 애플리케이션 개발자가 사용자의 네트워크와 상호 작용할 수 있습니다.
@@ -65,8 +65,7 @@ subcollection: blockchain
 
 Fabric v1.4부터는 사용자가 단순화된 애플리케이션 및 스마트 계약 프로그래밍 모델을 사용할 수 있습니다. 새 모델을
 사용하면 트랜잭션을 제출하는 데 필요한 코드의 양 및 단계 수가 줄어듭니다. 이 모델은
-**Node.js**로 작성된 애플리케이션에만 지원됩니다. 새 모델을
-활용하려면 이 플랫폼을 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform 2.0 네트워크에서 다음 조치를 완료하십시오.
+**Node.js**로 작성된 애플리케이션에만 지원됩니다. 새 모델을 활용하려면 이 튜토리얼을 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform 네트워크에서 다음 조치를 완료하십시오.
 
 - SDK를 사용하여 [애플리케이션에 대한 인증서를 생성](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-enroll)하십시오.
 - [SDK에서 스마트 계약을 호출](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-invoke)하십시오.
@@ -110,29 +109,22 @@ echo <base64_string> | base64 --decode $FLAG > <key>.pem
 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔에서 다운로드되는 연결 프로파일은 Node.js(JavaScript 및 TypeScript) 및 Java Fabric SDK를 사용하여 네트워크에 연결하는 데만 사용될 수 있습니다.
 {: note}
 
-Hyperledger Fabric [트랜잭션 플로우![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")]( https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "트랜잭션 플로우"){:new_window}의
-범위는 피어에서 보증을 수집하여 보증된 트랜잭션을 순서 지정 서비스로 전송하는 클라이언트 애플리케이션을 포함하여 다중
-컴포넌트에 걸쳐 있습니다. 연결 프로파일은
-트랜잭션을 제출하는 데 필요한 피어 및 순서 지정 노드의 엔드포인트를 애플리케이션에 제공합니다. 또한
-인증 기관 및 MSP ID와 같은 조직에 관한 정보도 포함합니다. 사용자가 트랜잭션 및 보증 플로우를 관리하는 코드를
+Hyperledger Fabric [트랜잭션 플로우](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}는 다중 컴포넌트에 걸쳐 있습니다. 이 경우 클라이언트 애플리케이션은 피어에서 보증을 수집하여 보증된 트랜잭션을 순서 지정 서비스로 전송합니다. 연결 프로파일은
+트랜잭션을 제출하는 데 필요한 피어 및 순서 지정 노드의 엔드포인트를 애플리케이션에 제공합니다. 또한 인증 기관 및 MSP ID와 같은 조직에 관한 정보도 포함합니다. 사용자가 트랜잭션 및 보증 플로우를 관리하는 코드를
 작성할 필요 없이 Fabric SDK가 직접 연결 프로파일을 읽을 수 있습니다.
 
-Hyperledger Fabric의 [서비스 발견 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "서비스 발견") 기능을 사용하려면 앵커 피어를 구성해야 합니다. 서비스 발견을
+Hyperledger Fabric의 [서비스 발견](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} 기능을 사용하려면 앵커 피어를 구성해야 합니다. 서비스 발견을
 사용하면 애플리케이션이 조직 외부의 채널에 있는 피어 중 어느 피어가 트랜잭션을 보증해야 하는지 파악할 수 있습니다. 서비스 발견을
 사용하지 않으면 기타 조직에서 대역 외 피어의 엔드포인트 정보를 가져와서
-연결 프로파일에 추가해야 합니다. 앵커 피어를 구성하는 방법에 대한
-자세한 정보는 스마트 계약 배치 튜토리얼에서
-[개인용 데이터 주제](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)의 3단계를 참조하십시오.
+연결 프로파일에 추가해야 합니다. 자세한 정보는 [앵커 피어 구성](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-channels-anchor-peers)을 참조하십시오. 
 
-플랫폼 콘솔에서 스마트 계약 탭으로 이동하십시오. 인스턴스화된 각 스마트 계약 옆의 오버플로우 메뉴로 이동하십시오. **SDK로 연결**이라는 이름의 단추를 클릭하십시오. 그러면 연결 프로파일을 빌드하고 다운로드할 수 있는 사이드 패널이 열립니다. 먼저,
+플랫폼 콘솔에서 **스마트 계약** 탭으로 이동하십시오. 인스턴스화된 각 스마트 계약 옆의 오버플로우 메뉴로 이동하십시오. **SDK로 연결**이라는 이름의 단추를 클릭하십시오. 그러면 연결 프로파일을 빌드하고 다운로드할 수 있는 사이드 패널이 열립니다. 먼저,
 애플리케이션 ID를 등록하기 위해 사용한 조직의 CA를 선택하십시오. 또한 조직 MSP 정의도 선택해야 합니다. 그러면 인증서를 생성하고 스마트 계약을 호출하는 데 사용할 수 있는 연결 프로파일을 다운로드할 수 있습니다.
 
 ## SDK를 사용하여 등록
 {: #ibp-console-app-enroll}
 
-네트워크 운영자가 네트워크 연결 프로파일 및 애플리케이션 ID의 등록 ID 및 시크릿을 제공하면 애플리케이션 개발자가 Fabric SDK 또는 Fabric CA 클라이언트를 사용하여 클라이언트 측 인증서를 생성할 수 있습니다. 다음
-단계에 따라 [Node.js용 Fabric SDK ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/ "Node.js용 Fabric SDK")를
-사용하여 애플리케이션 ID를 등록할 수 있습니다.
+네트워크 운영자가 네트워크 연결 프로파일 및 애플리케이션 ID의 등록 ID 및 시크릿을 제공하면 애플리케이션 개발자가 Fabric SDK 또는 Fabric CA 클라이언트를 사용하여 클라이언트 측 인증서를 생성할 수 있습니다. [Node.js용 Fabric SDK](https://fabric-sdk-node.github.io/){: external}를 사용하여 애플리케이션 ID를 등록하려면 다음 단계를 수행하십시오. 
 
 1. 연결 프로파일을 로컬 시스템에 저장하고 이름을 `connection.json`으로 바꾸십시오.
 2. 다음 코드 블록을 연결 프로파일과 동일한 디렉토리에 `enrollUser.js`로 저장하십시오.
@@ -204,9 +196,7 @@ Fabric SDK에 사용되는 지갑은 {{site.data.keyword.blockchainfull_notm}} P
 {: #ibp-console-app-invoke}
 
 애플리케이션 서명 인증서 및 개인 키를 생성하여 지갑에 저장했으면 트랜잭션을 제출할 준비가 된 것입니다. 스마트 계약의
-이름 및 스마트 계약이 인스턴스화된 채널의 이름을 알아야 합니다. 아래 단계에 따라
-[Node.js용 Fabric SDK![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/ "Node.js용 Fabric SDK")를
-사용하여 스마트 계약을 호출할 수 있습니다.
+이름 및 스마트 계약이 인스턴스화된 채널의 이름을 알아야 합니다. 아래 단계에 따라 [Node.js용 Fabric SDK](https://fabric-sdk-node.github.io/){: external}를 사용하여 스마트 계약을 호출할 수 있습니다. 
 
 
 1. 아래 파일을 로컬 시스템에 `invoke.js`로 저장하십시오. 파일을 `enrollUser.js`와 동일한 디렉토리에 저장하십시오.
@@ -261,9 +251,7 @@ Fabric SDK에 사용되는 지갑은 {{site.data.keyword.blockchainfull_notm}} P
 2. `invoke.js`를 편집하여 다음 값을 대체하십시오.
   - ``<channel_name>``을 스마트 계약이 인스턴스화된 채널의 이름으로 바꾸십시오. 연결 프로파일의 "인증 기관" 섹션 아래에서 CA 이름을 찾을 수 있습니다.
   - ``<smart_contract_name>``을 설치된 스마트 계약의 이름으로 바꾸십시오. 네트워크 운영자로부터 이 값을 얻을 수 있습니다.
-  - `submitTransaction`의 컨텐츠를 편집하여 스마트 계약 내의 기능을 호출하십시오. `invoke.js` 파일이
-[fabcar 스마트 계약 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar)을
-호출하도록 작성되었습니다. 아래 파일을 실행하여 트랜잭션을 제출하려면 fabcar를 설치하고 채널 중 하나에 스마트 계약을 인스턴스화하십시오.
+  - `submitTransaction`의 컨텐츠를 편집하여 스마트 계약 내의 기능을 호출하십시오. `invoke.js` 파일은 [fabcar 스마트 계약](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar){: external}을 호출하도록 작성되었습니다. 아래 파일을 실행하여 트랜잭션을 제출하려면 fabcar를 설치하고 채널 중 하나에 스마트 계약을 인스턴스화하십시오.
 
 3. 터미널을 사용하여 `invoke.js`로 이동하여 `node invoke.js`를 실행하십시오. 명령이 성공적으로 실행되면 다음과 같은 출력이 표시되어야 합니다.
 
@@ -276,42 +264,33 @@ Fabric SDK에 사용되는 지갑은 {{site.data.keyword.blockchainfull_notm}} P
 ## 상업 어음 샘플 실행
 {: #ibp-console-app-commercial-paper}
 
-Hyperledger Fabric 문서의
-[상업 어음 튜토리얼 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "상업 어음 튜토리얼")은
-다중 당사자가 상업 어음을 구매, 판매 및 상환하는 유스 케이스를 개발자에게 설명합니다. 또한
-Fabric의 로컬 인스턴스에서 자산을 작성 및 거래할 수 있도록 해주는 샘플 스마트 계약 및 애플리케이션 코드를 제공하여 [애플리케이션 개발 주제 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "애플리케이션 개발")를
-확장합니다.
+Hyperledger Fabric 문서의 [상업 어음 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}은 다중 당사자가 상업 어음을 구매, 판매 및 상환하는 유스 케이스를 개발자에게 설명합니다. 또한 Fabric의 로컬 인스턴스에서 자산을 작성 및 거래할 수 있도록 해주는 샘플 스마트 계약 및 애플리케이션 코드를 제공하여 [애플리케이션 개발 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external}를 확장합니다. 
 
-또한 상업 어음 튜토리얼 샘플 코드를 {{site.data.keyword.blockchainfull_notm}} Platform 2.0 네트워크에 배치할 수 있습니다. 그러면
-신속하게 네트워크와 상호작용을 시작하고 샘플을 사용하여 필수 종속 항목을 다운로드할 수 있습니다. 또한 샘플 코드에는
-인증서를 [지갑 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "지갑")으로
-가져오고 연결 프로파일을 사용하여
-[Fabric 게이트웨이 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html "Fabric 게이트웨이")를
-빌드하는 방법을 설명하는 예제가 포함되어 있습니다. 두 개의 다른 조직이 튜토리얼을 사용하여
+또한 상업 어음 튜토리얼 샘플 코드를 {{site.data.keyword.blockchainfull_notm}} Platform 네트워크에 배치할 수 있습니다. 그러면
+신속하게 네트워크와 상호작용을 시작하고 샘플을 사용하여 필수 종속 항목을 다운로드할 수 있습니다. 샘플 코드에는 또한 인증서를 [지갑](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external}으로 가져온 후 연결 프로파일을 사용하여 [Fabric 게이트웨이](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}를 빌드하는 방법에 대한 예제가 포함되어 있습니다. 두 개의 다른 조직이 튜토리얼을 사용하여
 단일 자산과 다른 트랜잭션을 완료할 수 있습니다. [네트워크 빌드 튜토리얼](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)을
 사용하여 채널에 연결된 두 개의 피어 조직을 배치한 경우, 두 조직을 모두 사용하여 튜토리얼과 상호작용할 수 있습니다.
 
-아래 단계에 따라 네트워크에 샘플을 배치하십시오. Fabric 문서 [상업 어음 튜토리얼![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "상업 어음 튜토리얼")에서
-튜토리얼을 검토하여 스마트 계약 및 애플리케이션 구조에 대한 자세한 정보를 볼 수 있습니다.
+아래 단계에 따라 네트워크에 샘플을 배치하십시오. Fabric 문서 [상업 어음 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}에서 튜토리얼을 검토하여 스마트 계약 및 애플리케이션 구조에 대한 자세한 정보를 볼 수 있습니다. 
 
 ### 전제조건
 
 상업용 어음 샘플을 배치하기 전에 로컬 시스템에 필수 도구를 설치해야 합니다.
-  * [Git ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git"){:new_window}
-  * [Node.js ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#node-js-runtime-and-npm "Node.js"){:new_window}
+  * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}
+  * [Node.js](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#node-js-runtime-and-npm){: external}
 
-또한 문서 편집기를 사용하여 샘플의 파일을 편집하고 저장해야 합니다. 무료로 사용 가능한 여러 가지 고품질 편집기(예: [Atom ![외부 링크 아이콘](../images/external_link.svg " 외부 링크 아이콘")](https://atom.io/ "atom"), [Sublime text ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](http://www.sublimetext.com/ "Git") 또는 [Brackets ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](http://brackets.io/ "Brackets"))를 사용할 수 있습니다.
+또한 문서 편집기를 사용하여 샘플의 파일을 편집하고 저장해야 합니다. 무료로 사용 가능한 여러 가지 고품질 편집기(예: [Visual Studio Code](https://code.visualstudio.com/){: external}, [Atom](https://atom.io/){: external}, [Sublime text](http://www.sublimetext.com/){: external} 또는 [Brackets](http://brackets.io/){: external})를 사용할 수 있습니다. 
 
 ### 1단계: 샘플 다운로드
 
-[Fabric 샘플 저장소![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://github.com/hyperledger/fabric-samples "Fabric 샘플 저장소")을 복제하여 상업 어음 샘플을 다운로드할 수 있습니다.
+[Fabric 샘플 저장소](https://github.com/hyperledger/fabric-samples){: external}를 복제하여 상업 어음 샘플을 다운로드하십시오. 
 
 ```
 git clone https://github.com/hyperledger/fabric-samples.git
 ```
 {:codeblock}
 
-일단 Fabric 샘플을 다운로드한 후에 다음 명령을 실행하여 Fabric v1.4와 호환되는 샘플 버전을 사용하고 있는지 확인하십시오.
+Fabric 샘플을 다운로드한 후 다음 명령을 실행하여 Fabric v1.4와 호환되는 샘플 버전을 사용하고 있는지 확인하십시오. 
 
 ```
 cd fabric-samples
@@ -356,10 +335,9 @@ npm install
 
 `digibank` 및 `magnetocorp` 디렉토리의 `contract` 폴더에서
 상업 어음 스마트 계약을 찾을 수 있습니다. 튜토리얼을 사용하여 이 스마트 계약을 조직 내의 모든 피어에
-설치해야 합니다. 그런 다음 채널에서 상업 어음 계약을 인스턴스화해야 합니다. 스마트 계약은 콘솔을 사용하여 설치될 수 있도록
-[.cds 형식 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging "스마트 계약 패키징")으로 패키지되어야 합니다.
+설치해야 합니다. 그런 다음 채널에서 상업 어음 계약을 인스턴스화해야 합니다. 스마트 계약은 콘솔을 사용하여 설치할 수 있도록 [.cds 형식](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}으로 패키징해야 합니다. 
 
-[IBM Blockchain VS Code 확장](/docs/services/blockchain/vscode-extension.html)을 사용하여 스마트 계약을 패키지할 수 있습니다. 확장을 설치한 후 Visual Studio 코드를 사용하여 작업공간에서
+[{{site.data.keyword.blockchainfull_notm}} VS Code 확장](/docs/services/blockchain/vscode-extension.html)을 사용하여 스마트 계약을 패키징할 수 있습니다. 확장을 설치한 후 Visual Studio 코드를 사용하여 작업공간에서
 `contracts` 폴더를 여십시오. _{{site.data.keyword.blockchainfull_notm}} Platform_ 탭을 여십시오. _{{site.data.keyword.blockchainfull_notm}} Platform_ 분할창에서
 스마트 계약 패키지 섹션으로 이동하여 **스마트 계약 프로젝트 패키지**를 클릭하십시오. VS Code 확장은 `contracts` 폴더의 파일을 사용하여 `papernet-js@.0.0.1.cds`라는 이름의 새 패키지를 작성합니다. 이 패키지를 마우스 오른쪽 단추로 클릭하여 로컬 파일 시스템으로 내보내십시오. 그런 다음 콘솔을 사용하여
 [피어에 스마트 계약을 설치](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-install)하고
@@ -369,9 +347,7 @@ npm install
 
 애플리케이션이 패브릭 컴포넌트에 전송하는 요청에 서명해야 합니다. 컴포넌트가 트랜잭션을 제출하는
 조직을 인식하지 못하면 트랜잭션이 거부되고 오류와 함께 리턴됩니다. 상업 어음 샘플은
-사용자의 인증서를 저장하고 트랜잭션에 서명할 파일 시스템 지갑을 작성합니다. 애플리케이션이
-지갑을 사용하는 방법에 대한 자세한 정보는 Fabric 문서에서 [지갑 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "지갑") 주제를
-참조하십시오. Fabric SDK에 사용되는 지갑은 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔의 지갑과 다릅니다. 콘솔 지갑에 저장된 ID는 SDK에서 직접 사용할 수 없습니다.
+사용자의 인증서를 저장하고 트랜잭션에 서명할 파일 시스템 지갑을 작성합니다. 애플리케이션의 지갑 사용 방식에 대한 자세한 정보는 Fabric 문서에서 [지갑](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external} 주제를 참조하십시오. Fabric SDK에 사용되는 지갑은 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔의 지갑과 다릅니다. 콘솔 지갑에 저장된 ID는 SDK에서 직접 사용할 수 없습니다.
 
 원래 샘플은 `addToWallet.js` 파일을 사용하여
 패브릭 샘플 폴더의 인증서를 사용하는 파일 시스템 지갑을 작성합니다. 여기서는 SDK를 사용하는 새 파일을 작성하여 클라이언트 측 인증서를 생성하고 직접 새 지갑에 저장합니다.
@@ -483,10 +459,8 @@ Successfully enrolled client "user1" and imported it into the wallet
 
 ### 4단계: 연결 프로파일을 사용하여 패브릭 게이트웨이 빌드
 
-Hyperledger Fabric [트랜잭션 플로우 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")]( https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "트랜잭션 플로우"){:new_window}는 고유한 역할을 수행하는 클라이언트 애플리케이션과 함께 여러 컴포넌트를 포함합니다. 애플리케이션은 트랜잭션을 보증해야 하는 피어에 연결해야 하고 트랜잭션의 순서를 지정하고 블록에 추가하는 순서 지정 서비스에 연결해야 합니다. 연결 프로파일을 사용하여 애플리케이션에 이러한 노드의 엔드포인트를 제공하여
-Fabric 게이트웨이를 생성할 수 있습니다. 그런 다음 게이트웨이가 패브릭 네트워크와 하위 레벨 상호작용을 수행합니다. 자세한 내용을 보려면 Fabric 문서에서
-[Fabric 게이트웨이 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html "Fabric 게이트웨이") 주제를
-방문하십시오.
+Hyperledger Fabric [트랜잭션 플로우](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}는 다중 컴포넌트에 걸쳐 있습니다. 이 경우 클라이언트 애플리케이션은 고유한 역할을 수행합니다. 애플리케이션은 트랜잭션을 보증해야 하는 피어에 연결해야 하고 트랜잭션의 순서를 지정하고 블록에 추가하는 순서 지정 서비스에 연결해야 합니다. 연결 프로파일을 사용하여 애플리케이션에 이러한 노드의 엔드포인트를 제공하여
+Fabric 게이트웨이를 생성할 수 있습니다. 그런 다음 게이트웨이가 패브릭 네트워크와 하위 레벨 상호작용을 수행합니다. 자세한 내용은 Fabric 문서에서 [Fabric 게이트웨이](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external} 주제를 참조하십시오. 
 
 이미 연결 프로파일을 다운로드하여 조직의 인증 기관에 연결하는 데 사용했습니다. 이제 연결 프로파일을 사용하여 게이트웨이를 빌드합니다.
 
@@ -615,9 +589,8 @@ CA를 사용하여 [애플리케이션 ID를 작성](/docs/services/blockchain/h
 다음 클라이언트 측에서 CA 엔드포인트 정보 등록을 사용하거나
 콘솔을 사용하여 인증서를 생성해야 합니다.
 
-[Fabric 노드 SDK ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io "Fabric 노드 SDK") 문서는
-[연결 프로파일을 사용하여 네트워크에 연결하는 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/tutorial-network-config.html "프로파일 연결 튜토리얼"){:new_window} 방법에 대한 프로파일을 제공합니다. 튜토리얼에서는
-연결 프로파일 내의 CA 엔드포인트 정보를 사용하여 SDK를 사용하는 키를 생성합니다. 또한 콘솔을 사용하여 서명 인증서 및 개인 키를 생성하고 해당 키를 PEM 형식으로 변환할 수 있습니다. 그런 다음 아래 코드를 사용하여 키를 직접 SDK의 [Fabric 클라이언트 클래스 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/Client.html "Fabric 클라이언트 클래스")로 전달하여 사용자 컨텍스트를 설정할 수 있습니다.
+[Fabric Node SDK](https://fabric-sdk-node.github.io){: external} 문서는 [연결 프로파일을 사용하여 네트워크에 연결](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}하는 방법에 대한 튜토리얼을 제공합니다. 튜토리얼에서는
+연결 프로파일 내의 CA 엔드포인트 정보를 사용하여 SDK를 사용하는 키를 생성합니다. 또한 콘솔을 사용하여 서명 인증서 및 개인 키를 생성하고 해당 키를 PEM 형식으로 변환할 수 있습니다. 그런 다음 아래 코드를 사용하여 키를 직접 SDK의 [Fabric 클라이언트 클래스](https://fabric-sdk-node.github.io/Client.html){: external}로 전달하여 사용자 컨텍스트를 설정할 수 있습니다. 
 
 ```
 fabric_client.createUser({

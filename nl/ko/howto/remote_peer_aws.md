@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
-keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multi-cloud
+keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multicloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -25,7 +25,7 @@ subcollection: blockchain
 다음 지시사항은 AWS(Amazon Web Services) 빠른 시작 템플리트를 사용하여 {{site.data.keyword.blockchainfull}}  Platform for AWS 피어를 작성한 후 {{site.data.keyword.blockchainfull_notm}} Platform의 네트워크에 연결하는 방법에 대해 설명합니다.
 {:shortdesc}
 
-AWS에 대한 자세한 정보는 [AWS 개요 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://d1.awsstatic.com/whitepapers/aws-overview.pdf "AWS 개요 문서")를 참조하십시오.
+AWS에 대한 자세한 정보는 [AWS 개요 문서](https://d1.awsstatic.com/whitepapers/aws-overview.pdf){: external}를 참조하십시오. 
 
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS를 사용하여 피어는 {{site.data.keyword.cloud_notm}}에서 기존 스타터 또는 엔터프라이즈 플랜 네트워크의 연결 프로파일, Hyperledger Fabric 인증 기관(CA) 및 순서 지정 서비스를 활용할 수 있습니다. 빠른 시작을 통해 AWS CloudFormation 템플리트를 사용하여 피어를 배치할 수 있습니다. 이 템플리트는 스타터 또는 엔터프라이즈 플랜 네트워크에 연결된 AWS 호스트 {{site.data.keyword.blockchainfull_notm}} Platform 피어를 빠르게 구성, 배치 및 실행하려는 IT 인프라 의사결정자 및 시스템 관리자를 대상으로 합니다. 템플리트를 사용하여 AWS에서 새 가상 프라이빗 클라우드(VPC)를 빌드하거나 피어를 기존 VPC에 배치할 수 있습니다.
 
@@ -41,7 +41,7 @@ AWS에 대한 자세한 정보는 [AWS 개요 문서 ![외부 링크 아이콘](
 ## 전제조건
 {: #remote-peer-aws-prerequisites}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어(원격 피어)를 사용하려면 {{site.data.keyword.blockchainfull_notm}} Platform에서 호스팅되는 블록체인 네트워크의 구성원인 조직이 있어야 합니다. 네트워크 인증 정보 및 네트워크의 API 엔드포인트에 액세스하려면 IBM Cloud에서 네트워크 모니터를 사용해야 합니다. 블록체인 네트워크의 구성원이 아니면 네트워크를 작성하거나 가입해야 합니다. 자세한 정보는 [네트워크 작성](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) 또는 [네트워크에 가입](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)을 참조하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어(원격 피어)를 사용하려면 {{site.data.keyword.blockchainfull_notm}} Platform에서 호스팅되는 블록체인 네트워크의 구성원인 조직이 있어야 합니다. 네트워크 인증 정보 및 네트워크의 API 엔드포인트에 액세스하려면 {{site.data.keyword.cloud_notm}}에서 네트워크 모니터를 사용해야 합니다. 블록체인 네트워크의 구성원이 아니면 네트워크를 작성하거나 가입해야 합니다. 자세한 정보는 [네트워크 작성](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) 또는 [네트워크에 가입](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)을 참조하십시오.
 
 피어에 대한 기본 VPC 인스턴스 유형은 `m4.xlarge`입니다.  CPU, 메모리 및 스토리지 요구사항에 따라 선택한 인스턴스 유형을 최적화해야 합니다. 피어를 사용하려면 최소 다음과 같은 항목이 필요합니다.  
 -	2x CPU
@@ -64,7 +64,7 @@ AWS에 대한 자세한 정보는 [AWS 개요 문서 ![외부 링크 아이콘](
 ## 1단계: AWS 계정 준비
 {: #remote-peer-aws-account}
 
-1. 아직 AWS 계정이 없는 경우 [여기 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://aws.amazon.com "https//aws/amazon.com")에서 화면의 지시사항에 따라 계정을 작성하십시오.
+1. 아직 AWS 계정이 없는 경우 [여기](https://aws.amazon.com){: external}에서 화면의 지시사항에 따라 계정을 작성하십시오. 
 
 2. 탐색줄의 지역 선택기를 사용하여 AWS에 피어를 배치할 AWS 지역을 선택하십시오.
 
@@ -78,7 +78,6 @@ AWS에 대한 자세한 정보는 [AWS 개요 문서 ![외부 링크 아이콘](
 구성 중에 피어에 네트워크의 API 엔드포인트를 제공해야 합니다. 피어는 이러한 엔드포인트를 통해 {{site.data.keyword.blockchainfull_notm}} Platform의 네트워크를 찾아서 연결할 수 있습니다. 네트워크 모니터의 **개요** 화면에서 **원격 피어 구성** 단추를 클릭하십시오.
 
 ![원격 피어 구성](../images/myresources_starter.png "원격 피어 구성")
-*그림 1. 원격 피어 구성 패널*
 
 팝업 창이 열리고 다음 필드의 값이 표시됩니다. 다음 필드의 값을 저장하십시오. AWS 빠른 시작 템플리트를 사용하여 피어를 구성할 때 해당 값이 필요합니다.
 
@@ -112,7 +111,6 @@ echo -e "<CERT>" > admin.pem
 
 1. {{site.data.keyword.blockchainfull_notm}} Platform의 네트워크에 대한 네트워크 모니터에 로그인하십시오. 네트워크 모니터의 "인증 기관" 화면에서 네트워크에 등록된 모든 ID(예: 관리자 또는 클라이언트 애플리케이션)를 확인할 수 있습니다.
   ![CA 화면](../images/CA_screen_starter.png "CA 화면")
-  *그림 2. CA 화면*
 
 2. 패널에서 **사용자 추가** 단추를 클릭하십시오. 팝업 화면이 열린 후 아래의 필드를 채우면 네트워크에 피어를 등록할 수 있습니다. **나중에 빠른 시작 템플리트에서 피어를 구성할 때를 대비하여 ID 및 시크릿의 값을 저장하십시오.**
   - **등록 ID:** 피어를 구성할 때 `enroll ID`로 참조되는 피어에 사용할 이름입니다. 나중에 사용하기 위해 **이 값을 저장**하십시오.
@@ -130,9 +128,9 @@ echo -e "<CERT>" > admin.pem
 
 1. 다음 옵션 중 하나를 선택하여 AWS CloudFormation 템플리트를 AWS 계정으로 실행하십시오. 옵션 선택에 대한 도움말은 이 안내서의 전반에 있는 배치 옵션을 참조하십시오. 각각의 배치를 완료하기 위해 약 10분 정도가 소요됩니다.  
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 AWS의 새 VPC에 배치 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fwd.aws/v43nk " {{site.data.keyword.blockchainfull_notm}} Platform for AWS를 AWS의 새 VPC에 배치")합니다.  
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 AWS의 새 VPC에 배치](https://fwd.aws/v43nk){: external}  
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 AWS의 기존 VPC에 배치 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://fwd.aws/zrP4g " {{site.data.keyword.blockchainfull_notm}} Platform for AWS를 AWS의 기존 VPC에 배치")합니다.
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 AWS의 기존 VPC에 배치](https://fwd.aws/zrP4g){: external}
 
   **중요:**     
   {{site.data.keyword.blockchainfull_notm}} Platform for AWS를 기존 VPC에 배치하는 경우 VPC에서 데이터베이스 인스턴스에 대한 서로 다른 가용성 구역에 두 개의 공용 서브넷이 있어야 합니다. 이러한 서브넷의 경우 인스턴스가 인터넷에 노출되지 않은 상태로 패키지 및 소프트웨어를 다운로드할 수 있도록 해당 라우트 테이블에 NAT 게이트웨이 또는 NAT 인스턴스가 있어야 합니다. Amazon VPC 문서에서 설명하는 것처럼 DHCP 옵션에 도메인 이름 옵션도 구성되어 있어야 합니다.  
@@ -162,8 +160,8 @@ echo -e "<CERT>" > admin.pem
 | | | |
 | **네트워크 구성** | |
 | `Availability Zones` |VPC에서 서브넷에 사용할 두 개의 가용성 구역입니다. 참고: 논리 순서가 그대로 유지됩니다. | |
-| `Allowed SSH access CIDR` | 외부 SSH에서 IBM Blockchain Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR 블록 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPC 및 서브넷")입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 0.0.0.0/0으로 설정할 수 있습니다(권장하지 않음). | |
-| `PeerEndpointAccessCIDR` | 외부 gRPC에서 IBM Blockchain Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize "VPC 및 서브넷") 블록입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 일반적으로 0.0.0.0/0으로 설정합니다(권장하지 않음). | |
+| `Allowed SSH access CIDR` | 외부 SSH에서 {{site.data.keyword.blockchain_notm}} Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR 블록](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external}입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 0.0.0.0/0으로 설정할 수 있습니다(권장하지 않음). | |
+| `PeerEndpointAccessCIDR` | 외부 gRPC에서 {{site.data.keyword.blockchainfull_notm}} Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} 블록입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 일반적으로 0.0.0.0/0으로 설정합니다(권장하지 않음). | |
 | | | |
 | **Amazon EC2 구성** | | |
 | `InstanceType` | 피어 인스턴스를 위한 EC2 인스턴스 유형입니다. | m4.xlarge |
@@ -178,7 +176,7 @@ echo -e "<CERT>" > admin.pem
 | `Peer 2 enroll ID` | {{site.data.keyword.blockchainfull_notm}} Platform UI 인증 기관 패널에서 두 번째 피어에 대해 입력한 등록 ID입니다. | |
 | `Peer 2 enroll secret` | {{site.data.keyword.blockchainfull_notm}} Platform UI 인증 기관 패널에서 두 번째 피어에 대해 입력한 등록 시크릿입니다. | |
 | | | |
-|**IBM Blockchain 서비스 인증 정보**| | |
+|**{{site.data.keyword.blockchainfull_notm}} 서비스 신임 정보**| | |
 | `Organization MSP` | 이 값은 {{site.data.keyword.blockchainfull_notm}} Platform UI에서 찾을 수 있습니다. 개요 패널에서 원격 피어 구성 단추를 클릭한 후 해당 정보를 복사하여 여기에 붙여넣으십시오. | |
 | `Certificate Authority (CA) Name` | 이 값은 {{site.data.keyword.blockchainfull_notm}} Platform UI에서 찾을 수 있습니다. 개요 패널에서 원격 피어 구성 단추를 클릭한 후 해당 정보를 복사하여 여기에 붙여넣으십시오.| |
 | `Certificate Authority (CA) URL` | 이 값은 {{site.data.keyword.blockchainfull_notm}} Platform UI에서 찾을 수 있습니다. 개요 패널에서 원격 피어 구성 단추를 클릭한 후 해당 정보를 복사하여 여기에 붙여넣으십시오(포트 포함). 지정되지 않은 경우 기본 포트는 443입니다. | |
@@ -206,7 +204,7 @@ echo -e "<CERT>" > admin.pem
 
  - VPC에서 데이터베이스 인스턴스에 대한 서로 다른 가용성 구역에 두 개의 개인용 서브넷이 있어야 합니다. 이러한 서브넷의 경우 인스턴스가 인터넷에 노출되지 않은 상태로 패키지 및 소프트웨어를 다운로드할 수 있도록 해당 라우트 테이블에 NAT 게이트웨이 또는 NAT 인스턴스가 있어야 합니다.
 
- - [Amazon VPC 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html "DHCP 옵션 세트")의 설명에 따라 DHCP 옵션에 도메인 이름 옵션을 구성하십시오.  
+ - [Amazon VPC 문서](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html){: external}의 설명에 따라 DHCP 옵션에 도메인 이름 옵션을 구성하십시오.   
 
 - 기존 VPC에 연결된 보안 그룹을 작성한 후 이 보안 그룹에 포트 22 및 7051에 대한 인바운드 규칙을 추가하십시오. 포트 22의 TCP 연결은 SSH에서 생성된 인스턴스에 액세스할 수 있도록 해주며 포트 7051의 TCP 연결은 외부 gRPC에서 피어 인스턴스에 액세스할 수 있도록 해줍니다(Fabric 도구 CLI 및 Fabric SDK를 사용하여 피어를 작동시키는 경우에 필요함). 빠른 시작을 실행할 때 이러한 VPC 설정을 요청하는 프롬프트가 표시됩니다.
 
@@ -231,8 +229,7 @@ echo -e "<CERT>" > admin.pem
 
 AWS CloudFormation 템플리트에서 정상적으로 스택을 작성하면 AWS 계정에서 두 개의 {{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어 인스턴스가 실행됩니다. 이 인스턴스는 빠른 시작 템플리트에 지정된 `Organization MSP` 및 `Peer enroll id`를 조합하여 이름 지정됩니다. 예를 들면 `org1-remotepeer1`입니다.  
 
-![AWS EC2 인스턴스의 피어](../images/remote_peer_AWS_EC2_instances.png "AWS EC2 인스턴스의 피어")  
-*그림 3. AWS EC2 인스턴스의 피어*
+![AWS EC2 인스턴스의 피어](../images/remote_peer_AWS_EC2_instances.png "AWS EC2 인스턴스의 피어")
 
 피어가 실행 중인지 확인하려면 다음 작업을 수행하십시오.
 
@@ -304,7 +301,7 @@ AWS CloudFormation 템플리트에서 정상적으로 스택을 작성하면 AWS
      - `<ORGANIZATION_MSP_ID>`를 `creds.json` 파일의 조직 이름으로 바꾸십시오.
      - `<PEER_ADDR>`을 `localhost:7051`로 대체하십시오.
 
-   예를 들면 다음과 같습니다.
+   예를 들어, 다음과 같습니다.
 
    ```
    export ORDERER_1=ash-zbc07b.4.secure.blockchain.ibm.com:21239
@@ -352,10 +349,10 @@ AWS CloudFormation 템플리트에서 정상적으로 스택을 작성하면 AWS
 * **A**. AWS CloudFormation에서 스택을 작성하는 데 실패하는 경우 실패 시 롤백을 `No`로 설정한 상태로 템플리트를 재실행할 것을 권장합니다. (이 설정은 AWS CloudFormation 콘솔의 옵션 페이지에 있는 고급 아래에 있습니다.) 이 설정을 사용하는 경우 스택의 상태가 유지되고 인스턴스가 실행 중인 상태로 유지되므로 문제를 해결할 수 있습니다. (`%ProgramFiles%\Amazon\EC2ConfigService` 및 `C:\cfn\log`에 있는 로그 파일을 확인하십시오.)
 
   - 실패 시 롤백을 `No`로 설정하는 경우 이 스택에 대한
-  AWS 비용이 계속 발생합니다. 문제점이 해결된 후에는 스택을 삭제해야 합니다. 자세한 정보는 AWS 웹 사이트의 [AWS CloudFormation 문제점 해결 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html "AWS CloudFormation 문제점 해결")을 참조하십시오.
+  AWS 비용이 계속 발생합니다. 문제점이 해결된 후에는 스택을 삭제해야 합니다. 자세한 정보는 AWS 웹 사이트에서 [AWS CloudFormation 문제점 해결](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html){: external}을 참조하십시오. 
 
 * **Q**. AWS Cloudformation 템플리트를 배치할 때 크기 제한 오류가 발생합니다.
-* **A**. IBM에서 제공한 위치 또는 다른 S3 버킷에서 빠른 시작 템플리트를 실행할 것을 권장합니다. 컴퓨터의 로컬 사본에서 또는 비S3 위치에서 템플리트를 배치하는 경우 스택을 작성할 때 템플리트 크기 제한사항이 발생할 수 있습니다. AWS CloudFormation 제한사항에 대한 자세한 정보는 [AWS 문서 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html "AWS CloudFormation 제한사항")을 참조하십시오.
+* **A**. IBM에서 제공한 위치 또는 다른 S3 버킷에서 빠른 시작 템플리트를 실행할 것을 권장합니다. 컴퓨터의 로컬 사본에서 또는 비S3 위치에서 템플리트를 배치하는 경우 스택을 작성할 때 템플리트 크기 제한사항이 발생할 수 있습니다. AWS CloudFormation 제한사항에 대한 자세한 정보는 [AWS 문서](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html){: external}를 참조하십시오. 
 
 ## 다음에 수행할 작업
 {: #remote-peer-aws-whats-next}
@@ -371,7 +368,7 @@ AWS에 피어가 설정된 후 트랜잭션을 제출하고 블록체인 네트�
 ## 보안 고려사항
 {: #remote-peer-aws-security}
 
-AWS Cloud는 고객이 애플리케이션 및 데이터를 신속하고 안전하게 배치할 수 있도록 확장 가능하고 신뢰성이 높은 플랫폼을 제공합니다. AWS 인프라에 시스템을 빌드하는 경우 보안 책임이 사용자와 AWS 사이에 공유됩니다. 이 공유 모델을 통해 AWS가 호스트 운영 체제 및 가상화 계층에서 컴포넌트를 작동, 관리 및 제어하기 위한 작동 부담을 서비스가 작동되는 기능의 실제 보안까지 감소시킬 수 있습니다. 따라서 사용자가 게스트 운영 체제(업데이트 및 보안 패치 포함), 연관된 기타 애플리케이션 및 AWS 제공 보안 그룹 방화벽의 구성에 대한 책임 및 관리를 담당합니다. AWS의 보안에 대한 자세한 정보를 확인하려면 [AWS Cloud 보안 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://aws.amazon.com/security/ "AWS Cloud 보안")을 방문하십시오.
+AWS Cloud는 고객이 애플리케이션 및 데이터를 신속하고 안전하게 배치할 수 있도록 확장 가능하고 신뢰성이 높은 플랫폼을 제공합니다. AWS 인프라에 시스템을 빌드하는 경우 보안 책임이 사용자와 AWS 사이에 공유됩니다. 이 공유 모델을 통해 AWS가 호스트 운영 체제 및 가상화 계층에서 컴포넌트를 작동, 관리 및 제어하기 위한 작동 부담을 서비스가 작동되는 기능의 실제 보안까지 감소시킬 수 있습니다. 따라서 사용자가 게스트 운영 체제(업데이트 및 보안 패치 포함), 연관된 기타 애플리케이션 및 AWS 제공 보안 그룹 방화벽의 구성에 대한 책임 및 관리를 담당합니다. AWS의 보안에 대한 자세한 정보를 확인하려면 [AWS Cloud 보안](https://aws.amazon.com/security/){: external}을 방문하십시오. 
 
 ### AWS IAM(Identity and Access Management)
 {: #remote-peer-aws-iam}
@@ -396,7 +393,7 @@ AWS Cloud는 고객이 애플리케이션 및 데이터를 신속하고 안전�
 #### 데이터 보안
 {: #remote-peer-aws-security-data}
 
-{{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜에서는 [대칭 키 암호화 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html "대칭 키 암호화")를 기반으로 하는 전체 디스크 암호화를 사용하여 네트워크에서 사용하는 모든 데이터를 보호합니다. 피어 데이터를 보호하려면 자체 환경에서 유사한 단계를 수행해야 합니다.
+{{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜은 [대칭 키 암호화](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html){: external}를 기반으로 하는 전체 디스크 암호화를 사용하여 네트워크에서 사용하는 모든 데이터를 보호합니다. 피어 데이터를 보호하려면 자체 환경에서 유사한 단계를 수행해야 합니다.
 
 levelDB를 사용하는지 또는 couchDB를 사용하는지 여부에 관계 없이 상태 데이터베이스의 데이터는 암호화되지 않습니다. 애플리케이션 레벨 암호화를 사용하여 상태 데이터베이스에 있는 저장 데이터를 보호할 수 있습니다.
 
@@ -422,7 +419,7 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### TLS
 {: #remote-peer-aws-security-tls}
 
-[전송 계층 보안 ![외부 링크 아이콘](../images/external_link.svg "외부 링크 아이콘")](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm "SSL 또는 TLS 핸드쉐이크 개요")(TLS)은 Hyperledger Fabric의 신뢰 모델에 임베드됩니다. {{site.data.keyword.blockchainfull_notm}} Platform의 모든 컴포넌트에서는 TLS를 사용하여 서로 인증하고 통신합니다. 따라서 {{site.data.keyword.blockchainfull_notm}} Platform의 네트워크 컴포넌트는 피어와의 TLS 핸드쉐이크를 완료할 수 있어야 합니다. 이로 인한 영향 중 하나는 예를 들면 클라이언트 앱에서 피어로의 방화벽에서 화이트리스트를 사용하여 패스스루를 사용으로 설정해야 한다는 것입니다.
+TLS([Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external})는 Hyperledger Fabric의 신뢰 모델에 임베드됩니다. {{site.data.keyword.blockchainfull_notm}} Platform의 모든 컴포넌트에서는 TLS를 사용하여 서로 인증하고 통신합니다. 따라서 {{site.data.keyword.blockchainfull_notm}} Platform의 네트워크 컴포넌트는 피어와의 TLS 핸드쉐이크를 완료할 수 있어야 합니다. 이로 인한 영향 중 하나는 예를 들면 클라이언트 앱에서 피어로의 방화벽에서 화이트리스트를 사용하여 패스스루를 사용으로 설정해야 한다는 것입니다.
 
 
 #### Membership Services Provider 구성
@@ -438,5 +435,5 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 ## 라이센스 및 가격
 {: #remote-peer-aws-license-pricing-aws}
 
-빠른 시작을 통해 사용 가능해진 배치 솔루션을 사용하려면 {{site.data.keyword.blockchainfull_notm}} Platform for AWS의 커뮤니티 에디션 라이센스 버전에 동의해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform for AWS(빠른 시작 오퍼링을 통해 제공되는 모든 패키지 및 이로부터 파생되는 패키지 포함)의 사용은 프로덕션 사용을 위한 것이 아닙니다. IBM은 언제든지 코드에 대한 액세스 권한 및 해당 코드의 사용 권한을 취소하도록 결정할 수 있습니다.
+빠른 시작을 통해 사용 가능해진 배치 솔루션을 사용하려면 {{site.data.keyword.blockchainfull_notm}} Platform for AWS의 커뮤니티 에디션 라이센스 버전에 동의해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform for AWS(빠른 시작 오퍼링을 통해 제공되는 모든 패키지 및 이로부터 파생되는 패키지 포함)의 사용은 프로덕션 사용을 위한 것이 아닙니다. {{site.data.keyword.IBM_notm}}은 언제든지 코드에 대한 액세스 권한 및 해당 코드의 사용 권한을 취소하도록 결정할 수 있습니다.
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS 소프트웨어 라이센스 계약에는 라이센스 이용 약관에 대한 자세한 정보가 포함되어 있습니다. 빠른 시작을 시작하면 사용자에게 계약 조항을 읽고 동의하도록 요청합니다.

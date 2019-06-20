@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -10,13 +10,14 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # 스타터 및 엔터프라이즈 플랜에 비즈니스 네트워크 배치
 {: #deploying-a-business-network}
@@ -53,7 +54,7 @@ Node v8.9 이상, npm v5.x 및 Hyperledger Composer를 설치했는지 확인하
 
 3. 연결 프로파일 내부에서 'registrar'가 표시될 때까지 아래로 이동하십시오. 'registrar' 내부의 'enrollId' 아래에 **enrollSecret** 특성이 있습니다. 시크릿을 검색하고 사본을 저장하십시오.
 
-    ![관리 시크릿 검색](images/get_enroll_secret.gif "관리 시크릿 검색")
+    ![관리 시크릿 검색](images/get_enroll_secret.gif "관리 시크릿 검색"){: gif}
 
 ### 2단계: 인증 기관 카드 작성
 {: #deploying-a-business-network-CA-card}
@@ -92,11 +93,11 @@ composer card import -f ca.card -c ca
 
 1. 스타터 플랜 네트워크 모니터에서 **구성원** 탭을 클릭한 후 **인증서** 및 **인증서 추가**를 차례로 클릭하십시오. `credentials` 디렉토리로 이동한 후 `admin-pub.pem` 파일의 컨텐츠를 복사하여 인증서 상자에 붙여넣으십시오. 인증서를 제출하고 피어를 다시 시작하십시오. 참고: 피어를 다시 시작하는 데 몇 분이 걸립니다.
 
-    ![인증서 추가](images/add_cert.gif "인증서 추가")
+    ![인증서 추가](images/add_cert.gif "인증서 추가"){: gif}
 
 2. 그런 다음 인증서가 채널에서 동기화되어야 합니다. **채널** 탭을 클릭한 후 **조치** 단추, **인증서 동기화** 및 **제출**을 차례로 클릭하십시오.
 
-    ![인증서 동기화](images/sync_cert.gif "인증서 동기화")
+    ![인증서 동기화](images/sync_cert.gif "인증서 동기화"){: gif}
 
 ### 4단계: 관리 비즈니스 네트워크 카드 작성
 {: #deploying-a-business-network-create-admin-card}

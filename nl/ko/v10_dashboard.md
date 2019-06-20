@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # 네트워크 모니터 사용
 {: #ibp-dashboard}
@@ -49,7 +50,6 @@ subcollection: blockchain
 **그림 1**은 "개요" 화면을 보여줍니다.
 
 ![개요 화면](images/myresources.png "네트워크 개요")
-*그림 1. 네트워크 개요*
 
 ### 노드 조치
 {: #ibp-dashboard-node-actions}
@@ -87,7 +87,6 @@ subcollection: blockchain
 **그림 2**는 네트워크의 스토리지 이용을 표시하는 "스토리지" 탭을 보여줍니다.
 
 ![개요 화면의 스토리지 탭](images/monitor_storage_starter.png "스토리지")
-*그림 2. 스토리지*
 
 "리소스" 다이어그램에는 피어 및 인증 기관에서 사용하는 스토리지 공간이 표시됩니다. 사용자가 작성하거나 사용자 네트워크에 초대하는 모든 조직이 이 풀에 포함됩니다. 리소스를 이용하는 조직은 두 번째 글머리의 화면에 나열됩니다.
 
@@ -104,7 +103,6 @@ subcollection: blockchain
 **그림 3**은 "구성원" 탭에 네트워크 구성원을 표시하는 초기 "구성원" 화면을 보여줍니다.
 
 ![구성원 화면의 구성원 탭](images/monitor_members.png "네트워크 구성원")
-*그림 3. 네트워크 구성원*
 
 네트워크를 작성할 때 초기에 초대한 구성원에 추가하기 위해 "구성원" 탭에서 다른 구성원을 초대할 수 있습니다. 구성원을 사용자의 네트워크에 초대하려면 기관 이름 및 운영자의 이메일 주소를 입력하고 **구성원 추가**를 클릭하십시오. 네트워크에는 총 15개의 구성원이 있을 수 있습니다(네트워크 개시자 포함). 사용자의 네트워크에서 구성원을 제거하려면 구성원 행의 끝에 있는 "제거" 기호를 클릭하십시오.
 
@@ -113,7 +111,6 @@ subcollection: blockchain
 **그림 4**는 "구성원 추가" 창을 보여줍니다.
 
 ![구성원 추가](images/invite_member_starter.png "구성원 추가")
-*그림 4. 구성원 추가*
 
 **구성원 추가**를 클릭하면 다음과 같은 두 가지 옵션이 표시됩니다.
 - **구성원 초대**. 네트워크의 구성원이 되도록 다른 조직을 초대할 수 있습니다. 그러면 초대된 조직이 네트워크에 가입하고 사용자와 협업할 수 있습니다.
@@ -126,11 +123,8 @@ subcollection: blockchain
 **그림 5**는 "인증서" 탭에 구성원 인증서가 표시되는 초기 "구성원" 화면을 보여줍니다.
 
 ![구성원 화면의 인증서 탭](images/monitor_certificates.png "인증서")
-*그림 5. 인증서*
 
 운영자는 "인증서" 탭에서 같은 기관의 구성원에 대한 인증서를 관리할 수 있습니다. **인증서 추가**를 클릭하여 "인증서 추가" 패널을 여십시오. 인증서에 이름을 지정하고, PEM 형식의 클라이언트 측 인증서를 "키" 필드에 붙여넣고 **제출**을 클릭하십시오. 클라이언트 측 인증서가 적용되려면 먼저 피어를 다시 시작해야 합니다.
-
-인증서 키를 생성하는 방법에 대한 자세한 정보는 [애플리케이션 등록](/docs/services/blockchain/v10_application.html#dev-app-enroll)을 참조하십시오.
 
 ## 채널
 {: #ibp-dashboard-channels}
@@ -140,7 +134,6 @@ subcollection: blockchain
 **그림 6**은 네트워크에 있는 모든 채널의 개요가 표시되는 초기 대시보드 화면을 보여줍니다.
 
 ![채널](images/channels.png "채널")
-*그림 6. 채널*
 
 채널을 작성하면 채널 특정 원장이 생성됩니다. 자세한 정보는 [채널 작성](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel)을 참조하십시오.
 
@@ -156,7 +149,6 @@ subcollection: blockchain
 **그림 7**은 "알림" 화면을 보여줍니다.
 
 ![알림](images/notifications.png "알림")
-*그림 7. 알림*
 
 요청은 "모두", "보류 중" 및 "완료됨" 하위 탭으로 그룹화됩니다. 하위 탭 헤더 다음의 수는 각 탭의 요청 수를 나타냅니다.
    * "모두" 하위 탭에서 모든 요청을 찾을 수 있습니다.
@@ -175,9 +167,8 @@ subcollection: blockchain
 **그림 8**은 "인증 기관" 화면을 보여줍니다.
 
 ![인증 기관](images/CA_screen.png "인증 기관")
-*그림 8. 인증 기관*
 
-CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆에 있는 **인증서 생성** 단추를 클릭하십시오. **인증서** 필드의 **개인 키** 바로 위에는 공용 인증서(signCert 또는 등록 인증서라고도 함)가 포함되어 있습니다. 각 필드의 끝에 있는 복사 아이콘을 클릭하여 값을 복사하십시오. 이 패널은 Fabric SDK를 사용하는 클라이언트 애플리케이션에 대한 공용 및 개인 키 쌍을 생성하기 위한 대체 방법으로 사용할 수 있습니다. 자세한 정보를 확인하려면 [애플리케이션 개발 튜토리얼](/docs/services/blockchain/v10_application.html#dev-app)을 방문하십시오. {{site.data.keyword.blockchainfull_notm}} Platform에서는 이 인증서를 저장하지 않는다는 점에 **유의**하십시오. 인증서를 안정하게 저장하고 보관해야 합니다.
+CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆에 있는 **인증서 생성** 단추를 클릭하십시오. **인증서** 필드의 **개인 키** 바로 위에는 공용 인증서(signCert 또는 등록 인증서라고도 함)가 포함되어 있습니다. 각 필드의 끝에 있는 복사 아이콘을 클릭하여 값을 복사하십시오. 이 패널은 Fabric SDK를 사용하는 클라이언트 애플리케이션에 대한 공용 및 개인 키 쌍을 생성하기 위한 대체 방법으로 사용할 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform에서는 이 인증서를 저장하지 않는다는 점에 **유의**하십시오. 인증서를 안정하게 저장하고 보관해야 합니다.
 
 **사용자 추가** 단추를 클릭하여 조직에 새 ID를 등록하십시오. **사용자 추가** 팝업 창에서 다음 필드를 완성한 후 **제출**을 클릭하십시오.
   - **등록 ID:** 이 ID는 `enroll ID`로도 참조되는 새 ID의 이름이 됩니다. **이 값을 저장**하는 경우 원격 피어를 구성하거나 새 애플리케이션을 등록할 때 해당 값을 사용해야 합니다.
@@ -196,7 +187,6 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 **그림 9**는 "API" 화면을 보여줍니다.
 
 ![API](images/API_screen.png "API")
-*그림 9. API*
 
 **Swagger UI** 링크를 클릭하여 Swagger UI를 여십시오. API를 실행하려면 네트워크 인증 정보(이 API 페이지에 있음)를 사용하여 Swagger UI에 권한을 부여해야 합니다. 자세한 정보는 [Swagger API를 사용하여 네트워크와 상호작용](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger)을 참조하십시오.
 
@@ -211,7 +201,6 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 **그림 10**은 "코드 개발" 화면을 보여줍니다.
 
 ![코드 개발](images/write_code.png "코드 개발")
-*그림 10. 코드 개발*
 
 비즈니스 네트워크를 개발하고 배치하는 데 대한 자세한 정보는 [스타터 및 엔터프라이즈 플랜에서 비즈니스 네트워크 배치](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network)를 참조하십시오.
 
@@ -223,7 +212,6 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 **그림 11**은 "코드 설치" 화면을 보여줍니다.
 
 ![코드 설치](images/chaincode_install_overview.png "코드 설치")
-*그림 11. 코드 설치*
 
 체인코드는 먼저 피어의 파일 시스템에 설치되고 그 다음에 채널에서 인스턴스화됩니다. 자세한 정보는 [체인코드 설치, 인스턴스화 및 업데이트](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode)를 참조하십시오.
 
@@ -235,7 +223,6 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 **그림 12**는 "샘플 시험 사용" 화면을 보여줍니다.
 
 ![샘플 시험 사용](images/sample_overview_ep.png "샘플 시험 사용")
-*그림 12. 샘플*
 
 ## 도움 받기
 {: #ibp-dashboard-support}
@@ -245,14 +232,13 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 **그림 13**은 초기 "지원" 탭을 보여줍니다.
 
 ![지원](images/support.png "지원")
-*그림 13. Blockchain 지원*
 
 ### Blockchain 리소스 및 지원 포럼
 {: #ibp-dashboard-support-forums}
 
 문제점을 해결하고 {{site.data.keyword.IBM_notm}} 및 Fabric 커뮤니티에서 도움을 받으려면 "지원" 탭의 리소스를 사용하십시오. "지원" 탭에 있는 링크에 대한 자세한 정보는 [지원 받기](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support)의 [리소스 및 지원 포럼](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)을 참조하십시오.
 
-[{{site.data.keyword.IBM_notm}}dWAnswers ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://developer.ibm.com/answers/smartspace/blockchain/index.html){:new_window}는 {{site.data.keyword.blockchainfull_notm}} Platform 및 Hyperledger Fabric 사용자를 위한 커뮤니티 포럼이며 IBM 전문가가 모니터합니다. 이전 질문에 대한 답변을 검색하거나 새 질문을 제출할 수 있습니다. 문제를 디버깅하거나 질문에 대한 답변을 확인할 수 없는 경우 {{site.data.keyword.cloud_notm}} 서비스 포털에 지원 케이스를 제출하십시오. 자세한 정보는 [지원 케이스 제출](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)을 참조하십시오.
+[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external}는 {{site.data.keyword.blockchainfull_notm}} Platform 및 Hyperledger Fabric 사용자를 위한 커뮤니티 포럼으로, {{site.data.keyword.IBM_notm}} 전문가가 모니터링합니다. 이전 질문에 대한 답변을 검색하거나 새 질문을 제출할 수 있습니다. 문제를 디버깅하거나 질문에 대한 답변을 확인할 수 없는 경우 {{site.data.keyword.cloud_notm}} 서비스 포털에 지원 케이스를 제출하십시오. 자세한 정보는 [지원 케이스 제출](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)을 참조하십시오.
 
 
 ### Fabric 릴리스 정보
@@ -263,12 +249,10 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 **그림 14**는 네트워크 모니터 UI에 대한 릴리스 정보를 보여줍니다.
 
 ![릴리스 정보 helios](images/releasenotes_helios.png "네트워크 모니터 UI의 릴리스 정보")
-*그림 14. 네트워크 모니터 UI의 릴리스 정보*
 
 **그림 15**는 사용자 네트워크 버전의 Hyperledger Fabric 및 Fabric 인증 기관에 대한 릴리스 정보를 보여줍니다.
 
 ![릴리스 정보 Fabric](images/releasenotes_Fabric.png "Fabric의 릴리스 정보")
-*그림 15. Fabric의 릴리스 정보*
 
 ## 네트워크 환경 설정
 {: #ibp-dashboard-network-preferences}
@@ -286,8 +270,7 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 
 **그림 16**은 "네트워크 환경 설정" 창을 보여줍니다.
 
-![네트워크 환경 설정](images/network_preferences.gif "네트워크 환경 설정")
-*그림 16. 네트워크 환경 설정*
+![네트워크 환경 설정](images/network_preferences.gif "네트워크 환경 설정"){: gif}
 
 ### 상호 TLS(엔터프라이즈 플랜 네트워크용)
 {: #ibp-dashboard-mutual-tls}
@@ -307,7 +290,7 @@ Fabric 1.1 엔터프라이즈 플랜 네트워크의 경우 각 조직에는 자
 - `enrollSecret`: 인증서를 가져오는 데 사용할 등록접수 시크릿
 - `x-tlsCAName`: 애플리케이션이 상호 TLS를 사용하여 통신할 수 있도록 하는 인증서를 가져오는 데 사용할 CA 이름
 
-상호 TLS를 지원하도록 애플리케이션을 업데이트하는 데 대한 자세한 정보는 [상호 TLS를 구성하는 방법 ![외부 링크 아이콘](images/external_link.svg "외부 링크 아이콘")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html)을 참조하십시오.
+상호 TLS를 지원하도록 애플리케이션을 업데이트하는 작업에 대한 자세한 정보는 [상호 TLS를 구성하는 방법 ](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}을 참조하십시오. 
 
 <!--
 
@@ -327,7 +310,6 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 **그림 17**은 "네트워크 환경 설정" 창을 보여줍니다.
 
 ![네트워크 환경 설정](images/network_preferences_ep_tmp.png "네트워크 환경 설정")
-*그림 17. 네트워크 환경 설정*
 
 ## 네트워크 이름 업데이트
 {: #ibp-dashboard-network-name}
@@ -338,8 +320,7 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 
 **그림 18**은 스타터 플랜 네트워크 이름을 지정된 이름에서 "Starter Plan Network"로 업데이트하는 단계를 보여줍니다.
 
-![네트워크 이름 업데이트](images/update_network_name_ep.gif "네트워크 이름 업데이트")
-*그림 18. 네트워크 이름 업데이트*
+![네트워크 이름 업데이트](images/update_network_name_ep.gif "네트워크 이름 업데이트"){: gif}
 
 
 ## 네트워크 사이에서 전환(스타터 플랜 네트워크용)
@@ -351,8 +332,7 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 
 **그림 19**는 다른 스타터 플랜 네트워크로 전환하는 단계를 보여줍니다.
 
-![네트워크 전환](images/switch_network.gif "네트워크 전환")
-*그림 19. 네트워크 전환*
+![네트워크 전환](images/switch_network.gif "네트워크 전환"){: gif}
 
 
 ## 네트워크 재설정(스타터 플랜 네트워크용)
@@ -367,4 +347,3 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 **그림 20**에서는 "네트워크 재설정" 기능을 보여줍니다.
 
 ![네트워크 재설정](images/reset_network.png "네트워크 재설정")
-*그림 20. 네트워크 재설정*
