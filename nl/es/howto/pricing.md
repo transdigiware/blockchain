@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -67,8 +67,7 @@ Tanto el Plan inicial como el Plan empresarial tienen dos elementos de precios:
 
 La Figura 2 muestra un ejemplo de instancias de red, que pueden ayudar a comprender la cuota de suscripción. En la figura, la cuenta particular de {{site.data.keyword.cloud_notm}} proporciona tres instancias de red: una instancia del Plan empresarial con el nombre de *Blockchain-11* y dos instancias del Plan inicial con el nombre de *Blockchain-cz* y *Blockchain-da*. Cada instancia requiere su propio servicio de ordenación y CA. En este caso, esta cuenta particular de {{site.data.keyword.cloud_notm}} necesita pagar tres cuotas de suscripción, una para cada instancia de red.
 
-![Instancias de red blockchain](../images/ibp_instance_example.png "Instancias de red blockchain")  
-*Figura 2. Instancias de red blockchain*
+![Instancias de red blockchain](../images/ibp_instance_example.png "Instancias de red blockchain")
 
 
 ## Tarifas del Plan inicial

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
-keywords: IBM Blockchain Platform, remote peer, multi-cloud, private data, AWS Cloud
+keywords: IBM Blockchain Platform, remote peer, multicloud, multicloud, private data, AWS Cloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -38,7 +38,7 @@ Puede ejecutar el igual de {{site.data.keyword.blockchainfull_notm}} Platform en
 - Puede conectar sus iguales de {{site.data.keyword.blockchainfull_notm}} Platform para AWS únicamente a redes blockchain que tengan el nivel v1.1 o v1.2.1 de Fabric. Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) en el supervisor de red.
 - El tipo de base de datos del igual de {{site.data.keyword.blockchainfull_notm}} Platform para AWS debe coincidir con el tipo de base de datos de la red blockchain, ya sea LevelDB o CouchDB.
 - La interfaz CouchDB Fauxton no está disponible en el igual de AWS.
-- Actualmente no se da soporte a [gossip (rumor)](/docs/services/blockchain/glossary.html#glossary-gossip) para los iguales de AWS. Esto implica que tampoco hay soporte para las características de Fabric que dependen de rumores (gossip), como [datos privados ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data-arch.html "datos privados") y [descubrimiento de servicios ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "descubrimiento de servicios").
+- Actualmente no se da soporte a [gossip (rumor)](/docs/services/blockchain/glossary.html#glossary-gossip) para los iguales de AWS. Esto implica que las características de Fabric que dependen del protocolo gossip, como [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data-arch.html){: external} y [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}, tampoco reciben soporte.
 
 ## Requisitos previos
 {: #remote-peer-aws-about-prereq}
@@ -56,7 +56,7 @@ Para utilizar un igual de {{site.data.keyword.blockchainfull_notm}} Platform par
 ## Despliegue de un igual de AWS
 {: #remote-peer-aws-about-deploy}
 
-Utilice la [Plantilla de inicio rápido ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/ "Plantilla de Inicio rápido") de AWS para desplegar {{site.data.keyword.blockchainfull_notm}} Platform para AWS con facilidad. Para obtener más información, consulte [Guía de despliegue de inicio rápido de {{site.data.keyword.blockchainfull_notm}} Platform for AWS ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://s3.amazonaws.com/aws-quickstart/quickstart-ibm-fabric/doc/ibm-blockchain-platform-for-aws.pdf "Despliegue de referencia de inicio rápido de {{site.data.keyword.blockchainfull_notm}} Platform for AWS").
+Utilice la [plantilla de inicio rápido](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/){: external} de AWS para desplegar fácilmente {{site.data.keyword.blockchainfull_notm}} Platform for AWS. Para obtener más información, consulte el manual [{{site.data.keyword.blockchainfull_notm}} Platform for AWS Quick Start Deployment Guide](https://s3.amazonaws.com/aws-quickstart/quickstart-ibm-fabric/doc/ibm-blockchain-platform-for-aws.pdf){: external}.
 
 Para ver instrucciones sobre cómo desplegar {{site.data.keyword.blockchainfull_notm}} Platform para AWS, consulte el apartado sobre [Despliegue de iguales en Amazon Web Services](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws).
 
@@ -92,7 +92,7 @@ Debido a que las redes blockchain no conocen qué tipo de datos se procesa, en o
 
 Para hacer frente a los requisitos de residencia de datos, es importante comprender la arquitectura de Hyperledger Fabric subyacente a la plataforma {{site.data.keyword.blockchainfull_notm}}. La arquitectura se centra en torno a tres componentes clave: la entidad emisora de certificados (CA), el clasificador y el igual. Un igual recibe actualizaciones de estado ordenadas en forma de bloques desde el servicio de ordenación y mantiene el estado y el libro mayor. Por lo tanto, un igual y un clasificador tienen una relación directa. El libro mayor contiene los valores más recientes de todas las claves y los datos que incluyen los registros de transacciones.
 
-Además, las aplicaciones cliente utilizan los [SDK de Fabric](/docs/services/blockchain/v10_application.html#dev-app-fabric-sdks) para enviar transacciones a los iguales y al servicio de ordenación. Estas transacciones incluyen datos del [conjunto de lectura-escritura ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/readwrite.html "semántica del conjunto de lectura-escritura"), que contienen los valores de clave-valor en el libro mayor.
+Además, las aplicaciones cliente utilizan los [SDK de Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html){: external} para enviar transacciones a los iguales y al servicio de ordenación. Estas transacciones incluyen los datos del [conjunto de lectura y escritura](https://hyperledger-fabric.readthedocs.io/en/release-1.2/readwrite.html){: external}, que contiene los pares de clave-valor del libro mayor.
 
 Si la residencia de datos en el país es un requisito para su empresa, el clasificador, el igual y las aplicaciones cliente deben residir en el mismo país. Cuando se crea una red de {{site.data.keyword.blockchainfull_notm}} Platform en {{site.data.keyword.cloud_notm}}, tiene la opción de seleccionar la ubicación de la red. <!--For a Starter Plan network, you can select from US South, United Kingdom, and Sydney. For an Enterprise Plan network, you can select from currently available locations, which include Dallas, Frankfurt, London, Sao Paulo, Tokyo, and Toronto. -->Para obtener más información sobre regiones y ubicaciones, consulte el tema sobre [Regiones y ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/reference/ibp_regions.html#ibp-regions-locations). Para conseguir la residencia de datos en uno de estos países, el igual debe residir en el mismo país que la red de la plataforma {{site.data.keyword.blockchainfull_notm}}.
 
@@ -101,10 +101,9 @@ Si la residencia de datos en el país es un requisito para su empresa, el clasif
 
 Tenga en cuenta una red de {{site.data.keyword.blockchainfull_notm}} Platform que incluye el clasificador y la entidad emisora de certificados junto con un consorcio de cuatro organizaciones. Las organizaciones tienen uno o más nodos de igual. Las cuatro organizaciones forman parte de un único canal y todos los componentes de la red se encuentran en la región (por ejemplo, Frankfurt) donde se ha desplegado la red de la plataforma {{site.data.keyword.blockchainfull_notm}}. Por último, las aplicaciones cliente que interactúan con los iguales también residen en Alemania. Se mantiene la residencia de datos.  
 
-![Residencia de datos cuando todos los componentes se encuentran en el mismo país](../images/remote_peer_data_res_1.png "Residencia de datos cuando todos los componentes se encuentran en el mismo país")  
-*Figura 3. Residencia de datos cuando todos los componentes se encuentran en el mismo país*
+![Residencia de datos cuando todos los componentes se encuentran en el mismo país](../images/remote_peer_data_res_1.png "Residencia de datos cuando todos los componentes se encuentran en el mismo país")
 
-Ahora, tengamos en cuenta las implicaciones de que un **igual** se una a una de las organizaciones.  Un igual puede residir en la misma región que el resto de la red o en cualquier lugar fuera de la región de la red de {{site.data.keyword.blockchainfull_notm}} Platform:
+Ahora, tengamos en cuenta las implicaciones de que un **igual** se una a una de las organizaciones. Un igual puede residir en la misma región que el resto de la red o en cualquier lugar fuera de la región de la red de {{site.data.keyword.blockchainfull_notm}} Platform:
 
 -	Si el igual reside en el mismo país que el resto de la red, se mantiene la residencia de datos. Todos los datos del libro mayor permanecen dentro de Alemania, como indica la **Figura 3** anterior.
 -	En caso de que el igual resida en un país distinto (como EE. UU. por ejemplo), ya no se mantiene la residencia de datos, pues los datos del libro mayor del igual se comparten fuera de la frontera del país.
@@ -113,26 +112,25 @@ Para resolver este problema, se pueden utilizar **canales** para aislar los dato
 
 **Nota:** las clasificadores siempre están ubicados en la región del centro de datos que haya seleccionado para alojar la red. No es posible tener varios clasificadores entre países. Sin embargo, los iguales pueden estar ubicados en el centro de datos o en una ubicación remota fuera de {{site.data.keyword.cloud_notm}}.
 
-![Residencia de datos cuando los iguales están fuera del país de la región de {{site.data.keyword.blockchainfull_notm}} Platform](../images/remote_peer_data_res_2.png "Los iguales de residencia de datos se encuentran fueran del país de la región de {{site.data.keyword.blockchainfull_notm}}")  
-*Figura 4. Residencia de datos cuando los iguales residen fuera del país de la región de {{site.data.keyword.blockchainfull_notm}} Platform*
+![Residencia de datos cuando los iguales están fuera del país de la región de {{site.data.keyword.blockchainfull_notm}} Platform](../images/remote_peer_data_res_2.png "Los iguales de residencia de datos residen fuera del país de la región de {{site.data.keyword.blockchainfull_notm}} Platform")
 
 En la **Figura 4**, no se requiere residencia de datos para `OrgC` y `OrgD`. De hecho, `OrgD` incluye ahora dos iguales, `OrgD-peer1` y `OrgD-peer2`, que residen en *Estados Unidos*. Por lo tanto, para que `OrgA`, `OrgB` y sus respectivas aplicaciones cliente e iguales que residen en Alemania puedan aislar los datos de libro mayor en el canal `X`, se crea un nuevo canal `Y` para `OrgC` y `OrgD`.
 
-Para estudiar con mayor detalle el flujo de datos en la red de la plataforma {{site.data.keyword.blockchainfull_notm}}, consulte la [documentación de Fabric sobre el flujo de transacciones ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "Flujo de transacciones").
+Para obtener más información sobre el flujo de datos de la red de {{site.data.keyword.blockchainfull_notm}} Platform, consulte la [documentación de Fabric sobre el flujo de transacciones](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external}.
 
-En el futuro, la nueva tecnología de Hyperledger Fabric mejorará la capacidad de obtener una mejor residencia de datos utilizando [Recopilaciones de datos privados ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html "Recopilaciones de datos privados") y Zero Knowledge Proof.
+En el futuro, la nueva tecnología de Hyperledger Fabric mejorará la posibilidad de obtener más datos residentes mediante el uso de [recopilaciones de datos privados](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external} y ZKF (Zero Knowledge Proof).
 
 - Una recopilación de datos privados garantiza que los datos privados se comparten entre igual e igual (mediante el protocolo gossip) solo con los iguales que tienen autorización para verlos, por ejemplo iguales que están dentro de las fronteras del país. Los datos se almacenan en una base de datos privada en el igual.  El servicio de ordenación no está implicado y no ve los datos privados. Se escribe un hash de esos datos en los libros mayores de cada igual del canal. El hash que se utiliza para la validación de estado sirve como prueba de la transacción y se puede utilizar para fines de auditoría. Los datos privados están disponibles para las redes de {{site.data.keyword.blockchainfull_notm}} Platform que se ejecutan en la versión 1.2.1 de Fabric. No obstante, la característica de datos privados no está disponible para los iguales remotos.
 
 - Zero-Knowledge Proof (ZKP) permite que un “comprobador” asegure a un “verificador” que conoce un secreto sin tener que revelar el propio secreto. Es una forma de mostrar que sabes algo que satisface una declaración sin mostrar lo que sabes.
 
-Puede obtener más información sobre estas tecnologías en el documento técnico sobre [Transacciones privadas y confidenciales con Hyperledger Fabric ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/ "Transacciones privadas y confidenciales con Hyperledger Fabric").
+Encontrará más información acerca de estas tecnologías en el documento técnico sobre [Transacciones privadas y confidenciales con Hyperledger Fabric](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external}.
 
 ## Obtención de soporte
 {: #remote-peer-aws-about-support}
 
 {{site.data.keyword.blockchainfull_notm}} Platform no proporciona soporte para esta oferta. Si detecta algún problema relacionado con el igual, puede hacer uso de los recursos gratuitos de desarrollador de blockchain y de los foros de soporte para obtener ayuda de la comunidad de Fabric y de {{site.data.keyword.IBM_notm}}. Para obtener más información, consulte [Recursos de blockchain y foros de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources). También puede consultar los recursos de soporte en la pantalla **Obtener ayuda** del supervisor de red.
 
-- Para ver los problemas relacionados con AWS, puede utilizar tanto los [foros de soporte de la comunidad ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://forums.aws.amazon.com/index.jspa "Foros de soporte de la comunidad de AWS") y como el [soporte Premium de AWS ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://aws.amazon.com/premiumsupport/ "soporte Premium de AWS").
+- Para los problemas relacionados con AWS, puede utilizar tanto los [foros de soporte de la comunidad](https://forums.aws.amazon.com/index.jspa){: external} como el [soporte premium de AWS](https://aws.amazon.com/premiumsupport/){: external}.
 
 {{site.data.keyword.blockchainfull_notm}} no tiene soporte para casos que se hayan abierto en {{site.data.keyword.cloud_notm}} y que estén relacionados con {{site.data.keyword.blockchainfull_notm}} Platform para AWS. Community Edition se ha diseñado para fines de exploración, desarrollo y pruebas, y no se utiliza para producción.

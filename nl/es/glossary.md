@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,8 +20,7 @@ subcollection: blockchain
 # Glosario
 {: #glossary}
 
-En este tema se definen términos específicos de {{site.data.keyword.blockchainfull}} Platform que aparecen en esta documentación. Para estudiar los términos con más detalle y ver un glosario de términos relacionados con los conceptos de Hyperledger Fabric, consulte el [Glosario de Hyperledger Fabric
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html).
+En este tema se definen términos específicos de {{site.data.keyword.blockchainfull}} Platform que aparecen en esta documentación. Para estudiar los términos con más detalle y ver un glosario de términos relacionados con los conceptos de Hyperledger Fabric, consulte el [Glosario de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
 {:shortdesc}
 
 ## Activo
@@ -95,15 +94,15 @@ El bloque de configuración que inicializa una red blockchain o canal, y que tam
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric permite a los iguales recopilar información de red importante entre sí sin tener que depender del servicio de ordenación. El [protocolo de diseminación de datos de rumores (gossip)![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html) ofrece una forma segura, fiable y escalable de intercambiar mensajes entre sí. Por ejemplo, si los iguales pierden algunos bloques debido a retrasos, cortes de red u otras razones, pueden sincronizarse con el estado del libro mayor actual utilizando la mensajería de rumores para ponerse en contacto con otros iguales que están en posesión de estos bloques que faltan.
+Hyperledger Fabric permite a los iguales recopilar información de red importante entre sí sin tener que depender del servicio de ordenación. El [protocolo de diseminación de datos de rumores (gossip)](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} ofrece una forma segura, fiable y escalable de intercambiar mensajes entre sí. Por ejemplo, si los iguales pierden algunos bloques debido a retrasos, cortes de red u otras razones, pueden sincronizarse con el estado del libro mayor actual utilizando la mensajería de rumores para ponerse en contacto con otros iguales que están en posesión de estos bloques que faltan.
 
 ## HSM
 {: #glossary-hsm}
-Módulo de seguridad de hardware (Hardware Security Module). Proporciona funciones de cifrado bajo demanda, gestión de claves y almacenamiento de claves como un servicio gestionado. HSM es un dispositivo físico que maneja las tareas que consumen muchos recursos del proceso de cifrado y que reduce la latencia para las aplicaciones. Para obtener más información, consulte [Módulo de seguridad de hardware ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://www.ibm.com/cloud/hardware-security-module)
+Módulo de seguridad de hardware (Hardware Security Module). Proporciona funciones de cifrado bajo demanda, gestión de claves y almacenamiento de claves como un servicio gestionado. HSM es un dispositivo físico que maneja las tareas que consumen muchos recursos del proceso de cifrado y que reduce la latencia para las aplicaciones. Para obtener más información, consulte [Módulo de seguridad de hardware](https://www.ibm.com/cloud/hardware-security-module){: external}.
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) es una infraestructura de blockchain empresarial que aloja Linux Foundation para que actúe como base para desarrollar aplicaciones blockchain o soluciones con una arquitectura modular. Los componentes de Hyperledger Fabric, como los servicios de consenso y de pertenencia, son de tipo conectar y listo.
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external} es una infraestructura de blockchain empresarial que aloja Linux Foundation para que actúe como base para desarrollar aplicaciones blockchain o soluciones con una arquitectura modular. Los componentes de Hyperledger Fabric, como los servicios de consenso y de pertenencia, son de tipo conectar y listo.
 
 ## Instalar
 {: #glossary-install}
@@ -169,7 +168,7 @@ Recurso de la red blockchain que proporciona los servicios para ejecutar y valid
 ## Raft
 {: #glossary-raft}
 Raft es un servicio de ordenación con tolerancia a errores de bloqueo (CFT) basado en una implementación del
-[protocolo Raft ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://raft.github.io/raft.pdf) en `etcd`. Raft sigue un modelo de "líder y seguidor", donde se elige un nodo líder (por canal) y sus decisiones se reproducen en los seguidores. Los servicios de ordenación de Raft deben ser más fáciles de configurar que los servicios de ordenación basados en Kafka, y se puede crear un clúster de estos nodos utilizando {{site.data.keyword.blockchainfull_notm}} Platform.
+[protocolo Raft](https://raft.github.io/raft.pdf){: external} en `etcd`. Raft sigue un modelo de "líder y seguidor", donde se elige un nodo líder (por canal) y sus decisiones se reproducen en los seguidores. Los servicios de ordenación de Raft deberían ser más fáciles de configurar y gestionar que los servicios de ordenación basados en Kafka, y se puede crear un clúster de estos nodos utilizando {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Credenciales de servicio
 {: #glossary-service-credentials}
@@ -177,7 +176,7 @@ Las credenciales de servicio están en formato JSON y contienen la información 
 
 ## SDK
 {: #glossary-sdk}
-Hyperledger Fabric admite dos kits de desarrollo de software (SDK). Un SDK de nodo y un SDK Java.  El SDK de nodo se puede instalar mediante NPM y el SDK Java mediante Maven.  Los SDK tienen sus propios repositorios git, es decir, [SDK de nodo de Fabric ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://github.com/hyperledger/fabric-sdk-node) y [SDK de Java de Fabric ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://github.com/hyperledger/fabric-sdk-java), con documentación sobre las API disponibles. Los SDK de cliente de Hyperledger Fabric permiten la interacción entre la aplicación cliente y la red blockchain.
+Hyperledger Fabric admite dos kits de desarrollo de software (SDK). Un SDK de nodo y un SDK Java.  El SDK de nodo se puede instalar mediante NPM y el SDK Java mediante Maven.  Los SDK tienen sus propios repositorios git, es decir, [SDK de nodo de Fabric](https://github.com/hyperledger/fabric-sdk-node){: external} y [SDK de Java de Fabric](https://github.com/hyperledger/fabric-sdk-java){: external}, con documentación sobre las API disponibles. Los SDK de cliente de Hyperledger Fabric permiten la interacción entre la aplicación cliente y la red blockchain.
 
 ## SignCert
 {: #glossary-sign-cert}

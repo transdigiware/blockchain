@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -10,15 +10,19 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:gif: data-image-type='gif'}
 
 # Iniciación al Plan inicial
 {: #getting-started-with-starter-plan}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 El Plan inicial (Starter Plan) de {{site.data.keyword.blockchainfull}} Platform le ofrece una red blockchain preconfigurada con una simple pulsación. Proporciona una red autorizada con la configuración de dos [organizaciones](/docs/services/blockchain/glossary.html#glossary-organization), un [igual](/docs/services/blockchain/glossary.html#glossary-peer) por cada organización y un [canal](/docs/services/blockchain/glossary.html#glossary-channel) de forma predeterminada. Una vez creada la red, puede extenderla y añadir más organizaciones e iguales a la red. Estas redes están pensadas para usuarios novatos que son nuevos en la plataforma
 {{site.data.keyword.blockchainfull_notm}}. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
@@ -27,9 +31,7 @@ El Plan inicial (Starter Plan) de {{site.data.keyword.blockchainfull}} Platform 
 El Plan inicial le permite aprender y desarrollar habilidades con la plataforma {{site.data.keyword.blockchainfull_notm}}, ejecutar aplicaciones de ejemplo, probar sus propias aplicaciones y simular un escenario de varias organizaciones. Esta guía de aprendizaje de iniciación le enseñará a utilizar el Plan inicial para empezar a desarrollar y realizar transacciones en una red blockchain.
 
 Si es nuevo en {{site.data.keyword.blockchainfull_notm}} Platform y en blockchain, puede obtener más información acerca de blockchain consultando la [visión general de los componentes fundamentales](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview) de las redes creadas sobre
-[Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) de código abierto. También puede consultar la
-[documentación de Hyperledger Fabric
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html "Introducción a Blockchain").
+[Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) de código abierto. También puede revisar la [documentación de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}.
 
 **Nota**: el Plan inicial de {{site.data.keyword.blockchainfull_notm}} Platform es un entorno de desarrollo y prueba, y no es adecuado para cargas de trabajo de producción. Si necesita un entorno de producción, consulte [Acerca del Plan empresarial](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
 
@@ -71,7 +73,7 @@ Tras formar el consorcio, debe escribir el código de encadenamiento, también c
 
 Puede obtener una [red](/docs/services/blockchain/glossary.html#glossary-network) del Plan inicial con la configuración predeterminada inmediatamente después de crear una instancia de servicio de la plataforma {{site.data.keyword.blockchainfull_notm}}.
 
-1. Localice el [servicio Blockchain ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) en el catálogo de {{site.data.keyword.cloud_notm}}.
+1. Localice el [servicio Blockchain](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} en el catálogo de {{site.data.keyword.cloud_notm}}.
     **Nota**: Debe iniciar una sesión con su cuenta de pago de {{site.data.keyword.cloud_notm}}. Si no tiene una cuenta, pulse el botón **Regístrese para crear**. Después de crear una cuenta de prueba gratuita, actualícela a un tipo **Pago según uso** yendo a **Gestionar** > **Facturación y uso** > **Facturación** en la consola de {{site.data.keyword.cloud_notm}} y pulsando **Añadir tarjeta de crédito**.
 2. Seleccione la región de {{site.data.keyword.cloud_notm}} para crear la red.
 3. Seleccione su organización y espacio de Cloud Foundry para crear la red.
@@ -80,7 +82,7 @@ Puede obtener una [red](/docs/services/blockchain/glossary.html#glossary-network
   Ahora está listo para utilizar su red del Plan inicial con la configuración predeterminada. La red se ejecuta con un clasificador (conocido como servicio de ordenación "SOLO"), dos organizaciones, una entidad emisora de certificados (CA) y un igual por cada organización. También se crea un canal predeterminado.
 6. Pulse el botón **Iniciar**.
 
-Encontrará una instancia de servicio de blockchain en el [panel de control de servicio de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/resources "panel de control de servicio de {{site.data.keyword.cloud_notm}}").
+Encontrará su instancia de servicio de blockchain en el [panel de control del servicio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 
 ## Invitación a miembros
@@ -99,7 +101,7 @@ Puede invitar a otros [organizaciones](/docs/services/blockchain/glossary.html#g
 
 Si está invitado por un iniciador de red, recibirá una notificación por correo electrónico con instrucciones sobre cómo unirse a la red. Siga las instrucciones del correo electrónico y se convertirá en uno de los miembros de la red.
 
-Debe crear una [instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) con la opción de pertenencia del Plan inicial en {{site.data.keyword.cloud_notm}}.
+Debe crear una [instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} con la opción de miembro del Plan Inicial en {{site.data.keyword.cloud_notm}}.
 
 1. Inicie una sesión con su cuenta de {{site.data.keyword.cloud_notm}}. Si no tiene una cuenta, pulse el botón **Regístrese para crear**.
 2. Seleccione la organización de Cloud Foundry en la que desea almacenar su red de {{site.data.keyword.blockchain}}.
@@ -107,7 +109,7 @@ Debe crear una [instancia de servicio de {{site.data.keyword.blockchainfull_notm
 4. Pulse el botón **Crear**. Se abre la página de la instancia del servicio con un panel de bienvenida emergente. Observe que puede elegir entre unirse a una red o continuar para crear la suya propia. Para crear una red, consulte el paso 4 del apartado [Creación de una red](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-creating-a-network).
 5. En el panel de bienvenida, seleccione **Unirse a red existente**, seleccione la red a la que desea unirse en la lista desplegable y pulse **Continuar**.
 
-Encontrará una instancia de servicio de blockchain en el [panel de control de servicio de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/resources "panel de control de servicio de {{site.data.keyword.cloud_notm}}").
+Encontrará su instancia de servicio de blockchain en el [panel de control del servicio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external}.
 
 ## Crear canales
 {: #getting-started-with-starter-plan-create-channels}
@@ -145,14 +147,14 @@ Después de crear una red del Plan inicial en {{site.data.keyword.cloud_notm}}, 
 ### Recuperación desde la página de la instancia del servicio
 {: #getting-started-with-starter-plan-retrieve-service-instance}
 
-Se encontrará en la página de la instancia del servicio justo después de crear una instancia del servicio. También puede pulsar el servicio en el [panel de control de servicio de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/resources "panel de control de servicio de {{site.data.keyword.cloud_notm}}") para abrir la página de la instancia de servicio.
+Se encontrará en la página de la instancia del servicio justo después de crear una instancia del servicio. También puede pulsar el servicio en el [panel de control del servicio {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: external} para abrir la página de la instancia de servicio.
 
 Para recuperar sus credenciales de servicio, siga los pasos siguientes:
 1. En la página de la instancia del servicio, pulse **Credenciales de servicio** en el navegador izquierdo para ver la pantalla "Credenciales de servicio".
 2. Pulse **Nueva credencial** en la pantalla "Credenciales de servicio".
 3. En la pantalla "Añadir nueva credencial", asigne un nombre a la credencial y especifique **{"type": "service_instance_token"}** en el campo "Añadir parámetro de configuración en línea". Pulse **Añadir**. La nueva credencial se añade a la tabla. Puede pulsar **Ver credenciales** en la columna "Acciones" para ver los detalles de la credencial. Esta credencial contiene la clave y el secreto de API, que puede utilizar para autorizar las API.
 
-![Recuperación de credenciales de red](images/service_credentials.gif "Recuperación de credenciales de red")
+![Recuperación de credenciales de red](images/service_credentials.gif "Recuperación de credenciales de red"){: gif}
 
 ### Recuperación en el supervisor de red
 {: #getting-started-with-starter-plan-network-creds}

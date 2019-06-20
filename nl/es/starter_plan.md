@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,21 +17,25 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Acerca del Plan inicial
 {: #starter-plan-about}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 El Plan inicial de {{site.data.keyword.blockchainfull}} Platform es una opción de nivel de entrada que permite a las organizaciones simular redes de blockchain de varias organizaciones, desarrollar aplicaciones rápidamente y trabajar con contratos digitales de ejemplo y redes empresariales. También ofrece la misma experiencia de interfaz de usuario que otras opciones de suscripción, lo que ayuda a eliminar la curva de aprendizaje. Las nuevas redes del Plan inicial creadas después del 4 de octubre de 2018 están basadas en Hyperledger Fabric V1.2.1. Las redes del Plan inicial más antiguas siguen teniendo el nivel de Fabric V1.1.0.
 {:shortdesc}
 
 El **Plan inicial** es un entorno para aquellos que desean empezar a desarrollar redes de blockchain o empezar a aprender sobre la tecnología de blockchain. Puede utilizar el Plan inicial como un entorno de desarrollo o de prueba que le permitirá comenzar con un entorno pequeño y escalar la pertenencia o el volumen de transacciones de la red antes de pasar a un entorno de producción.
 
- Para desplegar una red del Plan inicial, suscríbase como [miembro del plan inicial ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) en {{site.data.keyword.cloud_notm}}. Cuando esté preparado para empezar a desarrollar su red, visite el tema sobre [iniciación al Plan inicial](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan).
+ Para desplegar una red del Plan inicial, suscríbase como [miembro del plan inicial](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} en {{site.data.keyword.cloud_notm}}. Cuando esté preparado para empezar a desarrollar su red, visite el tema sobre [iniciación al Plan inicial](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan).
 
 
 **Notas:**
 - El Plan inicial de {{site.data.keyword.blockchainfull_notm}} Platform es un entorno de desarrollo y de prueba, y no es adecuado para las cargas de trabajo de producción. Si necesita un entorno de producción, consulte [Acerca del Plan empresarial](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
-- {{site.data.keyword.blockchainfull_notm}} Platform es un servicio de plataforma de {{site.data.keyword.cloud_notm}} y todas las ofertas de pertenencia a grupo siguen las [condiciones de los servicios de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "condiciones de servicios de {{site.data.keyword.cloud_notm}}") de los acuerdos de nivel de servicio (SLA). El Plan inicial se proporciona en un centro de datos de una única ubicación geográfica. Para ver una lista de los lugares geográficos disponibles, consulte
+- {{site.data.keyword.blockchainfull_notm}} Platform es un servicio de plataforma en {{site.data.keyword.cloud_notm}} y todas las ofertas de pertenencia siguen las [condiciones de servicio de {{site.data.keyword.cloud_notm}}](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} de los acuerdos de nivel de servicio (SLA). El Plan inicial se proporciona en un centro de datos de una única ubicación geográfica. Para ver una lista de los lugares geográficos disponibles, consulte
 [Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 ## Qué ofrece el Plan inicial
@@ -75,11 +78,8 @@ Debe tener una cuenta de pago de {{site.data.keyword.cloud_notm}}, por ejemplo, 
 - **Versiones del Plan inicial y actualización**
     - Las nuevas redes del Plan inicial creadas después del 4 de octubre de 2018 están basadas en Hyperledger Fabric V1.2.1. Las redes del Plan inicial más antiguas siguen teniendo el nivel de Fabric V1.1.0.
     - Los iguales nuevos que se añadan a versiones anteriores de redes del Plan inicial se crearán en Fabric v1.2.1. El rendimiento de la red no se ve afectado debido a la compatibilidad con versiones anteriores.
-    - Tiene la opción de utilizar valores más avanzados de
-[configuración de canal
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html "Configuración de canal") y [listas de control de acceso
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html "Listas de control de acceso") al crear o actualizar un canal.
-    - Las características de [descubrimiento de servicios ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "descubrimiento de servicios") y de [datos privados ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html "datos privados") de Hyperledger Fabric v1.2 no reciben soporte en el Plan inicial.
+    - Tiene la opción de utilizar valores de [configuración de canal](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html){: external} más avanzados y [Listas de control de acceso](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html){: external} cuando cree o actualice un canal.
+    - Las características [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} y [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external} de Hyperledger Fabric v1.2 no reciben soporte en el Plan Inicial.
     - Si [restablece](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-reset-network) una red más antigua del Plan inicial que esté en Fabric V1.1.0, la nueva red estará en el nivel V1.2 de Fabric. Si restablece la red, deberá instalar el código de encadenamiento o los archivos .bna en la nueva red, así como volver a invitar a los miembros de su anterior red.
 - **Limitación de recursos de red**
 El Plan inicial asigna 1 CPU y 4 Gi de RAM a cada igual, y 20 Gi de almacenamiento para cada instancia de servicio de {{site.data.keyword.cloud_notm}}. Los contenedores de código de encadenamiento y los bloques del libro mayor son los componentes de red que más recursos utilizan. Los usuarios que tienen muchos iguales en su red, que generan muchos bloques o que utilizan archivos de código de gran tamaño, pueden experimentar el efecto de las limitaciones de recursos en el rendimiento. Puede ver el uso de almacenamiento de sus redes en la [pantalla "Visión general" del supervisor de red](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-storage).

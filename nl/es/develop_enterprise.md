@@ -31,7 +31,7 @@ Asegúrese de que ha instalado el entorno de desarrollador de {{site.data.keywor
 
 Necesita acceso a una instancia del Plan empresarial de {{site.data.keyword.blockchainfull_notm}} Platform y de tener creados los iguales de antemano. Para obtener más información sobre el Plan empresarial de la plataforma {{site.data.keyword.blockchainfull_notm}}, consulte la [visión general del Plan empresarial](./enterprise_plan.html).
 
-## Paso uno: crear un perfil de conexión para la plataforma {{site.data.keyword.blockchainfull_notm}}
+## Paso uno: crear un perfil de conexión para {{site.data.keyword.blockchainfull_notm}} Platform
 
 1. Cree un directorio en el que almacenará los detalles de conexión, por ejemplo:
 

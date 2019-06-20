@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -19,19 +19,19 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Precios
+# Precios de {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-Esta guía le ayuda a comprender el modelo de precios de los planes de suscripción a {{site.data.keyword.blockchainfull}} Platform on {{site.data.keyword.cloud_notm}}, y cuánto pagará cuando se desarrolle y crezca la red blockchain de componentes de iguales, clasificadores y entidades emisoras de certificados, que se basan en Hyperledger Fabric v1.4.1.
+Esta guía le ayuda a comprender el modelo de precios de los planes de suscripción a {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, y cuánto pagará cuando se desarrolle y crezca la red blockchain de componentes de iguales, clasificadores y entidades emisoras de certificados, que se basan en Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
-_Este modelo de precios es solo para {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. Si utiliza el Plan inicial o el Plan empresarial y tiene preguntas acerca del precio, consulte los
+_Este modelo de precios es solo para {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. Si utiliza el Plan inicial o el Plan empresarial y tiene preguntas acerca del precio, consulte los
 [precios](/docs/services/blockchain?topic=blockchain-ibp-pricing) del Plan inicial y el Plan empresarial._
 
 {{site.data.keyword.blockchainfull_notm}} Platform presenta un nuevo modelo de precios por hora que se basa en el uso de núcleos de procesador virtual (VPC). Este modelo simplificado se basa en la cantidad de CPU (o VPC) que consumen los nodos de
 {{site.data.keyword.blockchainfull_notm}} Platform en cada hora, con una tarifa plana de **$0,29 USD/VPC-hora**.
 
-Un VPC es una unidad de medida que se utiliza para determinar el coste de la licencia de los productos de
+Una VPC es una unidad de medida que se utiliza para determinar el coste de la licencia de los productos de
 {{site.data.keyword.IBM_notm}}. Se basa en el número de núcleos virtuales (vCPU) que están disponibles para el producto. Una vCPU es un núcleo virtual que se asigna a una máquina virtual o a un núcleo de procesador físico. Para fines de estimación del coste de
 {{site.data.keyword.blockchainfull_notm}} Platform, **1 VPC = 1 CPU = 1 vCPU = 1 Núcleo**.
 {:note}
@@ -42,7 +42,10 @@ Para obtener una estimación del coste total, recuerde que su red blockchain con
 {{site.data.keyword.cloud_notm}} y el almacenamiento que elija incurrirán en cargos independientes. No se efectuarán cargos debido al clúster en el que se ejecuta la instancia de Herramientas operativas, también conocida como consola. Consulte el tema
 [Referencia de la arquitectura](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview-architecture) para ver una ilustración. A continuación se ofrecen más detalles sobre cómo calcular los cargos.
 
-Los desarrolladores pueden empezar con nuestra [extensión para VS Code ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform "Extensión de VS Code para {{site.data.keyword.blockchainfull_notm}} Platform"). Utilice este entorno de desarrollador integrado para escribir, probar, depurar y empaquetar contratos inteligentes de manera local y para el despliegue de {{site.data.keyword.blockchainfull_notm}} Platform, así como para escribir aplicaciones de cliente. Empiece desde cero o acceda a guías de aprendizaje y ejemplos para aprender los aspectos básicos de blockchain.
+### ¿Es usted un desarrollador?
+{: #ibp-saas-pricing-developer}
+
+Los desarrolladores pueden comenzar con nuestra [extensión para VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} gratuita. Utilice este entorno de desarrollador integrado para escribir, probar, depurar y empaquetar contratos inteligentes de manera local y para el despliegue de {{site.data.keyword.blockchainfull_notm}} Platform, así como para escribir aplicaciones de cliente. Empiece desde cero o acceda a guías de aprendizaje y ejemplos para aprender los aspectos básicos de blockchain. A continuación, vuelva y enlace una instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform con el clúster de Kubernetes para que pueda crear la red blockchain mediante la consola.
 
 ## Ventajas del nuevo modelo de precios
 {: #ibp-saas-pricing-benefits}
@@ -61,13 +64,12 @@ Debido a que la red blockchain consta de un clúster Kubernetes de
 {{site.data.keyword.cloud_notm}} que contiene componentes de
 {{site.data.keyword.blockchainfull_notm}} Platform y utiliza el almacenamiento que haya elegido, cada uno de los elementos siguientes componen el coste total:
 
-- Tarifa plana de **{{site.data.keyword.blockchainfull_notm}} Platform** de $0.29 USD/VPC por hora.
+- Tarifa plana de **{{site.data.keyword.blockchainfull_notm}} Platform** de $0.29 USD/VPC por hora. Esta tarifa representa la carga de los componentes de blockchain en el clúster de Kubernetes.
 - Precios por niveles del clúster del **servicio Kubernetes de {{site.data.keyword.cloud_notm}}**, visibles en
-{{site.data.keyword.cloud_notm}} al suministrar el clúster de pago. Esto incluye los cargos del cálculo, es decir, CPU y memoria. Se establece el precio de los servicios Kubernetes de {{site.data.keyword.cloud_notm}} sobre un modelo por niveles que se basa en el número de horas de uso al mes. Por lo tanto, al examinar los planes de precios, tenga en cuenta que un uso de 24x7 es equivalente a 720 horas al mes. Consulte la tabla de la página del catálogo del [servicio Kubernetes
-![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://cloud.ibm.com/kubernetes/catalog/cluster "Servicio Kubernetes") para obtener más detalles sobre el precio del clúster.
+{{site.data.keyword.cloud_notm}} al suministrar el clúster de pago. Esto incluye los cargos del cálculo, es decir, CPU y memoria. Se establece el precio de los servicios Kubernetes de {{site.data.keyword.cloud_notm}} sobre un modelo por niveles que se basa en el número de horas de uso al mes. Por lo tanto, al examinar los planes de precios, tenga en cuenta que un uso de 24x7 es equivalente a 720 horas al mes. Consulte la tabla de la [página del catálogo de servicios de Kubernetes](https://cloud.ibm.com/kubernetes/catalog/cluster){: external} para obtener más detalles sobre los precios del clúster.
 - Elija el plan de **almacenamiento** que se ajuste a sus necesidades. Consulte el tema
 [Conceptos básicos del almacenamiento de Kubernetes](/docs/containers?topic=containers-kube_concepts#kube_concepts) para obtener más información sobre las opciones de clase de almacenamiento y cuánto
-[cuestan ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://www.ibm.com/cloud/file-storage/pricing). Los nodos de
+[cuestan](https://www.ibm.com/cloud/file-storage/pricing){: external}. Los nodos de
 {{site.data.keyword.blockchainfull_notm}} Platform utilizan la clase de almacenamiento predeterminada para el clúster. Al suministrar un clúster Kubernetes en {{site.data.keyword.cloud_notm}}, viene preconfigurado con [almacenamiento de archivos de nivel Bronce](/docs/containers?topic=containers-file_storage#file_predefined_storageclass) como plugin de almacenamiento persistente.
 
 ## Ejemplos de precios
@@ -82,16 +84,15 @@ La tabla siguiente proporciona dos ejemplos de precios con
 [reducir el coste](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources).
    - Debido a que este caso de ejemplo está pensado para un entorno de **producción**:
      - Los recursos de cálculo predeterminados se han duplicado para proporcionar una mayor capacidad.
-     - Se ha elegido la clase de almacenamiento [Plata
-![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/docs/containers?topic=containers-file_storage#file_silver) para aumentar el rendimiento.
+     - Se ha elegido la clase de almacenamiento [Plata](/docs/containers?topic=containers-file_storage#file_silver){: external}
+para aumentar el rendimiento.
 
 | Opciones de precios** (1 VPC = 1 CPU)| **Red de prueba** | **Unirse a una red de producción** |
 |-|------------|-----------------------------|
 | **Asignación de CPU** |  1,85 CPU <br> Incluye: <br> - 1 igual <br> - 2 CA <br> - 1 clasificador| 4,9 CPU <br> Incluye: <br> - 2 iguales (para HA) <br> **(el doble del cálculo predeterminado)** <br>- 1 CA <br>  |
 | **Coste por hora: {{site.data.keyword.blockchainfull_notm}} Platform** | $0,54 USD <br> (1,85 CPU x $0,29 USD/VPC-hora) | $1,42 USD <br> (4,9 CPU x $0,29 USD/VPC-hora) |
 | **Coste por hora: clúster Kubernetes de {{site.data.keyword.cloud_notm}}**    | $0,12 USD <br> (Cálculo: 2 x 4 niveles) <br> (Asignación de IP: $16 USD/mes) | $0,46 USD <br> (Cálculo: 8 x 32 niveles) <br> (Asignación de IP: $16 USD/mes) |
-| **Coste por hora: almacenamiento** | $0,07 USD <br> 340GB  <br> [Bronce
-![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://www.ibm.com/cloud/file-storage/pricing) <br>  2 IOPS/GB | $0,13 USD <br> 420GB <br> [Plata ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://www.ibm.com/cloud/file-storage/pricing) <br> 4 IOPS/GB  |
+| **Coste por hora: almacenamiento** | $0,07 USD <br> 340GB  <br> [Bronce](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0,13 USD <br> 420GB <br> [Plata](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
 | **Coste total por hora** | **$0,73 USD** | **$2,01 USD**| |
 ** Obtenga una vista previa de {{site.data.keyword.blockchainfull_notm}} Platform sin coste alguno durante 30 días al enlazar su instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform con un clúster Kubernetes gratuito de {{site.data.keyword.cloud_notm}}. El rendimiento estará limitado por el uso, almacenamiento y funcionalidad. {{site.data.keyword.cloud_notm}} suprimirá el clúster Kubernetes después de 30 días y no se podrán migrar los nodos ni los datos de un clúster gratuito a un clúster de pago.  
 
@@ -103,13 +104,14 @@ No hay límite en el número de instancias de servicio que puede suministrar y a
 ## Asignaciones de recursos predeterminadas
 {: #ibp-saas-pricing-default}
 
-Los valores de la tabla siguiente resulta útiles para estimar el coste por hora de su red personalizada según la CPU, cálculo y almacenamiento.
+Los valores de la tabla siguiente resulta útiles para estimar el coste por hora de su red personalizada según la CPU, cálculo y almacenamiento. Estos valores mínimos recomendados son suficientes para comenzar. A medida que supervisa el uso de la red, puede encontrar que los requisitos de recursos y los costes reales variarán en función de cada caso y de los requisitos de seguridad y de disponibilidad.  
 
 | **Componente** (todos los contenedores) | CPU  | Memoria (GB) | Almacenamiento (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Igual**                       |  1,2          | 2,4                   | 200 (incluye 100GB para el igual y 100GB para CouchDB)|
+| **Igual**                       | 1,2            | 2,4                   | 200 (incluye 100 GB para el igual y 100 GB para CouchDB)|
 | **CA**                         | 0,1            | 0,2                    | 20                     |
 | **Clasificador**                    | 0,45           | 0,9                    | 100                    |
+
 
 ## Facturación
 {: #ibp-saas-pricing-billing}

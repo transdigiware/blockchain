@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: logging levels, metrics, health check, peer, orderer
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,7 +22,7 @@ subcollection: blockchain
 # Funcionamiento de nodos con el servicio de operaciones
 {: #operations_service}
 
-{{site.data.keyword.blockchainfull}} Platform v2.0 se basa en Hyperledger Fabric v1.4.1. La plataforma admite la característica de servicio de operaciones, que ofrece una API de "operaciones" RESTful para que los operadores puedan realizar comprobaciones de estado de nodos, extraer métricas operativas de los nodos de igual y clasificador y gestionar los niveles de registro. El igual y el clasificador alojan un servidor HTTP que ofrece la API de "operaciones" RESTful.  Para obtener más información sobre el servicio de operaciones, consulte [El servicio de operaciones ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html "El servicio de operaciones"){:new_window}.
+{{site.data.keyword.blockchainfull}} Platform se basa en Hyperledger Fabric v1.4.1. La plataforma admite la característica de servicio de operaciones, que ofrece una API de "operaciones" RESTful para que los operadores puedan realizar comprobaciones de estado de nodos, extraer métricas operativas de los nodos de igual y clasificador y gestionar los niveles de registro. El igual y el clasificador alojan un servidor HTTP que ofrece la API de "operaciones" RESTful.  Para obtener más información sobre el servicio de operaciones, consulte [Servicio de operaciones](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}.
 {:shortdesc}
 
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 {: #operations_service_consideration_limitation}
 
 - Todos los nodos de igual y clasificador se configuran con `clientAuthRequired: false`, de manera que se pueda acceder al comprobador de estado. Debido a que `clientAuthRequired` se establece en `false` y que también está habilitado el TLS mutuo, al acceder al servidor REST, necesitará pasar las identidades TLS para poder autenticarse. Este valor garantiza que únicamente los usuarios que tengan las claves adecuadas podrán ver los registros correspondientes.
-- Por ahora, solo hay soporte para el soporte de extracción de métricas basado en [Prometheus ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus).
+- Por ahora, solo hay soporte para el modelo de extracción de métricas basado en [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external}.
 
 ## Antes de empezar
 {: #operations_service_before_you_begin}
@@ -108,7 +108,7 @@ curl -k https://169.46.208.93:3210/healthz
 ```
 {:codeblock}
 
-Para obtener más información sobre las comprobaciones de estado, consulte [Comprobaciones de estado ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks "Comprobaciones de estado").
+Para obtener más información sobre las comprobaciones de estado, consulte [Comprobaciones de estado](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}.
 
 
 ## Visualización de las métricas
@@ -129,7 +129,7 @@ curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcert
 {:codeblock}
 
 
-Para obtener más información sobre las métricas, consulte [Métricas ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics "Métricas").
+Para obtener más información sobre métricas, consulte [Métricas](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}.
 
 
 ## Visualización de niveles de registro
@@ -162,7 +162,7 @@ Podrá ver un resultado similar al ejemplo siguiente:
 ## Establecimiento de niveles de registro
 {: #operations_service_log_level_set}
 
-Para cambiar el valor de nivel de registro existente, ejecute el mandato siguiente, que utiliza el método `PUT` con cuerpo JSON compuesto por un solo atributo denominado `spec`. Sustituya `<log-level>` por sus niveles de registro esperados. Para obtener más información sobre los niveles de registro que puede establecer, consulte [Especificación del registro ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification "Especificación del registro") en la documentación de Hyperledger Fabric.
+Para cambiar el valor de nivel de registro existente, ejecute el mandato siguiente, que utiliza el método `PUT` con cuerpo JSON compuesto por un solo atributo denominado `spec`. Sustituya `<log-level>` por sus niveles de registro esperados. Para obtener más información acerca de los niveles de registro que puede establecer, consulte [Especificación de registro](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external} en la documentación de Hyperledger Fabric.
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -182,4 +182,4 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 ```
 -->
 
-Para obtener más información sobre la configuración del nivel de registro, consulte [Gestión del nivel de registro ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management "Gestión del nivel de registro") en la documentación de Hyperledger Fabric.
+Para obtener más información sobre la configuración de nivel de registro, consulte [Gestión de nivel de registro](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external} en la documentación de Hyperledger Fabric.

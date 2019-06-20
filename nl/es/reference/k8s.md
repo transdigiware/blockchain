@@ -8,7 +8,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -29,7 +29,6 @@ Kubernetes proporciona un entorno de gestión centrado en contenedores. Coordina
 En el siguiente diagrama se expone la arquitectura de Kubernetes. Para obtener más detalles sobre nodos, contenedores y pod, consulte la sección [Objetos Kubernetes clave](#k8s-overview-key-obj) a continuación.
 
 ![Diagrama de la arquitectura de Kubernetes](../images/k8s-archi-diagram.svg "{{site.data.keyword.cloud_notm}} Arquitectura del servicio Kubernetes")
-*Figura 1. Diagrama de la arquitectura de Kubernetes*
 
 
 ## Servicio de Kubernetes de {{site.data.keyword.cloud_notm}}
@@ -38,10 +37,9 @@ En el siguiente diagrama se expone la arquitectura de Kubernetes. Para obtener m
 El servicio Kubernetes de {{site.data.keyword.cloud_notm}} proporciona potentes herramientas que combinan contenedores Docker, la tecnología Kubernetes, una experiencia del usuario intuitiva, seguridad integrada y aislamiento para automatizar el despliegue, el funcionamiento, el escalado y la supervisión de apps contenerizadas en un clúster de hosts de cálculo.
 
 Para obtener más información sobre el servicio Kubernetes de {{site.data.keyword.cloud_notm}}, consulte los siguientes temas de la documentación del servicio Kubernetes de {{site.data.keyword.cloud_notm}}:
-- [Tecnología del servicio {{site.data.keyword.cloud_notm}} Kubernetes
-![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology "Documentación de tecnología del servicio {{site.data.keyword.cloud_notm}} Kubernetes")
-- [Por qué elegir el servicio {{site.data.keyword.cloud_notm}} Kubernetes ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/docs/containers?topic=containers-cs_ov#cs_ov "Documentación Por qué elegir el servicio {{site.data.keyword.cloud_notm}} Kubernetes")
-- [Definición de la estrategia de Kubernetes ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](/docs/containers?topic=containers-strategy#strategy "Definición de la estrategia de Kubernetes")
+- [Tecnología del servicio Kubernetes de {{site.data.keyword.cloud_notm}}](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology){: external}
+- [Por qué el servicio Kubernetes de {{site.data.keyword.cloud_notm}}](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
+- [Definición de la estrategia de Kubernetes](/docs/containers?topic=containers-strategy#strategy){: external}
 
 
 ## Objetos de Kubernetes clave
@@ -53,7 +51,7 @@ Para obtener más información sobre el servicio Kubernetes de {{site.data.keywo
 
 - **Nodo**
 
-  Un nodo es una máquina de trabajador en Kubernetes. Un nodo puede ser una máquina virtual o una máquina física, en función del clúster. Cada nodo contiene los servicios necesarios para ejecutar pods y es gestionado por los componentes maestros. Los servicios de un nodo incluyen el tiempo de ejecución del contenedor, `kubelet` y `kube-proxy`. Para obtener más información, consulte la [sección Nodo de Kubernetes ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/architecture/nodes/ "sección Nodo de Kubernetes") en la documentación de Kubernetes.
+  Un nodo es una máquina de trabajador en Kubernetes. Un nodo puede ser una máquina virtual o una máquina física, en función del clúster. Cada nodo contiene los servicios necesarios para ejecutar pods y es gestionado por los componentes maestros. Los servicios de un nodo incluyen el tiempo de ejecución del contenedor, `kubelet` y `kube-proxy`. Para obtener más información, consulte la [sección sobre Node de Kubernetes](https://kubernetes.io/docs/concepts/architecture/nodes/){: external} en la documentación de Kubernetes.
 
 - **Contenedor**
 
@@ -61,4 +59,4 @@ Para obtener más información sobre el servicio Kubernetes de {{site.data.keywo
 
 - **Pod**
 
-  El objeto de Kubernetes más pequeño y más sencillo. Un pod representa un conjunto de contenedores en ejecución en su clúster. Un pod se suele configurar para ejecutar un solo contenedor primario. También puede ejecutar contenedores sidecar opcionales que añaden características complementarias, como el registro. Los pods normalmente son gestionados por un Despliegue. Para obtener más información, consulte la [sección de Pod de Kubernetes ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://kubernetes.io/docs/concepts/workloads/pods/pod/) en la documentación de Kubernetes.
+  El objeto de Kubernetes más pequeño y más sencillo. Un pod representa un conjunto de contenedores en ejecución en su clúster. Un pod se suele configurar para ejecutar un solo contenedor primario. También puede ejecutar contenedores sidecar opcionales que añaden características complementarias, como el registro. Los pods normalmente son gestionados por un Despliegue. Para obtener más información, consulte la [sección sobre Pod de Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/){: external} en la documentación de Kubernetes.

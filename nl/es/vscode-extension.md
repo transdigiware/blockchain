@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Desarrollo de contratos inteligentes con la extensión de Visual Studio Code
 {: #develop-vscode}
@@ -25,20 +25,17 @@ subcollection: blockchain
 
 La extensión de Visual Studio (VS) Code de {{site.data.keyword.blockchainfull}} Platform proporciona un entorno dentro de Visual Studio Code para desarrollar, empaquetar y probar contratos inteligentes. Puede utilizar la extensión para crear el proyecto de contrato inteligente y empezar a desplegar su lógica de negocio. A continuación, puede utilizar VS Code para probar el contrato inteligente en su máquina local utilizando una instancia preconfigurada de Hyperledger Fabric antes de desplegar el contrato inteligente en {{site.data.keyword.blockchainfull_notm}} Platform. Esta guía de aprendizaje describe cómo utilizar la extensión de VS Code.
 
-
-![Flujo de trabajo de desarrollo de un contrato inteligente típico](images/SmartContractflow.png "Flujo de trabajo de desarrollo de un contrato inteligente típico")
-*Figura 1. Flujo de trabajo de desarrollo de un contrato inteligente típico con la extensión de VS Code de
-{{site.data.keyword.blockchainfull_notm}} Platform*  
+![Flujo de trabajo de desarrollo de un contrato inteligente típico](images/SmartContractflow.png "Flujo de trabajo de desarrollo de un contrato inteligente típico")  
 
 <!--
 <img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f1b2" src="images/SmartContractflow.png" width="750" alt="Click a box to get more details on the process." style="width:750px;" />
 <map name="home_map1" id="home_map1">
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Create a smart contract project" title="Create a Smart contract project" shape="rect" coords="157.05, 52.53, 283.62, 127.11" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Develop contract code in VS Code" title="Create key pair" shape="rect" coords="300.97, 52.53, 427.54, 127.11" />
-<area href="/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="157.05, 131.8, 283.62, 206.37" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-deploy" alt="Deploy locally to debug" title="Deploy locally to debug" shape="rect" coords="300.97, 131.8, 427.54, 206.37" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="443.95, 131.8, 570.53, 206.37" />
-<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-connecting-ibp" alt="Deploy to IBM Cloud" title="Deploy to IBM Cloud" shape="rect" coords="585.53, 131.8, 712.1, 206.37" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Create a smart contract project" title="Create a Smart contract project" shape="rect" coords="40, 73.2, 175, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-creating-a-project" alt="Develop contract code in VS Code" title="Create key pair" shape="rect" coords="199, 73.2, 334, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="358, 73.2, 175, 128.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-deploy" alt="Deploy locally to test and debug" title="Deploy locally to test and debug" shape="rect" coords="358, 73.2, 493, 128.2"/>
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="517, 152.2, 493, 207.2" />
+<area href="/docs/services/blockchain/vscode-extension.html#develop-vscode-connecting-ibp" alt="Deploy to {{site.data.keyword.cloud_notm}}" title="Deploy to {{site.data.keyword.cloud_notm}}" shape="rect" coords="700, 73.2, 835, 128.2" />
 -->
 
 La extensión de {{site.data.keyword.blockchainfull_notm}} Platform funciona de manera completamente integrada con cualquier instancia de {{site.data.keyword.blockchainfull_notm}} Platform que utilice versiones de Hyperledger Fabric 1.4 y posteriores.
@@ -57,7 +54,8 @@ Antes de instalar la extensión de VS Code de {{site.data.keyword.blockchainfull
 - **Instale Yeoman**  
   Yeoman es una herramienta generadora que puede utilizar para crear proyectos de contratos inteligentes de esqueleto. Instale Yeoman utilizando el mandato siguiente: `npm install -g yo`.  
 - **Instale Docker**  
-  Para ejecutar la instancia preconfigurada de Hyperledger Fabric, asegúrese de haber instalado [Docker ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://www.docker.com/).  
+  Para ejecutar la instancia preconfigurada de Hyperledger Fabric, asegúrese de tener instalado
+[Docker](https://www.docker.com/){: external}.  
 - **Requisitos del sistema operativo**  
   Actualmente, esta extensión es compatible con Mac, Windows y Linux.  
 - **Requisitos de la versión de Hyperledger Fabric**  
@@ -66,11 +64,13 @@ Antes de instalar la extensión de VS Code de {{site.data.keyword.blockchainfull
 ### Instalar la extensión
 {: #develop-vscode-installing-the-extension}
 
-1. Vaya a la [página de mercado de la extensión Visual Studio Code ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform) o busque **{{site.data.keyword.blockchainfull_notm}} Platform** en el panel de extensiones de Visual Studio Code.
+1. Vaya a la [página de mercado de la extensión de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} o busque **{{site.data.keyword.blockchainfull_notm}} Platform** en el panel de extensiones dentro de Visual Studio Code.
 2. Pulse **Instalar**.
 3. Reinicie Visual Studio Code para completar la instalación de la extensión.
 
 Tras la instalación, puede utilizar el icono {{site.data.keyword.blockchainfull_notm}} de la parte izquierda de VS Code para abrir el panel de {{site.data.keyword.blockchainfull_notm}} Platform.
+
+![Icono {{site.data.keyword.blockchainfull_notm}}](images/vscode-blockchain.png "Icono {{site.data.keyword.blockchainfull_notm}}")
 
 La extensión añade también nuevos mandatos a la paleta de mandatos de Visual Studio Code. Puede utilizar la paleta de mandatos para completar muchas de las operaciones que se explican en detalle en esta guía.
 
@@ -81,12 +81,12 @@ Puede utilizar la extensión para crear un nuevo proyecto de contrato inteligent
 
 1. Abra el separador **{{site.data.keyword.blockchainfull_notm}}**. Pulse sobre el menú de desbordamiento del panel de paquetes de contratos inteligentes y pulse **Crear proyecto de contrato inteligente**.
 2. Seleccione el lenguaje en el que desee crear un contrato inteligente. Las opciones actuales son JavaScript, TypeScript, Go y Java. **Nota:** {{site.data.keyword.blockchainfull_notm}} Platform no admite código de encadenamiento Java.
-3. Seleccione un activo que se vaya a gestionar mediante el contrato de ejemplo. Por ejemplo, ***bond***.
+3. **Si ha seleccionado JavaScript o TypeScript**, seleccione un activo que desee gestionar mediante el contrato de ejemplo. Por ejemplo, ***bond***.
 4. Cree una carpeta con el nombre del proyecto y ábrala.
 5. Seleccione cómo abrir el nuevo proyecto. Ahora debe abrirse la carpeta del proyecto.
 
 Cuando se abra el proyecto, podrá encontrar el nuevo contrato inteligente en la ventana del explorador del panel de la izquierda. La estructura del proyecto depende del lenguaje que haya seleccionado. No obstante, cada contrato inteligente contiene los mismos elementos:
-- El código fuente del contrato inteligente. La extensión crea un contrato inteligente básico utilizando la API
+- El código fuente del contrato inteligente. Si ha optado por crear un contrato Javascript o TypeScript, la extensión crea un contrato inteligente básico utilizando la API
 `fabric-contract-api` con una serie de funciones que gestionan su activo de ejemplo. Por ejemplo, si ha seleccionado
 ***bond***, encontrará las funciones
 `createBond`, `updateBond`, `readBond`, `bondExists` y
@@ -101,7 +101,7 @@ Necesita empaquetar un contrato inteligente en formato `.cds` para poder instala
 {{site.data.keyword.blockchainfull_notm}} Platform o en la red preconfigurada de Hyperledger Fabric. Siga los pasos siguientes para empaquetar el contrato inteligente:
 
 1. En VS Code, vaya al panel **{{site.data.keyword.blockchainfull_notm}} Platform**. Asegúrese de tener un proyecto de contrato inteligente abierto en el visor de archivos.
-2. En el panel **Paquetes de contratos inteligentes**, pulse **+**.
+2. En el panel **Paquetes de contrato inteligente**, pulse el menú de desbordamiento y seleccione **Empaquetar un proyecto de contrato inteligente**. Se le preguntará el nombre y la versión del paquete.
   - Si tiene un proyecto de contrato inteligente, se empaquetará automáticamente y se mostrará en el panel
 **Paquetes de contratos inteligentes**.
   - Si tiene varias carpetas de contratos inteligentes abiertas, se le preguntaré cuál desea empaquetar.
@@ -118,8 +118,7 @@ Tras empaquetar un proyecto de contrato inteligente, puede exportarlo desde VS C
 También puede importar un paquete de contrato inteligente existente en el panel
 {{site.data.keyword.blockchainfull_notm}} Platform:
 
-1. En el panel **Paquetes de contratos inteligentes**. Pulse sobre el menú de desbordamiento y seleccione
-**Importar paquete**.
+1. En el panel **Paquetes de contrato inteligente**, pulse el menú de desbordamiento y seleccione **Importar paquete**.
 2. Vaya hasta el paquete de contrato inteligente que desee importar y pulse **Importar**.
 
 También puede pulsar **Suprimir paquete** para eliminar el paquete de contrato inteligente de la lista de paquetes.
@@ -186,7 +185,7 @@ Si realiza cambios en el código del contrato inteligente y vuelve a empaquetarl
 Después de que se haya instalado e instanciado un contrato inteligente, puede enviar transacciones a las funciones que incluye el contrato inteligente utilizando el panel **Pasarelas de Fabric**:
 
 1. Asegúrese de que se haya instalado y creado una instancia del contrato inteligente, y de estar conectado a la red.
-2. En el panel de conexiones, expanda **Contratos inteligentes instanciados**.
+2. En el panel **Pasarelas de Fabric**, expanda **Contratos inteligentes instanciados**.
 3. Expanda el contrato inteligente con el que desee interactuar. Encontrará la lista de transacciones que aparecen junto al contrato inteligente.
 4. Pulse el botón derecho del ratón sobre la transacción que se va a enviar y seleccione **Enviar transacción**. Por ejemplo, si ha creado y empaquetado el contrato inteligente de vínculos de ejemplo, pulse **createBond**.
 5. Especifique los argumentos que requiera la transacción y pulse **Intro**. Por ejemplo, especifique `["bond01","100"]` para crear el primer vínculo.
@@ -234,7 +233,7 @@ Para modificar el contrato inteligente durante la depuración, pulse el botón *
 Puede generar pruebas para los contratos inteligentes para los que se haya creado una instancia en las redes a las que se conecte. Las pruebas se pueden generar como **JavaScript** o **TypeScript**, y se pueden ejecutar o depurar.
 
 1. Asegúrese de que se haya creado una instancia del contrato inteligente.
-2. En **Contratos inteligentes instanciados**, pulse el botón derecho del ratón sobre el contrato inteligente para el que desee generar pruebas.
+2. En el panel **Pasarelas de Fabric**, pulse con el botón derecho del ratón en el contrato inteligente bajo la lista de canales para los que se generarán pruebas.
 3. Seleccione **Generar pruebas de contrato inteligente**.
 4. Seleccione el lenguaje del archivo de pruebas, ya sea **JavaScript** o **TypeScript**. La extensión de {{site.data.keyword.blockchainfull_notm}} Platform instalará los módulos npm necesarios y compilará el archivo de pruebas.
 

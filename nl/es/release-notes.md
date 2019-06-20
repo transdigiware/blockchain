@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -10,29 +10,32 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Notas del release
 {: #release-notes-saas-20}
 
 Utilice estas notas del release agrupadas por fecha para obtener información sobre los cambios más recientes en
-{{site.data.keyword.blockchainfull}} Platform on {{site.data.keyword.cloud_notm}}, que se basa en Hyperledger Fabric v1.4.1.
+{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, que se basa en Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+
+## 24 de mayo de 2019
+{: #05-24-2019}
+
+**Protocolo de consenso Raft** El servicio de ordenación Raft de cinco nodos, recomendado para redes de producción, ya está disponible. Además, en entornos de desarrollo y de prueba, puede desplegar un servicio de ordenación Raft de un solo nodo.
 
 ## 9 de mayo de 2019
 {: #05-09-2019}
 
 **Introducción a las API de la consola de {{site.data.keyword.blockchainfull_notm}} Platform**
 
-Ahora hay API disponibles para suministrar, editar y suprimir nodos de igual, clasificador y CA, haciendo que sea posible construir la red blockchain mediante scripts. Utilice la documentación del
-[Repositorio de documentación de API de {{site.data.keyword.cloud_notm}}
-![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](/apidocs/blockchain#introduction "Introducción") para obtener más información sobre las API y probarlas. Además, consulte el tema sobre la [Creación de una red con API](/docs/services/blockchain?topic=blockchain-ibp-v2-apis) para ver instrucciones sobre cómo utilizar las API para construir la red.
+Ahora hay API disponibles para suministrar, editar y suprimir nodos de igual, clasificador y CA, haciendo que sea posible construir la red blockchain mediante scripts. Utilice la documentación del [repositorio de documentación de API de {{site.data.keyword.cloud_notm}}](/apidocs/blockchain#introduction){: external} para obtener más información sobre las API y para probarlas. Además, consulte el tema sobre la [Creación de una red con API](/docs/services/blockchain?topic=blockchain-ibp-v2-apis) para ver instrucciones sobre cómo utilizar las API para construir la red.  
 
 **Control de canales**  
 
@@ -46,7 +49,7 @@ Las actualizaciones en el control de los canales permite que se puedan reconfigu
 Al desplegar un nodo, ahora tiene la posibilidad de especificar la cantidad de CPU, memoria y almacenamiento en los contenedores, cuando proceda. Más adelante, puede aumentar o reducir la escala de los recursos según los patrones de uso. Para obtener más información, consulte
 [Asignación de recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
 
-**Uso de IBM Cloud Identity and Access Management (IAM)**  
+**Utilización de {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)**  
 
 IAM se utiliza para controlar el acceso de usuario a la interfaz de usuario de la consola, así como para restringir las acciones que se pueden realizar en la interfaz de usuario.  Consulte este tema para obtener información sobre cómo
 [añadir y eliminar usuarios de la consola](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).

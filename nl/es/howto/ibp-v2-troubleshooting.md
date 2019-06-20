@@ -2,47 +2,52 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
-keywords: troubleshooting, debug, why, what does this mean, how can I, when I 
+keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:pre: .pre}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:pre: .pre}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Resolución de problemas
 {: #ibp-v2-troubleshooting}
 
 Es posible que se produzcan problemas generales al utilizar la consola para gestionar nodos, canales o contratos inteligentes. En muchos de los casos, puede solucionar estos problemas siguiendo unos sencillos pasos.
+{:shortdesc}
 
 - [Cuando paso el puntero del ratón sobre mi nodo, el estado es
 Estado no disponible, ¿qué significa esto?](#ibp-v2-troubleshooting-status-unavailable)
 - [Cuando paso el puntero del ratón sobre mi nodo, el estado es
 Estado no detectable, ¿qué significa esto?](#ibp-v2-troubleshooting-status-undetectable)
-- [¿Por qué fallan mis operaciones de nodo después de crear el igual o el clasificador?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry1)
-- [¿Por qué no se inicia mi igual?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry2)
-- [¿Por qué ha fallado la instalación, la creación de una instancia o la actualización de mi contrato inteligente?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry1)
-- [¿Cómo puedo ver los registros del contenedor del contrato inteligente?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
+- [¿Por qué fallan mis operaciones de nodo después de crear el igual o el clasificador?](#ibp-console-build-network-troubleshoot-entry1)
+- [¿Por qué no se inicia mi igual?](#ibp-console-build-network-troubleshoot-entry2)
+- [¿Por qué ha fallado la instalación, la creación de una instancia o la actualización de mi contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [¿Cómo puedo ver los registros del contenedor del contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Mi canal, los contratos inteligentes y las identidades han desaparecido de la consola. ¿Cómo puedo recuperarlos?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
-- [¿Por qué recibo el error `Se ha producido un error al actualizar el canal` al intentar añadir una organización a mi canal?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-update-channel)
-- [Mi clúster de Kubernetes ha caducado. ¿Qué quiere decir esto?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-cluster-expired)
-- [¿Por qué fallan las transacciones que envío desde VS Code?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
+- [¿Por qué recibo el error `No se puede autenticar con el ID y el secreto de inscripción que ha especificado` cuando creo una nueva definición de MSP de organización?](#ibp-v2-troubleshooting-create-msp)
+- [¿Por qué recibo el error `Se ha producido un error al actualizar el canal` al intentar añadir una organización a mi canal?](#ibp-v2-troubleshooting-update-channel)
+- [Mi clúster de Kubernetes ha caducado. ¿Qué quiere decir esto?](#ibp-v2-troubleshooting-cluster-expired)
+- [¿Por qué fallan las transacciones que envío desde VS Code?](#ibp-v2-troubleshooting-anchor-peer)
+- [Cuando inicio una sesión en mi consola, recibo el error 401 No autorizado](#ibp-v2-troubleshooting-console-401)
 
 ## Cuando paso el puntero del ratón sobre mi nodo, el estado es
 `Estado no disponible`, ¿qué significa esto?
 {: #ibp-v2-troubleshooting-status-unavailable}
+{: troubleshoot}
 
 El estado de nodo en el mosaico para el nodo de CA, igual o clasificador está en gris, lo que significa que el estado del nodo no está disponible. Idealmente, al pasar el puntero del ratón sobre cualquier nodo, el estado del nodo debe ser `En ejecución`.
 {: tsSymptoms}
@@ -58,6 +63,7 @@ Si se trata de un nodo nuevo, espere algunos minutos más para que finalice el d
 ## Cuando paso el puntero del ratón sobre mi nodo, el estado es
 `Estado no detectable`, ¿qué significa esto?
 {: #ibp-v2-troubleshooting-status-undetectable}
+{: troubleshoot}
 
 El estado de nodo en el mosaico del nodo igual o clasificador está en amarillo, lo que implica que el estado del nodo no se puede detectar. Idealmente, al pasar el puntero del ratón sobre cualquier nodo, el estado del nodo debe ser `En ejecución`.
 {: tsSymptoms}
@@ -84,6 +90,7 @@ El comprobador de estado ahora se puede ejecutar en el nodo y notificar el estad
 
 ## ¿Por qué fallan mis operaciones de nodo después de crear el igual o el clasificador?
 {: #ibp-console-build-network-troubleshoot-entry1}
+{: troubleshoot}
 
 Es posible que reciba un error al gestionar un nodo existente. Cuando esto ocurre, suele resultar útil consultar los registros del nodo.  
 
@@ -98,6 +105,7 @@ Compruebe el panel de control de Kubernetes y asegúrese de que el estado del ig
 
 ## ¿Por qué no se inicia mi igual?
 {: #ibp-console-build-network-troubleshoot-entry2}
+{: troubleshoot}
 
 Es posible que experimente este error bajo diversas condiciones.
 
@@ -117,6 +125,7 @@ producir este error bajo las siguientes condiciones:
 
 ## ¿Por qué ha fallado la instalación, la creación de una instancia o la actualización de mi contrato inteligente?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
+{: troubleshoot}
 
 Es posible que reciba un error al instalar, al crear una instancia o al actualizar un contrato inteligente.  Por ejemplo, cuando intenta instalar un contrato inteligente en un igual, falla con el error `Se ha producido un error al instalar el contrato inteligente en el igual`.
 {: tsSymptoms}
@@ -131,6 +140,7 @@ Puede recibir este error si esta versión del contrato inteligente ya existe en 
 
 ## ¿Cómo puedo ver los registros del contenedor del contrato inteligente?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
+{: troubleshoot}
 
 Es posible que tenga que ver el contrato inteligente, o el código de encadenamiento, y los registros del contenedor para depurar un problema del contrato inteligente.
 {: tsSymptoms}
@@ -140,11 +150,12 @@ Siga estas instrucciones para [ver los registros del contenedor](/docs/services/
 
 ## Mi canal, los contratos inteligentes y las identidades han desaparecido de la consola. ¿Cómo puedo recuperarlos?
 {: #ibp-v2-troubleshooting-browser-storage}
+{: troubleshoot}
 
 Las identidades de la cartera de la consola constan de un certificado para firmas y una clave privada que le permiten gestionar los componentes de blockchain, pero solo se almacenan en el almacenamiento local del navegador. Usted es el responsable de proteger y gestionar estas identidades. Le recomendamos que las exporte al sistema de archivos después de crearlas. Siempre que crea un nodo nuevo, asocia una identidad de la cartera de la consola al nodo. Esta identidad de administrador es lo que le permite gestionar el nodo. Cuando cambia de navegador navegadores o cambia a un navegador en otra máquina, estas identidades ya no se encuentran en la cartera. Por lo tanto, no puede gestionar los componentes.
 {: tsSymptoms}
 
-Una de las características nuevas de {{site.data.keyword.blockchainfull_notm}} Platform 2.0 es que ahora usted es el responsable de proteger y gestionar los certificados. Por lo tanto, solo se mantienen en el almacenamiento local del navegador para permitirle gestionar el componente. Si utiliza una ventana de navegador privada y cambia luego a otro navegador o a una ventana de navegador que no sea privada, las identidades que haya creado desaparecerán de la cartera de la consola en la nueva sesión de navegador. Por lo tanto, es necesario que exporte las identidades de la cartera de la consola de la sesión de navegador privada en el sistema de archivos. A continuación, puede importarlas en la sesión de navegador que no es privada si es necesario. De lo contrario, no hay forma de recuperarlas.
+Una de las características nuevas de {{site.data.keyword.blockchainfull_notm}} Platform es que ahora usted es el responsable de proteger y gestionar los certificados. Por lo tanto, solo se mantienen en el almacenamiento local del navegador para permitirle gestionar el componente. Si utiliza una ventana de navegador privada y cambia luego a otro navegador o a una ventana de navegador que no sea privada, las identidades que haya creado desaparecerán de la cartera de la consola en la nueva sesión de navegador. Por lo tanto, es necesario que exporte las identidades de la cartera de la consola de la sesión de navegador privada en el sistema de archivos. A continuación, puede importarlas en la sesión de navegador que no es privada si es necesario. De lo contrario, no hay forma de recuperarlas.
 {: tsCauses}
 
 - Cada vez que cree una nueva definición de MSP de la organización, genera claves para una identidad que tiene permiso para administrar la organización. Por lo tanto, durante este proceso debe pulsar los botones **Generar** y luego **Exportar** para almacenar la identidad generada en la cartera de la consola y, a continuación, guardarla en el sistema de archivos como un archivo JSON.
@@ -159,8 +170,22 @@ Una de las características nuevas de {{site.data.keyword.blockchainfull_notm}} 
 - Repita este proceso para cada identidad que había en la cartera del navegador original.
 {: tsResolve}
 
+## ¿Por qué recibo el error `No se puede autenticar con el ID y el secreto de inscripción que ha especificado` cuando creo una nueva definición de MSP de organización?
+{: #ibp-v2-troubleshooting-create-msp}
+{: troubleshoot}
+
+Cuando intenta crear una nueva definición de MSP de organización desde el separador Organizaciones, recibe el error `No se puede autenticar con el ID y el secreto de inscripción que ha especificado`.
+{: tsSymptoms}
+
+Este error se produce cuando el valor que ha especificado para el secreto de inscripción no es válido para el ID de inscripción que ha seleccionado en la sección `Generar certificado de administrador de organización` del panel.
+{: tsCauses}
+
+Verifique que ha seleccionado el ID de inscripción de administración de organización correcto en la lista desplegable de ID de inscripción y especifique el valor correcto para el secreto de inscripción.
+{: tsResolve}
+
 ## ¿Por qué recibo el error `Se ha producido un error al actualizar el canal` al intentar añadir una organización a mi canal?
 {: #ibp-v2-troubleshooting-update-channel}
+{: troubleshoot}
 
 Cuando intenta añadir otra organización a un canal, la actualización falla con el mensaje `Se ha producido un error al actualizar el canal`.
 {: tsSymptoms}
@@ -174,6 +199,7 @@ y seleccione el ID de MSP que se ha especificado al crear el canal o especifique
 
 ## Mi clúster de Kubernetes ha caducado. ¿Qué quiere decir esto?
 {: #ibp-v2-troubleshooting-cluster-expired}
+{: troubleshoot}
 
 He recibido un correo electrónico que indica que mi clúster de servicio {{site.data.keyword.IBM_notm}} Kubernetes está a punto de caducar o que su estado es `Caducado`. O bien, no puedo acceder a la consola después de 30 días.
 {: tsSymptoms}
@@ -187,6 +213,7 @@ No es posible migrar de un clúster gratuito a un clúster de pago. Después de 
 
 ## ¿Por qué fallan las transacciones que envío desde VS Code?
 {: #ibp-v2-troubleshooting-anchor-peer}
+{: troubleshoot}
 
 Las transacciones enviadas desde VS Code fallan con un error similar a:
 ```
@@ -198,3 +225,18 @@ Este error se produce si utiliza la característica Fabric Service Discovery, pe
 {: tsCauses}
 
 Siga el paso tres del [tema sobre datos privados](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) de la guía de aprendizaje sobre cómo desplegar un contrato inteligente para configurar sus iguales de ancla.
+
+## Cuando inicio una sesión en mi consola, recibo un error 401 No autorizado
+{: #ibp-v2-troubleshooting-console-401}
+{: troubleshoot}
+
+Cuando intento iniciar una sesión en mi consola, no puedo acceder a la consola desde mi navegador. Si consulto los registros del navegador, encuentro el error 401 No autorizado.
+{: tsSymptoms}
+
+La sesión de la consola del navegador excede el tiempo de espera después de **8 horas** de inactividad. Si una sesión pasa a estar inactiva, la consola impide que el usuario inactivo realice ninguna acción.
+{: tsCauses}
+
+Si la sesión ha pasado a estar inactiva, puede intentar simplemente renovar el navegador. Si no funciona, cierre el navegador, incluidos **todos** los separadores y todas las ventanas. Vuelva a abrir el URL. Se le solicitará que inicie la sesión.
+
+Como práctica recomendada, ya debería haber almacenado los certificados y las identidades en el sistema de archivos. Si utiliza una ventana de incógnito, todos los certificados se suprimen del almacenamiento local del navegador cuando se cierra el navegador. Después de volver a iniciar la sesión, tendrá que volver a importar las identidades y los certificados.
+{: note}

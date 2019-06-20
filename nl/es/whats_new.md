@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,14 +17,60 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Novedades
 {: #whats-new}
 
+## 18 de junio de 2019
+{: #whats-new-6-18-2019}
+
+{{site.data.keyword.blockchainfull}} Platform for Multicloud, que habilita el uso de la segunda generación de {{site.data.keyword.blockchainfull_notm}} Platform en su propia infraestructura y del proveedor de nube de Kubernetes que desee, pasa a estar disponible a nivel general. Este release permite utilizar la consola de la interfaz de usuario para desplegar y gestionar componentes de blockchain en su propio entorno mediante {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud utiliza la base de código de Hyperledger Fabric v1.4.1 y permite el despliegue en {{site.data.keyword.cloud_notm}} Private v3.2.
+
+Este release de {{site.data.keyword.blockchainfull_notm}} Platform incluye las siguientes características principales:
+
+**CREAR ---- Experiencia integrada del desarrollador**
+- **Codifique fácilmente** sus contratos inteligentes en Node.js, Golang o Java, escriba aplicaciones cliente con la nueva extensión de VS Code de {{site.data.keyword.blockchainfull_notm}}, aproveche la **integración de SDK** con la consola de la interfaz y aprenda con nuestras completas guías de aprendizaje y ejemplos.
+- **DevOps simplificado** le permite pasar de la fase de desarrollo a la de prueba y producción en un solo entorno mediante la ampliación de los recursos de Kubernetes para añadir más componentes.
+- **Integración del servicio Kubernetes.** Aproveche servicios como Grafana y Prometheus para el registro y Kibana para la supervisión.
+- **Características principales de Fabric actualizadas**. Aproveche las características más recientes de Hyperledger Fabric v1.4.1:
+  - [Servicio de ordenación Raft](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
+  - [Recopilaciones de datos privados](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) que mejoran la privacidad de los datos al garantizar que los datos del libro mayor solo se comparten entre iguales autorizados mediante el protocolo gossip.
+  - [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, que le permite descubrir y actualizar de forma dinámica la forma en que la aplicación interactúa con la red.
+  - [Listas de control de acceso de canal](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}, que le ofrecen un control adicional sobre los canales y los contratos inteligentes.
+
+**OPERAR --- Control total de los despliegues**
+- **Despliegue solo los componentes que necesite**. Conecte un igual a varios canales y redes, o aloje un servicio de ordenación al que pueden conectarse los socios de la empresa.
+- **Mantenga un control completo de sus identidades**. Almacene y gestione las claves que se utilizan para administrar los nodos en su propio entorno seguro.
+- **Operaciones unificadas**. La consola de {{site.data.keyword.blockchainfull_notm}} Platform le permite desplegar y gestionar todas las organizaciones y nodos en **una consola** sin tener que depender de {{site.data.keyword.IBM_notm}} ni de otros proveedores para gestionar los clasificadores o la entidad emisora de certificados. También puede añadir o eliminar miembros de un consorcio de blockchain, crear y unir canales e instalar y crear instancias de contratos inteligentes desde la consola.
+- **Aloje o únase a una red**. Despliegue iguales alojados en el clúster en varios canales en varias nubes, o invite a otras organizaciones a unirse a su consorcio o canales mientras las organizaciones gestionan sus nodos de forma independiente entre infraestructuras.
+- **Gestione el acceso** de los usuarios que pueden administrar o supervisar los nodos.
+- **Acceda directamente a los registros** de los nodos desde el servicio Kubernetes. Utilice cualquier servicio de terceros admitido para extraer y analizar los registros.
+- **Interactúe directamente con los pods** mediante el servicio Kubernetes.
+- **Recopilación de firmas dinámica**, que le permite un mejor control sobre la gestión de la colaboración a través de configuraciones de canal.
+
+**CRECER --- Escalabilidad y flexibilidad**
+- **Elija su capacidad de cálculo**. Tiene flexibilidad para decidir la cantidad de CPU, de memoria y de almacenamiento que desea suministrar en el clúster de Kubernetes. Para obtener más información, consulte [Cómo interactúa la consola con el clúster de Kubernetes](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction).
+- **Escale** al alza o a la baja los recursos del clúster de Kubernetes y pague solo lo que necesite. Para obtener más información, consulte [Tarifas](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+- **Recuperación tras desastre y alta disponibilidad multizona.** Esta prestación duplica el despliegue de Kubernetes entre zonas, ofreciendo alta disponibilidad (HA) de sus componentes y recuperación tras desastre (DR).
+- **Ejecución en cualquier lugar**. Gracias al **código base unificado** de la consola de {{site.data.keyword.blockchainfull_notm}} Platform, es posible ejecutar los componentes en cualquier entorno al que dé soporte {{site.data.keyword.cloud_notm}} Private.
+
+- Encontrará más información sobre {{site.data.keyword.blockchainfull_notm}} Platform en [Acerca de {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview).
+- Encontrará instrucciones sobre cómo desplegar el release en el proveedor de nube que elija mediante {{site.data.keyword.cloud_notm}} Private en el apartado sobre [Iniciación a {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+- Dispone de guías de aprendizaje actualizadas para utilizar {{site.data.keyword.blockchainfull_notm}} Platform en la subsección **Consola de {{site.data.keyword.blockchainfull_notm}} Platform** en la categoría **CÓMO SE HACE**.
+  * La [guía de aprendizaje sobre cómo crear una red](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) le ayuda en el proceso de alojar una red mediante la creación de CA, un servicio de ordenación y un igual.
+  * En la [guía de aprendizaje sobre cómo unirse a una red](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) se explica cómo unirse a una red existente creando un igual y uniéndolo a un canal.
+  * La guía para [Desplegar un contrato inteligente en la red](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) contiene información sobre cómo escribir un contrato inteligente y cómo desplegarlo en la red.
+- La oferta {{site.data.keyword.blockchainfull_notm}} Platform se basa en Hyperledger Fabric v1.4.1 y da soporte al protocolo gossip de igual a igual, al descubrimiento de servicios y a datos privados. Consulte este [tema](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) para obtener más información sobre cómo configurar datos privados en la red.
+
+Para obtener más información sobre Hyperledger Fabric v1.4.1, consulte la [documentación de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}. Para obtener más información sobre {{site.data.keyword.cloud_notm}} Private, consulte la [documentación de {{site.data.keyword.cloud_notm}} Private v3.2](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/kc_welcome_containers.html){: external}.
+
+Si aún utiliza {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private v1.0.1 o v1.0.2, consulte la [documentación de {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/ibp_for_icp_deployment_guide.html).
+
 ## 31 de mayo de 2019
 {: #whats-new-5-31-2019}
 
-{{site.data.keyword.blockchainfull}} Platform de segunda generación, que le permite desplegar, operar y supervisar su red blockchain, pasa a tener disponibilidad general. Este release incluye una nueva consola de interfaz de usuario que se puede utilizar para desplegar y gestionar componentes de blockchain en su propio clúster del servicio Kubernetes de {{site.data.keyword.IBM_notm}} en {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.blockchainfull_notm}} Platform de segunda generación, que le permite desplegar, operar y supervisar su red blockchain, pasa a tener disponibilidad general. Este release incluye una nueva consola de interfaz de usuario que se puede utilizar para desplegar y gestionar componentes de blockchain en su propio clúster del servicio Kubernetes de {{site.data.keyword.IBM_notm}} en {{site.data.keyword.cloud_notm}}.
 
 Este release de {{site.data.keyword.blockchainfull_notm}} Platform incluye las siguientes características principales:
 
@@ -33,11 +78,11 @@ Este release de {{site.data.keyword.blockchainfull_notm}} Platform incluye las s
 - **Codifique fácilmente** sus contratos inteligentes en Node.js, Golang o Java, escriba aplicaciones cliente con la nueva extensión de VS Code de {{site.data.keyword.blockchainfull_notm}}, aproveche la **integración de SDK** con la consola y aprenda con nuestras completas guías de aprendizaje y ejemplos.
 - **DevOps simplificado** le permite pasar de la fase de desarrollo a la de prueba y producción en un solo entorno mediante la ampliación de los recursos de Kubernetes para añadir más componentes.
 - **Características principales de Fabric actualizadas**. Aproveche las características más recientes de Hyperledger Fabric v1.4.1:
-  -  [Servicio de ordenación de Raft ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft "Servicio de ordenación de Raft")]
+  -  [Servicio de ordenación Raft](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
   - **Integración del servicio {{site.data.keyword.cloud_notm}}.** Aproveche los servicios incorporados en {{site.data.keyword.cloud_notm}}, como el panel de control del servicio {{site.data.keyword.cloud_notm}} Kubernetes, {{site.data.keyword.IBM_notm}} Log Analysis con LogDNA e {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
   - [Recopilaciones de **datos privados**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) que mejoran la privacidad de los datos al garantizar que los datos del libro mayor solo se comparten entre iguales autorizados mediante el protocolo gossip.
-  - [Service Discovery ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Service Discovery"), que le permite descubrir y actualizar de forma dinámica la forma en que la aplicación interactúa con la red.
-  - [Listas de control de accesos a canal ![Icono de enlace externo](../images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html "Listas de control de accesos") que le ofrecen un control adicional sobre los canales y los contratos inteligentes.
+  - [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, que le permite descubrir y actualizar de forma dinámica la forma en que la aplicación interactúa con la red.
+  - [Listas de control de acceso de canal](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}, que le ofrecen un control adicional sobre los canales y los contratos inteligentes.
 
 **OPERAR --- Control total de los despliegues**
 - **Despliegue solo los componentes que necesite**. Conecte un igual a varios canales y redes, o aloje un servicio de ordenación al que pueden conectarse los socios de la empresa.
@@ -55,9 +100,9 @@ Este release de {{site.data.keyword.blockchainfull_notm}} Platform incluye las s
 - **Recuperación tras desastre y alta disponibilidad multizona.** Esta opción duplica el despliegue de Kubernetes entre zonas, ofreciendo alta disponibilidad (HA) de sus componentes y recuperación tras desastre (DR).
 - **Ejecución en cualquier lugar** (instrucciones próximamente). Gracias al **código base unificado** de la consola de {{site.data.keyword.blockchainfull_notm}} Platform, es posible ejecutar los componentes en {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private y en nubes públicas de terceros.
 
-- Encontrará más información sobre la versión {{site.data.keyword.blockchainfull_notm}} Platform en [Acerca de {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview).
-- Encontrará instrucciones sobre cómo desplegar el {{site.data.keyword.blockchainfull_notm}} Platform en un clúster del servicio {{site.data.keyword.IBM_notm}} Kubernetes en [Iniciación a {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
-- Dispone de nuevas guías de aprendizaje para utilizar la versión {{site.data.keyword.blockchainfull_notm}} Platform en la subsección **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** de la categoría **CÓMO SE HACE**.
+- Encontrará más información sobre {{site.data.keyword.blockchainfull_notm}} Platform en [Acerca de {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview).
+- Encontrará instrucciones sobre cómo desplegar el release en un clúster del servicio {{site.data.keyword.IBM_notm}} Kubernetes en [Iniciación a {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+- Dispone de nuevas guías de aprendizaje para utilizar {{site.data.keyword.blockchainfull_notm}} Platform en la subsección **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** en la categoría **CÓMO SE HACE**.
   * La [guía de aprendizaje sobre cómo crear una red](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) le ayuda en el proceso de alojar una red mediante la creación de un clasificador y un igual.
   * En la [guía de aprendizaje sobre cómo unirse a una red](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) se explica cómo unirse a una red existente creando un igual y uniéndolo a un canal.
   * La guía para [Desplegar un contrato inteligente en la red](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) contiene información sobre cómo escribir un contrato inteligente y cómo desplegarlo en la red.
@@ -89,12 +134,12 @@ Se publica la v1.0.2 de {{site.data.keyword.blockchainfull_notm}} Platform para 
 
 Si desea actualizar la {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private existente a v1.0.2, consulte [Actualización del diagrama de Helm en {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/helm_install_icp.html#helm-install-upgrading).
 
-Para obtener más información sobre Hyperledger Fabric v1.4.0, consulte [Documentación de Hyperledger Fabric ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/ "Documentación de Hyperledger Fabric v1.4"). Para obtener más información sobre {{site.data.keyword.cloud_notm}} Private, consulte [Documentación de {{site.data.keyword.cloud_notm}} Private v3.1.2 ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/kc_welcome_containers.html "Documentación de {{site.data.keyword.cloud_notm}} Private v3.1.2").
+Para obtener más información sobre Hyperledger Fabric v1.4.0, consulte la [documentación de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}. Para obtener más información sobre {{site.data.keyword.cloud_notm}} Private, consulte la [documentación de {{site.data.keyword.cloud_notm}} Private 3.1.2](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/kc_welcome_containers.html){: external}.
 
 ## 8 de febrero de 2019
 {: #whats-new-2-08-2019}
 
-{{site.data.keyword.blockchainfull}} Platform lanza una versión gratuita 2.0 beta, la próxima generación de soluciones de {{site.data.keyword.blockchainfull_notm}} Platform que le permiten desplegar, utilizar y supervisar la red de blockchain. {{site.data.keyword.blockchainfull_notm}} Platform gratuita 2.0 beta incluye una nueva consola de interfaz de usuario que se puede utilizar para desplegar y gestionar componentes de blockchain en su propio clúster del servicio {{site.data.keyword.IBM_notm}} Kubernetes en {{site.data.keyword.cloud_notm}}. La versión {{site.data.keyword.blockchainfull_notm}} Platform gratuita 2.0 beta le permitirá:
+{{site.data.keyword.blockchainfull_notm}} Platform lanza una versión gratuita 2.0 beta, la próxima generación de soluciones de {{site.data.keyword.blockchainfull_notm}} Platform que le permiten desplegar, utilizar y supervisar la red de blockchain. {{site.data.keyword.blockchainfull_notm}} Platform gratuita 2.0 beta incluye una nueva consola de interfaz de usuario que se puede utilizar para desplegar y gestionar componentes de blockchain en su propio clúster del servicio {{site.data.keyword.IBM_notm}} Kubernetes en {{site.data.keyword.cloud_notm}}. La versión {{site.data.keyword.blockchainfull_notm}} Platform gratuita 2.0 beta le permitirá:
 
 **Cree su red con mayor rapidez y facilidad, mediante una experiencia sencilla**
 
@@ -136,9 +181,9 @@ Los temas *Operación de la red del Plan inicial* y *Operación de la red del Pl
 ## 27 de noviembre de 2018
 {: #whats-new-11-27-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform publica {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.cloud_notm}} Private es una plataforma de aplicaciones para desarrollar y gestionar aplicaciones contenerizadas basadas en Kubernetes y permite a los usuarios desplegar entidades emisoras de certificados (CA), clasificadores e iguales en x86, LinuxONE e IBM Z. {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private se basa en Hyperledger Fabric v1.2.1 y se despliega utilizando diagramas de Helm de Kubernetes. Después de instalar el diagrama de Helm, puede encontrarlo como un servicio empaquetado en el catálogo de {{site.data.keyword.cloud_notm}} Private. Tenga en cuenta que [esta oferta](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) es más adecuada para usuarios experimentados de Fabric.
+{{site.data.keyword.blockchainfull_notm}} Platform publica {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.cloud_notm}} Private es una plataforma de aplicaciones para desarrollar y gestionar aplicaciones contenerizadas basadas en Kubernetes y permite a los usuarios desplegar entidades emisoras de certificados (CA), clasificadores e iguales en x86, LinuxONE e {{site.data.keyword.IBM_notm}} Z. {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private se basa en Hyperledger Fabric v1.2.1 y se despliega utilizando diagramas de Helm de Kubernetes. Después de instalar el diagrama de Helm, puede encontrarlo como un servicio empaquetado en el catálogo de {{site.data.keyword.cloud_notm}} Private. Tenga en cuenta que [esta oferta](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) es más adecuada para usuarios experimentados de Fabric.
 
-Para obtener más información sobre {{site.data.keyword.cloud_notm}} Private, consulte la [documentación de {{site.data.keyword.cloud_notm}} Private v3.1.0 ![Icono de enlace externo](images/external_link.svg "Icono de enlace externo")](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/kc_welcome_containers.html "{{site.data.keyword.cloud_notm}} - Documentación de IBM Cloud privado v3.1.0").
+Para obtener más información sobre {{site.data.keyword.cloud_notm}} Private, consulte la [documentación de {{site.data.keyword.cloud_notm}} Private v3.1.0](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/kc_welcome_containers.html){: external}.
 
 El release de {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private también marca el fin del programa de igual remoto de la plataforma {{site.data.keyword.blockchainfull_notm}} (Beta). Todavía es posible desplegar un igual en {{site.data.keyword.cloud_notm}} Private o en AWS y conectarlo a una red del Plan inicial o el Plan empresarial. Para obtener más información, consulte [cómo desplegar un igual en el Plan inicial o Plan empresarial](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy) y [cómo desplegar un igual en AWS](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws). Estos iguales se consideran iguales **distribuidos** en lugar de iguales remotos, ya que el despliegue está gestionado por el cliente y, como consecuencia, no hay ninguna ubicación central desde la que haya otras remotas.
 

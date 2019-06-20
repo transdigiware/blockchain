@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -80,7 +80,7 @@ Un miembro de la red se puede hacer cargo de las cuotas de uno o varios miembros
 {: #paying-mode-limitation}
 - Puesto que todos los miembros están dentro de la cuenta de {{site.data.keyword.cloud_notm}} del pagador, este tiene acceso a las instancias de blockchain de todos los miembros y los podría suplantar. Por lo tanto, esta modalidad de pago se utiliza preferentemente en entornos de prueba de concepto (PoC) o en los casos en que el pagador maneja toda la gestión de {{site.data.keyword.blockchainfull_notm}} Platform y solo se suministra una aplicación a los miembros.  
 - Cualquier miembro de la organización de Cloud Foundry del pagador puede ver todos los espacios de la organización.  Sin embargo, no puede editar ni modificar las organizaciones porque no tiene acceso.  
-- Tenga en cuenta que cualquier miembro de la organización de Cloud Foundry del pagador puede ver los ID de IBM Cloud de otros miembros de la misma organización de Cloud Foundry.  
+- Tenga en cuenta que cualquier miembro de la organización de Cloud Foundry del pagador puede ver los ID de {{site.data.keyword.cloud_notm}} de otros miembros de la misma organización de Cloud Foundry.  
 - Después de añadir todos los miembros a la cuenta de {{site.data.keyword.cloud_notm}} del pagador y de asignarles acceso para suministrar instancias de blockchain y unirse a la red, el pagador también otorga a los miembros acceso para crear otros servicios, lo que podría ocasionar cargos adicionales. Todos los miembros podrían firmar un acuerdo con la confianza de que no crearán ningún servicio no autorizado en sus cuentas que ocasiones un coste extra a la cuenta del pagador.  
 
 ## Cómo dejar que un miembro pague por usted
