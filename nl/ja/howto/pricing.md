@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -67,8 +67,7 @@ subcollection: blockchain
 
 図 2 に、メンバーシップ料金についての理解に役立つ、ネットワーク・インスタンスの例を示します。 この図では、特定の {{site.data.keyword.cloud_notm}} アカウントにより 3 つのネットワーク・インスタンスがプロビジョンされます。1 つは *Blockchain-11* という名前のエンタープライズ・プラン・インスタンス、後の 2 つは *Blockchain-cz* と *Blockchain-da* という名前のスターター・プラン・インスタンスです。 各インスタンスに独自の順序付けサービスと CA が必要です。 この例では、この特定の {{site.data.keyword.cloud_notm}} アカウントは、3 つのメンバーシップ料金、つまりネットワーク・インスタンスごとに 1 つの料金を支払う必要があります。
 
-![ブロックチェーン・ネットワーク・インスタンス](../images/ibp_instance_example.png "ブロックチェーン・ネットワーク・インスタンス")  
-*図 2. ブロックチェーン・ネットワーク・インスタンス*
+![ブロックチェーン・ネットワーク・インスタンス](../images/ibp_instance_example.png "ブロックチェーン・ネットワーク・インスタンス")
 
 
 ## スターター・プランの料金

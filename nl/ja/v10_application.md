@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: Fabric SDKs, client application, enroll, register, chaincode
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Fabric SDK を使用したアプリケーションの開発
 {: #dev-app}
@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform には、アプリケーションをブロックチェーン・ネットワークに接続するために使用できる API が用意されています。 接続プロファイル内にあるネットワーク API エンドポイントを使用して、チェーンコードを起動し、ピアにあるチャネル固有の台帳を更新または照会することができます。 また、[Swagger UI](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) の API を使用して、ネットワークのノード、チャネル、およびメンバーを管理することもできます。
 {:shortdesc}
 
-このチュートリアルを使用して、{{site.data.keyword.blockchainfull_notm}} Platform API にアクセスし、それらを使用してアプリケーションをネットワークにエンロールおよび登録する方法を学習できます。 また、ネットワークと対話する方法や、アプリケーションからトランザクションを発行する方法を学習することもできます。 このチュートリアルは、Hyperledger Fabric の資料の [Writing Your First Application ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html "writing your first application"){:new_window} チュートリアルに基づいています。 使用するファイルとコマンドの多くは **Writing Your First Application** チュートリアルのものと同じですが、それらを {{site.data.keyword.blockchainfull_notm}} Platform 上のネットワークと対話するために使用します。 このチュートリアルでは、Hyperledger Fabric Node SDK を使用してアプリケーションを開発する手順について 1 つずつ説明します。 また、SDK を使用する代わりに Fabric CA クライアントを使用してユーザーのエンロールおよび登録を行う方法についても学習します。
+このチュートリアルを使用して、{{site.data.keyword.blockchainfull_notm}} Platform API にアクセスし、それらを使用してアプリケーションをネットワークにエンロールおよび登録する方法を学習できます。 また、ネットワークと対話する方法や、アプリケーションからトランザクションを発行する方法を学習することもできます。 このチュートリアルは、Hyperledger Fabric の資料の [Writing Your First Application](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html){: external} チュートリアルに基づいています。 使用するファイルとコマンドの多くは **Writing Your First Application** チュートリアルのものと同じですが、それらを {{site.data.keyword.blockchainfull_notm}} Platform 上のネットワークと対話するために使用します。 このチュートリアルでは、Hyperledger Fabric Node SDK を使用してアプリケーションを開発する手順について 1 つずつ説明します。 また、SDK を使用する代わりに Fabric CA クライアントを使用してユーザーのエンロールおよび登録を行う方法についても学習します。
 
 独自のビジネス・ソリューションを作成するときには、このチュートリアルに加えて、{{site.data.keyword.blockchainfull_notm}} Platform に用意されているサンプルのアプリケーションとチェーンコードをテンプレートとして使用できます。 詳しくは、[サンプル・アプリケーションのデプロイ](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications)を参照してください。
 
@@ -41,10 +41,10 @@ subcollection: blockchain
   使用するネットワークのネットワーク・モニターを開き、「概説」画面で組織用のピアを 1 つ以上追加します。 そして、ネットワーク内にチャネルを 1 つ以上作成します。 詳しくは、[チャネルの作成](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel)を参照してください。 スターター・プラン・ネットワークを使用している場合は、チェーンコードをデプロイするために使用できる `defaultchannel` という名前のチャネルがネットワークに既にあることに**注意してください**。
 
 - Hyperledger Fabric のサンプルをダウンロードするため、および Node SDK を使用するために必要なツールをインストールします。
-  * [Curl ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#install-curl "Curl") または [Git ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git"){:new_window}
-  * [Node.js ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#node-js-runtime-and-npm "Node.js"){:new_window}
+  * [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#install-curl){: external} または [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}
+  * [Node.js ](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#node-js-runtime-and-npm){: external}
 
-- `fabric-samples` ディレクトリーをダウンロードして Hyperledger Fabric のサンプルをインストールします。 Hyperledger Fabric の資料の [Getting Started ガイド ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/install.html "Getting Started ガイド"){:new_window} に従うことができます。
+- `fabric-samples` ディレクトリーをダウンロードして Hyperledger Fabric のサンプルをインストールします。 Hyperledger Fabric の資料の [Getting Started ガイド](https://hyperledger-fabric.readthedocs.io/en/release-1.2/install.html){: external}に従うことができます。
 
 - ローカル・マシン上の `fabric-samples` ディレクトリーにナビゲートします。
   * `git checkout` コマンドを使用して、ネットワークの Hyperledger Fabric バージョンに一致するブランチを使用します。 Fabric のバージョンは、ネットワーク・モニターで[「ネットワーク設定 (Network preferences)」ウィンドウ](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)を開くことで確認できます。
@@ -63,9 +63,9 @@ subcollection: blockchain
 ## Fabric SDK の使用
 {: #dev-app-fabric-sdks}
 
-Hyperledger Fabric SDK には、アプリケーションでブロックチェーン・ネットワークと対話するための強力な API セットが用意されています。 サポートされる言語の最新リストは、[Hyperledger Fabric SDK Community の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks "Hyperledger Fabric SDK Community の資料"){:new_window} にあります。 {{site.data.keyword.blockchainfull_notm}} Platform では、Node SDK または Java SDK を使用することをお勧めします。 各 SDK に用意されている API について詳しくは、SDK 別のリポジトリーを参照してください。
+Hyperledger Fabric SDK には、アプリケーションでブロックチェーン・ネットワークと対話するための強力な API セットが用意されています。 サポートされる言語の最新リストは、[Hyperledger Fabric SDK Community の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}にあります。 {{site.data.keyword.blockchainfull_notm}} Platform では、Node SDK または Java SDK を使用することをお勧めします。 各 SDK に用意されている API について詳しくは、SDK 別のリポジトリーを参照してください。
 
-このチュートリアルでは、[Node SDK ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/ "Node SDK"){:new_window} を使用してアプリケーションを登録およびエンロールし、そのアプリケーションでチェーンコードを起動および照会してトランザクションを発行します。 このチュートリアルでは、アプリケーションをブロックチェーン・ネットワークに接続するために SDK に渡す必要がある情報について説明します。 また、使用できる API や、SDK でブロックチェーン・ネットワークと対話してトランザクションを送信する方法についても紹介します。
+このチュートリアルでは、[Node SDK](https://fabric-sdk-node.github.io/){: external} を使用してアプリケーションを登録およびエンロールし、そのアプリケーションでチェーンコードを起動および照会してトランザクションを発行します。 このチュートリアルでは、アプリケーションをブロックチェーン・ネットワークに接続するために SDK に渡す必要がある情報について説明します。 また、使用できる API や、SDK でブロックチェーン・ネットワークと対話してトランザクションを送信する方法についても紹介します。
 
 ## アプリケーションへのネットワーク API エンドポイントの追加
 {: #dev-app-api-endpoints}
@@ -88,7 +88,7 @@ Hyperledger Fabric SDK には、アプリケーションでブロックチェー
                   ...
   ```
 
-自分の組織の外部にあるネットワーク・リソースをアプリケーションのターゲットにすることもできます。 例えば、チェーンコードの[エンドースメント・ポリシー](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy)が、チャネルの他の組織からの承認を必須としている場合は、ポリシーに準拠するために、各組織の十分な数のピアにトランザクションを送信する必要があります。 Hyperledger Fabric の[サービス・ディスカバリー ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "Service discovery") は、スターター・プランでもエンタープライズ・プランでもサポートされていません。 接続プロファイルの「ピア」セクションを使用して、他の組織のピアのエンドポイント情報とそれに付随する TLS 証明書を入手する必要があります。 どのピアがどのチャネルに参加しているかについて、他の組織の管理者に問い合わせることができます。{:note}
+自分の組織の外部にあるネットワーク・リソースをアプリケーションのターゲットにすることもできます。 例えば、チェーンコードの[エンドースメント・ポリシー](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy)が、チャネルの他の組織からの承認を必須としている場合は、ポリシーに準拠するために、各組織の十分な数のピアにトランザクションを送信する必要があります。 Hyperledger Fabric の[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}は、スターター・プランでもエンタープライズ・プランでもサポートされていません。 接続プロファイルの「ピア」セクションを使用して、他の組織のピアのエンドポイント情報とそれに付随する TLS 証明書を入手する必要があります。 どのピアがどのチャネルに参加しているかについて、他の組織の管理者に問い合わせることができます。{:note}
 
 3. 次の例のように、API エンドポイント情報をアプリケーションの構成ファイルにプラグインします。
   ```
@@ -119,7 +119,7 @@ Hyperledger Fabric SDK には、アプリケーションでブロックチェー
   ```
   {:codeblock}
 
-2. その後、このファイルは、証明書を管理するためのキー値ストア (KVS) を作成します。 SDK は [KeyValueStore ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/module-api.KeyValueStore.html "KeyValueStore"){:new_window} クラスを使用してキー値ストアを作成し、[CryptoSuite ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/module-api.CryptoSuite.html "CryptoSuite"){:new_window} クラスを使用して暗号計算を実行します。 該当するコード・ブロックを以下に示します。
+2. その後、このファイルは、証明書を管理するためのキー値ストア (KVS) を作成します。 SDK は [KeyValueStore](https://fabric-sdk-node.github.io/module-api.KeyValueStore.html){: external} クラスを使用してキー値ストアを作成し、[CryptoSuite](https://fabric-sdk-node.github.io/module-api.CryptoSuite.html){: external} クラスを使用して暗号計算を実行します。 該当するコード・ブロックを以下に示します。
   ```
   # create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
   Fabric_Client.newDefaultKeyValueStore({ path: store_path
@@ -139,7 +139,7 @@ Hyperledger Fabric SDK には、アプリケーションでブロックチェー
   ```
   {:codeblock}
 
-3. KVS を定義したら、[Fabric クライアント ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Client.html "Fabric クライアント"){:new_window} クラスおよび Fabric-CA-Client API <!---[FabricCAServices ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/FabricCAServices.html "FabricCAServices")---> のいくつかのメソッドを使用して CA サーバーと通信できるようになります。 SDK に認証局の名前と URL を渡す必要があります。 ネットワーク・モニターの**「概説」**画面から**「接続プロファイル」**の JSON ファイルを開き、`certificateAuthorites` セクションの下で以下の変数を見つけます。
+3. KVS を定義したら、[Fabric Client](https://fabric-sdk-node.github.io/Client.html){: external} クラスおよび Fabric-CA-Client API <!---[FabricCAServices](https://fabric-sdk-node.github.io/FabricCAServices.html){: external} ---> のいくつかのメソッドを使用して CA サーバーと通信できるようになります。SDK に認証局の名前と URL を渡す必要があります。 ネットワーク・モニターの**「概説」**画面から**「接続プロファイル」**の JSON ファイルを開き、`certificateAuthorites` セクションの下で以下の変数を見つけます。
   * CA の URL: ``certificateAuthorities`` の下の ``url``
   * 管理者のユーザー ID: ``enrollId``
   * 管理者のパスワード: ``enrollSecret``
@@ -201,7 +201,7 @@ node enrollAdmin.js
 
 1. CA の URL と名前を Fabric CA クライアントの新しいインスタンスに渡します。
 
-2. `admin` がエンロールされていてこの要求の実行を許可されているかどうかを調べるために、[Fabric Client クラス ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Client.html "Fabric Client クラス"){:new_window} の `getUserContext` メソッドに enrollID を渡します。 以下のサンプルに基づいて、ファイル内の該当するコード・ブロックを**編集**します。
+2. `admin` がエンロールされていてこの要求の実行を許可されているかどうかを調べるために、[Fabric Client クラス](https://fabric-sdk-node.github.io/Client.html){: external}の `getUserContext` メソッドに enrollID を渡します。 以下のサンプルに基づいて、ファイル内の該当するコード・ブロックを**編集**します。
   ```
   // be sure to change the http to https when the CA is running TLS enabled
   fabric_ca_client = new Fabric_CA_Client('https://admin:dda0c53f7b@n7413e3b503174a58b112d30f3af55016-org1-ca.us3.blockchain.ibm.com:31011', null , '<caName>', crypto_suite);
@@ -250,7 +250,7 @@ node enrollAdmin.js
 2. エンドース・ピアが、承認されたトランザクションをアプリケーションに返します。
 3. アプリケーションが、トランザクションを台帳に追加するために、承認されたトランザクションを順序付けサービスに送信します。
 
-トランザクション・フローの全体について詳しくは、Hyperledger Fabric の資料で [トランザクション・フロー ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")]( https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "トランザクション・フロー"){:new_window} を参照してください。 このチュートリアルを開始した後に、[アプリケーションの接続性と可用性](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability)のセクションを参照することにより、SDK がネットワークと対話する方法の管理に関するヒントを学べます。
+トランザクション・フローの全体について詳しくは、Hyperledger Fabric の資料で[トランザクション・フロー](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external}を参照してください。 このチュートリアルを開始した後に、[アプリケーションの接続性と可用性](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability)のセクションを参照することにより、SDK がネットワークと対話する方法の管理に関するヒントを学べます。
 
 次のサンプルでは、Node SDK でネットワーク・トポロジーをセットアップし、トランザクション提案を定義し、トランザクションをネットワークに送信する方法を示しています。 `invoke.js` ファイルを使用して、`fabcar` チェーンコード内の関数を呼び出せます。 それらの関数により、ブロックチェーン台帳上に資産を作成および転送できます。 このチュートリアルでは、`initLedger` 関数を使用して新しいデータをチャネルに追加してから、`query.js` ファイルを使用してそのデータを照会します。
 
@@ -261,7 +261,7 @@ node enrollAdmin.js
 
 1. ファイルの先頭に `var creds = require('./creds.json')` を追加します。 このコード行により、`invoke.js` ファイルは `creds.json` 資格情報ファイルの情報を読み取ることができます。
 
-2. [Fabric クライアント ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Client.html "Fabric クライアント"){:new_window} クラスで、ネットワーク・リソースの API エンドポイントを使用して Fabric ネットワークをセットアップします。 この手順では、クライアントが提案を送信するチャネルとピア、および、承認されたトランザクションを SDK が送信する順序付けサービスを定義します。 以下の該当するコード・ブロックを**編集**します。 `creds.peers["org1-peer1"].url` の行は、資格情報ファイルからピア URL をインポートします。
+2. [Fabric クライアント](https://fabric-sdk-node.github.io/Client.html){: external}・クラスで、ネットワーク・リソースの API エンドポイントを使用して Fabric ネットワークをセットアップします。 この手順では、クライアントが提案を送信するチャネルとピア、および、承認されたトランザクションを SDK が送信する順序付けサービスを定義します。 以下の該当するコード・ブロックを**編集**します。 `creds.peers["org1-peer1"].url` の行は、資格情報ファイルからピア URL をインポートします。
   ```
   # setup the fabric network
   var channel = fabric_client.newChannel('defaultchannel');
@@ -297,7 +297,7 @@ node enrollAdmin.js
   ```
   {:codeblock}
 
-  要求を定義した後に、[トランザクション提案 ![外部リンク・アイコンxternal link icon](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#sendTransactionProposal "sendTransactionProposal") をチャネル上のピアに送信できます。 提案がピアから返されたら、順序付けサービスに[トランザクションを送信 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#sendTransaction "sendTransaction") できます。
+  要求を定義した後に、[トランザクション提案](https://fabric-sdk-node.github.io/Channel.html#sendTransactionProposal){: external}をチャネル上のピアに送信できます。 提案がピアから返されたら、順序付けサービスに[トランザクションを送信](https://fabric-sdk-node.github.io/Channel.html#sendTransaction){: external}できます。
 
 4. イベント・サービスを追加して、トランザクション・フローの効率を高めることができます。 以下のセクションを**編集**してください。
   ```
@@ -306,7 +306,7 @@ node enrollAdmin.js
   ```
   {:codeblock}
 
-  このサンプルではピア・ベースのイベント・サービスを使用していますが、実際にはチャネル・ベースのリスナーを使用する必要があります。 詳しくは、[トランザクションの管理](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions)のセクション、および [Node SDK の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "チャネル・ベースのイベント・サービス"){:new_window} を参照してください。
+  このサンプルではピア・ベースのイベント・サービスを使用していますが、実際にはチャネル・ベースのリスナーを使用する必要があります。 詳しくは、[トランザクションの管理](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions)のセクション、および [Node SDK の資料](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}を参照してください。
 
 5. デフォルトでは、`invoke.js` はトランザクションを `user1` として送信します。 別の名前を登録した場合は、`invoke.js` ファイルを編集できます。
 
@@ -341,12 +341,12 @@ Response is
 ```
 {:codeblock}
 
-fabcar アプリケーションとこのアプリケーションが使用する関数について詳しくは、Hyperledger Fabric の資料で、[Writing Your First Application ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html "writing your first application"){:new_window} のチュートリアルの全体を参照してください。
+fabcar アプリケーションとこのアプリケーションが使用する関数について詳しくは、Hyperledger Fabric の資料で、[Writing Your First Application](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html){: external} のチュートリアルの全体を参照してください。
 
 ## SDK での接続プロファイルの使用
 {: #dev-app-connection-profile}
 
-ネットワークのエンドポイント情報を手動でインポートする代わりに、ネットワーク・モニターの**「概説」**画面にある**「接続プロファイル」**を使用して、SDK をネットワークに接続させることもできます。 これにより、エンロールおよび登録のために認証局に接続する処理が簡素化されます。 また、トランザクションを送信する前に Fabric ネットワークを定義する必要もなくなります。 SDK は、接続プロファイルから直接、該当するチャネル上のピアと順序付けプログラムを見つけます。 接続プロファイルの使用方法について詳しくは、[Node SDK の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-network-config.html "接続プロファイルのチュートリアル"){:new_window} を参照してください。
+ネットワークのエンドポイント情報を手動でインポートする代わりに、ネットワーク・モニターの**「概説」**画面にある**「接続プロファイル」**を使用して、SDK をネットワークに接続させることもできます。 これにより、エンロールおよび登録のために認証局に接続する処理が簡素化されます。 また、トランザクションを送信する前に Fabric ネットワークを定義する必要もなくなります。 SDK は、接続プロファイルから直接、該当するチャネル上のピアと順序付けプログラムを見つけます。 接続プロファイルの使用方法について詳しくは、[Node SDK の資料](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}を参照してください。
 
 手動のエンドポイントではなく接続プロファイルを使用することの効率の良さを理解するために、`invoke.js` ファイルを例として使用できます。 `loadFromConfig` クラスを使用して、Fabric クライアントの新しいインスタンスを設定できます。 `var fabric_client = new Fabric_Client();` を以下のコードに置き換えてください。
 ```
@@ -361,9 +361,9 @@ var channel = fabric_client.newChannel('defaultchannel');
 ```
 {:codeblock}
 
-これにより、SDK が、接続プロファイルを使用してチャネルに定義されているピアと順序付けサービスを追加します。 これを利用すると、アプリケーションの作成効率が高まるため、ネットワーク・メンバーの参加や離脱、新しいチャネルの開始などのためのアプリケーションの更新が簡単になります。 関連する他の手順について詳しくは、Node SDK 資料の[接続プロファイルのチュートリアル ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-network-config.html "接続プロファイルのチュートリアル"){:new_window} を参照してください。 手動のエンドポイント接続ではなく接続プロファイルを使用する、この[fabcar チュートリアルのバージョン ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://developer.ibm.com/tutorials/cl-deploy-fabcar-sample-application-ibm-blockchain-starter-plan/){:new_window} を使用できます。
+これにより、SDK が、接続プロファイルを使用してチャネルに定義されているピアと順序付けサービスを追加します。 これを利用すると、アプリケーションの作成効率が高まるため、ネットワーク・メンバーの参加や離脱、新しいチャネルの開始などのためのアプリケーションの更新が簡単になります。 関連する他の手順について詳しくは、Node SDK 資料の[接続プロファイルのチュートリアル](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}を参照してください。 手動のエンドポイント接続ではなく接続プロファイルを使用する、この[fabcar チュートリアルのバージョン](https://developer.ibm.com/tutorials/cl-deploy-fabcar-sample-application-ibm-blockchain-starter-plan/){: external}を使用できます。
 
-Hyperledger Fabric のエンドースメント・ポリシーの [ サービス・ディスカバリー ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "Service discovery") は、スターター・プランでもエンタープライズ・プランでもサポートされていません。 ただし、接続プロファイルを編集して、組織外のピアにトランザクションを送信して承認を受けることができます。 接続プロファイルには、{{site.data.keyword.blockchainfull_notm}} Platform ネットワーク上に存在する他の組織のピアのエンドポイント情報と TLS 証明書が既に含まれています。 ピアをチャネルに追加するには、プロファイルの「channels」セクションで、ピアの名前を該当するチャネルに追加します。 どのピアがどのチャネルに参加しているかについて、他の組織の管理者に問い合わせる必要があります。
+Hyperledger Fabric のエンドースメント・ポリシーの[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}は、スターター・プランでもエンタープライズ・プランでもサポートされていません。 ただし、接続プロファイルを編集して、組織外のピアにトランザクションを送信して承認を受けることができます。 接続プロファイルには、{{site.data.keyword.blockchainfull_notm}} Platform ネットワーク上に存在する他の組織のピアのエンドポイント情報と TLS 証明書が既に含まれています。 ピアをチャネルに追加するには、プロファイルの「channels」セクションで、ピアの名前を該当するチャネルに追加します。 どのピアがどのチャネルに参加しているかについて、他の組織の管理者に問い合わせる必要があります。
 
 ## ネットワーク・モニターを使用した証明書の生成
 {: #dev-app-enroll-panel}
@@ -372,7 +372,7 @@ Hyperledger Fabric のエンドースメント・ポリシーの [ サービス�
 
 ネットワーク・モニターの「認証局」パネルにナビゲートします。 管理者 ID の横にある**「証明書の生成」**ボタンをクリックして、CA から新しい署名付き証明書と秘密鍵を取得します。 **「証明書」**フィールドには、署名付き証明書が含まれており、**「秘密鍵」**のすぐ上にあります。 各フィールドの端にあるコピー・アイコンをクリックすると、そのフィールドの値をコピーできます。 これらの証明書は、アプリケーションに提供できる場所に保存します。 {{site.data.keyword.blockchainfull_notm}} Platform にはそれらの証明書が保管されないことに**注意してください**。 ユーザーがそれらを安全に保存して保管する必要があります。
 
-Node SDK 内で要求に署名できるユーザー・コンテキストを作成するには、署名付き証明書と秘密鍵で十分です。 Client クラスの [createUser ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Client.html#createUser__anchor "createUser"){:new_window} メソッドを使用して、ユーザー・コンテキスト・オブジェクトを作成します。 `creatUser` メソッド内で、ID 名と mspid を [user ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/global.html#UserOpts "user"){:new_window} オブジェクトに渡し、秘密鍵と署名付き証明書のパスを [cryptoContent ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/global.html#CryptoContent "cryptoContent"){:new_window} オブジェクトに渡します。
+Node SDK 内で要求に署名できるユーザー・コンテキストを作成するには、署名付き証明書と秘密鍵で十分です。 Client クラスの [createUser](https://fabric-sdk-node.github.io/Client.html#createUser__anchor){: external} メソッドを使用して、ユーザー・コンテキスト・オブジェクトを作成します。 `creatUser` メソッド内で、ID 名と mspid を [user](https://fabric-sdk-node.github.io/global.html#UserOpts){: external} オブジェクトに渡し、秘密鍵と署名付き証明書のパスを [cryptoContent](https://fabric-sdk-node.github.io/global.html#CryptoContent){: external} オブジェクトに渡します。
 
 例えば、アプリケーション開発チュートリアルの一部として「認証局」パネルと `createUser` クラスを使用できます。 チュートリアルを既に完了している場合は、`fabcar` チェーンコードがインストールおよびインスタンス化され、いくつかのデータが台帳に追加されています。 証明書を使用して、`admin` ユーザーとして台帳を照会できます。 ネットワーク・モニターを使用して証明書をまだ生成していない場合は、上記の手順に従ってください。
 
@@ -408,10 +408,10 @@ return fabric_client.createUser({
 
 組織がネットワーク・モニターまたは API を使用してチャネルを作成するかチャネルに参加した後に、SDK を使用してピアをチャネルに参加させることができます。
 
-1. 順序付けサービスからチャネルの[ジェネシス・ブロックを取得します ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#getGenesisBlock "ジェネシス・ブロックの取得"){:new_window}。
-2. ジェネシス・ブロックを [チャネル参加 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#joinChannel "joinChannel"){:new_window} メソッドに渡して、ピアをチャネルに参加させます。
+1. 順序付けサービスからチャネルの[ジェネシス・ブロックを取得します](https://fabric-sdk-node.github.io/Channel.html#getGenesisBlock){: external}。
+2. ジェネシス・ブロックを[チャネル参加](https://fabric-sdk-node.github.io/Channel.html#joinChannel){: external}メソッドに渡して、ピアをチャネルに参加させます。
 
-`fabcar` サンプルを使用してチャネルに参加するには、`invoke.js` ファイルを開始点として使用してください。 この要求はアプリケーションではなく管理者として送信する必要があるので、`getUserContext` メソッドの `user1` は `admin` に置き換えます。 `var request = {` でチェーンコード起動要求を定義した場所から開始して、[ノード SDK の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-channel-create.html "相互 tls"){:new_window} にある以下のコード・スニペットに基づき、トランザクション・フローをチャネル参加要求に置き換えます。
+`fabcar` サンプルを使用してチャネルに参加するには、`invoke.js` ファイルを開始点として使用してください。 この要求はアプリケーションではなく管理者として送信する必要があるので、`getUserContext` メソッドの `user1` は `admin` に置き換えます。 `var request = {` でチェーンコード起動要求を定義した場所から開始して、[ノード SDK の資料](https://fabric-sdk-node.github.io/tutorial-channel-create.html){: external}にある以下のコード・スニペットに基づき、トランザクション・フローをチャネル参加要求に置き換えます。
   ```
   let g_request = {
     txId :     tx_id
@@ -442,7 +442,7 @@ return fabric_client.createUser({
 ### チェーンコードのインストール
 {: #dev-app-install-cc-sdk}
 
-[Fabric クライアント ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Client.html "Fabric クライアント"){:new_window} クラスの [チェーンコード・インストール ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Client.html#installChaincode "installChaincode"){:new_window} メソッドを使用して、チェーンコードをピアにインストールできます。
+[Fabric クライアント](https://fabric-sdk-node.github.io/Client.html){: external}・クラスの[チェーンコード・インストール](https://fabric-sdk-node.github.io/Client.html#installChaincode){: external}・メソッドを使用して、チェーンコードをピアにインストールできます。
 
 `fabcar` サンプルを使用して `fabcar` チェーンコードをピアにインストールするには、`query.js` ファイルをベースラインとして使用して編集してください。 この要求はアプリケーションではなく管理者として送信する必要があるので、`getUserContext` メソッドの `user1` は `admin` に置き換えます。 以下の例を使用して、トランザクション提案オブジェクトをチェーンコード・インストール要求に置き換えてください。
 ```
@@ -462,7 +462,7 @@ var request = {
 ### チェーンコードのインスタンス化
 {: #dev-app-instantiate-cc-sdk}
 
-チェーンコードをインスタンス化するには、[インスタンス化の提案 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal "sendInstantiateProposal"){:new_window} をピアに送信してから、[トランザクション要求 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/Channel.html#sendTransaction "sendTransaction){:new_window} を順序付けサービスに送信する必要があります。
+チェーンコードをインスタンス化するには、[インスタンス化の提案](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}をピアに送信してから、[トランザクション要求](https://fabric-sdk-node.github.io/Channel.html#sendTransaction){: external}を順序付けサービスに送信する必要があります。
 
 `fabcar` サンプルを使用してチェーンコードをインスタンス化するには、`invoke.js` ファイルを開始点として使用してください。 この要求はアプリケーションではなく管理者として送信する必要があるので、`getUserContext` メソッドの `user1` は `admin` に置き換えます。 以下の例を使用して、トランザクション提案オブジェクトをチェーンコード・インストール要求に置き換えてください。
 ```
@@ -478,7 +478,7 @@ var request = {
 ```
 {:codeblock}
 
-この要求を、現在ファイル内にある `return channel.sendTransactionProposal(request);` ではなく、`return channel.sendInstantiateProposal(request);` に送信します。 インスタンス化要求をチャネルに送信した後に、承認された提案をトランザクションとして順序付けサービスに送信する必要があります。 これにはトランザクションの送信と同じ方式が使用されるので、ファイルの他の部分を変更する必要はありません。 インスタンス化提案で、[タイムアウト値を大きくする](/docs/services/blockchain/best_practices.html#best-practices-set-timeout-in-sdk)ことができます。そうしないと、プラットフォームがチェーンコード・コンテナーを開始する前に要求がタイムアウトになる可能性があります。
+この要求を、現在ファイル内にある `return channel.sendTransactionProposal(request);` ではなく、`return channel.sendInstantiateProposal(request);` に送信します。 インスタンス化要求をチャネルに送信した後に、承認された提案をトランザクションとして順序付けサービスに送信する必要があります。 これにはトランザクションの送信と同じ方式が使用されるので、ファイルの他の部分を変更する必要はありません。 インスタンス化提案で、[タイムアウト値を大きくする](/docs/services/blockchain/best_practices.html#best-practices-set-timeout-in-sdk)ことができます。 そうしないと、プラットフォームがチェーンコード・コンテナーを開始する前に要求がタイムアウトになる可能性があります。
 
 チェーンコードをインスタンス化するには、まず、署名付き証明書をチャネルに追加する必要があります。 チャネルに参加した後に証明書を生成した場合は、署名付き証明書をプラットフォームにアップロードしてから、「チャネル」画面で**「証明書の同期」**ボタンをクリックする必要があります。 チャネル同期が完了するまで数分待ってから、チェーンコードのインスタンス化コマンドを実行する必要がある場合があります。 詳しくは、[証明書の管理](/docs/services/blockchain/certificates.html#managing-certificates)チュートリアルの[署名付き証明書の {{site.data.keyword.blockchainfull_notm}} Platform へのアップロード](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs)を参照してください。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-04"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -19,6 +19,9 @@ subcollection: blockchain
 
 # エンタープライズ・プランの概説
 {: #getting-started-with-enterprise-plan}
+
+<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note}-->
 
 {{site.data.keyword.blockchainfull}} Platform エンタープライズ・プランは、高いセキュリティー、完全性、スケーラビリティー、パフォーマンスを備えたブロックチェーン・ネットワークを提供します。 機能を完備したネットワークを迅速にプロビジョンし、ネットワーク・モニター (GUI ダッシュボード) を使用して[チェーンコード](/docs/services/blockchain/glossary.html#glossary-chaincode)とアプリケーションをすぐに実行できます。ネットワークを最初から設計して構成する必要はありません。
 {:shortdesc}
@@ -38,9 +41,9 @@ subcollection: blockchain
 ## ネットワークの作成
 {: #getting-started-with-enterprise-plan-create-network}
 
-始める前に、{{site.data.keyword.cloud_notm}} で [{{site.data.keyword.blockchain}} Platform サービス・インスタンス ![外部リンク・アイコン ](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) を作成しておく必要があります。 {{site.data.keyword.cloud_notm}} ID でログインする必要があります。 ID がない場合は、**「登録して作成」**ボタンをクリックします。 インスタンスのサービスと資格情報の名前は、見分けやすいものに変更してください。 {{site.data.keyword.blockchain}} ネットワークをデプロイする {{site.data.keyword.cloud_notm}} の地域、組織、スペースを選択します。 次に、料金設定プランの表から**「エンタープライズ・メンバーシップ・プラン」**を選択し、**「作成」**ボタンをクリックします。
+始める前に、{{site.data.keyword.cloud_notm}} で [{{site.data.keyword.blockchain}} Platform サービス・インスタンス](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}を作成しておく必要があります。 {{site.data.keyword.cloud_notm}} ID でログインする必要があります。 ID がない場合は、**「登録して作成」**ボタンをクリックします。 インスタンスのサービスと資格情報の名前は、見分けやすいものに変更してください。 {{site.data.keyword.blockchain}} ネットワークをデプロイする {{site.data.keyword.cloud_notm}} の地域、組織、スペースを選択します。 次に、料金設定プランの表から**「エンタープライズ・メンバーシップ・プラン」**を選択し、**「作成」**ボタンをクリックします。
 
-{{site.data.keyword.blockchain}} Platform サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} サービス・ダッシュボード") に表示されます。
+{{site.data.keyword.blockchain}} Platform サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード](https://cloud.ibm.com/resources){: external}に表示されます。
 
 ネットワーク・イニシエーターである場合は、**「ネットワークの作成」**ボタンをクリックして {{site.data.keyword.blockchain}} ネットワークを開始します。 ウィザードに従って、ネットワークとリソースの基本的な構成を完了します。
 ![「ネットワークの作成」ウィザード](images/create_network_name.png "「ネットワークの作成」ウィザード")
@@ -66,9 +69,9 @@ subcollection: blockchain
 ## ネットワークへの参加
 {: #getting-started-with-enterprise-plan-join-nw}
 
-ネットワークを作成する場合と同じように、{{site.data.keyword.cloud_notm}} で [{{site.data.keyword.blockchain}} Platform サービス・インスタンス ![外部リンク・アイコン ](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) を作成する必要があります。 {{site.data.keyword.cloud_notm}} ID でログインする必要があります。 ID がない場合は、**「登録して作成」**ボタンをクリックします。 インスタンスのサービスと資格情報の名前は、見分けやすいものに変更してください。 {{site.data.keyword.blockchain}} ネットワークをデプロイする {{site.data.keyword.cloud_notm}} の地域、組織、スペースを選択します。 次に、料金設定プランの表から**「エンタープライズ・メンバーシップ・プラン」**を選択し、**「作成」**ボタンをクリックします。
+ネットワークを作成する場合と同じように、{{site.data.keyword.cloud_notm}} で [{{site.data.keyword.blockchain}} Platform サービス・インスタンス](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}を作成する必要があります。 {{site.data.keyword.cloud_notm}} ID でログインする必要があります。 ID がない場合は、**「登録して作成」**ボタンをクリックします。 インスタンスのサービスと資格情報の名前は、見分けやすいものに変更してください。 {{site.data.keyword.blockchain}} ネットワークをデプロイする {{site.data.keyword.cloud_notm}} の地域、組織、スペースを選択します。 次に、料金設定プランの表から**「エンタープライズ・メンバーシップ・プラン」**を選択し、**「作成」**ボタンをクリックします。
 
-{{site.data.keyword.blockchain}} Platform サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} サービス・ダッシュボード") に表示されます。
+{{site.data.keyword.blockchain}} Platform サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード](https://cloud.ibm.com/resources){: external}に表示されます。
 
 招待されたネットワーク・メンバーである場合は、**「保留中の招待 ->」**ボタンをクリックして、ドロップダウン・リストから参加するネットワークを選択し、**「ネットワークへの参加!」**ボタンをクリックします。 ウィザードに従って、ネットワークの基本的な構成を確認し、自分のネットワーク・リソースを構成します。
 ![「ネットワークへの参加」ウィザード](images/join_network_name.png "「ネットワークへの参加」ウィザード")
@@ -100,7 +103,7 @@ subcollection: blockchain
 
 ### サービス・インスタンス・ページからの取得
 {: #getting-started-with-enterprise-plan-retrieve-svc-ins}
-サービス・インスタンスを作成した直後に、サービス・インスタンス・ページが表示されます。 また、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} サービス・ダッシュボード") でサービスをクリックして、サービス・インスタンス・ページを開くこともできます。
+サービス・インスタンスを作成した直後に、サービス・インスタンス・ページが表示されます。 また、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード](https://cloud.ibm.com/resources){: external}でサービスをクリックして、サービス・インスタンス・ページを開くこともできます。
 
 以下の手順でサービス資格情報を取得します。
 1. サービス・インスタンス・ページで、左側のナビゲーターの**「サービス資格情報」**をクリックして、「サービス資格情報」画面を表示します。
@@ -116,8 +119,7 @@ subcollection: blockchain
 
 ## アプリケーションがネットワークと対話できるようにする
 {: #getting-started-with-enterprise-plan-enable-apps}
-アプリケーションは SDK API を活用して、{{site.data.keyword.blockchain}} ネットワークのリソースと対話します。 アプリケーションがトランザクション要求で最終的にピアをターゲットにできるように、ネットワーク・リソースの API エンドポイントの情報をアプリケーションに追加する必要があります。 その後、その API エンドポイントの情報をネットワーク・モニターから追加することができます。 アプリケーションは、ローカル・ファイル・システムまたは {{site.data.keyword.cloud_notm}} でホストできます。 詳しくは、
-[アプリケーションの開発](/docs/services/blockchain/v10_application.html#dev-app)を参照してください。
+アプリケーションは SDK API を活用して、{{site.data.keyword.blockchain}} ネットワークのリソースと対話します。 アプリケーションがトランザクション要求で最終的にピアをターゲットにできるように、ネットワーク・リソースの API エンドポイントの情報をアプリケーションに追加する必要があります。 その後、その API エンドポイントの情報をネットワーク・モニターから追加することができます。 アプリケーションは、ローカル・ファイル・システムまたは {{site.data.keyword.cloud_notm}} でホストできます。
 
 ## ネットワーク・リソースのモニター
 {: #getting-started-with-enterprise-plan-monitor-resources}

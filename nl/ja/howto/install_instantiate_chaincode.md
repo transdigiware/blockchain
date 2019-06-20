@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: chaincode endorsement policy, install chaincode, instantiate chaincode, update chaincode
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -20,12 +20,12 @@ subcollection: blockchain
 {: #install-instantiate-chaincode}
 
 
-チェーンコードとは、台帳内の資産を作成および変更するためのビジネス・ロジックとトランザクション命令をカプセル化したソフトウェアです。 チェーンコードはさまざまな言語で作成でき、{{site.data.keyword.blockchainfull}} Platform は Go および Node.js チェーンコードをサポートしています。 チェーンコードは、これと対話する必要のある任意のピアに関連付けられた Docker コンテナーで実行されます。 チェーンコードの開発方法について詳しくは、[Chaincode Tutorials ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html) を参照してください。
+チェーンコードとは、台帳内の資産を作成および変更するためのビジネス・ロジックとトランザクション命令をカプセル化したソフトウェアです。 チェーンコードはさまざまな言語で作成でき、{{site.data.keyword.blockchainfull}} Platform は Go および Node.js チェーンコードをサポートしています。 チェーンコードは、これと対話する必要のある任意のピアに関連付けられた Docker コンテナーで実行されます。 チェーンコードの開発方法について詳しくは、[Chaincode Tutorials](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html){: external} を参照してください。
 {:shortdesc}
 
 チェーンコードは、ピアにインストールされた後、チャネルに対してインスタンス化されます。 **チェーンコードを使用してトランザクションを送信したりデータを読み取ったりするメンバーはすべて、そのチェーンコードをピアにインストールする必要があります。** チェーンコードは、名前とバージョンによって定義されます。 インストールされているチェーンコードの名前とバージョンの両方が、同一チャネル上のすべてのピアで一致していなければなりません。
 
-チェーンコードが各ピアにインストールされた後、単一のネットワーク・メンバーがそのチェーンコードをチャネルに対してインスタンス化します。 この操作を実行するには、そのネットワーク・メンバーがチャネルに参加していなければなりません。 インスタンス化すると、チェーンコードで使用される初期データが入力されます。そして、チェーンコードがインストールされていて、チャネルに参加しているピア上でチェーンコード・コンテナーが開始されます。これにより、ピアは、実行中のコンテナーを使用してトランザクションを実行できるようになります。 **チェーンコードをインスタンス化する必要があるネットワーク・メンバーは 1 つのみであることに注意してください。** チェーンコードをインストールされたピアが、既にインスタンス化されたチャネルに参加すると、チェーンコード・コンテナーが自動的に開始されます。
+チェーンコードが各ピアにインストールされた後、単一のネットワーク・メンバーがそのチェーンコードをチャネルに対してインスタンス化します。 この操作を実行するには、そのネットワーク・メンバーがチャネルに参加していなければなりません。 インスタンス化すると、チェーンコードで使用される初期データが入力されます。そして、チェーンコードがインストールされていて、チャネルに参加しているピア上でチェーンコード・コンテナーが開始されます。 これにより、ピアは、実行中のコンテナーを使用してトランザクションを実行できるようになります。 **チェーンコードをインスタンス化する必要があるネットワーク・メンバーは 1 つのみであることに注意してください。** チェーンコードをインストールされたピアが、既にインスタンス化されたチャネルに参加すると、チェーンコード・コンテナーが自動的に開始されます。
 
 **インストールとインスタンス化**の組み合わせは強力な機能です。これにより、ピアは単一のチェーンコードを多くのチャネルで使用できるからです。 使用するチェーンコードは同じでも、データにアクセスできるネットワーク・メンバーが異なる複数のチャネルにピアが参加する必要がある場合があります。 ピアは、チェーンコードを 1 回インストールすれば、同じチェーンコードがインスタンス化されているすべてのチャネルで、そのチェーンコード・コンテナーを使用できます。 この軽量なアプローチは、コンピュートおよびストレージ・スペースを節約できるので、ネットワーク拡張の役に立ちます。
 
@@ -40,7 +40,7 @@ subcollection: blockchain
 
 2. **「チェーンコードのインストール (Install Chaincode)」**ポップアップ・パネルで、チェーンコードの名前とバージョンを入力します。 この名前とバージョンのストリングは、インストールされたチェーンコードと対話するためにアプリケーションで使用されることに**注意**してください。 **「参照」**ボタンをクリックし、ローカル・ファイル・システム内でチェーンコード・ソース・ファイルが格納されている場所にナビゲートします。 ピアにインストールするチェーンコードのソース・ファイルを 1 つ以上選択します。 次に、**「チェーンコード・タイプ (Chaincode Type)」**ドロップダウンからチェーンコード言語を選択します。
 
-1 つまたは複数の GO あるいは NODE ファイルをアップロードすることによってチェーンコードをインストールするか、.zip ファイルに含めてチェーンコードをアップロードすることができます。 .zip ファイルを使用すると、チェーンコードが完全なディレクトリー構造で保持されます。 このことは、従属関係のパッケージを含めたり、CouchDB で索引を使用したりする場合に役立ちます。 CouchDB について、および索引のセットアップ方法について詳しくは、アプリケーションの開発チュートリアルの [CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)を参照してください。 Hyperledger Fabric の資料で、[GO で作成されたチェーンコードの外部依存関係の管理 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){:new_window} に関する情報を参照することもできます。
+1 つまたは複数の GO あるいは NODE ファイルをアップロードすることによってチェーンコードをインストールするか、.zip ファイルに含めてチェーンコードをアップロードすることができます。 .zip ファイルを使用すると、チェーンコードが完全なディレクトリー構造で保持されます。 このことは、従属関係のパッケージを含めたり、CouchDB で索引を使用したりする場合に役立ちます。 CouchDB について、および索引のセットアップ方法について詳しくは、アプリケーションの開発チュートリアルの [CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)を参照してください。 Hyperledger Fabric の資料で、[GO で作成されたチェーンコードの外部依存関係の管理](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external}に関する情報を参照することもできます。
 
   ![チェーンコードのインストール](../images/chaincode_install.png "チェーンコードのインストール")
 
@@ -79,7 +79,7 @@ subcollection: blockchain
 
 * **JSON を使用した拡張ポリシーの指定:** 拡張ポリシーを指定し、重要なメンバーまたは管理者によるエンドースメントを必須とするか、特定のメンバーのエンドースメントに付与する重みづけを大きくします。
 
-  拡張ポリシーを指定する最も簡単な方法は、UI 画面を使用して単純ポリシーの構築から開始することです。 次に、**「拡張ポリシー (Advanced Policy)」**ボタンをクリックすると、単純ポリシーで設定したものと同じメンバーとルールが、JSON バージョンのポリシーに自動入力されます。 これで、JSON を編集してより拡張されたバージョンを記述できるようになります。 JSON でのエンドースメント・ポリシーの記述について詳しくは、[Hyperledger Fabric ノード SDK の資料![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest) を参照してください。<!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies)-->
+  拡張ポリシーを指定する最も簡単な方法は、UI 画面を使用して単純ポリシーの構築から開始することです。 次に、**「拡張ポリシー (Advanced Policy)」**ボタンをクリックすると、単純ポリシーで設定したものと同じメンバーとルールが、JSON バージョンのポリシーに自動入力されます。 これで、JSON を編集してより拡張されたバージョンを記述できるようになります。 JSON でのエンドースメント・ポリシーの記述について詳しくは、[Hyperledger Fabric ノード SDK の資料](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}を参照してください。 <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies){: external}-->
 
   ![拡張エンドースメント・ポリシー](../images/advanced_endorsement.png "拡張エンドースメント・ポリシー")
 

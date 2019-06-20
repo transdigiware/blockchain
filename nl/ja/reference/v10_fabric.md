@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -23,14 +23,14 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} ネットワークは、Linux Foundation の Hyperledger Project 内のブロックチェーン・プロジェクトの 1 つである Hyperledger Fabric スタック上に構築されています。 これは「許可制」のネットワークで、すべてのユーザーとコンポーネントには既知のアイデンティティーがあります。 すべてのコミュニケーション・タッチポイントに署名/検証ロジックが実装されており、一連のエンドースメントと検証の検査によってトランザクションが承認されます。 この点は匿名性を重視する従来型のブロックチェーンとは大きく異なります。従来型の実装は暗号通貨に依存し、トランザクションの検証を行うために高度な計算負荷がかかります。
 {:shortdesc}
 
-Hyperledger Fabric は、スケーラビリティーとパフォーマンスを拡張するためのモジュラー・アーキテクチャーを提供します。 このトピックでは、Hyperledger Fabric のいくつかのキー・コンポーネントを説明します。 Hyperledger Fabric の概要全体については、[Hyperledger Fabric の資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window} を参照してください。
+Hyperledger Fabric は、スケーラビリティーとパフォーマンスを拡張するためのモジュラー・アーキテクチャーを提供します。 このトピックでは、Hyperledger Fabric のいくつかのキー・コンポーネントを説明します。 Hyperledger Fabric の概要全体については、[Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}を参照してください。
 
 ## ピア
 {: #hyperledger-fabric-peer}
 
-物理レベルでは、ブロックチェーン・ネットワークは主にピア・ノード (または単にピア) で構成されます。 ピアは、台帳およびスマート・コントラクト ([「チェーンコード」![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html "Chaincode namespace") に含まれています) をホストするので、ネットワークの基本的な要素です。 より正確に表現すると、ピアは台帳の**インスタンス**およびスマート・コントラクトの**インスタンス**をホストします。 スマート・コントラクトおよび台帳は、ネットワーク内でそれぞれ、共有プロセスおよび共有情報をカプセル化するために使用されるので、ピアのこのような側面は、Fabric ネットワークが実際にどのように機能しているかを理解する良い開始点となります。
+物理レベルでは、ブロックチェーン・ネットワークは主にピア・ノード (または単にピア) で構成されます。 ピアは、台帳およびスマート・コントラクト ([「チェーンコード」](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}に含まれています) をホストするので、ネットワークの基本的な要素です。 より正確に表現すると、ピアは台帳の**インスタンス**およびスマート・コントラクトの**インスタンス**をホストします。 スマート・コントラクトおよび台帳は、ネットワーク内でそれぞれ、共有プロセスおよび共有情報をカプセル化するために使用されるので、ピアのこのような側面は、Fabric ネットワークが実際にどのように機能しているかを理解する良い開始点となります。
 
-ピアについて詳しくは、Fabric コミュニティー資料の[ピアにのみ焦点を当てたこの資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html) を確認してください。
+ピアについて詳しくは、Fabric コミュニティー資料の[ピアにのみ焦点を当てたこの資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external}を確認してください。
 
 ## 認証局
 {: #hyperledger-fabric-certificate-authority}
@@ -42,14 +42,14 @@ Hyperledger Fabric には、**許可制**ブロックチェーン・ネットワ
 
 このような、ネットワーク・メンバーシップとアクションに対する証明書ベースの制御を使用すると、メンバーは、特定のユーザー・アイデンティティーによって、専用かつ機密のチャネル、アプリケーション、データへのアクセスを制限できます。
 
-Hyperledger Fabric の認証局コンポーネントについて詳しくは、[Fabric CA User’s Guide![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){:new_window} を参照してください。
+Hyperledger Fabric の認証局コンポーネントについて詳しくは、[Fabric CA User’s Guide](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){: external} を参照してください。
 
 ## メンバーシップ・サービス・プロバイダー
 {: #hyperledger-fabric-membership-service-provider}
 
 Hyperledger Fabric には**メンバーシップ・サービス・プロバイダー (MSP)** コンポーネントが含まれています。このコンポーネントは、証明書の発行と検証に使用されるすべての暗号メカニズムとプロトコルの抽象化に加え、ユーザー認証を提供します。 MSP は各チャネル・ピアにインストールされ、ピアに対して発行されるトランザクション要求が、必ず認証済みの許可ユーザー・アイデンティティーから発信されるようにします。
 
-Hyperledger Fabric メンバーシップ・サービス・プロバイダー・コンポーネントについて詳しくは、[Hyperledger Fabric 資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window} の [Membership ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){:new_window} を参照してください。
+Hyperledger Fabric メンバーシップ・サービス・プロバイダー・コンポーネントについて詳しくは、[Hyperledger Fabric 資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}の [Membership](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} を参照してください。
 
 ## 順序付けサービス
 {: #hyperledger-fabric-ordering-service}
@@ -62,7 +62,7 @@ Ethereum や Bitcoin などの他の分散ブロックチェーンでは、ト�
 - 順序付けプログラムは、**順序付けシステム・チャネル**を保守します。これは、チャネルの作成を許可されたピア組織のリスト、つまり、**コンソーシアム**が存在する場所です。
 - 順序付けプログラムは、重要な ID 有効性検査を行います。 例えば、順序付けプログラムのコンソーシアムのメンバーでない組織がチャネルを作成しようとした場合、その要求は拒否されます。 また、順序付けプログラムは、トランザクション・チャネルに対する動作も検証します (チャネル構成を変更するための許可など)。
 
-Hyperledger Fabric は現在、SOLO (順序付けプログラム・ノード 1 つ) と Kafka ベースの順序付けサービスの両方の実装をサポートしています。 Hyperledger Fabric の順序付けサービスについて詳しくは、[Hyperledger Fabric 資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window} の [Bringing up a Kafka-based Ordering Service ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){:new_window} を参照してください。
+Hyperledger Fabric は現在、SOLO (順序付けプログラム・ノード 1 つ) と Kafka ベースの順序付けサービスの両方の実装をサポートしています。 Hyperledger Fabric の順序付けサービスについて詳しくは、[Hyperledger Fabric 資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}の [Bringing up a Kafka-based Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){: external} を参照してください。
 
 ## Fabric SDK
 {: #hyperledger-fabric-fabric-sdks}
@@ -82,16 +82,15 @@ Hyperledger Fabric には Node.js SDK と Java SDK の両方が用意されて�
 * 台帳にある特定のトランザクション、ブロック、またはキーを照会する
 * チャネル上のイベントをモニターする (例えば、トランザクションのコミットメントの成功)
 
-Fabric SDK について詳しくは、[Hyperledger Fabric 資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window} の [Hyperledger Fabric SDKs ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/fabric-sdks.html){:new_window} を参照してください。
+Fabric SDK について詳しくは、[Hyperledger Fabric 資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}の [Hyperledger Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/fabric-sdks.html){: external} を参照してください。
 
 ## トランザクション・フロー
 {: #hyperledger-fabric-transaction-flow}
 
 データの一貫性と整合性を確保するため、Hyperledger Fabric は、クライアント認証、エンドースメント、順序付け、台帳へのコミットメントなどのトランザクション・フロー全体にわたり、複数のチェックポイントを実装しています。
 
-次の**図 1** は、Hyperledger Fabric ブロックチェーン・ネットワーク上のトランザクション・フローを表しています。
-![トランザクション・フロー](../images/v10_txflow.png "Hyperledger Fabric ネットワーク上のトランザクション・フロー")
-*図 1. Hyperledger Fabric ネットワーク上のトランザクション・フロー*
+**図 1** は、Hyperledger Fabric ブロックチェーン・ネットワークのトランザクション・フローを表しています:
+![トランザクション・フロー](../images/v10_txflow.svg "Hyperledger Fabric ネットワークのトランザクション・フロー")
 
 Hyperledger Fabric ネットワークでは、照会とトランザクションにおけるデータ・フローは、クライアント・サイド・アプリケーションがチャネル上のピアにトランザクション要求を送信することによって開始します。 ネットワークにおける初期のデータ・フローは、照会とトランザクションの両方で共通しています。
 
@@ -104,6 +103,6 @@ Hyperledger Fabric ネットワークでは、照会とトランザクション�
 	* 検証プロセスで不合格になったトランザクションにはブロック内で無効のマークが付けられます。そして、そのブロックはチャネルの台帳に追加されます。
 	* すべての有効なトランザクションは、変更されたキー/値のペアに従って状態データベースを更新します。
 
-**gossip データ配布プロトコル**は、チャネル全体に台帳データを継続的にブロードキャストして、ピア間で台帳が同期しているようにします。 詳しくは、[Hyperledger Fabric 資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window} の [Gossip data dissemination protocol ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){:new_window} を参照してください。
+**gossip データ配布プロトコル**は、チャネル全体に台帳データを継続的にブロードキャストして、ピア間で台帳が同期しているようにします。 詳しくは、[Hyperledger Fabric 資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}の [Gossip data dissemination protocol](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} を参照してください。
 
-トランザクション・フローの詳しい紹介については、[Hyperledger Fabric 資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window} の [Transaction Flow![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){:new_window} を参照してください。
+トランザクション・フローの詳しい紹介については、[Hyperledger Fabric 資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}の [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external} を参照してください。

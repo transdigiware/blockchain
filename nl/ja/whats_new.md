@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,14 +17,60 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # 新機能
 {: #whats-new}
 
+## 2019 年 6 月 18 日
+{: #whats-new-6-18-2019}
+
+独自のインフラストラクチャーの任意の Kubernetes クラウド・プロバイダーで第 2 世代の {{site.data.keyword.blockchainfull_notm}} Platform を使用できる {{site.data.keyword.blockchainfull}} Platform for Multicloud の一般提供が開始されました。このリリースでは、{{site.data.keyword.cloud_notm}} Private を使用することで、ユーザー独自の環境でユーザー・インターフェース・コンソールを使用してブロックチェーン・コンポーネントのデプロイ、管理を行えます。{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud は、Hyperledger Fabric v1.4.1 コード・ベースを使用して、{{site.data.keyword.cloud_notm}} Private v3.2 へのデプロイメントをサポートします。
+
+この {{site.data.keyword.blockchainfull_notm}} Platform リリースには、以下の主要機能が含まれています。
+
+**構築 ---- 一体化された開発者の操作**
+- Node.js、Golang、または Java でスマート・コントラクトを**簡単にコーディングし**、新しい {{site.data.keyword.blockchainfull_notm}} VS Code 拡張機能を使用してクライアント・アプリケーションを作成し、ユーザー・インターフェース・コンソールと **SDK の統合**を活用し、豊富なチュートリアルおよびサンプルを参考にすることができます。
+- **シンプルになった DevOps** により、Kubernetes リソースをスケールアップしてコンポーネントを追加することで、単一の環境で開発からテスト、本番環境へと移行できます。
+- **Kubernetes サービス統合**。ロギングには Grafana や Prometheus などのサービスを利用し、モニタリングには Kibana を利用します。
+- **Fabric の最新の主要な機能**。 以下の Hyperledger Fabric v1.4.1 の最新機能を利用できます。
+  - [Raft 順序付けサービス](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
+  - [プライベート・データ・コレクション](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data): ゴシップ・プロトコルにより、許可されたピアでのみ台帳データを共有することでデータ・プライバシーを向上させます。
+  - [サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}: アプリケーションとネットワークがどのように対話しているかを動的に検出し、更新できます。
+  - [チャネル・アクセス制御リスト](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}: チャネルおよびスマート・コントラクトのガバナンス・コントロールを強化します。
+
+**操作 --- デプロイメントの完全な制御**
+- **必要なコンポーネントのみデプロイする**。 ピアを複数のチャネルおよびネットワークに接続したり、ビジネス・パートナーが接続できる順序付けサービスをホストしたりできます。
+- **ID の完全な制御を維持する**。 独自のセキュアな環境でノードを管理するために使用する鍵を保管および管理します。
+- **運用の統合**。{{site.data.keyword.blockchainfull_notm}} Platform コンソールにより、すべての組織とノードのデプロイおよび管理を、**1 つのコンソール**で行えるので、順序付けプログラムや認証局の管理を {{site.data.keyword.IBM_notm}} や他のベンダーに委ねる必要がありません。 また、ブロックチェーン・コンソーシアムのメンバーの追加/削除、チャネルの作成およびチャネルへの参加、スマート・コントラクトのインストールおよびインスタンス化もコンソールから行えます。
+- **ネットワークをホストする、またはネットワークに参加する**。 クラスターでホストされるピアを、複数のクラウド上の複数のチャネルにデプロイできます。また、コンソーシアムやチャネルに参加するように他の組織を招待できます。それらの組織は、インフラストラクチャーをまたいで自ノードを独立して管理することができます。
+- **アクセスを管理できる**。ノードを管理またはモニターできるユーザーのアクセスを管理できます。
+- **ログに直接アクセスできる**。Kubernetes サービスのノードのログに直接アクセスできます。 サポートされている任意のサード・パーティー・サービスを使用して、ログを抽出し、分析できます。
+- Kubernetes サービスを使用して、**ポッドと直接対話できる**。
+- **動的な署名の収集**。これにより、チャネルの構成に対する共同のガバナンスの制御を改善できます。
+
+**拡張 --- スケーラビリティーと柔軟性**
+- **コンピュート能力を選択できる**。 Kubernetes クラスターにプロビジョンする CPU、メモリー、およびストレージの容量を柔軟に選択できます。 詳しくは、[コンソールと Kubernetes クラスターの対話](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction)を参照してください。
+- Kubernetes クラスターのリソースを**拡張/縮小**して、必要な分のみ支払うことができます。 詳しくは、[料金](/docs/services/blockchain/howto/pricing.html#ibp-pricing)を参照してください。
+- **災害復旧および複数ゾーンによる高可用性。** この機能により、Kubernetes のデプロイメントをゾーン間で複製し、コンポーネントの高可用性 (HA) と災害復旧 (DR) を実現できます。
+- **どこでも実行可能**。 {{site.data.keyword.blockchainfull_notm}} Platform コンソールの**統合コードベース**により、{{site.data.keyword.cloud_notm}} Private でサポートされる任意の環境でコンポーネントを実行できます。
+
+- {{site.data.keyword.blockchainfull_notm}} Platform については、[{{site.data.keyword.blockchainfull_notm}} Platform 2.0 について](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview)で詳しく説明しています。
+- {{site.data.keyword.cloud_notm}} Private を使用してユーザー独自のクラウド・プロバイダーにリリースをデプロイする方法については、[{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)で説明しています。
+- {{site.data.keyword.blockchainfull_notm}} Platform の使用方法を学習するための更新されたチュートリアルを、**「方法」**カテゴリーの「**{{site.data.keyword.blockchainfull_notm}} Platform コンソール**」サブセクションに用意しています。
+  * [ネットワーク構築チュートリアル](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)では、CA、順序付けサービス、およびピアを作成してネットワークをホストするプロセスを学習します。
+  * [ネットワーク参加チュートリアル](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network)では、ピアを作成してチャネルに参加させることで、既存のネットワークに参加する方法を学習します。
+  * [ネットワークにスマート・コントラクトをデプロイする](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts)では、スマート・コントラクトを作成してネットワークにデプロイする方法を学習します。
+- {{site.data.keyword.blockchainfull_notm}} Platform オファリングは、Hyperledger Fabric v1.4.1 をベースとしており、ピアツーピアのゴシップ、サービス・ディスカバリー、およびプライベート・データをサポートします。 ネットワーク上にプライベート・データを構成する方法については、この[トピック](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)を参照してください。
+
+Hyperledger Fabric v1.4.1 の詳細については、[Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}を参照してください。 {{site.data.keyword.cloud_notm}} Private について詳しくは、[{{site.data.keyword.cloud_notm}} Private v3.2 の資料](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/kc_welcome_containers.html){: external}を参照してください。
+
+まだ {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private v1.0.1 または v1.0.2 を使用している場合は、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private の資料](/docs/services/blockchain-icp-102/ibp_for_icp_deployment_guide.html)を参照してください。
+
 ## 2019 年 5 月 31 日
 {: #whats-new-5-31-2019}
 
-ブロックチェーン・ネットワークのデプロイ、操作、およびモニターを可能にする第 2 世代の {{site.data.keyword.blockchainfull}} Platform が一般出荷可能になります。このリリースには、{{site.data.keyword.cloud_notm}} 上に存在するユーザーの {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターにブロックチェーン・コンポーネントをデプロイして管理できる新しいユーザー・インターフェース・コンソールが含まれています。
+ブロックチェーン・ネットワークのデプロイ、操作、およびモニターを可能にする第 2 世代の {{site.data.keyword.blockchainfull_notm}} Platform が一般出荷可能になります。 このリリースには、{{site.data.keyword.cloud_notm}} 上に存在するユーザーの {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターにブロックチェーン・コンポーネントをデプロイして管理できる新しいユーザー・インターフェース・コンソールが含まれています。
 
 この {{site.data.keyword.blockchainfull_notm}} Platform リリースには、以下の主要機能が含まれています。
 
@@ -33,11 +78,11 @@ subcollection: blockchain
 - Node.js、Golang、または Java でスマート・コントラクトを**簡単にコーディングし**、新しい {{site.data.keyword.blockchainfull_notm}} VS Code 拡張機能を使用してクライアント・アプリケーションを作成し、コンソールと **SDK の統合**を活用し、豊富なチュートリアルおよびサンプルを参考にすることができます。
 - **シンプルになった DevOps** により、Kubernetes リソースをスケールアップしてコンポーネントを追加することで、単一の環境で開発からテスト、本番環境へと移行できます。
 - **Fabric の最新の主要な機能**。 以下の Hyperledger Fabric v1.4.1 の最新機能を利用できます。
-  -  [Raft の順序付けサービス![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft "Raft の順序付けサービス")]
+  -  [Raft 順序付けサービス](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
   - **{{site.data.keyword.cloud_notm}} サービス統合。** {{site.data.keyword.cloud_notm}} Kubernetes Service ダッシュボード、{{site.data.keyword.IBM_notm}} Log Analysis with LogDNA、{{site.data.keyword.cloud_notm}} IAM (ID およびアクセス管理) など、{{site.data.keyword.cloud_notm}} の標準サービスを活用できます。
   - [**プライベート・データ**・コレクション](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data): ゴシップ・プロトコルにより、許可されたピアでのみ台帳データを共有することでデータ・プライバシーを向上させます。
-  - [サービス・ディスカバリー ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Service discovery"): アプリケーションとネットワークがどのように対話しているかを動的に検出し、更新できます。
-  - [チャネル・アクセス制御リスト ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html "Access Control Lists"): チャネルおよびスマート・コントラクトのガバナンス・コントロールを強化します。
+  - [サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}: アプリケーションとネットワークがどのように対話しているかを動的に検出し、更新できます。
+  - [チャネル・アクセス制御リスト](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}: チャネルおよびスマート・コントラクトのガバナンス・コントロールを強化します。
 
 **操作 --- デプロイメントの完全な制御**
 - **必要なコンポーネントのみデプロイする**。 ピアを複数のチャネルおよびネットワークに接続したり、ビジネス・パートナーが接続できる順序付けサービスをホストしたりできます。
@@ -46,17 +91,17 @@ subcollection: blockchain
 - **ネットワークをホストする、またはネットワークに参加する**。 クラスターでホストされるピアを、複数のクラウド上の複数のチャネルにデプロイできます。また、コンソーシアムやチャネルに参加するように他の組織を招待できます。それらの組織は、インフラストラクチャーをまたいで自ノードを独立して管理することができます。
 - **アクセスを管理できる**。ノードを管理またはモニターできるユーザーのアクセスを管理できます。
 - **ログに直接アクセスできる**。{{site.data.keyword.IBM_notm}} Kubernetes サービスのノードのログに直接アクセスできます。 {{site.data.keyword.cloud_notm}} Log Analysis サービスまたはサード・パーティーのサービスを使用して、ログを抽出し、分析できます。
-- Kubernetes ダッシュボードを使用して、**ポッドと直接対話できる**。コマンド・ラインからポッドおよびコンテナーの中にアクセスし、コマンドを実行したり、証明書を更新したりできます。
+- Kubernetes ダッシュボードを使用して、**ポッドと直接対話できる**。 コマンド・ラインからポッドおよびコンテナーの中にアクセスし、コマンドを実行したり、証明書を更新したりできます。
 - **動的な署名の収集**。これにより、チャネルの構成に対する共同のガバナンスの制御を改善できます。
 
 **拡張 --- スケーラビリティーと柔軟性**
-- **コンピュート能力を選択できる**。Kubernetes クラスターにプロビジョンする CPU、メモリー、およびストレージの容量を柔軟に選択できます。 詳しくは、[{{site.data.keyword.cloud_notm}} Kubernetes Service とコンソールの対話](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction)を参照してください。
+- **コンピュート能力を選択できる**。 Kubernetes クラスターにプロビジョンする CPU、メモリー、およびストレージの容量を柔軟に選択できます。 詳しくは、[{{site.data.keyword.cloud_notm}} Kubernetes Service とコンソールの対話](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction)を参照してください。
 - Kubernetes クラスターのリソースを**拡張/縮小**して、必要な分のみ支払うことができます。 詳しくは、[料金](/docs/services/blockchain/howto/pricing.html#ibp-pricing)を参照してください。
 - **災害復旧および複数ゾーンによる高可用性。** このオプションにより、Kubernetes のデプロイメントをゾーン間で複製し、コンポーネントの高可用性（HA）と災害復旧（DR）を実現できます。
-- **どこでも実行可能** (手順は近日公開)。{{site.data.keyword.blockchainfull_notm}} Platform コンソールの**統合コードベース**により、{{site.data.keyword.cloud_notm}}、{{site.data.keyword.cloud_notm}} Private、およびサード・パーティーのパブリック・クラウドでコンポーネントを実行できます。
+- **どこでも実行可能** (手順は近日公開)。 {{site.data.keyword.blockchainfull_notm}} Platform コンソールの**統合コードベース**により、{{site.data.keyword.cloud_notm}}、{{site.data.keyword.cloud_notm}} Private、およびサード・パーティーのパブリック・クラウドでコンポーネントを実行できます。
 
-- {{site.data.keyword.blockchainfull_notm}} Platform については、[{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} について](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview)で詳しく説明しています。
-- 2.0 ベータ版リリースを {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターにデプロイする方法については、[{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)で説明しています。
+- {{site.data.keyword.blockchainfull_notm}} Platform については、[{{site.data.keyword.blockchainfull_notm}} Platform 2.0 について](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview)で詳しく説明しています。
+- リリースを {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターにデプロイする方法については、[{{site.data.keyword.blockchainfull_notm}} Platform 2.0 の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)で説明しています。
 - {{site.data.keyword.blockchainfull_notm}} Platform の使用方法を学習するための新しいチュートリアルを、**「方法」**カテゴリーの「**{{site.data.keyword.blockchainfull_notm}} Platform 2.0**」サブセクションに用意しています。
   * [ネットワーク構築チュートリアル](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)では、順序付けプログラムとピアを作成することで、ネットワークをホストするプロセスを学習します。
   * [ネットワーク参加チュートリアル](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network)では、ピアを作成してチャネルに参加させることで、既存のネットワークに参加する方法を学習します。
@@ -66,7 +111,7 @@ subcollection: blockchain
 ## 2019 年 5 月 9 日
 {: #whats-new-5-09-2019}
 
-{{site.data.keyword.blockchainfull_notm}} Platform Visual Studio (VS) Code 拡張機能の {{site.data.keyword.blockchainfull_notm}} リリース・バージョン 1.0.0。この開発者ツールキットには、以下の主要機能が含まれています。
+{{site.data.keyword.blockchainfull_notm}} Platform Visual Studio (VS) Code 拡張機能の {{site.data.keyword.blockchainfull_notm}} リリース・バージョン 1.0.0。 この開発者ツールキットには、以下の主要機能が含まれています。
 
 **ナビゲーションがよりシンプルになるように再構成されたユーザー・インターフェース**
 
@@ -89,12 +134,12 @@ subcollection: blockchain
 
 既存の {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private を v1.0.2 にアップグレードする場合は、[{{site.data.keyword.cloud_notm}} Private での Helm チャートのアップグレード](/docs/services/blockchain/howto/helm_install_icp.html#helm-install-upgrading)を参照してください。
 
-Hyperledger Fabric v1.4.0 の詳細については、[Hyperledger Fabric の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/ "Hyperledger Fabric v1.4 の資料") を参照してください。 {{site.data.keyword.cloud_notm}} Private について詳しくは、[{{site.data.keyword.cloud_notm}} Private v3.1.2 の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン") を参照してください。](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/kc_welcome_containers.html "{{site.data.keyword.cloud_notm}} Private v3.1.2 の資料")
+Hyperledger Fabric v1.4.0 の詳細については、[Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}を参照してください。 {{site.data.keyword.cloud_notm}} Private について詳しくは、[{{site.data.keyword.cloud_notm}} Private v3.1.2 の資料](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/kc_welcome_containers.html){: external}を参照してください。
 
 ## 2019 年 2 月 8 日
 {: #whats-new-2-08-2019}
 
-{{site.data.keyword.blockchainfull}} Platform は無料の2.0 ベータ版をリリースしました。これは、ブロックチェーン・ネットワークのデプロイ、操作、モニターを可能にする次世代の {{site.data.keyword.blockchainfull_notm}} Platform ソリューションです。 {{site.data.keyword.blockchainfull_notm}} Platform 2.0 無料ベータ版には、{{site.data.keyword.cloud_notm}} 上に存在するユーザーの {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターにブロックチェーン・コンポーネントをデプロイして管理できる新しいユーザー・インターフェース・コンソールが含まれています。 {{site.data.keyword.blockchainfull_notm}} Platform 2.0 無料ベータ版では、次のことが可能です。
+{{site.data.keyword.blockchainfull_notm}} Platform は無料の2.0 ベータ版をリリースしました。これは、ブロックチェーン・ネットワークのデプロイ、操作、モニターを可能にする次世代の {{site.data.keyword.blockchainfull_notm}} Platform ソリューションです。 {{site.data.keyword.blockchainfull_notm}} Platform 2.0 無料ベータ版には、{{site.data.keyword.cloud_notm}} 上に存在するユーザーの {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターにブロックチェーン・コンポーネントをデプロイして管理できる新しいユーザー・インターフェース・コンソールが含まれています。 {{site.data.keyword.blockchainfull_notm}} Platform 2.0 無料ベータ版では、次のことが可能です。
 
 **1 つのシームレスな操作で、自分のネットワークを素早く簡単に構築できる**
 
@@ -136,9 +181,9 @@ Hyperledger Fabric v1.4.0 の詳細については、[Hyperledger Fabric の資�
 ## 2018 年 11 月 27 日
 {: #whats-new-11-27-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform は、{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private をリリースします。 {{site.data.keyword.cloud_notm}} Private は、Kubernetes ベースのコンテナー化アプリケーションを開発および管理するためのアプリケーション・プラットフォームです。ユーザーは、認証局 (CA)、順序付けプログラム、およびピアを x86、LinuxONE、および IBM Z にデプロイできます。{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private は Hyperledger Fabric v1.2.1 に基づいており、Kubernetes Helm チャートを使用してデプロイされます。 Helm チャートをインストールした後、これを {{site.data.keyword.cloud_notm}} Private カタログでバンドル・サービスとして見つけることができます。 [このオファリング](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about)は、経験豊富な Fabric ユーザーに適しています。
+{{site.data.keyword.blockchainfull_notm}} Platform は、{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private をリリースします。 {{site.data.keyword.cloud_notm}} Private は、Kubernetes ベースのコンテナー化アプリケーションを開発および管理するためのアプリケーション・プラットフォームです。ユーザーは、認証局 (CA)、順序付けプログラム、およびピアを x86、LinuxONE、および {{site.data.keyword.IBM_notm}} Z にデプロイできます。{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private は Hyperledger Fabric v1.2.1 に基づいており、Kubernetes Helm チャートを使用してデプロイされます。 Helm チャートをインストールした後、これを {{site.data.keyword.cloud_notm}} Private カタログでバンドル・サービスとして見つけることができます。 [このオファリング](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about)は、経験豊富な Fabric ユーザーに適しています。
 
-{{site.data.keyword.cloud_notm}} Private について詳しくは、[{{site.data.keyword.cloud_notm}} Private v3.1.0 の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン") を参照してください。](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/kc_welcome_containers.html "{{site.data.keyword.cloud_notm}} Private v3.1.0 の資料")
+{{site.data.keyword.cloud_notm}} Private について詳しくは、[{{site.data.keyword.cloud_notm}} Private v3.1.0 の資料](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/kc_welcome_containers.html){: external}を参照してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private のリリースをもって、{{site.data.keyword.blockchainfull_notm}} Platform リモート・ピア (ベータ版) プログラムが終了します。 引き続き {{site.data.keyword.cloud_notm}} Private または AWS にピアをデプロイし、それをスターター・プランまたはエンタープライズ・プラン・ネットワークに接続することは可能です。 詳しくは、[スターター・プランまたはエンタープライズ・プランに対するピアのデプロイ](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy)および [AWS でのピアのデプロイ](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws)を参照してください。 これらのピアは、リモート・ピアではなく**分散**ピアであると見なされます。これは、デプロイメントがお客様によって管理され、その結果、リモートになる中央の場所がないためです。
 

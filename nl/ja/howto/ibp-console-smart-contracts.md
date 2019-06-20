@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -25,7 +25,7 @@ subcollection: blockchain
 スマート・コントラクトとは、ブロックチェーン台帳のデータの読み取りと更新を可能にするコードであり、チェーンコードとも呼ばれます。 スマート・コントラクトは、ビジネス・ロジックを、ブロックチェーン・ネットワークのすべてのメンバーから承認および検証を受ける実行可能プログラムに変換できます。 このチュートリアルは、[サンプル・ネットワークのチュートリアル・シリーズ](#ibp-console-smart-contracts-structure)の第 3 部であり、ブロックチェーン・ネットワークでトランザクションを開始するためにスマート・コントラクトをデプロイする方法について説明します。
 {:shortdesc}
 
-ベータ・トライアル・バージョンの {{site.data.keyword.blockchainfull_notm}} Platform を使用している場合は、コンソールの一部のパネルが、一般出荷可能 (GA) サービス・インスタンスに合わせて最新の情報が記載されている現在の文書とは異なる可能性があります。最新機能をすべて活用するには、[{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)の指示に従って、この時点で新しい GA サービス・インスタンスをプロビジョンすることをお勧めします。
+ベータ・トライアル・バージョンの {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} を使用している場合は、コンソールの一部のパネルが、一般出荷可能 (GA) サービス・インスタンスに合わせて最新の情報が記載されている現在の文書とは異なる可能性があります。 最新機能をすべて活用するには、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)の指示に従って、この時点で新しい GA サービス・インスタンスをプロビジョンすることをお勧めします。
 {: important}
 
 **対象者:** このトピックは、ブロックチェーン・ネットワークの作成、モニター、管理を担当するネットワーク・オペレーターを対象に設計されています。 また、スマート・コントラクトの作成方法を参照しているセクションに興味があるアプリケーション開発者も対象にしています。
@@ -33,14 +33,13 @@ subcollection: blockchain
 ## サンプル・ネットワークのチュートリアル・シリーズ
 {: #ibp-console-smart-contracts-structure}
 
-この 3 部構成のチュートリアル・シリーズでは、{{site.data.keyword.blockchainfull_notm}} Platform 2.0 コンソールを使用し Kubernetes クラスターへのネットワークのデプロイやスマート・コントラクトのインストールとインスタンス化を行うことで、比較的にシンプルなマルチノードの Hyperledger Fabric ネットワークを作成して相互接続するプロセスを体験していきます。
+この 3 部構成のチュートリアル・シリーズでは、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用し Kubernetes クラスターへのネットワークのデプロイやスマート・コントラクトのインストールとインスタンス化を行うことで、比較的にシンプルなマルチノードの Hyperledger Fabric ネットワークを作成して相互接続するプロセスを体験していきます。
 
 * [ネットワーク構築チュートリアル](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)では、順序付けプログラムとピアを作成することで、ネットワークをホストするプロセスを学習します。
 * [ネットワーク参加チュートリアル](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network)では、ピアを作成してチャネルに参加させることで、既存のネットワークに参加するプロセスを学習します。
 * **ネットワークにスマート・コントラクトをデプロイする** (このチュートリアル) では、スマート・コントラクトを作成してネットワークにデプロイする方法を学習します。
 
-これらのチュートリアルの手順を使用すれば、複数の組織が参加する開発テスト用のネットワークを 1 つのクラスター内に構築できます。 順序付けサービス・ノードを作成して組織を追加することで、
-ブロックチェーン・コンソーシアムを形成する場合は、**ネットワーク構築**のチュートリアルを使用してください。 ピアをネットワークに接続するには、**ネットワーク参加**のチュートリアルを使用してください。 さまざまなコンソーシアム・メンバーと一緒にこれらのチュートリアルを進めると、実際に**分散した**ブロックチェーン・ネットワークを作成できます。  
+これらのチュートリアルの手順を使用すれば、複数の組織が参加する開発テスト用のネットワークを 1 つのクラスター内に構築できます。 順序付けノードを作成し、組織を追加してブロックチェーン・コンソーシアムを形成する場合は、**ネットワーク構築**のチュートリアルを使用してください。ピアをネットワークに接続するには、**ネットワーク参加**のチュートリアルを使用してください。 さまざまなコンソーシアム・メンバーと一緒にこれらのチュートリアルを進めると、実際に**分散した**ブロックチェーン・ネットワークを作成できます。  
 
 この最後のチュートリアルの目的は、スマート・コントラクトの作成とパッケージ化、ピア上でのスマート・コントラクトのインストール、チャネル上でのスマート・コントラクトのインスタンス化の方法を示すことです。  
 
@@ -70,11 +69,11 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull_notm}} コンソールで管理できるのは、スマート・コントラクトの*デプロイメント* であり、開発ではありません。 スマート・コントラクトの開発に興味がある場合は、手始めに、Hyperledger Fabric コミュニティーで提供されているチュートリアルと、{{site.data.keyword.IBM_notm}} から提供されているツールを使用すると良いでしょう。
 
-- スマート・コントラクトを使用して複数の団体の間でトランザクションを実行する方法については、Hyperledger Fabric の資料の[アプリケーションの開発に関するトピック ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "アプリケーションの開発に関するトピック") を参照してください。
-- アプリケーションを使用してスマート・コントラクトと対話する方法について最初から最後まで説明したチュートリアルについては、[Hyperledger Fabric コマーシャル・ペーパー・チュートリアル ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "Hyperledger Fabric Commercial Paper tutorial") を参照してください。
-- スマート・コントラクトにアクセス制御メカニズムを組み込む方法については、[開発者向けのチェーンコード ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control "Chaincode for Developers") を参照してください。
-- スマート・コントラクトを作成する準備ができたら、[{{site.data.keyword.blockchainfull_notm}} Visual Studio Code 拡張機能 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform "{{site.data.keyword.blockchainfull_notm}} Platform - Visual Studio Marketplace") を使用して、独自のスマート・コントラクト・プロジェクトの作成を開始できます。 また、この拡張機能を使用して、[Visual Studio Code からネットワークに直接接続する](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-vscode)こともできます。
-- インストールする準備ができたら、スマート・コントラクトをピアにインストールできるように [.cds 形式 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging "packaging smart contracts") でパッケージ化する必要があります。 詳しくは、[スマート・コントラクトのパッケージ化](/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract)を参照してください。 あるいは、[ピア CLI コマンド ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package "ピア・チェーンコード・パッケージ") を使用してパッケージを構築することもできます。
+- スマート・コントラクトを使用して複数の団体の間でトランザクションを実行する方法については、Hyperledger Fabric の資料の[アプリケーションの開発に関するトピック](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external}を参照してください。
+- アプリケーションを使用してスマート・コントラクトと対話する方法について最初から最後まで説明したチュートリアルについては、[Hyperledger Fabric コマーシャル・ペーパー・チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}を参照してください。
+- スマート・コントラクトにアクセス制御メカニズムを組み込む方法については、[開発者向けのチェーンコード](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}を参照してください。
+- スマート・コントラクトを作成する準備ができたら、[{{site.data.keyword.blockchainfull_notm}} Visual Studio code 拡張機能](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}を使用して、独自のスマート・コントラクト・プロジェクトの作成を開始できます。 また、この拡張機能を使用して、[Visual Studio Code からネットワークに直接接続する](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-vscode)こともできます。
+- インストールする準備ができたら、スマート・コントラクトをピアにインストールできるように [.cds 形式](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}でパッケージ化する必要があります。 詳しくは、[スマート・コントラクトのパッケージ化](/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract)を参照してください。 あるいは、[ピア CLI コマンド](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}を使用してパッケージを構築することもできます。
 <!-- Update the tutorial link to release1-4 when it is published -->
 
 
@@ -84,8 +83,7 @@ subcollection: blockchain
 コンソールを使用して、以下の手順を実行します。
 
 1. 1 つ以上のスマート・コントラクトをインストールするための**「スマート・コントラクト」**タブをクリックします。
-2. **「スマート・コントラクトのインストール (Install smart contract)」**をクリックし、[.cds 形式 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging "packaging smart contracts") のスマート・コントラクト・パッケージ・ファイルをアップロードします。
-{{site.data.keyword.blockchainfull_notm}} Visual Studio Code 拡張機能を使用して、[スマート・コントラクト・パッケージを作成](/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract)できます。 **「スマート・コントラクト」**タブでパッケージをインストールするときに、スマート・コントラクトをインストールするピア・ノードを 1 つ以上選択できます。
+2. **「スマート・コントラクトのインストール (Install smart contract)」**をクリックし、[.cds 形式](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}のスマート・コントラクト・パッケージ・ファイルをアップロードします。 _スマート・コントラクト・パッケージ・ファイルのサイズは 4 MB 未満でなければなりません。_{{site.data.keyword.blockchainfull_notm}} Visual Studio Code 拡張機能を使用して、[スマート・コントラクト・パッケージを作成](/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract)できます。 **「スマート・コントラクト」**タブでパッケージをインストールするときに、スマート・コントラクトをインストールするピア・ノードを 1 つ以上選択できます。
 
 コンソールにピアが 1 つしかない場合は、そのピアにスマート・コントラクトがインストールされます。 スマート・コントラクトのインストール先のピアを選択するためのプロンプトは表示されません。 「ノード」タブにナビゲートし、コンソールで管理しているピアをクリックすると、ピアにインストールされているスマート・コントラクトのリストが表示されます。
 
@@ -94,7 +92,7 @@ subcollection: blockchain
 
 **このコンソールでは、Hyperledger Composer の `.bna` ファイルはインストールできません。**
 
-<!-- Instead, `.bna` files must be installed on a peer by using the [`Composer` CLI commands ![External link icon](../images/external_link.svg "External link icon")]("peer chaincode" "peer chaincode").  -->
+<!-- Instead, `.bna` files must be installed on a peer by using the [`Composer` CLI commands]("peer chaincode" "peer chaincode").  -->
 
 ## 手順 3: スマート・コントラクトをインスタンス化する
 {: #ibp-console-smart-contracts-instantiate}
@@ -105,10 +103,11 @@ subcollection: blockchain
 
 1. 「スマート・コントラクト」タブで、ピアにインストールされているスマート・コントラクトをリストから見つけて、その行の右側のオーバーフロー・メニューにある**「インスタンス化」**をクリックします。
 2. 開いたサイド・パネルで、スマート・コントラクトをインスタンス化するチャネルを選択します。 作成済みの `channel1` という名前のチャネルを選択できます。 次に、**「次へ」**をクリックします。
-3. [スマート・コントラクトのエンドースメント・ポリシー](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-endorse)を指定します。これについては、後のセクションで説明します。複数の組織がチャネルのメンバーになっている場合は、スマート・コントラクト・トランザクションのエンドースメントに必要な組織の数を選択できます。
+3. [スマート・コントラクトのエンドースメント・ポリシー](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-endorse)を指定します。これについては、後のセクションで説明します。 複数の組織がチャネルのメンバーになっている場合は、スマート・コントラクト・トランザクションのエンドースメントに必要な組織の数を選択できます。
 4. エンドースメント・ポリシーに含める組織のメンバーも選択する必要があります。 このチュートリアルに沿って進める場合は、`org1msp` を選択します。**ネットワーク構築**チュートリアルと**ネットワーク参加**チュートリアルの両方を完了している場合は、`org2msp` も選択します。
-5. スマート・コントラクトに Fabric プライベート・データ・コレクションが含まれている場合は、関連するコレクション構成 JSON ファイルをアップロードする必要があります。そうでなければ、このステップをスキップして構いません。 [プライベート・データ](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)の使用法について詳しくは、このトピックを参照してください。
-6. 最後のパネルでは、スマート・コントラクトの開始時に実行するスマート・コントラクトの関数と、その関数に渡す関連引数を指定することが求められます。
+5. **「ピアの選択 (Select peer)」**パネルで、チャネルのメンバーである組織のピアをドロップダウン・リストから選択します。
+6. スマート・コントラクトに Fabric プライベート・データ・コレクションが含まれている場合は、関連するコレクション構成 JSON ファイルをアップロードする必要があります。そうでなければ、このステップをスキップして構いません。 [プライベート・データ](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)の使用法について詳しくは、このトピックを参照してください。
+7. 最後のパネルでは、スマート・コントラクトの開始時に実行するスマート・コントラクトの関数と、その関数に渡す関連引数を指定することが求められます。
 
 あるチャネルでインスタンス化されているスマート・コントラクトをすべて表示するには、左側のナビゲーションでチャネルのアイコンをクリックし、テーブルからチャネルを選択し、**「チャネルの詳細 (Channel details)」**タブをクリックします。
 
@@ -123,8 +122,7 @@ subcollection: blockchain
 
 ### SDK を使用した接続
 {: #ibp-console-smart-contracts-connect-to-SDK-panel}
-**「スマート・コントラクト」**タブには、インスタンス化されたスマート・コントラクトにクライアント・アプリから接続するために必要な情報が含まれています。 インスタンス化された各スマート・コントラクトの隣にあるオーバーフロー・メニューにナビゲートします。 **「SDK を使用して接続する (Connect with your SDK)」**ボタンをクリックします。 サイド・パネルが開き、そのスマート・コントラクトに接続するために必要な情報 (コントラクト名、チャネル名、および接続プロファイル) が表示されます。 詳しくは、
-[アプリケーションの作成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app)を参照してください。
+**「スマート・コントラクト」**タブには、インスタンス化されたスマート・コントラクトにクライアント・アプリから接続するために必要な情報が含まれています。 インスタンス化された各スマート・コントラクトの隣にあるオーバーフロー・メニューにナビゲートします。 **「SDK を使用して接続する (Connect with your SDK)」**ボタンをクリックします。 サイド・パネルが開き、そのスマート・コントラクトに接続するために必要な情報 (コントラクト名、チャネル名、および接続プロファイル) が表示されます。 詳しくは、[アプリケーションの作成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app)を参照してください。
 
 ## エンドースメント・ポリシーの指定
 {: #ibp-console-smart-contracts-endorse}
@@ -133,7 +131,7 @@ subcollection: blockchain
 
 [スマート・コントラクトをインスタンス化する](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-instantiate)手順の中で、サイド・パネルでチャネルを選択した後にコントラクトのエンドースメント・ポリシーを設定できます。 このパネルでは、チャネルにスマート・コントラクトをインストール済みのピアのリストから、トランザクションを承認する必要があるピアを選択して、シンプルなポリシーを指定できます。 この方法を使用して、すべてのチャネル・メンバー、大多数のチャネル・メンバー、または 1 メンバーによるエンドースメント・ポリシーを指定できます。また、メンバーの自己署名を禁止にするシンプルな「+ 1」のエンドースメント・ポリシーを指定することもできます。 デフォルトのエンドースメント・ポリシーは、`1 of x` に設定されます。つまり、スマート・コントラクト・トランザクションを承認するために必要なメンバーは 1 つだけです。
 
-ポリシーを JSON 形式で指定する場合は、**「拡張 (Advanced)」**ボタンをクリックします。 この方法では、より複雑なエンドースメント・ポリシーを指定できます。例えば、チャネルのある特定のメンバーが、他の大多数のメンバーと共に、トランザクションを検証しなければならないことを指定したりできます。 他にも[高度なエンドースメント・ポリシーの例 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies "Example endorsement policies") が Hyperledger Fabric の資料に記載されています。 JSON 形式でエンドースメント・ポリシーを記述する方法について詳しくは、[Hyperledger Fabric Node SDK の資料 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest "Hyperledger Fabric Node SDK の資料") を参照してください。
+ポリシーを JSON 形式で指定する場合は、**「拡張 (Advanced)」**ボタンをクリックします。 この方法では、より複雑なエンドースメント・ポリシーを指定できます。例えば、チャネルのある特定のメンバーが、他の大多数のメンバーと共に、トランザクションを検証しなければならないことを指定したりできます。 他にも[高度なエンドースメント・ポリシーの例](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external}が Hyperledger Fabric の資料に記載されています。 JSON でのエンドースメント・ポリシーの記述について詳しくは、[Hyperledger Fabric ノード SDK の資料](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}を参照してください。
 
 ## スマート・コントラクトのアップグレード
 {: #ibp-console-smart-contracts-upgrade}
@@ -154,16 +152,17 @@ subcollection: blockchain
 {:important}
 スマート・コントラクトを実行する新規メンバーがチャネルに参加する場合は、スマート・コントラクトの更新が必須です。そのためには、すべてのピアに新規バージョンをインストールし、新規メンバーを含むように変更したエンドースメント・ポリシーを使用して、チャネルでスマート・コントラクトをインスタンス化します。
 
+- 左側の**「スマート・コントラクト」**タブにナビゲートします。
 - **「インスタンス化されたスマート・コントラクト (Instantiated smart contracts)」**テーブルまでスクロールダウンします。
 - **「インスタンス化されたスマート・コントラクト (Instantiated smart contracts)」**テーブルで、アップグレードするスマート・コントラクトのバージョンとチャネルを見つけます。 そのバージョンの横に、**「アップグレードが利用可能 (Upgrade Available)」**ラベルが付いているはずです。
 - スマート・コントラクトの行の右側にある**オーバーフロー・メニュー**をクリックし、**「アップグレード」**をクリックして、以下の手順を実行します。  
 
  1. チャネルでアップグレードするスマート・コントラクトのバージョンをドロップダウン・リストから選択します。
  2. チャネル・メンバーを追加または削除して、エンドースメント・ポリシーを更新します。 **「拡張 (Advanced)」**をクリックし、JSON 形式の新しい文字列を貼り付けて、既存のポリシーを変更することもできます。
- 3. プライベート・データ・コレクション構成ファイルをスマート・コントラクトに関連付ける場合は、JSON ファイルをアップロードできます。 既存のコレクション構成を更新する場合も、JSON ファイルをアップロードできます。   
+ 3. **「ピアの選択 (Select peer)」**パネルで、スマート・コントラクトをアップグレードするための提案を承認できるピアを選択する必要があります。したがって、スマート・コントラクトが最後にチャネルでインスタンス化される前にチャネルのメンバーであった組織のピアをドロップダウン・リストから選択する必要があります。
+ 4. プライベート・データ・コレクション構成ファイルをスマート・コントラクトに関連付ける場合は、JSON ファイルをアップロードできます。 既存のコレクション構成を更新する場合も、JSON ファイルをアップロードできます。   
  スマート・コントラクトをコレクション構成ファイルで以前にインスタンス化していた場合は、このステップの実行時に以前のバージョンか新しいバージョンのコレクション構成ファイルを再びアップロードすることが**必要**です。  
- {:important}
- 4. (オプション) パラメーターを変更した場合は、スマート・コントラクトの初期設定の引数値を変更します。 値がわからない場合は、スマート・コントラクトの開発者に確認してください。 パラメーターが変更されていない場合は、このフィールドはブランクのままでかまいません。
+ 5. (オプション) パラメーターを変更した場合は、スマート・コントラクトの初期設定の引数値を変更します。 値がわからない場合は、スマート・コントラクトの開発者に確認してください。 パラメーターが変更されていない場合は、このフィールドはブランクのままでかまいません。
 
 スマート・コントラクトをアップグレードしたら、チャネルでインスタンス化されているコントラクトのバージョンを変更し、新規バージョンをインストールしたすべてのピアのスマート・コントラクト・コンテナーを変更します。 プライベート・データ・コレクションを使用している場合は、チャネルでアンカー・ピアの構成を行ったことを確認してください。
 
@@ -189,18 +188,18 @@ subcollection: blockchain
 ## プライベート・データ
 {: #ibp-console-smart-contracts-private-data}
 
-プライベート・データは、バージョン 1.2 以上の Hyperledger Fabric ネットワークの機能であり、この機能を使用すると、**チャネル上の**他の組織のメンバーから機密情報を隠すことができます。 データ・プライバシーは、[プライベート・データ・コレクション ![外部リンク・アイコン")](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection "What is a private data collection?") を使用することで実現しています。 例えば、数人の卸売業者と農業者の集団が 1 つのチャネルに参加しているとします。 内密に取引をしたい農業者と卸売業者は、その目的のためのチャネルを作成することができます。 しかし、販売に関する機密の側面 (価格など) のプライバシーを維持するために、ビジネス上の対話を管理するプライベート・データ・コレクションをスマート・コントラクトに作成することもできます。そうすれば別のチャネルを作成する必要はありません。 ブロックチェーンでプライベート・データを使用するケースについて詳しくは、Fabric 資料の[プライベート・データ ![外部リンク・アイコン")](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#private-data "Private data") の概念に関する記事を参照してください。
+プライベート・データは、バージョン 1.2 以上の Hyperledger Fabric ネットワークの機能であり、この機能を使用すると、**チャネル上の**他の組織のメンバーから機密情報を隠すことができます。 データ・プライバシーは、[プライベート・データ・コレクション](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection "What is a private data collection?"){: external}を使用することで実現しています。 例えば、数人の卸売業者と農業者の集団が 1 つのチャネルに参加しているとします。 内密に取引をしたい農業者と卸売業者は、その目的のためのチャネルを作成することができます。 しかし、販売に関する機密の側面 (価格など) のプライバシーを維持するために、ビジネス上の対話を管理するプライベート・データ・コレクションをスマート・コントラクトに作成することもできます。そうすれば別のチャネルを作成する必要はありません。 ブロックチェーンでプライベート・データを使用するケースについて詳しくは、Fabric 資料の[プライベート・データ](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#private-data "Private data"){: external}の概念に関する記事を参照してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform でプライベート・データを使用するためには、次の 3 つの条件を満たす必要があります。  
-1. **プライベート・データ・コレクションを定義する。** プライベート・データ・コレクションのファイルをスマート・コントラクトに追加できます。 そして、実行時に、クライアント・アプリケーションでプライベート・データ固有のチェーンコード API を使用して、コレクションのデータを入力および取得できます。 スマート・コントラクトでプライベート・データ・コレクションを使用する方法について詳しくは、Fabric SDK 資料にある[プライベート・データの使用 ![ 外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-private-data.html "How to use Private Data") に関する Fabric SDK チュートリアルを参照してください。  
+1. **プライベート・データ・コレクションを定義する。** プライベート・データ・コレクションのファイルをスマート・コントラクトに追加できます。 そして、実行時に、クライアント・アプリケーションでプライベート・データ固有のチェーンコード API を使用して、コレクションのデータを入力および取得できます。 スマート・コントラクトでプライベート・データ・コレクションを使用する方法について詳しくは、Fabric SDK 資料にある[プライベート・データの使用](https://fabric-sdk-node.github.io/tutorial-private-data.html){: external}に関する Fabric SDK チュートリアルを参照してください。  
 
-2. **スマート・コントラクトをインストールしてインスタンス化する。** スマート・コントラクトのプライベート・データ・コレクションを定義したら、スマート・コントラクトをチャネルのメンバーであるピアにインストールする必要があります。 コンソールを使用してチャネルでスマート・コントラクトをインスタンス化する場合は、コレクション構成 JSON ファイルをアップロードする必要があります。 [コレクション定義 JSON ファイルを作成 ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン ")](https://fabric-sdk-node.github.io/tutorial-private-data.html "How to use private data") する方法について詳しくは、Fabric SDK 資料のトピックを参照してください。
+2. **スマート・コントラクトをインストールしてインスタンス化する。** スマート・コントラクトのプライベート・データ・コレクションを定義したら、スマート・コントラクトをチャネルのメンバーであるピアにインストールする必要があります。 コンソールを使用してチャネルでスマート・コントラクトをインスタンス化する場合は、コレクション構成 JSON ファイルをアップロードする必要があります。 [コレクション定義 JSON ファイルを作成](https://fabric-sdk-node.github.io/tutorial-private-data.html){: external}する方法について詳しくは、Fabric SDK 資料のトピックを参照してください。
 
-  スマート・コントラクトをインストールしてコレクション構成ファイルでインスタンス化する時に、コンソールを使用する代わりに Fabric SDK を使用することもできます。 その手順は、Node SDK 資料の [プライベート・データの使用法 ![外部リンク・アイコン ](../images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html "How to use private data") にも記されています。  
+  スマート・コントラクトをインストールしてコレクション構成ファイルでインスタンス化する時に、コンソールを使用する代わりに Fabric SDK を使用することもできます。 その手順は、Node SDK 資料の[プライベート・データの使用法](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html){: external}にも記されています。  
 
-  **注:** クライアントが SDK を使用してスマート・コントラクトをインストールしたりインスタンス化したりするには、ピアの管理者でなければなりません。 そのため、アプリケーション ID を作成するのではなく、コンソール・ウォレットからピア管理者 ID の証明書をダウンロードし、ピア管理者の署名証明書と秘密鍵を SDK に直接渡す必要があります。鍵ペアを SDK に渡す方法の例については、[低水準の Fabric SDK API を使用したネットワークへの接続](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-low-level)を参照してください。  
+  **注:** クライアントが SDK を使用してスマート・コントラクトをインストールしたりインスタンス化したりするには、ピアの管理者でなければなりません。 そのため、アプリケーション ID を作成するのではなく、コンソール・ウォレットからピア管理者 ID の証明書をダウンロードし、ピア管理者の署名証明書と秘密鍵を SDK に直接渡す必要があります。 鍵ペアを SDK に渡す方法の例については、[低水準の Fabric SDK API を使用したネットワークへの接続](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-low-level)を参照してください。  
 
 
-3. **アンカー・ピアを構成する。** プライベート・データを使用するには組織間[ゴシップ ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html "Gossip data dissemination protocol") を有効にする必要があるため、コレクション定義に含まれている組織ごとにアンカー・ピアが存在しなければなりません。 ネットワークで[アンカー・ピアを構成する方法](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-channels-anchor-peers)を参照してください。
+3. **アンカー・ピアを構成する。** プライベート・データを使用するには組織間[ゴシップ](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external}を有効にする必要があるため、コレクション定義に含まれている組織ごとにアンカー・ピアが存在しなければなりません。 ネットワークで[アンカー・ピアを構成する方法](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-channels-anchor-peers)を参照してください。
 
 これで、チャネルがプライベート・データを使用するように構成されました。

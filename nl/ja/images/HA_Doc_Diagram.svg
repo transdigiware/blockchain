@@ -1,0 +1,1887 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1797px"
+   height="1000px"
+   viewBox="0 0 1797 1000"
+   version="1.1"
+   id="svg565"
+   sodipodi:docname="HA_Doc_Diagram.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata571">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs569" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview567"
+     showgrid="false"
+     inkscape:zoom="0.80462116"
+     inkscape:cx="889.80977"
+     inkscape:cy="499.54731"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg565" />
+  <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+  <title
+     id="title2">Updated 1 - Blockchain - HA Doc Diagram</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <polygon
+     id="XMLID_12_"
+     points="1723.4,999.3 1723.4,976.3 0.7,976.3 0.7,930.2 1723.4,930.2 1723.4,907.2 1778.5,953.2 "
+     style="fill:#f2f5f7;fill-rule:evenodd;stroke:#5b6872;stroke-width:1.5" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="22.6"
+     width="283"
+     y="941.90002"
+     x="745.40002"
+     id="XMLID_308_" />
+  <text
+     style="font-weight:normal;font-size:26px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="26"
+     id="Blockchain-high-avai"
+     x="3">
+    <tspan
+       id="tspan8"
+       y="961.96753"
+       x="757.95813">ブロックチェーンの高可用性</tspan>
+  </text>
+  <path
+     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_306_"
+     d="M 343.9,875.9 H 35.1 c -6.6,0 -12,-5.4 -12,-12 V 174 c 0,-6.6 5.4,-12 12,-12 H 344 c 6.6,0 12,5.4 12,12 v 689.9 c -0.1,6.6 -5.5,12 -12.1,12 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_305_"
+     d="M 327.3,855.1 H 51.7 c -6.6,0 -12,-5.4 -12,-12 V 222.4 c 0,-6.6 5.4,-12 12,-12 h 275.6 c 6.6,0 12,5.4 12,12 v 620.7 c 0,6.6 -5.4,12 -12,12 z" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8"
+     inkscape:connector-curvature="0"
+     id="XMLID_304_"
+     d="M 312.9,834.4 H 66.1 c -6.6,0 -12,-5.4 -12,-12 V 269.1 c 0,-6.6 5.4,-12 12,-12 H 313 c 6.6,0 12,5.4 12,12 v 553.3 c -0.1,6.6 -5.5,12 -12.1,12 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_303_"
+     d="M 292.7,814.7 H 86.3 c -6.6,0 -12,-5.4 -12,-12 V 371.5 c 0,-6.6 5.4,-12 12,-12 h 206.4 c 6.6,0 12,5.4 12,12 v 431.1 c 0,6.7 -5.4,12.1 -12,12.1 z" />
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_302_"
+     d="M 277,796.9 H 102.1 c -6.6,0 -12,-5.4 -12,-12 V 427.4 c 0,-6.6 5.4,-12 12,-12 H 277 c 6.6,0 12,5.4 12,12 v 357.5 c 0,6.6 -5.4,12 -12,12 z" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(42,370)"
+     id="XMLID_298_">
+    <rect
+       height="23.299999"
+       width="230.39999"
+       y="6.5999999"
+       x="0.30000001"
+       id="XMLID_39_" />
+    <text
+       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="24.0721"
+       id="Worker-Pool">
+      <tspan
+         id="tspan17"
+         y="24.441799"
+         x="49.377899">ワーカー・プール</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="34"
+     width="196.89999"
+     y="223.10001"
+     x="91"
+     id="XMLID_297_" />
+  <text
+     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_296_"
+     x="3">
+    <tspan
+       id="tspan22"
+       y="240.8857"
+       x="162.3511">ゾーン</tspan>
+  </text>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(82,169)"
+     id="XMLID_292_">
+    <rect
+       height="34"
+       width="214.60001"
+       y="7.4000001"
+       x="0.2"
+       id="XMLID_38_" />
+    <text
+       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff"
+       font-weight="normal"
+       font-size="24.0721"
+       id="Region-US-Dallas"
+       x="22.370777"
+       y="24.856419">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1606"
+         x="22.370777"
+         y="24.856419">地域 US-ダラス</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="440.10001"
+     x="106.3"
+     id="XMLID_291_" />
+  <text
+     style="font-weight:normal;font-size:22.92040634px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.95215648"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_290_"
+     x="-2.0034411"
+     transform="scale(0.95215648,1.0502475)">
+    <tspan
+       id="tspan35"
+       y="435.97607"
+       x="108.05386"
+       style="stroke-width:0.95215648">ワーカー・ノード</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:22.94963074px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.95337051"
+     font-weight="normal"
+     font-size="24.0721"
+     id="Single-Zone-Cluster"
+     x="-7.4626646"
+     transform="scale(0.95337053,1.0489101)">
+    <tspan
+       id="tspan38"
+       y="277.95166"
+       x="73.763748"
+       style="stroke-width:0.95337051">単一ゾーン・クラスター</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_279_"
+     d="M 262.81982,529 H 213.18018 C 210.88108,529 209,524.68 209,519.4 v -30.8 c 0,-5.28 1.88108,-9.6 4.18018,-9.6 h 49.63964 c 2.2991,0 4.18018,4.32 4.18018,9.6 v 30.8 c 0,5.28 -1.88108,9.6 -4.18018,9.6 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="37.700001"
+     width="163.60001"
+     y="646.70001"
+     x="103.7"
+     id="XMLID_25_" />
+  <text
+     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="10.07"
+     id="Ordering-Node-1"
+     x="3">
+    <tspan
+       id="tspan43"
+       y="497"
+       x="217.41071">順序付け</tspan>
+    <tspan
+       id="tspan45"
+       y="509"
+       x="219.3652">ノード 1</tspan>
+    <tspan
+       style="font-size:19.06999969px"
+       id="tspan47"
+       font-size="19.07"
+       y="509"
+       x="254.6348" />
+  </text>
+  <ellipse
+     style="fill:#00b39f;fill-rule:evenodd;stroke:#5aaafa;stroke-width:1"
+     ry="20.5"
+     rx="19.9"
+     cy="162"
+     cx="23.700001"
+     id="XMLID_274_" />
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="XMLID_273_"
+     x="3">
+    <tspan
+       id="tspan51"
+       y="170.39059"
+       x="16.6621">1</tspan>
+  </text>
+  <path
+     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_272_"
+     d="M 735.2,875.9 H 426.3 c -6.6,0 -12,-5.4 -12,-12 V 33 c 0,-6.6 5.4,-12 12,-12 h 308.9 c 6.6,0 12,5.4 12,12 v 830.8 c 0,6.7 -5.4,12.1 -12,12.1 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_271_"
+     d="M 718.6,855.1 H 442.9 c -6.6,0 -12,-5.4 -12,-12 V 90.5 c 0,-6.6 5.4,-12 12,-12 h 275.6 c 6.6,0 12,5.4 12,12 v 752.6 c 0.1,6.6 -5.3,12 -11.9,12 z" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8"
+     inkscape:connector-curvature="0"
+     id="XMLID_270_"
+     d="M 704.2,834.4 H 457.3 c -6.6,0 -12,-5.4 -12,-12 V 146 c 0,-6.6 5.4,-12 12,-12 h 246.9 c 6.6,0 12,5.4 12,12 v 676.5 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_269_"
+     d="M 683.9,814.7 H 477.5 c -6.6,0 -12,-5.4 -12,-12 V 273.9 c 0,-6.6 5.4,-12 12,-12 h 206.4 c 6.6,0 12,5.4 12,12 v 528.8 c 0,6.6 -5.4,12 -12,12 z" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(433,267)"
+     id="XMLID_265_">
+    <rect
+       height="23.299999"
+       width="230.39999"
+       y="7"
+       x="0.5"
+       id="XMLID_24_" />
+    <text
+       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="24.0721"
+       id="text61">
+      <tspan
+         id="tspan59"
+         y="24.8535"
+         x="49.598099">ワーカー・プール</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="34"
+     width="196.89999"
+     y="95.400002"
+     x="482.29999"
+     id="XMLID_264_" />
+  <text
+     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_263_"
+     x="3">
+    <tspan
+       id="tspan65"
+       y="113.1874"
+       x="553.56982">ゾーン</tspan>
+  </text>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(473,34)"
+     id="XMLID_259_">
+    <rect
+       height="34"
+       width="214.60001"
+       y="7.0999999"
+       x="0.40000001"
+       id="XMLID_23_" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.0720005px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff"
+       font-weight="normal"
+       font-size="24.0721"
+       id="text75"
+       x="29.827702"
+       y="22.370777">
+      <tspan
+         sodipodi:role="line"
+         id="tspan1608"
+         x="29.827702"
+         y="22.370777">地域 US-ダラス</tspan>
+    </text>
+  </g>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_258_"
+     d="M 669,456.5 H 494.1 c -6.6,0 -12,-5.4 -12,-12 V 323.9 c 0,-6.6 5.4,-12 12,-12 H 669 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="336.60001"
+     x="498.29999"
+     id="XMLID_257_" />
+  <text
+     style="font-weight:normal;font-size:22.26999283px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92513716"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_256_"
+     x="72.600174"
+     transform="scale(0.92513716,1.0809208)">
+    <tspan
+       id="tspan80"
+       y="327.8436"
+       x="532.89966"
+       style="stroke-width:0.92513716">ワーカー・ノード 1</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_255_"
+     d="m 545.25225,423 h -44.5045 C 498.68649,423 497,418.68 497,413.4 v -30.8 c 0,-5.28 1.68649,-9.6 3.74775,-9.6 h 44.5045 c 2.06126,0 3.74775,4.32 3.74775,9.6 v 30.8 c 0,5.28 -1.68649,9.6 -3.74775,9.6 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path84"
+     d="M 606.89189,423 H 558.10811 C 555.84865,423 554,418.68 554,413.4 v -30.8 c 0,-5.28 1.84865,-9.6 4.10811,-9.6 h 48.78378 c 2.25946,0 4.10811,4.32 4.10811,9.6 v 30.8 c 0,5.28 -1.84865,9.6 -4.10811,9.6 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path86"
+     d="M 668.89189,423 H 620.10811 C 617.84865,423 616,418.68 616,413.4 v -30.8 c 0,-5.28 1.84865,-9.6 4.10811,-9.6 h 48.78378 c 2.25946,0 4.10811,4.32 4.10811,9.6 v 30.8 c 0,5.28 -1.84865,9.6 -4.10811,9.6 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="37.700001"
+     width="163.60001"
+     y="388.29999"
+     x="499.70001"
+     id="XMLID_22_" />
+  <text
+     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="12.07"
+     id="Peer-1"
+     x="3">
+    <tspan
+       id="tspan89"
+       y="398"
+       x="506">ピア 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Org-1"
+     x="3">
+    <tspan
+       id="tspan92"
+       y="409"
+       x="511">Org 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Peers"
+     x="3">
+    <tspan
+       id="tspan95"
+       y="409"
+       x="570">ピア</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path98"
+     d="m 171.25225,529 h -44.5045 C 124.68649,529 123,524.68 123,519.4 v -30.8 c 0,-5.28 1.68649,-9.6 3.74775,-9.6 h 44.5045 c 2.06126,0 3.74775,4.32 3.74775,9.6 v 30.8 c 0,5.28 -1.68649,9.6 -3.74775,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="12.07"
+     id="text102"
+     x="3">
+    <tspan
+       id="tspan100"
+       y="504"
+       x="132">ピア 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text106"
+     x="3">
+    <tspan
+       id="tspan104"
+       y="515"
+       x="137">Org 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="(Raft)"
+     x="3">
+    <tspan
+       id="tspan108"
+       y="520"
+       x="226">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text113"
+     x="3">
+    <tspan
+       id="tspan111"
+       y="413"
+       x="634">(Raft)</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path115"
+     d="M 263.81982,588 H 214.18018 C 211.88108,588 210,583.68 210,578.4 v -30.8 c 0,-5.28 1.88108,-9.6 4.18018,-9.6 h 49.63964 c 2.2991,0 4.18018,4.32 4.18018,9.6 v 30.8 c 0,5.28 -1.88108,9.6 -4.18018,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="10.07"
+     id="Ordering-Node-2"
+     x="3">
+    <tspan
+       id="tspan117"
+       y="556"
+       x="218.41071">順序付け</tspan>
+    <tspan
+       id="tspan119"
+       y="568"
+       x="220.3652">ノード 2</tspan>
+    <tspan
+       style="font-size:19.06999969px"
+       id="tspan121"
+       font-size="19.07"
+       y="568"
+       x="255.6348" />
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text126"
+     x="3">
+    <tspan
+       id="tspan124"
+       y="579"
+       x="227">(Raft)</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path128"
+     d="M 262.81982,648 H 213.18018 C 210.88108,648 209,643.68 209,638.4 v -30.8 c 0,-5.28 1.88108,-9.6 4.18018,-9.6 h 49.63964 c 2.2991,0 4.18018,4.32 4.18018,9.6 v 30.8 c 0,5.28 -1.88108,9.6 -4.18018,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="10.07"
+     id="Ordering-Node-3"
+     x="3">
+    <tspan
+       id="tspan130"
+       y="616"
+       x="217.41071">順序付け</tspan>
+    <tspan
+       id="tspan132"
+       y="628"
+       x="219.3652">ノード 3</tspan>
+    <tspan
+       style="font-size:19.06999969px"
+       id="tspan134"
+       font-size="19.07"
+       y="628"
+       x="254.6348" />
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text139"
+     x="3">
+    <tspan
+       id="tspan137"
+       y="639"
+       x="226">(Raft)</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path141"
+     d="M 262.81982,708 H 213.18018 C 210.88108,708 209,703.68 209,698.4 v -30.8 c 0,-5.28 1.88108,-9.6 4.18018,-9.6 h 49.63964 c 2.2991,0 4.18018,4.32 4.18018,9.6 v 30.8 c 0,5.28 -1.88108,9.6 -4.18018,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="10.07"
+     id="Ordering-Node-4"
+     x="3">
+    <tspan
+       id="tspan143"
+       y="676"
+       x="217.41071">順序付け</tspan>
+    <tspan
+       id="tspan145"
+       y="688"
+       x="219.3652">ノード 4</tspan>
+    <tspan
+       style="font-size:19.06999969px"
+       id="tspan147"
+       font-size="19.07"
+       y="688"
+       x="254.6348" />
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text152"
+     x="3">
+    <tspan
+       id="tspan150"
+       y="699"
+       x="226">(Raft)</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path154"
+     d="M 262.81982,770 H 213.18018 C 210.88108,770 209,765.68 209,760.4 v -30.8 c 0,-5.28 1.88108,-9.6 4.18018,-9.6 h 49.63964 c 2.2991,0 4.18018,4.32 4.18018,9.6 v 30.8 c 0,5.28 -1.88108,9.6 -4.18018,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="10.07"
+     id="Ordering-Node-5"
+     x="3">
+    <tspan
+       id="tspan156"
+       y="738"
+       x="217.41071">順序付け</tspan>
+    <tspan
+       id="tspan158"
+       y="750"
+       x="219.3652">ノード 5</tspan>
+    <tspan
+       style="font-size:19.06999969px"
+       id="tspan160"
+       font-size="19.07"
+       y="750"
+       x="254.6348" />
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text165"
+     x="3">
+    <tspan
+       id="tspan163"
+       y="761"
+       x="226">(Raft)</tspan>
+  </text>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(123,538)"
+     id="Group-4">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path167"
+       d="M 48.252252,50 H 3.7477477 C 1.6864865,50 0,45.68 0,40.4 V 9.6 C 0,4.32 1.6864865,0 3.7477477,0 H 48.252252 C 50.313513,0 52,4.32 52,9.6 v 30.8 c 0,5.28 -1.686487,9.6 -3.747748,9.6 z" />
+    <text
+       style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="12.07"
+       id="Peer-2">
+      <tspan
+         id="tspan169"
+         y="25"
+         x="9">ピア 2</tspan>
+    </text>
+    <text
+       style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+       font-weight="normal"
+       font-size="9.07"
+       id="text174">
+      <tspan
+         id="tspan172"
+         y="36"
+         x="14">Org 1</tspan>
+    </text>
+  </g>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(123,629)"
+     id="Group-2">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path177"
+       d="M 48.252252,50 H 3.7477477 C 1.6864865,50 0,45.68 0,40.4 V 9.6 C 0,4.32 1.6864865,0 3.7477477,0 H 48.252252 C 50.313513,0 52,4.32 52,9.6 v 30.8 c 0,5.28 -1.686487,9.6 -3.747748,9.6 z" />
+    <text
+       style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="12.07"
+       id="CA-1">
+      <tspan
+         id="tspan179"
+         y="25"
+         x="14">CA 1</tspan>
+    </text>
+    <text
+       style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+       font-weight="normal"
+       font-size="9.07"
+       id="text184">
+      <tspan
+         id="tspan182"
+         y="36"
+         x="15">ピア</tspan>
+    </text>
+  </g>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(123,688)"
+     id="Group-3">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path187"
+       d="M 48.252252,50 H 3.7477477 C 1.6864865,50 0,45.68 0,40.4 V 9.6 C 0,4.32 1.6864865,0 3.7477477,0 H 48.252252 C 50.313513,0 52,4.32 52,9.6 v 30.8 c 0,5.28 -1.686487,9.6 -3.747748,9.6 z" />
+    <text
+       style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="12.07"
+       id="CA-2">
+      <tspan
+         id="tspan189"
+         y="19"
+         x="13">CA 2</tspan>
+    </text>
+    <text
+       style="font-weight:normal;font-size:8.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+       font-weight="normal"
+       font-size="8.07"
+       id="Ordering-Service">
+      <tspan
+         id="tspan192"
+         y="30"
+         x="10.301328">順序付け</tspan>
+      <tspan
+         id="tspan194"
+         y="40"
+         x="12.545403">サービス</tspan>
+    </text>
+  </g>
+  <text
+     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="12.07"
+     id="text200"
+     x="3">
+    <tspan
+       id="tspan198"
+       y="398"
+       x="568">CA 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:23.4288044px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.97327632"
+     font-weight="normal"
+     font-size="24.0721"
+     id="text204"
+     x="4.3106747"
+     transform="scale(0.97327632,1.0274574)">
+    <tspan
+       id="tspan202"
+       y="158.41299"
+       x="467.99841"
+       style="stroke-width:0.97327632">単一ゾーン・クラスター</tspan>
+  </text>
+  <ellipse
+     style="fill:#00b39f;fill-rule:evenodd;stroke:#5aaafa;stroke-width:1"
+     ry="20.5"
+     rx="19.9"
+     cy="21"
+     cx="408.89999"
+     id="XMLID_250_" />
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="XMLID_249_"
+     x="3">
+    <tspan
+       id="tspan207"
+       y="29.441299"
+       x="401.89789">2</tspan>
+  </text>
+  <path
+     d="M 669,628 H 494.1 c -6.6,0 -12,-5.4 -12,-12 V 495.4 c 0,-6.6 5.4,-12 12,-12 H 669 c 6.6,0 12,5.4 12,12 V 616 c 0,6.6 -5.4,12 -12,12 z"
+     id="XMLID_248_"
+     inkscape:connector-curvature="0"
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_247_"
+     x="498.29999"
+     y="508.10001"
+     width="166.5"
+     height="23.299999" />
+  <text
+     id="XMLID_246_"
+     font-size="24.0721"
+     font-weight="normal"
+     style="font-weight:normal;font-size:22.26999283px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92513716"
+     x="515.74078"
+     y="446.84125"
+     transform="scale(0.92513716,1.0809208)">
+    <tspan
+       x="532.89966"
+       y="486.51733"
+       id="tspan212"
+       style="stroke-width:0.92513716">ワーカー・ノード 2</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path216"
+     d="M 657.9009,599 H 621.0991 C 619.39459,599 618,594.68 618,589.4 v -30.8 c 0,-5.28 1.39459,-9.6 3.0991,-9.6 h 36.8018 c 1.70451,0 3.0991,4.32 3.0991,9.6 v 30.8 c 0,5.28 -1.39459,9.6 -3.0991,9.6 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path218"
+     d="M 548.68468,599 H 509.31531 C 507.49189,599 506,594.68 506,589.4 v -30.8 c 0,-5.28 1.49189,-9.6 3.31531,-9.6 h 39.36937 c 1.82343,0 3.31532,4.32 3.31532,9.6 v 30.8 c 0,5.28 -1.49189,9.6 -3.31532,9.6 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path220"
+     d="M 604.68468,599 H 565.31532 C 563.49189,599 562,594.68 562,589.4 v -30.8 c 0,-5.28 1.49189,-9.6 3.31532,-9.6 h 39.36936 c 1.82343,0 3.31532,4.32 3.31532,9.6 v 30.8 c 0,5.28 -1.49189,9.6 -3.31532,9.6 z" />
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_240_"
+     d="M 669,799.5 H 494.1 c -6.6,0 -12,-5.4 -12,-12 V 666.9 c 0,-6.6 5.4,-12 12,-12 H 669 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="679.59998"
+     x="498.29999"
+     id="XMLID_239_" />
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text226"
+     x="3">
+    <tspan
+       id="tspan224"
+       y="589"
+       x="574">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text230"
+     x="3">
+    <tspan
+       id="tspan228"
+       y="589"
+       x="628">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:22.26999283px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92513716"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_238_"
+     x="72.600174"
+     transform="scale(0.92513716,1.0809208)">
+    <tspan
+       id="tspan232"
+       y="645.19183"
+       x="532.89966"
+       style="stroke-width:0.92513716">ワーカー・ノード 3</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Ordering-node-3"
+     x="3">
+    <tspan
+       id="tspan235"
+       y="567"
+       x="622.35602">順序付け</tspan>
+    <tspan
+       id="tspan237"
+       y="578"
+       x="626.12927">ノード 3</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Ordering-node-2"
+     x="3">
+    <tspan
+       id="tspan240"
+       y="567"
+       x="568.35602">順序付け</tspan>
+    <tspan
+       id="tspan242"
+       y="578"
+       x="572.12927">ノード 2</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path245"
+     d="M 607.89189,766 H 559.10811 C 556.84865,766 555,761.68 555,756.4 v -30.8 c 0,-5.28 1.84865,-9.6 4.10811,-9.6 h 48.78378 c 2.25946,0 4.10811,4.32 4.10811,9.6 v 30.8 c 0,5.28 -1.84865,9.6 -4.10811,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Ordering-node-4"
+     x="3">
+    <tspan
+       id="tspan247"
+       y="733"
+       x="566.35602">順序付け</tspan>
+    <tspan
+       id="tspan249"
+       y="744"
+       x="570.12927">ノード 4</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Ordering-node-1"
+     x="3">
+    <tspan
+       id="tspan252"
+       y="391"
+       x="627.35602">順序付け</tspan>
+    <tspan
+       id="tspan254"
+       y="402"
+       x="631.12927">ノード 1</tspan>
+  </text>
+  <path
+     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_232_"
+     d="M 1743.4,875.9 H 811.5 c -6.6,0 -12,-5.4 -12,-12 V 33 c 0,-6.6 5.4,-12 12,-12 h 931.9 c 6.6,0 12,5.4 12,12 v 830.8 c 0,6.7 -5.4,12.1 -12,12.1 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_231_"
+     d="m 1412.1,855.1 h -275.6 c -6.6,0 -12,-5.4 -12,-12 V 90.5 c 0,-6.6 5.4,-12 12,-12 h 275.6 c 6.6,0 12,5.4 12,12 v 752.6 c 0,6.6 -5.4,12 -12,12 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_230_"
+     d="M 1103.8,855.1 H 828.1 c -6.6,0 -12,-5.4 -12,-12 V 90.5 c 0,-6.6 5.4,-12 12,-12 h 275.6 c 6.6,0 12,5.4 12,12 v 752.6 c 0.1,6.6 -5.3,12 -11.9,12 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_1_"
+     d="M 1722.6,855.1 H 1447 c -6.6,0 -12,-5.4 -12,-12 V 90.5 c 0,-6.6 5.4,-12 12,-12 h 275.6 c 6.6,0 12,5.4 12,12 v 752.6 c 0,6.6 -5.4,12 -12,12 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8"
+     inkscape:connector-curvature="0"
+     id="XMLID_229_"
+     d="M 1696.1,834.4 H 842.5 c -6.6,0 -12,-5.4 -12,-12 V 146 c 0,-6.6 5.4,-12 12,-12 h 853.6 c 6.6,0 12,5.4 12,12 v 676.5 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_228_"
+     d="M 1668.3,814.7 H 862.8 c -6.6,0 -12,-5.4 -12,-12 V 273.9 c 0,-6.6 5.4,-12 12,-12 h 805.5 c 6.6,0 12,5.4 12,12 v 528.8 c 0,6.6 -5.4,12 -12,12 z" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(1159,266)"
+     id="XMLID_219_">
+    <rect
+       height="23.299999"
+       width="230.39999"
+       y="7.0999999"
+       x="0.5"
+       id="XMLID_45_" />
+    <text
+       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="24.0721"
+       id="text266">
+      <tspan
+         id="tspan264"
+         y="24.9028"
+         x="49.549301">ワーカー・プール</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="34"
+     width="196.89999"
+     y="95.400002"
+     x="867.5"
+     id="XMLID_217_" />
+  <text
+     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_216_"
+     x="3">
+    <tspan
+       id="tspan270"
+       y="113.1874"
+       x="928.74268">ゾーン 1</tspan>
+  </text>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(1125,34)"
+     id="XMLID_201_">
+    <rect
+       height="34"
+       width="214.60001"
+       y="7.0999999"
+       x="0.40000001"
+       id="XMLID_43_" />
+    <text
+       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff"
+       font-weight="normal"
+       font-size="24.0721"
+       id="text276">
+      <tspan
+         id="tspan274"
+         y="24.947701"
+         x="70.435097">地域 US-ダラス</tspan>
+    </text>
+  </g>
+  <text
+     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="24.0721"
+     id="Multizone-Cluster"
+     x="-33">
+    <tspan
+       id="tspan279"
+       y="162.7607"
+       x="1143.7993">複数ゾーン・クラスター</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="+-deployment"
+     x="-33">
+    <tspan
+       id="tspan282"
+       y="192.0444"
+       x="1171.3413">+ デプロイメント</tspan>
+  </text>
+  <ellipse
+     style="fill:#00b39f;fill-rule:evenodd;stroke:#5aaafa;stroke-width:1"
+     ry="20.5"
+     rx="19.9"
+     cy="21"
+     cx="794.09998"
+     id="XMLID_192_" />
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_200_"
+     d="M 1054.2,458.9 H 879.3 c -6.6,0 -12,-5.4 -12,-12 V 326.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 447 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="339"
+     x="883.5"
+     id="XMLID_199_" />
+  <text
+     style="font-weight:normal;font-size:22.19172859px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92188591"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_198_"
+     x="931.02277"
+     y="289.47217"
+     transform="scale(0.9218859,1.0847329)">
+    <tspan
+       id="tspan288"
+       y="328.95749"
+       x="948.3382"
+       style="stroke-width:0.92188591">ワーカー・ノード 1</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_190_"
+     d="M 1054.2,630.4 H 879.3 c -6.6,0 -12,-5.4 -12,-12 V 497.9 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="510.5"
+     x="883.5"
+     id="XMLID_189_" />
+  <text
+     style="font-weight:normal;font-size:22.19172859px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92188591"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_188_"
+     x="931.02277"
+     y="447.11469"
+     transform="scale(0.9218859,1.0847329)">
+    <tspan
+       id="tspan295"
+       y="487.0726"
+       x="948.3382"
+       style="stroke-width:0.92188591">ワーカー・ノード 2</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_178_"
+     d="M 1054.2,801.9 H 879.3 c -6.6,0 -12,-5.4 -12,-12 V 669.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 790 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="682"
+     x="883.5"
+     id="XMLID_177_" />
+  <text
+     style="font-weight:normal;font-size:22.19172859px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92188591"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_175_"
+     x="931.02277"
+     y="605.67902"
+     transform="scale(0.9218859,1.0847329)">
+    <tspan
+       id="tspan302"
+       y="645.19043"
+       x="948.3382"
+       style="stroke-width:0.92188591">ワーカー・ノード 3</tspan>
+  </text>
+  <path
+     d="M 1038,777.9 H 895.5 c -6.6,0 -12,-5.4 -12,-12 v -38.5 c 0,-6.6 5.4,-12 12,-12 H 1038 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z"
+     id="XMLID_174_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="37.700001"
+     width="163.60001"
+     y="733.79999"
+     x="885"
+     id="XMLID_36_" />
+  <text
+     style="font-weight:normal;font-size:19.66146851px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.97964466"
+     font-weight="normal"
+     font-size="20.07"
+     id="text309"
+     x="891.04828"
+     y="709.2627"
+     transform="scale(0.97964465,1.0207783)">
+    <tspan
+       id="tspan307"
+       y="727.87598"
+       x="912.57745"
+       style="stroke-width:0.97964466">順序付けノード 1</tspan>
+  </text>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="34"
+     width="196.89999"
+     y="95.400002"
+     x="1166.5"
+     id="XMLID_148_" />
+  <text
+     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_147_"
+     x="3">
+    <tspan
+       id="tspan319"
+       y="113.1874"
+       x="1227.7173">ゾーン 2</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_146_"
+     d="m 1352.2,458.9 h -174.9 c -6.6,0 -12,-5.4 -12,-12 V 326.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 447 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="339"
+     x="1181.5"
+     id="XMLID_143_" />
+  <text
+     style="font-weight:normal;font-size:22.1131897px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.91862321"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_141_"
+     x="195.78146"
+     transform="scale(0.91862321,1.0885856)">
+    <tspan
+       id="tspan324"
+       y="327.79416"
+       x="1280.4525"
+       style="stroke-width:0.91862321">ワーカー・ノード 1</tspan>
+  </text>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="37.700001"
+     width="37"
+     y="564.29999"
+     x="492.70001"
+     id="rect327" />
+  <text
+     style="font-weight:normal;font-size:11.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="11.07"
+     id="text331"
+     x="3">
+    <tspan
+       id="tspan329"
+       y="569"
+       x="512">ピア 2</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="10.07"
+     id="text335"
+     x="3">
+    <tspan
+       id="tspan333"
+       y="583"
+       x="516">Org 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text339"
+     x="3">
+    <tspan
+       id="tspan337"
+       y="754"
+       x="572">(Raft)</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_128_"
+     d="m 1352.2,630.4 h -174.9 c -6.6,0 -12,-5.4 -12,-12 V 497.9 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="510.5"
+     x="1181.5"
+     id="XMLID_127_" />
+  <text
+     style="font-weight:normal;font-size:22.1131897px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.91862321"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_125_"
+     x="195.78146"
+     transform="scale(0.91862321,1.0885856)">
+    <tspan
+       id="tspan343"
+       y="485.35019"
+       x="1280.4525"
+       style="stroke-width:0.91862321">ワーカー・ノード 2</tspan>
+  </text>
+  <g
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(1175,544)"
+     id="g347">
+    <path
+       inkscape:connector-curvature="0"
+       id="XMLID_124_"
+       d="M 83.513514,72 H 6.4864865 C 2.9189189,72 0,65.7792 0,58.176 V 13.824 C 0,6.2208 2.9189189,0 6.4864865,0 H 83.513514 C 87.081081,0 90,6.2208 90,13.824 V 58.176 C 90,65.7792 87.081081,72 83.513514,72 Z" />
+  </g>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_44_"
+     d="m 1352.2,801.9 h -174.9 c -6.6,0 -12,-5.4 -12,-12 V 669.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 790 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path350"
+     d="M 545.89189,766 H 497.10811 C 494.84865,766 493,761.68 493,756.4 v -30.8 c 0,-5.28 1.84865,-9.6 4.10811,-9.6 h 48.78378 c 2.25946,0 4.10811,4.32 4.10811,9.6 v 30.8 c 0,5.28 -1.84865,9.6 -4.10811,9.6 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path352"
+     d="M 545.89189,766 H 497.10811 C 494.84865,766 493,761.68 493,756.4 v -30.8 c 0,-5.28 1.84865,-9.6 4.10811,-9.6 h 48.78378 c 2.25946,0 4.10811,4.32 4.10811,9.6 v 30.8 c 0,5.28 -1.84865,9.6 -4.10811,9.6 z" />
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path354"
+     d="M 669.89189,766 H 621.10811 C 618.84865,766 617,761.68 617,756.4 v -30.8 c 0,-5.28 1.84865,-9.6 4.10811,-9.6 h 48.78378 c 2.25946,0 4.10811,4.32 4.10811,9.6 v 30.8 c 0,5.28 -1.84865,9.6 -4.10811,9.6 z" />
+  <text
+     style="font-weight:normal;font-size:8.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="8.07"
+     id="text360"
+     x="3">
+    <tspan
+       id="tspan356"
+       y="748"
+       x="506.30133">順序付け</tspan>
+    <tspan
+       id="tspan358"
+       y="758"
+       x="508.54541">サービス</tspan>
+  </text>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="682"
+     x="1181.5"
+     id="XMLID_42_" />
+  <text
+     style="font-weight:normal;font-size:22.1131897px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.91862321"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_37_"
+     x="195.78146"
+     transform="scale(0.91862321,1.0885856)">
+    <tspan
+       id="tspan363"
+       y="642.90698"
+       x="1280.4525"
+       style="stroke-width:0.91862321">ワーカー・ノード 3</tspan>
+  </text>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="34"
+     width="196.89999"
+     y="98.199997"
+     x="1483.3"
+     id="XMLID_3_" />
+  <text
+     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_2_"
+     x="3">
+    <tspan
+       id="tspan367"
+       y="116.0419"
+       x="1544.5845">ゾーン 3</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_71_"
+     d="m 1650.2,458.9 h -174.9 c -6.6,0 -12,-5.4 -12,-12 V 326.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 447 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="339"
+     x="1479.5"
+     id="XMLID_70_" />
+  <text
+     style="font-weight:normal;font-size:22.19172859px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92188591"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_69_"
+     x="233.73166"
+     transform="scale(0.92188597,1.0847329)">
+    <tspan
+       id="tspan372"
+       y="328.95837"
+       x="1596.9554"
+       style="stroke-width:0.92188591">ワーカー・ノード 1</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_68_"
+     d="m 1634,434.9 h -142.5 c -6.6,0 -12,-5.4 -12,-12 v -38.5 c 0,-6.6 5.4,-12 12,-12 H 1634 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z" />
+  <text
+     style="font-weight:normal;font-size:15.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="15.07"
+     id="text378"
+     x="3">
+    <tspan
+       id="tspan376"
+       y="738"
+       x="506">CA 2</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_63_"
+     d="m 1650.2,630.4 h -174.9 c -6.6,0 -12,-5.4 -12,-12 V 497.9 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="510.5"
+     x="1479.5"
+     id="XMLID_62_" />
+  <text
+     style="font-weight:normal;font-size:22.19172859px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92188591"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_60_"
+     x="233.73166"
+     transform="scale(0.92188597,1.0847329)">
+    <tspan
+       id="tspan382"
+       y="487.07401"
+       x="1596.9554"
+       style="stroke-width:0.92188591">ワーカー・ノード 2</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_59_"
+     d="m 1603.009,607 h -83.018 c -3.845,0 -6.991,-5.4432 -6.991,-12.096 v -38.808 c 0,-6.6528 3.146,-12.096 6.991,-12.096 h 83.018 c 3.8451,0 6.991,5.4432 6.991,12.096 v 38.808 c 0,6.6528 -3.1459,12.096 -6.991,12.096 z" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(635,562)"
+     id="XMLID_55_">
+    <text
+       style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+       font-weight="normal"
+       font-size="9.07"
+       id="text388">
+      <tspan
+         id="tspan386"
+         y="192"
+         x="0">(Raft)</tspan>
+    </text>
+    <text
+       style="font-weight:normal;font-size:16.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+       font-weight="normal"
+       font-size="16.07"
+       id="text392">
+      <tspan
+         id="tspan390"
+         y="203"
+         x="311">(Raft)</tspan>
+    </text>
+    <rect
+       height="37.700001"
+       width="94.193939"
+       y="0.30000001"
+       x="879.51819"
+       id="XMLID_27_" />
+  </g>
+  <text
+     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="Ordering-node-5"
+     x="3">
+    <tspan
+       id="tspan396"
+       y="733"
+       x="628.35602">順序付け</tspan>
+    <tspan
+       id="tspan398"
+       y="744"
+       x="632.12927">ノード 5</tspan>
+  </text>
+  <path
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_54_"
+     d="m 1650.2,801.9 h -174.9 c -6.6,0 -12,-5.4 -12,-12 V 669.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 790 c 0,6.5 -5.4,11.9 -12,11.9 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     height="23.299999"
+     width="166.5"
+     y="682"
+     x="1479.5"
+     id="XMLID_26_" />
+  <text
+     style="font-weight:normal;font-size:22.19172859px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.92188591"
+     font-weight="normal"
+     font-size="24.0721"
+     id="XMLID_10_"
+     x="233.73166"
+     transform="scale(0.92188597,1.0847329)">
+    <tspan
+       id="tspan403"
+       y="645.19043"
+       x="1596.9554"
+       style="stroke-width:0.92188591">ワーカー・ノード 3</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="XMLID_8_"
+     d="m 1634,777.9 h -142.5 c -6.6,0 -12,-5.4 -12,-12 v -38.5 c 0,-6.6 5.4,-12 12,-12 H 1634 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(884,374)"
+     id="g426">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path407"
+       d="M 73.606306,63.4 H 5.9936937 C 2.8621622,63.4 0.3,58 0.3,51.4 V 12.9 c 0,-6.6 2.5621622,-12 5.6936937,-12 H 73.606306 C 76.737838,0.9 79.3,6.3 79.3,12.9 v 38.5 c 0,6.6 -2.562162,12 -5.693694,12 z" />
+    <g
+       transform="translate(1,1)"
+       id="XMLID_251_">
+      <rect
+         height="37.700001"
+         width="163.60001"
+         y="18.299999"
+         x="0.69999999"
+         id="rect409" />
+      <text
+         style="font-weight:normal;font-size:21.06999969px;font-family:'Source Han Sans';fill:#000000"
+         font-weight="normal"
+         font-size="21.07"
+         id="text413">
+        <tspan
+           id="tspan411"
+           y="30"
+           x="9">ピア 1</tspan>
+      </text>
+      <text
+         style="font-weight:normal;font-size:14.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+         font-weight="normal"
+         font-size="14.07"
+         id="text417">
+        <tspan
+           id="tspan415"
+           y="47"
+           x="21">Org 1</tspan>
+      </text>
+      <path
+         style="fill:#ffffff"
+         inkscape:connector-curvature="0"
+         id="path419"
+         d="M 156.30631,62.5 H 88.693694 C 85.562162,62.5 83,57.1 83,50.5 V 12 C 83,5.4 85.562162,0 88.693694,0 H 156.30631 C 159.43784,0 162,5.4 162,12 v 38.5 c 0,6.6 -2.56216,12 -5.69369,12 z" />
+      <text
+         style="font-weight:normal;font-size:21.06999969px;font-family:'Source Han Sans';fill:#000000"
+         font-weight="normal"
+         font-size="21.07"
+         id="text423">
+        <tspan
+           id="tspan421"
+           y="30"
+           x="102">CA 1</tspan>
+      </text>
+    </g>
+  </g>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(1224,378)"
+     id="g441">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path428"
+       d="M 73.306306,62.5 H 5.6936937 C 2.5621622,62.5 0,57.1 0,50.5 V 12 C 0,5.4 2.5621622,0 5.6936937,0 H 73.306306 C 76.437838,0 79,5.4 79,12 v 38.5 c 0,6.6 -2.562162,12 -5.693694,12 z" />
+    <g
+       transform="translate(0.7,10.1)"
+       id="g439">
+      <rect
+         height="37.700001"
+         width="163.60001"
+         y="8.3000002"
+         x="0.69999999"
+         id="rect430" />
+      <text
+         style="font-weight:normal;font-size:21.06999969px;font-family:'Source Han Sans';fill:#000000"
+         font-weight="normal"
+         font-size="21.07"
+         id="Peer-3">
+        <tspan
+           id="tspan432"
+           y="20"
+           x="9">ピア 3</tspan>
+      </text>
+      <text
+         style="font-weight:normal;font-size:14.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+         font-weight="normal"
+         font-size="14.07"
+         id="text437">
+        <tspan
+           id="tspan435"
+           y="37"
+           x="21">Org 1</tspan>
+      </text>
+    </g>
+  </g>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(918,548)"
+     id="g468">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path443"
+       d="M 83.813513,63.4 H 6.7864865 C 3.2189189,63.4 0.3,58 0.3,51.4 V 12.9 c 0,-6.6 2.9189189,-12 6.4864865,-12 H 83.813513 C 87.381081,0.9 90.3,6.3 90.3,12.9 v 38.5 c 0,6.6 -2.918919,12 -6.486487,12 z" />
+    <g
+       transform="translate(6,12)"
+       id="g455">
+      <rect
+         height="37.700001"
+         width="163.60001"
+         y="8.3000002"
+         x="0.69999999"
+         id="rect445" />
+      <text
+         style="font-weight:normal;font-size:21.06999969px;font-family:'Source Han Sans';fill:#000000"
+         font-weight="normal"
+         font-size="21.07"
+         id="text449">
+        <tspan
+           id="tspan447"
+           y="20"
+           x="9">ピア 2</tspan>
+      </text>
+      <text
+         style="font-weight:normal;font-size:14.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+         font-weight="normal"
+         font-size="14.07"
+         id="text453">
+        <tspan
+           id="tspan451"
+           y="37"
+           x="21">Org 1</tspan>
+      </text>
+    </g>
+    <g
+       transform="translate(602,9)"
+       id="g466">
+      <rect
+         height="37.700001"
+         width="163.60001"
+         y="8.3000002"
+         x="0.69999999"
+         id="rect457" />
+      <text
+         style="font-weight:normal;font-size:21.06999969px;font-family:'Source Han Sans';fill:#000000"
+         font-weight="normal"
+         font-size="21.07"
+         id="Peer-4">
+        <tspan
+           id="tspan459"
+           y="20"
+           x="9">ピア 4</tspan>
+      </text>
+      <text
+         style="font-weight:normal;font-size:14.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000"
+         font-weight="normal"
+         font-size="14.07"
+         id="text464">
+        <tspan
+           id="tspan462"
+           y="37"
+           x="21">Org 1</tspan>
+      </text>
+    </g>
+  </g>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path470"
+     d="m 1340,777.9 h -142.5 c -6.6,0 -12,-5.4 -12,-12 v -38.5 c 0,-6.6 5.4,-12 12,-12 H 1340 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="rect472"
+     x="1187"
+     y="733.79999"
+     width="163.60001"
+     height="37.700001" />
+  <text
+     id="text476"
+     font-size="20.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:19.24525261px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.95890641"
+     x="1228.2942"
+     y="694.24823"
+     transform="scale(0.95890644,1.0428546)">
+    <tspan
+       x="1249.3676"
+       y="712.46747"
+       id="tspan474"
+       style="stroke-width:0.95890641">順序付けノード 3</tspan>
+  </text>
+  <text
+     id="text480"
+     font-size="20.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:19.41317749px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.96727347"
+     x="1238.6628"
+     y="700.30597"
+     transform="scale(0.96727348,1.0338338)">
+    <tspan
+       x="1540.4296"
+       y="718.6842"
+       id="tspan478"
+       style="stroke-width:0.96727347">順序付けノード 5</tspan>
+  </text>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(1186,551)"
+     id="g492">
+    <rect
+       height="38"
+       width="109"
+       y="6"
+       x="6"
+       id="rect484" />
+    <text
+       style="font-weight:normal;font-size:16.06999969px;font-family:'Source Han Sans';fill:#000000"
+       font-weight="normal"
+       font-size="16.07"
+       id="text490">
+      <tspan
+         id="tspan486"
+         y="15"
+         x="2.2388282">順序付け</tspan>
+      <tspan
+         id="tspan488"
+         y="34"
+         x="8.9241991">ノード 2</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="rect494"
+     x="1478"
+     y="388.79999"
+     width="163.60001"
+     height="37.700001" />
+  <text
+     id="text498"
+     font-size="20.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:19.41508293px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.96736836"
+     x="1520.0526"
+     y="366.6326"
+     transform="scale(0.96736835,1.0337324)">
+    <tspan
+       x="1541.312"
+       y="385.0126"
+       id="tspan496"
+       style="stroke-width:0.96736836">順序付けノード 4</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="XMLID_191_"
+     x="3">
+    <tspan
+       id="tspan502"
+       y="28.6493"
+       x="788.48969">3</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="+-replica-set"
+     x="-33">
+    <tspan
+       id="tspan505"
+       y="218.17191"
+       x="1178.9569">+ レプリカ・セット</tspan>
+  </text>
+  <text
+     style="font-style:italic;font-weight:bold;font-size:21.66489983px;font-family:'Source Han Sans-BoldOblique', 'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="bold"
+     font-style="italic"
+     font-size="21.6649"
+     id="+-anti-affinity-(acr"
+     x="-33">
+    <tspan
+       id="tspan508"
+       y="243"
+       x="1069">+ アンチアフィニティー (ワーカー・ノード間)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:16.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="16.07"
+     id="text513"
+     x="3">
+    <tspan
+       id="tspan511"
+       y="766"
+       x="1243">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:16.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="16.07"
+     id="text517"
+     x="3">
+    <tspan
+       id="tspan515"
+       y="765"
+       x="1540">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:16.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="16.07"
+     id="text521"
+     x="3">
+    <tspan
+       id="tspan519"
+       y="604"
+       x="1200">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:16.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="16.07"
+     id="text525"
+     x="3">
+    <tspan
+       id="tspan523"
+       y="422"
+       x="1540">(Raft)</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="text529"
+     x="-37">
+    <tspan
+       id="tspan527"
+       y="192.0463"
+       x="473.38916">+ デプロイメント</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="text533"
+     x="-37">
+    <tspan
+       id="tspan531"
+       y="218.17191"
+       x="481.00671">+ レプリカ・セット</tspan>
+  </text>
+  <text
+     style="font-style:italic;font-weight:bold;font-size:21.13045883px;font-family:'Source Han Sans-BoldOblique', 'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.97533149"
+     font-weight="bold"
+     font-style="italic"
+     font-size="21.6649"
+     id="+-anti-affinity"
+     x="-12.225109"
+     transform="scale(0.97533151,1.0252924)">
+    <tspan
+       id="tspan535"
+       y="238.03249"
+       x="487.54138"
+       style="stroke-width:0.97533149">+ アンチアフィニティー</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="text540"
+     x="-23">
+    <tspan
+       id="tspan538"
+       y="320.83099"
+       x="96.169899">+ デプロイメント</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:14.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="14.07"
+     id="text544"
+     x="3">
+    <tspan
+       id="tspan542"
+       y="422"
+       x="990">ピア</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path546"
+     d="m 1351.8018,616 h -73.6036 c -3.409,0 -6.1982,-6.2208 -6.1982,-13.824 v -44.352 c 0,-7.6032 2.7892,-13.824 6.1982,-13.824 h 73.6036 c 3.409,0 6.1982,6.2208 6.1982,13.824 v 44.352 c 0,7.6032 -2.7892,13.824 -6.1982,13.824 z" />
+  <text
+     style="font-weight:normal;font-size:21.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.07"
+     id="text550"
+     x="3">
+    <tspan
+       id="tspan548"
+       y="574"
+       x="1292">CA 2</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';opacity:0.51706693;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="12.07"
+     id="text556"
+     x="3">
+    <tspan
+       id="tspan552"
+       y="591"
+       x="1293.02">順序付け</tspan>
+    <tspan
+       id="tspan554"
+       y="605"
+       x="1296.3765">サービス</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:21.66489983px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="21.6649"
+     id="text560"
+     x="-23">
+    <tspan
+       id="tspan558"
+       y="345.0217"
+       x="103.7854">+ レプリカ・セット</tspan>
+  </text>
+</svg>

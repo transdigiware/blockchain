@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
-keywords: IBM Blockchain Platform, remote peer, multi-cloud, private data, AWS Cloud
+keywords: IBM Blockchain Platform, remote peer, multicloud, multicloud, private data, AWS Cloud
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -38,7 +38,7 @@ AWS クラウド内の {{site.data.keyword.blockchainfull_notm}} Platform ピア
 - {{site.data.keyword.blockchainfull_notm}} Platform for AWS ピアは Fabric レベル v1.1 または v1.2.1 のブロックチェーン・ネットワークにのみ接続できます。 Fabric のバージョンは、ネットワーク・モニターで[「ネットワーク設定 (Network preferences)」ウィンドウ](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)を開くことで確認できます。
 - {{site.data.keyword.blockchainfull_notm}} Platform for AWS ピアのデータベース・タイプは、ブロックチェーン・ネットワークのデータベース・タイプと一致する必要があります (LevelDB または CouchDB)。
 - CouchDB Fauxton インターフェースは、AWS ピアでは使用できません。
-- AWS ピアの[ゴシップ](/docs/services/blockchain/glossary.html#glossary-gossip)は現在サポートされていません。 これは、[プライベート・データ ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data-arch.html "プライベート・データ") や [サービス・ディスカバリー ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "サービス・ディスカバリー") などのゴシップに依存する Fabric 機能もサポートされていないことを意味します。
+- AWS ピアの[ゴシップ](/docs/services/blockchain/glossary.html#glossary-gossip)は現在サポートされていません。 これは、[プライベート・データ](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data-arch.html){: external}や[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}などのゴシップに依存する Fabric 機能もサポートされていないことを意味します。
 
 ## 前提条件
 {: #remote-peer-aws-about-prereq}
@@ -56,7 +56,7 @@ AWS クラウド内の {{site.data.keyword.blockchainfull_notm}} Platform ピア
 ## AWS ピアのデプロイ
 {: #remote-peer-aws-about-deploy}
 
-AWS [クイック・スタート・テンプレート ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/ "クイック・スタート・テンプレート") を使用して、{{site.data.keyword.blockchainfull_notm}} Platform for AWS を簡単にデプロイできます。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for AWS Quick Start Deployment Guide ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://s3.amazonaws.com/aws-quickstart/quickstart-ibm-fabric/doc/ibm-blockchain-platform-for-aws.pdf "{{site.data.keyword.blockchainfull_notm}} Platform for AWS Quick Start Reference Deployment") を参照してください。
+AWS [クイック・スタート・テンプレート](https://aws.amazon.com/quickstart/architecture/ibm-blockchain-platform/){: external}を使用して、{{site.data.keyword.blockchainfull_notm}} Platform for AWS を簡単にデプロイできます。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for AWS Quick Start Deployment Guide](https://s3.amazonaws.com/aws-quickstart/quickstart-ibm-fabric/doc/ibm-blockchain-platform-for-aws.pdf){: external} を参照してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS のデプロイ方法については、[Amazon Web Services でのピアのデプロイ](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws)を参照してください。
 
@@ -92,7 +92,7 @@ AWS ピアをデプロイした後に、ピアがネットワークにトラン�
 
 データの常駐要件に対応するには、{{site.data.keyword.blockchainfull_notm}} Platform の基礎となっている Hyperledger Fabric アーキテクチャーを理解することが重要です。 このアーキテクチャーは、認証局 (CA)、順序付けプログラム、およびピアという 3 つの主要コンポーネントを中核として構築されています。 ピアは順序付けサービスから順序付け状態の更新をブロックの形式で受け取り、状態および台帳を維持します。 したがって、ピアと順序付けプログラムの間には直接的な関係があります。 台帳には、トランザクション・ログに含まれるすべてのキーおよびデータの最新の値が含まれます。
 
-さらに、クライアント・アプリケーションは、[Fabric SDK](/docs/services/blockchain/v10_application.html#dev-app-fabric-sdks) を使用してトランザクションをピアおよび順序付けサービスに送信します。 これらのトランザクションには、台帳のキーと値のペアを含む[読み取り/書き込みセット ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/readwrite.html "読み取り/書き込みセットのセマンティクス") のデータが含まれます。
+さらに、クライアント・アプリケーションは、[Fabric SDK](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html){: external} を使用してトランザクションをピアおよび順序付けサービスに送信します。 これらのトランザクションには、台帳のキーと値のペアを含む[読み取り/書き込みセット](https://hyperledger-fabric.readthedocs.io/en/release-1.2/readwrite.html){: external}のデータが含まれます。
 
 国内のデータの常駐が自社業務にとっての要件である場合は、順序付けプログラム、ピア、およびクライアント・アプリケーションは同じ国に常駐している必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform ネットワークが {{site.data.keyword.cloud_notm}} で作成されている場合、ネットワークのロケーションを選択することができます。 <!--For a Starter Plan network, you can select from US South, United Kingdom, and Sydney. For an Enterprise Plan network, you can select from currently available locations, which include Dallas, Frankfurt, London, Sao Paulo, Tokyo, and Toronto. -->地域とロケーションについて詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の地域とロケーション](/docs/services/blockchain/reference/ibp_regions.html#ibp-regions-locations)を参照してください。 これらのいずれかの国でデータの常駐を実現するには、ピアが {{site.data.keyword.blockchainfull_notm}} Platform ネットワークのロケーションと同じ国に常駐する必要があります。
 
@@ -101,10 +101,9 @@ AWS ピアをデプロイした後に、ピアがネットワークにトラン�
 
 4 つの組織からなる共同事業体とともに、順序付けプログラムと認証局が含まれた {{site.data.keyword.blockchainfull_notm}} Platform ネットワークについて考えてみましょう。 これらの組織は 1 つ以上のピア・ノードを有しています。 4 つの組織はすべて同一チャネルに属しており、このネットワークのすべてのコンポーネントは、{{site.data.keyword.blockchainfull_notm}} Platform ネットワークがデプロイされた地域 (フランクフルトなど) にあります。 最後に、ピアと相互動作するクライアント・アプリケーションもドイツ内にあります。 データの常駐は維持されます。  
 
-![すべてのコンポーネントが同じ国にある場合のデータの常駐](../images/remote_peer_data_res_1.png "すべてのコンポーネントが同じ国にある場合のデータの常駐")  
-*図 3. すべてのコンポーネントが同じ国にある場合のデータの常駐*
+![すべてのコンポーネントが同じ国にある場合のデータの常駐](../images/remote_peer_data_res_1.png "すべてのコンポーネントが同じ国にある場合のデータの常駐")
 
-次に、**ピア**がいずれかの組織に参加した場合の影響を考えてみましょう。  ピアは、ネットワークの残り部分と同じ地域に配置することも、{{site.data.keyword.blockchainfull_notm}} Platform ネットワーク地域外の任意の場所に配置することもできます。
+次に、**ピア**がいずれかの組織に参加した場合の影響を考えてみましょう。 ピアは、ネットワークの残り部分と同じ地域に配置することも、{{site.data.keyword.blockchainfull_notm}} Platform ネットワーク地域外の任意の場所に配置することもできます。
 
 -	このピアがネットワークの残り部分と同じ国にある場合は、データの常駐は維持されます。 すべての台帳データは、上記の**図 3** で示しているようにドイツ内にとどまります。
 -	このピアが別の国 (米国など) に存在する場合は、ピア台帳上のデータは国境にまたがって共有されるため、データの常駐は維持されなくなります。
@@ -113,26 +112,25 @@ AWS ピアをデプロイした後に、ピアがネットワークにトラン�
 
 **注:** 順序付けプログラムは常に、ネットワークをホストするために選択したデータ・センター地域に配置されます。 国境にまたがる複数の順序付けプログラムを保持することはできません。 ただし、ピアは、データ・センターと {{site.data.keyword.cloud_notm}} の外側のリモート・ロケーションのいずれにも配置できます。
 
-![{{site.data.keyword.blockchainfull_notm}} Platform 地域の国の外にピアが存在する場合のデータの常駐](../images/remote_peer_data_res_2.png "{{site.data.keyword.blockchainfull_notm}} Platform 地域の国の外にピアが存在する場合のデータの常駐")  
-*図 4. {{site.data.keyword.blockchainfull_notm}} Platform 地域の国の外にピアが存在する場合のデータの常駐*
+![{{site.data.keyword.blockchainfull_notm}} Platform 地域の国外にピアを置く場合のデータ・レジデンシー](../images/remote_peer_data_res_2.png "{{site.data.keyword.blockchainfull_notm}} Platform 地域の国外にピアを置く場合のデータ・レジデンシー")
 
 **図 4** では、`OrgC` と `OrgD` に対してはデータの常駐は不要です。 実際には、`OrgD` には現在は `OrgD-peer1` と `OrgD-peer2` という 2 つのピアが含まれており、これらのピアは*米国* にあります。 したがって、`OrgA` と `OrgB`、およびこれらの組織のそれぞれのクライアント・アプリケーションとピア (ドイツに存在しているもの) によって、チャネル `X` 上の台帳データが分離されるために、新しいチャネル `Y` が `OrgC` および `OrgD` 用に作成されます。
 
-{{site.data.keyword.blockchainfull_notm}} Platform ネットワーク上のデータの流れについて詳しくは、[Fabric documentation on transaction flow![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "トランザクション・フロー") を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform ネットワーク上のデータのフローについて詳しくは、[トランザクション・フローに関する Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external}を参照してください。
 
-今後、Hyperledger Fabric の新しいテクノロジーによって、[プライベート・データ・コレクション ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html "プライベート・データ・コレクション") およびゼロ知識証明を使用して、さらなるデータの常駐を実現する機能が改善されます。
+今後、Hyperledger Fabric の新しいテクノロジーによって、[プライベート・データ・コレクション](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external}およびゼロ知識証明を使用して、さらなるデータの常駐を実現する機能が改善されます。
 
 - プライベート・データ・コレクションによって、プライベート・データが、国内のピアなど、表示を許可されたピアにのみピアツーピアで共有されます (ゴシップ・プロトコルによって)。 データはピアのプライベート・データベースに保管されます。  順序付けサービスは、ここでは関与しません。またプライベート・データを認識することもありません。 チャネルのすべてのピアの台帳にこのデータのハッシュが書き込まれます。 状態検証で使用されるハッシュは、トランザクションの証拠として機能し、監査目的で使用することができます。 プライベート・データは、Fabric バージョン 1.2.1 上で稼働している {{site.data.keyword.blockchainfull_notm}} Platform 上のネットワークで使用できます。 ただし、プライベート・データ機能をリモート・ピアで使用することはできません。
 
 - ゼロ知識証明 (ZKP) により、「証明者」は「検証者」に、機密事項自体を示すことなく、機密事項に関する知識があることを保証できます。 何を知っているかを示すことなく、何かを知っていることを示してステートメントを満たす方法です。
 
-これらのテクノロジーについて詳しくは、[Hyperledger Fabric を使用したプライベートおよび機密トランザクション ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/ "Hyperledger Fabric を使用したプライベートおよび機密トランザクション") に関するホワイト・ペーパーを参照してください。
+これらのテクノロジーについて詳しくは、[Hyperledger Fabric を使用したプライベートおよび機密トランザクション](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external}に関するホワイト・ペーパーを参照してください。
 
 ## サポートについて
 {: #remote-peer-aws-about-support}
 
 {{site.data.keyword.blockchainfull_notm}} Platform では、このオファリングのサポートは提供されていません。 ピアに関する問題が発生した場合は、ブロックチェーン開発者向けの無料のリソースとサポート・フォーラムを利用して、{{site.data.keyword.IBM_notm}} および Fabric コミュニティーから支援を得ることができます。 詳しくは、[ブロックチェーンのリソースおよびサポート・フォーラム](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)を参照してください。 ネットワーク・モニターの**「ヘルプの利用」**画面でもサポート・リソースを確認できます。
 
-- AWS に関連する問題の場合は、[コミュニティーのサポート・フォーラム ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://forums.aws.amazon.com/index.jspa "AWS コミュニティーのサポート・フォーラム") と [AWS プレミアム・サポート ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://aws.amazon.com/premiumsupport/ "AWS プレミアム・サポート") の両方をご利用できます。
+- AWS に関連する問題の場合は、[コミュニティーのサポート・フォーラム](https://forums.aws.amazon.com/index.jspa){: external}と [AWS プレミアム・サポート](https://aws.amazon.com/premiumsupport/){: external}の両方をご利用できます。
 
 {{site.data.keyword.blockchainfull_notm}} は、{{site.data.keyword.cloud_notm}} で開かれた、{{site.data.keyword.blockchainfull_notm}} Platform for AWS に関連するケースをサポートしていません。 Community Edition は、検証、開発、およびテストを目的としたものであるため、実動用には使用しないでください。

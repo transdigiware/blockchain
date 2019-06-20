@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -10,22 +10,26 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:gif: data-image-type='gif'}
 
 # スターター・プランの概説
 {: #getting-started-with-starter-plan}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform Starter Plan は、構成済みのブロックチェーン・ネットワークをクリック 1 回でユーザーに提供します。 デフォルトでは 2 つの[組織](/docs/services/blockchain/glossary.html#glossary-organization)、それぞれの組織ごとに 1 つの [ピア](/docs/services/blockchain/glossary.html#glossary-peer)、そして 1 つの[チャネル](/docs/services/blockchain/glossary.html#glossary-channel)で構成される許可制ネットワークをプロビジョンします。 ネットワークが作成されたら、これを拡張してさらに組織やピアをネットワークに追加できます。 これらのネットワークは {{site.data.keyword.blockchainfull_notm}} Platform を初めて使用する初心者ユーザーを対象としています。<!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
 {:shortdesc}
 
 スターター・プランを使用すると、{{site.data.keyword.blockchainfull_notm}} プラットフォームのスキルを習得し、サンプル・アプリケーションを実行し、独自のアプリケーションをテストし、複数組織のシナリオをシミュレートできます。 この入門チュートリアルは、スターター・プランを使用してブロックチェーン・ネットワークで開発およびトランザクションを開始するステップを案内します。
 
-{{site.data.keyword.blockchainfull_notm}} Platform およびブロックチェーンが初めてという方は、オープン・ソースの [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) 上に構築されたネットワークの[基礎コンポーネントの概要](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview)を参照し、ブロックチェーンについての詳細を確認することができます。 また、[Hyperledger Fabric の資料 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html "Blockchain の紹介") も確認してください。
+{{site.data.keyword.blockchainfull_notm}} Platform およびブロックチェーンを初めて利用する場合は、オープン・ソースの [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) をベースとして構築されたネットワークの[基礎コンポーネントの概要](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview)を参照し、ブロックチェーンの詳細について学習できます。 また、[Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}を参照することもできます。
 
 **注**: {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan は開発/テスト環境であり、実動ワークロードには適していません。 実稼働環境が必要な場合は、[エンタープライズ・プランについて](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)を参照してください。
 
@@ -67,7 +71,7 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull_notm}} プラットフォーム・サービス・インスタンスを作成するとすぐに、デフォルト構成のスターター・プラン・[ネットワーク](/docs/services/blockchain/glossary.html#glossary-network)を取得できます。
 
-1. {{site.data.keyword.cloud_notm}} カタログで [ブロックチェーン・サービス![「外部リンク」アイコン](images/external_link.svg "「外部リンク」アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) を探します。
+1. {{site.data.keyword.cloud_notm}} カタログで[ブロックチェーン・サービス](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}を見つけます。
     **注**: {{site.data.keyword.cloud_notm}} の有料アカウントを使用してログインする必要があります。 アカウントがない場合は、**「登録して作成」**ボタンをクリックします。 無料トライアル・アカウントを作成した後、{{site.data.keyword.cloud_notm}} コンソールで**「管理」** > **「請求および使用量」** > **「請求処理」**に移動し、**「クレジット・カードの追加」**をクリックして、**「従量課金 (PAYG)」**タイプにアップグレードします。
 2. {{site.data.keyword.cloud_notm}} の地域を選択し、ネットワークを作成します。
 3. Cloud Foundry 組織とスペースを選択し、ネットワークを作成します。
@@ -76,7 +80,7 @@ subcollection: blockchain
   これで、デフォルト構成でスターター・プラン・ネットワークを使用する準備ができました。 ネットワークは 1 つの順序付けプログラム (「SOLO」順序付けサービスと呼ばれる)、2 つの組織、1 つの CA、および組織ごとに 1 つのピアによって実行されます。 デフォルト・チャネルも作成されます。
 6. **「起動」**ボタンをクリックします。
 
-ブロックチェーン・サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} サービス・ダッシュボード") に表示されます。
+ブロックチェーン・サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード](https://cloud.ibm.com/resources){: external}に表示されます。
 
 
 ## メンバーの招待
@@ -95,7 +99,7 @@ subcollection: blockchain
 
 ネットワーク・イニシエーターによって招待された場合は、ネットワークへの参加方法に関する指示が記載された E メール通知を受け取ります。 E メールの指示に従って、ネットワーク内のメンバーの 1 員になります。
 
-{{site.data.keyword.cloud_notm}} で、スターター・プラン・メンバーシップ・オプションを使用して [{{site.data.keyword.blockchainfull_notm}} プラットフォーム・サービス・インスタンス![「外部リンク」アイコン](images/external_link.svg "「外部リンク」アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) を作成する必要があります。
+{{site.data.keyword.cloud_notm}} で、スターター・プラン・メンバーシップ・オプションを使用して [{{site.data.keyword.blockchainfull_notm}} プラットフォーム・サービス・インスタンス](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}を作成する必要があります。
 
 1. {{site.data.keyword.cloud_notm}} アカウントでログインします。 アカウントがない場合は、**「登録して作成」**ボタンをクリックします。
 2. {{site.data.keyword.blockchain}} ネットワークを保管する Cloud Foundry 組織を選択します。
@@ -103,7 +107,7 @@ subcollection: blockchain
 4. **「作成」**ボタンをクリックします。 サービス・インスタンス・ページが開き、ポップアップで「ようこそ」パネルが表示されます。 ネットワークを結合するか、独自のネットワークを作成し続けるかを選択できます。 ネットワークを作成するには、[ネットワークの作成](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-creating-a-network)のステップ 4 を参照してください。
 5. ウェルカム・パネルで、**「既存のネットワークに参加 (Join existing network)」**を選択し、参加するネットワークをドロップダウン・リストから選択してから、**「続行」**をクリックします。
 
-ブロックチェーン・サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} サービス・ダッシュボード") に表示されます。
+ブロックチェーン・サービス・インスタンスが、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード](https://cloud.ibm.com/resources){: external}に表示されます。
 
 ## チャネルを作成する
 {: #getting-started-with-starter-plan-create-channels}
@@ -140,14 +144,14 @@ subcollection: blockchain
 ### サービス・インスタンス・ページからの取得
 {: #getting-started-with-starter-plan-retrieve-service-instance}
 
-サービス・インスタンスを作成した直後に、サービス・インスタンス・ページが表示されます。 また、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}} サービス・ダッシュボード") でサービスをクリックして、サービス・インスタンス・ページを開くこともできます。
+サービス・インスタンスを作成した直後に、サービス・インスタンス・ページが表示されます。 また、[{{site.data.keyword.cloud_notm}} サービス・ダッシュボード](https://cloud.ibm.com/resources){: external}でサービスをクリックして、サービス・インスタンス・ページを開くこともできます。
 
 以下の手順でサービス資格情報を取得します。
 1. サービス・インスタンス・ページで、左側のナビゲーターの**「サービス資格情報」**をクリックして、「サービス資格情報」画面を表示します。
 2. 「サービス資格情報」画面で**「新規資格情報」**をクリックします。
 3. 「新規資格情報の追加」画面で、資格情報に名前を付けて、「インラインの構成パラメーターの追加」フィールドに **{"type": "service_instance_token"}** と入力します。 **「追加」**をクリックします。 新しい資格情報がテーブルに追加されます。 「アクション」列の下の**「資格情報の表示」**をクリックすると、資格情報の詳細を表示できます。 この資格情報には、API に権限を与えるために使用できる API キーとシークレットが含まれています。
 
-![ネットワーク資格情報の取得](images/service_credentials.gif "ネットワーク資格情報の取得")
+![ネットワーク資格情報の取得](images/service_credentials.gif "ネットワーク資格情報の取得"){: gif}
 
 ### ネットワーク・モニターでの取得
 {: #getting-started-with-starter-plan-network-creds}

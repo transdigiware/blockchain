@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,16 +17,17 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # 特記事項
 {: #disclaimer}
 
 **重要:** どの {{site.data.keyword.blockchainfull}} プランを使用する場合も、まず、以下の情報を確認してください。
 
-## IBM サポート・ステートメント
+## {{site.data.keyword.IBM_notm}} サポート・ステートメント
 {: #disclaimer-support-statement}
 
-イノベーションを牽引してきた {{site.data.keyword.IBM}} の長い歴史は、{{site.data.keyword.cloud_notm}} の {{site.data.keyword.blockchainfull_notm}} Platform オファリングについても続いています。 ブロックチェーンは急速に成長を続けているテクノロジーです。金融業、ローカルおよびグローバルなサプライ・チェーン、あらゆる業界の物流サポートを劇的に変革することが予測されます。 さまざまな早期導入プログラムによって、{{site.data.keyword.IBM_notm}} のお客様およびビジネス・パートナー様は、産業用ソリューションとしてブロックチェーンを積極的に推進してきました。 {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} はそのようなプログラムの 1 つです。 **他の新しいテクノロジーと同様に、{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} ユーザーも急速な根本的変化の可能性を認識しておく必要があります**。
+イノベーションを牽引してきた {{site.data.keyword.IBM_notm}} の長い歴史は、{{site.data.keyword.cloud_notm}} の {{site.data.keyword.blockchainfull_notm}} Platform オファリングについても続いています。 ブロックチェーンは急速に成長を続けているテクノロジーです。金融業、ローカルおよびグローバルなサプライ・チェーン、あらゆる業界の物流サポートを劇的に変革することが予測されます。 さまざまな早期導入プログラムによって、{{site.data.keyword.IBM_notm}} のお客様およびビジネス・パートナー様は、産業用ソリューションとしてブロックチェーンを積極的に推進してきました。 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} はそのようなプログラムの 1 つです。 **他の新しいテクノロジーと同様に、{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} ユーザーも急速な根本的変化の可能性を認識しておく必要があります**。
 {:shortdesc}
 
 {{site.data.keyword.blockchainfull_notm}} の背景にあるアーキテクチャーは Linux Foundation の Hyperledger Fabric プロジェクトです。 各オープン・ソース・コミュニティーのコントリビューションによって、Hyperledger Fabric は改良されましたが、導入の課題が残っています。 **{{site.data.keyword.IBM_notm}} では、直接 Hyperledger Fabric ブロックチェーン・ネットワークで金融資産<!--, or any assets of value,-->を定義または交換することは避けるように注意を促しています。**
@@ -38,7 +38,7 @@ subcollection: blockchain
 ## オープン・ソースのステートメント
 {: #disclaimer-open-source-statement}
 
-{{site.data.keyword.cloud_notm}} の {{site.data.keyword.blockchainfull_notm}} オファリング・プランは、Linux Foundation の Hyperledger Fabric スタックの上に構築されています。 {{site.data.keyword.IBM_notm}} を含む Hyperledger Project メンバーは継続して Hyperledger の傘下のさまざまなサブプロジェクトにコントリビューションを提供します。  いずれのコントリビューションも、コミュニティーで検討、精査、テストされます。
+{{site.data.keyword.cloud_notm}} の {{site.data.keyword.blockchainfull_notm}} オファリング・プランは、Linux Foundation の Hyperledger Fabric スタックをベースとして構築されています。{{site.data.keyword.IBM_notm}} を含む Hyperledger Project メンバーは継続して Hyperledger の傘下のさまざまなサブプロジェクトにコントリビューションを提供します。  いずれのコントリビューションも、コミュニティーで検討、精査、テストされます。
 
 ## チェーンコード・サポート・ステートメント
 {: #disclaimer-chaincode-support-statement}

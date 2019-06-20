@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # ネットワーク・モニターの使用
 {: #ibp-dashboard}
@@ -49,7 +50,6 @@ subcollection: blockchain
 **図 1** に「概要」画面を示します。
 
 ![「概要」画面](images/myresources.png "ネットワークの概要")
-*図 1. ネットワークの概要*
 
 ### ノード・アクション
 {: #ibp-dashboard-node-actions}
@@ -87,7 +87,6 @@ subcollection: blockchain
 **図 2** に、ネットワークのストレージ使用状況が表示される「ストレージ」タブを示します。
 
 ![「概説」画面の「ストレージ」タブ](images/monitor_storage_starter.png "ストレージ")
-*図 2. ストレージ*
 
 「リソース」ダイアグラムには、ピアおよび認証局が使用するストレージ・スペースが表示されます。 作成したすべての組織、またはネットワークに招待したすべての組織が、このプールに含まれます。 リソースを消費する組織は、画面の 2 番目の黒丸にリストされます。
 
@@ -104,7 +103,6 @@ subcollection: blockchain
 **図 3** に、ネットワーク・メンバーが「メンバー」タブに表示されている「メンバー」画面の初期画面を示します。
 
 ![「メンバー」画面の「メンバー」タブ](images/monitor_members.png "ネットワーク・メンバー")
-*図 3. ネットワーク・メンバー*
 
 「メンバー」タブで他のメンバーを招待して、ネットワークの作成時に最初に招待されたメンバーに追加できます。 ネットワークにメンバーを招待するには、機関名とオペレーターの E メール・アドレスを入力して**「メンバーの追加」**をクリックします。 ネットワークには、最大で 15 のメンバーが参加できます (ネットワークのイニシエーターを含む)。 ネットワークからメンバーを削除するには、メンバーの行の最後にある「削除」記号をクリックします。
 
@@ -113,7 +111,6 @@ subcollection: blockchain
 **図 4** に「メンバーの追加」ウィンドウを示します。
 
 ![メンバーの追加](images/invite_member_starter.png "メンバーの追加")
-*図 4. メンバーの追加*
 
 **「メンバーの追加」**をクリックすると、以下の 2 つのオプションが表示されます。
 - **「メンバーの招待 (Invite a member)」**。 ネットワークのメンバーになるように他の組織を招待できます。 招待された組織は、ネットワークに参加して共同作業を行えるようになります。
@@ -126,11 +123,8 @@ subcollection: blockchain
 **図 5** に、メンバーの証明書が「証明書」タブに表示されている「メンバー」画面の初期画面を示します。
 
 ![「メンバー」画面の「証明書」タブ](images/monitor_certificates.png "証明書")
-*図 5. 証明書*
 
 オペレーターは、同じ機関に属するメンバーの証明書を「証明書」タブで管理できます。 **「証明書の追加」**をクリックして、「証明書の追加」パネルを開きます。 証明書に名前を指定し、「鍵」フィールドにクライアント・サイドの PEM 形式の証明書を貼り付け、**「実行依頼 (Submit)」**をクリックします。 このクライアント・サイドの証明書を有効にするためにピアを再始動する必要があります。
-
-証明書鍵の生成について詳しくは、[アプリケーションのエンロール](/docs/services/blockchain/v10_application.html#dev-app-enroll)を参照してください。
 
 ## チャネル
 {: #ibp-dashboard-channels}
@@ -140,7 +134,6 @@ subcollection: blockchain
 **図 6** に、ネットワークのすべてのチャネルの概要を表示するダッシュボードの初期画面を示します。
 
 ![チャネル](images/channels.png "チャネル")
-*図 6. チャネル*
 
 チャネルを作成すると、チャネル固有の台帳が生成されます。 詳しくは、[チャネルの作成](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel)を参照してください。
 
@@ -156,7 +149,6 @@ subcollection: blockchain
 **図 7** に「通知」画面を示します。
 
 ![通知](images/notifications.png "通知")
-*図 7. 通知*
 
 要求は「すべて」、「保留中」、「完了」の各サブタブにグループ分けされています。 各サブタブに含まれている要求の数が、サブタブのヘッダーの後ろに表示されています。
    * 「すべて」サブタブには、すべての要求が含まれています。
@@ -175,9 +167,8 @@ subcollection: blockchain
 **図 8** に「認証局」画面を示します。
 
 ![認証局](images/CA_screen.png "認証局")
-*図 8. 認証局*
 
-管理者 ID の横にある**「証明書の生成」**ボタンをクリックすると、新しいパブリック証明書と秘密鍵を CA から取得できます。 **「証明書」**フィールドには、**「秘密鍵」**のすぐ上に、パブリック証明書 (署名付き証明書またはエンロール証明書とも呼ばれる) が含まれています。 各フィールドの端にあるコピー・アイコンをクリックすると、そのフィールドの値をコピーできます。 このパネルは、Fabric SDK を使用するクライアント・アプリケーションで公開鍵と秘密鍵のペアを生成する方法の代替方法として使用できます。 詳しくは、[アプリケーションの開発チュートリアル](/docs/services/blockchain/v10_application.html#dev-app)を参照してください。 {{site.data.keyword.blockchainfull_notm}} Platform にはそれらの証明書が保管されないことに**注意してください**。 ユーザーがそれらを安全に保存して保管する必要があります。
+管理者 ID の横にある**「証明書の生成」**ボタンをクリックすると、新しいパブリック証明書と秘密鍵を CA から取得できます。 **「証明書」**フィールドには、**「秘密鍵」**のすぐ上に、パブリック証明書 (署名付き証明書またはエンロール証明書とも呼ばれる) が含まれています。 各フィールドの端にあるコピー・アイコンをクリックすると、そのフィールドの値をコピーできます。 このパネルは、Fabric SDK を使用するクライアント・アプリケーションで公開鍵と秘密鍵のペアを生成する方法の代替方法として使用できます。 {{site.data.keyword.blockchainfull_notm}} Platform にはそれらの証明書が保管されないことに**注意してください**。 ユーザーがそれらを安全に保存して保管する必要があります。
 
 **「ユーザーの追加」**ボタンをクリックして、新しい ID を組織に登録します。 **「ユーザーの追加」**ポップアップ・ウィンドウで、以下のフィールドに入力し、**「送信」**をクリックします。
   - **登録 ID:** 新しい ID の名前です。`登録 ID` と呼ぶこともあります。 **この値を保存**し、リモート・ピアを構成したり新しいアプリケーションをエンロールしたりするときに使用する必要があります。
@@ -196,7 +187,6 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 **図 9** に「API」画面を示します。
 
 ![API](images/API_screen.png "API")
-*図 9. API*
 
 **「Swagger UI」**リンクをクリックして Swagger UI を開きます。 API を実行するには、その前にネットワーク資格情報 (この API ページにあります) を使用して Swagger UI に権限を与える必要があることに注意してください。 詳しくは、[Swagger API を使用したネットワークとの対話](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger)を参照してください。
 
@@ -210,7 +200,6 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 **図 10** は、「コードの開発 (Develop code)」画面を示しています。
 
 ![コードの開発 (Develop code)](images/write_code.png "コードの開発 (Develop code)")
-*図 10. コードの開発 (Develop code)*
 
 ビジネス・ネットワークの開発およびデプロイについて詳しくは、[スターター・プランおよびエンタープライズ・プランへのビジネス・ネットワークのデプロイ](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network)を参照してください。
 
@@ -222,7 +211,6 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 **図 11** に「コードのインストール」画面を示します。
 
 ![コードのインストール (Install code)](images/chaincode_install_overview.png "コードのインストール (Install code)")
-*図 11. コードのインストール (Install code)*
 
 チェーンコードは、まずピアのファイル・システムにインストールされてから、チャネルでインスタンス化されます。 詳しくは、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode)を参照してください。
 
@@ -234,7 +222,6 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 **図 12** に「サンプルの試行」画面を示します。
 
 ![サンプルの試行](images/sample_overview_ep.png "サンプルの試行")
-*図 12. 「サンプル」*
 
 ## ヘルプの利用
 {: #ibp-dashboard-support}
@@ -244,14 +231,13 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 **図 13** に、「サポート」タブの初期画面に表示される情報を示します。
 
 ![サポート](images/support.png "サポート")
-*図 13. ブロックチェーン・サポート*
 
 ### ブロックチェーンのリソースおよびサポート・フォーラム
 {: #ibp-dashboard-support-forums}
 
 「サポート」タブのリソースを使用して、問題のトラブルシューティングを行い、{{site.data.keyword.IBM_notm}} および Fabric コミュニティーから支援を受けます。 「サポート」タブのリンクについて詳しくは、[サポートについて](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support)の[リソースおよびサポート・フォーラム](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)を参照してください。
 
-[{{site.data.keyword.IBM_notm}} dWAnswers ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://developer.ibm.com/answers/smartspace/blockchain/index.html){:new_window} は {{site.data.keyword.blockchainfull_notm}} Platform と Hyperledger Fabric のユーザー向けのコミュニティー・フォーラムであり、IBM の専門家によって監視されています。 過去に投稿された質問への回答を探したり、新しい質問を送信したりできます。 問題をデバッグできない場合や、疑問点の答を突き止めることができない場合は、{{site.data.keyword.cloud_notm}} サービス・ポータルでサポート Case を送信してください。 詳しくは、[サポート・ケースの送信](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)を参照してください。
+[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} は {{site.data.keyword.blockchainfull_notm}} Platform と Hyperledger Fabric のユーザー向けのコミュニティー・フォーラムであり、{{site.data.keyword.IBM_notm}} の専門家によって監視されています。 過去に投稿された質問への回答を探したり、新しい質問を送信したりできます。 問題をデバッグできない場合や、疑問点の答を突き止めることができない場合は、{{site.data.keyword.cloud_notm}} サービス・ポータルでサポート Case を送信してください。 詳しくは、[サポート・ケースの送信](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)を参照してください。
 
 
 ### Fabric のリリース・ノート
@@ -262,12 +248,10 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 **図 14** に、ネットワーク・モニター UI のリリース・ノートを示します。
 
 ![リリース・ノート Helios](images/releasenotes_helios.png "Network Monitor UI のリリース・ノート")
-*図 14. Network Monitor UI のリリース・ノート*
 
 **図 15** に、ネットワークのバージョンの Hyperledger Fabric と Fabric 認証局のリリース・ノートを示します。
 
 ![リリース・ノート Fabric](images/releasenotes_Fabric.png "Fabric のリリース・ノート")
-*図 15. Fabric のリリース・ノート*
 
 ## ネットワーク設定 (Network preferences)
 {: #ibp-dashboard-network-preferences}
@@ -285,8 +269,7 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 
 次の**図 16** は、「ネットワーク設定 (Network preferences)」ウィンドウを示しています。
 
-![ネットワーク設定 (Network preferences)](images/network_preferences.gif "ネットワーク設定 (Network preferences)")
-*図 16. ネットワーク設定 (Network preferences)*
+![ネットワーク設定 (Network preferences)](images/network_preferences.gif "ネットワーク設定 (Network preferences)"){: gif}
 
 ### 相互 TLS (エンタープライズ・プラン・ネットワークの場合)
 {: #ibp-dashboard-mutual-tls}
@@ -306,7 +289,7 @@ Fabric 1.1 Enterprise Plan ネットワークの場合は、組織ごとに独�
 - `enrollSecret`: 証明書を取得するために使用する登録シークレット
 - `x-tlsCAName`: アプリケーションでの相互 TLS を使用した通信を可能にするための証明書を取得する際に使用する CA 名。
 
-相互 TLS をサポートするようにアプリケーションを更新する方法について詳しくは、[How to configure mutual TLS ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html) を参照してください。
+相互 TLS をサポートするようにアプリケーションを更新する方法について詳しくは、[How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external} を参照してください。
 
 <!--
 
@@ -326,7 +309,6 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 次の**図 17** は、「ネットワーク設定 (Network preferences)」ウィンドウを示しています。
 
 ![ネットワーク設定 (Network preferences)](images/network_preferences_ep_tmp.png "ネットワーク設定 (Network preferences)")
-*図 17. ネットワーク設定 (Network preferences)*
 
 ## ネットワーク名の更新
 {: #ibp-dashboard-network-name}
@@ -337,8 +319,7 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 
 **図 18** に、スターター・プランのネットワーク名を、割り当てられた名前から「Starter Plan Network」に更新する手順を示します。
 
-![ネットワーク名の更新](images/update_network_name_ep.gif "ネットワーク名の更新")
-*図 18. ネットワーク名の更新*
+![ネットワーク名の更新](images/update_network_name_ep.gif "ネットワーク名の更新"){: gif}
 
 
 ## ネットワークの切り替え (スターター・プラン・ネットワークの場合)
@@ -350,8 +331,7 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 
 **図 19** に、別のスターター・プラン・ネットワークに切り替える手順を示します。
 
-![ネットワークの切り替え](images/switch_network.gif "ネットワークの切り替え")
-*図 19. ネットワークの切り替え*
+![ネットワークの切り替え](images/switch_network.gif "ネットワークの切り替え"){: gif}
 
 
 ## ネットワークのリセット (スターター・プラン・ネットワークの場合)
@@ -366,4 +346,3 @@ If you switch to CouchDB, you need to update your chaincode to take advantage of
 **図 20** に「ネットワークのリセット」機能を示します。
 
 ![ネットワークのリセット](images/reset_network.png "ネットワークのリセット")
-*図 20. 「ネットワークのリセット」*

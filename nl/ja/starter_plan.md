@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,21 +17,25 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Starter Plan について
 {: #starter-plan-about}
+
+<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
+{: note} -->
 
 {{site.data.keyword.blockchainfull}} Platform スターター・プランは、組織が複数組織のブロックチェーン・ネットワークをシミュレートしたり、アプリケーションを迅速に開発したり、サンプルのスマート・コントラクトやビジネス・ネットワークを使用したりできるようにする、エントリー・レベルのオプションです。 また、他のメンバーシップ・オプションと同じ UI エクスペリエンスが提供されるので、効率良く習得できます。 2018 年 10 月 4 日より後に作成された新しいスターター・プラン・ネットワークは、Hyperledger Fabric V1.2.1 でビルドされます。 古いスターター・プラン・ネットワークは、Fabric V1.1.0 レベルのままです。
 {:shortdesc}
 
 **スターター・プラン**は、ブロックチェーン・ネットワークの開発を始めたいお客様や、ブロックチェーン・テクノロジーの学習を始めたいお客様向けの環境です。 スターター・プランを開発環境またテスト環境として使用して、小規模な環境から開始し、ネットワークのメンバーシップまたはトランザクション・ボリュームを拡張して実稼働環境に移行できます。
 
- スターター・プラン・ネットワークをデプロイするには、{{site.data.keyword.cloud_notm}} の[スターター・メンバーシップ ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) に今すぐ登録してください。 ネットワークの開発を開始できる状態になったら、[スターター・プランの概説](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)を参照してください。
+ スターター・プラン・ネットワークをデプロイするには、{{site.data.keyword.cloud_notm}} の[スターター・メンバーシップ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}に今すぐ登録してください。 ネットワークの開発を開始できる状態になったら、[スターター・プランの概説](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)を参照してください。
 
 
 **注:**
 - {{site.data.keyword.blockchainfull_notm}} Platform スターター・プランは、開発/テスト環境であり、実動ワークロードには適していません。 実稼働環境が必要な場合は、[エンタープライズ・プランについて](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)を参照してください。
-- {{site.data.keyword.blockchainfull_notm}} Platform は {{site.data.keyword.cloud_notm}} のプラットフォーム・サービスであり、すべてのメンバーシップ・オファリングはサービス・レベル・アグリーメント (SLA) に関する [{{site.data.keyword.cloud_notm}} サービスのご利用条件 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "{{site.data.keyword.cloud_notm}} サービスのご利用条件") に従っています。 スターター・プランは、単一の地域の 1 つのデータ・センターにプロビジョンされます。 使用可能な地域のリストについては、[{{site.data.keyword.blockchainfull_notm}} Platform のロケーション](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
+- {{site.data.keyword.blockchainfull_notm}} Platform は {{site.data.keyword.cloud_notm}} のプラットフォーム・サービスであり、すべてのメンバーシップ・オファリングはサービス・レベル・アグリーメント (SLA) に関する [{{site.data.keyword.cloud_notm}} サービスのご利用条件](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external}に従っています。 スターター・プランは、単一の地域の 1 つのデータ・センターにプロビジョンされます。 使用可能な地域のリストについては、[{{site.data.keyword.blockchainfull_notm}} Platform のロケーション](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
 
 ## スターター・プランでの提供内容
 {: #starter-plan-about-what-starter-plan-offers}
@@ -74,8 +77,8 @@ Starter Plan は {{site.data.keyword.blockchainfull_notm}} Platform へのエン
 - **スターター・プランのバージョンおよびアップグレード**
     - 2018 年 10 月 4 日より後に作成された新しいスターター・プラン・ネットワークは、Hyperledger Fabric V1.2.1 でビルドされます。 古いスターター・プラン・ネットワークは、Fabric V1.1.0 レベルのままです。
     - 古いスターター・プラン・ネットワークに追加された新しいピアは、Fabric v1.2.1 でビルドされます。 後方互換性があるため、ネットワークのパフォーマンスに影響はありません。
-    - チャネルを作成または更新する場合は、より高度な[チャネル構成 ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html "チャネル構成") 設定および[アクセス制御リスト ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html "アクセス制御リスト") を使用できます。
-    - Hyperledger Fabric v1.2 の [サービス・ディスカバリー ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "service discovery") および [プライベート・データ ![外部リンク・アイコン](images/external_link.svg "外部リンク・アイコン")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html "private data") 機能は、スターター・プランではサポートされません。
+    - チャネルを作成または更新する場合は、より高度な[チャネル構成](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html){: external}設定および[アクセス制御リスト](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html){: external}を使用できます。
+    - Hyperledger Fabric v1.2 の[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}および[プライベート・データ](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external}機能は、スターター・プランではサポートされません。
     - Fabric V1.1.0 の古いスターター・プラン・ネットワークを[リセット](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-reset-network)すると、新規ネットワークは Fabric V1.2 レベルになります。 ネットワークをリセットする場合は、チェーンコードまたは .bna ファイルを新規ネットワークにインストールし、古いネットワークのメンバーを再招待する必要があります。
 - **ネットワーク・リソースの制限**
     スターター・プランにより、ピアごとに 1 CPU と 4 Gi RAM が割り当てられ、ピアを含む {{site.data.keyword.cloud_notm}} サービス・インスタンスごとに 20 Gi ストレージが割り当てられます。 チェーンコード・コンテナーと台帳のブロックは、最もリソースを消費するネットワーク・コンポーネントです。 ネットワーク内に多くのピアを持ち、多くのブロックを生成したり大規模なチェーンコード・ファイルを使用したりするユーザーは、パフォーマンスでリソースの制限を経験する場合があります。 ストレージのネットワーク使用量は、[ネットワーク・モニターの「概説」画面](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-storage)で確認できます。

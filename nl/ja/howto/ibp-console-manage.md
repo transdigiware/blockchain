@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 
 # コンソールの管理
@@ -28,16 +29,16 @@ subcollection: blockchain
 
 **対象者:** このトピックは、ブロックチェーン・ネットワークの作成、モニター、管理を担当するネットワーク・オペレーターを対象に設計されています。
 
-## コンソールでのユーザーの追加と削除
+## コンソールへのユーザーの追加とコンソールからのユーザーの削除
 {: #ibp-console-manage-console-add-remove}
 
-コンソールにアクセスするすべてのユーザーに、{{site.data.keyword.cloud_notm}} の IAM (ID およびアクセス管理) のユーザー役割を定義したアクセス・ポリシーを割り当てる必要があります。 ユーザーがコンソール内でどのような操作を行えるかは、ポリシーによって決まります。 {{site.data.keyword.blockchainfull}} Platform コンソールは、コンソール管理者である {{site.data.keyword.cloud_notm}} 所有者の E メール・アドレスを使用してプロビジョンされます。  デフォルトでは、この {{site.data.keyword.cloud_notm}} ユーザーに、{{site.data.keyword.blockchainfull}} Platform 2.0 サービスの**管理者**役割が IAM で付与されます。 そのため、コンソール管理者は、IAM の UI を使用して、コンソールに対するアクセス権限を他のユーザーに付与できます。 IAM について詳しくは、[IAM とは ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](/docs/iam?topic=iam-iamoverview#iamoverview "IAM とは") を参照してください。  
+コンソールにアクセスするすべてのユーザーに、{{site.data.keyword.cloud}} の IAM (ID およびアクセス管理) のユーザー役割を定義したアクセス・ポリシーを割り当てる必要があります。 ユーザーがコンソール内でどのような操作を行えるかは、ポリシーによって決まります。 {{site.data.keyword.blockchainfull_notm}} Platform コンソールは、コンソール管理者である {{site.data.keyword.cloud_notm}} 所有者の E メール・アドレスを使用してプロビジョンされます。  デフォルトでは、この {{site.data.keyword.cloud_notm}} ユーザーに、{{site.data.keyword.blockchainfull_notm}} Platform サービスの**管理者**役割が IAM で付与されます。 そのため、コンソール管理者は、IAM の UI を使用して、コンソールに対するアクセス権限を他のユーザーに付与できます。 IAM について詳しくは、[IAM とは?](/docs/iam?topic=iam-iamoverview#iamoverview){: external}を参照してください。  
 
-[IAM を使用してユーザーを招待する ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](/docs/iam?topic=iam-iamuserinv#iamuserinv "IAM を使用してユーザーを招待する") ときは、以下の手順を実行して、そのユーザーの役割およびコンソールに対するアクセス権限を構成する必要があります。
+[IAM を使用してユーザーを招待する](/docs/iam?topic=iam-iamuserinv#iamuserinv){: external}ときは、以下の手順を実行して、そのユーザーの役割およびコンソールに対するアクセス権限を構成する必要があります。
  1. メニュー・バーで**「管理」** > **「アクセス (IAM)」**をクリックして、**「ユーザー」**を選択します。
  2. **「ユーザーの招待」**をクリックします。
  3. ユーザーの E メール・アドレスを入力します。
- 4. **「サービス」**ドロップダウン・リストから **Blockchain Platform 2.0** を選択します。
+ 4. **「サービス」**ドロップダウン・リストから **Blockchain Platform** を選択します。
  5. **「役割の選択」**までスクロールダウンします。
  6. **「サービスのアクセス役割の割り当て」**で、ユーザーの役割を選択します。**管理者**、**ライター**、**リーダー**の中から選択できます。
  7. **「ユーザーの招待」**をクリックします。
@@ -50,7 +51,7 @@ subcollection: blockchain
 
  許可は累積型です。 **管理者**役割を選択した場合は、そのユーザーは**ライター**と**リーダー**の操作もすべて実行できるようになるので、それらの役割にまでチェック・マークを付ける必要はありません。   同様に、`ライター`役割のユーザーは、**リーダー**役割の操作をすべて実行できるようになります。 コンソールにアクセスするためには、**「サービスのアクセス役割」**で役割を選択するだけでよく、**「プラットフォームのアクセス役割」**で何かを選択する必要はありません。 招待されたユーザーの {{site.data.keyword.cloud_notm}} ダッシュボードにサービス・インスタンスが表示されることが重要な場合は、**「プラットフォームのアクセス役割の割り当て」**の下で対応する役割を確認してください。
 
-![Kubernetes バージョンの更新](../images/AddICPUser.gif)
+![ユーザーの追加](../images/AddICPUser.gif){: gif}
 
 
 コンソールに追加された新規ユーザーは、通常、他のユーザーがデプロイしたノード、チャネル、チェーンコードをすべて表示することはできません。 これらのコンポーネントを操作するためには、各ユーザーが自分のコンソール・ウォレットに関連 ID をインポートする必要があります。 詳しくは、[アイデンティティーのコンソール・ウォレットへの保管](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet)を参照してください。
@@ -65,7 +66,7 @@ subcollection: blockchain
  6. **「サービスのアクセス役割の割り当て」**で、ユーザーの役割を選択します。**管理者**、**ライター**、**リーダー**の中から選択できます。
  7. **「割り当て」**をクリックします。
 
-コンソールに対するユーザーのアクセス権限を削除する必要がある場合は、[IAM のユーザーの削除に関するトピック ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](/docs/iam?topic=iam-remove#remove "ユーザーの削除") の手順に従ってください。
+コンソールに対するユーザーのアクセス権限を削除する必要がある場合は、[IAM のユーザーの削除に関するトピック](/docs/iam?topic=iam-remove#remove){: external}の手順に従ってください。
 
 ### IAM での個別ユーザーまたはユーザー・グループへのアクセス役割の割り当て
 {: #ibp-console-manage-console-users-groups}
@@ -110,34 +111,37 @@ IAM に追加するユーザーは、単に、コンソールにログインで�
 ### ノード・ログの表示
 {: #ibp-console-manage-console-node-logs}
 
-ピア、順序付けプログラム、および認証局のログは、{{site.data.keyword.IBM_notm}} Kubernetes サービスによって収集されます。 以下のステップに従って、{{site.data.keyword.blockchainfull_notm}} Platform 2.0 ネットワークをデプロイしたクラスターのノードのログを表示します。
+ピア、順序付けプログラム、および認証局のログは、{{site.data.keyword.IBM_notm}} Kubernetes サービスによって収集されます。 以下のステップに従って、{{site.data.keyword.blockchainfull_notm}} Platform ネットワークをデプロイしたクラスターのノードのログを表示します。
 
-1. [{{site.data.keyword.cloud_notm}} ダッシュボード ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/resources) を開き、{{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターの概要画面にナビゲートします。
+ノードのデプロイ時に使用した名前空間でフィルタリングすると、ノード・ログを見つけやすくなります。名前空間を調べるには、コンソールで CA ノードを開き、**「設定」**アイコンをクリックします。**「認証局エンドポイント URL」**の値を表示します。例えば、`https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054` などが表示されます。
+
+この URL の最初の部分が名前空間です。文字 `n` で始まり、6 文字のランダムな英数字から成る文字列が続きます。つまり、上の例では、名前空間の値は `n2734d0` です。
+
+1. [{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/resources){: external}を開き、{{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターの概要画面にナビゲートします。
 2. クラスターの概要画面上の**「Kubernetes ダッシュボード」**をクリックします。
-3. Kubernetes ダッシュボードで、左側のナビゲーションの「名前空間」ドロップダウン・リストを使用して、名前空間を {{site.data.keyword.blockchainfull_notm}} Platform のサービス・インスタンスに変更します。 サービス・インスタンス名は、文字と数値の長ストリングです。 サービス・インスタンス名は、{{site.data.keyword.blockchainfull_notm}} Platform コンソールの URL の最初の部分に表示されています。
+3. Kubernetes ダッシュボードで、左側のナビゲーションの**「名前空間」**ドロップダウン・リストを使用して、先ほど確認した {{site.data.keyword.blockchainfull_notm}} Platform のサービス・インスタンスの名前空間に変更します。
 4. 左側のナビゲーションで、**「ポッド」**をクリックしてデプロイ済みのノード・ポッドのリストを表示します。
-5. ポッドをクリックします。 次に、上部メニューで**「ログの表示」**をクリックして、ノードのログを開きます。 ログ上部の**「ログの取得元 (Logs from)」**の後にあるドロップダウン・メニューを使用して、ポッド内の異なるコンテナーのログを表示できます。 例えば、ピアと状態データベース (CouchDB など) は、異なるコンテナーで実行され、異なるログが生成されます。
+5. ポッドをクリックします。 次に、上部メニューで**「ログ」**をクリックして、ノードのログを開きます。 ログ上部の**「ログの取得元 (Logs from)」**の後にあるドロップダウン・メニューを使用して、ポッド内の異なるコンテナーのログを表示できます。 例えば、ピアと状態データベース (CouchDB など) は、異なるコンテナーで実行され、異なるログが生成されます。
 
-デフォルトでは、ノードのログはクラスター内でローカルに収集されます。 {{site.data.keyword.cloud_notm}} Log Analysis サービスやサード・パーティーのサービスを使用して、ネットワークのログを収集、保管、および分析することもできます。 詳しくは、[{{site.data.keyword.IBM_notm}} Kubernetes Service のロギングとモニタリング ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/containers?topic=containers-health#health "{{site.data.keyword.IBM_notm}} Kubernetes Service のロギングとモニタリング") を参照してください。ログをリアルタイムで簡単に解析できる [{{site.data.keyword.cloud_notm}} LogDNA ![外部リンク・アイコン](../images/external_link.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "IBM Log Analysis with LogDNA による Kubernetes クラスター・ログの管理") サービスを利用することをお勧めします。
-
+デフォルトでは、ノードのログはクラスター内でローカルに収集されます。 {{site.data.keyword.cloud_notm}} のサービスやサード・パーティーのサービスを使用してネットワークのログを収集、保管、分析することもできます。詳しくは、[{{site.data.keyword.IBM_notm}} Kubernetes Service のロギングとモニタリング](https://cloud.ibm.com/docs/containers?topic=containers-health#health){: external}を参照してください。 ログをリアルタイムで簡単に解析できる[{{site.data.keyword.cloud_notm}} LogDNA](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} サービスを利用することをお勧めします。
 
 ### スマート・コントラクトのコンテナー・ログの表示
 {: #ibp-console-manage-console-container-logs}
 
 スマート・コントラクトに関する問題が発生した場合は、以下のようにスマート・コントラクト (チェーンコード) のコンテナー・ログを表示して問題をデバッグできます。
 
-- Kubernetes ダッシュボードを開いて、スマート・コントラクトが稼働しているピアのポッドをクリックします。
-- ダッシュボードから `exec` リンクをクリックして、ポッドの中にアクセスします。 デフォルトでは、ピア・コンテナーを指しています。
-- ドロップダウン・リストから `dind` コンテナーを選択して、このコンテナーに切り替えます。
-- コマンド `docker ps -a` を実行して、チェーンコード・コンテナーのリストを表示します。
-- `docker logs <chaincode-container-ID>` を実行します。その際、`<chaincode-container-ID>` をご使用のチェーンコード・コンテナーの ID に置き換えます。
+- Kubernetes ダッシュボードを開き、[名前空間](#ibp-console-manage-console-node-logs)でフィルタリングし、スマート・コントラクトが実行されているピアのポッドをクリックします。
+- ダッシュボードから`「ログ」`リンクをクリックします。デフォルトでは、ピア・コンテナーを指しています。
+- ドロップダウン・リストから `fluentd` コンテナーを選択して、このコンテナーに切り替えます。  
+
+すべてのスマート・コントラクト・ログがこのウィンドウに表示されます。パネルのダウンロード・アイコンを使用してダウンロードできます。
 
 ## ノードのパッチのインストール
 {: #ibp-console-manage-patch}
 
-ピア・ノード、CA ノード、および順序付けプログラム・ノードの基盤となる IBM Hyperledger Fabric Docker イメージは、セキュリティー更新や新しい Fabric ポイント・リリースへの更新などのために、時間の経過とともに更新する必要が生じることがあります。ノード・タイルに**「使用可能なパッチ (Patch available)」**というテキストが示された場合、これはそのようなパッチが使用可能であり、ユーザーの準備ができたらいつでもノードにインストール可能であることを示しています。これらのパッチはオプションですが、推奨されます。   
+ピア・ノード、CA ノード、および順序付けプログラム・ノードの基盤となる {{site.data.keyword.IBM_notm}} Hyperledger Fabric Docker イメージは、セキュリティー更新や新しい Fabric ポイント・リリースへの更新などのために、時間の経過とともに更新する必要が生じることがあります。 ノード・タイルに**「使用可能なパッチ (Patch available)」**というテキストが示された場合、これはそのようなパッチが使用可能であり、ユーザーの準備ができたらいつでもノードにインストール可能であることを示しています。 これらのパッチはオプションですが、推奨されます。  コンソールにインポートされたノードにパッチを適用することはできません。
 
-パッチは、一度に 1 つのノードに適用されます。パッチが適用されている間、そのノードでは要求やトランザクションを処理できません。そのため、サービスの中断を防ぐために、可能な場合は常に、同じタイプの別のノードが要求を処理できることを確認する必要があります。ノードへのパッチのインストールが完了するまでには約 1 分かかり、更新が完了すると、ノードで要求を処理できるようになります。
+パッチは、一度に 1 つのノードに適用されます。 パッチが適用されている間、そのノードでは要求やトランザクションを処理できません。 そのため、サービスの中断を防ぐために、可能な場合は常に、同じタイプの別のノードが要求を処理できることを確認する必要があります。 ノードへのパッチのインストールが完了するまでには約 1 分かかり、更新が完了すると、ノードで要求を処理できるようになります。
 {:note}
 
 ノードにパッチを適用するには、ノード・タイルを開き、**「パッチのインストール (Install patch)」**ボタンをクリックします。
@@ -153,4 +157,4 @@ IAM に追加するユーザーは、単に、コンソールにログインで�
 4. **「Kubernetes クラスター」**ツイスティーまでスクロールし、それを展開して無料クラスターを表示します。
 5. 無料クラスターがリストされたら、クラスターのアクション・メニューをクリックし、次に**「削除」**をクリックして無料クラスターを削除します。
 
-これらのアクションが完了したら、[最初の手順](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)に従って、IBM Cloud カタログ・ページから新しい Kubernetes クラスターとブロックチェーン・サービス・インスタンスを作成できます。
+これらのアクションが完了したら、[最初の手順](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)に従って、{{site.data.keyword.cloud_notm}} カタログ・ページから新しい Kubernetes クラスターとブロックチェーン・サービス・インスタンスを作成できます。
