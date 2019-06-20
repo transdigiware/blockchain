@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-20"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,7 +126,7 @@ Also, you can use the **Try it out** function in the API Reference doc to test y
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-You can import only existing CA, peer, and orderer nodes from other {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} networks.
+You can import only existing CA, peer, and ordering nodes from other {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} networks.
 
 ## Building a network by using APIs
 {: #ibp-v2-apis-build-with-apis}
@@ -152,9 +152,9 @@ You can use APIs to create blockchain components in your instance of the {{site.
 
 3. [Create an MSP definition for your organization](#ibp-v2-apis-msp) by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
-4. [Build the configuration file](#ibp-v2-apis-config) that is required to create an orderer or peer. You must build a unique configuration file for each orderer or peer that you want to create. If you are deploying multiple ordering nodes, you need to provide a configuration file for each node that you want to create.
+4. [Build the configuration file](#ibp-v2-apis-config) that is required to create an ordering service or peer. You must build a unique configuration file for each ordering service or peer that you want to create. If you are deploying multiple ordering nodes, you need to provide a configuration file for each node that you want to create.
 
-5. Create an orderer by calling [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer).
+5. Create an ordering service by calling [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service).
 
 6. Create a peer by calling [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer).
 
@@ -179,7 +179,7 @@ You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} co
 
 2. Import an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
 
-3. Import an orderer by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer).
+3. Import an ordering service by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service).
 
 4. Import a peer by calling [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer).
 
@@ -254,7 +254,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 ### Generate certificates with your CA admin
 {: #ibp-v2-apis-enroll-ca-admin}
 
-A **CA admin** identity was automatically registered for you when you created your CA. You can now use that admin name and password to issue an `enroll` command with the Fabric CA client to generate an MSP folder with certificates that can then be used to register other peer or orderer identities.
+A **CA admin** identity was automatically registered for you when you created your CA. You can now use that admin name and password to issue an `enroll` command with the Fabric CA client to generate an MSP folder with certificates that can then be used to register other peer or ordering node identities.
 
 1. Ensure that you complete the steps to [set up the Fabric CA client](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client) and that `$FABRIC_CA_CLIENT_HOME` is set to the directory where you want to store your CA admin certs.
 
@@ -346,14 +346,14 @@ First, you need to register a component identity with your CA. Your component wi
 
   Make a note of the second **affiliation** value, for example, `org1.department1`. You need to use this value in the command below.
 
-3. Run the following command to register the orderer or peer.
+3. Run the following command to register the ordering node or peer.
 
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
   {:codeblock}
 
-  Create a name and password for the component and then use them to replace `name` and `secret`.  Make a note of this information. Set the `--id.type` to `orderer` if you are deploying an orderer, or set it to `peer` if you are deploying a peer. The command might look similar to the following example:
+  Create a name and password for the component and then use them to replace `name` and `secret`.  Make a note of this information. Set the `--id.type` to `orderer` if you are deploying an ordering node, or set it to `peer` if you are deploying a peer. The command might look similar to the following example:
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -378,7 +378,7 @@ First, you need to register a component identity with your CA. Your component wi
 
 You also need to create an admin identity that you can use to operate your network. You will use this identity to operate specific components, such as by installing a smart contract on your peer. You can also use this identity as an administrator of your organization and use it to create and edit channels.  
 
-You need to register this new identity with your CA, and use it to generate an MSP folder. You can make this identity an organization administrator by adding its signCert to your organization MSP. You will also need to add the signCert to your configuration file so that it can be made the admin cert of the orderer or peer during deployment. You need to create only one admin identity for your organization. As a result, you need to complete these steps only once. You can use the signCert that you generated to deploy many peers or orderers.
+You need to register this new identity with your CA, and use it to generate an MSP folder. You can make this identity an organization administrator by adding its signCert to your organization MSP. You will also need to add the signCert to your configuration file so that it can be made the admin cert of the ordering node or peer during deployment. You need to create only one admin identity for your organization. As a result, you need to complete these steps only once. You can use the signCert that you generated to deploy many peers or ordering nodes.
 
 Ensure that your `$FABRIC_CA_CLIENT_HOME` is set to the path to the MSP of your CA Admin.
 
@@ -395,7 +395,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-Create a new user identity `name` and `secret` for the admin. Make sure to use different values than for the peer or orderer identity you just registered. The command looks similar to the following example:
+Create a new user identity `name` and `secret` for the admin. Make sure to use different values than for the peer or ordering node identity you just registered. The command looks similar to the following example:
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -480,7 +480,7 @@ You will need to return to this folder when you create your organization MSP def
 ### Registering the component identity with the TLS CA
 {: #ibp-v2-apis-config-register-component-tls}
 
-When you created your CA, a TLS CA was deployed along with your default CA. You also need to register the orderer or peer with your TLS CA. To do this, you will first need to enroll by using the admin of the TLS CA. Change `$FABRIC_CA_CLIENT_HOME` to a directory where you want to store your TLS CA admin certificates.
+When you created your CA, a TLS CA was deployed along with your default CA. You also need to register the ordering node or peer with your TLS CA. To do this, you will first need to enroll by using the admin of the TLS CA. Change `$FABRIC_CA_CLIENT_HOME` to a directory where you want to store your TLS CA admin certificates.
 
 ```
 cd $HOME/fabric-ca-client
@@ -502,14 +502,14 @@ A real call might look similar to the following example:
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-After you have enrolled, you have the necessary certificates to register your component with the TLS CA. Run the following command to register the orderer or peer:
+After you have enrolled, you have the necessary certificates to register your component with the TLS CA. Run the following command to register the ordering node or peer:
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-This command is similar to the one that you used to register the component identity with the CA, except that you need to use the TLS CA name. If you are deploying an orderer instead of a peer, set `--id.type` to `orderer` instead of `peer`. You must provide this identity a different user name and password than the one that you used against your default CA. A real register might look similar to the command below:
+This command is similar to the one that you used to register the component identity with the CA, except that you need to use the TLS CA name. If you are deploying an ordering node instead of a peer, set `--id.type` to `orderer` instead of `peer`. You must provide this identity a different user name and password than the one that you used against your default CA. A real register might look similar to the command below:
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -654,7 +654,7 @@ The template for the configuration file can be found below:
 ```
 {:codeblock}
 
-Copy this entire file into a text editor where you can edit it and save it to your local file system as a JSON file. Use the steps below to complete this configuration file and use it to deploy an orderer or peer.
+Copy this entire file into a text editor where you can edit it and save it to your local file system as a JSON file. Use the steps below to complete this configuration file and use it to deploy an ordering service or peer.
 
 ### Retrieve the CA connection information
 {: #ibp-v2-apis-config-connx-info}
@@ -800,7 +800,7 @@ After you completed all the steps above, your updated configuration file might l
 ```
 {:codeblock}
 
-You can leave the other fields blank. After completing this file, you can pass this file as the `config` field to the request body of the `Create an orderer` or `Create a peer` API.
+You can leave the other fields blank. After completing this file, you can pass this file as the `config` field to the request body of the `Create an ordering service` or `Create a peer` API.
 
 ### Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #ibp-v2-apis-admin-console}
