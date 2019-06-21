@@ -153,7 +153,7 @@ The node that collects transactions from network members, orders the transaction
 
 ## Organization
 {: #glossary-organization}
-See [Member](/docs/services/blockchain/glossary.html#glossary-member).
+See [Member](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Participant
 {: #glossary-participant}
@@ -181,7 +181,7 @@ The certificate that any entities, whether organizations or admins, attach to th
 
 ## Smart contracts
 {: #glossary-smart-contracts}
-See [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode).
+See [Chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -201,4 +201,4 @@ A user is a participant in a blockchain network that has indirect access to the 
 
 ## World state
 {: #glossary-world-state}
-See [Current state](/docs/services/blockchain/glossary.html#glossary-current-state).
+See [Current state](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).

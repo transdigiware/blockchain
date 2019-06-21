@@ -43,14 +43,14 @@ Permissions are cumulative. If you select a **Manager** role, the user will also
 ### Managing a user's password
 {: #console-icp-manage-user-pw}
 
-The password that was stored inside the [password secret](/docs/services/blockchain/howto/console-deploy-icp.html#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they login to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
+The password that was stored inside the [password secret](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they login to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
 
 You need to share the default password, or the default password that you reset, with the users so that they can log into the console. They will be required to change the password upon their first login.
 {:note}
 
 Users with the manager role can reset passwords for other users. In the **Users** tab of the console, click the three vertical dots at the end of the row for a specific user, and then click **Reset password**. The console will reset that user's password to the default password, which you can check and confirm in the right panel. Users with any role can change their own password at any time. Click the avatar icon in the upper right corner, and then click **Change password**.
 
-After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
+After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 ### Modifying a user's role
@@ -299,7 +299,7 @@ https://9.30.252.107:31212/ak/api/v1/components \
   -K
 ```
 
-You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or  {{site.data.keyword.cloud_notm}}. For more information, visit [Build a network by using APIs](/docs/services/blockchain/howto/ibp-v2-apis.html#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain/howto/ibp-v2-apis.html#ibp-v2-apis-import-with-apis).
+You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or  {{site.data.keyword.cloud_notm}}. For more information, visit [Build a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
 
 ## Viewing your logs
 {: #icp-console-manage-logs}
@@ -309,7 +309,7 @@ When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you
 ### Viewing your console logs
 {: #console-icp-manage-console-logs}
 
-You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/services/blockchain/howto/ibp-console-manage.html#console-icp-manage-node-logs), which are collected by {{site.data.keyword.cloud_notm}} Private.
+You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#console-icp-manage-node-logs), which are collected by {{site.data.keyword.cloud_notm}} Private.
 
 Navigate to the **Settings** tab in the console browser to change the logging settings. The console logs are collected from two separate sources:
 

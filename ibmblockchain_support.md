@@ -25,12 +25,12 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform provides several avenues for troubleshooting problems and getting support, which depend on the {{site.data.keyword.blockchainfull_notm}} Platform offerings that you use.
 {:shortdesc}
 
-For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is recommended to firstly use [free digital support resources](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Hyperledger Fabric Community. If you use a Starter or Enterprise plan network, you can navigate to the "Support" screen in your Network Monitor, which contains links to these resources.
+For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is recommended to firstly use [free digital support resources](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Hyperledger Fabric Community. If you use a Starter or Enterprise plan network, you can navigate to the "Support" screen in your Network Monitor, which contains links to these resources.
 
-If your problem cannot be solved by any of the [free digital support resources](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources), consider the following approaches to get support for the offerings that you use.
+If your problem cannot be solved by any of the [free digital support resources](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources), consider the following approaches to get support for the offerings that you use.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
-  Submit a support case through {{site.data.keyword.cloud_notm}}. **Support is limited for Beta instances of the platform.** For more information, see [Submitting support cases](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+  Submit a support case through {{site.data.keyword.cloud_notm}}. **Support is limited for Beta instances of the platform.** For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
   If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact customer support, see [Accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
@@ -46,13 +46,13 @@ If your problem cannot be solved by any of the [free digital support resources](
   For issues that are related to AWS, you can use both [community support forums](https://forums.aws.amazon.com/index.jspa){: external} and [AWS premium support](https://aws.amazon.com/premiumsupport/){: external}.
 
 - **Starter Plan and Enterprise Plan on {{site.data.keyword.cloud_notm}}**
-  Submit a support case through {{site.data.keyword.cloud_notm}}. For more information, see [Submitting support cases](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+  Submit a support case through {{site.data.keyword.cloud_notm}}. For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 ## Resources and support forums
 {: #blockchain-support-resources}
 
 **{{site.data.keyword.blockchainfull_notm}} Service docs**
-  [{{site.data.keyword.blockchainfull_notm}} Service docs](/docs/services/blockchain/index.html#get-started-ibp), provides guidance on how to start with {{site.data.keyword.blockchainfull_notm}} Platform. You can find corresponding topics from the left navigator or search any term with the search function on the top.
+  [{{site.data.keyword.blockchainfull_notm}} Service docs](/docs/services/blockchain?topic=blockchain-get-started-ibp#get-started-ibp), provides guidance on how to start with {{site.data.keyword.blockchainfull_notm}} Platform. You can find corresponding topics from the left navigator or search any term with the search function on the top.
 
 **Hyperledger Fabric resources**  
   [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}, the [Fabric community wiki](https://wiki.hyperledger.org/display/fabric){: external}, and the [Fabric Jira dashboard](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} provide more details about the Fabric stack.
@@ -70,9 +70,9 @@ For issues that are related to {{site.data.keyword.blockchainfull_notm}} Platfor
 If you need help with Hyperledger Fabric, Hyperledger Composer, or your applications, please make use of the community resources above or engage [{{site.data.keyword.blockchainfull_notm}} Services](https://www.ibm.com/blockchain/services){: external}. It is recommended to use Hyperledger Composer solely for demos and proofs of concept. {{site.data.keyword.IBM_notm}} does not provide support for networks that use Hyperledger Composer in production, including the Composer CLI, JavaScript APIs, REST server, and Web Playground.
 {:note}
 
-The response to your support case depends on your [{{site.data.keyword.cloud_notm}} support plan](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.
+The response to your support case depends on your [{{site.data.keyword.cloud_notm}} support plan](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
 
-- If you have purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicates more urgency and will be responded to more quickly by the support team. For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.  
+- If you have purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicates more urgency and will be responded to more quickly by the support team. For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
 - If you do not purchase support, your {{site.data.keyword.cloud_notm}} Pay-As-You-Go or Subscription account comes with a free **Basic Support** plan. In this case, your support case will automatically be registered Sev-4.
 
 Follow these steps to submit a support case.

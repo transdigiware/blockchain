@@ -73,11 +73,11 @@ After you complete the **Add identity** panel and click submit, you can view the
 ## Importing a CA
 {: #ibp-console-import-ca}
 
-A CA node is the blockchain component that issues certificates to all network entities (peers, ordering services, clients, and so on) so that these entities can communicate, authenticate, and ultimately transact. Each organization has their own CA that acts as their root of trust. You should add your organizations whether you are joining or building a blockchain consortium. You can learn more about CA's in the [overview of blockchain components](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-ca).  
+A CA node is the blockchain component that issues certificates to all network entities (peers, ordering services, clients, and so on) so that these entities can communicate, authenticate, and ultimately transact. Each organization has their own CA that acts as their root of trust. You should add your organizations whether you are joining or building a blockchain consortium. You can learn more about CA's in the [overview of blockchain components](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).  
 
 There are several reasons why you might want to import a CA into your console. After you import the CA, you can use it to register more peer users to the peer organization by clicking **Register user**. Or, you can use the CA to create additional admin identities for a peer or ordering service.
 
-To import a CA to the {{site.data.keyword.blockchainfull_notm}} Platform console and operate it, the network operator must have already exported the CA from the {{site.data.keyword.blockchainfull_notm}} Platform where it was deployed. Importing a CA allows you to register new users and [enroll identities](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll).
+To import a CA to the {{site.data.keyword.blockchainfull_notm}} Platform console and operate it, the network operator must have already exported the CA from the {{site.data.keyword.blockchainfull_notm}} Platform where it was deployed. Importing a CA allows you to register new users and [enroll identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll).
 
 ### Before you begin
 {: #ibp-console-import-ca-before-you-begin}
@@ -95,12 +95,12 @@ Importing a CA is performed from the **Nodes** tab.
 4. On the next panel, you can enter the enroll ID and secret that was used when the CA was deployed.
 5. Lastly, enter the enroll ID and secret for the TLS CA that was used when the CA was deployed. When you deploy a CA, both a CA and a TLS CA are deployed together. The network operator can use the same enroll ID and secret for both, or they can specify unique enroll ID and secrets for the CA and the TLS CA when a CA is deployed.
 
-After you have imported the CA into the console, you can use your CA to create new identities and generate the necessary certificates to operate your components and submit transactions to the network. To learn more, see [Managing certificate authorities](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-manage-ca).
+After you have imported the CA into the console, you can use your CA to create new identities and generate the necessary certificates to operate your components and submit transactions to the network. To learn more, see [Managing certificate authorities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 
 ## Importing an ordering service
 {: #ibp-console-import-orderer}
 
-An ordering service is the blockchain component that collects transactions from network members, orders the transactions, and bundles them into blocks. It is the common binding of blockchain consortiums and needs to be deployed if you are founding a consortium that other organizations will join. You can learn more about ordering services in the [overview of blockchain components](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-orderer).
+An ordering service is the blockchain component that collects transactions from network members, orders the transactions, and bundles them into blocks. It is the common binding of blockchain consortiums and needs to be deployed if you are founding a consortium that other organizations will join. You can learn more about ordering services in the [overview of blockchain components](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer).
 
 Importing an ordering service into the console allows you to create new channels for peers to transact privately.
 
@@ -124,7 +124,7 @@ After you have imported the ordering service into the console, you can add new o
 ## Importing a peer
 {: #ibp-console-import-peer}
 
-A peer node is the blockchain component that maintains a ledger and runs a smart contract to perform query and update operations on the ledger. Organization members own and maintain peers.  Each organization that joins a consortium should deploy at least one peer and minimally two for High Availability (HA). You can learn more about peers in the [overview of blockchain components](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer).
+A peer node is the blockchain component that maintains a ledger and runs a smart contract to perform query and update operations on the ledger. Organization members own and maintain peers.  Each organization that joins a consortium should deploy at least one peer and minimally two for High Availability (HA). You can learn more about peers in the [overview of blockchain components](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
 
 After you import a peer into the console, you can install smart contracts on the peer and join the peer to other channels in your blockchain.
 

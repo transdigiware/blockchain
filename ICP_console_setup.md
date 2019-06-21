@@ -95,7 +95,7 @@ Complete the following steps to install and set up {{site.data.keyword.cloud_not
 
 4. Setup the security and access policies for the target namespace. Instructions are provided in the [next section](#icp-console-setup-psp).
 
-After you install {{site.data.keyword.cloud_notm}} Private and bind a pod security policy to a target namespace, you can continue to [import the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm chart](/docs/services/blockchain/howto/console-helm-install.html#console-helm-install) into your {{site.data.keyword.cloud_notm}} Private cluster.
+After you install {{site.data.keyword.cloud_notm}} Private and bind a pod security policy to a target namespace, you can continue to [import the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm chart](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install) into your {{site.data.keyword.cloud_notm}} Private cluster.
 
 ## PodSecurityPolicy Requirements
 {: #icp-console-setup-psp}
