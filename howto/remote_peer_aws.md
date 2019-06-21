@@ -157,7 +157,7 @@ The following table lists the configurable parameters of the AWS chart and their
 | | | |
 | **Network Configuration** | |
 | `Availability Zones` |The two Availability Zones to use for the subnets in the VPC. Note: The logical order is preserved. | |
-| `Allowed SSH access CIDR` | Allowed [CIDR block](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} for external SSH access to the {{site.data.keyword.blockchain_notm}} Peer instances. It can be set to 0.0.0.0/0 to allow access from anywhere (not recommended). | |
+| `Allowed SSH access CIDR` | Allowed [CIDR block](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} for external SSH access to the {{site.data.keyword.blockchainfull_notm}} Peer instances. It can be set to 0.0.0.0/0 to allow access from anywhere (not recommended). | |
 | `PeerEndpointAccessCIDR` | Allowed [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} block for external gRPC access to the {{site.data.keyword.blockchainfull_notm}} Peer instances. Typically set to 0.0.0.0/0 to allow access from anywhere (not recommended). | |
 | | | |
 | **Amazon EC2 Configuration** | | |

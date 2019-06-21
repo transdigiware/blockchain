@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: IBM Blockchain Platform, remote peer, multicloud, multicloud, private data, AWS Cloud
 
@@ -22,7 +22,7 @@ subcollection: blockchain
 # About {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services
 {: #remote-peer-aws-about}
 
-**Note:** The {{site.data.keyword.blockchainfull}} Platform Remote Peer on {{site.data.keyword.cloud_notm}} Private (Beta) Program is ended. If you still want to run peers in your {{site.data.keyword.cloud_notm}} Private environment, use the **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private** offering instead. For more information, see [About peers on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about-peer).
+**Note:** The {{site.data.keyword.blockchainfull}} Platform Remote Peer on {{site.data.keyword.cloud_notm}} Private (Beta) Program is ended. If you still want to run peers in your {{site.data.keyword.cloud_notm}} Private environment, use the **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private** offering instead. For more information, see [About {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/console-icp-about.html#console-icp-about).
 
 You can run the {{site.data.keyword.blockchainfull_notm}} Platform peer in the AWS Cloud after you connect it to an existing blockchain network in {{site.data.keyword.cloud_notm}}. Running remote peers that are outside {{site.data.keyword.cloud_notm}} provides more flexibility to grow or join a blockchain network while taking advantage of an existing network inside {{site.data.keyword.cloud_notm}}. Your remote peers in the AWS cloud leverage the Certificate Authorities (CAs) and ordering service on the platform, but you can collocate your peers with other applications outside {{site.data.keyword.cloud_notm}}.
 {:shortdesc}

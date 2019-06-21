@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -283,7 +283,7 @@ You can create a new `yaml` file by editing `values.yaml` included in the downlo
 After you complete the configuration parameters and click the **Install** button, click the **View Helm Release** button to view your deployment. If it was successful, you should see the value 1 in the `DESIRED`, `CURRENT`, `UP TO DATE`, and `AVAILABLE` fields in the Deployment table. You may need to click refresh and wait for the table to be updated.
 
 You view the details of your deployment by navigating to the **Deployment** overview screen, and clicking on the pod that was created. The Helm chart deployment creates five containers on your cluster:
-- **opstools**: The console UI.
+- **optools**: The console UI.
 - **deployer**: A tool that allows your console to communicate with your deployments.
 - **configtxlator**: A tool used by the console to read and create channel updates.
 - **couchdb**: An instance of CouchDB that stores the data from your console, including your authorization information.
