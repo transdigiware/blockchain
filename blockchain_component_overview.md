@@ -32,7 +32,7 @@ For a high-level overview of the components in a network based on Fabric, check 
 
 *Although this video focuses on the components from the perspective of Starter and Enterprise networks, the information is still highly relevant to the customer managed solution of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private.*
 
-For the purposes of this overview, we'll focus just on certificate authorities (CAs), orderers, peers, smart contracts, and applications. As you can see from the [Building a network tutorial](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network), this sequence is not arbitrary; it reflects the sequence in which components in a network based on Fabric will be deployed.
+For the purposes of this overview, we'll focus just on certificate authorities (CAs), orderers, peers, smart contracts, and applications. As you can see from the [Building a network tutorial](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), this sequence is not arbitrary; it reflects the sequence in which components in a network based on Fabric will be deployed.
 
 ## Certificate Authorities
 {: #blockchain-component-overview-ca}
@@ -76,7 +76,7 @@ Where contracts in the business world are signed and filed with law firms, smart
 
 Client applications in a Fabric-based network like {{site.data.keyword.blockchainfull_notm}} Platform leverage underlying infrastructures such as APIs, SDKs, and smart contracts to allow client interactions (invokes and queries) at a higher level of abstraction.
 
-For a look at how applications interact with a network based on Fabric, check out the [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} topic in the Hyperledger Fabric documentation. You can also visit the [creating applications](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) topic to learn how to connect your applications to {{site.data.keyword.blockchainfull_notm}} Platform.
+For a look at how applications interact with a network based on Fabric, check out the [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} topic in the Hyperledger Fabric documentation. You can also visit the [creating applications](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app) topic to learn how to connect your applications to {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## An example network
 {: #blockchain-component-overview-example-network}

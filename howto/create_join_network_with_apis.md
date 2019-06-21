@@ -20,7 +20,7 @@ subcollection: blockchain
 # Creating or joining a network with Swagger APIs
 {: #swagger-network}
 
-{{site.data.keyword.blockchainfull}} Platform exposes a number of REST APIs that you can use to create or join a blockchain network on {{site.data.keyword.cloud_notm}}. You can try these APIs by using the [Swagger UI](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) that is associated with your network.
+{{site.data.keyword.blockchainfull}} Platform exposes a number of REST APIs that you can use to create or join a blockchain network on {{site.data.keyword.cloud_notm}}. You can try these APIs by using the [Swagger UI](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) that is associated with your network.
 {:shortdesc}
 
 
@@ -114,9 +114,9 @@ The ``swagger_url`` represents the api endpoint that you will use when you creat
 
 If you use Enterprise Plan, you need to complete two steps to create a network with APIs.
 
-1. Create a blockchain service instance on {{site.data.keyword.cloud_notm}} with Enterprise Plan<!-- or Enterprise Plus Plan-->.  Retrieve your service instance ID and token as the basic auth username and password. For more information, see [Retrieving basic auth credential for API](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Create a blockchain service instance on {{site.data.keyword.cloud_notm}} with Enterprise Plan<!-- or Enterprise Plus Plan-->.  Retrieve your service instance ID and token as the basic auth username and password. For more information, see [Retrieving basic auth credential for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
-2. Call the **Create network** API using these service credentials. Issue this API against the api `swagger_url` retrieved from [Checking available network locations](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location). Navigate to the ``swagger_url link`` to use the Swagger UI to issue the Create Network API, or programmatically issue the command using the URL address without ``/api-docs``. For example,
+2. Call the **Create network** API using these service credentials. Issue this API against the api `swagger_url` retrieved from [Checking available network locations](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location). Navigate to the ``swagger_url link`` to use the Swagger UI to issue the Create Network API, or programmatically issue the command using the URL address without ``/api-docs``. For example,
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api/v1/networks
@@ -124,7 +124,7 @@ If you use Enterprise Plan, you need to complete two steps to create a network w
     {:codeblock}
 
 **Parameters**:
-- `location_id`: The ID of an available network location. Specify the value of the `loation_id` noted from [Checking available network locations](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location).
+- `location_id`: The ID of an available network location. Specify the value of the `loation_id` noted from [Checking available network locations](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location).
 - `company_name`: Your identifier as a member in the network.
 - `email`: Your email address to receive notifications.
 - `peers`: : Number of peers that you want to create for this member. Valid values are 0 - 6. You can also create peers for your member later in the Network Monitor UI.
@@ -133,7 +133,7 @@ If you use Enterprise Plan, you need to complete two steps to create a network w
 
 ## Inviting new members to a network
 
-After you create a blockchain network, you can invite other members to join your network. You need to specify the ID of the network that you want to invite new members to join. The basic auth credential that is required to invite a member is different than the one that is used in the **Create network** API. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> You can get the credential to invite a member with the **Retrieve network credentials** API on the [Swagger UI](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-retrieving-network-credentials) or [retrieve basic auth information for API](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token) from your service instance in {{site.data.keyword.cloud_notm}}.
+After you create a blockchain network, you can invite other members to join your network. You need to specify the ID of the network that you want to invite new members to join. The basic auth credential that is required to invite a member is different than the one that is used in the **Create network** API. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> You can get the credential to invite a member with the **Retrieve network credentials** API on the [Swagger UI](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials) or [retrieve basic auth information for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token) from your service instance in {{site.data.keyword.cloud_notm}}.
 
 ```
 /networks/{networkID}/invite
@@ -151,9 +151,9 @@ The invited member will receive an email invitation with instructions on how to 
 
 If you are invited to join a blockchain network, you will receive a network invitation email which includes the `location_id` and `network id`.
 
-1. Before joining the network, you need to create an {{site.data.keyword.blockchainfull_notm}} Platform service instance and retrieve your service instance ID and token as the basic auth username and password. For more information, see [Retrieving basic auth information for API](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Before joining the network, you need to create an {{site.data.keyword.blockchainfull_notm}} Platform service instance and retrieve your service instance ID and token as the basic auth username and password. For more information, see [Retrieving basic auth information for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
-2. [Check the available network locations](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location) to get the `swagger_url` for the `location_id` in your invitation e-mail. It will look something like:
+2. [Check the available network locations](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location) to get the `swagger_url` for the `location_id` in your invitation e-mail. It will look something like:
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api-docs

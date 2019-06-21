@@ -82,7 +82,7 @@ After you click **Execute**, you can see the response of the API call against yo
 
 By default, all users with a non-Auditor role in {{site.data.keyword.cloud_notm}}, can view and use the **Network credentials** visible on the Swagger APIs' panel and can therefore manage your network using the APIs. However, if you prefer not to expose your Swagger API network credentials in the UI, you can copy and secure your existing key and secret values and generate new credentials that are not valid for use with the Swagger APIs. A flag, named resetCredentials, is provided and allows you to control the access by completing the following steps:
 
-1. Follow the steps to generate a new network credential as described in the [Service credentials dashboard](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Follow the steps to generate a new network credential as described in the [Service credentials dashboard](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 2. However, in the **Add Inline Configuration Parameters** box, paste in the following value:
    ```
    {
@@ -104,7 +104,7 @@ Now, the original valid credentials are visible in the **Network credentials** i
 ### 401 Unauthorized  
 {: #ibp-swagger-401}
 
-  Ensure that you have authorized the REST API by providing your network credentials. For more information, see [Authorizing Swagger APIs](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger).
+  Ensure that you have authorized the REST API by providing your network credentials. For more information, see [Authorizing Swagger APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger).
 
 ### 400 Error: Bad Request
 {: #ibp-swagger-400}

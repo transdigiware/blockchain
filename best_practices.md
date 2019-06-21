@@ -33,7 +33,7 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 ### Managing transactions
 {: #best-practices-app-managing-transactions}
 
-Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
+Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
 
 If a chaincode is not running, the first transaction proposal that is sent to this chaincode starts the chaincode. While the chaincode is starting, all other proposals are rejected with an error that indicates that the chaincode is currently starting. This is different from transaction invalidation. If any proposal is rejected while the chaincode is starting, application clients need to resend the rejected proposals after the chaincode starts. Application clients can use a message queue to avoid losing transaction proposals.
 
@@ -82,7 +82,7 @@ As a high availability best practice, it is strongly recommended that you deploy
 ## Enabling mutual TLS
 {: #best-practices-app-mutual-tls}
 
-If you are running Enterprise Plan networks that are at Fabric V1.1 level, you have the option of [enabling mutual TLS](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) for your applications. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications cannot communicate with your network.
+If you are running Enterprise Plan networks that are at Fabric V1.1 level, you have the option of [enabling mutual TLS](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) for your applications. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications cannot communicate with your network.
 
 In the Connection Profile, locate the `certificateAuthorities` section where you can find the following attributes that are necessary to enroll and get the certificates to communicate with your network by using mutual TLS.
 

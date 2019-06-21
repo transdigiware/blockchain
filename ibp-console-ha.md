@@ -158,7 +158,7 @@ In all cases, to protect against data corruption, it is recommended that you reg
 
 | Storage solution provider | Guidance |
 |----------|---------|
-| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](https://cloud.ibm.com/docs/services/RegistryImages/ibm-backup-restore?topic=RegistryImages-ibmbackup_restore_starter#ibmbackup_restore_starter){: external}. But be aware that without snapshot capability, nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a reliable backup.  |
+| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/services/RegistryImages/ibm-backup-restore?topic=RegistryImages-ibmbackup_restore_starter#ibmbackup_restore_starter){: external}. But be aware that without snapshot capability, nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a reliable backup.  |
 | {{site.data.keyword.cloud_notm}} Private storage solution | You can use the backup or restore technology provided by your storage provider. Again, ensure you have [stopped](#ibp-console-ha-stop-nodes) the nodes before taking the backup. |
 | Portworx | A [snapshot capability](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/#prerequisites){: external} is available for taking backups without stopping the nodes. |
 {: caption="Table 2. Backup recommendations for storage" caption-side="top"}

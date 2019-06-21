@@ -38,7 +38,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why does my peer fail to start?](#ibp-console-build-network-troubleshoot-entry2)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
-- [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
+- [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
@@ -58,7 +58,7 @@ If the node is a peer or ordering node, this condition occurs when the health ch
 {: tsCauses}
 
 If this is a new node, wait a few more minutes for the deployment to complete. If the node is not new,
-[examine the associated node logs](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) for errors to determine the cause.
+[examine the associated node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors to determine the cause.
 {: tsResolve}
 
 ## When I hover over my node, the status is `Status undetectable`, what does this mean?
@@ -98,7 +98,7 @@ For example, when you try to operate the node, the action might fail.
 After creating a new peer or ordering service, depending on your cluster storage configuration, it may take a few minutes for the nodes to be ready for operation.
 {: tsCauses}
 
-Check your Kubernetes dashboard and ensure the peer or node status is `Running`. Then try your action again. If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) for errors.  
+Check your Kubernetes dashboard and ensure the peer or node status is `Running`. Then try your action again. If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
 {: tsResolve}
 
 ## Why am I getting the error `Unable to get system channel` when I open my ordering service?
@@ -138,7 +138,7 @@ The peer log includes `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERRO 001 Ca
 
 - Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
 - Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret.
-- Note that before you create the peer or ordering service, you need to create an organization admin id, of type 'client'. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
+- Note that before you create the peer or ordering service, you need to create an organization admin id, of type 'client'. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## Why did my smart contract installation, instantiation or upgrade fail?
@@ -153,7 +153,7 @@ You may receive this error if this version of the smart contract already exists 
 
 - Open your Kubernetes dashboard and ensure the peer status is `Running`.  
 - Open the peer node and ensure the smart contract version does not already exist on the peer and try again with the proper version.
-- If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) for errors.  
+- If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
 {: tsResolve}
 
 ## How can I view my smart contract container logs?
@@ -226,7 +226,7 @@ I received an e-mail that my {{site.data.keyword.IBM_notm}} Kubernetes service c
 Free Kubernetes clusters are only valid for 30 days.
 {: tsCauses}
 
-It is not possible to migrate from a free cluster to a paid cluster. After 30 days you cannot access the console and all of your nodes and certificates are deleted. See this topic on [Kubernetes cluster expiration](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration) for information on what is happening and what you can do.
+It is not possible to migrate from a free cluster to a paid cluster. After 30 days you cannot access the console and all of your nodes and certificates are deleted. See this topic on [Kubernetes cluster expiration](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) for information on what is happening and what you can do.
 {: tsResolve}
 
 ## Why are the transactions I submit from VS Code failing?
@@ -242,7 +242,7 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 This error occurs if you are using the Fabric Service Discovery feature but did not configure any anchor peers on your channel.
 {: tsCauses}
 
-Follow step three of the [private data topic](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
+Follow step three of the [private data topic](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
 
 ## When I log in to my console, why am I getting a 401 Unauthorized error?
 {: #ibp-v2-troubleshooting-console-401}

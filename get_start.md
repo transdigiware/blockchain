@@ -23,19 +23,19 @@ subcollection: blockchain
 <!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
 {: note}-->
 
-{{site.data.keyword.blockchainfull}} Platform Enterprise Plan provides a blockchain network with high security, integrity, scalability, and performance. You can quickly provision a fully functional network and use the Network Monitor, which is a GUI dashboard, to immediately run [chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode) and applications without having to design and configure a network from scratch.
+{{site.data.keyword.blockchainfull}} Platform Enterprise Plan provides a blockchain network with high security, integrity, scalability, and performance. You can quickly provision a fully functional network and use the Network Monitor, which is a GUI dashboard, to immediately run [chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode) and applications without having to design and configure a network from scratch.
 {:shortdesc}
 
-**Note**: {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan provides a production environment. If you need a development and testing environment, see [About Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about).
+**Note**: {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan provides a production environment. If you need a development and testing environment, see [About Starter Plan](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
 
 This tutorial introduces the prerequisites and steps you need to follow to get an Enterprise Plan network that is hosted in {{site.data.keyword.IBM_notm}}'s highly available and secure environment.
 
-The following steps indicate the basic flow to launch an Enterprise Plan network with multiple network [members](/docs/services/blockchain/glossary.html#glossary-member):
-1. A **network initiator**, as one special type of network member, creates the network and defines governance policies. The network initiator can then invite other [organizations](/docs/services/blockchain/glossary.html#glossary-organization) to join this network as network members. For more information, see [Creating a network](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network).
-2. Invited **network members** receive an email notification that provides instructions for them to join a {{site.data.keyword.blockchain}} network. Besides the instructions in the email notification, you can also follow the steps in [Joining a network](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
-3. All **network members**, after creating or joining a network, can enter the Network Monitor to configure and manage their network resources. You can set up [channels](/docs/services/blockchain/glossary.html#glossary-channel) with a group of network members to execute private transactions on a channel-specific ledger, which only channel members can access. In the Network Monitor, you can also join your own peers to the channel, and then install and instantiate chaincode on them. For more information, see [Configuring network resources and environment](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-config).
-4. **Application developers**, after developing applications, enable the interaction between their applications and the network. For more information, see [Enabling applications to interact with the network](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-enable-apps).
-5. **Network operators** monitor transactions on their channels in the Network Monitor. For more information, see [Monitoring network resources](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-monitor-resources).
+The following steps indicate the basic flow to launch an Enterprise Plan network with multiple network [members](/docs/services/blockchain?topic=blockchain-glossary#glossary-member):
+1. A **network initiator**, as one special type of network member, creates the network and defines governance policies. The network initiator can then invite other [organizations](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization) to join this network as network members. For more information, see [Creating a network](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-create-network).
+2. Invited **network members** receive an email notification that provides instructions for them to join a {{site.data.keyword.blockchain}} network. Besides the instructions in the email notification, you can also follow the steps in [Joining a network](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
+3. All **network members**, after creating or joining a network, can enter the Network Monitor to configure and manage their network resources. You can set up [channels](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) with a group of network members to execute private transactions on a channel-specific ledger, which only channel members can access. In the Network Monitor, you can also join your own peers to the channel, and then install and instantiate chaincode on them. For more information, see [Configuring network resources and environment](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-config).
+4. **Application developers**, after developing applications, enable the interaction between their applications and the network. For more information, see [Enabling applications to interact with the network](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-enable-apps).
+5. **Network operators** monitor transactions on their channels in the Network Monitor. For more information, see [Monitoring network resources](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-monitor-resources).
 
 
 ## Creating a network
@@ -53,7 +53,7 @@ If you are a network initiator, click the **Create Network** button to initiate 
 	Members that you invite will receive an email notification about your invitation after you complete all of the steps to create the network.
 3. In the "Define Governance Rules" screen, establish the policies for membership, channel creation, and chaincode. By default, all network members can invite other members to join the network, create channels, and instantiate chaincode. Currently, your network uses the default governance policies. Click **Next**.
 4. In the "Review Summary" screen, verify your network configuration. If you want to make modifications, click **Edit** beside the section header or click the **Previous** button to go back to previous screens. When you complete the network configuration, click **Done**.
-5. In the "Network Created" screen, you will be notified that your network has been successfully created. You can click **Add [Peers](/docs/services/blockchain/glossary.html#glossary-peer)** to configure your network resources or click **Enter Monitor** directly to open the Network Monitor. You can also add peers later in the Network Monitor. For more information about peers, see [Add peers](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-peers).
+5. In the "Network Created" screen, you will be notified that your network has been successfully created. You can click **Add [Peers](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer)** to configure your network resources or click **Enter Monitor** directly to open the Network Monitor. You can also add peers later in the Network Monitor. For more information about peers, see [Add peers](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-peers).
 
 Now you successfully deploy a {{site.data.keyword.blockchain}} network that can support the following network resources:
 * A member-specific Certificate Authority (CA)
@@ -78,7 +78,7 @@ If you are an invited network member, click the **Pending Invite ->** button, se
 
 1. In the "Let's Get Started" screen, enter the name of your organization and click **Next**.
 2. In the "Review Governance Rules" screen, review the network's governance policies of membership, channel creation, and chaincode. Click **Next**.
-3. (Optional) In the "Add Peers" screen, choose the quantity of peers that you want to add. Click **Next**. Each member in a network can add up to three peers. This step is optional, and you can add your peers later in the Network Monitor. For more information about peers, see [Add peers](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-peers).
+3. (Optional) In the "Add Peers" screen, choose the quantity of peers that you want to add. Click **Next**. Each member in a network can add up to three peers. This step is optional, and you can add your peers later in the Network Monitor. For more information about peers, see [Add peers](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-peers).
 4. In the "Review Network Summary" screen, verify the network configuration. If you want to make modifications, click the **Previous** button to go back to previous screens. After you complete the resource configuration, click **Done**. You will be notified that you have successfully joined the network. You can then click **Enter Monitor** to open the Network Monitor.
 
 <!-- or click **Create a Channel** to initiate a channel creation request. You can create channels later in the Network Monitor. For more information, see [Channels](v10_dashboard.html#channels).  -->
@@ -87,11 +87,11 @@ If you are an invited network member, click the **Pending Invite ->** button, se
 ## Configuring network resources and environment
 {: #getting-started-with-enterprise-plan-config}
 
-1. Enter your Network Monitor after you create or join a {{site.data.keyword.blockchain}} network. The Network Monitor is a GUI dashboard where you can manage and track network status information. For more information, see [Network Monitor](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
-2. Add your own peers to the network. If you have already added enough peers, skip this step. Peers run chaincode and they are the endpoint to interact with your applications. Click **Add Peers** in the "Overview" screen, and select the quantity and size of your peers. For more information, see [Overview](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview).
-3. Set up a channel. All members in the same channel are provisioned a channel-specific ledger, which delivers data isolation and confidentiality. For more information about how to create a channel, see [Creating a channel](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel). If you are a channel member who is invited to join a channel, you will receive an email notification with a link to the wizard that allows you to join the channel.
-4. Join peers to the channel. Only peers that are associated with the channel can access its ledger. For more information, see [Channels](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels).
-5. Install and instantiate chaincode. All channel members need to install the same chaincode with the same name and version on every peer that will run the chaincode. After you install the chaincode, you need to instantiate it on the channel before you can use it. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
+1. Enter your Network Monitor after you create or join a {{site.data.keyword.blockchain}} network. The Network Monitor is a GUI dashboard where you can manage and track network status information. For more information, see [Network Monitor](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard).
+2. Add your own peers to the network. If you have already added enough peers, skip this step. Peers run chaincode and they are the endpoint to interact with your applications. Click **Add Peers** in the "Overview" screen, and select the quantity and size of your peers. For more information, see [Overview](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview).
+3. Set up a channel. All members in the same channel are provisioned a channel-specific ledger, which delivers data isolation and confidentiality. For more information about how to create a channel, see [Creating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). If you are a channel member who is invited to join a channel, you will receive an email notification with a link to the wizard that allows you to join the channel.
+4. Join peers to the channel. Only peers that are associated with the channel can access its ledger. For more information, see [Channels](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels).
+5. Install and instantiate chaincode. All channel members need to install the same chaincode with the same name and version on every peer that will run the chaincode. After you install the chaincode, you need to instantiate it on the channel before you can use it. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 **Note**: To achieve high availability, each organization must purchase at least two peers, and within a channel, each participating member must join at least two peers.
 
@@ -112,7 +112,7 @@ Retrieve your service credentials with the following steps:
 
 ### Retrieving in the Network Monitor
 {: #getting-started-with-enterprise-plan-retrieve-nw}
-You can find the network credentials on the "APIs" screen in your Network Monitor. For more information about using APIs, see [Trying out APIs with Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
+You can find the network credentials on the "APIs" screen in your Network Monitor. For more information about using APIs, see [Trying out APIs with Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger).
 
 You can retrieve the connection profile on the "Overview" screen in your Network Monitor. Click the **Connection Profile** button on the "Overview" screen and the connection profile shows in a new page.
 
@@ -123,11 +123,11 @@ Applications leverage the SDK APIs to interact with your {{site.data.keyword.blo
 
 ## Monitoring network resources
 {: #getting-started-with-enterprise-plan-monitor-resources}
-After a transaction is triggered from your application, you can view transaction status information in the Network Monitor. For more information about network monitoring, see [Monitoring a network](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network).
+After a transaction is triggered from your application, you can view transaction status information in the Network Monitor. For more information about network monitoring, see [Monitoring a network](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
 ## Leaving a network
 {: #getting-started-with-enterprise-plan-leave-nw}
 If you want to leave a network, delete the blockchain service instance from your {{site.data.keyword.cloud_notm}} dashboard.
 
-Before you leave a network, ensure that you are not a member in any channels of the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+Before you leave a network, ensure that you are not a member in any channels of the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 {:note}
