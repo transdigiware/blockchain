@@ -97,7 +97,7 @@ You might want to target network resources outside of your organization with you
 
   You can also send [HEAD requests](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network-monitor-nodes) to these endpoints to check the availability of your network resources.
 
-  If you are using the Fabric SDKs, you can also connect to your network using your Connection Profile. This tutorial provides the endpoint information of your network to the SDK manually. However you can find a tutorial and guidance on [using your connection profile with the SDK](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) in a later section.
+  If you are using the Fabric SDKs, you can also connect to your network using your Connection Profile. This tutorial provides the endpoint information of your network to the SDK manually. However you can find a tutorial and guidance on [using your connection profile with the SDK](#dev-app-connection-profile) in a later section.
 
 ## Enrolling your application
 {: #dev-app-enroll}
@@ -106,7 +106,7 @@ Before you connect an application to your network on {{site.data.keyword.blockch
 
 This section explains how to retrieve the keys and certs with the Fabric Node SDK by using the sample code that is part of the **Writing Your First Application** tutorial. You can only generate certificates using an identity that has been registered with your Certificate Authority. The tutorial below first enrolls using an admin identity that has already been registered with your CA. It then uses those certificates to register a new client identity. The tutorial enrolls again using the new identity, and uses those certificates to submit transactions to the network. <!---You can find an illustration of how the developing applications tutorial interacts with your organization CA in the diagram below.--->
 
-You can also use the "Certificate Authority" screen of the Network Monitor to generate certificates, and use those certificates to interact with the network. To learn how, visit [Generating certificates using the Network Monitor](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel). You can also learn how to use the [Fabric CA client](/docs/services/blockchain/certificates.html#managing-certificates-enroll-register-caclient) from the command line to generate certificates and register users in the [Managing certificates](/docs/services/blockchain/certificates.html#managing-certificates) tutorial.
+You can also use the "Certificate Authority" screen of the Network Monitor to generate certificates, and use those certificates to interact with the network. To learn how, visit [Generating certificates using the Network Monitor](#dev-app-enroll-panel). You can also learn how to use the [Fabric CA client](/docs/services/blockchain/certificates.html#managing-certificates-enroll-register-caclient) from the command line to generate certificates and register users in the [Managing certificates](/docs/services/blockchain/certificates.html#managing-certificates) tutorial.
 
 ### Enrollment using the Fabric SDK
 {: #dev-app-enroll-sdk}
@@ -187,7 +187,7 @@ node enrollAdmin.js
 
 The enrollment command generates the signCert and exports it into a folder named `hfc-key-store`. The future files in this tutorial will look for your certificates in this folder. If you can find the admin certs in the `hfc-key-store` folder, the enroll command works.
 
-If you want to [operate your network using the SDK](/docs/services/blockchain/v10_application.html#dev-app-operate-sdk), you need to upload your admin signCert to the {{site.data.keyword.blockchainfull_notm}} Platform. You can find your admin signCert in the `hfc-key-store` folder. Open the `admin` file, and copy the certificate inside the quotation marks after the `certificate` field. Use to a tool or text editor to convert the certificate into PEM format. You can then upload the admin certificate to your blockchain network from the Network Monitor. For more information about adding certificates, see [the "Certificates" tab of "Member" screen](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) in the Network Monitor. This is not necessary if you are only using the SDK to invoke or query chaincode.
+If you want to [operate your network using the SDK](#dev-app-operate-sdk), you need to upload your admin signCert to the {{site.data.keyword.blockchainfull_notm}} Platform. You can find your admin signCert in the `hfc-key-store` folder. Open the `admin` file, and copy the certificate inside the quotation marks after the `certificate` field. Use to a tool or text editor to convert the certificate into PEM format. You can then upload the admin certificate to your blockchain network from the Network Monitor. For more information about adding certificates, see [the "Certificates" tab of "Member" screen](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) in the Network Monitor. This is not necessary if you are only using the SDK to invoke or query chaincode.
 
 ## Registering your application
 {: #dev-app-register}
@@ -401,7 +401,7 @@ The snippet above reads your certificates directly to the `cryptoContent` class 
 
 You can also use the SDK to operate your blockchain network. This tutorial explains how you can use the SDK to join your peers to channels, install chaincode on your peers, and instantiate chaincode on channels. These steps are optional because you can also perform these operations using the Network Monitor or the APIs in the [Swagger UI](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) if all of your peers are being run on the {{site.data.keyword.blockchainfull_notm}} Platform.
 
-You need to upload your admin signCert to the {{site.data.keyword.blockchainfull_notm}} Platform in order to complete these steps. You can find instructions on how to upload your signCert at the end of the [enrollment section](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk)
+You need to upload your admin signCert to the {{site.data.keyword.blockchainfull_notm}} Platform in order to complete these steps. You can find instructions on how to upload your signCert at the end of the [enrollment section](#dev-app-enroll-sdk)
 
 ### Joining a channel
 {: #dev-app-join-channel-sdk}
@@ -486,7 +486,7 @@ Your signCert needs to be added to the channel before you can instantiate chainc
 {: #dev-app-disconnect-app}
 
 Complete the following steps to remove the connection between your application and the blockchain network on {{site.data.keyword.cloud_notm}}.
-1. Remove the API endpoint information from your application configuration file. For reference, see [Adding network API endpoints to your application](/docs/services/blockchain/v10_application.html#dev-app-api-endpoints).
+1. Remove the API endpoint information from your application configuration file. For reference, see [Adding network API endpoints to your application](#dev-app-api-endpoints).
 2. Delete your chaincode container.
   1. In the "Channel" screen of the Network Monitor, locate the channel where your chaincode is installed.
   2. In the specific channel screen, locate the chaincode you want to disable.

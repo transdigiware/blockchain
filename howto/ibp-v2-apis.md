@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-06-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -230,7 +230,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   ```
   {:codeblock}
 
-4. Set the value of the `$FABRIC_CA_CLIENT_HOME` environment variable to be the path where the CA client will store the generated [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) certificates. Ensure that you remove the configuration material that might be created by earlier attempts. If you didn't run the `enroll` command before, the `msp` folder and the `.yaml` file do not exist.
+4. Set the value of the `$FABRIC_CA_CLIENT_HOME` environment variable to be the path where the CA client will store the generated MSP certificates. Ensure that you remove the configuration material that might be created by earlier attempts. If you didn't run the `enroll` command before, the `msp` folder and the `.yaml` file do not exist.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -256,7 +256,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 
 A **CA admin** identity was automatically registered for you when you created your CA. You can now use that admin name and password to issue an `enroll` command with the Fabric CA client to generate an MSP folder with certificates that can then be used to register other peer or ordering node identities.
 
-1. Ensure that you complete the steps to [set up the Fabric CA client](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client) and that `$FABRIC_CA_CLIENT_HOME` is set to the directory where you want to store your CA admin certs.
+1. Ensure that you complete the steps to [set up the Fabric CA client](#ibp-v2-apis-config-fabric-ca-client) and that `$FABRIC_CA_CLIENT_HOME` is set to the directory where you want to store your CA admin certs.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -289,9 +289,9 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```
   {:codeblock}
 
-  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see [Membership Service Providers](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
+  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see [Membership Service Providers](/docs/services/blockchain/certificates.html#managing-certificates-msp).
 
-  If the `enroll` command fails, see the [Troubleshooting topic](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) for possible causes.
+  If the `enroll` command fails, see the [Troubleshooting topic](#ibp-v2-apis-config-troubleshooting) for possible causes.
 
   You can run a tree command to verify that you have completed all of the prerequisite steps. Navigate to the directory where you stored your certificates. A tree command should generate a result similar to the following structure:
 
@@ -489,7 +489,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-Run the command below to enroll as your admin against the TLS CA. The enroll ID and password of your TLS CA admin are the same as your default CA. As a result, the command below is the same as you used to enroll as your [CA admin](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin) only with the name of your TLS CA. Your TLS CA name is the **TLS CA Name** value from the CA **settings** panel in your console, or the value of the `"tlsca_name"` returned by the `Create a CA` API.
+Run the command below to enroll as your admin against the TLS CA. The enroll ID and password of your TLS CA admin are the same as your default CA. As a result, the command below is the same as you used to enroll as your [CA admin](#ibp-v2-apis-enroll-ca-admin) only with the name of your TLS CA. Your TLS CA name is the **TLS CA Name** value from the CA **settings** panel in your console, or the value of the `"tlsca_name"` returned by the `Create a CA` API.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -517,6 +517,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 You need to save the `"enrollid"` and `"enrollsecret"` from the command above for when you create your configuration file.
 {: important}
+
+### Troubleshooting
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **Problem:** Error when running the `enroll` command
+{: #ibp-v2-apis-config-enroll-error1}
+
+When running the Fabric CA client enroll command, it is possible the command will fail with the following error:
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**Solution:**
+
+This error can occur when your Fabric CA client tries to enroll but cannot connect to your CA. This can happen if:   
+
+- Your `enroll` command contains an extra `https://` on the `-u` parameter.
+- Your CA name is incorrect.
+- Your username or password is incorrect.
+
+Review the parameters you specified on your `enroll` command and ensure none of these conditions exist.
+
+#### **Problem:** Error with CA URL when running the `enroll` command
+{: #ibp-v2-apis-config-enroll-error2}
+
+The Fabric CA client enroll command may fail if the enrollment url, the `-u` parameter value, contains a special character. For example, the following command with the enroll ID and password of `admin:C25A06287!0`,
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+will fail and produce the following error:
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **Solution:**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+You need to either encode the special character or surround the url with the single quotes. For example, `!` becomes `%21`, or the command looks like:
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## Creating an organization MSP definition
 {: #ibp-v2-apis-msp}

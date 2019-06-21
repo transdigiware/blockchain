@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -32,7 +32,7 @@ For a high-level overview of the components in a network based on Fabric, check 
 
 *Although this video focuses on the components from the perspective of Starter and Enterprise networks, the information is still highly relevant to the customer managed solution of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private.*
 
-For the purposes of this overview, we'll focus just on certificate authorities (CAs), orderers, peers, smart contracts, and applications. As you can see from the [{{site.data.keyword.blockchainfull_notm}} Platform 2.0 guide to building a network](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) and the [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private deployment guide](/docs/services/blockchain/ibp_for_icp_deployment_guide.html#get-started-icp) topics, this sequence is not arbitrary; it reflects the sequence in which components in a network based on Fabric will be deployed.
+For the purposes of this overview, we'll focus just on certificate authorities (CAs), orderers, peers, smart contracts, and applications. As you can see from the [Building a network tutorial](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network), this sequence is not arbitrary; it reflects the sequence in which components in a network based on Fabric will be deployed.
 
 ## Certificate Authorities
 {: #blockchain-component-overview-ca}

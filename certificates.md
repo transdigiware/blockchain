@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
@@ -242,8 +242,6 @@ You can also use the Fabric CA client to generate certificates and register a ne
   You can also find CA root certificate and admin private key in the following directories:
   * CA root certificate: `$FABRIC_CA_CLIENT_HOME/msp/cacerts/--<ca_name>.pem`
   * The admin private key: `$FABRIC_CA_CLIENT_HOME/msp/keystore/<>_sk file`
-
-For an example of where you would enroll by using the Fabric CA client and use the generated certificates to operate a network component, see the instructions to [operate a remote peer](/docs/services/blockchain/howto/peer_operate_icp.html#icp-peer-operate-cli-operate).
 
 ### Registering by using the Fabric CA client
 {: #register-app-caclient}
