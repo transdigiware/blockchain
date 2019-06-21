@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -134,7 +134,7 @@ For more information, see [Developing smart contracts with Visual Studio Code ex
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private releases v1.0.2, which uses Hyperledger Fabric v1.4.0 code base and supports deployment on {{site.data.keyword.cloud_notm}} Private v3.1.2.
 
-If you want to upgrade your existing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private to v1.0.2, see [Upgrading the Helm chart on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/helm_install_icp.html#helm-install-upgrading).
+If you want to upgrade your existing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private to v1.0.2, see [Upgrading the Helm chart on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/helm_install_icp.html#helm-install-upgrading).
 
 For more information about Hyperledger Fabric v1.4.0, see [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}. For more information about {{site.data.keyword.cloud_notm}} Private, see [{{site.data.keyword.cloud_notm}} Private v3.1.2 documentation](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/kc_welcome_containers.html){: external}.
 
@@ -183,11 +183,11 @@ The *Operate Starter Plan Network* and *Operate Enterprise Plan Network* topics 
 ## November 27, 2018
 {: #whats-new-11-27-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform releases {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.cloud_notm}} Private is an application platform for developing and managing containerized applications that are based on Kubernetes and it allows users to deploy Certificate Authorities (CAs), orderers, and peers on x86, LinuxONE and {{site.data.keyword.IBM_notm}} Z. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is based on Hyperledger Fabric v1.2.1 and is deployed by using Kubernetes Helm charts. After you install the Helm chart, you can find it as a bundled service in the {{site.data.keyword.cloud_notm}} Private Catalog. Note that [this offering](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) is more suitable for experienced Fabric users.
+{{site.data.keyword.blockchainfull_notm}} Platform releases {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.cloud_notm}} Private is an application platform for developing and managing containerized applications that are based on Kubernetes and it allows users to deploy Certificate Authorities (CAs), orderers, and peers on x86, LinuxONE and {{site.data.keyword.IBM_notm}} Z. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is based on Hyperledger Fabric v1.2.1 and is deployed by using Kubernetes Helm charts. After you install the Helm chart, you can find it as a bundled service in the {{site.data.keyword.cloud_notm}} Private Catalog. Note that [this offering](/docs/services/blockchain-icp-102/ibp-for-icp-about.html#ibp-icp-about) is more suitable for experienced Fabric users.
 
 For more information about {{site.data.keyword.cloud_notm}} Private, see [{{site.data.keyword.cloud_notm}} Private v3.1.0 documentation](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/kc_welcome_containers.html){: external}.
 
-The release of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private also marks the end of the {{site.data.keyword.blockchainfull_notm}} Platform Remote Peer (Beta) program. It is still possible to deploy a peer in {{site.data.keyword.cloud_notm}} Private or in AWS and connect it to a Starter Plan or Enterprise Plan network. For more information, see [deploying a peer against Starter or Enterprise Plan](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy) and [deploying a peer in AWS](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws). These peers are considered to be **distributed** peers instead of remote peers because the deployment is customer managed and as a result there is no central location to be remote from.
+The release of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private also marks the end of the {{site.data.keyword.blockchainfull_notm}} Platform Remote Peer (Beta) program. It is still possible to deploy a peer in {{site.data.keyword.cloud_notm}} Private or in AWS and connect it to a Starter Plan or Enterprise Plan network. For more information, see [deploying a peer against Starter or Enterprise Plan](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy) and [deploying a peer in AWS](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws). These peers are considered to be **distributed** peers instead of remote peers because the deployment is customer managed and as a result there is no central location to be remote from.
 
 This release also debuts some improvements to the documentation table of contents. If you are a Starter or Enterprise user, your content can still be found in the **LEARN**, **HOW TO**, **REFERENCE**, and **HELP** sections, and the links are still the same. It might just be in a different subsection in the table of contents.
 

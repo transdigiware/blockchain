@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -105,7 +105,7 @@ The following table contains a list of options to consider as you plan for incre
 
    **Single-zone cluster with multiple work nodes and anti-affinity**:
 
-   A worker node is a VM that runs on a physical hardware. Worker node failures include hardware outages, such as power, cooling, or networking, and issues on the VM itself. You can account for a worker node failure by setting up multiple worker nodes when you provision your cluster. When blockchain components are distributed across multiple worker nodes, you are protected from a worker node failure. Note that {{site.data.keyword.cloud_notm}}) Kubnernetes service includes the option for multiple zones in a cluster. {{site.data.keyword.cloud_notm}}) Private does not support zones.
+   A worker node is a VM that runs on a physical hardware. Worker node failures include hardware outages, such as power, cooling, or networking, and issues on the VM itself. You can account for a worker node failure by setting up multiple worker nodes when you provision your cluster. When blockchain components are distributed across multiple worker nodes, you are protected from a worker node failure. Note that {{site.data.keyword.cloud_notm}} Kubnernetes service includes the option for multiple zones in a cluster. {{site.data.keyword.cloud_notm}} Private does not support zones.
 
    **Peers** The {{site.data.keyword.blockchainfull_notm}} Platform deployer anti-affinity policy distributes redundant peers, that is peers from the same organization, across the worker nodes in their cluster or zone.
 
