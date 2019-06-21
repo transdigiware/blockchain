@@ -4,6 +4,8 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-20"
 
+keywords: Network Monitor, peer nodes, resources, channels, smart contract
+
 subcollection: blockchain
 
 ---
@@ -25,7 +27,7 @@ subcollection: blockchain
 
 In diesem Lernprogramm erfahren Sie, wie Sie mit Network Monitor ein Enterprise Plan- oder Starter Plan-Netz betreiben. Die meisten Screenshots im Lernprogramm beziehen sich zwar auf einen Enterprise Plan, aber die Anweisungen sind ebenfalls für einen Starter Plan gültig. Wenn bestimmte Funktionen nur bei einem der Pläne zugänglich sind, ist der entsprechende Abschnitt mit dem Hinweis **für Starter Plan-Netze** bzw. **für Enterprise Plan-Netze** versehen.
 
-## Linkes Navigationsfenster
+## Linker Navigationsbereich
 {: #ibp-dashboard-left-navigation}
 
 Der Network Monitor präsentiert die folgenden Anzeigen in drei Abschnitten. Sie können über den Navigator auf der linken Seite zu jeder Anzeige in Network Monitor navigieren.
@@ -75,7 +77,7 @@ Sie können die JSON-Datei zu Low-Level-Netzinformationen zu den einzelnen Resso
 
 Netzmitglieder stellen [Peers](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer) bereit, um ihre Kopien des Ledgers zu speichern und Chaincode zum Abfragen und Aktualisieren des Ledgers auszuführen. Wenn die Bewilligungsrichtlinie einen Peer als bewilligenden Peer definiert, gibt der Peer außerdem Bewilligungsergebnisse an Anwendungen zurück.
 
-Klicken Sie auf die Schaltfläche **Peers hinzufügen** in der rechten oberen Ecke, um Ihrem Netz Peerknoten hinzuzufügen. Wählen Sie im Popup-Fenster "Peers hinzufügen" die Anzahl und Größe der Peerknoten aus, die Sie hinzufügen wollen. Sie können bei Bedarf weitere Peers für Ihre Organisationen hinzufügen. In anderen Szenarios kann eine höhere Anzahl an Peers erforderlich sein. Sie könnten z. B. mehrere Peers benötigen, um sie zu Redundanzzwecken mit demselben Kanal zu verknüpfen. Jeder Peer verarbeitet die Transaktionen des Kanals und schreibt in seine jeweilige Kopie des Ledgers. Wenn einer der Peers ausfällt, kann der andere Peer (oder auch mehrere andere Peers) die Verarbeitung von Transaktionen und Anwendungsanforderungen fortsetzen. Sie können außerdem alle Anwendungsanforderungen symmetrisch auf die Peers verteilen oder Sie können verschiedene Peers für verschiedene Funktionen vorsehen. Sie können zum Beispiel einen Peer zum Abfragen des Ledgers und einen anderen Peer zur Verarbeitung von Bewilligungen für Ledgeraktualisierungen verwenden.
+Klicken Sie auf die Schaltfläche **Peers hinzufügen** in der rechten oberen Ecke, um Ihrem Netz Peerknoten hinzuzufügen. Wählen Sie im Popup-Fenster "Peers hinzufügen" die Anzahl und Größe der Peerknoten aus, die Sie hinzufügen wollen. Sie können bei Bedarf weitere Peers für Ihre Organisationen hinzufügen. In anderen Szenarios kann eine höhere Anzahl an Peers erforderlich sein. Sie könnten z. B. mehrere Peers benötigen, um sie zu Redundanzzwecken mit demselben Kanal zu verknüpfen. Jeder Peer verarbeitet die Transaktionen des Kanals und schreibt in seine jeweilige Kopie des Ledgers. Wenn einer der Peers ausfällt, kann der andere Peer (oder können mehrere andere Peers) die Verarbeitung von Transaktionen und Anwendungsanforderungen fortsetzen. Sie können außerdem alle Anwendungsanforderungen symmetrisch auf die Peers verteilen oder Sie können verschiedene Peers für verschiedene Funktionen vorsehen. Sie können zum Beispiel einen Peer zum Abfragen des Ledgers und einen anderen Peer zur Verarbeitung von Bewilligungen für Ledgeraktualisierungen verwenden.
 
 Der **Starter Plan** erstellt standardmäßig einen Peer für jede der beiden Organisationen, die beim Starten des Netzes gebildet werden.
 
@@ -249,7 +251,7 @@ Die Anzeige "Hilfe anfordern" enthält eine Registerkarte "Support", auf der ein
 
 Mit den Ressourcen auf der Registerkarte "Support" können Sie Fehler beheben sowie Hilfe von {{site.data.keyword.IBM_notm}} und der Fabric-Community anfordern. Weitere Informationen zu den Links auf der Registerkarte "Support" finden Sie unter [Ressourcen und Unterstützungsforen](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) im Abschnitt [Support anfordern](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
 
-[IBM dWAnswers ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://developer.ibm.com/answers/smartspace/blockchain/index.html) ist ein von IBM Experten betreutes Community-Forum für Benutzer von {{site.data.keyword.blockchainfull_notm}} Platform und Hyperledger Fabric. Sie können nach Antworten auf bereits gestellte Fragen suchen oder eine neue Frage stellen. Wenn Sie Ihr Problem nicht beheben können oder keine Antwort auf Ihre Frage finden, reichen Sie einen Supportfall im {{site.data.keyword.cloud_notm}} Service Portal ein. Weitere Informationen finden Sie unter [Supportfälle einreichen](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+[{{site.data.keyword.IBM_notm}} dWAnswers ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://developer.ibm.com/answers/smartspace/blockchain/index.html){:new_window} ist ein von IBM Experten betreutes Community-Forum für Benutzer von {{site.data.keyword.blockchainfull_notm}} Platform und Hyperledger Fabric. Sie können nach Antworten auf bereits gestellte Fragen suchen oder eine neue Frage stellen. Wenn Sie Ihr Problem nicht beheben können oder keine Antwort auf Ihre Frage finden, reichen Sie einen Supportfall im {{site.data.keyword.cloud_notm}} Service Portal ein. Weitere Informationen finden Sie unter [Supportfälle einreichen](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
 
 
 ### Releaseinformationen zu Fabric

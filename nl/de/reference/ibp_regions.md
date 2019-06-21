@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2019-04-03"
+  years: 2017, 2019
+lastupdated: "2019-05-16"
+
+keywords: data centers, IBM Cloud regions, available locations
 
 subcollection: blockchain
 
@@ -21,12 +23,30 @@ subcollection: blockchain
 # Standorte von {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-regions-locations}
 
-{{site.data.keyword.cloud}} wird weltweit an verschiedenen Standorten gehostet. Bei den Standorten handelt es sich um Rechenzentren in einem geografischen Bereich, die über einen Endpunkt zugänglich sind. {{site.data.keyword.blockchainfull_notm}} Platform bietet Mitgliedschaftspläne innerhalb von {{site.data.keyword.cloud_notm}} an, die auf globale Standorte bezogen sind. Wenn Sie eine {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz in {{site.data.keyword.cloud_notm}} erstellen, werden Blockchain-Netz und Netzressourcen an dem {{site.data.keyword.cloud_notm}}-Standort erstellt, an dem Sie die Serviceinstanz erstellen.
+{{site.data.keyword.cloud}} wird weltweit an verschiedenen Standorten gehostet. Bei den Standorten handelt es sich um Rechenzentren in einem geografischen Bereich, die über einen Endpunkt zugänglich sind. {{site.data.keyword.blockchainfull_notm}} Platform stellt Blockchain-Netze in {{site.data.keyword.cloud_notm}} global an unterschiedlichen Standorten bereit. Wenn Sie eine {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz in {{site.data.keyword.cloud_notm}} erstellen, werden Blockchain-Netz und Netzressourcen an dem {{site.data.keyword.cloud_notm}}-Standort erstellt, an dem Sie die Serviceinstanz erstellen.
 {:shortdesc}
 
 Die {{site.data.keyword.blockchainfull_notm}} Platform-Angebote variieren je nach {{site.data.keyword.cloud_notm}}-Standort. Sie können Blockchain-Netze nur in {{site.data.keyword.cloud_notm}}-Standorten erstellen, in denen Mitgliedschaftspläne für {{site.data.keyword.blockchainfull_notm}} Platform verfügbar sind.
 
-In Tabelle 1 und Abbildung 1 sind die {{site.data.keyword.cloud_notm}}-Regionen und -Standorte zu sehen, die von {{site.data.keyword.blockchainfull_notm}} Platform unterstützt werden.
+In Tabelle 1 und Abbildung 1 sind die {{site.data.keyword.cloud_notm}}-Regionen und -Standorte zu sehen, die von {{site.data.keyword.blockchainfull_notm}} Platform v2.0 unterstützt werden.
+
+Wenn Sie einen kostenlosen {{site.data.keyword.cloud_notm}} Kubernetes-Cluster verwenden wollen, dann wählen Sie für den asiatisch-pazifischen Raum keinen kostenlosen Cluster aus. Andernfalls wird Ihr kostenloser Cluster in Melbourne im asiatisch-pazifischen Raum (Süden) anstatt im asiatisch-pazifischen Raum (Norden) erstellt. Cluster im asiatisch-pazifischen Raum (Süden) können momentan nicht zur Bereitstellung von {{site.data.keyword.blockchainfull_notm}} Platform v2.0 verwendet werden. Wenn Sie die Verwendung eines kostenlosen Clusters planen, dann verwenden Sie als Standort **Vereinigte Staaten (Süden)** oder **Zentraleuropa**.
+{: note}
+
+| Region | {{site.data.keyword.cloud_notm}}-Standorte |
+|--------|--------------------|
+| Vereinigte Staaten (Süden) | San Jose, Sao Paulo, Dallas, Houston |
+| Asiatisch-pazifischer Raum (Norden) | Tokio, Chennai, Hongkong, Seoul, Singapur |
+| Zentraleuropa | Frankfurt, Amsterdam, Mailand, Oslo, Paris |
+
+_Tabelle 1. Standorte von {{site.data.keyword.blockchainfull_notm}} Platform v2.0_
+
+
+![{{site.data.keyword.blockchainfull_notm}} Platform v2.0 - Standorte](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform v2.0 - Standorte")  
+_Abbildung 1. Standorte von {{site.data.keyword.blockchainfull_notm}} Platform v2.0_
+
+
+In Tabelle 2 und Abbildung 2 sind die {{site.data.keyword.cloud_notm}}-Regionen und -Standorte zu sehen, die von {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan und Enterprise Plan unterstützt werden.
 
 | Standort | Starter Plan | Enterprise Plan |
 |--------|----------|----------|
@@ -39,8 +59,8 @@ In Tabelle 1 und Abbildung 1 sind die {{site.data.keyword.cloud_notm}}-Regionen 
 | São Paulo |  | J |
 | Toronto |  | J |
 
-_Tabelle 1. Standorte in {{site.data.keyword.blockchainfull_notm}} Platform_
+_Tabelle 2. Starter Plan- und Enterprise Plan-Standorte_
 
 
-![{{site.data.keyword.blockchainfull_notm}} Platform-Standorte](../images/ibp_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform locations")  
-_Abbildung 1. Standorte in {{site.data.keyword.blockchainfull_notm}} Platform_
+![Starter Plan- und Enterprise Plan-Standorte](../images/ibp_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform-Standorte")  
+_Abbildung 2. Starter Plan- und Enterprise Plan-Standorte_

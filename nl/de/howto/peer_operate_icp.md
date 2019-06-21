@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: command line, peer, operate peers, use context, Fabric SDKs, IBM Cloud Private 
 
 subcollection: blockchain
 
@@ -177,7 +179,7 @@ Es wird empfohlen, die Version 1.4.0 des Node-SDK zu verwenden.
 Ihr Peer wurde mit dem integrierten signCert-Zertifikat Ihres Peeradministrators bereitgestellt. Hierdurch können Sie die Zertifikate und den MSP-Ordner des Peeradministrators verwenden, um den Peer zu betreiben.
 
 Suchen Sie nach den Zertifikaten, die Sie bei der [Eintragung des Peeradministrators](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-admin) erstellt haben. Falls Sie hierzu die Beispielbefehle ausgeführt haben, finden Sie den MSP-Ordner des Peeradministrators an der Position `$HOME/fabric-ca-client/peer-admin`.
-  - Sie können den Benutzerkontext des Peeradministrators mit dem SDK unter Verwendung des signCert-Zertifikats (öffentlicher Schlüssel) und des privaten Schlüssels im MSP-Ordner erstellen. Diese Schlüssel finden Sie an den folgenden Positionen:
+  - Sie können den Benutzerkontext des Peeradministrators mit dem SDK unter Verwendung des signCert-Zertifikats und des privaten Schlüssels im MSP-Ordner erstellen. Diese Schlüssel finden Sie an den folgenden Positionen:
     - Das signCert-Zertifikat befindet sich im Ordner **signcerts**: `$HOME/fabric-ca-client/peer-admin/msp/signcerts`
     - Der private Schlüssel befindet sich im Ordner **keystore:**: `$HOME/fabric-ca-client/peer-admin/msp/keystore`
 
@@ -697,7 +699,7 @@ Diese Datei enthält die Informationen, die Ihre Organisation innerhalb des Kons
 
 - `MSPDir:` Dies ist der vollständig qualifizierte Pfad zu Ihrem Administrator-MSP. Beispiel: `/Users/chandra/fabric-ca-client/peer-admin/msp`
 
-- `AnchorPeers:` Dies ist der Peer, den Ihre Organisation als primären Peer für die Kommunikation zwischen Organisationen über Gossip auswählt. Er wird für Funktionen wie private Daten oder Serviceerkennung verwendet. Private Daten und die Serviceerkennung werden zwar gegenwärtig nicht durch das Helm-Diagramm für Peers unterstützt, aber das Feld ist dennoch erforderlich. Die Werte für `Host` und `Port` sind auf der Seite des Helm-Release für {{site.data.keyword.cloud_notm}} Private-Peers unter dem Hinweisabschnitt `1. Rufen Sie die Anwendungs-URL mit den folgenden Befehlen ab` verfügbar. Die Ausgabe könnte wie folgt aussehen:
+- `AnchorPeers:` In diesem Feld wird der Peer angegeben, den Ihre Organisation als primären Peer für die Kommunikation zwischen Organisationen über Gossip auswählt. Er wird für Funktionen wie private Daten oder Serviceerkennung verwendet. Private Daten und die Serviceerkennung werden zwar gegenwärtig nicht durch das Helm-Diagramm für Peers unterstützt, aber das Feld ist dennoch erforderlich. Die Werte für `Host` und `Port` sind auf der Seite des Helm-Release für {{site.data.keyword.cloud_notm}} Private-Peers unter dem Hinweisabschnitt `1. Rufen Sie die Anwendungs-URL mit den folgenden Befehlen ab` verfügbar. Die Ausgabe könnte wie folgt aussehen:
 
 ```
 http://9.30.250.70:30481
@@ -855,7 +857,7 @@ configtxgen -profile <channel_profile_name> -outputCreateChannelTx ./<channel_pr
 ```
 {:codeblock}
 
-Ein echter Befehl könnte wie im folgenden Beispiel aussehen:
+Ein echter Befehl könnte wie im folgenden Beispiel dargestellt aussehen:
 ``` 
 export FABRIC_CFG_PATH=$HOME/config
 configtxgen -profile mychannel -outputCreateChannelTx ./mychannel.tx -channelID mychannel

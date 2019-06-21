@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: TLS CA, IBM Blockchain Platform, peer, deploy peers, CouchDB container use Kubernetes, IBM Cloud
 
 subcollection: blockchain
 
@@ -20,7 +22,7 @@ subcollection: blockchain
 # Peers in {{site.data.keyword.cloud_notm}} Private bereitstellen und mit Starter Plan oder Enterprise Plan verbinden
 {: #ibp-peer-deploy}
 
-In den folgenden Anweisungen wird beschrieben, wie ein {{site.data.keyword.blockchainfull}} Plattform-Peer auf dem {{site.data.keyword.cloud_notm}} privaten Server bereitgestellt wird und der Peer zum Starter Plan- oder Enterprise Plan-Netz auf {{site.data.keyword.cloud_notm}} oder auf der lokalen {{site.data.keyword.cloud_notm}} Private-Instanz verbunden wird.
+In den folgenden Anweisungen wird beschrieben, wie ein {{site.data.keyword.blockchainfull}} Platform-Peer unter {{site.data.keyword.cloud_notm}} Private bereitgestellt wird und wie der Peer mit dem Starter Plan- oder Enterprise Plan-Netz unter {{site.data.keyword.cloud_notm}} oder unter der lokalen {{site.data.keyword.cloud_notm}} Private-Instanz verbunden wird.
 {:shortdesc}
 
 Lesen Sie vor der Bereitstellung eines Peers den Abschnitt mit [Hinweisen und Einschränkungen](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about-considerations).
@@ -294,7 +296,7 @@ Nachdem Sie die Administratoridentität registriert haben, müssen Sie den MSP-O
    ```
    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdLZGNpSVE0dHlTOCs4a1RBTkJna3Foa2lHOXcwQkFRc0ZBREJoDQpNUXN3Q1FZRFZRUUdFd0pWVXpFVk1CTUdBMVVFQ2hNTVJHbG5hVU5sY25RZ1NXNWpNUmt3RndZRFZRUUxFeEIzDQpkM2N1WkdsbmFXTmxjblF1WTI5dE1TQXdIZ1lEVlFRREV4ZEVhV2RwUTJWeWRDQkhiRzlpWVd3Z1VtOXZkQ0JEDQpRVEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJBWVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBaMmxEWlhKMElGTklRVElnDQpVMlZqZFhKbElGTmxjblpsY2lC
    ```
-   Und nicht so:
+   Folgende Darstellung ist nicht korrekt:
 
    ```
    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdL
@@ -348,7 +350,7 @@ Sie müssen Ihren Peer mit dem Fabric-CA-Client bei der TLS-Zertifizierungsstell
   ```
   {:codeblock}
 
-2. Sie müssen unter Verwendung des Administrators für die TLS-Zertifizierungsstelle eine Eintragung vornehmen. Ändern Sie den Wert für `$FABRIC_CA_CLIENT_HOME` in ein Verzeichnis, in dem Sie Ihre Administratorzertifikate für die TLS-Zertifizierungsstelle speichern wollen.
+2. Sie müssen unter Verwendung des Administrators für die TLS-Zertifizierungsstelle eine Eintragung vornehmen. Ändern Sie den Wert für `$FABRIC_CA_CLIENT_HOME` und geben Sie ein Verzeichnis an, in dem Sie die Administratorzertifikate für die TLS-Zertifizierungsstelle speichern wollen.
 
   ```
   cd $HOME/fabric-ca-client
@@ -364,7 +366,7 @@ Sie müssen Ihren Peer mit dem Fabric-CA-Client bei der TLS-Zertifizierungsstell
   ```
   {:codeblock}
 
-  `<enroll_id>` und `<enroll_password>` im Befehl stehen für [Name und Kennwort des Benutzers mit Administratorberechtigung für die Zertifizierungsstelle](/docs/services/blockchain/howto/CA_deploy.html#ca-deploy-admin-secret), die Sie beim Bereitstellen der Zertifizierungsstelle an den geheimen Kubernetes-Schlüssel übergeben haben. Fügen Sie die [URL der Zertifizierungsstelle](/docs/services/blockchain/howto/CA_operate.html#ca-operate-url) in die `<ca_url_with_port>` ein. Lassen Sie die Angabe `http://` am Beginn weg. Der `<tls_ca_name>` ist derjenige, den Sie bei der [Konfiguration der Zertifizierungsstelle](/docs/services/blockchain/howto/CA_deploy_icp.html#ca-deploy-configuration-parms) angegeben haben.
+  `<enroll_id>` und `<enroll_password>` im Befehl stehen für [Name und Kennwort des Benutzers mit Administratorberechtigung für die Zertifizierungsstelle](/docs/services/blockchain/howto/CA_deploy_icp.html#ca-deploy-admin-secret), die Sie beim Bereitstellen der Zertifizierungsstelle an den geheimen Kubernetes-Schlüssel übergeben haben. Fügen Sie die [URL der Zertifizierungsstelle](/docs/services/blockchain/howto/CA_operate.html#ca-operate-url) in die `<ca_url_with_port>` ein. Lassen Sie die Angabe `http://` am Beginn weg. Der `<tls_ca_name>` ist derjenige, den Sie bei der [Konfiguration der Zertifizierungsstelle](/docs/services/blockchain/howto/CA_deploy_icp.html#ca-deploy-configuration-parms) angegeben haben.
 
   `<ca_tls_cert_file>` ist der Dateiname Ihres [Zertifikats der TLS-Zertifizierungsstelle](/docs/services/blockchain/howto/CA_operate.html#ca-operate-tls) mit dem vollständigen Pfad.
 
@@ -489,6 +491,7 @@ tree
 Sie müssen die CSR-Hostnamen angeben, um einen Peer bereitzustellen. Die CSR-Hostnamen beinhalten die Proxy-IP-Adresse des Clusters, in dem Sie die Komponente bereitstellen, sowie den `Service-Host-Namen`, der der Hostname für das Helm-Diagramm ist.
 
 #### Wert der Proxy-IP-Adresse für den Cluster ermitteln
+{: #ibp-peer-deploy-cluster-proxy-ip}
 
 Wenn Sie einen Peer in demselben {{site.data.keyword.cloud_notm}} Private-Cluster bereitstellen wollen, in dem Sie Ihre TLS-Zertifizierungsstelle bereitgestellt haben, geben Sie dieselbe Proxy-IP ein, die Sie bei der [Konfiguration für Ihre TLS-Zertifizierungsstelle](/docs/services/blockchain/howto/CA_deploy_icp.html#ca-deploy-configuration-parms) verwendet haben. Wenn Sie den Peer in einem anderen Cluster bereitstellen wollen, können Sie den Wert für die Proxy-IP-Adresse des Clusters über die {{site.data.keyword.cloud_notm}} Private-Konsole abrufen. Sie müssen die Rolle eines Clusteradministrators für den {{site.data.keyword.cloud_notm}} Private-Cluster besitzen, in dem der Peer bereitgestellt werden soll.
 
@@ -577,7 +580,7 @@ Mit einem [geheimen Kubernetes-Schlüssel ![Symbol für externen Link](../images
    ```
    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdLZGNpSVE0dHlTOCs4a1RBTkJna3Foa2lHOXcwQkFRc0ZBREJoDQpNUXN3Q1FZRFZRUUdFd0pWVXpFVk1CTUdBMVVFQ2hNTVJHbG5hVU5sY25RZ1NXNWpNUmt3RndZRFZRUUxFeEIzDQpkM2N1WkdsbmFXTmxjblF1WTI5dE1TQXdIZ1lEVlFRREV4ZEVhV2RwUTJWeWRDQkhiRzlpWVd3Z1VtOXZkQ0JEDQpRVEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJBWVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBaMmxEWlhKMElGTklRVElnDQpVMlZqZFhKbElGTmxjblpsY2lC
    ```
-   Und nicht so:
+   Folgende Darstellung ist nicht korrekt:
 
    ```
    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdL
@@ -607,7 +610,7 @@ Mit einem [geheimen Kubernetes-Schlüssel ![Symbol für externen Link](../images
     ```
     {:code_block}
 
-   2. Geben Sie im Feld **Name** den Wert `couchdbuser` ein. Geben Sie im entsprechenden Feld **Wert** das Ergebnis des Befehls `echo -n 'couch' | base64 $FLAG` aus Schritt 1 oben ein.
+   2. Geben Sie im Feld **Name** den Wert `couchdbusr` ein. Geben Sie im entsprechenden Feld **Wert** das Ergebnis des Befehls `echo -n 'couch' | base64 $FLAG` aus Schritt 1 oben ein.
    3. Klicken Sie auf die Schaltfläche **Daten hinzufügen**, um ein zweites Schlüssel/Wert-Paar hinzuzufügen.
    4. Geben Sie im zweiten Feld **Name** den Wert `couchdbpwd` ein. Geben Sie im entsprechenden Feld **Wert** das Ergebnis des Befehls `echo -n 'couchpw' | base64 $FLAG` aus Schritt 1 oben ein.
 
@@ -680,7 +683,7 @@ Die folgende Tabelle enthält eine Auflistung der **speziell für die Peerkompon
 | `Volume Claim-Größe der Statusdatenbank`| Wählen Sie die Größe der zu verwendenden Platte aus. | 8Gi | Ja |
 | `Datenpersistenz für CouchDB aktiviert`| Ledgerdaten sind für CouchDB-Container beim Neustart des Containers verfügbar. *Wird diese Option inaktiviert, gehen alle Daten bei einem Failover oder Podneustart verloren.*| Aktiviert | Nein |
 | `Dynamische Bereitstellung für CouchDB verwenden`| Für CouchDB-Container wird dynamischer Speicher von Kubernetes verwendet.| Aktiviert | Nein |
-| `CPU-Anforderung für Docker-in-Docker`|Geben Sie die Mindestanzahl der CPUs an, die dem Container zugeordnet werden sollen, in dem der Chaincode ausgeführt wird. | 1 | Ja |
+| `CPU-Anforderung für Docker-in-Docker`| Geben Sie die Mindestanzahl der CPUs an, die dem Container zugeordnet werden sollen, in dem der Chaincode ausgeführt wird. | 1 | Ja |
 | `CPU-Grenzwert für Docker-in-Docker`| Geben Sie die maximale Anzahl der CPUs an, die dem Container zugeordnet werden sollen, in dem der Chaincode ausgeführt wird. | 2 | Ja |
 | `Speicheranforderung für Docker-in-Docker`| Geben Sie den Mindestumfang des Hauptspeichers an, der dem Container zugeordnet werden soll, in dem der Chaincode ausgeführt wird. | 1Gi | Ja |
 | `Speicherbegrenzung für Docker-in-Docker`| Geben Sie den Höchstumfang des Hauptspeichers an, der dem Container zugeordnet werden soll, in dem der Chaincode ausgeführt wird. | 4Gi | Ja |
@@ -741,7 +744,7 @@ helm install --name jnchart2 mycluster/ibm-blockchain-platform \
 ```
 Sie können eine neue Datei `yaml` erstellen, indem Sie die Datei `values.yaml` bearbeiten, die in der heruntergeladenen Archivdatei enthalten ist. In dieser Datei befinden sich alle erforderlichen Parameter mit ihren Standardeinstellungen.
 
-## Peer-Installation überprüfen
+## Peerinstallation überprüfen
 {: #ibp-peer-deploy-verify-installation-ibp}
 
 Nachdem Sie die Konfigurationsparameter ausgefüllt und auf die Schaltfläche **Installieren** geklickt haben, können Sie die Bereitstellung prüfen, indem Sie auf die Schaltfläche **Helm-Release anzeigen** klicken. Wenn die Bereitstellung erfolgreich durchgeführt wurde, sollte der Wert 1 in den Feldern `GEWÜNSCHT`, `DERZEIT`, `AKTUELL` und `VERFÜGBAR` der Tabelle "Bereitstellung" angezeigt werden. Möglicherweise müssen Sie zur Aktualisierung klicken und warten, bis die Tabelle aktualisiert angezeigt wird. Die Tabelle "Bereitstellung" können Sie außerdem aufrufen, indem Sie in der linken oberen Ecke der {{site.data.keyword.cloud_notm}} Private-Konsole auf das **Menüsymbol** klicken. Klicken Sie in der Menüliste auf **Workloads** und dann auf **Helm-Releases**.
@@ -778,6 +781,8 @@ schlägt fehl und führt zu folgendem Fehler:
 ```
 
 ### **Lösung:**
+{: #ibp-peer-deploy-ca-enroll-error-solution}
+
 Sie müssen entweder das Sonderzeichen codieren oder die URL in die Hochkommas einschließen. Beispiel: `!` wird zu `%21` oder der Befehl sieht wie folgt aus:
 
 ```

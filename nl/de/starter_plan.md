@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: blockchain network, Starter Plan, getting started
 
 subcollection: blockchain
 
@@ -30,7 +32,7 @@ Der {{site.data.keyword.blockchainfull}} Platform Starter Plan ist eine Einstieg
 
 **Hinweise:**
 - Beim {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan handelt es sich um eine Entwicklungs- und Testumgebung, die für Produktionsworkloads nicht geeignet ist. Wenn Sie eine Produktionsumgebung benötigen, lesen Sie die [Informationen zum Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
-- {{site.data.keyword.blockchainfull_notm}} Platform ist ein Plattformservice unter {{site.data.keyword.cloud_notm}} und alle Mitgliedschaftsangebote unterliegen den [{{site.data.keyword.cloud_notm}} Services-Bedingungen ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "{{site.data.keyword.cloud_notm}} Services-Bedingungen") der Service-Level-Agreements (SLAs). Starter Pläne werden in einem Rechenzentrum in einer einzigen Region bereitgestellt. Eine Liste der verfügbaren Regionen finden Sie unter [Standorte von {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+- {{site.data.keyword.blockchainfull_notm}} Platform ist ein Plattformservice unter {{site.data.keyword.cloud_notm}} und alle Mitgliedschaftsangebote unterliegen den [{{site.data.keyword.cloud_notm}} Services-Bedingungen ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm "{{site.data.keyword.cloud_notm}} Services-Bedingungen") der Service-Level-Agreements (SLAs). Der Starter Plan wird in einem Rechenzentrum in einer einzigen Region bereitgestellt. Eine Liste der verfügbaren Regionen finden Sie unter [Standorte von {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 ## Vorzüge des Starter Plans
 {: #starter-plan-about-what-starter-plan-offers}
@@ -54,7 +56,7 @@ Wenn eine der folgenden Situationen auf Sie zutrifft, ist der Starter Plan für 
 - **_Erstellung von Demo-Lösungen in einem Live-Netz._**
     Der Starter Plan stellt eine leistungsfähige Umgebung zur Veranschaulichung von Blockchain-Anwendungen bereit. Das sofort einsatzfähige Blockchain-Netz ermöglicht schnelle Präsentationen für Kollegen, das Management und Partner durch die Betriebs- und Verwaltungstools, die durch den Network Monitor bereitgestellt werden.
 - **_Entwicklung nicht nur für einzelne Organisationen._**
-    Der Starter Plan bietet Ihnen die Möglichkeit, für mehrere Organisationen zu agieren, sodass Sie sehen können, wie {{site.data.keyword.blockchainfull_notm}} Platform kooperative Tasks wie die Kanalerstellung und die Chaincode-Instanziierung sowie das Testen von Anwendungen und das Aufrufen von Transaktionen verwaltet. Sie können darüber hinaus andere zur Mitarbeit in einem Starter Plan-Netz einladen (ebenso wie in Enterprise-Plänen). Dies erleichtert es Ihnen, in einer realistischeren Umgebung zu arbeiten und dies mit mehreren Parteien, die Chaincode und Transaktionen unterstützen und bewilligen.
+    Der Starter Plan bietet Ihnen die Möglichkeit, für mehrere Organisationen zu agieren, sodass Sie sehen können, wie {{site.data.keyword.blockchainfull_notm}} Platform kooperative Tasks wie die Kanalerstellung und die Chaincode-Instanziierung sowie das Testen von Anwendungen und das Aufrufen von Transaktionen verwaltet. Sie können darüber hinaus andere zur Mitarbeit in einem Starter Plan-Netz einladen (ebenso wie in Enterprise-Plänen). Dies erleichtert Ihnen die Erstellung in einer realitätsnäheren Umgebung, in der mehrere Parteien den Chaincode und die Transaktionen bewilligen.
 - **_Interaktive Entwicklung und interaktiver Test von Blockchain-Anwendungen_**
     Der Starter Plan bietet Ihnen einen Staging-Bereich, sodass Sie Ihren Code kontinuierlich in einem Blockchain-Netz entwickeln und testen können. Der Weg in die Cloud ermöglicht es Entwicklern und Testern, sich auf die Funktionalitäten zu konzentrieren und ohne großen Aufwand vom Komponententest zum Funktionstest überzugehen. Der Starter Plan stellt die gleichen Blockchain-Netzfunktionen und die gleichen Betriebs- und Verwaltungstools wie der Enterprise Plan bereit. Wenn Sie bereit sind, Ihr Projekt in einen der Enterprise-Pläne zu verschieben, können Sie dort auf die gleiche Weise wie im Starter Plan operieren, jedoch mit mehr Möglichkeiten, Ihr Netz auszubauen.
 

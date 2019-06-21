@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: blockchain network, Enterprise Plan, production-ready network
 
 subcollection: blockchain
 
@@ -57,7 +59,7 @@ Neben den zentralen Blockchain-Komponenten bietet die Enterprise-Mitgliedschafts
 
 Der einzige Aspekt, der festgelegt werden muss, ist die Größe der für das Netz erforderlichen Peers. Diese Entscheidung ist abhängig von der Anzahl der erforderlichen Kanäle sowie von der Workload pro Kanal, der Hauptspeicherbelegung und dem Plattenspeicherplatz.
 
-Sie sollten den Enterprise Plan zur Einrichtung stabilerer, produktionsgeeigneter bzw. produktionsnaher Bereitstellungen verwenden. Verwenden Sie zu Testzwecken den [Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about) oder [installieren Sie Docker-Images lokal](http://hyperledger-fabric.readthedocs.io/en/release-1.2/build_network.html).
+Sie sollten den Enterprise Plan zur Einrichtung stabilerer, produktionsgeeigneter bzw. produktionsnaher Bereitstellungen verwenden. Verwenden Sie zu Testzwecken den [Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about) oder [installieren Sie Docker-Images lokal](https://hyperledger-fabric.readthedocs.io/en/release-1.2/build_network.html).
 
 <!--- The Enterprise plan provides the ordering service and CA. The membership fee is $1,000, and a per peer fee of $1,000 that is associated with the network. If you want to have high availability (HA), you must purchase an additional peer to provide the HA capabilities. For example, one organization (associated membership fee of $1,000) of two peers ($1,000 X 2 peers) with HA ($1,000 X 2 HA peers) requires a monthly charge of $5,000.  --->
 

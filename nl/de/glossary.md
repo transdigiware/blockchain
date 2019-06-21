@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
 subcollection: blockchain
 
@@ -18,13 +20,12 @@ subcollection: blockchain
 # Glossar
 {: #glossary}
 
-In diesem Abschnitt werden spezielle Begriffe von {{site.data.keyword.blockchainfull}} definiert, die in der vorliegenden Dokumentation Verwendung finden. Eine eingehendere Erläuterung der Begriffe sowie ein Glossar der Begriffe, die im Zusammenhang mit den Konzepten von Hyperledger Fabric verwendet werden, enthält das [Glossar für Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html).
+In diesem Abschnitt werden spezielle Begriffe von {{site.data.keyword.blockchainfull}} definiert, die in der vorliegenden Dokumentation Verwendung finden. Eine eingehendere Erläuterung der Begriffe sowie ein Glossar der Begriffe, die im Zusammenhang mit den Konzepten von Hyperledger Fabric verwendet werden, enthält das [Glossar für Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html).
 {:shortdesc}
 
 ## Aktueller Status
 {: #glossary-current-state}
-
-Der aktuelle Status des Ledgers stellt die neuesten Werte für alle Schlüssel dar, die im zugehörigen Chaintransaktionsprotokoll enthalten sind. Da der aktuelle Status die neuesten Werte aller Schlüssel darstellt, die dem Kanal bekannt sind, wird er auch als World-Status bezeichnet. Chaincode führt Transaktionsvorschläge für Daten mit dem aktuellen Status aus. Der aktuelle Status ändert sich jedes Mal, wenn der Wert eines Schlüssels geändert oder ein neuer Schlüssel hinzugefügt wird. Der aktuelle Status ist für einen Transaktionsfluss kritisch, da das neueste Schlüssel/Wert-Paar vor einer Änderung bekannt sein muss. Peers schreiben die neuesten Werte für jede gültige Transaktion in einem Block im aktuellen Status des Ledgers fest. Der aktuelle Status wird in der Statusdatenbank eines Peers gespeichert.
+Der aktuelle Status des Ledgers stellt die neuesten Werte für alle Schlüssel dar, die im zugehörigen Chaintransaktionsprotokoll enthalten sind. Da der aktuelle Status die neuesten Werte aller Schlüssel darstellt, die dem Kanal bekannt sind, wird er auch als **World-Status** bezeichnet. Smart Contracts führen Transaktionsvorschläge für Daten mit dem aktuellen Status aus. Der aktuelle Status wird geändert, sobald der Wert eines Schlüssels geändert oder ein neuer Schlüssel hinzugefügt wird. Er ist für einen Transaktionsfluss kritisch, da das neueste Schlüssel/Wert-Paar vor einer Änderung bekannt sein muss. Peers schreiben die neuesten Werte für jede gültige Transaktion in einem Block im aktuellen Status des Ledgers fest. Der aktuelle Status wird in der Statusdatenbank gespeichert, die einem Peer zugeordnet ist.
 
 ## Anordnungsknoten
 {: #glossary-orderer}
@@ -56,7 +57,6 @@ Die Chain (Kette) des Ledgers ist ein Transaktionsprotokoll, das die Struktur vo
 
 ## Chaincode
 {: #glossary-chaincode}
-
 Bei Chaincode, auch als **Smart Contract** bezeichnet, handelt es sich um Teile von Software, die eine Gruppe von Funktionen zum Abfragen oder Aktualisieren des Ledgers enthalten.
 
 ## Client
@@ -65,7 +65,7 @@ Der Client stellt die Entität dar, die im Namen eines Benutzers agiert. Er muss
 
 ## CouchDB
 {: #glossary-couchdb}
-Ein Dokumentspeicher für die Statusdatenbank in Starter Plan-Netzen. CouchDB ist neben LevelDB eine Option für Enterprise Plan-Netze. CouchDB unterstützt die Verwendung von Indizes und ermöglicht Ihnen komplexe Abfragen der Daten auf dem Peer.
+Ein Dokumentspeicher, der komplexe Abfragen für Daten zulässt, die für die Statusdatenbank in {{site.data.keyword.blockchainfull_notm}} Platform und in Starter Plan-Netzen verwendet werden. CouchDB ist neben LevelDB eine Option für Enterprise Plan-Netze.
 
 ## Dynamische Mitgliedschaft
 {: #glossary-dynamic-memership}
@@ -85,7 +85,7 @@ Hardwaresicherheitsmodul (Hardware Security Module). Stellt Verschlüsselung, Sc
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/) ist ein unternehmensorientiertes Blockchain-Framework, das von der Linux Foundation als Basis für die Entwicklung von Blockchain-Anwendungen oder -Lösungen mit einer modularen Architektur zur Verfügung gestellt wird. Hyperledger Fabric-Komponenten wie Konsens- und Mitgliedschaftsservices sind Plug-and-play-fähig.
+[Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) ist ein unternehmensorientiertes Blockchain-Framework, das von der Linux Foundation als Basis für die Entwicklung von Blockchain-Anwendungen oder -Lösungen mit einer modularen Architektur zur Verfügung gestellt wird. Hyperledger Fabric-Komponenten wie Konsens- und Mitgliedschaftsservices sind Plug-and-play-fähig.
 
 ## Installation
 {: #glossary-install}
@@ -97,7 +97,7 @@ Der Prozess des Startens und Initialisierens eines Chaincode-Containers auf eine
 
 ## Kafka
 {: #glossary-kafka}
-Eine Implementierung eines Konsens-Plug-ins für Hyperledger Fabric, deren Ergebnis ein Cluster mit Anordnungsserviceknoten im Blockchain-Netz ist. Eine Kafka-Implementierung ist für ein Produktionsnetz konzipiert.
+Eine Implementierung eines Konsens-Plug-ins für Hyperledger Fabric, deren Ergebnis ein Cluster mit Anordnungsserviceknoten im Blockchain-Netz ist. Kafka- und Raft-Implementierungen sind für Produktionsnetze konzipiert. Allerdings werden nur Cluster mit Raft-Anordnungsservices nativ unterstützt und können über {{site.data.keyword.blockchainfull_notm}} Platform erstellt werden.
 
 ## Kanal
 {: #glossary-channel}
@@ -110,6 +110,10 @@ Die Kommunikationsentität der Blockchain. Es gibt drei Typen von Knoten: Zertif
 ## Konsens
 {: #glossary-consensus}
 Ein kooperativer Prozess, durch den die Ledgertransaktionen im gesamten Netz synchron gehalten werden. Der Konsens stellt sicher, dass Ledger nur aktualisiert werden, wenn die richtigen Teilnehmer Transaktionen genehmigen, und dass Ledger mit denselben Transaktionen in derselben Reihenfolge aktualisiert werden. Es gibt mehrere algorithmische Möglichkeiten, den Konsens zu realisieren.
+
+## Konsole
+{: #glossary-console}
+Der Name der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform. Die Konsole erlaubt Benutzern das Anzeigen, Erstellen und Verwalten ihrer Bereitstellungen. Da öffentliche und private Schlüssel ausschließlich lokal in dem Browser gespeichert werden, unter dem die Konsole ausgeführt wird, behalten Benutzer die vollständige Kontrolle über ihre Schlüssel.
 
 ## Konsortium
 {: #glossary-consortium}
@@ -125,16 +129,15 @@ Ein Schlüssel/Wert-Speicher, der neben CouchDB als Statusdatenbankoption für E
 
 ## Mitglied
 {: #glossary-member}
-
 Mitglieder in einem Blockchain-Netz, die auch als "Organisationen" bezeichnet werden, bilden ganz ähnlich wie Mitglieder einer beliebigen Gruppe die Struktur des Netzes. Ein Mitglied kann so groß wie ein multinationales Unternehmen oder auch so klein wie eine Einzelperson sein. Mitglieder werden im Netz mit einem Zertifikat eingetragen, das ihnen Berechtigungen zur Verwendung des Netzes als Service-Provider (z. B.: Zertifikate ausstellen, Transaktionen validieren/anordnen) oder als Nutzer erteilt. Das Erstere stellt grundlegende Blockchain-Services bereit, die Services für Transaktionsvalidierung, Transaktionsanordnung und Zertifikatsmanagement einschließen. Nutzermitglieder verwenden das Netz, um Transaktionen für das verteilte Ledger aufzurufen. Mitglieder können mehrere Peers haben.
 
 ## MSP
 {: #glossary-msp}
-Membership Service Provider.  Eine Gruppe von Verschlüsselungsmechanismen und Protokollen zur Ausstellung und Validierung von Zertifikaten und Entitäten im gesamten Blockchain-Netz. Identitäten, die im Gültigkeitsbereich eines MSP ausgegeben werden, können innerhalb der Regelvalidierungsrichtilinien dieses MSP ausgewertet werden. Die MSP-Komponente wird auf jedem Kanalpeer installiert, um sicherzustellen, dass Transaktionsanforderungen, die an den Peer ausgegeben werden, von einer authentifizierten und autorisierten Benutzeridentität stammen.
+Eine Abkürzung für **Membership Service Provider**. Der MSP gibt die Definition einer Organisation einschließlich des Stammzertifikats der Zertifizierungsstelle an, die Zertifikate für die Entitäten ausstellt, die der betreffenden Organisation zugeordnet sind. Des Weiteren wird das Signierzertifikat des Administrators dieser Organisation bereitgestellt. MSPs existieren auch auf der lokalen Ebene eines Peers oder Anordnungsknotens und stellen den Authentifizierungsmechanismus dar, mit dem Benutzer mit Administratorberechtigungen des jeweiligen Knotens verifiziert werden. In {{site.data.keyword.blockchainfull_notm}} Platform können MSPs von einer Konsole auf eine andere exportiert werden, sodass Benutzer eine Organisation in einer Konsole erstellen, diese Organisation dann auf eine andere Konsole importieren und dort betreiben können, um beispielsweise einen Kanal zu erstellen. MSPs können außerdem in einen Anordnungsservice importiert werden, um ein "Konsortium" zu bilden, die Liste der Organisationen, die zum Erstellen von und zur Teilnahme an Kanälen berechtigt sind.
 
 ## Network Monitor
 {: #glossary-network-monitor}
-Das GUI-Dashboard, das von der {{site.data.keyword.blockchainfull_notm}} Platform zum Anzeigen und Verwalten des Blockchain-Netzes bereitgestellt wird.
+Das GUI-Dashboard für die Starter- und Enterprise-Netze von {{site.data.keyword.blockchainfull_notm}} Platform, über die Benutzer das Blockchain-Netz anzeigen und verwalten können.
 
 ## Netz
 {: #glossary-network}
@@ -152,6 +155,10 @@ Siehe [Mitglied](/docs/services/blockchain/glossary.html#glossary-member).
 {: #glossary-peer}
 Eine Blockchain-Netzressource, die die Services zur Ausführung und Validierung von Transaktionen sowie zur Verwaltung von Ledgern bereitstellt. Der Peer führt Chaincode aus und enthält das Transaktionsprotokoll und den aktuellen Status der Assets auf den Netzkanälen, das heißt, des Ledgers. Peers gehören zu Organisationen und werden Kanälen zugeordnet.
 
+## Raft
+{: #glossary-raft}
+Raft ist ein CFT-Anordnungsservice (CFT = Crash Fault Tolerant; fehlertolerant), der auf einer Implementierung des [Raft-Protokolls ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://raft.github.io/raft.pdf) in `etcd` basiert. Raft orientiert sich an einem sog. Leader-and-Follower-Modell, das vorgibt, dass ein Leaderknoten (pro Kanal) ausgewählt wird, dessen Entscheidungen von den Followern repliziert werden. Raft-Anordnungsservices sind im Vergleich zu Kafka-basierten Anordnungsservices einfacher einzurichten und zu verwalten. Ein Cluster dieser Knoten kann über {{site.data.keyword.blockchainfull_notm}} Platform erstellt werden.
+
 ## SDK
 {: #glossary-sdk}
 Hyperledger Fabric unterstützt zwei Software Development Kits (SDKs). Ein Node-SDK und ein Java-SDK.  Das Node-SDK kann über NPM und das Java-SDK über Maven installiert werden.  Die SDKs haben eigene Git-Repositorys, nämlich [Fabric Node SDK ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://github.com/hyperledger/fabric-sdk-node) und [Fabric Java SDK ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://github.com/hyperledger/fabric-sdk-java), mit Dokumentation für die verfügbaren APIs. Die Hyperledger Fabric Client-SDKs ermöglichen die Interaktion zwischen Ihrer Clientanwendung und Ihrem Blockchain-Netz.
@@ -168,9 +175,9 @@ Das Zertifikat, das alle Entitäten (Organisationen oder Administratoren) an ihr
 {: #glossary-smart-contracts}
 Siehe [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode).
 
-## SOLO
+## Solo
 {: #glossary-solo}
-Eine Implementierung eines Konsens-Plug-ins für Hyperledger Fabric, die zur Folge hat, dass nur ein Anordnungsservice im Blockchain-Netz vorhanden ist. Das Starter Plan-Netz verwendet die SOLO-Implementierung. Eine SOLO-Implementierung ist nicht für ein Produktionsnetz gedacht. Die Alternative zu SOLO ist ein Kafka-Cluster.
+Eine Implementierung eines Konsens-Plug-ins für Hyperledger Fabric, die zur Folge hat, dass nur ein Anordnungsservice im Blockchain-Netz vorhanden ist. Das Starter Plan-Netz verwendet die Solo-Implementierung. Eine Solo-Implementierung ist nicht für ein Produktionsnetz vorgesehen. Alternativ zu Solo-Clustern können Raft- und Kafka-Cluster verwendet werden.
 
 ## Statusdatenbank
 {: #glossary-state-database}

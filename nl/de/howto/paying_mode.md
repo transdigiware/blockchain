@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-03-05"
+  years: 2018, 2019
+lastupdated: "2019-05-16"
+
+keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
 subcollection: blockchain
 
@@ -17,7 +19,7 @@ subcollection: blockchain
 # Zahlungsmodus
 {: #paying-mode}
 
-Für {{site.data.keyword.blockchainfull}} Platform werden monatliche Mitgliedsgebühren und Peer-Gebühren in Rechnung gestellt. Netzmitglieder können ihre Rechnung über ihre {{site.data.keyword.cloud_notm}}-Konten bezahlen, die den Bereich zum Erstellen der Netzinstanz enthalten. Alternativ hierzu kann ein Netzmitglied die Rechnung für andere (oder auch alle) Mitglieder im Netz übernehmen und für das gesamte Netz bezahlen. Der Zahler kann die Abrechnungen bei Bedarf auch an andere Mitglieder zurückübertragen.
+Für {{site.data.keyword.blockchainfull}} Platform werden monatliche Mitgliedsgebühren und Peergebühren in Rechnung gestellt. Netzmitglieder können ihre Rechnung über ihre {{site.data.keyword.cloud_notm}}-Konten bezahlen, die den Bereich zum Erstellen der Netzinstanz enthalten. Alternativ hierzu kann ein Netzmitglied die Rechnung für andere (oder auch alle) Mitglieder im Netz übernehmen und für das gesamte Netz bezahlen. Der Zahler kann die Abrechnungen bei Bedarf auch an andere Mitglieder zurückübertragen.
 {:shortdesc}
 
 Ihre Kosten sind je nach ausgewähltem Netzplan und Größe der genutzten Ressourcen unterschiedlich. Weitere Informationen zur Preisstruktur finden Sie unter [Preisstruktur](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
@@ -28,7 +30,7 @@ Hinweis: Wenn mehrere Organisationen ein Konsortium erstellen, wird empfohlen, d
 ## Voraussetzungen
 {: #paying-mode-prereq}
 
-Jedes Netzmitglied muss über ein gebührenpflichtiges {{site.data.keyword.cloud_notm}}-Konto verfügen, z. B. ein **nutzungsabhängiges** Konto. Dadurch ist es möglich, {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanzen unter {{site.data.keyword.cloud_notm}} zu erstellen. Wenn Sie über kein Konto verfügen, [registrieren](https://cloud.ibm.com/registration/) Sie sich für ein Konto und führen Sie ein Upgrade auf ein gebührenpflichtiges Konto durch. Für ein Upgrade Ihres Kontos auf ein nutzungsabhängiges Konto rufen Sie **Verwalten** > **Abrechnung und Nutzung** > **Abrechnung** in der {{site.data.keyword.cloud_notm}}-Konsole auf und klicken Sie auf **Kreditkarte hinzufügen**.
+Jedes Netzmitglied muss über ein gebührenpflichtiges {{site.data.keyword.cloud_notm}}-Konto verfügen, z. B. ein **nutzungsabhängiges** Konto. Dadurch ist es möglich, {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanzen unter {{site.data.keyword.cloud_notm}} zu erstellen. Wenn Sie über kein Konto verfügen, [registrieren](https://cloud.ibm.com/registration) Sie sich für ein Konto und führen Sie ein Upgrade auf ein gebührenpflichtiges Konto durch. Für ein Upgrade Ihres Kontos auf ein nutzungsabhängiges Konto rufen Sie **Verwalten** > **Abrechnung und Nutzung** > **Abrechnung** in der {{site.data.keyword.cloud_notm}}-Konsole auf und klicken Sie auf **Kreditkarte hinzufügen**.
 
 
 ## Eigene Gebühren bezahlen
@@ -63,7 +65,7 @@ Ein Mitglied innerhalb eines Netzes kann die Gebühren für einzelne oder mehrer
 3. Der Zahler erstellt ein Blockchain-Netz unter {{site.data.keyword.blockchainfull_notm}} Platform und lädt andere Mitglieder in das Blockchain-Netz in der Network Monitor-Instanz des Netzes ein. Weitere Informationen zur Einladung von Netzmitgliedern finden Sie unter [Mitglieder](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
 4. Jedes Mitglied empfängt eine Benachrichtigungs-E-Mail, die eine Einladung zur Teilnahme am Netz enthält. Das Mitglied kann die folgenden Schritte ausführen, um dem Netz beizutreten.
    1. Klicken Sie auf die Schaltfläche "Fortfahren" in der Benachrichtigungs-E-Mail, sodass Sie zur Blockchain-Serviceseite in {{site.data.keyword.cloud_notm}} gelangen.
-   2. Melden Sie sich bei {{site.data.keyword.cloud_notm}} an und vergewissern Sie sich, dass Sie die korrekte {{site.data.keyword.cloud_notm}}-Organisation und den korrekten Bereich verwenden, zu denen Sie der Zahler hinzugefügt hat.
+   2. Melden Sie sich bei {{site.data.keyword.cloud_notm}} an und vergewissern Sie sich, dass Sie die korrekte Angaben für die {{site.data.keyword.cloud_notm}}-Organisation und den entsprechenden Bereich verwenden, zu denen Sie der Zahler hinzugefügt hat.
       1. Klicken Sie in der {{site.data.keyword.cloud_notm}}-Konsole auf den Profilavatar in der oberen rechten Ecke.
       2. Wählen Sie das Konto des Zahlers in der Dropdown-Liste **Konto** aus.  Beachten Sie, dass dem Konto und der Organisation, unter denen Sie die Blockchain-Serviceinstanz bereitstellen, die Rechnung gestellt wird.  
    3. Suchen Sie im {{site.data.keyword.cloud_notm}}-Katalog nach der **Blockchain** und erstellen Sie eine Serviceinstanz.

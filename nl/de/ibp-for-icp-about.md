@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes Helm chart, behind a firewall
 
 subcollection: blockchain
 
@@ -26,7 +28,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private wird am 23. April 2019 auf Hyperledger Fabric Version 1.4.0 aktualisiert. Gossip- und private Daten werden jedoch vorerst nicht unterstützt.
 {:note}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private liefert die Komponenten, die Sie für die Ausführung eines Blockchain-Netzes in Ihrer eigenen Infrastruktur über {{site.data.keyword.cloud_notm}} Private benötigen. Zu den Komponenten gehören Hyperledger Fabric, eine Zertifizierungsstelle, ein Anordnungsknoten sowie ein Peer, die Sie mithilfe von Kubernetes-Helm-Diagrammen bereitstellen, verwalten und konfigurieren. **Dieses Angebot richtet sich an Kunden, die bereits hinlängliche Erfahrung mit Hyperledger Fabric besitzen.**
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private liefert die Komponenten, die Sie für die Ausführung eines Blockchain-Netzes in Ihrer eigenen Infrastruktur über {{site.data.keyword.cloud_notm}} Private benötigen. Zu den Komponenten gehören die Hyperledger Fabric-Zertifizierungsstelle, ein Anordnungsknoten sowie ein Peer, die Sie mithilfe von Kubernetes-Helm-Diagrammen bereitstellen, verwalten und konfigurieren können. **Dieses Angebot richtet sich an Kunden, die bereits hinlängliche Erfahrung mit Hyperledger Fabric besitzen.**
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private ermöglicht die Bereitstellung von Blockchain-Netzen in einer privaten Cloud, um Anforderungen für den Datenspeicherort, marktrelevante Verordnungen und Infrastrukturvorgaben abzudecken. Die Bereitstellung der wesentlichen Elemente eines Blockchain-Netzes in Ihrer eigenen Infrastruktur wird hierbei durch {{site.data.keyword.cloud_notm}} Private vereinfacht, einer Plattform für auf Kubernetes basierende Anwendungen zur Entwicklung und Verwaltung von lokalen containerisierten Anwendungen.
 
@@ -105,7 +107,7 @@ Die Ausführung des Helm-Diagramms von {{site.data.keyword.blockchainfull_notm}}
 ### Preisstruktur
 {: #ibp-icp-about-pricing}
 
-Die Preisstruktur von {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private basiert auf der Anzahl der genutzten virtuellen Prozessorkerne (Virtual Processor Cores, VPCs). Ein VPC kann entweder ein virtueller Kern sein, der einem virtuellen Server zugeordnet ist, oder ein physischer Prozessorkern in einem nicht partitionierten Server. Sie müssen für jeden VPC, der für {{site.data.keyword.blockchainfull_notm}} Platform verfügbar gemacht wird, eine Lizenzberechtigung anfordern. <!-- A VPC is a unit of measurement by which a program can be licensed.-->
+Die Preisstruktur von {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private basiert auf der Anzahl der genutzten virtuellen Prozessorkerne (Virtual Processor Cores, VPCs). Ein VPC kann entweder ein virtueller Kern sein, der einem Virtual Server-System zugeordnet ist, oder ein physischer Prozessorkern in einem nicht partitionierten Server. Sie müssen für jeden VPC, der für {{site.data.keyword.blockchainfull_notm}} Platform verfügbar gemacht wird, eine Lizenzberechtigung anfordern. <!-- A VPC is a unit of measurement by which a program can be licensed.-->
 
 Weitere Angaben über das Ermitteln Ihrer VPC-Nutzung enthält der Abschnitt [Virtuelle Prozessorkerne ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/Inventory/overview/c_virtual_processor_core_licenses.html "Virtuelle Prozessorkerne") im {{site.data.keyword.IBM_notm}} Knowledge Center. Mithilfe von [{{site.data.keyword.IBM_notm}} License Metric Tool](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/welcome/LMT_welcome.html) können Sie einen Bericht konfigurieren und erstellen, mit dem Sie die Anzahl der VPCs ermitteln können, für die Sie eine Lizenz benötigen.
 

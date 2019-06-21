@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain Platform, Helm chart file, local ICP cluster, IBM Cloud Private, upgrade Helm chart
 
 subcollection: blockchain
 
@@ -53,7 +55,7 @@ Weitere Informationen zur Verwendung dieser Images finden Sie unter  [Ausgewähl
 ## Helm-Diagramm in {{site.data.keyword.cloud_notm}} Private importieren
 {: #helm-install-importing}
 
-1. Laden Sie die Helm-Diagrammdatei für IBM Blockchain Platform for {{site.data.keyword.cloud_notm}} Private bei [Passport Advantage Online ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://www.ibm.com/software/passportadvantage/pao_customer.html "Passport Advantage Online") oder für die kostenlose Community Edition bei [GitHub ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://github.com/IBM/charts/blob/master/repo/stable/ibm-blockchain-platform-dev-1.0.2.tgz "IBM/charts") herunter.  Dieses Helm-Diagrammpaket enthält drei untergeordnete Helm-Diagramme für die Zertifizierungsstelle, den Anordnungsknoten und den Peer.
+1. Laden Sie die Helm-Diagrammdatei für {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private bei [Passport Advantage Online ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://www.ibm.com/software/passportadvantage/pao_customer.html "Passport Advantage Online") oder für die kostenlose Community Edition bei [GitHub ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://github.com/IBM/charts/blob/master/repo/stable/ibm-blockchain-platform-dev-1.0.2.tgz "IBM/charts") herunter. Dieses Helm-Diagrammpaket enthält drei untergeordnete Helm-Diagramme für die Zertifizierungsstelle, den Anordnungsknoten und den Peer.
 
 2. Wenn Sie sich noch nicht angemeldet haben, melden Sie sich bei Ihrem {{site.data.keyword.cloud_notm}} Private-Cluster an.
 
@@ -232,7 +234,7 @@ Warten Sie, bis die Bestätigungsnachricht und der aktualisierte Status des Rele
 ### Weitere Schritte für das Upgrade eines Peers
 {: #helm-install-upgrading-peer}
 
-Nach dem Upgrade eines Peers sind einige zusätzliche Schritte erforderlich, um den Upgradeprozess abzuschließen. Auf der Peer-Seite für das Helm-Release werden unter dem Abschnitt **Pod** zwei Peer-Pods angezeigt:
+Nach dem Upgrade eines Peers sind einige zusätzliche Schritte erforderlich, um den Upgradeprozess abzuschließen. Auf der Peerseite für das Helm-Release werden unter dem Abschnitt **Pod** zwei Peer-Pods angezeigt:
 - Der neue Peer-Pod mit dem Status `CrashLoopBackOff`
 - Der ursprüngliche Peer-Pod mit dem Status `Aktiv`
 
@@ -246,8 +248,8 @@ Führen Sie in der Befehlszeilenschnittstelle die folgenden Schritte aus, um den
    kubectl get replicaset
    ```
    {:codeblock}
-2. Suchen Sie die Peer-Replikatgruppe, die dem ursprünglichen Peer entspricht. Der Name der Peer-Replikatgruppe muss mit dem Anfangsabschnitt des Peernamens im Abschnitt **Pod** der {{site.data.keyword.cloud_notm}} Private-Konsole übereinstimmen.
-3. Löschen Sie die Peer-Replikatgruppe.
+2. Suchen Sie die Peerreplikatgruppe, die dem ursprünglichen Peer entspricht. Der Name der Peerreplikatgruppe muss mit dem Anfangsabschnitt des Peernamens im Abschnitt **Pod** der {{site.data.keyword.cloud_notm}} Private-Konsole übereinstimmen.
+3. Löschen Sie die Peerreplikatgruppe.
    ```
    kubectl delete rs <peer replicaset name>
    ```

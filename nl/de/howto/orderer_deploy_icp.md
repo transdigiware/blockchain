@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: Helm chart, orderer configuration file, IBM Cloud Private, deploy an orderer, ordering service
 
 subcollection: blockchain
 
@@ -20,7 +22,7 @@ subcollection: blockchain
 Anordnungsknoten authentifizieren Clients, ordnen Transaktionen an und senden Transaktionen in einem Blockchain-Netz mit der Anordnungskomponente. Weitere Informationen zu Anordnungsknoten und der Rolle, die sie in einem Blockchain-Netz übernehmen, enthält der Abschnitt [Blockchain-Komponenten im Überblick](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview).
 {:shortdesc}
 
-Lesen Sie vor der Bereitstellung eines Anordnungsknotens den Abschnitt mit [Hinweisen und Einschränkungen](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about-considerations).
+Lesen Sie vor der Bereitstellung eines Anordnungsservice den Abschnitt mit den [Hinweisen und Einschränkungen](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about-considerations).
 
 ## Erforderliche Ressourcen
 {: #icp-orderer-deploy-resources-required}
@@ -90,7 +92,7 @@ Nachdem Sie die Konfigurationsdatei gespeichert haben, müssen Sie sie im Base64
    ```
    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdLZGNpSVE0dHlTOCs4a1RBTkJna3Foa2lHOXcwQkFRc0ZBREJoDQpNUXN3Q1FZRFZRUUdFd0pWVXpFVk1CTUdBMVVFQ2hNTVJHbG5hVU5sY25RZ1NXNWpNUmt3RndZRFZRUUxFeEIzDQpkM2N1WkdsbmFXTmxjblF1WTI5dE1TQXdIZ1lEVlFRREV4ZEVhV2RwUTJWeWRDQkhiRzlpWVd3Z1VtOXZkQ0JEDQpRVEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJBWVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBaMmxEWlhKMElGTklRVElnDQpVMlZqZFhKbElGTmxjblpsY2lC
    ```
-   Und nicht so:
+   Folgende Darstellung ist nicht korrekt:
 
    ```
    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdL
@@ -156,7 +158,7 @@ Die folgende Tabelle enthält eine Auflistung der **speziell für die Anordnungs
 | `Helm-Releasename`| Der Name Ihres Helm-Release. Er muss mit einem Kleinbuchstaben beginnen und mit einem alphanumerischen Zeichen enden, darf jedoch ausschließlich Bindestriche und alphanumerische Zeichen in Kleinschreibung enthalten. Bei jedem Versuch, eine Komponente zu installieren, müssen Sie einen eindeutigen Namen für das Helm-Release verwenden. **Wichtig:** Dieser Wert muss mit dem Wert übereinstimmen, den Sie zum Generieren des Service-Host-Namens für das Feld "hosts" in Ihrer [JSON-Datei mit dem geheimen Schlüssel](/docs/services/blockchain/howto/orderer_deploy_icp.html#icp-orderer-deploy-config-file) verwendet haben. | Nein | Ja  |
 | `Zielnamensbereich`| Wählen Sie den Kubernetes-Namensbereich für die Installation des Helm-Diagramms aus. | Nein | Ja |
 | `Richtlinien für den Zielnamensbereich`| Zeigt die Pod-Sicherheitsrichtlinien des ausgewählten Namensbereichs an, die eine Richtlinie **`ibm-privileged-psp`** beinhalten müssen. Andernfalls [binden Sie eine Pod-Sicherheitsrichtlinie](/docs/services/blockchain?topic=blockchain-icp-setup#icp-setup-psp) an Ihren Namensbereich. | Nein | Nein |
-|**Globale Konfiguration**| Diese Parameter gelten für alle Komponenten im Helm-Diagramm.|||
+|**Globale Konfiguration**| Parameter, die für alle Komponenten im Helm-Diagramm gelten|||
 | `Name des Servicekontos`| Geben Sie den Namen des [Servicekontos ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) ein, das Sie zur Ausführung des Pods verwenden wollen. | Standardwert | Nein |
 
 #### Konfigurationsparameter für Anordnungsknoten

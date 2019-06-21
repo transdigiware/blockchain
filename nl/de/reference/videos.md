@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2019-03-20"
+  years: 2018, 2019
+lastupdated: "2019-05-16"
 
-keywords: ibm blockchain platform, free 2.0 beta, starter plan, videos, getting started
+keywords: IBM Blockchain Platform, video series, videos, getting started videos, demo videos
 
 subcollection: blockchain
 
@@ -29,18 +29,16 @@ Informationen zur Verwendung von {{site.data.keyword.blockchainfull}} Platform f
 Die Videoreihe ist in einer Wiedergabeliste enthalten und wird im unten stehenden Videobereich fortlaufend wiedergegeben. Sie können auch auf das Menüsymbol in der oberen linken Ecke des Videos klicken, um die Wiedergabeliste zu öffnen und zu einem anderen Video zu wechseln.
 {:note}
 
-## Einführung in die kostenlose Betaversion {{site.data.keyword.blockchainfull_notm}} Platform 2.0
+## Einführung in {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}
 {: #ibp-videos-ibp-v2}
 
-Die folgende Videoreihe vermittelt Informationen zur kostenlosen Betaversion {{site.data.keyword.blockchainfull_notm}} Platform 2.0 und zum Einstieg in die Einrichtung eines eigenen Netzes.
-
-<iframe class="embed-responsive-item" id="youtubeplayer" title="Starter Plan-Videos" type="text/html" width="640" height="390" src="https://www.youtube.com/embed?listType=playlist&list=PL7LSy0eQMvjtIJkNRCJZC7mGfB5K49lrX" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-*Video 1. Einführung in die kostenlose Betaversion {{site.data.keyword.blockchainfull_notm}} Platform 2.0*
+In der folgenden [Videoreihe]( http://ibm.biz/BlockchainPlatformSeries) finden Sie weiterführende Informationen zu {{site.data.keyword.blockchainfull_notm}} Platform und zu den ersten Schritten, die zur Erstellung eines eigenen Netzes erforderlich sind.
 
 ## Einführung in den {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan
 {: #ibp-videos-starter}
 
 Die folgende Videoreihe vermittelt weitere Informationen zu {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan und zum Einstieg in die Entwicklung eines Blockchain-Netzes.
 
-<iframe class="embed-responsive-item" id="youtubeplayer" title="Starter Plan-Videos" type="text/html" width="640" height="390" src="https://www.youtube.com/embed?listType=playlist&list=PL7LSy0eQMvjvBdal2mm74JlcNGMXYSGOe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="youtubeplayer2" title="Starter Plan-Videos" type="text/html" width="640" height="390" src="https://www.youtube.com/embed?listType=playlist&list=PL7LSy0eQMvjvBdal2mm74JlcNGMXYSGOe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 *Video 2. Einführung in den {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan*

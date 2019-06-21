@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -41,12 +41,14 @@ Grundbausteine eines auf Fabric basierenden Blockchain-Netzes sind Identitäten 
 
 Zertifizierungsstellen für {{site.data.keyword.blockchainfull_notm}} Platform basieren auf der [Zertifizierungsstelle für Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/ "Zertifizierungsstelle für Hyperledger Fabric"); es ist jedoch möglich, eine andere Zertifizierungsstelle zu verwenden, solange diese einen PKI auf der Basis von x.509-Zertifikaten verwendet. Es kann - und sollte in der Regel auch - mehrere Ebenen von Zertifizierungsstellen geben. Die Stammzertifizierungsstelle für ein Netz ist normalerweise lediglich zur Bereitstellung von Zertifikaten für Zwischenzertifizierungsstellen verfügbar, die anschließend Zertifikate entweder direkt für Benutzer und Komponenten oder für weitere Ebenen von Zwischenzertifizierungsstellen ausstellen. Weitere Details über den Aufbau von Identität und Mitgliedschaft mithilfe von Zertifizierungsstellen enthält die [Dokumentation von Hyperledger Fabric zur Identität![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html) und zur [Mitgliedschaft ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html).
 
-## Anordnungsknoten
+## Anordnungsservices
 {: #blockchain-component-overview-orderer}
 
-Der Anordnungsservice wird zwar häufig als "Herstück" eines Netzes bezeichnet, aber seine Funktion ist eigentlich ziemlich einfach, denn er dient dazu, Transaktionen, die von den Peers validiert wurden, in Blöcken anzuordnen und sie an die Peers zurückzusenden, damit diese sie in ihre Ledger schreiben können. In älteren Versionen von Fabric wurde diese Funktionalität im Peer selbst gebündelt. Ab der Fabric-Version 1.0 wurde sie jedoch in eine separate Komponente ausgegliedert, um die Peer-Leistung zu verbessern und Abweichungen zu verhindern, die zu potenziellen Statusverzweigungen führen könnten.
+Der Anordnungsservice wird zwar häufig als "Herstück" eines Netzes bezeichnet, aber seine Funktion ist eigentlich ziemlich einfach, denn er dient dazu, Transaktionen, die von den Peers validiert wurden, in Blöcken anzuordnen und sie an die Peers zurückzusenden, damit diese sie in ihre Ledger schreiben können. In älteren Versionen von Fabric wurde diese Funktionalität im Peer selbst gebündelt. Ab der Fabric-Version 1.0 wurde sie jedoch in eine separate Komponente ausgegliedert, um die Peerleistung zu verbessern und Abweichungen zu verhindern, die zu potenziellen Statusverzweigungen führen könnten.
 
-Auf physischer Ebene erfordert diese Anordnungsfunktion normalerweise eine Reihe von Anordnungsknoten, die zusammen als "Anordnungsservice" bezeichnet werden; in Umgebungen für Tests oder Machbarkeitsnachweise (Prof of Concept, PoC) kann jedoch auch ein einzelner Knoten verwendet werden, der dann "SOLO-Anordnungsknoten" genannt wird.
+Auf physischer Ebene erfordert diese Anordnungsfunktion normalerweise eine Reihe von Anordnungsknoten, die zusammen als "Anordnungsservice" bezeichnet werden.
+
+Weitere Informationen zum Anordnungsservice finden Sie im Abschnitt zum [Anordnungsservice ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html).
 
 ## Peers
 {: #blockchain-component-overview-peer}
@@ -74,9 +76,7 @@ Während Verträge in der Geschäftswelt unter Hinzuziehung von Anwaltskanzleien
 
 Clientanwendungen in einem Fabric-basierten Netz wie {{site.data.keyword.blockchainfull_notm}} Platform nutzen die zugrunde liegenden Infrastrukturen (z. B. APIs, SDKs und Smart Contracts), um Clientinteraktionen (Aufrufe und Abfragen) mit einer höheren Abstraktionsebene zu ermöglichen.
 
-Eine Beschreibung der Interaktion von Anwendungen mit einem auf Fabric basierenden Netz können Sie dem [Dokument über das Schreiben einer ersten eigenen Anwendung ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/write_first_app.html "Writing Your First Application") entnehmen.  Beachten Sie außerdem, dass in diesem Bereich in Fabric v1.4 erhebliche Verbesserungen vorgenommen werden, die in {{site.data.keyword.blockchainfull_notm}} Platform 2.0 verfügbar sind. Weitere Informationen finden Sie im Hyperledger Fabric-Thema zum [Entwickeln von Anwendungen ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "Developing Applications").  Auch wenn diese direkten Funktionen, z. B. die Vertragsklasse, nicht mit Fabric Version 1.2 (der aktuellen Version des Starter Plans) kompatibel sind, enthält es Informationen zu Konzepten und andere hilfreiche Tipps, die es sich lohnt, in Ihr Anwendungsdesign zu integrieren, und Ihr System zukunftsfähig machen.
-
-Eine Beschreibung der Interaktion einer Anwendung mit einem auf Fabric basierenden Netz können Sie der Dokumentation zum [Erstellen von Anwendungen](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) entnehmen.
+Eine Beschreibung der Interaktion von Anwendungen mit einem auf Fabric basierenden Netz können finden Sie im Abschnitt zur [Anwendungsentwicklung ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "Anwendungsentwicklung") in der Hyperledger Fabric-Dokumentation. Im Abschnitt zur [Anwendungserstellung](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) finden Sie Informationen zur Vorgehensweise zur Herstellung einer Verbindung zwischen Ihren Anwendungen und {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Beispielnetz
 {: #blockchain-component-overview-example-network}

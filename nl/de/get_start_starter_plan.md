@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-05-16"
+
+keywords: blockchain network, Starter Plan, getting started tutorial
 
 subcollection: blockchain
 
@@ -15,7 +17,7 @@ subcollection: blockchain
 {:pre: .pre}
 {:tip: .tip}
 
-# Einführung in den Starter Plan
+# Einführung zum Starter Plan
 {: #getting-started-with-starter-plan}
 
 Der {{site.data.keyword.blockchainfull}} Platform Starter Plan stellt durch einen Klick ein vorkonfiguriertes Blockchain-Netz bereit. Das Angebot stellt standardmäßig ein genehmigtes Netz mit Konfiguration von zwei [Organisationen](/docs/services/blockchain/glossary.html#glossary-organization), einem [Peer](/docs/services/blockchain/glossary.html#glossary-peer) pro Organisation und einem [Kanal](/docs/services/blockchain/glossary.html#glossary-channel) bereit. Wenn das Netz erstellt ist, können Sie Ihr Netz skalieren und ihm weitere Organisationen und Peers hinzufügen. Diese Netze sind für Benutzer mit wenig Vorkenntnissen gedacht, die {{site.data.keyword.blockchainfull_notm}} Platform zum ersten Mal nutzen. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
@@ -23,7 +25,7 @@ Der {{site.data.keyword.blockchainfull}} Platform Starter Plan stellt durch eine
 
 Mit dem Starter Plan können Sie sich mit {{site.data.keyword.blockchainfull_notm}} Platform vertraut machen und sich Kenntnisse aneignen, Beispielanwendungen ausführen, eigene Anwendungen testen und ein Szenario mit mehreren Organisationen simulieren. Dieses Lernprogramm zur Einführung zeigt Ihnen, wie Sie den Starter Plan für die Entwicklung eines Blockchain-Netzes und die Interaktion mit diesem Netz einsetzen können.
 
-Wenn Sie {{site.data.keyword.blockchainfull_notm}} Platform und Blockchains noch nicht kennen, können Sie sich in der  [Übersicht über die grundlegenden Komponenten](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview) von Netzen, die auf dem Open-Source-Angebot [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) aufbauen, weiter über Blockchains informieren. Zusätzliche Angaben finden Sie auch in der [Dokumentation von Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html "Introduction to Blockchain").
+Wenn Sie {{site.data.keyword.blockchainfull_notm}} Platform und Blockchains noch nicht kennen, können Sie sich in der  [Übersicht über die grundlegenden Komponenten](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview) von Netzen, die auf dem Open-Source-Angebot [Hyperledger Fabric](/docs/services/blockchain/reference/v10_fabric.html#hyperledger-fabric) aufbauen, weiter über Blockchains informieren. Zusätzliche Angaben finden Sie auch in der [Dokumentation von Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html "Introduction to Blockchain").
 
 **Hinweis**: Beim {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan handelt es sich um eine Entwicklungs- und Testumgebung, die für Produktionsworkloads nicht geeignet ist. Wenn Sie eine Produktionsumgebung benötigen, lesen Sie die [Informationen zum Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
 
@@ -47,11 +49,6 @@ Innerhalb des Konsortiums der Organisationen, die an Ihren Netzen teilnehmen, k�
 Nachdem Sie Ihr Konsortium gegründet haben, müssen Sie den Chaincode (auch "Smart Contracts" genannt) schreiben, der die Geschäftslogik für Ihr Netz enthält und Ihnen die Interaktion mit Daten im Blockchain-Ledger ermöglicht. Anschließend müssen Sie die Fabric-SDKs zusammen mit diesen Smart Contracts nutzen, um aus der clientseitigen Anwendung Transaktionen an Ihr Netz zu übergeben.
 
 - [Chaincode entwickeln](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-develop-chaincode)
-- [Anwendungen mit Fabric-SDKs entwickeln](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-develop-apps)
-
-{{site.data.keyword.blockchainfull_notm}} Platform bietet Beispielanwendungen, die Sie mit nur ein paar Klicks in Ihrem Starter Plan-Netz bereitstellen können.
-
-- [Beispielanwendungen bereitstellen](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-sample-applications)
 
 **Netz betreiben und regeln**
 
@@ -108,7 +105,6 @@ Sie müssen eine [{{site.data.keyword.blockchainfull_notm}} Platform-Serviceinst
 
 Sie finden Ihre Blockchain-Serviceinstanz im [{{site.data.keyword.cloud_notm}}-Service-Dashboard ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/resources "{{site.data.keyword.cloud_notm}}-Service-Dashboard").
 
-
 ## Kanäle erstellen
 {: #getting-started-with-starter-plan-create-channels}
 
@@ -127,23 +123,7 @@ Weitere Informationen finden Sie im Lernprogramm [Chaincode entwickeln](/docs/se
 {: #getting-started-with-starter-plan-install-instantiate-chaincode}
 Sobald Sie an Kanälen teilnehmen und Ihre Geschäftslogik entwickelt haben, müssen Sie Chaincode auf den Peers im Netz installieren. Mit Network Monitor können Sie nicht nur Chaincode auf den Peers Ihrer Organisation installieren und instanziieren, sondern auch aktualisieren, was die kontinuierliche Entwicklung erleichtert.
 
-Weitere Informationen zum Bereitstellen von vordefinierten Beispielen finden Sie unter [Chaincode installieren, instanziieren und aktualisieren](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
-
-
-## Anwendungen mit Fabric-SDKs entwickeln
-{: #getting-started-with-starter-plan-develop-apps}
-
-{{site.data.keyword.blockchainfull_notm}} Platform stellt API-Endpunkte zur Verfügung, zu denen Sie mithilfe der Fabric-SDKs eine Verbindung herstellen können. Unter Verwendung der SDKs können Sie Chaincode aus Ihren Anwendungen heraus aufrufen und Transaktionen an Ihr Blockchain-Netz übergeben.
-
-Weitere Informationen bietet das Lernprogramm [Anwendungen entwickeln](/docs/services/blockchain/v10_application.html#dev-app).
-
-
-## Beispielanwendungen bereitstellen
-{: #getting-started-with-starter-plan-sample-applications}
-
-Der Starter Plan bietet Ihnen die Möglichkeit, Beispielanwendungen mit wenigen Klicks in Ihrem Netz bereitzustellen. Anhand dieser Beispiele können Sie mehr über Chaincode lernen und sie als Ausgangspunkte für eigene Entwicklungen nutzen.
-
-Weitere Informationen finden Sie unter [Beispielanwendungen bereitstellen](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
+Weitere Informationen zum Installieren und Instanziieren Ihres Chaincodes finden Sie unter [Chaincode installieren, instanziieren und aktualisieren](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
 
 
 ## Netzressourcen überwachen
@@ -195,13 +175,6 @@ Wenn Sie angepasste Konfigurationen, aktiven Chaincode oder bereitgestellte Anwe
 Sie können Chaincode und Anwendungen, die Sie in einem Starter Plan-Netz testen, in einem Enterprise Plan-Netz bereitstellen. Wenn Sie Chaincode, den Sie in einem Starter Plan-Netz testen, im Enterprise Plan bereitstellen wollen, führen Sie die Anweisungen unter [Chaincode installieren, instanziieren und aktualisieren](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc) aus.
 
 Es können nur Chaincode und Anwendungen migriert werden; Daten können nicht zwischen Starter Plan- und Entprise Plan-Netzen migriert werden.
-
-<!--
-As you can see in [Deploying sample applications](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications), Starter Plan makes it easy to get a sample application integrated with your network by using Toolchain. This setup also allows for continuous integration by automatically updating your sample application whenever your forked application repo is changed. If you want to deploy this application into an Enterprise Plan network, you can copy your forked application repo into a new repo and then follow the instructions in [Deploying sample applications manually](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications#deploy_sample_applications_manually).
--->
-
-Wenn Sie eine Beispielanwendung in Ihrem Starter Plan-Netz bereitstellen und diese Anwendung in einem Enterprise Plan-Netz bereitgestellt werden soll, können Sie Ihr Anwendungsrepository mit Verzweigungen in ein neues Repository kopieren und anschließend die Anweisungen ausführen, die in den Beispielanwendungen beschrieben sind, um diese im Enterprise Plan-Netz bereitzustellen.
-
 
 ## Netz löschen oder verlassen
 {: #getting-started-with-starter-plan-delete-network}

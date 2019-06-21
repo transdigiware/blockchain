@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: command line, orderer system channel, IBM Blockchain Platform, orderer, IBM Cloud Private, operate an orderer
 
 subcollection: blockchain
 
@@ -146,7 +148,7 @@ Sie müssen das TLS-Zertifikat Ihres Anordnungsknotens herunterladen und es an I
   {:codeblock}
 
 ### Zertifikate auf dem lokalen System verwalten
-{: #manage-certs}
+{: #orderer-operate-manage-certs}
 
 Wechseln Sie in das Verzeichnis, in dem der MSP-Ordner für den Administrator des Anordnungsknotens generiert wurde. Abhängig davon, wie Sie die Beispielschritte in dieser Dokumentation befolgt haben oder wie viele Komponenten Sie bereitstellen, finden Sie den MSP-Ordner unter `$HOME/fabric-ca-client/orderer-admin/msp` oder `$HOME/fabric-ca-client/peer-admin/msp`.
 
@@ -283,6 +285,19 @@ Die Gründung eines Konsortiums vollzieht sich allgemein wie folgt:
 
 1. Der Systemkanal des Anordnungsknotens wird mit der Organisation des Anordnungsknotens als einzigem Mitglied des Systemkanals gegründet. Diese Organisation kann Aktualisierungen vornehmen, ohne dass zusätzliche Signaturen erforderlich sind.
 2. Der Administrator für die Organisation des Anordnungsknotens empfängt Organisationsdefinitionen von Mitgliedern, die dem Konsortium beitreten möchten. Die Organisation des Anordnungsknotens aktualisiert mithilfe der Organisationsdefinitionen die Konfiguration für den Systemkanal des Anordnungsknotens.
+
+**Hinweis:** Wenn Ihr Peer in einem anderen {{site.data.keyword.cloud_notm}} Private-Cluster als der Anordnungsknoten bereitgestellt wird, dann müssen Sie [zusätzliche Schritte ausführen](#icp-orderer-operate-consortium-multi-cluster), um sicherzustellen, dass die Adresse des Anordnungsknotens im Systemkanal mit der Proxy-IP-Adresse und dem Knotenport aktualisiert wird. Beispiel:
+  ```
+  "OrdererAddresses": {
+    "mod_policy": "/Channel/Orderer/Admins",
+    "value": {
+      "addresses": [
+        "9.12.19.49:30576"
+      ]
+    },
+    "version": "0"
+  }
+  ```
 
 ### Organisationsdefinitionen abrufen
 
@@ -481,6 +496,50 @@ Mit diesem Befehl wird die Aktualisierungsanforderung gleichzeitig signiert und 
 ```
 
 Es ist zwar möglich, mehrere Organisationsdefinitionen in eine einzige Konfigurationsaktualisierung für den Systemkanal des Anordnungsknotens einzubeziehen, aber es hat sich das Verfahren bewährt, den Kanal jeweils nur mit einer Organisation zu aktualisieren und anschließend zu prüfen, ob die Aktualisierung erfolgreich war.
+
+### Systemkanal für Bereitstellung mit mehreren Clustern aktualisieren
+{: #icp-orderer-operate-consortium-multi-cluster}
+
+Wenn Sie Ihren Peer in einem anderen {{site.data.keyword.cloud_notm}} Private-Cluster als den Anordnungsknoten bereitstellen wollen, dann kann der Peer nicht mithilfe der Helm-Release-Informationen des Anordnungsknotens mit diesem Anordnungsknoten kommunizieren. Nachdem Ihre Organisation zum Systemkanal hinzugefügt wurde, müssen Sie den Systemkanal aktualisieren, sodass die [Endpunktinformationen des Anordnungsknotens](#icp-orderer-operate-orderer-endpoint) verwendet werden, also seine Proxy-IP-Adresse und die Portnummer anstelle der Helm-Release-Informationen. Führen Sie den folgenden Befehl aus, um die Adresse des Anordnungsknotens in `genesis-config.json` zu aktualisieren.
+
+1. Konvertieren Sie den Genesis-Block in das JSON-Format.
+
+  ```
+  cd configupdate
+  configtxlator proto_decode --input genesis.pb --type common.Block --output ./config_block.json
+  jq .data.data[0].payload.data.config ./config_block.json  > config.json
+  ```
+  {:codeblock}
+
+2. Führen Sie die folgenden Befehle aus, um die Datei `modified_config.json` in die Konfigurationsaktualisierung im JSON-Format zu konvertieren.
+
+  ```
+  configtxlator proto_encode --input config.json --type common.Config --output config.pb 
+  configtxlator proto_encode --input modified_config.json --type common.Config --output modified_config.pb 
+  configtxlator compute_update --channel_id $CHANNEL_NAME --original config.pb --updated modified_config.pb --output config_update.pb 
+  configtxlator proto_decode --input config_update.pb --type common.ConfigUpdate --output config_update.json
+  ```
+  {:codeblock}
+
+3. Schließen Sie `config_update` in ein übergeordnetes Element (Envelope) ein.
+
+  ```
+  echo '{"payload":{"header":{"channel_header":{"channel_id":"'$CHANNEL_NAME'", "type":2}},"data":{"config_update":'$(cat config_update.json)'}}}' | jq . > config_update_in_envelope.json
+  ```
+  {:codeblock}
+
+4. Führen Sie den folgenden Befehl aus, um die Konfigurationsaktualisierung zurück in das Protobuf-Format zu konvertieren.
+
+  ```
+  configtxlator proto_encode --input config_update_in_envelope.json --type common.Envelope --output ./config_update_in_envelope.pb
+  ```
+  {:codeblock}
+
+5. Senden Sie die Aktualisierung an den Systemkanal.
+  ```
+  peer channel update -f update_in_envelope.pb -c $CHANNEL_NAME -o $ORDERER_URL --tls --cafile $ORDERER_TLS_CERTIFICATE
+  ```
+  {:codeblock}
 
 ## Protokolle des Anordnungsknotens anzeigen
 {: #icp-orderer-operate-orderer-view-logs}
