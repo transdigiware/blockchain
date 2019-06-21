@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
 subcollection: blockchain
 
@@ -29,29 +31,27 @@ Es gibt verschiedene Aktionen, die Sie ausführen können, um das Konsolenverhal
 ## Benutzer zur Konsole hinzufügen und aus ihr entfernen
 {: #ibp-console-manage-console-add-remove}
 
-Der Prozess zur Autorisierung der Konsole wird sich während der Dauer des Betaprogramms ändern. Wenn Sie über eine vorhandene Blockchain-Serviceinstanz verfügen, die die ursprüngliche {{site.data.keyword.IBM_notm}} ID-Authentifizierung verwendet hat, werden Ihnen die auf der Registerkarte **Benutzer** aufgelisteten Benutzer nicht mehr angezeigt. Sie müssen ihnen den Zugriff auf die Konsole erteilen, indem Sie den IAM-Prozess verwenden, der unten beschrieben ist.
-{:important}
-
-Jedem Benutzer mit Zugriff auf die Konsole muss eine Zugriffsrichtlinie mit einer definierten {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)-Benutzerrolle zugewiesen sein. Die Richtlinie bestimmt, welche Aktionen der Benutzer innerhalb der Konsole ausführen kann. Die {{site.data.keyword.blockchainfull}} Platform-Konsole wird mit der E-Mail-Adresse des {{site.data.keyword.cloud_notm}}-Eigners als Konsolenadministrator bereitgestellt. Standardmäßig wird diesem {{site.data.keyword.cloud_notm}}-Benutzer die `Manager`-Rolle für den Blockchain Platform 2.0-Service in IAM erteilt. Der Konsolenadministrator kann daraufhin anderen Benutzern über die IAM-Benutzerschnittstelle den Zugriff auf die Konsole gewähren. Weitere Informationen zu IAM finden Sie unter [Was ist IAM ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link") ](/docs/iam?topic=iam-iamoverview#iamoverview "Was ist IAM?").  
+Jedem Benutzer mit Zugriff auf die Konsole muss eine Zugriffsrichtlinie mit einer definierten {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)-Benutzerrolle zugewiesen sein. Die Richtlinie bestimmt, welche Aktionen der Benutzer innerhalb der Konsole ausführen kann. Die {{site.data.keyword.blockchainfull}} Platform-Konsole wird mit der E-Mail-Adresse des {{site.data.keyword.cloud_notm}}-Eigners als Konsolenadministrator bereitgestellt.  Standardmäßig wird diesem {{site.data.keyword.cloud_notm}}-Benutzer die Rolle **Manager** für den {{site.data.keyword.blockchainfull}} Platform 2.0-Service in IAM zugeordnet. Der Konsolenadministrator kann daraufhin anderen Benutzern über die IAM-Benutzerschnittstelle den Zugriff auf die Konsole gewähren. Weitere Informationen zu IAM finden Sie unter [Was ist IAM ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link") ](/docs/iam?topic=iam-iamoverview#iamoverview "Was ist IAM?").  
 
 Wenn Sie [mit IAM Benutzer einladen ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/iam?topic=iam-iamuserinv#iamuserinv "mit IAM Benutzer einladen"), müssen Sie die folgenden Schritte zum Konfigurieren ihrer Rollen und ihres Zugriffs auf die Konsole ausführen:
  1. Klicken Sie in der Menüleiste auf **verwalten** > **Zugriff (IAM)** und wählen Sie dann **Benutzer** aus.
  2. Klicken Sie auf **Benutzer einladen**.
  3. Geben Sie die E-Mail-Adresse des oder der Benutzer ein.
- 4. Wählen Sie aus der Dropdown-Liste `Services` die Option `Blockchain Platform 2.0`.
- 5. Blättern Sie abwärts bis zu `Rollen auswählen`.
- 6. Wählen Sie unter `Zugriffsrollen für Service zuweisen` eine Rolle für den Benutzer aus. Dies kann die Rolle `Manager`, `Schreibberechtigter` oder `Leseberechtigter` sein.
+ 4. Wählen Sie aus der Dropdown-Liste **Services** die Option **Blockchain Platform 2.0**.
+ 5. Blättern Sie abwärts bis zu **Rollen auswählen**.
+ 6. Wählen Sie unter **Zugriffsrollen für Service zuweisen** eine Rolle für den Benutzer aus. Dies kann die Rolle **Manager**, **Schreibberechtigter** oder **Leseberechtigter** sein.
  7. Klicken Sie auf **Benutzer einladen**.
 
 | Rolle | Funktionen |
 |--------|----------|
-| Manager | Als Manager verfügen Sie über Berechtigungen, die über die Rolle "Schreibberechtigter" hinausgehen. Sie können alles tun, was ein Leseberechtigter und ein Schreibberechtigter tun können, sowie: <ul><li>Neue Komponenten hinzufügen.</li><li>Bereitgestellte Komponenten löschen.</li><li>Die Konsolenprotokollierungsebenen ändern.</li></ul> |
-| Schreibberechtigter | Als Schreibberechtigter verfügen Sie über Berechtigungen, die über die Rolle "Leseberechtigter" hinausgehen, darunter: <ul><li>Komponenten importieren.</li><li>Importierte Komponenten entfernen.</li><li>Benutzer für eine Zertifizierungsstelle registrieren.</li></ul>  |
-| Leseberechtigter | Als Leseberechtigter können Sie schreibgeschützte Aktionen ausführen, darunter: <ul><li>Die Konsolen-Benutzerschnittstelle anzeigen.</li><li>Das Konsolenprotokoll anzeigen.</li><li>Komponenten exportieren.</li></ul> | |
+| Manager | Als Manager verfügen Sie über Berechtigungen, die über die Rolle "Schreibberechtigter" hinausgehen. Sie können alles tun, was ein Leseberechtigter und ein Schreibberechtigter tun können, sowie: <ul><li>Neue Komponenten über die Konsole oder die APIs bereitstellen.</li><li>Bereitgestellte Komponenten über die Konsole oder die APIs löschen.</li><li>Protokollierungsstufen der Konsole über die Konsole oder die APIs ändern.</li><li>Konsole über eine API neu starten.</li></ul> |
+| Schreibberechtigter | Als Schreibberechtigter verfügen Sie über Berechtigungen, die über die Rolle "Leseberechtigter" hinausgehen, darunter: <ul><li>Komponenten über die Konsole oder die APIs importieren.</li><li>Importierte Komponenten über die Konsole oder die APIs entfernen.</li><li>Benutzer für eine Zertifizierungsstelle registrieren.</li><li> Benachrichtigungen über die Konsole oder die APIs hinzufügen oder entfernen.</li></ul>  |
+| Leseberechtigter | Als Leseberechtigter können Sie schreibgeschützte Aktionen ausführen, darunter: <ul><li>Die Konsolen-Benutzerschnittstelle anzeigen.</li><li>Das Konsolenprotokoll anzeigen.</li><li>Komponenten exportieren.</li><li>Gewünschte GET-API ausgeben.</li></ul> | |
 
- Berechtigungen sind kumulativ. Wenn Sie eine `Manager`-Rolle auswählen, kann der Benutzer auch alle Aktionen des `Leseberechtigten` und `Schreibberechtigten` ausführen. Diese Rollen müssen nicht zusätzlich aktiviert werden. Ebenso kann ein Benutzer mit der Rolle `Schreibberechtigter` alle Aktionen der Rolle des `Leseberechtigten` ausführen. Für den Konsolenzugriff müssen Sie nur eine Rolle unter `Service-Zugriffsrollen` auswählen. Sie müssen unter `Plattform-Zugriffsrollen` keine Auswahl treffen.
+ Berechtigungen sind kumulativ. Wenn Sie eine **Manager**-Rolle auswählen, kann der Benutzer auch alle Aktionen des **Leseberechtigten** und **Schreibberechtigten** ausführen. Diese Rollen müssen nicht zusätzlich aktiviert werden.   Ebenso kann ein Benutzer mit der Rolle `Schreibberechtigter` alle Aktionen der Rolle des **Leseberechtigten** ausführen. Für den Konsolenzugriff müssen Sie lediglich unter **Zugriffsrollen für Service** eine Rolle auswählen. Unter **Zugriffsrollen für Plattform** muss keine Auswahl getroffen werden. Überprüfen Sie die entsprechende Rolle unter **Zugriffsrollen für Plattform zuweisen**, wenn es von Bedeutung ist, dass die Serviceinstanz im {{site.data.keyword.cloud_notm}}-Dashboard des eingeladenen Benutzers sichtbar ist.
 
 ![Kubernetes-Version aktualisieren](../images/AddICPUser.gif)
+
 
 Nachdem Sie der Konsole neue Benutzer hinzugefügt haben, kann es sein, dass Benutzer nicht alle Knoten, Kanäle oder Chaincodes, die von anderen Benutzern bereitgestellt werden, anzeigen können. Um mit diesen Komponenten arbeiten zu können, müssen die einzelnen Benutzer die zugehörigen Identitäten in ihr eigenes Konsolenwalletimportieren. Weitere Informationen hierzu finden Sie unter [Identitäten in der Konsolenwalletspeichern](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
 {:important}
@@ -60,9 +60,9 @@ Gehen Sie wie folgt vor, wenn Sie die Rolle eines Benutzers ändern müssen:
  1. Klicken Sie in der Menüleiste auf **verwalten** > **Zugriff (IAM)** und wählen Sie dann **Benutzer** aus.
  2. Klicken Sie neben dem Benutzer, den Sie ändern möchten, auf das Aktionsmenü und wählen Sie **Zugriff zuweisen** aus.
  3. Wählen Sie die Kachel **Zugriff auf Ressourcen zuweisen** aus.
- 4. Wählen Sie aus der Dropdown-Liste `Services` die Option `Blockchain Platform 2.0`.
- 5. Blättern Sie abwärts bis zu `Rollen auswählen`.
- 6. Wählen Sie unter `Zugriffsrollen für Service zuweisen` eine Rolle für den Benutzer aus. Dies kann die Rolle `Manager`, `Schreibberechtigter` oder `Leseberechtigter` sein.
+ 4. Wählen Sie aus der Dropdown-Liste **Services** die Option **Blockchain Platform 2.0**.
+ 5. Blättern Sie abwärts bis zu **Rollen auswählen**.
+ 6. Wählen Sie unter **Zugriffsrollen für Service zuweisen** eine Rolle für den Benutzer aus. Dies kann die Rolle **Manager**, **Schreibberechtigter** oder **Leseberechtigter** sein.
  7. Klicken Sie auf **Zuweisen**.
 
 Wenn Sie den Zugriff eines Benutzers auf die Konsole entfernen müssen, befolgen Sie die Anweisungen im Abschnitt [IAM-Thema 'Benutzer entfernen' ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/iam?topic=iam-remove#remove "Benutzer entfernen").
@@ -74,9 +74,9 @@ Wenn Sie {{site.data.keyword.cloud_notm}}-IAM-Richtlinien festlegen, können Sie
 
 <dl>
 <dt>Einzelne Benutzer</dt>
-<dd>Möglicherweise gibt es einen bestimmten Benutzer, der mehr oder weniger Berechtigungen benötigt als der Rest Ihres Teams. Sie können die Berechtigungen individuell anpassen, sodass jede Person über die Berechtigungen verfügt, die sie zum Ausführen ihrer Tasks benötigt. Sie können jedem Benutzer mehr als eine {{site.data.keyword.Bluemix_notm}} IAM-Rolle zuordnen.</dd>
+<dd>Möglicherweise gibt es einen bestimmten Benutzer, der mehr oder weniger Berechtigungen benötigt als der Rest Ihres Teams. Sie können die Berechtigungen individuell anpassen, sodass jede Person über die Berechtigungen verfügt, die sie zum Ausführen ihrer Tasks benötigt. Sie können jedem Benutzer mehr als eine {{site.data.keyword.cloud_notm}} IAM-Rolle zuordnen.</dd>
 <dt>Mehrere Benutzer in einer Zugriffsgruppe</dt>
-<dd>Sie können eine Gruppe von Benutzern erstellen und dann dieser Gruppe Berechtigungen zuordnen. Sie können z. B. alle Teamleiter gruppieren und Administratorzugriff für die Gruppe erteilen. Anschließend können Sie alle Entwickler gruppieren und dieser Gruppe nur Schreibzugriff erteilen. Sie können jeder Zugriffsgruppe mehr als eine {{site.data.keyword.Bluemix_notm}}-IAM-Rolle zuordnen. Wenn Sie einer Gruppe Berechtigungen zuordnen, wirkt sich dies auf jeden Benutzer aus, der dieser Gruppe hinzugefügt oder daraus entfernt wird. Wenn Sie einen Benutzer zu der Gruppe hinzufügen, hat er auch den zusätzlichen Zugriff. Wird er entfernt, so wird ihm der Zugriff entzogen.</dd>
+<dd>Sie können eine Gruppe von Benutzern erstellen und dann dieser Gruppe Berechtigungen zuordnen. Sie können z. B. alle Teamleiter gruppieren und Administratorzugriff für die Gruppe erteilen. Anschließend können Sie alle Entwickler gruppieren und dieser Gruppe nur Schreibzugriff erteilen. Sie können jeder Zugriffsgruppe mehr als eine {{site.data.keyword.cloud_notm}}-IAM-Rolle zuordnen. Wenn Sie einer Gruppe Berechtigungen zuordnen, wirkt sich dies auf jeden Benutzer aus, der dieser Gruppe hinzugefügt oder daraus entfernt wird. Wenn Sie einen Benutzer zu der Gruppe hinzufügen, hat er auch den zusätzlichen Zugriff. Wird er entfernt, so wird ihm der Zugriff entzogen.</dd>
 </dl>
 
 Bei den in IAM hinzugefügten Benutzern handelt es sich lediglich um E-Mail-Adressen von Benutzern, die sich an der Konsole anmelden können. Sie stehen in keiner Beziehung zu den **verfügbaren Organisationen** auf der Registerkarte "Organisationen" oder zu den Identitäten, die von der Konsolenwallet gespeichert werden.
@@ -96,7 +96,7 @@ Beim Arbeiten mit der {{site.data.keyword.blockchainfull_notm}} Platform-Konsole
 ### Konsolenprotokolle anzeigen
 {: #ibp-console-manage-console-logs}
 
-Sie können problemlos auf die Konsolenprotokolle zugreifen, wenn Sie Fehler beheben müssen, die bei der Verwendung der Konsole und der Knoten aufgetreten sind. Sie können die Anzahl der Protokolle, die von der Konsole erfasst werden, auch erhöhen oder verringern, indem Sie die Protokollierungsstufe entsprechend festlegen. Die Protokolle der Konsole werden getrennt von den [Knotenprotokollen](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) erfasst, die vom {{site.data.keyword.cloud_notm}} Kubernetes-Service gesammelt werden.
+Sie können problemlos auf die Konsolenprotokolle zugreifen, wenn Sie Fehler beheben müssen, die bei der Verwendung der Konsole und der Knoten aufgetreten sind. Sie können die Anzahl der Protokolle, die von der Konsole erfasst werden, auch erhöhen oder verringern, indem Sie die Protokollierungsstufe entsprechend festlegen. Die Protokolle der Konsole werden getrennt von den [Knotenprotokollen](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) erfasst, die von {{site.data.keyword.cloud_notm}} Kubernetes Service gesammelt werden.
 
 Navigieren Sie zu der Registerkarte **Einstellungen** im Konsolenbrowser, um die Protokollierungseinstellungen zu ändern. Die Konsolenprotokolle werden aus zwei separaten Quellen erfasst:
 
@@ -110,17 +110,17 @@ Sie können die Konsolenprotokolle nur anzeigen, wenn Sie als Konsolenadministra
 ### Konsolenprotokolle anzeigen
 {: #ibp-console-manage-console-node-logs}
 
-Die Protokolle Ihrer Peers, Anordnungsknoten und Zertifizierungsstellen werden vom {{site.data.keyword.IBM_notm}} Kubernetes-Service erfasst. Führen Sie die folgenden Schritte aus, um die Protokolle Ihrer Knoten aus dem Cluster anzuzeigen, in dem Sie Ihr {{site.data.keyword.blockchainfull_notm}} Platform 2.0-Netz implementiert haben.
+Die Protokolle Ihrer Peers, Anordnungsknoten und Zertifizierungsstellen werden von {{site.data.keyword.IBM_notm}} Kubernetes Service erfasst. Führen Sie die folgenden Schritte aus, um die Protokolle Ihrer Knoten aus dem Cluster anzuzeigen, in dem Sie Ihr {{site.data.keyword.blockchainfull_notm}} Platform 2.0-Netz implementiert haben.
 
-1. Öffnen Sie das [{{site.data.keyword.cloud_notm}}-Dashboard ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/resources) und navigieren Sie zu der Übersichtsanzeige Ihres {{site.data.keyword.IBM_notm}} Kubernetes-Service-Clusters.
+1. Öffnen Sie das [{{site.data.keyword.cloud_notm}}-Dashboard ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/resources) und navigieren Sie zu der Übersichtsanzeige Ihres {{site.data.keyword.IBM_notm}} Kubernetes Service-Clusters.
 2. Klicken Sie oberhalb der Übersichtsanzeige für den Cluster auf **Kubernetes-Dashboard**.
-3. Verwenden Sie im Kubernetes-Dashboard die Dropdown-Liste der Namensbereiche in der linken Navigationsleiste, um den Namensbereich in die {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz zu ändern. Der Name der Serviceinstanz ist eine lange Zeichenfolge aus Buchstaben und Zahlen. Sie finden den Namen der Serviceinstanz am Anfang der URL für Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Konsole.
-4. Klicken Sie in der linken Navigationsleiste auf **Pods**, um die Liste der von Ihnen bereitgestellten Knotenpods anzuzeigen.
+3. Verwenden Sie im Kubernetes-Dashboard die Dropdown-Liste der Namensbereiche im linken Navigationsbereich, um den Namensbereich in die {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz zu ändern. Der Name der Serviceinstanz ist eine lange Zeichenfolge aus Buchstaben und Zahlen. Sie finden den Namen der Serviceinstanz am Anfang der URL für Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Konsole.
+4. Klicken Sie im linken Navigationsbereich auf **Pods**, um die Liste der von Ihnen bereitgestellten Knotenpods anzuzeigen.
 5. Klicken Sie auf einen Pod. Klicken Sie anschließend im oberen Menü auf **Protokolle anzeigen**, um die Protokolle Ihres Knotens zu öffnen. Über den Protokollen können Sie das Dropdown-Menü nach **Protokolle von** verwenden, um die Protokolle aus den verschiedenen Containern innerhalb des Pods anzuzeigen. Ihr Peer und die Statusdatenbank (z. B. CouchDB) werden beispielsweise in verschiedenen Containern ausgeführt und generieren daher unterschiedliche Protokolle.
 
-Standardmäßig werden die Protokolle Ihrer Knoten lokal in Ihrem Cluster erfasst. Sie können auch den {{site.data.keyword.cloud_notm}} Log Analysis-Service oder den Service eines anderen Anbieters verwenden, um Ihre Protokolle aus dem Netz zu erfassen, zu speichern und zu analysieren. Weitere Informationen hierzu finden Sie im Abschnitt [Protokollierung und Überwachung für den {{site.data.keyword.IBM_notm}} Kubernetes-Service ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://console.cloud.ibm.com/docs/containers?topic=containers-health#health "Protokollierung und Überwachung für den {{site.data.keyword.IBM_notm}} Kubernetes-Service"). Es wird empfohlen, den Service [{{site.data.keyword.cloud_notm}} LogDNA ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "Managing Kubernetes cluster logs with IBM Log Analysis with LogDNA") zu nutzen, der das Analysieren der Protokolle in Echtzeit ohne großen Aufwand ermöglicht.
+Standardmäßig werden die Protokolle Ihrer Knoten lokal in Ihrem Cluster erfasst. Sie können auch den {{site.data.keyword.cloud_notm}} Log Analysis-Service oder den Service eines anderen Anbieters verwenden, um Ihre Protokolle aus dem Netz zu erfassen, zu speichern und zu analysieren. Weitere Informationen hierzu finden Sie im Abschnitt [Protokollierung und Überwachung für {{site.data.keyword.IBM_notm}} Kubernetes Service ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/containers?topic=containers-health#health "Protokollierung und Überwachung für {{site.data.keyword.IBM_notm}} Kubernetes Service"). Es wird empfohlen, den Service [{{site.data.keyword.cloud_notm}} LogDNA ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "Protokolle für Kubernetes-Cluster mit IBM Log Analysis with LogDNA verwalten") zu nutzen, der das Analysieren der Protokolle in Echtzeit ohne großen Aufwand ermöglicht.
 
-### Protokolle für Ihren Smart Contract-Container anzeigen
+### Protokolle für Ihren Smart-Contract-Container anzeigen
 {: #ibp-console-manage-console-container-logs}
 
 Bei Problemen mit Ihrem Smart Contract können Sie die Containerprotokolle für Smart Contract oder Chaincode anzeigen, um die Probleme zu beheben:
@@ -129,7 +129,17 @@ Bei Problemen mit Ihrem Smart Contract können Sie die Containerprotokolle für 
 - Klicken Sie auf den Link `exec` in Ihrem Dashboard, um den Befehl 'exec' in dem Pod auszuführen. Der Link verweist standardmäßig auf den Peer-Container.
 - Wechseln Sie in den Container `dind`, indem Sie ihn in der Dropdown-Liste auswählen.
 - Führen Sie den Befehl `docker ps -a` aus, um die Liste der Chaincode-Container anzuzeigen.
-- Führen Sie `docker logs <chaincode-container-ID>` aus und ersetzen Sie dabei <chaincode-container-ID> durch die ID Ihres Chaincode-Containers.
+- Führen Sie `docker logs <chaincode-container-ID>` aus und ersetzen Sie dabei `<chaincode-container-ID>` durch die ID Ihres Chaincode-Containers.
+
+## Programmkorrekturen für Knoten installieren
+{: #ibp-console-manage-patch}
+
+Die zugrunde liegenden IBM Hyperledger Fabric-Docker-Images für den Peer, die Zertifizierungsstelle und die Anordnungsknoten müssen im Zeitverlauf möglicherweise aktualisiert werden, z. B. mit Sicherheitsupdates oder zur Migration auf ein neues Fabric-Punktrelease. Der Text **Patch verfügbar** auf einer Knotenkachel gibt an, dass eine solche Programmkorrektur (Patch) verfügbar ist und jederzeit auf dem Knoten installiert werden kann. Diese Programmkorrekturen sind optional, werden aber empfohlen.   
+
+Programmkorrekturen werden auf Knoten nacheinander angewendet. Während der Anwendung der Programmkorrektur steht der Knoten für die Verarbeitung von Anforderungen und Transaktionen nicht zur Verfügung. Um Unterbrechungen der Serviceverfügbarkeit zu vermeiden, sollten Sie deshalb sicherstellen, einen weiteren Knoten desselben Typs verfügbar zu halten, der die Anforderungen verarbeiten kann, sofern dies möglich ist. Die Installation einer Programmkorrektur auf einem Knoten dauert ca. eine Minute. Nach Abschluss der Aktualisierung ist der Knoten wieder zur Verarbeitung von Anforderungen bereit.
+{:note}
+
+Öffnen Sie zum Anwenden einer Programmkorrektur auf einen Knoten die Kachel des betreffenden Knotens und klicken Sie dann auf die Schaltfläche **Programmkorrektur installieren**.
 
 ## Ablauf des Kubernetes-Clusters
 {: #ibp-console-manage-console-cluster-expiration}

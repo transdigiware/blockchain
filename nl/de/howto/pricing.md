@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2019-03-05"
+
+keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
 subcollection: blockchain
 
@@ -54,7 +56,7 @@ Der Starter Plan beinhaltet ebenso wie der Enterprise Plan zwei für den Preis r
 
 - **Mitgliedsgebühr** – Deckt das Erstellen von Organisationen, den Zugriff auf den Anordnungsservice und auf die Zertifizierungsstelle ab und wird **pro Instanz** berechnet. In dieser Gebühr eingeschlossen ist die Bearbeitung des Anordnungsservice und der Zertifizierungsstelle für Ihr Netz durch {{site.data.keyword.blockchainfull_notm}} Platform. Diese Gebühr ist für den Zugriff auf ein unter {{site.data.keyword.blockchainfull_notm}} Platform erstelltes Netz erforderlich.
 
-  -	Der Starter Plan lässt eine *unbegrenzte* Anzahl von Organisationen pro Mitgliedschaft zu und ermöglicht einen Wechsel zwischen Organisationen im Network Monitor. Da der Starter Plan für Umgebungen für Entwicklungs- und Testzwecke sowie für Umgebungen für Machbarkeitsnachweise konzipiert ist, können Sie Simulationen in Umgebungen mit mehreren Organisationen durchführen. **Hinweis**: Der gesamte Netzspeicher, einschließlich des Speicherbedarfs für die Komponenten, den Chaincode und die Ledgerdaten, ist auf 20 GB begrenzt. Die simulierten Organisationen nutzen die 20 GB an Speicher gemeinsam im Blockchain-Netz.
+  -	Der Starter Plan lässt eine *unbegrenzte* Anzahl von Organisationen pro Mitgliedschaft zu und ermöglicht einen Wechsel zwischen Organisationen im Network Monitor. Da der Starter Plan für Umgebungen für Entwicklungs- und Testzwecke sowie für Umgebungen für Machbarkeitsnachweise konzipiert ist, können Sie Simulationen in Umgebungen mit mehreren Organisationen durchführen. **Hinweis:** Beachten Sie, dass der insgesamt verfügbare Netzspeicher, einschließlich des Speicherbedarfs für die Komponenten-, Chaincode- und Ledgerdaten, auf 20 GB begrenzt ist. Die simulierten Organisationen nutzen die 20 GB an Speicher gemeinsam im Blockchain-Netz.
 
   -	Der Enterprise Plan lässt eine Organisation pro Mitgliedschaft zu. Da der Enterprise Plan für Pilot- und Produktionsumgebungen ausgelegt ist, sind Sie mit Ihrer jeweiligen Organisation verknüpft.
 

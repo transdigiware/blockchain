@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-23"
+  years: 2018, 2019
+lastupdated: "2019-05-16"
+
+keywords: chaincode endorsement policy, install chaincode, instantiate chaincode, update chaincode
 
 subcollection: blockchain
 
@@ -18,12 +20,12 @@ subcollection: blockchain
 {: #install-instantiate-chaincode}
 
 
-Bei Chaincode handelt es sich um Software, die die Geschäftslogik und transaktionsorientierten Anweisungen zum Erstellen und Ändern von Assets im Ledger zusammenfasst. Chaincode kann in unterschiedlichen Sprachen geschrieben werden. {{site.data.keyword.blockchainfull}} Platform bietet Unterstützung für Chaincode, der auf Go und Node.js basiert. Chaincode wird in einem Docker-Container ausgeführt, der den Peers zugeordnet ist, die mit diesem Container interagieren müssen. Weitere Informationen zum Entwickeln von Chaincode finden Sie in den [Chaincode-Lernprogrammen ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html).
+Bei Chaincode handelt es sich um Software, die die Geschäftslogik und transaktionsorientierten Anweisungen zum Erstellen und Ändern von Assets im Ledger zusammenfasst. Chaincode kann in unterschiedlichen Sprachen geschrieben werden. {{site.data.keyword.blockchainfull}} Platform bietet Unterstützung für Chaincode, der auf Go und Node.js basiert. Chaincode wird in einem Docker-Container ausgeführt, der den Peers zugeordnet ist, die mit diesem Container interagieren müssen. Weitere Informationen zum Entwickeln von Chaincode finden Sie in den [Chaincode-Lernprogrammen ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode.html).
 {:shortdesc}
 
 Chaincode wird auf einem Peer installiert und anschließend in einem Kanal instanziiert. **Alle Mitglieder, die Transaktionen übergeben oder Daten mithilfe von Chaincode lesen wollen, müssen den Chaincode auf Ihrem Peer installieren.** Ein Chaincode wird anhand seines Namens und seiner Version definiert. Sowohl der Name als auch die Version des installierten Chaincodes müssen für die Peers eines Kanals einheitlich sein.
 
-Nachdem der Chaincode auf den Peers installiert wurde, wird der Chaincode von einem einzelnen Netzmitglied auf dem Kanal instanziiert. Das Netzmitglied muss dem Kanal beigetreten sein, damit diese Aktion ausgeführt werden kann. Bei der Instanziierung werden die vom Chaincode verwendeten Anfangsdaten eingegeben. Anschließend werden die Chaincode-Container auf den Peers gestartet, die dem Kanal mit dem installierten Chaincode beigetreten sind. Die Peers können anschließend die aktiven Container zur Durchführung von Transaktionen verwenden. **Beachten Sie hierbei, dass nur ein Netzmitglied einen Chaincode instanziieren muss.** Wenn ein Peer in einem installierten Chaincode einem Kanal beitritt, auf dem er bereits instanziiert wurde, dann wird der Chaincode-Container automatisch gestartet.
+Nachdem der Chaincode auf den Peers installiert wurde, wird der Chaincode von einem einzelnen Netzmitglied auf dem Kanal instanziiert. Das Netzmitglied muss dem Kanal beigetreten sein, damit diese Aktion ausgeführt werden kann. Bei der Instanziierung werden die vom Chaincode verwendeten Anfangsdaten eingegeben. Anschließend werden die Chaincode-Container auf den Peers gestartet, die dem Kanal mit dem installierten Chaincode beitreten. Die Peers können anschließend die aktiven Container zur Durchführung von Transaktionen verwenden. **Beachten Sie hierbei, dass nur ein Netzmitglied einen Chaincode instanziieren muss.** Wenn ein Peer in einem installierten Chaincode einem Kanal beitritt, auf dem er bereits instanziiert wurde, dann wird der Chaincode-Container automatisch gestartet.
 
 Die Kombination von **Installation und Instanziierung** ist eine leistungsfähige Funktion, da ein Peer auf diese Weise in zahlreichen Kanälen mit ein und demselben Chaincode arbeiten kann. In bestimmten Fällen sollen Peers möglicherweise mehreren Kanälen beitreten, die mit demselben Chaincode arbeiten, jedoch über unterschiedliche Gruppen von Netzmitgliedern verfügen, die auf die Daten zugreifen können. Ein Peer kann den Chaincode einmal installieren und anschließend denselben Chaincode-Container auf jedem Kanal verwenden, auf dem eine Instanziierung durchgeführt wurde. Dieser einfache Ansatz spart Rechenleistung und Speicherplatz und unterstützt Sie bei der Skalierung Ihres Netzes.
 
@@ -71,7 +73,7 @@ Die Bewilligungsrichtlinie wird festgelegt, wenn ein Chaincode in einem Kanal in
 
 Wenn Sie die Bewilligungsrichtlinie über den Network Monitor festlegen, können Sie über die Benutzerschnittstelle eine **einfache Richtlinie** angeben oder mit JSON eine **erweiterte Richtlinie** angeben.
 
-* **Einfache Richtlinie über die Benutzerschnittstelle angeben: ** Klicken Sie zunächst auf die Schaltfläche **Mitglied hinzufügen**, um die Gruppe von Mitgliedern auszuwählen, die Transaktionen validieren können. Legen Sie dann im Bereich für die **Bewilligungsrichtlinie** die Anzahl der Mitglieder in der Liste fest, von denen die Transaktion validiert werden muss, bevor sie bewilligt wird. Sie können auf diese Weise eine Bewilligungsrichtlinie angeben, die von allen Kanalmitgliedern, einer Mehrheit der Mitglieder, einem einzelnen Mitglied oder einem zusätzlichen Mitglied (d. h. z. B. von 2 von 5 Mitgliedern) bewilligt werden muss. Durch die Festlegung der Bewilligung auf ein zusätzliches Mitglied kann eine Bewilligung durch den Urheber selbst verhindert werden. Wenn Sie keine Änderungen vornehmen, gilt die Standardrichtlinie, die besagt, dass eine Transaktion von einem beliebigen Mitglied eines Kanals bewilligt werden kann.
+* **Einfache Richtlinie über die Benutzerschnittstelle angeben: ** Klicken Sie zunächst auf die Schaltfläche **Mitglied hinzufügen**, um die Gruppe von Mitgliedern auszuwählen, die Transaktionen validieren können. Legen Sie dann im Bereich für die **Bewilligungsrichtlinie** die Anzahl der Mitglieder in der Liste fest, von denen die Transaktion validiert werden muss, bevor sie bewilligt wird. Sie können auf diese Weise eine Bewilligungsrichtlinie angeben, bei der das Signieren durch entsprechende Entscheidung aller Kanalmitglieder, einer Mehrheit der Kanalmitglieder, eines einzelnen Kanalmitglieds oder einer einfachen +1-Mehrheit von Kanalmitgliedern (z. B. zwei von insgesamt fünf Mitgliedern) verhindert wird. Wenn Sie keine Änderungen vornehmen, gilt die Standardrichtlinie, die besagt, dass eine Transaktion von einem beliebigen Mitglied eines Kanals bewilligt werden kann.
 
   ![Einfache Bewilligungsrichtlinie](../images/simple_endorsement.png "Einfache Bewilligungsrichtlinie")
 
@@ -81,7 +83,7 @@ Wenn Sie die Bewilligungsrichtlinie über den Network Monitor festlegen, können
 
   ![Erweiterte Bewilligungsrichtlinie](../images/advanced_endorsement.png "Erweiterte Bewilligungsrichtlinie")
 
-Bewilligungsrichtlinien werden nicht automatisch aktualisiert, wenn neue Organisationen dem Kanal beitreten und den Chaincode installieren. Falls die Richtlinie beispielsweise zwei von fünf Organisationen erforderlich macht, damit eine Transaktion bewilligt wird, wird sie nicht dahingehend aktualisiert, dass zwei von sechs Organisationen erforderlich sind, nachdem eine neue Organisation dem Kanal beigetreten ist. Stattdessen wird die neue Organisation nicht in der Richtlinie aufgeführt und ist nicht in der Lage, Transaktionen zu bewilligen. Sie können eine neue Organisation zu einer Bewilligungsrichtlinie hinzufügen, indem Sie den entsprechenden Chaincode aktualisieren.
+Bewilligungsrichtlinien werden nicht automatisch aktualisiert, wenn neue Organisationen dem Kanal beitreten und den Chaincode installieren. Falls die Richtlinie beispielsweise zwei von fünf Organisationen erforderlich macht, damit eine Transaktion bewilligt wird, wird sie nicht dahingehend aktualisiert, dass zwei von sechs Organisationen erforderlich sind, nachdem eine neue Organisation dem Kanal beigetreten ist. Stattdessen wird die neue Organisation nicht in der Richtlinie aufgeführt und ist nicht in der Lage, Transaktionen zu bewilligen. Sie können eine weitere Organisation zu einer Bewilligungsrichtlinie hinzufügen, indem Sie den entsprechenden Chaincode aktualisieren.
 
 ## Chaincode aktualisieren
 {: #install-instantiate-chaincode-update-cc}

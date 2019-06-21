@@ -4,6 +4,8 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-04-23"
 
+keywords: command line, peer, operate peers, peer TLS certificate, IBM Cloud
+
 subcollection: blockchain
 
 ---
@@ -177,10 +179,10 @@ Es wird empfohlen, die Version 1.4.0 des Node-SDK zu verwenden.
 Ihr Peer wird mit dem integrierten signCert-Zertifikat Ihres Peeradministrators bereitgestellt. Hierdurch können Sie die Zertifikate und den MSP-Ordner des Peeradministrators verwenden, um den Peer zu betreiben.
 
 Suchen Sie nach den Zertifikaten, die Sie bei der [Eintragung des Peeradministrators](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy-enroll-admin) erstellt haben. Falls Sie hierzu die Beispielbefehle ausgeführt haben, finden Sie den MSP-Ordner des Peeradministrators an der Position `$HOME/fabric-ca-client/peer-admin`.
-  - Sie können den Benutzerkontext des Peeradministrators mit dem SDK unter Verwendung des signCert-Zertifikats (öffentlicher Schlüssel) und des privaten Schlüssels im MSP-Ordner erstellen. Diese Schlüssel finden Sie an den folgenden Positionen:
+  - Sie können den Benutzerkontext des Peeradministrators mit dem SDK unter Verwendung des signCert-Zertifikats und des privaten Schlüssels im MSP-Ordner erstellen. Diese Schlüssel finden Sie an den folgenden Positionen:
     - Das signCert-Zertifikat befindet sich im Ordner **signcerts**: `$HOME/fabric-ca-client/peer-admin/msp/signcerts`
     - Der private Schlüssel befindet sich im Ordner **keystore**: `$HOME/fabric-ca-client/peer-admin/msp/keystore`.
-    Ein Beispiel für die Bildung eines Benutzerkontextes und die Verwendung des SDK nur mit dem öffentlichen und dem privaten Schlüssel enthält [einer der Abschnitte des Lernprogramms für die Anwendungsentwicklung](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel).
+    Ein Beispiel für die Bildung eines Benutzerkontextes und die Verwendung des SDK nur mit dem Signierzertifikat und dem privaten Schlüssel enthält [dieser Abschnitt des Lernprogramms für die Anwendungsentwicklung](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel).
 
 Mit dem SDK können Sie auch das signCert-Zertifikat und den privaten Schlüssel des Peeradministrators generieren; hierzu verwenden Sie die Endpunktinformationen der Zertifizierungsstelle für den Starter Plan oder Enterprise Plan sowie [den Benutzernamen und das Kennwort Ihres Peeradministrators](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy-register-admin).
 
@@ -287,7 +289,7 @@ export FABRIC_CFG_PATH=$HOME/config
 
 
 ### Zertifikate auf dem lokalen System verwalten
-{: #manage-certs}
+{: #peer-operate-manage-certs}
 
 Wechseln Sie in das Verzeichnis, in dem der MSP-Ordner für den Peeradministrator generiert wurde. Falls Sie die Schritte in den Beispielen dieser Dokumentation ausgeführt haben, ist der MSP-Ordner in einem Verzeichnis zu finden, das etwa wie folgt heißt:
 
@@ -412,7 +414,7 @@ Nachdem alle Zertifikate an die erforderliche Position verschoben wurden, müsse
     - Ersetzen Sie `<ORDERER_URL>` durch den Hostnamen und den Port für den Anordnungsknoten aus Ihrem Verbindungsprofil.
     - Ersetzen Sie `<PATH_TO_ADMIN_MSP>` durch den Pfad zum MSP-Ordner Ihres Peeradministrators.
     - Ersetzen Sie `<PATH_TO_PEER_TLS_CERT>` durch den Pfad zum TLS-Zertifikat des Peers, das Sie heruntergeladen haben.
-    - Ersetzen Sie `<MSPID_OF_PEER_BEING_USED>` durch die MSP-ID der Organisation für Ihren Peer, die Sie zum Abrufen eines Genesis-Blocks, zum Beitreten zu einem Kanal oder zum Installieren von Chaincode verwenden. 
+    - Ersetzen Sie `<MSPID_OF_PEER_BEING_USED>` durch die MSP-ID der Organisation für Ihren Peer, die Sie zum Abrufen eines Genesis-Blocks, zum Beitreten zu einem Kanal oder zum Installieren von Chaincode verwenden.
 
   Beispiel:
 
@@ -607,7 +609,7 @@ Falls auf einem Kanal bereits Chaincode installiert und instanziiert wurde, bevo
 
 1. Erstellen Sie ein Chaincode-Paket mit dem Befehl [`peer chaincode package`![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html?highlight=peer%20chaincode%20package#peer-chaincode-package).
 2. Installieren Sie das Chaincode-Paket auf dem Peer, der in {{site.data.keyword.cloud_notm}} Private ausgeführt wird. Verwenden Sie hierzu den Befehl `peer chaincode install`.
-3. Falls Ihnen die plattformspezifischen Binärdateien zur Verfügung stehen, können Sie mit dem Befehl [`peer chaincode upgrade`![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html?highlight=peer%20chaincode%20package#peer-chaincode-upgrade) ein Upgrade für den Chaincode durchführen, der im Peer des Starter Plan oder Enterprise ausgeführt wird und das Chaincode-Paket verwendet.
+3. Falls Ihnen die plattformspezifischen Binärdateien zur Verfügung stehen, können Sie mit dem Befehl für ein [`Upgrade des Chaincodes des Peers`![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html?highlight=peer%20chaincode%20package#peer-chaincode-upgrade) ein Upgrade für den Chaincode durchführen, der im Starter Plan- oder Enterprise Plan-Peer ausgeführt wird und das Chaincode-Paket verwendet.
 4. Instanziieren Sie den neu installierten Chaincode auf dem Kanal entweder mithilfe der Network Monitor-Benutzerschnittstelle oder der CLI.
 
 Der Prozess für das Upgrade von Chaincode ist auch im Abschnitt [`Chaincode for Operators`![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html) der Dokumentation von Hyperledger Fabric beschrieben.

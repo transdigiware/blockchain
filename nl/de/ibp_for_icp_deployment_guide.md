@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: root CA, network components, ICP deployment guide, getting started tutorial, IBM Cloud Private
 
 subcollection: blockchain
 
@@ -31,6 +33,7 @@ Der Prozess für die Bereitstellung von {{site.data.keyword.blockchainfull_notm}
 {:important}
 
 ## Schritt 1: Legen Sie Ihre Netzkonfiguration fest
+{: #get-started-icp-step-one-decide-network-config}
 
 Die Struktur eines Blockchain-Netzes muss durch den Anwendungsfall vorgegeben werden. Solche grundlegenden Geschäftsentscheidungen variieren in unterschiedlichen Situationen, von denen dennoch einige genauer betrachtet werden sollen.
 
@@ -46,13 +49,15 @@ Im vorliegenden Bereitstellungshandbuch werden nicht alle Iterationen und potenz
 {:note}
 
 ## Schritt 2: Richten Sie einen Kubernetes-Cluster unter {{site.data.keyword.cloud_notm}} Private ein
+{: #get-started-icp-step-two-set-up-k8s-on-icp}
 
 Nachdem Sie die Netzstruktur festgelegt haben, richten Sie in {{site.data.keyword.cloud_notm}} Private einen Kubernetes-Cluster für Ihre Anwendungsfälle ein. Weitere Informationen finden Sie unter [{{site.data.keyword.cloud_notm}} Private einrichten](/docs/services/blockchain/ICP_setup.html#icp-setup).
 
-Sie können auch {{site.data.keyword.IBM_notm}} Secure Service Container als Host für {{site.data.keyword.cloud_notm}} Private verwenden, um die Sicherheitsvorteile von Secure Service Container zum Schutz kritischer Daten vor internen und externen Bedrohungen nutzen zu können. Weitere Informationen hierzu finden Sie unter [{{site.data.keyword.IBM_notm}} Secure Service Container for {{site.data.keyword.cloud_notm}} Private verwenden](/docs/services/howto/ibp-ssc-for-icp.html "{{site.data.keyword.IBM_notm}} Secure Service Container for {{site.data.keyword.cloud_notm}} Private verwenden").
+Sie können auch {{site.data.keyword.IBM_notm}} Secure Service Container als Host für {{site.data.keyword.cloud_notm}} Private verwenden, um die Sicherheitsvorteile von Secure Service Container zum Schutz kritischer Daten vor internen und externen Bedrohungen nutzen zu können. Weitere Informationen hierzu finden Sie im Abschnitt zur [Verwendung von {{site.data.keyword.IBM_notm}} Secure Service Container for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/ibp-ssc-for-icp.html "Verwendung von {{site.data.keyword.IBM_notm}} Secure Service Container for {{site.data.keyword.cloud_notm}} Private").
 {:note}
 
 ## Schritt 3: Konfigurieren Sie Ihre Zertifizierungsstellen
+{: #get-started-icp-step-three-set-up-cas}
 
 In Blockchain-Netzen, die auf Fabric basieren, muss als erste Komponente eine Zertifizierungsstelle bereitgestellt werden. Dies liegt daran, dass die Konfiguration einer Komponente mindestens eine Benutzeridentität beinhalten muss, die zum Betreiben der Komponente berechtigt ist, bevor diese bereitgestellt wird.
 
@@ -67,6 +72,7 @@ Jede Organisation muss eine Zertifizierungsstelle für die Eintragung und eine T
 Weitere Informationen zu TLS finden Sie in der Hyperledger Fabric-Dokumentation unter [Securing Communication With Transport Layer Security (TLS) ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/enable_tls.html "Securing Communication With Transport Layer Security (TLS)").
 
 ### MSPs für Anordnungsknoten und Peers vorbereiten
+{: #get-started-icp-prepare-msp-orderer-peer}
 
 Da der Prozess von {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private so umfangreich ist, empfiehlt sich während der Ersteinrichtung die Verwendung einer einzigen Administratorbenutzeridentität als Administrator für alle Netzkomponentenknoten. Dies sollte Bereitstellungs- und Verbindungsfehler reduzieren, weil hierdurch sichergestellt ist, dass ein einziger Benutzer die Konfiguration und Verbindungen zwischen verschiedenen Komponenten einrichten und deren ordnungsgemäße Funktionsweise sicherstellen kann. Es ist jedoch äußerst wichtig, dass jede Komponente über unterschiedliche Zertifikate verfügt. Manchmal ist die Unterscheidung hier leicht zu übersehen. Die Entität, die einen Transaktionsvorschlag signiert, ist nicht der Administrator des Peers, sondern der **Peer selbst**. Daher muss der Peer eingetragen sein und ein Zertifikat, das er jeder ausgeführten Aktion zuordnet, sowie einen privaten Schlüssel besitzen, mit dem er bestimmte Arten von Signaturen generieren kann. Weitere Informationen zu Identitäten und Berechtigungen in einem Fabric-basierten Blockchain-Netz finden Sie unter [Identity ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html "Identity") und [Membership ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html "Membership") in der Fabric-Dokumentation.
 
@@ -75,16 +81,18 @@ Der Fabric-CA-Client, der gemäß den Anweisungen in [Zertifizierungsstelle betr
 Nach der Bereitstellung des Anordnungsknotens oder des Peers verwendet ein Container des Typs `init`, der dem Anordnungsknoten oder Peer zugeordnet ist, ein Objekt mit einem geheimen Kubernetes-Schlüssel, um den MSP für die Komponente zu erstellen. Im Abschnitt [Zertifizierungsstelle betreiben](/docs/services/blockchain/howto/CA_operate.html#ca-operate) erfahren Sie, wie Sie ein Objekt mit einem geheimen Schlüssel erstellen. Wie bereits erläutert müssen Sie daran denken, eine Zertifizierungsstelle einzurichten und diesen Ablauf für jede Organisation zu wiederholen.
 
 ## Schritt 4: Stellen Sie Anordnungsknoten und Peers bereit
+{: #get-started-icp-step-four-deploy-order-peer}
 
 Nachdem ein geheimer Kubernetes-Schlüssel erstellt wurde, können Sie eine Komponente bereitstellen. Falls Sie die Bereitstellung von Kanälen beabsichtigen, empfiehlt es sich, vor den Peers den Anordnungsknoten bereitzustellen. Verwenden Sie unbedingt unterschiedliche Organisationsnamen für alle Ihre Komponenten.
 
-- **[Stellen Sie den Anordnungsknoten bereit](/docs/services/blockchain/howto/orderer_deploy_icp.html#icp-orderer-deploy)**. Bitte beachten Sie, dass gegenwärtig nur der SOLO-Anordnungsservice unterstützt wird. Im Bereitstellungsprozess gibt es Optionen hinsichtlich der Berechnung.
+- **[Stellen Sie den Anordnungsknoten bereit](/docs/services/blockchain/howto/orderer_deploy_icp.html#icp-orderer-deploy)**. Bitte beachten Sie, dass gegenwärtig nur der SOLO-Anordnungsservice unterstützt wird. Im Bereitstellungsprozess gibt es Optionen hinsichtlich der Rechenleistung.
 
 - **[Stellen Sie den Peer bereit, der mit einem {{site.data.keyword.cloud_notm}} Private-Anordnungsknoten verbunden werden soll](/docs/services/blockchain/howto/peer_deploy_icp.html#icp-peer-deploy)**. Im Helm-Diagramm können Sie eine Reihe von Optionen für die Bereitstellung des Peers (einschließlich des Datenbanktyps) angeben. Stellen Sie sicher, dass sich die MSP-ID für die Organisation des Peers von der MSP-ID für die Organisation des Anordnungsknotens unterscheidet.
 
 - **[Stellen Sie den Peer bereit, der mit einem {{site.data.keyword.blockchainfull_notm}} Platform-Netz verbunden werden soll](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy)**. Der Prozess für die Bereitstellung eines Peers und seine Verbindung mit einem [Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about)- oder [Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise_plan-about)-Netz {{site.data.keyword.cloud_notm}} verläuft anders, weil Verbindungsprofile und die Network Monitor-Benutzerschnittstelle verwendet werden. Bitte beachten Sie, dass die Organisation, zu der der Peer gehört, bereits an einem Kanal im Netz teilnehmen muss. Achten Sie auch hier darauf, dass sich die MSP-ID für die Organisation des Peers von der MSP-ID für die Organisation des Anordnungsknotens unterscheidet.
 
 ## Nächste Schritte
+{: #get-started-icp-next-steps}
 
 Nachdem Sie alle Knoten bereitgestellt haben, können Sie mit dem Betrieb beginnen und Transaktionen übergeben. Weitere Informationen finden Sie unter den folgenden Links:
 
@@ -94,6 +102,7 @@ Nachdem Sie alle Knoten bereitgestellt haben, können Sie mit dem Betrieb beginn
 - [Peers in {{site.data.keyword.cloud_notm}} Private mit Starter Plan oder Enterprise Plan betreiben](/docs/services/blockchain/howto/peer_operate_icp.html#icp-peer-operate)
 
 ## Netz vergrößern
+{: #get-started-icp-grow-network}
 
 Falls Sie beabsichtigen, eine Entwicklungsumgebung oder einen
 Machbarkeitsnachweis zu konfigurieren, müssen Sie Peerorganisationen zum

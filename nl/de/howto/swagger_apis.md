@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-03"
+  years: 2018, 2019
+lastupdated: "2019-05-16"
+
+keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
 subcollection: blockchain
 
@@ -33,7 +35,7 @@ In **Abbildung 1** ist die Anzeige "APIs" zu sehen:
 ![Anzeige 'APIs'](../images/API_screen_starter.png "Anzeige 'APIs'")
 *Abbildung 1. APIs*
 
-Wenn Sie den Starter Plan verwenden, ist es möglich, im Network Monitor zwischen Organisationen zu wechseln. Mit dem Starter Plan werden standardmäßig zwei Organisationen konfiguriert. Das Wechseln zwischen Organisationen kann nützlich sein, um die REST-APIs aus der Perspektive jeder Organisation auszuprobieren. Zum Abrufen der Berechtigungsnachweise für eine andere Organisation in Ihrem Netz klicken Sie auf Ihren Benutzernamen in der rechten oberen Ecke der Network Monitorkonsole. Klicken Sie in dem Menü, das sich daraufhin öffnet, auf den Dropdown-Pfeil neben der Organisation, um alle Organisationen anzuzeigen. Wählen Sie die Organisation aus, zu der Sie wechseln möchten, und zeigen Sie die zugeordneten Netzberechtigungsnachweise an.
+Wenn Sie den Starter Plan verwenden, ist es möglich, im Network Monitor zwischen Organisationen zu wechseln. Mit dem Starter Plan werden standardmäßig zwei Organisationen konfiguriert. Das Wechseln zwischen Organisationen kann nützlich sein, um die REST-APIs aus der Perspektive jeder Organisation auszuprobieren. Zum Abrufen der Berechtigungsnachweise für eine andere Organisation in Ihrem Netz klicken Sie in der rechten oberen Ecke der Network Monitor-Konsole auf Ihren Benutzernamen. Klicken Sie in dem Menü, das sich daraufhin öffnet, auf den Dropdown-Pfeil neben der Organisation, um alle Organisationen anzuzeigen. Wählen Sie die Organisation aus, zu der Sie wechseln möchten, und zeigen Sie die zugeordneten Netzberechtigungsnachweise an.
 
 **Abbildung 2** zeigt das Wechseln zwischen Organisationen:
 
@@ -46,7 +48,7 @@ Wenn Sie den Starter Plan verwenden, ist es möglich, im Network Monitor zwische
 
 Klicken Sie auf den Link für die **Swagger-Benutzerschnittstelle (UI)** in der Anzeige "APIs", um die Swagger-Benutzerschnittstelle zu öffnen.  
 
-Klicken Sie in der Swagger-Benutzerschnittstelle auf die Schaltfläche **Berechtigen**. Das Berechtigungsfenster wird angezeigt. Geben Sie den Wert für den Schlüssel ("key") und den geheimen Schlüssel ("secret") in Ihren Netzberechtigungsnachweisen als Benutzername und Kennwort ein und klicken Sie auf **Berechtigen** und anschließend auf **Fertig**. Sie können jetzt die APIs ausführen. Beachten Sie, dass Sie Ihre Berechtigungsnachweise erneut berechtigen müssen, wenn Sie Ihre Browseransicht aktualisieren.
+Klicken Sie in der Swagger-Benutzerschnittstelle auf die Schaltfläche **Berechtigen**. Das Berechtigungsfenster wird angezeigt. Geben Sie den Wert für den Schlüssel ("key") und den geheimen Schlüssel ("secret") in Ihren Netzberechtigungsnachweisen als Benutzername und Kennwort ein und klicken Sie auf **Berechtigen** und anschließend auf **Fertig**. Sie können jetzt die APIs ausführen. Beachten Sie, dass Sie sich mit Ihren Berechtigungsnachweisen erneut berechtigen müssen, wenn Sie Ihre Browseransicht aktualisieren.
 
 Bei Verwendung der Basisauthentifizierung werden alle Berechtigungsnachweise, die Sie im Fenster **Berechtigen** angeben, nach dem Klick auf die Schaltflächen **Berechtigen** und **Fertig** gespeichert und mit jedem REST-API-Aufruf übergeben.
 
@@ -95,7 +97,7 @@ Standardmäßig können alle Benutzer mit einer Nicht-Auditorrolle in IBM Cloud 
    {:codeblock}
 3. Klicken Sie auf **Hinzufügen**.
 
-Wenn nun ein beliebiger Benutzer über die Benutzerschnittstelle auf die Swagger-API-Anzeige zugreift, enthalten die **Netzberechtigungsnachweis**-Informationen einen generischen Schlüssel und einen Wert für einen geheimen Schlüssel, der für die Verwaltung des Netzes ungültig ist. API-Anforderungen, die mit diesen Berechtigungsnachweisen übergeben werden, werden nicht verarbeitet.  
+Wenn nun ein beliebiger Benutzer über die Benutzerschnittstelle auf die Swagger-API-Anzeige zugreift, enthalten die Informationen der **Netzberechtigungsnachweise** einen generischen Schlüssel und einen Wert für einen geheimen Schlüssel, der für die Verwaltung des Netzes ungültig ist. API-Anforderungen, die mit diesen Berechtigungsnachweisen übergeben werden, werden nicht verarbeitet.  
 
 Wenn Sie zu einem späteren Zeitpunkt gültige Netzberechtigungsnachweise in der Benutzerschnittstelle zugänglich machen möchten, wiederholen Sie einfach die oben beschriebenen Schritte, um einen neuen Berechtigungsnachweis zu generieren. Dieses Mal können Sie jedoch das Feld **Inline-Konfigurationsparameter hinzufügen** leer lassen. Sie müssen keine Parameter angeben.
 

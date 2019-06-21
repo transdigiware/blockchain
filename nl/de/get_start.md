@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-05-16"
+
+keywords: blockchain network, Enterprise Plan, getting started tutorial
 
 subcollection: blockchain
 
@@ -15,7 +17,7 @@ subcollection: blockchain
 {:pre: .pre}
 {:tip: .tip}
 
-# Einführung in den Enterprise Plan
+# Einführung zum Enterprise Plan
 {: #getting-started-with-enterprise-plan}
 
 Mit dem {{site.data.keyword.blockchainfull}} Platform Enterprise Plan wird ein Blockchain-Netz mit hoher Sicherheit, Integrität, Skalierbarkeit und Leistung bereitgestellt. Sie können schnell ein voll funktionsfähiges Netz einrichten und den Network Monitor (ein GUI-Dashboard) verwenden, um sofort [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode) und Anwendungen auszuführen, ohne ein Netz völlig neu entwerfen und konfigurieren zu müssen.

@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: IBM Cloud Private, Certificate Authority, operate CA, CA admin secret, CA logs, Helm chart, on-prem, CLI, CA TLS cert, CA endpoint, TLS CA
 
 subcollection: blockchain
 
@@ -206,7 +208,7 @@ Zum Betrieb Ihrer Zertifizierungsstelle können Sie den Fabric-CA-Client verwend
 ### Zertifikate als CA-Administrator generieren
 {: #ca-operate-enroll-ca-admin}
 
-Bevor Sie Komponenten oder Clientanwendungen mit Ihrer Zertifizierungsstelle bereitstellen, müssen Sie Zertifikate generieren, die Sie als Administrator authentifizieren, der zum Registrieren neuer Benutzer berechtigt ist. Der Prozess zum Generieren der erforderlichen Zertifikate, Ihres privaten Schlüssels und Ihres öffentlichen Zertifikats (sog. Eintragungszertifikat oder signCert-Zertifikat) wird als **Eintragung** bezeichnet.
+Bevor Sie Komponenten oder Clientanwendungen mit Ihrer Zertifizierungsstelle bereitstellen, müssen Sie Zertifikate generieren, die Sie als Administrator authentifizieren, der zum Registrieren neuer Benutzer berechtigt ist. Der Prozess zum Generieren der erforderlichen Zertifikate, Ihres privaten Schlüssels und Ihres Zertifikats (sog. Eintragungszertifikat oder signCert-Zertifikat) wird als **Eintragung** bezeichnet.
 
 Die Generierung von Zertifikaten ist nur unter Verwendung von Identitäten möglich, die bei Ihrer Zertifizierungsstelle registriert wurden. Geben Sie den Namen und den geheimen Schlüssel der Identität an, um Zertifikate zu generieren. Beim Bereitstellen Ihrer Zertifizierungsstelle wurde automatisch die Identität eines **CA-Administrators** registriert. Sie können nun den Namen und das Kennwort dieses Administrators verwenden, um mit dem Fabric-CA-Client einen Befehl `enroll` zum Generieren eines MSP-Ordners mit Zertifikaten auszugeben, die anschließend zum Registrieren anderer Identitäten für Peers oder Anordnungsknoten verwendet werden.
 
@@ -273,7 +275,7 @@ tree
 
 Bevor Sie einen Anordnungsknoten oder einen Peer bereitstellen, müssen Sie eine JSON-Konfigurationsdatei erstellen, die wichtige Informationen zur Identität der Komponente und zur Zertifizierungsstelle enthält. Anschließend müssen Sie diese Datei während der Konfiguration mithilfe eines [Kubernetes-Objekts für einen geheimen Schlüssel ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://kubernetes.io/docs/concepts/configuration/secret/) an das Helm-Diagramm übergeben. Diese Datei ermöglicht es dem Anordnungsknoten oder Peer, von der Zertifizierungsstelle die Zertifikate abzrufen, die für den Beitritt zu einem Blockchain-Netz benötigt werden. Außerdem enthält diese Datei ein Administratorzertifikat, mit dem Sie Ihre Komponente als Benutzer mit Administratorberechtigung betreiben können.
 
-Die folgenden Anweisungen bieten Ihnen eine [Vorlage für die JSON-Konfigurationsdatei](/docs/services/blockchain/howto/CA_operate.html#ca-operate-config-file-template), die Sie bearbeiten und in Ihrem lokalen Dateisystem speichern können. Außerdem erfahren Sie, wie Sie diese Datei mithilfe Ihrer Zertifizierungsstelle erstellen.
+Die folgenden Anweisungen bieten Ihnen eine [Vorlage für die JSON-Konfigurationsdatei](/docs/services/blockchain/howto/CA_operate.html#ca-operate-config-file-template), die Sie bearbeiten und in Ihrem lokalen Dateisystem speichern können. Außerdem erfahren Sie, wie Sie diese Datei mithilfe Ihrer Zertifizierungsstelle vervollständigen.
 
 - Befolgen Sie die nachstehenden Anweisungen, wenn Sie einen Anordnungsknoten in {{site.data.keyword.cloud_notm}} Private oder einen Peer für eine Verbindung zu einem in {{site.data.keyword.cloud_notm}} Private gehosteten Konsortium bereitstellen.
 - Falls Sie einen Peer für die Verbindung zu einem Starter Plan oder Enterprise Plan bereitstellen wollen, befolgen Sie stattdessen die Anweisungen im Abschnitt [Peers in IBM Cloud Private zur Verbindung mit Starter Plan oder Enterprise Plan bereitstellen](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy). Diese Schritte führen Sie durch die Bereitstellung von Peers in {{site.data.keyword.cloud_notm}} Private mithilfe der Zertifizierungsstelle von {{site.data.keyword.blockchainfull_notm}} Platform.
@@ -611,6 +613,7 @@ Kopieren Sie die Werte für `name` und `secret` in `"enrollid"` und `"enrollsecr
 Zum Bereitstellen eines Anordnungsknotens oder Peers müssen Sie einen CSR-Hostnamen angeben. Dieser Hostname beinhaltet die Proxy-IP-Adresse des Clusters, in dem Sie die Komponente bereitstellen, sowie den `Service-Host-Namen`, der beim Bereitstellen des Helm-Diagramms generiert wird.
 
 #### Wert der Proxy-IP-Adresse für den Cluster ermitteln
+{: #ca-operate-cluster-proxy-ip}
 
 Falls Sie einen Anordnungsknoten oder Peer in demselben {{site.data.keyword.cloud_notm}} Private-Cluster bereitstellen wollen, in dem Sie Ihre Zertifizierungsstelle bereitgestellt haben, müssen Sie unbedingt die Rolle eines [Clusteradministrators ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.2/user_management/assign_role.html "Clusteradministratorrolle und -aktionen") in dem {{site.data.keyword.cloud_notm}} Private-Cluster besitzen, in dem der Anordnungsknoten bzw. Peer bereitgestellt werden soll. Geben Sie dieselbe Proxy-IP ein, die Sie bei der [Konfiguration der Zertifizierungsstelle](/docs/services/blockchain/howto/CA_deploy_icp.html#ca-deploy-configuration-parms) verwendet haben. Wenn Sie den Anordnungsknoten oder Peer in einem anderen Cluster bereitstellen wollen, können Sie den Wert für die Proxy-IP-Adresse des Clusters über die {{site.data.keyword.cloud_notm}} Private-Konsole abrufen, indem Sie die folgenden Schritte ausführen:
 
@@ -654,6 +657,7 @@ Ein `Service-Host-Name` wird generiert, wenn ein Helm-Diagramm bereitgestellt wi
   {:codeblock}
 
 ### Konfigurationsdatei vervollständigen
+{: #ca-operate-config-file}
 
 Nachdem Sie alle obigen Schritte ausgeführt haben, könnte Ihre aktualisierte Konfigurationsdatei ähnlich wie im folgenden Beispiel aussehen:
 
@@ -708,7 +712,7 @@ MSP-Ordner müssen eine definierte Struktur besitzen, damit sie von Fabric-Kompo
 
 - **cacerts:** Enthält das Zertifikat der Stammzertifizierungsstelle Ihres Netzes.
 - **intermediatecerts:** Dies sind die Zertifikate von allen Zwischenzertifizierungsstellen in Ihrer Zertifikatskette (die zu einer oder mehreren Stammzertifizierungsstellen zurückführt). Jede Enterprise Plan-Organisation ist für Failover und Hochverfügbarkeit mit zwei Zwischenzertifizierungsstellen ausgestattet.
-- **signCerts:** Dieser Ordner enthält Ihr öffentliches Signierzertifikat, das auch als signCert-Zertifikat oder Eintragungszertifikat bezeichnet wird. Dieses Zertifikat wird Ihren Aufrufen ans Netz (z. B. einem Chaincode-Aufruf) hinzugefügt, wenn Sie über die Befehlszeile auf das MSP-Verzeichnis verweisen oder ein Benutzerkontextobjekt mit den SDKs erstellen. Sie können dieses Zertifikat in {{site.data.keyword.blockchainfull_notm}} Platform hochladen, wenn Sie ein Netz über das SDK oder die Befehlszeile betreiben möchten.
+- **signCerts:** Dieser Ordner enthält Ihr Signierzertifikat, das auch als signCert-Zertifikat oder Eintragungszertifikat bezeichnet wird. Dieses Zertifikat wird Ihren Aufrufen ans Netz (z. B. einem Chaincode-Aufruf) hinzugefügt, wenn Sie über die Befehlszeile auf das MSP-Verzeichnis verweisen oder ein Benutzerkontextobjekt mit den SDKs erstellen. Sie können dieses Zertifikat in {{site.data.keyword.blockchainfull_notm}} Platform hochladen, wenn Sie ein Netz über das SDK oder die Befehlszeile betreiben möchten.
 - **keystore:** Dieser Ordner enthält Ihren privaten Schlüssel. Dieser Schlüssel wird zum Signieren der Aufrufe an das Netz verwendet, wenn Sie über die Befehlszeile auf Ihr MSP-Verzeichnis verweisen oder ein Benutzerkontextobjekt mit den SDKs erstellen, wird jedoch nicht so zu Aufrufen zugeordnet wie ein signCert-Zertifikat. Dieser Schlüssel muss **unbedingt** sicher aufbewahrt werden. Falls er in unbefugte Hände gelangt, kann er verwendet werden, um Ihre Identität vorzutäuschen.
 
 Sie können auch einen MSP-Ordner erstellen, auf den vom Fabric-CA-Client mit dem Network Monitor und den Swagger-APIs verwiesen werden kann.
@@ -752,7 +756,7 @@ Komponentenprotokolle können über die Befehlszeile mit den [`Befehlen der CLI 
 ## Sicherheit
 {: #ca-operate-security}
 
-Die Zertifizierungsstelle bleibt möglicherweise offline, wenn nur eine begrenzte Anzahl von Zertifikaten ausgegeben wird (z. B. für Peers, Node.js-Server und Clientanwendungen), um die Sicherheit weiterhin zu gewährleisten und die Manipulation von Schlüsselinformationen der Zertifizierungsstelle zu verhindern. Die Zertifizierungsstelle sollte jedoch online sein, wenn die bedarfsgesteuerte Ausgabe von Zertifikaten an Benutzer erforderlich ist. Es wird dringend empfohlen, den privaten Schlüssel des Administrators der Zertifizierungsstelle mit [HSM](https://console.test.cloud.ibm.com/docs/services/blockchain/glossary.html#glossary-hsm) zu schützen, falls möglich.
+Wenn nur eine begrenzte Anzahl von Zertifikaten (z. B. ausschließlich Zertifikate für Peers, Node.js und Clientanwendungen) ausgestellt wird, dann verbleibt die Zertifizierungsstelle möglicherweise im Offlinemodus, um die Sicherheit zu verbessern und Manipulationen der CA-Schlüsseldaten zu verhindern. Die Zertifizierungsstelle sollte jedoch online sein, wenn die bedarfsgesteuerte Ausgabe von Zertifikaten an Benutzer erforderlich ist. Es wird dringend empfohlen, den privaten Schlüssel des Administrators der Zertifizierungsstelle mit [HSM](/docs/services/blockchain/glossary.html#glossary-hsm) zu schützen, falls möglich.
 
 ## Fehlerbehebung
 {: #ca-operate-troubleshooting}
@@ -793,6 +797,8 @@ schlägt fehl und führt zu folgendem Fehler:
 ```
 
 ### **Lösung:**
+{: #ca-operate-enroll-error2-solution}
+
 Sie müssen entweder das Sonderzeichen codieren oder die URL in einfache Anführungszeichen einschließen. Beispiel: `!` wird zu `%21` oder der Befehl sieht wie folgt aus:
 
 ```

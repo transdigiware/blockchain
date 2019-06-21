@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-05-16"
+
+keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
 subcollection: blockchain
 
@@ -44,7 +46,7 @@ In dieser Anzeige können Sie eine neue Peeridentität registrieren, wenn Sie ei
 
 ### Clientseitige Zertifikate generieren (Eintragung)
 {: #managing-certificates-enrollment}
-Bevor Sie eine Verbindung zwischen einem Client eines anderen Anbieters und {{site.data.keyword.blockchainfull_notm}} Platform herstellen können, müssen Sie sich authentifizieren. Der Prozess zum Generieren der erforderlichen Zertifikate, Ihres privaten Schlüssels und Ihres öffentlichen Zertifikats (sog. Eintragungszertifikat oder signCert-Zertifikat) wird als Eintragung bezeichnet. Diese Zertifikate werden immer dann benötigt, wenn der Client mit dem Netz kommuniziert. Jeder Client, der Aufrufe an das Netz übergibt, muss die Nutzdaten mit einem privaten Schlüssel signieren und ein korrekt signiertes x509-Zertifikat beifügen.
+Bevor Sie eine Verbindung zwischen einem Client eines anderen Anbieters und {{site.data.keyword.blockchainfull_notm}} Platform herstellen können, müssen Sie sich authentifizieren. Der Prozess zum Generieren der erforderlichen Zertifikate, Ihres privaten Schlüssels und Ihres Zertifikats (sog. Eintragungszertifikat oder signCert-Zertifikat) wird als Eintragung bezeichnet. Diese Zertifikate werden immer dann benötigt, wenn der Client mit dem Netz kommuniziert. Jeder Client, der Aufrufe an das Netz übergibt, muss die Nutzdaten mit einem privaten Schlüssel signieren und ein korrekt signiertes x509-Zertifikat beifügen.
 
 Rufen Sie das [Lernprogramm 'Anwendungen entwickeln'](/docs/services/blockchain/v10_application.html#dev-app) auf, um weiterführende Informationen zur [Eintragung mit dem Fabric Node-SDK](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk) zu erhalten. Die Eintragung mit dem SDK generiert drei separate Elemente: einen privaten Schlüssel, ein signCert-Zertifikat und einen öffentlichen Schlüssel, der zum Erstellen des signCert-Zertifikats verwendet wurde.
 
@@ -172,7 +174,7 @@ Die MSP-Ordner in Fabric verfügen über eine definierte Struktur. Wenn Sie die 
 
 - **cacerts:** Dieser Ordner enthält das Stammzertifikat der Stammzertifizierungsstelle Ihres Netzes.
 - **intermediatecerts:** Hier befinden sich Zertifikate der Zwischenzertifizierungsstellen Ihres Netzes. Diese Zwischenzertifizierungsstellen sind mit der Stammzertifizierungsstelle verknüpft und bilden eine Zertifikatskette. Jede Enterprise Plan-Organisation verfügt über zwei Zwischenzertifizierungsstellen, um so die Möglichkeit zum Failover (Funktionsübernahme) und die Hochverfügbarkeit sicherzustellen.
-- **signcerts:** Dieser Ordner enthält Ihr öffentliches Signierzertifikat, das auch als signCert-Zertifikat oder Eintragungszertifikat bezeichnet wird. Dieses Zertifikat wird Ihren Aufrufen ans Netz (z. B. einem Chaincode-Aufruf) hinzugefügt, wenn Sie über die Befehlszeile auf das MSP-Verzeichnis verweisen oder ein Benutzerkontextobjekt mit den SDKs erstellen. Sie können dieses Zertifikat auf die Plattform hochladen, wenn Sie ein Netz über das SDK oder die Befehlszeile betreiben wollen.
+- **signcerts:** Dieser Ordner enthält Ihr Signierzertifikat, das auch als signCert-Zertifikat oder Eintragungszertifikat bezeichnet wird. Dieses Zertifikat wird Ihren Aufrufen ans Netz (z. B. einem Chaincode-Aufruf) hinzugefügt, wenn Sie über die Befehlszeile auf das MSP-Verzeichnis verweisen oder ein Benutzerkontextobjekt mit den SDKs erstellen. Sie können dieses Zertifikat auf die Plattform hochladen, wenn Sie ein Netz über das SDK oder die Befehlszeile betreiben wollen.
 - **keystore:** Dieser Ordner enthält Ihren privaten Schlüssel. Dieser Schlüssel wird zum Signieren Ihrer Aufrufe an das Netz verwendet, wenn Sie über die Befehlszeile auf Ihr MSP-Verzeichnis verweisen oder ein Benutzerkontextobjekt mit den SDKs erstellen. Bewahren Sie diesen Schlüssel an einem sicheren Ort auf, um Ihr Netz und Ihre Daten zu schützen.
 
 Sie können auch einen MSP-Ordner erstellen, auf den vom Fabric-CA-Client mit dem Network Monitor und den Swagger-APIs verwiesen werden kann.

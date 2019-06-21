@@ -4,6 +4,8 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
+keywords: Hyperledger Fabric, confidential channels, Membership Service Provider, Linux Foundation, SDKs, modular architecture, permissioned network
+
 subcollection: blockchain
 
 ---
@@ -21,7 +23,7 @@ subcollection: blockchain
 Das {{site.data.keyword.blockchainfull}}-Netz basiert auf dem Hyperledger Fabric-Stack, einem der Blockchain-Projekte im Hyperledger Project der Linux Foundation. Dabei handelt es sich um ein "genehmigtes" Netz, in dem alle Benutzer und Komponenten bekannte Identitäten haben. An jeder Nahtstelle in der Kommunikation ist Signatur-/Verifizierungslogik implementiert und über die Transaktionen wird durch eine Reihe von Bewilligungs- und Validierungsprüfungen entschieden. Somit bestehen große Unterschiede zu herkömmlichen Blockchain-Implementierungen, die Anonymität unterstützen und auf Kryptowährungen und hohe Rechenleistung angewiesen sind, um Transaktionen zu validieren.
 {:shortdesc}
 
-Hyperledger Fabric bietet eine modulare Architektur zur Erhöhung von Skalierbarkeit und Leistung an. In diesem Abschnitt werden einige wichtige Komponenten von Hyperledger Fabric vorgestellt. Eine vollständige Einführung in Hyperledger Fabric finden Sie in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
+Hyperledger Fabric bietet eine modulare Architektur zur Erhöhung von Skalierbarkeit und Leistung an. In diesem Abschnitt werden einige wichtige Komponenten von Hyperledger Fabric vorgestellt. Eine vollständige Einführung in Hyperledger Fabric finden Sie in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
 
 ## Peers
 {: #hyperledger-fabric-peer}
@@ -47,20 +49,20 @@ Weitere Informationen zur CA-Komponente von Hyperledger Fabric finden Sie in der
 
 Hyperledger Fabric enthält eine Komponente **Membership Service Provider (MSP)**, die die Abstraktion aller kryptografischen Mechanismen und Protokolle ermöglicht, die der Ausgabe und Validierung von Zertifikaten sowie der Benutzerauthentifizierung zugrunde liegen. Die MSP-Komponente wird auf jedem Kanalpeer installiert, um sicherzustellen, dass Transaktionsanforderungen, die an den Peer ausgegeben werden, von einer authentifizierten und autorisierten Benutzeridentität stammen.
 
-Weitere Informationen zur MSP-Komponente von Hyperledger Fabric finden Sie unter [Mitgliedschaft ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
+Weitere Informationen zur MSP-Komponente von Hyperledger Fabric finden Sie unter [Mitgliedschaft ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
 
 ## Anordnungsservice
 {: #hyperledger-fabric-ordering-service}
 
-In anderen verteilten Blockchains wie Ethereum und Bitcoin gibt es keine zentrale Autorität, die Transaktionen anfordert und an Peers aussendet. Hyperledger Fabric, die Blockchain, auf der {{site.data.keyword.blockchainfull_notm}} Plattform basiert, funktioniert anders. Hier gibt es einen Knoten, der **Anordnungsknoten** genannt wird.
+In anderen verteilten Blockchains wie Ethereum und Bitcoin gibt es keine zentrale Autorität, die Transaktionen anfordert und an Peers aussendet. Hyperledger Fabric ist die Blockchain, auf der {{site.data.keyword.blockchainfull_notm}} Platform basiert und sie funktioniert anders. Hier gibt es einen Knoten, der **Anordnungsknoten** genannt wird.
 
 Anordnungsknoten sind Schlüsselkomponenten in einem Netz, da sie einige wesentliche Funktionen ausführen:
 
 - Sie übernehmen die **Anordnung** der Blöcke von Transaktionen, die an die Peers gesendet werden, um sie in die Ledgers zu schreiben. Dieser Prozess wird als "Anordnung" bezeichnet. Wenn diese Transaktionen stattdessen bei den Peers selbst gebündelt und angeordnet würden, würde dies die Möglichkeit erhöhen, dass ein Peer eine Transaktion in den zugehörigen Ledger schreibt, während dies bei einem anderen Peer nicht der Fall war. Dies könnte zu einer Statusverzweigung führen.
-- Sie verwalten den **Anordnungsknoten-Systemkanal**, d. h., die Position, an der das **Konsortium**, die Liste der Peer-Organisationen, die Kanäle erstellen dürfen, gespeichert ist.
+- Sie verwalten den **Anordnungsknoten-Systemkanal**, d. h., die Position, an der das **Konsortium**, die Liste der Peerorganisationen, die Kanäle erstellen dürfen, gespeichert ist.
 - Sie führen wichtige Identitätsvalidierungsprüfungen durch. Wenn eine Organisation beispielsweise versucht, einen Kanal zu erstellen, obwohl sie kein Mitglied des Konsortiums des Anordnungsknotens ist, wird die Anforderung zurückgewiesen. Anordnungsknoten validieren auch das Verhalten in Transaktionskanälen, wie z. B. die Berechtigungen zum Ändern einer Kanalkonfiguration.
 
-Hyperledger Fabric unterstützt derzeit sowohl SOLO (ein Anordnungsknoten) als auch Kafka-basierte Anordnungsservice-Bereitstellungen. Weitere Informationen zum Hyperledger Fabric-Anordnungsservice finden Sie unter [Bringing up a Kafka-based Ordering Service ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
+Hyperledger Fabric unterstützt derzeit sowohl SOLO (ein Anordnungsknoten) als auch Kafka-basierte Anordnungsservice-Bereitstellungen. Weitere Informationen zum Hyperledger Fabric-Anordnungsservice finden Sie unter [Bringing up a Kafka-based Ordering Service ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
 
 ## Die Fabric-SDKs
 {: #hyperledger-fabric-fabric-sdks}
@@ -80,7 +82,7 @@ Hyperledger Fabric stellt SDKs sowohl für Node.js als auch Java zur Verfügung 
 * Abfragen des Ledgers in Bezug auf bestimmte Transaktionen, Blöcke oder Schlüssel
 * Überwachen von Ereignissen auf einem Kanal (z. B. erfolgreiche Festschreibung einer Transaktion)
 
-Weitere Informationen zu Fabric-SDKs finden Sie unter [Hyperledger Fabric-SDKs ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/fabric-sdks.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
+Weitere Informationen zu Fabric-SDKs finden Sie unter [Hyperledger Fabric-SDKs ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/fabric-sdks.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
 
 ## Transaktionsfluss
 {: #hyperledger-fabric-transaction-flow}
@@ -99,9 +101,9 @@ In einem Hyperledger Fabric-Netz wird der Datenfluss für Abfragen und Transakti
 	An diesem Punkt im Transaktionsfluss verzweigt sich der Prozess für Abfragen und Transaktionen. Wenn der Vorschlag eine Abfragefunktion im Chaincode aufgerufen hat, gibt die Anwendung die Daten an den Client zurück. Wenn der Vorschlag eine Funktion im Chaincode zum Aktualisieren des Ledgers aufgerufen hat, wird die Anwendung mit den folgenden Schritten fortgesetzt:
 3. Die Anwendung leitet die Transaktion, die den Lese-/Schreibsatz und die Bewilligungen umfasst, an den **Anordnungsservice**weiter.
 4. Die Transaktion wird dann an den Anordnungsservice übermittelt. Alle Kanalpeers validieren jede Transaktion im Block, indem Sie die Chaincode-spezifische Prüfrichtlinie anwenden und einen 'Concurrency Control Version Check' ausführen.
-	* Alle Transaktionen, die den Validierungsprozess nicht bestehen, werden im Block als ungültig markiert und der Block wird an den Ledger des Kanals angehängt.
+	* Alle Transaktionen, die den Validierungsprozess nicht bestehen, werden im Block als ungültig markiert und der Block wird an das Ledger des Kanals angefügt.
 	* Alle gültigen Transaktionen aktualisieren die Statusdatenbank entsprechend mit den geänderten Schlüssel/Wert-Paaren.
 
-Das **Gossip-Datenverteilungsprotokoll** überträgt kontinuierlich Ledgerdaten über den Kanal, um sicherzustellen, dass die Ledger zwischen den Peers synchronisiert sind. Weitere Informationen finden Sie im Abschnitt zum [Gossip-Datenverteilungsprotokoll ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
+Das **Gossip-Datenverteilungsprotokoll** überträgt kontinuierlich Ledgerdaten über den Kanal, um sicherzustellen, dass die Ledger zwischen den Peers synchronisiert sind. Weitere Informationen finden Sie im Abschnitt zum [Gossip-Datenverteilungsprotokoll ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
 
-Eine Schritt-für-Schritt-Einführung in den Transaktionsfluss finden Sie unter [Transaction Flow ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.
+Eine Schritt-für-Schritt-Einführung in den Transaktionsfluss finden Sie unter [Transaction Flow ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){:new_window} in der [Hyperledger Fabric-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){:new_window}.

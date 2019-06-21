@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain Platform, remote peer, AWS peer, AWS peers, multi-cloud
 
 subcollection: blockchain
 
@@ -39,7 +41,7 @@ Lesen Sie vor der Bereitstellung von Peers von {{site.data.keyword.blockchainful
 ## Voraussetzungen
 {: #remote-peer-aws-prerequisites}
 
-Zur Verwendung eines Peers von {{site.data.keyword.blockchainfull_notm}} Platform for AWS (nachfolgend kurz "ferner Peer" genannt) benötigen Sie eine Organisation, die Mitglied eines unter IBM Blockchain Platform gehosteten Blockchain-Netzes ist. Sie müssen den Network Monitor unter IBM Cloud verwenden, um auf die Netzberechtigungsnachweise und die API-Endpunkte Ihres Netzes zugreifen zu können. Wenn Sie nicht Mitglied eines Blockchain-Netzes sind, müssen Sie ein Netz erstellen oder einem Netz beitreten. Weitere Informationen hierzu finden Sie im Abschnitt [Netz erstellen](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) oder [Am Netz teilnehmen](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+Zur Verwendung eines Peers von {{site.data.keyword.blockchainfull_notm}} Platform for AWS (nachfolgend kurz "ferner Peer" genannt) benötigen Sie eine Organisation, die Mitglied eines unter {{site.data.keyword.blockchainfull_notm}} Platform gehosteten Blockchain-Netzes ist. Sie müssen den Network Monitor unter IBM Cloud verwenden, um auf die Netzberechtigungsnachweise und die API-Endpunkte Ihres Netzes zugreifen zu können. Wenn Sie nicht Mitglied eines Blockchain-Netzes sind, müssen Sie ein Netz erstellen oder einem Netz beitreten. Weitere Informationen hierzu finden Sie im Abschnitt [Netz erstellen](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) oder [Am Netz teilnehmen](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
 
 Der standardmäßige VPC-Instanztyp für den Peer ist `m4.xlarge`.  Sie sollten den ausgewählten Instanztyp anhand Ihres CPU-, Hauptspeicher- und Speicherbedarfs optimieren. Für den Peer ist mindestens Folgendes erforderlich:  
 -	2 CPUs
@@ -132,7 +134,7 @@ Die Kosten der AWS-Services, die Sie bei der Ausführung dieser Referenzbereitst
   **Wichtig:**     
   Falls Sie {{site.data.keyword.blockchainfull_notm}} Platform for AWS in einer vorhandenen VPC bereitstellen, müssen Sie darauf achten, dass die VPC für die  Datenbankinstanzen zwei öffentliche Teilnetze in unterschiedlichen Verfügbarkeitszonen besitzt. Diese Teilnetze erfordern NAT-Gateways oder NAT-Instanzen in ihren Routentabellen, damit die Instanzen Pakete und Software herunterladen können, ohne sie für das Internet zugänglich zu machen. Außerdem benötigen Sie die in den DHCP-Optionen konfigurierte Option für den Domänennamen (eine entsprechende Erläuterung enthält die Amazon-Dokumentation für die VPC).  
 
-  Denken Sie ebenfalls daran, eine Sicherheitsgruppe zu erstellen, die an Ihre vorhandene VPC gebunden ist, und Regeln für eingehende Daten an den Ports 22 und 7051 zu dieser Sicherheitsgruppe hinzuzufügen. TCP-Verbindungen an Port 22 lassen den SSH-Zugriff auf die generierte Instanz zu, während TCP-Verbindungen an Port 7051 einen externen gRPC-Zugriff auf die Peerinstanz ermöglichen (dieser Zugriff wird für den Betrieb des Peers mithlife der CLI für die Fabric-Tools und der Fabric-SDKs benötigt). Diese VCP-Einstellungen werden von Ihnen angefordert, wenn Sie den Schnelleinstieg starten.
+  Denken Sie ebenfalls daran, eine Sicherheitsgruppe zu erstellen, die an Ihre vorhandene VPC gebunden ist, und Regeln für eingehende Daten an den Ports 22 und 7051 zu dieser Sicherheitsgruppe hinzuzufügen. TCP-Verbindungen an Port 22 lassen den SSH-Zugriff auf die generierte Instanz zu, während TCP-Verbindungen an Port 7051 einen externen gRPC-Zugriff auf die Peerinstanz ermöglichen (erforderlich für den Betrieb des Peers mithilfe der CLI für die Fabric-Tools und der Fabric-SDKs). Diese VCP-Einstellungen werden von Ihnen angefordert, wenn Sie den Schnelleinstieg starten.
 
 2. Überprüfen Sie die in der rechten oberen Ecke der Navigationsleiste angezeigte Region und ändern Sie sie bei Bedarf. In dieser Region wird die Netzinfrastruktur für den Peer erstellt. Standardmäßig wird die Vorlage in der Region "US East (Ohio)" gestartet.
 
@@ -164,20 +166,20 @@ In der folgenden Tabelle sind die konfigurierbaren Parameter des AWS-Diagramms u
 | `Instanztyp` | Der Typ der EC2-Instanz für die Peerinstanzen. | m4.xlarge |
 | `Name des Schlüsselpaars` | Der Name eines vorhandenen EC2-Schlüsselpaars in der AWS-Region. Dieses Schlüsselpaar muss von Ihnen generiert werden. | |
 | | | |
-|**IBM Blockchain-Konfiguration** | |
-| `IBM Blockchain-Version` | Die Version von IBM Blockchain, die bereitgestellt werden soll. | 1.2.1 |
+|** {{site.data.keyword.blockchainfull_notm}}-Konfiguration** | |
+| `IBM Blockchain-Version` | Bereitzustellende {{site.data.keyword.blockchainfull_notm}}-Version. | 1.2.1 |
 | `Statusdatenbank` | Der Typ der Datenbank, die zum Speichern des Blockchainstatus verwendet wird. Diese Auswahl sollte mit dem Typ der Statusdatenbank identisch sein, die für das übrige Netz verwendet wird. | CouchDB|
 | `Datenträgergröße für Peer` | Die Größe des EBS-Datenträgers in GB, auf dem persistente Daten (Ledger, Statusdatenbank, MSP) für die Peers gespeichert werden. | 100 |
-| `Eintragungs-ID für Peer 1`| Die Eintragungs-ID, die Sie für Ihren ersten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von IBM Blockchain Platform eingegeben haben. |  |
-| `Geheimer Eintragungsschlüssel für Peer 1` | Der geheime Eintragungsschlüssel, den die Sie für Ihren ersten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von IBM Blockchain Platform eingegeben haben. | |
-| `Eintragungs-ID für Peer 2` | Die Eintragungs-ID, die Sie für Ihren zweiten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von IBM Blockchain Platform eingegeben haben. | |
-| `Geheimer Eintragungsschlüssel für Peer 2` | Der geheime Eintragungsschlüssel, den die Sie für Ihren zweiten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von IBM Blockchain Platform eingegeben haben. | |
+| `Eintragungs-ID für Peer 1`| Die Eintragungs-ID, die Sie für Ihren ersten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform eingegeben haben. |  |
+| `Geheimer Eintragungsschlüssel für Peer 1` | Der geheime Eintragungsschlüssel, den Sie für Ihren ersten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform eingegeben haben. | |
+| `Eintragungs-ID für Peer 2` | Die Eintragungs-ID, die Sie für Ihren zweiten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform eingegeben haben. | |
+| `Geheimer Eintragungsschlüssel für Peer 2` | Der geheime Eintragungsschlüssel, den Sie für Ihren zweiten Peer in der Anzeige "Zertifizierungsstelle" der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform eingegeben haben. | |
 | | | |
 |**Serviceberechtigungsnachweise für IBM Blockchain**| | |
-| `MSP der Organisation` | Diesen Wert finden Sie in der Benutzerschnittstelle von IBM Blockchain Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen und fügen Sie sie hier ein. | |
-| `Name der Zertifizierungsstelle (CA)` | Diesen Wert finden Sie in der Benutzerschnittstelle von IBM Blockchain Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen und fügen Sie sie hier ein.| |
-| `URL der Zertifizierungsstelle (CA)` | Diesen Wert finden Sie in der Benutzerschnittstelle von IBM Blockchain Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen (inklusive Port) und fügen Sie sie hier ein. Falls kein Port angegeben ist, wird als Standardport Port 443 verwendet. | |
-| `Zertifikat der TLS-Zertifizierungsstelle­ (CA)`| Diesen Wert finden Sie in der Benutzerschnittstelle von IBM Blockchain Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen und fügen Sie sie hier ein.| |
+| `MSP der Organisation` | Diesen Wert finden Sie in der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen und fügen Sie sie hier ein. | |
+| `Name der Zertifizierungsstelle (CA)` | Diesen Wert finden Sie in der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen und fügen Sie sie hier ein.| |
+| `URL der Zertifizierungsstelle (CA)` | Diesen Wert finden Sie in der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen (inklusive Port) und fügen Sie sie hier ein. Falls kein Port angegeben ist, wird als Standardport Port 443 verwendet. | |
+| `Zertifikat der TLS-Zertifizierungsstelle­ (CA)`| Diesen Wert finden Sie in der Benutzerschnittstelle von {{site.data.keyword.blockchainfull_notm}} Platform. Klicken Sie auf die Schaltfläche "Konfiguration ferner Peers" in der Anzeige "Übersicht", kopieren Sie die Informationen und fügen Sie sie hier ein.| |
 | | | |
 |**Weitere Parameter**| | |
 | `QSS3BucketName` | Der S3-Bucketname für die Schnelleinstiegsassets. Der Bucketname für den Schnelleinstieg kann Zahlen, Kleinbuchstaben, Großbuchstaben und Bindestriche (-) enthalten. Er darf nicht mit einem Bindestrich (-) beginnen oder enden. | `aws-quickstart` |
@@ -201,11 +203,11 @@ Falls Sie den Peer von {{site.data.keyword.blockchainfull_notm}} Platform for AW
 
  - Stellen Sie sicher, dass Ihre VPC für die Datenbankinstanzen zwei private Teilnetze in unterschiedlichen Verfügbarkeitszonen besitzt. Diese Teilnetze erfordern NAT-Gateways oder NAT-Instanzen in ihren Routentabellen, damit die Instanzen Pakete und Software herunterladen können, ohne sie für das Internet zugänglich zu machen.
 
- - Konfigurieren Sie die Option für den Domänennamen in den DHCP-Optionen gemäß der Erläuterung in der [Amazon-Dokumentation für die VPC ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html "DHCP-Optionsgruppen").  
+ - Konfigurieren Sie die Option für den Domänennamen in den DHCP-Optionen gemäß der Erläuterung in der [Amazon-Dokumentation für die VPC ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html "DHCP-Optionsgruppen").  
 
-- Erstellen Sie Sicherheitsgruppe, die an Ihre vorhandene VPC gebunden ist, und fügen Sie Regeln für eingehende Daten an den Ports 22 und 7051 zu dieser Sicherheitsgruppe hinzu. TCP-Verbindungen an Port 22 lassen den SSH-Zugriff auf die generierte Instanz zu, während TCP-Verbindungen an Port 7051 einen externen gRPC-Zugriff auf die Peerinstanz ermöglichen (dieser Zugriff wird für den Betrieb des Peers mithlife der CLI für die Fabric-Tools und der Fabric-SDKs benötigt). Diese VCP-Einstellungen werden von Ihnen angefordert, wenn Sie den Schnelleinstieg starten.
+- Erstellen Sie Sicherheitsgruppe, die an Ihre vorhandene VPC gebunden ist, und fügen Sie Regeln für eingehende Daten an den Ports 22 und 7051 zu dieser Sicherheitsgruppe hinzu. TCP-Verbindungen an Port 22 lassen den SSH-Zugriff auf die generierte Instanz zu, während TCP-Verbindungen an Port 7051 einen externen gRPC-Zugriff auf die Peerinstanz ermöglichen (erforderlich für den Betrieb des Peers mithilfe der CLI für die Fabric-Tools und der Fabric-SDKs). Diese VCP-Einstellungen werden von Ihnen angefordert, wenn Sie den Schnelleinstieg starten.
 
- Bei der Bereitstellung eines Peers von {{site.data.keyword.blockchainfull_notm}} Platform for AWS in einer vorhandenen VPC ersetzen die folgenden Parameter die Parameter in den entsprechenden [obigen](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc) Abschnitten:
+ Bei der Bereitstellung eines Peers von {{site.data.keyword.blockchainfull_notm}} Platform for AWS in einem vorhandenen VPC ersetzen die folgenden Parameter die Parameter in den entsprechenden [obigen](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc) Abschnitten:
 
 |  Parameter    | Beschreibung | Standardwert |
 | --------------|-------------|---------|
@@ -308,7 +310,7 @@ Führen Sie den CLI-Befehl `peer channel fetch` aus, um den Genesis-Block aus de
 
 4. Führen Sie den folgenden Befehl der CLI "peer" aus, um den Genesis-Block des Kanals abzurufen.
 
-   **WICHTIG:** Ersetzen Sie im folgenden Befehl jedes Vorkommen von `<PEER_ENROLL_ID>` durch die  Eintragungs-ID, die dieser Peerinstanz zugeordnet ist und in der Schnelleinstiegsvorlage angegeben wurde. Diesen Wert können Sie durch Ausführung des Befehls `ls /etc/hyperledger/` ermitteln. Es werden zwei Ordner aufgelistet: Der erste ist `fabric`, der zweite ist Ihr Wert für `<PEER_ENROLL_ID>`.
+   **WICHTIG:** Ersetzen Sie im folgenden Befehl jedes Vorkommen von `<PEER_ENROLL_ID>` durch die Eintragungs-ID, die dieser Peerinstanz zugeordnet ist und in der Schnelleinstiegsvorlage angegeben wurde. Diesen Wert können Sie durch Ausführung des Befehls `ls /etc/hyperledger/` ermitteln. Es werden zwei Ordner aufgelistet: Der erste ist `fabric`, der zweite ist Ihr Wert für `<PEER_ENROLL_ID>`.
 
    ```
    CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/<PEER_ENROLL_ID>/tls/ca.crt CORE_PEER_TLS_ENABLED=true CORE_PEER_ADDRESS=${PEERADDR} CORE_PEER_LOCALMSPID=${ORGID} CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/<PEER_ENROLL_ID>/msp/ GOPATH=/ peer channel fetch 0 -o ${ORDERER_1} -c ${CHANNEL} --cafile /etc/hyperledger/<PEER_ENROLL_ID>/orderer_tlscacert.pem --tls
@@ -347,7 +349,7 @@ Führen Sie den CLI-Befehl `peer channel fetch` aus, um den Genesis-Block aus de
   - Bei Verwendung der Einstellung `Nein` für die Durchführung einer Rollback-Operation bei einem Fehler fallen für diesen Stack weiterhin AWS-Gebühren an. Denken Sie unbedingt daran, den Stack zu löschen, wenn Sie die Fehlerbehebung abgeschlossen haben. Weitere Informationen finden Sie auf der AWS-Website unter [AWS CloudFormation-Fehlerbehebung ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html "AWS CloudFormation-Fehlerbehebung").
 
 * **Frage**: Beim Bereitstellen der AWS CloudFormation-Vorlagen wurde ein Fehler in Bezug auf die Größenbegrenzung ausgegeben.
-* **Antwort**: Es wird empfohlen, die Schnelleinstiegsvorlagen ausgehend von der Position zu starten, die in der Dokumentation angegeben ist, oder von einem anderen S3-Bucket aus. Falls Sie die Vorlagen aus einer lokalen Kopie auf Ihrem Computer oder aus einer Position bereitstellen, bei der es sich nicht um eine S3-Position handelt, treten beim Erstellen des Stacks möglicherweise Einschränkungen für die Vorlagengröße auf. Weitere Informationen zu Begrenzungen für AWS CloudFormation finden Sie in der [AWS-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html "Limits für AWS CloudFormation").
+* **Antwort**: Es wird empfohlen, die Schnelleinstiegsvorlagen ausgehend von der Position zu starten, die in der Dokumentation angegeben ist, oder von einem anderen S3-Bucket aus. Falls Sie die Vorlagen aus einer lokalen Kopie auf Ihrem Computer oder aus einer Position bereitstellen, bei der es sich nicht um eine S3-Position handelt, treten beim Erstellen des Stacks möglicherweise Einschränkungen für die Vorlagengröße auf. Weitere Informationen zu Begrenzungen für AWS CloudFormation finden Sie in der [AWS-Dokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html "Limits für AWS CloudFormation").
 
 ## Nächste Schritte
 {: #remote-peer-aws-whats-next}
@@ -420,7 +422,7 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### Konfiguration von Membership Service Provider
 {: #remote-peer-aws-security-MSP}
 
-IBM Blockchain Platform-Komponenten verbrauchen Identitäten über Membership Service Providers (MSPs). MSPs ordnen die Zertifikate zu, die von den Zertifizierungsstellen mit den entsprechenden Netz- und Kanalrollen ausgegeben werden. Weitere Informationen zur Vorgehensweise von MSPs beim Arbeiten mit einem fernen Peer finden Sie [hier](/docs/services/blockchain/certificates.html#managing-certificates-msp).
+{{site.data.keyword.blockchainfull_notm}} Platform-Komponenten verbrauchen Identitäten über Membership Service Providers (MSPs). MSPs ordnen die Zertifikate zu, die von den Zertifizierungsstellen mit den entsprechenden Netz- und Kanalrollen ausgegeben werden. Weitere Informationen zur Vorgehensweise von MSPs beim Arbeiten mit einem fernen Peer finden Sie [hier](/docs/services/blockchain/certificates.html#managing-certificates-msp).
 
 #### Anwendungssicherheit
 {: #remote-peer-aws-security-appl}

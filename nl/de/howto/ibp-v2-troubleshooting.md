@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: troubleshooting, debug, why, what does this mean, how can I, when I 
 
 subcollection: blockchain
 
@@ -30,11 +32,11 @@ Es können allgemeine Probleme auftreten, wenn Sie die Konsole verwenden, um Kno
 - [Warum schlagen meine Operationen fehl, nachdem ich meinen Peer- oder Anordnungsknoten erstellt habe?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry1)
 - [Warum kann mein Peer nicht gestartet werden?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-build-network-troubleshoot-entry2)
 - [Warum ist die Installation, die Instanziierung oder das Upgrade für meinen Smart Contract fehlgeschlagen?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry1)
-- [Wie kann ich meine Smart Contract-Containerprotokolle anzeigen?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
-- [Mein Kanal, meine Smart Contracts und meine IDs werden in der Konsole nicht mehr angezeigt. Wie kann ich diese Informationen wieder anzeigen?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
+- [Wie kann ich meine Smart-Contract-Containerprotokolle anzeigen?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-console-smart-contracts-troubleshoot-entry2)
+- [Mein Kanal, meine Smart Contracts und meine Identitäten werden in der Konsole nicht mehr angezeigt. Wie kann ich diese Informationen wieder anzeigen?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
 - [Warum wird der Fehler `An error occurred when updating channel` ausgegeben, wenn ich versuche, eine Organisation zu meinem Kanal hinzuzufügen?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-update-channel)
 - [Mein Kubernetes-Cluster ist abgelaufen. Was bedeutet das?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-cluster-expired)
-- [Weshalb schlagen die Transaktionen fehl, dich ich über VSCode zur Verarbeitung übergebe?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
+- [Weshalb schlagen die Transaktionen, die ich über den VS Code übergebe, fehl?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-anchor-peer)
 
 ## Wenn ich den Mauszeiger über den Knoten bewege, lautet der `Status nicht verfügbar`. Was bedeutet das?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -43,7 +45,7 @@ Der Knotenstatus in der Kachel für die Zertifizierungsstelle, den Peer oder den
 {: tsSymptoms}
 
 Dieses Problem kann auftreten, wenn der Knoten neu erstellt wurde und der Bereitstellungsprozess noch nicht abgeschlossen ist. Wenn es sich bei dem Knoten um eine Zertifizierungsstelle handelt, ist er mit einiger Wahrscheinlichkeit nicht aktiv.
-Handelt es sich bei dem Knoten um einen Peer oder einen Anordnungsknoten, tritt diese Bedingung dann auf, wenn das Statusprüfprogramm, das für den Peer bzw. Anordnungsknoten ausgeführt wird, den Knoten nicht kontaktieren kann. Die Anforderung für den Status kann mit einem Zeitlimitfehler fehlschlagen, da der Knoten nicht innerhalb eines bestimmten Zeitraums antwortet, der Knoten inaktiv oder die Netzkonnektivität inaktiv ist.
+Handelt es sich bei dem Knoten um einen Peer oder einen Anordnungsknoten, tritt diese Bedingung dann auf, wenn das Statusprüfprogramm, das für den Peer bzw. Anordnungsknoten ausgeführt wird, den Knoten nicht kontaktieren kann.  Die Anforderung für den Status kann mit einem Zeitlimitfehler fehlschlagen, da der Knoten nicht innerhalb eines bestimmten Zeitraums antwortet, der Knoten inaktiv oder die Netzkonnektivität inaktiv ist.
 {: tsCauses}
 
 Wenn es sich um einen neuen Knoten handelt, warten Sie noch einige Minuten, bis die Bereitstellung abgeschlossen ist. Wenn der Knoten nicht neu erstellt wurde,
@@ -56,7 +58,8 @@ Wenn es sich um einen neuen Knoten handelt, warten Sie noch einige Minuten, bis 
 Der Knotenstatus in der Kachel für den Peer oder Anordnungsknoten ist gelb, d.h. der Status des Knotens wird nicht erkannt. Idealerweise sollte der Knotenstatus `Aktiv` lauten.
 {: tsSymptoms}
 
-Diese Bedingung tritt nur bei solchen Peers und Anordnungsknoten auf, die in die Konsole *importiert* wurden und auf die das Statusprüfprogramm nicht angewandt werden kann. Dieser Status tritt auf, weil beim Import des Knotens keine `operations_url` angegeben wurde. Es ist eine Operations-URL erforderlich, damit der Prüfprogramm für den Knoten ausgeführt werden kann. Der Knoten selbst ist wahrscheinlich `Aktiv`, aber da die URL der Operation nicht angegeben wurde, kann sein Status nicht ermittelt werden.{: tsCauses}
+Diese Bedingung tritt nur bei solchen Peers und Anordnungsknoten auf, die in die Konsole *importiert* wurden und auf die das Statusprüfprogramm nicht angewandt werden kann. Dieser Status tritt auf, weil beim Import des Knotens keine `operations_url` angegeben wurde. Es ist eine Operations-URL erforderlich, damit der Prüfprogramm für den Knoten ausgeführt werden kann. Der Knoten selbst ist wahrscheinlich `Aktiv`, da aber die Operations-URL nicht angegeben wurde, kann sein Status nicht ermittelt werden.
+{: tsCauses}
 
 Sie können dieses Problem mit den folgenden Schritten beheben:
  1. Klicken Sie auf die Knotenkachel, um sie zu öffnen.
@@ -96,13 +99,13 @@ Das Peerprotokoll enthält die Angabe `2019-02-06 19:43:24.159 UTC [main] InitCm
 {: tsSymptoms}
 
 - Dieser Fehler kann unter den folgenden Bedingungen auftreten:
-  - Beim Erstellen der MSP-Definition für die Organisation des Peer- oder Anordnungsknotens haben Sie eine Kombination aus Eintragungs-ID und geheimem Schlüssel angegeben, die einer ID des Typs `peer` und nicht `client` entspricht. Die ID muss den Typ `client` aufweisen.
-  - Beim Erstellen der MSP-Definition für die Organisation des Peer- oder Anordnungsknotens haben Sie eine Kombination aus Eintragungs-ID und geheimem Schlüssel angegeben, die nicht mit der Eintragungs-ID und dem geheimen Schlüssel der entsprechenden Organisationsadministrator-ID übereinstimmt.
-  - Beim Erstellen des Peer- oder Anordnungsknotens haben Sie die Eintragungs-ID und den geheimen Schlüssel einer ID angegeben, die nicht den Typ 'peer' aufweist.
+  - Beim Erstellen der MSP-Definition für die Organisation des Peer- oder Anordnungsknotens haben Sie eine Kombination aus Eintragungs-ID und geheimem Schlüssel angegeben, die einer Identität des Typs `peer` und nicht `client` entspricht. Die Identität muss den Typ `client` aufweisen.
+  - Beim Erstellen der MSP-Definition für die Organisation des Peer- oder Anordnungsknotens haben Sie eine Kombination aus Eintragungs-ID und geheimem Schlüssel angegeben, die nicht mit der Eintragungs-ID und dem geheimen Schlüssel der entsprechenden Identität des Organisationsadministrators übereinstimmt.
+  - Beim Erstellen des Peer- oder Anordnungsknotens haben Sie die Eintragungs-ID und den geheimen Schlüssel einer Identität angegeben, die nicht den Typ 'peer' aufweist.
 
-- Öffnen Sie den CA-Knoten für Ihren Peer- oder Anordnungsknoten und zeigen Sie die registrierten IDs an, die in der Tabelle **Registrierte Benutzer** aufgelistet werden.
+- Öffnen Sie den CA-Knoten für Ihren Peer- oder Anordnungsknoten und zeigen Sie die registrierten Identitäten an, die in der Tabelle **Registrierte Benutzer** aufgelistet werden.
 - Löschen Sie den Peer- oder Anordnungsknoten und erstellen Sie ihn erneut. Achten Sie dabei sorgfältig darauf, die Eintragungs-ID und den geheimen Schlüssel korrekt anzugeben.
-- Beachten Sie Folgendes: Vor dem Erstellen des Peer- oder Anordnungsknotens müssen Sie eine Organisationsadministrator-ID des Typs 'client' erstellen. Stellen Sie sicher, dass beim Erstellen der MSP-Definition für die Organisation dieselbe ID als Eintragungs-ID angegeben wird. Weitere Informationen enthalten die Anweisungen in den Abschnitten [Peer-IDs registrieren](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) und [Anordnungsknoten-IDs registrieren](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
+- Beachten Sie Folgendes: Vor dem Erstellen des Peer- oder Anordnungsknotens müssen Sie eine Identität des Organisationsadministrators des Typs 'client' erstellen. Stellen Sie sicher, dass beim Erstellen der MSP-Definition für die Organisation dieselbe ID als Eintragungs-ID angegeben wird. Weitere Informationen enthalten die Anweisungen in den Abschnitten [Peeridentitäten registrieren](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) und [Identitäten für Anordnungsknoten registrieren](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## Warum ist die Installation, die Instanziierung oder das Upgrade für meinen Smart Contract fehlgeschlagen?
@@ -111,15 +114,15 @@ Das Peerprotokoll enthält die Angabe `2019-02-06 19:43:24.159 UTC [main] InitCm
 Es ist möglich, dass bei der Installation, Instanziierung oder beim Upgrade eines Smart Contract ein Fehler auftritt.  Beispielsweise kann beim Installieren eines Smart Contract auf einem Peer der Fehler `An error occurred when installing smart contract on peer.` ausgegeben werden.
 {: tsSymptoms}
 
-Dieser Fehler kann auftreten, wenn die betreffende Smart Contract-Version auf dem Peer bereits vorhanden ist, oder wenn die verfügbaren Ressourcen auf dem Peer ausgeschöpft sind.
+Dieser Fehler kann auftreten, wenn die betreffende Smart-Contract-Version auf dem Peer bereits vorhanden ist, oder wenn die verfügbaren Ressourcen auf dem Peer ausgeschöpft sind.
 {: tsCauses}
 
 - Öffnen Sie das Kubernetes-Dashboard und stellen Sie sicher, dass der Peer den Status `Aktiv` aufweist.  
-- Öffnen Sie den Peerknoten, stellen Sie sicher, dass die Smart Contract-Version auf dem Peer noch nicht vorhanden ist, und wiederholen Sie den Vorgang mit der geeigneten Version.
+- Öffnen Sie den Peerknoten, stellen Sie sicher, dass die Smart-Contract-Version auf dem Peer noch nicht vorhanden ist, und wiederholen Sie den Vorgang mit der geeigneten Version.
 - Treten weiterhin Probleme auf, obwohl der Knoten betriebsbereit ist, [überprüfen Sie Ihre Knotenprotokolle ](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) auf Fehler.  
 {: tsResolve}
 
-## Wie kann ich meine Smart Contract-Containerprotokolle anzeigen?
+## Wie kann ich meine Smart-Contract-Containerprotokolle anzeigen?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
 
 Es kann vorkommen, dass Sie die Containerprotokolle für Smart Contract oder Chaincode aufrufen müssen, um ein Problem mit Smart Contract zu beheben.
@@ -128,16 +131,17 @@ Es kann vorkommen, dass Sie die Containerprotokolle für Smart Contract oder Cha
 Mit den folgenden Schritten können Sie [Containerprotokolle anzeigen](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-container-logs).
 {: tsResolve}
 
-## Mein Kanal, meine Smart Contracts und meine IDs werden in der Konsole nicht mehr angezeigt. Wie kann ich diese Informationen wieder anzeigen?
+## Mein Kanal, meine Smart Contracts und meine Identitäten werden in der Konsole nicht mehr angezeigt. Wie kann ich diese Informationen wieder anzeigen?
 {: #ibp-v2-troubleshooting-browser-storage}
 
-Ihre Konsolenwallet-IDs umfassen jeweils ein Schlüsselpaar aus privatem und öffentlichem Schlüssel zum Verwalten Ihrer Blockchain-Komponenten, das jedoch nur im lokalen Speicher Ihres Browsers gespeichert ist. Sie sind für den Schutz und die Verwaltung dieser IDs verantwortlich. Es wird empfohlen, sie nach dem Erstellen in Ihr Dateisystem zu exportieren. Bei jedem Erstellen eines neuen Knotens ordnen Sie dem Knoten eine ID aus Ihrer Konsolenwallet zu. Diese Administrator-ID ermöglicht Ihnen, den Knoten zu verwalten. Wenn Sie den Browser wechseln oder einen Browser auf einer anderen Maschine verwenden, sind diese IDs nicht mehr in Ihrer Wallet enthalten. Dies bedeutet, dass Sie die Komponenten nicht verwalten können.
+Ihre Identitäten für Konsolenwallets umfassen jeweils ein Signierzertifikat und einen privaten Schlüssel zum Verwalten Ihrer Blockchain-Komponenten, die jedoch nur im lokalen Speicher Ihres Browsers gespeichert werden. Sie sind für den Schutz und die Verwaltung dieser Identitäten verantwortlich. Es wird empfohlen, sie nach dem Erstellen in Ihr Dateisystem zu exportieren. Bei jedem Erstellen eines neuen Knotens ordnen Sie dem Knoten eine Identität aus Ihrer Konsolenwallet zu. Diese Administratoridentität ermöglicht Ihnen, den Knoten zu verwalten. Wenn Sie den Browser wechseln oder einen Browser auf einer anderen Maschine verwenden, sind diese Identitäten nicht mehr in Ihrer Wallet enthalten. Dies bedeutet, dass Sie die Komponenten nicht verwalten können.
 {: tsSymptoms}
 
-Eine Neuerungen in {{site.data.keyword.blockchainfull_notm}} Platform 2.0 besteht darin, dass Sie jetzt für den Schutz und die Verwaltung Ihrer Zertifikate selbst verantwortlich sind. Aus diesem Grund werden die Zertifikate zum Verwalten der Komponente nur im lokalen Speicher Ihres Browsers als persistent definiert. Wenn Sie ein privates Browserfenster verwenden und dann zu einem anderen Browser oder einem nicht privaten Browserfenster wechseln, werden die von Ihnen erstellten Identitäten in der neuen Browsersitzung aus der Konsolenwallet entfernt. Aus diesem Grund ist es erforderlich, dass Sie die Identitäten aus der Konsolenwallet in Ihrer privaten Browsersitzung in Ihr Dateisystem exportieren. Bei Bedarf können Sie sie dann in Ihre nicht private Browsersitzung importieren. Sonst gibt es keine Möglichkeit, sie wiederherzustellen.{: tsCauses}
+Eine Neuerungen in {{site.data.keyword.blockchainfull_notm}} Platform 2.0 besteht darin, dass Sie jetzt für den Schutz und die Verwaltung Ihrer Zertifikate selbst verantwortlich sind. Aus diesem Grund werden die Zertifikate zum Verwalten der Komponente nur im lokalen Speicher Ihres Browsers als persistent definiert. Wenn Sie ein privates Browserfenster verwenden und dann zu einem anderen Browser oder einem nicht privaten Browserfenster wechseln, werden die von Ihnen erstellten Identitäten in der neuen Browsersitzung aus der Konsolenwallet entfernt. Aus diesem Grund ist es erforderlich, dass Sie die Identitäten aus der Konsolenwallet in Ihrer privaten Browsersitzung in Ihr Dateisystem exportieren. Bei Bedarf können Sie sie dann in Ihre nicht private Browsersitzung importieren. Sonst gibt es keine Möglichkeit, sie wiederherzustellen.
+{: tsCauses}
 
-- Jedes Mal, wenn Sie eine neue MSP-Definition für eine Organisation erstellen, generieren Sie Schlüssel für eine ID, die zum Verwalten der Organisation berechtigt ist. Daher müssen Sie während dieses Prozesses auf die Schaltflächen **Generieren** und anschließend auf **Exportieren** klicken, um die generierte ID in Ihrer Konsolenwallet zu speichern und anschließend als JSON-Datei in Ihrem Dateisystem zu sichern.
-- Um dieses Problem in Ihrem Browser zu beheben, müssen Sie die betreffenden IDs importieren und dem entsprechenden Knoten zuordnen. Gehen Sie dazu  wie folgt vor:
+- Jedes Mal, wenn Sie eine neue MSP-Definition für eine Organisation erstellen, generieren Sie Schlüssel für eine Identität, die zum Verwalten der Organisation berechtigt ist. Daher müssen Sie während dieses Prozesses auf die Schaltflächen **Generieren** und anschließend auf **Exportieren** klicken, um die generierte Identität in Ihrer Konsolenwallet zu speichern und anschließend als JSON-Datei in Ihrem Dateisystem zu sichern.
+- Um dieses Problem in Ihrem Browser zu beheben, müssen Sie die betreffenden Identitäten importieren und dem entsprechenden Knoten zuordnen. Gehen Sie dazu wie folgt vor:
   - Klicken Sie in dem Browser, in dem das Problem auftritt, auf die Registerkarte **Wallet** und anschließend auf **Identität hinzufügen**, um die JSON-Datei in Ihre Wallet zu importieren.
   - Klicken Sie auf **JSON hochladen** und navigieren Sie mithilfe der Schaltfläche **Dateien hinzufügen** zu der JSON-Datei, die Sie exportiert haben.
   - Klicken Sie auf **Übergeben**.
@@ -163,7 +167,7 @@ Blättern Sie in der Anzeige **Kanal aktualisieren** abwärts zur **MSP-ID des K
 ## Mein Kubernetes-Cluster ist abgelaufen. Was bedeutet das?
 {: #ibp-v2-troubleshooting-cluster-expired}
 
-Ich habe eine E-Mail erhalten, dass mein {{site.data.keyword.IBM_notm}} Kubernetes-Service-Cluster demnächst abläuft oder sein Status `abgelaufen` lautet. Oder dass Sie nach 30 Tagen nicht mehr auf die Konsole zugreifen können.
+Ich habe eine E-Mail erhalten, dass die Gültigkeit meines {{site.data.keyword.IBM_notm}} Kubernetes Service-Cluster demnächst abläuft oder sein Status `Abgelaufen` lautet. Oder Sie können nach 30 Tagen nicht mehr auf die Konsole zugreifen.
 {: tsSymptoms}
 
 Kostenlose Kubernetes-Cluster sind nur 30 Tage lang gültig.
@@ -172,10 +176,10 @@ Kostenlose Kubernetes-Cluster sind nur 30 Tage lang gültig.
 Es ist nicht möglich, von einem kostenlosen Cluster auf einen gebührenpflichtigen Cluster zu migrieren. Nach 30 Tagen können Sie nicht mehr auf die Konsole zugreifen und alle Ihre Knoten und Zertifikate werden gelöscht. Informationen zu diesen Vorgängen und was Sie unternehmen können, finden Sie im Thema zum [Ablauf des Kubernetes-Clusters](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration).
 {: tsResolve}
 
-## Weshalb schlagen die Transaktionen fehl, dich ich über VSCode zur Verarbeitung übergebe?
+## Weshalb schlagen die Transaktionen, die ich über den VS Code übergebe, fehl?
 {: #ibp-v2-troubleshooting-anchor-peer}
 
-Transaktionen, die mittels VSCode übergeben werden, schlagen mit einem Fehler ähnlich dem folgenden fehl:
+Wenn Transaktionen fehlschlagen, die über den VS Code übergeben wurden, wird die folgende Fehlernachricht ausgegeben:
 ```
 Error submitting transaction: No endorsement plan available for {"chaincodes":[{"name":"hello-world"}]}
 ```

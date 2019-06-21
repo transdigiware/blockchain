@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain Platform, peer, deploy peers, data storage, peer configuration file, IBM Cloud Private 
 
 subcollection: blockchain
 
@@ -125,7 +127,7 @@ Speichern Sie die Ausgabe, die im obigen Schritt 4 als Ergebnis erzielt wird.
     ```
     {:code_block}
 
-  2. Geben Sie im Feld **Name** den Wert `couchdbuser` ein. Geben Sie im entsprechenden Feld **Wert** das Ergebnis des Befehls `echo -n 'couch' | base64 $FLAG` aus Schritt 1 oben ein.
+  2. Geben Sie im Feld **Name** den Wert `couchdbusr` ein. Geben Sie im entsprechenden Feld **Wert** das Ergebnis des Befehls `echo -n 'couch' | base64 $FLAG` aus Schritt 1 oben ein.
   3. Klicken Sie auf die Schaltfläche **Daten hinzufügen**, um ein zweites Schlüssel/Wert-Paar hinzuzufügen.
   4. Geben Sie im zweiten Feld **Name** den Wert `couchdbpwd` ein. Geben Sie im entsprechenden Feld **Wert** das Ergebnis des Befehls `echo -n 'couchpw' | base64 $FLAG` aus Schritt 1 oben ein.
 
@@ -261,7 +263,7 @@ helm install --name jnchart2 mycluster/ibm-blockchain-platform \
 
 Sie können eine neue Datei `yaml` erstellen, indem Sie die Datei `values.yaml` bearbeiten, die in der heruntergeladenen Archivdatei enthalten ist. In dieser Datei befinden sich alle erforderlichen Parameter mit ihren Standardeinstellungen.
 
-## Peer-Installation überprüfen
+## Peerinstallation überprüfen
 {: #icp-peer-deploy-verify-installation-icp}
 
 Nachdem Sie die Konfigurationsparameter ausgefüllt und auf die Schaltfläche **Installieren** geklickt haben, können Sie die Bereitstellung prüfen, indem Sie auf die Schaltfläche **Helm-Release anzeigen** klicken. Wenn die Bereitstellung erfolgreich durchgeführt wurde, sollte der Wert 1 in den Feldern `GEWÜNSCHT`, `DERZEIT`, `AKTUELL` und `VERFÜGBAR` der Tabelle "Bereitstellung" angezeigt werden. Möglicherweise müssen Sie zur Aktualisierung klicken und warten, bis die Tabelle aktualisiert angezeigt wird. Die Tabelle "Bereitstellung" können Sie außerdem aufrufen, indem Sie in der linken oberen Ecke der {{site.data.keyword.cloud_notm}} Private-Konsole auf das **Menüsymbol** klicken. Klicken Sie in der Menüliste auf **Workloads** und dann auf **Helm-Releases**.

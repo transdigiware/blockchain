@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-17"
+  years: 2018, 2019
+lastupdated: "2019-05-16"
+
+keywords: Starter Plan network, Starter Plan, Enterprise Plan network, Enterprise Plan, migration
 
 subcollection: blockchain
 
@@ -14,7 +16,7 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Von Starter Plan auf Enterprise Plan migrieren
+# Migration vom Starter Plan zum Enterprise Plan durchführen
 {: #migrate_starter_to_enterprise}
 
 {{site.data.keyword.blockchainfull}} Platform [Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about) bietet Ihnen eine Test- und Entwicklungsumgebung zur Ausführung Ihrer Machbarkeitsnachweise (PoC = Proof of Concept) und Demos sowie zum Testen Ihres Chaincodes und Ihrer Anwendungen. Wenn Sie bereit sind, um Ihre Entwicklungsergebnisse in eine Produktionsumgebung zu überführen, dann können Sie eine Migration von einem Starter Plan-Netz auf ein [Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)-Netz durchführen.
@@ -75,8 +77,7 @@ Sie können die Konfiguration von Organisationen (Mitgliedern), Kanälen und Pee
 ### Chaincode migrieren
 {: #migrate_starter_to_enterprise_cc}
 
-Chaincode wird extern in Ihrer lokalen Umgebung entwickelt und von Ihren Clientanwendungen aufgerufen. Zum Installieren und Instanziieren von Chaincode, der in Ihrem Starter Plan-Netz getestet wurde, auf ausgewählten Peers im Enterprise Plan-Netz müssen Sie die Anweisungen im Abschnitt [Installieren, Instanziieren und Aktualisieren von Chaincode](/docs/services/blockchain
-/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc).
+Chaincode wird extern in Ihrer lokalen Umgebung entwickelt und von Ihren Clientanwendungen aufgerufen. Zum Installieren und Instanziieren von Chaincode, der in Ihrem Starter Plan-Netz getestet wurde, auf ausgewählten Peers im Enterprise Plan-Netz müssen Sie die Anweisungen im Abschnitt zum [Installieren, Instanziieren und Aktualisieren von Chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc "Installieren, Instanziieren und Aktualisieren von Chaincode") befolgen.
 
 ### Clientanwendungen aktualisieren
 {: #migrate_starter_to_enterprise_app}

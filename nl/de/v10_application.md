@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-05-16"
+
+keywords: Fabric SDKs, client application, enroll, register, chaincode
 
 subcollection: blockchain
 
@@ -40,7 +42,7 @@ Sie müssen die folgenden Voraussetzungen erfüllen, um das Lernprogramm zum **S
 
 - Installieren Sie die erforderlichen Tools, um Hyperledger Fabric-Beispiele herunterzuladen und das Node-SDK zu verwenden.
   * [Curl ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#install-curl "Curl") oder [Git ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git"){:new_window}
-  * [Node.js ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html#node-js-runtime-and-npm "Node.js"){:new_window}
+  * [Node.js ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#node-js-runtime-and-npm "Node.js"){:new_window}
 
 - Installieren Sie die Hyperledger Fabric-Beispiele, indem Sie das Verzeichnis `fabric-samples` herunterladen. Sie können dazu den [Leitfaden zur Einführung![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/install.html "Getting Started Guide"){:new_window} in der Hyperledger Fabric-Dokumentation verwenden.
 
@@ -303,7 +305,7 @@ In den folgenden Beispielen wird gezeigt, wie das Node-SDK die Netztopologie ein
   ```
   {:codeblock}
 
-  Obwohl im Beispiel ein peerbasierter Ereignisservice verwendet wird, sollten Sie einen kanalbasierten Listener benutzen. Weitere Informationen erhalten Sie im Abschnitt [Transaktionen verwalten](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions) und in der [Node-SDK-Dokumentation ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "Channel based event service"){:new_window}.
+  Obwohl im Beispiel ein peerbasierter Ereignisservice verwendet wird, sollten Sie einen kanalbasierten Listener benutzen. Weitere Informationen erhalten Sie im Abschnitt [Transaktionen verwalten](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions) und in der [Node-SDK-Dokumentation ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "Kanalbasierter Ereignisservice"){:new_window}.
 
 5. Standardmäßig übergibt `invoke.js` die Transaktion als `user1`. Wenn Sie einen anderen Namen registriert haben, können Sie die Datei  `invoke.js` entsprechend bearbeiten.
 
@@ -345,7 +347,7 @@ Weitere Informationen zur fabcar-Anwendung und den von dieser Anwendung benutzte
 
 Anstatt die Endpunktinformationen Ihres Netzes manuell zu importieren, können Sie über das SDK eine Verbindung zu Ihrem Netz herstellen. Hierzu verwenden Sie die Option **Verbindungsprofil** in der Anzeige **Übersicht** des Network Monitor. Auf diese Weise kann der Prozess der Verbindungsherstellung zu Ihrer Zertifizierungsstelle zum Zweck der Eintragung und Registrierung optimiert werden. Darüber hinaus wird so das Definieren Ihres Fabric-Netzes vor dem Übergeben einer Transaktion überflüssig. Das SDK kann die Peers und Anordnungsknoten auf dem relevanten Kanal direkt über das Verbindungsprofil suchen. Weitere Informationen zur Vorgehensweise bei der Verwendung eines Verbindungsprofils finden Sie in der [Node-SDK-Dokumentation ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://fabric-sdk-node.github.io/tutorial-network-config.html "Connection profile tutorial"){:new_window}.
 
-Im Folgenden wird die Datei `invoke.js` als Beispiel herangezogen, um die Effizienz der Verwendung eines Verbindungsprofils gegenüber der Verwendung manueller Endpunkte zu zeigen. Sie können eine neue Instanz des Fabric-Clients mit der Klasse `loadFromConfig` einrichten. Ersetzen Sie dabei `var fabric_client = new Fabric_Client();` durch den folgenden Code.
+Im Folgenden wird die Datei `invoke.js` als Beispiel herangezogen, um die Effizienz der Verwendung eines Verbindungsprofils gegenüber der Verwendung manueller Endpunkte zu zeigen. Mit der Klasse `loadFromConfig` können Sie eine neue Instanz des Fabric-Clients einrichten. Ersetzen Sie dabei `var fabric_client = new Fabric_Client();` durch den folgenden Code.
 ```
 var fabric_client = Fabric_Client.loadFromConfig(path.join(__dirname, './connection-profile.json'));
 ```
@@ -358,9 +360,9 @@ var channel = fabric_client.newChannel('defaultchannel');
 ```
 {:codeblock}
 
-Das SDK fügt dann die Peers und den Anordnungsservice hinzu, die über das Verbindungsprofil auf dem Kanal definiert werden. Auf diese Weise kann das Schreiben von Anwendungen effizienter gestaltet und das Aktualisieren Ihrer Anwendungen vereinfacht werden, wenn Netzmitglieder zu Kanälen hinzugefügt, aus diesen entfernt oder wenn neue Kanäle gestartet werden sollen. Informationen zu den zusätzlich auszuführenden Schritten finden Sie im [Lernprogramm zum Verbindungsprofil ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://fabric-sdk-node.github.io/tutorial-network-config.html "Connection profile tutorial"){:new_window} in der Node-SDK-Dokumentation. Sie können diese [Version des fabcar-Lernprogramms ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://www.ibm.com/developerworks/cloud/library/cl-deploy-fabcar-sample-application-ibm-blockchain-starter-plan/index.html){:new_window} verwenden, das anstelle von manuellen Endpunktverbindungen mit dem Verbindungsprofil arbeitet.
+Das SDK fügt dann die Peers und den Anordnungsservice hinzu, die über das Verbindungsprofil auf dem Kanal definiert werden. Auf diese Weise kann das Schreiben von Anwendungen effizienter gestaltet und das Aktualisieren Ihrer Anwendungen vereinfacht werden, wenn Netzmitglieder zu Kanälen hinzugefügt, aus diesen entfernt oder wenn neue Kanäle gestartet werden sollen. Informationen zu den zusätzlich auszuführenden Schritten finden Sie im [Lernprogramm zum Verbindungsprofil ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://fabric-sdk-node.github.io/tutorial-network-config.html "Connection profile tutorial"){:new_window} in der Node-SDK-Dokumentation. Sie können diese [Version des fabcar-Lernprogramms ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://developer.ibm.com/tutorials/cl-deploy-fabcar-sample-application-ibm-blockchain-starter-plan/){:new_window} verwenden, das anstelle von manuellen Endpunktverbindungen mit dem Verbindungsprofil arbeitet.
 
-Die [Serviceerkennung ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "Service discovery") für eine Bewilligungsrichtlinie in Hyperledger Fabric wird für den Starter Plan oder Enterprise Plan nicht unterstützt. Sie können jedoch Transaktionen zur Bewilligung an Peers senden, die sich außerhalb Ihrer Organisation befinden. Hierzu bearbeiten Sie das Verbindungsprofil. Das Verbindungsprofil enthält bereits die Endpunktinformationen und TLS-Zertifikate der Peers aus anderen Organisationen, die sich im {{site.data.keyword.blockchainfull_notm}} Platform-Netz befinden. Fügen Sie im Abschnitt "channels" des Profils den Namen des Peers zum relevanten Kanal hinzu, um den Peer zum Kanal hinzuzufügen. Sie müssen sich an die Administratoren der anderen Organisationen wenden, um in Erfahrung zu bringen, welche Peers den jeweiligen Kanälen hinzugefügt wurden.
+Die [Serviceerkennung ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html "Service discovery") für eine Bewilligungsrichtlinie in Hyperledger Fabric wird für den Starter Plan oder Enterprise Plan nicht unterstützt. Sie können jedoch Transaktionen zur Bewilligung an Peers senden, die sich außerhalb Ihrer Organisation befinden. Hierzu bearbeiten Sie das Verbindungsprofil. Das Verbindungsprofil enthält bereits die Endpunktinformationen und TLS-Zertifikate der Peers aus anderen Organisationen, die sich im {{site.data.keyword.blockchainfull_notm}} Platform-Netz befinden. Fügen Sie im Abschnitt "channels" des Profils den Namen des Peers zum relevanten Kanal hinzu, um den Peer zum Kanal hinzuzufügen. Sie müssen sich an die Administratoren der anderen Organisationen wenden, um in Erfahrung zu bringen, welche Peers den jeweiligen Kanälen zugeordnet wurden.
 
 ## Zertifikate mit Network Monitor generieren
 {: #dev-app-enroll-panel}

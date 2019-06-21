@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-03-22"
+
+keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
 subcollection: blockchain
 
@@ -26,7 +28,7 @@ Dieser Leitfaden ist für Benutzer, die bereits die Grundlagen der Anwendungsent
 ## Anwendungskonnektivität und -verfügbarkeit
 {: #best-practices-app-connectivity-availability}
 
-Der [Transaktionsfluss ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "Transaktionsfluss"){:new_window} von Hyperledger Fabric umfasst mehrere Komponenten, wobei die Clientanwendungen eine zentrale Rolle einnehmen. Das SDK übergibt Transaktionsvorschläge an die Peers, um die Bewilligung zu erhalten. Anschließend erfasst es die bewilligten Vorschläge, die an den Anordnungsservice gesendet werden müssen. Dieser sendet dann Blöcke von Transaktionen an die Peers, die den Ledgern der Kanäle hinzugefügt werden müssen. Entwickler von Produktionsanwendungen sollten darauf vorbereitet sein, dass ihre Interaktionen zwischen dem SDK und ihren Netzen mit der Zielsetzung der Effizienz und Verfügbarkeit verwaltet werden müssen.
+Der [Transaktionsfluss![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "Transaktionsfluss"){:new_window} von Hyperledger Fabric umfasst mehrere Komponenten, wobei die Clientanwendungen eine zentrale Rolle einnehmen. Das SDK übergibt Transaktionsvorschläge an die Peers, um die Bewilligung zu erhalten. Anschließend erfasst es die bewilligten Vorschläge, die an den Anordnungsservice gesendet werden müssen. Dieser sendet dann Blöcke von Transaktionen an die Peers, die den Ledgern der Kanäle hinzugefügt werden müssen. Entwickler von Produktionsanwendungen sollten darauf vorbereitet sein, dass ihre Interaktionen zwischen dem SDK und ihren Netzen mit der Zielsetzung der Effizienz und Verfügbarkeit verwaltet werden müssen.
 
 ### Transaktionen verwalten
 {: #best-practices-app-managing-transactions}
@@ -158,7 +160,7 @@ channel.sendInstantiateProposal(request, 300000);
 
 Wenn Sie CouchDB als Statusdatenbank verwenden, können Sie JSON-Datenabfragen aus dem Chaincode für die Statusdaten des Kanals ausführen. Es wird dringend empfohlen, Indizes für Ihre JSON-Abfragen zu erstellen und in Ihrem Chaincode zu verwenden. Mithilfe von Indizes können Ihre Anwendungen Daten effizient abrufen, während das Netz zusätzliche Blöcke von Transaktionen und Einträgen im World-Status hinzufügt.
 
-Weitere Informationen zu CouchDB und zum Konfigurieren von Indizes enthält der Abschnitt über [CouchDB als Statusdatenbank![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](http://hyperledger-fabric.readthedocs.io/en/release-1.1/couchdb_as_state_database.html "CouchDB as the State Database"){:new_window} in der Hyperledger Fabric-Dokumentation. Im [Fabric-Lernprogramm für CouchDB ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html) finden Sie außerdem ein Beispiel, das einen Index mit Chaincode verwendet.
+Weitere Informationen zu CouchDB und zum Konfigurieren von Indizes enthält der Abschnitt über [CouchDB als Statusdatenbank ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html "CouchDB as the State Database"){:new_window} in der Hyperledger Fabric-Dokumentation. Im [Fabric-Lernprogramm für CouchDB ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html) finden Sie außerdem ein Beispiel, das einen Index mit Chaincode verwendet.
 
 Verwenden Sie Chaincode nach Möglichkeit nicht für Abfragen, die das Durchsuchen der gesamten CouchDB-Datenbank zur Folge haben. Vollständige Datenbankscans führen zu langen Antwortzeiten und vermindern die Leistung Ihres Netzes. Zur Vermeidung von umfangreichen Abfragen können Sie einige der folgenden Schritte ausführen:
 - Richten Sie in Ihrem Chaincode Indizes ein.
@@ -166,7 +168,7 @@ Verwenden Sie Chaincode nach Möglichkeit nicht für Abfragen, die das Durchsuch
 - Komplexere Abfragen haben eine geringere Leistung und werden weniger wahrscheinlich einen Index verwenden.
 - Vermeiden Sie die Verwendung von Operatoren, die einen vollständigen Tabellenscan oder einen vollständigen Indexscan verursachen, beispielsweise `$or`, `$in` und `$regex`.
 
-Beispiele zur Veranschaulichung zur Vorgehensweise bei der Verwendung von Indizes durch Abfragen sowie dazu, welcher Typ von Abfragen am leistungsfähigsten ist, finden Sie im [Lernprogramm zu Fabric CouchDB ![Symbol für externen Link](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes).
+Beispiele zur Veranschaulichung zur Vorgehensweise bei der Verwendung von Indizes durch Abfragen sowie dazu, welcher Typ von Abfragen am leistungsfähigsten ist, finden Sie im [Lernprogramm zu Fabric CouchDB ![Symbol für externen Link](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes).
 
 Peers unter {{site.data.keyword.blockchainfull_notm}} Platform haben eine festgelegte Abfragebegrenzung (queryLimit) und geben nur 10.000 Einträge aus der Statusdatenbank zurück. Wenn Ihre Abfrage die Abfragebegrenzung erreicht, können Sie mehrere Abfragen verwenden, um die restlichen Ergebnisse abzurufen. Wenn Sie mehr Ergebnisse aus einer Bereichsabfrage benötigen, beginnen Sie nachfolgende Abfragen mit dem letzten Schlüssel, der durch die vorherige Abfrage zurückgegeben wurde. Wenn Sie mehr Ergebnisse aus JSON-Abfragen benötigen, sortieren Sie Ihre Abfrage unter Verwendung einer der Variablen in Ihren Daten und verwenden Sie dann den letzten Wert aus der vorherigen Abfrage in einem "Größer-als"-Filter für die nächste Abfrage.
 

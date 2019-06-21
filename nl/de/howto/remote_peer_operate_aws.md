@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-16"
+
+keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
 subcollection: blockchain
 
@@ -46,7 +48,7 @@ Hierbei wird die Verwendung von Version 1.2 des Node-SDK empfohlen.
 
 Bevor Sie das SDK zum Betreiben des Peers benutzen können, müssen Sie die erforderlichen Zertifikate (Eintragung) generieren, auf deren Basis Ihre Anwendung mit dem Netz unter {{site.data.keyword.blockchainfull_notm}} Platform und dem Peer kommunizieren kann. Führen Sie die Schritte für die [Eintragung beim SDK](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk) aus und verwenden Sie dabei Ihre Identität **admin**. Das Lernprogramm [Anwendungen entwickeln](/docs/services/blockchain/v10_application.html#dev-app) wird ebenfalls unter **admin** eingetragen, sodass der Beispielcode nicht geändert werden muss.
 
-### signCert-Zertifikat in IBM Blockchain Platform hochladen
+### signCert-Zertifikat in {{site.data.keyword.blockchainfull_notm}} Platform hochladen
 {: #remote-peer-aws-operate-upload-SDK}
 
 Sie müssen das SDK-Signierzertifikat in das Netz unter {{site.data.keyword.blockchainfull_notm}} Platform hochladen, damit andere Mitglieder Ihre digitale Signatur erkennen können.
@@ -56,7 +58,7 @@ Sie müssen das SDK-Signierzertifikat in das Netz unter {{site.data.keyword.bloc
 ### signCert-Zertifikat in Peer hochladen
 {: #remote-peer-aws-operate-upload-signcert}
 
-Sie müssen auch das Signierzertifikat des SDK in den fernen Peer hochladen und dann einen Neustart durchführen. Sie müssen im Container des fernen Peers dasselbe Signierzertifikat installieren, das Sie in [IBM Blockchain Platform hochgeladen](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK) haben.
+Sie müssen auch das Signierzertifikat des SDK in den fernen Peer hochladen und dann einen Neustart durchführen. Sie müssen im Container des fernen Peers dasselbe Signierzertifikat installieren, das Sie in [{{site.data.keyword.blockchainfull_notm}} Platform hochgeladen](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK) haben.
 
 Stellen Sie eine SSH-Verbindung zu Ihrer VPC-Instanz her, indem Sie die Instanz in der AWS-Konsole auswählen (klicken Sie hierzu auf **Services > EC2 > Instanzen**) und anschließend auf die Schaltfläche "Verbinden" klicken. Befolgen Sie die Anweisungen in AWS, um den Befehl "ssh" auszugeben.
 
@@ -299,7 +301,7 @@ docker pull ibmblockchain/fabric-tools:1.2.1
 
 #### Ressourcen für den Container zusammenstellen    
 
-Es müssen einige Ordner auf Ihrer lokalen Maschine eingerichtet werden, die das Beispiel `fabcar` enthalten, das später bei der Installation und Instanziierung von Chaincode verwendet wird. Führen Sie die folgenden Befehle aus, um die Ordnerstruktur für den Beispiel-Chaincode zu konfigurieren, und laden Sie es anschließend mit Hilfe von Git herunter.
+Es müssen einige Ordner auf Ihrer lokalen Maschine eingerichtet werden, die das Beispiel `fabcar` enthalten, das später bei der Installation und Instanziierung von Chaincode verwendet wird. Führen Sie die folgenden Befehle aus, um die Ordnerstruktur für den Beispiel-Chaincode zu konfigurieren, und laden Sie ihn anschließend mithilfe von Git herunter.
 
 ```
 mkdir toolsrc
@@ -528,7 +530,7 @@ Der Stack wird erfolgreich erstellt, aber Docker-Protokolle enthalten den folgen
 **Lösung:**  
 Dieser Fehler kann dadurch verursacht werden, dass bei der Bereitstellung der Schnelleinstiegsvorlage kein Port in der URL für die Zertifizierungsstelle angegeben wurde.
 Die URL der Zertifizierungsstelle sollte etwa folgendermaßen aussehen: `https://<network>-org1-ca.stage.blockchain.ibm.com:31011`.
-Stellen Sie die Schnelleinstiegsvorlage erneut bereit und achten Sie darauf, den richtigen Wert als URL für die Zertifizierungsstelle anzugeben.
+Stellen Sie die Schnelleinstiegsvorlage erneut bereit und achten Sie darauf, den richtigen Wert für die URL der Zertifizierungsstelle anzugeben.
 
 ### **Problem:** Instanziieren von Chaincode schlägt mit Fehler fehl
 {: #remote-peer-aws-operate-problem-2}
