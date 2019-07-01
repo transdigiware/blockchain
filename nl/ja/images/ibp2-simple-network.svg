@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1018.6 774"
+   style="enable-background:new 0 0 1018.6 774;"
+   xml:space="preserve"
+   sodipodi:docname="ibp2-simple-network.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:export-filename="D:\_work\IBM\BM140\BM140ABD141_007\UT_kumi\01_work\_Art\01_New\jpn\ibp2-simple-network.png"
+   inkscape:export-xdpi="115.40984"
+   inkscape:export-ydpi="115.40984"><metadata
+   id="metadata154"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs152" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview150"
+   showgrid="false"
+   inkscape:zoom="1.5446266"
+   inkscape:cx="512.7"
+   inkscape:cy="379.9"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:#DCDCDC;stroke:#DCDCDC;}
+	.st1{fill:#5A6872;}
+	.st2{fill:#011688;stroke:#857B7B;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'Source Han Sans';}
+	.st5{font-size:19px;}
+	.st6{fill:#FFFFFF;stroke:#FFFFFF;}
+	.st7{fill:#010F5E;}
+	.st8{font-size:16px;}
+	.st9{fill:#0CCAEB;}
+	.st10{font-size:14px;}
+	.st11{fill:#FFFFFF;stroke:#979797;}
+	.st12{fill:#011688;}
+	.st13{fill:none;stroke:#001588;}
+	.st14{fill:none;stroke:#FFFFFF;}
+	.st15{fill:none;stroke:#12C3F4;stroke-width:2;}
+	.st16{font-size:12px;}
+</style>
+<title
+   id="title4">ibp-v2-build-network_Raft</title>
+<rect
+   id="Rectangle"
+   x="89.2"
+   y="120.1"
+   class="st0"
+   width="847"
+   height="548" />
+<g
+   id="UI-Icon_checkmark--outline_ui-05">
+	<path
+   id="Oval-2"
+   class="st1"
+   d="M355.6,276.1c3.6,0,6.5-2.9,6.5-6.5s-2.9-6.5-6.5-6.5s-6.5,2.9-6.5,6.5l0,0   C349.1,273.2,352,276.1,355.6,276.1L355.6,276.1z M355.6,277.6c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S360.1,277.6,355.6,277.6z" />
+	<polygon
+   id="check"
+   class="st1"
+   points="359,266.3 360.4,267.7 354.5,273.6 351,270.2 352.4,268.8 354.5,270.8  " />
+</g>
+<rect
+   id="Rectangle-2"
+   x="113.2"
+   y="157.1"
+   class="st2"
+   width="347"
+   height="151" />
+<text
+   transform="matrix(1 0 0 1 131.86 191.59)"
+   class="st3 st4 st5"
+   id="text11"
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:19px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+     sodipodi:role="line"
+     id="tspan162">組織 1</tspan></text>
+
+
+
+<rect
+   id="Rectangle-3"
+   x="396.1"
+   y="145.1"
+   class="st6"
+   width="105"
+   height="35" />
+<text
+   class="st7 st4 st8"
+   id="text18"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#010f5e"
+   x="414.82999"
+   y="168.59"><tspan
+     sodipodi:role="line"
+     id="tspan158"
+     x="414.82999"
+     y="168.59">組織 1 CA</tspan></text>
+
+
+
+
+
+<rect
+   id="Rectangle-4"
+   x="338.1"
+   y="213.1"
+   class="st6"
+   width="105"
+   height="55" />
+<text
+   transform="matrix(1 0 0 1 353.02 236.59)"
+   class="st7 st4 st8"
+   id="text29"
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+     sodipodi:role="line"
+     id="tspan160">組織 1 MSP</tspan></text>
+
+
+
+<text
+   transform="matrix(1 0 0 1 356.27 256.59)"
+   class="st7 st4 st8"
+   id="text35">定義</text>
+
+<rect
+   id="Rectangle-9"
+   x="134.1"
+   y="211.1"
+   class="st6"
+   width="105"
+   height="61" />
+<g
+   id="Group-3">
+	<path
+   id="Fill-1"
+   class="st9"
+   d="M235.6,233.6h51v39c-25.5,0-25.5,14.9-51,6.4V233.6z" />
+</g>
+<text
+   transform="matrix(1 0 0 1 146.77 247.59)"
+   class="st7 st4 st8"
+   id="text40"
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+     sodipodi:role="line"
+     id="tspan156">ピア組織 1</tspan></text>
+
+
+
+
+<text
+   transform="matrix(1 0 0 1 239.65 257.59)"
+   class="st3 st4 st10"
+   id="text48"> </text>
+
+<text
+   transform="matrix(1 0 0 1 246.69 257.59)"
+   class="st3 st4 st10"
+   id="text50">台</text>
+
+<text
+   transform="matrix(1 0 0 1 262.76 257.59)"
+   class="st3 st4 st10"
+   id="text52">帳</text>
+
+<text
+   transform="matrix(1 0 0 1 270.2 257.59)"
+   class="st3 st4 st10"
+   id="text54"> </text>
+
+<text
+   class="st3 st4 st10"
+   id="text56"
+   x="249.64999"
+   y="272.59"
+   style="font-size:14px;font-family:'Source Han Sans';fill:#ffffff">X</text>
+
+<ellipse
+   id="Oval"
+   class="st11"
+   cx="350.1"
+   cy="395.1"
+   rx="194.5"
+   ry="51.5" />
+<text
+   transform="matrix(1 0 0 1 307.4 406.59)"
+   class="st7 st4 st5"
+   id="text59">チャネル 1</text>
+
+<rect
+   id="Rectangle-10"
+   x="524.2"
+   y="286.6"
+   class="st2"
+   width="347"
+   height="214.5" />
+<text
+   transform="matrix(1 0 0 1 544.1 321.09)"
+   class="st3 st4 st5"
+   id="text62"
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:19px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+     sodipodi:role="line"
+     id="tspan164">順序付けサービス組織</tspan></text>
+
+
+
+
+
+
+
+
+
+<rect
+   id="Rectangle-11"
+   x="738.6"
+   y="274.6"
+   class="st6"
+   width="173.6"
+   height="35" />
+<text
+   class="st7 st4 st8"
+   id="text81"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#010f5e"
+   x="750.02002"
+   y="298.09"><tspan
+     sodipodi:role="line"
+     id="tspan166"
+     x="750.02002"
+     y="298.09">順序付けサービス CA</tspan></text>
+
+
+
+
+
+
+
+
+
+<rect
+   id="Rectangle-12"
+   x="721.2"
+   y="371.6"
+   class="st6"
+   width="135.8"
+   height="55" />
+<text
+   transform="matrix(1 0 0 1 728.19 395.44)"
+   class="st7 st4 st8"
+   id="text100"
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
+     sodipodi:role="line"
+     id="tspan168">順序付けサービス</tspan></text>
+
+
+
+
+
+
+
+<text
+   transform="matrix(1 0 0 1 734.89 415.44)"
+   class="st7 st4 st8"
+   id="text114">MSP 定義</text>
+
+<rect
+   id="Rectangle-13"
+   x="552.7"
+   y="408.6"
+   class="st12"
+   width="10"
+   height="10" />
+<g
+   id="Group-18">
+	<g
+   id="Group-5">
+		<polygon
+   id="Fill-1-3"
+   class="st3"
+   points="546.2,337.6 705.7,337.6 705.7,474.1 546.2,474.1   " />
+		<polygon
+   id="Stroke-3"
+   class="st13"
+   points="546.2,474.1 705.7,474.1 705.7,337.6 546.2,337.6   " />
+	</g>
+</g>
+<line
+   class="st14"
+   x1="182.6"
+   y1="272.1"
+   x2="182.6"
+   y2="367.1"
+   id="line121" />
+<circle
+   class="st15"
+   cx="625.9"
+   cy="419.1"
+   r="32.1"
+   id="circle123" />
+<circle
+   class="st7"
+   cx="595"
+   cy="412.6"
+   r="8.3"
+   id="circle125" />
+<circle
+   class="st7"
+   cx="625.9"
+   cy="389.1"
+   r="8.3"
+   id="circle127" />
+<circle
+   class="st7"
+   cx="656.6"
+   cy="412.6"
+   r="8.3"
+   id="circle129" />
+<circle
+   class="st7"
+   cx="607.7"
+   cy="446.9"
+   r="8.3"
+   id="circle131" />
+<circle
+   class="st7"
+   cx="642.6"
+   cy="446.9"
+   r="8.3"
+   id="circle133" />
+<text
+   class="st7 st4 st16"
+   id="text135"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#010f5e"
+   x="556.65002"
+   y="363.51999"><tspan
+     sodipodi:role="line"
+     id="tspan170"
+     x="556.65002"
+     y="363.51999">順序付けサービス・ノード</tspan></text>
+
+
+
+
+
+
+
+</svg>
