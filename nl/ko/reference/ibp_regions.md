@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 사용 가능합니다. {{site.data.keyword.blockchainfull_notm}} Platform 플랜이 사용 가능한 {{site.data.keyword.cloud_notm}} 위치에서만
 블록체인 네트워크를 작성할 수 있습니다.
 
-표 1과 그림 1은 {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}에서 지원하는 {{site.data.keyword.cloud_notm}} 지역 및 위치를 보여줍니다. 
+표 1과 그림 1은 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}에서 지원하는 {{site.data.keyword.cloud_notm}} 지역 및 위치를 보여줍니다. 
 
 무료 {{site.data.keyword.cloud_notm}} Kubernetes 클러스터를 사용하려면 아시아 태평양에서 무료 클러스터를 선택하지 마십시오. 그렇지 않으면 AP 북부 대신 AP 남부에 있는 멜버른에 무료 클러스터가 작성됩니다. 현재 AP 남부 클러스터는 {{site.data.keyword.blockchainfull_notm}} Platform v2.0을 배치하는 데 사용될 수 없습니다. 무료 클러스터를 사용하려는 경우 **미국 남부** 또는 **유럽 중앙** 위치를 선택하십시오.
 {: note}
@@ -41,7 +41,7 @@ subcollection: blockchain
 | API 북부 | 도쿄, 첸나이, 홍콩, 서울, 싱가포르 |
 | 유럽 중앙 | 프랑크푸르트, 암스테르담, 밀라노, 오슬로, 파리 |
 
-_표 1. {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} 위치_
+_표 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 위치_
 
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} 위치](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} 위치")

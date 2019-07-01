@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.IBM}}은 Composer CLI, JavaScript API, REST 서버 및 웹 플레이그라운드를 포함하여 프로덕션에서 Hyperledger Composer를 사용하는 네트워크를 지원하지 않습니다.
 {:note}
 
-{{site.data.keyword.blockchainfull_notm}} Platform 개발자 환경 및 Hyperledger Composer 개발자 도구 세트를 사용하여 [비즈니스 네트워크](/docs/services/blockchain/glossary.html#glossary-business-network)를 개발하고 스타터 및 엔터프라이즈 플랜 네트워크에 배치할 수 있습니다.
+{{site.data.keyword.blockchainfull_notm}} Platform 개발자 환경 및 Hyperledger Composer 개발자 도구 세트를 사용하여 [비즈니스 네트워크](/docs/services/blockchain?topic=blockchain-glossary#glossary-business-network)를 개발하고 스타터 및 엔터프라이즈 플랜 네트워크에 배치할 수 있습니다.
 {:shortdesc}
 
 개발자 환경을 사용하여 블록체인 비즈니스 네트워크를 신속하게 모델링하고 테스트하며 {{site.data.keyword.blockchainfull_notm}} Platform의 스타터 또는 엔터프라이즈 플랜 네트워크에 배치할 수 있습니다.
@@ -36,14 +36,14 @@ subcollection: blockchain
 ### 시작하기 전에
 {: #deploying-a-business-network-before-begin}
 
-[스타터 플랜 정보](/docs/services/blockchain/starter_plan.html#starter-plan-about)를 읽고 [스타터 플랜 시작하기](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)의 지시사항에 따라 스타터 플랜 네트워크를 작성했는지 확인하십시오.
+[스타터 플랜 정보](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about)를 읽고 [스타터 플랜 시작하기](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan)의 지시사항에 따라 스타터 플랜 네트워크를 작성했는지 확인하십시오.
 
 Node v8.9 이상, npm v5.x 및 Hyperledger Composer를 설치했는지 확인하십시오.
 
 - 네트워크에 Fabric 버전 1.2가 있는 경우 Hyperledger Composer v0.20.x를 사용하십시오.
 - 네트워크에 Fabric 버전 1.1이 있는 경우 Hyperledger Composer v0.19.x를 사용하십시오.
 
-네트워크 모니터에서 [네트워크 환경 설정 창](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)을 열어서 Fabric 버전을 찾을 수 있습니다.
+네트워크 모니터에서 [네트워크 환경 설정 창](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)을 열어서 Fabric 버전을 찾을 수 있습니다.
 
 ### 1단계: 관리자 시크릿 검색
 {: #deploying-a-business-network-retrieve-admin-secret}
@@ -187,7 +187,7 @@ composer network ping -c admin@vehicle-manufacture-network
 
 {{site.data.keyword.blockchainfull_notm}} 개발자 환경을 설치했고 비즈니스 네트워크 개발 및 배치에 익숙한지 확인하십시오. 비즈니스 네트워크 작성에 대한 안내는 [Hyperledger Composer 문서](https://hyperledger.github.io/composer/latest/business-network/business-network-index)에 있습니다.
 
-{{site.data.keyword.blockchainfull_notm}} Platform의 엔터프라이즈 플랜 인스턴스에 대한 액세스 권한이 있어야 하며 사전에 피어를 작성해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜에 대한 자세한 정보는 [엔터프라이즈 플랜 개요](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)를 참조하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform의 엔터프라이즈 플랜 인스턴스에 대한 액세스 권한이 있어야 하며 사전에 피어를 작성해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜에 대한 자세한 정보는 [엔터프라이즈 플랜 개요](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about)를 참조하십시오.
 
 ### 1단계: {{site.data.keyword.blockchainfull_notm}} Platform에 대한 연결 프로파일 작성
 {: #deploying-a-business-network-create-connection-profile}

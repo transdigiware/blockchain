@@ -17,4 +17,4 @@ subcollection: blockchain
 # Opere a rede do Starter Plan
 {: #operate-starter-plan-network}
 
-Visite o tutorial [Usando o monitor de rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard) para saber como operar a Rede do Starter Plan.
+Visite o tutorial [Usando o monitor de rede](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard) para saber como operar a Rede do Starter Plan.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -82,7 +82,7 @@ La **Figure 6** illustre le corps de la réponse de l'API, l'URL, et la commande
 
 Par défaut, tous les utilisateurs ayant un rôle autre que Auditeur dans {{site.data.keyword.cloud_notm}}, peuvent afficher et utiliser les **Données d'identification réseau** visibles dans le panneau des API Swagger et par conséquent gérer votre réseau à l'aide des API. Toutefois, si vous préférez ne pas exposer vos données d'identification réseau API Swagger dans l'interface utilisateur, vous pouvez copier et sécuriser votre valeurs de clé et de secret existantes et générer de nouvelles données d'identification qui ne sont pas valides pour utilisation avec les API Swagger. Un indicateur, nommé resetCredentials, est fourni pour vous permettre de contrôler l'accès en procédant comme suit :
 
-1. Suivez les étapes permettant de générer de nouvelles données d'identification réseau, comme décrit dans le [tableau de bord des données d'identification du service](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Suivez les étapes permettant de générer de nouvelles données d'identification réseau, comme décrit dans le [tableau de bord des données d'identification du service](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 2. Toutefois, dans la zone **Ajouter des paramètres de configuration en ligne**, collez la valeur suivante :
    ```
    {
@@ -104,7 +104,7 @@ A présent, les données d'identification valides d'origine sont visibles dans l
 ### 401 non autorisé  
 {: #ibp-swagger-401}
 
-  Vérifiez que vous avez autorisé les API REST en indiquant vos données d'identification réseau. Pour plus de détails, voir [Autorisation d'API Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger).
+  Vérifiez que vous avez autorisé les API REST en indiquant vos données d'identification réseau. Pour plus de détails, voir [Autorisation d'API Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger).
 
 ### 400 Erreur : Demande incorrecte
 {: #ibp-swagger-400}

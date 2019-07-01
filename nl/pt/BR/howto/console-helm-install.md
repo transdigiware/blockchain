@@ -26,80 +26,78 @@ O {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_no
 
 O gráfico do Helm deve ser comprado por meio do [Passport Advantage on-line](https://www.ibm.com/software/passportadvantage/pao_customer.html){: external}. Mediante a compra, o suporte técnico para o {{site.data.keyword.blockchainfull_notm}} Platform é incluído.
 
-Antes de instalar o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private, revise as [Considerações e limitações](/docs/services/blockchain/console-icp-about.html#console-icp-about-considerations). Para obter mais informações sobre precificação, suporte e considerações sobre residência de dados e segurança, consulte [Sobre o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/console-icp-about.html#console-icp-about).
+Antes de instalar o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private, revise as [Considerações e limitações](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about-considerations). Para obter mais informações sobre precificação, suporte e considerações sobre residência de dados e segurança, consulte [Sobre o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about).
 
 ## Pré-requisitos para instalar o gráfico Helm
 {: #console-helm-install-prereqs}
 
-Antes de instalar o gráfico do Helm, deve-se ter configurado um cluster do {{site.data.keyword.cloud_notm}} Private e criado um novo namespace de destino que esteja ligado a uma política de segurança de pod. Revise as instruções para [definir e configurar um cluster do {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/ICP_console_setup.html#icp-console-setup). Se planeja criar várias redes de blockchain, por exemplo, para criar diferentes ambientes para desenvolvimento, preparação e produção, é necessário criar um namespace exclusivo para cada ambiente.
+Antes de instalar o gráfico do Helm, deve-se ter configurado um cluster do {{site.data.keyword.cloud_notm}} Private e criado um novo namespace de destino que esteja ligado a uma política de segurança de pod. Revise as instruções para [definir e configurar um cluster do {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup). É possível implementar apenas um console por namespace. Se planeja criar várias redes de blockchain, por exemplo, para criar diferentes ambientes para desenvolvimento, preparação e produção, é necessário criar um namespace exclusivo para cada ambiente.
 
 ### Requisitos de PodSecurityPolicy
 {: #console-helm-install-prereqs-pod-security-requirements}
 
-O gráfico do Helm do {{site.data.keyword.blockchainfull_notm}} Platform requer que um PodSecurityPolicy seja ligado ao namespace de destino antes da instalação. Escolha um PodSecurityPolicy predefinido ou peça que o administrador de cluster crie um PodSecurityPolicy customizado para você:
-- Nome do PodSecurityPolicy predefinido: [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-- Definição de PodSecurityPolicy customizado:
-  ```
-  apiVersion: extensions/v1beta1
-  kind: PodSecurityPolicy
-  metadata:
-    name: ibm-blockchain-platform-psp
-  spec:
-    hostIPC: false
-    hostNetwork: false
-    hostPID: false
-    privileged: true
-    allowPrivilegeEscalation: true
-    readOnlyRootFilesystem: false
-    seLinux:
-      rule: RunAsAny
-    supplementalGroups:
-      rule: RunAsAny
-    runAsUser:
-      rule: RunAsAny
-    fsGroup:
-      rule: RunAsAny
-    requiredDropCapabilities:
-    - ALL
-    allowedCapabilities:
-    - NET_BIND_SERVICE
-    - CHOWN
-    - DAC_OVERRIDE
-    - SETGID
-    - SETUID
-    volumes:
-    - '*'
-  ```
-- ClusterRole customizado para o PodSecurityPolicy customizado:
-  ```
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    annotations:
-    name: ibm-blockchain-platform-clusterrole
-  rules:
-  - apiGroups:
-    - extensions
-    resourceNames:
-    - ibm-blockchain-platform-psp
-    resources:
-    - podsecuritypolicies
-    verbs:
-    - use
-  - apiGroups:
-    - ""
-    resources:
-    - secrets
-    verbs:
-    - create
-    - delete
-    - get
-    - list
-    - patch
-    - update
-    - watch
-  ```
-- ClusterRoleBinding customizado para o ClusterRole customizado:
+O gráfico do Helm do {{site.data.keyword.blockchainfull_notm}} Platform requer que as políticas específicas de segurança e acesso sejam ligadas ao namespace de destino antes da instalação. Use as etapas a seguir para configurar as políticas antes da configuração do Gráfico do Helm:
+
+1. Escolha uma PodSecurityPolicy predefinida para o seu namespace ou peça ao seu administrador de cluster para criar uma PodSecurityPolicy customizada para você:
+  - É possível usar a PodSecurityPolicy predefinida de [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
+  - Também é possível criar usando o YAML abaixo de uma definição de PodSecurityPolicy customizada:
+
+    ```
+    apiVersion: extensions/v1beta1 kind: PodSecurityPolicy metadata: name: ibm-blockchain-platform-psp spec: hostIPC: false hostNetwork: false hostPID: false privileged: true allowPrivilegeEscalation: true readOnlyRootFilesystem: false seLinux: rule: RunAsAny supplementalGroups: rule: RunAsAny runAsUser: rule: RunAsAny fsGroup: rule: RunAsAny requiredDropCapabilities:
+      - TODAS as allowedCapabilities:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - DAC_OVERRIDE
+      - SETGID
+      - Volumes de SETUID:
+      - '*'
+    ```
+    {:codeblock}
+
+2. Crie uma ClusterRole para a PodSecurityPolicy.
+  - Se você tiver criado uma política de segurança customizada, será possível criar uma ClusterRole usando o arquivo do YAML abaixo:
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRole metadata: annotations: name: ibm-blockchain-platform-clusterrole rules:
+    - apiGroups:
+      - resourceNames de extensões:
+      - recursos de ibm-blockchain-platform-psp:
+      - verbos de podsecuritypolicies:
+      - use
+    - apiGroups:
+      - ""
+      recursos:
+      - verbos de segredos:
+      - create
+      - excluir
+      - get
+      - listar
+      - correção
+      - atualização
+      - observar
+    ```
+    {:codeblock}
+
+  - Se você estiver usando uma PodSecurityPolicy predefinida, será necessário apenas criar uma ClusterRole usando a segunda seção de apiGroups:
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRole metadata: annotations: name: ibm-blockchain-platform-clusterrole rules:
+      - apiGroups:
+      - ""
+      recursos:
+      - verbos de segredos:
+      - create
+      - excluir
+      - get
+      - listar
+      - correção
+      - atualização
+      - observar
+    ```
+    {:codeblock}
+
+3. Crie uma ClusterRoleBinding customizada. Se você decidir mudar o nome da ServiceAccount no arquivo abaixo, será necessário fornecer o nome para o campo `Service account name` na Seção **Todos os parâmetros** da página Configuração ao implementar o gráfico do Helm.
+
   ```
   apiVersion: rbac.authorization.k8s.io/v1
   kind: ClusterRoleBinding
@@ -114,6 +112,25 @@ O gráfico do Helm do {{site.data.keyword.blockchainfull_notm}} Platform requer 
     name: default
     namespace: default
   ```
+  {:codeblock}
+
+É possível concluir as etapas a seguir para usar arquivos do YAML para ligar as políticas de segurança e acesso ao seu namespace:
+
+1. Salve o arquivo do YAML em seu sistema local.
+
+2. Efetue login em seu cluster do {{site.data.keyword.cloud_notm}} Private e selecione o namespace de destino de sua implementação.
+
+  ```
+  docker login <cluster_CA_domain>:8500
+  ```
+  {:codeblock}
+
+3. Use o comando a seguir para aplicar a política ao namespace de destino:
+
+  ```
+  kubectl apply -f <filename>.yaml
+  ```
+  {:codeblock}
 
 ## Importando o gráfico Helm para  {{site.data.keyword.cloud_notm}}  Privado
 {: #console-helm-install-importing}
@@ -156,11 +173,17 @@ O gráfico do Helm do {{site.data.keyword.blockchainfull_notm}} Platform requer 
   Quando esse comando for concluído com êxito, você verá algo semelhante às informações a seguir:
 
   ```  
-  Loading Helm chart
+  Uploading Helm chart(s)
+   Processing chart: charts/ibm-blockchain-platform-prod-1.1.0.tgz
+   Updating chart values.yaml
+   Uploading chart
   Loaded Helm chart
-
-  Synch charts on repo: <repo-name>
   OK
+
+  Synch charts
+  OK
+
+  Archive finished processing
   ```  
   </details>
 
@@ -169,4 +192,4 @@ Clique no botão **Catálogo** no console do {{site.data.keyword.cloud_notm}} Pr
 ## Próximas etapas
 {: #console-helm-install-next-steps}
 
-Depois de instalar o gráfico do Helm, é possível usar o bloco **ibm-blockchain-platform-prod** em seu Catálogo do {{site.data.keyword.cloud_notm}} Private para implementar o console do {{site.data.keyword.blockchainfull_notm}} Platform. É necessário criar um novo namespace de destino para a implementação e assegurar-se de que seu cluster tenha recursos suficientes para seus componentes do {{site.data.keyword.blockchainfull_notm}} Platform antes de concluir a página de configuração. Para obter mais informações, consulte [Implementando o console do {{site.data.keyword.blockchainfull_notm}} no {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/console-deploy-icp.html#console-deploy-icp).
+Depois de instalar o gráfico do Helm, é possível usar o bloco **ibm-blockchain-platform-prod** em seu Catálogo do {{site.data.keyword.cloud_notm}} Private para implementar o console do {{site.data.keyword.blockchainfull_notm}} Platform. É necessário criar um novo namespace de destino para a implementação e assegurar-se de que seu cluster tenha recursos suficientes para seus componentes do {{site.data.keyword.blockchainfull_notm}} Platform antes de concluir a página de configuração. Para obter mais informações, consulte [Implementando o console do {{site.data.keyword.blockchainfull_notm}} no {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp).

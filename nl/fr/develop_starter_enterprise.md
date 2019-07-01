@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -22,9 +22,10 @@ subcollection: blockchain
 # Déploiement de réseaux d'entreprise dans un plan Starter et Enterprise
 {: #deploying-a-business-network}
 
-{{site.data.keyword.IBM}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.{:note}
+{{site.data.keyword.IBM}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.
+{:note}
 
-Des [réseaux d'entreprise](/docs/services/blockchain/glossary.html#glossary-business-network) peuvent être développés et déployés dans un des réseaux de plan Starter et Enterprise à l'aide de l'environnement développeur d'{{site.data.keyword.blockchainfull_notm}} Platform et du jeu d'outils de développeur Hyperledger Composer.
+Des [réseaux d'entreprise](/docs/services/blockchain?topic=blockchain-glossary#glossary-business-network) peuvent être développés et déployés dans un des réseaux de plan Starter et Enterprise à l'aide de l'environnement développeur d'{{site.data.keyword.blockchainfull_notm}} Platform et du jeu d'outils de développeur Hyperledger Composer.
 {:shortdesc}
 
 Avec l'environnement développeur, vous pouvez rapidement modéliser et tester des réseaux d'entreprise de blockchain et les déployer dans un réseau de plan Starter ou Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform.
@@ -35,14 +36,14 @@ Avec l'environnement développeur, vous pouvez rapidement modéliser et tester d
 ### Avant de commencer
 {: #deploying-a-business-network-before-begin}
 
-Vous devez avoir la section [A propos du plan Starter](/docs/services/blockchain/starter_plan.html#starter-plan-about) et créé un réseau de plan Starter à l'aide des instructions de la section [Mise en route avec le plan Starter](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan).
+Vous devez avoir la section [A propos du plan Starter](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about) et créé un réseau de plan Starter à l'aide des instructions de la section [Mise en route avec le plan Starter](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
 
 Assurez-vous d'avoir installé Node version 8.9 ou suivante, npm version 5.x et Hyperledger Composer :
 
 - Si votre réseau est en version 1.2 de Fabric, utilisez Hyperledger Composer v0.20.x.
 - Si votre réseau est en version 1.1 de Fabric, utilisez Hyperledger Composer v0.19.x.
 
-Pour connaître votre version Fabric, ouvriez la [fenêtre Préférences réseau](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) dans votre Moniteur réseau.
+Pour connaître votre version Fabric, ouvriez la [fenêtre Préférences réseau](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) dans votre Moniteur réseau.
 
 ### Etape 1 : Extraire la valeur confidentielle admin
 {: #deploying-a-business-network-retrieve-admin-secret}
@@ -186,7 +187,7 @@ Ce tutoriel concerne l'étape suivante du cycle de vie d'un réseau d'entreprise
 
 Vous devez vérifier que vous avez installé l'environnement de développeur de {{site.data.keyword.blockchainfull_notm}}. Vous devez aussi savoir comment développer et déployer des réseaux d'entreprise. Pour plus de détails sur la création de réseaux d'entreprise, vous pouvez consulter la [documentation Hyperledger Composer](https://hyperledger.github.io/composer/latest/business-network/business-network-index).
 
-Vous devez accéder à une instance du plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform et vous devez avoir créé vos homologues au préalable. Pour plus d'informations sur le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform, voir [Présentation du plan Enterprise](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+Vous devez accéder à une instance du plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform et vous devez avoir créé vos homologues au préalable. Pour plus d'informations sur le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform, voir [Présentation du plan Enterprise](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
 ### Etape 1 : Créer un profil de connexion pour {{site.data.keyword.blockchainfull_notm}} Platform
 {: #deploying-a-business-network-create-connection-profile}

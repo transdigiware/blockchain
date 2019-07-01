@@ -25,7 +25,7 @@ subcollection: blockchain
 O {{site.data.keyword.blockchainfull}} Platform fornece uma oferta blockchain-as-a-service (BaaS) de pilha integral e gerenciada que permite implementar componentes de blockchain em ambientes de sua escolha. O ambiente pode ser {{site.data.keyword.cloud_notm}}, no local por meio do {{site.data.keyword.cloud_notm}} Private e nuvens de terceiros, como Amazon Web Services (AWS). Neste tutorial, conduziremos você pelo processo geral para configurar uma rede básica de blockchain com o {{site.data.keyword.blockchainfull_notm}} Platform.
 {:shortdesc}
 
-Antes de usar uma oferta do {{site.data.keyword.blockchainfull_notm}} Platform, leia as informações técnicas e de suporte na seção [Renúncia de responsabilidade](/docs/services/blockchain/needtoknow.html#disclaimer).
+Antes de usar uma oferta do {{site.data.keyword.blockchainfull_notm}} Platform, leia as informações técnicas e de suporte na seção [Renúncia de responsabilidade](/docs/services/blockchain?topic=blockchain-disclaimer#disclaimer).
 {: important}
 
 
@@ -37,9 +37,9 @@ O {{site.data.keyword.blockchainfull_notm}} Platform fornece diferentes ofertas 
 | **Ofertas** | **O que está incluído** | **Política de faturamento** | **Plataforma de nuvem** |
 | ------------------------- |-----------|-----------|-----------|-----------|
 | [**{{site.data.keyword.blockchainfull_notm}} Platform Extension for VS Code**](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode) | Os desenvolvedores podem começar com o IDE que fornece um explorador e comandos acessíveis por meio da paleta de comandos, para desenvolver contratos inteligentes rapidamente. | Grátis | É executado em sua máquina local |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview) | O console e as APIs do {{site.data.keyword.blockchainfull_notm}} Platform que podem ser usados para implementar e gerenciar componentes de blockchain em seu cluster {{site.data.keyword.cloud_notm}} Kubernetes | [Precificação de VPC $0,29 USD/VPC-hora](/docs/services/blockchain/howto/pricing-saas.html) | {{site.data.keyword.cloud_notm}} |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) | Console do {{site.data.keyword.blockchainfull_notm}} Platform implementado em um cluster do {{site.data.keyword.cloud_notm}} Private usando um gráfico do Helm do Kubernetes | [Precificação de VPC](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) | {{site.data.keyword.cloud_notm}} Private |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about) | Modelo de iniciação rápida do AWS para implementar peers remotos que estão fora do {{site.data.keyword.cloud_notm}} | Grátis | AWS |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview) | Console do {{site.data.keyword.blockchainfull_notm}} Platform e APIs que podem ser usadas para implementar e gerenciar componentes de blockchain em seu cluster Kubernetes do {{site.data.keyword.cloud_notm}}. | [Precificação de VPC $0,29 USD/VPC-hora](/docs/services/blockchain/howto?topic=blockchain-ibp-saas-pricing) | {{site.data.keyword.cloud_notm}} |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about) | Console do {{site.data.keyword.blockchainfull_notm}} Platform implementado em um cluster do {{site.data.keyword.cloud_notm}} Private usando um gráfico do Helm e APIs do Kubernetes para fornecimento e gerenciamento de componentes de blockchain. | [Precificação de VPC](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) | {{site.data.keyword.cloud_notm}} Private |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about) | Modelo de iniciação rápida do AWS para implementar peers remotos que estão fora do {{site.data.keyword.cloud_notm}}.| Grátis | AWS |
 
 *Figura 1. {{site.data.keyword.blockchainfull_notm}} Ofertas de plataforma *
 
@@ -70,11 +70,11 @@ Assegure-se de que você tenha a conta de nuvem ou a licença do PPA para obter 
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
 
-  Efetue login no {{site.data.keyword.cloud_notm}} e crie uma instância de serviço com a oferta. Siga o assistente para concluir a configuração inicial para sua rede. Para obter mais informações, consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+  Efetue login no {{site.data.keyword.cloud_notm}} e crie uma instância de serviço com a oferta. Siga o assistente para concluir a configuração inicial para sua rede. Para obter mais informações, consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
 
-  Antes de implementar uma rede, é necessário instalar o gráfico do Helm em um cluster do {{site.data.keyword.cloud_notm}} Private. Em seguida, é possível implementar o console do {{site.data.keyword.blockchainfull_notm}} Platform e usá-lo para implementar e operar componentes de blockchain em seu cluster local. Para obter mais informações, consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/get-started-console-icp.html#get-started-console-icp).
+  Antes de implementar uma rede, é necessário instalar o gráfico do Helm em um cluster do {{site.data.keyword.cloud_notm}} Private. Em seguida, é possível implementar o console do {{site.data.keyword.blockchainfull_notm}} Platform e usá-lo para implementar e operar componentes de blockchain em seu cluster local. Para obter mais informações, consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp).
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
 
@@ -88,4 +88,4 @@ Depois de implementar o {{site.data.keyword.blockchainfull_notm}} Platform no am
 ## Obtendo Suporte
 {: #get-started-ibp-getting-support}
 
-O {{site.data.keyword.IBM_notm}} oferece várias opções de suporte em soluções de blockchain implementadas pela {{site.data.keyword.IBM_notm}}. Para obter mais informações sobre o suporte do {{site.data.keyword.blockchainfull_notm}} Platform, veja [Obtendo suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
+O {{site.data.keyword.IBM_notm}} oferece várias opções de suporte em soluções de blockchain implementadas pela {{site.data.keyword.IBM_notm}}. Para obter mais informações sobre o suporte do {{site.data.keyword.blockchainfull_notm}} Platform, veja [Obtendo suporte](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).

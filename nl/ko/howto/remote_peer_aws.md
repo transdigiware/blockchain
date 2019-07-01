@@ -25,7 +25,7 @@ subcollection: blockchain
 다음 지시사항은 AWS(Amazon Web Services) 빠른 시작 템플리트를 사용하여 {{site.data.keyword.blockchainfull}}  Platform for AWS 피어를 작성한 후 {{site.data.keyword.blockchainfull_notm}} Platform의 네트워크에 연결하는 방법에 대해 설명합니다.
 {:shortdesc}
 
-AWS에 대한 자세한 정보는 [AWS 개요 문서](https://d1.awsstatic.com/whitepapers/aws-overview.pdf){: external}를 참조하십시오. 
+AWS에 대한 자세한 정보는 [AWS 개요 문서](https://d1.awsstatic.com/whitepapers/aws-overview.pdf){: external}를 참조하십시오.
 
 {{site.data.keyword.blockchainfull_notm}} Platform for AWS를 사용하여 피어는 {{site.data.keyword.cloud_notm}}에서 기존 스타터 또는 엔터프라이즈 플랜 네트워크의 연결 프로파일, Hyperledger Fabric 인증 기관(CA) 및 순서 지정 서비스를 활용할 수 있습니다. 빠른 시작을 통해 AWS CloudFormation 템플리트를 사용하여 피어를 배치할 수 있습니다. 이 템플리트는 스타터 또는 엔터프라이즈 플랜 네트워크에 연결된 AWS 호스트 {{site.data.keyword.blockchainfull_notm}} Platform 피어를 빠르게 구성, 배치 및 실행하려는 IT 인프라 의사결정자 및 시스템 관리자를 대상으로 합니다. 템플리트를 사용하여 AWS에서 새 가상 프라이빗 클라우드(VPC)를 빌드하거나 피어를 기존 VPC에 배치할 수 있습니다.
 
@@ -36,12 +36,12 @@ AWS에 대한 자세한 정보는 [AWS 개요 문서](https://d1.awsstatic.com/w
  * 공인 서브넷에서 두 개의 가용성 구역(각 서브넷당 하나)에 걸쳐 있는 두 개의 피어
  * 각 공인 서브넷에서 임베디드 LevelDB 데이터베이스 또는 보조 CouchDB 컨테이너가 포함된 피어 컨테이너
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어를 배치하기 전에 [피어 고려사항](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-limitations)을 검토하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어를 배치하기 전에 [피어 고려사항](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations)을 검토하십시오.
 
 ## 전제조건
 {: #remote-peer-aws-prerequisites}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어(원격 피어)를 사용하려면 {{site.data.keyword.blockchainfull_notm}} Platform에서 호스팅되는 블록체인 네트워크의 구성원인 조직이 있어야 합니다. 네트워크 인증 정보 및 네트워크의 API 엔드포인트에 액세스하려면 {{site.data.keyword.cloud_notm}}에서 네트워크 모니터를 사용해야 합니다. 블록체인 네트워크의 구성원이 아니면 네트워크를 작성하거나 가입해야 합니다. 자세한 정보는 [네트워크 작성](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) 또는 [네트워크에 가입](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)을 참조하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어(원격 피어)를 사용하려면 {{site.data.keyword.blockchainfull_notm}} Platform에서 호스팅되는 블록체인 네트워크의 구성원인 조직이 있어야 합니다. 네트워크 인증 정보 및 네트워크의 API 엔드포인트에 액세스하려면 {{site.data.keyword.cloud_notm}}에서 네트워크 모니터를 사용해야 합니다. 블록체인 네트워크의 구성원이 아니면 네트워크를 작성하거나 가입해야 합니다. 자세한 정보는 [네트워크 작성](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-create-network) 또는 [네트워크에 가입](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw)을 참조하십시오.
 
 피어에 대한 기본 VPC 인스턴스 유형은 `m4.xlarge`입니다.  CPU, 메모리 및 스토리지 요구사항에 따라 선택한 인스턴스 유형을 최적화해야 합니다. 피어를 사용하려면 최소 다음과 같은 항목이 필요합니다.  
 -	2x CPU
@@ -64,7 +64,7 @@ AWS에 대한 자세한 정보는 [AWS 개요 문서](https://d1.awsstatic.com/w
 ## 1단계: AWS 계정 준비
 {: #remote-peer-aws-account}
 
-1. 아직 AWS 계정이 없는 경우 [여기](https://aws.amazon.com){: external}에서 화면의 지시사항에 따라 계정을 작성하십시오. 
+1. 아직 AWS 계정이 없는 경우 [여기](https://aws.amazon.com){: external}에서 화면의 지시사항에 따라 계정을 작성하십시오.
 
 2. 탐색줄의 지역 선택기를 사용하여 AWS에 피어를 배치할 AWS 지역을 선택하십시오.
 
@@ -145,9 +145,9 @@ echo -e "<CERT>" > admin.pem
 
 다음 표에서는 매개변수를 카테고리별로 나열한 후 두 가지 배치 옵션에 대해 별도로 설명합니다.
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 새 VPC에 배치하기 위한 매개변수](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc)
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 새 VPC에 배치하기 위한 매개변수](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-newvpc)
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 기존 VPC에 배치하기 위한 매개변수](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-existvpc)
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS를 기존 VPC에 배치하기 위한 매개변수](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-existvpc).
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform for AWS를 새 VPC에 배치하기 위한 매개변수
 {: #remote-peer-aws-parameters-newvpc}
@@ -160,7 +160,7 @@ echo -e "<CERT>" > admin.pem
 | | | |
 | **네트워크 구성** | |
 | `Availability Zones` |VPC에서 서브넷에 사용할 두 개의 가용성 구역입니다. 참고: 논리 순서가 그대로 유지됩니다. | |
-| `Allowed SSH access CIDR` | 외부 SSH에서 {{site.data.keyword.blockchain_notm}} Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR 블록](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external}입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 0.0.0.0/0으로 설정할 수 있습니다(권장하지 않음). | |
+| `Allowed SSH access CIDR` |외부 SSH에서 {{site.data.keyword.blockchainfull_notm}} Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR 블록](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external}입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 0.0.0.0/0으로 설정할 수 있습니다(권장하지 않음). | |
 | `PeerEndpointAccessCIDR` | 외부 gRPC에서 {{site.data.keyword.blockchainfull_notm}} Peer 인스턴스에 액세스하기 위해 허용되는 [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} 블록입니다. 모든 위치에서 액세스할 수 있도록 허용하는 경우 일반적으로 0.0.0.0/0으로 설정합니다(권장하지 않음). | |
 | | | |
 | **Amazon EC2 구성** | | |
@@ -204,11 +204,11 @@ echo -e "<CERT>" > admin.pem
 
  - VPC에서 데이터베이스 인스턴스에 대한 서로 다른 가용성 구역에 두 개의 개인용 서브넷이 있어야 합니다. 이러한 서브넷의 경우 인스턴스가 인터넷에 노출되지 않은 상태로 패키지 및 소프트웨어를 다운로드할 수 있도록 해당 라우트 테이블에 NAT 게이트웨이 또는 NAT 인스턴스가 있어야 합니다.
 
- - [Amazon VPC 문서](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html){: external}의 설명에 따라 DHCP 옵션에 도메인 이름 옵션을 구성하십시오.   
+ - [Amazon VPC 문서](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html){: external}의 설명에 따라 DHCP 옵션에 도메인 이름 옵션을 구성하십시오.  
 
 - 기존 VPC에 연결된 보안 그룹을 작성한 후 이 보안 그룹에 포트 22 및 7051에 대한 인바운드 규칙을 추가하십시오. 포트 22의 TCP 연결은 SSH에서 생성된 인스턴스에 액세스할 수 있도록 해주며 포트 7051의 TCP 연결은 외부 gRPC에서 피어 인스턴스에 액세스할 수 있도록 해줍니다(Fabric 도구 CLI 및 Fabric SDK를 사용하여 피어를 작동시키는 경우에 필요함). 빠른 시작을 실행할 때 이러한 VPC 설정을 요청하는 프롬프트가 표시됩니다.
 
- {{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어를 기존 VPC에 배치하는 경우 다음 매개변수가 [위의](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc) 해당 섹션에 있는 매개변수를 대체합니다.
+ {{site.data.keyword.blockchainfull_notm}} Platform for AWS 피어를 기존 VPC에 배치하는 경우 다음 매개변수가 [위의](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-newvpc) 해당 섹션에 있는 매개변수를 대체합니다.
 
 |매개변수    |설명 | 기본값 |
 | --------------|-------------|---------|
@@ -247,7 +247,7 @@ AWS CloudFormation 템플리트에서 정상적으로 스택을 작성하면 AWS
 
 필요에 따라 {{site.data.keyword.blockchainfull_notm}} Platform 네트워크에
 대한 피어 연결이 작동 중인지 확인하기 위해 피어 컨테이너 내에서 `peer channel fetch` CLI 명령을 실행할 수 있습니다. 또는
-[피어 운영](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate) 지시사항으로 건너뛸 수 있습니다.  
+[피어 운영](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate) 지시사항으로 건너뛸 수 있습니다.  
 
 `peer channel fetch` CLI 명령을 실행하여 채널에서 최초 블록을 페치하십시오.
 
@@ -279,9 +279,9 @@ AWS CloudFormation 템플리트에서 정상적으로 스택을 작성하면 AWS
 
 2. 최초 블록을 페치하려면 먼저 네트워크의 채널에 조직을 추가해야 합니다.
 
-  - 피어를 위한 새 채널을 시작할 수 있습니다. 채널 개시자로서 [채널 작성](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel) 중에 조직을 자동으로 포함시킬 수 있습니다.
+  - 피어를 위한 새 채널을 시작할 수 있습니다. 채널 개시자로서 [채널 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel) 중에 조직을 자동으로 포함시킬 수 있습니다.
 
-  - 블록체인 네트워크의 다른 멤버도 [채널 업데이트](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel)를 사용하여 기존 채널에 조직을 추가할 수 있습니다.
+  - 블록체인 네트워크의 다른 멤버도 [채널 업데이트](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)를 사용하여 기존 채널에 조직을 추가할 수 있습니다.
 
   - 채널에 조직이 추가된 후에는 피어의 서명 인증서를 채널에 추가해야 합니다. 피어는 설치 중에 해당 서명 인증서를 업로드하므로 인증서를 채널과 동기화하기만 하면 됩니다. 네트워크 모니터의 "화면" 채널에서 조직이 가입하는 채널을 찾고 **조치** 헤더의 드롭 다운 목록에서 **인증서 동기화**를 선택하십시오. 이 조치는 채널에 있는 피어 전체에서 인증서를 동기화합니다.
 
@@ -349,26 +349,26 @@ AWS CloudFormation 템플리트에서 정상적으로 스택을 작성하면 AWS
 * **A**. AWS CloudFormation에서 스택을 작성하는 데 실패하는 경우 실패 시 롤백을 `No`로 설정한 상태로 템플리트를 재실행할 것을 권장합니다. (이 설정은 AWS CloudFormation 콘솔의 옵션 페이지에 있는 고급 아래에 있습니다.) 이 설정을 사용하는 경우 스택의 상태가 유지되고 인스턴스가 실행 중인 상태로 유지되므로 문제를 해결할 수 있습니다. (`%ProgramFiles%\Amazon\EC2ConfigService` 및 `C:\cfn\log`에 있는 로그 파일을 확인하십시오.)
 
   - 실패 시 롤백을 `No`로 설정하는 경우 이 스택에 대한
-  AWS 비용이 계속 발생합니다. 문제점이 해결된 후에는 스택을 삭제해야 합니다. 자세한 정보는 AWS 웹 사이트에서 [AWS CloudFormation 문제점 해결](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html){: external}을 참조하십시오. 
+  AWS 비용이 계속 발생합니다. 문제점이 해결된 후에는 스택을 삭제해야 합니다. 자세한 정보는 AWS 웹 사이트에서 [AWS CloudFormation 문제점 해결](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html){: external}을 참조하십시오.
 
 * **Q**. AWS Cloudformation 템플리트를 배치할 때 크기 제한 오류가 발생합니다.
-* **A**. IBM에서 제공한 위치 또는 다른 S3 버킷에서 빠른 시작 템플리트를 실행할 것을 권장합니다. 컴퓨터의 로컬 사본에서 또는 비S3 위치에서 템플리트를 배치하는 경우 스택을 작성할 때 템플리트 크기 제한사항이 발생할 수 있습니다. AWS CloudFormation 제한사항에 대한 자세한 정보는 [AWS 문서](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html){: external}를 참조하십시오. 
+* **A**. IBM에서 제공한 위치 또는 다른 S3 버킷에서 빠른 시작 템플리트를 실행할 것을 권장합니다. 컴퓨터의 로컬 사본에서 또는 비S3 위치에서 템플리트를 배치하는 경우 스택을 작성할 때 템플리트 크기 제한사항이 발생할 수 있습니다. AWS CloudFormation 제한사항에 대한 자세한 정보는 [AWS 문서](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html){: external}를 참조하십시오.
 
 ## 다음에 수행할 작업
 {: #remote-peer-aws-whats-next}
 
-AWS에 피어가 설정된 후 트랜잭션을 제출하고 블록체인 네트워크의 분산 원장을 읽어들이기 전에 몇 가지 작업 단계를 완료할 수 있습니다. 자세한 정보는 [AWS에서 피어 운영](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate)을 참조하십시오.
+AWS에 피어가 설정된 후 트랜잭션을 제출하고 블록체인 네트워크의 분산 원장을 읽어들이기 전에 몇 가지 작업 단계를 완료할 수 있습니다. 자세한 정보는 [AWS에서 피어 운영](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate)을 참조하십시오.
 
 ## 고가용성(HA)
 {: #remote-peer-aws-high-availability}
 
 기본적으로 빠른 시작 템플리트는 HA 지원을 위해 서로 다른 두 개의 가용성 구역에 두 개의 피어 인스턴스를 배치합니다.
-이 HA 지원을 활용하려면 [고가용성을 위한 클라이언트 애플리케이션](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app)도 구성해야 합니다.
+이 HA 지원을 활용하려면 [고가용성을 위한 클라이언트 애플리케이션](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)도 구성해야 합니다.
 
 ## 보안 고려사항
 {: #remote-peer-aws-security}
 
-AWS Cloud는 고객이 애플리케이션 및 데이터를 신속하고 안전하게 배치할 수 있도록 확장 가능하고 신뢰성이 높은 플랫폼을 제공합니다. AWS 인프라에 시스템을 빌드하는 경우 보안 책임이 사용자와 AWS 사이에 공유됩니다. 이 공유 모델을 통해 AWS가 호스트 운영 체제 및 가상화 계층에서 컴포넌트를 작동, 관리 및 제어하기 위한 작동 부담을 서비스가 작동되는 기능의 실제 보안까지 감소시킬 수 있습니다. 따라서 사용자가 게스트 운영 체제(업데이트 및 보안 패치 포함), 연관된 기타 애플리케이션 및 AWS 제공 보안 그룹 방화벽의 구성에 대한 책임 및 관리를 담당합니다. AWS의 보안에 대한 자세한 정보를 확인하려면 [AWS Cloud 보안](https://aws.amazon.com/security/){: external}을 방문하십시오. 
+AWS Cloud는 고객이 애플리케이션 및 데이터를 신속하고 안전하게 배치할 수 있도록 확장 가능하고 신뢰성이 높은 플랫폼을 제공합니다. AWS 인프라에 시스템을 빌드하는 경우 보안 책임이 사용자와 AWS 사이에 공유됩니다. 이 공유 모델을 통해 AWS가 호스트 운영 체제 및 가상화 계층에서 컴포넌트를 작동, 관리 및 제어하기 위한 작동 부담을 서비스가 작동되는 기능의 실제 보안까지 감소시킬 수 있습니다. 따라서 사용자가 게스트 운영 체제(업데이트 및 보안 패치 포함), 연관된 기타 애플리케이션 및 AWS 제공 보안 그룹 방화벽의 구성에 대한 책임 및 관리를 담당합니다. AWS의 보안에 대한 자세한 정보를 확인하려면 [AWS Cloud 보안](https://aws.amazon.com/security/){: external}을 방문하십시오.
 
 ### AWS IAM(Identity and Access Management)
 {: #remote-peer-aws-iam}
@@ -401,14 +401,14 @@ levelDB를 사용하는지 또는 couchDB를 사용하는지 여부에 관계 �
 {: #remote-peer-aws-data-residency}
 
 데이터 상주를 사용하는 경우 모든 블록체인 원장 데이터의 처리 및 저장이 단일 국가의 경계 내에서 수행되어야 합니다.
-수행 방법에 대한 자세한 정보는 [데이터 상주](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-data-residency)를 참조하십시오.
+수행 방법에 대한 자세한 정보는 [데이터 상주](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-data-residency)를 참조하십시오.
 
 #### 키 관리
 {: #remote-peer-aws-security-key-management}
 
-키 관리는 피어 보안 측면에서 매우 중요한 요소입니다. 개인 키가 손상되거나 유실되는 경우 적대적인 액터가 피어의 데이터 및 기능에 액세스할 수도 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜에서는 HSM([Hardware Security Modules](/docs/services/blockchain/glossary.html#glossary-hsm))을 사용하여 네트워크의 개인 키를 저장합니다. HSM은 다른 당사자가 개인 키에 액세스하지 못하게 하는 물리적 어플라이언스입니다.
+키 관리는 피어 보안 측면에서 매우 중요한 요소입니다. 개인 키가 손상되거나 유실되는 경우 적대적인 액터가 피어의 데이터 및 기능에 액세스할 수도 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜에서는 HSM([Hardware Security Modules](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm))을 사용하여 네트워크의 개인 키를 저장합니다. HSM은 다른 당사자가 개인 키에 액세스하지 못하게 하는 물리적 어플라이언스입니다.
 
-AWS에 피어를 배치하는 경우 사용자가 개인 키를 관리해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform에서 개인 키를 생성해도 해당 키는 Platform에 저장되지 않습니다. 키가 손상되지 않도록 안전한 위치에 저장하는 것이 중요합니다. 피어의 개인 키는 피어 MSP의 키 저장소 폴더(피어 컨테이너 내에 있는 `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` 디렉토리)에 있습니다. 피어 내에 있는 인증서에 대한 자세한 정보를 확인하려면 [{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain/certificates.html#managing-certificates) 주제의 [MSP(Membership Services Provider)](/docs/services/blockchain/certificates.html#managing-certificates-msp) 절을 참조하십시오.
+AWS에 피어를 배치하는 경우 사용자가 개인 키를 관리해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform에서 개인 키를 생성해도 해당 키는 Platform에 저장되지 않습니다. 키가 손상되지 않도록 안전한 위치에 저장하는 것이 중요합니다. 피어의 개인 키는 피어 MSP의 키 저장소 폴더(피어 컨테이너 내에 있는 `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` 디렉토리)에 있습니다. 피어 내에 있는 인증서에 대한 자세한 정보를 확인하려면 [{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 주제의 [MSP(Membership Services Provider)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp) 절을 참조하십시오. 
 
 Key Escrow를 사용하여 유실된 개인 키를 복구할 수 있습니다. 이 작업은 키 유실 전에 수행해야 합니다. 개인 키를 복구할 수 없는 경우 인증 기관에서 새 signCert를 받아서 새 개인 키를 가져와야 합니다. 또한 가입한 모든 채널에서 관리자 인증서를 제거하고 대체해야 합니다.
 
@@ -425,7 +425,7 @@ TLS([Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SS
 #### Membership Services Provider 구성
 {: #remote-peer-aws-security-MSP}
 
-{{site.data.keyword.blockchainfull_notm}} Platform의 컴포넌트에서는 MSP(Membership Services Provider)를 통해 ID를 이용합니다. MSP는 CA에서 발행하는 인증서를 네트워크 및 채널 역할과 연관시킵니다. 피어에서 MSP가 작동하는 방법에 대한 자세한 정보는 이 [주제](/docs/services/blockchain/certificates.html#managing-certificates-msp)를 참조하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform의 컴포넌트에서는 MSP(Membership Services Provider)를 통해 ID를 이용합니다. MSP는 CA에서 발행하는 인증서를 네트워크 및 채널 역할과 연관시킵니다. 피어에서 MSP가 작동하는 방법에 대한 자세한 정보는 이 [주제](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)를 참조하십시오.
 
 #### 애플리케이션 보안
 {: #remote-peer-aws-security-appl}

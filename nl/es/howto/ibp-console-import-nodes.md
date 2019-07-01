@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -52,6 +52,9 @@ Para poder importar nodos en la consola, deben exportarse desde la consola de {{
 
 - No puede importar nodos desde redes del Plan Inicial o del Plan de Empresa.
 - Todos los nodos que se van a importar se deben haber desplegado mediante la consola de {{site.data.keyword.blockchainfull_notm}} Platform.
+- No puede aplicar parches a nodos que haya importado en la consola.
+- No puede suprimir nodos que haya importado en la consola desde el clúster en el que se desplegaron. Solo puede eliminar el nodo de la consola.
+- Si va a importar un nodo que está desplegado en {{site.data.keyword.cloud_notm}} Private, debe asegurarse de que el puerto de proxy web gRPC utilizado por el componente se exponga externamente a la consola. Para obtener más información, consulte [Importación de nodos desde {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
 
 ## Empiece aquí: recopilación de certificados o credenciales
 {: #ibp-console-import-start-here}
@@ -72,11 +75,11 @@ Después de completar el panel **Añadir identidad** y de pulsar Enviar, puede v
 ## Importación de una CA
 {: #ibp-console-import-ca}
 
-Un nodo de CA es el componente de blockchain que emite certificados a todas las entidades de la red (iguales, servicios de ordenación, clientes, etc.) para que dichas entidades se puedan comunicar, autenticar y, en última instancia, realizar transacciones. Cada organización tiene su propia CA que actúa como su raíz de confianza. Debe añadir sus organizaciones si está uniendo o creando un consorcio de blockchain. Encontrará más información sobre las CA en la [visión general de los componentes de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-ca).  
+Un nodo de CA es el componente de blockchain que emite certificados a todas las entidades de la red (iguales, servicios de ordenación, clientes, etc.) para que dichas entidades se puedan comunicar, autenticar y, en última instancia, realizar transacciones. Cada organización tiene su propia CA que actúa como su raíz de confianza. Debe añadir sus organizaciones si está uniendo o creando un consorcio de blockchain. Encontrará más información sobre las CA en la [visión general de los componentes de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).  
 
 Hay varias razones por las que puede desear importar una CA en la consola. Después de importar la CA, puede utilizarla para registrar más usuarios iguales a la organización igual pulsando **Registrar usuario**. O bien, puede utilizar la CA para crear identidades de administrador adicionales para un igual o un servicio de ordenación.
 
-Para importar una CA en la consola de {{site.data.keyword.blockchainfull_notm}} Platform y trabajar con la misma, el operador de red ya debe haber exportado la CA desde {{site.data.keyword.blockchainfull_notm}} Platform en que se había desplegado. El hecho de importar una CA le permite registrar nuevos usuarios e [inscribir identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll).
+Para importar una CA en la consola de {{site.data.keyword.blockchainfull_notm}} Platform y trabajar con la misma, el operador de red ya debe haber exportado la CA desde {{site.data.keyword.blockchainfull_notm}} Platform en que se había desplegado. El hecho de importar una CA le permite registrar nuevos usuarios e [inscribir identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll).
 
 ### Antes de empezar
 {: #ibp-console-import-ca-before-you-begin}
@@ -94,12 +97,12 @@ La importación de una CA se realiza desde el separador **Nodos**.
 4. En el panel siguiente, puede especificar el ID de inscripción y el secreto que se utilizó cuando se desplegó la CA.
 5. Por último, especifique el ID de inscripción y el secreto para la CA de TLS que se utilizó cuando se desplegó la CA. Cuando se despliega una CA, se despliegan conjuntamente una CA y una CA de TLS. El operador de la red puede utilizar el mismo ID de inscripción y secreto para ambas, o bien puede especificar ID de inscripción y secretos exclusivos para la CA y la CA de TLS cuando se despliega una CA.
 
-Una vez que haya importado la CA en la consola, puede utilizar la CA para crear nuevas identidades y generar los certificados necesarios para trabajar con los componentes y enviar transacciones a la red. Para obtener más información, consulte [Gestión de entidades emisoras de certificados](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-manage-ca).
+Una vez que haya importado la CA en la consola, puede utilizar la CA para crear nuevas identidades y generar los certificados necesarios para trabajar con los componentes y enviar transacciones a la red. Para obtener más información, consulte [Gestión de entidades emisoras de certificados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 
 ## Importación de un servicio de ordenación
 {: #ibp-console-import-orderer}
 
-Un servicio de ordenación es el componente de blockchain que recopila las transacciones de los miembros de la red, ordena las transacciones y las empaqueta en bloques. Es el enlace común de los consorcios de blockchain y se debe desplegar si va a fundar un consorcio al que se unirán otras organizaciones. Encontrará más información sobre los servicios de ordenación en la [visión general de los componentes de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-orderer).
+Un servicio de ordenación es el componente de blockchain que recopila las transacciones de los miembros de la red, ordena las transacciones y las empaqueta en bloques. Es el enlace común de los consorcios de blockchain y se debe desplegar si va a fundar un consorcio al que se unirán otras organizaciones. Encontrará más información sobre los servicios de ordenación en la [visión general de los componentes de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer).
 
 La importación de un servicio de ordenación en la consola le permite crear nuevos canales para que los iguales realicen transacciones en privado.
 
@@ -123,7 +126,7 @@ Una vez que haya importado el servicio de ordenación en la consola, puede añad
 ## Importación de un igual
 {: #ibp-console-import-peer}
 
-Un nodo igual es el componente blockchain que mantiene un libro mayor y ejecuta un contrato inteligente para realizar las operaciones de consulta y actualización en el libro mayor. Los miembros de la organización poseen y mantienen los iguales.  Cada organización que se une a un consorcio debe desplegar al menos un igual y como mínimo dos para disponer de alta disponibilidad (HA). Encontrará más información sobre los iguales en la [visión general de los componentes de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer).
+Un nodo igual es el componente blockchain que mantiene un libro mayor y ejecuta un contrato inteligente para realizar las operaciones de consulta y actualización en el libro mayor. Los miembros de la organización poseen y mantienen los iguales.  Cada organización que se une a un consorcio debe desplegar al menos un igual y como mínimo dos para disponer de alta disponibilidad (HA). Encontrará más información sobre los iguales en la [visión general de los componentes de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
 
 Después de importar un igual en la consola, puede instalar contratos inteligentes en el igual y unir el igual a otros canales de su blockchain.
 
@@ -157,3 +160,25 @@ Tiene que importar la definición de MSP de una organización si el MSP se ha de
 - La importación de la definición de MSP de la organización se lleva a cabo desde el separador **Organizaciones**.
 - Pulse **Importar definición de MSP** para cargar el archivo JSON
 - (Opcional) Si ha importado la identidad de administrador de MSP en su cartera, marque el recuadro de selección `Tengo una identidad de administrador para la definición de MSP`. Si no selecciona esta opción, cuando posteriormente intente crear un servicio igual o de ordenación, esta definición MSP de organización no aparecerá en la lista desplegable de MSP.
+
+## Importación de nodos desde {{site.data.keyword.cloud_notm}} Private
+{: #ibp-console-import-icp}
+
+Puede importar nodos que se hayan creado en {{site.data.keyword.cloud_notm}} Private en consolas que se hayan desplegado en otros clústeres de {{site.data.keyword.cloud_notm}} Private o en {{site.data.keyword.cloud_notm}}. No obstante, necesita asegurarse de que el puerto utilizado por el URL de gRPC de los nodos esté expuesto desde fuera del clúster. Si va a desplegar
+{{site.data.keyword.cloud_notm}} Private detrás de un cortafuegos, debe habilitar un paso a través, mediante una lista blanca por ejemplo, para permitir que la consola fuera del clúster se pueda comunicar con los nodos.
+
+Como ejemplo, a continuación puede ver el archivo JSON de un igual que se ha exportado desde
+{{site.data.keyword.cloud_notm}} Private. Para comunicarse con el igual desde otra consola, debe asegurarse de que el puerto de
+`grpcwp_url`, el puerto 32403 en este ejemplo, está abierto al tráfico externo.
+
+```
+{
+    "name": "peer",
+    "grpcwp_url": "https://9.30.252.107:32403", \\ensure that port 32403 is externally exposed
+    "api_url": "grpcs://9.30.252.107:30891",
+    "operations_url": "https://9.30.252.107:30222",
+    "type": "fabric-peer",
+    "msp_id": "org1msp",
+    "pem": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNGekNDQWI2Z0F3SUJBZ0lVUi9zMGxGTG5ZNmdWRmV1Mlg5ajkrY3JDZFBrd0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWURWUVFERXdWMGJITmpZVEFlCkZ3MHhPVEEyTVRBeE9USXhNREJhRncwek5EQTJNRFl4T1RJeE1EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4RHpBTgpCZ05WQkFzVEJrWmhZbkpwWXpFT01Bd0dBMVVFQXhNRmRHeHpZMkV3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPClBRTUJCd05DQUFUYUtyN2srUHNYeXFkWkdXUHlJUXlGMGQxUkFFdmdCYlpkVnlsc3hReWZOcUdZS0FZV3A0SFUKVUVaVHVVNmtiRXN5Qi9aOVJQWEY0WVNGbW8reTVmSkhvMXd3V2pBT0JnTlZIUThCQWY4RUJBTUNBUVl3RWdZRApWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVUrcnBNb2dRc3dDTnZMQzJKNmp2cElQOExwaE13CkZRWURWUjBSQkE0d0RJY0VDUjc4YTRjRXJCRE5DakFLQmdncWhrak9QUVFEQWdOSEFEQkVBaUJGWmpMWU9XZUMKLy92L2RNMHdYNUxZT3NCaHFFNnNQZ1BSWWppOTZqT093QUlnZEppZDU0WmxjR2h0R3dEY3ZoZE02RVlBVFpQNwpmS29IMDZ3ZFhpK3VzVXM9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+}
+```

@@ -32,13 +32,13 @@ Use este tutorial para aprender como usar o Monitor de Rede para operar uma rede
 {: #ibp-dashboard-left-navigation}
 
 O Monitor de rede expõe as telas a seguir em três seções. É possível navegar para cada tela do navegador esquerdo no Monitor de rede.
-- A seção **Minha rede** contém as telas "[Visão geral](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview)", "[Membros](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)", "[Canais](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels)", "[Notificações](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-notifications)", "[Autoridade de certificação](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-ca)" e "[APIs](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-apis)".
-- A seção **Meu código** contém as telas "[Desenvolver código](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-write_code)", "[Instalar código](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-chaincode)" e "[Tentar amostras](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-samples)".
-- A tela "[Obter ajuda](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-support)" mostra informações de suporte, assim como as notas sobre a liberação para helios e Hyperledger Fabric (a base de código na qual o {{site.data.keyword.blockchainfull_notm}} Platform é baseado).
+- A seção **Minha rede** contém as telas "[Visão geral](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)", "[Membros](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)", "[Canais](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)", "[Notificações](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)", "[Autoridade de certificação](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)" e "[APIs](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)".
+- A seção **Meu código** contém as telas "[Desenvolver código](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write_code)", "[Instalar código](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)" e "[Tentar amostras](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)".
+- A tela "[Obter ajuda](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)" mostra informações de suporte, assim como as notas sobre a liberação para helios e Hyperledger Fabric (a base de código na qual o {{site.data.keyword.blockchainfull_notm}} Platform é baseado).
 
-O nome de sua rede de blockchain está na parte superior da área de janela de navegação esquerda. É possível [mudar o nome de sua rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-name) no Monitor de Rede.
+O nome de sua rede de blockchain está na parte superior da área de janela de navegação esquerda. É possível [mudar o nome de sua rede](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name) no Monitor de Rede.
 
-É possível [verificar e configurar preferências de rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) no menu suspenso no canto superior direito do Monitor de rede.
+É possível [verificar e configurar preferências de rede](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) no menu suspenso no canto superior direito do Monitor de rede.
 
 Este tutorial descreve cada uma das telas e funções acima.
 
@@ -58,14 +58,14 @@ O cabeçalho **Ações** da tabela fornece botões para iniciar ou parar os seus
 
 As ações Parar e Iniciar não estão disponíveis para um nó do Solicitador. Em geral, não há necessidade de parar e iniciar os nós do Peer ou da autoridade de certificação em uma rede. As ações Parar e Iniciar são fornecidas no caso de você precisar reiniciar um peer, por exemplo, para deixá-lo ativo em um estado limpo.
 
-Também é possível verificar os logs de componente clicando em **Visualizar logs** na lista suspensa sob o cabeçalho **Ações**. Os logs expõem as chamadas entre os vários recursos de rede e são úteis para depuração e resolução de problemas. Para obter mais informações sobre como usar os logs de rede, consulte [Monitorando uma rede de blockchain](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network)
+Também é possível verificar os logs de componente clicando em **Visualizar logs** na lista suspensa sob o cabeçalho **Ações**. Os logs expõem as chamadas entre os vários recursos de rede e são úteis para depuração e resolução de problemas. Para obter mais informações sobre como usar os logs de rede, consulte [Monitorando uma rede de blockchain](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)
 
 Para entender os efeitos de iniciar e parar um peer, é possível fazer um experimento parando um peer e tentando atingi-lo com uma transação, e você verá erros de conectividade nos logs. Ao reiniciar o peer e tentar a transação novamente, você verá uma conexão bem-sucedida. Também será possível deixar um peer inativo por um período de tempo estendido conforme os seus canais continuarem a transacionar. Quando o peer for trazido de volta, você perceberá uma sincronização do livro-razão, pois ele receberá os blocos que foram confirmados quando ele estava inativo. Após o livro-razão estar completamente sincronizado, será possível executar chamadas e consultas normais com relação a ele.
 
 ### Configuração do Peer Remoto
 {: #ibp-dashboard-peer-connection-information}
 
-Se você implementar um peer fora do {{site.data.keyword.cloud_notm}}, será necessário fornecer as informações de terminal da API de sua rede durante a configuração. Clique no botão **Configuração de peer remoto** para recuperar as informações de terminal da API da rede para configurar seu peer. A janela pop-up fornece as informações de terminal da API do ID da rede, do MSP da organização, do nome da autoridade de certificação, da URL da autoridade de certificação e do certificado do TLS da autoridade de certificação. É possível clicar no ícone de cópia no final de cada campo para copiar o valor desse campo ou clicar no botão **Download** para salvar valores de todos os campos em um arquivo JSON. Para obter mais informações, consulte [Sobre o {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about) e [Sobre o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about).
+Se você implementar um peer fora do {{site.data.keyword.cloud_notm}}, será necessário fornecer as informações de terminal da API de sua rede durante a configuração. Clique no botão **Configuração de peer remoto** para recuperar as informações de terminal da API da rede para configurar seu peer. A janela pop-up fornece as informações de terminal da API do ID da rede, do MSP da organização, do nome da autoridade de certificação, da URL da autoridade de certificação e do certificado do TLS da autoridade de certificação. É possível clicar no ícone de cópia no final de cada campo para copiar o valor desse campo ou clicar no botão **Download** para salvar valores de todos os campos em um arquivo JSON. Para obter mais informações, consulte [Sobre o {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about).
 
 ### Perfil de conexão
 {: #ibp-dashboard-connection-profile}
@@ -76,7 +76,7 @@ a quaisquer peers dos quais eles precisam de uma resposta.
 ### Incluir peers
 {: #ibp-dashboard-peers}
 
-Os membros da rede implementam os [peers](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer) para armazenar suas cópias do livro-razão da rede e para executar o chaincode para consultar ou atualizar o livro-razão. Se a política de aprovação definir um peer como um peer de endosso, o peer também retornará resultados de aprovação para aplicativos.
+Os membros da rede implementam os [peers](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer) para armazenar suas cópias do livro-razão da rede e para executar o chaincode para consultar ou atualizar o livro-razão. Se a política de aprovação definir um peer como um peer de endosso, o peer também retornará resultados de aprovação para aplicativos.
 
 Clique no botão **Incluir peers** na parte superior direita para incluir nós de peer em sua rede. No painel pop-up "Incluir Peers", selecione o número e o tamanho dos nós peer que você deseja incluir. É possível incluir mais peers para as suas organizações com base em seus próprios requisitos. Você poderá estar em diferentes cenários quando precisar de mais peers. Por exemplo, talvez você deseje múltiplos peers para se associar ao mesmo canal para redundância. Cada peer processa as transações do canal e grava em suas respectivas cópias do livro-razão. Se um dos peers falhar, o outro peer (ou múltiplos outros peers) poderá continuar processando transações e solicitações de aplicativos. Também é possível balancear simetricamente todas as solicitações de aplicativo ao longo de peers ou é possível direcionar peers diferentes para funções diferentes. Por exemplo, é possível usar um peer para consultar o livro-razão e usar outro peer para processar endossos para atualizações de livro-razão.
 
@@ -136,11 +136,11 @@ A **Figura 6** mostra a tela do painel inicial exibindo uma visão geral de todo
 
 ![Canais](images/channels.png "Canais")
 
-Criar um canal resulta na geração de um livro-razão específico do canal. Para obter mais informações, consulte [Criando um canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel).
+Criar um canal resulta na geração de um livro-razão específico do canal. Para obter mais informações, consulte [Criando um canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel).
 
-Também é possível selecionar um canal existente para visualizar detalhes mais precisos sobre o canal, a associação e o chaincode ativo. Para obter mais informações, consulte [Monitorando uma rede](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network).
+Também é possível selecionar um canal existente para visualizar detalhes mais precisos sobre o canal, a associação e o chaincode ativo. Para obter mais informações, consulte [Monitorando uma rede](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
-Se você tiver transferido por upload um novo certificado para a plataforma usando a [guia "Certificados"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-certificates) da tela "Membros", poderá usar esse painel para incluir o certificado em um canal. Clique em **Sincronizar certificado** na lista suspensa sob o cabeçalho **Ações** ao lado do canal relevante. Isso permite que você opere o canal a partir de um cliente remoto, incluindo a capacidade de instanciar um chaincode no canal. Para obter mais informações, veja [Fazendo upload de certificados de assinatura para o {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs) no tutorial [Gerenciando certificados](/docs/services/blockchain/certificates.html#managing-certificates).
+Se você tiver transferido por upload um novo certificado para a plataforma usando a [guia "Certificados"](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates) da tela "Membros", poderá usar esse painel para incluir o certificado em um canal. Clique em **Sincronizar certificado** na lista suspensa sob o cabeçalho **Ações** ao lado do canal relevante. Isso permite que você opere o canal a partir de um cliente remoto, incluindo a capacidade de instanciar um chaincode no canal. Para obter mais informações, veja [Fazendo upload de certificados de assinatura para o {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs) no tutorial [Gerenciando certificados](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 ## Notificações
 {: #ibp-dashboard-notifications}
@@ -178,7 +178,7 @@ Clique no botão **Incluir usuário** para registrar uma nova identidade em sua 
   - **Afiliação:** essa será a afiliação dentro de sua organização, tal como `org1`, por exemplo, à qual a identidade pertencerá.
   - **Número máximo de inscrições:** é possível usar esse campo para limitar o número de vezes que você pode se inscrever ou gerar certificados com essa identidade. Se você deixar o campo em branco, o valor padrão será um número ilimitado de inscrições.
 
-É possível saber mais sobre sua autoridade de certificação visitando o tutorial [Gerenciando certificados no {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates).
+É possível saber mais sobre sua autoridade de certificação visitando o tutorial [Gerenciando certificados no {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 ## APIs
 {: #ibp-dashboard-apis}
@@ -189,7 +189,7 @@ A **Figura 9** mostra a tela "APIs":
 
 ![APIs](images/API_screen.png "APIs")
 
-Clique no link **UI do Swagger** para abrir a UI do Swagger. Observe que você precisa autorizar a UI do Swagger com as suas credenciais de rede (que podem ser localizadas nessa página de APIs) antes que você possa executar as APIs. Para obter mais informações, veja [Interagindo com a rede usando APIs do Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
+Clique no link **UI do Swagger** para abrir a UI do Swagger. Observe que você precisa autorizar a UI do Swagger com as suas credenciais de rede (que podem ser localizadas nessa página de APIs) antes que você possa executar as APIs. Para obter mais informações, veja [Interagindo com a rede usando APIs do Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger).
 
 ## Desenvolver Código
 {: #ibp-dashboard-write-code}
@@ -202,7 +202,7 @@ A **Figura 10** mostra a tela "Desenvolver código":
 
 ![Desenvolver código](images/write_code.png "Desenvolver código")
 
-Para obter mais informações sobre como desenvolver e implementar suas redes de negócios, veja [Implementando redes de negócios no Starter e Enterprise Plan](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network).
+Para obter mais informações sobre como desenvolver e implementar suas redes de negócios, veja [Implementando redes de negócios no Starter e Enterprise Plan](/docs/services/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network).
 
 ## O código de instalação
 {: #ibp-dashboard-chaincode}
@@ -213,12 +213,12 @@ A **Figura 11** mostra a tela "Instalar código":
 
 ![Código de instalação](images/chaincode_install_overview.png "Código de instalação")
 
-Um chaincode é o primeiro instalado em um sistema de arquivos de um peer e, em seguida, instanciado em um canal. Para obter mais informações, veja [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
+Um chaincode é o primeiro instalado em um sistema de arquivos de um peer e, em seguida, instanciado em um canal. Para obter mais informações, veja [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 ## Tentar amostras
 {: #ibp-dashboard-samples}
 
-Os aplicativos de amostra ajudam você a entender melhor uma rede de blockchain e desenvolvimento de aplicativo. Siga os links **Visualizar no GitHub** para aprender como usar as amostras e implementá-las no {{site.data.keyword.blockchainfull_notm}} Platform. Para obter mais informações sobre como desenvolver e implementar as suas amostras, veja [Implementando aplicativos de amostra](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
+Os aplicativos de amostra ajudam você a entender melhor uma rede de blockchain e desenvolvimento de aplicativo. Siga os links **Visualizar no GitHub** para aprender como usar as amostras e implementá-las no {{site.data.keyword.blockchainfull_notm}} Platform. Para obter mais informações sobre como desenvolver e implementar as suas amostras, veja [Implementando aplicativos de amostra](/docs/services/blockchain/howto?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
 
 A **Figura 12** mostra a tela "Tentar amostras":
 
@@ -236,10 +236,9 @@ A **Figura 13** exibe as informações na guia "Suporte" inicial:
 ### Recursos de blockchain e fóruns de suporte
 {: #ibp-dashboard-support-forums}
 
-Use os recursos na guia "Suporte" para solucionar problemas e obter ajuda do {{site.data.keyword.IBM_notm}} e da comunidade do Fabric. Para obter mais informações sobre os links na guia "Suporte", consulte [Recursos e fóruns de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) em [Obtendo suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
+Use os recursos na guia "Suporte" para solucionar problemas e obter ajuda do {{site.data.keyword.IBM_notm}} e da comunidade do Fabric. Para obter mais informações sobre os links na guia "Suporte", consulte [Recursos e fóruns de suporte](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) em [Obtendo suporte](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
-O [{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} é um fórum de comunidade para usuários do {{site.data.keyword.blockchainfull_notm}} Platform e do Hyperledger Fabric e é monitorado por especialistas da {{site.data.keyword.IBM_notm}}. É possível procurar respostas para perguntas apresentadas anteriormente ou enviar uma nova pergunta. Se não for possível depurar seu problema ou determinar uma resposta para sua pergunta, envie um caso de suporte no Portal de serviço do {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
-
+Se não for possível depurar seu problema ou determinar uma resposta para sua pergunta, envie um caso de suporte no Portal de serviço do {{site.data.keyword.cloud_notm}}. Para obter mais informações, consulte [Enviando casos de suporte](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 ### Notas sobre a liberação do Fabric
 {: #ibp-dashboard-release-notes}
@@ -281,7 +280,7 @@ A **Figura 16** mostra a janela "Preferências de rede":
 
 O botão do TLS mútuo é configurado como **Desativado** por padrão. Se você ativar o TLS mútuo, será necessário atualizar os seus aplicativos para suportarem essa função. Caso contrário, os seus aplicativos não poderão se comunicar com a sua rede.
 
-Para uma rede do plano do Fabric 1.1 Enterprise, cada organização tem a sua própria autoridade de certificação (CA) do TLS mútuo. As informações necessárias para se conectar à autoridade de certificação do TLS mútuo estão disponíveis no [Perfil de conexão](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile) acessível por meio de sua tela **Visão geral** no Monitor de Rede clicando no botão **Perfil de conexão**. O perfil de conexão contém as informações necessárias para se conectar à autoridade de certificação e obter os certificados que você precisa para se conectar à sua rede.
+Para uma rede do plano do Fabric 1.1 Enterprise, cada organização tem a sua própria autoridade de certificação (CA) do TLS mútuo. As informações necessárias para se conectar à autoridade de certificação do TLS mútuo estão disponíveis no [Perfil de conexão](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile) acessível por meio de sua tela **Visão geral** no Monitor de Rede clicando no botão **Perfil de conexão**. O perfil de conexão contém as informações necessárias para se conectar à autoridade de certificação e obter os certificados que você precisa para se conectar à sua rede.
 
 No campo Perfil de conexão, localize a seção `certificateAuthorities` na qual você encontrará os atributos a seguir que são necessários para se inscrever e obter os certificados para se comunicar com a sua rede usando o TLS mútuo.
 
@@ -303,7 +302,7 @@ Before Enterprise Plan upgrades to Fabric v1.1, all network peers store data in 
 
 To use CouchDB, your data must be stored in a data format that can be modeled in chaincode, such as JSON. If the decision is made to migrate from LevelDB to CouchDB, the {{site.data.keyword.blockchainfull_notm}} Platform will migrate your data from key-value format to the CouchDB format automatically.
 
-If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc).
+If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc).
 
 -->
 

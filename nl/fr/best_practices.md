@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -33,7 +33,7 @@ Hyperledger Fabric [Flux de transactions](https://hyperledger-fabric.readthedocs
 ### Gestion de transactions
 {: #best-practices-app-managing-transactions}
 
-Les clients d'application doivent s'assurer que leurs propositions de transaction sont validées et que les propositions sont effectuées avec succès. Une proposition peut être retardée ou perdue pour de multiples raisons, comme une indisponibilité du réseau ou une défaillance de composant. Vous devez coder votre application pour la [haute disponibilité](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app) afin de gérer les défaillances de composant. Vous pouvez aussi [accroître les valeurs de délai](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk) dans votre application afin d'éviter un dépassement du délai des propositions avant que le réseau puisse répondre.
+Les clients d'application doivent s'assurer que leurs propositions de transaction sont validées et que les propositions sont effectuées avec succès. Une proposition peut être retardée ou perdue pour de multiples raisons, comme une indisponibilité du réseau ou une défaillance de composant. Vous devez coder votre application pour la [haute disponibilité](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) afin de gérer les défaillances de composant. Vous pouvez aussi [accroître les valeurs de délai](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) dans votre application afin d'éviter un dépassement du délai des propositions avant que le réseau puisse répondre.
 
 Si un code blockchain n'est pas en cours d'exécution, la première proposition de transaction qui est envoyée à ce code blockchain démarre le code blockchain. Alors que le code blockchain est en cours de démarrage, toutes les autres propositions sont rejetées avec une erreur qui indique que le code blockchain est actuellement en cours de démarrage. Cela est différent de l'invalidation de transaction. Si une proposition est rejetés alors que le code blockchain est en cours de démarrage, les clients d'application doivent envoyer de nouveau les propositions rejetées une fois le code blockchain démarré. Les clients d'application peuvent utiliser une file d'attente de messages pour éviter la perte des propositions de transaction.
 
@@ -70,19 +70,19 @@ Lorsque vous gérez les connexions entre votre application et votre réseau, vou
   ```
   {:codeblock}
 
-  Vous pouvez également trouver ces variables avec les valeurs recommandées dans la section `"peers"` du profil de connexion de votre réseau. Les options recommandées seront importées dans votre application automatiquement si vous utilisez le [profil de connexion avec le logiciel SDK](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile) pour vous connecter aux noeuds finaux de votre réseau.
+  Vous pouvez également trouver ces variables avec les valeurs recommandées dans la section `"peers"` du profil de connexion de votre réseau. Les options recommandées seront importées dans votre application automatiquement si vous utilisez le profil de connexion avec le logiciel SDK pour la connexion à vos points d'extrémité réseau. Vous pouvez trouver plus d'informations sur l'utilisation d'un profil de connexion dans la [documentation du logiciel SDK Node](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
 - Lorsqu'une connexion n'est plus utilisée, utilisez les commandes `peer.close()` et `orderer.close()` pour libérer des ressources et éviter une dégradation des performances. Pour plus d'informations, voir les classes [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} et [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} dans la documentation du logiciel SDK Node. Si vous avez utilisé un profil de connexion pour ajouter des homologues et des services de tri à un objet de canal, vous pouvez fermer toutes les connexions qui sont affectées à ce canal à l'aide de la commande `channel.close()`.
 
 ### Applications hautement disponibles
 {: #best-practices-app-ha-app}
 
-Comme pratique optimale pour haute disponibilité, nous vous recommandons fortement de déployer au moins deux homologues par organisation pour ma reprise en ligne. Vous devez également adapter vos applications pour la haute disponibilité. Installez du code blockchain sur les deux homologues chaincode et ajoutez-les à vos canaux. Ensuite, soyez préparé à la soumission de propositions de transaction sur les deux noeuds finaux homologue lors de la configuration de votre réseau et la génération de votre liste cible d'homologues. Les réseaux de plan Enterprise comportent plusieurs services de tri pour le basculement, ce qui permet à votre application client d'envoyer des transactions validées à un service de tri différent si un service de tri n'est pas disponible. Si vous utilisez votre [profil de connexion](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) au lieu d'ajouter des noeuds finaux de réseau manuellement, assurez-vous que votre profil est à jour et qu'un canal pertinent a été ajouté aux homologues et services de tri supplémentaires dans la section `channels` du profil. Le logiciel SDK ajoute ensuite les composants rejoints sur le canal à l'aide du profil de connexion.
+Comme pratique optimale pour haute disponibilité, nous vous recommandons fortement de déployer au moins deux homologues par organisation pour ma reprise en ligne. Vous devez également adapter vos applications pour la haute disponibilité. Installez du code blockchain sur les deux homologues chaincode et ajoutez-les à vos canaux. Ensuite, soyez préparé à la soumission de propositions de transaction sur les deux noeuds finaux homologue lors de la configuration de votre réseau et la génération de votre liste cible d'homologues. Les réseaux de plan Enterprise comportent plusieurs services de tri pour le basculement, ce qui permet à votre application client d'envoyer des transactions validées à un service de tri différent si un service de tri n'est pas disponible. Si vous utilisez votre profil de connexion au lieu d'ajouter des noeuds finaux de réseau manuellement, assurez-vous que votre profil est à jour et qu'un canal pertinent a été ajouté aux homologues et services de tri supplémentaires dans la section `channels` du profil. Le logiciel SDK ajoute ensuite les composants rejoints sur le canal à l'aide du profil de connexion.
 
 ## Activation de TLS mutuel
 {: #best-practices-app-mutual-tls}
 
-Si vous exécutez des réseaux de plan Enterprise au niveau Fabric V1.1, vous avez la possibilité d'[activer le TLS mutuel](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) pour vos applications. Si vous activez TLS mutuel, vous devez mettre à jour vos applications afin de prendre en charge cette fonction. Sinon, vos applications ne peuvent pas communiquer avec votre réseau.
+Si vous exécutez des réseaux de plan Enterprise au niveau Fabric V1.1, vous avez la possibilité d'[activer le TLS mutuel](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) pour vos applications. Si vous activez TLS mutuel, vous devez mettre à jour vos applications afin de prendre en charge cette fonction. Sinon, vos applications ne peuvent pas communiquer avec votre réseau.
 
 Dans le profil de connexion, localisez la section `certificateAuthorities` où se trouvent les attributs suivants qui sont nécessaires à l'inscription et à l'obtention des certificats pour communiquer avec votre réseau à l'aide de TLS mutuel.
 

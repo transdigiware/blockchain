@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
@@ -20,18 +20,18 @@ subcollection: blockchain
 {: #remote-peer-aws-operate}
 
 Después de configurar iguales de {{site.data.keyword.blockchainfull}} Platform en AWS, tiene que llevar a cabo varios pasos operativos para que el igual pueda enviar transacciones para consultar e invocar el libro mayor de la red blockchain. Los pasos incluyen añadir su organización a un canal, unir el igual al canal, instalar el código de encadenamiento en el igual,
-crear una instancia del código de encadenamiento en el canal y conectar aplicaciones al igual. Puede utilizar los [SDK de Fabric](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-with-sdk) o la [línea de mandatos](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-cli-operate) para realizar estos pasos operativos. Los SDK de Fabric son el método recomendado, aunque en las instrucciones se presupone que está familiarizado con el funcionamiento del SDK.
+crear una instancia del código de encadenamiento en el canal y conectar aplicaciones al igual. Puede utilizar los [SDK de Fabric](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-with-sdk) o la [línea de mandatos](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate) para realizar estos pasos operativos. Los SDK de Fabric son el método recomendado, aunque en las instrucciones se presupone que está familiarizado con el funcionamiento del SDK.
 
-**Nota**: un igual de {{site.data.keyword.blockchainfull_notm}} Platform en AWS no tiene acceso a toda la funcionalidad ni al soporte de los iguales alojados en la plataforma {{site.data.keyword.blockchainfull_notm}}. Como resultado, no puede utilizar el supervisor de red para trabajar con el igual. Antes de empezar a ejecutar iguales en AWS, asegúrese de revisar las [consideraciones](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-limitations).
+**Nota**: un igual de {{site.data.keyword.blockchainfull_notm}} Platform en AWS no tiene acceso a toda la funcionalidad ni al soporte de los iguales alojados en la plataforma {{site.data.keyword.blockchainfull_notm}}. Como resultado, no puede utilizar el supervisor de red para trabajar con el igual. Antes de empezar a ejecutar iguales en AWS, asegúrese de revisar las [consideraciones](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations).
 
 ## Utilización de los SDK de Fabric para trabajar con el igual
 {: #remote-peer-aws-operate-with-sdk}
 
 Los SDK de Hyperledger Fabric ofrecen un potente conjunto de API que permiten a las aplicaciones interactuar con las redes blockchain. Encontrará la lista más reciente de idiomas admitidos y la lista completa de las API disponibles dentro de los SDK de Fabric Manager Hyperledger en la [documentación de la comunidad del SDK de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}. Puede utilizar los SDK de Fabric para unir su igual a un canal en {{site.data.keyword.blockchainfull_notm}} Platform, instalar un código de encadenamiento en el igual y crear una instancia del código de encadenamiento en un canal.
 
-En las siguientes instrucciones se utiliza el [SDK de Node de Fabric](https://fabric-sdk-node.github.io/){: external} para trabajar con el igual; se presupone que está familiarizado con el SDK. Puede utilizar la [guía de aprendizaje sobre desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app) para aprender a utilizar Node SDK antes de empezar y como guía para desarrollar aplicaciones con el igual cuando esté listo para invocar el código de encadenamiento de la consulta.
+En las siguientes instrucciones se utiliza el [SDK de Node de Fabric](https://fabric-sdk-node.github.io/){: external} para trabajar con el igual; se presupone que está familiarizado con el SDK.
 
-El Inicio rápido del igual de {{site.data.keyword.blockchainfull_notm}} Platform en AWS crea dos iguales para obtener alta disponibilidad. Por lo tanto, tiene que seguir los pasos operativos para cada igual. Una vez que esté listo para consultar e invocar código de encadenamiento desde su aplicación, haga que el SDK se conecte a ambos iguales para garantizar que las [aplicaciones tengan alta disponibilidad](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app).
+El Inicio rápido del igual de {{site.data.keyword.blockchainfull_notm}} Platform en AWS crea dos iguales para obtener alta disponibilidad. Por lo tanto, tiene que seguir los pasos operativos para cada igual. Una vez que esté listo para consultar e invocar código de encadenamiento desde su aplicación, haga que el SDK se conecte a ambos iguales para garantizar que las [aplicaciones tengan alta disponibilidad](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app).
 
 ### Instalación de Node SDK
 {: #remote-peer-aws-operate-install-sdk}
@@ -47,7 +47,7 @@ Se recomienda utilizar la versión 1.2 de Node SDK.
 ### Preparación del SDK para que trabaje con el igual
 {: #remote-peer-aws-operate-sdk}
 
-Antes de utilizar el SDK para trabajar con el igual, debe generar los certificados necesarios (inscripción) que permitirán que la aplicación se comunique con la red en {{site.data.keyword.blockchainfull_notm}} Platform y su igual. Siga los pasos para [inscribir el SDK](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk) utilizando la identidad **admin**. En la guía de aprendizaje sobre [Desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app) también se inscribe como **admin**, de modo que no tiene que modificar el código de ejemplo.
+Antes de utilizar el SDK para trabajar con el igual, debe generar los certificados necesarios (inscripción) que permitirán que la aplicación se comunique con la red en {{site.data.keyword.blockchainfull_notm}} Platform y su igual. Utilice el SDK para realizar la inscripción utilizando la identidad **admin** registrada con la entidad emisora de certificados en {{site.data.keyword.cloud_notm}}.
 
 ### Carga de un signcert en la plataforma {{site.data.keyword.blockchainfull_notm}}
 {: #remote-peer-aws-operate-upload-SDK}
@@ -59,7 +59,7 @@ Es necesario subir el certificado de firma de SDK a la red en {{site.data.keywor
 ### Carga de un signcert en el igual
 {: #remote-peer-aws-operate-upload-signcert}
 
-También es necesario cargar el certificado de firma del SDK en el igual remoto y reiniciarlo. Debe instalar el mismo certificado de firma que el que haya [cargado en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK) dentro del contenedor del igual remoto.
+También es necesario cargar el certificado de firma del SDK en el igual remoto y reiniciarlo. Debe instalar el mismo certificado de firma que el que haya [cargado en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-upload-SDK) dentro del contenedor del igual remoto.
 
 Utilice SSH en la instancia de VPC seleccionando la instancia den la consola de AWS (pulse **Servicios > EC2 > Instancias**) y, a continuación, pulsando el botón Conectar. Siga las instrucciones de AWS para emitir el mandato ssh.
 
@@ -75,7 +75,7 @@ echo -e "<CERT.PEM>" > cert2.pem
 
   **Nota:** si el archivo `cert.pem` ya existe, cree un nuevo archivo en lugar de sobrescribirlo, por ejemplo, `cert2.pem`.
 
-Como ha añadido un nuevo certificado, tiene que reiniciar el contenedor para que el igual adopte el certificado. Siga estas [instrucciones](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-restart) para reiniciar el igual.
+Como ha añadido un nuevo certificado, tiene que reiniciar el contenedor para que el igual adopte el certificado. Siga estas [instrucciones](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-restart) para reiniciar el igual.
 
 ### Cómo pasar el certificado TLS del igual al SDK
 {: #remote-peer-aws-operate-download-tlscert}
@@ -110,23 +110,24 @@ var peer = fabric_client.newPeer('grpcs://<AWS_EC2_dashboard_Public_DNS>:7051', 
 
 Como miembro de la red blockchain, su organización debe añadirse a un canal de la red para que pueda unir su igual al canal.
 
-  - Puede iniciar un nuevo canal para el igual. Como iniciador de canal, puede incluir automáticamente su organización durante la [creación del canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel).
+  - Puede iniciar un nuevo canal para el igual. Como iniciador de canal, puede incluir automáticamente su organización durante la [creación del canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel).
 
-  - Otro miembro de la red blockchain también puede añadir su organización a un canal existente mediante una [actualización de canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+  - Otro miembro de la red blockchain también puede añadir su organización a un canal existente mediante una [actualización de canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 
     Una vez que la organización se haya añadido a un canal, deberá añadir el certificado de firma del igual al canal para que otros miembros puedan verificar la firma digital durante las transacciones. El igual carga el certificado de firma durante la instalación, de modo que solo necesita sincronizar el certificado con el canal. En la pantalla "Canales" del supervisor de red, localice el canal al que se ha unido su organización y seleccione **Sincronizar certificado** en la lista desplegable bajo la cabecera **Acción**. Esta acción sincroniza los certificados entre todos los iguales del canal. Es posible que tenga que esperar unos minutos a que finalice la sincronización del canal antes de emitir los mandatos join channel.
 
-Una vez que su organización forme parte del canal, siga las instrucciones del apartado sobre [Cómo unirse a un canal](/docs/services/blockchain/v10_application.html#dev-app-join-channel-sdk). Debe especificar URL del servicio de ordenación y el nombre del canal.
+Después de que su organización pase a ser un miembro de un canal, puede utilizar el SDK para
+[unir el igual a un canal](https://fabric-sdk-node.github.io/release-1.4/Channel.html#joinChannel){: external}. Debe especificar URL del servicio de ordenación y el nombre del canal.
 
 ### Utilización del SDK para instalar el código de encadenamiento en el igual
 {: #remote-peer-aws-operate-install-cc-sdk}
 
-Siga las instrucciones para utilizar el SDK para [instalar un código de encadenamiento](/docs/services/blockchain/v10_application.html#dev-app-install-cc-sdk) en el igual.
+Utilice el SDK para [instalar un código de encadenamiento](https://fabric-sdk-node.github.io/release-1.4/Client.html#installChaincode){: external} en el igual.
 
 ### Utilización del SDK para crear una instancia de código de encadenamiento en el canal
 {: #remote-peer-aws-operate-instantiate-cc-sdk}
 
-Sólo un miembro del canal necesita crear una instancia o actualizar el código de encadenamiento. Por lo tanto, cualquier miembro de red del canal con iguales en {{site.data.keyword.blockchainfull_notm}} Platform puede utilizar el supervisor de red para crear una instancia de código de encadenamiento y especificar políticas de aprobación. Sin embargo, si desea utilizar el igual para crear una instancia del código de encadenamiento en un canal, puede utilizar el SDK y seguir las instrucciones para [crear una instancia de un código de encadenamiento](/docs/services/blockchain/v10_application.html#dev-app-instantiate-cc-sdk).
+Sólo un miembro del canal necesita crear una instancia o actualizar el código de encadenamiento. Por lo tanto, cualquier miembro de red del canal con iguales en {{site.data.keyword.blockchainfull_notm}} Platform puede utilizar el supervisor de red para crear una instancia de código de encadenamiento y especificar políticas de aprobación. Sin embargo, si desea utilizar el igual para crear una instancia del código de encadenamiento en un canal, puede utilizar el SDK para [crear una instancia de un código de encadenamiento](https://fabric-sdk-node.github.io/release-1.4/Channel.html#sendInstantiateProposal){: external}.
 
 
 ## Utilización de la CLI para trabajar con el igual
@@ -210,7 +211,7 @@ El primer paso consiste en generar los certificados necesarios (inscripciones) u
 ### Gestión de los certificados en el sistema local
 {: #remote-peer-aws-operate-manage-certs}
 
-Para poder trabajar con el igual, tenemos que realizar ciertas tareas de gestión de los certificados en la máquina local y cargar algunos de los certificados que el cliente de CA de Fabric ha generado en {{site.data.keyword.blockchainfull_notm}} Platform y en el igual. También tenemos que descargar los certificados TLS de la plataforma y del igual. Si desea obtener más información sobre los certificados con los que va a trabajar y sobre las tareas que va a realizar, consulte el apartado sobre [Gestión de certificados en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates).
+Para poder trabajar con el igual, tenemos que realizar ciertas tareas de gestión de los certificados en la máquina local y cargar algunos de los certificados que el cliente de CA de Fabric ha generado en {{site.data.keyword.blockchainfull_notm}} Platform y en el igual. También tenemos que descargar los certificados TLS de la plataforma y del igual. Si desea obtener más información sobre los certificados con los que va a trabajar y sobre las tareas que va a realizar, consulte el apartado sobre [Gestión de certificados en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 En la máquina local, abra un terminal de mandatos y vaya al directorio al ha movido los binarios Fabric-CA-Client y ha almacenado la carpeta de MSP.
 
@@ -234,7 +235,7 @@ En la máquina local, abra un terminal de mandatos y vaya al directorio al ha mo
 
 3. También debe copiar el certificado TLS del igual desde el contenedor del igual en AWS a la máquina local.
 
-    - [Siga estas instrucciones](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-test) para iniciar sesión en el contenedor del igual y ejecutar el mandato siguiente, sustituyendo <PEER_ENROLL_ID> por el nombre de pila del igual, que ha especificado en la plantilla de Inicio rápido, seguido por su número. (Recuerde que se crean dos instancias de VPC).
+    - [Siga estas instrucciones](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-test) para iniciar sesión en el contenedor del igual y ejecutar el mandato siguiente, sustituyendo <PEER_ENROLL_ID> por el nombre de pila del igual, que ha especificado en la plantilla de Inicio rápido, seguido por su número. (Recuerde que se crean dos instancias de VPC).
       ```
       cat /etc/hyperledger/<PEER_ENROLL_ID>/tls/ca.crt
       ```
@@ -275,7 +276,7 @@ En la máquina local, abra un terminal de mandatos y vaya al directorio al ha mo
 
       **Nota:** ya existe un archivo cert.pem en este directorio. No lo sobrescriba.
 
-    - Dado que hemos añadido un nuevo certificado, será necesario reiniciar el contenedor para que el igual adopte el certificado. Siga estas instrucciones para [reiniciar el contenedor del igual](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-restart).
+    - Dado que hemos añadido un nuevo certificado, será necesario reiniciar el contenedor para que el igual adopte el certificado. Siga estas instrucciones para [reiniciar el contenedor del igual](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-restart).
 
 5. Cargue el mismo certificado `admincert/cert.pem` de la máquina local en {{site.data.keyword.blockchainfull_notm}} Platform para que una aplicación o CLI remota pueda realizar operaciones de canal, tales como capturar el bloque de origen del canal y crear una instancia del código de encadenamiento.
     1. En la máquina local, localice `/$FABRIC_CA_CLIENT_HOME/msp/admincerts/cert.pem` y cópielo en el portapapeles.
@@ -340,9 +341,9 @@ docker run -ti --network blockchain.com -v ${PWD}:/mnt -v path/to/toolsrc:/src i
 
 Para poder ejecutar los mandatos de CLI para unir el igual a un canal, la organización se debe añadir a un canal de la red.
 
-  - Puede iniciar un nuevo canal para el igual. Como iniciador de canal, puede incluir automáticamente su organización durante la [creación del canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel).
+  - Puede iniciar un nuevo canal para el igual. Como iniciador de canal, puede incluir automáticamente su organización durante la [creación del canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel).
 
-  - Otro miembro de la red blockchain también puede añadir su organización a un canal existente mediante una [actualización de canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+  - Otro miembro de la red blockchain también puede añadir su organización a un canal existente mediante una [actualización de canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 
     Una vez que la organización se haya añadido a un canal, deberá añadir el certificado de firma del igual al canal para que otros miembros puedan verificar la firma digital durante las transacciones. El igual carga el certificado de firma durante la instalación, de modo que solo necesita sincronizar el certificado con el canal. En la pantalla "Canales" del supervisor de red, localice el canal al que se ha unido su organización y seleccione **Sincronizar certificado** en la lista desplegable bajo la cabecera **Acción**. Esta acción sincroniza los certificados entre todos los iguales del canal.
 
@@ -444,7 +445,7 @@ Para poder ejecutar los mandatos de CLI para unir el igual a un canal, la organi
 ### Utilización del contenedor de herramientas de Fabric para instalar el código de encadenamiento en el igual
 {: #aws-toolcontainer-install-cc}
 
-Ahora estamos listos para instalar y crear una instancia de código de encadenamiento en el igual. A efectos de estas instrucciones, instalaremos el código de encadenamiento de `fabcar` desde el repositorio `fabric-samples` de Hyperledger, que ya se debe haber descargado en la máquina local al [configurar el contenedor de herramientas de Fabric](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-cli-operate).  
+Ahora estamos listos para instalar y crear una instancia de código de encadenamiento en el igual. A efectos de estas instrucciones, instalaremos el código de encadenamiento de `fabcar` desde el repositorio `fabric-samples` de Hyperledger, que ya se debe haber descargado en la máquina local al [configurar el contenedor de herramientas de Fabric](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate).  
 
 Ejecute el siguiente mandato de CLI del igual para instalar el código de encadenamiento `fabcar` en el igual.
 
@@ -493,7 +494,7 @@ Puede iniciar, detener o reiniciar el igual en el entorno donde lo despliegue. S
  ```
  {:codeblock}  
 
-También puede utilizar la [solicitud HEAD](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network-monitor-nodes) para comprobar la disponibilidad del igual.
+También puede utilizar la [solicitud HEAD](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-nodes) para comprobar la disponibilidad del igual.
 
 ## Visualización de los registros de igual
 
@@ -515,7 +516,7 @@ Siga los pasos siguientes para actualizar el código de encadenamiento:
 
 2. Después de instalar el nuevo código de encadenamiento en todos los iguales del canal, utilice el supervisor de red o el mandato [peer chaincode upgrade](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} para actualizar el canal para que utilice el nuevo código de código.
 
-Consulte el paso dos de estas [instrucciones](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) para obtener más información sobre cómo utilizar el panel Instalar código del supervisor de red para actualizar el código de encadenamiento en el canal.
+Consulte el paso dos de estas [instrucciones](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc) para obtener más información sobre cómo utilizar el panel Instalar código del supervisor de red para actualizar el código de encadenamiento en el canal.
 
 ## Resolución de problemas
 {: #remote-peer-aws-operate-troubleshooting}
@@ -543,4 +544,4 @@ Error: Error endorsing chaincode: rpc error: code = Unknown desc = chaincode err
 ```
 
 **Solución:**   
-Asegúrese de que, una vez que se haya cargado el certificado de administrador en el supervisor de red, los certificados se sincronicen luego en el canal. Consulte el paso cinco de estas [instrucciones](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-manage-certs) para obtener más información. Tenga en cuenta que es importante sincronizar el certificado del canal antes de que el igual se una al canal.
+Asegúrese de que, una vez que se haya cargado el certificado de administrador en el supervisor de red, los certificados se sincronicen luego en el canal. Consulte el paso cinco de estas [instrucciones](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-manage-certs) para obtener más información. Tenga en cuenta que es importante sincronizar el certificado del canal antes de que el igual se una al canal.

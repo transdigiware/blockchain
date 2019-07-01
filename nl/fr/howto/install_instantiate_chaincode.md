@@ -41,7 +41,7 @@ Vous devez installer le code blockchain sur chaque homologue qui va exécuter le
 
 2. Dans la fenêtre contextuelle **Installer le code blockchain**, entrez le nom et la version de votre code blockchain. **Notez** que les chaînes de nom et de version seront utilisées dans les applications pour interagir avec le code blockchain installé. Cliquez sur le bouton **Parcourir** et parcourez votre code système de fichiers local jusqu'à l'emplacement de stockage de la source de votre code blockchain. Sélectionnez un ou plusieurs fichiers source de code blockchain à installer sur votre homologue. Sélectionnez ensuite votre langage de code blockchain dans le menu déroulant **Type de code blockchain**.
 
-Vous pouvez installer le code blockchain en téléchargeant un ou plusieurs fichiers GO ou NODE , ou encore télécharger le code blockchain dans un fichier .zip. L'utilisation d'un fichier .zip préserve votre code blockchain avec la structure de répertoire complète. Ceci s'avère utile si vous désirez inclure des modules de dépendances, ou utiliser les index avec CouchDB. Pour plus d'informations sur CouchDB et la façon de définir des index, voir [Meilleurs pratiques lors de l'utilisation de CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) dans le tutoriel Développement d'applications. Vous pouvez également trouver des informations sur la [gestion de dépendances externes pour code blockchain rédigé en Go ](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} dans la documentation Hyperledger Fabric.
+Vous pouvez installer le code blockchain en téléchargeant un ou plusieurs fichiers GO ou NODE , ou encore télécharger le code blockchain dans un fichier .zip. L'utilisation d'un fichier .zip préserve votre code blockchain avec la structure de répertoire complète. Ceci s'avère utile si vous désirez inclure des modules de dépendances, ou utiliser les index avec CouchDB. Pour plus d'informations sur CouchDB et la façon de définir des index, voir [Meilleurs pratiques lors de l'utilisation de CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices) dans le tutoriel Développement d'applications. Vous pouvez également trouver des informations sur la [gestion de dépendances externes pour code blockchain rédigé en Go ](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} dans la documentation Hyperledger Fabric.
 
   ![Installer le code blockchain](../images/chaincode_install.png "Installer le code blockchain")
 
@@ -62,7 +62,7 @@ Vous devez posséder les droits **Opérateur** ou **Rédacteur** sur le canal po
   ![Instantiate Chaincode panel](../images/chaincode_instantiate_panel.png "Instantiate Chaincode panel")
 -->
 
-3. Spécifiez la [règle de validation](/docs/services/blockchain/glossary.html#glossary-endorsement-policy) de votre code blockchain. Plus d'informations sur la définition de règles de validation figurent dans la [section suivante](#install-instantiate-chaincode-endorsement-policy).
+3. Spécifiez la [règle de validation](/docs/services/blockchain?topic=blockchain-glossary#glossary-endorsement-policy) de votre code blockchain. Plus d'informations sur la définition de règles de validation figurent dans la [section suivante](#install-instantiate-chaincode-endorsement-policy).
 
 
 ## Spécification de règles de validation pour le code blockchain
@@ -70,7 +70,7 @@ Vous devez posséder les droits **Opérateur** ou **Rédacteur** sur le canal po
 
 Vous pouvez utiliser des règles de validation pour spécifier le groupe d'homologues devant valider une nouvelle transaction. Par exemple, une règle de validation peut spécifier qu'une transaction ne sera ajoutée au registre que si une majorité des membres du canal la ratifie.
 
-La règle de validation est définie lorsqu'un code blockchain est instancié sur un canal. L'organisation qui instancie le code blockchain peut sélectionner parmi les membres du canal qui l'ont installé ceux devant faire office de valideurs et définir la règle de validation pour tous les membres du canal. Vous pouvez mettre à jour votre règle de validation en suivant la procédure de la rubrique [Mise à jour de votre code blockchain](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc), puis en spécifiant une nouvelle règle lorsque vous instanciez votre code blockchain à l'étape suivante.
+La règle de validation est définie lorsqu'un code blockchain est instancié sur un canal. L'organisation qui instancie le code blockchain peut sélectionner parmi les membres du canal qui l'ont installé ceux devant faire office de valideurs et définir la règle de validation pour tous les membres du canal. Vous pouvez mettre à jour votre règle de validation en suivant la procédure de la rubrique [Mise à jour de votre code blockchain](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc), puis en spécifiant une nouvelle règle lorsque vous instanciez votre code blockchain à l'étape suivante.
 
 Lorsque vous utilisez le Moniteur réseau pour définir votre règle de validation, vous pouvez soit utiliser l'interface utilisateur pour spécifier une **Règle simple**, soit utiliser JSON pour spécifier une **Règle avancée**.
 
@@ -91,7 +91,7 @@ Les règles de validation ne sont mises à jour automatiquement lorsque de nouve
 
 Vous pouvez mettre à jour un code blockchain afin de modifier la programmation du code blockchain tout en conservant sa relation aux actifs dans le registre. En raison de la combinaison installation et instanciation, vous devez mettre à jour le code blockchain sur tous les homologues qui se trouvent sur le canal avec ce code blockchain. Pour mettre à jour un code blockchain, procédez comme suit.
 
-1. Installez un code blockchain portant le même nom que votre ancien code blockchain, mais avec une version différente. Vous pouvez suivre les mêmes étapes que celles de la section [Installation d'un code blockchain](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc). Vérifiez que vous sélectionnez le même canal que votre code blockchain d'origine.
+1. Installez un code blockchain portant le même nom que votre ancien code blockchain, mais avec une version différente. Vous pouvez suivre les mêmes étapes que celles de la section [Installation d'un code blockchain](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc). Vérifiez que vous sélectionnez le même canal que votre code blockchain d'origine.
 
   ![Mettre à jour le code blockchain](../images/upgrade_chaincode.png "Mettre à jour le code blockchain")
 

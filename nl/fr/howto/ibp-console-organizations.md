@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -21,7 +21,7 @@ subcollection: blockchain
 
 Vous pouvez utiliser la console {{site.data.keyword.blockchainfull}} Platform pour créer une définition d'organisation formelle appelée Membership Services Provider (MSP). La définition MSP de votre organisation permet à d'autres membres du consortium de blockchain de vérifier l'identité de vos noeuds et applications. Votre définition MSP contient également les certificats admin de votre organisation.
 
-Vous pouvez également utiliser la console pour gérer les organisations qui sont les membres de votre réseau. L'administrateur du service de tri peut utiliser l'onglet Organisations pour ajouter des membres au [consortium](/docs/services/blockchain/glossary.html#glossary-consortium) de blockchain. Les membres du consortium peuvent ensuite utiliser la console pour ajouter des membres à des canaux nouveaux ou existants.
+Vous pouvez également utiliser la console pour gérer les organisations qui sont les membres de votre réseau. L'administrateur du service de tri peut utiliser l'onglet Organisations pour ajouter des membres au [consortium](/docs/services/blockchain?topic=blockchain-glossary#glossary-consortium) de blockchain. Les membres du consortium peuvent ensuite utiliser la console pour ajouter des membres à des canaux nouveaux ou existants.
 
 **Public cible :** Cette rubrique s'adresse aux opérateurs réseau qui sont responsables de la création, de la surveillance et de la gestion du réseau de blockchain.
 
@@ -34,17 +34,17 @@ Chaque organisation du consortium doit utiliser sa propre autorité de certifica
 
 Pour pouvoir rejoindre un consortium, votre organisation doit créer une définition d'organisation appelée **Membership Services Provider (MSP)**. La définition MSP contient les informations suivantes :
 - Un certificat signé par votre **autorité de certification racine**. Ce certificat est utilisé pour vérifier l'identité de vos noeuds, canaux, et applications.
-- Un certificat signé par votre **autorité de certification TLS**. Un certificat TLS racine permet à vos homologues de participer à une communication gossip entre organisations, ce qui est nécessaire pour bénéficier des fonctions [**Private data** collections](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) et [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} d'Hyperledger Fabric.
+- Un certificat signé par votre **autorité de certification TLS**. Un certificat TLS racine permet à vos homologues de participer à une communication gossip entre organisations, ce qui est nécessaire pour bénéficier des fonctions [**Private data** collections](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) et [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} d'Hyperledger Fabric.
 - **ID MSP**. L'ID MSP est le nom formel de votre organisation au sein du consortium. Vous devez retenir l'ID MSP pour vos noeuds et applications.
-- **Certificats admin** de vos identités **Admin homologue** et **Admin org**. Ces certificats sont transmis au service de tri et sont utilisés pour vérifier les identités de votre organisation qui sont autorisées à créer ou à éditer des canaux. Lorsque vous utilisez la console pour créer un service de tri ou un homologue, les certificats admin au sein de la définition MSP sont déployés dans le nouveau noeud. Ces certificats peuvent ensuite être utilisés pour exploiter les homologues ou les services de tri à partir de votre console ou d'une application client.
+- **Certificats admin** de vos identités **Admin homologue** et **Admin org**. Ces certificats sont transmis au service de tri et sont utilisés pour vérifier les identités de votre organisation qui sont autorisées à créer ou à éditer des canaux. Lorsque vous utilisez la console pour créer un service de tri ou un homologue, les certificats admin au sein de la définition MSP sont déployés dans le nouveau noeud. Ces certificats peuvent ensuite être utilisés pour exploiter les homologues ou les noeuds de tri à partir de votre console ou d'une application client.
 
 ## Gestion des définitions MSP sur la console
 
-Accédez à l'onglet **Organisations**. Vous pouvez utiliser cet onglet pour [créer une définition MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp) à l'aide d'une autorité de certification qui existe sur votre console. Vous pouvez également utiliser cet onglet pour [importer une définition MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp) qui a été créée par une autre organisation.
+Accédez à l'onglet **Organisations**. Vous pouvez utiliser cet onglet pour [créer une définition MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) à l'aide d'une autorité de certification qui existe sur votre console. Vous pouvez également utiliser cet onglet pour [importer une définition MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) qui a été créée par une autre organisation.
 
 Vous pouvez afficher toutes les définitions MSP que vous avez créées ou importées sous **Organisations disponibles**. Vous pouvez utiliser les définitions MSP de l'onglet Organisations pour des fonctions importantes sur la console :
 - Si vous créez des noeuds d'homologue ou de service de tri, la définition MSP de votre organisation est utilisée pour fournir des certificats admin au nouveau noeud.
-- Si vous êtes l'admin d'un noeud de service de tri, vous pouvez utiliser les définitions MSP pour [ajouter de nouvelles organisations au consortium](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
+- Si vous êtes l'admin d'un noeud de service de tri, vous pouvez utiliser les définitions MSP pour [ajouter de nouvelles organisations au consortium](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - Si vous êtes membre du consortium, vous pouvez importer les définitions MSP d'autres membres du consortium sur votre console puis ajouter les membres à des canaux nouveaux ou existants.
 
 ## Création d'une définition MSP pour votre organisation
@@ -153,14 +153,14 @@ Par exemple, votre fichier JSON peut ressembler à ceci :
 
 Sauvegardez cette définition dans un fichier `JSON` de définition MSP.  
 
-Vous avez créé une définition MSP, qui définit l'organisation des noeuds de votre homologue ou service de tri et utilisé les certificats d'une autorité de certification externe. Vous pouvez maintenant revenir aux instructions qui décrivent [Comment utiliser les certificats d'une autorité de certification externe avec votre homologue ou service de tri](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
+Vous avez créé une définition MSP, qui définit l'organisation des noeuds de votre homologue ou service de tri et utilisé les certificats d'une autorité de certification externe. Vous pouvez maintenant revenir aux instructions qui décrivent [Comment utiliser les certificats d'une autorité de certification externe avec votre homologue ou service de tri](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca).
 
 ## Importation d'une définition MSP
 {: #console-organizations-import-msp}
 
 Seul l'admin du service de tri peut ajouter de nouvelles organisations au consortium. Si vous êtes l'admin du service de tri, vous devez collecter les définitions MSP de toutes les organisations qui ont été invités à rejoindre le consortium et importer ces définitions MSP sur la console. Vous pouvez ensuite ajouter les définitions MSP au service de tri, à l'aide du noeud de service de tri.
 
-Une fois qu'un administrateur a créé une définition MSP, il peut utiliser l'onglet Organisations pour télécharger la définition MSP au format JSON sur son système de fichiers local. Il peut ensuite envoyer le fichier JSON MSP dans une opération hors bande. Accédez à l'onglet **Organisations** et utilisez **Importer une définition de MSP** pour importer le fichier MSP sur votre console. Dès qu'une définition MSP est visible dans la section **Organisations disponibles**, vous pouvez accéder à votre noeud de service de tri pour [ajouter l'organisation au consortium](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
+Une fois qu'un administrateur a créé une définition MSP, il peut utiliser l'onglet Organisations pour télécharger la définition MSP au format JSON sur son système de fichiers local. Il peut ensuite envoyer le fichier JSON MSP dans une opération hors bande. Accédez à l'onglet **Organisations** et utilisez **Importer une définition de MSP** pour importer le fichier MSP sur votre console. Dès qu'une définition MSP est visible dans la section **Organisations disponibles**, vous pouvez accéder à votre noeud de service de tri pour [ajouter l'organisation au consortium](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 
 
 ## Ajout d'une organisation à un consortium
@@ -168,7 +168,7 @@ Une fois qu'un administrateur a créé une définition MSP, il peut utiliser l'o
 
 Le consortium des organisations est hébergé par le service de tri.
 
-Si vous êtes l'administrateur du noeud de service de tri, vous pouvez utiliser la console pour ajouter une organisation au consortium. Accédez à l'onglet **Noeuds** et cliquez sur le noeud de service de tri. Sur le panneau du noeud de service de tri, sous **Membres du consortium**, cliquez sur **Ajouter une organisation**. Un panneau latéral s'affiche qui vous permet d'effectuer votre sélection dans la liste des définitions MSP disponibles que vous avez [importées dans votre onglet Organizations](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp). Vous pouvez également utiliser l'option **Télécharger JSON** pour importer le fichier de définition MSP créé par une autre organisation directement.
+Si vous êtes l'administrateur du noeud de service de tri, vous pouvez utiliser la console pour ajouter une organisation au consortium. Accédez à l'onglet **Noeuds** et cliquez sur le noeud de service de tri. Sur le panneau du noeud de service de tri, sous **Membres du consortium**, cliquez sur **Ajouter une organisation**. Un panneau latéral s'affiche qui vous permet d'effectuer votre sélection dans la liste des définitions MSP disponibles que vous avez [importées dans votre onglet Organizations](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). Vous pouvez également utiliser l'option **Télécharger JSON** pour importer le fichier de définition MSP créé par une autre organisation directement.
 
 ## Création et édition d'un canal
 {: #console-organizations-create-channel}
@@ -181,7 +181,7 @@ Une fois que votre organisation est ajoutée à un consortium, vous pouvez crée
 2. Importez les définitions MSP des organisations que vous voulez ajuter au nouveau canal sur votre console à partir de l'onglet **Organisations**. **Remarque ** : Ces organisations doivent être ajoutées au consortium pour pouvoir être ajoutées à un canal.
 3. Accédez à l'onglet **Canaux** et cliquez sur **Créer un canal**. Un panneau latéral s'affiche qui vous permet d'indiquer le nom du canal, l'appartenance et les règles de canal. Vous pouvez ajouter des organisations qui ont été ajoutées au consortium sur le nouveau canal.
 
-Pour plus d'informations sur ces étapes, voir la section relative à la [création d'un canal](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel1) dans le tutoriel **Générer un réseau**.
+Pour plus d'informations sur ces étapes, voir la section relative à la [création d'un canal](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1) dans le tutoriel **Générer un réseau**.
 
 ### Mise à jour d'un MSP dans une définition de canal
 {: #console-organizations-update-channel}

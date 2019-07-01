@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.IBM}} no proporciona soporte para redes que utilicen Hyperledger Composer en producción, incluyendo la CLI de Composer, las API de JavaScript, el servidor REST y Web Playground.
 {:note}
 
-Las [redes empresariales](/docs/services/blockchain/glossary.html#glossary-business-network) se pueden desarrollar y desplegar en redes del plan inicial y empresarial utilizando el entorno de desarrollador de {{site.data.keyword.blockchainfull_notm}} Platform y el conjunto de herramientas del desarrollador de Hyperledger Composer.
+Las [redes empresariales](/docs/services/blockchain?topic=blockchain-glossary#glossary-business-network) se pueden desarrollar y desplegar en redes del plan inicial y empresarial utilizando el entorno de desarrollador de {{site.data.keyword.blockchainfull_notm}} Platform y el conjunto de herramientas del desarrollador de Hyperledger Composer.
 {:shortdesc}
 
 Con el entorno del desarrollador, puede modelar y probar rápidamente las redes empresariales de blockchain y desplegarlas en una red del plan inicial o empresarial de {{site.data.keyword.blockchainfull_notm}} Platform.
@@ -36,14 +36,14 @@ Con el entorno del desarrollador, puede modelar y probar rápidamente las redes 
 ### Antes de empezar
 {: #deploying-a-business-network-before-begin}
 
-Asegúrese de leer el apartado [Acerca del Plan inicial](/docs/services/blockchain/starter_plan.html#starter-plan-about) y de haber creado una red del Plan inicial siguiendo las instrucciones de [Iniciación al Plan inicial](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan).
+Asegúrese de leer el apartado [Acerca del Plan inicial](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about) y de haber creado una red del Plan inicial siguiendo las instrucciones de [Iniciación al Plan inicial](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
 
 Asegúrese de haber instalado Node v8.9 o superior npm v5.x e Hyperledger Composer:
 
 - Si la red está en Fabric versión 1.2, utilice Hyperledger Composer v0.20.x.
 - Si la red está en Fabric versión 1.1, utilice Hyperledger Composer v0.19.x.
 
-Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) en el supervisor de red.
+Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) en el supervisor de red.
 
 ### Paso uno: recuperar el secreto de administración
 {: #deploying-a-business-network-retrieve-admin-secret}
@@ -187,7 +187,7 @@ Esta guía aborda el siguiente paso del ciclo de vida de la red empresarial, es 
 
 Asegúrese de que ha instalado el entorno de desarrollador de {{site.data.keyword.blockchainfull_notm}} y de estar familiarizado con el desarrollo y despliegue de redes empresariales. Dispone de instrucciones sobre cómo escribir redes empresariales en la [documentación de Hyperledger Composer](https://hyperledger.github.io/composer/latest/business-network/business-network-index).
 
-Necesita acceso a una instancia del Plan empresarial de {{site.data.keyword.blockchainfull_notm}} Platform y de tener creados los iguales de antemano. Para obtener más información sobre el Plan empresarial de la plataforma {{site.data.keyword.blockchainfull_notm}}, consulte la [visión general del Plan empresarial](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+Necesita acceso a una instancia del Plan empresarial de {{site.data.keyword.blockchainfull_notm}} Platform y de tener creados los iguales de antemano. Para obtener más información sobre el Plan empresarial de la plataforma {{site.data.keyword.blockchainfull_notm}}, consulte la [visión general del Plan empresarial](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
 ### Paso uno: crear un perfil de conexión para {{site.data.keyword.blockchainfull_notm}} Platform
 {: #deploying-a-business-network-create-connection-profile}

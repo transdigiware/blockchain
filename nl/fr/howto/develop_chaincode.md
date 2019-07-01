@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: update data, private data, smart contract, CouchDB indexes, cross chaincode transaction
 
@@ -28,13 +28,13 @@ Supposons, par exemple, qu'un réseau de concessionnaires automobiles, de compag
 
 Le tutoriel ci-après vous permet d'aborder les concepts de base relatifs à la génération de code blockchain :
 
-- [Comment commencer à écrire du code blockchain](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-write)
-- [Relations entre le code blockchain et les données](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-data)
-- [Transactions entre codes blockchain](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode)
+- [Comment commencer à écrire du code blockchain](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-write)
+- [Relations entre le code blockchain et les données](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-data)
+- [Transactions entre codes blockchain](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode)
 
 Le tutoriel présente également des aspects importants de Fabric qui sont accessibles via le code blockchain :
 
-- [Utilisation des index avec couchDB](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-indexes)
+- [Utilisation des index avec couchDB](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-indexes)
 
 ## Ecriture de code blockchain
 {: #develop-smart-contracts-write}
@@ -49,12 +49,12 @@ Un contrat intelligent est généralement en mesure de valider des demandes, d'a
 ## Installation du code blockchain
 {: #develop-smart-contracts-install}
 
-Etant donné que le code blockchain fournit la structure des transactions sur un canal, il doit être installé sur tous les homologues joints sur le canal qui souhaitent utiliser le code blockchain pour mettre à jour ou interroger le registre de canal. Ensuite, un membre du canal peut instancier le code blockchain sur un canal et définir la règle d'adhésion du code blockchain.  L'installation et l'instanciation du code blockchain peuvent être effectuées à l'aide de l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform, de l'interface de ligne de commande Fabric Peer ou à partir d'une application client utilisant des logiciels SDK Fabric. Si vous utilisez {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, consultez le [tutoriel Déployer un contrat intelligent sur le réseau](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) pour apprendre à déployer un code blockchain à l'aide de la console {{site.data.keyword.blockchainfull_notm}} Platform. Si vous utilisez un plan Starter ou un plan Enterprise, voir [Installation, instanciation et mise à jour d'un code blockchain](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode) pour apprendre à déployer un code blockchain à l'aide de l'interface utilisateur du Moniteur réseau.
+Etant donné que le code blockchain fournit la structure des transactions sur un canal, il doit être installé sur tous les homologues joints sur le canal qui souhaitent utiliser le code blockchain pour mettre à jour ou interroger le registre de canal. Ensuite, un membre du canal peut instancier le code blockchain sur un canal et définir la règle d'adhésion du code blockchain. L'installation et l'instanciation du code blockchain peuvent être effectuées à l'aide de l'interface utilisateur d'{{site.data.keyword.blockchainfull_notm}} Platform, de l'interface de ligne de commande Fabric Peer ou à partir d'une application client utilisant des logiciels SDK Fabric. Si vous utilisez {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, consultez le [tutoriel Déployer un contrat intelligent sur le réseau](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) pour apprendre à déployer un code blockchain à l'aide de la console {{site.data.keyword.blockchainfull_notm}} Platform. Si vous utilisez un plan Starter ou un plan Enterprise, voir [Installation, instanciation et mise à jour d'un code blockchain](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode) pour apprendre à déployer un code blockchain à l'aide de l'interface utilisateur du Moniteur réseau.
 
 ## Code blockchain et données
 {: #develop-smart-contracts-data}
 
-Chaque canal ne peut avoir qu'un seul registre, et les données de ce registre sont partitionnées par une clé unique et le code blockchain qui a ajouté la paire clé-valeur au registre. Les membres peuvent uniquement lire ou mettre à jour les données du registre de canal à l'aide de la clé appropriée et du code blockchain associé. Les données auxquelles un code blockchain peut accéder sont appelées espace de nom du code blockchain et l'ensemble des données du registre figurent dans l'espace de nom d'un code blockchain. Un code blockchain peut interagir avec des données en dehors de son espace de nom uniquement à l'aide d'une [transaction entre codes blockchain](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode) pour que le code blockchain puisse accéder aux données pertinentes.
+Chaque canal ne peut avoir qu'un seul registre, et les données de ce registre sont partitionnées par une clé unique et le code blockchain qui a ajouté la paire clé-valeur au registre. Les membres peuvent uniquement lire ou mettre à jour les données du registre de canal à l'aide de la clé appropriée et du code blockchain associé. Les données auxquelles un code blockchain peut accéder sont appelées espace de nom du code blockchain et l'ensemble des données du registre figurent dans l'espace de nom d'un code blockchain. Un code blockchain peut interagir avec des données en dehors de son espace de nom uniquement à l'aide d'une [transaction entre codes blockchain](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode) pour que le code blockchain puisse accéder aux données pertinentes.
 
 Nous pouvons utiliser le code blockchain fabcar du référentiel d'exemples Fabric comme exemple de l'interaction du code blockchain avec les données. L'espace de nom est créé lorsque le contrat intelligent est instancié. Certains codes blockchain acceptent un ensemble d'arguments de paire clé-valeur lorsque le code blockchain est instancié et ils utilisent ces données pour initialiser l'espace de nom. Le code blockchain fabcar du référentiel d'exemples Fabric n'accepte aucun argument lorsqu'il est instancié. Pour fabcar, vous devez ajouter des données à l'espace de noms à l'aide de la fonction initLedger ou createCar. Par exemple, la transmission de l'argument `{"Args":["createCar",'CAR1', 'Honda', 'Accord', 'Black', 'Tom']}` fait de la paire clé-valeur `{Key='CAR1', value={'Honda', 'Accord', 'Black', 'Tom'}}` l'espace de nom fabcar.
 
@@ -143,4 +143,4 @@ Etant donné que `fabcar` est sur le même canal que `newContract`, la fonction 
 
 Si vous utilisez CouchDB comme base de données d'état, vous pouvez exécuter des requêtes de données JSON depuis votre code blockchain sur les données d'état du canal. Nous vous recommandons fortement de créer des index pour vos requêtes JSON et de les utiliser dans votre code blockchain. Les index permettent à vos applications d'extraire les données de manière aussi efficace que votre réseau ajoute des blocs de transaction et des entrées supplémentaires dans le World State.
 
-Pour plus d'informations sur CouchDB et la façon de définir des index, voir [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} dans la documentation Hyperledger Fabric. Vous trouverez également un exemple utilisant un index avec un code blockchain dans le [tutoriel Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}.Consultez la section relative aux [meilleures pratiques lors de l'utilisation de CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) dans le tutoriel Développement d'applications pour plusd'informations sur l'interrogation de données depuis vos applications.
+Pour plus d'informations sur CouchDB et la façon de définir des index, voir [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} dans la documentation Hyperledger Fabric. Vous trouverez également un exemple utilisant un index avec un code blockchain dans le [tutoriel Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}. Consultez la section relative aux [meilleures pratiques lors de l'utilisation de CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices) dans le tutoriel Développement d'applications pour plusd'informations sur l'interrogation de données depuis vos applications.

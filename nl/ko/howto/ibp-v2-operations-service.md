@@ -30,7 +30,7 @@ subcollection: blockchain
 {: #operations_service_consideration_limitation}
 
 - 모든 피어 및 순서 지정자 노드는 상태 검사기에 액세스할 수 있도록 `clientAuthRequired: false`로 구성됩니다. `clientAuthRequired`가 `false`로 설정되고 상호 TLS가 사용으로 설정되었으므로 인증할 수 있으려면 REST 서버에 액세스할 때 TLS ID를 전달해야 합니다. 이 설정은 적절한 키가 있는 사용자만 해당 로그를 볼 수 있도록 합니다.
-- 현재는 [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external} 기반의 모델을 가져오는 메트릭만 지원됩니다. 
+- 현재는 [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external} 기반의 모델을 가져오는 메트릭만 지원됩니다.
 
 ## 시작하기 전에
 {: #operations_service_before_you_begin}
@@ -108,7 +108,7 @@ curl -k https://169.46.208.93:3210/healthz
 ```
 {:codeblock}
 
-상태 검사에 대한 자세한 정보는 [상태 검사](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}를 참조하십시오. 
+상태 검사에 대한 자세한 정보는 [상태 검사](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}를 참조하십시오.
 
 
 ## 메트릭 보기
@@ -129,7 +129,7 @@ curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcert
 {:codeblock}
 
 
-메트릭에 대한 자세한 정보는 [메트릭](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}을 참조하십시오. 
+메트릭에 대한 자세한 정보는 [메트릭](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}을 참조하십시오.
 
 
 ## 로깅 레벨 보기
@@ -147,12 +147,6 @@ curl -k <peer-endpoint>/logspec --cert <client-tls-cert> --key <client-tls-key> 
 curl -k https://169.46.208.93:3210/logspec --cert msp/org1/ca/tls/msp/signcerts/cert.pem --key msp/org1/ca/tls/msp/keystore/key.pem  --cacert msp/org1/ca/tls/msp/cacerts/tlsca.pem
 ```
 
-<!--
-```
-curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
-
 다음 예제와 유사한 결과를 볼 수 있습니다.
 
 ```
@@ -162,7 +156,7 @@ curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/or
 ## 로깅 레벨 설정
 {: #operations_service_log_level_set}
 
-기존 로깅 레벨 설정을 변경하려면 다음 명령을 실행하십시오. 이 명령은 `spec`이라는 단일 속성으로 구성된 JSON 본문에 `PUT` 메소드를 사용합니다. `<log-level>`을 예상 로깅 레벨로 바꾸십시오. 설정할 수 있는 로깅 레벨에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로깅 스펙](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external}을 참조하십시오. 
+기존 로깅 레벨 설정을 변경하려면 다음 명령을 실행하십시오. 이 명령은 `spec`이라는 단일 속성으로 구성된 JSON 본문에 `PUT` 메소드를 사용합니다. `<log-level>`을 예상 로깅 레벨로 바꾸십시오. 설정할 수 있는 로깅 레벨에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로깅 스펙](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external}을 참조하십시오.
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -176,10 +170,4 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 
 새 로깅 레벨을 설정한 후 [로깅 레벨 보기 명령](#operations_service_log_level_view)을 사용하여 설정을 확인할 수 있습니다.
 
-<!--
-```
-curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:info"}' --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
-
-로그 레벨 구성에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로그 레벨 관리](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external}를 참조하십시오. 
+로그 레벨 구성에 대한 자세한 정보는 Hyperledger Fabric 문서에서 [로그 레벨 관리](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external}를 참조하십시오.

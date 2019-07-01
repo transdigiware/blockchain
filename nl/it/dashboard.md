@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2018
 lastupdated: "2019-03-05"
 
 subcollection: blockchain
@@ -14,7 +14,7 @@ subcollection: blockchain
 {:screen: .screen}
 {:pre: .pre}
 
-# Gestione della rete piano Starter
+# Operate Starter Plan network
 {: #operate-starter-plan-network}
 
-Visita l'esercitazione [Utilizzo del Monitoraggio della rete](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard) per ulteriori informazioni su come utilizzare la tua rete piano Starter.
+Visit the [Using the Network Monitor](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard) tutorial to learn how to operate your Starter Plan Network.

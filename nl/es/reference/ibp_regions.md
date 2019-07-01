@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -29,7 +29,7 @@ subcollection: blockchain
 
 Hay disponibles distintas ofertas de {{site.data.keyword.blockchainfull_notm}} Platform en distintas ubicaciones de {{site.data.keyword.cloud_notm}}. Solo puede crear redes de blockchain en ubicaciones de {{site.data.keyword.cloud_notm}} en que estén disponibles los planes de {{site.data.keyword.blockchainfull_notm}} Platform.
 
-En la Tabla 1 y en la figura 1 se muestran las regiones y ubicaciones de {{site.data.keyword.cloud_notm}} a las que da soporte {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}.
+En la Tabla 1 y en la figura 1 se muestran las regiones y ubicaciones de {{site.data.keyword.cloud_notm}} a las que da soporte {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}}.
 
 Si desea utilizar un clúster Kubernetes de {{site.data.keyword.cloud_notm}} gratuito, no elija un clúster gratuito en Asia Pacífico. De lo contrario, el clúster gratuito se creará en Melbourne en AP sur en lugar de en AP norte. Los clústeres de AP sur no se pueden utilizar para desplegar {{site.data.keyword.blockchainfull_notm}} Platform v2.0 por ahora. Seleccione las ubicaciones **EE.UU. sur** o **UE central** si tiene pensado utilizar un clúster gratuito.
 {: note}
@@ -40,7 +40,7 @@ Si desea utilizar un clúster Kubernetes de {{site.data.keyword.cloud_notm}} gra
 | AP norte | Tokio, Chennai, Hong Kong, Seúl, Singapur |
 | UE central | Frankfurt, Amsterdam, Milán, Oslo, París |
 
-_Tabla 1. Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}_
+_Tabla 1. Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}}_
 
 
 ![Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}](../images/ibp_v2_regions.png "Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}")

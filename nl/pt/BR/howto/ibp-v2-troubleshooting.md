@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -29,41 +29,45 @@ subcollection: blockchain
 Problemas gerais podem ocorrer ao usar o console para gerenciar nós, canais ou contratos inteligentes. Em muitos casos, é possível recuperar-se desses problemas seguindo algumas etapas simples.
 {:shortdesc}
 
+Este tópico descreve problemas comuns que podem ocorrer ao usar o console do {{site.data.keyword.blockchainfull_notm}} Platform.
+
 - [Quando passo o mouse sobre o meu nó, o status é `Status unavailable`. O que isso significa?](#ibp-v2-troubleshooting-status-unavailable)
 - [Quando passo o mouse sobre o meu nó, o status é `Status undetectable`. O que isso significa?](#ibp-v2-troubleshooting-status-undetectable)
-- [Por que minhas operações de nó estão falhando após eu criar o peer ou o solicitador?](#ibp-console-build-network-troubleshoot-entry1)
+- [Por que minhas operações de nó estão falhando após eu criar meu serviço de peer ou de pedido?](#ibp-console-build-network-troubleshoot-entry1)
+- [Por que obtenho o erro `Unable to get system channel` ao abrir meu serviço de pedido?](#ibp-troubleshoot-ordering-service)
 - [Por que meu peer falha ao ser iniciado?](#ibp-console-build-network-troubleshoot-entry2)
 - [Por que minha instalação, instanciação ou upgrade do contrato inteligente falha?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [Como posso visualizar os logs de contêiner do meu contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry2)
-- [Meu canal, contratos inteligentes e identidades desapareceram do console. Como posso obtê-los de volta?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
+- [Meu canal, contratos inteligentes e identidades desapareceram do console. Como posso obtê-los de volta?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Por que estou obtendo o erro `Unable to authenticate with the enroll ID and secret you provided` quando crio uma nova definição do MSP da organização?](#ibp-v2-troubleshooting-create-msp)
 - [Por que estou obtendo o erro `An error occurred when updating channel` quando tento incluir uma organização em meu canal?](#ibp-v2-troubleshooting-update-channel)
-- [Meu cluster Kubernetes expirou. O que isso significa?](#ibp-v2-troubleshooting-cluster-expired)
+- [Meu cluster Kubernetes do {{site.data.keyword.cloud_notm}} expirou. O que isso significa?](#ibp-v2-troubleshooting-cluster-expired)
 - [Por que as transações que eu envio do VS Code estão falhando?](#ibp-v2-troubleshooting-anchor-peer)
-- [Quando eu efetuo login no meu console, obtenho o erro 401 Desautorizado.](#ibp-v2-troubleshooting-console-401)
+- [Por que obtenho um erro 401 Desautorizado quando efetuo login no meu console?](#ibp-v2-troubleshooting-console-401)
+- [Por que os nós que eu implemento no {{site.data.keyword.cloud_notm}} Private não processam transações e estão falhando ao verificar o funcionamento?](#ibp-v2-troubleshooting-healthchecks)
 
 ## Quando passo o mouse sobre o meu nó, o status é `Status unavailable`. O que isso significa?
 {: #ibp-v2-troubleshooting-status-unavailable}
 {: troubleshoot}
 
-O status do nó no quadro do nó da CA, do peer ou do solicitador está cinza, o que significa que ele não está disponível. Idealmente, quando você passa o mouse sobre qualquer nó, o seu status deve ser `Running`.
+O status do nó no bloco para a CA, o peer ou o nó do pedido é cinza, o que significa que o status do nó não está disponível. Idealmente, quando você passa o mouse sobre qualquer nó, o seu status deve ser `Running`.
 {: tsSymptoms}
 
 Esse problema poderá ocorrer caso o nó seja recém-criado e o processo de implementação não tenha sido concluído. Caso o nó seja uma CA, é provável que não esteja em execução.
-Se for um peer ou um solicitador, essa condição ocorrerá quando o verificador de funcionamento executado com relação aos nós peer ou solicitador não conseguir entrar em contato com o nó.  A solicitação de status pode falhar com um erro de tempo limite porque o nó não respondeu dentro de um período de tempo específico, o que significa que ele ou a conectividade de rede pode estar inativa.
+Se o nó for um nó de peer ou de pedido, essa condição ocorrerá quando o verificador de funcionamento que é executado com relação aos nós de peer ou de pedido não puder entrar em contato com o nó.  A solicitação de status pode falhar com um erro de tempo limite porque o nó não respondeu dentro de um período de tempo específico, o que significa que ele ou a conectividade de rede pode estar inativa.
 {: tsCauses}
 
-Se esse for um novo nó, aguarde mais alguns minutos até que a implementação tenha sido concluída. Se não for um novo nó, [examine seus logs associados](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) para ver os erros e determinar a causa.
+Se esse for um novo nó, aguarde mais alguns minutos até que a implementação tenha sido concluída. Se não for um novo nó, [examine seus logs associados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) para ver os erros e determinar a causa.
 {: tsResolve}
 
 ## Quando passo o mouse sobre o meu nó, o status é `Status undetectable`. O que isso significa?
 {: #ibp-v2-troubleshooting-status-undetectable}
 {: troubleshoot}
 
-O status do nó no quadro para o nó do peer ou solicitador está amarelo, o que significa que ele não pode ser detectado. Idealmente, quando você passa o mouse sobre qualquer nó, o seu status deve ser `Running`.
+O status do nó no bloco para o nó de peer ou de pedido é amarelo, o que significa que o status do nó não pode ser detectado. Idealmente, quando você passa o mouse sobre qualquer nó, o seu status deve ser `Running`.
 {: tsSymptoms}
 
-Essa condição ocorre somente em nós de peer e solicitador que foram *importados* para o console e o verificador de funcionamento não pode ser executado com relação ao nó. Esse status acontece porque um `operations_url` não foi especificado quando o nó foi importado. Uma URL de operações é necessária para que o verificador de funcionamento do nó seja executado. O nó em si é provavelmente `Running`, mas como a URL de operações não foi especificada, seu status não pode ser determinado.
+Essa condição ocorre somente em nós de peer e de pedido que foram *importados* para o console e o verificador de funcionamento não pode ser executado com relação ao nó. Esse status acontece porque um `operations_url` não foi especificado quando o nó foi importado. Uma URL de operações é necessária para que o verificador de funcionamento do nó seja executado. O nó em si é provavelmente `Running`, mas como a URL de operações não foi especificada, seu status não pode ser determinado.
 {: tsCauses}
 
 É possível resolver esse problema executando as seguintes etapas:
@@ -73,15 +77,15 @@ Essa condição ocorre somente em nós de peer e solicitador que foram *importad
  4. Clique em **Exportar** para gerar um arquivo `JSON` para o nó.
  5. Edite o arquivo `JSON` gerado e insira o `operations_url` para o nó. O valor de `operations_url` depende de como ele foi configurado e de diversas configurações de rede. Esse valor precisa ser fornecido pelo administrador de rede que implementou o nó.
  6. Clique em **Excluir (Delete)**. Essa etapa remove o nó importado do console, mas não exclui o nó real.
- 7. Na guia **Nós**, clique em **Incluir peer** ou em **Incluir solicitador**, em seguida, clique em **Importar um peer existente** ou **Importar um solicitador existente**.
+ 7. Na guia **Nós**, clique em **Incluir peer** ou **Incluir serviço de pedido** seguido por **Importar um peer existente** ou **Importar um serviço de pedido existente**.
  8. Clique em **Fazer upload de JSON** e navegue até o arquivo JSON que acabou de editar. Clique em **Avançar**.
  9. Associe a mesma identidade anotada na etapa três.
- 10. Clique em **Incluir peer** ou **Incluir solicitador**.
+ 10. Clique em **Incluir peer** ou **Incluir serviço de pedido**.
 
 Agora, o verificador de funcionamento poderá ser executado com relação ao nó e relatar seu status.
 {: tsResolve}
 
-## Por que minhas operações de nó estão falhando após eu criar o peer ou o solicitador?
+## Por que minhas operações de nó estão falhando após eu criar meu serviço de peer ou de pedido?
 {: #ibp-console-build-network-troubleshoot-entry1}
 {: troubleshoot}
 
@@ -90,10 +94,30 @@ Possivelmente, um erro ocorreu ao gerenciar um nó existente. Geralmente, quando
 Por exemplo, quando você tenta operar o nó, a ação pode falhar.
 {: tsSymptoms}
 
-Depois de criar um novo peer ou solicitador, dependendo da configuração de seu armazenamento de cluster, pode demorar alguns minutos para que o nó esteja pronto para operação.
+Depois de criar um novo serviço de peer ou de pedido, dependendo de sua configuração de armazenamento em cluster, pode demorar alguns minutos para que os nós estejam prontos para operação.
 {: tsCauses}
 
-Verifique o painel do Kubernetes e assegure-se de que o status do peer ou do nó seja `Running`. Em seguida, tente sua ação novamente. Se você ainda estiver tendo problemas após o nó estar ativo, [verifique os seus logs de nó](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) quanto a erros.  
+Verifique o painel do Kubernetes e assegure-se de que o status do peer ou do nó seja `Running`. Em seguida, tente sua ação novamente. Se você ainda estiver tendo problemas após o nó estar ativo, [verifique os seus logs de nó](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) quanto a erros.  
+{: tsResolve}
+
+## Por que obtenho o erro `Unable to get system channel` ao abrir meu serviço de pedido?
+{: #ibp-troubleshoot-ordering-service}
+{: troubleshoot}
+
+Depois de criar um serviço de pedido em seu console do {{site.data.keyword.cloud_notm}} Private, o status é `Running`. Mas quando você abre o serviço de pedido, vê o erro:
+
+```
+Não é possível obter o canal do sistema. Se você tiver associado uma identidade sem privilégio administrativo no nó de serviço de pedido, não será possível visualizar ou gerenciar os detalhes do serviço de pedido.
+```
+
+{: tsSymptoms}
+
+Essa condição ocorre no console de blockchain em execução no {{site.data.keyword.cloud_notm}} Private. Em navegadores não Chrome, é necessário que você aceite um certificado para que o console se comunique corretamente com o nó.
+{: tsCauses}
+
+Há várias maneiras de resolver esse problema:
+1. Em suas notas sobre a liberação do Helm, em que a URL do navegador do console é fornecida, há também uma nota para acessar uma URL e aceitar o certificado. Navegue para essa URL e aceite o certificado. Agora abra seu serviço de pedido. O erro não deve mais ocorrer.
+2. Se você puder usar um navegador Chrome, abra seu console de blockhain no Chrome e abra seu serviço de pedido. O erro não ocorre. Observe que você precisará exportar suas identidades de sua carteira eletrônica no navegador não Chrome e, em seguida, importá-las para a carteira eletrônica no navegador Chrome para que tudo continue a funcionar.
 {: tsResolve}
 
 ## Por que meu peer falha ao ser iniciado?
@@ -106,13 +130,13 @@ O log do peer inclui `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERRO 001 Can
 {: tsSymptoms}
 
 - Esse erro pode ocorrer sob as condições a seguir:
-  - Quando você criou a definição do MSP da organização do peer ou do solicitador, você especificou um ID de inscrição e um segredo que correspondem a uma identidade do tipo `peer` e não `client`. Ele deve ser do tipo  ` client `.
-  - Quando você criou a definição do MSP da organização do peer ou do solicitador, você especificou um ID de inscrição e um segredo que não correspondem ao ID de inscrição ou ao segredo da identidade do administrador da organização correspondente.
-  - Quando você criou o peer ou o solicitador, você especificou o ID de inscrição e o segredo de uma identidade que não é do tipo 'peer'.
+  - Ao criar a definição do MSP da organização de serviço de pedido, você especificou um ID de inscrição e um segredo que correspondem a uma identidade do tipo `peer` e não `client`. Ele deve ser do tipo  ` client `.
+  - Ao criar a definição do MSP da organização de serviço de pedido, você especificou um ID de inscrição e um segredo que não correspondem ao ID de inscrição ou ao segredo da identidade administrativa da organização correspondente.
+  - Ao criar o serviço de peer ou de pedido, você especificou o ID de inscrição e o segredo de uma identidade que não é do tipo 'peer'.
 
-- Abra seu nó de autoridade de certificação de peer ou solicitador e visualize as identidades registradas listadas na tabela **Usuários registrados**.
-- Exclua o peer ou o solicitador e recrie-o, sendo cuidadoso para especificar o ID de inscrição e o segredo corretos.
-- Observe que, antes de criar o peer ou o solicitador, é necessário criar um ID de administrador da organização do tipo 'client'. Certifique-se de especificar o mesmo ID do ID de inscrição ao criar a definição do MSP da organização. Consulte essas instruções para [registrar identidades de peer](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) e essas instruções para [registrar identidades de solicitador](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
+- Abra seu nó de peer ou de CA do serviço de pedido e visualize as identidades registradas listadas na tabela **Usuários registrados**.
+- Exclua o peer ou o serviço de pedido e recrie-o, sendo cuidadoso para especificar o ID de inscrição e o segredo corretos.
+- Observe que, antes de criar o peer ou o serviço de pedido, é necessário criar um ID de administrador da organização, do tipo 'client'. Certifique-se de especificar o mesmo ID do ID de inscrição ao criar a definição do MSP da organização. Consulte essas instruções para [registrar identidades de peer](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) e essas instruções para [registrar identidades de solicitador](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## Por que minha instalação, instanciação ou upgrade do contrato inteligente falha?
@@ -127,7 +151,7 @@ Você poderá receber esse erro se essa versão do contrato inteligente já exis
 
 - Abra o painel do Kubernetes e assegure-se de que o status do peer seja `Running`.  
 - Abra o nó de peer e assegure-se de que a versão do contrato inteligente ainda não exista no peer e tente novamente com a versão adequada.
-- Se você ainda estiver tendo problemas após o nó estar ativo, [verifique os seus logs de nó](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) quanto a erros.  
+- Se você ainda estiver tendo problemas após o nó estar ativo, [verifique os seus logs de nó](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) quanto a erros.  
 {: tsResolve}
 
 ## Como posso visualizar os logs de contêiner do meu contrato inteligente?
@@ -137,7 +161,9 @@ Você poderá receber esse erro se essa versão do contrato inteligente já exis
 Talvez seja necessário visualizar os logs de contêiner do seu contrato inteligente, ou chaincode, para depurar um problema do contrato inteligente.
 {: tsSymptoms}
 
-Siga estas instruções para [visualizar os logs do contêiner](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-container-logs).
+Siga estas instruções para visualizar os logs do contêiner de contrato inteligente em:
+- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
+- [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
 {: tsResolve}
 
 ## Meu canal, contratos inteligentes e identidades desapareceram do console. Como posso obtê-los de volta?
@@ -155,7 +181,7 @@ Um dos novos recursos do {{site.data.keyword.blockchainfull_notm}} Platform é q
   - No navegador no qual você está tendo o problema, clique na guia **Carteira eletrônica**, seguido por **Incluir identidade** para importar o arquivo JSON em sua carteira eletrônica.
   - Clique em **Fazer upload de JSON** e navegue para o arquivo JSON que você exportou usando o botão **Incluir arquivos**.
   - Clique em **Enviar**.
-  - Agora, abra o nó do peer ou do solicitador ao qual essa identidade foi originalmente associada e clique no ícone **Configurações**.
+  - Agora abra o nó de serviço de pedido ou de peer ao qual essa identidade foi associada originalmente e clique no ícone **Configurações**.
   - Clique no botão  ** Associar identidade ** .
   - Selecione a identidade que você acabou de importar para a sua carteira eletrônica do console na lista suspensa.
   - Clique em  ** Associar **.
@@ -188,7 +214,7 @@ Esse erro ocorre quando o **ID do MSP do atualizador de canal** selecionado no p
 No painel **Atualizar canal**, role para baixo para o **ID do MSP do atualizador de canal** e selecione o ID do MSP que foi especificado quando o canal foi criado ou especifique o ID do MSP que é o administrador do canal.
 {: tsResolve}
 
-## Meu cluster Kubernetes expirou. O que isso significa?
+## Meu cluster Kubernetes do {{site.data.keyword.cloud_notm}} expirou. O que isso significa?
 {: #ibp-v2-troubleshooting-cluster-expired}
 {: troubleshoot}
 
@@ -198,7 +224,7 @@ Eu recebi um e-mail de que meu cluster de serviço {{site.data.keyword.IBM_notm}
 Os clusters Kubernetes gratuitos são válidos por apenas 30 dias.
 {: tsCauses}
 
-Não é possível migrar de um cluster gratuito para um pago. Após 30 dias, não será possível acessar o console e todos os seus nós e certificados serão excluídos. Consulte este tópico sobre [Expiração do cluster Kubernetes](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration) para obter informações sobre o que está acontecendo e o que pode ser feito.
+Não é possível migrar de um cluster gratuito para um pago. Após 30 dias, não será possível acessar o console e todos os seus nós e certificados serão excluídos. Consulte este tópico sobre [Expiração do cluster Kubernetes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) para obter informações sobre o que está acontecendo e o que pode ser feito.
 {: tsResolve}
 
 ## Por que as transações que eu envio do VS Code estão falhando?
@@ -214,9 +240,9 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 Esse erro ocorrerá se você estiver usando o recurso Fabric Service Discovery, mas não configurou nenhum peer de âncora em seu canal.
 {: tsCauses}
 
-Siga a etapa três do [tópico de dados privados](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) no tutorial Implementar um contrato inteligente para configurar seus peers de âncora.
+Siga a etapa três do [tópico de dados privados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) no tutorial Implementar um contrato inteligente para configurar seus peers de âncora.
 
-## Quando efetuo login no meu console, obtenho um erro 401 Desautorizado.
+## Por que obtenho um erro 401 Desautorizado quando efetuo login no meu console?
 {: #ibp-v2-troubleshooting-console-401}
 {: troubleshoot}
 
@@ -230,3 +256,15 @@ Se a sua sessão se tornar inativa, será possível apenas tentar atualizar seu 
 
 Como uma boa prática, é necessário já ter armazenado os seus certificados e identidades no sistema de arquivos. Se você estiver usando uma janela incógnito, todos os certificados serão excluídos do armazenamento local do navegador quando você fechar o navegador. Depois de efetuar login novamente, será necessário reimportar suas identidades e certificados.
 {: note}
+
+## Por que os nós que eu implemento no {{site.data.keyword.cloud_notm}} Private não processam transações e estão falhando ao verificar o funcionamento?
+{: #ibp-v2-troubleshooting-healthchecks}
+{: troubleshoot}
+
+Meu console afirma que meus nós de peers e de pedido ainda estão em execução. No entanto, minhas transações estão falhando. Quando executo uma verificação de vivacidade ou de prontidão nos pods do nó, a verificação afirma que os pods não estão funcionais.
+{: tsSymptoms}
+
+Se você tiver implementado, removido e atualizado nós em seu cluster várias vezes, talvez como resultado de teste, o Docker poderá falhar devido a um problema conhecido com o {{site.data.keyword.cloud_notm}} Private. Para obter mais informações, consulte esse problema na [documentação do {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}.
+{: tsCauses}
+
+Para resolver esse problema, remova os pods com falha e implemente seus nós novamente. Também é possível reiniciar o serviço do Docker no cluster.

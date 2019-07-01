@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-20"
 
-keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost
+keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
 subcollection: blockchain
 
@@ -17,22 +17,26 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:gif: data-image-type='gif'}
 {:pre: .pre}
 
 # Precificação para o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-Este guia ajuda a entender o modelo de precificação para o {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} e quanto você pagará ao desenvolver e aumentar sua rede de blockchain de peers, solicitadores e componentes de autoridades de certificação que são baseados no Hyperledger Fabric v1.4.1.
+Este guia ajuda a entender o modelo de precificação para o {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} e quanto você pagará ao desenvolver e aumentar sua rede de blockchain de componentes de peers, nós de pedido e autoridades de certificação, que são baseados no Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
 _Esse modelo de precificação é somente para o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. Se você estiver usando o plano Starter ou o plano Enterprise e tiver perguntas sobre precificação, consulte a [precificação](/docs/services/blockchain?topic=blockchain-ibp-pricing) do plano Starter e do plano Enterprise._
+
+## Modelo de precificação
+{: #ibp-saas-pricing-model}
 
 O {{site.data.keyword.blockchainfull_notm}} Platform apresenta um novo modelo de precificação por hora que é baseado em usos de virtual processor core (VPC). Esse modelo simplificado é baseado na quantia de CPU (ou VPC) que os seus nós do {{site.data.keyword.blockchainfull_notm}} Platform consomem por hora, em uma taxa simples de **$0,29 USD/VPC-hora**.
 
 Um VPC é uma unidade de medida usada para determinar o custo de licenciamento de produtos {{site.data.keyword.IBM_notm}}. Ele é baseado no número de núcleos virtuais (vCPUs) que estão disponíveis para o produto. Um vCPU é um núcleo virtual que é designado a uma máquina virtual ou a um núcleo do processador físico. Para propósitos de estimativa de custo do {{site.data.keyword.blockchainfull_notm}} Platform, **1 VPC = 1 CPU = 1 vCPU = 1 Núcleo**.
 {:note}
 
-Para uma estimativa do custo total, lembre-se de que sua rede de blockchain consiste em um cluster {{site.data.keyword.cloud_notm}} Kubernetes que contém os componentes do {{site.data.keyword.blockchainfull_notm}} Platform e usa o armazenamento de sua escolha. Seu cluster {{site.data.keyword.cloud_notm}} Kubernetes e o armazenamento que você escolhe incorrem em encargos separados. Você não será cobrado pelo cluster em que a instância do Operational Tooling, também conhecida como console, está em execução. Consulte o tópico [Referência de arquitetura](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview-architecture) para obter uma ilustração. Mais detalhes sobre como calcular encargos são descritos abaixo.
+Para uma estimativa do custo total, lembre-se de que sua rede de blockchain consiste em um cluster {{site.data.keyword.cloud_notm}} Kubernetes que contém os componentes do {{site.data.keyword.blockchainfull_notm}} Platform e usa o armazenamento de sua escolha. Seu cluster {{site.data.keyword.cloud_notm}} Kubernetes e o armazenamento que você escolhe incorrem em encargos separados. Você não será cobrado pelo cluster em que a instância do Operational Tooling, também conhecida como console, está em execução. Consulte o tópico [Referência de arquitetura](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture) para obter uma ilustração. Mais detalhes sobre como calcular encargos são descritos abaixo.
 
 ### Você é um desenvolvedor?
 {: #ibp-saas-pricing-developer}
@@ -72,14 +76,14 @@ A tabela a seguir fornece dois exemplos de precificação com [alocações de re
 
 | Opções de precificação** (1 VPC = 1 CPU)| **Rede de teste** | **Associar uma rede de produção** |
 |-|------------|-----------------------------|
-| **Alocação de CPU** |  1,85 CPU <br> Inclui: <br> - 1 peer <br> - 2 CAs <br> - 1 solicitador| 4,9 CPUs <br> Inclui: <br> - 2 peers (para HA) <br> **(Cálculo padrão 2x)** <br>- 1 CA <br>  |
+| **Alocação de CPU** |  1,85 CPU <br> Inclui: <br> - 1 peer <br> - 2 CAs <br> -1 nó de pedido| 4,9 CPUs <br> Inclui: <br> - 2 peers (para HA) <br> **(Cálculo padrão 2x)** <br>- 1 CA <br>  |
 | **Custo por hora: {{site.data.keyword.blockchainfull_notm}} Platform** | US$ 0,54 <br> (1,85 CPU x US$ 0,29/VPC-hora) | US$ 1,42 <br> (4,9 CPUs x US$ 0,29/VPC-hora) |
 | **Custo por hora: cluster {{site.data.keyword.cloud_notm}} Kubernetes**    | US$ 0,12 <br> (Cálculo: camada 2 x 4) <br> (Alocação de IP: US$ 16/mês) | $0,46 USD <br> (Cálculo: camada 8 x 32) <br> (Alocação de IP: US$ 16/mês) |
 | **Custo por hora: armazenamento** | $0,07 USD <br> 340 GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | US$ 0,13 <br> 420 GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
 | **Custo por hora total** | **US$ 0,73** | **US$ 2,01**| |
 ** Visualize o {{site.data.keyword.blockchainfull_notm}} Platform sem encargos por 30 dias ao vincular sua instância de serviço do {{site.data.keyword.blockchainfull_notm}} Platform a um cluster grátis do {{site.data.keyword.cloud_notm}} Kubernetes. O desempenho será limitado por rendimento, armazenamento e funcionalidade. O {{site.data.keyword.cloud_notm}} excluirá seu cluster Kubernetes após 30 dias e não será possível migrar nós nem dados de um cluster grátis para um cluster pago.  
 
-Seus custos reais variam dependendo de fatores adicionais, como taxa de transação, o número de canais que você requer, o tamanho da carga útil nas transações e o número máximo de transações simultâneas.
+Seus custos reais variam dependendo de fatores adicionais, como taxa de transação, o número de canais que você requer, o tamanho da carga útil nas transações e o número máximo de transações simultâneas. Os exemplos de precificação acima são baseados em um cluster Kubernetes de zona única do {{site.data.keyword.cloud_notm}} apenas.  Se você tiver escolhido um cluster com múltiplas zonas, haverá taxas extras para as zonas adicionais e o balanceador de carga de múltiplas zonas necessários.
 {:note}
 
 Não há limite para o número de instâncias de serviço que é possível provisionar e associar a um único cluster Kubernetes, mas é necessário assegurar que os recursos adequados estejam disponíveis monitorando o uso de CPU, memória e armazenamento para evitar interrupção do serviço. Os nós do {{site.data.keyword.blockchainfull_notm}} Platform não precisam estar em seu próprio cluster. É possível ter outros serviços do {{site.data.keyword.cloud_notm}} em execução no cluster em que seus componentes de blockchain estão em execução, mas novamente é necessário assegurar-se de que tenha o cálculo e o armazenamento adequados para direcionar todos os requisitos de todas as instâncias de serviço.
@@ -93,7 +97,7 @@ Os valores na tabela a seguir são úteis para estimar o custo por hora de sua r
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1,2            | 2.4                   | 200 (inclui 100 GB para peer e 100 GB para CouchDB)|
 | **CA**                         | 0,1            | 0,2                    | 20                     |
-| **Solicitador**                    | 0,45           | 0,9                    | 100                    |
+| **Nó de pedido**                    | 0,45           | 0,9                    | 100                    |
 
 
 ## faturamento
@@ -101,24 +105,35 @@ Os valores na tabela a seguir são úteis para estimar o custo por hora de sua r
 
 Suas informações de faturamento e uso para sua conta **Pagamento conforme o uso** estão disponíveis no painel do {{site.data.keyword.cloud_notm}} em seu ladrilho de [uso](https://cloud.ibm.com/billing/usage). Um serviço de medição pega as capturas instantâneas por hora de seu uso total de VPC do {{site.data.keyword.blockchainfull_notm}} Platform para que a quantia de uso acumulativo mensal seja refletida no ladrilho **Uso**.
 
-Ao criar um novo nó, pode levar até uma hora para que o uso de VPC seja atualizado no ladrilho **Uso** do painel do {{site.data.keyword.cloud_notm}}.
+Ao criar um novo nó, ele pode levar até uma hora para que o uso do VPC seja refletido no bloco **Uso** do painel do {{site.data.keyword.cloud_notm}}.
 {:note}
+
+### Monitorando seu uso
+{: #ibp-saas-pricing-usage}
+
+Antes de obter uma conta, é possível monitorar os custos de cluster do {{site.data.keyword.blockchainfull_notm}} Platform e do cluster Kubernetes por meio do quadro **Uso** do painel do {{site.data.keyword.cloud_notm}}. O uso de VPC do {{site.data.keyword.blockchainfull_notm}} Platform é avaliado por hora.  **Esses custos são apenas estimativas.** Os custos reais são refletidos em sua conta mensal.
+
+#### Uso do {{site.data.keyword.blockchainfull_notm}} Platform e do Kubernetes Service
+
+Este clipe fornece um exemplo simples de como visualizar seus encargos para um {{site.data.keyword.blockchainfull_notm}} Platform que inclui um único nó de CA.
+
+![Monitorando seu uso](../images/usage_monitoring.gif){: gif}
 
 Navegue para **Gerenciar** na parte superior de seu painel do {{site.data.keyword.cloud_notm}}, clique em **Faturamento e uso** e, em seguida, clique em **Uso** no menu à esquerda. O gráfico de pizza na subseção **Serviços** fornece um detalhamento de seu custo total pelos tipos de ofertas de serviços que você usou e consumiu este mês. Use esse gráfico para entender como seu {{site.data.keyword.blockchainfull_notm}} Platform, seu serviço do Kubernetes e o armazenamento contribuem com o custo total.
 
-<!--
-![Usage Tile](../images/pricing1.png "Usage Tile")  
-*Figure 1. View your Usage on the dashboard*-->
+Quando você rolar para baixo, será possível ver um detalhamento semelhante por **Tipo** e **Custo** em uma visualização de lista. É possível localizar "Kubernetes Service" e "Blockchain Platform" listados juntamente com os outros serviços que você provisionou em seu cluster. Clique em **Visualizar planos** ao lado de cada um desses itens para entender seu detalhamento de custo por métrica. Por exemplo, `VIRTUAL_PROCESSOR_CORE_HOURS` representa o número total de horas de VPC que foram avaliadas até agora.  Use esse valor para ver quanto você vai ser cobrado com base na métrica de precificação **US$ 0,29/hora de VPC**.
 
-Quando você rolar para baixo, será possível ver um detalhamento semelhante por **Tipo** e **Custo** em uma visualização de lista. É possível localizar "Kubernetes Service", "Block Storage for VPC" ou "File Storage for VPC" e "{{site.data.keyword.blockchainfull_notm}} Platform" entre outros. Clique em **"visualizar planos"** ao lado de cada um desses itens para entender seu detalhamento de custo por métrica. Por exemplo, `VIRTUAL_PROCESSOR_CORE_HOURS` determinará o número total de horas que os VPCs foram usados e quanto isso custará. Use isso para entender como você será cobrado com base em várias métricas de precificação.
+#### Encargos de alocação de IP
 
-<!--
-![View Plans](../images/pricing2.png "View Plans")  
-*Figure 2. Find out how much cost you're incurring on Blockchain Service, Storage and more*
+Quando você provisiona um cluster Kubernetes no {{site.data.keyword.cloud_notm}}, uma taxa mensal fixa é avaliada para a alocação de IP. Esta taxa é cobrada por zona, de modo que se você provisionar três zonas em seu cluster, será possível multiplicar esse encargo por três. O exemplo abaixo mostra o encargo para uma única zona.
 
-![Breakdown by Metrics](../images/pricing3.png "Breakdown by Metrics")  
-*Figure 3. Track how many VPC hours you're utilizing, and more*
--->
+![Encargos de alocação de IP](../images/ip_allocation_charge.png "Encargos de alocação de IP do cluster Kubernetes")
+
+Esse encargo é visível na guia **Faturas** do bloco Uso. Clique no link sob **Próxima fatura recorrente** para ver seus encargos para a alocação de IP.
+
+#### Uso de armazenamento
+
+Se você estiver usando o {{site.data.keyword.cloud_notm}} File Storage, os custos serão avaliados mensalmente, portanto, uma estimativa de custos de armazenamento não ficará visível até o término do mês. No entanto, o armazenamento que você provisionou durante todo o mês é listado como itens de linha no quadro Uso em **Vendas** > **Pedidos**. Consulte a coluna **Itens** para obter uma descrição do armazenamento que foi dinamicamente provisionado quando você implementou um peer, uma CA ou um nó de pedido.
 
 ## Otimizando o custo de seus nós
 {: #ibp-saas-pricing-shutdown}
@@ -129,9 +144,9 @@ Um dos principais benefícios do modelo de precificação do {{site.data.keyword
   A CPU em nós individuais pode ser escalada para baixo para 0,001 CPU para minimizar os encargos completamente. Tomar essas ações renderiza o nó não funcional. Quando o cálculo for necessário posteriormente, será possível usar a opção de realocação no console do {{site.data.keyword.blockchainfull_notm}} Platform para escalar para cima para o que é necessário. Para obter mais informações sobre como os recursos podem ser realocados, consulte [Realocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources).
 
 - **Excluir peer não usado e implementar um novo quando necessário**  
-  Como o livro-razão é armazenado no solicitador, quando você implementa um novo peer e associa um canal, o peer recebe uma cópia do livro-razão distribuído. O drawback para essa abordagem é que você precisa gerar novos certificados e associar o peer aos canais novamente.
+  Como o livro-razão é armazenado no nó de pedido, quando você implementa um novo peer e associa um canal, o peer recebe uma cópia do livro-razão distribuído. O drawback para essa abordagem é que você precisa gerar novos certificados e associar o peer aos canais novamente.
 
-  Não é recomendável excluir um nó de CA porque os dados nele nunca poderão ser recuperados. Da mesma forma, se você tiver somente um único nó de solicitador, nunca deverá excluí-lo.  
+  Não é recomendável excluir um nó de CA porque os dados nele nunca poderão ser recuperados. Da mesma forma, se você tiver apenas um único nó de pedido, ele nunca deverá ser excluído.  
   {:important}
 
 - **Monitorar e ajustar sua alocação de recurso com base em suas necessidades**  

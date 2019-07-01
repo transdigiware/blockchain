@@ -147,12 +147,6 @@ Por exemplo:
 curl -k https://169.46.208.93:3210/logspec --cert msp/org1/ca/tls/msp/signcerts/cert.pem --key msp/org1/ca/tls/msp/keystore/key.pem  --cacert msp/org1/ca/tls/msp/cacerts/tlsca.pem
 ```
 
-<!--
-```
-curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
-
 É possível ver o resultado que é semelhante ao exemplo a seguir:
 
 ```
@@ -175,11 +169,5 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 ```
 
 Depois de configurar um novo nível de criação de log, será possível usar o [comando de visualização do nível de criação de log](#operations_service_log_level_view) para verificar suas configurações.
-
-<!--
-```
-curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:info"}' --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
 
 Para obter mais informações sobre a configuração de nível de log, consulte [Gerenciamento de nível de log](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external} na Documentação do Hyperledger Fabric.

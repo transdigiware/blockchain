@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -51,10 +51,10 @@ Quando você [usa o IAM para convidar usuários](/docs/iam?topic=iam-iamuserinv#
 
  As permissões são acumulativas. Se você selecionar uma função **Manager**, o usuário também será capaz de executar todas as ações de **Writer** e **Reader** sem a necessidade de marcar adicionalmente essas funções.   Da mesma forma, um usuário com a função `Writer` será capaz de executar todas as ações da função **Reader**. Para acesso ao console, é necessário selecionar somente uma função sob as **Funções de acesso de serviço**, não é necessário selecionar nada sob as **Funções de acesso da plataforma**. Verifique a função correspondente em **Designar a função de acesso da plataforma** quando for importante que a instância de serviço esteja visível no painel do {{site.data.keyword.cloud_notm}} do usuário convidado.
 
-![Add users](../images/AddICPUser.gif){: gif}
+![Incluir usuários](../images/AddICPUser.gif){: gif}
 
 
-Depois de incluir novos usuários no console, eles poderão não ser capazes de visualizar todos os nós, canais ou chaincode implementados por outros. Para trabalhar com esses componentes, cada usuário precisa importar as identidades associadas para sua própria carteira eletrônica do console. Para obter mais informações, consulte [Armazenando identidades em sua carteira eletrônica do console](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
+Depois de incluir novos usuários no console, eles poderão não ser capazes de visualizar todos os nós, canais ou chaincode implementados por outros. Para trabalhar com esses componentes, cada usuário precisa importar as identidades associadas para sua própria carteira eletrônica do console. Para obter mais informações, consulte [Armazenando identidades em sua carteira eletrônica do console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 Se for necessário modificar a função de um usuário:
@@ -97,7 +97,7 @@ Quando você usa o console do {{site.data.keyword.blockchainfull_notm}} Platform
 ### Visualizando os logs do console
 {: #ibp-console-manage-console-logs}
 
-Será possível acessar facilmente os logs do console se você precisar depurar problemas que encontrar ao usar o console ou operar seus nós. Também é possível configurar o nível de criação de log para aumentar ou diminuir a quantia de logs coletados pelo console. Os logs do console são coletados separadamente dos [logs do nó](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs), que são coletados pelo serviço {{site.data.keyword.cloud_notm}} Kubernetes.
+Será possível acessar facilmente os logs do console se você precisar depurar problemas que encontrar ao usar o console ou operar seus nós. Também é possível configurar o nível de criação de log para aumentar ou diminuir a quantia de logs coletados pelo console. Os logs do console são coletados separadamente dos [logs do nó](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), que são coletados pelo serviço {{site.data.keyword.cloud_notm}} Kubernetes.
 
 Navegue para a guia **Configurações** no navegador do console para mudar as configurações de criação de log. Os logs do console são coletados de duas origens separadas:
 
@@ -111,10 +111,9 @@ Configure a quantidade de logs coletados usando a lista suspensa em cada tipo de
 ### Visualizando os logs do nó
 {: #ibp-console-manage-console-node-logs}
 
-Os logs de seus peers, solicitadores e autoridades de certificação são coletados pelo serviço {{site.data.keyword.IBM_notm}} Kubernetes. Use as etapas abaixo para visualizar os logs de seus nós por meio do cluster no qual você implementou a sua rede do {{site.data.keyword.blockchainfull_notm}} Platform.
+Os logs de seus peers, os nós de pedido e as autoridades de certificação são coletados pelo {{site.data.keyword.IBM_notm}} Kubernetes Service. Use as etapas abaixo para visualizar os logs de seus nós por meio do cluster no qual você implementou a sua rede do {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Para localizar mais facilmente os logs do nó, é útil filtrar o namespace que foi usado quando os nós foram implementados.
-Para localizar o namespace, abra qualquer nó da CA em seu console e clique no ícone **Configurações**. Visualize o valor da **URL do terminal da autoridade de certificação**. Por exemplo: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+Para localizar mais facilmente os logs do nó, é recomendável filtrar por namespace que foi usado quando os nós foram implementados. Para localizar o namespace, abra qualquer nó da CA em seu console e clique no ícone **Configurações**. Visualize o valor da **URL do terminal da autoridade de certificação**. Por exemplo: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 O namespace é a primeira parte da URL que começa com a letra `n` e seguida por uma sequência aleatória de seis caracteres alfanuméricos. Portanto, no exemplo acima, o valor do namespace é `n2734d0`.
 
@@ -124,7 +123,7 @@ O namespace é a primeira parte da URL que começa com a letra `n` e seguida por
 4. Na navegação à esquerda, clique em **Pods** para visualizar a lista de pods de nó que você implementou.
 5. Clique em um pod. Em seguida, clique em **Logs** no menu superior para abrir os logs de seu nó. Acima dos logs, é possível usar o menu suspenso subsequente a **Logs de** para visualizar os logs dos diferentes contêineres dentro do pod. Por exemplo, seu peer e o banco de dados de estado (CouchDB, por exemplo) são executados em contêineres diferentes e geram logs diferentes.
 
-Por padrão, os logs de seus nós são coletados localmente dentro de seu cluster. Também é possível usar os serviços do {{site.data.keyword.cloud_notm}} ou um serviço de terceiro para coletar, armazenar e analisar os logs de sua rede. Para obter mais informações, consulte [Criação de log e monitoramento para o {{site.data.keyword.IBM_notm}} Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-health#health){: external}. É recomendado que você aproveite o serviço [{{site.data.keyword.cloud_notm}} LogDNA](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} que permite que você analise facilmente os logs em tempo real.
+Por padrão, os logs de seus nós são coletados localmente dentro de seu cluster. Também é possível usar os serviços do {{site.data.keyword.cloud_notm}} ou um serviço de terceiro para coletar, armazenar e analisar os logs de sua rede. Para obter mais informações, consulte [Criação de log e monitoramento para o {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. É recomendado que você aproveite o serviço [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} que permite que você analise facilmente os logs em tempo real.
 
 ### Visualizando os logs do contêiner de contrato inteligente
 {: #ibp-console-manage-console-container-logs}
@@ -140,12 +139,12 @@ Todos os logs de seu contrato inteligente são visíveis nessa janela e podem se
 ## Instalando correções para seus nós
 {: #ibp-console-manage-patch}
 
-As imagens de docker subjacentes do {{site.data.keyword.IBM_notm}} Hyperledger Fabric para os nós de peer, da CA e do solicitador podem precisar ser atualizadas ao longo do tempo, por exemplo, com atualizações de segurança ou para uma nova liberação secundária do Fabric. O texto **Correção disponível** em um ladrilho do nó é o indicador de que tal correção está disponível e poderá ser instalada no nó sempre que você estiver pronto. Essas correções são opcionais, mas recomendadas.  Não é possível corrigir nós que foram importados para o console.
+As imagens de Docker do {{site.data.keyword.IBM_notm}} Hyperledger Fabric subjacentes para os nós de peer, de CA e de pedido podem precisar ser atualizadas ao longo do tempo, por exemplo, com atualizações de segurança ou para uma nova liberação do Fabric. O texto **Correção disponível** em um ladrilho do nó é o indicador de que tal correção está disponível e poderá ser instalada no nó sempre que você estiver pronto. Essas correções são opcionais, mas recomendadas.  Não é possível corrigir nós que foram importados para o console.
 
 As correções são aplicadas a nós um por vez. Enquanto a correção está sendo aplicada, o nó está indisponível para processar solicitações ou transações. Portanto, para evitar qualquer interrupção de serviço, sempre que possível, é necessário assegurar que outro nó do mesmo tipo esteja disponível para processar solicitações. A instalação de correções em um nó leva aproximadamente um minuto para ser concluída e quando a atualização é concluída, o nó está pronto para processar solicitações.
 {:note}
 
-Para aplicar uma correção a um nó, abra o ladrilho do nó e clique no botão **Instalar correção**.
+Para aplicar uma correção a um nó, abra o ladrilho do nó e clique no botão **Instalar correção**. Não é possível corrigir os nós que você importou para o console.
 
 ## Expiração de cluster Kubernetes
 {: #ibp-console-manage-console-cluster-expiration}
@@ -158,4 +157,4 @@ Se estiver usando um cluster gratuito do serviço {{site.data.keyword.cloud_notm
 4. Role até a seta **Clusters Kubernetes** e expanda-a para visualizar seu cluster gratuito.
 5. Se seu cluster gratuito estiver listado, clique no menu Ação para ele e, em seguida, clique em **Excluir** para excluí-lo.
 
-Quando essas ações são concluídas, é possível seguir as [etapas originais](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) para criar uma nova instância de serviço de cluster e blockchain do Kubernetes por meio da página do catálogo do {{site.data.keyword.cloud_notm}}.
+Quando essas ações são concluídas, é possível seguir as [etapas originais](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) para criar uma nova instância de serviço de cluster e blockchain do Kubernetes por meio da página do catálogo do {{site.data.keyword.cloud_notm}}.

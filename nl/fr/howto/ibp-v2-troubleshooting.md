@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -29,42 +29,46 @@ subcollection: blockchain
 Des problèmes généraux peuvent se produire lorsque vous utilisez la console pour gérer des noeuds, des canaux ou des contrats intelligents. Dans de nombreux cas, ces problèmes peuvent être résolus en quelques opérations simples.
 {:shortdesc}
 
+Cette rubrique décrit les problèmes courants qui peuvent se présenter lors de l'utilisation de la console {{site.data.keyword.blockchainfull_notm}} Platform.
+
 - [Lorsque je survole mon noeud, le statut est `Statut non disponible`. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-status-unavailable)
 - [Lorsque je survole mon noeud, le statut est `Statut non détectable`. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-status-undetectable)
 - [Pourquoi mes opérations de noeud échouent après la création d'un homologue ou d'un service de tri ?](#ibp-console-build-network-troubleshoot-entry1)
+- [Pourquoi est-ce que je reçois le message d'erreur `Impossible d'obtenir le canal système` lorsque j'ouvre mon service de tri ?](#ibp-troubleshoot-ordering-service)
 - [Pourquoi mon homologue ne parvient pas à démarrer ?](#ibp-console-build-network-troubleshoot-entry2)
 - [Pourquoi ne puis-je pas installer, instancier ou mettre à niveau mes contrats intelligents ?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?](#ibp-console-smart-contracts-troubleshoot-entry2)
-- [Mon canal, mes contrats intelligents et mes identités ont disparu de la console. Comment puis-je les récupérer ?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
+- [Mon canal, mes contrats intelligents et mes identités ont disparu de la console. Comment puis-je les récupérer ?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Pourquoi est-ce que je reçois le message d'erreur `Impossible d'effectuer l'authentification avec l'ID et le secret d'inscription que vous avez fournis` lorsque je crée une nouvelle définition MSP d'organisation ?](#ibp-v2-troubleshooting-create-msp)
 - [Pourquoi est-ce que je reçois le message d'erreur `Une erreur s'est produite lors de la mise à jour du canal` lorsque j'essaie d'ajouter une organisation à mon canal ?](#ibp-v2-troubleshooting-update-channel)
-- [Mon cluster Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-cluster-expired)
+- [Mon cluster {{site.data.keyword.cloud_notm}} Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?](#ibp-v2-troubleshooting-cluster-expired)
 - [Pourquoi les transactions que je soumets depuis le code VS échouent ?](#ibp-v2-troubleshooting-anchor-peer)
 - [Lorsque je me connecte à ma console, pourquoi est-ce que je reçois le message d'erreur 401 unauthorized ?](#ibp-v2-troubleshooting-console-401)
+- [Pourquoi les noeuds que j'ai déployés dans {{site.data.keyword.cloud_notm}} Private ne traitent pas les transactions et échouent aux diagnostics d'intégrité ?](#ibp-v2-troubleshooting-healthchecks)
 
 ## Lorsque je survole mon noeud, l'état est `Statut non disponible`. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-status-unavailable}
 {: troubleshoot}
 
-Le statut de noeud dans la vignette du noeud de l'autorité de certification, de l'homologue ou du service de tri est grisé, ce qui signifie que le statut du noeud est non disponible. Dans l'idéal, lorsque vous survolez un noeud, l'état doit être `En fonctionnement`.
+Le statut de noeud dans la vignette du noeud de l'autorité de certification, de l'homologue ou du noeud de tri est grisé, ce qui signifie que le statut du noeud est non disponible. Dans l'idéal, lorsque vous survolez un noeud, l'état doit être `En fonctionnement`.
 {: tsSymptoms}
 
 Ce problème peut se produire si le noeud a récemment été créé et que le processus de déploiement n'est pas terminé. Si le noeud est une autorité de certification, il est probable que le noeud n'est pas en cours d'exécution.
-Si le noeud est un homologue ou un service de tri, cette condition se produit lorsque le programme de diagnostic d'intégrité d'intégrité qui s'exécute sur le noeud ou le service de tri ne parvient pas à contacter le noeud.  La demande de statut peut échouer avec une erreur de délai d'attente car le noeud n'a pas répondu dans un délai spécifique, le noeud est arrêté ou la connectivité du réseau est hors service.
+Si le noeud est un homologue ou un noeud de tri, cette condition se produit lorsque le programme de diagnostic d'intégrité qui s'exécute sur l'homologue ou le noeud de tri ne parvient pas à contacter le noeud.  La demande de statut peut échouer avec une erreur de délai d'attente car le noeud n'a pas répondu dans un délai spécifique, le noeud est arrêté ou la connectivité du réseau est hors service.
 {: tsCauses}
 
 S'il s'agit d'un nouveau noeud, attendez quelques minutes que le déploiement se termine. Si le noeud n'est pas nouveau,
-[examinez les journaux noeud associés](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) pour rechercher permettant d'en déterminer la cause.
+[examinez les journaux noeud associés](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) pour rechercher permettant d'en déterminer la cause.
 {: tsResolve}
 
 ## Lorsque je survole mon noeud, le statut est `Statut non détectable`. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-status-undetectable}
 {: troubleshoot}
 
-Le statut de noeud dans la vignette de l'homologue ou service de tri est jaune, ce qui signifie que le statut du noeud ne peut pas être détecté. Dans l'idéal, lorsque vous survolez un noeud, l'état doit être `En fonctionnement`.
+Le statut de noeud dans la vignette de l'homologue ou noeud de tri est jaune, ce qui signifie que le statut du noeud ne peut pas être détecté. Dans l'idéal, lorsque vous survolez un noeud, l'état doit être `En fonctionnement`.
 {: tsSymptoms}
 
-Cette condition se produit uniquement sur les noeuds homologue et service de tri qui ont été *importés* sur la console et si le programme de diagnostic d'intégrité ne peut pas s'exécuter sur le noeud. Ce statut existe car aucun élément `operations_url` n'a été spécifié lorsque le noeud a été importé. Une URL d'opérations est requise pour que le programme de diagnostic d'intégrité puisse s'exécuter. Le noeud lui-même est probablement `en cours d'exécution`, mais comme aucune URL d'opérations n'a été spécifiée, son statut ne peut pas être déterminé.
+Cette condition se produit uniquement sur les noeuds d'homologue et de tri qui ont été *importés* sur la console et si le programme de diagnostic d'intégrité ne peut pas s'exécuter sur le noeud. Ce statut existe car aucun élément `operations_url` n'a été spécifié lorsque le noeud a été importé. Une URL d'opérations est requise pour que le programme de diagnostic d'intégrité puisse s'exécuter. Le noeud lui-même est probablement `en cours d'exécution`, mais comme aucune URL d'opérations n'a été spécifiée, son statut ne peut pas être déterminé.
 {: tsCauses}
 
 Vous pouvez résoudre ce problème en suivant les étapes ci-après :
@@ -74,10 +78,10 @@ Vous pouvez résoudre ce problème en suivant les étapes ci-après :
  4. Cliquez sur **Exporter** pour générer un fichier `JSON` pour le noeud.
  5. Editez le fichier `JSON` généré et entre l'URL `operations_url` pour le noeud. La valeur de `operations_url` dépend de la manière dont l'YRL a été configurée ainsi que de divers paramètre réseau. Cette valeur doit être fournie par l'administrateur de réseau qui a déployé le noeud.
  6. Cliquez sur **Supprimer**. Cette étape supprime le noeud importé à partir de la console, mais ne supprime pas le noeud réel.
- 7. Depuis l'onglet **Noeuds**, cliquez sur **Ajouter un homologue** ou **Ajouter un service de tri** suivi de **Importer un homologue existant** ou **Importer un service de tri existant**.
+ 7. Depuis l'onglet **Noeuds**, cliquez sur **Ajouter un homologue** ou **Ajouter un noeud de tri** suivi de **Importer un homologue existant** ou **Importer un service de tri existant**.
  8. Cliquez sur **Télécharger JSON** et recherchez le fichier JSON que vous venez d'éditer. Cliquez sur **Suivant**.
  9. Associez l'identité que vous avez notée à l'étape 3.
- 10. Cliquez sur **Ajouter un homologue** ou **Ajouter un service de tri**.
+ 10. Cliquez sur **Ajouter un homologue** ou **Ajouter un noeud de tri**.
 
 Le programme de diagnostic d'intégrité peut maintenant s'exécuter sur le noeud et indiquer le statut du noeud.
 {: tsResolve}
@@ -91,10 +95,30 @@ Il est possible que vous rencontriez une erreur lors de la gestion d'un noeud ex
 Par exemple, lorsque vous essayez d'exploiter le noeud, l'action peut échouer.
 {: tsSymptoms}
 
-Après la création d'un homologue ou d'un service de tri, selon la configuration de stockage de cluster, quelques minutes peuvent être nécessaires pour que le noeud soit opérationnel.
+Après la création d'un homologue ou d'un noeud de tri, selon la configuration de stockage de cluster, quelques minutes peuvent être nécessaires pour que le noeud soit opérationnel.
 {: tsCauses}
 
-Consultez votre tableau de bord Kubernetes et vérifiez que l'homologue ou le noeud est à l'état `En cours d'exécution`. Renouvelez ensuite votre opération. Si vous rencontrez encore des problèmes une fois le noeud opérationnel, [recherchez d'éventuelles erreurs dans les journaux de ce noeud](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs).  
+Consultez votre tableau de bord Kubernetes et vérifiez que l'homologue ou le noeud est à l'état `En cours d'exécution`. Renouvelez ensuite votre opération. Si vous rencontrez encore des problèmes une fois le noeud opérationnel, [recherchez d'éventuelles erreurs dans les journaux de ce noeud](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs).  
+{: tsResolve}
+
+## Pourquoi est-ce que je reçois le message d'erreur `Impossible d'obtenir le canal système` lorsque j'ouvre mon service de tri ?
+{: #ibp-troubleshoot-ordering-service}
+{: troubleshoot}
+
+Une fois que vous avez créé un service de tri sur votre console {{site.data.keyword.cloud_notm}} Private, le statut est `En cours d'exécution`. Cependant, lorsque vous ouvrez le service de tri, vous obtenez l'erreur :
+
+```
+Impossible d'obtenir le canal système. Si vous avez associé une identité sans privilège d'administration sur le noeud de service de tri, vous ne pourrez pas afficher ou gérer les détails de service de tri.
+```
+
+{: tsSymptoms}
+
+Cette condition se produit sur la console de blockchain qui s'exécute dans {{site.data.keyword.cloud_notm}} Private. Dans les navigateurs autre que Chrome, vous devez accepter un certificat pour que la console puisse communiquer avec le noeud.
+{: tsCauses}
+
+Il existe plusieurs façons de résoudre ce problème :
+1. Dans les notes sur l'édition de votre charte Helm, où est fournie l'URL de navigateur de votre console, figure également une note concernant l'accès à une URL pour accepter le certificat. Accédez à cette URL et acceptez le certificat. Ouvrez ensuite votre service de tri. L'erreur ne se produit plus.
+2. Si vous utilisez un navigateur Chrome, ouvrez votre console de blockchain dans Chrome et ouvrez votre service de tri. L'erreur ne se produit pas. Notez que vous devrez exporter vos identités depuis votre portefeuille de console dans le navigateur non Chrome puis les importer dans le portefeuille dans le navigateur Chrome pour que tout puisse continuer à fonctionner.
 {: tsResolve}
 
 ## Pourquoi mon homologue ne parvient pas à démarrer ?
@@ -107,13 +131,13 @@ Le journal de l'homologue comporte `2019-02-06 19:43:24.159 UTC [main] InitCmd -
 {: tsSymptoms}
 
 - Cette erreur peut survenir dans les conditions suivantes :
-  - Lors de la création de la définition MSP de l'organisation de l'homologue ou du service de tri, vous avez indiqué un ID et un secret d'inscription qui correspondent à un type d'identité `homologue` et non `client`. Or le type doit être `client`.
-  - Lors de la création de la définition MSP de l'organisation de l'homologue ou du service de tri, vous avez indiqué un ID et un secret d'inscription qui ne correspondent pas à l'ID et au secret d'inscription de l'identité admin de l'organisation correspondante.
-  - Lors de la création de l'homologue ou du service de tri, vous avez indiqué l'ID et le secret d'inscription d'une identité qui n'est pas de type 'homologue'.
+  - Lors de la création de la définition MSP de l'organisation de l'homologue ou du noeud de tri, vous avez indiqué un ID et un secret d'inscription qui correspondent à un type d'identité `homologue` et non `client`. Or le type doit être `client`.
+  - Lors de la création de la définition MSP de l'organisation de l'homologue ou du noeud de tri, vous avez indiqué un ID et un secret d'inscription qui ne correspondent pas à l'ID et au secret d'inscription de l'identité admin de l'organisation correspondante.
+  - Lors de la création de l'homologue ou du noeud de tri, vous avez indiqué l'ID et le secret d'inscription d'une identité qui n'est pas de type 'homologue'.
 
-- Ouvrez le noeud de l'autorité de certification de votre homologue ou service de tri et consultez les identités enregistrées figurant dans le tableau **Utilisateurs enregistrés**.
-- Supprimez l'homologue ou le service de tri et recréez-le, en veillant à indiquer l'ID et le secret d'inscription corrects.
-- Notez qu'avant de créer l'homologue ou le service de tri, vous devez créer un ID admin organisation de type 'client'. Veillez à indiquer le même ID que l'ID d'inscription lors de la création de la définition MSP de l'organisation. Consultez les instructions relatives à l'[enregistrement des identités d'homologue](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) et celles relatives à l'[enregistrement des identités de service de tri](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
+- Ouvrez le noeud de l'autorité de certification de votre homologue ou noeud de tri et consultez les identités enregistrées figurant dans le tableau **Utilisateurs enregistrés**.
+- Supprimez l'homologue ou le noeud de tri et recréez-le, en veillant à indiquer l'ID et le secret d'inscription corrects.
+- Notez qu'avant de créer l'homologue ou le noeud de tri, vous devez créer un ID admin organisation de type 'client'. Veillez à indiquer le même ID que l'ID d'inscription lors de la création de la définition MSP de l'organisation. Consultez les instructions relatives à l'[enregistrement des identités d'homologue](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) et celles relatives à l'[enregistrement des identités de service de tri](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## Pourquoi ne puis-je pas installer, instancier ou mettre à niveau mes contrats intelligents ?
@@ -128,7 +152,7 @@ Vous pouvez recevoir cette erreur si cette version de contrat intelligent existe
 
 - Ouvrez votre tableau de bord Kubernetes et vérifiez que l'homologue est à l'état `En cours d'exécution`.  
 - Ouvrez le noeud homologue et vérifiez que la version du contrat intelligent n'existe pas déjà sur l'homologue, puis relancez l'opération avec la version appropriée.
-- Si vous rencontrez encore des problèmes une fois le noeud opérationnel, [recherchez d'éventuelles erreurs dans les journaux de ce noeud](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs).  
+- Si vous rencontrez encore des problèmes une fois le noeud opérationnel, [recherchez d'éventuelles erreurs dans les journaux de ce noeud](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs).  
 {: tsResolve}
 
 ## Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?
@@ -138,7 +162,9 @@ Vous pouvez recevoir cette erreur si cette version de contrat intelligent existe
 Vous devrez peut-être consulter les journaux de votre conteneur de contrat intelligent, ou de code blockchain, pour déboguer un problème de contrat intelligent.
 {: tsSymptoms}
 
-Suivant les instructions de la rubrique relative à la [consultation des journaux de votre conteneur](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-container-logs).
+Suivant les instructions relatives à l'affichage des journaux de votre conteneur de contrat intelligent dans :
+- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
+- [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
 {: tsResolve}
 
 ## Mon canal, mes contrats intelligents et mes identités ont disparu de la console. Comment puis-je les récupérer ?
@@ -156,7 +182,7 @@ Dans la nouvelle version d'{{site.data.keyword.blockchainfull_notm}} Platform, v
   - Dans le navigateur concerné par ce problème, cliquez sur l'onglet **Portefeuille** puis sur **Ajouter une identité** afin d'importer le fichier JSON dans votre portefeuille.
   - Cliquez sur **Télécharger JSON** et recherchez le fichier JSON que vous avez exporté à l'aide du bouton **Ajouter des fichiers**.
   - Cliquez sur **Soumettre**.
-  - Ouvrez ensuite le noeud de l'homologue ou du service de tri auquel cette identité a été initialement associée, puis cliquez sur l'icône **Paramètres**.
+  - Ouvrez ensuite le noeud de l'homologue ou de tri auquel cette identité a été initialement associée, puis cliquez sur l'icône **Paramètres**.
   - Cliquez sur le bouton **Associer une identité**.
   - Sélectionnez dans la liste déroulante l'identité que vous venez d'importer dans votre portefeuille de console.
   - Cliquez sur **Associer**.
@@ -189,7 +215,7 @@ Cette erreur se produit lorsque l'**ID MSP de programme de mise à jour de canal
 Dans le panneau **Mettre à jour un canal**, accédez à la section **ID MSP de programme de mise à jour de canal** et sélectionnez l'ID MSP qui a été spécifié lors de la création du canal ou indiquez l'ID MSP qui est l'admin du canal.
 {: tsResolve}
 
-## Mon cluster Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?
+## Mon cluster {{site.data.keyword.cloud_notm}} Kubernetes est arrivé à expiration. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-cluster-expired}
 {: troubleshoot}
 
@@ -199,7 +225,7 @@ J'ai reçu un e-mail indiquant que mon cluster Kubernetes Service {{site.data.ke
 Les clusters Kubernetes gratuits ne sont valides que pendant 30 jours.
 {: tsCauses}
 
-Il n'est pas possible de migrer depuis un cluster gratuit vers un cluster payant. Au bout de 30 jours vous ne pouvez pas accéder à la console et tous vos noeuds et certificats sont supprimés. Pour plus d'informations sur cette opération et les actions que vous pouvez effectuer, consultez la rubrique relative à l'[expiration du cluster Kubernetes](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration).
+Il n'est pas possible de migrer depuis un cluster gratuit vers un cluster payant. Au bout de 30 jours vous ne pouvez pas accéder à la console et tous vos noeuds et certificats sont supprimés. Pour plus d'informations sur cette opération et les actions que vous pouvez effectuer, consultez la rubrique relative à l'[expiration du cluster Kubernetes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
 {: tsResolve}
 
 ## Pourquoi les transactions que je soumets depuis le code VS échouent ?
@@ -215,7 +241,7 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 Cette erreur se produit si vous utilisez la fonction Reconnaissance de service Fabric et que vous n'avez configuré aucun homologue d'ancrage sur votre canal.
 {: tsCauses}
 
-Suivez l'étape 3 de la [rubrique relative aux données privées](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) dans le tutoriel Déployer un contrat intelligent pour configurer vos homologues d'ancrage.
+Suivez l'étape 3 de la [rubrique relative aux données privées](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) dans le tutoriel Déployer un contrat intelligent pour configurer vos homologues d'ancrage.
 
 ## Lorsque je me connecte à ma console, pourquoi est-ce que je reçois le message d'erreur 401 Unauthorized ?
 {: #ibp-v2-troubleshooting-console-401}
@@ -231,3 +257,15 @@ Si votre session est devenue inactive, vous pouvez simplement essayer d'actualis
 
 Dans le cadre des meilleures pratique, vous devez déjà avoir enregistré vos certificats et identités sur votre système de fichiers. S'il arrive que vous utilisiez une fenêtre en mode incognito, tous les certificats sont supprimés de la mémoire locale du navigateur lorsque vous fermez ce dernier. Après vous être reconnecté, vous devez réimporter vos identités et certificats.
 {: note}
+
+## Pourquoi les noeuds que j'ai déployés dans {{site.data.keyword.cloud_notm}} Private ne traitent pas les transactions et échouent aux diagnostics d'intégrité ?
+{: #ibp-v2-troubleshooting-healthchecks}
+{: troubleshoot}
+
+Ma console indique que mes homologues et noeuds de tri sont toujours en cours d'exécution. Toutefois, mes transactions échouent. Lorsque j'exécute un contrôle de continuité ou de préparation sur les états de contrôle, les contrôles indiquent que les pods sont défaillants.
+{: tsSymptoms}
+
+Si vous avez souvent déployé, retiré et mis à niveau des noeuds dans votre cluster, peut-être dans le cadre d'un résultat de test, Docker peut être défaillant en raison d'un problème connu avec {{site.data.keyword.cloud_notm}} Private. Pour plus d'informations, consultez la documentation [{{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}.
+{: tsCauses}
+
+Pour résoudre ce problème, retirez les pods défaillants et déployez de nouveau vos noeuds. Vous pouvez également redémarrer le service Docker dans le cluster.

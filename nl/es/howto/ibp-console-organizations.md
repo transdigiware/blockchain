@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -21,7 +21,7 @@ subcollection: blockchain
 
 Puede utilizar la consola de {{site.data.keyword.blockchainfull}} Platform para crear una definición de organización formal conocida como Proveedor de servicios de pertenencia (MSP). La definición de MSP de su organización permite que otros miembros del consorcio de blockchain verifiquen la identidad de los nodos y de las aplicaciones. La definición de MSP también contiene los certificados de administración de la organización.
 
-También puede utilizar la consola para gestionar las organizaciones que son miembros de la red. El administrador del servicio de ordenación puede utilizar el separador Organizaciones para añadir miembros al [consorcio](/docs/services/blockchain/glossary.html#glossary-consortium) de blockchain. Luego los miembros del consorcio pueden utilizar la consola para añadir miembros a canales nuevos o existentes.
+También puede utilizar la consola para gestionar las organizaciones que son miembros de la red. El administrador del servicio de ordenación puede utilizar el separador Organizaciones para añadir miembros al [consorcio](/docs/services/blockchain?topic=blockchain-glossary#glossary-consortium) de blockchain. Luego los miembros del consorcio pueden utilizar la consola para añadir miembros a canales nuevos o existentes.
 
 **Audiencia de destino:** este tema está diseñado para los operadores de red responsables de crear, supervisar y gestionar la red blockchain.
 
@@ -34,17 +34,17 @@ Cada organización del consorcio tiene que trabajar con su propia entidad emisor
 
 Para que su organización pueda unirse a un consorcio, tiene que crear una definición de organización conocida como **Proveedor de servicios de pertenencia (MSP)**. El MSP contiene la información siguiente:
 - Certificado firmado por la **entidad emisora de certificados raíz**. Este certificado se utiliza para verificar la identidad de los nodos, de los canales y de las aplicaciones.
-- Certificado firmado por la **CA de TLS**. Un certificado TLS raíz permite a los iguales participar en los rumores de la organización, lo que es necesario para aprovechar las características de [**colección de datos privados**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) y [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} de Hyperledger Fabric.
+- Certificado firmado por la **CA de TLS**. Un certificado TLS raíz permite a los iguales participar en los rumores de la organización, lo que es necesario para aprovechar las características de [**colección de datos privados**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) y [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} de Hyperledger Fabric.
 - El **ID de MSP**. El ID de MSP es el nombre formal de su organización dentro del consorcio. Tiene que recordar el ID de MSP para sus nodos y aplicaciones.
-- **Certificados de administración** de las identidades **Admin igual** y **Admin de org**. Estos certificados se pasan al servicio de ordenación y se utilizan para verificar qué identidades de la organización tienen permiso para crear o editar canales. Cuando utilice la consola para crear un clasificador o un igual, los certificados de administrador del MSP se despliegan dentro del nuevo nodo. Luego estos certificados se pueden utilizar para trabajar con los iguales o con los clasificadores desde la consola o desde una aplicación cliente.
+- **Certificados de administración** de las identidades **Admin igual** y **Admin de org**. Estos certificados se pasan al servicio de ordenación y se utilizan para verificar qué identidades de la organización tienen permiso para crear o editar canales. Cuando utilice la consola para crear un nodo de ordenación o un igual, los certificados de administrador del MSP se despliegan dentro del nuevo nodo. Luego estos certificados se pueden utilizar para trabajar con los iguales o con los nodos de ordenación desde la consola o desde una aplicación cliente.
 
 ## Gestión de MSP en la consola
 
-Vaya al separador **Organizaciones**. Puede utilizar este separador para [crear una definición de MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp) utilizando una entidad emisora de certificados que exista en la consola. También puede utilizar este separador para [importar un MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp) que haya creado otra organización.
+Vaya al separador **Organizaciones**. Puede utilizar este separador para [crear una definición de MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) utilizando una entidad emisora de certificados que exista en la consola. También puede utilizar este separador para [importar un MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) que haya creado otra organización.
 
 Puede ver todos los MSP que ha creado o importado bajo **Organizaciones disponibles**. Puede utilizar las definiciones de MSP del separador de organizaciones para las funciones importantes dentro de la consola:
 - Si va a crear nodos iguales o de clasificador, el MSP de la organización se utiliza para proporcionar certificados de administrador al nuevo nodo.
-- Si es el administrador de un nodo de ordenación, puede utilizar los MSP para [añadir nuevas organizaciones al consorcio](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
+- Si es el administrador de un nodo de ordenación, puede utilizar los MSP para [añadir nuevas organizaciones al consorcio](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - Si es miembro del consorcio, puede importar los MSP de otros miembros del consorcio en su consola y luego añadir los miembros a canales nuevos o existentes.
 
 ## Creación de un MSP para su organización
@@ -158,14 +158,14 @@ Por ejemplo, el archivo JSON tendrá un aspecto similar a:
 Guarde esta definición como el archivo `JSON` de su definición de MSP.  
 
 Ha construido una definición de MSP, que define la organización para los nodos de igual o de servicio de ordenación y que utiliza certificados de una CA externa. Ahora puede volver a las instrucciones que describen
-[Cómo utilizar certificados de una CA externa con su igual o clasificador](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
+[Cómo utilizar certificados de una CA externa con su igual o clasificador](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca).
 
 ## Importación de un MSP
 {: #console-organizations-import-msp}
 
 Solo el administrador del clasificador puede añadir nuevas organizaciones al consorcio. Si es el administrador del clasificador, tendrá que recopilar las definiciones de MSP de todas las organizaciones que han sido invitadas al consorcio e importar los MSP en la consola. Luego añadirá los MSP al servicio de ordenación, utilizando el nodo del clasificador.
 
-Después de que un administrador cree una definición de MSP, puede utilizar el separador Organizaciones para descargar el MSP en formato JSON en su sistema de archivos local. Luego le puede enviar el archivo JSON de MSP en una operación fuera de banda. Vaya al separador **Organizaciones** y utilice la opción **Importar definición de MSP** para importar el archivo MSP en la consola. Cuando una definición de MSP aparece en la sección **Organizaciones disponibles**, puede navegar hasta el nodo del clasificador para [añadir la organización al consorcio](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
+Después de que un administrador cree una definición de MSP, puede utilizar el separador Organizaciones para descargar el MSP en formato JSON en su sistema de archivos local. Luego le puede enviar el archivo JSON de MSP en una operación fuera de banda. Vaya al separador **Organizaciones** y utilice la opción **Importar definición de MSP** para importar el archivo MSP en la consola. Cuando una definición de MSP aparece en la sección **Organizaciones disponibles**, puede navegar hasta el nodo del clasificador para [añadir la organización al consorcio](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 
 
 ## Adición de una organización a un consorcio
@@ -173,7 +173,7 @@ Después de que un administrador cree una definición de MSP, puede utilizar el 
 
 El consorcio de organizaciones se aloja en el servicio de ordenación.
 
-Si es el administrador del servicio de ordenación, puede utilizar la consola para añadir una organización al consorcio. Vaya al separador **Nodos** y pulse el nodo de ordenación. En el panel del nodo de ordenación, en **Miembros de consorcio**, pulse **Añadir organización**. Esto abrirá un panel lateral que le permitirá seleccionar en la lista de definiciones de MSP disponibles que ha [importado en el separador de organizaciones](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp). También puede utilizar la opción **Cargar JSON** para importar directamente el archivo de definición de MSP creado por otra organización.
+Si es el administrador del servicio de ordenación, puede utilizar la consola para añadir una organización al consorcio. Vaya al separador **Nodos** y pulse el nodo de ordenación. En el panel del nodo de ordenación, en **Miembros de consorcio**, pulse **Añadir organización**. Esto abrirá un panel lateral que le permitirá seleccionar en la lista de definiciones de MSP disponibles que ha [importado en el separador de organizaciones](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). También puede utilizar la opción **Cargar JSON** para importar directamente el archivo de definición de MSP creado por otra organización.
 
 ## Creación y edición de un canal
 {: #console-organizations-create-channel}
@@ -186,7 +186,7 @@ Después de que se haya añadido una organización a un consorcio, puede crear u
 2. Importe los MSP de las organizaciones que desea añadir al nuevo canal en la consola en el separador **Organizaciones**. **Tenga en cuenta** que las organizaciones se tienen que añadir al consorcio para que se puedan añadir a un canal.
 3. Vaya al separador **Canales** y pulse **Crear canal**. Esto abrirá un panel lateral que le permite especificar el nombre del canal, la pertenencia y las políticas del canal. Puede añadir al nuevo canal cualquier organización que se haya añadido al consorcio.
 
-Para obtener más información sobre estos pasos, consulte el apartado sobre [creación de un canal](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel1) de la guía de aprendizaje sobre cómo **Crear una red**.
+Para obtener más información sobre estos pasos, consulte el apartado sobre [creación de un canal](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1) de la guía de aprendizaje sobre cómo **Crear una red**.
 
 ### Actualización de un MSP en una definición de canal
 {: #console-organizations-update-channel}

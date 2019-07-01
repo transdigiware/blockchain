@@ -25,10 +25,10 @@ subcollection: blockchain
 
 **Général**   
 
-- [Quelle base de données les homologues utilisent-ils pour leur registre ?](#ibp-v2-faq-v2-IBP-Overview-1-3)
-- [Quels langages sont pris en charge pour les contrats intelligents ?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [Quel avantage présente l'utilisation d'{{site.data.keyword.blockchainfull_notm}} Platform sur Hyperledger Fabric natif ? ](#ibp-v2-faq-v2-IBP-Overview-1-7)
 - [Quelle version d'Hyperledger Fabric est utilisée avec {{site.data.keyword.blockchainfull_notm}} Platform ? ](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+- [Quelle base de données les homologues utilisent-ils pour leur registre ?](#ibp-v2-faq-v2-IBP-Overview-1-3)
+- [Quels langages sont pris en charge pour les contrats intelligents ?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [Est-il possible d'utiliser des certificats d'autorités de certification non IBM ?](#ibp-v2-faq-v2-external-certs)  
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
@@ -46,18 +46,7 @@ subcollection: blockchain
 - [Quel est le modèle de tarification de {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?](#ibp-v2-faq-icp-pricing)
 - [Quels services dois-je installer pour pouvoir utiliser {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?](#ibp-v2-faq-icp-services)
 - [Comment puis-je estimer la taille nécessaire d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud pour mes environnements de développement, de tests et de production ?](#ibp-v2-faq-icp-sizing)
-
-## Quelle base de données les homologues utilisent-ils pour leur registre ?
-{: #ibp-v2-faq-v2-IBP-Overview-1-3}
-{: faq}
-
-Tous les homologues qui sont déployés avec {{site.data.keyword.blockchainfull_notm}} Platform utilisent CouchDB comme base de données pour le registre.
-
-## Quels langages sont pris en charge pour les contrats intelligents ?
-{: #ibp-v2-faq-v2-IBP-Overview-1-4}
-{: faq}
-
-{{site.data.keyword.blockchainfull_notm}} Platform prend en charge les contrats intelligents écrits en Go et Node.js. Le nouveau modèle de programmation d'Hyperledger Fabric ne prend actuellement en charge que Node.js, mais d'autres langages seront prochainement pris en charge. Si vous souhaitez conserver votre code de l'application existant, ou encore utiliser des logiciels SDK Fabric pour des langages autres que Node.js, vous pouvez encore vous connecter à votre réseau {{site.data.keyword.blockchainfull_notm}} Platform à l'aide d'API SDK Fabric de niveau inférieur.
+- [Que se passe-t-il pour mes composants de blockchain lorsque je supprime mon édition Helm ?](#ibp-v2-faq-icp-delete)
 
 ## Quel avantage présente l'utilisation d'{{site.data.keyword.blockchainfull_notm}} Platform sur Hyperledger Fabric natif ?
 {: #ibp-v2-faq-v2-IBP-Overview-1-7}
@@ -71,6 +60,17 @@ The {{site.data.keyword.blockchainfull_notm}} Platform permet au clients de dép
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} et {{site.data.keyword.blockchainfull_notm}} Platform for Platform for Multicloud utilisent Hyperledger Fabric version 1.4.1
 
+## Quelle base de données les homologues utilisent-ils pour leur registre ?
+{: #ibp-v2-faq-v2-IBP-Overview-1-3}
+{: faq}
+
+Tous les homologues qui sont déployés avec {{site.data.keyword.blockchainfull_notm}} Platform utilisent CouchDB comme base de données pour le registre.
+
+## Quels langages sont pris en charge pour les contrats intelligents ?
+{: #ibp-v2-faq-v2-IBP-Overview-1-4}
+{: faq}
+
+{{site.data.keyword.blockchainfull_notm}} Platform prend en charge les contrats intelligents écrits en Go et Node.js. Le nouveau modèle de programmation d'Hyperledger Fabric ne prend actuellement en charge que Node.js, mais d'autres langages seront prochainement pris en charge. Si vous souhaitez conserver votre code de l'application existant, ou encore utiliser des logiciels SDK Fabric pour des langages autres que Node.js, vous pouvez encore vous connecter à votre réseau {{site.data.keyword.blockchainfull_notm}} Platform à l'aide d'API SDK Fabric de niveau inférieur.
 
 ## Est-il possible d'utiliser des certificats d'autorités de certification non IBM ?
 {: #ibp-v2-faq-v2-external-certs}
@@ -109,7 +109,7 @@ Votre cluster Kubernetes existant est compatible avec {{site.data.keyword.blockc
 {: #ibp-v2-faq-v2-Logging-and-Monitoring-11-6}
 {: faq}
 
-Avec {{site.data.keyword.blockchainfull_notm}} Platform, vous pouvez accéder directement aux journaux de l'homologue, de l'autorité de certification et du service de tri depuis votre tableau de bord Kubernetes. Nous vous recommandons d'utiliser le service {{site.data.keyword.cloud_notm}} LogDNA qui vous permet d'analyser facilement les journaux en temps réel.
+Avec {{site.data.keyword.blockchainfull_notm}} Platform, vous pouvez accéder directement aux journaux de l'homologue, de l'autorité de certification et du noeud de tri depuis votre tableau de bord Kubernetes. Nous vous recommandons d'utiliser le service {{site.data.keyword.cloud_notm}} LogDNA qui vous permet d'analyser facilement les journaux en temps réel.
 
 ## Quels sont les avantages d'{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ?
 {: #ibp-v2-faq-icp-benefits}
@@ -140,3 +140,9 @@ Vous devez uniquement installer {{site.data.keyword.cloud_notm}} Private version
 {: faq}
 
 Dès que vous connaissez le nombre d'autorités de certification, d'homologues et de noeuds de tri nécessaires, vous pouvez consulter le [tableau des allocations de ressources par défaut](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources) pour faire une estimation approximative des UC (VPC) requises pour votre réseau.
+
+## Que se passe-t-il pour mes composants de blockchain lorsque je supprime mon édition Helm ?
+{: #ibp-v2-faq-icp-delete}
+{: faq}
+
+Lorsque vous supprimez une édition Helm de votre cluster {{site.data.keyword.cloud_notm}} Private, les composants de blockchain associés ne sont pas supprimés. Pour supprimer correctement une édition Helm de votre cluster, vous devez préalablement supprimer tous les composants à l'aide de la console ou d'API de blockchain. Vous pouvez ensuite supprimer la charte Helm.  

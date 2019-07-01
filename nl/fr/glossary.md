@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -25,7 +25,7 @@ Cette rubrique définit les termes spécifiques à {{site.data.keyword.blockchai
 
 ## AC
 {: #glossary-CA}
-Abréviation de "Autorité de certification". Il s'agit du composant qui émet des certificats pour tous les membres participants. Ces certificats représentent l'identité d'un membre. Toutes les entités sur le réseau (homologues, services de tri, clients et ainsi de suite) doivent posséder une identité pour communiquer, authentifier et enfin effectuer des transactions. Ces identités sont nécessaires à toute participation directe au réseau de blockchain.
+Abréviation de "Autorité de certification". Il s'agit du composant qui émet des certificats pour tous les membres participants. Ces certificats représentent l'identité d'un membre. Toutes les entités sur le réseau (homologues, noeuds de tri, clients et ainsi de suite) doivent posséder une identité pour communiquer, authentifier et enfin effectuer des transactions. Ces identités sont nécessaires à toute participation directe au réseau de blockchain.
 
 ## Adhésion
 {: #glossary-endorsement}
@@ -85,7 +85,7 @@ Magasin de documents qui permet d'exécuter des requêtes de données approfondi
 
 ## Données d'identification du service
 {: #glossary-service-credentials}
-Les données d'identification du service sont disponibles au format JSON et elles contiennent les informations de noeud final d'API et les ID d'inscription/valeurs confidentielles de vos ressources réseau, c'est-à-dire les autorités de certification, les services de tri et les homologues. Votre application interagit avec les ressources réseau via ces noeuds finaux d'API.
+Les données d'identification du service sont disponibles au format JSON et elles contiennent les informations de noeud final d'API et les ID d'inscription/valeurs confidentielles de vos ressources réseau, c'est-à-dire les autorités de certification, les noeuds de tri et les homologues. Votre application interagit avec les ressources réseau via ces noeuds finaux d'API.
 
 ## Données d'identification réseau
 {: #glossary-network-credentials}
@@ -141,11 +141,15 @@ Forme abrégée de **Membership Service Provider**, qui donne la définition d'u
 
 ## Noeud
 {: #glossary-node}
-Entité de communication de la blockchain. Il existe trois types de noeuds : AC, Homologue et Service de tri.
+Entité de communication de la blockchain. Il existe trois types de noeuds : AC, Homologue et Noeud de tri.
+
+## Noeud de tri
+{: #glossary-orderer}
+Noeud qui collecte les transactions des membres réseau, trie les transactions et les regroupe dans des blocs. Egalement connu sous le nom de service de tri. Ces blocs sont ensuite distribués aux homologues, lesquels vérifient les blocs et les ajoutent aux registres sur chaque canal. Les noeuds de tri contiennent les identités de chiffrement qui sont liées à chaque membre et ils authentifient l'identité des clients et des homologues pour l'accès au réseau. La fonction globale fournie par un noeud ou une collection de noeuds de service de tri est appelée **service de tri**.
 
 ## Organisation
 {: #glossary-organization}
-Voir [Membre](/docs/services/blockchain/glossary.html#glossary-member).
+Voir [Membre](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Participant
 {: #glossary-participant}
@@ -159,13 +163,13 @@ Le profil de connexion est visible dans l'écran "Présentation" du Moniteur ré
 {: #glossary-raft}
 Raft est un service tri tolérant aux pannes reposant sur l'implémentation du [protocole Raft](https://raft.github.io/raft.pdf){: external} dans `etcd`. Le service de tri Raft suit un modèle de type “leader and follower” (principal et suiveur) dans lequel un noeud principal est choisi (par canal) et ses décisions sont répliquées par les suiveurs. Les services de tri Raft doivent être plus faciles à configurer et à gérer que les services de tri basés sur Kafka et un cluster de ces noeuds peut être créé à l'aide de {{site.data.keyword.blockchainfull_notm}} Platform.
 
-## Règle d'adhésion
-{: #glossary-endorsement-policy}
-Définit les noeuds homologue sur un canal qui doivent exécuter des transactions liées à une application de code blockchain spécifique, ainsi que la combinaison nécessaire de réponses (adhésions). Une règle peut exiger qu'une transaction soit validée par un nombre minimum d'homologues valideurs, un pourcentage minimum d'homologues valideurs ou par tous les homologues valideurs qui sont affectés à une application de code blockchain spécifique. Les règles peuvent être organisées en fonction de l'application et du niveau souhaité de résilience par rapport à un comportement inapproprié, qu'il soit ou non délibéré, par les homologues d'adhésion. Une transaction soumise doit respecter la règle de validation pour pouvoir être marquée comme valide par les homologues d'adhésion. Une règle distincte de validation pour l'installation et l'instanciation des transactions est également requise.
-
 ## Registre
 {: #glossary-ledger}
 Le registre comprend une "chaîne de blocs" littérale qui stocke un enregistrement immuable et séquencé de transactions, ainsi qu'une base de données d'état pour le maintien de l'état en cours. Il y a un registre par canal, et les mises à jour de ce dernier sont gérées par le processus de consensus en fonction des règles d'un canal particulier.
+
+## Règle d'adhésion
+{: #glossary-endorsement-policy}
+Définit les noeuds homologue sur un canal qui doivent exécuter des transactions liées à une application de code blockchain spécifique, ainsi que la combinaison nécessaire de réponses (adhésions). Une règle peut exiger qu'une transaction soit validée par un nombre minimum d'homologues valideurs, un pourcentage minimum d'homologues valideurs ou par tous les homologues valideurs qui sont affectés à une application de code blockchain spécifique. Les règles peuvent être organisées en fonction de l'application et du niveau souhaité de résilience par rapport à un comportement inapproprié, qu'il soit ou non délibéré, par les homologues d'adhésion. Une transaction soumise doit respecter la règle de validation pour pouvoir être marquée comme valide par les homologues d'adhésion. Une règle distincte de validation pour l'installation et l'instanciation des transactions est également requise.
 
 ## Réseau
 {: #glossary-network}
@@ -175,17 +179,13 @@ Instance d'un service {{site.data.keyword.blockchainfull_notm}} Platform sur {{s
 {: #glossary-asset}
 Biens matériels ou immatériels, services ou propriété représentés en tant qu'élément qui fait l'objet d'une transaction sur le réseau de blockchain.
 
-## Service de tri
-{: #glossary-orderer}
-Noeud qui collecte les transactions des membres réseau, trie les transactions et les regroupe dans des blocs. Ces blocs sont ensuite distribués aux homologues, lesquels vérifient les blocs et les ajoutent aux registres sur chaque canal. Les services de tri contiennent les identités de chiffrement qui sont liées à chaque membre et ils authentifient l'identité des clients et des homologues pour l'accès au réseau. La fonction globale fournie par un noeud ou une collection de noeuds de service de tri est appelée **service de tri**.
-
 ## SDK
 {: #glossary-sdk}
 Hyperledger Fabric prend en charge deux kits SDK : Node SDK et Java SDK.  Node SDK peut être installé via NPM et Java SDK via Maven.  Les kits SDK ont leurs propres référentiels Git, c'est-à-dire, [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} et [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}, ainsi que la documentation associée aux API disponibles. Les kits SDK de Hyperledger Fabric Client permettent l'interaction entre votre application client et votre réseau de blockchain.
 
 ## Smart contracts
 {: #glossary-smart-contracts}
-Voir [Code blockchain](/docs/services/blockchain/glossary.html#glossary-chaincode).
+Voir [Code blockchain](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -201,4 +201,4 @@ Un utilisateur a le rôle d'un participant au sein d'un réseau de blockchain et
 
 ## World state
 {: #glossary-world-state}
-Voir [Etat en cours](/docs/services/blockchain/glossary.html#glossary-current-state).
+Voir [Etat en cours](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).

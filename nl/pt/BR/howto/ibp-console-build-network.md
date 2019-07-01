@@ -22,18 +22,18 @@ subcollection: blockchain
 # Construir um tutorial de rede
 {: #ibp-console-build-network}
 
-O {{site.data.keyword.blockchainfull}} Platform é uma oferta de blockchain-as-a-service que permite que você desenvolva, implemente e opere aplicativos e redes de blockchain. É possível obter mais informações sobre os componentes de blockchain e como eles trabalham juntos visitando a [Visão geral do componente Blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview). Este tutorial é a primeira parte na [série de tutoriais de rede de amostra](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-sample-tutorial) e descreve como usar o console do {{site.data.keyword.blockchainfull_notm}} Platform para construir uma rede totalmente funcional no cluster do Kubernetes implementado na infraestrutura em nuvem de nossa escolha.
+O {{site.data.keyword.blockchainfull}} Platform é uma oferta de blockchain-as-a-service que permite que você desenvolva, implemente e opere aplicativos e redes de blockchain. É possível obter mais informações sobre os componentes de blockchain e como eles trabalham juntos visitando a [Visão geral do componente Blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview). Este tutorial é a primeira parte na [série de tutoriais de rede de amostra](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-sample-tutorial) e descreve como usar o console do {{site.data.keyword.blockchainfull_notm}} Platform para construir uma rede totalmente funcional no cluster do Kubernetes implementado na infraestrutura em nuvem de nossa escolha.
 {:shortdesc}
 
 
-No caso de estar usando a versão de avaliação beta do {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, é provável que alguns painéis em seu console não correspondam à documentação atual, que é mantida atualizada com a instância de serviço geralmente disponível (GA). Se tiver uma instância de serviço beta e desejar obter os benefícios de todas as funcionalidades mais recentes, será aconselhável neste momento provisionar uma instância de serviço GA seguindo as instruções de [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+No caso de estar usando a versão de avaliação beta do {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, é provável que alguns painéis em seu console não correspondam à documentação atual, que é mantida atualizada com a instância de serviço geralmente disponível (GA). Se tiver uma instância de serviço beta e desejar obter os benefícios de todas as funcionalidades mais recentes, será aconselhável neste momento provisionar uma instância de serviço GA seguindo as instruções de [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 {: important}
 
 **Público-alvo:** este tópico é projetado para operadores de rede que são responsáveis por criar, monitorar e gerenciar a rede de blockchain.
 
-Se ainda não tiver usado o console do {{site.data.keyword.blockchainfull_notm}} Platform para implementar componentes em um cluster Kubernetes usando o serviço de Kubernetes do {{site.data.keyword.cloud_notm}}, consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks), se estiver usando um cluster do {{site.data.keyword.cloud_notm}} ou [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/get-started-console-icp.html#get-started-console-icp), se estiver usando o {{site.data.keyword.cloud_notm}} Private para implementar em um provedor em nuvem diferente do {{site.data.keyword.cloud_notm}}. Observe que o console em si não reside em seu cluster. Ele é uma ferramenta que pode ser usada para implementar componentes em seu cluster.
+Se ainda não tiver usado o console do {{site.data.keyword.blockchainfull_notm}} Platform para implementar componentes em um cluster Kubernetes usando o serviço de Kubernetes do {{site.data.keyword.cloud_notm}}, consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks), se estiver usando um cluster do {{site.data.keyword.cloud_notm}} ou [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp), se estiver usando o {{site.data.keyword.cloud_notm}} Private para implementar em um provedor em nuvem diferente do {{site.data.keyword.cloud_notm}}. Observe que o console em si não reside em seu cluster. Ele é uma ferramenta que pode ser usada para implementar componentes em seu cluster.
 
-Independentemente de você implementar componentes em um cluster Kubernetes pago ou grátis, preste muita atenção aos recursos à sua disposição quando optar por implementar nós e criar canais. É sua responsabilidade gerenciar seu cluster Kubernetes e implementar recursos adicionais, se necessário. Embora os componentes sejam implementados com êxito em um cluster grátis do {{site.data.keyword.cloud_notm}}, quanto mais componentes forem incluídos, mais lentamente seus componentes serão executados. Para obter mais informações sobre dimensionamentos de componente e como o console interage com seu cluster do serviço de Kubernetes do {{site.data.keyword.cloud_notm}}, consulte [Alocando recursos](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction). Se estiver usando o {{site.data.keyword.cloud_notm}} Private para implementar em um provedor em nuvem diferente, será necessário consultar a documentação desse provedor para saber como monitorar seus recursos lá.
+Independentemente de você implementar componentes em um cluster Kubernetes pago ou grátis, preste muita atenção aos recursos à sua disposição quando optar por implementar nós e criar canais. É sua responsabilidade gerenciar seu cluster Kubernetes e implementar recursos adicionais, se necessário. Embora os componentes sejam implementados com êxito em um cluster grátis do {{site.data.keyword.cloud_notm}}, quanto mais componentes forem incluídos, mais lentamente seus componentes serão executados. Para obter mais informações sobre dimensionamentos de componente e como o console interage com seu cluster do serviço de Kubernetes do {{site.data.keyword.cloud_notm}}, consulte [Alocando recursos](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction). Se estiver usando o {{site.data.keyword.cloud_notm}} Private para implementar em um provedor em nuvem diferente, será necessário consultar a documentação desse provedor para saber como monitorar seus recursos lá.
 
 ## Amostra de séries do tutorial de rede
 {: #ibp-console-build-network-sample-tutorial}
@@ -44,8 +44,8 @@ O processo para criar e gerenciar componentes descritos nesses tutoriais também
 {: important}
 
 * **Tutorial Construir uma rede** Esse tutorial orienta você durante o processo de hospedagem de uma rede criando duas organizações, uma para seu peer e outra para o serviço de pedido e um canal. Use esse tutorial se desejar formar um consórcio de blockchain criando um serviço de pedido e incluindo organizações.
-* [Tutorial Associar uma rede](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) orienta você durante o processo de associação de uma rede existente criando um peer e associando-o a um canal existente. Use esse tutorial se você não pretende hospedar uma rede criando um serviço de pedido ou deseja aprender o processo para associar outras redes.
-* [Implementar um contrato inteligente na rede](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) mostra como gravar um contrato inteligente e implementá-lo em uma rede.
+* [Tutorial Associar uma rede](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network) orienta você durante o processo de associação de uma rede existente criando um peer e associando-o a um canal existente. Use esse tutorial se você não pretende hospedar uma rede criando um serviço de pedido ou deseja aprender o processo para associar outras redes.
+* [Implementar um contrato inteligente na rede](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) mostra como gravar um contrato inteligente e implementá-lo em uma rede.
 
 
 ### A estrutura desta rede
@@ -63,7 +63,7 @@ Essa configuração é suficiente para testar aplicativos e contratos inteligent
 * **Uma organização de serviço de pedido**: `Ordering Service`  
   Como estamos construindo um livro-razão distribuído, os peers e o serviço de pedido devem fazer parte de organizações separadas. Portanto, uma organização separada é criada para o serviço de pedido. Entre outras coisas, um serviço de pedido pede os blocos de transações que são enviados para os peers para serem gravados em seus livros-razão e se tornarem o blockchain. Criaremos a definição da organização `Ordering Service`.
 * **Três autoridades de certificação (CAs)**: `Org1 CA, Org2 CA, Ordering Service CA`   
-  Uma CA é o nó que emite certificados para os usuários e os nós associados a uma organização. Como a melhor prática é implementar uma CA por organização, implementaremos três CAs no total: uma para cada organização de peer e uma para a organização de serviço de pedido. Essas CAs também criarão a definição de cada organização, que é encapsulada por um Membership Service Provider (MSP). Uma autoridade de certificação de TLS é implementada automaticamente em conjunto com cada CA da organização e fornece os certificados TLS que são usados para comunicação entre os nós. Para obter mais informações, consulte [Usando sua CA TLS](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-tlsca).
+  Uma CA é o nó que emite certificados para os usuários e os nós associados a uma organização. Como a melhor prática é implementar uma CA por organização, implementaremos três CAs no total: uma para cada organização de peer e uma para a organização de serviço de pedido. Essas CAs também criarão a definição de cada organização, que é encapsulada por um Membership Service Provider (MSP). Uma autoridade de certificação de TLS é implementada automaticamente em conjunto com cada CA da organização e fornece os certificados TLS que são usados para comunicação entre os nós. Para obter mais informações, consulte [Usando sua CA TLS](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca).
 * **Um serviço de pedido** `Ordering Service`  
   Embora as implementações em execução em um cluster pago tenham a opção de implementar um serviço de pedido de um nó ou um serviço de pedido de cindo nós tolerantes a falhas de travamento, os clusters grátis têm somente a opção de executar um único nó. O serviço de pedido de cinco nós usa uma implementação do protocolo Raft (para obter mais informações sobre o Raft, consulte [O serviço de pedido](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external} e é a opção de implementação que este tutorial irá apresentar. Atualmente, somente uma organização de serviço de pedido por serviço de pedido é suportada, independentemente do número de nós de pedido associados a essa organização. Esse serviço de pedido incluirá organizações de peer em seu "consórcio", que é a lista de organizações de peer que podem criar e associar canais. Se você desejar criar um canal que tenha organizações implementadas em clusters diferentes, que é como a maioria das redes de produção será estruturada, o administrador do serviço de pedido precisará importar uma organização de peer que tenha sido implementada em outro console para seu console. Isso permite que a organização de peer associe o canal que está hospedado nesse serviço de pedido.
 * **Dois peers:** `Peer Org1` e `Peer Org2`  
@@ -76,7 +76,7 @@ Essa configuração não é obrigatória. O {{site.data.keyword.blockchainfull_n
 Neste tutorial **Construir uma rede**, construímos somente uma parte da rede acima, uma rede simples que pode ser usada para hospedar um serviço de pedido e uma única organização de peer e peer em um único canal. A ilustração a seguir mostra a parte da rede acima que será construída:
 ![Estrutura de rede simples](../images/ibp2-simple-network.svg "Estrutura de rede simples")
 
-Essa configuração é útil para iniciar e testar rapidamente um contrato inteligente, mas não é muito significativa até que você inclua outras organizações com as quais transacionar, criando uma rede realmente distribuída. Portanto, no tutorial subsequente [Associar-se a uma rede](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network), nós mostramos a você como criar peer e organizações de peer adicionais e como incluir uma nova organização no canal.
+Essa configuração é útil para iniciar e testar rapidamente um contrato inteligente, mas não é muito significativa até que você inclua outras organizações com as quais transacionar, criando uma rede realmente distribuída. Portanto, no tutorial subsequente [Associar-se a uma rede](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network), nós mostramos a você como criar peer e organizações de peer adicionais e como incluir uma nova organização no canal.
 
 Em todo este tutorial, fornecemos os **valores recomendados** para os campos no console. Isso permite que os nomes e as identidades sejam mais fáceis de reconhecer nas guias e nas listas suspensas. Esses valores não são obrigatórios, mas você os achará úteis, especialmente porque terá que se lembrar de determinados valores como IDs e segredos de usuários registrados inseridos em etapas anteriores. Como esses valores não são armazenados no console, se você os esquecer, será necessário registrar usuários adicionais e iniciar o processo novamente. Fornecemos uma tabela dos valores recomendados após cada tarefa e recomendamos que, se você não usar os valores recomendados, registre seus valores à medida que continuar o tutorial.
 {:tip}
@@ -84,7 +84,7 @@ Em todo este tutorial, fornecemos os **valores recomendados** para os campos no 
 ## Etapa um: criar uma organização peer e um peer
 {: #ibp-console-build-network-create-peer-org1}
 
-Para cada organização que você deseja criar com o console, é necessário implementar pelo menos uma CA. Uma CA é o nó que emite certificados para todos os participantes da rede (peers, serviços de solicitação, clientes, administradores e assim por diante). Esses certificados, que incluem um certificado de assinatura e uma chave privada, permitem que os participantes da rede se comuniquem, se autentiquem e, por fim, transacionem. Essas CAs criarão todas as identidades e certificados pertencentes à sua organização, além de definir a própria organização. É possível, então, usar essas identidades para implementar nós, criar identidades de administrador e enviar transações. Para obter mais informações sobre sua CA e as identidades que você precisará criar, consulte [Gerenciando identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities).
+Para cada organização que você deseja criar com o console, é necessário implementar pelo menos uma CA. Uma CA é o nó que emite certificados para todos os participantes da rede (peers, serviços de solicitação, clientes, administradores e assim por diante). Esses certificados, que incluem um certificado de assinatura e uma chave privada, permitem que os participantes da rede se comuniquem, se autentiquem e, por fim, transacionem. Essas CAs criarão todas as identidades e certificados pertencentes à sua organização, além de definir a própria organização. É possível, então, usar essas identidades para implementar nós, criar identidades de administrador e enviar transações. Para obter mais informações sobre sua CA e as identidades que você precisará criar, consulte [Gerenciando identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities).
 
 Neste tutorial, criamos duas organizações, uma que possuirá um peer e outro que possuirá um serviço de pedido. Cada organização precisa de uma CA para emitir seus certificados, portanto, é necessário criar **duas CAs**. Para o propósito deste tutorial, **criaremos somente uma CA de cada vez**.
 
@@ -116,7 +116,7 @@ Para criar a CA que emitirá certificados para sua primeira organização, execu
 
 Depois de implementar a CA, você a usará quando criar seu MSP de sua organização, registrar usuários e seu **peer**.
 
-Os usuários avançados podem já ter sua própria CA e não desejar criar uma nova no console. Se a sua CA existente externa puder emitir certificados no formato `X.509`, será possível usá-la em vez de criar uma nova aqui. Consulte este tópico em [Usando certificados de uma CA externa com seu serviço peer ou de solicitação](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca) para obter mais informações.
+Os usuários avançados podem já ter sua própria CA e não desejar criar uma nova no console. Se a sua CA existente externa puder emitir certificados no formato `X.509`, será possível usá-la em vez de criar uma nova aqui. Consulte este tópico em [Usando certificados de uma CA externa com seu serviço peer ou de solicitação](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) para obter mais informações.
 
 ### Usando sua CA para registrar identidades
 {: #ibp-console-build-network-use-CA-org1}
@@ -132,8 +132,8 @@ Dependendo de seu tipo de cluster, a implementação da CA poderá levar até de
 Depois que a CA estiver em execução, conforme indicado pela caixa verde no quadro, gere esses certificados concluindo as etapas a seguir:
 
 1. Clique em `Org1 CA` e assegure-se de que a identidade `admin` criada para a CA esteja visível na tabela. Em seguida, clique no botão **Registrar usuário**.
-2. Primeiro, registraremos o administrador da organização, que podemos fazer fornecendo um **ID de inscrição** de `org1admin` e um **segredo** de `org1adminpw`. Em seguida, configure o `Type` dessa identidade como `client` (as identidades do administrador devem sempre ser registradas como `client`, enquanto as identidades do nó devem sempre ser registradas usando o tipo `peer`). É possível ignorar o campo **Número máximo de registros**. Se desejar saber mais sobre registros, consulte [Registrando identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register). Clique em **Avançar**.
-3. Para o propósito deste tutorial, não precisamos usar **Incluir atributo**. Se desejar saber mais sobre atributos de identidade, consulte [Registrando identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register).
+2. Primeiro, registraremos o administrador da organização, que podemos fazer fornecendo um **ID de inscrição** de `org1admin` e um **segredo** de `org1adminpw`. Em seguida, configure o `Type` dessa identidade como `client` (as identidades do administrador devem sempre ser registradas como `client`, enquanto as identidades do nó devem sempre ser registradas usando o tipo `peer`). É possível ignorar o campo **Número máximo de registros**. Se desejar saber mais sobre registros, consulte [Registrando identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Clique em **Avançar**.
+3. Para o propósito deste tutorial, não precisamos usar **Incluir atributo**. Se desejar saber mais sobre atributos de identidade, consulte [Registrando identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 4. Depois que o administrador da organização tiver sido registrado, repita esse mesmo processo para a identidade do peer (também usando o `Org1 CA`). Para obter a identidade do peer, forneça um ID de inscrição de `peer1` e um segredo de `peer1pw`. Essa é uma identidade de nó, portanto, selecione `peer` como o **Tipo**. É possível ignorar o campo **Número máximo de registros** e, no próximo painel, não designar nenhum **Atributo**, como antes.
 
 Registrar essas identidades com a CA é apenas a primeira etapa na **criação** de uma identidade. Você não conseguirá usar essas identidades até que tenham sido **registradas**. Para a identidade `org1admin`, isso ocorrerá durante a criação do MSP, que será visto na próxima etapa. No caso do peer, isso acontece durante a criação do peer.
@@ -182,7 +182,7 @@ Depois de ter criado o MSP, você deverá ser capaz de ver o administrador da or
 
   *Figura 6. Verificar sua Carteira eletrônica*
 
-Para obter mais informações sobre MSPs, consulte [Gerenciando organizações](/docs/services/blockchain/howto/ibp-console-organizations.html#ibp-console-organizations).
+Para obter mais informações sobre MSPs, consulte [Gerenciando organizações](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
 A exportação de sua identidade do administrador da organização é importante porque você é responsável por gerenciar e proteger esses certificados. Se você alternar navegadores, será necessário importar essa identidade do administrador, caso contrário, não será possível operar a Org1.
 {:important}
@@ -190,7 +190,7 @@ A exportação de sua identidade do administrador da organização é importante
 ### Criando um peer
 {: #ibp-console-build-network-peer-create}
 
-Depois de ter [criado a CA de Org1](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-CA-org1CA), de tê-la usado para registrar as identidades Org1 e criado o [MSP de Org1](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-peers-org1), você está pronto para criar um peer para Org1.
+Depois de ter [criado a CA de Org1](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA), de tê-la usado para registrar as identidades Org1 e criado o [MSP de Org1](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1), você está pronto para criar um peer para Org1.
 
 #### Qual função os peers executam?
 {: #ibp-console-build-network-peer-role}
@@ -209,8 +209,8 @@ Use seu console para executar as etapas a seguir:
 3. Forneça a seu peer um **Nome de exibição** de `Peer Org1`. Para o propósito deste tutorial, não escolha usar uma CA externa para seu peer e, no caso de desejar obter mais informações, consulte [Usando certificados de uma CA externa](#ibp-console-build-network-third-party-ca). Clique em **Avançar**.
 4. Na próxima tela, selecione `Org1 CA`, pois essa é a CA que você usou para registrar a identidade do peer. Selecione o **ID de inscrição** para a identidade de peer que você criou para seu peer na lista suspensa, `peer1`, e insira seu **segredo** associado, `peer1pw`. Em seguida, selecione `Org1 MSP` na lista suspensa e clique em **Avançar**.
 5. O próximo painel lateral solicita informações de CA do TLS. Quando você criou a CA, um TLSCA foi criado junto a ela. Essa CA é usada para criar certificados para a camada de comunicação segura para os nós. Portanto, selecione o **ID de Inscrever** para a identidade de peer que você criou para seu peer por meio da lista suspensa, `peer1`e insira o **segredo**associado, `peer1pw`. O **Nome do host da solicitação de assinatura de certificado (CSR) do TLS** é uma opção disponível para usuários avançados que desejam especificar um nome de domínio customizado que pode ser usado para direcionar o terminal de peer. Os nomes de domínio customizado não fazem parte deste tutorial, portanto, deixe o **Nome do host do CSR do TLS** em branco por enquanto.
-6. O próximo painel lateral solicita que você **Associe uma identidade** para torná-la o administrador de seu peer. Para o propósito deste tutorial, torne o seu administrador da organização, `Org1 Admin`, o administrador de seu peer também. É possível registrar e inscrever uma identidade diferente com o `Org1 CA` e tornar essa identidade o administrador de seu peer, mas este tutorial usa a identidade `Org1 Admin`.
-7. Se estiver usando um cluster pago, no próximo painel, você terá a oportunidade de configurar a alocação de recurso para o nó. Para os propósitos desse tutorial, é possível aceitar todos os padrões e clicar em **Avançar**. Se desejar aprender mais sobre como alocar recursos no {{site.data.keyword.cloud_notm}} para seu nó, consulte esse tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources). Se estiver usando um cluster {{site.data.keyword.cloud_notm}} grátis, você verá a página **Resumo**.
+6. Se estiver usando um cluster pago, no próximo painel, você terá a oportunidade de configurar a alocação de recurso para o nó. Para os propósitos desse tutorial, é possível aceitar todos os padrões e clicar em **Avançar**. Se desejar aprender mais sobre como alocar recursos no {{site.data.keyword.cloud_notm}} para seu nó, consulte esse tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources). Se você estiver usando um cluster do {{site.data.keyword.cloud_notm}} grátis, verá o painel **Associar uma identidade**.
+7. O último painel lateral solicita que você **Associe uma identidade** para torná-la o administrador de seu peer. Para o propósito deste tutorial, torne o seu administrador da organização, `Org1 Admin`, o administrador de seu peer também. É possível registrar e inscrever uma identidade diferente com o `Org1 CA` e tornar essa identidade o administrador de seu peer, mas este tutorial usa a identidade `Org1 Admin`.
 8. Revise o resumo e clique em **Incluir peer**.
 
 **Tarefa: implementando um peer**
@@ -274,7 +274,7 @@ O processo de criação de uma CA para um serviço de pedido é idêntico a cri�
 5. Se você estiver usando um cluster pago, no próximo painel, você terá a oportunidade de configurar a alocação de recurso para a CA. Para os propósitos deste tutorial, aceite todos os padrões e clique em **Avançar**. Se desejar saber mais sobre como alocar recursos para o {{site.data.keyword.cloud_notm}} para seu nó, consulte este tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources). Se estiver usando um cluster grátis, você verá a página **Resumo**.
 6. Revise a página Resumo e, em seguida, clique em **Incluir autoridade de certificação**.
 
-Assim como com o peer, os usuários avançados podem já ter sua própria CA e não desejar criar uma nova CA usando o console. Se a sua CA existente externa puder emitir certificados no formato `X.509`, será possível usá-la em vez de criar uma nova aqui. Consulte este tópico em [Usando certificados de uma CA externa com seu serviço peer ou de solicitação](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca) para obter mais informações.
+Assim como com o peer, os usuários avançados podem já ter sua própria CA e não desejar criar uma nova CA usando o console. Se a sua CA existente externa puder emitir certificados no formato `X.509`, será possível usá-la em vez de criar uma nova aqui. Consulte este tópico em [Usando certificados de uma CA externa com seu serviço peer ou de solicitação](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) para obter mais informações.
 
 ### Usando sua CA para registrar o nó do serviço de pedido e as identidades de administrador do serviço de pedido
 {: #ibp-console-build-network-use-CA-orderer}
@@ -287,16 +287,16 @@ Dependendo de seu tipo de cluster, a implementação da CA poderá levar até de
 Quando a CA estiver em execução, conforme indicado pela caixa verde no ladrilho para o `Ordering Service CA`, gere esses certificados concluindo as etapas a seguir:
 
 1. Clique na guia `Ordering Service CA` na guia **Nós** e assegure-se de que a identidade `admin` criada para a CA esteja visível na tabela. Em seguida, clique no botão **Registrar usuário**.
-2. Primeiro, registraremos o administrador da organização, que podemos fazer fornecendo um **ID de inscrição** de `OSadmin` e um **segredo** de `OSadminpw`. Em seguida, configure o `Type` dessa identidade como `client` (as identidades do administrador devem sempre ser registradas como `client`, enquanto as identidades do nó devem sempre ser registradas usando o tipo `peer`). É possível ignorar o campo **Número máximo de registros**. Se desejar saber mais sobre registros, consulte [Registrando identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register). Clique em **Avançar**.
-3. Para o propósito deste tutorial, não precisamos usar **Incluir atributo**. Se desejar saber mais sobre atributos de identidade, consulte [Registrando identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register).
+2. Primeiro, registraremos o administrador da organização, que podemos fazer fornecendo um **ID de inscrição** de `OSadmin` e um **segredo** de `OSadminpw`. Em seguida, configure o `Type` dessa identidade como `client` (as identidades do administrador devem sempre ser registradas como `client`, enquanto as identidades do nó devem sempre ser registradas usando o tipo `peer`). É possível ignorar o campo **Número máximo de registros**. Se desejar saber mais sobre registros, consulte [Registrando identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Clique em **Avançar**.
+3. Para o propósito deste tutorial, não precisamos usar **Incluir atributo**. Se desejar saber mais sobre atributos de identidade, consulte [Registrando identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 4. Depois que o administrador da organização tiver sido registrado, repita esse mesmo processo para a identidade do serviço de pedido (também usando o `Ordering Service CA`). Para obter as identidades do nó de serviço de pedido, forneça um ID de inscrição de `OS1` e um segredo de `OS1pw`. Essa é uma identidade de nó, portanto, selecione `peer` como o **Tipo**. É possível ignorar o campo **Número máximo de registros** e, no próximo painel, não designar nenhum **Atributo**, como antes.
 
 **Tarefa: criar uma CA e registrar usuários**
 
   | **Campo** | **Descrição** | **ID de inscrição** | **Segredo** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Criar CA** | CA do serviço de solicitação | admin | adminpw |
-  | **Registrar usuários** | Administrador do serviço de solicitação | OSadmin | OSadminpw |
+  | **Criar CA** | CA do serviço de pedido | admin | adminpw |
+  | **Registrar usuários** | Administrador do serviço de pedido | OSadmin | OSadminpw |
   |  | Identidade do nó de serviço de pedido |  OS1 | OS1pw |
 
 *Figura 8. criar uma CA e registrar usuários*
@@ -320,10 +320,10 @@ Crie sua definição do MSP da organização de serviço de pedido e especifique
 
   |  | **Nome de exibição** | **ID do MSP** | **ID de inscrição**  | **Segredo** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Criar organização** | MSP do serviço de solicitação | osmsp |||
-  | **CA raiz** | CA do serviço de solicitação ||||
+  | **Criar organização** | MSP do serviço de pedido | osmsp |||
+  | **CA raiz** | CA do serviço de pedido ||||
   | **Certificado do administrador da organização** | |  | OSadmin | OSadminpw |
-  | **Identidade** | Administrador do serviço de solicitação |||||
+  | **Identidade** | Administrador do serviço de pedido |||||
 
   *Figura 9. Criar a definição do MSP da organização de serviço de pedido*
 
@@ -334,13 +334,13 @@ Depois de ter criado o MSP, será necessário ser capaz de ver o administrador d
   | **Campo** |  **Nome de exibição** | **Descrição** |
   | ------------------------- |-----------|----------|
   | **Identidade** | Administrador da Org1 | Identidade do administrador da Org1 |
-  | **Identidade** | Administrador do serviço de solicitação | Identidade de administrador do serviço de pedido |
+  | **Identidade** | Administrador do serviço de pedido | Identidade de administrador do serviço de pedido |
 
   *Figura 10. Criar a definição do MSP da organização de serviço de pedido*
 
-Para obter mais informações sobre MSPs, consulte [Gerenciando organizações](/docs/services/blockchain/howto/ibp-console-organizations.html#ibp-console-organizations).
+Para obter mais informações sobre MSPs, consulte [Gerenciando organizações](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
-A exportação de sua identidade do administrador da organização é importante porque você é responsável por gerenciar e proteger esses certificados. Se você exportar o serviço de solicitação e a definição do MSP do serviço de solicitação, eles poderão ser importados para outro console no qual outro operador pode criar novos canais no serviço de solicitação ou associar peers ao canal.
+A exportação de sua identidade do administrador da organização é importante porque você é responsável por gerenciar e proteger esses certificados. Se você exportar o serviço de pedido e a definição do MSP do serviço de pedido, eles poderão ser importados para outro console no qual outro operador pode criar novos canais no serviço de pedido ou associar peers ao canal.
 {:important}
 
 ### Implemente os nós de pedido
@@ -353,21 +353,21 @@ Execute as etapas a seguir em seu console:
 3. Dê ao seu serviço de pedido um **Nome de exibição** de `Ordering Service` e, se em um cluster pago, escolha se deseja que seu serviço de pedido tenha um nó (suficiente para teste) ou cinco nós (bom para produção). Escolha **cinco nós**. E não escolha usar uma CA externa. Essa é uma opção avançada. Para o propósito deste tutorial, não escolha usar uma CA externa para seu serviço de pedido, no entanto, se você desejar obter mais informações, consulte [Usando certificados de uma CA externa](#ibp-console-build-network-third-party-ca). Clique em **Avançar**.
 4. No próximo painel, selecione `Ordering Service CA` como sua CA. Em seguida, selecione o **ID de inscrição** para a identidade do nó que você criou para seu serviço de pedido na lista suspensa, `OS1`, e insira o **segredo** associado, `OS1pw`. Em seguida, selecione seu MSP, `Ordering Service MSP` na lista suspensa.
 5. O próximo painel lateral solicita informações de CA do TLS. Quando você criou a CA, uma CA TLS foi criada ao lado dela. Essa CA é usada para criar certificados para a camada de comunicação segura para os nós. Portanto, selecione o **ID de inscrição** para a identidade do serviço de pedido que você criou por meio da lista suspensa `OS1` e insira seu **segredo**associado, `OS1pw`. O **Nome do host da solicitação de assinatura de certificado (CSR) do TLS** é uma opção disponível para usuários avançados que desejam especificar um nome de domínio customizado que pode ser usado para direcionar o terminal de serviço de pedido. Os nomes de domínio customizado não fazem parte deste tutorial, portanto, deixe o **Nome do host do CSR do TLS** em branco por enquanto.
-6. A etapa **Associar identidade** permite que você escolha um administrador para seu serviço de pedido. Selecione `Ordering Service Admin` como antes e clique em **Avançar**.
-7. Se estiver usando um cluster pago, no próximo painel, você terá a oportunidade de configurar a alocação de recurso para o nó. Para os propósitos desse tutorial, é possível aceitar todos os padrões e clicar em **Avançar**. As seleções feitas aqui são aplicadas a todos os cinco nós de solicitação. Se desejar aprender mais sobre como alocar recursos no {{site.data.keyword.cloud_notm}} para seu nó, consulte esse tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
-7. Revise a página Resumo e clique em **Incluir serviço de pedido**.
+6. Se estiver usando um cluster pago, no próximo painel, você terá a oportunidade de configurar a alocação de recurso para o nó. Para os propósitos desse tutorial, é possível aceitar todos os padrões e clicar em **Avançar**. As seleções feitas aqui são aplicadas a todos os cinco nós de pedido. Se desejar aprender mais sobre como alocar recursos no {{site.data.keyword.cloud_notm}} para seu nó, consulte esse tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
+7. A etapa **Associar identidade** permite que você escolha um administrador para seu serviço de pedido. Selecione `Ordering Service Admin` como antes e clique em **Avançar**.
+8. Revise a página Resumo e clique em **Incluir serviço de pedido**.
 
 **Tarefa: criar um serviço de pedido**
 
   |  | **Nome de exibição** | **ID do MSP** | **ID de inscrição** | **Segredo** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Criar serviço de pedido** | Serviço de Solicitação | osmsp |||
-  | **CA** | CA do serviço de solicitação ||||
+  | **Criar serviço de pedido** | Serviço de pedido | osmsp |||
+  | **CA** | CA do serviço de pedido ||||
   | **Identidade do serviço de pedido** | |  | OS1 | OS1pw |
-  | **Certificado de administrador** | MSP do serviço de solicitação ||||
-  | **CA TLS** | CA do serviço de solicitação ||||
+  | **Certificado de administrador** | MSP do serviço de pedido ||||
+  | **CA TLS** | CA do serviço de pedido ||||
   | **ID de CA TLS** | || OS1 | OS1pw |
-  | **Associar identidade** | Administrador do serviço de solicitação |||||
+  | **Associar identidade** | Administrador do serviço de pedido |||||
 
   *Figura 11. Criar um serviço de pedido*
 
@@ -376,7 +376,7 @@ Depois que o serviço de pedido tiver sido criado, você será capaz de vê-lo n
 ## Etapa três: juntar o consórcio hospedado pelo serviço de pedido
 {: #ibp-console-build-network-add-org}
 
-Conforme observamos anteriormente, uma organização peer deve ser conhecida do serviço de solicitação antes que possa criar ou se associar a um canal (isso também é conhecido como associação ao "consórcio", a lista de organizações conhecidas do serviço de solicitação). Isso é porque os canais são, em um nível técnico, **caminhos de sistema de mensagens** entre peers por meio do serviço de solicitação. Assim como um peer pode ser associado a vários canais sem que as informações passem de um canal para outro, um serviço de solicitação também pode ter vários canais em execução por meio dele sem expor dados às organizações em outros canais.
+Conforme observamos anteriormente, uma organização peer deve ser conhecida do serviço de pedido antes que possa criar ou se associar a um canal (isso também é conhecido como associação ao "consórcio", a lista de organizações conhecidas do serviço de pedido). Isso é porque os canais são, em um nível técnico, **caminhos de sistema de mensagens** entre peers por meio do serviço de pedido. Assim como um peer pode ser associado a vários canais sem que as informações passem de um canal para outro, um serviço de pedido também pode ter vários canais em execução por meio dele sem expor dados às organizações em outros canais.
 
 Como somente os administradores do serviço de pedido podem incluir organizações de peer no consórcio, você precisará **ser** o administrador do serviço de pedido ou **enviar** informações do MSP para o administrador do serviço de pedido.
 
@@ -391,12 +391,12 @@ Como você criou o administrador do serviço de pedido usando o console, esse pr
 
 Quando esse processo estiver concluído, será possível que `Org1` crie ou se junte a um canal hospedado em seu `Ordering Service`.
 
-Neste tutorial, podemos acessar facilmente o `Org1 MSP` porque a organização de peer e a organização de serviço de pedido foram criadas no mesmo console. Em um cenário de produção, as definições de MSP de outra organização seriam criadas por operadores de rede diferentes em seu próprio cluster usando seu próprio console do {{site.data.keyword.blockchainfull_notm}}. Nesses casos, quando a organização desejar se associar ao seu consórcio, a definição do MSP da organização da organização precisará ser enviada para seu console em uma operação fora da banda. Além disso, será necessário exportar seu serviço de pedido e enviá-lo para eles para que possam importá-lo para seu console e associar um peer a um canal (ou criar um novo canal). Esse processo é descrito no tutorial Associar uma rede em [Exportando suas informações de organização](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-add-org2-remote).
+Neste tutorial, podemos acessar facilmente o `Org1 MSP` porque a organização de peer e a organização de serviço de pedido foram criadas no mesmo console. Em um cenário de produção, as definições de MSP de outra organização seriam criadas por operadores de rede diferentes em seu próprio cluster usando seu próprio console do {{site.data.keyword.blockchainfull_notm}}. Nesses casos, quando a organização desejar se associar ao seu consórcio, a definição do MSP da organização da organização precisará ser enviada para seu console em uma operação fora da banda. Além disso, será necessário exportar seu serviço de pedido e enviá-lo para eles para que possam importá-lo para seu console e associar um peer a um canal (ou criar um novo canal). Esse processo é descrito no tutorial Associar uma rede em [Exportando suas informações de organização](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2-remote).
 
 ## Etapa quatro: Criar um Canal
 {: #ibp-console-build-network-create-channel}
 
-Para obter informações sobre como atualizar um canal, consulte [Atualizando uma configuração de canal](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-update-channel).
+Para obter informações sobre como atualizar um canal, consulte [Atualizando uma configuração de canal](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel).
 
 Embora os membros de uma rede sejam geralmente entidades de negócios relacionadas que desejam transacionar entre si, pode haver instâncias em que os subconjuntos dos membros desejam transacionar sem o conhecimento dos outros. Isso é possível criando um **canal** no qual essas transações ocorrerão. Os canais replicam a estrutura de uma rede de blockchain em que eles contêm membros, peers, um serviço de pedido, um livro-razão, políticas e contratos inteligentes. Mas restringindo a associação, e até mesmo o conhecimento do canal, para subconjuntos específicos da associação de rede, os canais asseguram que os membros de rede possam alavancar a estrutura geral da rede enquanto mantêm a privacidade, onde necessário.
 
@@ -441,7 +441,7 @@ Quando estiver pronto, clique em **Criar canal**. Você será levado de volta pa
   |  **Campo** | **Nome** |
   | ------------------------- |-----------|
   | **Nome de canal** | channel1 |
-  | **Serviço de solicitação** | Serviço de Solicitação |
+  | **Serviço de pedido** | Serviço de pedido |
   | **Organizações** | Org1 MSP |
   | **Política de atualização de canal** | 1 de 1 |
   | **Lista de controle de acesso** | Nenhum |
@@ -468,11 +468,11 @@ Execute as etapas a seguir em seu console:
 
 Depois de ter criado e unido seu peer a um canal, você tem uma rede básica, embora totalmente funcional, de blockchain. Use as etapas a seguir para implementar um contrato inteligente e iniciar o envio de transações:
 
-- [Implemente um contrato inteligente em sua rede](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) usando o console.
-- Depois de ter instalado e instanciado seu contrato inteligente, será possível [enviar transações usando o aplicativo cliente](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-connect-to-SDK).
-- Use [a amostra de papel comercial](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper) para implementar um contrato inteligente de exemplo e enviar transações usando o código do aplicativo de amostra.
+- [Implemente um contrato inteligente em sua rede](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) usando o console.
+- Depois de ter instalado e instanciado seu contrato inteligente, será possível [enviar transações usando o aplicativo cliente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK).
+- Use [a amostra de papel comercial](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper) para implementar um contrato inteligente de exemplo e enviar transações usando o código do aplicativo de amostra.
 
-Também é possível criar outra organização de peer usando o [tutorial Associar-se a uma rede](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-structure). É possível incluir a segunda organização em seu canal para simular uma rede distribuída, com dois peers que compartilham um único livro-razão do canal.
+Também é possível criar outra organização de peer usando o [tutorial Associar-se a uma rede](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-structure). É possível incluir a segunda organização em seu canal para simular uma rede distribuída, com dois peers que compartilham um único livro-razão do canal.
 
 ## Usando certificados de uma CA externa com seu peer ou serviço de pedido
 {: #ibp-console-build-network-third-party-ca}
@@ -486,7 +486,7 @@ Em vez de usar uma autoridade de certificação do {{site.data.keyword.blockchai
 **Nota:** os certificados dentro dos arquivos podem estar no formato `PEM` ou `base64 encoded`.
  * **Certificado de identidade de peer ou de serviço de pedido**. Esse é o certificado de assinatura de sua CA externa que o peer ou o serviço de pedido usará.
  * **Chave privada de identidade de peer ou de serviço de pedido** essa é a sua chave privada correspondente ao certificado assinado de sua CA de terceiro que esse peer ou serviço de pedido usará.
- * **Definição do MSP da organização de peer ou de serviço de pedido** Deve-se gerar manualmente esse arquivo usando as instruções fornecidas em [Construindo manualmente um arquivo JSON do MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-build-msp).
+ * **Definição do MSP da organização de peer ou de serviço de pedido** Deve-se gerar manualmente esse arquivo usando as instruções fornecidas em [Construindo manualmente um arquivo JSON do MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
  * **Certificado de CA TLS** Esse é o certificado de assinatura pública criado por sua CA TLS externa que será usado por esse peer ou serviço de pedido.
   * **Chave privada de CA TLS** Essa é a chave privada correspondente ao certificado assinado de sua CA TLS que será usada por esse peer ou serviço de pedido para comunicações seguras com outros membros na rede.
  * **Certificado raiz da CA do TLS** (opcional): esse é o certificado raiz de sua CA externa do TLS. Deve-se fornecer um certificado raiz ou intermediário da CA do TLS, sendo possível fornecer ambos.
@@ -524,7 +524,7 @@ Quando você tem um cluster do {{site.data.keyword.cloud_notm}} Kubernetes Servi
 #### Criar o arquivo JSON de certificados
 {: #ibp-console-build-network-create-certs-file}
 
-O arquivo JSON de certificados necessário contém uma matriz de cinco entradas `msp`, em que cada elemento de matriz contém os certificados para um dos nós de pedido. Em circunstâncias normais, cada nó usaria exatamente o mesmo conjunto de certificados exato. Mas, você também tem a opção de especificar certificados diferentes para cada nó. Os certificados na seção `component` representam os certificados para o próprio nó, enquanto a seção `tls` inclui os certificados emitidos pela CA TLS.  
+O arquivo JSON de certificados necessário contém uma matriz de cinco entradas `msp`, em que cada elemento de matriz contém os certificados para um dos nós de pedido.  Deve-se especificar certificados exclusivos para cada nó e não reutilizar certificados nos diferentes nós de pedido. Os certificados na seção `component` representam os certificados para o próprio nó, enquanto a seção `tls` inclui os certificados emitidos pela CA TLS.  
 
 - **keystore**: a chave privada para esse nó
 - **signcerts**: a chave pública (também conhecida como um certificado de assinatura ou certificado de inscrição) designada pela CA para esse nó.
@@ -606,13 +606,13 @@ Agora que você criou um arquivo JSON com todos os certificados para os nós de 
 4. Selecione **Eu desejo usar certificados de uma Autoridade de Certificação externa** e clique em **Avançar**.
 5. Clique em **Incluir arquivo** para fazer upload do arquivo JSON que contém todos os certificados.
 6. Selecione a definição **MSP da organização** que você importou.
-7. Como está usando um cluster pago, no próximo painel, você tem a oportunidade de configurar a alocação de recursos para os nós. As seleções feitas aqui são aplicadas a todos os cinco nós de solicitação.  Se desejar saber mais sobre como alocar recursos para seu nó, consulte este tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
+7. Como está usando um cluster pago, no próximo painel, você tem a oportunidade de configurar a alocação de recursos para os nós. As seleções feitas aqui são aplicadas a todos os cinco nós de pedido.  Se desejar saber mais sobre como alocar recursos para seu nó, consulte este tópico em [Alocando recursos](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
 8. Revise o resumo e clique em **Incluir serviço de pedido**.
 
 ### O que Vem Depois
 {: #ibp-console-build-network-third-party-ca-next}
 
 Você reuniu todos os certificados de peer ou de serviço de pedido de sua CA de terceiro, criou sua definição do MSP da organização correspondente e criou um peer ou serviço de pedido. Se estiver seguindo adiante nos tutoriais, será possível retornar para a próxima etapa.
-- Se você tiver criado o nó de peer, a próxima etapa será [Criar o nó que solicita transações](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-orderer).
-- Se você tiver criado o nó para se associar a uma rede existente, a próxima etapa será [Incluir sua organização na lista de organizações que podem realizar transações](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-add-org2).
-- Se você tiver criado um serviço de pedido, a próxima etapa será [Criar um canal](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel).
+- Se você tiver criado o nó de peer, a próxima etapa será [Criar o nó que solicita transações](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer).
+- Se você tiver criado o nó para se associar a uma rede existente, a próxima etapa será [Incluir sua organização na lista de organizações que podem realizar transações](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2).
+- Se você tiver criado um serviço de pedido, a próxima etapa será [Criar um canal](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel).

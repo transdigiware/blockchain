@@ -4,13 +4,11 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
-keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
-
 subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +16,7 @@ subcollection: blockchain
 
 # Création ou mise à jour d'un canal
 {: #ibp-create-channel}
+
 
 Les canaux offrent un mécanisme incroyablement puissant pour le partitionnement et l'isolement des données, et ils constituent la base essentielle pour la confidentialité des données. Seuls les membres du même canal peuvent accéder aux données de ce canal.
 {:shortdesc}
@@ -76,5 +75,5 @@ Tous les membres du canal recevront des notifications par courrier électronique
 
 Lorsque suffisamment d'opérateurs de canal s'accordent sur la demande, tout membre de canal peut cliquer sur le bouton **Soumettre une Demande** et le canal est mis à jour. Tous les membres du canal peuvent voir le canal mis à jour dans l'écran "Canaux" du moniteur réseau.
 
-Les règles de validation ne sont mises à jour automatiquement lorsque de nouvelles organisations rejoignent le canal et installent le code blockchain. Par exemple, si la règle requiert deux organisations sur cinq pour valider une transaction, elle ne sera pas mise à jour pour exiger deux organisations sur six lorsqu'une nouvelle organisation rejoint le canal. Au lieu de cela, la nouvelle organisation ne sera pas répertoriée dans la règle, et elle ne pourra pas valider les transactions. Vous pouvez ajouter une nouvelle organisation à une règle de validation en [mettant à jour le code blockchain pertinent](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc). Pour plus d'informations, voir [Spécification de règles de validation pour le code blockchain](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy).
+Les règles de validation ne sont mises à jour automatiquement lorsque de nouvelles organisations rejoignent le canal et installent le code blockchain. Par exemple, si la règle requiert deux organisations sur cinq pour valider une transaction, elle ne sera pas mise à jour pour exiger deux organisations sur six lorsqu'une nouvelle organisation rejoint le canal. Au lieu de cela, la nouvelle organisation ne sera pas répertoriée dans la règle, et elle ne pourra pas valider les transactions. Vous pouvez ajouter une nouvelle organisation à une règle de validation en [mettant à jour le code blockchain pertinent](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc). Pour plus d'informations, voir [Spécification de règles de validation pour le code blockchain](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy).
 {:important}

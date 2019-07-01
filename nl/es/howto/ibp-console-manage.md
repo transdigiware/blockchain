@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -54,7 +54,7 @@ Cuando [utilice IAM para invitar usuarios](/docs/iam?topic=iam-iamuserinv#iamuse
 ![Añadir usuarios](../images/AddICPUser.gif){: gif}
 
 
-Tras añadir nuevos usuarios a la consola, es posible que los usuarios no puedan ver todos los nodos, canales o código de encadenamiento que despliegan otros usuarios. Para trabajar con estos componentes, cada usuario necesita importar las identidades asociadas en su propia cartera de consola. Para obtener más información, consulte [Almacenamiento de identidades en la cartera de la consola](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
+Tras añadir nuevos usuarios a la consola, es posible que los usuarios no puedan ver todos los nodos, canales o código de encadenamiento que despliegan otros usuarios. Para trabajar con estos componentes, cada usuario necesita importar las identidades asociadas en su propia cartera de consola. Para obtener más información, consulte [Almacenamiento de identidades en la cartera de la consola](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 Si necesita modificar el rol de un usuario:
@@ -97,7 +97,7 @@ Cuando utilice la consola de {{site.data.keyword.blockchainfull_notm}} Platform,
 ### Visualización de los registros de la consola
 {: #ibp-console-manage-console-logs}
 
-Puede acceder fácilmente a los registros de la consola si tiene que depurar los problemas que encuentre al utilizar la consola o al trabajar con los nodos. También puede establecer el nivel de registro para aumentar o reducir la cantidad de registros que recopila la consola. Los registros de la consola se recopilan de forma independiente de los [registros de nodo](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs), que recopila el servicio {{site.data.keyword.cloud_notm}} Kubernetes.
+Puede acceder fácilmente a los registros de la consola si tiene que depurar los problemas que encuentre al utilizar la consola o al trabajar con los nodos. También puede establecer el nivel de registro para aumentar o reducir la cantidad de registros que recopila la consola. Los registros de la consola se recopilan de forma independiente de los [registros de nodo](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), que recopila el servicio {{site.data.keyword.cloud_notm}} Kubernetes.
 
 Vaya al separador **Valores** en el navegador de la consola para cambiar los valores de registro. Los registros de la consola se recopilan de dos fuentes distintas:
 
@@ -111,10 +111,9 @@ Solo puede ver los registros de la consola si ha iniciado la sesión como admini
 ### Visualización de los registros de la consola
 {: #ibp-console-manage-console-node-logs}
 
-El servicio {{site.data.keyword.IBM_notm}} Kubernetes recopila los registros de sus iguales, clasificadores y entidades emisoras de certificados. Siga los pasos siguientes para ver los registros de los nodos desde el clúster en el que ha desplegado la red de {{site.data.keyword.blockchainfull_notm}} Platform.
+El servicio {{site.data.keyword.IBM_notm}} Kubernetes recopila los registros de sus iguales, nodos de ordenación y entidades emisoras de certificados. Siga los pasos siguientes para ver los registros de los nodos desde el clúster en el que ha desplegado la red de {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Para localizar más fácilmente los registros de nodo, resulta útil filtrar por el espacio de nombres que se utilizó cuando se desplegaron los nodos.
-Para localizar el espacio de nombres, abra cualquier nodo de CA en la consola y pulse el icono **Valores**. Visualice el valor del **URL de punto final de entidad emisora de certificados**. Por ejemplo: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+Para localizar más fácilmente los registros de nodo, es recomendable filtrar por el espacio de nombres que se utilizó cuando se desplegaron los nodos. Para localizar el espacio de nombres, abra cualquier nodo de CA en la consola y pulse el icono **Valores**. Visualice el valor del **URL de punto final de entidad emisora de certificados**. Por ejemplo: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 El espacio de nombres es la primera parte del URL que empieza por la letra `n` y va seguida de una serie aleatoria de seis caracteres alfanuméricos. En el ejemplo anterior, el valor del espacio de nombres es `n2734d0`.
 
@@ -125,7 +124,7 @@ El espacio de nombres es la primera parte del URL que empieza por la letra `n` y
 5. Pulse sobre un pod. Luego pulse **Registros** en el menú superior para abrir los registros del nodo. Sobre los registros, puede utilizar el menú desplegable que hay después de **Registros de** para ver los registros de los distintos contenedores del pod. Por ejemplo, el igual y la base de datos de estado (CouchDB, por ejemplo) se ejecutan en distintos contenedores y generan registros diferentes.
 
 De forma predeterminada, los registros de los nodos se recopilan localmente dentro del clúster. También puede utilizar los servicios de {{site.data.keyword.cloud_notm}}
-o un servicio de terceros para recopilar, almacenar y analizar los registros de la red. Para obtener más información, consulte [Registro y supervisión para el servicio Kubernetes de {{site.data.keyword.IBM_notm}}](https://cloud.ibm.com/docs/containers?topic=containers-health#health){: external}. Se recomienda utilizar el servicio [LogDNA de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external}, que le permite analizar fácilmente los registros en tiempo real.
+o un servicio de terceros para recopilar, almacenar y analizar los registros de la red. Para obtener más información, consulte [Registro y supervisión para el servicio Kubernetes de {{site.data.keyword.IBM_notm}}](/docs/containers?topic=containers-health#health){: external}. Se recomienda utilizar el servicio [LogDNA de {{site.data.keyword.cloud_notm}}](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external}, que le permite analizar fácilmente los registros en tiempo real.
 
 ### Visualización de los registros de contenedor de contratos inteligentes
 {: #ibp-console-manage-console-container-logs}
@@ -141,12 +140,12 @@ Todos los registros de contrato inteligentes se pueden ver en esta ventana y se 
 ## Instalación de parches para los nodos
 {: #ibp-console-manage-patch}
 
-Es posible que sea necesario actualizar con el tiempo las imágenes de docker subyacentes de {{site.data.keyword.IBM_notm}} Hyperledger Fabric para los nodos de igual, CA y clasificador, por ejemplo, con actualizaciones de seguridad o a un nuevo release puntual de Fabric. El texto **Parche disponible** sobre el mosaico de un nodo es el indicador de que hay un parche disponible y se puede instalar en el nodo siempre que esté preparado. Estos parches son opcionales, pero recomendables.  No puede aplicar parches a nodos que se han importado en la consola.
+Es posible que sea necesario actualizar con el tiempo las imágenes de docker subyacentes de {{site.data.keyword.IBM_notm}} Hyperledger Fabric para los nodos de igual, de CA y de ordenación, por ejemplo, con actualizaciones de seguridad o a un nuevo release puntual de Fabric. El texto **Parche disponible** sobre el mosaico de un nodo es el indicador de que hay un parche disponible y se puede instalar en el nodo siempre que esté preparado. Estos parches son opcionales, pero recomendables.  No puede aplicar parches a nodos que se han importado en la consola.
 
 Los parches se aplican a los nodos de uno en uno. Mientras se aplica un parche, el nodo no estará disponible para procesar solicitudes ni transacciones. Por lo tanto, para evitar cualquier interrupción del servicio, siempre que sea posible debe asegurarse de que haya otro nodo del mismo tiempo disponible para procesar solicitudes. La instalación de parches en un nodo tarda alrededor de un minuto en completarse y, cuando la actualización haya finalizado, el nodo estará listo para procesar solicitudes.
 {:note}
 
-Para aplicar un parche a un nodo, abra el mosaico del nodo y pulse el botón **Instalar parche**.
+Para aplicar un parche a un nodo, abra el mosaico del nodo y pulse el botón **Instalar parche**. No puede aplicar parches a nodos que haya importado en la consola.
 
 ## Caducidad del clúster de Kubernetes
 {: #ibp-console-manage-console-cluster-expiration}
@@ -159,4 +158,4 @@ Si utiliza un clúster gratuito del servicio {{site.data.keyword.cloud_notm}} Ku
 4. Desplácese hasta el triángulo **Clústeres de Kubernetes** y amplíelo para ver el clúster gratuito.
 5. Si aparece su clúster gratuito, pulse sobre el menú de acción y, a continuación, pulse **Suprimir** para suprimir el clúster gratuito.
 
-Cuando se hayan completado estas acciones, puede seguir los [pasos originales](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) para crear un nuevo clúster de Kubernetes y una instancia de servicio de blockchain desde la página del catálogo de {{site.data.keyword.cloud_notm}}.
+Cuando se hayan completado estas acciones, puede seguir los [pasos originales](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) para crear un nuevo clúster de Kubernetes y una instancia de servicio de blockchain desde la página del catálogo de {{site.data.keyword.cloud_notm}}.

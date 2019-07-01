@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -32,12 +32,12 @@ ID를 가져야 합니다. 이러한 ID는 {{site.data.keyword.blockchainfull_no
 
 CA는 자체 CA를 유지보수하는 컨소시엄 내의 각 조직과 함께 여러 당사자 간에 신뢰 앵커 역할을 하며 공개적으로
 신뢰할 수 있는 공증인과 유사합니다. CA는 조직에 속하는 ID를 작성하고 각 ID에 서명 인증서 및 개인 키를 발행합니다. 이러한
-키로 인해 모든 노드 및 애플리케이션이 조치에 서명하고 확인할 수 있습니다. CA를 사용하여 ID를 설정하는 방법에 관한 자세한 정보는 Hyperledger Fabric 문서에서 [ID 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external}를 참조하십시오. 
+키로 인해 모든 노드 및 애플리케이션이 조치에 서명하고 확인할 수 있습니다. CA를 사용하여 ID를 설정하는 방법에 관한 자세한 정보는 Hyperledger Fabric 문서에서 [ID 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external}를 참조하십시오.
 
 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용하여 CA를 작성하는 경우,
 엔드포인트 URL이 동일한 두 개의 CA, 즉, 루트 CA와 TLS CA가 작성됩니다. 이러한 두 CA를 콘솔의 **노드** 페이지의 동일한 표시 이름 아래에서
 볼 수 있습니다. 루트 CA는 노드 및 애플리케이션에 키를 제공합니다. TLS CA는 네트워크 내에서 통신을 보호하는 데 사용되는 인증서를 제공합니다. 네트워크 상의
-TLS에 대한 자세한 정보는 [TLS CA 사용](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-tlsca)을 참조하십시오.
+TLS에 대한 자세한 정보는 [TLS CA 사용](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca)을 참조하십시오.
 
 노드를 작성할 때 루트 CA를 사용하여 네트워크에 대해 배치, 작동 및 상호작용을 수행하는 데 필요한 다음 ID를 작성해야 합니다.
 - **CA 관리자:** CA에 기본 CA 관리자 ID가 포함됩니다. 이 ID에는 사용자 이름 및 비밀번호와 유사한 등록 ID와 시크릿이 있으며 이는 CA를 배치하는 동안 지정합니다. 이 관리 사용자 이름 및 비밀번호를 사용하여 CA를
@@ -51,10 +51,10 @@ TLS에 대한 자세한 정보는 [TLS CA 사용](/docs/services/blockchain/howt
 - **애플리케이션:** 애플리케이션이 트랜잭션을 제출하기 전에 네트워크에 의해 유효성 검증을 받도록 서명해야 합니다. 클라이언트
 애플리케이션에서 트랜잭션에 서명하는 데 사용할 수 있는 ID를 작성해야 합니다.
 
-콘솔을 사용하여 [등록 프로세스](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register)를 통해
-해당 ID를 작성할 수 있습니다. 관리자 ID를 등록한 후 각 ID에 서명 인증서 및 개인 키를 발행하고 서명 인증서를 조직 MSP 정의에 제공한 다음 ID를 콘솔 지갑에 추가해야 합니다. [조직 MSP를 작성](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp)할
+콘솔을 사용하여 [등록 프로세스](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)를 통해
+해당 ID를 작성할 수 있습니다. 관리자 ID를 등록한 후 각 ID에 서명 인증서 및 개인 키를 발행하고 서명 인증서를 조직 MSP 정의에 제공한 다음 ID를 콘솔 지갑에 추가해야 합니다. [조직 MSP를 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp)할
 때 하나의 관리자 ID에 대해 해당 단계를 완료할 수 있습니다. 별도의 ID를 조직 관리자 또는 노드 관리자로 사용하거나 하나의 ID를 사용하여
-두 태스크를 모두 수행할 수 있습니다. [네트워크 빌드 튜토리얼](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)은
+두 태스크를 모두 수행할 수 있습니다. [네트워크 빌드 튜토리얼](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)은
 하나의 ID를 사용하여 튜토리얼에서 작성된 각 조직에 대한 관리자가 됩니다.
 
 ## CA ID 설정
@@ -68,7 +68,7 @@ ID에 대해 작업하기 전에 CA 작성 동안 작성된 관리자 ID를 사�
 다른 ID로 전환하여 CA 관리자로 사용하려면 현재 CA 관리자로 설정된 ID를 클릭하십시오. 그러면 **ID 연관** 슬라이더가 열립니다. **EnrollID** 탭을 사용하여 다른 CA 관리자의 등록 ID 및 시크릿을 제공합니다. **기존 ID** 탭을 사용하여 지갑에 존재하는 ID를 지정할 수 있습니다. 또는 **새 ID** 탭에서 새 관리자에 대한 인증서(base64 또는 PEM 형식)가 포함된 파일을 업로드하거나 인증서가 포함된 JSON 파일을 업로드할 수 있습니다.
 
 모든 ID가 새 사용자를 등록할 수 있는 것은 아닙니다. 추가 CA 관리자 설정을 포함한
-자세한 정보는 [새 CA 관리자 작성](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-admin)을 참조하십시오.
+자세한 정보는 [새 CA 관리자 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-admin)을 참조하십시오.
 {: note}
 
 ## ID 등록
@@ -82,14 +82,14 @@ CA에 새로운 ID를 등록할 때 다음 정보를 입력해야 합니다.
 - **유형**: CA가 배치될 때 관리자가 CA에 의해 발행되는 ID의 유형을 지정합니다. ID 유형의
 일반적인 예는 피어, 순서 지정자 및 클라이언트(애플리케이션) 등입니다. 사용 가능한 유형 목록에서 이 사용자의 ID 유형을 선택하십시오.
 - **소속**: (선택사항) 고급 사용자에만 해당됩니다. 이 필드는 CA에 대한 소속이 정의된 경우에만 표시됩니다. 소속은 이 사용자와 연관시킬 조직의 파트입니다. 예를 들어,
-애플리케이션 또는 피어를 작동시키는 부서 또는 단위일 수 있습니다. 특정 CA 관리자가 사용자의 소속을 설정하여 조직 내 자체 부서 내의 사용자만 등록할 수 있도록 제한할 수 있습니다. CA 소속은 Fabric CA [Affiliation 명령](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command){: external}을 사용하여 정의됩니다. 
+애플리케이션 또는 피어를 작동시키는 부서 또는 단위일 수 있습니다. 특정 CA 관리자가 사용자의 소속을 설정하여 조직 내 자체 부서 내의 사용자만 등록할 수 있도록 제한할 수 있습니다. CA 소속은 Fabric CA [Affiliation 명령](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command){: external}을 사용하여 정의됩니다.
 - **최대 등록 수:** 필요에 따라 이 ID를 사용하여 인증서를 등록하거나 생성할 수 있는 횟수를 입력할 수 있습니다. 제한된 등록 수를
 지정하면 노드 및 애플리케이션의 보안을 강화하는 데 도움이 됩니다. 무제한 등록으로 기본값이 지정됩니다.
 - **속성**: 필요에 따라, 사용자에 대해 임의의 [속성 기반 액세스 제어](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#attribute-based-access-control){: external} 속성을 지정할 수 있습니다. 예를 들어, 이 절을 사용하여 새 ID를 등록할 수 있는 권한으로
-[다른 CA 관리자를 작성](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity)할 수 있습니다. 사용 가능한 Fabric CA 속성의 전체 목록은 Fabric CA 사용자 안내서의 [새 ID 등록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} 섹션에서 볼 수 있습니다. 
+[다른 CA 관리자를 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity)할 수 있습니다. 사용 가능한 Fabric CA 속성의 전체 목록은 Fabric CA 사용자 안내서의 [새 ID 등록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} 섹션에서 볼 수 있습니다.
 
 CA 개요 패널에서 **사용자 등록** 단추를 클릭하여 새 사용자를 작성하십시오. 이 태스크를
-수행하기 전에 새 사용자를 등록하는 기능이 있는 ID를 사용하여 [ID를 설정](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity)했는지
+수행하기 전에 새 사용자를 등록하는 기능이 있는 ID를 사용하여 [ID를 설정](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity)했는지
 확인하십시오. 일반적으로 `admin` 사용자입니다. 단추가 회색이면 사용자가 ID를 설정하지 않았거나 ID가 새 ID를 작성할 수 없음을 의미합니다.  
 
 **사용자 등록**을 클릭하면 일련의 사이드 패널이 열립니다.
@@ -113,14 +113,14 @@ CA 개요 패널에서 **사용자 등록** 단추를 클릭하여 새 사용자
 사이드 패널 4에서 **속성 추가** 단추를 클릭하십시오. `hf.Registrar.Roles`의 **속성 이름**을
 제공하십시오. **속성 값**으로 `*`을 입력하십시오. 또한 이 패널을 사용하여
 클라이언트, 피어 등의 특정 유형 또는 특정 소속 내의 의 ID 유형만 등록할 수 있는 ID를 작성할 수 있습니다. ID 및 ID가 발행한 모든 인증서를
-취소할 수 있는 기능이 있는 ID도 작성할 수 있습니다. 속성의 전체 목록은 Fabric CA 사용자 안내서의 [새 ID 등록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} 섹션에서 볼 수 있습니다. 
+취소할 수 있는 기능이 있는 ID도 작성할 수 있습니다. 속성의 전체 목록은 Fabric CA 사용자 안내서의 [새 ID 등록](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} 섹션에서 볼 수 있습니다.
 
 ## ID 등록
 {: #ibp-console-identities-enroll}
 
-CA로 등록된 각 ID에 대해 서명 인증서와 개인 키를 생성할 수 있습니다. 추가 관리자 ID를 CA에 등록한 경우 관리자 ID에 대한 키를 생성한 후 [조직 MSP을 작성](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp)할 때 이 키를 추가로 포함시키십시오.
+CA로 등록된 각 ID에 대해 서명 인증서와 개인 키를 생성할 수 있습니다. 추가 관리자 ID를 CA에 등록한 경우 관리자 ID에 대한 키를 생성한 후 [조직 MSP을 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp)할 때 이 키를 추가로 포함시키십시오.
 
-ID를 등록하기 전에 [ID를 설정](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-ca-identity)해야 CA가 작동될 수 있습니다. 일반적으로 CA를 작성할 때 지정된 관리자 ID로 설정하십시오. CA가 해당 ID로 설정되었는지 확인하려면 CA 세부사항 페이지를 조사하고 CA 이름 옆에 있는 현재 활성 상태인 ID의 등록 ID를 확인하십시오. ID가 관리자 ID로 설정되었는지 확인한 후에는 사용자의 오버플로우 메뉴에서 **ID 등록**을 클릭하여 CA에 등록된 사용자에 대해 인증서와 키를 생성하십시오.
+ID를 등록하기 전에 [ID를 설정](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity)해야 CA가 작동될 수 있습니다. 일반적으로 CA를 작성할 때 지정된 관리자 ID로 설정하십시오. CA가 해당 ID로 설정되었는지 확인하려면 CA 세부사항 페이지를 조사하고 CA 이름 옆에 있는 현재 활성 상태인 ID의 등록 ID를 확인하십시오. ID가 관리자 ID로 설정되었는지 확인한 후에는 사용자의 오버플로우 메뉴에서 **ID 등록**을 클릭하여 CA에 등록된 사용자에 대해 인증서와 키를 생성하십시오.
 
 - 사용자의 `등록 시크릿`을 입력하십시오.
 - 다음 단계에서는 생성된 키가 표시됩니다.
@@ -130,7 +130,7 @@ ID를 등록하기 전에 [ID를 설정](/docs/services/blockchain/howto/ibp-con
 CA 관리자에 대해 설정한 최대 등록 수에 대해 계수됩니다. 이 등록 과정의 일부로 ID를 로컬 파일 시스템에 다운로드하거나 콘솔 지갑에 추가하여 서명 인증서 및 개인 키를 저장해야 합니다. 이 서명 인증서 및 개인 키의 새 이름을 검색할 수 있도록 **이름** 필드에 입력하십시오.
 - **중요:** **ID 내보내기**를 클릭하여 인증서와 키를 로컬 파일 시스템에 JSON 형식의 단일 파일로 다운로드하십시오. 이러한 키를 보호하고 관리할 책임은 사용자 본인에게 있습니다.
 - **지갑에 ID 추가**를 클릭하여 이러한 인증서를 콘솔 지갑에 추가하십시오. 그런 다음
-[지갑 탭](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet)의
+[지갑 탭](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet)의
 새 타일에서 이 ID의 이름 및 키를 찾을 수 있습니다.
 
 또한 Fabric CA 클라이언트 또는 Fabric SDK를 사용하여 콘솔에서 작성한 ID를 등록할 수 있습니다. 콘솔은 이러한 단계를 완료하는 데 필요한 모든 정보를
@@ -146,13 +146,13 @@ CA 관리자에 대해 설정한 최대 등록 수에 대해 계수됩니다. �
 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔에서 작성된 각 CA는 루트 CA 및 TLS CA를 포함합니다. 이러한
 두 CA를 콘솔의 노드 탭의 동일한 표시 이름 아래에서
 볼 수 있습니다. CA 개요 패널을 클릭한 다음 **TLS 인증 기관**을 클릭하여 TLS CA를 작동시키십시오. TLS CA에는 루트 CA와
-[동일한 등록](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register) 및
-[등록 프로세스](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll)가
+[동일한 등록](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register) 및
+[등록 프로세스](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll)가
 있습니다. 두 개의 CA 모두 동일한 CA 관리자 ID 및 시크릿으로 배치됩니다.
 
 사용자가 배치하는 각 피어 또는 순서 지정자 노드가 공개 TLS 인증서를 생성해야 합니다.  콘솔을 사용하여 노드를 작성하는 경우 TLS 등록 ID 및 시크릿에 대한 피어 또는 순서 지정자 ID를 생성하는 데 사용한 것과 동일한 등록 ID 및 시크릿을 사용할 수 있습니다. TLS CA 사용자는 조직 CA와 동일한 사용자 레지스트리를 사용하기 때문입니다. 그런 다음 노드가 배치 중에 이 ID를 사용하여 해당 TLS 인증서를 생성합니다. 이 인증서는 순서 지정자 또는 피어와 통신해야 하는 애플리케이션에 필요합니다. 노드 개요 패널로 이동하고
 설정을 클릭하여 노드의 TLS 인증서를 찾을 수 있습니다. 또한
-[스마트 계약 탭에서](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-connect-to-SDK) 다운로드할 수 있는
+[스마트 계약 탭에서](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK) 다운로드할 수 있는
 연결 프로파일에서 피어 및 순서 지정자의 TLS 인증서를 찾을 수 있습니다.
 
 콘솔을 사용하여 피어 또는 순서 지정자를 작성할 때 TLS CA를 사용하여 각 노드의 추가 도메인 이름을 지정할 수 있습니다. 순서 지정자 또는
@@ -220,9 +220,9 @@ Signature Algorithm: ecdsa-with-SHA256
 ### ID 추가
 {: #ibp-console-identities-add}
 
-[조직 MSP를 작성](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp)할
+[조직 MSP를 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp)할
 때 지갑에 관리자 ID를 추가할 수 있습니다. 콘솔에 의해 관리되는 CA 또한
-[등록 프로세스](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll) 동안
+[등록 프로세스](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll) 동안
 지갑에 ID를 추가할 수 있습니다.
 
 개요 화면에서 **ID 추가** 단추를 사용하여 전자 지갑에 직접
@@ -264,7 +264,7 @@ ID를 클릭하면 해당 인증서 및 개인 키를 base64 형식으로 표시
 ## ID 연관
 {: #ibp-console-identities-associate-admin}
 
-조직의 서명 인증서 및 노드 관리자를 [조직 MSP 정의](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp)에 제공해야 합니다. 콘솔에 의해 작성된 노드 또는 채널은 MSP 정의의 인증서를 사용하여 누가 유효한 관리자인지 확인합니다. 결과적으로 MSP 정의에 관리자 인증서를 추가하는 데 사용한 것과 동일한 서명 인증서 및 개인 키가 콘솔 지갑 내부에 저장되어야 합니다.
+조직의 서명 인증서 및 노드 관리자를 [조직 MSP 정의](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp)에 제공해야 합니다. 콘솔에 의해 작성된 노드 또는 채널은 MSP 정의의 인증서를 사용하여 누가 유효한 관리자인지 확인합니다. 결과적으로 MSP 정의에 관리자 인증서를 추가하는 데 사용한 것과 동일한 서명 인증서 및 개인 키가 콘솔 지갑 내부에 저장되어야 합니다.
 
 콘솔을 사용하여 순서 지정자 또는 피어를 작성하는 경우 **ID 연관** 패널이 표시됩니다. 조직 MSP 정의 내에 인증서도
 있는 지갑에서 ID를 선택하십시오. 또한 채널을 작성하거나 편집할 때도 **ID 연관** 섹션에서

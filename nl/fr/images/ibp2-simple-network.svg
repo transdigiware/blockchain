@@ -17,7 +17,10 @@
    style="enable-background:new 0 0 1018.6 774;"
    xml:space="preserve"
    sodipodi:docname="ibp2-simple-network.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="D:\BM140\FRE\BM140ABD141\S007\translation\images\ibp2-simple-network.png"
+   inkscape:export-xdpi="299"
+   inkscape:export-ydpi="299"><metadata
    id="metadata154"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
@@ -35,7 +38,7 @@
    id="namedview150"
    showgrid="false"
    inkscape:zoom="1.2196382"
-   inkscape:cx="417.12048"
+   inkscape:cx="497.66509"
    inkscape:cy="355.88007"
    inkscape:window-x="-9"
    inkscape:window-y="51"
@@ -95,16 +98,19 @@
    id="text11">O</text>
 
 
+
 <text
    transform="matrix(1 0 0 1 145.39 191.59)"
    class="st3 st4 st5"
    id="text13">r</text>
 
 
+
 <text
    transform="matrix(1 0 0 1 152.3 191.59)"
    class="st3 st4 st5"
    id="text15">g 1</text>
+
 
 
 <rect
@@ -130,6 +136,7 @@
 
 
 
+
 <rect
    id="Rectangle-4"
    x="338.1"
@@ -146,6 +153,7 @@
      id="tspan162">Définition</tspan><tspan
      sodipodi:role="line"
      id="tspan164">MSP Org1</tspan></text>
+
 
 
 
@@ -188,6 +196,7 @@
 
 
 
+
 <text
    class="st3 st4 st10"
    id="text50"
@@ -202,10 +211,12 @@
 
 
 
+
 <text
    transform="matrix(1 0 0 1 239.65 272.59)"
    class="st3 st4 st10"
    id="text56">X</text>
+
 
 
 <ellipse
@@ -219,6 +230,7 @@
    transform="matrix(1 0 0 1 307.4 406.59)"
    class="st7 st4 st5"
    id="text59">Canal 1</text>
+
 
 
 <rect
@@ -235,6 +247,7 @@
    style="-inkscape-font-specification:'IBMPlexSans-Medium, Normal';font-family:IBMPlexSans-Medium;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:19px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"><tspan
      sodipodi:role="line"
      id="tspan65">Org service de tri</tspan></text>
+
 
 
 
@@ -277,6 +290,7 @@
 
 
 
+
 <rect
    id="Rectangle-12"
    x="721.2"
@@ -293,6 +307,7 @@
      id="tspan170">Définition MSP</tspan><tspan
      sodipodi:role="line"
      id="tspan172">service de tri</tspan></text>
+
 
 
 
@@ -376,6 +391,7 @@
      id="tspan174"
      x="550.65002"
      y="363.51999">Noeuds du service de tri</tspan></text>
+
 
 
 

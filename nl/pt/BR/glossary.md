@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -33,7 +33,7 @@ Um conjunto ordenado de transações, que é criptograficamente vinculado ao blo
 
 ## Autoridade de certificação
 {: #glossary-CA}
-Uma abreviação de "Autoridade de Certificação", esse é o componente que emite certificados para todos os membros participantes. Esses certificados representam a identidade de um membro. Todas as entidades na rede (peers, solicitadores, clientes e assim por diante) devem ter uma identidade para comunicar, autenticar e, finalmente, transacionar. Essas identidades são necessárias para qualquer participação direta na rede de blockchain.
+Uma abreviação de "Autoridade de Certificação", esse é o componente que emite certificados para todos os membros participantes. Esses certificados representam a identidade de um membro. Todas as entidades na rede (peers, nós de pedido, clientes e assim por diante) devem ter uma identidade para comunicação, autenticação e, em última instância, transação. Essas identidades são necessárias para qualquer participação direta na rede de blockchain.
 
 ## Cadeia
 {: #glossary-chain}
@@ -53,7 +53,7 @@ O cliente representa a entidade que age em nome de um usuário. Ele deve se cone
 
 ## Perfil de conexão
 {: #glossary-connection-profile}
-O perfil de conexão é visível na tela "Visão geral" do Monitor de rede quando você clica no botão **Perfil de conexão**. As informações estão disponíveis no formato JSON e contêm as informações de terminal de API e enrollIDs/segredos para os seus recursos de rede, ou seja, peers, solicitantes e autoridades de certificação. O seu aplicativo interage com recursos de rede por meio desses terminais de API.
+O perfil de conexão é visível na tela "Visão geral" do Monitor de rede quando você clica no botão **Perfil de conexão**. As informações estão disponíveis no formato JSON e contêm as informações de terminal de API e IDs de inscrição/segredos para seus recursos de rede, isto é, peers, nós de pedido e CAs. O seu aplicativo interage com recursos de rede por meio desses terminais de API.
 
 ## Consenso
 {: #glossary-consensus}
@@ -146,15 +146,15 @@ O painel da GUI do {{site.data.keyword.blockchainfull_notm}} Platform para redes
 
 ## Nó
 {: #glossary-node}
-A entidade de comunicação do blockchain. Há três tipos de nós: CA, peer e solicitador.
+A entidade de comunicação do blockchain. Há três tipos de nós: CA, peer e pedido.
 
-## Solicitador
+## Nó de pedido
 {: #glossary-orderer}
-O nó que coleta transações de membros da rede, ordena as transações e as empacota em blocos. Esses blocos são, então, distribuídos para os peers que, em seguida, verificam os blocos e os incluem nos livros-razão em cada canal. Os solicitadores contêm o material de identidade criptográfica que está vinculado a cada membro e autenticam a identidade de clientes e peers para acesso à rede. A função geral que um nó de solicitação ou coleta de nós fornece é conhecida como o **serviço de ordenação**.
+O nó que coleta transações de membros da rede, ordena as transações e as empacota em blocos. Também conhecido como solicitador. Esses blocos são, então, distribuídos para os peers que, em seguida, verificam os blocos e os incluem nos livros-razão em cada canal. Os nós de pedido contêm o material de identidade criptográfico que está vinculado a cada membro e autenticam a identidade de clientes e de peers para acessar a rede. A função geral que um nó de pedido ou coleta de nós fornece é conhecida como o **serviço de ordenação**.
 
 ## Organização
 {: #glossary-organization}
-Veja [Membro](/docs/services/blockchain/glossary.html#glossary-member).
+Veja [Membro](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Participante
 {: #glossary-participant}
@@ -170,7 +170,7 @@ Raft é um serviço de pedido tolerante a falhas de travamento (CFT) com base em
 
 ## Credenciais de serviço
 {: #glossary-service-credentials}
-As credenciais de serviço estão no formato JSON e contêm as informações de terminal da API e os enrollIDs/segredos para seus recursos de rede, ou seja, autoridades de certificação, solicitadores e peers. O seu aplicativo interage com recursos de rede por meio desses terminais de API.
+As credenciais de serviço estão no formato JSON e contêm as informações de terminal da API e os IDs de inscrição/segredos para seus recursos de rede, ou seja, CAs, nós de pedido e peers. O seu aplicativo interage com recursos de rede por meio desses terminais de API.
 
 ## SDK
 {: #glossary-sdk}
@@ -182,7 +182,7 @@ O certificado que quaisquer entidades, sejam organizações ou administradores, 
 
 ## Contratos inteligentes
 {: #glossary-smart-contracts}
-Consulte [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode).
+Consulte [Chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -202,4 +202,4 @@ Um usuário é um participante em uma rede de blockchain que tem acesso indireto
 
 ## Mundo estado
 {: #glossary-world-state}
-Consulte [Estado Atual](/docs/services/blockchain/glossary.html#glossary-current-state).
+Consulte [Estado Atual](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).

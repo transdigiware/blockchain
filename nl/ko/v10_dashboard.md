@@ -32,13 +32,13 @@ subcollection: blockchain
 {: #ibp-dashboard-left-navigation}
 
 네트워크 모니터는 다음 화면을 세 개의 섹션으로 표시합니다. 네트워크 모니터의 왼쪽 네비게이터에서 각 화면으로 이동할 수 있습니다.
-- **내 네트워크** 섹션에는 "[개요](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview)", "[구성원](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)", "[채널](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels)", "[알림](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-notifications)", "[인증 기관](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-ca)" 및 "[API](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-apis)" 화면이 포함됩니다.
-- **내 코드** 섹션에는 "[코드 개발](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-write_code)", "[코드 설치](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-chaincode)" 및 "[샘플 시험 사용](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-samples)" 화면이 포함됩니다.
-- "[도움 받기](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-support)" 화면에는 Helios 및 Hyperledger Fabric({{site.data.keyword.blockchainfull_notm}} Platform이 기반으로 하는 코드 베이스)의 릴리스 정보 뿐만 아니라 지원 정보가 표시됩니다.
+- **내 네트워크** 섹션에는 "[개요](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)", "[구성원](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)", "[채널](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)", "[알림](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)", "[인증 기관](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)" 및 "[API](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)" 화면이 포함됩니다.
+- **내 코드** 섹션에는 "[코드 개발](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write_code)", "[코드 설치](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)" 및 "[샘플 시험 사용](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)" 화면이 포함됩니다.
+- "[도움 받기](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)" 화면에는 Helios 및 Hyperledger Fabric({{site.data.keyword.blockchainfull_notm}} Platform이 기반으로 하는 코드 베이스)의 릴리스 정보 뿐만 아니라 지원 정보가 표시됩니다.
 
-블록체인 네트워크의 이름은 왼쪽 탐색 분할창의 맨 위에 있습니다. 네트워크 모니터에서 [네트워크의 이름을 변경](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-name)할 수 있습니다.
+블록체인 네트워크의 이름은 왼쪽 탐색 분할창의 맨 위에 있습니다. 네트워크 모니터에서 [네트워크의 이름을 변경](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name)할 수 있습니다.
 
-네트워크 모니터의 오른쪽 상단에 있는 드롭 다운 메뉴에서 [네트워크 환경 설정을 확인 및 구성](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)할 수 있습니다.
+네트워크 모니터의 오른쪽 상단에 있는 드롭 다운 메뉴에서 [네트워크 환경 설정을 확인 및 구성](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)할 수 있습니다.
 
 이 튜토리얼에서는 위의 각 화면 및 기능을 설명합니다.
 
@@ -58,14 +58,14 @@ subcollection: blockchain
 
 순서 지정자 노드의 경우 중지 및 시작 조치를 사용할 수 없습니다. 일반적으로 네트워크에서 피어 또는 CA 노드를 중지하고 시작하지 않아도 됩니다. 예를 들어, 클린 상태가 되도록 피어를 다시 시작해야 하는 경우 중지 및 시작 조치가 제공됩니다.
 
-**조치** 헤더 아래의 드롭 다운 목록에서 **로그 보기**를 클릭하여 컴포넌트 로그를 확인할 수도 있습니다. 로그는 다양한 네트워크 리소스 간 호출을 노출하며 디버깅 및 문제점 해결에 유용합니다. 네트워크 로그를 사용하는 방법에 대한 자세한 정보는 [블록체인 네트워크 모니터링](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network)을 참조하십시오.
+**조치** 헤더 아래의 드롭 다운 목록에서 **로그 보기**를 클릭하여 컴포넌트 로그를 확인할 수도 있습니다. 로그는 다양한 네트워크 리소스 간 호출을 노출하며 디버깅 및 문제점 해결에 유용합니다. 네트워크 로그를 사용하는 방법에 대한 자세한 정보는 [블록체인 네트워크 모니터링](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)을 참조하십시오.
 
 피어 시작 및 중지의 영향을 이해하기 위해 피어를 중지하고 트랜잭션으로 이를 대상으로 지정하여 실험할 수 있습니다. 그러면 로그에 연결 오류가 표시됩니다. 피어를 다시 시작해서 트랜잭션을 다시 시도하면 연결에 성공합니다. 또한 채널에서 계속 트랜잭션을 수행하므로 연장된 기간 동안 피어를 작동 중지 상태로 남겨둘 수 있습니다. 피어를 다시 가져오면, 피어가 중지되었을 때 커미트된 블록을 수신하므로 원장의 동기화를 알게 됩니다. 원장이 완전히 동기화되면 이 원장에 대해 일반 호출 및 조회를 수행할 수 있습니다.
 
 ### 원격 피어 구성
 {: #ibp-dashboard-peer-connection-information}
 
-{{site.data.keyword.cloud_notm}} 외부에 피어를 배치하는 경우 구성 중에 네트워크의 API 엔드포인트 정보를 제공해야 합니다. 피어를 구성하려면 **원격 피어 구성** 단추를 클릭하여 네트워크의 API 엔드포인트 정보를 검색하십시오. 팝업 창에서는 네트워크 ID, 조직 MSP, CA 이름, CA URL 및 CA TLS 인증서의 API 엔드포인트 정보를 제공합니다. 각 필드의 끝에 있는 복사 아이콘을 클릭하여 해당 필드의 값을 복사하거나 **다운로드** 단추를 클릭하여 모든 필드의 값을 JSON 파일에 저장할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services에 대한 정보](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about) 및 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private에 대한 정보](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about)를 참조하십시오.
+{{site.data.keyword.cloud_notm}} 외부에 피어를 배치하는 경우 구성 중에 네트워크의 API 엔드포인트 정보를 제공해야 합니다. 피어를 구성하려면 **원격 피어 구성** 단추를 클릭하여 네트워크의 API 엔드포인트 정보를 검색하십시오. 팝업 창에서는 네트워크 ID, 조직 MSP, CA 이름, CA URL 및 CA TLS 인증서의 API 엔드포인트 정보를 제공합니다. 각 필드의 끝에 있는 복사 아이콘을 클릭하여 해당 필드의 값을 복사하거나 **다운로드** 단추를 클릭하여 모든 필드의 값을 JSON 파일에 저장할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services 정보](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about)를 참조하십시오. 
 
 ### 연결 프로파일
 {: #ibp-dashboard-connection-profile}
@@ -75,7 +75,7 @@ subcollection: blockchain
 ### 피어 추가
 {: #ibp-dashboard-peers}
 
-네트워크 구성원은 네트워크 원장 사본을 저장하고 체인코드를 실행하여 해당 원장을 조회 또는 업데이트하기 위해 [피어](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer)를 배치합니다. 보증 정책이 피어를 보증 피어로 정의하면 피어가 보증 결과를 애플리케이션으로 리턴합니다.
+네트워크 구성원은 네트워크 원장 사본을 저장하고 체인코드를 실행하여 해당 원장을 조회 또는 업데이트하기 위해 [피어](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer)를 배치합니다. 보증 정책이 피어를 보증 피어로 정의하면 피어가 보증 결과를 애플리케이션으로 리턴합니다.
 
 오른쪽 상단에 있는 **피어 추가** 단추를 클릭하여 네트워크에 피어 노드를 추가하십시오.   팝업 "피어 추가" 패널에서 추가하려는 노드의 수와 크기를 선택하십시오. 고유 요구사항에 따라 조직의 피어를 추가할 수 있습니다. 추가 피어가 필요한 경우 여러 시나리오가 있습니다. 예를 들어, 다중 피어가 중복성을 위해 동일한 채널에 가입하게 할 수 있습니다. 각 피어는 채널의 트랜잭션을 처리하고 원장의 각 사본에 기록합니다. 피어 중 하나가 실패하면 다른 하나의 피어(또는 여러 개의 다른 피어)가 트랜잭션 및 애플리케이션 요청 처리를 계속할 수 있습니다. 또한 피어에서 모든 애플리케이션 요청을 균형 있게 로드 밸런싱하거나 여러 기능에 대해 서로 다른 피어를 대상으로 지정할 수 있습니다. 예를 들어, 하나의 피어를 사용하여 원장을 조회하고 다른 피어를 사용하여 원장 업데이트에 대한 보증을 처리할 수 있습니다.
 
@@ -135,11 +135,11 @@ subcollection: blockchain
 
 ![채널](images/channels.png "채널")
 
-채널을 작성하면 채널 특정 원장이 생성됩니다. 자세한 정보는 [채널 작성](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel)을 참조하십시오.
+채널을 작성하면 채널 특정 원장이 생성됩니다. 자세한 정보는 [채널 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel)을 참조하십시오.
 
-또한 기존 채널을 선택하여 채널, 멤버십 및 활성 체인코드에 대한 더 정확한 세부사항을 볼 수 있습니다. 자세한 정보는 [네트워크 모니터링](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network)을 참조하십시오.
+또한 기존 채널을 선택하여 채널, 멤버십 및 활성 체인코드에 대한 더 정확한 세부사항을 볼 수 있습니다. 자세한 정보는 [네트워크 모니터링](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)을 참조하십시오.
 
-"구성원" 화면의 ["인증서" 탭](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-certificates)을 사용하여 새 인증서를 플랫폼에 업로드한 경우 이 패널을 사용하여 인증서를 채널에 추가할 수 있습니다. 관련 채널 옆에 있는 **조치** 헤더 아래의 드롭 다운 목록에서 **인증서 동기화**를 클릭하십시오. 이 경우 채널의 체인코드를 인스턴스화할 수 있음은 물론 원격 클라이언트에서 채널을 작동할 수 있게 됩니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain/certificates.html#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs)를 참조하십시오.
+"구성원" 화면의 ["인증서" 탭](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates)을 사용하여 새 인증서를 플랫폼에 업로드한 경우 이 패널을 사용하여 인증서를 채널에 추가할 수 있습니다. 관련 채널 옆에 있는 **조치** 헤더 아래의 드롭 다운 목록에서 **인증서 동기화**를 클릭하십시오. 이 경우 채널의 체인코드를 인스턴스화할 수 있음은 물론 원격 클라이언트에서 채널을 작동할 수 있게 됩니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오. 
 
 ## 알림
 {: #ibp-dashboard-notifications}
@@ -177,7 +177,7 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
   - **소속:** ID가 속할 조직 내 소속(예: `org1`)을 나타냅니다.
   - **최대 등록 수:** 이 필드를 사용하여 이 ID로 인증서를 등록하거나 생성하는 횟수를 제한할 수 있습니다. 필드를 공백으로 두면 기본적으로 무제한 등록 수로 값이 지정됩니다.
 
-[{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain/certificates.html#managing-certificates) 튜토리얼을 방문하여 CA에 관해 자세히 알아볼 수 있습니다.
+[{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼을 방문하여 CA에 관해 자세히 알아볼 수 있습니다.
 
 ## API
 {: #ibp-dashboard-apis}
@@ -188,7 +188,7 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 
 ![API](images/API_screen.png "API")
 
-**Swagger UI** 링크를 클릭하여 Swagger UI를 여십시오. API를 실행하려면 네트워크 인증 정보(이 API 페이지에 있음)를 사용하여 Swagger UI에 권한을 부여해야 합니다. 자세한 정보는 [Swagger API를 사용하여 네트워크와 상호작용](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger)을 참조하십시오.
+**Swagger UI** 링크를 클릭하여 Swagger UI를 여십시오. API를 실행하려면 네트워크 인증 정보(이 API 페이지에 있음)를 사용하여 Swagger UI에 권한을 부여해야 합니다. 자세한 정보는 [Swagger API를 사용하여 네트워크와 상호작용](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger)을 참조하십시오.
 
 ## 코드 개발
 {: #ibp-dashboard-write-code}
@@ -202,7 +202,7 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 
 ![코드 개발](images/write_code.png "코드 개발")
 
-비즈니스 네트워크를 개발하고 배치하는 데 대한 자세한 정보는 [스타터 및 엔터프라이즈 플랜에서 비즈니스 네트워크 배치](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network)를 참조하십시오.
+비즈니스 네트워크를 개발하고 배치하는 데 대한 자세한 정보는 [스타터 및 엔터프라이즈 플랜에서 비즈니스 네트워크 배치](/docs/services/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network)를 참조하십시오.
 
 ## 코드 설치
 {: #ibp-dashboard-chaincode}
@@ -213,12 +213,12 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 
 ![코드 설치](images/chaincode_install_overview.png "코드 설치")
 
-체인코드는 먼저 피어의 파일 시스템에 설치되고 그 다음에 채널에서 인스턴스화됩니다. 자세한 정보는 [체인코드 설치, 인스턴스화 및 업데이트](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode)를 참조하십시오.
+체인코드는 먼저 피어의 파일 시스템에 설치되고 그 다음에 채널에서 인스턴스화됩니다. 자세한 정보는 [체인코드 설치, 인스턴스화 및 업데이트](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode)를 참조하십시오.
 
 ## 샘플 시험 사용
 {: #ibp-dashboard-samples}
 
-샘플 애플리케이션을 사용하면 블록체인 네트워크 및 애플리케이션 개발에 대해 이해하는 데 도움이 됩니다. **GitHub에서 보기** 링크를 따라 샘플을 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform에 배치하는 방법을 학습하십시오. 샘플 개발 및 배치 방법에 대한 자세한 정보는 [샘플 애플리케이션 배치](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications)를 참조하십시오.
+샘플 애플리케이션을 사용하면 블록체인 네트워크 및 애플리케이션 개발에 대해 이해하는 데 도움이 됩니다. **GitHub에서 보기** 링크를 따라 샘플을 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform에 배치하는 방법을 학습하십시오. 샘플 개발 및 배치 방법에 대한 자세한 정보는 [샘플 애플리케이션 배치](/docs/services/blockchain/howto?topic=blockchain-deploying-sample-applications#deploying-sample-applications)를 참조하십시오.
 
 **그림 12**는 "샘플 시험 사용" 화면을 보여줍니다.
 
@@ -236,10 +236,9 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 ### Blockchain 리소스 및 지원 포럼
 {: #ibp-dashboard-support-forums}
 
-문제점을 해결하고 {{site.data.keyword.IBM_notm}} 및 Fabric 커뮤니티에서 도움을 받으려면 "지원" 탭의 리소스를 사용하십시오. "지원" 탭에 있는 링크에 대한 자세한 정보는 [지원 받기](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support)의 [리소스 및 지원 포럼](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)을 참조하십시오.
+문제점을 해결하고 {{site.data.keyword.IBM_notm}} 및 Fabric 커뮤니티에서 도움을 받으려면 "지원" 탭의 리소스를 사용하십시오. "지원" 탭에 있는 링크에 대한 자세한 정보는 [지원 받기](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support)의 [리소스 및 지원 포럼](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)을 참조하십시오.
 
-[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external}는 {{site.data.keyword.blockchainfull_notm}} Platform 및 Hyperledger Fabric 사용자를 위한 커뮤니티 포럼으로, {{site.data.keyword.IBM_notm}} 전문가가 모니터링합니다. 이전 질문에 대한 답변을 검색하거나 새 질문을 제출할 수 있습니다. 문제를 디버깅하거나 질문에 대한 답변을 확인할 수 없는 경우 {{site.data.keyword.cloud_notm}} 서비스 포털에 지원 케이스를 제출하십시오. 자세한 정보는 [지원 케이스 제출](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)을 참조하십시오.
-
+문제를 디버깅하거나 질문에 대한 답변을 확인할 수 없는 경우 {{site.data.keyword.cloud_notm}} 서비스 포털에 지원 케이스를 제출하십시오. 자세한 정보는 [지원 케이스 제출](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)을 참조하십시오.
 
 ### Fabric 릴리스 정보
 {: #ibp-dashboard-release-notes}
@@ -281,7 +280,7 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 
 기본적으로 상호 TLS 단추는 **해제**로 설정됩니다. 상호 TLS를 사용으로 설정하는 경우 이 기능을 지원하도록 애플리케이션을 업데이트해야 합니다. 그렇지 않으면 애플리케이션이 사용자 네트워크와 통신할 수 없습니다.
 
-Fabric 1.1 엔터프라이즈 플랜 네트워크의 경우 각 조직에는 자체 상호 TLS 인증 기관(CA)이 있습니다. **연결 프로파일** 단추를 클릭하여 네트워크 모니터의 **개요** 화면에서 액세스할 수 있는 [연결 프로파일](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile)에서 상호 TLS CA에 연결하는 데 필요한 정보를 볼 수 있습니다. 연결 프로파일에는 CA에 연결하고 네트워크 연결에 필요한 인증서를 가져오는 데 필요한 정보가 포함되어 있습니다.
+Fabric 1.1 엔터프라이즈 플랜 네트워크의 경우 각 조직에는 자체 상호 TLS 인증 기관(CA)이 있습니다. **연결 프로파일** 단추를 클릭하여 네트워크 모니터의 **개요** 화면에서 액세스할 수 있는 [연결 프로파일](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile)에서 상호 TLS CA에 연결하는 데 필요한 정보를 볼 수 있습니다. 연결 프로파일에는 CA에 연결하고 네트워크 연결에 필요한 인증서를 가져오는 데 필요한 정보가 포함되어 있습니다.
 
 연결 프로파일에서 `certificateAuthorities` 섹션을 찾으십시오. 이 섹션에는 상호 TLS를 사용하여 사용자 네트워크와 통신하기 위해 인증서를 등록접수하고 가져오는 데 필요한 다음 속성이 있습니다.
 
@@ -290,7 +289,7 @@ Fabric 1.1 엔터프라이즈 플랜 네트워크의 경우 각 조직에는 자
 - `enrollSecret`: 인증서를 가져오는 데 사용할 등록접수 시크릿
 - `x-tlsCAName`: 애플리케이션이 상호 TLS를 사용하여 통신할 수 있도록 하는 인증서를 가져오는 데 사용할 CA 이름
 
-상호 TLS를 지원하도록 애플리케이션을 업데이트하는 작업에 대한 자세한 정보는 [상호 TLS를 구성하는 방법 ](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}을 참조하십시오. 
+상호 TLS를 지원하도록 애플리케이션을 업데이트하는 작업에 대한 자세한 정보는 [상호 TLS를 구성하는 방법 ](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}을 참조하십시오.
 
 <!--
 
@@ -303,7 +302,7 @@ Before Enterprise Plan upgrades to Fabric v1.1, all network peers store data in 
 
 To use CouchDB, your data must be stored in a data format that can be modeled in chaincode, such as JSON. If the decision is made to migrate from LevelDB to CouchDB, the {{site.data.keyword.blockchainfull_notm}} Platform will migrate your data from key-value format to the CouchDB format automatically.
 
-If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc).
+If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc).
 
 -->
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -30,15 +30,15 @@ Après avoir installé des contrats intelligents et déployé vos noeuds, vous p
 ## Ressources de formation
 {: #ibp-console-app-learning-resources}
 
-Vous pouvez découvrir la manière dont les applications et les contrats intelligents collaborent dans l'exemple Document commercial. Consultez la rubrique relative à l'[exécution de l'exemple Document commercial sur {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper)| pour apprendre à déployer et à appeler le contrat de document commercial.
+Vous pouvez découvrir la manière dont les applications et les contrats intelligents collaborent dans l'exemple Document commercial. Consultez la rubrique relative à l'[exécution de l'exemple Document commercial sur {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)| pour apprendre à déployer et à appeler le contrat de document commercial.
 
 Lors du développement d'une application, une coordination peut être nécessaire entre deux utilisateurs distincts de votre réseau, l'opérateur réseau et le développeur d'applications :
 - **L'opérateur réseau ** est l'administrateur qui utilise la console {{site.data.keyword.blockchainfull_notm}} Platform afin de déployer les noeuds de votre organisation et il installe les contrats intelligents sur votre réseau.
 - **Le développeur d'applications ** génère l'application client qui sera consommée par les utilisateurs finaux. Le développeur utilise les [Logiciels SDK Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks){: external} pour appeler les transactions écrites dans les contrats intelligents.
 
 Si vous êtes l'**opérateur réseau**, vous devrez effectuer les étapes suivantes pour que le développeur d'applications puisse interagir avec votre réseau :
-1. Utilisez l'autorité de certification de votre organisation pour [enregistrer une identité d'application](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities).
-2. [Téléchargez le profil de connexion](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile) depuis le panneau des contrats intelligents.
+1. Utilisez l'autorité de certification de votre organisation pour [enregistrer une identité d'application](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities).
+2. [Téléchargez le profil de connexion](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile) depuis le panneau des contrats intelligents.
 3. Envoyez au développeur d'applications les objets et informations suivants :
   - ID d'inscription et secret de l'identité d'application.
   - Profil de connexion.
@@ -58,13 +58,13 @@ Le développeur d'applications peut utiliser deux modèles de programmation pour
 
 A compter de la version 1.4 de Fabric, les utilisateurs peuvent bénéficier d'une application simplifiée et d'un modèle de programmation de contrat intelligent. Le nouveau modèle réduit le nombre d'étapes et le volume de code nécessaires pour soumettre une transaction. Ce modèle est uniquement pris en charge pour les applications écrites en **Node.js**. Si vous souhaitez bénéficier du nouveau modèle, vous pouvez utiliser ce tutoriel pour effectuer les actions suivantes sur un réseau {{site.data.keyword.blockchainfull_notm}} Platform :
 
-- [Générez des certificats pour votre application](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-enroll) à l'aide du logiciel SDK.
-- [Appelez un contrat intelligent depuis le logiciel SDK](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-invoke).
-- Apprenez-en davantage sur le développement d'application en déployant le [tutoriel Document commercial](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper) sur les noeuds gérés depuis votre console. Ce tutoriel fournit davantage d'informations sur l'utilisation des portefeuilles et passerelles Fabric.
+- [Générez des certificats pour votre application](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-enroll) à l'aide du logiciel SDK.
+- [Appelez un contrat intelligent depuis le logiciel SDK](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-invoke).
+- Apprenez-en davantage sur le développement d'application en déployant le [tutoriel Document commercial](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper) sur les noeuds gérés depuis votre console. Ce tutoriel fournit davantage d'informations sur l'utilisation des portefeuilles et passerelles Fabric.
 
 **API de logiciel SDK Fabric de niveau inférieur**
 
-Si vous voulez continuer à utiliser votre contrat intelligent et votre code d'application existants, ou utiliser d'autres langages de logiciel Fabric fournis par la communauté Hyperledger, vous pouvez utiliser les [API de logiciel SDK Fabric de niveau inférieur](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-low-level) pour la connexion à votre réseau.
+Si vous voulez continuer à utiliser votre contrat intelligent et votre code d'application existants, ou utiliser d'autres langages de logiciel Fabric fournis par la communauté Hyperledger, vous pouvez utiliser les [API de logiciel SDK Fabric de niveau inférieur](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-low-level) pour la connexion à votre réseau.
 
 ## Enregistrement d'une identité d'application
 {: #ibp-console-app-identities}
@@ -73,7 +73,7 @@ Les applications doivent signer les transactions qu'elles soumettent aux noeuds 
 
 L'opérateur réseau doit utiliser l'autorité de certification de l'organisation pour [enregistrer une identité d'application](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register), laquelle peut ensuite être utilisée par le développeur d'applications pour générer une clé publique et privée. L'opérateur peut indiquer l'ID d'inscription et le secret de l'identité, ainsi que les informations de noeud final de l'autorité de certification, qui doivent être utilisées par le logiciel SDK pour générer des certificats. Avec l'inscription côté client, le développeur d'applications garantit qu'aucune autre partie n'a accès à la clé privée de l'application. Pour renforcer la sécurité, l'opérateur réseau peut définir une limite d'inscription sur 1 pendant l'enregistrement. Une fois le développeur d'applications inscrit, l'ID inscription et le secret ne peuvent pas être utilisés pour générer une autre clé privée.
 
-Si vous vous préoccupez moins de la sécurité, l'opérateur réseau peut inscrire une identité d'application à partir de l'[onglet Autorité de certification](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll). L'opérateur peut ensuite télécharger l'identité ou l'exporter dans le portefeuille de console. Pour qu'il soit possible d'utiliser les certificats du logiciel SDK, les clés doivent être décodées de base64 au format PEM. Vous pouvez décoder les certificats en exécutant la commande suivante sur votre machine locale :
+Si vous vous préoccupez moins de la sécurité, l'opérateur réseau peut inscrire une identité d'application à partir de l'[onglet Autorité de certification](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll). L'opérateur peut ensuite télécharger l'identité ou l'exporter dans le portefeuille de console. Pour qu'il soit possible d'utiliser les certificats du logiciel SDK, les clés doivent être décodées de base64 au format PEM. Vous pouvez décoder les certificats en exécutant la commande suivante sur votre machine locale :
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -91,9 +91,13 @@ Le profil de connexion téléchargé depuis la console {{site.data.keyword.block
 
 Hyperledger Fabric [flux de transactions](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external} s'étend sur plusieurs composants, les applications client collectant les adhésions des homologues et envoyant les transactions validées au service de tri. Le profil de connexion fournit à votre application les noeuds finaux des homologues et les noeuds de service de tri auxquels il doit soumettre une transaction. Il contient également des informations sur votre organisation, comme vos autorités de certification et votre ID MSP. Les logiciels SDK Fabric peuvent lire le profil de connexion directement, sans avoir à écrire du code qui gère le flux de transaction et de validation.
 
-Pour bénéficier de la fonction [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} d'Hyperledger Fabric, vous devez configurer des homologues d'ancrage. La reconnaissance de service permet à votre application de détecter les homologues sur le canal à l'extérieur de votre organisation qui doivent valider une transaction. Sans la reconnaissance de service, vous devez obtenir les informations de noeud final de ces homologues hors bande à partir d'autres organisations et les ajouter à votre profil de connexion. Pour plus d'informations, voir [Configuration des homologues d'ancrage](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-channels-anchor-peers).
+Pour bénéficier de la fonction [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} d'Hyperledger Fabric, vous devez configurer des homologues d'ancrage. La reconnaissance de service permet à votre application de détecter les homologues sur le canal à l'extérieur de votre organisation qui doivent valider une transaction. Sans la reconnaissance de service, vous devez obtenir les informations de noeud final de ces homologues hors bande à partir d'autres organisations et les ajouter à votre profil de connexion. Pour plus d'informations, voir [Configuration des homologues d'ancrage](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
 Accédez à l'onglet **Contrats intelligents** sur votre console de plateforme. En regard de chaque contrat intelligent instancié, accédez au menu déroulant dynamique. Cliquez sur le bouton nommé **Se connecter à l'aide de SDK**. Un panneau latéral s'affiche qui vous permet de générer et de télécharger votre profil de connexion. Tout d'abord, vous devez sélectionner l'autorité de certification de votre organisation que vous avez utilisé pour enregistrer votre identité d'application. Vous devrez également sélectionner la définition MSP de votre organisation. Vous pourrez ensuite télécharger le profil de connexion que vous pouvez utiliser pour générer des certificats et appeler le contrat intelligent.
+
+Si vos noeuds sont déployés sur {{site.data.keyword.cloud_notm}} Private, vous devez vous assurer que les ports utilisés par l'autorité de certification, les homologues et les services de tri dans le profil de connexion sont exposés en externe à vos applications client.
+{: note}
+
 
 ## Inscription à l'aide du logiciel SDK
 {: #ibp-console-app-enroll}
@@ -238,7 +242,7 @@ Une fois que vous avez généré le certificat signataire et la clé privée de 
 
 Le [tutoriel Document commercial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external} dans la documentation Hyperledger Fabric guide les développeurs au sein d'un cas d'utilisation dans lequel plusieurs parties achètent, vendent et échangent un document commercial. Il développe la [rubrique relative au développement d'applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} en fournissant un modèle de contrat intelligent et de code d'application qui vous permettent de créer et d'échanger des ressources dans une instance locale de Fabric.
 
-Vous pouvez également déployer l'exemple de code du tutoriel Document commercial sir un réseau {{site.data.keyword.blockchainfull_notm}} Platform. Vous pouvez ainsi rapidement vous initier à l'interaction avec votre réseau et utiliser l'exemple pour télécharger les dépendances nécessaires. L'exemple de code comporte également des exemples d'importation de certificats dans un [portefeuille](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external} et utilise votre profil de connexion pour générer une [passerelle Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}. Le tutoriel peut être utilisé par deux organisations différentes pour effectuer différentes opérations avec une seule ressource. Si vous avez utilisé le [tutoriel Générer un réseau](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) pour déployer deux organisations homologues connectées à un canal, vous pouvez interagir avec le tutoriel avec les deux organisations.
+Vous pouvez également déployer l'exemple de code du tutoriel Document commercial sir un réseau {{site.data.keyword.blockchainfull_notm}} Platform. Vous pouvez ainsi rapidement vous initier à l'interaction avec votre réseau et utiliser l'exemple pour télécharger les dépendances nécessaires. L'exemple de code comporte également des exemples d'importation de certificats dans un [portefeuille](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external} et utilise votre profil de connexion pour générer une [passerelle Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}. Le tutoriel peut être utilisé par deux organisations différentes pour effectuer différentes opérations avec une seule ressource. Si vous avez utilisé le [tutoriel Générer un réseau](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) pour déployer deux organisations homologues connectées à un canal, vous pouvez interagir avec le tutoriel avec les deux organisations.
 
 Suivez les étapes ci-dessous pour déployer l'exemple sur votre réseau. Vous pouvez passer en revue le tutoriel dans la rubrique [Tutoriel Document commercial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external} de la documentation Fabric pour plus de détails sur les contrats intelligents et la structure d'application.
 
@@ -300,9 +304,9 @@ npm install
 
 ### Etape 2 : Installer et instancier le contrat intelligent
 
-Vous pouvez trouver le contrat intelligent du document commercial dans le dossier `contract` du répertoire `digibank` et `magnetocorp`. Vous devez installer ce contrat intelligent sur tous les homologues des organisations utilisant le tutoriel. Vous devrez ensuite instancier le contrat du document commercial sur un canal. Le contrat intelligent doit être packagé au [format .cds](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external} pour pouvoir être installé à partir de la console. 
+Vous pouvez trouver le contrat intelligent du document commercial dans le dossier `contract` du répertoire `digibank` et `magnetocorp`. Vous devez installer ce contrat intelligent sur tous les homologues des organisations utilisant le tutoriel. Vous devrez ensuite instancier le contrat du document commercial sur un canal. Le contrat intelligent doit être packagé au [format .cds](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external} pour pouvoir être installé à partir de la console.
 
-Vous pouvez utiliser l'[extension VS Code {{site.data.keyword.blockchainfull_notm}}](/docs/services/blockchain/vscode-extension.html) pour packager le contrat intelligent. Une fois l'extension installée, utilisez Visual Studio pour ouvrir le dossier `contracts` dans votre espace de travail. Accédez à l'onglet _{{site.data.keyword.blockchainfull_notm}} Platform_. Dans le panneau _{{site.data.keyword.blockchainfull_notm}} Platform_, accédez à la section des packages de contrat intelligent et cliquez sur **Package a Smart Contract Project**. L'extension de code VS utilisera les fichiers du dossier `contracts` pour créer un package nommé `papernet-js@.0.0.1.cds`. Cliquez avec le bouton droit afin de l'exporter vers votre système de fichiers local. Vous pouvez ensuite utiliser votre console pour [installer les contrats intelligents sur vos homologues](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-install), puis [instancier le contrat intelligent sur un canal](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-instantiate).
+Vous pouvez utiliser l'[extension {{site.data.keyword.blockchainfull_notm}} VS Code](/docs/services/blockchain?topic=blockchain-develop-vscode) pour packager le contrat intelligent. Une fois l'extension installée, utilisez Visual Studio pour ouvrir le dossier `contracts` dans votre espace de travail. Accédez à l'onglet _{{site.data.keyword.blockchainfull_notm}} Platform_. Dans le panneau _{{site.data.keyword.blockchainfull_notm}} Platform_, accédez à la section des packages de contrat intelligent et cliquez sur **Package a Smart Contract Project**. L'extension de code VS utilisera les fichiers du dossier `contracts` pour créer un package nommé `papernet-js@.0.0.1.cds`. Cliquez avec le bouton droit afin de l'exporter vers votre système de fichiers local. Vous pouvez ensuite utiliser votre console pour [installer les contrats intelligents sur vos homologues](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install), puis [instancier le contrat intelligent sur un canal](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate).
 
 ### Etape 3 : Générer des certificats pour votre portefeuille
 
@@ -310,9 +314,9 @@ Les applications doivent signer les demandes qu'elles envoient aux composants Fa
 
 L'exemple d'origine utilise le fichier `addToWallet.js` pour créer un portefeuille de système de fichiers qui utilise des certificats du dossier d'exemples de Fabric. Nous allons créer un nouveau fichier qui utilise le logiciel SDK pour générer des certificats côté client-side et stocker ces derniers directement dans un nouveau portefeuille.
 
-Choisissez l'autorité de certification de l'organisation que vous voulez utiliser dans le tutoriel en tant que magnetocorp. Par exemple, vous pouvez utiliser Org1 si vous avez terminé le tutoriel Générer un réseau. Utilisez l'autorité de certification pour [créer une identité d'application](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities). **Sauvegardez** l'ID d'inscription et le secret.
+Choisissez l'autorité de certification de l'organisation que vous voulez utiliser dans le tutoriel en tant que magnetocorp. Par exemple, vous pouvez utiliser Org1 si vous avez terminé le tutoriel Générer un réseau. Utilisez l'autorité de certification pour [créer une identité d'application](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities). **Sauvegardez** l'ID d'inscription et le secret.
 
-Utilisez votre console pour [télécharger votre profil de connexion](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile). Sauvegardez le profil de connexion sur votre système de fichiers local et renommez-le `connection.json`. Ensuite, utilisez la commande suivante pour déplacer le profil de connexion dans un répertoire où il sera référencé par des commandes futures.
+Utilisez votre console pour [télécharger votre profil de connexion](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile). Sauvegardez le profil de connexion sur votre système de fichiers local et renommez-le `connection.json`. Ensuite, utilisez la commande suivante pour déplacer le profil de connexion dans un répertoire où il sera référencé par des commandes futures.
 
   ```
   mv $HOME/<path_to_creds>/connection.json /gateway/connection.json
@@ -463,7 +467,7 @@ await gateway.connect(connectionProfile, connectionOptions);
 ```
 {:codeblock}
 
-Ce fragment de code utilise la passerelle pour ouvrir les connexions GRPC à l'homologue et aux noeuds de service de tri, ainsi que pour interagir avec votre réseau.
+Ce fragment de code utilise la passerelle pour ouvrir les connexions gRPC à l'homologue et aux noeuds de service de tri, ainsi que pour interagir avec votre réseau.
 
 ### Etape 5 : Appel du contrat intelligent
 
@@ -497,7 +501,7 @@ gateway.disconnect();
 ```
 {:codeblock}
 
-Cette commande ferme les connexions GRPC ouvertes par votre passerelle. La fermeture des connexions permet d'économiser des ressources réseau et d'améliorer les performances.
+Cette commande ferme les connexions gRPC ouvertes par votre passerelle. La fermeture des connexions permet d'économiser des ressources réseau et d'améliorer les performances.
 
 Une fois les éditions de cette étape et de l'**étape 4** effectuées, sauvegardez `issue.js` et fermez-le. Soumettez la transaction qui crée le nouveau document commercial à l'aide de la commande suivante :
 
@@ -516,14 +520,14 @@ Issue program complete.
 
 ### Etape 6 : Utiliser l'exemple digibank
 
-Après avoir utilisé le document commercial avec l'exemple magnetocorp, vous pouvez acheter et échanger ce document commercial avec l'exemple de tutoriel digibank. Vous pouvez utiliser le code d'application digibank avec la même organisation que magnetocorp, ou utiliser l'autorité de certification, les homologues et le profil de connexion d'une autre organisation. Si vous avez terminé le [tutoriel Générer un réseau](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network), c'est l'occasion d'utiliser le tutoriel avec Org2.
+Après avoir utilisé le document commercial avec l'exemple magnetocorp, vous pouvez acheter et échanger ce document commercial avec l'exemple de tutoriel digibank. Vous pouvez utiliser le code d'application digibank avec la même organisation que magnetocorp, ou utiliser l'autorité de certification, les homologues et le profil de connexion d'une autre organisation. Si vous avez terminé le [tutoriel Générer un réseau](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), c'est l'occasion d'utiliser le tutoriel avec Org2.
 
 Accédez au répertoire `digibank/application`. Vous pouvez suivre les instructions de l'**étape 3** pour créer et générer les certificats et le portefeuille qui vont signer la transaction avec digibank. Vous pouvez ensuite utiliser le fichier `buy.js` pour acheter le document commercial auprès de magnetocorp, puis utiliser le fichier `redeem.js` pour échanger le document. Vous pouvez suivre l'**étape 4** et l'**étape 5** pour éditer ces fichiers de sorte qu'ils pointent sur le profil de connexion, le canal et le contrat intelligent corrects.
 
 ## Connexion au réseau à l'aide des API de logiciel SDK Fabric de niveau inférieur
 {: #ibp-console-app-low-level}
 
-Si vous souhaitez conserver votre code de l'application existant, ou encore utiliser des logiciels SDK Fabric pour des langages autres que Node.js, vous pouvez encore vous connecter à votre réseau à l'aide des API de logiciel SDK Fabric de niveau inférieur. Utilisez la console pour [télécharger votre profil de connexion](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile). Vous pouvez ensuite importer les noeuds finaux des noeuds homologues et des noeuds de service de tri de votre canal directement depuis le profil de connexion, ou utiliser les informations de noeud final pour ajouter manuellement des objets homologue et service de tri. Vous devrez également utiliser votre autorité de certification pour [créer une identité d'application](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities), puis utiliser les informations de noeud final de l'autorité de certification pour l'enregistrement côté client, ou générer des certificats à partir de votre console.
+Si vous souhaitez conserver votre code de l'application existant, ou encore utiliser des logiciels SDK Fabric pour des langages autres que Node.js, vous pouvez encore vous connecter à votre réseau à l'aide des API de logiciel SDK Fabric de niveau inférieur. Utilisez la console pour [télécharger votre profil de connexion](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile). Vous pouvez ensuite importer les noeuds finaux des noeuds homologues et des noeuds de service de tri de votre canal directement depuis le profil de connexion, ou utiliser les informations de noeud final pour ajouter manuellement des objets homologue et service de tri. Vous devrez également utiliser votre autorité de certification pour [créer une identité d'application](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities), puis utiliser les informations de noeud final de l'autorité de certification pour l'enregistrement côté client, ou générer des certificats à partir de votre console.
 
 La documentation relative aux [Logiciels SDK Fabric Node](https://fabric-sdk-node.github.io){: external} fournit un tutoriel relatif à la [connexion à votre réseau à l'aide d'un profil de connexion ](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}. Ce tutoriel utilise les informations de noeud final de l'autorité de certification dans votre profil de connexion pour générer des clés avec le logiciel SDK. Vous pouvez également utiliser votre console pour générer un certificat signataire et une clé privée et convertir les clés au format PEM. Vous pouvez ensuite définir un contexte utilisateur en transmettant vos clés directement à la [classe client Fabric](https://fabric-sdk-node.github.io/Client.html){: external} des logiciels SDK à l'aide du code ci-dessous :
 
@@ -538,10 +542,10 @@ fabric_client.createUser({
 ```
 {:codeblock}
 
-Si vous utiliser des API de logiciel SDK de niveau inférieur pour la connexion à votre réseau, des étapes supplémentaires sont nécessaires pour gérer les performances et la disponibilité de votre application. Pour plus d'informations, voir [Meilleures pratiques pour la connectivité et la disponibilité des applications](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability).
+Si vous utiliser des API de logiciel SDK de niveau inférieur pour la connexion à votre réseau, des étapes supplémentaires sont nécessaires pour gérer les performances et la disponibilité de votre application. Pour plus d'informations, voir [Meilleures pratiques pour la connectivité et la disponibilité des applications](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability).
 
 
 ## Utilisation des index avec CouchDB
 {: #console-app-couchdb}
 
-Si vous utilisez CouchDB comme base de données d'état, vous pouvez exécuter des requêtes de données JSON depuis vos contrats intelligents sur les données d'état du canal. Nous vous recommandons fortement de créer des index pour vos requêtes JSON et de les utiliser dans les contrats intelligents. Les index permettent à vos applications d'extraire les données de manière aussi efficace que votre réseau ajoute des blocs de transaction et des entrées supplémentaires dans le World State. Pour savoir comment utiliser les index avec vos contrats intelligents et vos applications, voir [Meilleures pratiques lors de l'utilisation de CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices).
+Si vous utilisez CouchDB comme base de données d'état, vous pouvez exécuter des requêtes de données JSON depuis vos contrats intelligents sur les données d'état du canal. Nous vous recommandons fortement de créer des index pour vos requêtes JSON et de les utiliser dans les contrats intelligents. Les index permettent à vos applications d'extraire les données de manière aussi efficace que votre réseau ajoute des blocs de transaction et des entrées supplémentaires dans le World State. Pour savoir comment utiliser les index avec vos contrats intelligents et vos applications, voir [Meilleures pratiques lors de l'utilisation de CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices).

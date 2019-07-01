@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -52,6 +52,9 @@ Antes de poder importar os nós para o console, eles precisam ser exportados do 
 
 - Não é possível importar nós de redes do plano Starter ou do plano Enterprise.
 - Todos os nós a serem importados devem ter sido implementados usando o console do {{site.data.keyword.blockchainfull_notm}} Platform.
+- Não é possível corrigir os nós importados para o console.
+- Não é possível excluir nós que você importou no console por meio do cluster no qual eles foram implementados. É possível remover o nó apenas do console.
+- Se estiver importando um nó que esteja implementado no {{site.data.keyword.cloud_notm}} Private, deverá assegurar-se de que a porta do proxy da web gRPC usada pelo componente seja exposta externamente para o console. Para obter mais informações, consulte [Importando nós do {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
 
 ## Iniciar aqui: Reunindo Certificados ou Credenciais
 {: #ibp-console-import-start-here}
@@ -70,11 +73,11 @@ Depois de concluir o painel **Incluir identidade** e clicar em enviar, será pos
 ## Importando uma CA
 {: #ibp-console-import-ca}
 
-Um nó de CA é o componente de blockchain que emite certificados para todas as entidades de rede (peers, serviços de pedido, clientes e assim por diante) para que essas entidades possam se comunicar, autenticar e, finalmente, transacionar. Cada organização tem a sua própria CA que age como a sua raiz de confiança. Será necessário incluir suas organizações se você estiver se associando ou construindo um consórcio de blockchain. É possível saber mais sobre CAs na [visão geral de componentes de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-ca).  
+Um nó de CA é o componente de blockchain que emite certificados para todas as entidades de rede (peers, serviços de pedido, clientes e assim por diante) para que essas entidades possam se comunicar, autenticar e, finalmente, transacionar. Cada organização tem a sua própria CA que age como a sua raiz de confiança. Será necessário incluir suas organizações se você estiver se associando ou construindo um consórcio de blockchain. É possível saber mais sobre CAs na [visão geral de componentes de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).  
 
 Há várias razões pelas quais você pode desejar importar uma CA para seu console. Depois de importar a CA, é possível usá-la para registrar mais usuários de peer para a organização de peer clicando em **Registrar usuário**. Ou, é possível usar a CA para criar identidades administrativas adicionais para um peer ou um serviço de pedido.
 
-Para importar uma CA para o console do {{site.data.keyword.blockchainfull_notm}} Platform e operá-la, o operador de rede já deve ter exportado a CA do {{site.data.keyword.blockchainfull_notm}} Platform no qual ela foi implementada. A importação de uma CA permite registrar novos usuários e [inscrever identidades](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll).
+Para importar uma CA para o console do {{site.data.keyword.blockchainfull_notm}} Platform e operá-la, o operador de rede já deve ter exportado a CA do {{site.data.keyword.blockchainfull_notm}} Platform no qual ela foi implementada. A importação de uma CA permite registrar novos usuários e [inscrever identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll).
 
 ### Antes de iniciar
 {: #ibp-console-import-ca-before-you-begin}
@@ -92,12 +95,12 @@ A importação de uma CA é executada na guia **Nós**.
 4. No próximo painel, é possível inserir o ID de inscrição e o segredo que foi usado quando a CA foi implementada.
 5. Por último, insira o ID de inscrição e o segredo para a CA do TLS que foi usada quando a CA foi implementada. Ao implementar uma CA, uma CA e uma CA do TLS são implementadas juntas. O operador de rede pode usar o mesmo ID de inscrição e o segredo para ambas ou pode especificar IDs de inscrição e segredos exclusivo para a CA e a CA do TLS quando uma CA é implementada.
 
-Após a importação da CA para o console, é possível usar sua CA para criar novas identidades e gerar os certificados necessários para operar seus componentes e enviar transações para a rede. Para saber mais, veja [Gerenciando autoridades de certificação](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-manage-ca).
+Após a importação da CA para o console, é possível usar sua CA para criar novas identidades e gerar os certificados necessários para operar seus componentes e enviar transações para a rede. Para saber mais, veja [Gerenciando autoridades de certificação](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 
 ## Importando um serviço de pedido
 {: #ibp-console-import-orderer}
 
-Um serviço de pedido é o componente de blockchain que coleta transações de membros da rede, pede as transações e as empacota em blocos. Ele é a ligação comum de consórcios de blockchain e precisará ser implementado se você estiver fundando um consórcio ao qual outras organizações se associarão. É possível aprender mais sobre os serviços de pedido na [visão geral de componentes de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-orderer).
+Um serviço de pedido é o componente de blockchain que coleta transações de membros da rede, pede as transações e as empacota em blocos. Ele é a ligação comum de consórcios de blockchain e precisará ser implementado se você estiver fundando um consórcio ao qual outras organizações se associarão. É possível aprender mais sobre os serviços de pedido na [visão geral de componentes de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer).
 
 A importação de um serviço de pedido para o console permite criar novos canais para os peers para transacionarem privativamente.
 
@@ -121,7 +124,7 @@ Depois de ter importado o serviço de pedido para o console, será possível inc
 ## Importando um Período
 {: #ibp-console-import-peer}
 
-Um nó de peer é o componente de blockchain que mantém um livro-razão e executa um contrato inteligente para executar operações de consulta e atualização no livro-razão. Os membros da organização possuem e mantêm os peers.  Cada organização que se associa a um consórcio deve implementar pelo menos um peer e minimamente dois para alta disponibilidade (HA). É possível aprender mais sobre os peers na [visão geral de componentes de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer).
+Um nó de peer é o componente de blockchain que mantém um livro-razão e executa um contrato inteligente para executar operações de consulta e atualização no livro-razão. Os membros da organização possuem e mantêm os peers.  Cada organização que se associa a um consórcio deve implementar pelo menos um peer e minimamente dois para alta disponibilidade (HA). É possível aprender mais sobre os peers na [visão geral de componentes de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
 
 Após a importação de um peer para o console, é possível instalar contratos inteligentes no peer e associar o peer a outros canais em seu blockchain.
 
@@ -149,9 +152,28 @@ Após a importação do peer para o console, é possível instalar contratos int
 ## Importando uma definição do MSP da organização
 {: #ibp-console-import-msp}
 
-É necessário importar uma definição do MSP da organização se o MSP foi implementado usando outro console da instância de serviço do {{site.data.keyword.blockchainfull_notm}} Platform e você planeja criar ou atualizar um canal que usa essa definição do MSP. Além disso, se você planejar criar um serviço de peer ou pedido que faz parte de um MSP da organização que foi implementado em outro console, será necessário importar o MSP e a identidade do administrador do MSP associada.  O operador de rede que criou o MSP precisa exportar a definição do MSP da organização e a identidade do administrador correspondente para os arquivos JSON e compartilhá-las com você.
+É necessário importar uma definição do MSP da organização se o MSP foi implementado usando outro console da instância de serviço do {{site.data.keyword.blockchainfull_notm}} Platform e você planeja criar ou atualizar um canal que usa essa definição do MSP. Além disso, se você planejar criar um serviço de peer ou de pedido que faz parte de um MSP da organização que foi implementado em outro console, será necessário importar o MSP e a identidade do administrador do MSP associada.  O operador de rede que criou o MSP precisa exportar a definição do MSP da organização e a identidade do administrador correspondente para os arquivos JSON e compartilhá-las com você.
 
-- Se você planeja criar um serviço de peer ou pedido que faz parte da organização, importe a identidade do administrador do MSP associada para sua carteira eletrônica.
+- Se você planeja criar um serviço de peer ou de pedido que faz parte da organização, importe a identidade do administrador do MSP associada para sua carteira eletrônica.
 - A importação da definição do MSP da organização é executada por meio da guia **Organizações**.
 - Clique em **Importar definição do MSP** para fazer upload do arquivo JSON
 - (Opcional) Se você importou a identidade do administrador do MSP em sua carteira eletrônica, marque a caixa de seleção `I have an administrator identity for the MSP definition`. Se você não selecionar essa opção, quando posteriormente tentar criar um peer ou um serviço de pedido, essa definição do MSP da organização não será listada na lista suspensa do MSP.
+
+## Importando nós do {{site.data.keyword.cloud_notm}} Private
+{: #ibp-console-import-icp}
+
+É possível importar nós que foram criados no {{site.data.keyword.cloud_notm}} Private em consoles que foram implementados em outros clusters do {{site.data.keyword.cloud_notm}} Private ou no {{site.data.keyword.cloud_notm}}. No entanto, é necessário assegurar-se de que a porta usada pela URL do gRPC de seus nós seja exposta de fora do cluster. Se você estiver implementando o {{site.data.keyword.cloud_notm}} Private atrás de um firewall, será necessário ativar um intermediário usando a lista de aplicativos confiáveis, por exemplo, para permitir que o console fora do cluster se comunique com seus nós.
+
+Como um exemplo, é possível localizar o arquivo JSON de um peer que foi exportado do {{site.data.keyword.cloud_notm}} Private abaixo. Para se comunicar com o peer por meio de outro console, é necessário assegurar que a porta `grpcwp_url`, a porta 32403 neste exemplo, esteja aberta ao tráfego externo.
+
+```
+{
+    "name": "peer",
+    "grpcwp_url": "https://9.30.252.107:32403", \\ensure that port 32403 is externally exposed
+    "api_url": "grpcs://9.30.252.107:30891",
+    "operations_url": "https://9.30.252.107:30222",
+    "type": "fabric-peer",
+    "msp_id": "org1msp",
+    "pem": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNGekNDQWI2Z0F3SUJBZ0lVUi9zMGxGTG5ZNmdWRmV1Mlg5ajkrY3JDZFBrd0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWURWUVFERXdWMGJITmpZVEFlCkZ3MHhPVEEyTVRBeE9USXhNREJhRncwek5EQTJNRFl4T1RJeE1EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4RHpBTgpCZ05WQkFzVEJrWmhZbkpwWXpFT01Bd0dBMVVFQXhNRmRHeHpZMkV3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPClBRTUJCd05DQUFUYUtyN2srUHNYeXFkWkdXUHlJUXlGMGQxUkFFdmdCYlpkVnlsc3hReWZOcUdZS0FZV3A0SFUKVUVaVHVVNmtiRXN5Qi9aOVJQWEY0WVNGbW8reTVmSkhvMXd3V2pBT0JnTlZIUThCQWY4RUJBTUNBUVl3RWdZRApWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVUrcnBNb2dRc3dDTnZMQzJKNmp2cElQOExwaE13CkZRWURWUjBSQkE0d0RJY0VDUjc4YTRjRXJCRE5DakFLQmdncWhrak9QUVFEQWdOSEFEQkVBaUJGWmpMWU9XZUMKLy92L2RNMHdYNUxZT3NCaHFFNnNQZ1BSWWppOTZqT093QUlnZEppZDU0WmxjR2h0R3dEY3ZoZE02RVlBVFpQNwpmS29IMDZ3ZFhpK3VzVXM9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+}
+```

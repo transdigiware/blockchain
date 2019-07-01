@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -28,7 +28,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform은 블록체인 컴포넌트를 작성하고, 가져오고, 편집하고, 삭제하며 로깅, 알림 및 콘솔 설정을 관리하기 위한 RESTful API를 노출합니다. API 및 해당 SDK를 사용하여 블록체인 네트워크와 상호작용하는 애플리케이션을 개발할 수 있습니다.
 {: shortdesc}
 
-이 튜토리얼에서는{{site.data.keyword.blockchainfull_notm}} Platform API를 사용하여 블록체인 네트워크를 빌드하는 일반 플로우를 소개합니다. 각 API에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서](/apidocs/blockchain){: external}를 참조하십시오. 
+이 튜토리얼에서는{{site.data.keyword.blockchainfull_notm}} Platform API를 사용하여 블록체인 네트워크를 빌드하는 일반 플로우를 소개합니다. 각 API에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서](/apidocs/blockchain){: external}를 참조하십시오.
 
 이러한 API는 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} v0.1.77 이상과만 호환 가능합니다. 버전을 확인하려면 `https://[your_console_url]/version.txt`를 찾아보십시오. 여기서 *`[your_console_url]`*은 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔의 URL입니다 (예: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt).
 {:note}
@@ -48,11 +48,11 @@ API를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform으로 작
 
 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스에 액세스할 수 있으려면 기본 인증 정보가 필요합니다.
 
-1. [{{site.data.keyword.cloud_notm}} 리소스 목록](https://cloud.ibm.com/resources){: external}에서 사용자가 작성한 블록체인 서비스 인스턴스를 여십시오. 
+1. [{{site.data.keyword.cloud_notm}} 리소스 목록](https://cloud.ibm.com/resources){: external}에서 사용자가 작성한 블록체인 서비스 인스턴스를 여십시오.
 2. 왼쪽 네비게이터에서 **서비스 인증 정보**를 클릭하십시오.
-3. **서비스 인증 정보** 페이지에서 **새 인증 정보** 단추를 클릭하여 새 인증 정보를 작성하십시오. 
+3. **서비스 인증 정보** 페이지에서 **새 인증 정보** 단추를 클릭하여 새 인증 정보를 작성하십시오.
   1. 인증 정보 이름(예: *UseAPIs*)을 제공하십시오.
-  2. **인라인 구성 매개변수 추가** 필드는 비워 둘 수 있습니다. 
+  2. **인라인 구성 매개변수 추가** 필드는 비워 둘 수 있습니다.
   3. **추가** 단추를 클릭하십시오.
 4. 새 인증 정보가 작성된 후 이 인증 정보의 **조치** 헤더 아래에서 **인증 정보 보기**를 클릭하십시오. 인증 정보의 컨텐츠는 다음 예제와 유사합니다.
 
@@ -119,14 +119,14 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-각 API에 대한 예제 curl 명령은 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서](/apidocs/blockchain){: external}에 제공됩니다. 
+각 API에 대한 예제 curl 명령은 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조 문서](/apidocs/blockchain){: external}에 제공됩니다.
 
 또한 API 참조 문서에서 **시험 사용** 기능을 사용하여 API 호출을 애플리케이션에 추가하기 전에 테스트할 수 있습니다. **시험 사용** 기능을 사용하려면 {{site.data.keyword.cloud_notm}}에 로그인되어 있어야 합니다. 드롭 다운 목록에서 임의의 서비스 인스턴스를 선택할 수 있습니다. 모든 API 요청이 API 엔드포인트에 지정된 네트워크에 전송됩니다.
 
 ## 제한사항
 {: #ibp-v2-apis-limitations}
 
-다른 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 네트워크에서는 기존 CA, 피어 및 순서 지정자 노드만 가져올 수 있습니다. 
+다른 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 네트워크에서는 기존 CA, 피어 및 순서 지정 노드만 가져올 수 있습니다. 
 
 ## API를 사용하여 네트워크 빌드
 {: #ibp-v2-apis-build-with-apis}
@@ -148,13 +148,13 @@ API를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 인스
   - 또한 [조직 관리자를 등록](#ibp-v2-apis-config-register-admin)한 후 MSP 폴더 내부에서 [관리자의 인증서를 생성](#ibp-v2-apis-config-enroll-admin)해야 합니다. 관리자 ID를 이미 등록한 경우 이 단계를 완료할 필요가 없습니다.
   - [TLS CA를 사용하여 새 컴포넌트를 등록](#ibp-v2-apis-config-register-component-tls)하십시오.
 
-  {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용하여 이러한 단계를 완료할 수도 있습니다. 자세한 정보는 [ID 작성 및 관리](/docs/services/blockchain/howto/ibp-console-identities.html)를 참조하십시오.
+  {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용하여 이러한 단계를 완료할 수도 있습니다. 자세한 정보는 [ID 작성 및 관리](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities)를 참조하십시오.
 
 3. [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp)를 호출하여 [조직에 대한 MSP 정의를 작성](#ibp-v2-apis-msp)하십시오.
 
-4. 순서 지정자 또는 피어를 작성하는 데 필요한 [구성 파일을 빌드](#ibp-v2-apis-config)하십시오. 작성할 각 순서 지정자 또는 피어마다 고유한 구성 파일을 빌드해야 합니다.
+4. 순서 지정 서비스 또는 피어를 작성하는 데 필요한 [구성 파일을 빌드](#ibp-v2-apis-config)하십시오. 작성할 각 순서 지정 서비스 또는 피어마다 고유한 구성 파일을 빌드해야 합니다. 다중 순서 지정 노드를 배치하는 경우, 작성하려는 각 노드에 대한 구성 파일을 제공해야 합니다. 
 
-5. [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer)를 호출하여 순서 지정자를 작성하십시오.
+5. [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service)를 호출하여 순서 지정 서비스를 작성하십시오.
 
 6. [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer)를 호출하여 피어를 작성하십시오.
 
@@ -179,7 +179,7 @@ API를 사용하여 API 또는 {{site.data.keyword.blockchainfull_notm}} Platfor
 
 2. [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp)를 호출하여 조직 MSP 정의를 가져오십시오.
 
-3. [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer)를 호출하여 순서 지정자를 가져오십시오.
+3. [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service)를 호출하여 순서 지정 서비스를 가져오십시오.
 
 4. [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer)를 호출하여 피어를 가져오십시오.
 
@@ -198,9 +198,9 @@ Fabric CA 클라이언트를 사용하여 CA를 작동시킬 수 있습니다. �
 ### Fabric CA 클라이언트 설정
 {: #ibp-v2-apis-setup-fabric-ca-client}
 
-1. [패브릭 CA 클라이언트](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external}를 로컬 파일 시스템으로 다운로드하십시오. 
+1. [패브릭 CA 클라이언트](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external}를 로컬 파일 시스템으로 다운로드하십시오.
 
-  Fabric CA 클라이언트를 얻는 가장 간단한 방법은 모든 Fabric 도구 바이너리를 직접 다운로드하는 것입니다. 명령행을 사용하여 바이너리를 다운로드하려는 디렉토리로 이동한 후 다음 [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} 명령을 실행하여 페치하십시오. 
+  Fabric CA 클라이언트를 얻는 가장 간단한 방법은 모든 Fabric 도구 바이너리를 직접 다운로드하는 것입니다. 명령행을 사용하여 바이너리를 다운로드하려는 디렉토리로 이동한 후 다음 [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} 명령을 실행하여 페치하십시오.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.0 1.4.0 -d -s
@@ -230,7 +230,7 @@ Fabric CA 클라이언트를 사용하여 CA를 작동시킬 수 있습니다. �
   ```
   {:codeblock}
 
-4. `$FABRIC_CA_CLIENT_HOME` 환경 변수의 값을 CA 클라이언트에서 생성된 [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) 인증서를 저장할 경로로 설정하십시오. 이전 시도에서 작성된 구성 자료를 제거했는지 확인하십시오. `enroll` 명령을 처음 실행하는 경우 `msp` 폴더와 `.yaml` 파일이 없습니다.
+4. `$FABRIC_CA_CLIENT_HOME` 환경 변수의 값을 CA 클라이언트에서 생성된 MSP 인증서를 저장할 경로로 설정하십시오. 이전 시도에서 작성된 구성 자료를 제거했는지 확인하십시오. `enroll` 명령을 처음 실행하는 경우 `msp` 폴더와 `.yaml` 파일이 없습니다.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -254,9 +254,9 @@ Fabric CA 클라이언트를 사용하여 CA를 작동시킬 수 있습니다. �
 ### CA 관리자로 인증서 생성
 {: #ibp-v2-apis-enroll-ca-admin}
 
-**CA 관리자** ID는 CA를 작성할 때 자동으로 등록되었습니다. 이제 해당 관리자 이름 및 비밀번호를 사용하여 Fabric CA 클라이언트에 `enroll` 명령을 실행하여 이후 다른 피어 또는 순서 지정자 ID를 등록하는 데 사용될 수 있는 인증서가 포함된 MSP 폴더를 생성할 수 있습니다.
+**CA 관리자** ID는 CA를 작성할 때 자동으로 등록되었습니다. 이제 해당 관리자 이름 및 비밀번호를 사용하여 Fabric CA 클라이언트에 `enroll` 명령을 실행하여 이후 다른 피어 또는 순서 지정 노드 ID를 등록하는 데 사용될 수 있는 인증서가 포함된 MSP 폴더를 생성할 수 있습니다.
 
-1. [Fabric CA 클라이언트를 설정](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client)하는 단계를 완료했으며 `$FABRIC_CA_CLIENT_HOME`이 CA 관리자 인증서를 저장할 디렉토리로 설정되어 있는지 확인하십시오.
+1. [Fabric CA 클라이언트를 설정](#ibp-v2-apis-config-fabric-ca-client)하는 단계를 완료했으며 `$FABRIC_CA_CLIENT_HOME`이 CA 관리자 인증서를 저장할 디렉토리로 설정되어 있는지 확인하십시오.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -289,9 +289,9 @@ Fabric CA 클라이언트를 사용하여 CA를 작동시킬 수 있습니다. �
   ```
   {:codeblock}
 
-  `enroll` 명령은 Fabric CA 클라이언트에 대한 `$HOME` 경로로 설정한 디렉토리 내에 있는 MSP(Membership Service Provider) 폴더로 알려진 전체 인증서 세트를 생성합니다. 예를 들면 `$HOME/fabric-ca-client/ca-admin`입니다. MSP에 대한 자세한 정보 및 MSP 폴더에 포함되는 항목은 [MSP(Membership Service Provider)](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp)를 참조하십시오.
+  `enroll` 명령은 Fabric CA 클라이언트에 대한 `$HOME` 경로로 설정한 디렉토리 내에 있는 MSP(Membership Service Provider) 폴더로 알려진 전체 인증서 세트를 생성합니다. 예를 들면 `$HOME/fabric-ca-client/ca-admin`입니다. MSP에 대한 자세한 정보 및 MSP 폴더에 포함되는 항목은 [MSP(Membership Service Provider)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)를 참조하십시오.
 
-  `enroll` 명령이 실패하는 경우 가능한 원인은 [문제점 해결 주제](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting)를 참조하십시오.
+  `enroll` 명령이 실패하는 경우 가능한 원인은 [문제점 해결 주제](#ibp-v2-apis-config-troubleshooting)를 참조하십시오.
 
   tree 명령을 실행하여 모든 전제조건 단계를 완료했는지 확인할 수 있습니다. 인증서를 저장한 디렉토리로 이동하십시오. 트리 명령은 다음 구조와 유사한 결과를 생성해야 합니다.
 
@@ -346,14 +346,14 @@ tree
 
   두 번째 **affiliation** 값(예: `org1.department1`)을 기록해 두십시오. 아래 명령에서 이 값을 사용해야 합니다.
 
-3. 다음 명령을 실행하여 순서 지정자 또는 피어를 등록하십시오.
+3. 다음 명령을 실행하여 순서 지정 노드 또는 피어를 등록하십시오.
 
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
   {:codeblock}
 
-  컴포넌트의 이름 및 비밀번호를 작성한 후 해당 이름 및 비밀번호를 사용하여 `name` 및 `secret`을 대체하십시오.  이 정보를 기록하십시오. `--id.type`은 순서 지정자를 배치하는 경우 `orderer`로 설정하고 피어를 배치하는 경우 `peer`로 설정하십시오. 이 명령은 다음 예제와 유사합니다.
+  컴포넌트의 이름 및 비밀번호를 작성한 후 해당 이름 및 비밀번호를 사용하여 `name` 및 `secret`을 대체하십시오.  이 정보를 기록하십시오. `--id.type`은 순서 지정 노드를 배치하는 경우 `orderer`로 설정하고 피어를 배치하는 경우 `peer`로 설정하십시오. 이 명령은 다음 예제와 유사합니다.
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -378,7 +378,7 @@ tree
 
 네트워크를 조작하는 데 사용할 수 있는 관리자 ID도 작성해야 합니다. 이 ID를 사용하여 특정 컴포넌트를 조작합니다(예: 피어에 스마트 계약 설치). 이 ID를 조직의 관리자로 사용하고 이 ID를 사용하여 채널을 작성하고 편집할 수도 있습니다.  
 
-CA를 사용하여 이 새 ID를 등록하고 이 ID를 사용하여 MSP 폴더를 생성해야 합니다. 해당 signCert를 조직 MSP에 추가하여 이 ID를 조직 관리자로 설정할 수 있습니다. 또한 배치 중에 순서 지정자 또는 피어의 관리자 인증서가 될 수 있도록 signCert를 구성 파일에 추가해야 합니다. 조직에 대한 하나의 관리자 ID만 작성해야 합니다. 결과적으로 이러한 단계를 한 번만 완료해야 합니다. 사용자가 생성한 signCert를 사용하여 많은 피어 또는 순서 지정자를 배치할 수 있습니다.
+CA를 사용하여 이 새 ID를 등록하고 이 ID를 사용하여 MSP 폴더를 생성해야 합니다. 해당 signCert를 조직 MSP에 추가하여 이 ID를 조직 관리자로 설정할 수 있습니다. 또한 배치 중에 순서 지정 노드 또는 피어의 관리자 인증서가 될 수 있도록 signCert를 구성 파일에 추가해야 합니다. 조직에 대한 하나의 관리자 ID만 작성해야 합니다. 결과적으로 이러한 단계를 한 번만 완료해야 합니다. 사용자가 생성한 signCert를 사용하여 많은 피어 또는 순서 지정 노드를 배치할 수 있습니다.
 
 `$FABRIC_CA_CLIENT_HOME`이 CA 관리자의 MSP에 대한 경로로 설정되어 있는지 확인하십시오.
 
@@ -395,7 +395,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-관리자에 대한 새 사용자 ID의 `name` 및 `secret`을 작성하십시오. 방금 등록한 피어 또는 순서 지정자 ID와 다른 값을 사용해야 합니다. 이 명령은 다음 예제와 유사합니다:
+관리자에 대한 새 사용자 ID의 `name` 및 `secret`을 작성하십시오. 방금 등록한 피어 또는 순서 지정 노드 ID와 다른 값을 사용해야 합니다. 이 명령은 다음 예제와 유사합니다:
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -480,7 +480,7 @@ tree
 ### TLS CA를 사용하여 컴포넌트 ID 등록
 {: #ibp-v2-apis-config-register-component-tls}
 
-CA를 작성할 때 TLS CA가 기본 CA와 함께 배치되었습니다. 또한 TLS CA를 사용하여 순서 지정자 또는 피어를 등록해야 합니다. 이를 수행하려면 먼저 TLS CA의 관리자를 사용하여 등록해야 합니다. `$FABRIC_CA_CLIENT_HOME`을 TLS CA 관리자 인증서가 저장될 디렉토리로 변경하십시오.
+CA를 작성할 때 TLS CA가 기본 CA와 함께 배치되었습니다. 또한 TLS CA를 사용하여 순서 지정 노드 또는 피어를 등록해야 합니다. 이를 수행하려면 먼저 TLS CA의 관리자를 사용하여 등록해야 합니다. `$FABRIC_CA_CLIENT_HOME`을 TLS CA 관리자 인증서가 저장될 디렉토리로 변경하십시오.
 
 ```
 cd $HOME/fabric-ca-client
@@ -489,7 +489,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-다음 명령을 실행하여 TLS CA에 대한 관리자로 등록하십시오. TLS CA 관리자의 등록 ID 및 비밀번호는 기본 CA와 동일합니다. 따라서 아래 명령은 [CA 관리자](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin)로 등록하는 데 사용한 것과 동일하며 여기에 TLS CA 이름만 사용합니다. TLS CA 이름은 콘솔의 CA **설정** 패널에 있는 **TLS CA 이름** 값 또는 `CA 작성` API에서 리턴된 `"tlsca_name"` 값입니다.
+다음 명령을 실행하여 TLS CA에 대한 관리자로 등록하십시오. TLS CA 관리자의 등록 ID 및 비밀번호는 기본 CA와 동일합니다. 따라서 아래 명령은 [CA 관리자](#ibp-v2-apis-enroll-ca-admin)로 등록하는 데 사용한 것과 동일하며 여기에 TLS CA 이름만 사용합니다. TLS CA 이름은 콘솔의 CA **설정** 패널에 있는 **TLS CA 이름** 값 또는 `CA 작성` API에서 리턴된 `"tlsca_name"` 값입니다.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -502,14 +502,14 @@ fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_po
   fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-등록한 후에는 TLS CA를 사용하여 컴포넌트를 등록하기 위해 필요한 인증서를 보유하게 됩니다. 다음 명령을 실행하여 순서 지정자 또는 피어를 등록하십시오.
+등록한 후에는 TLS CA를 사용하여 컴포넌트를 등록하기 위해 필요한 인증서를 보유하게 됩니다. 다음 명령을 실행하여 순서 지정 노드 또는 피어를 등록하십시오. 
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-이 명령은 TLS CA 이름을 사용해야 한다는 점을 제외하면 CA를 사용하여 컴포넌트 ID를 등록하는 데 사용한 명령과 유사합니다. 피어가 아닌 순서 지정자를 배치하는 경우 `--id.type`을 `peer`가 아닌 `orderer`로 설정하십시오. 이 ID에는 기본 CA에 대해 사용한 것과 다른 사용자 이름 및 비밀번호를 제공해야 합니다. 실제 등록은 다음 명령과 유사합니다.
+이 명령은 TLS CA 이름을 사용해야 한다는 점을 제외하면 CA를 사용하여 컴포넌트 ID를 등록하는 데 사용한 명령과 유사합니다. 피어가 아닌 순서 지정 노드를 배치하는 경우 `--id.type`을 `peer`가 아닌 `orderer`로 설정하십시오. 이 ID에는 기본 CA에 대해 사용한 것과 다른 사용자 이름 및 비밀번호를 제공해야 합니다. 실제 등록은 다음 명령과 유사합니다.
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -517,6 +517,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 구성 파일을 작성할 때를 대비하여 위의 명령의 `"enrollid"` 및 `"enrollsecret"`을 저장해야 합니다.
 {: important}
+
+### 문제점 해결
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **문제점:** `enroll` 명령을 실행할 때 오류가 발생합니다.
+{: #ibp-v2-apis-config-enroll-error1}
+
+Fabric CA 클라이언트 enroll 명령을 실행할 때 다음 오류로 인해 명령이 실패할 수 있습니다.
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**솔루션:**
+
+이 오류는 Fabric CA 클라이언트에서 등록하려고 시도하지만 CA에 연결할 수 없는 경우에 발생할 수 있습니다. 다음과 같은 상황에서 이 문제가 발생할 수 있습니다.   
+
+- `enroll` 명령의 `-u` 매개변수에 추가적인 `https://`가 포함되어 있습니다.
+- CA 이름이 올바르지 않습니다.
+- 사용자 이름 또는 비밀번호가 올바르지 않습니다.
+
+`enroll` 명령에 지정된 매개변수를 검토하여 이러한 조건이 존재하지 않는지 확인하십시오.
+
+#### **문제점:** `enroll` 명령을 실행할 때 CA URL에 오류가 발생합니다.
+{: #ibp-v2-apis-config-enroll-error2}
+
+등록 url, `-u` 매개변수값에 특수 문자가 포함된 경우, Fabric CA 클라이언트 등록 명령이 실패할 수 있습니다. 예를 들어, 등록 ID 및 비밀번호가 `admin:C25A06287!0`인 다음 명령의 경우,
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+명령이 실패하고 다음 오류가 생성됩니다.
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **솔루션:**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+특수 문자를 인코딩하거나 작은따옴표로 url을 묶어야 합니다. 예를 들어, `!`가 `%21`이 되거나 다음과 유사하게 표시됩니다.
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## 조직 MSP 정의 작성
 {: #ibp-v2-apis-msp}
@@ -558,7 +605,7 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
   WVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBa
   ```
 
-  예를 들어, 다음과 같습니다.
+  예를 들면 다음과 같습니다.
 
   ```
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -619,7 +666,7 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
 ## 구성 파일 작성
 {: #ibp-v2-apis-config}
 
-API를 사용하여 피어 또는 순서 지정자를 작성하려면 구성 파일을 완료해야 합니다. 이 파일은 API 호출의 요청 본문에 있는 `config` 오브젝트로 API에 제공됩니다. CA를 {{site.data.keyword.cloud_notm}} Platform 서비스 인스턴스에 배치하고 파일을 완료하기 전에 필수 ID를 등록하는 단계를 수행해야 합니다.
+API를 사용하여 피어 또는 순서 지정 노드를 작성하려면 구성 파일을 완료해야 합니다. 이 파일은 API 호출의 요청 본문에 있는 `config` 오브젝트로 API에 제공됩니다. 다중 순서 지정 노드를 작성하는 경우, API 요청에 대한 배열에서 작성하려는 각 노드에 대한 구성 파일을 제공해야 합니다. 예를 들어 5개의 raft 순서 지정 서비스의 경우 5개의 구성 파일의 배열을 작성해야 합니다. 제공하는 enrollID가 충분히 높은 등록 한계를 가지는 한 각 노드에 대한 동일한 파일을 제공할 수 있습니다. CA를 {{site.data.keyword.cloud_notm}} Platform 서비스 인스턴스에 배치하고 파일을 완료하기 전에 필수 ID를 등록하는 단계를 수행해야 합니다.
 
 구성 파일의 템플리트는 아래에서 찾을 수 있습니다.
 ```
@@ -654,7 +701,7 @@ API를 사용하여 피어 또는 순서 지정자를 작성하려면 구성 파
 ```
 {:codeblock}
 
-이 전체 파일을 편집할 수 있는 텍스트 편집기에 복사하고 이를 로컬 파일 시스템에 JSON 파일로 저장하십시오. 아래 단계를 사용하여 이 구성 파일을 완료하고 이를 사용하여 순서 지정자 또는 피어를 배치하십시오.
+이 전체 파일을 편집할 수 있는 텍스트 편집기에 복사하고 이를 로컬 파일 시스템에 JSON 파일로 저장하십시오. 아래 단계를 사용하여 이 구성 파일을 완료하고 이를 사용하여 순서 지정 서비스 또는 피어를 배치하십시오.
 
 ### CA 연결 정보 검색
 {: #ibp-v2-apis-config-connx-info}
@@ -730,7 +777,7 @@ VEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJB
 WVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBa
 ```
 
-예를 들어, 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -800,7 +847,7 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lY
 ```
 {:codeblock}
 
-다른 필드는 공백으로 둘 수 있습니다. 이 파일을 완료한 후 이 파일을 `config` 필드로 `순서 지정자 작성` 또는 `피어 작성` API의 요청 분문에 전달할 수 있습니다.
+다른 필드는 공백으로 둘 수 있습니다. 이 파일을 완료한 후 이 파일을 `config` 필드로 `순서 지정 서비스 작성` 또는 `피어 작성` API의 요청 분문에 전달할 수 있습니다.
 
 ### 관리자 ID를 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔로 가져오기
 {: #ibp-v2-apis-admin-console}

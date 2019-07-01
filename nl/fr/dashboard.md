@@ -17,4 +17,4 @@ subcollection: blockchain
 # Exploitation d'un réseau de plan Starter
 {: #operate-starter-plan-network}
 
-Consultez le tutoriel [Utilisation du Moniteur réseau](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard) pour en savoir plus sur l'exploitation de votre réseau de plan Starter.
+Consultez le tutoriel [Utilisation du Moniteur réseau](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard) pour en savoir plus sur l'exploitation de votre réseau de plan Starter.

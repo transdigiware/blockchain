@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
@@ -42,33 +42,32 @@ Puede utilizar el supervisor de red de {{site.data.keyword.blockchainfull_notm}}
   - **Afiliación** la afiliación dentro de la organización, como por ejemplo `org1`, a la que pertenece la identidad.
   - **Número máximo de inscripciones:** puede utilizar este campo para limitar el número de veces que puede inscribir o generar certificados utilizando esta identidad. Si deja el campo en blanco, el valor predeterminado es un número ilimitado de inscripciones.
 
-Puede utilizar este panel para registrar una nueva identidad de igual si está desplegando un [igual remoto](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about). Como alternativa, puede registrar un cliente si está desarrollando una aplicación que puede enviar transacciones a la red. Visite la [guía de aprendizaje de desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app) para obtener más información sobre el uso de los SDK de Fabric con la plataforma.
+Puede utilizar este panel para registrar una nueva identidad de igual si está desplegando un [igual remoto](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about). Como alternativa, puede registrar un cliente si está desarrollando una aplicación que puede enviar transacciones a la red.
 
 ### Generación de certificados del lado del cliente (inscripción)
 {: #managing-certificates-enrollment}
 Para poder conectar un cliente de terceros a la plataforma {{site.data.keyword.blockchainfull_notm}}, es necesario que se autentique. El proceso de generación de los certificados necesarios, la clave privada y el certificado (también conocido como certificado de inscripción o signCert), se denomina inscripción. Estos certificados se necesitarán siempre que el cliente se comunique con la red. Cualquier cliente que envíe llamadas a la red tendrá que firmar cargas útiles utilizando una clave privada y adjuntar un certificado de x509 correctamente firmado.
 
-Visite la [guía de aprendizaje de desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app) para aprender a [inscribir mediante el SDK de nodo de Fabric](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk). La inscripción con el SDK genera 3 elementos independientes: una clave privada, un signCert y una clave pública que se ha utilizado para crear el signCert.
+Si realiza la inscripción utilizando los SDK de Fabric, el SDK generará una clave privada y un signCert. La clave privada y el signCert forman un contexto de usuario que se puede utilizar para trabajar con el SDK.
 
-También puede generar certificados desde la línea de mandatos utilizando el [cliente de CA de Fabric](/docs/services/blockchain/certificates.html#managing-certificates-enroll-register-caclient). El cliente de CA de Fabric devuelve un conjunto más completo de certificados dentro de una carpeta de Proveedor de servicios de pertenencia (MSP). Esta carpeta contiene el certificado raíz que ha firmado la CA, certificados intermedios, una clave privada y su signCert. Para obtener más información sobre los MSP y el contenido de la carpeta de MSP, consulte
-[Proveedores de servicios de pertenencia](/docs/services/blockchain/certificates.html#managing-certificates-msp).
+También puede generar certificados desde la línea de mandatos utilizando el [cliente de CA de Fabric](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient). El cliente de CA de Fabric devuelve un conjunto más completo de certificados dentro de una carpeta de Proveedor de servicios de pertenencia (MSP). Esta carpeta contiene el certificado raíz que ha firmado la CA, certificados intermedios, una clave privada y su signCert. Para obtener más información sobre los MSP y el contenido de la carpeta de MSP, consulte
+[Proveedores de servicios de pertenencia](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
-Solo puede generar certificados utilizando identidades que se hayan registrado con la entidad emisora de certificados, utilizando el nombre y el secreto de dicha identidad. De forma predeterminada, ya se ha registrado una identidad **admin** con la CA, que aparecerá en la pantalla "Entidad emisora de certificados". Puede encontrar el secreto de la identidad de administrador (admin) en el perfil de conexión pulsando el botón **Perfil de conexión** de la pantalla "Visión general" del supervisor de red. También puede registrar una nueva identidad pulsando el botón [Añadir usuario](/docs/services/blockchain/certificates.html#managing-certificates-ca-panel) de la pantalla "Entidad emisora de certificados" del supervisor de red y, a continuación, generar certificados con el nombre y el secreto de la nueva identidad.
+Solo puede generar certificados utilizando identidades que se hayan registrado con la entidad emisora de certificados, utilizando el nombre y el secreto de dicha identidad. De forma predeterminada, ya se ha registrado una identidad **admin** con la CA, que aparecerá en la pantalla "Entidad emisora de certificados". Puede encontrar el secreto de la identidad de administrador (admin) en el perfil de conexión pulsando el botón **Perfil de conexión** de la pantalla "Visión general" del supervisor de red. También puede registrar una nueva identidad pulsando el botón [Añadir usuario](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel) de la pantalla "Entidad emisora de certificados" del supervisor de red y, a continuación, generar certificados con el nombre y el secreto de la nueva identidad.
 
-**Nota:** si sigue las instrucciones para generar certificados utilizando el SDK de Node de Fabric o el cliente de CA de Fabric indicadas anteriormente, comience realizando la inscripción con la identidad de administrador. A continuación, utilice estos certificados para registrar una nueva identidad de cliente con la CA. Si utiliza las instrucciones del SDK en [Desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app), volverá a realizar la inscripción utilizando la identidad de cliente. Luego puede utilizar estos certificados para enviar transacciones a la red.
-<!---You can an illustration of how the developing applications tutorial interacts with your organization CA in the diagram below.--->
+**Nota:** si sigue las instrucciones siguientes para generar certificados utilizando el cliente de CA de Fabric, empiece realizando la inscripción utilizando la identidad de administrador. A continuación, utilice estos certificados para registrar una nueva identidad de cliente con la CA. A continuación, tiene la opción de realizar la inscripción de nuevo utilizando la identidad de cliente. Ahora puede utilizar dichos certificados para enviar transacciones a la red.
 
 ### Generación de certificados mediante el supervisor de red
 {: #managing-certificates-certs-panel}
 
 Puede utilizar el supervisor de red para generar certificados utilizando la identidad de administrador y, a continuación, pasar dichos certificados directamente al SDK. Pulse el botón **Generar certificado** situado junto a la identidad de administrador para obtener un nuevo signCert y una clave privada de la entidad emisora de certificados. El campo
-**Certificado** contiene el signCert, justo encima de la **Clave privada**. Puede pulsar el icono de copia que hay al final de cada campo para copiar el valor. A continuación, debe guardar estos certificados en un lugar desde el que pueda importarlos luego en la aplicación. Para obtener más información, consulte la [guía de aprendizaje de desarrollo de aplicaciones](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel). **Tenga en cuenta** que {{site.data.keyword.blockchainfull_notm}} Platform no almacena estos certificados. Tiene que guardarlos y almacenarlos de forma segura.
+**Certificado** contiene el signCert, justo encima de la **Clave privada**. Puede pulsar el icono de copia que hay al final de cada campo para copiar el valor. A continuación, debe guardar estos certificados en un lugar desde el que pueda importarlos luego en la aplicación. **Tenga en cuenta** que {{site.data.keyword.blockchainfull_notm}} Platform no almacena estos certificados. Tiene que guardarlos y almacenarlos de forma segura.
 
 ### Carga de certificados de firma en la plataforma {{site.data.keyword.blockchainfull_notm}}
 {: #managing-certificates-upload-certs}
 
-Una aplicación solo requiere un signCert válido para enviar transacciones a la red. Sin embargo, si un cliente desea trabajar en la red, por ejemplo instalando código de encadenamiento en iguales o uniendo iguales a canales, debe ser reconocido como administrador. Cada componente reconoce un conjunto de signCerts que son propiedad de un administrador. Si necesita trabajar en la red desde un cliente, tendrá que cargar su signCert y añadirlo a la lista de certificados de administración. Puede hacerlo en la plataforma cargando su signCert en el separador **Certificados** del [panel "Visión general"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) del supervisor de red. Sincronice este certificado con sus iguales con el botón de reinicio que aparece cuando finaliza la carga. Tras ello, el cliente podrá trabajar con la red. También puede cargar el signCert utilizando la
-[API de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) para añadir un certificado de administrador.
+Una aplicación solo requiere un signCert válido para enviar transacciones a la red. Sin embargo, si un cliente desea trabajar en la red, por ejemplo instalando código de encadenamiento en iguales o uniendo iguales a canales, debe ser reconocido como administrador. Cada componente reconoce un conjunto de signCerts que son propiedad de un administrador. Si necesita trabajar en la red desde un cliente, tendrá que cargar su signCert y añadirlo a la lista de certificados de administración. Puede hacerlo en la plataforma cargando su signCert en el separador **Certificados** del [panel "Visión general"](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) del supervisor de red. Sincronice este certificado con sus iguales con el botón de reinicio que aparece cuando finaliza la carga. Tras ello, el cliente podrá trabajar con la red. También puede cargar el signCert utilizando la
+[API de Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) para añadir un certificado de administrador.
 
 Los canales también reconocen un conjunto de certificados de administrador de las identidades que tienen permitido operar con el canal, incluyendo la capacidad de crear una instancia de código de encadenamiento en el canal. Si utiliza un nuevo signCert con un cliente remoto, debe sincronizar el certificado con el canal para poder crear una instancia del código de encadenamiento. Realice los pasos siguientes en el supervisor de red para añadir el certificado al canal:
 
@@ -82,7 +81,7 @@ Los canales también reconocen un conjunto de certificados de administrador de l
 ### Caducidad de los certificados
 {: #managing-certificates-expiration}
 
-Certifica que las CA generan en {{site.data.keyword.blockchainfull_notm}} Platform caducarán después de uno o tres años. El periodo de caducidad es el mismo para los certificados que se generan mediante los SDK de Fabric, el cliente de CA de Fabric o el [Supervisor de red](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel). Si los certificados caducan, las aplicaciones ya no pueden interactuar con la red. Tiene que volverse a inscribir para generar nuevos certificados. Si ha alcanzado el límite de inscripción de un usuario, puede registrar un nuevo usuario y luego inscribirlo. También tiene que cargar los nuevos certificados en la plataforma si ha utilizado certificados antiguos para trabajar con la red.
+Certifica que las CA generan en {{site.data.keyword.blockchainfull_notm}} Platform caducarán después de uno o tres años. El periodo de caducidad es el mismo para los certificados que se generan mediante los SDK de Fabric, el cliente de CA de Fabric o el Supervisor de red. Si los certificados caducan, las aplicaciones ya no pueden interactuar con la red. Tiene que volverse a inscribir para generar nuevos certificados. Si ha alcanzado el límite de inscripción de un usuario, puede registrar un nuevo usuario y luego inscribirlo. También tiene que cargar los nuevos certificados en la plataforma si ha utilizado certificados antiguos para trabajar con la red.
 
 Puede utilizar la línea de mandatos para comprobar la fecha de caducidad de los certificados. Ejecute el mandato siguiente para visualizar los certificados en un formato legible por el usuario:
 ```
@@ -115,7 +114,7 @@ Encontrará la fecha de caducidad en la sección **Validity**, después de `Not 
 
 [Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm) (TLS) está incorporada en el modelo de confianza de Hyperledger Fabric. Todos los componentes de {{site.data.keyword.blockchainfull_notm}} Platform utilizan TLS para autenticarse y comunicarse entre sí. Por lo tanto, debe adjuntar un certificado TLS emitido por la plataforma a sus llamadas para poder validar y cifrar la comunicación. Los otros certificados que se explican en esta guía de aprendizaje protegen su capacidad de realizar transacciones y de gestionar la red. Los certificados TLS se utilizan para proteger las llamadas a la red.
 
-Los certificados TLS los emite públicamente la plataforma y son los mismos para todos los componentes de la red. Puede descargar los certificados TLS con los enlaces siguientes, en función del plan de pertenencia y de la ubicación de la nube. También puede encontrar los certificados TLS en el [perfil de credenciales](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile). Este certificado puede residir en cualquier lugar, siempre que se pueda hacer referencia al mismo desde la aplicación o línea de mandatos.
+Los certificados TLS los emite públicamente la plataforma y son los mismos para todos los componentes de la red. Puede descargar los certificados TLS con los enlaces siguientes, en función del plan de pertenencia y de la ubicación de la nube. También puede encontrar los certificados TLS en el [perfil de credenciales](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile). Este certificado puede residir en cualquier lugar, siempre que se pueda hacer referencia al mismo desde la aplicación o línea de mandatos.
 
 - Certificado TLS para el Plan inicial
   - EE. UU.: [us01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert){: external}; [us02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert){: external};
@@ -127,7 +126,7 @@ Los certificados TLS los emite públicamente la plataforma y son los mismos para
   - Sídney: [aus01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert){: external}
 - [Certificado TLS para el plan de empresa](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
-Todas las redes de {{site.data.keyword.blockchainfull_notm}} Platform utilizan TLS del lado del servidor, en el que la red debe autenticar los clientes. Las redes del plan empresarial también pueden habilitar el TLS mutuo, en el que el cliente y el servidor se autentican entre sí, para garantizar la seguridad de las aplicaciones. Los certificados TLS del lado del cliente (para TLS mutuo) los emite la entidad emisora de certificados del cliente y son exclusivos de la red. Si utiliza una red del plan empresarial, se recomienda habilitar TLS mutuo. Para obtener más información sobre TLS mutuo, consulte estas [instrucciones de TLS mutuo](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-mutual-tls).
+Todas las redes de {{site.data.keyword.blockchainfull_notm}} Platform utilizan TLS del lado del servidor, en el que la red debe autenticar los clientes. Las redes del plan empresarial también pueden habilitar el TLS mutuo, en el que el cliente y el servidor se autentican entre sí, para garantizar la seguridad de las aplicaciones. Los certificados TLS del lado del cliente (para TLS mutuo) los emite la entidad emisora de certificados del cliente y son exclusivos de la red. Si utiliza una red del plan empresarial, se recomienda habilitar TLS mutuo. Para obtener más información sobre TLS mutuo, consulte estas [instrucciones de TLS mutuo](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-mutual-tls).
 
 ### Recuperación del nombre de dominio de los certificados TLS
 {: #managing-certificates-retrieve-domain}
@@ -185,7 +184,7 @@ Las carpetas de MSP de Fabric tienen una estructura definida. Cuando realiza la 
 
 También puede crear una carpeta de MSP a la que puede hacer referencia el cliente de CA de Fabric utilizando el supervisor de red y las API de Swagger.
 
-- **cacerts** e **intermediatecerts**: puede recuperar estos certificados con las [API de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) emitiendo una solicitud Get a la API de MSP.
+- **cacerts** e **intermediatecerts**: puede recuperar estos certificados con las [API de Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) emitiendo una solicitud Get a la API de MSP.
 - **signcerts** y **keystore**: para generar estos certificados, pulse el botón **Generar certificados** en el panel "Entidad emisora de certificados". Se abre una ventana emergente con dos certificados. Copie y almacene el **Certificado** en signcerts y la **Clave privada** en el almacén de claves. Guarde estos certificados en un lugar seguro, ya que no se almacenan en la plataforma.
 
 Muchos componentes de Fabric contienen información adicional dentro de su carpeta de MSP. Por ejemplo, si trabaja con un igual remoto, es posible que vea las carpetas siguientes:
@@ -200,7 +199,7 @@ Para obtener más información sobre la estructura de los MSP, consulte los tema
 {: #managing-certificates-enroll-register-caclient}
 
 También puede utilizar el cliente de CA de Fabric para generar certificados y registrar una nueva identidad con la entidad emisora de certificados. En las instrucciones siguientes se generan certificados mediante su identidad de administración y luego se utilizan dichos certificados para registrar un nuevo cliente. Para obtener más información sobre la inscripción mediante el cliente de CA de Fabric y la generación de certificados, consulte
-[Proveedores de servicios de pertenencia](/docs/services/blockchain/certificates.html#managing-certificates-msp).
+[Proveedores de servicios de pertenencia](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
 ### Inscripción mediante el cliente de CA de Fabric
 {: #managing-certificates-enroll-app-caclient}
@@ -245,14 +244,11 @@ También puede utilizar el cliente de CA de Fabric para generar certificados y r
   ./fabric-ca-client enroll -u https://admin:dda0c53f7b@n7413e3b503174a58b112d30f3af55016-org1-ca.us3.blockchain.ibm.com:31011 --caname org1CA --tls.certfiles $HOME/tls/us2.blockchain.ibm.com.cert
   ```
 
-6. Busque el certificado de administración en `$FABRIC_CA_CLIENT_HOME/msp/signcerts/cert.pem/.fabric-ca-client/msp/signcerts/cert.pem`. Luego podrá subir el certificado de administración a la red blockchain del Supervisor de red. Para obtener más información sobre la adición de certificados, consulte [el separador "Certificados" del panel "Miembro"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) en el supervisor de red.
+6. Busque el certificado de administración en `$FABRIC_CA_CLIENT_HOME/msp/signcerts/cert.pem/.fabric-ca-client/msp/signcerts/cert.pem`. Luego podrá subir el certificado de administración a la red blockchain del Supervisor de red. Para obtener más información sobre la adición de certificados, consulte [el separador "Certificados" del panel "Miembro"](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) en el supervisor de red.
 
   También puede encontrar el certificado raíz de la CA y la clave privada de administración en los directorios siguientes:
   * Certificado raíz de CA: `$FABRIC_CA_CLIENT_HOME/msp/cacerts/--<ca_name>.pem`
   * Clave privada de administración: `$FABRIC_CA_CLIENT_HOME/msp/keystore/<>_sk file`
-
-Para ver un ejemplo de dónde realizaría la inscripción utilizando el cliente de CA de Fabric y utilizaría los certificados generados para trabajar con un componente de la red, consulte las instrucciones sobre cómo
-[trabajar con un igual remoto](/docs/services/blockchain/howto/peer_operate_icp.html#icp-peer-operate-cli-operate).
 
 ### Registro mediante el cliente de CA de Fabric
 {: #register-app-caclient}
