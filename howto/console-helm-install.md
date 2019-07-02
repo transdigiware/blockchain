@@ -34,13 +34,11 @@ Before you install {{site.data.keyword.blockchainfull_notm}} Platform for {{site
 Before you install the Helm chart, you must have configured an {{site.data.keyword.cloud_notm}} Private cluster and created a new target namespace that is bound to a pod security policy. Review the instructions for [setting up and configuring an {{site.data.keyword.cloud_notm}} Private cluster](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup). You can only deploy one console per namespace. If you plan to create multiple blockchain networks, for example to create different environments for development, staging, and production, you should create a unique namespace for each environment.
 
 ### PodSecurityPolicy Requirements
-{: #console-helm-install-prereqs-pod-security-requirements}
+{: #icp-console-setup-psp}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires specific security and access policies be bound to the target namespace prior to installation. Use the following steps to configure the policies prior to configuration of the Helm Chart:
+The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires specific security and access policies be bound to the target namespace prior to installation. We provide YAML files defining the policies in the steps below. You can save these files to your local system and then bind them your namespace using the {{site.data.keyword.cloud_notm}} Private CLI. Follow the steps below prior to deploying the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart.
 
-1. Choose either a predefined PodSecurityPolicy for your namespace, or have your cluster administrator create a custom PodSecurityPolicy for you:
-  - You can use the predefined PodSecurityPolicy of [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-  - You can also create using YAML below a Custom PodSecurityPolicy definition:
+1. Save the file below that defines the {{site.data.keyword.blockchainfull_notm}} Platform PodSecurityPolicy as `ibm-blockchain-platform-psp.yaml` on your local system:
 
     ```
     apiVersion: extensions/v1beta1
@@ -76,8 +74,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
     ```
     {:codeblock}
 
-2. Create a ClusterRole for the PodSecurityPolicy.
-  - If you created a custom security policy, you can create a ClusterRole using the YAML file below:
+2. Save the file below that defines the required ClusterRole for the PodSecurityPolicy as `ibm-blockchain-platform-clusterrole.yaml`:
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -148,31 +145,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
     ```
     {:codeblock}
 
-  - If you are using a predefined PodSecurityPolicy, you only need to create a ClusterRole using the second apiGroups section:
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. Create a custom ClusterRoleBinding. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** Section of the configuration page when deploying the Helm chart.
+3. Save the file below that defines the ClusterRoleBinding as `ibm-blockchain-platform-clusterrolebinding.yaml`. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** section of the configuration page when deploying the Helm chart.
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -190,23 +163,35 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
   ```
   {:codeblock}
 
-You can complete the following steps to use YAML files to bind security and access policies to your namespace:
+Once you have saved the PodSecurityPolicy, ClusterRole, and ClusterRoleBinding YAML files to your local system, a cluster administrator will need use the {{site.data.keyword.cloud_notm}} Private CLI to bind the policies to your namespace.
 
-1. Save the YAML file to your local system.
+1. Log in to your {{site.data.keyword.cloud_notm}} Private cluster and select the target namespace of your deployment.
 
-2. Log in to your {{site.data.keyword.cloud_notm}} Private cluster and select the target namespace of your deployment.
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. Log in to the docker image registry for your cluster:
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
-  {:codeblock}
+   {:codeblock}
 
-3. Use the following command to apply the policy to the target namespace:
+3. Use the following commands to apply the policies to your target namespace:
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
   {:codeblock}
+
+4. After applying the policies, your must grant your service account the required level of permissions to deploy your console. Run the following command with the name of your target namespace:
+
+  ```
+  kubectl -n <namespace> create rolebinding ibp-blockchain-platform-clusterrole-rolebinding --clusterrole=ibp-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```
 
 ## Importing the Helm chart to {{site.data.keyword.cloud_notm}} Private
 {: #console-helm-install-importing}
