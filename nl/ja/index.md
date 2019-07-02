@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform には、任意の環境にブロックチェーン・コンポーネントをデプロイできる、フルスタックのマネージド Blockchain as a Service (BaaS) オファリングが用意されています。 {{site.data.keyword.cloud_notm}} 環境にも、{{site.data.keyword.cloud_notm}} Private 経由でオンプレミス環境にも、サード・パーティーのクラウド (Amazon Web Services (AWS) など) 環境にもデプロイできます。 このチュートリアルでは、{{site.data.keyword.blockchainfull_notm}} Platform を使用して基本的なブロックチェーン・ネットワークをセットアップする一般的な方法について順を追って説明します。
 {:shortdesc}
 
-{{site.data.keyword.blockchainfull_notm}} Platform オファリングを使用する前に、[特記事項](/docs/services/blockchain/needtoknow.html#disclaimer)のセクションにある技術情報とサポート情報をお読みください。
+{{site.data.keyword.blockchainfull_notm}} Platform オファリングを使用する前に、[特記事項](/docs/services/blockchain?topic=blockchain-disclaimer#disclaimer)のセクションにある技術情報とサポート情報をお読みください。
 {: important}
 
 
@@ -37,9 +37,9 @@ subcollection: blockchain
 | **オファリング** | **組み込まれている機能** | **請求ポリシー** | **クラウド・プラットフォーム** |
 | ------------------------- |-----------|-----------|-----------|-----------|
 | [**{{site.data.keyword.blockchainfull_notm}} Platform の VS Code 用の拡張機能**](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode) | 開発者は、スマート・コントラクトを短時間で開発するために、コマンド・パレットからアクセスできるコマンドやエクスプローラーを備えた IDE を使用して作業を開始できます。 | 無料 | ローカル・マシンで実行 |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview) | ユーザーの {{site.data.keyword.cloud_notm}} Kubernetes クラスターにブロックチェーン・コンポーネントをデプロイして管理するために使用できる {{site.data.keyword.blockchainfull_notm}} Platform コンソールおよび API | [$0.29 USD/1 時間の VPC である VPC の料金](/docs/services/blockchain/howto/pricing-saas.html) | {{site.data.keyword.cloud_notm}} |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) | Kubernetes Helm チャートを使用して {{site.data.keyword.cloud_notm}} Private クラスターにデプロイする {{site.data.keyword.blockchainfull_notm}} Platform コンソール  | [VPC 料金](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) | {{site.data.keyword.cloud_notm}} Private |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about) | {{site.data.keyword.cloud_notm}} の外部にリモート・ピアをデプロイするための AWS クイック・スタート・テンプレート | 無料 | AWS |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview) | ユーザーの {{site.data.keyword.cloud_notm}} Kubernetes クラスターにブロックチェーン・コンポーネントをデプロイして管理するために使用できる {{site.data.keyword.blockchainfull_notm}} Platform コンソールおよび API。 | [$0.29 USD/1 時間の VPC である VPC の料金](/docs/services/blockchain/howto?topic=blockchain-ibp-saas-pricing) | {{site.data.keyword.cloud_notm}} |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about) | ブロックチェーン・コンポーネントをプロビジョンして管理するために、Kubernetes Helm チャートおよび API を使用して {{site.data.keyword.cloud_notm}} Private クラスターにデプロイされる {{site.data.keyword.blockchainfull_notm}} Platform コンソール。 | [VPC 料金](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) | {{site.data.keyword.cloud_notm}} Private |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about) | {{site.data.keyword.cloud_notm}} の外部にリモート・ピアをデプロイするための AWS クイック・スタート・テンプレート。| 無料 | AWS |
 
 *図 1. {{site.data.keyword.blockchainfull_notm}} Platform オファリング*
 
@@ -70,11 +70,11 @@ subcollection: blockchain
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
 
-  {{site.data.keyword.cloud_notm}} にログインし、オファリングを使用してサービス・インスタンスを作成します。 ウィザードに従って、ネットワークの初期構成を実行します。 詳しくは、[Getting started  {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) を参照してください。
+  {{site.data.keyword.cloud_notm}} にログインし、オファリングを使用してサービス・インスタンスを作成します。 ウィザードに従って、ネットワークの初期構成を実行します。 詳しくは、[Getting started  {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) を参照してください。
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
 
-  ネットワークをデプロイする前に、Helm チャートを {{site.data.keyword.cloud_notm}} Private クラスターにインストールする必要があります。その後、{{site.data.keyword.blockchainfull_notm}} Platform コンソールをデプロイし、それを使用してローカル・クラスターにブロックチェーン・コンポーネントをデプロイして操作することができます。詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の概説](/docs/services/blockchain/get-started-console-icp.html#get-started-console-icp)を参照してください。
+  ネットワークをデプロイする前に、Helm チャートを {{site.data.keyword.cloud_notm}} Private クラスターにインストールする必要があります。 その後、{{site.data.keyword.blockchainfull_notm}} Platform コンソールをデプロイし、それを使用してローカル・クラスターにブロックチェーン・コンポーネントをデプロイして操作することができます。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の概説](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp)を参照してください。
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
 
@@ -88,4 +88,4 @@ subcollection: blockchain
 ## サポートについて
 {: #get-started-ibp-getting-support}
 
-{{site.data.keyword.IBM_notm}} では、{{site.data.keyword.IBM_notm}} が実装したブロックチェーン・ソリューションのさまざまなサポート・オプションを提供しています。 {{site.data.keyword.blockchainfull_notm}} Platform サポートの詳細については、[サポートのページ](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support)を参照してください。
+{{site.data.keyword.IBM_notm}} では、{{site.data.keyword.IBM_notm}} が実装したブロックチェーン・ソリューションのさまざまなサポート・オプションを提供しています。 {{site.data.keyword.blockchainfull_notm}} Platform サポートの詳細については、[サポートのページ](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support)を参照してください。

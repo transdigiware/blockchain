@@ -4,13 +4,11 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
-keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
-
 subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +16,7 @@ subcollection: blockchain
 
 # 채널 작성 또는 업데이트
 {: #ibp-create-channel}
+
 
 채널은 데이터의 파티션을 지정하고 분리하는 믿을 수 없을 정도로 강력한 메커니즘이며 데이터 개인정보 보호정책에 대한 기반을 제공합니다. 같은 채널의 구성원만 이 채널의 데이터에 액세스할 수 있습니다.
 {:shortdesc}
@@ -76,5 +75,5 @@ subcollection: blockchain
 
 충분한 채널 운영자가 요청에 동의하면 임의의 채널 구성원이 **요청 제출** 단추를 클릭하여 채널을 업데이트할 수 있습니다. 모든 채널 구성원이 네트워크 모니터의 "채널" 화면에서 업데이트된 채널을 찾을 수 있습니다.
 
-새 조직에서 채널에 가입하고 체인코드를 설치할 때 보증 정책은 자동으로 업데이트되지 않습니다. 예를 들어, 5개 조직 중 2개 조직에서 트랜잭션을 보증해야 하는 경우 새로운 조직에서 채널에 가입할 때 6개 조직 중 2개 조직이 필요하도록 정책이 업데이트되지 않습니다. 대신 새 조직이 정책에 나열되지 않으며 트랜잭션을 보증할 수 없습니다. [관련 체인코드 업데이트](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc)로 새 조직을 보증 정책에 추가할 수 있습니다. 자세한 정보는 [체인코드 보증 정책](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy)을 참조하십시오.
+새 조직에서 채널에 가입하고 체인코드를 설치할 때 보증 정책은 자동으로 업데이트되지 않습니다. 예를 들어, 5개 조직 중 2개 조직에서 트랜잭션을 보증해야 하는 경우 새로운 조직에서 채널에 가입할 때 6개 조직 중 2개 조직이 필요하도록 정책이 업데이트되지 않습니다. 대신 새 조직이 정책에 나열되지 않으며 트랜잭션을 보증할 수 없습니다. [관련 체인코드 업데이트](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc)로 새 조직을 보증 정책에 추가할 수 있습니다. 자세한 정보는 [체인코드 보증 정책](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy)을 참조하십시오.
 {:important}

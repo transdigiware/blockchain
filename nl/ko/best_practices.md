@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -33,7 +33,7 @@ Hyperledger Fabric [트랜잭션 플로우](https://hyperledger-fabric.readthedo
 ### 트랜잭션 관리
 {: #best-practices-app-managing-transactions}
 
-애플리케이션 클라이언트에서는 해당 트랜잭션 제안의 유효성이 검증되고 제안이 성공적으로 완료되었는지 확인해야 합니다. 네트워크 가동 중단 또는 컴포넌트 실패와 같은 여러 이유 때문에 제안이 지연되거나 유실될 수 있습니다. 컴포넌트 실패를 처리하려면 [고가용성](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app)을 위해 애플리케이션을 코딩해야 합니다. 또한 네트워크에서 응답하기 전에 제안의 제한시간이 초과되지 않도록 애플리케이션에서 [제한시간 값을 증가](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk)시킬 수 있습니다.
+애플리케이션 클라이언트에서는 해당 트랜잭션 제안의 유효성이 검증되고 제안이 성공적으로 완료되었는지 확인해야 합니다. 네트워크 가동 중단 또는 컴포넌트 실패와 같은 여러 이유 때문에 제안이 지연되거나 유실될 수 있습니다. 컴포넌트 실패를 처리하려면 [고가용성](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)을 위해 애플리케이션을 코딩해야 합니다. 또한 네트워크에서 응답하기 전에 제안의 제한시간이 초과되지 않도록 애플리케이션에서 [제한시간 값을 증가](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk)시킬 수 있습니다.
 
 체인코드가 실행 중이지 않으면 이 체인코드에 보낸 첫 번째 트랜잭션 제안에서 체인코드를 시작합니다. 체인코드를 시작하는 동안 기타 모든 제안은 체인코드가 현재 시작 중임을 나타내는 오류로 인해 거부됩니다. 이는 트랜잭션 무효화와 다릅니다. 체인코드를 시작하는 동안 제안이 거부되면 애플리케이션 클라이언트에서 체인코드가 시작된 후 거부된 제안을 다시 보내야 합니다. 애플리케이션 클라이언트에서는 트랜잭션 제안을 유실하지 않도록 메시지 큐를 사용합니다.
 
@@ -41,7 +41,7 @@ Hyperledger Fabric [트랜잭션 플로우](https://hyperledger-fabric.readthedo
 
 이전 EventHub 클래스 대신 channelEventHub를 사용하는 것이 좋습니다. EventHub는 단일 스레드이며 모든 채널의 이벤트가 포함되어 느려지거나 채널 사이에서 리스너가 정지될 수 있습니다. 또한 eventHub 클래스는 이벤트가 전달되도록 보장하지 않으며 특정 위치(예: 블록 번호)에서 유실된 이벤트를 추적하기 위해 이벤트를 검색하는 방법도 제공하지 않습니다.
 
-**참고:** 피어 EventHub 클래스는 Fabric SDK의 향후 릴리스에서 더 이상 사용되지 않습니다. 피어 EventHub 클래스를 사용하는 기존 애플리케이션이 있는 경우에는 대신 채널 EventHub 클래스를 사용하도록 애플리케이션을 업데이트하십시오. 자세한 정보는 Node SDK 문서에서 [채널 기반 이벤트 서비스를 사용하는 방법](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}을 참조하십시오. 
+**참고:** 피어 EventHub 클래스는 Fabric SDK의 향후 릴리스에서 더 이상 사용되지 않습니다. 피어 EventHub 클래스를 사용하는 기존 애플리케이션이 있는 경우에는 대신 채널 EventHub 클래스를 사용하도록 애플리케이션을 업데이트하십시오. 자세한 정보는 Node SDK 문서에서 [채널 기반 이벤트 서비스를 사용하는 방법](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}을 참조하십시오.
 
 ### 네트워크 연결 열기 및 닫기
 {: #best-practices-app-connections}
@@ -70,19 +70,19 @@ var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.pee
   ```
   {:codeblock}
 
-  또한 네트워크 연결 파일의 `"peers"` 섹션에서 권장 설정을 사용하는 이러한 변수를 찾을 수 있습니다. [SDK가 포함된 연결 프로파일](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile)을 사용하여 네트워크 엔드포인트에 연결하는 경우 자동으로 권장 옵션을 애플리케이션으로 가져옵니다.
+  또한 네트워크 연결 파일의 `"peers"` 섹션에서 권장 설정을 사용하는 이러한 변수를 찾을 수 있습니다. SDK가 포함된 연결 프로파일을 사용하여 네트워크 엔드포인트에 연결하는 경우 자동으로 권장 옵션을 애플리케이션으로 가져옵니다. 연결 프로파일 사용 방법에 대한 자세한 정보는 [Node SDK 문서](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}에서 찾을 수 있습니다.
 
 - 더 이상 연결이 필요 없는 경우 리소스를 사용 가능한 상태로 변경하고 성능 저하를 방지하기 위해 `peer.close()` 및 `orderer.close()` 명령을 사용하십시오. 자세한 정보는 Node SDK 문서에서 [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} 및 [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} 클래스를 참조하십시오. 연결 프로파일을 사용하여 채널 오브젝트에 피어 및 순서 지정자를 추가한 경우 `channel.close()` 명령을 사용하여 해당 채널에 지정된 모든 연결을 닫을 수 있습니다.
 
 ### 고가용성 애플리케이션
 {: #best-practices-app-ha-app}
 
-고가용성 우수 사례로서 장애 복구를 위해 조직당 최소 두 개의 피어를 배치하도록 적극 권장합니다. 또한 고가용성을 위해 애플리케이션을 조정해야 합니다. 두 피어 모두에 체인코드를 설치하고 채널에 추가하십시오. 그런 다음 네트워크를 설정하고 피어 대상 목록을 빌드할 때 두 피어 엔드포인트 모두에 트랜잭션 제안을 제출하도록 준비하십시오. 엔터프라이즈 플랜 네트워크에는 장애 복구를 위해 복수의 순서 지정자가 있으며, 이를 통해 하나의 순서 지정자를 사용할 수 없는 경우 클라이언트 애플리케이션에서 다른 순서 지정자로 인증된 트랜잭션을 전송할 수 있습니다. 네트워크 엔드포인트를 수동으로 추가하지 않고 [연결 프로파일](/docs/services/blockchain/v10_application.html#dev-app-connection-profile)을 사용하는 경우 프로파일이 최신 상태이며 추가 피어 및 순서 지정자가 프로파일의 `channels` 섹션에 있는 관련 채널에 추가되어 있는지 확인하십시오. 그런 다음 SDK에서 연결 프로파일을 사용하여 채널에 가입된 컴포넌트를 추가합니다.
+고가용성 우수 사례로서 장애 복구를 위해 조직당 최소 두 개의 피어를 배치하도록 적극 권장합니다. 또한 고가용성을 위해 애플리케이션을 조정해야 합니다. 두 피어 모두에 체인코드를 설치하고 채널에 추가하십시오. 그런 다음 네트워크를 설정하고 피어 대상 목록을 빌드할 때 두 피어 엔드포인트 모두에 트랜잭션 제안을 제출하도록 준비하십시오. 엔터프라이즈 플랜 네트워크에는 장애 복구를 위해 복수의 순서 지정자가 있으며, 이를 통해 하나의 순서 지정자를 사용할 수 없는 경우 클라이언트 애플리케이션에서 다른 순서 지정자로 인증된 트랜잭션을 전송할 수 있습니다. 네트워크 엔드포인트를 수동으로 추가하지 않고 연결 프로파일을 사용하는 경우 프로파일이 최신 상태이며 추가 피어 및 순서 지정자가 프로파일의 `channels` 섹션에 있는 관련 채널에 추가되어 있는지 확인하십시오. 그런 다음 SDK에서 연결 프로파일을 사용하여 채널에 가입된 컴포넌트를 추가합니다.
 
 ## 상호 TLS 사용
 {: #best-practices-app-mutual-tls}
 
-Fabric V1.1 레벨에 있는 엔터프라이즈 플랜 네트워크를 실행하는 경우 애플리케이션에 [상호 TLS를 사용](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)하는 옵션이 있습니다. 상호 TLS를 사용으로 설정하는 경우 이 기능을 지원하도록 애플리케이션을 업데이트해야 합니다. 그렇지 않으면 애플리케이션에서 네트워크와 통신할 수 없습니다.
+Fabric V1.1 레벨에 있는 엔터프라이즈 플랜 네트워크를 실행하는 경우 애플리케이션에 [상호 TLS를 사용](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)하는 옵션이 있습니다. 상호 TLS를 사용으로 설정하는 경우 이 기능을 지원하도록 애플리케이션을 업데이트해야 합니다. 그렇지 않으면 애플리케이션에서 네트워크와 통신할 수 없습니다.
 
 연결 프로파일에서 `certificateAuthorities` 섹션을 찾으십시오. 이 섹션에는 상호 TLS를 사용하여 사용자 네트워크와 통신하기 위해 인증서를 등록접수하고 가져오는 데 필요한 다음 속성이 있습니다.
 
@@ -91,7 +91,7 @@ Fabric V1.1 레벨에 있는 엔터프라이즈 플랜 네트워크를 실행하
 - `enrollSecret`: 인증서를 가져오는 데 사용할 등록접수 시크릿
 - `x-tlsCAName`: 애플리케이션이 상호 TLS를 사용하여 통신할 수 있도록 하는 인증서를 가져오는 데 사용할 CA 이름
 
-상호 TLS를 지원하도록 애플리케이션을 업데이트하는 작업에 대한 자세한 정보는 [상호 TLS를 구성하는 방법 ](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}을 참조하십시오. 
+상호 TLS를 지원하도록 애플리케이션을 업데이트하는 작업에 대한 자세한 정보는 [상호 TLS를 구성하는 방법 ](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}을 참조하십시오.
 
 
 ## (선택사항) Fabric SDK에서 제한시간 값 설정
@@ -149,7 +149,7 @@ Fabric SDK는 블록체인 네트워크의 이벤트에 대한 클라이언트 �
 ```
 {:codeblock}
 
-Node SDK를 사용하는 경우 호출된 메소드에 제한시간 값을 직접 지정할 수 있습니다. 다음 행을 예로 사용하여 [체인코드 인스턴스화](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}의 제한시간 값을 5분으로 늘릴 수 있습니다. 
+Node SDK를 사용하는 경우 호출된 메소드에 제한시간 값을 직접 지정할 수 있습니다. 다음 행을 예로 사용하여 [체인코드 인스턴스화](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}의 제한시간 값을 5분으로 늘릴 수 있습니다.
 ```
 channel.sendInstantiateProposal(request, 300000);
 ```
@@ -160,7 +160,7 @@ channel.sendInstantiateProposal(request, 300000);
 
 CouchDB를 상태 데이터베이스로 사용하는 경우, 채널의 상태 데이터에 대해 체인코드에서 JSON 데이터 조회를 시작할 수 있습니다. JSON 조회를 위한 색인을 작성한 후 체인코드에서 해당 색인을 사용할 것을 적극 권장합니다. 색인을 사용하는 경우 네트워크에서 트랜잭션 및 항목의 추가 블록을 세계 상태로 추가할 때 애플리케이션에서 효율적으로 데이터를 검색할 수 있습니다.
 
-CouchDB에 관한 자세한 정보와 인덱스 작성 방법은 Hyperledger Fabric 문서에서 [상태 데이터베이스로서의 CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external}를 참조하십시오. 체인코드의 색인을 사용하는 예제는 [Fabric CouchDB 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}에서 찾을 수 있습니다. 
+CouchDB에 관한 자세한 정보와 인덱스 작성 방법은 Hyperledger Fabric 문서에서 [상태 데이터베이스로서의 CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external}를 참조하십시오. 체인코드의 색인을 사용하는 예제는 [Fabric CouchDB 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}에서 찾을 수 있습니다.
 
 전체 CouchDB 데이터베이스 스캔을 유발하는 조회를 위해 체인코드를 사용하지 마십시오. 전체 데이터베이스 스캔을 실행하면 긴 응답 시간이 필요하게 되어 네트워크의 성능이 저하됩니다. 다음 단계 중 일부를 수행하여 대형 조회를 방지할 수 있습니다.
 - 체인코드의 색인을 설정하십시오.
@@ -168,7 +168,7 @@ CouchDB에 관한 자세한 정보와 인덱스 작성 방법은 Hyperledger Fab
 - 조회가 복잡할수록 성능이 더 저하되고 색인을 사용할 가능성이 줄어듭니다.
 - 전체 테이블 스캔 또는 전체 색인 스캔을 유발하는 연산자(예: `$or`, `$in` 및 `$regex`)를 사용하지 않도록 해야 합니다.
 
-조회가 색인을 사용하는 방법과 최상의 성능을 제공하는 조회의 유형을 보여주는 예제는 [Fabric CouchDB 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}에서 찾을 수 있습니다. 
+조회가 색인을 사용하는 방법과 최상의 성능을 제공하는 조회의 유형을 보여주는 예제는 [Fabric CouchDB 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}에서 찾을 수 있습니다.
 
 {{site.data.keyword.blockchainfull_notm}} Platform의 피어에는 queryLimit가 설정되어
 있으며 상태 데이터베이스에서 10,000개의 항목만 리턴합니다. 조회가 queryLimit에 도달하면
@@ -179,4 +179,4 @@ CouchDB에 관한 자세한 정보와 인덱스 작성 방법은 Hyperledger Fab
 데이터를 수집하려는 경우 블록체인 네트워크의 데이터를 복제하는 오프 체인 데이터베이스를 조회할 수 있습니다. 이를 통해 네트워크의 성능이 저하되거나 트랜잭션을 방해하지 않고 블록체인의 데이터를 파악할 수 있습니다.
 
 Fabric SDK에서 제공하는 채널 기반의 이벤트 서비스 클라이언트를 사용하여 오프 체인 데이터 저장소를 빌드할 수 있습니다. 예를 들어 블록 리스너를 사용하여 최근에 채널 원장에 추가된 트랜잭션을 가져올 수 있습니다. 그런 다음 올바른 트랜잭션에서 트랜잭션 읽기 및 쓰기 세트를 사용하여 별도의 데이터베이스에 저장되어 있는 세계 상태의 사본을
-업데이트할 수 있습니다. 자세한 정보는 Node SDK 문서에서 [채널 기반 이벤트 서비스를 사용하는 방법](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}을 참조하십시오. 
+업데이트할 수 있습니다. 자세한 정보는 Node SDK 문서에서 [채널 기반 이벤트 서비스를 사용하는 방법](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}을 참조하십시오.

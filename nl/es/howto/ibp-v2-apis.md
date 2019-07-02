@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -137,7 +137,7 @@ Además, puede utilizar la función **Pruébelo** de la documentación de refere
 ## Limitaciones
 {: #ibp-v2-apis-limitations}
 
-Solo puede importar nodos de CA, igual y clasificador existentes de otras redes de
+Solo puede importar nodos de CA, igual y de ordenación existentes de otras redes de
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Creación de una red utilizando las API
@@ -163,14 +163,14 @@ Puede utilizar API para crear componentes de blockchain en su instancia de
 [generar certificados para el administrador](#ibp-v2-apis-config-enroll-admin) dentro de una carpeta de MSP. No tiene que completar este paso si ya ha registrado la identidad de administrador.
   - [Registre el nuevo componente con la CA de TLS](#ibp-v2-apis-config-register-component-tls).
 
-  También puede realizar estos pasos utilizando la consola de {{site.data.keyword.blockchainfull_notm}} Platform. Para obtener más información, consulte [Creación y gestión de identidades](/docs/services/blockchain/howto/ibp-console-identities.html).
+  También puede realizar estos pasos utilizando la consola de {{site.data.keyword.blockchainfull_notm}} Platform. Para obtener más información, consulte [Creación y gestión de identidades](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities).
 
 3. [Cree una definición de MSP para la organización](#ibp-v2-apis-msp) llamando a
 [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
-4. [Cree el archivo de configuración](#ibp-v2-apis-config) necesario para crear un clasificador o un igual. Debe crear un archivo de configuración exclusivo para cada clasificador o igual que desee crear.
+4. [Cree el archivo de configuración](#ibp-v2-apis-config) necesario para crear un servicio de ordenación o un igual. Debe crear un archivo de configuración exclusivo para cada servicio de ordenación o igual que desee crear. Si va a desplegar varios nodos de ordenación, debe proporcionar un archivo de configuración para cada nodo que desee crear.
 
-5. Cree un clasificador llamando a [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer).
+5. Cree un servicio de ordenación llamando a [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service).
 
 6. Cree un igual llamando a [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer).
 
@@ -197,7 +197,7 @@ También puede utilizar las API para importar componentes de {{site.data.keyword
 
 2. Importe una definición de MSP de organización llamando a [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
 
-3. Importe un clasificador llamando a [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer).
+3. Importe un servicio de ordenación llamando a [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service).
 
 4. Importe un igual llamando a [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer).
 
@@ -249,7 +249,7 @@ Puede utilizar el cliente de CA de Fabric para trabajar con las CA. Ejecute los 
   ```
   {:codeblock}
 
-4. Establezca el valor de la variable de entorno `$FABRIC_CA_CLIENT_HOME` en la vía de acceso donde el cliente de CA va a almacenar los certificados de [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) generados. Asegúrese de eliminar el material de configuración que se pueda haber creado en intentos anteriores. Si no ha ejecutado el mandato `enroll` anteriormente, la carpeta `msp` y el archivo `.yaml` no existen.
+4. Establezca el valor de la variable de entorno `$FABRIC_CA_CLIENT_HOME` para que sea la vía de acceso donde el cliente de CA va a almacenar los certificados de MSP generados. Asegúrese de eliminar el material de configuración que se pueda haber creado en intentos anteriores. Si no ha ejecutado el mandato `enroll` anteriormente, la carpeta `msp` y el archivo `.yaml` no existen.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -277,9 +277,9 @@ base64 en el campo **Certificado TLS**. Si utiliza las API, puede llamar a
 {: #ibp-v2-apis-enroll-ca-admin}
 
 Al crear la CA, se registró automáticamente una identidad de **administrador de CA**. Ahora puede utilizar el nombre y contraseña de dicho administrador para emitir un mandato
-`enroll` con el cliente de CA de Fabric para generar una carpeta de MSP con certificados que se podrán utilizar luego para registrar otras identidades de igual o de clasificador.
+`enroll` con el cliente de CA de Fabric para generar una carpeta de MSP con certificados que se podrán utilizar luego para registrar otras identidades de igual o de nodo de ordenación.
 
-1. Asegúrese de completar los pasos para [configurar el cliente de CA de Fabric](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client) y de que
+1. Asegúrese de completar los pasos para [configurar el cliente de CA de Fabric](#ibp-v2-apis-config-fabric-ca-client) y de que
 `$FABRIC_CA_CLIENT_HOME` esté establecido en el directorio en el que desee almacenar los certificados de administrador de CA.
 
   ```
@@ -315,9 +315,9 @@ Al crear la CA, se registró automáticamente una identidad de **administrador d
   {:codeblock}
 
   El mandato `enroll` genera un conjunto completo de certificados, que se conoce como carpeta de proveedor de servicios de pertenencia (MSP), ubicado dentro del directorio donde ha establecido la vía de acceso `$HOME` del cliente de CA de Fabric. Por ejemplo, `$HOME/fabric-ca-client/ca-admin`. Para obtener más información sobre los MSP y el contenido de la carpeta de MSP, consulte
-[Proveedores de servicios de pertenencia](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
+[Proveedores de servicios de pertenencia](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
-  Si el mandato `enroll` falla, consulte el [Tema de resolución de problemas](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) para ver las causas posibles.
+  Si el mandato `enroll` falla, consulte el [Tema de resolución de problemas](#ibp-v2-apis-config-troubleshooting) para ver las causas posibles.
 
   Puede ejecutar un mandato de árbol (tree) para verificar que se han completado todos los pasos de requisito previo. Vaya al directorio donde ha almacenado los certificados. Un mandato tree debe generar un resultado similar a la estructura siguiente:
 
@@ -373,14 +373,14 @@ En primer lugar, debe registrar una identidad de componente con la CA. El compon
 
   Anote el segundo valor de **affiliation**, por ejemplo `org1.department1`. Debe utilizar este valor en el mandato siguiente.
 
-3. Ejecute el mandato siguiente para registrar el clasificador o el igual.
+3. Ejecute el mandato siguiente para registrar el nodo de ordenación o el igual.
 
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
   {:codeblock}
 
-  Cree un nombre y una contraseña para el componente y utilícelos para sustituir los valores de `name` y `secret`.  Anote esta información. Establezca `--id.type` en `orderer` si va a desplegar un clasificador, o establézcalo en `peer` si va a desplegar un igual. El mandato puede tener un aspecto similar al del ejemplo siguiente:
+  Cree un nombre y una contraseña para el componente y utilícelos para sustituir los valores de `name` y `secret`.  Anote esta información. Establezca `--id.type` en `orderer` si va a desplegar un nodo de ordenación, o establézcalo en `peer` si va a desplegar un igual. El mandato puede tener un aspecto similar al del ejemplo siguiente:
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -405,7 +405,7 @@ En primer lugar, debe registrar una identidad de componente con la CA. El compon
 
 También debe crear una identidad de administrador que pueda utilizar para trabajar con la red. Utilizará esta identidad para trabajar con componentes específicos, como para la instalación de un contrato inteligente en el igual. También puede utilizar esta identidad como administrador de la organización y utilizarla para crear y editar canales.  
 
-Necesita registrar esta nueva identidad con la CA y utilizarla para generar una carpeta de MSP. Puede convertir esta identidad en un administrador de organización añadiendo su signCert al MSP de organización. También deberá añadir el signCert al archivo de configuración para que pueda pasar a ser el certificado de administrador del clasificador o el igual durante el despliegue. Solo necesita crear una identidad de administrador para su organización. Como resultado, debe realizar estos pasos solo una vez. Puede utilizar el signCert que ha generado para desplegar muchos iguales o clasificadores.
+Necesita registrar esta nueva identidad con la CA y utilizarla para generar una carpeta de MSP. Puede convertir esta identidad en un administrador de organización añadiendo su signCert al MSP de organización. También deberá añadir el signCert al archivo de configuración para que pueda pasar a ser el certificado de administrador del nodo de ordenación o el igual durante el despliegue. Solo necesita crear una identidad de administrador para su organización. Como resultado, debe realizar estos pasos solo una vez. Puede utilizar el signCert que ha generado para desplegar muchos iguales o nodos de ordenación.
 
 Asegúrese de que `$FABRIC_CA_CLIENT_HOME` esté establecido en la vía de acceso al MSP del administrador de CA.
 
@@ -422,7 +422,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-Cree nuevos valores de `name` y `secret` de identidad de usuario para el administrador. Asegúrese de utilizar valores distintos a los de la identidad del igual o el clasificador que acaba de registrar. El mandato tiene un aspecto similar al del ejemplo siguiente:
+Cree nuevos valores de `name` y `secret` de identidad de usuario para el administrador. Asegúrese de utilizar valores distintos a los de la identidad del igual o del nodo de ordenación que acaba de registrar. El mandato tiene un aspecto similar al del ejemplo siguiente:
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -508,7 +508,7 @@ Deberá volver a esta carpeta cuando cree los archivos de configuración y de de
 ### Registro de la identidad de componente con la CA de TLS
 {: #ibp-v2-apis-config-register-component-tls}
 
-Cuando haya creado la CA, se habrá desplegado una CA de TLS junto con la CA predeterminada. También debe registrar el clasificador o el igual con la CA de TLS. Para ello, primero deberá inscribirse utilizando el administrador de la CA de TLS. Cambie `$FABRIC_CA_CLIENT_HOME` al directorio en el que desee almacenar los certificados de administrador de CA de TLS.
+Cuando haya creado la CA, se habrá desplegado una CA de TLS junto con la CA predeterminada. También debe registrar el nodo de ordenación o el igual con la CA de TLS. Para ello, primero deberá inscribirse utilizando el administrador de la CA de TLS. Cambie `$FABRIC_CA_CLIENT_HOME` al directorio en el que desee almacenar los certificados de administrador de CA de TLS.
 
 ```
 cd $HOME/fabric-ca-client
@@ -518,7 +518,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 {:codeblock}
 
 Ejecute el mandato siguiente para inscribirse como administrador en la CA de TLS. El ID de inscripción y la contraseña del administrador de la CA de TLS son los mismos que los de la CA predeterminada. Como resultado, el mandato siguiente es el mismo que el que ha utilizado para la inscripción como
-[administrador de CA](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin), pero con el nombre de la CA de TLS. El nombre de la CA de TLS es el valor de **Nombre de CA de TLS** del panel **Valores** de la CA de la consola, o el valor de `"tlsca_name"` devuelto por la API `Create a CA`.
+[administrador de CA](#ibp-v2-apis-enroll-ca-admin), pero con el nombre de la CA de TLS. El nombre de la CA de TLS es el valor de **Nombre de CA de TLS** del panel **Valores** de la CA de la consola, o el valor de `"tlsca_name"` devuelto por la API `Create a CA`.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -531,14 +531,14 @@ Una llamada real será similar al ejemplo siguiente:
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-Después de inscribirse, tendrá los certificados necesarios para registrar el componente con la CA de TLS. Ejecute el mandato siguiente para registrar el clasificador o el igual:
+Después de inscribirse, tendrá los certificados necesarios para registrar el componente con la CA de TLS. Ejecute el mandato siguiente para registrar el nodo de ordenación o el igual:
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-Este mandato es similar al que ha utilizado para registrar la identidad de componente con la CA, excepto por el uso del nombre de CA de TLS. Si va a desplegar un clasificador en lugar de un igual, establezca `--id.type` en `orderer` en lugar de en `peer`. Debe proporcionar a esta identidad un nombre de usuario y una contraseña distintos a los que ha utilizado para la CA predeterminada. Un registro real puede tener un aspecto similar al del mandato siguiente:
+Este mandato es similar al que ha utilizado para registrar la identidad de componente con la CA, excepto por el uso del nombre de CA de TLS. Si va a desplegar un nodo de ordenación en lugar de un igual, establezca `--id.type` en `orderer` en lugar de en `peer`. Debe proporcionar a esta identidad un nombre de usuario y una contraseña distintos a los que ha utilizado para la CA predeterminada. Un registro real puede tener un aspecto similar al del mandato siguiente:
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -546,6 +546,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 Necesita guardar los valores de `"enrollid"` y `"enrollsecret"` del mandato anterior para cuando cree el archivo de configuración.
 {: important}
+
+### Resolución de problemas
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **Problema:** error al ejecutar el mandato `enroll`
+{: #ibp-v2-apis-config-enroll-error1}
+
+Al ejecutar el mandato enroll del cliente de CA de Fabric, es posible que el mandato falle con el error siguiente:
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**Solución:**
+
+Este error se puede producir cuando el cliente de CA de Fabric intenta inscribirse pero no se puede conectar con la CA. Esto puede ocurrir si:   
+
+- El mandato `enroll` contiene una parte `https://` adicional en el parámetro `-u`.
+- El nombre de CA no es correcto.
+- El nombre de usuario o la contraseña son incorrectos.
+
+Revise los parámetros que ha especificado en el mandato `enroll` y asegúrese de que no exista ninguna de estas condiciones.
+
+#### **Problema:** error con el URL de CA al ejecutar el mandato `enroll`
+{: #ibp-v2-apis-config-enroll-error2}
+
+Es posible que el mandato de inscripción del cliente de CA de Fabric falle si el URL de inscripción, el valor del parámetro `-u`, contiene un carácter especial. Por ejemplo, el mandato siguiente con el ID de inscripción y la contraseña `admin:C25A06287!0`,
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+fallará y generará el error siguiente:
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **Solución:**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+Debe codificar el carácter especial o especificar el URL entre las comillas simples. Por ejemplo, `!` se convierte en `%21`, o el mandato se parece al siguiente:
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## Creación de una definición de MSP de organización
 {: #ibp-v2-apis-msp}
@@ -649,7 +696,7 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
 ## Creación de un archivo de configuración
 {: #ibp-v2-apis-config}
 
-Debe completar un archivo de configuración para poder crear un igual o un clasificador utilizando las API. Este archivo se proporciona a las API como el objeto `config` del cuerpo de solicitud de la llamada de API. Debe desplegar una CA en la instancia de servicio de
+Debe completar un archivo de configuración para poder crear un igual o un nodo de ordenación utilizando las API. Este archivo se proporciona a las API como el objeto `config` del cuerpo de solicitud de la llamada de API. Si va a crear varios nodos de ordenación, debe proporcionar un archivo de configuración para cada nodo que desee crear en una matriz en la solicitud de API. Por ejemplo, para un servicio de ordenación Raft de cinco nodos, debe crear una matriz de cinco archivos de configuración. Puede proporcionar el mismo archivo para cada nodo siempre que los ID de inscripción que proporcione tengan un límite de inscripción lo suficientemente alto. Debe desplegar una CA en la instancia de servicio de
 {{site.data.keyword.cloud_notm}} Platform y seguir los pasos para registrar e inscribir las identidades necesarias antes de completar el archivo.
 
 A continuación puede encontrar la plantilla para el archivo de configuración:
@@ -685,7 +732,7 @@ A continuación puede encontrar la plantilla para el archivo de configuración:
 ```
 {:codeblock}
 
-Copie este archivo completo en un editor de texto, donde puede editarlo y guardarlo en el sistema de archivos local como archivo JSON. Utilice los pasos siguientes para completar este archivo de configuración y utilizarlo para desplegar un clasificador o igual.
+Copie este archivo completo en un editor de texto, donde puede editarlo y guardarlo en el sistema de archivos local como archivo JSON. Utilice los pasos siguientes para completar este archivo de configuración y utilizarlo para desplegar un servicio de ordenación o igual.
 
 ### Recuperar la información de conexión de CA
 {: #ibp-v2-apis-config-connx-info}
@@ -844,7 +891,7 @@ Una vez que haya completado todos los pasos anteriores, el archivo de configurac
 
 Puede dejar los demás campos en
 blanco. Tras completar este archivo, puede pasar este archivo como campo `config` en el cuerpo de respuesta de la API
-`Create an orderer` o de la API `Create a peer`.
+`Create an ordering service` o de la API `Create a peer`.
 
 ### Importación de una identidad de administrador en la consola de {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-v2-apis-admin-console}

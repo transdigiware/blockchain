@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -28,7 +28,7 @@ subcollection: blockchain
 
 Différentes offres {{site.data.keyword.blockchainfull_notm}} Platform sont disponibles dans les différents emplacements {{site.data.keyword.cloud_notm}}. Vous ne pouvez créer des réseaux de blockchain que dans les emplacements {{site.data.keyword.cloud_notm}} où les plans {{site.data.keyword.blockchainfull_notm}} Platform sont disponibles.
 
-Le Tableau 1 et la Figure 1 présentent les emplacements {{site.data.keyword.cloud_notm}} pris en charge par {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}.
+Le Tableau 1 et la Figure 1 présentent les régions et emplacements {{site.data.keyword.cloud_notm}} pris en charge par {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 Si vous voulez utiliser un cluster {{site.data.keyword.cloud_notm}} Kubernetes gratuit, ne le choisissez pas en Asie-Pacifique. Sinon, votre cluster gratuit sera créé à Melbourne en Asie-Pacifique sud et non en Asie-Pacifique nord. Les clusters d'Asie-Pacifique sud ne peuvent pas être utilisés pour déployer {{site.data.keyword.blockchainfull_notm}} Platform version 2.0 à l'heure actuelle. Choisissez les emplacements **Sud des Etats-Unis** ou **Centre de l'UE** si vous prévoyez d'utiliser un cluster gratuit.
 {: note}
@@ -39,7 +39,7 @@ Si vous voulez utiliser un cluster {{site.data.keyword.cloud_notm}} Kubernetes g
 | Asie-Pacifique nord | Tokyo, Chennai, Hong Kong, Séoul, Singapour |
 | Centre de l'UE | Francfort, Amsterdam, Milan, Oslo, Paris |
 
-_Tableau 1. Emplacements d'{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}_
+_Tableau 1. Emplacements d'{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} _
 
 
 ![Emplacements d'{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}](../images/ibp_v2_regions.png "Emplacements d'{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} ")

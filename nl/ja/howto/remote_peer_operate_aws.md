@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
@@ -19,18 +19,18 @@ subcollection: blockchain
 # AWS でのピアの操作
 {: #remote-peer-aws-operate}
 
-AWS 内で {{site.data.keyword.blockchainfull}} Platform ピアをセットアップした後に、いくつかの操作ステップを実行する必要があります。その後、ブロックチェーン・ネットワークの台帳を照会および呼び出すためのトランザクションをピアから発行できるようになります。 このステップでは、チャネルへの組織の追加、チャネルへのピアの参加、ピアでのチェーンコードのインストール、チャネルでのチェーンコードのインスタンス化、およびピアへのアプリケーションの接続を行います。 [Fabric SDK](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-with-sdk) または[コマンド・ライン](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-cli-operate)を使用して、これらの操作ステップを実行できます。 推奨されるパスは Fabric SDK ですが、この手順では、SDK の操作に精通していることが前提となっています。
+AWS 内で {{site.data.keyword.blockchainfull}} Platform ピアをセットアップした後に、いくつかの操作ステップを実行する必要があります。その後、ブロックチェーン・ネットワークの台帳を照会および呼び出すためのトランザクションをピアから発行できるようになります。 このステップでは、チャネルへの組織の追加、チャネルへのピアの参加、ピアでのチェーンコードのインストール、チャネルでのチェーンコードのインスタンス化、およびピアへのアプリケーションの接続を行います。 [Fabric SDK](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-with-sdk) または[コマンド・ライン](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate)を使用して、これらの操作ステップを実行できます。推奨されるパスは Fabric SDK ですが、この手順では、SDK の操作に精通していることが前提となっています。
 
-**注**: AWS 内の {{site.data.keyword.blockchainfull_notm}} Platform ピアは、{{site.data.keyword.blockchainfull_notm}} Platform でホストされているピアの全機能やサポートにアクセスすることはできません。 結果として、ネットワーク・モニターを使用してリモート・ピアを操作することはできません。 AWS 内でピアの実行を開始する前に、必ず[考慮事項](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-limitations)を確認してください。
+**注**: AWS 内の {{site.data.keyword.blockchainfull_notm}} Platform ピアは、{{site.data.keyword.blockchainfull_notm}} Platform でホストされているピアの全機能やサポートにアクセスすることはできません。 結果として、ネットワーク・モニターを使用してリモート・ピアを操作することはできません。 AWS 内でピアの実行を開始する前に、必ず[考慮事項](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations)を確認してください。
 
 ## Fabric SDK を使用したピアの操作
 {: #remote-peer-aws-operate-with-sdk}
 
 Hyperledger Fabric SDK には強力な API のセットが用意されており、これらの API により、アプリケーションはブロックチェーン・ネットワークと対話したりこれを操作したりすることができます。 サポートされている言語の最新リストおよび Hyperledger Fabric SDK 内で使用可能な API の完全なリストについては、[Hyperledger Fabric SDK コミュニティーの資料](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}を参照してください。 Fabric SDK を使用して、ピアを {{site.data.keyword.blockchainfull_notm}} Platform 上のチャネルに参加させたり、チェーンコードをピアにインストールしたり、チェーンコードをチャネル上でインスタンス化したりできます。
 
-以下の手順では、[Fabric Node SDK](https://fabric-sdk-node.github.io/){: external} を使用してピアを操作するので、SDK についての知識があることが前提になっています。 [アプリケーションの開発チュートリアル](/docs/services/blockchain/v10_application.html#dev-app)を使用して、作業を開始する前に Node SDK の使用方法を学習できます。このチュートリアルは、チェーンコードを呼び出して照会する準備ができたときに、ピアを使用してアプリケーションを開発する際のガイドとしても活用できます。
+以下の手順では、[Fabric Node SDK](https://fabric-sdk-node.github.io/){: external} を使用してピアを操作するので、SDK についての知識があることが前提になっています。
 
-{{site.data.keyword.blockchainfull_notm}} Platform Peer on AWS のクイック・スタートでは、高可用性を実現するために 2 つのピアが作成されます。 したがって、ピアごとに 1 回、操作ステップに従う必要があります。 ご使用のアプリケーションからチェーンコードを照会して呼び出す準備ができたら、SDK を両方のピアに接続することで、ご使用の[アプリケーションの高可用性を確保](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app)してください。
+{{site.data.keyword.blockchainfull_notm}} Platform Peer on AWS のクイック・スタートでは、高可用性を実現するために 2 つのピアが作成されます。 したがって、ピアごとに 1 回、操作ステップに従う必要があります。 ご使用のアプリケーションからチェーンコードを照会して呼び出す準備ができたら、SDK を両方のピアに接続することで、ご使用の[アプリケーションの高可用性を確保](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)してください。
 
 ### Node SDK のインストール
 {: #remote-peer-aws-operate-install-sdk}
@@ -46,7 +46,7 @@ npm install fabric-client@1.2
 ### ピアを使用するための SDK の準備
 {: #remote-peer-aws-operate-sdk}
 
-SDK を使用してピアを操作する前に、必要な証明書 (登録) を生成する必要があります。これによりアプリケーションは、{{site.data.keyword.blockchainfull_notm}} Platform 上のネットワークおよびピアと通信することができます。 **管理者** ID を使用して、ステップに従って [SDK に登録](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk)します。 [アプリケーションの開発](/docs/services/blockchain/v10_application.html#dev-app)チュートリアルでは同様に**管理者**として登録するため、サンプル・コードを変更する必要はありません。
+SDK を使用してピアを操作する前に、必要な証明書 (登録) を生成する必要があります。これによりアプリケーションは、{{site.data.keyword.blockchainfull_notm}} Platform 上のネットワークおよびピアと通信することができます。 SDK を使用して、{{site.data.keyword.cloud_notm}} の認証局に登録されている**管理者** ID を使用して登録します。
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform への署名付き証明書のアップロード
 {: #remote-peer-aws-operate-upload-SDK}
@@ -58,7 +58,7 @@ SDK 署名証明書を {{site.data.keyword.blockchainfull_notm}} Platform 上の
 ### ピアへの署名付き証明書のアップロード
 {: #remote-peer-aws-operate-upload-signcert}
 
-SDK の署名証明書をリモート・ピアにアップロードして、リモート・ピアを再始動する必要もあります。 [{{site.data.keyword.blockchainfull_notm}} Platform にアップロードした](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK)のと同じ署名証明書をリモート・ピア・コンテナー内にインストールする必要があります。
+SDK の署名証明書をリモート・ピアにアップロードして、リモート・ピアを再始動する必要もあります。 [{{site.data.keyword.blockchainfull_notm}} Platform にアップロードした](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-upload-SDK)のと同じ署名証明書をリモート・ピア・コンテナー内にインストールする必要があります。
 
 AWS コンソールでインスタンスを選択して (**「サービス」>「EC2」>「インスタンス」**の順にクリック)、「接続」ボタンをクリックすることで、VPC インスタンスに SSH で接続します。 AWS の指示に従って ssh コマンドを実行します。
 
@@ -74,7 +74,7 @@ cd /etc/hyperledger/<PEER_ENROLL_ID>/msp/admincerts/
 
   **注:** `cert.pem` ファイルが存在する場合は、このファイルを上書きせずに、新しいファイルを作成してください (`cert2.pem` など)。
 
-新しい証明書を追加したため、ピアでこの証明書が選択されるようにするために、コンテナーを再始動する必要があります。ピアを再起動するには、こちらの[手順](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-restart)に従ってください。
+新しい証明書を追加したため、ピアでこの証明書が選択されるようにするために、コンテナーを再始動する必要があります。ピアを再起動するには、こちらの[手順](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-restart)に従ってください。
 
 ### SDK へのピアの TLS 証明書の引き渡し
 {: #remote-peer-aws-operate-download-tlscert}
@@ -108,23 +108,23 @@ var peer = fabric_client.newPeer('grpcs://<AWS_EC2_dashboard_Public_DNS>:7051', 
 
 ブロックチェーン・ネットワークのメンバーは、ピアをチャネルに参加させる前に、組織をネットワーク内のチャネルに追加する必要があります。
 
-  - ピアに対して新しいチャネルを開始できます。 チャネル・イニシエーターは、[チャネル作成](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel)時に組織を自動的に含めることができます。
+  - ピアに対して新しいチャネルを開始できます。 チャネル・イニシエーターは、[チャネル作成](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel)時に組織を自動的に含めることができます。
 
-  - ブロックチェーン・ネットワークの別のメンバーが、[チャネル更新](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel)を使用して、組織を既存のチャネルに追加することもできます。
+  - ブロックチェーン・ネットワークの別のメンバーが、[チャネル更新](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)を使用して、組織を既存のチャネルに追加することもできます。
 
     組織がチャネルに追加されたら、他のメンバーがトランザクション中にデジタル署名を検証できるように、ピアの署名証明書をチャネルに追加する必要があります。 証明書とチャネルを同期するだけで良いように、ピアはインストール時にその署名証明書をアップロードします。 ネットワーク・モニターの「チャネル」画面で、組織が参加したチャネルを見つけ、**「アクション」**ヘッダーの下にあるドロップダウン・リストから**「証明書の同期」**を選択します。 このアクションによって、チャネルのすべてのピアで証明書が同期されます。 join channel コマンドを発行する前にチャネル同期が完了できるように、数分待機することが必要になる場合があります。
 
-組織がチャネルの一部になったら、[チャネルに参加する](/docs/services/blockchain/v10_application.html#dev-app-join-channel-sdk)手順に従います。 順序付けサービスの URL とチャネル名を指定する必要があります。
+組織がチャネルのメンバーになったら、SDK を使用して、[ピアをチャネルに参加させる](https://fabric-sdk-node.github.io/release-1.4/Channel.html#joinChannel){: external}ことができます。順序付けサービスの URL とチャネル名を指定する必要があります。
 
 ### SDK を使用したピアへのチェーンコードのインストール
 {: #remote-peer-aws-operate-install-cc-sdk}
 
-手順に従って、SDK を使用してピアに[チェーンコードをインストール](/docs/services/blockchain/v10_application.html#dev-app-install-cc-sdk)します。
+SDK を使用してピアに[チェーンコードをインストール](https://fabric-sdk-node.github.io/release-1.4/Client.html#installChaincode){: external}します。
 
 ### SDK を使用したチャネルでのチェーンコードのインスタンス化
 {: #remote-peer-aws-operate-instantiate-cc-sdk}
 
-チェーンコードをインスタンス化または更新する必要があるのは、チャネルのいずれかのメンバーのみです。 したがって、{{site.data.keyword.blockchainfull_notm}} Platform 上にピアがあるチャネルのどのネットワーク・メンバーも、ネットワーク・モニターを使用してチェーンコードをインスタンス化し、エンドースメント・ポリシーを指定できます。 ただし、ピアを使用してチャネルでチェーンコードをインスタンス化する必要がある場合は、SDK を使用し、手順に従って[チェーンコードをインスタンス化](/docs/services/blockchain/v10_application.html#dev-app-instantiate-cc-sdk)できます。
+チェーンコードをインスタンス化または更新する必要があるのは、チャネルのいずれかのメンバーのみです。 したがって、{{site.data.keyword.blockchainfull_notm}} Platform 上にピアがあるチャネルのどのネットワーク・メンバーも、ネットワーク・モニターを使用してチェーンコードをインスタンス化し、エンドースメント・ポリシーを指定できます。 ただし、ピアを使用してチャネルでチェーンコードをインスタンス化する必要がある場合は、SDK を使用して、[チェーンコードをインスタンス化](https://fabric-sdk-node.github.io/release-1.4/Channel.html#sendInstantiateProposal){: external}できます。
 
 
 ## CLI を使用したピアの操作
@@ -208,7 +208,7 @@ Fabric CA クライアントおよび Fabric ツール・コンテナーを使�
 ### 証明書のローカル・システムでの管理
 {: #remote-peer-aws-operate-manage-certs}
 
-ピアを操作するには、ローカル・マシンで証明書の一部の管理を行い、Fabric CA クライアントによって生成された一部の証明書を {{site.data.keyword.blockchainfull_notm}} Platform およびピアにアップロードする必要があります。 また、Platform およびピアから TLS 証明書をダウンロードする必要もあります。 扱うことになる証明書および実行するタスクについて詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の証明書の管理](/docs/services/blockchain/certificates.html#managing-certificates)を参照してください。
+ピアを操作するには、ローカル・マシンで証明書の一部の管理を行い、Fabric CA クライアントによって生成された一部の証明書を {{site.data.keyword.blockchainfull_notm}} Platform およびピアにアップロードする必要があります。 また、Platform およびピアから TLS 証明書をダウンロードする必要もあります。 扱うことになる証明書および実行するタスクについて詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の証明書の管理](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates)を参照してください。
 
 ローカル・マシンでコマンド端末を開き、Fabric-CA-Client バイナリーを移動して MSP フォルダーを保管したディレクトリーにナビゲートします。
 
@@ -232,7 +232,7 @@ Fabric CA クライアントおよび Fabric ツール・コンテナーを使�
 
 3. また、ピアの TLS 証明書を AWS 上のコンテナーからローカル・マシンにコピーする必要もあります。
 
-    - [以下の手順に従って](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-test)ピア・コンテナーにログインして、以下のコマンドを実行します。ここで、<PEER_ENROLL_ID> の代わりにクイック・スタート・テンプレートで指定したピアのスタック名を入力して、その後ろにピアの番号を入力します (2 つの VPC インスタンスが作成されたことを思い出してください)。
+    - [以下の手順に従って](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-test)ピア・コンテナーにログインして、以下のコマンドを実行します。ここで、<PEER_ENROLL_ID> の代わりにクイック・スタート・テンプレートで指定したピアのスタック名を入力して、その後ろにピアの番号を入力します (2 つの VPC インスタンスが作成されたことを思い出してください)。
       ```
       cat /etc/hyperledger/<PEER_ENROLL_ID>/tls/ca.crt
       ```
@@ -273,7 +273,7 @@ Fabric CA クライアントおよび Fabric ツール・コンテナーを使�
 
       **注:** cert.pem ファイルは、このディレクトリーに既に存在しています。 上書きしないでください。
 
-    - 新しい証明書を追加したため、ピアでこの証明書が選択されるようにするために、コンテナーを再始動する必要があります。[ピア・コンテナーを再始動](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-restart)するには、こちらの手順に従ってください。
+    - 新しい証明書を追加したため、ピアでこの証明書が選択されるようにするために、コンテナーを再始動する必要があります。[ピア・コンテナーを再始動](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-restart)するには、こちらの手順に従ってください。
 
 5. リモートの CLI またはアプリケーションが、チャネルのジェネシス・ブロックの取得やチェーンコードのインスタンス化などのチャネル操作を実行できるようにするために、同じ `admincert/cert.pem` 証明書をローカル・マシンから {{site.data.keyword.blockchainfull_notm}} Platform にアップロードします。
     1. ローカル・マシンで、ファイル `/$FABRIC_CA_CLIENT_HOME/msp/admincerts/cert.pem` を切り取ってクリップボードにコピーします。
@@ -338,9 +338,9 @@ docker run -ti --network blockchain.com -v ${PWD}:/mnt -v path/to/toolsrc:/src i
 
 CLI コマンドを実行してピアをチャネルに参加させる前に、組織をネットワーク内のチャネルに追加する必要があります。
 
-  - ピアに対して新しいチャネルを開始できます。 チャネル・イニシエーターは、[チャネル作成](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel)時に組織を自動的に含めることができます。
+  - ピアに対して新しいチャネルを開始できます。 チャネル・イニシエーターは、[チャネル作成](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel)時に組織を自動的に含めることができます。
 
-  - ブロックチェーン・ネットワークの別のメンバーが、[チャネル更新](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel)を使用して、組織を既存のチャネルに追加することもできます。
+  - ブロックチェーン・ネットワークの別のメンバーが、[チャネル更新](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)を使用して、組織を既存のチャネルに追加することもできます。
 
     組織がチャネルに追加されたら、他のメンバーがトランザクション中にデジタル署名を検証できるように、ピアの署名証明書をチャネルに追加する必要があります。 証明書とチャネルを同期するだけで良いように、ピアはインストール時にその署名証明書をアップロードします。 ネットワーク・モニターの「チャネル」画面で、組織が参加したチャネルを見つけ、**「アクション」**ヘッダーの下にあるドロップダウン・リストから**「証明書の同期」**を選択します。 このアクションによって、チャネルのすべてのピアで証明書が同期されます。
 
@@ -443,7 +443,7 @@ CLI コマンドを実行してピアをチャネルに参加させる前に、�
 ### Fabric ツール・コンテナーを使用したピアへのチェーンコードのインストール
 {: #aws-toolcontainer-install-cc}
 
-これで、ピアにチェーンコードをインストールおよびインスタンス化する準備ができました。 その手順として、ここでは、`fabcar` チェーンコードを Hyperledger `fabric-samples` リポジトリーからインストールします。このリポジトリーは、[Fabric ツール・コンテナーをセットアップ](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-cli-operate)したときにローカル・マシンにダウンロードしているはずです。  
+これで、ピアにチェーンコードをインストールおよびインスタンス化する準備ができました。 その手順として、ここでは、`fabcar` チェーンコードを Hyperledger `fabric-samples` リポジトリーからインストールします。このリポジトリーは、[Fabric ツール・コンテナーをセットアップ](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate)したときにローカル・マシンにダウンロードしているはずです。  
 
 以下のピア CLI コマンドを実行して、ピアに `fabcar` チェーンコードをインストールします。
 
@@ -492,7 +492,7 @@ CORE_PEER_TLS_ROOTCERT_FILE=/mnt/msp/tls/cacert.pem CORE_PEER_TLS_ENABLED=true C
  ```
  {:codeblock}  
 
-さらに、[HEAD 要求](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network-monitor-nodes)を使用して、ピアの可用性を確認できます。
+さらに、[HEAD 要求](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-nodes)を使用して、ピアの可用性を確認できます。
 
 ## ピアのログの表示
 
@@ -514,7 +514,7 @@ docker logs peer
 
 2. チャネル内のすべてのピアに新しいチェーンコードをインストールした後、ネットワーク・モニターまたは [peer chaincode upgrade](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} コマンドを使用して、新しいチェーンコードを使用するようにチャネルを更新します。
 
-ネットワーク・モニターの「コードのインストール」パネルを使用してチャネル上のチェーンコードを更新する方法について詳しくは、こちらの[手順](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc)のステップ 2 を参照してください。
+ネットワーク・モニターの「コードのインストール」パネルを使用してチャネル上のチェーンコードを更新する方法について詳しくは、こちらの[手順](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc)のステップ 2 を参照してください。
 
 ## トラブルシューティング
 {: #remote-peer-aws-operate-troubleshooting}
@@ -542,4 +542,4 @@ Error: Error endorsing chaincode: rpc error: code = Unknown desc = chaincode err
 ```
 
 **解決策:**   
-管理者証明書がネットワーク・モニターにアップロードされた後に、証明書がチャネル上で同期されるようにしてください。 詳しくは、こちらの[手順](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-manage-certs)のステップ 5 を参照してください。 ピアがチャネルに参加する前に、チャネル証明書を同期することが重要であることに留意してください。
+管理者証明書がネットワーク・モニターにアップロードされた後に、証明書がチャネル上で同期されるようにしてください。 詳しくは、こちらの[手順](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-manage-certs)のステップ 5 を参照してください。ピアがチャネルに参加する前に、チャネル証明書を同期することが重要であることに留意してください。

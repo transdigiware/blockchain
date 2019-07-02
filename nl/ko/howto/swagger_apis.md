@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 
 {:shortdesc}
 
-시작하기 전에 {{site.data.keyword.cloud_notm}}에서 [{{site.data.keyword.blockchain}} Platform 서비스 인스턴스](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 작성하고 스타터 플랜 <!--or Enterprise Plan -->블록체인 네트워크를 작성하거나 이 네트워크에 가입해야 합니다. 
+시작하기 전에 {{site.data.keyword.cloud_notm}}에서 [{{site.data.keyword.blockchain}} Platform 서비스 인스턴스](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}를 작성하고 스타터 플랜 <!--or Enterprise Plan -->블록체인 네트워크를 작성하거나 이 네트워크에 가입해야 합니다.
 
 
 ## 네트워크 인증 정보 검색
@@ -82,7 +82,7 @@ Swagger UI에서 **권한 부여** 단추를 클릭하면 권한 부여 창이 �
 
 기본적으로 {{site.data.keyword.cloud_notm}}에서 감사자 역할을 제외한 모든 사용자는 Swagger API 패널에 표시되는 **네트워크 인증 정보**를 보고 사용할 수 있으며, 이에 따라 API를 사용하여 네트워크를 관리할 수 있습니다. 그러나 UI에서 Swagger API 네트워크 인증 정보를 노출하지 않으려면 기존 키 및 시크릿 값을 복사하고 보안 설정하며 Swagger API에 사용할 수 없는 새 인증서를 생성할 수 있습니다. 다음 단계를 완료하여 resetCredentials라는 플래그가 제공되며 액세스를 제어할 수 있도록 합니다.
 
-1. [서비스 인증 정보 대시보드](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token)에 설명된 대로 새 네트워크 인증 정보를 생성하려면 다음 단계를 따르십시오.
+1. [서비스 인증 정보 대시보드](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token)에 설명된 대로 새 네트워크 인증 정보를 생성하려면 다음 단계를 따르십시오.
 2. 그러나 **인라인 구성 매개변수 추가** 상자에 다음 값을 붙여넣으십시오.
    ```
    {
@@ -104,7 +104,7 @@ Swagger UI에서 **권한 부여** 단추를 클릭하면 권한 부여 창이 �
 ### 401 권한 없음  
 {: #ibp-swagger-401}
 
-  네트워크 인증 정보를 제공하여 REST API에 권한을 부여했는지 확인하십시오. 자세한 정보는 [Swagger API 권한 부여](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger)를 참조하십시오.
+  네트워크 인증 정보를 제공하여 REST API에 권한을 부여했는지 확인하십시오. 자세한 정보는 [Swagger API 권한 부여](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger)를 참조하십시오.
 
 ### 400 오류: 잘못된 요청
 {: #ibp-swagger-400}

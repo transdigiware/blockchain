@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: update data, private data, smart contract, CouchDB indexes, cross chaincode transaction
 
@@ -28,13 +28,13 @@ subcollection: blockchain
 
 以下のチュートリアルでは、以下を含む、チェーンコードの作成の基本的な側面について説明します。
 
-- [チェーンコードの作成を開始する方法](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-write)
-- [チェーンコードとデータの関係](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-data)
-- [チェーンコード間トランザクション](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode)
+- [チェーンコードの作成を開始する方法](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-write)
+- [チェーンコードとデータの関係](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-data)
+- [チェーンコード間トランザクション](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode)
 
 このチュートリアルでは、チェーンコードを介してアクセス可能なファブリックの重要な側面についても紹介します。
 
-- [couchDB での索引の使用](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-indexes)
+- [couchDB での索引の使用](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-indexes)
 
 ## チェーンコードの作成
 {: #develop-smart-contracts-write}
@@ -49,12 +49,12 @@ Hyperledger Fabric コミュニティー資料の [開発者向けチェーン�
 ## チェーンコードのインストール
 {: #develop-smart-contracts-install}
 
-チェーンコードはチャネルでのトランザクションの構造を提供するため、チェーンコードを使用してチャネル台帳を更新または照会するチャネルに参加しているすべてのピアにチェーンコードをインストールする必要があります。 こうすると、チャネルのいずれかのメンバーがチャネル上でチェーンコードをインスタンス化し、チェーンコードのエンドースメント・ポリシーを設定できます。 チェーンコードのインストールおよびインスタンス化は、{{site.data.keyword.blockchainfull_notm}} Platform UI または Fabric ピアのコマンド・ライン・インターフェースを使用して実行できるほか、Fabric SDK を使用してクライアント・アプリケーションから実行できます。{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} を使用している場合は、[ネットワークにスマート・コントラクトをデプロイするチュートリアル](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts)を参照して、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用してチェーンコードをデプロイする方法を学習してください。 スターター・プランまたはエンタープライズ・プランを使用している場合は、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode)を参照して、ネットワーク・モニター UI を使用してチェーンコードをデプロイする方法を学習してください。
+チェーンコードはチャネルでのトランザクションの構造を提供するため、チェーンコードを使用してチャネル台帳を更新または照会するチャネルに参加しているすべてのピアにチェーンコードをインストールする必要があります。 こうすると、チャネルのいずれかのメンバーがチャネル上でチェーンコードをインスタンス化し、チェーンコードのエンドースメント・ポリシーを設定できます。 チェーンコードのインストールおよびインスタンス化は、{{site.data.keyword.blockchainfull_notm}} Platform UI または Fabric ピアのコマンド・ライン・インターフェースを使用して実行できるほか、Fabric SDK を使用してクライアント・アプリケーションから実行できます。 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} を使用している場合は、[ネットワークにスマート・コントラクトをデプロイするチュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts)を参照して、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用してチェーンコードをデプロイする方法を学習してください。 スターター・プランまたはエンタープライズ・プランを使用している場合は、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode)を参照して、ネットワーク・モニター UI を使用してチェーンコードをデプロイする方法を学習してください。
 
 ## チェーンコードおよびデータ
 {: #develop-smart-contracts-data}
 
-各チャネルには台帳が 1 つのみあり、その台帳のデータは、固有のキーと、キーと値のペアを台帳に追加したチェーンコードによってパーティション化されます。 メンバーは、正しいキーおよび関連するチェーンコードを使用して、チャネル台帳のデータの読み取りまたは更新のみを行うことができます。 チェーンコードがアクセスできるデータは、そのチェーンコードの名前空間と呼ばれ、台帳のすべてのデータは 1 つのチェーンコードの名前空間内にあります。 チェーンコードは、関連データにアクセスできるチェーンコードへの[チェーンコード間トランザクション](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode)を使用することによってのみ、その名前空間外のデータと対話できます。
+各チャネルには台帳が 1 つのみあり、その台帳のデータは、固有のキーと、キーと値のペアを台帳に追加したチェーンコードによってパーティション化されます。 メンバーは、正しいキーおよび関連するチェーンコードを使用して、チャネル台帳のデータの読み取りまたは更新のみを行うことができます。 チェーンコードがアクセスできるデータは、そのチェーンコードの名前空間と呼ばれ、台帳のすべてのデータは 1 つのチェーンコードの名前空間内にあります。 チェーンコードは、関連データにアクセスできるチェーンコードへの[チェーンコード間トランザクション](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode)を使用することによってのみ、その名前空間外のデータと対話できます。
 
 チェーンコードがデータと対話する方法の例として、Fabric サンプル・リポジトリーの fabcar チェーンコードを使用できます。 名前空間は、スマート・コントラクトがインスタンス化されるときに作成されます。 一部のチェーンコードは、そのチェーンコードがインスタンス化されたときにキーと値のペアの引数のセットを受け入れ、そのデータを使用して名前空間を初期化します。 Fabric サンプル・リポジトリーの fabcar チェーンコードは、インスタンス化されたときに引数を受け入れません。 fabcar では、initLedger 関数または createCar 関数を使用して名前空間にデータを追加する必要があります。 例えば、引数 `{"Args":["createCar",'CAR1', 'Honda', 'Accord', 'Black', 'Tom']}` を渡すと、キーと値のペアである `{Key='CAR1', value={'Honda', 'Accord', 'Black', 'Tom'}}` が fabcar 名前空間になります。
 
@@ -143,4 +143,4 @@ Write Set: `{Key='CAR1', value[3]='Joe'}`
 
 状態データベースに CouchDB を使用している場合、チェーンコードからチャネルの状態データに対する JSON データ照会を実行できます。 JSON 照会用に索引を作成してチェーンコードで使用することを強くお勧めします。 索引を使用すると、ネットワークがトランザクションおよびエントリーの追加ブロックをワールド・ステートに追加するため、アプリケーションで効率的にデータを取り出すことができます。
 
-CouchDB について、および索引をセットアップする方法について詳しくは、Hyperledger Fabric の資料で [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} を参照してください。 [Fabric CouchDB チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}にも、索引をチェーンコードで使用する例があります。 アプリケーションからデータを照会する方法について詳しくは、アプリケーションの開発チュートリアルの [CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)を参照してください。
+CouchDB について、および索引をセットアップする方法について詳しくは、Hyperledger Fabric の資料で [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} を参照してください。 [Fabric CouchDB チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}にも、索引をチェーンコードで使用する例があります。 アプリケーションからデータを照会する方法について詳しくは、アプリケーションの開発チュートリアルの [CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)を参照してください。

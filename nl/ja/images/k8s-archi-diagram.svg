@@ -17,7 +17,7 @@
    style="enable-background:new 0 0 700 500;"
    xml:space="preserve"
    sodipodi:docname="k8s-archi-diagram.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
    id="metadata359"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
@@ -91,7 +91,7 @@
    id="namedview355"
    showgrid="false"
    inkscape:zoom="1.7964199"
-   inkscape:cx="349.75"
+   inkscape:cx="257.06566"
    inkscape:cy="248.60001"
    inkscape:window-x="-8"
    inkscape:window-y="-8"
@@ -104,7 +104,7 @@
 	.st1{fill:none;stroke:#7DB6D6;stroke-miterlimit:10;stroke-dasharray:2,1;}
 	.st2{fill:none;stroke:#01A0C6;stroke-miterlimit:10;}
 	.st3{fill:#FFFFFF;stroke:#01A0C6;stroke-miterlimit:10;}
-	.st4{font-family:'MyriadPro-Regular';}
+	.st4{font-family:'Source Han Sans';}
 	.st5{font-size:12px;}
 	.st6{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
 	.st7{font-size:15px;}
@@ -159,20 +159,22 @@
    d="M 180.8,270.3 H 96 c -2.6,0 -4.7,-2.1 -4.7,-4.7 v -26 c 0,-2.6 2.1,-4.7 4.7,-4.7 h 84.7 c 2.6,0 4.7,2.1 4.7,4.7 v 26 c 0,2.6 -2.1,4.7 -4.6,4.7 z"
    class="st3" />
 	</g><text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.38630772px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.94885904"
    id="text20"
-   x="107.9868"
-   y="249.2421"><tspan
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   x="101.36065"
+   y="236.49561"
+   transform="scale(0.94885901,1.0538974)"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.38630772px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.94885904"
      id="tspan16"
      class="st4 st5"
-     y="249.2421"
-     x="107.9868">コントローラー・</tspan><tspan
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+     y="236.49561"
+     x="101.36065">コントローラー・</tspan><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.38630772px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.94885904"
      id="tspan18"
      class="st4 st5"
-     y="263.64209"
-     x="112.1868">マネージャー</tspan></text>
+     y="250.15918"
+     x="105.34586">マネージャー</tspan></text>
+
 
 <g
    id="g30">
@@ -195,20 +197,22 @@
    d="m 318.1,273.1 h -84.7 c -2.6,0 -4.7,-2.1 -4.7,-4.7 v -26 c 0,-2.6 2.1,-4.7 4.7,-4.7 h 84.7 c 2.6,0 4.7,2.1 4.7,4.7 v 26 c 0,2.6 -2.1,4.7 -4.7,4.7 z"
    class="st3" />
 	</g><text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.50386906px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.95865577"
    id="text36"
-   x="243.3105"
-   y="252.43291"><tspan
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   x="241.44746"
+   y="241.99626"
+   transform="scale(0.95865578,1.0431273)"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.50386906px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.95865577"
      id="tspan32"
      class="st4 st5"
-     y="252.43291"
-     x="243.3105">コントローラー・</tspan><tspan
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+     y="241.99626"
+     x="241.44746">コントローラー・</tspan><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.50386906px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.95865577"
      id="tspan34"
      class="st4 st5"
-     y="266.83289"
-     x="247.5105">マネージャー</tspan></text>
+     y="255.80089"
+     x="245.47382">マネージャー</tspan></text>
+
 
 <g
    id="g52">
@@ -259,17 +263,20 @@
    transform="matrix(1 0 0 1 106.8689 388.6827)"
    class="st4 st5"
    id="text54"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">etcd</text>
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">etcd</text>
+
 
 <path
    class="st3"
    d="M314.7,338.9H212.1c-5.3,0-9.7-4.4-9.7-9.7v-17.8c0-5.3,4.4-9.7,9.7-9.7h102.6c5.3,0,9.7,4.4,9.7,9.7v17.8  C324.4,334.5,320,338.9,314.7,338.9z"
    id="path56" />
 <text
-   transform="matrix(1 0 0 1 238.549 323.9108)"
    class="st4 st5"
    id="text58"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">API サーバー</text>
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   x="232.549"
+   y="323.9108">API サーバー</text>
+
 
 <g
    id="g70">
@@ -289,17 +296,20 @@
    id="path64" />
 	</g>
 	<text
-   transform="matrix(1 0 0 1 247.4041 402.5417)"
    class="st4 st5"
    id="text68"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">スケジューラー</text>
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   x="233.4041"
+   y="402.54169">スケジューラー</text>
+
 
 </g>
 <text
    transform="matrix(1 0 0 1 53.1327 171.2151)"
    class="st4 st7"
    id="text72"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">マスター・ノード</text>
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">マスター・ノード</text>
+
 
 <g
    id="XMLID_81_">
@@ -403,17 +413,19 @@
    class="st11"
    y="95.099998"
    x="509.79999" /><text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text111"
    class="st4 st5"
    x="430.37369"
    y="111.85">kubelet</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text113"
    class="st4 st5"
    x="538.43719"
    y="112.0789">プロキシー</text>
+
 <line
    style="fill:none"
    id="line115"
@@ -422,29 +434,33 @@
    y1="120.6"
    x1="435.60001"
    class="st12" /><text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text117"
    class="st4 st7"
    x="391.81311"
    y="74.896004">ワーカー・ノード</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text119"
    class="st4 st5"
    x="561.45673"
    y="153.78641">コンテナー</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text121"
    class="st4 st5"
-   x="467.5824"
+   x="457.5824"
    y="179.31931">ポッド</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text123"
    class="st4 st5"
-   x="574.26642"
+   x="564.26642"
    y="178.92979">ポッド</text>
+
 <g
    id="XMLID_1_">
 			<g
@@ -718,17 +734,19 @@
    class="st11"
    y="306.70001"
    x="510.89999" /><text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text251"
    class="st4 st5"
    x="431.45819"
    y="323.3967">kubelet</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text253"
    class="st4 st5"
-   x="539.43732"
+   x="529.43732"
    y="322.76541">プロキシー</text>
+
 <line
    style="fill:none"
    id="line255"
@@ -737,29 +755,34 @@
    y1="332.10001"
    x1="436.70001"
    class="st12" /><text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text257"
    class="st4 st7"
    x="392.89761"
    y="286.44269">ワーカー・ノード</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.27304745px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.93942058"
    id="text259"
    class="st4 st5"
-   x="562.5412"
-   y="365.33301">コンテナー</text>
+   x="599.05585"
+   y="343.20135"
+   transform="scale(0.93942058,1.0644859)">コンテナー</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text261"
    class="st4 st5"
-   x="468.6669"
+   x="460.6669"
    y="390.866">ポッド</text>
+
 <text
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
    id="text263"
    class="st4 st5"
-   x="575.35089"
+   x="567.35089"
    y="390.47641">ポッド</text>
+
 <g
    id="XMLID_3_">
 			<g
@@ -855,25 +878,29 @@
    transform="matrix(1 0 0 1 463.8213 219.9644)"
    class="st4 st17"
    id="text314"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+
 
 <text
    transform="matrix(1 0 0 1 575.9009 221.1404)"
    class="st4 st17"
    id="text316"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+
 
 <text
    transform="matrix(1 0 0 1 469.5468 432.6871)"
    class="st4 st17"
    id="text318"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+
 
 <text
    transform="matrix(1 0 0 1 575.9009 432.6866)"
    class="st4 st17"
    id="text320"
-   style="-inkscape-font-specification:'MS UI Gothic, Normal';font-family:'MS UI Gothic';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+   style="-inkscape-font-specification:'Source Han Sans, Normal';font-family:'Source Han Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">......</text>
+
 
 <rect
    x="274"
@@ -885,9 +912,10 @@
 <text
    class="st4 st5"
    id="text324"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-   x="269.97049"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   x="261.97049"
    y="102.5203">クラウド</text>
+
 
 <g
    id="g334">
@@ -916,10 +944,11 @@
 <text
    class="st4 st5"
    id="text338"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.07282448px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.92273533"
-   x="632.44501"
-   y="44.332268"
-   transform="scale(0.92273536,1.0837343)">インターネット</text>
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.48699284px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.79058266"
+   x="738.45911"
+   y="37.98307"
+   transform="scale(0.79058273,1.2648898)">インターネット</text>
+
 
 <g
    id="g348">

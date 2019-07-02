@@ -38,7 +38,7 @@
 		<path class="st3" d="M180.8,270.3H96c-2.6,0-4.7-2.1-4.7-4.7v-26c0-2.6,2.1-4.7,4.7-4.7h84.7c2.6,0,4.7,2.1,4.7,4.7v26
 			C185.4,268.2,183.3,270.3,180.8,270.3z"/>
 	</g>
-	<text transform="matrix(1 0 0 1 111.9868 249.2421)"><tspan x="0" y="0" class="st4 st5">Gestore </tspan><tspan x="4.2" y="14.4" class="st4 st5">controller</tspan></text>
+	<text transform="matrix(1 0 0 1 111.9868 249.2421)"><tspan x="0" y="0" class="st4 st5">Controller </tspan><tspan x="4.2" y="14.4" class="st4 st5">Manager</tspan></text>
 </g>
 <g>
 	<g>
@@ -49,7 +49,7 @@
 		<path class="st3" d="M318.1,273.1h-84.7c-2.6,0-4.7-2.1-4.7-4.7v-26c0-2.6,2.1-4.7,4.7-4.7h84.7c2.6,0,4.7,2.1,4.7,4.7v26
 			C322.8,271,320.7,273.1,318.1,273.1z"/>
 	</g>
-	<text transform="matrix(1 0 0 1 249.3105 250.4329)"><tspan x="0" y="0" class="st4 st5">Gestore </tspan><tspan x="4.2" y="14.4" class="st4 st5">controller</tspan></text>
+	<text transform="matrix(1 0 0 1 249.3105 250.4329)"><tspan x="0" y="0" class="st4 st5">Controller </tspan><tspan x="4.2" y="14.4" class="st4 st5">Manager</tspan></text>
 </g>
 <g>
 	<ellipse class="st3" cx="116.4" cy="398.7" rx="34.3" ry="10"/>
@@ -62,7 +62,7 @@
 <text transform="matrix(1 0 0 1 106.8689 388.6827)" class="st4 st5">etcd</text>
 <path class="st3" d="M314.7,338.9H212.1c-5.3,0-9.7-4.4-9.7-9.7v-17.8c0-5.3,4.4-9.7,9.7-9.7h102.6c5.3,0,9.7,4.4,9.7,9.7v17.8
 	C324.4,334.5,320,338.9,314.7,338.9z"/>
-<text transform="matrix(1 0 0 1 238.549 323.9108)" class="st4 st5">Server API</text>
+<text transform="matrix(1 0 0 1 238.549 323.9108)" class="st4 st5">API Server</text>
 <g>
 	<g>
 		<path class="st3" d="M294.5,395.6h-84.7c-2.6,0-4.7-2.1-4.7-4.7v-26c0-2.6,2.1-4.7,4.7-4.7h84.7c2.6,0,4.7,2.1,4.7,4.7v26
@@ -72,9 +72,9 @@
 		<path class="st3" d="M317,417h-84.7c-2.6,0-4.7-2.1-4.7-4.7v-26c0-2.6,2.1-4.7,4.7-4.7H317c2.6,0,4.7,2.1,4.7,4.7v26
 			C321.7,414.9,319.6,417,317,417z"/>
 	</g>
-	<text transform="matrix(1 0 0 1 247.4041 402.5417)" class="st4 st5">Programma di pianificazione</text>
+	<text transform="matrix(1 0 0 1 247.4041 402.5417)" class="st4 st5">Scheduler</text>
 </g>
-<text transform="matrix(1 0 0 1 53.1327 171.2151)" class="st4 st7">Nodo master</text>
+<text transform="matrix(1 0 0 1 53.1327 171.2151)" class="st4 st7">Master node</text>
 <g>
 	<g>
 		<g id="XMLID_81_">
@@ -111,8 +111,8 @@
 			<text transform="matrix(1 0 0 1 430.3737 111.85)" class="st4 st5">kubelet</text>
 			<text transform="matrix(1 0 0 1 538.4372 112.0789)" class="st4 st5">Proxy</text>
 			<line class="st12" x1="435.6" y1="120.6" x2="435.6" y2="169.7"/>
-			<text transform="matrix(1 0 0 1 391.8131 74.896)" class="st4 st7">Nodo di lavoro</text>
-			<text transform="matrix(1 0 0 1 561.4567 153.7864)" class="st4 st5">Contenitore</text>
+			<text transform="matrix(1 0 0 1 391.8131 74.896)" class="st4 st7">Worker node</text>
+			<text transform="matrix(1 0 0 1 561.4567 153.7864)" class="st4 st5">Container</text>
 			<text transform="matrix(1 0 0 1 473.5824 179.3193)" class="st4 st5">Pod</text>
 			<text transform="matrix(1 0 0 1 580.2664 178.9298)" class="st4 st5">Pod</text>
 		</g>
@@ -221,8 +221,8 @@
 			<text transform="matrix(1 0 0 1 431.4582 323.3967)" class="st4 st5">kubelet</text>
 			<text transform="matrix(1 0 0 1 539.4373 322.7654)" class="st4 st5">Proxy</text>
 			<line class="st12" x1="436.7" y1="332.1" x2="436.7" y2="381.3"/>
-			<text transform="matrix(1 0 0 1 392.8976 286.4427)" class="st4 st7">Nodo di lavoro</text>
-			<text transform="matrix(1 0 0 1 562.5412 365.333)" class="st4 st5">Contenitore</text>
+			<text transform="matrix(1 0 0 1 392.8976 286.4427)" class="st4 st7">Worker node</text>
+			<text transform="matrix(1 0 0 1 562.5412 365.333)" class="st4 st5">Container</text>
 			<text transform="matrix(1 0 0 1 474.6669 390.866)" class="st4 st5">Pod</text>
 			<text transform="matrix(1 0 0 1 581.3509 390.4764)" class="st4 st5">Pod</text>
 		</g>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -34,7 +34,7 @@ Para obtener una visión general de alto nivel de los componentes de una red bas
 *Aunque este vídeo se centra en los componentes desde la perspectiva de las redes de Plan inicial o empresarial, la información sigue siendo adecuada en gran medida para la solución gestionada por el cliente de {{site.data.keyword.blockchainfull_notm}} Platform para
 {{site.data.keyword.cloud_notm}} Private.*
 
-Para los fines de esta visión general, nos centraremos solo en las entidades emisoras de certificados (CA), clasificadores, iguales, contratos inteligentes y aplicaciones. Como puede ver en la [guía de {{site.data.keyword.blockchainfull_notm}} Platform 2.0 para crear una red](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) y en la [guía de despliegue de {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/ibp_for_icp_deployment_guide.html#get-started-icp), esta secuencia no es arbitraria; refleja la secuencia en la que se desplegarán los componentes en una red basada en Fabric.
+Para los fines de esta visión general, nos centraremos solo en las entidades emisoras de certificados (CA), clasificadores, iguales, contratos inteligentes y aplicaciones. Como puede ver en la [guía de aprendizaje Creación de una red](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), esta secuencia no es arbitraria; refleja la secuencia en la que los componentes de una red basada en Fabric se van a desplegar.
 
 ## Entidades emisoras de certificados
 {: #blockchain-component-overview-ca}
@@ -81,7 +81,7 @@ Cuando los contratos del mundo empresarial se firman y se rellenan con firmas le
 Las aplicaciones cliente de una red basada en Fabric, como {{site.data.keyword.blockchainfull_notm}} Platform, aprovechan infraestructuras subyacentes como las API, los SDK y los contratos inteligentes para permitir interacciones de clientes (invocaciones y consultas) a un mayor nivel de abstracción.
 
 Para ver cómo interactúan las aplicaciones con una red basada en Fabric, consulte el tema sobre [Desarrollo de aplicaciones](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} en la documentación de Hyperledger Fabric. También puede consultar el tema sobre
-[creación de aplicaciones](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) para aprender a conectar sus aplicaciones con {{site.data.keyword.blockchainfull_notm}} Platform.
+[creación de aplicaciones](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app) para aprender a conectar sus aplicaciones con {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Una red de ejemplo
 {: #blockchain-component-overview-example-network}

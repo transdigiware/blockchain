@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -54,7 +54,7 @@ Lorsque vous [utilisez IAM pour inviter des utilisateurs](/docs/iam?topic=iam-ia
 ![Ajout d'utilisateurs](../images/AddICPUser.gif){: gif}
 
 
-Après que vous avez ajouté de nouveaux utilisateurs à la console, il se peut que ceux-ci ne puissent pas voir l'ensemble des noeuds, canaux ou codes blockchain, déployés par d'autres utilisateurs. Pour pouvoir gérer ces composants, chaque utilisateur doit importer les identités associées dans son propre portefeuille de console. Pour plus d'informations, voir [Stockage des identités dans votre portefeuille de console](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
+Après que vous avez ajouté de nouveaux utilisateurs à la console, il se peut que ceux-ci ne puissent pas voir l'ensemble des noeuds, canaux ou codes blockchain, déployés par d'autres utilisateurs. Pour pouvoir gérer ces composants, chaque utilisateur doit importer les identités associées dans son propre portefeuille de console. Pour plus d'informations, voir [Stockage des identités dans votre portefeuille de console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 Si vous devez modifier le rôle d'un utilisateur :
@@ -97,7 +97,7 @@ Lors de l'utilisation de la console {{site.data.keyword.blockchainfull_notm}} Pl
 ### Consultation des journaux de la console
 {: #ibp-console-manage-console-logs}
 
-Vous pouvez facilement accéder aux journaux de la console si vous avez besoin de déboguer des problèmes que vous rencontrez lors de l'utilisation de la console ou de l'exploitation de vos noeuds. Vous pouvez également définir le niveau de consignation afin d'augmenter ou de diminuer le nombre de journaux collectés par la console. Les journaux de la console sont collectés séparément des [journaux de vos noeuds](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs), lesquels sont collectés par le service {{site.data.keyword.cloud_notm}} Kubernetes.
+Vous pouvez facilement accéder aux journaux de la console si vous avez besoin de déboguer des problèmes que vous rencontrez lors de l'utilisation de la console ou de l'exploitation de vos noeuds. Vous pouvez également définir le niveau de consignation afin d'augmenter ou de diminuer le nombre de journaux collectés par la console. Les journaux de la console sont collectés séparément des [journaux de vos noeuds](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), lesquels sont collectés par le service {{site.data.keyword.cloud_notm}} Kubernetes.
 
 Accédez à l'onglet **Paramètres** dans le navigateur de la console pour modifier les paramètres de journalisation. Les journaux de la console sont collectés à partir de deux sources distinctes :
 
@@ -111,9 +111,9 @@ Vous pouvez afficher uniquement les journaux de la console si vous êtes connect
 ### Consultation des journaux de votre noeud
 {: #ibp-console-manage-console-node-logs}
 
-Les journaux de vos homologues, services de tri et autorités de certification sont collectés par le service {{site.data.keyword.IBM_notm}} Kubernetes. Utilisez les étapes ci-dessous pour consulter les journaux de vos noeuds depuis le cluster où vous avez déployé votre réseau {{site.data.keyword.blockchainfull_notm}} Platform.
+Les journaux de vos homologues, noeuds de tri et autorités de certification sont collectés par le service {{site.data.keyword.IBM_notm}} Kubernetes. Utilisez les étapes ci-dessous pour consulter les journaux de vos noeuds depuis le cluster où vous avez déployé votre réseau {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Pour localiser plus facilement les journaux de votre noeud, il peut être utile de filtrer sur l'espace de nom qui a été utilisé lors du déploiement des noeuds.
+Pour localiser plus facilement les journaux de votre noeud, il est recommandé de filtrer sur l'espace de nom qui a été utilisé lors du déploiement des noeuds.
 Pour trouver l'espace de nom, ouvrez le noeud de votre autorité de certification et cliquez sur l'icône **Paramètres**. Affichez la valeur de l'**URL de noeud final de l'autorité de certification**. Par exemple : `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 L'espace de nom est la première partie de l'URL commençant par la lettre `n` et suivie d'une chaîne aléatoire de six caractères alphanumériques. Ainsi, dans l'exemple ci-dessus, la valeur de l'espace de nom est `n2734d0`.
@@ -124,7 +124,7 @@ L'espace de nom est la première partie de l'URL commençant par la lettre `n` e
 4. Dans la navigation de gauche, cliquez sur **Pods** pour afficher la liste des pods de noeud que vous avez déployés.
 5. Cliquez sur un pod. Cliquez ensuite sur **Journaux** dans le menu du haut pour ouvrir les journaux de votre noeud. Au-dessus des journaux, vous pouvez utiliser le menu déroulant en regard de **Journaux de ** pour consulter les journaux des différents conteneurs au sein du pod. Par exemple, votre homologue et la base de données d'état (CouchDB, par exemple) s'exécutent dans des conteneurs différents et génèrent des journaux différents.
 
-Par défaut, les journaux de vos noeuds sont collectés en local au sein de votre cluster. Vous pouvez également utiliser les services {{site.data.keyword.cloud_notm}} ou un service tiers pour collecter, stocker et analyser les journaux de votre réseau. Pour plus d'informations, voir [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-health#health){: external}. Nous vous recommandons d'utiliser le service [{{site.data.keyword.cloud_notm}} LogDNA](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} qui vous permet d'analyser facilement les journaux en temps réel.
+Par défaut, les journaux de vos noeuds sont collectés en local au sein de votre cluster. Vous pouvez également utiliser les services {{site.data.keyword.cloud_notm}} ou un service tiers pour collecter, stocker et analyser les journaux de votre réseau. Pour plus d'informations, voir [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. Nous vous recommandons d'utiliser le service [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} qui vous permet d'analyser facilement les journaux en temps réel.
 
 ### Consultation des journaux de votre conteneur de contrat intelligent
 {: #ibp-console-manage-console-container-logs}
@@ -140,12 +140,12 @@ Les journaux de tous vos contrats intelligents sont visibles dans cette fenêtre
 ## Installation de correctifs pour vos noeuds
 {: #ibp-console-manage-patch}
 
-Les images docker {{site.data.keyword.IBM_notm}} Hyperledger Fabric sous-jacentes pour les noeuds de l'homologue, de l'autorité de certification et du service de tri devront peut-être mis à jour, par exemple, avec des mises à jour de sécurité ou pour une nouvelle édition de point Fabric. Le texte **Correctif disponible** dans le titre d'une vignette indique qu'un correctif est disponible et peut être installé sur le noeud dès que vous êtes prêt(e). Ces correctifs sont facultatifs, mais recommandés.  Vous ne pouvez pas appliquer des correctifs à des noeuds qui sont importés sur la console.
+Les images docker {{site.data.keyword.IBM_notm}} Hyperledger Fabric sous-jacentes pour les noeuds de l'homologue, de l'autorité de certification et des noeuds de tri devront peut-être mis à jour, par exemple, avec des mises à jour de sécurité ou pour une nouvelle édition de point Fabric. Le texte **Correctif disponible** dans le titre d'une vignette indique qu'un correctif est disponible et peut être installé sur le noeud dès que vous êtes prêt(e). Ces correctifs sont facultatifs, mais recommandés.  Vous ne pouvez pas appliquer des correctifs à des noeuds qui sont importés sur la console.
 
 Les correctifs sont appliqués à tous les noeuds en même temps. Lorsque le correctif est appliqué, le noeud n'est pas disponible pour traiter des demandes ou des transactions. Par conséquent, pour éviter toute interruption de service, vous devez vérifier chaque fois que possible qu'un autre noeud du même type est disponible pour le traitement des demandes. L'installation de correctifs sur un noeud prend environ une minute et une fois la mise à jour terminée, le noeud est prêt à traiter des demandes.
 {:note}
 
-Pour appliquer un correctif sur un noeud, ouvrez la vignette du noeud et cliquez sur le bouton **Installer un correctif** .
+Pour appliquer un correctif sur un noeud, ouvrez la vignette du noeud et cliquez sur le bouton **Installer un correctif** . Vous ne pouvez pas appliquer des correctifs à des noeuds que vous avez importés sur la console.
 
 ## Expiration du cluster Kubernetes
 {: #ibp-console-manage-console-cluster-expiration}
@@ -158,4 +158,4 @@ Si vous utilisez un cluster {{site.data.keyword.cloud_notm}} Kubernetes Service 
 4. Faites défiler jusqu'au bouton de développement **Clusters Kubernetes** et développez-le pour afficher votre cluster gratuit.
 5. Si votre cluster gratuit est répertorié, cliquez sur le menu Action du cluster, puis sur **Supprimer**, afin de supprimer le cluster gratuit.
 
-Lorsque ces actions sont terminées, vous pouvez suivre les [étapes d'origine](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) pour créer un nouveau cluster Kubernetes et une instance de service blockchain depuis la page de catalogue {{site.data.keyword.cloud_notm}}.
+Lorsque ces actions sont terminées, vous pouvez suivre les [étapes d'origine](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) pour créer un nouveau cluster Kubernetes et une instance de service blockchain depuis la page de catalogue {{site.data.keyword.cloud_notm}}.

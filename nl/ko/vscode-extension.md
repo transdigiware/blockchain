@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -49,21 +49,26 @@ subcollection: blockchain
 ### 전제조건
 {: #develop-vscode-prerequisites}
 
-- **Visual Studio Code 설치**  
-  [Visual Studio](https://code.visualstudio.com/) Code 편집기를 설치하십시오.  
-- **Yeoman 설치**  
-  Yeoman은 스켈레톤 스마트 계약 프로젝트를 작성하는 데 사용할 수 있는 생성기 도구입니다. `npm install -g yo` 명령을 사용하여 Yeoman을 설치하십시오.  
-- **Docker 설치**  
-  Hyperledger Fabric의 사전 구성된 인스턴스를 실행하려면 [Docker](https://www.docker.com/){: external}를 설치했는지 확인하십시오.   
-- **운영 체제 요구사항**  
-현재 확장은 Mac, Windows 및 Linux와 호환 가능합니다.  
-- **Hyperledger Fabric 버전 요구사항**  
-  이 확장은 Hyperledger Fabric 버전 1.4.0 이상과 호환 가능합니다.  
+- Windows 10, Linux 또는 Mac OS는 현재 지원되는 운영 체제입니다. 
+- [VS Code 버전 1.32 이상](https://code.visualstudio.com/){: external}.
+- [Node v8.x 이상 및 npm v5.x 이상](https://nodejs.org/en/download/){: external}.
+- [Docker 버전 v17.06.2-ce 이상](https://www.docker.com/get-started){: external}.
+- [Docker Compose v1.14.0 이상](https://docs.docker.com/compose/install/){: external}.
+- [Go 계약 개발용 Go 버전 v1.12 이상](https://golang.org/dl/){: external}.
+
+Windows를 사용하는 경우, 다음을 확인해야 합니다. 
+
+- Docker for Windows가 Linux 컨테이너를 사용하도록 구성되어 있습니다(기본값).
+- [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools#windows-build-tools){: external}에 C++ Build Tools for Windows를 설치했습니다.
+- [Win32 OpenSSL](http://slproweb.com/products/Win32OpenSSL.html){: external}에서 OpenSSL v1.0.2를 설치했습니다.
+  - "light"로 표시된 버전이 아닌 일반 버전을 설치합니다.
+  - 32비트 시스템에 Win32 버전을 C:\OpenSSL-Win32에 설치합니다. 
+  - 64비트 시스템에 Win64 버전을 C:\OpenSSL-Win64에 설치합니다. 
 
 ### 확장 설치
 {: #develop-vscode-installing-the-extension}
 
-1. [Visual Studio Code 확장 마켓플레이스 페이지](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}로 이동하거나, Visual Studio Code 내 확장 패널에서 **{{site.data.keyword.blockchainfull_notm}} Platform**을 검색하십시오. 
+1. [Visual Studio Code 확장 마켓플레이스 페이지](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}로 이동하거나, Visual Studio Code 내 확장 패널에서 **{{site.data.keyword.blockchainfull_notm}} Platform**을 검색하십시오.
 2. **설치**를 클릭하십시오.
 3. Visual Studio Code를 다시 시작하여 확장 설치를 완료하십시오.
 
@@ -95,7 +100,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull_notm}} Platform 네트워크 또는 사전 구성된 Hyperledger Fabric 네트워크에서 설치하기 전에 스마트 계약을 `.cds` 형식으로 패키지해야 합니다. 스마트 계약을 패키지하려면 다음 단계를 완료하십시오.
 
 1. VS Code에서 **{{site.data.keyword.blockchainfull_notm}} Platform** 패널로 이동하십시오. 스마트 계약 프로젝트가 파일 뷰어에 열려 있는지 확인하십시오.
-2. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **스마트 계약 프로젝트 패키지**를 선택하십시오. 패키지의 이름과 버전을 묻는 메시지가 표시됩니다. 
+2. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **스마트 계약 프로젝트 패키지**를 선택하십시오. 패키지의 이름과 버전을 묻는 메시지가 표시됩니다.
   - 하나의 스마트 계약 프로젝트가 있는 경우 자동으로 패키지되고 **스마트 계약 패키지** 분할창에 표시됩니다.
   - 여러 스마트 계약 폴더가 열려 있으면 어떠한 스마트 계약 폴더를 패키지할 것인지를 묻는 메시지가 표시됩니다.
   - 스마트 계약 폴더가 열려 있지 않으면 오류 메시지가 표시됩니다.
@@ -110,7 +115,7 @@ subcollection: blockchain
 
 기존 스마트 계약 패키지를 {{site.data.keyword.blockchainfull_notm}} Platform 분할창으로 가져올 수도 있습니다.
 
-1. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **패키지 가져오기**를 선택하십시오. 
+1. **스마트 계약 패키지** 분할창에서 오버플로우 메뉴를 클릭하고 **패키지 가져오기**를 선택하십시오.
 2. 가져올 스마트 계약 패키지를 찾아보고 **가져오기**를 클릭하십시오.
 
 **패키지 삭제**를 클릭하여 스마트 계약 패키지를 패키지 목록에서 제거할 수도 있습니다.
@@ -175,7 +180,7 @@ VS Code 확장은 하나의 순서 지정자, 하나의 피어 및 하나의 인
 스마트 계약이 설치되고 인스턴스화된 후 **Fabric 게이트웨이** 분할창을 사용하여 트랜잭션을 스마트 계약 내부의 기능에 제출할 수 있습니다.
 
 1. 스마트 계약이 설치되고 인스턴스화되었으며 네트워크에 연결되어 있는지 확인하십시오.
-2. **Fabric 게이트웨이** 분할창에서 **인스턴스화된 스마트 계약**을 펼치십시오. 
+2. **Fabric 게이트웨이** 분할창에서 **인스턴스화된 스마트 계약**을 펼치십시오.
 3. 상호작용할 스마트 계약을 펼치십시오. 스마트 계약 아래에 나열된 트랜잭션 목록을 찾습니다.
 4. 제출할 트랜잭션을 마우스 오른쪽 단추로 클릭하고 **트랜잭션 제출**을 선택하십시오. 예를 들어, 예제 채권 스마트 계약을 작성하고 패키지한 경우 **createBond**를 클릭하십시오.
 5. 트랜잭션에 필요한 인수를 입력하고 **Enter**를 누르십시오. 예를 들어, 첫 번째 채권을 작성하려면 `["bond01","100"]`을 입력하십시오.
@@ -221,7 +226,7 @@ VS Code 확장은 하나의 순서 지정자, 하나의 피어 및 하나의 인
 사용자가 연결하는 네트워크에서 인스턴스화된 스마트 계약에 대한 테스트를 생성할 수 있습니다. 테스트는 **JavaScript** 또는 **TypeScript**로 생성되고 실행되거나 디버깅될 수 있습니다.
 
 1. 스마트 계약이 인스턴스화되었는지 확인하십시오.
-2. **Fabric 게이트웨이** 분할창의 채널 목록 아래에서 테스트를 생성할 스마트 계약을 마우스 오른쪽 단추로 클릭하십시오. 
+2. **Fabric 게이트웨이** 분할창의 채널 목록 아래에서 테스트를 생성할 스마트 계약을 마우스 오른쪽 단추로 클릭하십시오.
 3. **스마트 계약 테스트 생성**을 선택하십시오.
 4. 테스트 파일의 언어를 **JavaScript** 또는 **TypeScript** 중에서 선택하십시오. {{site.data.keyword.blockchainfull_notm}} Platform 확장이 필수 npm 모듈을 설치하고 테스트 파일을 빌드합니다.
 
@@ -231,11 +236,11 @@ VS Code 확장은 하나의 순서 지정자, 하나의 피어 및 하나의 인
 ## 7단계: {{site.data.keyword.blockchainfull_notm}} Platform 네트워크에 연결
 {: #develop-vscode-connecting-ibp}
 
-이 확장을 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform에 연결하고 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔 UI를 사용하여 설치되고 인스턴스화된 스마트 계약을 호출할 수도 있습니다.
+또한 확장을 사용하여 {{site.data.keyword.cloud_notm}} 또는 {{site.data.keyword.cloud_notm}} Private에서 실행 중인 {{site.data.keyword.blockchainfull_notm}} Platform에 연결하고 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔 UI를 사용하여 설치되고 인스턴스화된 스마트 계약을 호출할 수도 있습니다.
 
-{{site.data.keyword.blockchainfull_notm}} Platform의 인스턴스와 연관된 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 여십시오. **스마트 계약** 탭으로 이동하십시오. 스마트 계약 탭의 **인스턴스화된 스마트 계약** 테이블을 사용하여 [연결 프로파일](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile)을 로컬 파일 시스템에 다운로드하십시오. 그런 다음 CA를 사용하여 [애플리케이션 ID를 작성](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities)하고 enrollID 및 시크릿을 저장하십시오. 아래의 단계에 따라 VS Code에서 {{site.data.keyword.blockchainfull_notm}} Platform에 연결하십시오.
+{{site.data.keyword.blockchainfull_notm}} Platform의 인스턴스와 연관된 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 여십시오. **스마트 계약** 탭으로 이동하십시오. 스마트 계약 탭의 **인스턴스화된 스마트 계약** 테이블을 사용하여 [연결 프로파일](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)을 로컬 파일 시스템에 다운로드하십시오. 그런 다음 CA를 사용하여 [애플리케이션 ID를 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)하고 enrollID 및 시크릿을 저장하십시오. 아래의 단계에 따라 VS Code에서 {{site.data.keyword.blockchainfull_notm}} Platform에 연결하십시오.
 
-1. _{{site.data.keyword.blockchainfull_notm}} Platform_ 탭을 여십시오.
+1. **{{site.data.keyword.blockchainfull_notm}} Platform** 탭을 여십시오.
 2. **Fabric 게이트웨이** 분할창에서 **+**를 클릭하십시오.
 3. 연결의 이름을 입력하십시오.
 4. 연결 프로파일의 완전한 파일 경로를 입력하십시오. 이제 연결이 **local_fabric** 아래의 연결 목록에 표시되어야 합니다.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -41,7 +41,7 @@ subcollection: blockchain
 
 ## 노드(Node)
 {: #glossary-node}
-블록체인의 통신 엔티티입니다. 세 가지 유형의 노드, 즉 CA, 피어 및 순서 지정자가 있습니다.
+블록체인의 통신 엔티티입니다. 세 가지 유형의 노드, 즉 CA, 피어 및 순서 지정 노드가 있습니다.
 
 ## 동적 멤버십(Dynamic membership)
 {: #glossary-dynamic-memership}
@@ -69,7 +69,7 @@ subcollection: blockchain
 
 ## 서비스 인증 정보(Service credentials)
 {: #glossary-service-credentials}
-서비스 인증 정보는 JSON 형식이며 CA, 순서 지정자 및 피어 등의 네트워크 리소스에 대한 API 엔드포인트 정보 및 enrollID/시크릿을 포함합니다. 애플리케이션은 이러한 API 엔드포인트를 통해 네트워크 리소스와 상호작용합니다.
+서비스 인증 정보는 JSON 형식이며 CA, 순서 지정 노드 및 피어 등의 네트워크 리소스에 대한 API 엔드포인트 정보 및 enrollID/시크릿을 포함합니다. 애플리케이션은 이러한 API 엔드포인트를 통해 네트워크 리소스와 상호작용합니다.
 
 ## 설치(Install)
 {: #glossary-install}
@@ -77,18 +77,19 @@ subcollection: blockchain
 
 ## 세계 상태(World state)
 {: #glossary-world-state}
-[현재 상태(Current state)](/docs/services/blockchain/glossary.html#glossary-current-state)를 참조하십시오.
-## 순서 지정자(Orderer)
+[현재 상태(Current state)](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state)를 참조하십시오.
+
+## 순서 지정 노드(Ordering node)
 {: #glossary-orderer}
-네트워크 구성원의 트랜잭션을 수집하고 트랜잭션의 순서를 지정하고 블록으로 번들화하는 노드입니다. 그런 다음 이러한 블록이 피어에 분배되고 피어는 블록을 확인한 다음 각 채널의 원장에 추가합니다. 순서 지정자는 각 구성원에 연결된 암호 ID 자료를 포함하고 클라이언트 및 피어의 ID를 인증하여 네트워크에 액세스합니다. 노드의 순서 지정 노드 또는 콜렉션에서 제공하는 전체 기능을 **순서 지정 서비스(ordering service)**라고 합니다.
+네트워크 구성원의 트랜잭션을 수집하고 트랜잭션의 순서를 지정하고 블록으로 번들화하는 노드입니다. 순서 지정자(orderer)라고도 합니다. 그런 다음 이러한 블록이 피어에 분배되고 피어는 블록을 확인한 다음 각 채널의 원장에 추가합니다. 순서 지정 노드는 각 구성원에 연결된 암호 ID 자료를 포함하며 클라이언트 및 피어의 ID를 인증하여 네트워크에 액세스합니다. 노드의 순서 지정 노드 또는 콜렉션에서 제공하는 전체 기능을 **순서 지정 서비스(ordering service)**라고 합니다.
 
 ## 스마트 계약(Smart contracts)
 {: #glossary-smart-contracts}
-[체인코드(Chaincode)](/docs/services/blockchain/glossary.html#glossary-chaincode)를 참조하십시오.
+[체인코드(Chaincode)](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode)를 참조하십시오.
 
 ## 연결 프로파일(Connection profile)
 {: #glossary-connection-profile}
-**연결 프로파일** 단추를 클릭하면 네트워크 모니터의 "개요" 화면에 연결 프로파일이 표시됩니다. 정보는 JSON 형식으로 사용 가능하며 피어, 순서 지정자 및 CA 등의 네트워크 리소스에 대한 API 엔드포인트 정보 및 enrollID/시크릿을 포함합니다. 애플리케이션은 이러한 API 엔드포인트를 통해 네트워크 리소스와 상호작용합니다.
+**연결 프로파일** 단추를 클릭하면 네트워크 모니터의 "개요" 화면에 연결 프로파일이 표시됩니다. 정보는 JSON 형식으로 사용 가능하며 피어, 순서 지정 노드 및 CA 등의 네트워크 리소스에 대한 API 엔드포인트 정보 및 enrollID/시크릿을 포함합니다. 애플리케이션은 이러한 API 엔드포인트를 통해 네트워크 리소스와 상호작용합니다.
 
 ## 원장(Ledger)
 {: #glossary-ledger}
@@ -104,7 +105,7 @@ subcollection: blockchain
 
 ## 조직(Organization)
 {: #glossary-organization}
-[구성원(Member)](/docs/services/blockchain/glossary.html#glossary-member)을 참조하십시오.
+[구성원(Member)](/docs/services/blockchain?topic=blockchain-glossary#glossary-member)을 참조하십시오.
 
 ## 참가자(Participant)
 {: #glossary-participant}
@@ -156,7 +157,7 @@ subcollection: blockchain
 
 ## CA
 {: #glossary-CA}
-"인증 기관(Certificate Authority)"의 약어로, 참가하는 모든 구성원에게 인증서를 발행하는 컴포넌트입니다. 이러한 인증서는 구성원의 ID를 나타냅니다. 모든 네트워크 엔티티(피어, 순서 지정자, 클라이언트 등)가 통신하고 인증하며 궁극적으로 트랜잭션을 수행하려면 ID가 있어야 합니다. 이러한 ID는 블록체인 네트워크에 직접 참가하는 데 필요합니다.
+"인증 기관(Certificate Authority)"의 약어로, 참가하는 모든 구성원에게 인증서를 발행하는 컴포넌트입니다. 이러한 인증서는 구성원의 ID를 나타냅니다. 네트워크의 모든 엔티티(피어, 순서 지정 노드, 클라이언트 등)는 통신, 인증 및 궁극적으로는 거래를 수행하기 위해 ID가 있어야 합니다. 이러한 ID는 블록체인 네트워크에 직접 참가하는 데 필요합니다.
 
 ## CouchDB
 {: #glossary-couchdb}
@@ -168,7 +169,7 @@ Hyperledger Fabric을 사용하면 피어가 순서 지정 서비스에 의존�
 
 ## HSM
 {: #glossary-hsm}
-하드웨어 보안 모듈(Hardware Security Module)입니다. On-Demand 암호화, 키 관리 및 키 스토리지를 관리 서비스로 제공합니다. HSM은 암호화 처리의 리소스 집약적 태스크를 처리하는 물리적 어플라이언스이며 애플리케이션에 대한 대기 시간을 줄입니다. 자세한 정보는 [하드웨어 보안 모듈](https://www.ibm.com/cloud/hardware-security-module){: external}을 참조하십시오. 
+하드웨어 보안 모듈(Hardware Security Module)입니다. On-Demand 암호화, 키 관리 및 키 스토리지를 관리 서비스로 제공합니다. HSM은 암호화 처리의 리소스 집약적 태스크를 처리하는 물리적 어플라이언스이며 애플리케이션에 대한 대기 시간을 줄입니다. 자세한 정보는 [하드웨어 보안 모듈](https://www.ibm.com/cloud/hardware-security-module){: external}을 참조하십시오.
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}

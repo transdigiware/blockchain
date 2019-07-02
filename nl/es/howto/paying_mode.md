@@ -22,7 +22,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform factura mensualmente cuotas de suscripción y cuotas por igual. Los miembros de la red pueden abonar su factura con sus cuentas de {{site.data.keyword.cloud_notm}} que contienen el espacio para crear la instancia de la red. Si lo desea, un miembro de la red puede hacerse cargo de la factura de todos los miembros de la red o incluso pagar la red completa. El pagador también puede transferir las facturas a otros miembros si es necesario.
 {:shortdesc}
 
-Dependiendo del plan de red que elija y de la cantidad de recursos que utilice, los pagos son diferentes. Para obtener más información sobre los precios, consulte [Tarifas](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+Dependiendo del plan de red que elija y de la cantidad de recursos que utilice, los pagos son diferentes. Para obtener más información sobre los precios, consulte [Tarifas](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 
 Cuando varias organizaciones creen un consorcio, se recomienda que las organizaciones participantes utilicen una dirección de correo electrónico funcional para crear su red. En este caso, el acceso a la red no depende de la disponibilidad de ninguna persona individual.
 
@@ -62,7 +62,7 @@ Un miembro de la red se puede hacer cargo de las cuotas de uno o varios miembros
          - **Roles del espacio**: desarrollador.
       3. Pulse **Invitar a usuarios**.  
    **Nota**: si el pagador se hace cargo de la cuota de más de un miembro, el pagador debe repetir este paso para invitar a otros miembros y asignar acceso a cada uno de ellos.
-3. El pagador crea una {{site.data.keyword.blockchainfull_notm}} Platform de red de cadena de blockchain e invita a otros miembros a la red de blockchain en el supervisor de red de la red. Para obtener más información sobre cómo invitar a miembros de la red, consulte [Miembros](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
+3. El pagador crea una {{site.data.keyword.blockchainfull_notm}} Platform de red de cadena de blockchain e invita a otros miembros a la red de blockchain en el supervisor de red de la red. Para obtener más información sobre cómo invitar a miembros de la red, consulte [Miembros](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
 4. Luego cada miembro recibe una notificación por correo electrónico que contiene una invitación a unirse a la red. El miembro puede seguir los pasos siguientes para unirse a la red.
    1. Pulse el botón "Continuar" en la notificación por correo electrónico, lo que le llevará a la página del servicio blockchain de {{site.data.keyword.cloud_notm}}.
    2. Inicie sesión en {{site.data.keyword.cloud_notm}} y asegúrese de utilizar la organización y el espacio de
@@ -74,7 +74,7 @@ Un miembro de la red se puede hacer cargo de las cuotas de uno o varios miembros
       2. Compruebe que la organización y el espacio son aquellos a los que le ha añadido el pagador.
       3. Seleccione el plan de suscripción con el que va a crear su instancia de la red. El plan de pertenencia debe ser el mismo con el que el pagador crea la red.
       4. Pulse **Crear**.
-   4. Después de crear la instancia del servicio blockchain, siga las instrucciones del asistente para unirse a la red.  Para obtener más información, consulte [Cómo unirse a una red](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+   4. Después de crear la instancia del servicio blockchain, siga las instrucciones del asistente para unirse a la red.  Para obtener más información, consulte [Cómo unirse a una red](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
 
 ### Limitaciones conocidas
 {: #paying-mode-limitation}
@@ -96,8 +96,8 @@ Como alternativa a la adición de cuentas de otros miembros a la cuenta del paga
   4. En la sección **Acceso de Cloud Foundry**, elija la organización a la que desea añadir la cuenta del pagador en la lista desplegable.
   5. Seleccione **Gestor de facturación** como **Roles de la organización**.
   6. Configure otros campos como corresponda y luego pulse **Invitar a usuarios**.  
-3. El pagador invita a otros miembros a la red de blockchain en el supervisor de red de la red. Para obtener más información sobre cómo invitar a miembros de la red, consulte [Miembros](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
-4. Luego cada miembro recibe una notificación por correo electrónico que contiene una invitación a unirse a la red. A continuación, el miembro puede unirse a la red. Para obtener más información, consulte el **paso 4** de la sección [Cómo pagar por otros miembros de la red](/docs/services/blockchain/howto/paying_mode.html#paying-mode-pay-for-others).
+3. El pagador invita a otros miembros a la red de blockchain en el supervisor de red de la red. Para obtener más información sobre cómo invitar a miembros de la red, consulte [Miembros](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
+4. Luego cada miembro recibe una notificación por correo electrónico que contiene una invitación a unirse a la red. A continuación, el miembro puede unirse a la red. Para obtener más información, consulte el **paso 4** de la sección [Cómo pagar por otros miembros de la red](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others).
 
 ### Limitación conocida
 {: #paying-mode-let-other-pay-limitation}

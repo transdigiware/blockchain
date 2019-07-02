@@ -7,7 +7,6 @@ lastupdated: "2019-06-18"
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
 subcollection: blockchain
-
 ---
 
 {:external: target="_blank" .external}
@@ -60,29 +59,24 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ## Recursos necesarios
 {: #icp-console-setup-resources}
 
-Asegúrese de que el sistema {{site.data.keyword.cloud_notm}} Private cumple los requisitos de recursos de hardware mínimos para cada componente de tiempo de ejecución de Fabric:
+Asegúrese de que el sistema {{site.data.keyword.cloud_notm}} Private cumple los requisitos mínimos de recursos de hardware para la consola y para los componentes que cree. El número de vCPU/CPU necesarias puede variar en función de la infraestructura, del diseño de la red y de los requisitos de rendimiento. Se puede realizar una aproximación de los requisitos de vCPU/CPU examinando la
+[tabla de asignaciones de recursos predeterminadas](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) para {{site.data.keyword.cloud_notm}}, aunque las asignaciones serán ligeramente distintas en
+{{site.data.keyword.cloud_notm}} Private. Sus asignaciones de recursos reales serán visibles en la consola de blockchain al desplegar un nodo.
 
-| **Componente** (todos los contenedores) | vCPU  | Memoria (GB) | Almacenamiento (GB) |
-|--------------------------------|---------------|-----------------------|------------------------|
-| **Consola**                    | 1,3            | 2,5                   | 10                     |
-| **Igual**                       | 1,2            | 2,4                   | 200 (incluye 100 GB para el igual y 100 GB para CouchDB)|
-| **CA**                         | 0,1            | 0,2                   | 20                     |
-| **Clasificador**                    | 0,45           | 0,9                   | 100                    |
+**Notas:**  
 
- **Notas:**
- - Un vCPU es un núcleo virtual que se asigna a una
+- Un vCPU es un núcleo virtual que se asigna a una
 máquina virtual o a un núcleo de procesador físico si el servidor no está particionado
 para máquinas virtuales. Debe tener en cuenta los requisitos de vCPU cuando decida el núcleo de procesador virtual (VPC) para su despliegue en {{site.data.keyword.cloud_notm}} Private. VPC es una unidad de medida que determina el coste de licencias de los productos de {{site.data.keyword.IBM_notm}}. Para obtener más información sobre los casos de ejemplo para decidir el VPC, consulte [Núcleo de procesador virtual (VPC)](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/Inventory/overview/c_virtual_processor_core_licenses.html){: external}.
- - Una vCPU es equivalente a una CPU, que es equivalente a una VPC.
+- Una vCPU es equivalente a una CPU, que es equivalente a una VPC.
 
 ### Consideraciones sobre el almacenamiento
 {: #icp-console-setup-storage-considerations}
 
-* Es necesario que cree una nueva clase de almacenamiento con recursos suficientes para la consola y los componentes que cree. La clase de almacenamiento que proporcione a la consola durante la configuración también se utilizará para almacenar los datos de los componentes.
-* Si utiliza los valores predeterminados, el diagrama de Helm crea una nueva reclamación de volumen persistente con el nombre del release de Helm correspondiente a los datos de la consola.
-* El [suministro dinámico](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/){: external} solo está disponible para los nodos amd64 en {{site.data.keyword.cloud_notm}} Private. Por lo tanto, si el clúster incluye una combinación de nodos trabajadores s390x y amd64, el suministro dinámico no se puede utilizar.
-* Si no se utiliza el suministro dinámico, se deben crear [volúmenes persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){: external} y se deben configurar con etiquetas que se puedan utilizar para definir mejor el proceso de enlace de la reclamación de volumen persistente (PVC) de Kubernetes.
-* Si utiliza volúmenes persistentes de NFS v2/v3, debe habilitar el módulo **Supervisor de estado de NFS para bloqueos del sistema de archivos NFSv2/v3**, también conocido como **rpc-statd**, en el sistema host donde existe el sistema de archivos NFS. Este módulo permite que el sistema de archivos NFS pueda comprobar si existen bloqueos exclusivos en archivos que mantienen otros procesos. Ejecute los mandatos siguientes para habilitar este módulo:
+El diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} utiliza suministro dinámico para suministrar el almacenamiento que utilizará la consola y los componentes de blockchain que va a crear. Antes de desplegar la consola, deberá crear una clase de almacenamiento (storageClass) con una cantidad suficiente de almacenamiento de respaldo para la consola y sus componentes. Necesita proporcionar el nombre de la clase de almacenamiento que ha creado durante la configuración.
+
+- Si utiliza los valores predeterminados, el diagrama de Helm creará una nueva reclamación de volumen persistente con el nombre del release de Helm correspondiente a los datos de la consola.
+- Si utiliza volúmenes persistentes de NFS v2/v3, debe habilitar el módulo **Supervisor de estado de NFS para bloqueos del sistema de archivos NFSv2/v3**, también conocido como **rpc-statd**, en el sistema host donde existe el sistema de archivos NFS. Este módulo permite que el sistema de archivos NFS pueda comprobar si existen bloqueos exclusivos en archivos que mantienen otros procesos. Ejecute los mandatos siguientes para habilitar este módulo:
 
   ```
   sudo systemctl enable rpc-statd
@@ -103,81 +97,116 @@ Realice los pasos siguientes para instalar y configurar {{site.data.keyword.clou
 
 2. Instale la CLI de {{site.data.keyword.cloud_notm}} Private [3.2.0](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_cli.html){: external} para instalar el diagrama de Helm.
 
-3. Configure la política de seguridad de pod para el espacio de nombres de destino. Se proporcionan instrucciones en la
-[sección siguiente](#icp-setup-psp).
+3. Cree un espacio de nombres nuevo y personalizado para el despliegue de {{site.data.keyword.blockchainfull_notm}} Platform. Tenga en cuenta que solo puede desplegar un diagrama de Helm por espacio de nombres, por lo que, si desea que se ejecuten varias instancias de la consola en el mismo clúster, debe asegurarse de utilizar espacios de nombres independientes.
 
-Después de instalar {{site.data.keyword.cloud_notm}} Private y enlazar una política de seguridad de pod a un espacio de nombres de destino, puede continuar con la [importación del diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/console-helm-install.html#console-helm-install) en el clúster de {{site.data.keyword.cloud_notm}} Private.
+4. Configure las políticas de seguridad y de acceso para el espacio de nombres de destino. Se proporcionan instrucciones en la
+[sección siguiente](#icp-console-setup-psp).
+
+Después de instalar {{site.data.keyword.cloud_notm}} Private y enlazar una política de seguridad de pod a un espacio de nombres de destino, puede continuar con la [importación del diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} Platform para {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install) en el clúster de {{site.data.keyword.cloud_notm}} Private.
 
 ## Requisitos de PodSecurityPolicy
 {: #icp-console-setup-psp}
 
-El diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} requiere que se enlace una [PodSecurityPolicy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/){: external} con el espacio de nombres de destino antes de la instalación. Elija una política de seguridad de pod (PodSecurityPolicy) predefinida o solicite al administrador del clúster que cree una PodSecurityPolicy personalizada:
-- Nombre de PodSecurityPolicy predefinida: [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-- Nombre de PodSecurityPolicy personalizada:
-  ```
-  apiVersion: extensions/v1beta1
-  kind: PodSecurityPolicy
-  metadata:
-    name: ibm-blockchain-platform-psp
-  spec:
-    hostIPC: false
-    hostNetwork: false
-    hostPID: false
-    privileged: true
-    allowPrivilegeEscalation: true
-    readOnlyRootFilesystem: false
-    seLinux:
-      rule: RunAsAny
-    supplementalGroups:
-      rule: RunAsAny
-    runAsUser:
-      rule: RunAsAny
-    fsGroup:
-      rule: RunAsAny
-    requiredDropCapabilities:
-    - ALL
-    allowedCapabilities:
-    - NET_BIND_SERVICE
-    - CHOWN
-    - DAC_OVERRIDE
-    - SETGID
-    - SETUID
-    volumes:
-    - '*'
-  ```
-  {:codeblock}
-- ClusterRole (rol de clúster) personalizado para la PodSecurityPolicy personalizada:
-  ```
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    annotations:
-    name: ibm-blockchain-platform-clusterrole
-  rules:
-  - apiGroups:
-    - extensions
-    resourceNames:
-    - ibm-blockchain-platform-psp
-    resources:
-    - podsecuritypolicies
-    verbs:
-    - use
-  - apiGroups:
-    - ""
-    resources:
-    - secrets
-    verbs:
-    - create
-    - delete
-    - get
-    - list
-    - patch
-    - update
-    - watch
-  ```
-  {:codeblock}
+El diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} requiere que se enlacen políticas de seguridad y de acceso específicas
+con el espacio de nombres de destino antes de la instalación. Utilice los pasos siguientes para configurar las políticas antes de configurar el diagrama de Helm:
 
-- ClusterRoleBinding (enlace de rol de clúster) personalizado para el ClusterRole personalizado:
+1. Elija una política de seguridad de pod (PodSecurityPolicy) predefinida para el espacio de nombres o solicite al administrador del clúster que cree una PodSecurityPolicy personalizada:
+  - Puede utilizar la PodSecurityPolicy predefinida [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
+  - También puede crear, mediante el YAML siguiente, una definición de PodSecurityPolicy personalizada:
+
+    ```
+    apiVersion: extensions/v1beta1
+    kind: PodSecurityPolicy
+    metadata:
+      name: ibm-blockchain-platform-psp
+    spec:
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      privileged: true
+      allowPrivilegeEscalation: true
+      readOnlyRootFilesystem: false
+      seLinux:
+        rule: RunAsAny
+      supplementalGroups:
+        rule: RunAsAny
+      runAsUser:
+        rule: RunAsAny
+      fsGroup:
+        rule: RunAsAny
+      requiredDropCapabilities:
+      - ALL
+      allowedCapabilities:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - DAC_OVERRIDE
+      - SETGID
+      - SETUID
+      volumes:
+      - '*'
+    ```
+    {:codeblock}
+
+2. Cree un rol de clúster (ClusterRole) para la política de seguridad de pod (PodSecurityPolicy).
+  - Si ha creado una política de seguridad personalizada, puede crear un rol de clúster utilizando el archivo YAML siguiente:
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+      name: ibm-blockchain-platform-clusterrole
+    rules:
+    - apiGroups:
+      - extensions
+      resourceNames:
+      - ibm-blockchain-platform-psp
+      resources:
+      - podsecuritypolicies
+      verbs:
+      - use
+    - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    ```
+    {:codeblock}
+
+  - Si utiliza una política de seguridad de pod (PodSecurityPolicy) predefinida, solo necesitará crear un rol de clúster utilizando la segunda sección apiGroups:
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+      name: ibm-blockchain-platform-clusterrole
+      rules:
+      - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    ```
+    {:codeblock}
+
+3. Cree un enlace de rol de clúster (ClusterRoleBinding) personalizado. Si decide cambiar el nombre de la cuenta de servicio (ServiceAccount) en el archivo siguiente, necesitará proporcionar el nombre en el campo `Nombre de cuenta de servicio` en la sección
+**Todos los parámetros** de la página de configuración al desplegar el diagrama de Helm.
+
   ```
   apiVersion: rbac.authorization.k8s.io/v1
   kind: ClusterRoleBinding
@@ -193,3 +222,21 @@ El diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} requiere que se
     namespace: default
   ```
   {:codeblock}
+
+Puede completar los pasos siguientes para utilizar archivos YAML para enlazar las políticas de seguridad y de acceso al espacio de nombres:
+
+1. Guarde el archivo YAML en el sistema local.
+
+2. Inicie sesión en el clúster de {{site.data.keyword.cloud_notm}} y seleccione el espacio de nombres de destino de su despliegue.
+
+  ```
+  docker login <cluster_CA_domain>:8500
+  ```
+   {:codeblock}
+
+3. Utilice el mandato siguiente para aplicar la política al espacio de nombres de destino:
+
+  ```
+  kubectl apply -f <filename>.yaml
+  ```
+   {:codeblock}

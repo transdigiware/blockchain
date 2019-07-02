@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain offerings, Linux Foundation, Hyperledger Fabric, open source, community contribution
 
@@ -32,7 +32,8 @@ subcollection: blockchain
 
 L'architecture d'{{site.data.keyword.blockchainfull_notm}} repose sur le projet Hyperledger Fabric de Linux Foundation. Chaque contribution de communauté en code source ouvert améliore Hyperledger Fabric mais peut représenter un défi en termes d'adoption. **{{site.data.keyword.IBM_notm}} met en garde contre toute définition ou échange d'actifs financiers<!--, or any assets of value,-->, directement sur un réseau de blockchain Hyperledger Fabric**.
 
-{{site.data.keyword.IBM_notm}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.{:note}
+{{site.data.keyword.IBM_notm}} n'assure pas de support pour les réseaux utilisant Hyperledger Composer en production, y compris l'interface CLI Composer, les API JavaScript, le serveur REST et l'aire de jeu Web.
+{:note}
 
 ## Instruction en code source ouvert
 {: #disclaimer-open-source-statement}

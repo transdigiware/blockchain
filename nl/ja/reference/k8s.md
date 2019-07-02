@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 subcollection: blockchain
 
@@ -36,7 +36,7 @@ Kubernetes のアーキテクチャー図を以下に示します。 ノード�
 {{site.data.keyword.cloud_notm}} Kubernetes Service では、Docker コンテナー、Kubernetes テクノロジー、直観的なユーザー・エクスペリエンス、標準装備のセキュリティーと分離機能を結合させることにより、コンピュート・ホストのクラスター内でコンテナー化アプリのデプロイメント、操作、スケーリング、モニタリングを自動化する強力なツールが提供されます。
 
 {{site.data.keyword.cloud_notm}} Kubernetes Service について詳しくは、{{site.data.keyword.cloud_notm}} Kubernetes Service 資料にある以下のトピックを参照してください。
-- [{{site.data.keyword.cloud_notm}} Kubernetes Service テクノロジー](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology){: external}
+- [{{site.data.keyword.cloud_notm}} Kubernetes Service テクノロジー](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
 - [{{site.data.keyword.cloud_notm}} Kubernetes Service を選択する理由](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
 - [Kubernetes 戦略の定義](/docs/containers?topic=containers-strategy#strategy){: external}
 

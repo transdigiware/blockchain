@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -32,7 +32,7 @@ O {{site.data.keyword.blockchainfull_notm}} Platform cobra mensalmente a associa
 
 *Figura 1. Visão geral de precificação do {{site.data.keyword.blockchainfull_notm}} Platform*
 
-A taxa mensal é cobrada diariamente rateada. Por exemplo, um membro (taxa de participação associada de U$ 1.000) de dois peers (por taxa peer de U$ 1.000 × 2 peers) precisa pagar U$ 3.000 por mês. Se o mês tiver 30 dias, o membro pagará U$ 100 (U$ 3.000/30) todos os dias. Para obter mais informações sobre como pagar por suas redes, veja [Modo de pagamento](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
+A taxa mensal é cobrada diariamente rateada. Por exemplo, um membro (taxa de participação associada de U$ 1.000) de dois peers (por taxa peer de U$ 1.000 × 2 peers) precisa pagar U$ 3.000 por mês. Se o mês tiver 30 dias, o membro pagará U$ 100 (U$ 3.000/30) todos os dias. Para obter mais informações sobre como pagar por suas redes, veja [Modo de pagamento](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode).
 
 
 ## Componentes básicos de rede
@@ -42,7 +42,7 @@ Para entender a precificação, precisamos iniciar com uma introdução aos comp
 
 -	**Organizações** - qualquer entidade que precisa manter uma cópia do livro-razão de blockchain e precisa validar transações. Pode haver múltiplas organizações de blockchain para uma única empresa.
 -	**Peers** - O nó associado a uma organização que contém o livro-razão de blockchain e valida transações. Os peers são associados a uma organização de blockchain individual.
--	**Serviço de solicitação** - Composto por um único solicitador (SOLO) ou uma coleção de solicitadores. O serviço de ordenação sequencia transações, cria blocos e envia blocos para os peers para validação.
+-	**Serviço de pedido** - Composto por um único nó de pedido ou uma coleção de nós de pedido. O serviço de ordenação sequencia transações, cria blocos e envia blocos para os peers para validação.
 -	**Autoridade de certificação (CA)** – emite certificados digitais para propósitos de identificação para qualquer componente de rede interativa.
 
 O {{site.data.keyword.blockchainfull_notm}} Platform oferece dois planos de associação, o **Starter Plan** e o **Enterprise Plan**, que é possível escolher no {{site.data.keyword.cloud_notm}}. Ambos os planos permitem criar organizações e fornecem uma autoridade de certificação. Os planos divergem em torno dos peers, das autoridades de certificação e do serviço de pedido.

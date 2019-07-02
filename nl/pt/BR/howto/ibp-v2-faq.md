@@ -25,10 +25,10 @@ subcollection: blockchain
 
 **Geral**   
 
-- [Qual banco de dados os peers usam para seu livro-razão?](#ibp-v2-faq-v2-IBP-Overview-1-3)
-- [Quais linguagens são suportadas para contratos inteligentes?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [Qual é o valor de usar o {{site.data.keyword.blockchainfull_notm}} Platform sobre o Hyperledger Fabric nativo? ](#ibp-v2-faq-v2-IBP-Overview-1-7)
 - [Qual versão do Hyperledger Fabric está sendo usada com o {{site.data.keyword.blockchainfull_notm}} Platform? ](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+- [Qual banco de dados os peers usam para seu livro-razão?](#ibp-v2-faq-v2-IBP-Overview-1-3)
+- [Quais linguagens são suportadas para contratos inteligentes?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [Você suporta o uso de certificados de autoridades de certificação (CAs) não IBM?](#ibp-v2-faq-v2-external-certs)  
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
@@ -46,18 +46,7 @@ subcollection: blockchain
 - [Qual é o modelo de precificação para o {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?](#ibp-v2-faq-icp-pricing)
 - [Quais serviços eu preciso instalar para usar o {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?](#ibp-v2-faq-icp-services)
 - [Como posso estimar os requisitos de dimensionamento do {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud para meus ambientes de desenvolvimento, de teste e de produção?](#ibp-v2-faq-icp-sizing)
-
-## Qual banco de dados os peers usam para seu livro-razão?
-{: #ibp-v2-faq-v2-IBP-Overview-1-3}
-{: faq}
-
-Todos os peers que são implementados com o {{site.data.keyword.blockchainfull_notm}} Platform usam o CouchDB como banco de dados para o livro-razão.
-
-## Quais linguagens são suportadas para contratos inteligentes?
-{: #ibp-v2-faq-v2-IBP-Overview-1-4}
-{: faq}
-
-O {{site.data.keyword.blockchainfull_notm}} Platform suporta contratos inteligentes que são gravados em Go e Node.js. O novo modelo de programação do Hyperledger Fabric suporta atualmente somente Node.js, mas mais estão chegando em breve. Se você estiver interessado em preservar o seu código de aplicativo existente ou usar SDKs do Fabric para linguagens diferentes do Node.js, ainda será possível se conectar à sua rede do {{site.data.keyword.blockchainfull_notm}} Platform usando as APIs do Fabric SDK de nível inferior.
+- [O que acontece com meus componentes de blockchain ao excluir minha liberação do Helm?](#ibp-v2-faq-icp-delete)
 
 ## Qual é o valor de usar o {{site.data.keyword.blockchainfull_notm}} Platform sobre o Hyperledger Fabric nativo?
 {: #ibp-v2-faq-v2-IBP-Overview-1-7}
@@ -71,6 +60,17 @@ O {{site.data.keyword.blockchainfull_notm}} Platform permite que os clientes imp
 
 O {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} e o {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud usam o Hyperledger Fabric v1.4.1
 
+## Qual banco de dados os peers usam para seu livro-razão?
+{: #ibp-v2-faq-v2-IBP-Overview-1-3}
+{: faq}
+
+Todos os peers que são implementados com o {{site.data.keyword.blockchainfull_notm}} Platform usam o CouchDB como banco de dados para o livro-razão.
+
+## Quais linguagens são suportadas para contratos inteligentes?
+{: #ibp-v2-faq-v2-IBP-Overview-1-4}
+{: faq}
+
+O {{site.data.keyword.blockchainfull_notm}} Platform suporta contratos inteligentes que são gravados em Go e Node.js. O novo modelo de programação do Hyperledger Fabric suporta atualmente somente Node.js, mas mais estão chegando em breve. Se você estiver interessado em preservar o seu código de aplicativo existente ou usar SDKs do Fabric para linguagens diferentes do Node.js, ainda será possível se conectar à sua rede do {{site.data.keyword.blockchainfull_notm}} Platform usando as APIs do Fabric SDK de nível inferior.
 
 ## Você suporta o uso de certificados de autoridades de certificação não IBM?
 {: #ibp-v2-faq-v2-external-certs}
@@ -109,7 +109,7 @@ Seu cluster do Kubernetes existente funcionará com o {{site.data.keyword.blockc
 {: #ibp-v2-faq-v2-Logging-and-Monitoring-11-6}
 {: faq}
 
-Com o {{site.data.keyword.blockchainfull_notm}} Platform, agora é possível acessar diretamente seus logs de peer, CA e solicitador por meio de seu painel do Kubernetes. É recomendável aproveitar o serviço {{site.data.keyword.cloud_notm}} LogDNA que permite que você analise facilmente os logs em tempo real.
+Com o {{site.data.keyword.blockchainfull_notm}} Platform, agora é possível acessar diretamente seu peer, a CA e os logs de nó de pedido por meio do painel do Kubernetes. É recomendável aproveitar o serviço {{site.data.keyword.cloud_notm}} LogDNA que permite que você analise facilmente os logs em tempo real.
 
 ## Quais são os benefícios do {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
 {: #ibp-v2-faq-icp-benefits}
@@ -140,3 +140,9 @@ O licenciamento do {{site.data.keyword.blockchainfull_notm}} Platform for Multic
 {: faq}
 
 Depois de entender quantas autoridades de certificação, peers e nós de pedido são necessários, é possível examinar a [tabela de alocações de recursos padrão](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources) para obter uma estimativa aproximada das CPUs (VPCs) necessárias para a sua rede.
+
+## O que acontece com meus componentes de blockchain ao excluir minha liberação do Helm?
+{: #ibp-v2-faq-icp-delete}
+{: faq}
+
+Quando você exclui uma liberação do Helm de seu cluster do {{site.data.keyword.cloud_notm}} Private, os componentes de blockchain associados não são excluídos. Para remover adequadamente uma liberação do Helm de seu cluster, é necessário excluir todos os seus componentes usando o console de blockchain ou as APIs de blockchain primeiro. Em seguida, será possível excluir o gráfico do Helm.  

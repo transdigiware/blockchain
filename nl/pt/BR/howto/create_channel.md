@@ -4,13 +4,11 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
-keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
-
 subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +16,7 @@ subcollection: blockchain
 
 # Criando ou atualizando um canal
 {: #ibp-create-channel}
+
 
 Os canais são um mecanismo muito poderoso para particionamento e isolamento de dados e eles fornecem a base principal
 para privacidade de dados. Apenas membros do mesmo canal podem acessar os dados desse canal.
@@ -77,5 +76,5 @@ Todos os membros do canal receberão notificações por e-mail na solicitação 
 
 Quando operadores de canal suficientes concordarem com a solicitação, qualquer membro do canal poderá clicar no botão **Enviar solicitação** e o canal será atualizado. Todos os membros do canal poderão localizar o canal atualizado na tela "Canais" do Monitor de rede.
 
-As políticas de endosso não são atualizadas automaticamente quando novas organizações se associam ao canal e instalam o chaincode. Por exemplo, se a política requerer duas de cinco organizações para endossar uma transação, a política não será atualizada para requerer duas de seis organizações quando uma nova organização se associar ao canal. Em vez disso, a nova organização não será listada na política e eles não serão capazes de endossar transações. É possível incluir uma nova organização em uma política de endosso [atualizando o chaincode relevante](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc). Para obter mais informações, consulte [Especificando políticas de endosso do chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy).
+As políticas de endosso não são atualizadas automaticamente quando novas organizações se associam ao canal e instalam o chaincode. Por exemplo, se a política requerer duas de cinco organizações para endossar uma transação, a política não será atualizada para requerer duas de seis organizações quando uma nova organização se associar ao canal. Em vez disso, a nova organização não será listada na política e eles não serão capazes de endossar transações. É possível incluir uma nova organização em uma política de endosso [atualizando o chaincode relevante](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc). Para obter mais informações, consulte [Especificando políticas de endosso do chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy).
 {:important}

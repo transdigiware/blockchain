@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -33,7 +33,7 @@ subcollection: blockchain
 
 ## CA
 {: #glossary-CA}
-「認証局 (Certificate Authority)」の省略形。これは、すべての参加メンバーに証明書を発行するコンポーネントです。 これらの証明書は、メンバーの ID を表します。 ネットワーク内のすべてのエンティティー (ピア、順序付けサービス、クライアントなど) には、通信や認証やトランザクションで使用する ID が必要です。 これらの ID は、ブロックチェーン・ネットワークの直接的な参加者すべてに必要です。
+「認証局 (Certificate Authority)」の省略形。これは、すべての参加メンバーに証明書を発行するコンポーネントです。 これらの証明書は、メンバーの ID を表します。 ネットワーク内のすべてのエンティティー (ピア、順序付けノード、クライアントなど) には、通信や認証やトランザクションで使用する ID が必要です。 これらの ID は、ブロックチェーン・ネットワークの直接的な参加者すべてに必要です。
 
 ## チェーン
 {: #glossary-chain}
@@ -53,7 +53,7 @@ subcollection: blockchain
 
 ## 接続プロファイル
 {: #glossary-connection-profile}
-接続プロファイルは、 **「接続プロファイル」**ボタンをクリックすると、ネットワーク・モニターの「概要」画面に表示されます。 この情報は JSON フォーマットで使用可能で、ネットワーク・リソース (ピア、順序付けプログラム、CA) の API エンドポイント情報と 登録 ID/秘密鍵が含まれています。 アプリケーションはこれらの API エンドポイントを介してネットワーク・リソースと対話します。
+接続プロファイルは、 **「接続プロファイル」**ボタンをクリックすると、ネットワーク・モニターの「概要」画面に表示されます。 この情報は JSON フォーマットで使用可能で、ネットワーク・リソース (ピア、順序付けノード、CA) の API エンドポイント情報と 登録 ID/秘密鍵が含まれています。 アプリケーションはこれらの API エンドポイントを介してネットワーク・リソースと対話します。
 
 ## コンセンサス
 {: #glossary-consensus}
@@ -145,15 +145,15 @@ CouchDB とともに、エンタープライズ・プラン・ネットワーク
 
 ## ノード
 {: #glossary-node}
-ブロックチェーンの通信エンティティー。 ノードには、CA、ピア、順序付けプログラムの 3 つのタイプがあります。
+ブロックチェーンの通信エンティティー。 ノードには、CA、ピア、順序付けノードの 3 つのタイプがあります。
 
-## 順序付けプログラム
+## 順序付けノード
 {: #glossary-orderer}
-ネットワーク・メンバーからトランザクションを収集し、トランザクションを順序付けてブロックにバンドルするノード。 次に、これらのブロックはピアに配布されます。ピアはブロックを検証し、それらを各チャネルの台帳に追加します。 順序付けプログラムには、各メンバーに紐付けられた暗号 ID 情報が含まれており、ネットワークにアクセスするためのクライアントおよびピアの ID を認証します。 順序付けノードまたはノードの集合が提供する全体的な機能は、**順序付けサービス**と呼ばれます。
+ネットワーク・メンバーからトランザクションを収集し、トランザクションを順序付けてブロックにバンドルするノード。 順序付けプログラムとも呼ばれます。次に、これらのブロックはピアに配布されます。ピアはブロックを検証し、それらを各チャネルの台帳に追加します。 順序付けノードには、各メンバーに紐付けられた暗号 ID 情報が含まれており、ネットワークにアクセスするためのクライアントおよびピアの ID を認証します。 順序付けノードまたはノードの集合が提供する全体的な機能は、**順序付けサービス**と呼ばれます。
 
 ## 組織
 {: #glossary-organization}
-「[メンバー](/docs/services/blockchain/glossary.html#glossary-member)」を参照。
+「[メンバー](/docs/services/blockchain?topic=blockchain-glossary#glossary-member)」を参照。
 
 ## 参加者
 {: #glossary-participant}
@@ -169,7 +169,7 @@ Raft は、`etcd` での [Raft プロトコル](https://raft.github.io/raft.pdf)
 
 ## サービス資格情報
 {: #glossary-service-credentials}
-サービス資格情報は JSON 形式であり、ネットワーク・リソース (CA、順序付けプログラム、およびピア) の API エンドポイント情報と登録 ID/秘密が含まれています。 アプリケーションはこれらの API エンドポイントを介してネットワーク・リソースと対話します。
+サービス資格情報は JSON 形式であり、ネットワーク・リソース (CA、順序付けノード、およびピア) の API エンドポイント情報と登録 ID/秘密が含まれています。 アプリケーションはこれらの API エンドポイントを介してネットワーク・リソースと対話します。
 
 ## SDK
 {: #glossary-sdk}
@@ -181,7 +181,7 @@ Hyperledger Fabric は 2 つの Software Development Kit (SDK) をサポート�
 
 ## スマート・コントラクト
 {: #glossary-smart-contracts}
-[チェーンコード](/docs/services/blockchain/glossary.html#glossary-chaincode)を参照してください。
+[チェーンコード](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode)を参照してください。
 
 ## Solo
 {: #glossary-solo}
@@ -201,4 +201,4 @@ Hyperledger Fabric は 2 つの Software Development Kit (SDK) をサポート�
 
 ## ワールド・ステート
 {: #glossary-world-state}
-[現在の状態](/docs/services/blockchain/glossary.html#glossary-current-state)を参照してください。
+[現在の状態](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state)を参照してください。

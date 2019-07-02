@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -25,7 +25,7 @@ subcollection: blockchain
 A {{site.data.keyword.IBM}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs de JavaScript, o servidor REST e o Web Playground.
 {:note}
 
-As [redes de negócios](/docs/services/blockchain/glossary.html#glossary-business-network) podem ser desenvolvidas e implementadas nas redes do Starter e do Enterprise Plan usando o ambiente de desenvolvedor do {{site.data.keyword.blockchainfull_notm}} Platform e o conjunto de ferramentas do desenvolvedor do Hyperledger Composer.
+As [redes de negócios](/docs/services/blockchain?topic=blockchain-glossary#glossary-business-network) podem ser desenvolvidas e implementadas nas redes do Starter e do Enterprise Plan usando o ambiente de desenvolvedor do {{site.data.keyword.blockchainfull_notm}} Platform e o conjunto de ferramentas do desenvolvedor do Hyperledger Composer.
 {:shortdesc}
 
 Ao usar o ambiente de desenvolvedor, é possível modelar e testar rapidamente as redes de negócios de blockchain e implementá-las em uma rede do Starter ou do Enterprise Plan do {{site.data.keyword.blockchainfull_notm}} Platform.
@@ -36,14 +36,14 @@ Ao usar o ambiente de desenvolvedor, é possível modelar e testar rapidamente a
 ### Antes de iniciar
 {: #deploying-a-business-network-before-begin}
 
-Assegure-se de que você tenha lido [Sobre o Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about) e tenha criado uma rede do Starter Plan seguindo as instruções em [Introdução ao Starter Plan](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan).
+Assegure-se de que você tenha lido [Sobre o Starter Plan](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about) e tenha criado uma rede do Starter Plan seguindo as instruções em [Introdução ao Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
 
 Assegure-se de ter instalado o Node v8.9 ou superior, o npm v5.x e o Hyperledger Composer:
 
 - Se sua rede estiver no Fabric versão 1.2, use o Hyperledger Composer v0.20.x.
 - Se sua rede estiver no Fabric versão 1.1, use o Hyperledger Composer v0.19.x.
 
-É possível localizar a versão do Fabric abrindo a [janela Preferências de rede](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) em seu Network Monitor.
+É possível localizar a versão do Fabric abrindo a [janela Preferências de rede](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) em seu Network Monitor.
 
 ### Etapa um: Recuperar o segredo do administrador
 {: #deploying-a-business-network-retrieve-admin-secret}
@@ -54,7 +54,7 @@ Assegure-se de ter instalado o Node v8.9 ou superior, o npm v5.x e o Hyperledger
 
 3. Dentro do perfil de conexão, vá até o fim até você ver 'registrar'. Dentro de 'registrar', sob 'enrollId' há uma propriedade **enrollSecret**. Recupere o segredo e salve uma cópia dele.
 
-    ![Recuperar segredo de administrador](images/get_enroll_secret.gif "Recuperar segredo de administrador"){: gif}
+    ![Recuperar segredo do administrador](images/get_enroll_secret.gif "Recuperar segredo do administrador"){: gif}
 
 ### Etapa dois: criar uma placa de autoridade de certificação
 {: #deploying-a-business-network-CA-card}
@@ -187,7 +187,7 @@ Este tutorial aborda a próxima etapa de um ciclo de vida de rede de negócios, 
 
 Assegure-se de que você tenha instalado o ambiente do desenvolvedor do {{site.data.keyword.blockchainfull_notm}} e esteja confortável com o desenvolvimento e a implementação de redes de negócios. Orientação sobre como escrever redes de negócios está disponível na [Documentação do Hyperledger Composer](https://hyperledger.github.io/composer/latest/business-network/business-network-index).
 
-É necessário o acesso a uma instância do Enterprise Plan do {{site.data.keyword.blockchainfull_notm}} Platform e ter criado seus peers antecipadamente. Para obter mais informações sobre o {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan, veja a [Visão geral do Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+É necessário o acesso a uma instância do Enterprise Plan do {{site.data.keyword.blockchainfull_notm}} Platform e ter criado seus peers antecipadamente. Para obter mais informações sobre o {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan, veja a [Visão geral do Enterprise Plan](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
 ### Etapa um: criar um perfil de conexão para o {{site.data.keyword.blockchainfull_notm}} Platform
 {: #deploying-a-business-network-create-connection-profile}

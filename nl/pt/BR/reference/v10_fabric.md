@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: Hyperledger Fabric, confidential channels, Membership Service Provider, Linux Foundation, SDKs, modular architecture, permissioned network
 
@@ -51,7 +51,7 @@ O Hyperledger Fabric inclui um componente **Membership Service Provider (MSP)** 
 
 Para obter mais informações sobre o componente de provedor de serviços de associação do Hyperledger Fabric, consulte [Associação](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} na [Documentação do Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}.
 
-## Serviço de solicitação
+## Serviço de pedido
 {: #hyperledger-fabric-ordering-service}
 
 Em outros blockchains distribuídos, como o Ethereum e o Bitcoin, não há autoridade central que peça transações e as envie para os peers. O Hyperledger Fabric, blockchain no qual o {{site.data.keyword.blockchainfull_notm}} Platform se baseia, funciona de forma diferente. Ele apresenta um nó chamado **solicitador**.

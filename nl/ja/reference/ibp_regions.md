@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -28,7 +28,7 @@ subcollection: blockchain
 
 {{site.data.keyword.cloud_notm}} のロケーションごとに異なる {{site.data.keyword.blockchainfull_notm}} Platform オファリングが使用可能です。 {{site.data.keyword.blockchainfull_notm}} Platform プランが使用可能な {{site.data.keyword.cloud_notm}} のロケーションにのみブロックチェーン・ネットワークを作成することができます。
 
-表 1 および図 1 に、{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} でサポートされている {{site.data.keyword.cloud_notm}} の地域とロケーションを示します。
+表 1 および図 1 に、{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} でサポートされている {{site.data.keyword.cloud_notm}} の地域とロケーションを示します。
 
 無料の {{site.data.keyword.cloud_notm}} Kubernetes クラスターを使用する場合、アジア太平洋の無料のクラスターは選択しないでください。 選択すると、アジア太平洋北部ではなく、アジア太平洋南部のメルボルンで無料のクラスターが作成されます。 現在、アジア太平洋南部のクラスターを使用して、{{site.data.keyword.blockchainfull_notm}} Platform v2.0 をデプロイすることはできません。 無料のクラスターを使用する予定の場合は、**米国南部**または**中欧**のロケーションを選択してください。
 {: note}
@@ -39,7 +39,7 @@ subcollection: blockchain
 | アジア太平洋北部 | 東京、チェンナイ、ホンコン、ソウル、シンガポール |
 | 中欧 | フランクフルト、アムステルダム、ミラノ、オスロ、パリ |
 
-_表 1. {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} のロケーション_
+_表 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} のロケーション_
 
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} ロケーション](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} ロケーション")

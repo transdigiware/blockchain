@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -30,15 +30,15 @@ subcollection: blockchain
 ## 学習用資料
 {: #ibp-console-app-learning-resources}
 
-コマーシャル・ペーパーのサンプルで、アプリケーションとスマート・コントラクトがどのように連携するかを学習できます。 [{{site.data.keyword.blockchainfull_notm}} Platform でコマーシャル・ペーパーのサンプルを実行](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper)する方法に関するトピックを参照してください。このトピックでは、コマーシャル・ペーパー契約をデプロイし、起動する方法を確認できます。
+コマーシャル・ペーパーのサンプルで、アプリケーションとスマート・コントラクトがどのように連携するかを学習できます。 [{{site.data.keyword.blockchainfull_notm}} Platform でコマーシャル・ペーパーのサンプルを実行](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)する方法に関するトピックを参照してください。このトピックでは、コマーシャル・ペーパー契約をデプロイし、起動する方法を確認できます。
 
 アプリケーションを開発するときには、ネットワーク・オペレーターとアプリケーション開発者というまったく異なる 2 人のネットワーク・ユーザー間の調整が必要になる場合があります。
 - **ネットワーク・オペレーター**は、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用して組織のノードをデプロイしたり、ネットワークにスマート・コントラクトをインストールしたりする管理者です。
 - **アプリケーション開発者**は、エンド・ユーザーが使用するクライアント・アプリケーションを構築します。 開発者は、[Hyperledger Fabric SDK](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks){: external} を使用して、スマート・コントラクトの中に記述されているトランザクションを呼び出します。
 
 アプリケーション開発者がネットワークと対話できるようにするには、**ネットワーク・オペレーター**が以下の手順を実行する必要があります。
-1. 組織の CA を使用して、[アプリケーション ID を登録](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities)します。
-2. スマート・コントラクトのパネルから[接続プロファイルをダウンロード](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile)します。
+1. 組織の CA を使用して、[アプリケーション ID を登録](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)します。
+2. スマート・コントラクトのパネルから[接続プロファイルをダウンロード](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)します。
 3. 以下のオブジェクトと情報をアプリケーション開発者に送信します。
   - アプリケーション ID の登録 ID とシークレット。
   - 接続プロファイル。
@@ -58,13 +58,13 @@ subcollection: blockchain
 
 Fabric v1.4 以降、ユーザーはシンプルになったアプリケーションとスマート・コントラクトのプログラミング・モデルを利用できるようになりました。 この新しいモデルでは、トランザクションを送信するために必要な工程の数やコード量が少なくなっています。 このモデルは、**Node.js** で作成するアプリケーションでのみサポートされます。 この新しいモデルを利用する場合は、このチュートリアルを使用して、{{site.data.keyword.blockchainfull_notm}} Platform ネットワークに対して以下の操作を実行できます。
 
-- SDK を使用して[アプリケーション用の証明書を生成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-enroll)する。
-- [SDK からスマート・コントラクトを呼び出す](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-invoke)。
-- コンソールで管理しているノードに[コマーシャル・ペーパーのチュートリアル](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper)をデプロイし、アプリケーションの開発について学習する。 このチュートリアルには、Fabric のウォレットとゲートウェイの使用法に関する詳細な背景情報が記載されています。
+- SDK を使用して[アプリケーション用の証明書を生成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-enroll)する。
+- [SDK からスマート・コントラクトを呼び出す](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-invoke)。
+- コンソールで管理しているノードに[コマーシャル・ペーパーのチュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)をデプロイし、アプリケーションの開発について学習する。 このチュートリアルには、Fabric のウォレットとゲートウェイの使用法に関する詳細な背景情報が記載されています。
 
 **低水準の Fabric SDK API**
 
-既存のスマート・コントラクトとアプリケーション・コードを使用し続ける場合や、Hyperledger コミュニティーで提供されているその他の Fabric SDK 言語を使用する場合は、[低水準の Fabric SDK API](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-low-level) を使用してネットワークへ接続します。
+既存のスマート・コントラクトとアプリケーション・コードを使用し続ける場合や、Hyperledger コミュニティーで提供されているその他の Fabric SDK 言語を使用する場合は、[低水準の Fabric SDK API](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-low-level) を使用してネットワークへ接続します。
 
 ## アプリケーション ID の登録
 {: #ibp-console-app-identities}
@@ -73,7 +73,7 @@ Fabric v1.4 以降、ユーザーはシンプルになったアプリケーシ�
 
 ネットワーク・オペレーターは、組織の CA を使用して[アプリケーション ID を登録](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)する必要があります。アプリケーション開発者は、その登録された ID を使用して、証明書と秘密鍵を生成できます。 オペレーターは、ID の登録 ID およびシークレットを CA エンドポイント情報と一緒に渡すことができます。SDK でこれらを使用して証明書を生成できます。 アプリケーション開発者がクライアント・サイドでエンロールすれば、他の団体は一切そのアプリケーションの秘密鍵にアクセスできません。 セキュリティーを強化するために、ネットワーク・オペレーターは登録時のエンロール制限を 1 に設定できます。 アプリケーション開発者がエンロールした後に、同じ登録 ID とシークレットを使用して別の秘密鍵を生成することはできません。
 
-セキュリティーについてあまり心配していない場合は、ネットワーク・オペレーターが [CA タブ](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll)を使用してアプリケーション ID をエンロールしてもかまいません。 その後、オペレーターは ID をダウンロードするか、コンソール・ウォレットにエクスポートすることができます。 SDK の証明書を使用するには、鍵を base64 形式から PEM 形式にデコードする必要があります。 ローカル・マシン上で以下のコマンドを実行すると、証明書をデコードできます。
+セキュリティーについてあまり心配していない場合は、ネットワーク・オペレーターが [CA タブ](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll)を使用してアプリケーション ID をエンロールしてもかまいません。 その後、オペレーターは ID をダウンロードするか、コンソール・ウォレットにエクスポートすることができます。 SDK の証明書を使用するには、鍵を base64 形式から PEM 形式にデコードする必要があります。 ローカル・マシン上で以下のコマンドを実行すると、証明書をデコードできます。
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -89,11 +89,15 @@ echo <base64_string> | base64 --decode $FLAG > <key>.pem
 {{site.data.keyword.blockchainfull_notm}} Platform コンソールからダウンロードした接続プロファイルは、Node.js (JavaScript および TypeScript) と Java Fabric SDK を使用してネットワークに接続するためにのみ使用できます。
 {: note}
 
-Hyperledger Fabric の[トランザクション・フロー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}には複数のコンポーネントが関わります。その中でクライアント・アプリケーションは複数のピアから承認を収集し、承認されたトランザクションを順序付けサービスに送信します。 接続プロファイルによって、アプリケーションは、トランザクションを送信するために必要なピアと順序付けノードのエンドポイントを取得します。 このプロファイルには、認証局や MSP ID などのユーザー組織に関する情報も含まれています。Fabric SDK が接続プロファイルを直接読み取るので、ユーザーがトランザクションと承認のフローを管理するコードを作成する必要はありません。
+Hyperledger Fabric の[トランザクション・フロー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}には複数のコンポーネントが関わります。その中でクライアント・アプリケーションは複数のピアから承認を収集し、承認されたトランザクションを順序付けサービスに送信します。 接続プロファイルによって、アプリケーションは、トランザクションを送信するために必要なピアと順序付けノードのエンドポイントを取得します。 このプロファイルには、認証局や MSP ID などのユーザー組織に関する情報も含まれています。 Fabric SDK が接続プロファイルを直接読み取るので、ユーザーがトランザクションと承認のフローを管理するコードを作成する必要はありません。
 
-Hyperledger Fabric の[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}機能を利用するためには、アンカー・ピアを構成する必要があります。サービス・ディスカバリーを使用すると、アプリケーションが、チャネル上の自分の組織外のピアのうちトランザクションを承認する必要があるものを識別できるようになります。 サービス・ディスカバリーを使用しない場合は、他の組織から帯域外の方法でこれらのピアのエンドポイント情報を取得し、接続プロファイルに追加する必要があります。 詳しくは、[アンカー・ピアの構成](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-channels-anchor-peers)を参照してください。
+Hyperledger Fabric の[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}機能を利用するためには、アンカー・ピアを構成する必要があります。 サービス・ディスカバリーを使用すると、アプリケーションが、チャネル上の自分の組織外のピアのうちトランザクションを承認する必要があるものを識別できるようになります。 サービス・ディスカバリーを使用しない場合は、他の組織から帯域外の方法でこれらのピアのエンドポイント情報を取得し、接続プロファイルに追加する必要があります。 詳しくは、[アンカー・ピアの構成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers)を参照してください。
 
-プラットフォーム・コンソールの**スマート・コントラクト**のタブにナビゲートします。インスタンス化された各スマート・コントラクトの隣にあるオーバーフロー・メニューにナビゲートします。 **「SDK を使用した接続 (Connect with SDK)」**というボタンをクリックします。 クリックすると、接続プロファイルを作成してダウンロードできるサイド・パネルが開きます。 まず、アプリケーション ID の登録に使用した組織の CA を選択する必要があります。 また、組織の MSP 定義を選択する必要もあります。 それにより、証明書の生成やスマート・コントラクトの呼び出しに使用できる接続プロファイルをダウンロードできるようになります。
+プラットフォーム・コンソールの**スマート・コントラクト**のタブにナビゲートします。 インスタンス化された各スマート・コントラクトの隣にあるオーバーフロー・メニューにナビゲートします。 **「SDK を使用した接続 (Connect with SDK)」**というボタンをクリックします。 クリックすると、接続プロファイルを作成してダウンロードできるサイド・パネルが開きます。 まず、アプリケーション ID の登録に使用した組織の CA を選択する必要があります。 また、組織の MSP 定義を選択する必要もあります。 それにより、証明書の生成やスマート・コントラクトの呼び出しに使用できる接続プロファイルをダウンロードできるようになります。
+
+ノードが {{site.data.keyword.cloud_notm}} Private にデプロイされている場合は、接続プロファイル内の認証局、ピア、および順序付けプログラムが使用するポートが、クライアント・アプリケーションに外部から公開されるようにする必要があります。
+{: note}
+
 
 ## SDK を使用したエンロール
 {: #ibp-console-app-enroll}
@@ -238,7 +242,7 @@ Fabric SDK で使用されるウォレットは、{{site.data.keyword.blockchain
 
 Hyperledger Fabric 資料内の[コマーシャル・ペーパー・チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}では、複数の団体がコマーシャル・ペーパーの売買や換金を行うというユース・ケースを開発者用に説明しています。 これは[アプリケーションの開発に関するトピック](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external}を拡張したものであり、ユーザーが Fabric のローカル・インスタンスで資産を作成して取引できるようにするサンプルのスマート・コントラクトとアプリケーション・コードが提供されています。
 
-{{site.data.keyword.blockchainfull_notm}} Platform ネットワークにコマーシャル・ペーパーのチュートリアルのサンプル・コードをデプロイすることもできます。 そのため、すぐにネットワークとの対話を始められます。サンプルを使用して必要な依存関係をダウンロードすることもできます。 また、サンプル・コードには、証明書を [ウォレット](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external}内にインポートしたり、接続プロファイルを使用して [Fabric ゲートウェイ](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}を作成したりする方法の例も含まれています。 2 つの異なる組織でこのチュートリアルを使用すれば、単一の資産を使用した別々のトランザクションを実行できます。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)を使用して、1 つのチャネルに接続する 2 つのピア組織を既にデプロイしている場合は、両方の組織でこのチュートリアルを利用できます。
+{{site.data.keyword.blockchainfull_notm}} Platform ネットワークにコマーシャル・ペーパーのチュートリアルのサンプル・コードをデプロイすることもできます。 そのため、すぐにネットワークとの対話を始められます。サンプルを使用して必要な依存関係をダウンロードすることもできます。 また、サンプル・コードには、証明書を [ウォレット](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external}内にインポートしたり、接続プロファイルを使用して [Fabric ゲートウェイ](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}を作成したりする方法の例も含まれています。 2 つの異なる組織でこのチュートリアルを使用すれば、単一の資産を使用した別々のトランザクションを実行できます。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)を使用して、1 つのチャネルに接続する 2 つのピア組織を既にデプロイしている場合は、両方の組織でこのチュートリアルを利用できます。
 
 ネットワークにサンプルをデプロイするには、以下の手順に従います。 スマート・コントラクトとアプリケーション構造の詳細については、Fabric 資料の[コマーシャル・ペーパー・チュートリアル](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}でチュートリアルを確認してください。
 
@@ -302,7 +306,7 @@ npm install
 
 コマーシャル・ペーパーのスマート・コントラクトは、`digibank` ディレクトリーと `magnetocorp` ディレクトリーの `contract` フォルダー内にあります。 チュートリアルを使用する組織のすべてのピアに、このスマート・コントラクトをインストールする必要があります。 その後に、チャネルでコマーシャル・ペーパーのコントラクトをインスタンス化する必要があります。 コンソールを使用してインストールするには、スマート・コントラクトを [.cds 形式](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}でパッケージ化する必要があります。
 
-[{{site.data.keyword.blockchainfull_notm}} VS コード拡張機能](/docs/services/blockchain/vscode-extension.html)を使用してスマート・コントラクトをパッケージ化できます。 この拡張機能のインストール後に、Visual Studio Code を使用してワークスペース内で `contracts` フォルダーを開きます。 _「{{site.data.keyword.blockchainfull_notm}} Platform」_タブを開きます。 _「{{site.data.keyword.blockchainfull_notm}} Platform」_ペインで、スマート・コントラクト・パッケージのセクションにナビゲートし、**「スマート・コントラクト・プロジェクトのパッケージ化 (Package a Smart Contract Project)」**をクリックします。 VS コード拡張機能は `contracts` フォルダー内のファイルを使用して、`papernet-js@.0.0.1.cds` という名前の新しいパッケージを作成します。 このパッケージを右クリックして、ローカル・ファイル・システムにエクスポートします。 そして、コンソールを使用して [ピアにスマート・コントラクトをインストール](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-install)してから、[チャネルでスマート・コントラクトをインスタンス化](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-instantiate)できます。
+[{{site.data.keyword.blockchainfull_notm}} VS コード拡張機能](/docs/services/blockchain?topic=blockchain-develop-vscode)を使用してスマート・コントラクトをパッケージ化できます。 この拡張機能のインストール後に、Visual Studio Code を使用してワークスペース内で `contracts` フォルダーを開きます。 _「{{site.data.keyword.blockchainfull_notm}} Platform」_タブを開きます。 _「{{site.data.keyword.blockchainfull_notm}} Platform」_ペインで、スマート・コントラクト・パッケージのセクションにナビゲートし、**「スマート・コントラクト・プロジェクトのパッケージ化 (Package a Smart Contract Project)」**をクリックします。 VS コード拡張機能は `contracts` フォルダー内のファイルを使用して、`papernet-js@.0.0.1.cds` という名前の新しいパッケージを作成します。 このパッケージを右クリックして、ローカル・ファイル・システムにエクスポートします。 そして、コンソールを使用して [ピアにスマート・コントラクトをインストール](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)してから、[チャネルでスマート・コントラクトをインスタンス化](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)できます。
 
 ### 手順 3: ウォレットの証明書を生成する
 
@@ -310,9 +314,9 @@ npm install
 
 オリジナルのサンプルでは、`addToWallet.js` ファイルで、Fabric サンプルのフォルダーにある証明書を使用してファイル・システム・ウォレットを作成しています。 ここでは、新たにファイルを作成し、SDK を使用してクライアント・サイドの証明書を生成して新しいウォレット内に直接格納します。
 
-magnetocorp としてチュートリアルを進めるために使用する組織の CA を選択します。 例えば、ネットワーク構築チュートリアルを既に実行した場合は、Org1 を使用すると良いでしょう。 CA を使用して、[アプリケーション ID を作成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities)します。 登録 ID とシークレットを**保存**します。
+magnetocorp としてチュートリアルを進めるために使用する組織の CA を選択します。 例えば、ネットワーク構築チュートリアルを既に実行した場合は、Org1 を使用すると良いでしょう。 CA を使用して、[アプリケーション ID を作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)します。 登録 ID とシークレットを**保存**します。
 
-コンソールを使用して、[接続プロファイルをダウンロード](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile)します。 接続プロファイルをローカル・ファイル・システムに保存し、`connection.json` に名前変更します。 そして、以下のコマンドを使用して、将来のコマンドで参照するディレクトリーに接続プロファイルを移動します。
+コンソールを使用して、[接続プロファイルをダウンロード](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)します。 接続プロファイルをローカル・ファイル・システムに保存し、`connection.json` に名前変更します。 そして、以下のコマンドを使用して、将来のコマンドで参照するディレクトリーに接続プロファイルを移動します。
 
   ```
   mv $HOME/<path_to_creds>/connection.json /gateway/connection.json
@@ -463,7 +467,7 @@ await gateway.connect(connectionProfile, connectionOptions);
 ```
 {:codeblock}
 
-このコード・スニペットは、ゲートウェイを使用してピアおよび順序付けプログラム・ノードに対して GRPC 接続を開き、ネットワークと対話します。
+このコード・スニペットは、ゲートウェイを使用してピアおよび順序付けプログラム・ノードに対して gRPC 接続を開き、ネットワークと対話します。
 
 ### 手順 5: スマート・コントラクトを呼び出す
 
@@ -497,7 +501,7 @@ gateway.disconnect();
 ```
 {:codeblock}
 
-このコマンドは、ゲートウェイが開いた GRPC 接続を閉じます。 接続を閉じると、ネットワーク・リソースが節約されるので、パフォーマンスが向上します。
+このコマンドは、ゲートウェイが開いた gRPC 接続を閉じます。 接続を閉じると、ネットワーク・リソースが節約されるので、パフォーマンスが向上します。
 
 この手順と**手順 4** の編集が完了したら、`issue.js` を保存して閉じます。 以下のコマンドを使用して、新しいコマーシャル・ペーパーを作成するトランザクションを送信します。
 
@@ -516,14 +520,14 @@ Issue program complete.
 
 ### 手順 6: digibank としてサンプルを進める
 
-magnetocorp としてコマーシャル・ペーパーを作成したら、digibank としてチュートリアルを進め、コマーシャル・ペーパーを購入して換金することができます。 digibank のアプリケーション・コードを使用するときには、magnetocorp と同じ組織を使用しても、別の組織の CA、ピア、接続プロファイルを使用してもかまいません。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)を完了している場合は、この機会に Org2 としてチュートリアルを進めると良いでしょう。
+magnetocorp としてコマーシャル・ペーパーを作成したら、digibank としてチュートリアルを進め、コマーシャル・ペーパーを購入して換金することができます。 digibank のアプリケーション・コードを使用するときには、magnetocorp と同じ組織を使用しても、別の組織の CA、ピア、接続プロファイルを使用してもかまいません。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)を完了している場合は、この機会に Org2 としてチュートリアルを進めると良いでしょう。
 
 `digibank/application` ディレクトリーに移動します。 **手順 3** の説明に従って、digibank としてトランザクションに署名するための証明書とウォレットを生成します。 そして、`buy.js` ファイルを使用して magnetocorp からコマーシャル・ペーパーを購入し、`redeem.js` を使用してそのペーパーを換金します。 **手順 4** と**手順 5** に従って、正しい接続プロファイル、チャネル、スマート・コントラクトを指すように各ファイルを編集します。
 
 ## 低水準の Fabric SDK API を使用したネットワークへの接続
 {: #ibp-console-app-low-level}
 
-既存のアプリケーション・コードを保持したい場合や、Node.js 以外の言語用の Fabric SDK を使用したい場合には、以前と変わらず低水準の Fabric SDK API を使用してネットワークに接続できます。 コンソールを使用して[接続プロファイルをダウンロード](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile)します。 そして、チャネルのピアと順序付けノードのエンドポイントを接続プロファイルから直接インポートするか、ノードのエンドポイント情報を使用してピアと順序付けプログラム・オブジェクトを手動で追加します。 CA を使用して[アプリケーション ID を作成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities)してから、CA エンドポイント情報を使用してクライアント・サイドでエンロールするか、コンソールを使用して証明書を生成する必要もあります。
+既存のアプリケーション・コードを保持したい場合や、Node.js 以外の言語用の Fabric SDK を使用したい場合には、以前と変わらず低水準の Fabric SDK API を使用してネットワークに接続できます。 コンソールを使用して[接続プロファイルをダウンロード](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)します。 そして、チャネルのピアと順序付けノードのエンドポイントを接続プロファイルから直接インポートするか、ノードのエンドポイント情報を使用してピアと順序付けプログラム・オブジェクトを手動で追加します。 CA を使用して[アプリケーション ID を作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)してから、CA エンドポイント情報を使用してクライアント・サイドでエンロールするか、コンソールを使用して証明書を生成する必要もあります。
 
 [Fabric Node SDK](https://fabric-sdk-node.github.io){: external} の資料には、[接続プロファイルを使用してネットワークに接続する](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}方法についてのチュートリアルが記載されています。 このチュートリアルでは、接続プロファイル内の CA エンドポイント情報を使用して、SDK で鍵を生成しています。 コンソールで署名証明書と秘密鍵を生成してから PEM 形式に変換することもできます。 そして、以下のコードを使用して鍵を直接 SDK の [Fabric クライアント・クラス](https://fabric-sdk-node.github.io/Client.html){: external}に渡して、ユーザー・コンテキストを設定できます。
 
@@ -538,10 +542,10 @@ fabric_client.createUser({
 ```
 {:codeblock}
 
-低水準の SDK API を使用してネットワークに接続する場合は、アプリケーションのパフォーマンスと可用性を管理するために追加の手順を取る必要があります。 詳しくは、[アプリケーションの接続性と可用性のためのベスト・プラクティス](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability) を参照してください。
+低水準の SDK API を使用してネットワークに接続する場合は、アプリケーションのパフォーマンスと可用性を管理するために追加の手順を取る必要があります。 詳しくは、[アプリケーションの接続性と可用性のためのベスト・プラクティス](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability) を参照してください。
 
 
 ## CouchDB での索引の使用
 {: #console-app-couchdb}
 
-CouchDB を状態データベースとして使用すると、スマート・コントラクトからチャネルの状態データに対して JSON データ照会を実行できます。 JSON 照会用に索引を作成してスマート・コントラクトで使用することを強くお勧めします。 索引があれば、ネットワークがトランザクションとエントリーの追加ブロックをワールド・ステートに追加するときに、アプリケーションで効率的にデータを取得できます。 スマート・コントラクトやアプリケーションで索引を使用する方法について詳しくは、[CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)を参照してください。
+CouchDB を状態データベースとして使用すると、スマート・コントラクトからチャネルの状態データに対して JSON データ照会を実行できます。 JSON 照会用に索引を作成してスマート・コントラクトで使用することを強くお勧めします。 索引があれば、ネットワークがトランザクションとエントリーの追加ブロックをワールド・ステートに追加するときに、アプリケーションで効率的にデータを取得できます。 スマート・コントラクトやアプリケーションで索引を使用する方法について詳しくは、[CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)を参照してください。

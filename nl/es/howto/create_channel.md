@@ -4,13 +4,11 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
-keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
-
 subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +16,7 @@ subcollection: blockchain
 
 # Creación o actualización de un canal
 {: #ibp-create-channel}
+
 
 Los canales constituyen un mecanismo increíblemente potente para dividir y aislar datos y proporcionan la base principal de la privacidad de los datos. Solo los miembros del mismo canal pueden acceder a sus datos.
 {:shortdesc}
@@ -76,5 +75,5 @@ Todos los miembros del canal recibirán notificaciones por correo electrónico s
 
 Cuando un número suficiente de operadores de canal aceptan la solicitud, cualquier miembro del canal puede pulsar el botón **Enviar solicitud** y se actualizará el nuevo canal. Todos los miembros pueden ver el canal actualizado en la pantalla "Canales" del Supervisor de red.
 
-Las políticas de aprobación no se actualizan automáticamente cuando nuevas organizaciones se unen al canal e instalan el código de encadenamiento. Por ejemplo, si la política requiere que dos de cinco organizaciones aprueben una transacción, la política no se actualizará para que necesite dos de seis organizaciones cuando una nueva organización se una al canal. En su lugar, la nueva organización no aparecerá en la política y no se podrán aprobar las transacciones. Puede añadir una nueva organización a una política de aprobación [actualizando el código de encadenamiento correspondiente](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc). Para obtener más información, consulte [Especificación de políticas de aprobación de código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy).
+Las políticas de aprobación no se actualizan automáticamente cuando nuevas organizaciones se unen al canal e instalan el código de encadenamiento. Por ejemplo, si la política requiere que dos de cinco organizaciones aprueben una transacción, la política no se actualizará para que necesite dos de seis organizaciones cuando una nueva organización se una al canal. En su lugar, la nueva organización no aparecerá en la política y no se podrán aprobar las transacciones. Puede añadir una nueva organización a una política de aprobación [actualizando el código de encadenamiento correspondiente](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc). Para obtener más información, consulte [Especificación de políticas de aprobación de código de encadenamiento](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy).
 {:important}

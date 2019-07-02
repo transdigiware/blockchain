@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -32,14 +32,14 @@ Fabric に基づくネットワークのコンポーネントの概要につい�
 
 *このビデオでは、スターター・ネットワークおよびエンタープライズ・ネットワークの観点からコンポーネントに焦点を当てていますが、情報は {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private のカスタマー管理ソリューションに大いに関連しています。*
 
-この概要では、認証局 (CA)、順序付けプログラム、ピア、スマート・コントラクト、およびアプリケーションにのみ焦点を当てます。 [{{site.data.keyword.blockchainfull_notm}} Platform 2.0 ネットワーク構築ガイド](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network)および [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private デプロイメント・ガイド](/docs/services/blockchain/ibp_for_icp_deployment_guide.html#get-started-icp)のトピックからわかるように、この順序は無意味な順序ではなく、Fabric ベースのネットワークのコンポーネントをデプロイする順序を表しています。
+この概要では、認証局 (CA)、順序付けプログラム、ピア、スマート・コントラクト、およびアプリケーションにのみ焦点を当てます。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)に示されているように、この順序は任意ではなく、Fabric に基づくネットワークのコンポーネントがデプロイされる順序を反映しています。
 
 ## 認証局
 {: #blockchain-component-overview-ca}
 
 Fabric に基づくブロックチェーン・ネットワークの基礎となるのは、ID と許可です。 ID は、CA が発行する x.509 証明書の形式を取り、誰かを*識別する* という点でクレジット・カードと類似しています。ID には属性を含めることができます。 これらの証明書は、コンポーネント・レベルまたはチャネル・レベルで MSP フォルダーに含められることによって、許可にリンクされます。 したがって、例えば、ピア MSP に **admins** という MSP サブフォルダーがあるとします。 その管理フォルダー内に証明書があるユーザーは、ピアの管理者である、つまり、そのピアの管理者が実行を許可されているアクションを実行できることを意味します。 ピア内部の検証システムでは、署名証明書によって識別されるユーザーが管理アクションを実行しようとするたびに検査が実行されます。 証明書が「admin」フォルダー内の証明書と一致するかどうか検査されます。 一致する場合は、アクションを実行できます。 そうでない場合は、アクションの実行要求は拒否されます。
 
-{{site.data.keyword.blockchainfull_notm}} Platform の CA のベースは [Hyperledger Fabric-CA](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){: external} ですが、x.509 証明書に基づく PKI を使用するものである限り、別の CA を使用できます。複数レベルの CA が存在する場合があり、通常は、そうあるべきです。 ネットワークの「ルート CA」は通常、「中間 CA」に証明書を提供する場合以外は公開されません。中間 CA は、証明書をユーザーおよびコンポーネントに直接発行したり、さらに多くの中間 CA 層に発行したりします。 認証局を使用して ID およびメンバーシップを確立する方法について詳しくは、[ID についての Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external}および[メンバーシップについての資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external}を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform の CA のベースは [Hyperledger Fabric-CA](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){: external} ですが、x.509 証明書に基づく PKI を使用するものである限り、別の CA を使用できます。 複数レベルの CA が存在する場合があり、通常は、そうあるべきです。 ネットワークの「ルート CA」は通常、「中間 CA」に証明書を提供する場合以外は公開されません。中間 CA は、証明書をユーザーおよびコンポーネントに直接発行したり、さらに多くの中間 CA 層に発行したりします。 認証局を使用して ID およびメンバーシップを確立する方法について詳しくは、[ID についての Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external}および[メンバーシップについての資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external}を参照してください。
 
 ## 順序付けサービス
 {: #blockchain-component-overview-orderer}
@@ -76,7 +76,7 @@ Fabric に基づくブロックチェーン・ネットワークの基礎とな�
 
 {{site.data.keyword.blockchainfull_notm}} Platform などの Fabric ベースのネットワーク内のクライアント・アプリケーションは、API、SDK、およびスマート・コントラクトなどの基礎となるインフラストラクチャーを活用して、高レベルの抽象化でクライアントの対話 (呼び出しおよび照会) を可能にします。
 
-アプリケーションと Fabric ベースのネットワークの対話方法については、Hyperledger Fabric の資料で、[Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} のトピックを参照してください。 [アプリケーションの作成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app)のトピックを参照して、アプリケーションを {{site.data.keyword.blockchainfull_notm}} Platform に接続する方法を学習することもできます。
+アプリケーションと Fabric ベースのネットワークの対話方法については、Hyperledger Fabric の資料で、[Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} のトピックを参照してください。 [アプリケーションの作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app)のトピックを参照して、アプリケーションを {{site.data.keyword.blockchainfull_notm}} Platform に接続する方法を学習することもできます。
 
 ## ネットワークの例
 {: #blockchain-component-overview-example-network}

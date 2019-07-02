@@ -22,7 +22,7 @@ subcollection: blockchain
 # 操作サービスを使用したノードの操作
 {: #operations_service}
 
-{{site.data.keyword.blockchainfull}} Platform は Hyperledger Fabric v1.4.1 に基づきます。プラットフォームでは、オペレーターがノードのヘルス・チェックを実行し、ピアと順序付けプログラムのノードから操作のメトリックをプルし、ロギング・レベルを管理するための「操作」の RESTful API を提供する、操作サービス機能がサポートされています。 ピアと順序付けプログラムが、「操作」の RESTful API を提供する HTTP サーバーをホストします。  操作サービスについて詳しくは、[操作サービス](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}を参照してください。
+{{site.data.keyword.blockchainfull}} Platform は Hyperledger Fabric v1.4.1 に基づいています。このプラットフォームでは、オペレーターがノードのヘルス・チェックを実行し、ピアと順序付けプログラムのノードから操作のメトリックをプルし、ロギング・レベルを管理するための「操作」の RESTful API を提供する、操作サービス機能がサポートされています。 ピアと順序付けプログラムが、「操作」の RESTful API を提供する HTTP サーバーをホストします。  操作サービスについて詳しくは、[操作サービス](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}を参照してください。
 {:shortdesc}
 
 
@@ -74,11 +74,11 @@ subcollection: blockchain
 
   1. **「ノード」**タブで、ピアまたは順序付けプログラムの CA ノードをクリックします。
   2. CA のページで、**「TLS 認証局 (TLS Certificate Authority)」**をクリックします。
-  3. TLS CA の表で、`admin` ユーザーを見つけて、**「アクション」**の垂直に並んだドットをクリックします。 次に、**「アイデンティティーのエンロール (Enroll Identity)」**をクリックします。
+  3. TLS CA の表で、`admin` ユーザーを見つけて、**「アクション」**の下で垂直に並んだドットをクリックします。 次に、**「アイデンティティーのエンロール (Enroll Identity)」**をクリックします。
   4. サイド・パネルで、**「次へ」**をクリックして、TLS CA の証明書と秘密鍵を表示できます。
   5. アイデンティティーに表示名を付けて、**「アイデンティティーのエクスポート (Export identity)」**をクリックして、**「アイデンティティーのウォレットへの追加 (Add identity to wallet)」**をクリックし、TLS CA の証明書と秘密鍵を JSON ファイルに保存します。
   6. エクスポートした JSON ファイルを開きます。
-  7. JSON ファイルの `private_key` パラメーターの値である、秘密鍵を見つけます。 これは、後述のコマンドで使用される場合は `client-tls-key` です。
+  7. JSON ファイルの `private_key` パラメーターの値である、秘密鍵を見つけます。 これは、後述のコマンドで使用するための `client-tls-key` です。
   8. JSON ファイルの `cert` パラメーターの値である、TLS CA 証明書を見つけます。 これは、後述のコマンドで使用される場合は `client-tls-cert` です。
 
 - **`peer tls-ca cert`** または **`orderer tls-ca cert`**
@@ -101,7 +101,7 @@ subcollection: blockchain
 ## ノードの正常性のチェック
 {: #operations_service_health_check}
 
-`curl -k <peer-endpoint>/healthz` または `curl -k <orderer-endpoint>/healthz` コマンドを実行して、ピアまたは順序付けプログラムのノードの正常性をチェックします。 例えば、次のようにします。
+`curl -k <peer-endpoint>/healthz` コマンドまたは `curl -k <orderer-endpoint>/healthz` コマンドを実行して、ピアまたは順序付けプログラムのノードの正常性をチェックします。 例えば、次のようにします。
 
 ```
 curl -k https://169.46.208.93:3210/healthz
@@ -147,12 +147,6 @@ curl -k <peer-endpoint>/logspec --cert <client-tls-cert> --key <client-tls-key> 
 curl -k https://169.46.208.93:3210/logspec --cert msp/org1/ca/tls/msp/signcerts/cert.pem --key msp/org1/ca/tls/msp/keystore/key.pem  --cacert msp/org1/ca/tls/msp/cacerts/tlsca.pem
 ```
 
-<!--
-```
-curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
-
 以下の例のような結果を表示できます。
 
 ```
@@ -162,7 +156,7 @@ curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/or
 ## ロギング・レベルの設定
 {: #operations_service_log_level_set}
 
-既存のロギング・レベルの設定を変更するには、`spec` という単一の属性で構成された JSON 本文を含む `PUT` メソッドを使用する、以下のコマンドを実行します。 `<log-level>` を予期されるロギング・レベルに置き換えます。 設定できるロギング・レベルについて詳しくは、Hyperledger Fabric の資料で[ロギングの仕様](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external}を参照してください。
+既存のロギング・レベルの設定を変更するには、`spec` という単一の属性で構成された JSON 本文を指定した `PUT` メソッドを使用する、以下のコマンドを実行します。 `<log-level>` を予期されるロギング・レベルに置き換えます。 設定できるロギング・レベルについて詳しくは、Hyperledger Fabric の資料で[ロギングの仕様](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external}を参照してください。
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -175,11 +169,5 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 ```
 
 新しいロギング・レベルを設定したら、[ロギング・レベルの表示コマンド](#operations_service_log_level_view)を使用して、設定を確認できます。
-
-<!--
-```
-curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:info"}' --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
 
 ログ・レベルの構成について詳しくは、Hyperledger Fabric の資料で[Log level management](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external} を参照してください。

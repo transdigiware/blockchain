@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -29,35 +29,40 @@ subcollection: blockchain
 Es posible que se produzcan problemas generales al utilizar la consola para gestionar nodos, canales o contratos inteligentes. En muchos de los casos, puede solucionar estos problemas siguiendo unos sencillos pasos.
 {:shortdesc}
 
+En este tema se describen problemas comunes que se pueden producir al utilizar la consola de
+{{site.data.keyword.blockchainfull_notm}} Platform.
+
 - [Cuando paso el puntero del ratón sobre mi nodo, el estado es
 Estado no disponible, ¿qué significa esto?](#ibp-v2-troubleshooting-status-unavailable)
 - [Cuando paso el puntero del ratón sobre mi nodo, el estado es
 Estado no detectable, ¿qué significa esto?](#ibp-v2-troubleshooting-status-undetectable)
-- [¿Por qué fallan mis operaciones de nodo después de crear el igual o el clasificador?](#ibp-console-build-network-troubleshoot-entry1)
+- [¿Por qué fallan mis operaciones de nodo después de crear el igual o el servicio de ordenación?](#ibp-console-build-network-troubleshoot-entry1)
+- [¿Por qué obtengo el error `No se puede obtener el canal del sistema` cuando abro mi servicio de ordenación?](#ibp-troubleshoot-ordering-service)
 - [¿Por qué no se inicia mi igual?](#ibp-console-build-network-troubleshoot-entry2)
 - [¿Por qué ha fallado la instalación, la creación de una instancia o la actualización de mi contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [¿Cómo puedo ver los registros del contenedor del contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry2)
-- [Mi canal, los contratos inteligentes y las identidades han desaparecido de la consola. ¿Cómo puedo recuperarlos?](/docs/services/blockchain/howto/ibp-v2-troubleshooting.html#ibp-v2-troubleshooting-browser-storage)
+- [Mi canal, los contratos inteligentes y las identidades han desaparecido de la consola. ¿Cómo puedo recuperarlos?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [¿Por qué recibo el error `No se puede autenticar con el ID y el secreto de inscripción que ha especificado` cuando creo una nueva definición de MSP de organización?](#ibp-v2-troubleshooting-create-msp)
 - [¿Por qué recibo el error `Se ha producido un error al actualizar el canal` al intentar añadir una organización a mi canal?](#ibp-v2-troubleshooting-update-channel)
-- [Mi clúster de Kubernetes ha caducado. ¿Qué quiere decir esto?](#ibp-v2-troubleshooting-cluster-expired)
+- [Mi clúster Kubernetes de {{site.data.keyword.cloud_notm}} ha caducado. ¿Qué quiere decir esto?](#ibp-v2-troubleshooting-cluster-expired)
 - [¿Por qué fallan las transacciones que envío desde VS Code?](#ibp-v2-troubleshooting-anchor-peer)
-- [Cuando inicio una sesión en mi consola, recibo el error 401 No autorizado](#ibp-v2-troubleshooting-console-401)
+- [Cuando inicio sesión en mi consola, ¿por qué obtengo un error 401 No autorizado?](#ibp-v2-troubleshooting-console-401)
+- [¿Por qué los nodos que he desplegado en {{site.data.keyword.cloud_notm}} Private no procesan transacciones y fallan las comprobaciones de estado?](#ibp-v2-troubleshooting-healthchecks)
 
 ## Cuando paso el puntero del ratón sobre mi nodo, el estado es
 `Estado no disponible`, ¿qué significa esto?
 {: #ibp-v2-troubleshooting-status-unavailable}
 {: troubleshoot}
 
-El estado de nodo en el mosaico para el nodo de CA, igual o clasificador está en gris, lo que significa que el estado del nodo no está disponible. Idealmente, al pasar el puntero del ratón sobre cualquier nodo, el estado del nodo debe ser `En ejecución`.
+El estado de nodo en el mosaico para el nodo de CA, de igual o de ordenación está en gris, lo que significa que el estado del nodo no está disponible. Idealmente, al pasar el puntero del ratón sobre cualquier nodo, el estado del nodo debe ser `En ejecución`.
 {: tsSymptoms}
 
 Este problema se puede producir si se acaba de crear el nodo y el proceso de despliegue no se ha completado. Si el nodo es una CA, es probable que el nodo no esté en ejecución.
-Si el nodo es un igual o clasificador, esta condición se produce cuando el comprobador de estado que se ejecuta en los nodos igual o clasificador no puede contactar con el nodo.  La solicitud de estado puede fallar con un error de agotamiento del tiempo de espera, debido a que el nodo no haya respondido dentro de un periodo de tiempo específico, que el nodo esté inactivo, o que no haya conectividad de red.
+Si el nodo es un igual o un nodo de ordenación, esta condición se produce cuando el comprobador de estado que se ejecuta en los nodos igual o de ordenación no puede contactar con el nodo.  La solicitud de estado puede fallar con un error de agotamiento del tiempo de espera, debido a que el nodo no haya respondido dentro de un periodo de tiempo específico, que el nodo esté inactivo, o que no haya conectividad de red.
 {: tsCauses}
 
 Si se trata de un nodo nuevo, espere algunos minutos más para que finalice el despliegue. Si el nodo no es nuevo,
-[examine los registros de nodo asociados](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) en busca de errores para determinar la causa.
+[examine los registros de nodo asociados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) en busca de errores para determinar la causa.
 {: tsResolve}
 
 ## Cuando paso el puntero del ratón sobre mi nodo, el estado es
@@ -65,10 +70,10 @@ Si se trata de un nodo nuevo, espere algunos minutos más para que finalice el d
 {: #ibp-v2-troubleshooting-status-undetectable}
 {: troubleshoot}
 
-El estado de nodo en el mosaico del nodo igual o clasificador está en amarillo, lo que implica que el estado del nodo no se puede detectar. Idealmente, al pasar el puntero del ratón sobre cualquier nodo, el estado del nodo debe ser `En ejecución`.
+El estado de nodo en el mosaico del nodo igual o de ordenación está en amarillo, lo que implica que el estado del nodo no se puede detectar. Idealmente, al pasar el puntero del ratón sobre cualquier nodo, el estado del nodo debe ser `En ejecución`.
 {: tsSymptoms}
 
-Esta condición solo se produce en nodos de igual o clasificador que se hayan *importado* en la consola y en los que no se puede ejecutar el comprobador de estado. Este estado se produce debido a que no se ha especificado un `operations_url` al importar el nodo. Se necesita un URL de operaciones para que se pueda ejecutar el comprobador de estado del nodo. El propio nodo es probable que esté `En ejecución`, pero, debido a que no se ha especificado un URL de operaciones, no se puede determinar su estado.
+Esta condición solo se produce en nodos de igual o de ordenación que se hayan *importado* en la consola y en los que no se puede ejecutar el comprobador de estado. Este estado se produce debido a que no se ha especificado un `operations_url` al importar el nodo. Se necesita un URL de operaciones para que se pueda ejecutar el comprobador de estado del nodo. El propio nodo es probable que esté `En ejecución`, pero, debido a que no se ha especificado un URL de operaciones, no se puede determinar su estado.
 {: tsCauses}
 
 Puede resolver este problema realizando los pasos siguientes:
@@ -79,16 +84,16 @@ Puede resolver este problema realizando los pasos siguientes:
  5. Edite el archivo `JSON` generado y especifique el `operations_url` para el nodo. El valor del
 `operations_url` dependerá de cómo se haya configurado y de diversos valores de red. Este valor deberá proporcionarlo el administrador de red que haya desplegado el nodo.
  6. Pulse **Suprimir**. Este paso elimina el nodo importado de la consola, pero no suprime el nodo real.
- 7. En el separador **Nodos**, pulse **Añadir igual** o **Añadir clasificador** seguido de
-**Importar un igual existente** o **Importar un clasificador existente**.
+ 7. En el separador **Nodos**, pulse **Añadir igual** o **Añadir servicio de ordenación** seguido de
+**Importar un igual existente** o **Importar un servicio de ordenación existente**.
  8. Pulse **Cargar JSON** y explore para seleccionar el archivo JSON que acaba de editar. Pulse **Siguiente**.
  9. Asocie la misma identidad que ha anotado en el paso tres.
- 10. Pulse **Añadir igual** o **Añadir clasificador**.
+ 10. Pulse **Añadir igual** o **Añadir servicio de ordenación**.
 
 El comprobador de estado ahora se puede ejecutar en el nodo y notificar el estado del nodo.
 {: tsResolve}
 
-## ¿Por qué fallan mis operaciones de nodo después de crear el igual o el clasificador?
+## ¿Por qué fallan mis operaciones de nodo después de crear el igual o el servicio de ordenación?
 {: #ibp-console-build-network-troubleshoot-entry1}
 {: troubleshoot}
 
@@ -97,10 +102,30 @@ Es posible que reciba un error al gestionar un nodo existente. Cuando esto ocurr
 Por ejemplo, cuando intenta trabajar con el nodo, la acción puede fallar.
 {: tsSymptoms}
 
-Después de crear un nuevo igual o un nuevo clasificador, en función de la configuración del almacenamiento del clúster, se puede tardar unos minutos en que el nodo esté listo para su funcionamiento.
+Después de crear un nuevo igual o servicio de ordenación, en función de la configuración del almacenamiento del clúster, se puede tardar unos minutos en que los nodos estén listos para su funcionamiento.
 {: tsCauses}
 
-Compruebe el panel de control de Kubernetes y asegúrese de que el estado del igual o del nodo sea `En ejecución`. A continuación, intente de nuevo la acción. Si sigue teniendo problemas después de que se active el nodo, [consulte los registros del nodo](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) para ver si hay errores.  
+Compruebe el panel de control de Kubernetes y asegúrese de que el estado del igual o del nodo sea `En ejecución`. A continuación, intente de nuevo la acción. Si sigue teniendo problemas después de que se active el nodo, [consulte los registros del nodo](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) para ver si hay errores.  
+{: tsResolve}
+
+## ¿Por qué obtengo el error `No se puede obtener el canal del sistema` cuando abro mi servicio de ordenación?
+{: #ibp-troubleshoot-ordering-service}
+{: troubleshoot}
+
+Después de crear un servicio de ordenación en la consola de {{site.data.keyword.cloud_notm}} Private, el estado es `Running`. Si embargo, al abrir el servicio de ordenación, aparece el error:
+
+```
+No se puede obtener el canal del sistema. Si ha asociado una identidad sin privilegios de administración en el nodo del servicio de ordenación, no podrá ver ni gestionar los detalles del servicio de ordenación.
+```
+
+{: tsSymptoms}
+
+Esta condición se produce en la consola de blockchain que se ejecuta en {{site.data.keyword.cloud_notm}} Private. En navegadores que no sean Chrome, deberá aceptar un certificado para que la consola se pueda comunicar correctamente con el nodo.
+{: tsCauses}
+
+Existen distintas formas de resolver este problema:
+1. En las notas del release de Helm, donde se proporciona el URL del navegador de la consola, también hay una nota para acceder a un URL y aceptar el certificado. Vaya a dicho URL y acepte el certificado. Ahora, abra el servicio de ordenación. Ya no debería producirse el error.
+2. Si puede utilizar un navegador Chrome, abra la consola de blockchain en Chrome y abra el servicio de ordenación. No se produce el error. Tenga en cuenta que deberá exportar sus identidades desde la cartera de la consola en su navegador que no sea Chrome y luego importarlas en la cartera en el navegador Chrome para que todo siga funcionando.
 {: tsResolve}
 
 ## ¿Por qué no se inicia mi igual?
@@ -114,13 +139,13 @@ El registro del igual incluye `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERR
 
 - Se puede
 producir este error bajo las siguientes condiciones:
-  - Al crear la definición de MSP de la organización del igual o del clasificador, ha especificado un ID y un secreto de inscripción que corresponden a una identidad de tipo `peer` y no `client`. Debe ser de tipo `client`.
-  - Al crear la definición de MSP de la organización del igual o del clasificador, ha especificado un ID y un secreto de inscripción que no coinciden con el ID y el secreto de inscripción de la identidad de administración de la organización correspondiente.
-  - Al crear el igual o el clasificador, ha especificado el ID y el secreto de inscripción de una identidad que no es de tipo 'peer'.
+  - Al crear la definición de MSP de la organización del igual o del servicio de ordenación, ha especificado un ID y un secreto de inscripción que corresponden a una identidad de tipo `peer` y no `client`. Debe ser de tipo `client`.
+  - Al crear la definición de MSP de la organización del igual o del servicio de ordenación, ha especificado un ID y un secreto de inscripción que no coinciden con el ID y el secreto de inscripción de la identidad de administración de la organización correspondiente.
+  - Al crear el igual o el servicio de ordenación, ha especificado el ID y el secreto de inscripción de una identidad que no es de tipo 'peer'.
 
-- Abra el nodo de CA del igual o del clasificador y visualice las identidades registradas que se muestran en la tabla **Usuarios registrados**.
-- Suprima el igual o el clasificador y vuelva a crearlo, especificando el ID y el secreto de inscripción correctos.
-- Tenga en cuenta que, antes de crear el igual o el clasificador, debe crear un id de administrador de la organización de tipo 'client'. Asegúrese de especificar el mismo ID que el ID de inscripción al crear la definición de MSP de la organización. Consulte estas instrucciones para [registrar identidades del igual](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-org1) y estas instrucciones para [registrar identidades del clasificador](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-use-CA-orderer).
+- Abra el nodo de CA del igual o del servicio de ordenación y visualice las identidades registradas que se muestran en la tabla **Usuarios registrados**.
+- Suprima el igual o el servicio de ordenación y vuelva a crearlo, especificando el ID y el secreto de inscripción correctos.
+- Tenga en cuenta que, antes de crear el igual o el servicio de ordenación, debe crear un id de administrador de la organización de tipo 'client'. Asegúrese de especificar el mismo ID que el ID de inscripción al crear la definición de MSP de la organización. Consulte estas instrucciones para [registrar identidades del igual](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) y estas instrucciones para [registrar identidades del clasificador](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## ¿Por qué ha fallado la instalación, la creación de una instancia o la actualización de mi contrato inteligente?
@@ -135,7 +160,7 @@ Puede recibir este error si esta versión del contrato inteligente ya existe en 
 
 - Abra el panel de control de Kubernetes y asegúrese de que el estado del igual sea `En ejecución`.  
 - Abra el nodo igual y asegúrese de que la versión del contrato inteligente no exista aún en el igual y vuelva a intentarlo con la versión adecuada.
-- Si sigue teniendo problemas después de que se active el nodo, [consulte los registros del nodo](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) para ver si hay errores.  
+- Si sigue teniendo problemas después de que se active el nodo, [consulte los registros del nodo](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) para ver si hay errores.  
 {: tsResolve}
 
 ## ¿Cómo puedo ver los registros del contenedor del contrato inteligente?
@@ -145,7 +170,9 @@ Puede recibir este error si esta versión del contrato inteligente ya existe en 
 Es posible que tenga que ver el contrato inteligente, o el código de encadenamiento, y los registros del contenedor para depurar un problema del contrato inteligente.
 {: tsSymptoms}
 
-Siga estas instrucciones para [ver los registros del contenedor](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-container-logs).
+Siga estas instrucciones para ver los registros del contenedor de contratos inteligentes en:
+- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
+- [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
 {: tsResolve}
 
 ## Mi canal, los contratos inteligentes y las identidades han desaparecido de la consola. ¿Cómo puedo recuperarlos?
@@ -163,7 +190,7 @@ Una de las características nuevas de {{site.data.keyword.blockchainfull_notm}} 
   - En el navegador donde está experimentando el problema, pulse el separador **Cartera** seguido de **Añadir identidad** para importar el archivo JSON en la cartera.
   - Pulse **Cargar JSON** y examine el archivo JSON que ha exportado utilizando el botón **Añadir archivos**.
   - Pulse **Enviar**.
-  - Ahora abra el nodo igual o clasificador al que estaba asociada originalmente esta identidad y pulse el icono **Valores**.
+  - Ahora abra el nodo de igual o del servicio de ordenación al que estaba asociada originalmente esta identidad y pulse el icono **Valores**.
   - Pulse el botón **Asociar identidad**.
   - Seleccione la identidad que acaba de importar en la cartera de la consola desde la lista desplegable.
   - Pulse **Asociar**.
@@ -197,7 +224,7 @@ En el panel **Actualizar canal**, desplácese hacia abajo hasta el **ID de MSP d
 y seleccione el ID de MSP que se ha especificado al crear el canal o especifique el ID de MSP del administrador del canal.
 {: tsResolve}
 
-## Mi clúster de Kubernetes ha caducado. ¿Qué quiere decir esto?
+## Mi clúster Kubernetes de {{site.data.keyword.cloud_notm}} ha caducado. ¿Qué quiere decir esto?
 {: #ibp-v2-troubleshooting-cluster-expired}
 {: troubleshoot}
 
@@ -208,7 +235,7 @@ Los clústeres gratuitos de Kubernetes solo son válidos durante 30 días.
 {: tsCauses}
 
 No es posible migrar de un clúster gratuito a un clúster de pago. Después de 30 días, no podrá acceder a la consola y se suprimirán todos los nodos y certificados. Consulte este tema sobre la
-[Caducidad de clústeres de Kubernetes](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration) para obtener información sobre lo que ocurre y lo que puede hacer al respecto.
+[Caducidad de clústeres de Kubernetes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) para obtener información sobre lo que ocurre y lo que puede hacer al respecto.
 {: tsResolve}
 
 ## ¿Por qué fallan las transacciones que envío desde VS Code?
@@ -224,9 +251,9 @@ Error al enviar la transacción; no hay ningún plan de aprobación disponible p
 Este error se produce si utiliza la característica Fabric Service Discovery, pero no ha configurado ningún igual de ancla en su canal.
 {: tsCauses}
 
-Siga el paso tres del [tema sobre datos privados](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) de la guía de aprendizaje sobre cómo desplegar un contrato inteligente para configurar sus iguales de ancla.
+Siga el paso tres del [tema sobre datos privados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) de la guía de aprendizaje sobre cómo desplegar un contrato inteligente para configurar sus iguales de ancla.
 
-## Cuando inicio una sesión en mi consola, recibo un error 401 No autorizado
+## Cuando inicio sesión en mi consola, ¿por qué obtengo un error 401 No autorizado?
 {: #ibp-v2-troubleshooting-console-401}
 {: troubleshoot}
 
@@ -240,3 +267,16 @@ Si la sesión ha pasado a estar inactiva, puede intentar simplemente renovar el 
 
 Como práctica recomendada, ya debería haber almacenado los certificados y las identidades en el sistema de archivos. Si utiliza una ventana de incógnito, todos los certificados se suprimen del almacenamiento local del navegador cuando se cierra el navegador. Después de volver a iniciar la sesión, tendrá que volver a importar las identidades y los certificados.
 {: note}
+
+## ¿Por qué los nodos que he desplegado en {{site.data.keyword.cloud_notm}} Private no procesan transacciones y fallan las comprobaciones de estado?
+{: #ibp-v2-troubleshooting-healthchecks}
+{: troubleshoot}
+
+Mi consola indica que mis iguales y nodos de ordenación siguen en ejecución. Sin embargo, mis transacciones fallan. Cuando ejecuto una comprobación de actividad o de preparación en los pods del nodo, la comprobación indica que los pods están en mal estado.
+{: tsSymptoms}
+
+Si ha desplegado, eliminado y actualizado nodos en el clúster muchas veces, es posible que, como resultado de las pruebas, Docker pueda fallar debido a un error conocido con {{site.data.keyword.cloud_notm}} Private. Para obtener más información, consulte este problema en la
+[Documentación de {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}.
+{: tsCauses}
+
+Para abordar este problema, elimine los pods que han fallado y vuelva a desplegar los nodos. También puede reiniciar el servicio de Docker en el clúster.

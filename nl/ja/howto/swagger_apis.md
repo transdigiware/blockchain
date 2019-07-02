@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -82,7 +82,7 @@ Swagger UI で、**「許可 (Authorize)」**ボタンをクリックします�
 
 デフォルトでは、{{site.data.keyword.cloud_notm}} の監査員以外の役割を持つすべてのユーザーが、Swagger API のパネルに表示される**ネットワーク資格情報**を参照および使用できるので、Swagger API を使用してネットワークを管理できます。 しかし、Swagger API のネットワーク資格情報を UI で公開したくない場合は、既存のキーとシークレットの値をコピーして安全に保管したうえで、Swagger API を使用できない資格情報を新たに生成することもできます。 このアクセスを制御できるように resetCredentials という名前のフラグが用意されています。制御する手順は以下のとおりです。
 
-1. [サービス資格情報ダッシュボード](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token)に記載している手順で、新しいネットワーク資格情報を生成します。
+1. [サービス資格情報ダッシュボード](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token)に記載している手順で、新しいネットワーク資格情報を生成します。
 2. ただし、**「インラインの構成パラメーターの追加」**ボックスには以下の値を貼り付けます。
    ```
    {
@@ -104,7 +104,7 @@ Swagger UI で、**「許可 (Authorize)」**ボタンをクリックします�
 ### 401 認証が必要  
 {: #ibp-swagger-401}
 
-  ネットワーク資格情報を指定して REST API を許可したことを確認してください。 詳しくは、[Swagger API の許可](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger)を参照してください。
+  ネットワーク資格情報を指定して REST API を許可したことを確認してください。 詳しくは、[Swagger API の許可](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger)を参照してください。
 
 ### 400 エラー: 間違った要求
 {: #ibp-swagger-400}

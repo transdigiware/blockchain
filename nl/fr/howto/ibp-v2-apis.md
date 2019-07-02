@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,7 +126,7 @@ Vous pouvez également utiliser la fonction **Try it out** de la documentation A
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-Vous pouvez uniquement importer une autorité de certification existant, ainsi que des noeuds de service de tri d'autres réseaux {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
+Vous pouvez uniquement importer une autorité de certification existant, ainsi que des noeuds de tri d'autres réseaux {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Génération d'un réseau à l'aide d'API
 {: #ibp-v2-apis-build-with-apis}
@@ -148,13 +148,13 @@ Vous pouvez utiliser des API pour créer des réseaux de blockchain dans votre i
   - Vous devez également [enregistrer un administrateur d'organisation](#ibp-v2-apis-config-register-admin) puis [générer des certificats pour l'admin](#ibp-v2-apis-config-enroll-admin) dans un dossier MSP. Cette étape n'est pas nécessaire si vous avez déjà enregistré l'identité de votre admin.
   - [Enregistrer le nouveau composant auprès de votre autorité de certification TLS](#ibp-v2-apis-config-register-component-tls).
 
-  Vous pouvez également effectuer ces étapes à partir de votre console {{site.data.keyword.blockchainfull_notm}} Platform. Pour plus d'informations, voir [Création et gestion des identités](/docs/services/blockchain/howto/ibp-console-identities.html).
+  Vous pouvez également effectuer ces étapes à partir de votre console {{site.data.keyword.blockchainfull_notm}} Platform. Pour plus d'informations, voir [Création et gestion des identités](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities).
 
 3. [Créer une définition MSP pour votre organisation](#ibp-v2-apis-msp) en appelant [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
-4. [Générer le fichier de configuration](#ibp-v2-apis-config) qui est nécessaire à la création d'un service de tri ou d'un homologue. Vous devez générer un fichier de configuration unique pour chaque service de tri ou homologue que vous souhaitez créer.
+4. [Générer le fichier de configuration](#ibp-v2-apis-config) qui est nécessaire à la création d'un noeud de tri ou d'un homologue. Vous devez générer un fichier de configuration unique pour chaque noeud de tri ou homologue que vous souhaitez créer.Si vous déployez plusieurs noeuds de tri, vous devez fournir un fichier de configuration pour chaque noeud que vous voulez créer.
 
-5. Créer un service de tri en appelant [`poster/ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer).
+5. Créer un noeud de tri en appelant [`poster/ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service).
 
 6. Créer un homologue en appelant [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer).
 
@@ -179,7 +179,7 @@ Vous pouvez également utiliser les API pour importer des composants {{site.data
 
 2. Importez la définition MSP d'une organisation en appelant [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
 
-3. Importez un service de tri en appelant [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer).
+3. Importez un noeud de tri en appelant [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service).
 
 4. Importez un homologue en appelant [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer).
 
@@ -230,7 +230,7 @@ Vous pouvez utiliser le client d'autorité de certification Fabric pour exploite
   ```
   {:codeblock}
 
-4. Définissez la valeur de la variable d'environnement `$FABRIC_CA_CLIENT_HOME` sur le chemin dans lequel le client d'autorité de certification va stocker les certificats [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) générés. Vérifiez que vous avez supprimé la configuration matérielle qui a peut-être été créée par des tentatives préalables. S'il s'agit de la première fois que vous exécutez la commande `enroll`, le dossier `msp` et le fichier `.yaml` n'existent pas.
+4. Définissez la valeur de la variable d'environnement `$FABRIC_CA_CLIENT_HOME` sur le chemin dans lequel le client d'autorité de certification va stocker les certificats MSP générés. Vérifiez que vous avez supprimé la configuration matérielle qui a peut-être été créée par des tentatives préalables. S'il s'agit de la première fois que vous exécutez la commande `enroll`, le dossier `msp` et le fichier `.yaml` n'existent pas.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -254,9 +254,9 @@ Vous pouvez utiliser le client d'autorité de certification Fabric pour exploite
 ### Génération de certificats avec votre admin d'autorité de certification
 {: #ibp-v2-apis-enroll-ca-admin}
 
-Une identité **CA admin** a été automatiquement enregistrée pour vous lors de la création de votre autorité de certification. Vous pouvez maintenant utiliser ce nom d'administrateur et ce mot de passe admin pour émettre une commande `enroll` auprès du client d'autorité de certification Fabric afin de générer un dossier MSP avec des certificats qui peuvent ensuite être utilisés pour enregistrer d'autres identités d'homologue ou de service de tri.
+Une identité **CA admin** a été automatiquement enregistrée pour vous lors de la création de votre autorité de certification. Vous pouvez maintenant utiliser ce nom d'administrateur et ce mot de passe admin pour émettre une commande `enroll` auprès du client d'autorité de certification Fabric afin de générer un dossier MSP avec des certificats qui peuvent ensuite être utilisés pour enregistrer d'autres identités d'homologue ou de noeud de tri.
 
-1. Vérifiez que vous avez effectué les étapes relatives à la [configuration client d'autorité de certification Fabric](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client) et que `$FABRIC_CA_CLIENT_HOME` est défini sur le répertoire où vous souhaitez stocker vos certificats d'admin de l'autorité de certification.
+1. Vérifiez que vous avez effectué les étapes relatives à la [configuration client d'autorité de certification Fabric](#ibp-v2-apis-config-fabric-ca-client) et que `$FABRIC_CA_CLIENT_HOME` est défini sur le répertoire où vous souhaitez stocker vos certificats d'admin de l'autorité de certification.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -289,9 +289,9 @@ Une identité **CA admin** a été automatiquement enregistrée pour vous lors d
   ```
   {:codeblock}
 
-  La commande `enroll` génère un ensemble complet de certificats, appelé dossier MSP, qui se trouve dans le répertoire où vous avez défini votre client d'autorité de certification Fabric sur le chemin`$HOME`. Par exemple, `$HOME/fabric-ca-client/ca-admin`. Pour plus d'informations sur les dossiers MSP et leur contenu, voir [Fournisseur de services aux membres (MSP)](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
+  La commande `enroll` génère un ensemble complet de certificats, appelé dossier MSP, qui se trouve dans le répertoire où vous avez défini votre client d'autorité de certification Fabric sur le chemin`$HOME`. Par exemple, `$HOME/fabric-ca-client/ca-admin`. Pour plus d'informations sur les dossiers MSP et leur contenu, voir [Fournisseur de services aux membres (MSP)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
-  Si la commande `enroll` échoue, voir la section relative au [Traitement des incidents](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) pour connaître les causes possibles.
+  Si la commande `enroll` échoue, voir la section relative au [Traitement des incidents](#ibp-v2-apis-config-troubleshooting) pour connaître les causes possibles.
 
   Vous pouvez exécuter une commande tree pour vérifier que vous avez effectué toutes les étapes prérequises. Accédez au répertoire dans lequel vous avez stocké vos certificats. Une commande tree doit générer un résultat similaire à la structure suivante :
 
@@ -346,14 +346,14 @@ Tout d'abord, vous devez enregistrer une identité de composant auprès de votre
 
   Notez la seconde valeur **affiliation**, par exemple, `org1.department1`. Vous devez utiliser cette valeur dans la commande ci-dessous.
 
-3. Exécutez la commande suivante pour enregistrer le service de tri ou l'homologue.
+3. Exécutez la commande suivante pour enregistrer le noeud de tri ou l'homologue.
 
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
   {:codeblock}
 
-  Créez un nom et un mot de passe pour le composant, puis utilisez-les pour remplacer `name` et `secret`.  Notez ces informations. Définissez `--id.type` sur `orderer` si vous déployez un service de tri, ou définissez-le sur `peer` si vous déployez un homologue. La commande peut ressembler à l'exemple suivant :
+  Créez un nom et un mot de passe pour le composant, puis utilisez-les pour remplacer `name` et `secret`.  Notez ces informations. Définissez `--id.type` sur `orderer` si vous déployez un noeud de tri, ou définissez-le sur `peer` si vous déployez un homologue. La commande peut ressembler à l'exemple suivant :
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -378,7 +378,7 @@ Tout d'abord, vous devez enregistrer une identité de composant auprès de votre
 
 Vous devez aussi créer une identité admin que vous utilisez pour exploiter votre réseau. Vous utiliserez cette identité pour exploiter des composants spécifiques, comme l'installation d'un contrat intelligent sur votre homologue. Vous pouvez également utiliser cette identité en tant qu'administrateur de votre organisation et l'utiliser pour créer et modifier des canaux.  
 
-Vous devez enregistrer cette nouvelle identité auprès de votre autorité de certification, puis l'utiliser pour générer un dossier MSP. Vous pouvez définir cette identité en tant qu'administrateur de l'organisation en ajoutant son signCert au MSP de votre organisation. Vous devrez également ajouter le certificat signCert dans votre fichier de configuration afin qu'il puisse être défini comme certificat admin du service de tri ou de l'homologue lors du déploiement. Il vous suffit de créer une seule identité admin pour votre organisation. Ainsi, vous ne devez effectuer ces étapes qu'une seule fois. Vous pouvez utiliser le certificat signCert que vous avez généré pour déployer de nombreux homologues ou services de tri.
+Vous devez enregistrer cette nouvelle identité auprès de votre autorité de certification, puis l'utiliser pour générer un dossier MSP. Vous pouvez définir cette identité en tant qu'administrateur de l'organisation en ajoutant son signCert au MSP de votre organisation. Vous devrez également ajouter le certificat signCert dans votre fichier de configuration afin qu'il puisse être défini comme certificat admin du noeud de tri ou de l'homologue lors du déploiement. Il vous suffit de créer une seule identité admin pour votre organisation. Ainsi, vous ne devez effectuer ces étapes qu'une seule fois. Vous pouvez utiliser le certificat signCert que vous avez généré pour déployer de nombreux homologues ou noeuds de tri.
 
 Vérifiez que `$FABRIC_CA_CLIENT_HOME` est défini sur le chemin du dossier MSP de l'admin de votre autorité de certification.
 
@@ -395,7 +395,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-Créez un `nom` et `secret` pour la nouvelle identité utilisateur de l'admin. Assurez-vous d'utiliser des valeurs différentes de celles de l'homologue ou du service de tri que vous venez d'enregistrer. La commande ressemble à l'exemple suivant :
+Créez un `nom` et `secret` pour la nouvelle identité utilisateur de l'admin. Assurez-vous d'utiliser des valeurs différentes de celles de l'homologue ou du noeud de tri que vous venez d'enregistrer. La commande ressemble à l'exemple suivant :
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -480,7 +480,7 @@ Vous devrez revenir dans ce dossier lorsque vous créez la définition MSP de vo
 ### Enregistrement du composant auprès de l'autorité de certification TLS
 {: #ibp-v2-apis-config-register-component-tls}
 
-Lors de la création de l'autorité de certification, une autorité de certification TLS a été déployée avec votre autorité de certification par défaut. Vous devez également enregistrer le service de tri ou l'homologue auprès de votre autorité de certification TLS. Pour ce faire, vous devez d'abord vous inscrire à l'aide de l'admin de l'autorité de certification TLS. Remplacez `$FABRIC_CA_CLIENT_HOME` par un répertoire où vous voulez stocker vos certificats admin de l'autorité de certification TLS.
+Lors de la création de l'autorité de certification, une autorité de certification TLS a été déployée avec votre autorité de certification par défaut. Vous devez également enregistrer le noeud de tri ou l'homologue auprès de votre autorité de certification TLS. Pour ce faire, vous devez d'abord vous inscrire à l'aide de l'admin de l'autorité de certification TLS. Remplacez `$FABRIC_CA_CLIENT_HOME` par un répertoire où vous voulez stocker vos certificats admin de l'autorité de certification TLS.
 
 ```
 cd $HOME/fabric-ca-client
@@ -489,7 +489,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-Exécutez la commande ci-dessous pour vous inscrire en tant qu'admin auprès de l'autorité de certification TLS. L'ID d'inscription et le mot de passe de l'admin de votre autorité de certification TLS sont identiques à ceux dans votre autorité de certification par défaut. Par conséquent, La commande ci-dessous est la même que celle utilisée pour vous inscrire en tant que [admin d'autorité de certification](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin) uniquement avec le nom de votre autorité de certification TLS. Ce nom est la valeur **Nom de l'autorité de certification TLS** du panneau des **paramètres** de l'autorité de certification sur votre console, ou la valeur de l'élément `"tlsca_name"` par l'API `Create a CA`.
+Exécutez la commande ci-dessous pour vous inscrire en tant qu'admin auprès de l'autorité de certification TLS. L'ID d'inscription et le mot de passe de l'admin de votre autorité de certification TLS sont identiques à ceux dans votre autorité de certification par défaut. Par conséquent, La commande ci-dessous est la même que celle utilisée pour vous inscrire en tant que [admin d'autorité de certification](#ibp-v2-apis-enroll-ca-admin) uniquement avec le nom de votre autorité de certification TLS. Ce nom est la valeur **Nom de l'autorité de certification TLS** du panneau des **paramètres** de l'autorité de certification sur votre console, ou la valeur de l'élément `"tlsca_name"` par l'API `Create a CA`.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -502,14 +502,14 @@ Un appel réel doit ressembler à l'exemple suivant :
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-Une fois l'inscription effectuée, vous disposez des certificats nécessaires pour enregistrer votre composant auprès de l'autorité de certification TLS. Exécutez la commande suivante pour enregistrer le service de tri ou l'homologue :
+Une fois l'inscription effectuée, vous disposez des certificats nécessaires pour enregistrer votre composant auprès de l'autorité de certification TLS. Exécutez la commande suivante pour enregistrer le noeud de tri ou l'homologue :
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-Cette commande est similaire à celle que vous avez utilisée pour enregistrer l'identité du composant auprès de l'autorité de certification, exception faite de l'utilisation du nom de l'autorité de certification TLS. Si vous déployez un service de tri au lieu d'un homologue, définissez `--id.type` sur `orderer` au lieu de `peer`. Vous devez attribuer à cette identité un nom d'utilisateur et un mot de passe différents de ceux que vous avez utilisés pour votre autorité de certification par défaut. Un enregistrement réel peut ressembler à la commande suivante :
+Cette commande est similaire à celle que vous avez utilisée pour enregistrer l'identité du composant auprès de l'autorité de certification, exception faite de l'utilisation du nom de l'autorité de certification TLS. Si vous déployez un noeud de tri au lieu d'un homologue, définissez `--id.type` sur `orderer` au lieu de `peer`. Vous devez attribuer à cette identité un nom d'utilisateur et un mot de passe différents de ceux que vous avez utilisés pour votre autorité de certification par défaut. Un enregistrement réel peut ressembler à la commande suivante :
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -517,6 +517,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 Vous devez noter les éléments `"enrollid"` et `"enrollsecret"` de la commande ci-dessus lors de la création de votre fichier de configuration.
 {: important}
+
+### Traitement des incidents
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **Problème :** Erreur lors de l'exécution de la commande `enroll`
+{: #ibp-v2-apis-config-enroll-error1}
+
+Lors de l'exécution de la commande enroll du client d'autorité de certification Fabric, il est possible que la commande échoue avec l'erreur suivante :
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**Solution :**
+
+Cette erreur peut se produire lorsque votre client d'autorité de certification Fabric essaie de s'inscrire mais ne peut pas se connecter à votre autorité de certification. Cela peut se produire si :   
+
+- Votre commande `enroll` contient un élément `https://` supplémentaire sur le paramètre `-u`.
+- Le nom de votre autorité de certification est incorrect.
+- Votre nom d'utilisateur ou votre mot de passe est incorrect.
+
+Passez en revue les paramètres spécifiés dans votre commande `enroll` et assurez-vous qu'aucune de ces conditions n'existe.
+
+#### **Problème :** Erreur avec l'autorité de certification lors de l'exécution de la commande `enroll`
+{: #ibp-v2-apis-config-enroll-error2}
+
+La commande d'enregistrement du client d'autorité de certification Fabric peut échouer si l'URL d'enregistrement, valeur de paramètre `-u`, contient un caractère spécial. Par exemple, la commande suivante avec l'ID d'enregistrement et le mot de passe `admin:C25A06287!0`,
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+échoue et produit l'erreur suivante :
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **Solution :**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+Vous devez encoder le caractère spécial ou indiquer l'URL d'enregistrement entre guillemets simples. Par exemple, `!` devient `%21`, ou la commande ressemble à ceci :
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## Création de la définition MSP d'une organisation
 {: #ibp-v2-apis-msp}
@@ -619,7 +666,7 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
 ## Création d'un fichier de configuration
 {: #ibp-v2-apis-config}
 
-Vous devez exécuter un fichier de configuration afin de créer un homologue ou un service de tri à l'aide d'API. Ce fichier est fourni à l'API en tant qu'objet `config` dans le corps de demande de l'appel d'API. Vous devez déployer une autorité de certification dans votre instance de service {{site.data.keyword.cloud_notm}} Platform et suivre les étapes d'enregistrement et d'inscription des identités requises avant d'exécuter le fichier.
+Vous devez exécuter un fichier de configuration afin de créer un homologue ou un noeud de tri à l'aide d'API. Ce fichier est fourni à l'API en tant qu'objet `config` dans le corps de demande de l'appel d'API. Si vous créez plusieurs noeuds de tri, vous devez fournir un fichier de configuration pour chaque noeud que vous voulez créer dans un tableau pour la demande d'API. Par exemple, pour un service de tri Raft à cinq noeuds, vous devez créer un tableau de cinq fichiers de configuration. Vous pouvez fournir le même fichier pour chaque noeud dès lors que l'ID d'inscription que vous fournissez a une limite d'inscription suffisamment élevée. Vous devez déployer une autorité de certification dans votre instance de service {{site.data.keyword.cloud_notm}} Platform et suivre les étapes d'enregistrement et d'inscription des identités requises avant d'exécuter le fichier.
 
 Voici un modèle de fichier de configuration :
 ```
@@ -800,7 +847,7 @@ Une fois toutes les étapes ci-dessus effectuées, votre fichier de configuratio
 ```
 {:codeblock}
 
-Vous pouvez laisser les autres zones vides. Une fois ce fichier finalisé, vous pouvez le transmettre en tant que zone `config` dans le corps de demande de l'API `Create an orderer` ou `Create a peer`.
+Vous pouvez laisser les autres zones vides. Une fois ce fichier finalisé, vous pouvez le transmettre en tant que zone `config` dans le corps de demande de l'API `Create an ordering service` ou `Create a peer`.
 
 ### Importation d'une identité admin sur la console {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-v2-apis-admin-console}

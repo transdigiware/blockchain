@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -27,7 +27,7 @@ subcollection: blockchain
 ## 2019년 5월 24일
 {: #05-24-2019}
 
-**Raft 합의 프로토콜**: 프로덕션 네트워크에 권장되는 5개 노드 Raft 순서 지정 서비스를 이제 사용할 수 있습니다. 또한 개발 및 테스트 목적으로 단일 노드 Raft 순서 지정 서비스를 배치할 수 있습니다. 
+**Raft 합의 프로토콜**: 프로덕션 네트워크에 권장되는 5개 노드 Raft 순서 지정 서비스를 이제 사용할 수 있습니다. 또한 개발 및 테스트 목적으로 단일 노드 Raft 순서 지정 서비스를 배치할 수 있습니다.
 
 ## 2019년 5월 9일
 {: #05-09-2019}

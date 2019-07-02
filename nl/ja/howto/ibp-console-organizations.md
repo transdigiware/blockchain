@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -21,7 +21,7 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull}} Platform コンソールを使用して、メンバーシップ・サービス・プロバイダー (MSP) と呼ばれる正式な組織定義を作成できます。 組織の MSP 定義を作成すれば、ブロックチェーン・コンソーシアムの他のメンバーが、この組織のノードやアプリケーションのアイデンティティーを確認できるようになります。 MSP 定義には組織の管理者の証明書も含まれています。
 
-コンソールを使用して、ネットワークのメンバーとして参加する組織を管理することもできます。 順序付けサービスの管理者は、組織タブを使用してブロックチェーン・[コンソーシアム](/docs/services/blockchain/glossary.html#glossary-consortium)にメンバーを追加できます。 その後は、コンソーシアムのメンバーが、コンソールを使用して新規チャネルまたは既存のチャネルにメンバーを追加できます。
+コンソールを使用して、ネットワークのメンバーとして参加する組織を管理することもできます。 順序付けサービスの管理者は、組織タブを使用してブロックチェーン・[コンソーシアム](/docs/services/blockchain?topic=blockchain-glossary#glossary-consortium)にメンバーを追加できます。 その後は、コンソーシアムのメンバーが、コンソールを使用して新規チャネルまたは既存のチャネルにメンバーを追加できます。
 
 **対象者:** このトピックは、ブロックチェーン・ネットワークの作成、モニター、管理を担当するネットワーク・オペレーターを対象に設計されています。
 
@@ -34,17 +34,17 @@ Hyperledger Fabric をベースとする {{site.data.keyword.blockchainfull_notm
 
 コンソーシアムに参加する組織は、**メンバーシップ・サービス・プロバイダー (MSP)** と呼ばれる組織定義を作成しておく必要があります。 この MSP には以下の情報が含まれています。
 - **ルート認証局**によって署名された証明書。 この証明書は、ノード、チャネル、およびアプリケーションのアイデンティティーを検証するために使用されます。
-- **TLS CA** によって署名された証明書。 ルート TLS 証明書を使用することにより、ピアは組織間のゴシップに参加できます。このゴシップは、Hyperledger Fabric の[**プライベート・データ**・コレクション](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data)および[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}の機能を利用するために必要です。
+- **TLS CA** によって署名された証明書。 ルート TLS 証明書を使用することにより、ピアは組織間のゴシップに参加できます。このゴシップは、Hyperledger Fabric の[**プライベート・データ**・コレクション](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)および[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}の機能を利用するために必要です。
 - **MSP ID**。 MSP ID は、コンソーシアム内の組織の正式名です。 ノードとアプリケーションの MSP ID を覚えておく必要があります。
-- **ピア管理者** ID および**組織管理者** ID の**管理者証明書**。 これらの証明書は、順序付けサービスに渡されて、チャネルの作成または編集を許可されている組織内の ID を確認するために使用されます。 コンソールを使用して順序付けプログラムまたはピアを作成すると、MSP 内の管理者証明書がそれらの新しいノードにデプロイされます。 そして、コンソールまたはクライアント・アプリケーションから、それらの証明書を使用することで、そのピアまたは順序付けプログラムを操作することができます。
+- **ピア管理者** ID および**組織管理者** ID の**管理者証明書**。 これらの証明書は、順序付けサービスに渡されて、チャネルの作成または編集を許可されている組織内の ID を確認するために使用されます。 コンソールを使用して順序付けノードまたはピアを作成すると、MSP 内の管理者証明書がそれらの新しいノードにデプロイされます。 そして、コンソールまたはクライアント・アプリケーションから、それらの証明書を使用することで、そのピアまたは順序付けノードを操作することができます。
 
 ## コンソールでの MSP の管理
 
-**「組織」**タブにナビゲートします。 このタブで、コンソールに存在する認証局を使用して、[MSP 定義を作成](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp)できます。 また、このタブでは、別の組織で作成された [MSP をインポート](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp)することもできます。
+**「組織」**タブにナビゲートします。 このタブで、コンソールに存在する認証局を使用して、[MSP 定義を作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp)できます。 また、このタブでは、別の組織で作成された [MSP をインポート](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp)することもできます。
 
 作成またはインポートしたすべての MSP を**「使用可能な組織 (Available Organizations)」**で参照できます。 この「組織」タブの MSP 定義を使用することで、次の重要な機能をコンソールで実行できます。
 - ピアまたは順序付けプログラムのノードを作成する場合は、その新しいノードに管理者証明書を提供するために組織の MSP が使用されます。
-- 順序付けノードの管理者は、MSP を使用して、[新しい組織をコンソーシアムに追加](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium)できます。
+- 順序付けノードの管理者は、MSP を使用して、[新しい組織をコンソーシアムに追加](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium)できます。
 - コンソーシアムのメンバーは、他のコンソーシアム・メンバーの MSP をコンソールにインポートして、そのメンバーを新規または既存のチャネルに追加できます。
 
 ## 組織の MSP の作成
@@ -153,14 +153,14 @@ MSP 定義では、以下の追加フィールドも使用できますが、必�
 
 この定義を MSP 定義 `JSON` ファイルとして保存します。  
 
-ピア・ノードまたは順序付けサービス・ノードの組織を定義し、外部 CA からの証明書を使用する MSP 定義を構成しました。 これで、[外部 CA からの証明書をピアまたは順序付けプログラムに使用する手順](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca)に戻ることができます。
+ピア・ノードまたは順序付けサービス・ノードの組織を定義し、外部 CA からの証明書を使用する MSP 定義を構成しました。 これで、[外部 CA からの証明書をピアまたは順序付けプログラムに使用する手順](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca)に戻ることができます。
 
 ## MSP のインポート
 {: #console-organizations-import-msp}
 
 新しい組織をコンソーシアムに追加できるのは、順序付けプログラム管理者のみです。 順序付けプログラムの管理者が、コンソーシアムに招待されたすべての組織の MSP 定義を集めて、コンソールにインポートする必要があります。 その後、順序付けプログラムの管理者が、順序付けプログラム・ノードを使用して、それらの MSP を順序付けサービスに追加することができます。
 
-管理者が MSP 定義を作成していれば、他の組織は「組織」タブを使用して MSP を JSON 形式でローカルのファイル・システムにダウンロードできます。 そして、その MSP JSON ファイルを帯域外操作で送ってもらいましょう。 **「組織」**タブに移動し、**「MSP 定義のインポート (Import MSP Definition)」**を使用して、その MSP ファイルをコンソールにインポートします。 MSP 定義が**「使用可能な組織 (Available organizations)」**セクションに表示されたら、自分の順序付けプログラム・ノードに移動し、[その組織をコンソーシアムに追加](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium)できます。
+管理者が MSP 定義を作成していれば、他の組織は「組織」タブを使用して MSP を JSON 形式でローカルのファイル・システムにダウンロードできます。 そして、その MSP JSON ファイルを帯域外操作で送ってもらいましょう。 **「組織」**タブに移動し、**「MSP 定義のインポート (Import MSP Definition)」**を使用して、その MSP ファイルをコンソールにインポートします。 MSP 定義が**「使用可能な組織 (Available organizations)」**セクションに表示されたら、自分の順序付けプログラム・ノードに移動し、[その組織をコンソーシアムに追加](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium)できます。
 
 
 ## コンソーシアムへの組織の追加
@@ -168,7 +168,7 @@ MSP 定義では、以下の追加フィールドも使用できますが、必�
 
 組織のコンソーシアムは、順序付けサービスによってホストされています。
 
-順序付けサービスの管理者は、コンソールを使用して組織をコンソーシアムに追加することができます。 **「ノード」**タブに移動し、順序付けノードをクリックします。 順序付けノード・パネルの**「コンソーシアム・メンバー (Consortium members)」**で、**「組織の追加 (Add organization)」**をクリックします。 [組織タブにインポートした](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp) MSP 定義のリストから MSP 定義を選択できるサイド・パネルが開きます。 **「JSON のアップロード (Upload JSON)」**オプションを使用して、他の組織で作成された MSP 定義ファイルを直接インポートすることもできます。
+順序付けサービスの管理者は、コンソールを使用して組織をコンソーシアムに追加することができます。 **「ノード」**タブに移動し、順序付けノードをクリックします。 順序付けノード・パネルの**「コンソーシアム・メンバー (Consortium members)」**で、**「組織の追加 (Add organization)」**をクリックします。 [組織タブにインポートした](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) MSP 定義のリストから MSP 定義を選択できるサイド・パネルが開きます。 **「JSON のアップロード (Upload JSON)」**オプションを使用して、他の組織で作成された MSP 定義ファイルを直接インポートすることもできます。
 
 ## チャネルの作成および編集
 {: #console-organizations-create-channel}
@@ -181,7 +181,7 @@ MSP 定義では、以下の追加フィールドも使用できますが、必�
 2. **「組織」**タブで、新しいチャネルに追加する組織の MSP をコンソールにインポートします。 組織をチャネルに追加するには、まず、その組織をコンソーシアムに追加する必要があることに**注意してください**。
 3. **「チャネル」**タブに移動し、**「チャネルの作成 (Create channel)」**をクリックします。 チャネル名、メンバーシップ、およびチャネル・ポリシーを指定できるサイド・パネルが開きます。 コンソーシアムに追加されている任意の組織を新規チャネルに追加できます。
 
-これらの手順の詳細については、**ネットワーク構築**チュートリアルの[チャネルの作成](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel1)を参照してください。
+これらの手順の詳細については、**ネットワーク構築**チュートリアルの[チャネルの作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1)を参照してください。
 
 ### チャネル定義の MSP の更新
 {: #console-organizations-update-channel}

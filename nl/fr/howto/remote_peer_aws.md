@@ -36,12 +36,12 @@ Le démarrage rapide permet d'effectuer les configurations suivantes :
  * Dans les sous-réseaux publics, deux homologues dans deux zones de disponibilité (un homologue dans chaque sous-réseau).
  * Dans chaque sous-réseau public, un conteneur homologue avec une base de données LevelDB intégrée ou un conteneur CouchDB secondaire.
 
-Avant de déployer des homologues {{site.data.keyword.blockchainfull_notm}} Platform for AWS, passez en revue les [considérations relatives aux homologues](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-limitations).
+Avant de déployer des homologues {{site.data.keyword.blockchainfull_notm}} Platform for AWS, passez en revue les [considérations relatives aux homologues](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations).
 
 ## Prérequis
 {: #remote-peer-aws-prerequisites}
 
-Pour utiliser un homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS (homologue distant), vous devez appartenir à une organisation qui est membre d'un réseau de blockchain hébergé sur {{site.data.keyword.blockchainfull_notm}} Platform. Vous devez utiliser le Moniteur réseau sur {{site.data.keyword.cloud_notm}} pour accéder aux données d'identification du réseau et aux noeuds finaux d'API de votre réseau. Si vous n'êtes membre d'aucun un réseau de blockchain, vous devez créer ou rejoindre un réseau. Pour plus d'informations, voir [Création d'un réseau de plan](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network) ou [Rejoindre un réseau](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+Pour utiliser un homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS (homologue distant), vous devez appartenir à une organisation qui est membre d'un réseau de blockchain hébergé sur {{site.data.keyword.blockchainfull_notm}} Platform. Vous devez utiliser le Moniteur réseau sur {{site.data.keyword.cloud_notm}} pour accéder aux données d'identification du réseau et aux noeuds finaux d'API de votre réseau. Si vous n'êtes membre d'aucun un réseau de blockchain, vous devez créer ou rejoindre un réseau. Pour plus d'informations, voir [Création d'un réseau de plan](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-create-network) ou [Rejoindre un réseau](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
 
 La type d'instance VPC par défaut pour l'homologue est `m4.xlarge`.  Vous devez optimiser le type d'instance que vous choisissez en fonction de vos besoins en termes d'UC, de mémoire et de stockage. L'homologue nécessite au moins :  
 -	2 UC
@@ -142,9 +142,9 @@ Vous êtes responsable du coût des services AWS que vous utilisez lorsque vous 
 
 Dans les tableaux suivants, les paramètres sont répertoriés par catégorie et décrits séparément pour les deux options de déploiement :
 
-  * [Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc)
+  * [Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-newvpc)
 
-  * [Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-existvpc).
+  * [Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-existvpc).
 
 ### Paramètres pour le déploiement de {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un nouveau VPC
 {: #remote-peer-aws-parameters-newvpc}
@@ -157,7 +157,7 @@ Le tableau suivant répertorie les paramètres configurables du graphique AWS et
 | | | |
 | **Configuration réseau** | |
 | `Availability Zones` |Les deux zones de disponibilité à utiliser pour les sous-réseaux dans le VPC. Remarque : l'ordre logique est conservé. | |
-| `Allowed SSH access CIDR` | [Bloc CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} autorisé pour un accès SSH externe aux instances d'homologue {{site.data.keyword.blockchain_notm}}. Il peut être défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
+| `Allowed SSH access CIDR` | [Bloc CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} autorisé pour un accès SSH externe aux instances d'homologue {{site.data.keyword.blockchainfull_notm}}. Il peut être défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
 | `PeerEndpointAccessCIDR` | Bloc [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} autorisé pour un accès gRPC externe aux instances d'homologue {{site.data.keyword.blockchainfull_notm}}. Généralement défini sur 0.0.0.0/0 pour autoriser l'accès depuis n'importe où (non recommandé). | |
 | | | |
 | **Configuration Amazon EC2** | | |
@@ -205,7 +205,7 @@ Si vous déployez l'homologue {{site.data.keyword.blockchainfull_notm}} Platform
 
 - Créez un groupe de sécurité lié à votre VPC existant et ajoutez des règles entrantes sur les ports 22 et 7051 à ce groupe de sécurité. Les connexions TCP sur le port 22 autorisent un accès SSH à l'instance générée alors que les connexions TCP sur le port 7051 autorisent un accès gRPC externe à l'instance homologue (nécessaire pour exploiter l'homologue à l'aide de l'interface CLI des outils Fabric et de logiciels SDK). Vous serez invité à entrer ces paramètres VPC lors du lancement du démarrage rapide.
 
- Lors du déploiement d'un homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant, les paramètres suivants remplacent les paramètres dans les sections correspondantes [ci-dessus](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc):
+ Lors du déploiement d'un homologue {{site.data.keyword.blockchainfull_notm}} Platform for AWS dans un VPC existant, les paramètres suivants remplacent les paramètres dans les sections correspondantes [ci-dessus](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-newvpc):
 
 |  Paramètre    | Description | Val. déf |
 | --------------|-------------|---------|
@@ -242,7 +242,7 @@ Pour vérifier que l'homologue s'exécute :
 
   * Vous pouvez créer une session shell au sein du conteneur homologue en exécutant `docker exec -it peer sh`.
 
-De plus, si vous voulez vérifier que la connexion à votre réseau {{site.data.keyword.blockchainfull_notm}} Platform fonctionne, vous pouvez exécuter la commande CLI `peer channel fetch` depuis le conteneur homologue. Sinon, vous pouvez passer aux instructions relatives à l'[exploitation de votre homologue](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate).  
+De plus, si vous voulez vérifier que la connexion à votre réseau {{site.data.keyword.blockchainfull_notm}} Platform fonctionne, vous pouvez exécuter la commande CLI `peer channel fetch` depuis le conteneur homologue. Sinon, vous pouvez passer aux instructions relatives à l'[exploitation de votre homologue](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate).  
 
 Exécutez la commande de l'interface CLI `peer channel fetch` pour extraire le bloc d'origine du canal :
 
@@ -274,9 +274,9 @@ Exécutez la commande de l'interface CLI `peer channel fetch` pour extraire le b
 
 2. Votre organisation doit être ajoutée à un canal du réseau pour que vous puissiez extraire le bloc d'origine.
 
-  - Vous pouvez démarrer un nouveau canal pour l'homologue. En tant qu'initiateur de canal, vous pouvez inclure automatiquement votre organisation durant la [création de canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel).
+  - Vous pouvez démarrer un nouveau canal pour l'homologue. En tant qu'initiateur de canal, vous pouvez inclure automatiquement votre organisation durant la [création de canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel).
 
-  - Un autre membre du réseau blockchain peut également ajouter votre organisation à un canal existant en utilisant une [mise à jour de canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+  - Un autre membre du réseau blockchain peut également ajouter votre organisation à un canal existant en utilisant une [mise à jour de canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 
   - Une fois que votre organisation est ajoutée à un canal, vous devez ajouter le certificat signataire de votre homologue au canal. L'homologue envoie par téléchargement son certificat signataire lors de l'installation, de sorte que vous devez uniquement synchroniser le certificat pour le canal. Dans l'écran "Canaux" de votre Moniteur réseau, localisez le canal rejoint par votre organisation et sélectionnez **Synchroniser le certificat** dans la liste déroulante sous l'en-tête **Action**. Cette action synchronise les certificats entre tous les homologues sur le canal.
 
@@ -351,13 +351,13 @@ Exécutez la commande de l'interface CLI `peer channel fetch` pour extraire le b
 ## Etapes suivantes
 {: #remote-peer-aws-whats-next}
 
-Après que vous avez configuré l'homologue dans AWS, vous pouvez effectuer quelques étapes supplémentaires avant de soumettre les transactions et lire le registre partagé du réseau de blockchain. Pour plus d'informations, voir [Exploitation des homologues dans AWS](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate).
+Après que vous avez configuré l'homologue dans AWS, vous pouvez effectuer quelques étapes supplémentaires avant de soumettre les transactions et lire le registre partagé du réseau de blockchain. Pour plus d'informations, voir [Exploitation des homologues dans AWS](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate).
 
 ## Haute disponibilité (HA)
 {: #remote-peer-aws-high-availability}
 
 Par défaut, pour la prise en charge de la haute disponibilité, le modèle de démarrage rapide déploie deux instances d'homologue, dans deux zones de disponibilité différentes.
-Pour optimiser cette prise en charge de la haute disponibilité, vous devez également configurer vos [applications client pour la haute disponibilité](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app).
+Pour optimiser cette prise en charge de la haute disponibilité, vous devez également configurer vos [applications client pour la haute disponibilité](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app).
 
 ## Remarques sur la sécurité
 {: #remote-peer-aws-security}
@@ -395,14 +395,14 @@ Les données de votre base de données d'état, que vous utilisiez levelDB ou co
 {: #remote-peer-aws-data-residency}
 
 L'hébergement de données indique que le traitement et le stockage de l'ensemble des données de registre de blockchain demeurent à l'intérieur des frontières d'un pays unique.
-Pour plus de détails sur la mise en oeuvre de cette opération, voir [Hébergement de données](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-data-residency).
+Pour plus de détails sur la mise en oeuvre de cette opération, voir [Hébergement de données](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-data-residency).
 
 #### Gestion des clés
 {: #remote-peer-aws-security-key-management}
 
-La gestion des clés est un aspect essentiel de la sécurité de l'homologue. Si une clé privée est compromise ou égarée, des acteurs hostiles pourraient accéder aux données et aux fonctionnalités de votre homologue. Le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform utilise des [modules de sécurité matérielle](/docs/services/blockchain/glossary.html#glossary-hsm) (HSM) pour stocker les clés privées de votre réseau. HSM est un dispositif physique qui empêche des tiers d'accéder à votre clé privée.
+La gestion des clés est un aspect essentiel de la sécurité de l'homologue. Si une clé privée est compromise ou égarée, des acteurs hostiles pourraient accéder aux données et aux fonctionnalités de votre homologue. Le plan Enterprise d'{{site.data.keyword.blockchainfull_notm}} Platform utilise des [modules de sécurité matérielle](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) (HSM) pour stocker les clés privées de votre réseau. HSM est un dispositif physique qui empêche des tiers d'accéder à votre clé privée.
 
-Lorsque vous déployez un homologue distant sur AWS, vous êtes responsable de la gestion de vos clés privées. Bien qu'{{site.data.keyword.blockchainfull_notm}} Platform génère vos clés privées, ces clés ne sont pas stockées sur cette plateforme. Il est essentiel que vous stockiez vos clés dans un emplacement sécurisé afin qu'elles ne soient pas compromises. Vous pouvez trouver la clé privée de votre homologue dans le dossier du magasin de clés de votre MSP, dans le répertoire `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` au sein de votre conteneur d'homologues. Pour plus d'informations sur les certificats au sein de votre homologue distant, voir la section relative [Membership Services Provider](/docs/services/blockchain/certificates.html#managing-certificates-msp) de la rubrique [Gestion des certificats sur {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates).
+Lorsque vous déployez un homologue distant sur AWS, vous êtes responsable de la gestion de vos clés privées. Bien qu'{{site.data.keyword.blockchainfull_notm}} Platform génère vos clés privées, ces clés ne sont pas stockées sur cette plateforme. Il est essentiel que vous stockiez vos clés dans un emplacement sécurisé afin qu'elles ne soient pas compromises. Vous pouvez trouver la clé privée de votre homologue dans le dossier du magasin de clés de votre MSP, dans le répertoire `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` au sein de votre conteneur d'homologues. Pour plus d'informations sur les certificats au sein de votre homologue distant, voir la section relative [Membership Services Provider](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp) de la rubrique [Gestion des certificats sur {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 Vous pouvez utiliser Key Escrow pour récupérer des clés privées perdues. Cette opération doit être effectuée avant la perte de clés. Si une clé privée ne peut pas être récupérée, vous devez obtenir de nouvelles clés privées en obtenant un nouveau certificat SignCert auprès de votre autorité de certification. Vous devez également retirer et remplacer votre certificat admin des canaux que vous avez rejoints.
 
@@ -419,7 +419,7 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### Configuration de Membership Service Provider (Fournisseur de services aux membres)
 {: #remote-peer-aws-security-MSP}
 
-Les composants d'{{site.data.keyword.blockchainfull_notm}} Platform consomment des identités via des Fournisseur de services aux membres (MSP). Les MSP associent les certificats émis par les autorités de certification à des rôles de réseau et de canal. Pour plus d'informations sur la façon dont les MSP fonctionnent avec les homologues distants, consultez cette [rubrique](/docs/services/blockchain/certificates.html#managing-certificates-msp).
+Les composants d'{{site.data.keyword.blockchainfull_notm}} Platform consomment des identités via des Fournisseur de services aux membres (MSP). Les MSP associent les certificats émis par les autorités de certification à des rôles de réseau et de canal. Pour plus d'informations sur la façon dont les MSP fonctionnent avec les homologues distants, consultez cette [rubrique](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
 #### Sécurité des applications
 {: #remote-peer-aws-security-appl}
@@ -429,4 +429,5 @@ Tous les appels de code blockchain étant signés, Fabric gère la sécurité de
 ## Licence et tarification
 {: #remote-peer-aws-license-pricing-aws}
 
-Vous devez accepter la version de licence de l'édition Community de {{site.data.keyword.blockchainfull_notm}} Platform for AWS pour pouvoir utiliser la solution de déploiement activée par le démarrage rapide. L'utilisation de  {{site.data.keyword.blockchainfull_notm}} Platform for AWS  (y compris tous les packages fournis via l'offre de démarrage rapide, et les packages dérivés de ces derniers) n'est pas destinée à des fins de production. {{site.data.keyword.IBM_notm}} peut décider d'annuler l'autorisation d'accès au code, et l'utilisation de ce code, à tout moment. Le contrat de licence de logiciel {{site.data.keyword.blockchainfull_notm}} Platform for AWS comporte plus de détails sur les termes de la licence. Lorsque vous lancez le démarrage rapide, vous êtes invité à lire et accepter les termes du contrat.
+Vous devez accepter la version de licence de l'édition Community de {{site.data.keyword.blockchainfull_notm}} Platform for AWS pour pouvoir utiliser la solution de déploiement activée par le démarrage rapide. L'utilisation de  {{site.data.keyword.blockchainfull_notm}} Platform for AWS  (y compris tous les packages fournis via l'offre de démarrage rapide, et les packages dérivés de ces derniers) n'est pas destinée à des fins de production. {{site.data.keyword.IBM_notm}} peut décider d'annuler l'autorisation d'accès au code, et l'utilisation de ce code, à tout moment.
+Le contrat de licence de logiciel {{site.data.keyword.blockchainfull_notm}} Platform for AWS comporte plus de détails sur les termes de la licence. Lorsque vous lancez le démarrage rapide, vous êtes invité à lire et accepter les termes du contrat.

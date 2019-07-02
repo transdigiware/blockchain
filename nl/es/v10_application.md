@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Fabric SDKs, client application, enroll, register, chaincode
 
@@ -22,24 +22,23 @@ subcollection: blockchain
 # Desarrollo de aplicaciones con los SDK de Fabric
 {: #dev-app}
 
-{{site.data.keyword.blockchainfull}} Platform proporciona API que puede utilizar para conectar aplicaciones con la red blockchain. Puede utilizar los puntos finales de API en el perfil de conexión para invocar el código de encadenamiento y actualizar o consultar el libro mayor específicos del canal en sus iguales. También puede utilizar las API en [la interfaz de usuario de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) para gestionar nodos, canales y miembros de la red.
+{{site.data.keyword.blockchainfull}} Platform proporciona API que puede utilizar para conectar aplicaciones con la red blockchain. Puede utilizar los puntos finales de API en el perfil de conexión para invocar el código de encadenamiento y actualizar o consultar el libro mayor específicos del canal en sus iguales. También puede utilizar las API en [la interfaz de usuario de Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) para gestionar nodos, canales y miembros de la red.
 {:shortdesc}
 
 Puede utilizar esta guía de aprendizaje para obtener información sobre cómo acceder a las API de {{site.data.keyword.blockchainfull_notm}} Platform y utilizarlas para inscribirse y registrar la aplicación con la red. También aprenderá a interactuar con la red y a enviar transacciones desde la aplicación. La guía de aprendizaje se basa en la guía de aprendizaje sobre [Cómo escribir de su primera aplicación](https://hyperledger-fabric.readthedocs.io/en/release-1.2/write_first_app.html){: external} de la documentación de Hyperledger Fabric. Utilizará muchos de los archivos y mandatos de la guía de aprendizaje **Cómo escribir su primera aplicación**, pero los utilizará para interactuar con una red en la plataforma {{site.data.keyword.blockchainfull_notm}}. En esta guía de aprendizaje se describe cada paso del desarrollo de aplicaciones utilizando el SDK de nodo de Fabric Manager Hyperledger. También aprenderá a inscribir y a registrar usuarios utilizando el cliente de CA de Fabric como alternativa a la utilización del SDK.
 
-Además de esta guía de aprendizaje, puede utilizar aplicaciones de ejemplo y código de encadenamiento que proporciona {{site.data.keyword.blockchainfull_notm}} Platform como plantillas cuando crea sus propias soluciones de negocio. Para obtener más información, consulte [Despliegue de aplicaciones de ejemplo](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
+Además de esta guía de aprendizaje, puede utilizar aplicaciones de ejemplo y código de encadenamiento que proporciona {{site.data.keyword.blockchainfull_notm}} Platform como plantillas cuando crea sus propias soluciones de negocio. Para obtener más información, consulte [Despliegue de aplicaciones de ejemplo](/docs/services/blockchain/howto?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
 
-Cuando esté preparado para escalar su aplicación, visite [Prácticas recomendadas para el desarrollo de aplicaciones](/docs/services/blockchain/best_practices.html#best-practices-app).
+Cuando esté preparado para escalar su aplicación, visite [Prácticas recomendadas para el desarrollo de aplicaciones](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app).
 
 ## Requisitos previos
 {: #dev-app-prerequisites}
 
 Debe cumplir los siguientes requisitos previos para poder utilizar la guía de aprendizaje **Cómo escribir su primera aplicación** en la plataforma {{site.data.keyword.blockchainfull_notm}}.
 
-- Si no tiene una red blockchain en {{site.data.keyword.cloud_notm}}, debe crear una con un plan inicial o empresarial. Para obtener más información, consulte [Creación
-de una red del Plan inicial](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan-creating-a-network) o [Creación de una red del Plan empresarial](/docs/services/blockchain/get_start.html
+- Si no tiene una red blockchain en {{site.data.keyword.cloud_notm}}, debe crear una con un plan inicial o empresarial. Para obtener más información, consulte [Creación de la red del Plan inicial](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-creating-a-network) y [Creación de la red del Plan empresarial](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan).
 
-  Después de entrar en el supervisor de red de su red, añada al menos un igual para su organización en la pantalla "Visión general". A continuación, cree al menos un canal en la red. Para obtener más información, consulte [Creación de un canal](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel). **Tenga en cuenta** que si utiliza una red de plan inicial, la red ya tiene un canal llamado `defaultchannel` que puede utilizar para desplegar el código de encadenamiento.
+  Después de entrar en el supervisor de red de su red, añada al menos un igual para su organización en la pantalla "Visión general". A continuación, cree al menos un canal en la red. Para obtener más información, consulte [Creación de un canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). **Tenga en cuenta** que si utiliza una red de plan inicial, la red ya tiene un canal llamado `defaultchannel` que puede utilizar para desplegar el código de encadenamiento.
 
 - Instale las herramientas necesarias para descargar los ejemplos de Hyperledger Fabric y para utilizar el SDK de nodo.
   * [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.2/prereqs.html#install-curl){: external} o [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}
@@ -48,7 +47,7 @@ de una red del Plan inicial](/docs/services/blockchain/get_start_starter_plan.ht
 - Instale los ejemplos de Hyperledger Fabric descargando el directorio `fabric-samples`. Puede seguir la [guía de iniciación](https://hyperledger-fabric.readthedocs.io/en/release-1.2/install.html){: external} de la documentación de Hyperledger Fabric.
 
 - Vaya al directorio `fabric-samples` de la máquina local.
-  * Utilice el mandato `git checkout` para utilizar la rama que corresponda a la versión de Hyperledger Fabric de sus redes. Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) en el supervisor de red.
+  * Utilice el mandato `git checkout` para utilizar la rama que corresponda a la versión de Hyperledger Fabric de sus redes. Puede encontrar la versión de Fabric abriendo la [ventana Preferencias de red](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) en el supervisor de red.
     - Si la red está en Fabric versión 1.2, puede utilizar la rama principal.
     - Si la red está en Fabric versión 1.1, ejecute `git checkout v1.1.0`.
     - Si la red está en Fabric versión 1.0, ejecute `git checkout v1.0.6`.
@@ -58,7 +57,7 @@ de una red del Plan inicial](/docs/services/blockchain/get_start_starter_plan.ht
   * En el directorio `fabcar`, ejecute el mandato `npm install` para instalar los paquetes necesarios para utilizar el SDK de Fabric Manager, que incluyen `fabric-client` y `fabric-ca-client`.
 
 - Instale y cree una instancia del código de encadenamiento de fabcar en el canal utilizando el
-[Supervisor de red](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc). Encontrará el código de encadenamiento fabcar en la carpeta `fabric-samples` bajo `fabric-samples > chaincode > fabcar > go`.
+[Supervisor de red](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc). Encontrará el código de encadenamiento fabcar en la carpeta `fabric-samples` bajo `fabric-samples > chaincode > fabcar > go`.
 
 - Recupere el perfil de conexión de red en la pantalla "Visión general" del supervisor de red. Guarde el perfil de conexión en el directorio `fabcar` y cámbiele el nombre por `creds.json`.
 
@@ -90,27 +89,27 @@ Debe proporcionar la aplicación los puntos finales de API de recursos de red es
                   ...
   ```
 
-Es posible que desee dirigir los recursos de red fuera de su organización con la aplicación. Por ejemplo, si una [política de aprobación](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy) de código de encadenamiento requiere aprobaciones de otras organizaciones del canal, tiene que enviar la transacción para que los iguales de dichas organizaciones puedan cumplir con la política. [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} de Hyperledger Fabric no recibe soporte en el Plan Inicial ni en el Plan de Empresa. Tendrá que obtener la información de punto final de los iguales y los certificados TLS adjuntos de otras organizaciones utilizando la sección "peers" de su perfil de conexión. Puede ponerse en contacto con los administradores de las otras organizaciones para saber qué iguales se han unido a canales particulares.{:note}
+Es posible que desee dirigir los recursos de red fuera de su organización con la aplicación. Por ejemplo, si una [política de aprobación](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy) de código de encadenamiento requiere aprobaciones de otras organizaciones del canal, tiene que enviar la transacción para que los iguales de dichas organizaciones puedan cumplir con la política. [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} de Hyperledger Fabric no recibe soporte en el Plan Inicial ni en el Plan de Empresa. Tendrá que obtener la información de punto final de los iguales y los certificados TLS adjuntos de otras organizaciones utilizando la sección "peers" de su perfil de conexión. Puede ponerse en contacto con los administradores de las otras organizaciones para saber qué iguales se han unido a canales particulares.{:note}
 
 3. Conecte la información de punto final de API a un archivo de configuración de la aplicación, como se muestra en el ejemplo siguiente:
   ```
   grpcs://n7413e3b503174a58b112d30f3af55016-orderer.us3.blockchain.ibm.com:31001
   ```
 
-  También puede enviar [solicitudes HEAD](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network-monitor-nodes) a estos puntos finales para comprobar la disponibilidad de los recursos de red.
+  También puede enviar [solicitudes HEAD](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-nodes) a estos puntos finales para comprobar la disponibilidad de los recursos de red.
 
-  Si utiliza los SDK de Fabric Manager, también puede conectarse a la red utilizando el perfil de conexión. Esta guía de aprendizaje proporciona la información de punto final de la red al SDK manualmente. Sin embargo, encontrará una guía de aprendizaje y directrices en el apartado sobre [utilización del perfil de conexión con el SDK](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) en una sección posterior.
+  Si utiliza los SDK de Fabric Manager, también puede conectarse a la red utilizando el perfil de conexión. Esta guía de aprendizaje proporciona la información de punto final de la red al SDK manualmente. Sin embargo, encontrará una guía de aprendizaje y directrices en el apartado sobre [utilización del perfil de conexión con el SDK](#dev-app-connection-profile) en una sección posterior.
 
 ## Inscripción de la aplicación
 {: #dev-app-enroll}
 
-Para poder conectar una aplicación a la red en la plataforma {{site.data.keyword.blockchainfull_notm}}, tiene que probar la autenticidad de la aplicación en la red. No profundizaremos en los detalles de los certificados x509 y de la infraestructura de claves públicas, pero puede obtener más información en la guía de aprendizaje sobre [Gestión de certificados en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates). Pero, en pocas palabras, los flujos de comunicación en Fabric utilizan operaciones sign/verify en cada punto de encuentro. Por lo tanto, cualquier aplicación que envíe llamadas, como consultas o actualizaciones de libro mayor, a la red deberá debe firmar cargas útiles y con su clave privada y adjuntar un certificado x509 firmado adecuadamente para fines de verificación. **Inscripción** es el proceso de generación de las claves y certificados necesarios de la entidad emisora de certificados adecuada. Después de la inscripción, la aplicación está lista para comunicarse con la red.
+Para poder conectar una aplicación a la red en la plataforma {{site.data.keyword.blockchainfull_notm}}, tiene que probar la autenticidad de la aplicación en la red. No profundizaremos en los detalles de los certificados x509 y de la infraestructura de claves públicas, pero puede obtener más información en la guía de aprendizaje sobre [Gestión de certificados en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates). Pero, en pocas palabras, los flujos de comunicación en Fabric utilizan operaciones sign/verify en cada punto de encuentro. Por lo tanto, cualquier aplicación que envíe llamadas, como consultas o actualizaciones de libro mayor, a la red deberá debe firmar cargas útiles y con su clave privada y adjuntar un certificado x509 firmado adecuadamente para fines de verificación. **Inscripción** es el proceso de generación de las claves y certificados necesarios de la entidad emisora de certificados adecuada. Después de la inscripción, la aplicación está lista para comunicarse con la red.
 
 En esta sección se explica cómo recuperar las claves y certificados con el SDK de nodo de Fabric utilizando el código de ejemplo que forma parte de la guía de aprendizaje **Cómo escribir su primera aplicación**. Solo puede generar certificados utilizando una identidad que se haya registrado con su entidad emisora de certificados. En la guía de aprendizaje siguiente se realiza primero la inscripción utilizando una identidad de administrador que ya se haya registrado con la CA. A continuación, utiliza estos certificados para registrar una nueva identidad de cliente. La guía de aprendizaje realiza de nuevo la inscripción utilizando la nueva identidad, y utiliza estos certificados para enviar transacciones a la red.
 <!---You can find an illustration of how the developing applications tutorial interacts with your organization CA in the diagram below.--->
 
-También puede utilizar la pantalla "Entidad emisora de certificados" del supervisor de red para generar certificados, y utilizar dichos certificados para interactuar con la red. Para aprender cómo hacerlo, consulte [Generación de certificados utilizando el supervisor de red](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel). También puede aprender a utilizar el [cliente de CA de Fabric](/docs/services/blockchain/certificates.html#managing-certificates-enroll-register-caclient) desde la línea de mandatos para generar certificados y registrar usuarios en la guía de aprendizaje
-[Gestión de certificados](/docs/services/blockchain/certificates.html#managing-certificates).
+También puede utilizar la pantalla "Entidad emisora de certificados" del supervisor de red para generar certificados, y utilizar dichos certificados para interactuar con la red. Para aprender cómo hacerlo, consulte [Generación de certificados utilizando el supervisor de red](#dev-app-enroll-panel). También puede aprender a utilizar el [cliente de CA de Fabric](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient) desde la línea de mandatos para generar certificados y registrar usuarios en la guía de aprendizaje
+[Gestión de certificados](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 ### Inscripción mediante el SDK de Fabric
 {: #dev-app-enroll-sdk}
@@ -191,7 +190,7 @@ node enrollAdmin.js
 
 El mandato enrollment genera el signCert y lo exporta a una carpeta llamada `hfc-key-store`. Los futuros archivos de esta guía de aprendizaje buscarán sus certificados en esta carpeta. Si encuentra los certificados de admin en la carpeta `hfc-key-store`, significa que el mandato enroll funciona.
 
-Si desea [trabajar con la red utilizando el SDK](/docs/services/blockchain/v10_application.html#dev-app-operate-sdk), tiene que cargar el signCert de admin en la plataforma {{site.data.keyword.blockchainfull_notm}}. Encontrará signCert de admin en la carpeta `hfc-key-store`. Abra el archivo `admin` y copie el certificado dentro de las comillas después del campo `certificate`. Utilice una herramienta o un editor de texto para convertir el certificado al formato PEM. Luego podrá subir el certificado de administración a la red blockchain del Supervisor de red. Para obtener más información sobre la adición de certificados, consulte [el separador "Certificados" de la pantalla "Miembro"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members) en el Supervisor de red. Esto no es necesario si solo utiliza el SDK para invocar o consultar el código de encadenamiento.
+Si desea [trabajar con la red utilizando el SDK](#dev-app-operate-sdk), tiene que cargar el signCert de admin en la plataforma {{site.data.keyword.blockchainfull_notm}}. Encontrará signCert de admin en la carpeta `hfc-key-store`. Abra el archivo `admin` y copie el certificado dentro de las comillas después del campo `certificate`. Utilice una herramienta o un editor de texto para convertir el certificado al formato PEM. Luego podrá subir el certificado de administración a la red blockchain del Supervisor de red. Para obtener más información sobre la adición de certificados, consulte [el separador "Certificados" de la pantalla "Miembro"](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) en el Supervisor de red. Esto no es necesario si solo utiliza el SDK para invocar o consultar el código de encadenamiento.
 
 ## Registro de la aplicación
 {: #dev-app-register}
@@ -243,7 +242,7 @@ Ejecute el mandato `node registerUser.js` para registrar e inscribir `user1`. Si
 
 ### Registro mediante el supervisor de red
 
-Como alternativa, puede registrar e inscribir la aplicación cliente utilizando el separador **Entidad emisora de certificados** del supervisor de red. Consulte esta [información](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-ca) para ver más instrucciones.
+Como alternativa, puede registrar e inscribir la aplicación cliente utilizando el separador **Entidad emisora de certificados** del supervisor de red. Consulte esta [información](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca) para ver más instrucciones.
 
 ## Envío de transacciones mediante la invocación y consulta del código de encadenamiento
 {: #dev-app-invoke-query}
@@ -254,7 +253,7 @@ La aplicación tiene que interactuar con la red completa de blockchain para envi
 2. Las iguales que la aprueban devuelven la transacción aprobada a la aplicación.
 3. La aplicación envía la transacción aprobada al servicio de ordenación para añadir la transacción al libro mayor.
 
-Para obtener más información sobre el flujo de transacciones completo, consulte el apartado sobre [Flujo de transacciones](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external} en la documentación de Hyperledger Fabric. Después de consultar esta guía de aprendizaje, visite la sección sobre [conectividad y disponibilidad de las aplicaciones](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability) para ver consejos de gestión sobre cómo el SDK interactúa con la red.
+Para obtener más información sobre el flujo de transacciones completo, consulte el apartado sobre [Flujo de transacciones](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external} en la documentación de Hyperledger Fabric. Después de consultar esta guía de aprendizaje, visite la sección sobre [conectividad y disponibilidad de las aplicaciones](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability) para ver consejos de gestión sobre cómo el SDK interactúa con la red.
 
 En los ejemplos siguientes se muestra cómo el SDK de nodo configura la topología de red, define la propuesta de transacción y luego envía la transacción a la red. Puede utilizar el archivo `invoke.js` para invocar funciones dentro del código de encadenamiento `fabcar`. Estas funciones le permiten crear y transferir activos en el libro mayor de blockchain. En esta guía de aprendizaje se utiliza la función `initLedger` para
 añadir datos nuevos a su canal y luego se utiliza el archivo `query.js` para consultar los datos.
@@ -277,7 +276,7 @@ Abra el archivo `invoke.js` en un editor de texto.
   ```
   {:codeblock}
 
-  Las nuevas variables de igual y clasificador abre conexiones GRPC con la red blockchain. Para obtener más información sobre la gestión de estas conexiones, consulte [Apertura y cierre de conexiones de red](/docs/services/blockchain/best_practices.html#best-practices-app-connections).
+  Las nuevas variables de igual y clasificador abre conexiones gRPC con la red blockchain. Para obtener más información sobre la gestión de estas conexiones, consulte [Apertura y cierre de conexiones de red](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-connections).
 
   Cuando añade el URL del igual al método `fabric_client.newPeer`, también importa los certificados TLS relevantes del perfil de conexión utilizando el fragmento de código siguiente. Hizo lo mismo cuando añadió el URL de servicio de ordenación. Debe utilizar estos certificados TLS para autenticar la comunicación con la red.
   ```
@@ -287,7 +286,7 @@ Abra el archivo `invoke.js` en un editor de texto.
 
   Si la política de aprobación requiere que las transacciones sean aprobadas por otras organizaciones del canal, debe añadir los iguales de dichas organizaciones mediante los métodos `newPeer()` y `channel.addPeer()` cuando configure la red. Las organizaciones tienen que enviarle la lista de los iguales que se han unido a un determinado canal. La información de punto final y los certificados TLS estarán disponibles en el perfil de conexión. El SDK enviará la transacción a todos los iguales añadidos al canal.
 
-  También puede añadir iguales adicionales pertenecientes a su organización que se unan al canal como un paso del proceso para [hacer que la aplicación esté altamente disponible](/docs/services/blockchain/best_practices.html#best-practices-ha-app). Esto proporcionará el SDK con una función de migración tras error en el caso de que uno de sus iguales se interrumpa.
+  También puede añadir iguales adicionales pertenecientes a su organización que se unan al canal como un paso del proceso para [hacer que la aplicación esté altamente disponible](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-ha-app). Esto proporcionará el SDK con una función de migración tras error en el caso de que uno de sus iguales se interrumpa.
 
 3. Después de configurar la red fabric y de importar la identidad de la aplicación y el signCert en el paso de registro, el archivo `invoke.js` define la propuesta que enviará a la red. Puede utilizar la función `initLedger` en el código de encadenamiento `fabcar` para añadir algunos datos iniciales a su libro mayor. También puede editar el bloque de código para invocar otras funciones que encontrará en el código de encadenamiento `fabcar`.
   ```
@@ -311,7 +310,7 @@ Abra el archivo `invoke.js` en un editor de texto.
   ```
   {:codeblock}
 
-  Aunque en el ejemplo se utiliza un servicio de sucesos basado en iguales, debe utilizar un escucha basado en canal. Encontrará más información en la sección sobre [gestión de transacciones](/docs/services/blockchain/best_practices.html#best-practices-managing-transactions) y en la [documentación de SDK de Node](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}.
+  Aunque en el ejemplo se utiliza un servicio de sucesos basado en iguales, debe utilizar un escucha basado en canal. Encontrará más información en la sección sobre [gestión de transacciones](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-managing-transactions) y en la [documentación de SDK de Node](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}.
 
 5. De forma predeterminada, `invoke.js` envía la transacción como `user1`. Puede editar el archivo `invoke.js` si ha registrado un nombre distinto.
 
@@ -404,9 +403,9 @@ El fragmento de código anterior lee los certificados directamente en la clase `
 ## (Opcional) Funcionamiento de la red mediante el SDK
 {: #dev-app-operate-sdk}
 
-También puede utilizar el SDK para hacer funcionar la red blockchain. En esta guía de aprendizaje se explica cómo puede utilizar el SDK para unir a sus iguales a los canales, instalar el código de encadenamiento en sus iguales y crear una instancia del código de encadenamiento en los canales. Estos pasos son opcionales porque también puede realizar estas operaciones con el supervisor de red o con las API en la [interfaz de usuario de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) si todos los iguales se ejecutan en la plataforma {{site.data.keyword.blockchainfull_notm}}.
+También puede utilizar el SDK para hacer funcionar la red blockchain. En esta guía de aprendizaje se explica cómo puede utilizar el SDK para unir a sus iguales a los canales, instalar el código de encadenamiento en sus iguales y crear una instancia del código de encadenamiento en los canales. Estos pasos son opcionales porque también puede realizar estas operaciones con el supervisor de red o con las API en la [interfaz de usuario de Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) si todos los iguales se ejecutan en la plataforma {{site.data.keyword.blockchainfull_notm}}.
 
-Debe cargar el signCert de administrador en {{site.data.keyword.blockchainfull_notm}} Platform para poder llevar a cabo estos pasos. Encontrará instrucciones sobre cómo cargar el signCert al final de la [sección sobre inscripción](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk)
+Debe cargar el signCert de administrador en {{site.data.keyword.blockchainfull_notm}} Platform para poder llevar a cabo estos pasos. Encontrará instrucciones sobre cómo cargar el signCert al final de la [sección sobre inscripción](#dev-app-enroll-sdk)
 
 ### Cómo unir un canal
 {: #dev-app-join-channel-sdk}
@@ -442,8 +441,8 @@ Para utilizar el ejemplo `fabcar` para unirse a un canal, utilice el archivo `in
   });
   ```
 
-Es necesario añadir el signCert al canal antes de recuperar el bloque de origen. Si ha generado certificados después de que la organización se uniera al canal, deberá cargar el signCert en la plataforma y, a continuación, pulsar el botón **Sincronizar certificados** en la pantalla "Canales". Es posible que tenga que esperar unos minutos a que finalice la sincronización del canal antes de emitir el mandato para unirse al canal (join channel). Para obtener más información, consulte [Carga de certificados de firma en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs)
-en la guía de aprendizaje sobre [Gestión de certificados](/docs/services/blockchain/certificates.html#managing-certificates).
+Es necesario añadir el signCert al canal antes de recuperar el bloque de origen. Si ha generado certificados después de que la organización se uniera al canal, deberá cargar el signCert en la plataforma y, a continuación, pulsar el botón **Sincronizar certificados** en la pantalla "Canales". Es posible que tenga que esperar unos minutos a que finalice la sincronización del canal antes de emitir el mandato para unirse al canal (join channel). Para obtener más información, consulte [Carga de certificados de firma en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)
+en la guía de aprendizaje sobre [Gestión de certificados](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 ### Instalación de código de encadenamiento
 {: #dev-app-install-cc-sdk}
@@ -484,15 +483,15 @@ var request = {
 ```
 {:codeblock}
 
-Envíe esta solicitud a `return channel.sendInstantiateProposal(request);` en lugar de `return channel.sendTransactionProposal(request);` que aparece actualmente en el archivo. Después de enviar la solicitud de creación de instancia al canal, deberá enviar la propuesta de aprobación como una transacción al servicio de ordenación. Este utiliza los mismos métodos que para enviar una transacción, por lo que puede dejar el resto del archivo sin cambios. Es posible que desee [aumentar el valor de tiempo de espera](/docs/services/blockchain/best_practices.html#best-practices-set-timeout-in-sdk) en la propuesta de creación de instancia. De lo contrario, puede que la solicitud exceda el tiempo de espera antes de que la plataforma pueda iniciar el contenedor de código de encadenamiento.
+Envíe esta solicitud a `return channel.sendInstantiateProposal(request);` en lugar de `return channel.sendTransactionProposal(request);` que aparece actualmente en el archivo. Después de enviar la solicitud de creación de instancia al canal, deberá enviar la propuesta de aprobación como una transacción al servicio de ordenación. Este utiliza los mismos métodos que para enviar una transacción, por lo que puede dejar el resto del archivo sin cambios. Es posible que desee [aumentar el valor de tiempo de espera](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-set-timeout-in-sdk) en la propuesta de creación de instancia. De lo contrario, puede que la solicitud exceda el tiempo de espera antes de que la plataforma pueda iniciar el contenedor de código de encadenamiento.
 
-Es necesario añadir el signCert al canal para poder crear una instancia del código de encadenamiento. Si ha generado certificados después de unirse al canal, deberá cargar el signCert en la plataforma y, a continuación, pulsar el botón **Sincronizar certificados** en la pantalla "Canales". Es posible que tenga que esperar unos minutos a que finalice la sincronización del canal antes de emitir el mandato para crear una instancia del código de encadenamiento (instantiate chaincode). Para obtener más información, consulte [Carga de certificados de firma en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs) en la guía de aprendizaje sobre [Gestión de certificados](/docs/services/blockchain/certificates.html#managing-certificates).
+Es necesario añadir el signCert al canal para poder crear una instancia del código de encadenamiento. Si ha generado certificados después de unirse al canal, deberá cargar el signCert en la plataforma y, a continuación, pulsar el botón **Sincronizar certificados** en la pantalla "Canales". Es posible que tenga que esperar unos minutos a que finalice la sincronización del canal antes de emitir el mandato para crear una instancia del código de encadenamiento (instantiate chaincode). Para obtener más información, consulte [Carga de certificados de firma en {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs) en la guía de aprendizaje sobre [Gestión de certificados](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 ## Cómo desconectar la aplicación de la red
 {: #dev-app-disconnect-app}
 
 Siga los pasos siguientes para eliminar la conexión entre la aplicación y la red blockchain en {{site.data.keyword.cloud_notm}}.
-1. Elimine la información de punto final de API del archivo de configuración de la aplicación. Para obtener más información, consulte [Adición de puntos finales de API de red a la aplicación](/docs/services/blockchain/v10_application.html#dev-app-api-endpoints).
+1. Elimine la información de punto final de API del archivo de configuración de la aplicación. Para obtener más información, consulte [Adición de puntos finales de API de red a la aplicación](#dev-app-api-endpoints).
 2. Suprima el contenedor de código de encadenamiento.
   1. En la pantalla "Canal" del Supervisor de red, localice el canal en el que desea instalar el código de encadenamiento.
   2. En la pantalla del canal específico, localice el código de encadenamiento que desea inhabilitar.

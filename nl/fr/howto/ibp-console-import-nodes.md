@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -52,11 +52,14 @@ Pour que des noeuds puissent être importés sur la console, ils doivent être e
 
 - Vous ne pouvez pas importer des noeuds depuis des réseaux de plan Starter ou Enterprise.
 - Tous les noeuds à importer doivent avoir été déployés à l'aide de la console {{site.data.keyword.blockchainfull_notm}} Platform.
+- Vous ne pouvez pas appliquer des correctifs à des noeuds que vous avez importés sur la console.
+- Vous ne pouvez pas supprimer des noeuds que vous avez importés sur la console depuis le cluster où ils ont été déployés. Vous pouvez uniquement supprimer le noeud à partir de la console.
+- Si vous importez un noeud déployé dans {{site.data.keyword.cloud_notm}} Private, vous devez vous assurer que le proxy Web gRPC utilisé par le composant est exposé en externe à la console. Pour plus d'informations, voir [Importation de noeuds depuis {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
 
 ## Premiers pas : Collecte des certificats ou des données d'identification
 {: #ibp-console-import-start-here}
 
-Avant d'importer un composant de blockchain existant à partir d'une autre instance de service {{site.data.keyword.blockchainfull_notm}} Platform, vous devez importer l'identité admin du composant dans votre portefeuille de console. L'importation de l'identité dans votre portefeuille de console simplifie le fonctionnement de noeud.  L'opérateur réseau qui a déployé le noeud doit exporter l'identité admin du noeud depuis le portefeuille dans un fichier JSON que vous pouvez [importer](#ibp-console-import-nodes-admin-identities). Généralement, l'identité admin du noeud est l'admin de l'organisation de l'homologue ou du service de tri qui a été indiqué lors de la création de la définition MSP de l'organisation. Il doit déjà être dans le portefeuille de la console où réside le noeud.
+Avant d'importer un composant de blockchain existant à partir d'une autre instance de service {{site.data.keyword.blockchainfull_notm}} Platform, vous devez importer l'identité admin du composant dans votre portefeuille de console. L'importation de l'identité dans votre portefeuille de console simplifie le fonctionnement de noeud.  L'opérateur réseau qui a déployé le noeud doit exporter l'identité admin du noeud depuis le portefeuille dans un fichier JSON que vous pouvez [importer](#ibp-console-import-nodes-admin-identities).  Généralement, l'identité admin du noeud est l'admin de l'organisation de l'homologue ou du service de tri qui a été indiqué lors de la création de la définition MSP de l'organisation. Il doit déjà être dans le portefeuille de la console où réside le noeud.
 
 ### Importation d'identités admin dans le portefeuille de console
 {: #ibp-console-import-nodes-admin-identities}
@@ -70,11 +73,11 @@ Une fois que vous avez terminé de compléter le panneau **Ajouter une identité
 ## Importation d'une autorité de certification
 {: #ibp-console-import-ca}
 
-Un noeud d'autorité de certification est une zone de blockchain qui émet des certificats pour toutes les entités du réseau (homologues, services de tri, clients, et ainsi de suite) afin que ces entités puissent communiquer, s'authentifier et enfin effectuer des transactions. Chaque organisation a sa propre autorité de certification qui fait office de racine de confiance. Vous devriez ajouter vos organisations si vous rejoignez ou générez un consortium de blockchain. Pour plus de détails sur les autorités de certification, voir la [présentation des composants de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-ca).  
+Un noeud d'autorité de certification est une zone de blockchain qui émet des certificats pour toutes les entités du réseau (homologues, services de tri, clients, et ainsi de suite) afin que ces entités puissent communiquer, s'authentifier et enfin effectuer des transactions. Chaque organisation a sa propre autorité de certification qui fait office de racine de confiance. Vous devriez ajouter vos organisations si vous rejoignez ou générez un consortium de blockchain. Pour plus de détails sur les autorités de certification, voir la [présentation des composants de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).  
 
 Vous pouvez importer une autorité de certification sur votre console pour différentes raisons. Une fois l'autorité de certification importée, vous pouvez l'utiliser pour enregistrer d'autres homologues à l'organisation homologue en cliquant sur **Enregistrer un utilisateur**. Vous pouvez également utiliser l'autorité de certification pour créer d'autres identités admin pour un homologue ou un service de tri.
 
-Pour importer une autorité de certification sur la console {{site.data.keyword.blockchainfull_notm}} Platform et l'utiliser, l'opérateur réseau doit avoir préalablement exporté cette autorité de certification depuis la plateforme {{site.data.keyword.blockchainfull_notm}} Platform où elle a été déployée. L'importation d'une autorité de certification vous permet d'enregistrer de nouveaux utilisateurs et d'[inscrire des identités](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll).
+Pour importer une autorité de certification sur la console {{site.data.keyword.blockchainfull_notm}} Platform et l'utiliser, l'opérateur réseau doit avoir préalablement exporté cette autorité de certification depuis la plateforme {{site.data.keyword.blockchainfull_notm}} Platform où elle a été déployée. L'importation d'une autorité de certification vous permet d'enregistrer de nouveaux utilisateurs et d'[inscrire des identités](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll).
 
 ### Avant de commencer
 {: #ibp-console-import-ca-before-you-begin}
@@ -92,12 +95,12 @@ L'importation d'une autorité de certification s'effectue à partir de l'onglet 
 4. Dans le panneau suivant, vous pouvez entrer l'ID et le secret d'inscription qui ont été utilisés lors du déploiement de l'autorité de certification.
 5. Enfin, entrez l'ID et le secret d'inscription de l'autorité de certification TLS qui ont été utilisés lors du déploiement de l'autorité de certification. Lorsque vous déployez une autorité de certification, une autorité de certification et une autorité de certification TLS sont déployées ensemble. L'opérateur réseau peut utiliser les mêmes ID et secret d'inscription pour les deux, ou bien il peut indiquer un ID et un secret d'inscription uniques pour l'autorité de certification et l'autorité de certification TLS lors du déploiement d'une autorité de certification.
 
-Une fois que vous avez importé l'autorité de certification sur la console, vous pouvez utiliser votre autorité de certification pour créer de nouvelles identités et générer les certificats nécessaires pour exploiter vos composants et soumettre des transactions au réseau. Pour en savoir plus, voir la section [Gestion des autorités de certification](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-manage-ca).
+Une fois que vous avez importé l'autorité de certification sur la console, vous pouvez utiliser votre autorité de certification pour créer de nouvelles identités et générer les certificats nécessaires pour exploiter vos composants et soumettre des transactions au réseau. Pour en savoir plus, voir la section [Gestion des autorités de certification](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 
 ## Importation d'un service de tri
 {: #ibp-console-import-orderer}
 
-Un service de tri est le composant de blockchain qui collecte les transactions des membres réseau, trie les transactions et les regroupe dans des blocs. Il s'agit de la liaison commune des consortiums de blockchain et il doit être déployé si vous fondez un consortium que rejoindront d'autres organisations. Pour plus de détails sur les autorités de certification, voir la [présentation des composants de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-orderer).
+Un service de tri est le composant de blockchain qui collecte les transactions des membres réseau, trie les transactions et les regroupe dans des blocs. Il s'agit de la liaison commune des consortiums de blockchain et il doit être déployé si vous fondez un consortium que rejoindront d'autres organisations. Pour plus de détails sur les autorités de certification, voir la [présentation des composants de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer).
 
 L'importation d'un service de tri sur la console vous permet de créer de nouveaux canaux pour les homologues afin qu'ils puissent effectuer des transactions en privé.
 
@@ -121,7 +124,7 @@ Une fois que vous avez importé le service de tri sur la console, vous pouvez aj
 ## Importation d'un homologue
 {: #ibp-console-import-peer}
 
-Un noeud homologue est un composant de blockchain qui gère un registre et exécute un contrat intelligent pour effectuer des opérations de requête et de mise à jour sur ce registre. Les membres d'une organisation détiennent et gèrent des homologues.  Chaque organisation qui rejoint un consortium doit déployer au moins un homologue et au minimum deux pour la haute disponibilité. Pour plus de détails sur les homologues, voir la [présentation des composants de blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer).
+Un noeud homologue est un composant de blockchain qui gère un registre et exécute un contrat intelligent pour effectuer des opérations de requête et de mise à jour sur ce registre. Les membres d'une organisation détiennent et gèrent des homologues.  Chaque organisation qui rejoint un consortium doit déployer au moins un homologue et au minimum deux pour la haute disponibilité. Pour plus de détails sur les homologues, voir la [présentation des composants de blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
 
 Une fois que vous avez importé un homologue sur la console, vous pouvez installer des contrats intelligents sur cet homologue et joindre ce dernier à d'autres canaux dans votre blockchain.
 
@@ -149,9 +152,28 @@ Une fois que vous avez importé l'homologue sur la console, vous pouvez installe
 ## Importation de la définition MSP d'une organisation
 {: #ibp-console-import-msp}
 
-Vous devez importer la définition MSP d'une organisation si le MSP a été déployé à partir d'une autre console d'instance de service {{site.data.keyword.blockchainfull_notm}} Platform et que vous prévoyez de créer ou de mettre à jour un canal qui utilise cette définition MSP. De même, si vous prévoyez de créer un homologue ou un service de tri faisant partie du MSP d'une organisation qui a été déployé sur une autre console, vous devez importer le MSP et l'identité admin MSP associée. L'opérateur réseau qui a créé le MSP doit exporter la définition MSP de l'organisation et l'identité admin correspondante dans des fichiers JSON et les partager avec vous.
+Vous devez importer la définition MSP d'une organisation si le MSP a été déployé à partir d'une autre console d'instance de service {{site.data.keyword.blockchainfull_notm}} Platform et que vous prévoyez de créer ou de mettre à jour un canal qui utilise cette définition MSP. De même, si vous prévoyez de créer un homologue ou un service de tri faisant partie du MSP d'une organisation qui a été déployé sur une autre console, vous devez importer le MSP et l'identité admin MSP associée.  L'opérateur réseau qui a créé le MSP doit exporter la définition MSP de l'organisation et l'identité admin correspondante dans des fichiers JSON et les partager avec vous.
 
 - Si vous envisagez de créer un homologue ou un service de tri faisant partie de l'organisation, importez l'identité admin MSP associée dans votre portefeuille.
 - L'importation de la définition MSP de l'organisation s'effectue depuis l'onglet **Organisations**.
-- Cliquez sur **Importer une définition de MSP** pour télécharger le fichier JSON. 
+- Cliquez sur **Importer une définition de MSP** pour télécharger le fichier JSON.
 - (Facultatif) Si vous avez importé l'identité admin MSP dans votre portefeuille, sélectionnez la case `Je dispose d'une identité administrateur pour la définition MSP`. Si vous ne sélectionnez pas cette option, lorsque vous essaierez ultérieurement de créer un homologue ou un service de tri, la définition MSP de cette organisation ne figurera pas dans la liste déroulante MSP.
+
+## Importation de noeuds depuis {{site.data.keyword.cloud_notm}} Private
+{: #ibp-console-import-icp}
+
+Vous pouvez importer des noeuds créés dans {{site.data.keyword.cloud_notm}} Private sur des consoles qui sont déployées dans d'autres clusters {{site.data.keyword.cloud_notm}} Private ou dans {{site.data.keyword.cloud_notm}}. Cependant, vous devez vous assurer que le port utilisé par l'URL gRPC de vos noeuds est exposé depuis l'extérieur du cluster. Si vous déployez {{site.data.keyword.cloud_notm}} Private derrière un pare-feu, vous devez activer un passe-système, à l'aide d'une liste blanche par exemple, pour autoriser la console à l'extérieur du cluster pour communiquer avec vos noeuds.
+
+Par exemple, vous pouvez trouver le fichier JSON de l'homologue qui a été exporté depuis {{site.data.keyword.cloud_notm}} Private ci-dessous. Pour communiquer avec l'homologue à partir d'une autre console, vous devez vous assurer que le port `grpcwp_url`, port 32403 dans cet exemple, est ouvert au trafic externe.
+
+```
+{
+    "name": "peer",
+    "grpcwp_url": "https://9.30.252.107:32403", \\ensure that port 32403 is externally exposed
+    "api_url": "grpcs://9.30.252.107:30891",
+    "operations_url": "https://9.30.252.107:30222",
+    "type": "fabric-peer",
+    "msp_id": "org1msp",
+    "pem": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNGekNDQWI2Z0F3SUJBZ0lVUi9zMGxGTG5ZNmdWRmV1Mlg5ajkrY3JDZFBrd0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWURWUVFERXdWMGJITmpZVEFlCkZ3MHhPVEEyTVRBeE9USXhNREJhRncwek5EQTJNRFl4T1RJeE1EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4RHpBTgpCZ05WQkFzVEJrWmhZbkpwWXpFT01Bd0dBMVVFQXhNRmRHeHpZMkV3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPClBRTUJCd05DQUFUYUtyN2srUHNYeXFkWkdXUHlJUXlGMGQxUkFFdmdCYlpkVnlsc3hReWZOcUdZS0FZV3A0SFUKVUVaVHVVNmtiRXN5Qi9aOVJQWEY0WVNGbW8reTVmSkhvMXd3V2pBT0JnTlZIUThCQWY4RUJBTUNBUVl3RWdZRApWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVUrcnBNb2dRc3dDTnZMQzJKNmp2cElQOExwaE13CkZRWURWUjBSQkE0d0RJY0VDUjc4YTRjRXJCRE5DakFLQmdncWhrak9QUVFEQWdOSEFEQkVBaUJGWmpMWU9XZUMKLy92L2RNMHdYNUxZT3NCaHFFNnNQZ1BSWWppOTZqT093QUlnZEppZDU0WmxjR2h0R3dEY3ZoZE02RVlBVFpQNwpmS29IMDZ3ZFhpK3VzVXM9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+}
+```

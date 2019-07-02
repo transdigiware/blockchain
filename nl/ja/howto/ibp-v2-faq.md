@@ -25,10 +25,10 @@ subcollection: blockchain
 
 **一般**   
 
-- [ピアはどのデータベースを台帳用に使用しますか?](#ibp-v2-faq-v2-IBP-Overview-1-3)
-- [スマート・コントラクトの言語として、どの言語がサポートされていますか?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [ネイティブの Hyperledger Fabric よりも {{site.data.keyword.blockchainfull_notm}} Platform を使用するメリットとして、どのようなものがありますか?](#ibp-v2-faq-v2-IBP-Overview-1-7)
 - [どのバージョンの Hyperledger Fabric を {{site.data.keyword.blockchainfull_notm}} Platform と併用できますか?](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+- [ピアはどのデータベースを台帳用に使用しますか?](#ibp-v2-faq-v2-IBP-Overview-1-3)
+- [スマート・コントラクトの言語として、どの言語がサポートされていますか?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [IBM 以外の認証局 (CA) からの証明書の使用はサポートされますか?](#ibp-v2-faq-v2-external-certs)  
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
@@ -46,18 +46,7 @@ subcollection: blockchain
 - [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud はどのような料金モデルですか?](#ibp-v2-faq-icp-pricing)
 - [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud を使用するためにインストールする必要があるサービスは何ですか?](#ibp-v2-faq-icp-services)
 - [開発環境、テスト環境、および実稼働環境の {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud のサイジング要件は、どのように見積もればよいですか?](#ibp-v2-faq-icp-sizing)
-
-## ピアはどのデータベースを台帳用に使用しますか?
-{: #ibp-v2-faq-v2-IBP-Overview-1-3}
-{: faq}
-
-{{site.data.keyword.blockchainfull_notm}} Platform でデプロイされたすべてのピアでは、台帳のデータベースとして CouchDB が使用されます。
-
-## スマート・コントラクトの言語として、どの言語がサポートされていますか?
-{: #ibp-v2-faq-v2-IBP-Overview-1-4}
-{: faq}
-
-{{site.data.keyword.blockchainfull_notm}} Platform は、Go および Node.js で作成されたスマート・コントラクトをサポートしています。新しい Hyperledger Fabric プログラミング・モデルは、現在は Node.js のみサポートしており、それ以外は近日サポートされます。 既存のアプリケーション・コードを保持や、Node.js 以外の言語用の Fabric SDK の使用に関心がある場合には、以前と変わらず低水準の Fabric SDK API を使用して {{site.data.keyword.blockchainfull_notm}} Platform ネットワークに接続できます。
+- [Helm リリースを削除するとブロックチェーン・コンポーネントはどうなりますか?](#ibp-v2-faq-icp-delete)
 
 ## ネイティブの Hyperledger Fabric よりも {{site.data.keyword.blockchainfull_notm}} Platform を使用するメリットとして、どのようなものがありますか?
 {: #ibp-v2-faq-v2-IBP-Overview-1-7}
@@ -71,6 +60,17 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} および {{site.data.keyword.blockchainfull_notm}} Platform for Platform for Multicloud は Hyperledger Fabric v1.4.1 を使用します
 
+## ピアはどのデータベースを台帳用に使用しますか?
+{: #ibp-v2-faq-v2-IBP-Overview-1-3}
+{: faq}
+
+{{site.data.keyword.blockchainfull_notm}} Platform でデプロイされたすべてのピアでは、台帳のデータベースとして CouchDB が使用されます。
+
+## スマート・コントラクトの言語として、どの言語がサポートされていますか?
+{: #ibp-v2-faq-v2-IBP-Overview-1-4}
+{: faq}
+
+{{site.data.keyword.blockchainfull_notm}} Platform は、Go および Node.js で作成されたスマート・コントラクトをサポートしています。 新しい Hyperledger Fabric プログラミング・モデルは、現在は Node.js のみサポートしており、それ以外は近日サポートされます。 既存のアプリケーション・コードを保持や、Node.js 以外の言語用の Fabric SDK の使用に関心がある場合には、以前と変わらず低水準の Fabric SDK API を使用して {{site.data.keyword.blockchainfull_notm}} Platform ネットワークに接続できます。
 
 ## IBM 以外の認証局からの証明書の使用はサポートされますか?
 {: #ibp-v2-faq-v2-external-certs}
@@ -109,7 +109,7 @@ subcollection: blockchain
 {: #ibp-v2-faq-v2-Logging-and-Monitoring-11-6}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform をご利用の場合、現在 Kubernetes ダッシュボードからピア、CA、順序付けプログラムのログに直接アクセスできます。 ログをリアルタイムで簡単に解析できる {{site.data.keyword.cloud_notm}} LogDNA サービスを利用することをお勧めします。
+{{site.data.keyword.blockchainfull_notm}} Platform をご利用の場合、現在 Kubernetes ダッシュボードからピア、CA、順序付けノードのログに直接アクセスできます。 ログをリアルタイムで簡単に解析できる {{site.data.keyword.cloud_notm}} LogDNA サービスを利用することをお勧めします。
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の利点は何ですか?
 {: #ibp-v2-faq-icp-benefits}
@@ -121,13 +121,13 @@ subcollection: blockchain
 {: #ibp-v2-faq-icp-environments}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud は、{{site.data.keyword.cloud_notm}} Private v3.2 がサポートするすべての環境をサポートします。詳しくは、[サポートされるオペレーティング・システムおよびプラットフォーム](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/supported_system_config/supported_os.html){: external}を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud は、{{site.data.keyword.cloud_notm}} Private v3.2 がサポートするすべての環境をサポートします。 詳しくは、[サポートされるオペレーティング・システムおよびプラットフォーム](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/supported_system_config/supported_os.html){: external}を参照してください。
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud はどのような料金モデルですか?
 {: #ibp-v2-faq-icp-pricing}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の[ライセンス交付](/docs/services/blockchain?topic=blockchain-ibp-software-pricing)は、製品で使用可能な CPU (VPC) の量に基づいています。詳しくは、[IBM にお問い合わせください](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}。
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の[ライセンス交付](/docs/services/blockchain?topic=blockchain-ibp-software-pricing)は、製品で使用可能な CPU (VPC) の量に基づいています。 詳しくは、[IBM にお問い合わせください](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}。
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud を使用するためにインストールする必要があるサービスは何ですか?
 {: #ibp-v2-faq-icp-services}
@@ -140,3 +140,9 @@ subcollection: blockchain
 {: faq}
 
 必要な CA、ピア、および順序付けノードの数がわかったら、[デフォルトのリソース割り振りの表](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources)を参照し、ネットワークに必要な CPU (VPC) を大まかに見積もれます。
+
+## Helm リリースを削除するとブロックチェーン・コンポーネントはどうなりますか?
+{: #ibp-v2-faq-icp-delete}
+{: faq}
+
+{{site.data.keyword.cloud_notm}} Private クラスターから Helm リリースを削除しても、関連付けられたブロックチェーン・コンポーネントは削除されません。クラスターから Helm リリースを適切に削除するには、まずブロックチェーン・コンソールまたはブロックチェーン API を使用して、すべてのコンポーネントを削除する必要があります。その後、Helm チャートを削除できます。  

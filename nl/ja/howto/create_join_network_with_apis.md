@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -20,7 +20,7 @@ subcollection: blockchain
 # Swagger API を使用したネットワークの作成または参加
 {: #swagger-network}
 
-{{site.data.keyword.blockchainfull}} Platform では、{{site.data.keyword.cloud_notm}} でブロックチェーン・ネットワークの作成または参加に使用できるように、さまざまな REST API が公開されています。 これらの API を、ネットワークに関連付けられた [Swagger UI](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) を使用して試すことができます。
+{{site.data.keyword.blockchainfull}} Platform では、{{site.data.keyword.cloud_notm}} でブロックチェーン・ネットワークの作成または参加に使用できるように、さまざまな REST API が公開されています。 これらの API を、ネットワークに関連付けられた [Swagger UI](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) を使用して試すことができます。
 {:shortdesc}
 
 
@@ -114,9 +114,9 @@ https://ibp-ep.us-south.ibm-blockchain-5-prod.cloud.ibm.com/api/v1/network-locat
 
 エンタープライズ・プランを使用する場合、 API を使用してネットワークを作成するには、次の 2 つの手順が必要です。
 
-1. {{site.data.keyword.cloud_notm}} でエンタープライズ・プランを使用してブロックチェーン・サービス・インスタンスを作成します<!-- or Enterprise Plus Plan-->。  サービス・インスタンスの ID およびトークンを基本認証ユーザー名およびパスワードとして取得します。 詳しくは、[API の基本認証資格情報の取得](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token)を参照してください。
+1. {{site.data.keyword.cloud_notm}} でエンタープライズ・プランを使用してブロックチェーン・サービス・インスタンスを作成します<!-- or Enterprise Plus Plan-->。  サービス・インスタンスの ID およびトークンを基本認証ユーザー名およびパスワードとして取得します。 詳しくは、[API の基本認証資格情報の取得](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token)を参照してください。
 
-2. これらのサービス資格情報を使用して**ネットワーク作成 (Create network) ** API を呼び出します。 この API を、[使用可能なネットワーク・ロケーションの確認](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location)で取得した ``swagger_url`` に対して発行します。 ``swagger_url リンク``にナビゲートし、Swagger UI を使用してネットワークの作成 API を発行するか、``/api-docs`` なしの URL アドレスを使用してプログラマチックにコマンドを発行します。次に例を示します。
+2. これらのサービス資格情報を使用して**ネットワーク作成 (Create network) ** API を呼び出します。 この API を、[使用可能なネットワーク・ロケーションの確認](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location)で取得した ``swagger_url`` に対して発行します。 ``swagger_url リンク``にナビゲートし、Swagger UI を使用してネットワークの作成 API を発行するか、``/api-docs`` なしの URL アドレスを使用してプログラマチックにコマンドを発行します。次に例を示します。
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api/v1/networks
@@ -124,7 +124,7 @@ https://ibp-ep.us-south.ibm-blockchain-5-prod.cloud.ibm.com/api/v1/network-locat
     {:codeblock}
 
 **パラメーター**:
-- `location_id`: 使用可能なネットワーク・ロケーションの ID。 [使用可能なネットワーク・ロケーションの確認](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location)でメモした `loation_id` の値を指定します。
+- `location_id`: 使用可能なネットワーク・ロケーションの ID。 [使用可能なネットワーク・ロケーションの確認](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location)でメモした `loation_id` の値を指定します。
 - `company_name`: ネットワーク内のメンバーとしての ID。
 - `email`: 通知を受け取る E メール・アドレス。
 - `peers`: このメンバーに作成するピアの数。 有効な値は 0 から 6 までです。 後からネットワーク・モニターでメンバーのピアを作成することもできます。
@@ -133,7 +133,7 @@ https://ibp-ep.us-south.ibm-blockchain-5-prod.cloud.ibm.com/api/v1/network-locat
 
 ## ネットワークへの新規メンバーの招待
 
-ブロックチェーン・ネットワークを作成した後、他のメンバーをネットワークに参加するように招待できます。 新規メンバーの参加を招待するネットワークの ID を指定する必要があります。 メンバーを招待するために必要な基本認証資格情報は、**ネットワーク作成 (Create network)** API で使用したものとは異なります。<!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> [Swagger UI](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-retrieving-network-credentials) で**ネットワーク資格情報取得 (Retrieve network credentials)** API を使用するか、{{site.data.keyword.cloud_notm}} 内のサービス・インスタンスから [API の基本認証情報を取得](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token)して、メンバーを招待するための資格情報を取得できます。
+ブロックチェーン・ネットワークを作成した後、他のメンバーをネットワークに参加するように招待できます。 新規メンバーの参加を招待するネットワークの ID を指定する必要があります。 メンバーを招待するために必要な基本認証資格情報は、**ネットワーク作成 (Create network)** API で使用したものとは異なります。<!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> [Swagger UI](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials) で**ネットワーク資格情報取得 (Retrieve network credentials)** API を使用するか、{{site.data.keyword.cloud_notm}} 内のサービス・インスタンスから [API の基本認証情報を取得](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token)して、メンバーを招待するための資格情報を取得できます。
 
 ```
 /networks/{networkID}/invite
@@ -151,9 +151,9 @@ https://ibp-ep.us-south.ibm-blockchain-5-prod.cloud.ibm.com/api/v1/network-locat
 
 ブロックチェーン・ネットワークに参加するよう招待されると、`location_id` および `network id` が含まれるネットワーク招待メールを受信します。
 
-1. ネットワークに参加する前に、{{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンスを作成し、基本認証ユーザー名とパスワードであるサービス・インスタンスの ID とトークンを取得する必要があります。 詳しくは、[API の基本認証情報の取得](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token)を参照してください。
+1. ネットワークに参加する前に、{{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンスを作成し、基本認証ユーザー名とパスワードであるサービス・インスタンスの ID とトークンを取得する必要があります。 詳しくは、[API の基本認証情報の取得](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token)を参照してください。
 
-2. [使用可能なネットワーク・ロケーションを確認](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location)し、招待メール内の `location_id` の `swagger_url` を取得します。 以下のようになります。
+2. [使用可能なネットワーク・ロケーションを確認](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location)し、招待メール内の `location_id` の `swagger_url` を取得します。 以下のようになります。
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api-docs

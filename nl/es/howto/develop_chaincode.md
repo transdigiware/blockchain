@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: update data, private data, smart contract, CouchDB indexes, cross chaincode transaction
 
@@ -28,13 +28,13 @@ Como ejemplo, imagine que una red de concesionarios de automóviles, compañías
 
 La guía de aprendizaje siguiente le mostrará los aspectos básicos de la creación del código de encadenamiento, incluyendo:
 
-- [Cómo empezar a escribir código de encadenamiento](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-write)
-- [La relación entre el código de encadenamiento y los datos](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-data)
-- [Transacciones de código de encadenamiento cruzadas](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode)
+- [Cómo empezar a escribir código de encadenamiento](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-write)
+- [La relación entre el código de encadenamiento y los datos](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-data)
+- [Transacciones de código de encadenamiento cruzadas](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode)
 
 La guía de aprendizaje también presenta aspectos importantes de Fabric que son accesibles a través del código de encadenamiento:
 
-- [Utilización de índices con couchDB](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-indexes)
+- [Utilización de índices con couchDB](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-indexes)
 
 ## Cómo escribir código de encadenamiento
 {: #develop-smart-contracts-write}
@@ -51,14 +51,14 @@ Un contrato inteligente suele ser capaz de validar las solicitudes, aplicar las 
 
 Debido a que el código de encadenamiento proporciona la estructura de transacciones en un canal, es necesario instalar un código de encadenamiento en todos los iguales que se hayan unido al canal que desea utilizar el código de encadenamiento para actualizar o consultar el libro mayor del canal. A continuación, un miembro del canal puede crear una instancia del código de encadenamiento en un canal y establecer la política de aprobación del código de encadenamiento. La instalación y la creación de instancias de código de encadenamiento se puede realizar mediante la interfaz de línea de usuario de {{site.data.keyword.blockchainfull_notm}} Platform, la interfaz de línea de mandatos de Fabric Peer o desde una aplicación cliente mediante los SDK de Fabric Manager. Si utiliza
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, consulte la
-[guía de aprendizaje Desplegar un contrato inteligente en la red](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) para aprender a desplegar un código de encadenamiento utilizando la consola de
+[guía de aprendizaje Desplegar un contrato inteligente en la red](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) para aprender a desplegar un código de encadenamiento utilizando la consola de
 {{site.data.keyword.blockchainfull_notm}} Platform. Si utiliza el Plan inicial o el Plan empresarial, consulte
-[Instalación, instanciación y actualización de un código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode) para aprender a desplegar un código de encadenamiento utilizando la interfaz de usuario del Supervisor de red.
+[Instalación, instanciación y actualización de un código de encadenamiento](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode) para aprender a desplegar un código de encadenamiento utilizando la interfaz de usuario del Supervisor de red.
 
 ## Código de encadenamiento y datos
 {: #develop-smart-contracts-data}
 
-Cada canal tiene solo un libro mayor, y los datos de dicho libro mayor se particionan mediante una clave exclusiva y el código de encadenamiento que añadió el par de clave-valor al libro mayor. Los miembros solo pueden leer o actualizar datos en el libro mayor del canal utilizando la clave correcta y el código de encadenamiento asociado. Los datos a los que puede acceder un código de encadenamiento se conocen como espacio de nombres del código de encadenamiento y todos los datos del libro mayor están dentro del espacio de nombres de un código de encadenamiento. Un código de encadenamiento puede interactuar con los datos fuera de su espacio de nombres únicamente mediante una [transacción de código de encadenamiento cruzada](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode) con el código de encadenamiento que puede acceder a los datos relevantes.
+Cada canal tiene solo un libro mayor, y los datos de dicho libro mayor se particionan mediante una clave exclusiva y el código de encadenamiento que añadió el par de clave-valor al libro mayor. Los miembros solo pueden leer o actualizar datos en el libro mayor del canal utilizando la clave correcta y el código de encadenamiento asociado. Los datos a los que puede acceder un código de encadenamiento se conocen como espacio de nombres del código de encadenamiento y todos los datos del libro mayor están dentro del espacio de nombres de un código de encadenamiento. Un código de encadenamiento puede interactuar con los datos fuera de su espacio de nombres únicamente mediante una [transacción de código de encadenamiento cruzada](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode) con el código de encadenamiento que puede acceder a los datos relevantes.
 
 Podemos utilizar el código de encadenamiento de fabcar del repositorio de ejemplos de Fabric como ejemplo de cómo interactúa el código de encadenamiento con los datos. El espacio de nombres se crea cuando se crea la instancia del contrato inteligente. Algunos códigos de encadenamiento aceptan un conjunto de argumentos de par de clave-valor cuando se crea la instancia del código de encadenamiento, y utilizan dichos datos para inicializar el espacio de nombres. El código de encadenamiento de fabcar del repositorio de ejemplos de Fabric no acepta ningún argumento cuando se crea su instancia. Para fabcar, debe añadir datos al espacio de nombres utilizando la función initLedger o createCar. Por ejemplo, pasando el argumento `{"Args":["createCar",'CAR1', 'Honda', 'Accord', 'Black', 'Tom']}`, se creará el par de clave-valor
 `{Key='CAR1', value={'Honda', 'Accord', 'Black', 'Tom'}}` en el espacio de nombres de fabcar.
@@ -150,4 +150,4 @@ Debido a que `fabcar` se encuentra en el mismo canal que `newContract`, la funci
 Si utiliza CouchDB como base de datos de estado, puede realizar consultas de datos JSON desde su código de encadenamiento sobre los datos de estado del canal. Se recomienda encarecidamente crear índices para las consultas de JSON y utilizarlos en el código de encadenamiento. Los índices permiten que sus aplicaciones puedan recuperar datos de forma eficiente a medida que la red añade bloques adicionales de transacciones y entradas en el escenario mundial.
 
 Para obtener más información sobre CouchDB y sobre cómo configurar índices, consulte [CouchDB como base de datos de estado](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} en la documentación de Hyperledger Fabric. También encontrará un ejemplo que utiliza un índice con código de cadena en la [guía de aprendizaje de Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}. Consulte
-[Prácticas recomendadas al utilizar CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) en la guía de aprendizaje de desarrollo de aplicaciones para obtener más información sobre cómo consultar datos desde sus aplicaciones.
+[Prácticas recomendadas al utilizar CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices) en la guía de aprendizaje de desarrollo de aplicaciones para obtener más información sobre cómo consultar datos desde sus aplicaciones.

@@ -13,7 +13,10 @@
    version="1.1"
    id="svg74"
    sodipodi:docname="IBP-Diagram.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:export-filename="D:\_work\IBM\BM140\BM140ABD141_007\UT_kumi\01_work\_Art\01_New\jpn\IBP-Diagram.png"
+   inkscape:export-xdpi="40.183815"
+   inkscape:export-ydpi="40.183815">
   <metadata
      id="metadata80">
     <rdf:RDF>
@@ -173,10 +176,10 @@
      font-size="37.07"
      font-weight="500"
      style="font-weight:500;font-size:37.06999969px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="548"
+     x="536"
      y="459">
     <tspan
-       x="792.42029"
+       x="780.42029"
        y="522"
        id="tspan43">Hyperledger Fabric コンポーネント</tspan>
   </text>
@@ -185,45 +188,45 @@
      font-size="25.07"
      font-weight="500"
      line-spacing="32"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="689.01605"
-     y="664.02863">
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.33333333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;"
+     x="695.68365"
+     y="662.36176">
     <tspan
        sodipodi:role="line"
        id="tspan142"
-       x="689.01605"
-       y="664.02863">認証局</tspan>
+       x="695.68365"
+       y="662.36176">認証局</tspan>
   </text>
   <text
      id="Peer"
      font-size="25.07"
      font-weight="500"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="1044.0657"
-     y="659.02795">
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.33333333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;"
+     x="1040.7318"
+     y="662.36176">
     <tspan
        sodipodi:role="line"
        id="tspan146"
-       x="1044.0657"
-       y="659.02795">ピア</tspan>
+       x="1040.7318"
+       y="662.36176">ピア</tspan>
   </text>
   <text
      id="Ordering-Service"
      font-size="25.07"
      font-weight="500"
      line-spacing="31"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="1335.7731"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.33333206px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="1340.7737"
      y="639.02515">
     <tspan
        sodipodi:role="line"
        id="tspan150"
-       x="1335.7731"
+       x="1340.7737"
        y="639.02515">順序付け</tspan>
     <tspan
        sodipodi:role="line"
-       x="1335.7731"
-       y="691.90692"
+       x="1340.7737"
+       y="688.38147"
        id="tspan152">サービス</tspan>
   </text>
   <text
@@ -241,11 +244,11 @@
      font-weight="500"
      font-size="37.07"
      id="text65"
-     x="-44">
+     x="-36">
     <tspan
        id="tspan63"
        y="409"
-       x="736.89697">IBM Blockchain Platform コンソール (UI)</tspan>
+       x="744.89697">IBM Blockchain Platform コンソール (UI)</tspan>
   </text>
   <g
      style="fill:#13171a;fill-rule:nonzero;stroke:none;stroke-width:1"
@@ -261,10 +264,10 @@
      font-weight="500"
      font-size="37.07"
      id="text71"
-     x="-16">
+     x="-18">
     <tspan
        id="tspan69"
        y="866"
-       x="664.3421">IBM Blockchain Platform の VS Code 用の拡張機能</tspan>
+       x="662.3421">IBM Blockchain Platform の VS Code 用の拡張機能</tspan>
   </text>
 </svg>

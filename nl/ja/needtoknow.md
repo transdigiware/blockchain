@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain offerings, Linux Foundation, Hyperledger Fabric, open source, community contribution
 
@@ -38,7 +38,7 @@ subcollection: blockchain
 ## オープン・ソースのステートメント
 {: #disclaimer-open-source-statement}
 
-{{site.data.keyword.cloud_notm}} の {{site.data.keyword.blockchainfull_notm}} オファリング・プランは、Linux Foundation の Hyperledger Fabric スタックをベースとして構築されています。{{site.data.keyword.IBM_notm}} を含む Hyperledger Project メンバーは継続して Hyperledger の傘下のさまざまなサブプロジェクトにコントリビューションを提供します。  いずれのコントリビューションも、コミュニティーで検討、精査、テストされます。
+{{site.data.keyword.cloud_notm}} の {{site.data.keyword.blockchainfull_notm}} オファリング・プランは、Linux Foundation の Hyperledger Fabric スタックをベースとして構築されています。 {{site.data.keyword.IBM_notm}} を含む Hyperledger Project メンバーは継続して Hyperledger の傘下のさまざまなサブプロジェクトにコントリビューションを提供します。  いずれのコントリビューションも、コミュニティーで検討、精査、テストされます。
 
 ## チェーンコード・サポート・ステートメント
 {: #disclaimer-chaincode-support-statement}

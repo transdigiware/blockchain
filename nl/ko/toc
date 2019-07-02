@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="blockchain" audience="service" arm="339" href="/docs/services/blockchain/index.html" path="services/blockchain"}
+{: .toc subcollection="blockchain" category="app_services,databases" audience="service" arm="339" href="/docs/services/blockchain/index.html" path="services/blockchain"}
 IBM Blockchain Platform
 
 	{: .navgroup id="learn"}
@@ -25,18 +25,18 @@ IBM Blockchain Platform
 		howto/pricing-saas.md
 		howto/pricing-software.md
 
-	howto/ibp-v2-faq.md
 	blockchain_component_overview.md
+	ibp-console-ha.md
+	howto/ibp-v2-faq.md
 	needtoknow.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
 	{: .topicgroup}
-	IBM Blockchain Platform on IBM Cloud
+	IBM Blockchain Platform for IBM Cloud
 		howto/ibp-v2-deploy-iks.md
 		howto/ibp-v2-apis.md
 		howto/ibp-console-manage.md
-		howto/ibp-v2-troubleshooting.md
 
 	{: .topicgroup}
 	IBM Blockchain Platform for Multicloud
@@ -57,6 +57,7 @@ IBM Blockchain Platform
 		howto/ibp-console-identities.md
 		howto/ibp-console-organizations.md
 		howto/ibp-v2-operations-service.md
+		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
 	스마트 계약 및 애플리케이션 개발
@@ -87,6 +88,7 @@ IBM Blockchain Platform
 		howto/migrate_sp_ep.md
 		howto/pricing.md
 		howto/paying_mode.md
+		knownissues.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
@@ -100,6 +102,6 @@ IBM Blockchain Platform
 
 	{: .navgroup id="help"}
 	release-notes.md
+	howto/ibp-v2-troubleshooting.md
 	ibmblockchain_support.md
-	knownissues.md
 	{: .navgroup-end}

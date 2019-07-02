@@ -7,7 +7,6 @@ lastupdated: "2019-06-18"
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
 subcollection: blockchain
-
 ---
 
 {:external: target="_blank" .external}
@@ -58,27 +57,20 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ## Ressources obligatoires
 {: #icp-console-setup-resources}
 
-Vérifiez que votre système {{site.data.keyword.cloud_notm}} Private respecte les exigences de ressources matérielle minimum pour chaque composant d'exécution Fabric :
+Vérifiez que votre système {{site.data.keyword.cloud_notm}} Private respecte les exigences de ressources matérielle minimum pour la console et les composant que vous créez .Le nombre de vCPU/UC requis peut varier en fonction de la conception de votre infrastructure, de votre réseau et des exigences de performances. Une approximation de vos besoins en termes de vCPU/UC peut être effectuée par un examen du [tableau des allocations de ressources par défaut](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) pour {{site.data.keyword.cloud_notm}}, bien que les allocations soient légèrement différentes dans {{site.data.keyword.cloud_notm}} Private. Vos allocations de ressources réelles sont visibles sur la console de votre blockchain lorsque vous déployez un noeud.
 
-| **Composant** (tous les conteneurs) | vCPU  | Mémoire (Go) | Stockage (Go) |
-|--------------------------------|---------------|-----------------------|------------------------|
-| **Console**                    | 1,3            | 2,5                   | 10                     |
-| **Homologue**                       | 1,2            | 2,4                   | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
-| **AC**                         | 0,1            | 0,2                   | 20                     |
-| **Service de tri**                    | 0,45           | 0,9                   | 100                    |
+**Remarques :**  
 
- **Remarques :**
- - Une unité vCPU est un coeur virtuel qui est affecté à une machine virtuelle ou à un coeur de processeur physique si le serveur n'est pas partitionné pour les machines virtuelles. Vous devez tenir compte des exigences vCPU lorsque vous décidez d'utiliser le coeur de processeur virtuel (VPC) pour votre déploiement dans {{site.data.keyword.cloud_notm}} Private. VPC est une unité de mesure pour déterminer les coûts de licences des produits {{site.data.keyword.IBM_notm}}. Pour plus d'informations sur les scénarios VPC, voir [Virtual processor core (VPC)](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/Inventory/overview/c_virtual_processor_core_licenses.html){: external}.
- - Une unité vCPU équivaut à une UC, qui équivaut à un VPC.
+- Une unité vCPU est un coeur virtuel qui est affecté à une machine virtuelle ou à un coeur de processeur physique si le serveur n'est pas partitionné pour les machines virtuelles. Vous devez tenir compte des exigences vCPU lorsque vous décidez d'utiliser le coeur de processeur virtuel (VPC) pour votre déploiement dans {{site.data.keyword.cloud_notm}} Private. VPC est une unité de mesure pour déterminer les coûts de licences des produits {{site.data.keyword.IBM_notm}}. Pour plus d'informations sur les scénarios VPC, voir [Virtual processor core (VPC)](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/Inventory/overview/c_virtual_processor_core_licenses.html){: external}.
+- Une unité vCPU équivaut à une UC, qui équivaut à un VPC.
 
 ### Remarques relatives au stockage
 {: #icp-console-setup-storage-considerations}
 
-* Vous devez créer une nouvelle classe de stockage avec des ressources suffisantes pour la console et les composants que vous créez. La classe de stockage que vous fournissez à la console pendant la configuration sera également utilisée pour stocker les données de votre composant.
-* Si vous utilisez les paramètres par défaut, la charte Helm crée un nouveau volume persistant dont le nom est celui de la version de votre charte Helm de vos données de console.
-* La [mise à disposition dynamique](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/){: external} est uniquement disponible pour les noeuds amd64 dans {{site.data.keyword.cloud_notm}} Private. Par conséquent, si votre cluster combine à la fois des noeuds worker s390x et amd64, la mise à disposition dynamique ne peut pas être utilisée.
-* Si la mise à disposition dynamique n'est pas utilisée, des [Volumes permanents](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){: external} doivent être créés et configurés avec des libellés qui peuvent être utilisés pour affiner le processus de liaison PVC.
-* Si vous utilisez des Volumes permanents NFS v2/v3, vous devez activer le module **NFS status monitor for NFSv2/v3 Filesystem Locks**, également appelé **rpc-statd**, sur le système hôte où réside le système de fichiers NFS. Ce module permet à votre système de fichiers NFS de vérifier les verrous exclusifs sur les fichiers maintenus par d'autres processus. Exécutez les commandes suivantes pour activer ce module :
+La charte {{site.data.keyword.blockchainfull_notm}} Helm utilise la mise à disposition dynamique pour mettre à disposition le stockage qui va être utilisé par la console et les composants de blockchain que vous allez créer. Avant de déployer la console, vous devez créer une classe de stockage avec suffisamment de stockage de secours pour votre console et vos composants. Vous devez indiquer le nom de la classe de stockage que vous avez créée lors de la configuration.
+
+- Si vous utilisez les paramètres par défaut, la charte Helm crée un nouveau volume persistant dont le nom est celui de la version de votre charte Helm de vos données de console.
+- Si vous utilisez des Volumes permanents NFS v2/v3, vous devez activer le module **NFS status monitor for NFSv2/v3 Filesystem Locks**, également appelé **rpc-statd**, sur le système hôte où réside le système de fichiers NFS. Ce module permet à votre système de fichiers NFS de vérifier les verrous exclusifs sur les fichiers maintenus par d'autres processus. Exécutez les commandes suivantes pour activer ce module :
 
   ```
   sudo systemctl enable rpc-statd
@@ -99,80 +91,113 @@ Pour installer et configurer {{site.data.keyword.cloud_notm}} Private dans votre
 
 2. Installez l'interface CLI d'{{site.data.keyword.cloud_notm}} Private [3.2.0](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_cli.html){: external} to install the Helm chart.
 
-3. Configurez la règle de sécurité du pod pour l'espace de nom cible. Les instructions sont fournies dans la [section suivante](#icp-setup-psp).
+3. Créez un nouvel espace de nom personnalisé pour votre déploiement d'{{site.data.keyword.blockchainfull_notm}} Platform. Notez que vous ne pouvez déployer qu'une seule charte Helm par espace de nom, de sorte que si vous voulez que plusieurs instances de la console s'exécutent dans le même cluster, assurez-vous d'utiliser des espaces de nom distincts.
 
-Après que vous avez installé {{site.data.keyword.cloud_notm}} Private et lié une règle de sécurité du pod à un espace de nom cible, vous pouvez passer à l'[importation de la charte Helm {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/console-helm-install.html#console-helm-install) dans votre cluster {{site.data.keyword.cloud_notm}} Private.
+4. Configurez les politiques de sécurité et d'accès du pod pour l'espace de nom cible. Les instructions sont fournies dans la [section suivante](#icp-console-setup-psp).
+
+Après que vous avez installé {{site.data.keyword.cloud_notm}} Private et lié une règle de sécurité du pod à un espace de nom cible, vous pouvez passer à l'[importation de la charte Helm {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install) dans votre cluster {{site.data.keyword.cloud_notm}} Private.
 
 ## Exigences PodSecurityPolicy
 {: #icp-console-setup-psp}
 
-La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige qu'une règle [PodSecurityPolicy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/){: external} soit liée à l'espace de nom cible avant l'installation. Choisissez un règle PodSecurityPolicy prédéfinie ou demandez à votre administrateur de cluster de créer une règle PodSecurityPolicy personnalisée pour vous :
-- Nom de la règle PodSecurityPolicy prédéfinie : [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-- Définition de règle PodSecurityPolicy personnalisée :
-  ```
-  apiVersion: extensions/v1beta1
-  kind: PodSecurityPolicy
-  metadata:
-    name: ibm-blockchain-platform-psp
-  spec:
-    hostIPC: false
-    hostNetwork: false
-    hostPID: false
-    privileged: true
-    allowPrivilegeEscalation: true
-    readOnlyRootFilesystem: false
-    seLinux:
-      rule: RunAsAny
-    supplementalGroups:
-      rule: RunAsAny
-    runAsUser:
-      rule: RunAsAny
-    fsGroup:
-      rule: RunAsAny
-    requiredDropCapabilities:
-    - ALL
-    allowedCapabilities:
-    - NET_BIND_SERVICE
-    - CHOWN
-    - DAC_OVERRIDE
-    - SETGID
-    - SETUID
-    volumes:
-    - '*'
-  ```
-  {:codeblock}
-- Rôle ClusterRole personnalisé pour la règle PodSecurityPolicy personnalisée :
-  ```
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    annotations:
-    name: ibm-blockchain-platform-clusterrole
-  rules:
-  - apiGroups:
-    - extensions
-    resourceNames:
-    - ibm-blockchain-platform-psp
-    resources:
-    - podsecuritypolicies
-    verbs:
-    - use
-  - apiGroups:
-    - ""
-    resources:
-    - secrets
-    verbs:
-    - create
-    - delete
-    - get
-    - list
-    - patch
-    - update
-    - watch
-  ```
-  {:codeblock}
+La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige que des politiques de sécurité et d'accès spécifiques soit liées à l'espace de nom cible avant l'installation. Utilisez les étapes suivantes pour configurer les politiques avant la configuration de la charte Helm :
 
-- Liaison ClusterRoleBinding personnalisée pour le rôle ClusterRole personnalisé :
+1. Choisissez une politique PodSecurityPolicy prédéfinie pour votre espace de nom ou demandez à votre administrateur de cluster de créer une politique PodSecurityPolicy personnalisée pour vous :
+  - Vous pouvez utiliser la politique PodSecurityPolicy prédéfinie de [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
+  - Vous pouvez également créer en utilisant YAML sous une définition PodSecurityPolicy personnalisée :
+
+    ```
+    apiVersion: extensions/v1beta1
+    kind: PodSecurityPolicy
+    metadata:
+      name: ibm-blockchain-platform-psp
+    spec:
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      privileged: true
+      allowPrivilegeEscalation: true
+      readOnlyRootFilesystem: false
+      seLinux:
+        rule: RunAsAny
+      supplementalGroups:
+        rule: RunAsAny
+      runAsUser:
+        rule: RunAsAny
+      fsGroup:
+        rule: RunAsAny
+      requiredDropCapabilities:
+      - ALL
+      allowedCapabilities:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - DAC_OVERRIDE
+      - SETGID
+      - SETUID
+      volumes:
+      - '*'
+    ```
+    {:codeblock}
+
+2. Créez un ClusterRole pour PodSecurityPolicy.
+  - Si vous avez créé une politique de sécurité personnalisée, vous pouvez créer un ClusterRole à l'aide du fichier YAML ci-dessous :
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+      name: ibm-blockchain-platform-clusterrole
+    rules:
+    - apiGroups:
+      - extensions
+      resourceNames:
+      - ibm-blockchain-platform-psp
+      resources:
+      - podsecuritypolicies
+      verbs:
+      - use
+    - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    ```
+    {:codeblock}
+
+  - Si vous utilisez une politique PodSecurityPolicy prédéfinie, vous devez uniquement créer un rôle ClusterRole en utilisant la seconde section apiGroups :
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+      name: ibm-blockchain-platform-clusterrole
+      rules:
+      - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    ```
+    {:codeblock}
+
+3. Créez un ClusterRoleBinding personnalisé. Si vous décidez de modifier le nom ServiceAccount dans le fichier ci-dessous, vous devez fournir le nom dans la zone `Compte chez un fournisseur` de la section **Tous les paramètres** de la page de configuration lors du déploiement de la charte Helm.
+
   ```
   apiVersion: rbac.authorization.k8s.io/v1
   kind: ClusterRoleBinding
@@ -188,3 +213,21 @@ La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige qu'une
     namespace: default
   ```
   {:codeblock}
+
+Vous pouvez suivre la procédure ci-après afin d'utiliser les fichiers YAML pour lier les politiques de sécurité et d'accès à votre espace de nom :
+
+1. Sauvegardez le fichier YAML sur votre système local.
+
+2. Connectez-vous à votre cluster {{site.data.keyword.cloud_notm}} Private et sélectionnez l'espace de nom cible de votre déploiement.
+
+  ```
+  docker login <cluster_CA_domain>:8500
+  ```
+   {:codeblock}
+
+3. Utilisez la commande suivante pour appliquer la politique à l'espace de nom cible :
+
+  ```
+  kubectl apply -f <filename>.yaml
+  ```
+   {:codeblock}

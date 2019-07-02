@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -33,7 +33,7 @@ Conjunto ordenado de transacciones, que está vinculado criptográficamente al b
 
 ## CA
 {: #glossary-CA}
-Abreviatura de "entidad emisora de certificados"; es el componente que emite certificados a todos los miembros participantes. Estos certificados representan la identidad de un miembro. Todas las entidades de la red (iguales, clasificadores, clientes, etc.) deben tener una identidad para comunicarse, autenticarse y, finalmente, realizar transacciones. Estas identidades son necesarias para cualquier participación directa en la red blockchain.
+Abreviatura de "entidad emisora de certificados"; es el componente que emite certificados a todos los miembros participantes. Estos certificados representan la identidad de un miembro. Todas las entidades de la red (iguales, nodos de ordenación, clientes, etc.) deben tener una identidad para comunicarse, autenticarse y, finalmente, realizar transacciones. Estas identidades son necesarias para cualquier participación directa en la red blockchain.
 
 ## Cadena
 {: #glossary-chain}
@@ -53,7 +53,7 @@ El cliente representa la entidad que actúa en nombre de un usuario. Debe conect
 
 ## Perfil de conexión
 {: #glossary-connection-profile}
-El archivo de conexión se puede ver en la pantalla "Visión general" del supervisor de red cuando se pulsa el botón **Perfil de conexión**. La información está disponible en formato JSON y contiene la información de punto final de API y los ID de inscripción/secretos de los recursos de la red, es decir, iguales, clasificadores y CA. La aplicación interactúa con los recursos de red a través de estos puntos finales de API.
+El archivo de conexión se puede ver en la pantalla "Visión general" del supervisor de red cuando se pulsa el botón **Perfil de conexión**. La información está disponible en formato JSON y contiene la información de punto final de API y los ID de inscripción/secretos de los recursos de la red, es decir, iguales, nodos de ordenación y CA. La aplicación interactúa con los recursos de red a través de estos puntos finales de API.
 
 ## Consenso
 {: #glossary-consensus}
@@ -147,15 +147,15 @@ Panel de control de GUI que proporciona {{site.data.keyword.blockchainfull_notm}
 
 ## Nodo
 {: #glossary-node}
-Entidad de comunicación de blockchain. Hay tres tipos de nodos: CA, igual y clasificador.
+Entidad de comunicación de blockchain. Hay tres tipos de nodos: CA, igual y nodo de ordenación.
 
-## Clasificador
+## Nodo de ordenación
 {: #glossary-orderer}
-El nodo que recopila transacciones de los miembros de la red, ordena las transacciones y las empaqueta en bloques. A continuación, se distribuyen estos bloques a los iguales, que verificarán luego los bloques y los añadirán a los libros mayores de cada canal. Las clasificadores contienen el material de identidad de cifrado que está vinculado a cada miembro y autentican la identidad de clientes e iguales para que puedan acceder a la red. La función global que proporciona un nodo o una recopilación de nodos clasificadores se conoce como **servicio de ordenación**.
+El nodo que recopila transacciones de los miembros de la red, ordena las transacciones y las empaqueta en bloques. También se conoce como clasificador. A continuación, se distribuyen estos bloques a los iguales, que verificarán luego los bloques y los añadirán a los libros mayores de cada canal. Los nodos de ordenación contienen el material de identidad de cifrado que está vinculado a cada miembro y autentican la identidad de clientes e iguales para que puedan acceder a la red. La función global que proporciona un nodo o una recopilación de nodos clasificadores se conoce como **servicio de ordenación**.
 
 ## Organización
 {: #glossary-organization}
-Consulte [Miembro](/docs/services/blockchain/glossary.html#glossary-member).
+Consulte [Miembro](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Participante
 {: #glossary-participant}
@@ -172,7 +172,7 @@ Raft es un servicio de ordenación con tolerancia a errores de bloqueo (CFT) bas
 
 ## Credenciales de servicio
 {: #glossary-service-credentials}
-Las credenciales de servicio están en formato JSON y contienen la información de punto final de API y los ID de inscripción/secretos de los componentes de red, es decir, CA, clasificadores e iguales. La aplicación interactúa con los recursos de red a través de estos puntos finales de API.
+Las credenciales de servicio están en formato JSON y contienen la información de punto final de API y los ID de inscripción/secretos de los componentes de red, es decir, CA, nodos de ordenación e iguales. La aplicación interactúa con los recursos de red a través de estos puntos finales de API.
 
 ## SDK
 {: #glossary-sdk}
@@ -184,7 +184,7 @@ El certificado que las entidades, ya sean organizaciones o administradores, adju
 
 ## Contratos inteligentes
 {: #glossary-smart-contracts}
-Véase [Código de encadenamiento](/docs/services/blockchain/glossary.html#glossary-chaincode).
+Véase [Código de encadenamiento](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -204,4 +204,4 @@ Un usuario es un participante en una red blockchain que tiene acceso indirecto a
 
 ## Escenario mundial
 {: #glossary-world-state}
-Consulte [Estado actual](/docs/services/blockchain/glossary.html#glossary-current-state).
+Consulte [Estado actual](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).

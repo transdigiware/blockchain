@@ -22,7 +22,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} プラットフォームは、メンバーシップ料金とピア料金が毎月課金されます。 各ネットワーク・メンバーは、ネットワーク・インスタンスを作成するスペースを所有する {{site.data.keyword.cloud_notm}} アカウントで請求料金を支払うことができます。 または、1 つのネットワーク・メンバーがネットワーク内の他のメンバーの請求をカバーしたり、すべてのメンバーの請求をカバーしてネットワーク全体の支払いを行ったりすることもできます。 支払者は、必要に応じて、請求を他のメンバーに転送することもできます。
 {:shortdesc}
 
-選択するネットワーク・プランと使用するリソースの量に応じて、支払いは異なります。 料金について詳しくは、[料金](/docs/services/blockchain/howto/pricing.html#ibp-pricing)を参照してください。
+選択するネットワーク・プランと使用するリソースの量に応じて、支払いは異なります。 料金について詳しくは、[料金](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing)を参照してください。
 
 複数の組織で 1 つのコンソーシアムを構築する場合は、ネットワークを作成する際に組織用の E メール・アドレスを使用することを参加組織にお勧めします。 そうすれば、一個人の都合によってネットワークの利用可否が左右されることがありません。
 
@@ -62,7 +62,7 @@ subcollection: blockchain
          - **スペースの役割**: 開発者。
       3. **「ユーザーを招待」**をクリックします。  
    **注**: 支払者が、複数のメンバーの支払いを行う場合、支払者はこの手順を繰り返して、他のメンバーを招待してメンバーごとにアクセス権限を割り当てる必要があります。
-3. 支払者は {{site.data.keyword.blockchainfull_notm}} Platform でブロックチェーン・ネットワークを作成し、そのネットワークのネットワーク・モニターで、他のメンバーをブロックチェーン・ネットワークに招待します。 ネットワーク・メンバーの招待について詳しくは、[メンバー](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)を参照してください。
+3. 支払者は {{site.data.keyword.blockchainfull_notm}} Platform でブロックチェーン・ネットワークを作成し、そのネットワークのネットワーク・モニターで、他のメンバーをブロックチェーン・ネットワークに招待します。 ネットワーク・メンバーの招待について詳しくは、[メンバー](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)を参照してください。
 4. その後、各メンバーはネットワークへの参加の招待を含む通知 Eメールを受信します。 メンバーは、以下のステップを実行してネットワークに参加できます。
    1. 通知 E メールの「進む (Proceed)」ボタンをクリックすると、{{site.data.keyword.cloud_notm}} のブロックチェーン・サービス・ページが表示されます。
    2. {{site.data.keyword.cloud_notm}} にログインし、支払者によって追加された正しい {{site.data.keyword.cloud_notm}} 組織およびスペースを使用していることを確認します。
@@ -73,7 +73,7 @@ subcollection: blockchain
       2. 組織とスペースが、支払者に追加された組織とスペースであることを確認します。
       3. ネットワーク・インスタンスの作成に使用するメンバーシップ・プランを選択します。 メンバーシップ・プランは、支払者がネットワークを作成したプランと同じものにする必要があります。
       4. **「作成」**をクリックします。
-   4. ブロックチェーン・サービス・インスタンスを作成したら、ウィザードに従ってネットワークに参加します。  詳しくは、[ネットワークへの参加](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)を参照してください。
+   4. ブロックチェーン・サービス・インスタンスを作成したら、ウィザードに従ってネットワークに参加します。  詳しくは、[ネットワークへの参加](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw)を参照してください。
 
 ### 既知の制限
 {: #paying-mode-limitation}
@@ -95,8 +95,8 @@ subcollection: blockchain
   4. **「Cloud Foundry アクセス権限」**セクションで、ドロップダウン・リストから、支払者のアカウントを追加する組織を選択します。
   5. **組織の役割**として**「請求管理者」**を選択します。
   6. 必要に応じて、他のフィールドを構成してから、**「ユーザーの招待」**をクリックします。  
-3. 支払者は、ネットワークのネットワーク・モニターで、他のメンバーをブロックチェーン・ネットワークに招待します。 ネットワーク・メンバーの招待について詳しくは、[メンバー](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)を参照してください。
-4. その後、各メンバーはネットワークへの参加の招待を含む通知 Eメールを受信します。 これで、メンバーはネットワークに参加できます。 詳しくは、[他のネットワーク・メンバーの支払いを行う場合](/docs/services/blockchain/howto/paying_mode.html#paying-mode-pay-for-others)の**ステップ 4** を参照してください。
+3. 支払者は、ネットワークのネットワーク・モニターで、他のメンバーをブロックチェーン・ネットワークに招待します。 ネットワーク・メンバーの招待について詳しくは、[メンバー](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)を参照してください。
+4. その後、各メンバーはネットワークへの参加の招待を含む通知 Eメールを受信します。 これで、メンバーはネットワークに参加できます。 詳しくは、[他のネットワーク・メンバーの支払いを行う場合](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others)の**ステップ 4** を参照してください。
 
 ### 既知の制限
 {: #paying-mode-let-other-pay-limitation}

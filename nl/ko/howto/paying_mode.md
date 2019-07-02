@@ -22,7 +22,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform은 멤버십 요금 및 피어 요금을 월별로 부과합니다. 네트워크 구성원은 네트워크 인스턴스를 작성하기 위한 영역이 포함된 {{site.data.keyword.cloud_notm}} 계정으로 요금을 지불할 수 있습니다. 또는 하나의 네트워크 구성원이 네트워크에 있는 다른 구성원 또는 모든 구성원의 요금을 지급하여 네트워크 비용을 지불할 수 있습니다. 필요하면 지급인이 비용을 다른 구성원에게 다시 이전할 수도 있습니다.
 {:shortdesc}
 
-선택하는 네트워크 플랜 및 사용하는 리소스의 양에 따라 요금이 다릅니다. 가격에 대한 자세한 정보는 [가격](/docs/services/blockchain/howto/pricing.html#ibp-pricing)을 참조하십시오.
+선택하는 네트워크 플랜 및 사용하는 리소스의 양에 따라 요금이 다릅니다. 가격에 대한 자세한 정보는 [가격](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing)을 참조하십시오.
 
 여러 조직이 컨소시엄을 빌드하는 경우, 참여하는 조직이 기능적 이메일 주소를 사용하여 해당 네트워크를 작성하는 것이 좋습니다. 이 경우, 네트워크에 대한 액세스는 단일 개인의 가용성에 의존하지 않습니다.
 
@@ -62,7 +62,7 @@ subcollection: blockchain
          - **영역 역할**: 개발자입니다.
       3. **사용자 초대**를 클릭하십시오.  
    **참고**: 지급인이 둘 이상의 구성원 요금을 지불하는 경우 지급인이 이 단계를 반복하여 다른 구성원을 초대하고 각 구성원의 액세스 권한을 지정해야 합니다.
-3. 지급인이 블록체인 네트워크 {{site.data.keyword.blockchainfull_notm}} Platform을 작성하고 네트워크의 네트워크 모니터에서 블록체인 네트워크에 다른 구성원을 초대합니다. 네트워크 구성원 초대에 대한 자세한 정보는 [구성원](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)을 참조하십시오.
+3. 지급인이 블록체인 네트워크 {{site.data.keyword.blockchainfull_notm}} Platform을 작성하고 네트워크의 네트워크 모니터에서 블록체인 네트워크에 다른 구성원을 초대합니다. 네트워크 구성원 초대에 대한 자세한 정보는 [구성원](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)을 참조하십시오.
 4. 그러면 각 구성원은 네트워크에 가입할 수 있는 초대가 포함된 알림 이메일을 수신합니다. 구성원은 다음 단계를 완료하여 네트워크에 가입할 수 있습니다.
    1. 알림 이메일에서 "진행" 단추를 클릭하십시오. 그러면 {{site.data.keyword.cloud_notm}}의 블록체인 서비스 페이지로 이동합니다.
    2. {{site.data.keyword.cloud_notm}}에 로그인하고 지급인이 사용자를 추가하는 올바른 {{site.data.keyword.cloud_notm}} 조직과 영역을 사용하는지 확인하십시오.
@@ -73,13 +73,13 @@ subcollection: blockchain
       2. 지급인이 사용자를 추가한 조직 및 영역이 맞는지 확인하십시오.
       3. 네트워크 인스턴스를 작성할 멤버십 플랜을 선택하십시오. 멤버쉽 플랜은 지급인이 네트워크를 작성하는 데 사용한 플랜과 같아야 합니다.
       4. **작성**을 클릭하십시오.
-   4. 블록체인 서비스 인스턴스를 작성한 후 마법사에 따라 네트워크에 가입하십시오.  자세한 정보는 [네트워크 가입](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)을 참조하십시오.
+   4. 블록체인 서비스 인스턴스를 작성한 후 마법사에 따라 네트워크에 가입하십시오.  자세한 정보는 [네트워크 가입](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw)을 참조하십시오.
 
 ### 알려진 제한사항
 {: #paying-mode-limitation}
 - 모든 구성원이 지급인의 {{site.data.keyword.cloud_notm}} 계정 내에 있으므로 지급인은 모든 구성원의 블록체인 인스턴스에 액세스할 수 있으며 이를 위장할 수 있습니다. 따라서 이 지불 모드는 PoC 환경의 경우 또는 지급인이 {{site.data.keyword.blockchainfull_notm}} Platform의 모든 관리를 처리하고 구성원에게 애플리케이션만 제공되는 경우에 가장 적합합니다.  
 - 지급인의 Cloud Foundry 조직에 있는 모든 구성원은 조직의 모든 영역을 볼 수 있습니다.  하지만 액세스 권한이 없으므로 조직을 편집하거나 수정할 수 없습니다.  
-- 지급인의 Cloud Foundry 조직에 있는 모든 구성원은 동일한 Cloud Foundry 조직의 기타 구성원의 {{site.data.keyword.cloud_notm}} ID를 볼 수 있습니다.   
+- 지급인의 Cloud Foundry 조직에 있는 모든 구성원은 동일한 Cloud Foundry 조직의 기타 구성원의 {{site.data.keyword.cloud_notm}} ID를 볼 수 있습니다.  
 - 지급인의 {{site.data.keyword.cloud_notm}} 계정에 모든 구성원을 추가하고 블록체인 인스턴스를 프로비저닝하고 네트워크에 가입하는 액세스 권한을 지정하면, 지급인은 다른 서비스를 작성하는 액세스 권한을 구성원에게 제공하며 이로 인해 추가 요금이 발생할 수 있습니다. 모든 구성원은 지급인의 계정에 추가 비용을 초래하는 무단 서비스를 자신의 계정에서 작성하지 않는다는 계약에 서명할 수 있습니다.  
 
 ## 구성원이 사용자 대신 지불하도록 허용
@@ -95,8 +95,8 @@ subcollection: blockchain
   4. **Cloud Foundry 액세스** 섹션의 드롭다운 목록에서 지급인의 계정을 추가할 조직을 선택하십시오.
   5. **청구 관리자**를 **조직 역할**로 선택하십시오.
   6. 다른 필드를 적절하게 구성한 다음 **사용자 초대**를 클릭하십시오.  
-3. 지급인이 네트워크의 네트워크 모니터에서 블록체인 네트워크에 다른 구성원을 초대합니다. 네트워크 구성원 초대에 대한 자세한 정보는 [구성원](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)을 참조하십시오.
-4. 그러면 각 구성원은 네트워크에 가입할 수 있는 초대가 포함된 알림 이메일을 수신합니다. 구성원이 네트워크에 가입할 수 있습니다. 자세한 정보는 [다른 네트워크 구성원을 위해 지불](/docs/services/blockchain/howto/paying_mode.html#paying-mode-pay-for-others)의 **4단계**를 참조하십시오.
+3. 지급인이 네트워크의 네트워크 모니터에서 블록체인 네트워크에 다른 구성원을 초대합니다. 네트워크 구성원 초대에 대한 자세한 정보는 [구성원](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)을 참조하십시오.
+4. 그러면 각 구성원은 네트워크에 가입할 수 있는 초대가 포함된 알림 이메일을 수신합니다. 구성원이 네트워크에 가입할 수 있습니다. 자세한 정보는 [다른 네트워크 구성원을 위해 지불](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others)의 **4단계**를 참조하십시오.
 
 ### 알려진 제한사항
 {: #paying-mode-let-other-pay-limitation}

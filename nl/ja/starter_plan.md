@@ -30,11 +30,11 @@ subcollection: blockchain
 
 **スターター・プラン**は、ブロックチェーン・ネットワークの開発を始めたいお客様や、ブロックチェーン・テクノロジーの学習を始めたいお客様向けの環境です。 スターター・プランを開発環境またテスト環境として使用して、小規模な環境から開始し、ネットワークのメンバーシップまたはトランザクション・ボリュームを拡張して実稼働環境に移行できます。
 
- スターター・プラン・ネットワークをデプロイするには、{{site.data.keyword.cloud_notm}} の[スターター・メンバーシップ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}に今すぐ登録してください。 ネットワークの開発を開始できる状態になったら、[スターター・プランの概説](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)を参照してください。
+ スターター・プラン・ネットワークをデプロイするには、{{site.data.keyword.cloud_notm}} の[スターター・メンバーシップ](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}に今すぐ登録してください。 ネットワークの開発を開始できる状態になったら、[スターター・プランの概説](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan)を参照してください。
 
 
 **注:**
-- {{site.data.keyword.blockchainfull_notm}} Platform スターター・プランは、開発/テスト環境であり、実動ワークロードには適していません。 実稼働環境が必要な場合は、[エンタープライズ・プランについて](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)を参照してください。
+- {{site.data.keyword.blockchainfull_notm}} Platform スターター・プランは、開発/テスト環境であり、実動ワークロードには適していません。 実稼働環境が必要な場合は、[エンタープライズ・プランについて](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about)を参照してください。
 - {{site.data.keyword.blockchainfull_notm}} Platform は {{site.data.keyword.cloud_notm}} のプラットフォーム・サービスであり、すべてのメンバーシップ・オファリングはサービス・レベル・アグリーメント (SLA) に関する [{{site.data.keyword.cloud_notm}} サービスのご利用条件](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external}に従っています。 スターター・プランは、単一の地域の 1 つのデータ・センターにプロビジョンされます。 使用可能な地域のリストについては、[{{site.data.keyword.blockchainfull_notm}} Platform のロケーション](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
 
 ## スターター・プランでの提供内容
@@ -43,7 +43,7 @@ subcollection: blockchain
 - **_ワンクリックで使用開始できるネットワーク_**
     スターター・プランでは、シングルクリックによるライブ・ブロックチェーン・ネットワークがプロビジョンされます。 各ネットワークには CA、順序付けプログラム、2 つの組織 (組織ごとに 1 つのピアを含む)、およびチェーンコードのトランザクション処理とデプロイを行うデフォルトのチャネルが付随しています。 {{site.data.keyword.blockchainfull_notm}} Platform では、このネットワークの作成と構成が処理されるため (稼働中になった後に更新できます)、ユーザーは開発に集中することができます。 スターター・プラン・ネットワークは Fabric V1.2 上に構築されており、CouchDB を状態データベースとして使用します。
 - **_コスト効率_**
-     Starter Plan メンバーシップ・オプションでは、エンタープライズ・プラン・メンバーシップ・オプションと同じさまざまなブロックチェーン機能を低コストで使用できます。 詳しくは、[スターター・プランの料金](/docs/services/blockchain/howto/pricing.html#ibp-pricing-starter-pricing)を参照してください。
+     Starter Plan メンバーシップ・オプションでは、エンタープライズ・プラン・メンバーシップ・オプションと同じさまざまなブロックチェーン機能を低コストで使用できます。 詳しくは、[スターター・プランの料金](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)を参照してください。
 - **_複数組織ネットワークのシミュレーション_**
     Starter Plan を使用して、複数の組織とネットワークを構築する作業をシミュレートできます。 ネットワークに他の組織を実際に招待する必要はなく、自分自身が他の組織の役割を果たすことができます。 このメカニズムにより、どのようにすれば新しい組織がネットワークに参加できるのか、複数の組織がネットワーク内でどのように連携するのかなどを知ることができます。 ネットワーク・モニターで組織を切り替えることで、異なる組織の視点からネットワークを調べて管理できます。
 
@@ -71,20 +71,20 @@ Starter Plan は {{site.data.keyword.blockchainfull_notm}} Platform へのエン
 - **{{site.data.keyword.cloud_notm}} アカウント要件**
     **従量課金 (PAYG)** タイプなどの {{site.data.keyword.cloud_notm}} アカウントがある必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform に用意されているすべてのメンバーシップ・プランは、{{site.data.keyword.cloud_notm}} 有料アカウントを必要とします。 アカウントを従量課金タイプにアップグレードするには、{{site.data.keyword.cloud_notm}} コンソールで**「管理」** > **「請求および使用量」** > **「請求処理」**に移動し、**「クレジット・カードの追加」**をクリックします。
 - **エンタープライズ・プランとの相違点**
-    - [CA](/docs/services/blockchain/glossary.html#glossary-CA) と順序付けサービスはフォールト・トレラントではありません。各組織の CA は 1 つだけであり、ネットワークの[順序付けサービス](/docs/services/blockchain/glossary.html#glossary-orderer)も 1 つだけだからです。
-    - 順序付けサービスは [SOLO](/docs/services/blockchain/glossary.html#glossary-solo) [コンセンサス](/docs/services/blockchain/glossary.html#glossary-consensus)のみを使用します。 スターター・プラン・ネットワークは 1 つの順序付けサービスだけで構成され、その順序付けサービスがすべてのピアに対してコンセンサスを得るための処理を実行します。
-    - 厳密な認証と暗号処理のためのデジタル鍵の保護と管理には、[ハードウェア・セキュリティー・モジュール (HSM)](/docs/services/blockchain/glossary.html#glossary-hsm) を使用することはできません。
+    - [CA](/docs/services/blockchain?topic=blockchain-glossary#glossary-CA) と順序付けサービスはフォールト・トレラントではありません。各組織の CA は 1 つだけであり、ネットワークの[順序付けサービス](/docs/services/blockchain?topic=blockchain-glossary#glossary-orderer)も 1 つだけだからです。
+    - 順序付けサービスは [SOLO](/docs/services/blockchain?topic=blockchain-glossary#glossary-solo) [コンセンサス](/docs/services/blockchain?topic=blockchain-glossary#glossary-consensus)のみを使用します。 スターター・プラン・ネットワークは 1 つの順序付けサービスだけで構成され、その順序付けサービスがすべてのピアに対してコンセンサスを得るための処理を実行します。
+    - 厳密な認証と暗号処理のためのデジタル鍵の保護と管理には、[ハードウェア・セキュリティー・モジュール (HSM)](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) を使用することはできません。
 - **スターター・プランのバージョンおよびアップグレード**
     - 2018 年 10 月 4 日より後に作成された新しいスターター・プラン・ネットワークは、Hyperledger Fabric V1.2.1 でビルドされます。 古いスターター・プラン・ネットワークは、Fabric V1.1.0 レベルのままです。
     - 古いスターター・プラン・ネットワークに追加された新しいピアは、Fabric v1.2.1 でビルドされます。 後方互換性があるため、ネットワークのパフォーマンスに影響はありません。
     - チャネルを作成または更新する場合は、より高度な[チャネル構成](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html){: external}設定および[アクセス制御リスト](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html){: external}を使用できます。
     - Hyperledger Fabric v1.2 の[サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}および[プライベート・データ](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external}機能は、スターター・プランではサポートされません。
-    - Fabric V1.1.0 の古いスターター・プラン・ネットワークを[リセット](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-reset-network)すると、新規ネットワークは Fabric V1.2 レベルになります。 ネットワークをリセットする場合は、チェーンコードまたは .bna ファイルを新規ネットワークにインストールし、古いネットワークのメンバーを再招待する必要があります。
+    - Fabric V1.1.0 の古いスターター・プラン・ネットワークを[リセット](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-reset-network)すると、新規ネットワークは Fabric V1.2 レベルになります。 ネットワークをリセットする場合は、チェーンコードまたは .bna ファイルを新規ネットワークにインストールし、古いネットワークのメンバーを再招待する必要があります。
 - **ネットワーク・リソースの制限**
-    スターター・プランにより、ピアごとに 1 CPU と 4 Gi RAM が割り当てられ、ピアを含む {{site.data.keyword.cloud_notm}} サービス・インスタンスごとに 20 Gi ストレージが割り当てられます。 チェーンコード・コンテナーと台帳のブロックは、最もリソースを消費するネットワーク・コンポーネントです。 ネットワーク内に多くのピアを持ち、多くのブロックを生成したり大規模なチェーンコード・ファイルを使用したりするユーザーは、パフォーマンスでリソースの制限を経験する場合があります。 ストレージのネットワーク使用量は、[ネットワーク・モニターの「概説」画面](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-storage)で確認できます。
+    スターター・プランにより、ピアごとに 1 CPU と 4 Gi RAM が割り当てられ、ピアを含む {{site.data.keyword.cloud_notm}} サービス・インスタンスごとに 20 Gi ストレージが割り当てられます。 チェーンコード・コンテナーと台帳のブロックは、最もリソースを消費するネットワーク・コンポーネントです。 ネットワーク内に多くのピアを持ち、多くのブロックを生成したり大規模なチェーンコード・ファイルを使用したりするユーザーは、パフォーマンスでリソースの制限を経験する場合があります。 ストレージのネットワーク使用量は、[ネットワーク・モニターの「概説」画面](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-storage)で確認できます。
 - **保守とアップグレード**
     Starter Plan の保守とネットワーク更新は、固定スケジュールで行われます。 保守期間中は、新しいネットワークのプロビジョニングは行えません。また、ネットワーク中断が短期間発生する可能性もあります。
 - **データ保存**
     スターター・プランでは、リリース・アップグレードでのデータ保存は保証されません。
 - **マイグレーションに関する考慮事項**
-    スターター・プラン・ネットワークから他のメンバーシップ・プランへのデータのマイグレーションは、現在サポートされていません。 ただし、Starter Plan でテストされた `.bna` ファイル、チェーンコード、アプリケーションをマイグレーションすることは可能です。 詳しくは、[スターター・プランからエンタープライズ・プランへのマイグレーション](/docs/services/blockchain/howto/migrate_sp_ep.html#migrate_starter_to_enterprise)を参照してください。
+    スターター・プラン・ネットワークから他のメンバーシップ・プランへのデータのマイグレーションは、現在サポートされていません。 ただし、Starter Plan でテストされた `.bna` ファイル、チェーンコード、アプリケーションをマイグレーションすることは可能です。 詳しくは、[スターター・プランからエンタープライズ・プランへのマイグレーション](/docs/services/blockchain/howto?topic=blockchain-migrate_starter_to_enterprise#migrate_starter_to_enterprise)を参照してください。

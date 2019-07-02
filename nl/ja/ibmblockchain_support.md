@@ -25,12 +25,12 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform は、問題をトラブルシューティングしたりサポートを利用したりするための手段を、{{site.data.keyword.blockchainfull_notm}} Platform オファリング別にいくつか用意しています。
 {:shortdesc}
 
-すべての {{site.data.keyword.blockchainfull_notm}} Platform オファリングについて、まず、[無料デジタル・サポート・リソース](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)を使用して問題をトラブルシューティングし、{{site.data.keyword.IBM_notm}} と Hyperledger Fabric コミュニティーから支援を受けることをお勧めします。 スターター・ネットワークまたはエンタープライズ・プラン・ネットワークを使用する場合は、これらのリソースへのリンクが含まれるネットワーク・モニターの「サポート」画面にナビゲートできます。
+すべての {{site.data.keyword.blockchainfull_notm}} Platform オファリングについて、まず、[無料デジタル・サポート・リソース](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)を使用して問題をトラブルシューティングし、{{site.data.keyword.IBM_notm}} と Hyperledger Fabric コミュニティーから支援を受けることをお勧めします。 スターター・ネットワークまたはエンタープライズ・プラン・ネットワークを使用する場合は、これらのリソースへのリンクが含まれるネットワーク・モニターの「サポート」画面にナビゲートできます。
 
-いずれの[無料デジタル・サポート・リソース](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)でも問題を解決できない場合は、以下の方法を検討して、使用するオファリングのサポートを依頼してください。
+いずれの[無料デジタル・サポート・リソース](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)でも問題を解決できない場合は、以下の方法を検討して、使用するオファリングのサポートを依頼してください。
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
-  {{site.data.keyword.cloud_notm}} からサポート・ケースを送信してください。 **サポートは、プラットフォームのベータ・インスタンスに限定されています。**詳しくは、[サポート・ケースの送信](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)を参照してください。
+  {{site.data.keyword.cloud_notm}} からサポート・ケースを送信してください。 **サポートは、プラットフォームのベータ・インスタンスに限定されています。** 詳しくは、[サポート・ケースの送信](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)を参照してください。
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
   {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private ライセンスを購入済みのお客様が、お客様サポートに連絡するときには、[{{site.data.keyword.IBM_notm}} Support Community へのアクセスおよびサポート・チケットのオープン](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}を参照してください。
@@ -46,19 +46,13 @@ subcollection: blockchain
   AWS に関連する問題の場合は、[コミュニティーのサポート・フォーラム](https://forums.aws.amazon.com/index.jspa){: external}と [AWS プレミアム・サポート](https://aws.amazon.com/premiumsupport/){: external}の両方をご利用できます。
 
 - **{{site.data.keyword.cloud_notm}} のスターター・プランおよびエンタープライズ・プラン **
-  {{site.data.keyword.cloud_notm}} からサポート・ケースを送信してください。 詳しくは、[サポート・ケースの送信](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)を参照してください。
-
-  <!--[placeholder] Starter Plan and Enterprise Plan are deprecated on May 30. No new Starter Plan and Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-  {: note} -->
+  {{site.data.keyword.cloud_notm}} からサポート・ケースを送信してください。 詳しくは、[サポート・ケースの送信](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)を参照してください。
 
 ## リソースおよびサポート・フォーラム
 {: #blockchain-support-resources}
 
 **{{site.data.keyword.blockchainfull_notm}} Service の資料**
-  [{{site.data.keyword.blockchainfull_notm}} Service の資料](/docs/services/blockchain/index.html#get-started-ibp)では、{{site.data.keyword.blockchainfull_notm}} Platform を開始する方法を説明しています。 左側のナビゲーターから対応するトピックを見つけるか、上部の検索機能を使用して用語を検索できます。
-
-**{{site.data.keyword.IBM_notm}} dWAnswers**  
-  [{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} は、{{site.data.keyword.blockchainfull_notm}} Platform と Hyperledger Fabric のユーザーのコミュニティー・フォーラムであり、{{site.data.keyword.IBM_notm}} の専門家などがチェックしています。 過去に投稿された質問への回答を探したり、新しい質問を送信したりできます。 新しい質問には必ずキーワード **blockchain** を含めてください。
+  [{{site.data.keyword.blockchainfull_notm}} Service の資料](/docs/services/blockchain?topic=blockchain-get-started-ibp#get-started-ibp)では、{{site.data.keyword.blockchainfull_notm}} Platform を開始する方法を説明しています。 左側のナビゲーターから対応するトピックを見つけるか、上部の検索機能を使用して用語を検索できます。
 
 **Hyperledger Fabric リソース**  
   [Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}、[Fabric コミュニティー Wiki](https://wiki.hyperledger.org/display/fabric){: external}、および [Fabric Jira ダッシュボード](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external}で、Fabric スタックに関する詳細を調べられます。
@@ -66,7 +60,7 @@ subcollection: blockchain
   また、[Rocket.Chat](https://chat.hyperledger.org/channel/fabric){: external} で Fabric の専門家と対話して、Fabric に関する質問に回答してもらうこともできます。
 
 **Hyperledger Composer リソース**  
-{{site.data.keyword.IBM_notm}} は実動実装に Hyperledger Composer を使用することをサポートしていないので、デモや概念検証を行う場合には、[Hyperledger Composer コミュニティー](https://chat.hyperledger.org/channel/composer){: external}および [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-composer){: external} を使用することをお勧めします。
+  {{site.data.keyword.IBM_notm}} は実動実装に Hyperledger Composer を使用することをサポートしていないので、デモや概念検証を行う場合には、[Hyperledger Composer コミュニティー](https://chat.hyperledger.org/channel/composer){: external}および [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-composer){: external} を使用することをお勧めします。
 
 ## サポート Case の送信
 {: #blockchain-support-cases}
@@ -76,9 +70,9 @@ subcollection: blockchain
 Hyperledger Fabric、Hyperledger Composer、またはアプリケーションについて支援が必要な場合は、上記のコミュニティー・リソースを活用するか、[{{site.data.keyword.blockchainfull_notm}} サービス](https://www.ibm.com/blockchain/services){: external}を使用してください。 Hyperledger Composer は、デモおよび PoC にのみ使用することをお勧めします。 {{site.data.keyword.IBM_notm}} では、実動の Hyperledger Composer を使用するネットワークをサポートしていません。これには Composer CLI、JavaScript API、REST サーバー、および Web Playground が含まれます。
 {:note}
 
-サポート・ケースへの応答は、[{{site.data.keyword.cloud_notm}} サポート・プラン](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}によって異なります。
+サポート・ケースへの応答は、[{{site.data.keyword.cloud_notm}} サポート・プラン](/docs/get-support?topic=get-support-support-plans#support-plans){: external}によって異なります。
 
-- **プレミアム・サポート**または**拡張サポート**を購入している場合は、チケットでの重大度レベルを Sev-1 から Sev-4 に指定できます。 重大度の最高レベルは Sev-1 です。 重大度レベルの高いサポート・ケースは緊急度が高いことを示し、サポート・チームがより迅速に応答します。 詳しくは、[{{site.data.keyword.cloud_notm}} サポート・プランのオファリング](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}を参照してください。  
+- **プレミアム・サポート**または**拡張サポート**を購入している場合は、チケットでの重大度レベルを Sev-1 から Sev-4 に指定できます。 重大度の最高レベルは Sev-1 です。 重大度レベルの高いサポート・ケースは緊急度が高いことを示し、サポート・チームがより迅速に応答します。 詳しくは、[{{site.data.keyword.cloud_notm}} サポート・プランのオファリング](/docs/get-support?topic=get-support-support-plans#support-plans){: external}を参照してください。  
 - サポートを購入しない場合、{{site.data.keyword.cloud_notm}} 従量課金 (PAYG) またはサブスクリプション・アカウントに無料の**基本サポート**・プランが付随しています。 この場合、サポート・ケースは自動的に Sev-4 に登録されます。
 
 サポート・ケースを送信するには、以下の手順に従います。

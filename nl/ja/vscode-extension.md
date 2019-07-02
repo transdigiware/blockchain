@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -49,16 +49,21 @@ subcollection: blockchain
 ### 前提条件
 {: #develop-vscode-prerequisites}
 
-- **Visual Studio Code のインストール**  
-  [Visual Studio](https://code.visualstudio.com/) コード・エディターをインストールします。  
-- **Yeoman のインストール**  
-  Yeoman は、スケルトン・スマート・コントラクト・プロジェクトの作成に使用できるジェネレーター・ツールです。 Yeoman をインストールするには、`npm install -g yo` コマンドを使用します。  
-- **Docker のインストール**  
-  Hyperledger Fabric の事前構成インスタンスを実行するには、[Docker](https://www.docker.com/){: external} がインストールされていることを確認します。  
-- **オペレーティング・システム要件**  
-  現在、この拡張機能は Mac、Windows、および Linux と互換性があります。  
-- **Hyperledger Fabric バージョン要件**  
-  この拡張機能は、Hyperledger Fabric バージョン 1.4.0 以降と互換性があります。  
+- 現在サポートされているオペレーティング・システムは、Windows 10、Linux、または Mac OS です。
+- [VS Code バージョン 1.32 以上](https://code.visualstudio.com/){: external}。
+- [Node v8.x 以上および npm v5.x 以上](https://nodejs.org/en/download/){: external}。
+- [Docker バージョン v17.06.2-ce 以上](https://www.docker.com/get-started){: external}。
+- [Docker Compose v1.14.0 以上](https://docs.docker.com/compose/install/){: external}。
+- [Go バージョン v1.12 以上 (Go コントラクト開発の場合)](https://golang.org/dl/){: external}。
+
+Windows を使用している場合は、以下が確実に実行されている必要があります。
+
+- Docker for Windows が Linux コンテナーを使用するように構成されています (これがデフォルトです)。
+- C++ Build Tools for Windows を [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools#windows-build-tools){: external} からインストールします。
+- OpenSSL v1.0.2 を [Win32 OpenSSL](http://slproweb.com/products/Win32OpenSSL.html){: external} からインストールします。
+  - 通常バージョン (「light」と記されていないバージョン) をインストールします。
+  - Win32 バージョンを 32 ビット・システム上の C:&#xa5;OpenSSL-Win32 にインストールします。
+  - Win64 バージョンを 64 ビット・システム上の C:&#xa5;OpenSSL-Win64 にインストールします。
 
 ### 拡張機能のインストール
 {: #develop-vscode-installing-the-extension}
@@ -80,12 +85,12 @@ subcollection: blockchain
 
 1. 「**{{site.data.keyword.blockchainfull_notm}}**」タブを開きます。 「smart contract packages」ペインのオーバーフロー・メニューをクリックして、**「Create Smart Contract Project」**をクリックします。
 2. 作成するスマート・コントラクトの言語を選択します。 現在のオプションは、JavaScript、TypeScript、Go、および Java です。 **注:** {{site.data.keyword.blockchainfull_notm}} Platform では Java チェーンコードはサポートされていません。
-3. **JavaScript または TypeScript** を選択した場合は、サンプル・コントラクトで管理する資産を選択します。例えば、***債券*** などです。
+3. **JavaScript または TypeScript** を選択した場合は、サンプル・コントラクトで管理する資産を選択します。 例えば、***債券*** などです。
 4. プロジェクトの名前のフォルダーを作成して開きます。
 5. 新規プロジェクトを開く方法を選択します。 プロジェクト・フォルダーが開きます。
 
 プロジェクトが開くと、左側のペインのエクスプローラー・ウィンドウで、新しいスマート・コントラクトを見つけることができます。 プロジェクトの構造は、選択した言語に応じて異なります。 ただし、各スマート・コントラクトには、同じ要素が含まれます。
-- スマート・コントラクトのソース・コード。 Javascipt コントラクトまたは TypeScript コントラクトの作成を選択した場合は、拡張機能によって、資産の例を管理する一連の関数を指定した `fabric-contract-api` を使用して、基本的なスマート・コントラクトが作成されます。例えば、***bond*** を選択した場合は、`createBond`、`updateBond`、`readBond`、`bondExists`、および `deleteBond` の関数が見つかります。
+- スマート・コントラクトのソース・コード。 Javascipt コントラクトまたは TypeScript コントラクトの作成を選択した場合は、拡張機能によって、資産の例を管理する一連の関数を指定した `fabric-contract-api` を使用して、基本的なスマート・コントラクトが作成されます。 例えば、***bond*** を選択した場合は、`createBond`、`updateBond`、`readBond`、`bondExists`、および `deleteBond` の関数が見つかります。
 - テスト・ファイル。
 - 付随するスマート・コントラクトの従属関係。
 
@@ -95,7 +100,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull_notm}} Platform ネットワークまたは事前構成済みの Hyperledger Fabric ネットワークにスマート・コントラクトをインストールするには、`.cds` 形式でそのスマート・コントラクトをパッケージ化する必要があります。 スマート・コントラクトをパッケージ化するには、以下の手順を実行します。
 
 1. VS Code で、**「{{site.data.keyword.blockchainfull_notm}} Platform」**パネルにナビゲートします。 ファイル・ビューアーでスマート・コントラクト・プロジェクトを開いている状態にします。
-2. **「Smart Contract Packages」**ペインで、オーバーフロー・メニューをクリックして、**「スマート・コントラクト・プロジェクトのパッケージ化 (Package a Smart Contract Project)」**を選択します。パッケージの名前とバージョンの入力を求められます。
+2. **「Smart Contract Packages」**ペインで、オーバーフロー・メニューをクリックして、**「スマート・コントラクト・プロジェクトのパッケージ化 (Package a Smart Contract Project)」**を選択します。 パッケージの名前とバージョンの入力を求められます。
   - スマート・コントラクト・プロジェクトが 1 つある場合は、自動的にパッケージ化されて、**「Smart Contract Packages」**ペインに表示されます。
   - 複数のスマート・コントラクト・フォルダーを開いている場合は、パッケージするスマート・コントラクト・フォルダーを尋ねられます。
   - スマート・コントラクト・フォルダーが開いていない場合は、エラー・メッセージが表示されます。
@@ -231,11 +236,11 @@ VS Code 拡張機能によって、1 つの順序付けプログラム、1 つ�
 ## ステップ 7: {{site.data.keyword.blockchainfull_notm}} Platform ネットワークへの接続
 {: #develop-vscode-connecting-ibp}
 
-拡張機能を使用して、{{site.data.keyword.blockchainfull_notm}} Platform に接続して、{{site.data.keyword.blockchainfull_notm}} Platform コンソール UI を使用してインストールおよびインスタンス化されたスマート・コントラクトを呼び出すこともできます。
+拡張機能を使用して、{{site.data.keyword.cloud_notm}} または {{site.data.keyword.cloud_notm}} Private で実行されている {{site.data.keyword.blockchainfull_notm}} Platform に接続し、{{site.data.keyword.blockchainfull_notm}} Platform コンソール UI を使用して、インストールおよびインスタンス化されたスマート・コントラクトを呼び出すこともできます。
 
-{{site.data.keyword.blockchainfull_notm}} Platform のインスタンスに関連付けられた {{site.data.keyword.blockchainfull_notm}} Platform コンソールを開きます。 **スマート・コントラクト**のタブにナビゲートします。 スマート・コントラクトのタブの**「インスタンス化されたスマート・コントラクト (Instantiated Smart Contracts)」**テーブルを使用して、[接続プロファイル](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile)をローカル・ファイル・システムにダウンロードします。 次に、CA を使用して、[アプリケーション ID を作成](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities)し、登録 ID と機密事項を保存します。 以下の手順に従って、VS Code から {{site.data.keyword.blockchainfull_notm}} Platform に接続します。
+{{site.data.keyword.blockchainfull_notm}} Platform のインスタンスに関連付けられた {{site.data.keyword.blockchainfull_notm}} Platform コンソールを開きます。 **スマート・コントラクト**のタブにナビゲートします。 スマート・コントラクトのタブの**「インスタンス化されたスマート・コントラクト (Instantiated Smart Contracts)」**テーブルを使用して、[接続プロファイル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)をローカル・ファイル・システムにダウンロードします。 次に、CA を使用して、[アプリケーション ID を作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)し、登録 ID と機密事項を保存します。 以下の手順に従って、VS Code から {{site.data.keyword.blockchainfull_notm}} Platform に接続します。
 
-1. _「{{site.data.keyword.blockchainfull_notm}} Platform」_タブを開きます。
+1. **「{{site.data.keyword.blockchainfull_notm}} Platform」**タブを開きます。
 2. **「Fabric Gateways」**ペインで、**+** をクリックします。
 3. 接続の名前を入力します。
 4. 接続プロファイルの完全修飾ファイル・パスを入力します。 この時点で、接続が **local_fabric** の下の接続リストに表示されているはずです。

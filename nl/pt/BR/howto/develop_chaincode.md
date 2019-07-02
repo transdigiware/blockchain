@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: update data, private data, smart contract, CouchDB indexes, cross chaincode transaction
 
@@ -28,13 +28,13 @@ Como exemplo, imaginem que uma rede de revendedores de automóveis, companhias d
 
 O tutorial a seguir o levará por meio dos aspectos básicos da construção do chaincode, incluindo:
 
-- [ Como Cometer a Gravação de Chaincode ](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-write)
-- [O relacionamento entre o chaincode e os dados](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-data)
-- [Transações de chaincode cruzado](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode)
+- [ Como Cometer a Gravação de Chaincode ](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-write)
+- [O relacionamento entre o chaincode e os dados](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-data)
+- [Transações de chaincode cruzado](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode)
 
 O tutorial também apresenta aspectos importantes da malha que estão acessíveis por meio do chaincode:
 
-- [Usando índices com o CouchDB](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-indexes)
+- [Usando índices com o CouchDB](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-indexes)
 
 ## Gravando o chaincode
 {: #develop-smart-contracts-write}
@@ -49,12 +49,12 @@ Geralmente, um contrato inteligente é capaz de validar solicitações, aplicar 
 ## Instalando o chaincode
 {: #develop-smart-contracts-install}
 
-Como o chaincode fornece a estrutura de transações em um canal, um chaincode precisa ser instalado em todos os peers associados ao canal que desejam usar o chaincode para atualizar ou consultar o livro-razão do canal. Em seguida, um membro do canal pode, então, instanciar o chaincode em um canal e configurar a política de aprovação do chaincode. A instalação e a instanciação do chaincode podem ser executadas usando a IU do {{site.data.keyword.blockchainfull_notm}} Platform, a interface da linha de comandos do Fabric Peer ou por meio de um aplicativo cliente usando os SDKs do Fabric. Se você estiver usando o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, visite o [tutorial Implementar um contrato inteligente na rede](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) para saber como implementar um chaincode usando o console do {{site.data.keyword.blockchainfull_notm}} Platform. Se você estiver usando o Starter Plan ou o Enterprise Plan, consulte [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode) para aprender como implementar um chaincode usando a IU do Monitor de rede.
+Como o chaincode fornece a estrutura de transações em um canal, um chaincode precisa ser instalado em todos os peers associados ao canal que desejam usar o chaincode para atualizar ou consultar o livro-razão do canal. Em seguida, um membro do canal pode, então, instanciar o chaincode em um canal e configurar a política de aprovação do chaincode. A instalação e a instanciação do chaincode podem ser executadas usando a IU do {{site.data.keyword.blockchainfull_notm}} Platform, a interface da linha de comandos do Fabric Peer ou por meio de um aplicativo cliente usando os SDKs do Fabric. Se você estiver usando o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, visite o [tutorial Implementar um contrato inteligente na rede](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) para saber como implementar um chaincode usando o console do {{site.data.keyword.blockchainfull_notm}} Platform. Se você estiver usando o Starter Plan ou o Enterprise Plan, consulte [Instalando, instanciando e atualizando um chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode) para aprender como implementar um chaincode usando a IU do Monitor de rede.
 
 ## Chaincode e dados
 {: #develop-smart-contracts-data}
 
-Cada canal tem somente um livro-razão e os dados nesse livro-razão são particionados por uma chave exclusiva e o chaincode que incluiu o par chave-valor no livro-razão. Os membros podem apenas ler ou atualizar dados no livro-razão do canal usando a chave correta e o chaincode associado. Os dados que podem ser acessados por um chaincode são referidos como namespace do chaincode e todos os dados no livro-razão estão dentro do namespace de um chaincode. Um chaincode pode interagir com dados fora de seu namespace apenas usando uma [transação de chaincode cruzado](/docs/services/blockchain/howto/develop_chaincode.html#develop-smart-contracts-cross-chaincode) para o chaincode que pode acessar os dados relevantes.
+Cada canal tem somente um livro-razão e os dados nesse livro-razão são particionados por uma chave exclusiva e o chaincode que incluiu o par chave-valor no livro-razão. Os membros podem apenas ler ou atualizar dados no livro-razão do canal usando a chave correta e o chaincode associado. Os dados que podem ser acessados por um chaincode são referidos como namespace do chaincode e todos os dados no livro-razão estão dentro do namespace de um chaincode. Um chaincode pode interagir com dados fora de seu namespace apenas usando uma [transação de chaincode cruzado](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts-cross-chaincode) para o chaincode que pode acessar os dados relevantes.
 
 Nós podemos usar o chaincode fabcar do repositório de amostras do Fabric como um exemplo de como o chaincode interage com os dados. O namespace é criado quando o contrato inteligente é instanciado. Algum chaincode aceita um conjunto de argumentos de par chave-valor quando o chaincode é instanciado e usa esses dados para inicializar o namespace. O chaincode fabcar do repositório de amostras do Fabric não aceita nenhum argumento quando ele é instanciado. Para o fabcar, é necessário incluir dados no namespace usando a função initLedger ou createCar. Por exemplo, transmitir o argumento `{"Args":["createCar",'CAR1', 'Honda', 'Accord', 'Black', 'Tom']}` tornará o par chave-valor de `{Key='CAR1', value={'Honda', 'Accord', 'Black', 'Tom'}}` o namespace fabcar.
 
@@ -143,4 +143,4 @@ Como o `fabcar` está no mesmo canal que `newContract`, a função `crossChainco
 
 Se você usar o CouchDB como seu banco de dados de estado, será possível executar consultas de dados JSON por meio de seu chaincode com relação aos dados de estado do canal. É altamente recomendado que você crie índices para suas consultas JSON e os use em seu chaincode. Os índices permitem que seus aplicativos recuperem dados com eficiência, pois a rede inclui blocos adicionais de transações e entradas no estado mundial.
 
-Para obter mais informações sobre o CouchDB e como configurar índices, consulte [CouchDB como o banco de dados de estado](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} na Documentação do Hyperledger Fabric. Também é possível localizar um exemplo que usa um índice com chaincode no [tutorial do Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}. Visite [Melhores práticas ao usar o CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) no tutorial Desenvolvendo Aplicativos para obter mais informações sobre como consultar dados de seus aplicativos.
+Para obter mais informações sobre o CouchDB e como configurar índices, consulte [CouchDB como o banco de dados de estado](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_as_state_database.html){: external} na Documentação do Hyperledger Fabric. Também é possível localizar um exemplo que usa um índice com chaincode no [tutorial do Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html){: external}. Visite [Melhores práticas ao usar o CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices) no tutorial Desenvolvendo Aplicativos para obter mais informações sobre como consultar dados de seus aplicativos.

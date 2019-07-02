@@ -1,48 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 1018.6 774"
-   style="enable-background:new 0 0 1018.6 774;"
-   xml:space="preserve"
-   sodipodi:docname="ibp2-simple-network.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"><metadata
-     id="metadata154"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-     id="defs152" /><sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
-     id="namedview150"
-     showgrid="false"
-     inkscape:zoom="1.2196382"
-     inkscape:cx="543.0199"
-     inkscape:cy="353.88891"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="Layer_1" /><style
-     type="text/css"
-     id="style2">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1018.6 774" style="enable-background:new 0 0 1018.6 774;" xml:space="preserve">
+<style type="text/css">
 	.st0{fill:#DCDCDC;stroke:#DCDCDC;}
 	.st1{fill:#5A6872;}
 	.st2{fill:#011688;stroke:#857B7B;}
@@ -60,396 +20,92 @@
 	.st14{fill:none;stroke:#FFFFFF;}
 	.st15{fill:none;stroke:#12C3F4;stroke-width:2;}
 	.st16{font-size:12px;}
-</style><title
-     id="title4">ibp-v2-build-network_Raft</title><rect
-     id="Rectangle"
-     x="89.2"
-     y="120.1"
-     class="st0"
-     width="847"
-     height="548" /><g
-     id="UI-Icon_checkmark--outline_ui-05"><path
-       id="Oval-2"
-       class="st1"
-       d="M355.6,276.1c3.6,0,6.5-2.9,6.5-6.5s-2.9-6.5-6.5-6.5s-6.5,2.9-6.5,6.5l0,0   C349.1,273.2,352,276.1,355.6,276.1L355.6,276.1z M355.6,277.6c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S360.1,277.6,355.6,277.6z" /><polygon
-       id="check"
-       class="st1"
-       points="359,266.3 360.4,267.7 354.5,273.6 351,270.2 352.4,268.8 354.5,270.8  " /></g><rect
-     id="Rectangle-2"
-     x="113.2"
-     y="157.1"
-     class="st2"
-     width="347"
-     height="151" /><text
-     transform="matrix(1 0 0 1 131.86 191.59)"
-     class="st3 st4 st5"
-     id="text11">O</text>
-<text
-     transform="matrix(1 0 0 1 145.39 191.59)"
-     class="st3 st4 st5"
-     id="text13">r</text>
-<text
-     transform="matrix(1 0 0 1 152.3 191.59)"
-     class="st3 st4 st5"
-     id="text15">g 1</text>
-<rect
-     id="Rectangle-3"
-     x="396.1"
-     y="145.1"
-     class="st6"
-     width="105"
-     height="35" /><text
-     transform="translate(418.83,168.59)"
-     class="st7 st4 st8"
-     id="text18"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(430.22,168.59)"
-     class="st7 st4 st8"
-     id="text20"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     class="st7 st4 st8"
-     id="text22"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e"
-     x="416.04999"
-     y="168.59">CA Org1 </text>
-<text
-     transform="translate(458.01,168.59)"
-     class="st7 st4 st8"
-     id="text24"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(468.11,168.59)"
-     class="st7 st4 st8"
-     id="text26"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<rect
-     id="Rectangle-4"
-     x="338.1"
-     y="213.1"
-     class="st6"
-     width="105"
-     height="55" /><text
-     transform="translate(353.02,236.59)"
-     class="st7 st4 st8"
-     id="text29"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(364.41,236.59)"
-     class="st7 st4 st8"
-     id="text31"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     class="st7 st4 st8"
-     id="text33"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e"
-     x="350.23999"
-     y="236.59">Definizione</text>
-<text
-     transform="translate(356.27,256.59)"
-     class="st7 st4 st8"
-     id="text35"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e">MSP Org1</text>
-<rect
-     id="Rectangle-9"
-     x="134.1"
-     y="211.1"
-     class="st6"
-     width="105"
-     height="61" /><g
-     id="Group-3"><path
-       id="Fill-1"
-       class="st9"
-       d="M235.6,233.6h51v39c-25.5,0-25.5,14.9-51,6.4V233.6z" /></g><text
-     transform="matrix(1 0 0 1 146.77 247.59)"
-     class="st7 st4 st8"
-     id="text40">P</text>
-<text
-     transform="matrix(1 0 0 1 156.48 247.59)"
-     class="st7 st4 st8"
-     id="text42">eer O</text>
-<text
-     class="st7 st4 st8"
-     id="text44"
-     x="197.57001"
-     y="247.59"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e">r</text>
-<text
-     class="st7 st4 st8"
-     id="text46"
-     x="203.39"
-     y="247.59"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e">g1</text>
-<text
-     transform="matrix(1 0 0 1 239.65 257.59)"
-     class="st3 st4 st10"
-     id="text48">L</text>
-<text
-     transform="matrix(1 0 0 1 246.69 257.59)"
-     class="st3 st4 st10"
-     id="text50">ed</text>
-<text
-     transform="matrix(1 0 0 1 262.76 257.59)"
-     class="st3 st4 st10"
-     id="text52">g</text>
-<text
-     transform="matrix(1 0 0 1 270.2 257.59)"
-     class="st3 st4 st10"
-     id="text54">er</text>
-<text
-     transform="matrix(1 0 0 1 239.65 272.59)"
-     class="st3 st4 st10"
-     id="text56">X</text>
-<ellipse
-     id="Oval"
-     class="st11"
-     cx="350.1"
-     cy="395.1"
-     rx="194.5"
-     ry="51.5" /><text
-     transform="matrix(1 0 0 1 307.4 406.59)"
-     class="st7 st4 st5"
-     id="text59">Canale 1</text>
-<rect
-     id="Rectangle-10"
-     x="524.2"
-     y="286.6"
-     class="st2"
-     width="347"
-     height="214.5" /><text
-     class="st3 st4 st5"
-     id="text62"
-     style="font-size:18.23288345px;font-family:IBMPlexSans-Medium;fill:#ffffff;stroke-width:0.95962542"
-     x="552.49097"
-     y="315.80313"
-     transform="scale(0.95962541,1.0420733)">Organizzazione servizio di ordinazione</text>
-<text
-     transform="translate(557.63,321.09)"
-     class="st3 st4 st5"
-     id="text64"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(564.81,321.09)"
-     class="st3 st4 st5"
-     id="text66"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(646.5699,321.09)"
-     class="st3 st4 st5"
-     id="text68"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(654.01,321.09)"
-     class="st3 st4 st5"
-     id="text70"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(668.78,321.09)"
-     class="st3 st4 st5"
-     id="text72"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(678.35,321.09)"
-     class="st3 st4 st5"
-     id="text74"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(706.93,321.09)"
-     class="st3 st4 st5"
-     id="text76"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<text
-     transform="translate(713.84,321.09)"
-     class="st3 st4 st5"
-     id="text78"
-     style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-<rect
-     id="Rectangle-11"
-     x="738.6"
-     y="274.6"
-     class="st6"
-     width="173.6"
-     height="35" /><text
-     class="st7 st4 st8"
-     id="text81"
-     style="font-size:14.16571712px;font-family:IBMPlexSans-Medium;fill:#010f5e;stroke-width:0.88535732"
-     x="840.58063"
-     y="263.91617"
-     transform="scale(0.88535732,1.1294875)">CA servizio di ordinazione</text>
-<text
-     transform="translate(765.41,298.09)"
-     class="st7 st4 st8"
-     id="text83"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(771.46,298.09)"
-     class="st7 st4 st8"
-     id="text85"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(838.64,298.09)"
-     class="st7 st4 st8"
-     id="text87"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(844.91,298.09)"
-     class="st7 st4 st8"
-     id="text89"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(857.35,298.09)"
-     class="st7 st4 st8"
-     id="text91"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(865.41,298.09)"
-     class="st7 st4 st8"
-     id="text93"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(878.08,298.09)"
-     class="st7 st4 st8"
-     id="text95"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(888.1801,298.09)"
-     class="st7 st4 st8"
-     id="text97"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<rect
-     id="Rectangle-12"
-     x="721.2"
-     y="371.6"
-     class="st6"
-     width="135.8"
-     height="55" /><text
-     transform="translate(728.19,395.44)"
-     class="st7 st4 st8"
-     id="text100"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e">Definizione MSP</text>
-<text
-     transform="translate(739.58,395.44)"
-     class="st7 st4 st8"
-     id="text102"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(745.63,395.44)"
-     class="st7 st4 st8"
-     id="text104"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(812.81,395.44)"
-     class="st7 st4 st8"
-     id="text106"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(819.08,395.44)"
-     class="st7 st4 st8"
-     id="text108"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(831.52,395.44)"
-     class="st7 st4 st8"
-     id="text110"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(839.58,395.44)"
-     class="st7 st4 st8"
-     id="text112"
-     style="font-size:16px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     class="st7 st4 st8"
-     id="text114"
-     style="font-size:13.29813766px;font-family:IBMPlexSans-Medium;fill:#010f5e;stroke-width:0.8311336"
-     x="877.3056"
-     y="345.28613"
-     transform="scale(0.8311336,1.203176)">servizio di ordinazione</text>
-<rect
-     id="Rectangle-13"
-     x="552.7"
-     y="408.6"
-     class="st12"
-     width="10"
-     height="10" /><g
-     id="Group-18"><g
-       id="Group-5"><polygon
-         id="Fill-1-3"
-         class="st3"
-         points="546.2,337.6 705.7,337.6 705.7,474.1 546.2,474.1   " /><polygon
-         id="Stroke-3"
-         class="st13"
-         points="546.2,474.1 705.7,474.1 705.7,337.6 546.2,337.6   " /></g></g><line
-     class="st14"
-     x1="182.6"
-     y1="272.1"
-     x2="182.6"
-     y2="367.1"
-     id="line121" /><circle
-     class="st15"
-     cx="625.9"
-     cy="419.1"
-     r="32.1"
-     id="circle123" /><circle
-     class="st7"
-     cx="595"
-     cy="412.6"
-     r="8.3"
-     id="circle125" /><circle
-     class="st7"
-     cx="625.9"
-     cy="389.1"
-     r="8.3"
-     id="circle127" /><circle
-     class="st7"
-     cx="656.6"
-     cy="412.6"
-     r="8.3"
-     id="circle129" /><circle
-     class="st7"
-     cx="607.7"
-     cy="446.9"
-     r="8.3"
-     id="circle131" /><circle
-     class="st7"
-     cx="642.6"
-     cy="446.9"
-     r="8.3"
-     id="circle133" /><text
-     class="st7 st4 st16"
-     id="text135"
-     style="font-size:10.9641428px;font-family:IBMPlexSans-Medium;fill:#010f5e;stroke-width:0.91367859"
-     x="609.45349"
-     y="332.14041"
-     transform="scale(0.91367856,1.0944768)">Nodi servizio di ordinazione</text>
-<text
-     transform="translate(571.19,363.52)"
-     class="st7 st4 st16"
-     id="text137"
-     style="font-size:12px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(575.73,363.52)"
-     class="st7 st4 st16"
-     id="text139"
-     style="font-size:12px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(626.12,363.52)"
-     class="st7 st4 st16"
-     id="text141"
-     style="font-size:12px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(630.82,363.52)"
-     class="st7 st4 st16"
-     id="text143"
-     style="font-size:12px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(640.15,363.52)"
-     class="st7 st4 st16"
-     id="text145"
-     style="font-size:12px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
-<text
-     transform="translate(646.19,363.52)"
-     class="st7 st4 st16"
-     id="text147"
-     style="font-size:12px;font-family:IBMPlexSans-Medium;fill:#010f5e" />
+</style>
+<title>ibp-v2-build-network_Raft</title>
+<rect id="Rectangle" x="89.2" y="120.1" class="st0" width="847" height="548"/>
+<g id="UI-Icon_checkmark--outline_ui-05">
+	<path id="Oval-2" class="st1" d="M355.6,276.1c3.6,0,6.5-2.9,6.5-6.5s-2.9-6.5-6.5-6.5s-6.5,2.9-6.5,6.5l0,0
+		C349.1,273.2,352,276.1,355.6,276.1L355.6,276.1z M355.6,277.6c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S360.1,277.6,355.6,277.6z"/>
+	<polygon id="check" class="st1" points="359,266.3 360.4,267.7 354.5,273.6 351,270.2 352.4,268.8 354.5,270.8 	"/>
+</g>
+<rect id="Rectangle-2" x="113.2" y="157.1" class="st2" width="347" height="151"/>
+<text transform="matrix(1 0 0 1 131.86 191.59)" class="st3 st4 st5">O</text>
+<text transform="matrix(1 0 0 1 145.39 191.59)" class="st3 st4 st5">r</text>
+<text transform="matrix(1 0 0 1 152.3 191.59)" class="st3 st4 st5">g 1</text>
+<rect id="Rectangle-3" x="396.1" y="145.1" class="st6" width="105" height="35"/>
+<text transform="matrix(1 0 0 1 418.83 168.59)" class="st7 st4 st8">O</text>
+<text transform="matrix(1 0 0 1 430.22 168.59)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 436.05 168.59)" class="st7 st4 st8">g1 </text>
+<text transform="matrix(1 0 0 1 458.01 168.59)" class="st7 st4 st8">C</text>
+<text transform="matrix(1 0 0 1 468.11 168.59)" class="st7 st4 st8">A</text>
+<rect id="Rectangle-4" x="338.1" y="213.1" class="st6" width="105" height="55"/>
+<text transform="matrix(1 0 0 1 353.02 236.59)" class="st7 st4 st8">O</text>
+<text transform="matrix(1 0 0 1 364.41 236.59)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 370.24 236.59)" class="st7 st4 st8">g1 MSP</text>
+<text transform="matrix(1 0 0 1 356.27 256.59)" class="st7 st4 st8">definizione</text>
+<rect id="Rectangle-9" x="134.1" y="211.1" class="st6" width="105" height="61"/>
+<g id="Group-3">
+	<path id="Fill-1" class="st9" d="M235.6,233.6h51v39c-25.5,0-25.5,14.9-51,6.4V233.6z"/>
+</g>
+<text transform="matrix(1 0 0 1 146.77 247.59)" class="st7 st4 st8">P</text>
+<text transform="matrix(1 0 0 1 156.48 247.59)" class="st7 st4 st8">eer O</text>
+<text transform="matrix(1 0 0 1 195.57 247.59)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 201.39 247.59)" class="st7 st4 st8">g1</text>
+<text transform="matrix(1 0 0 1 239.65 257.59)" class="st3 st4 st10">L</text>
+<text transform="matrix(1 0 0 1 246.69 257.59)" class="st3 st4 st10">ed</text>
+<text transform="matrix(1 0 0 1 262.76 257.59)" class="st3 st4 st10">g</text>
+<text transform="matrix(1 0 0 1 270.2 257.59)" class="st3 st4 st10">er</text>
+<text transform="matrix(1 0 0 1 239.65 272.59)" class="st3 st4 st10">X</text>
+<ellipse id="Oval" class="st11" cx="350.1" cy="395.1" rx="194.5" ry="51.5"/>
+<text transform="matrix(1 0 0 1 307.4 406.59)" class="st7 st4 st5">Canale 1</text>
+<rect id="Rectangle-10" x="524.2" y="286.6" class="st2" width="347" height="214.5"/>
+<text transform="matrix(1 0 0 1 544.1 321.09)" class="st3 st4 st5">O</text>
+<text transform="matrix(1 0 0 1 557.63 321.09)" class="st3 st4 st5">r</text>
+<text transform="matrix(1 0 0 1 564.81 321.09)" class="st3 st4 st5">dering Se</text>
+<text transform="matrix(1 0 0 1 646.5699 321.09)" class="st3 st4 st5">r</text>
+<text transform="matrix(1 0 0 1 654.01 321.09)" class="st3 st4 st5">vi</text>
+<text transform="matrix(1 0 0 1 668.78 321.09)" class="st3 st4 st5">c</text>
+<text transform="matrix(1 0 0 1 678.35 321.09)" class="st3 st4 st5">e O</text>
+<text transform="matrix(1 0 0 1 706.93 321.09)" class="st3 st4 st5">r</text>
+<text transform="matrix(1 0 0 1 713.84 321.09)" class="st3 st4 st5">g</text>
+<rect id="Rectangle-11" x="738.6" y="274.6" class="st6" width="173.6" height="35"/>
+<text transform="matrix(1 0 0 1 754.02 298.09)" class="st7 st4 st8">O</text>
+<text transform="matrix(1 0 0 1 765.41 298.09)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 771.46 298.09)" class="st7 st4 st8">dering se</text>
+<text transform="matrix(1 0 0 1 838.64 298.09)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 844.91 298.09)" class="st7 st4 st8">vi</text>
+<text transform="matrix(1 0 0 1 857.35 298.09)" class="st7 st4 st8">c</text>
+<text transform="matrix(1 0 0 1 865.41 298.09)" class="st7 st4 st8">e </text>
+<text transform="matrix(1 0 0 1 878.08 298.09)" class="st7 st4 st8">C</text>
+<text transform="matrix(1 0 0 1 888.1801 298.09)" class="st7 st4 st8">A</text>
+<rect id="Rectangle-12" x="721.2" y="371.6" class="st6" width="135.8" height="55"/>
+<text transform="matrix(1 0 0 1 728.19 395.44)" class="st7 st4 st8">O</text>
+<text transform="matrix(1 0 0 1 739.58 395.44)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 745.63 395.44)" class="st7 st4 st8">dering se</text>
+<text transform="matrix(1 0 0 1 812.81 395.44)" class="st7 st4 st8">r</text>
+<text transform="matrix(1 0 0 1 819.08 395.44)" class="st7 st4 st8">vi</text>
+<text transform="matrix(1 0 0 1 831.52 395.44)" class="st7 st4 st8">c</text>
+<text transform="matrix(1 0 0 1 839.58 395.44)" class="st7 st4 st8">e</text>
+<text transform="matrix(1 0 0 1 734.89 415.44)" class="st7 st4 st8">Definizione di MSP</text>
+<rect id="Rectangle-13" x="552.7" y="408.6" class="st12" width="10" height="10"/>
+<g id="Group-18">
+	<g id="Group-5">
+		<polygon id="Fill-1-3" class="st3" points="546.2,337.6 705.7,337.6 705.7,474.1 546.2,474.1 		"/>
+		<polygon id="Stroke-3" class="st13" points="546.2,474.1 705.7,474.1 705.7,337.6 546.2,337.6 		"/>
+	</g>
+</g>
+<line class="st14" x1="182.6" y1="272.1" x2="182.6" y2="367.1"/>
+<circle class="st15" cx="625.9" cy="419.1" r="32.1"/>
+<circle class="st7" cx="595" cy="412.6" r="8.3"/>
+<circle class="st7" cx="625.9" cy="389.1" r="8.3"/>
+<circle class="st7" cx="656.6" cy="412.6" r="8.3"/>
+<circle class="st7" cx="607.7" cy="446.9" r="8.3"/>
+<circle class="st7" cx="642.6" cy="446.9" r="8.3"/>
+<text transform="matrix(1 0 0 1 562.65 363.52)" class="st7 st4 st16">O</text>
+<text transform="matrix(1 0 0 1 571.19 363.52)" class="st7 st4 st16">r</text>
+<text transform="matrix(1 0 0 1 575.73 363.52)" class="st7 st4 st16">dering se</text>
+<text transform="matrix(1 0 0 1 626.12 363.52)" class="st7 st4 st16">r</text>
+<text transform="matrix(1 0 0 1 630.82 363.52)" class="st7 st4 st16">vi</text>
+<text transform="matrix(1 0 0 1 640.15 363.52)" class="st7 st4 st16">c</text>
+<text transform="matrix(1 0 0 1 646.19 363.52)" class="st7 st4 st16">e nodes</text>
 </svg>

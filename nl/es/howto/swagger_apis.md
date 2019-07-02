@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -84,7 +84,7 @@ De forma predeterminada, todos los usuarios que tengan un rol que no sea Auditor
 **credenciales de red** visibles en el panel de API de Swagger y, por lo tanto, pueden gestionar la red utilizando las API. No obstante, si prefiere no exponer las credenciales de red de la API de Swagger en la interfaz de usuario, puede copiar y proteger los valores de clave y de secreto existentes y generar nuevas credenciales que sean válidas para su uso con las API de Swagger. Se proporciona un distintivo, denominado resetCredentials, que le permite controlar el acceso realizando los pasos siguientes:
 
 1. Siga los pasos para generar una nueva credencial de red tal como se describe en el
-[Panel de control de credenciales de servicio](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+[Panel de control de credenciales de servicio](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 2. No obstante, en el recuadro **Añadir parámetros de configuración en línea**, pegue el valor siguiente:
    ```
    {
@@ -106,7 +106,7 @@ Ahora, las credenciales válidas originales serán visibles en la información d
 ### 401 No autorizado  
 {: #ibp-swagger-401}
 
-  Asegúrese de que tiene autorización sobre la API REST proporcionando sus credenciales de red. Para obtener más información, consulte [Autorización de las API de Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger).
+  Asegúrese de que tiene autorización sobre la API REST proporcionando sus credenciales de red. Para obtener más información, consulte [Autorización de las API de Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger).
 
 ### Error 400: Solicitud errónea
 {: #ibp-swagger-400}

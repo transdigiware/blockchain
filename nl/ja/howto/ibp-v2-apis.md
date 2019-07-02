@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,7 +126,7 @@ API 参照資料の**「Try it out」**機能を使用して、アプリケー�
 ## 制限
 {: #ibp-v2-apis-limitations}
 
-他の {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} ネットワークから、既存の CA、ピア、および順序付けプログラムのノードのみをインポートできます。
+他の {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} ネットワークから、既存の CA、ピア、および順序付けノードのみをインポートできます。
 
 ## API を使用したネットワークの構築
 {: #ibp-v2-apis-build-with-apis}
@@ -148,13 +148,13 @@ API 参照資料の**「Try it out」**機能を使用して、アプリケー�
   - [組織管理者を登録](#ibp-v2-apis-config-register-admin)し、MSP フォルダー内に[管理者の証明書を生成](#ibp-v2-apis-config-enroll-admin)する必要もあります。 既に管理者 ID を登録している場合は、このステップを実行する必要はありません。
   - [新規コンポーネントを TLS CA に登録します](#ibp-v2-apis-config-register-component-tls)。
 
-  これらの手順は、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用して実行することもできます。 詳しくは、[アイデンティティーの作成および管理](/docs/services/blockchain/howto/ibp-console-identities.html)を参照してください。
+  これらの手順は、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用して実行することもできます。 詳しくは、[アイデンティティーの作成および管理](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities)を参照してください。
 
 3. [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp) を呼び出して、[組織の MSP 定義を作成します](#ibp-v2-apis-msp)。
 
-4. 順序付けプログラムまたはピアを作成するために必要な[構成ファイルを作成します](#ibp-v2-apis-config)。 作成する順序付けプログラムまたはピアごとに固有の構成ファイルを作成する必要があります。
+4. 順序付けサービスまたはピアを作成するために必要な[構成ファイルを作成します](#ibp-v2-apis-config)。 作成する順序付けサービスまたはピアごとに固有の構成ファイルを作成する必要があります。 複数の順序付けノードをデプロイする場合は、作成するノードごとに構成ファイルを提供する必要があります。
 
-5. [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer) を呼び出して、順序付けプログラムを作成します。
+5. [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service) を呼び出して、順序付けサービスを作成します。
 
 6. [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer) を呼び出して、ピアを作成します。
 
@@ -179,7 +179,7 @@ API を使用して、API または {{site.data.keyword.blockchainfull_notm}} Pl
 
 2. [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp) を呼び出して、組織の MSP 定義をインポートします。
 
-3. [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer) を呼び出して、順序付けプログラムをインポートします。
+3. [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service) を呼び出して、順序付けサービスをインポートします。
 
 4. [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer) を呼び出して、ピアをインポートします。
 
@@ -230,7 +230,7 @@ Fabric CA クライアントを使用して CA を操作できます。 次の F
   ```
   {:codeblock}
 
-4. `$FABRIC_CA_CLIENT_HOME` 環境変数の値を、生成された [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) 証明書を CA クライアントが保管するパスに設定します。 以前の試行で作成された構成素材を必ず削除してください。 以前に `enroll` コマンドを実行したことがない場合は、`msp` フォルダーと `.yaml` ファイルは存在しません。
+4. `$FABRIC_CA_CLIENT_HOME` 環境変数の値を、生成された MSP 証明書を CA クライアントが保管するパスに設定します。 以前の試行で作成された構成素材を必ず削除してください。 以前に `enroll` コマンドを実行したことがない場合は、`msp` フォルダーと `.yaml` ファイルは存在しません。
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -254,9 +254,9 @@ Fabric CA クライアントを使用して CA を操作できます。 次の F
 ### CA 管理者による証明書の生成
 {: #ibp-v2-apis-enroll-ca-admin}
 
-**CA 管理者**の ID は、CA の作成時に自動的に登録されています。 ここでその管理者名とパスワードを使用して、Fabric CA クライアントで `enroll` コマンドを実行し、その他のピアまたは順序付けプログラムの ID を登録するために使用できる証明書を含む MSP フォルダーを生成できます。
+**CA 管理者**の ID は、CA の作成時に自動的に登録されています。 ここでその管理者名とパスワードを使用して、Fabric CA クライアントで `enroll` コマンドを実行し、その他のピアまたは順序付けノードの ID を登録するために使用できる証明書を含む MSP フォルダーを生成できます。
 
-1. [Fabric CA クライアントをセットアップ](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client)するためのステップを完了していること、および `$FABRIC_CA_CLIENT_HOME` が CA 管理者証明書を保管するディレクトリーに設定されていることを確認します。
+1. [Fabric CA クライアントをセットアップ](#ibp-v2-apis-config-fabric-ca-client)するためのステップを完了していること、および `$FABRIC_CA_CLIENT_HOME` が CA 管理者証明書を保管するディレクトリーに設定されていることを確認します。
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -289,9 +289,9 @@ Fabric CA クライアントを使用して CA を操作できます。 次の F
   ```
   {:codeblock}
 
-  `enroll` コマンドは、メンバーシップ・サービス・プロバイダー (MSP) フォルダーと呼ばれる、証明書の完全なセットを生成します。これは、Fabric CA クライアントの `$HOME` パスに設定したディレクトリー内にあります。 例えば、`$HOME/fabric-ca-client/ca-admin` です。 MSP および MSP フォルダーの内容について詳しくは、[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp)を参照してください。
+  `enroll` コマンドは、メンバーシップ・サービス・プロバイダー (MSP) フォルダーと呼ばれる、証明書の完全なセットを生成します。これは、Fabric CA クライアントの `$HOME` パスに設定したディレクトリー内にあります。 例えば、`$HOME/fabric-ca-client/ca-admin` です。 MSP および MSP フォルダーの内容について詳しくは、[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)を参照してください。
 
-  `enroll` コマンドが失敗した場合は、考えられる原因について[トラブルシューティングのトピック](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting)を参照してください。
+  `enroll` コマンドが失敗した場合は、考えられる原因について[トラブルシューティングのトピック](#ibp-v2-apis-config-troubleshooting)を参照してください。
 
   tree コマンドを実行して、すべての前提条件ステップを完了したことを確認できます。 証明書を格納したディレクトリーにナビゲートします。 tree コマンドを実行すると、以下の構造に似た結果が生成されます。
 
@@ -346,14 +346,14 @@ tree
 
   `org1.department1` のような 2 番目の **affiliation** 値をメモします。 この値を、以下のコマンドで使用する必要があります。
 
-3. 次のコマンドを実行して、順序付けプログラムまたはピアを登録します。
+3. 次のコマンドを実行して、順序付けノードまたはピアを登録します。
 
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
   {:codeblock}
 
-  コンポーネントの名前とパスワードを作成し、それらを使用して `name` および `secret` を置換します。  この情報はメモしてください。 順序付けプログラムをデプロイする場合は `--id.type` を `orderer` に設定し、ピアをデプロイする場合はこれを `peer` に設定します。 コマンドは以下の例のようになります。
+  コンポーネントの名前とパスワードを作成し、それらを使用して `name` および `secret` を置換します。  この情報はメモしてください。 順序付けノードをデプロイする場合は `--id.type` を `orderer` に設定し、ピアをデプロイする場合はこれを `peer` に設定します。 コマンドは以下の例のようになります。
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -378,7 +378,7 @@ tree
 
 ネットワークの操作に使用できる管理者 ID も作成する必要があります。 この ID は、ピアにスマート・コントラクトをインストールするなど、特定のコンポーネントを操作する場合に使用します。 この ID は、組織の管理者として使用することも、チャネルを作成および編集するために使用することもできます。  
 
-この新しい ID を CA に登録し、この ID を使用して MSP フォルダーを生成する必要があります。 この ID を組織管理者にするには、その署名付き証明書を組織の MSP に追加します。 デプロイメント時に順序付けプログラムまたはピアの管理者証明書にすることができるように、署名付き証明書を構成ファイルに追加する必要もあります。 組織に対して、管理者 ID は 1 つのみ作成する必要があります。 そのため、これらの手順は 1 回のみ実行する必要があります。 生成した署名付き証明書を使用して、多数のピアまたは順序付けプログラムをデプロイできます。
+この新しい ID を CA に登録し、この ID を使用して MSP フォルダーを生成する必要があります。 この ID を組織管理者にするには、その署名付き証明書を組織の MSP に追加します。 デプロイメント時に順序付けノードまたはピアの管理者証明書にすることができるように、署名付き証明書を構成ファイルに追加する必要もあります。 組織に対して、管理者 ID は 1 つのみ作成する必要があります。 そのため、これらの手順は 1 回のみ実行する必要があります。 生成した署名付き証明書を使用して、多数のピアまたは順序付けノードをデプロイできます。
 
 `$FABRIC_CA_CLIENT_HOME` が CA 管理者の MSP のパスに設定されていることを確認します。
 
@@ -395,7 +395,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-管理者の新しいユーザー ID の `name` と `secret` を作成します。 必ず、先ほど登録したピアまたは順序付けプログラムの ID とは異なる値を使用してください。 コマンドは、以下の例のようになります。
+管理者の新しいユーザー ID の `name` と `secret` を作成します。 必ず、先ほど登録したピアまたは順序付けノードの ID とは異なる値を使用してください。 コマンドは、以下の例のようになります。
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -480,7 +480,7 @@ tree
 ### TLS CA へのコンポーネント ID の登録
 {: #ibp-v2-apis-config-register-component-tls}
 
-CA を作成したときに、TLS CA がデフォルト CA とともにデプロイされています。 順序付けプログラムまたはピアを TLS CA に登録する必要もあります。 これを行うには、まず TLS CA の管理者を使用してエンロールする必要があります。 `$FABRIC_CA_CLIENT_HOME` を、TLS CA 管理者証明書を保管するディレクトリーに変更します。
+CA を作成したときに、TLS CA がデフォルト CA とともにデプロイされています。 順序付けノードまたはピアを TLS CA に登録する必要もあります。 これを行うには、まず TLS CA の管理者を使用してエンロールする必要があります。 `$FABRIC_CA_CLIENT_HOME` を、TLS CA 管理者証明書を保管するディレクトリーに変更します。
 
 ```
 cd $HOME/fabric-ca-client
@@ -489,7 +489,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-以下のコマンドを実行して、TLS CA に対する管理者としてエンロールします。 TLS CA 管理者の登録 ID とパスワードは、デフォルト CA と同じです。 そのため、以下のコマンドは、[CA 管理者](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin)としてエンロールするために使用したものと同じですが、CA TLS の名前を使用する点のみが異なります。 TLS CA 名は、コンソールの CA **設定**パネルの**「TLS CA 名 (TLS CA Name)」**の値、または `Create a CA` API によって返される `"tlsca_name"` の値です。
+以下のコマンドを実行して、TLS CA に対する管理者としてエンロールします。 TLS CA 管理者の登録 ID とパスワードは、デフォルト CA と同じです。 そのため、以下のコマンドは、[CA 管理者](#ibp-v2-apis-enroll-ca-admin)としてエンロールするために使用したものと同じですが、CA TLS の名前を使用する点のみが異なります。 TLS CA 名は、コンソールの CA **設定**パネルの**「TLS CA 名 (TLS CA Name)」**の値、または `Create a CA` API によって返される `"tlsca_name"` の値です。
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -502,14 +502,14 @@ fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_po
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-エンロールが完了すると、コンポーネントを TLS CA に登録するために必要な証明書が得られます。 次のコマンドを実行して、順序付けプログラムまたはピアを登録します。
+エンロールが完了すると、コンポーネントを TLS CA に登録するために必要な証明書が得られます。 次のコマンドを実行して、順序付けノードまたはピアを登録します。
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-このコマンドは、TLS CA 名を使用する必要がある点を除き、コンポーネント ID を CA に登録するために使用したコマンドと似ています。 ピアではなく順序付けプログラムをデプロイする場合は、`--id.type` を `peer` ではなく `orderer` に設定してください。 この ID には、デフォルト CA に対して使用したものとは異なるユーザー名とパスワードを指定する必要があります。 実際の登録は、以下のコマンドのようになります。
+このコマンドは、TLS CA 名を使用する必要がある点を除き、コンポーネント ID を CA に登録するために使用したコマンドと似ています。 ピアではなく順序付けノードをデプロイする場合は、`--id.type` を `peer` ではなく `orderer` に設定してください。 この ID には、デフォルト CA に対して使用したものとは異なるユーザー名とパスワードを指定する必要があります。 実際の登録は、以下のコマンドのようになります。
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -517,6 +517,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 構成ファイルを作成するときのために、上記のコマンドからの `"enrollid"` と `"enrollsecret"` を保存する必要があります。
 {: important}
+
+### トラブルシューティング
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **問題:** `enroll` コマンド実行時のエラー
+{: #ibp-v2-apis-config-enroll-error1}
+
+Fabric CA クライアントの enroll コマンドを実行すると、コマンドが以下のエラーで失敗することがあります。
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**解決策:**
+
+このエラーは、Fabric CA クライアントがエンロールしようとしているが、CA に接続できない場合に発生する可能性があります。 これは、次の場合に発生します。   
+
+- `enroll` コマンドの `-u` パラメーターに余分な `https://` が含まれている場合。
+- CA 名が正しくない場合。
+- ユーザー名またはパスワードが正しくない場合。
+
+`enroll` コマンドで指定したパラメーターを確認し、これらのいずれの状況も存在しないことを確認してください。
+
+#### **問題:** `enroll` コマンド実行時の CA URL に関するエラー
+{: #ibp-v2-apis-config-enroll-error2}
+
+登録 URL (`-u` パラメーターの値) に特殊文字が含まれている場合は、Fabric CA クライアントの enroll コマンドが正常に実行されないことがあります。 例えば、次のコマンドでは登録 ID とパスワードとして `admin:C25A06287!0` を指定しています。
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+このコマンドは正常に実行されず、以下のエラーが発生します。
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **解決策:**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+特殊文字をコード表現するか、URL を単一引用符で囲む必要があります。 例えば、`!` を `%21` にするか、コマンドを次のように入力します。
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## 組織 MSP 定義の作成
 {: #ibp-v2-apis-msp}
@@ -619,7 +666,7 @@ cat $HOME/fabric-ca-client/peer-admin/msp/signcerts/cert.pem | base64 $FLAG
 ## 構成ファイルの作成
 {: #ibp-v2-apis-config}
 
-API を使用してピアまたは順序付けプログラムを作成するには、構成ファイルを完成させる必要があります。 このファイルは、API 呼び出しの要求本文の `config` オブジェクトとして API に提供されます。 ファイルを完成させる前に、CA を {{site.data.keyword.cloud_notm}} Platform サービス・インスタンスにデプロイして、必要な ID を登録およびエンロールする手順を実行する必要があります。
+API を使用してピアまたは順序付けノードを作成するには、構成ファイルを完成させる必要があります。 このファイルは、API 呼び出しの要求本文の `config` オブジェクトとして API に提供されます。 複数の順序付けノードを作成する場合は、作成するノードごとに構成ファイルを API 要求の配列に指定する必要があります。例えば、5 ノードの Raft 順序付けサービスの場合、5 つの構成ファイルの配列を作成する必要があります。指定する登録 ID のエンロール制限が十分に高い限り、ノードごとに同じファイルを指定できます。ファイルを完成させる前に、CA を {{site.data.keyword.cloud_notm}} Platform サービス・インスタンスにデプロイして、必要な ID を登録およびエンロールする手順を実行する必要があります。
 
 構成ファイルのテンプレートを以下に示します。
 ```
@@ -654,7 +701,7 @@ API を使用してピアまたは順序付けプログラムを作成するに�
 ```
 {:codeblock}
 
-このファイル全体をテキスト・エディターにコピーしてください。テキスト・エディターでこのファイルを編集して、ローカル・ファイル・システムに JSON ファイルとして保存できます。 以下の手順を使用してこの構成ファイルを完成させて、その構成ファイルを使用して順序付けプログラムまたはピアをデプロイします。
+このファイル全体をテキスト・エディターにコピーしてください。テキスト・エディターでこのファイルを編集して、ローカル・ファイル・システムに JSON ファイルとして保存できます。 以下の手順を使用してこの構成ファイルを完成させて、その構成ファイルを使用して順序付けサービスまたはピアをデプロイします。
 
 ### CA 接続情報の取得
 {: #ibp-v2-apis-config-connx-info}
@@ -800,7 +847,7 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lY
 ```
 {:codeblock}
 
-他のフィールドはブランクのままで構いません。 このファイルが完成したら、`config` フィールドとして、`Create an orderer` または `Create a peer` API の要求本文にこのファイルを渡すことができます。
+他のフィールドはブランクのままで構いません。 このファイルが完成したら、`config` フィールドとして、`Create an ordering service` または `Create a peer` API の要求本文にこのファイルを渡すことができます。
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform コンソールへの管理者 ID のインポート
 {: #ibp-v2-apis-admin-console}

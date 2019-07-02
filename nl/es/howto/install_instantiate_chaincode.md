@@ -41,7 +41,7 @@ Debe instalar el código de encadenamiento en cada igual que vaya a ejecutar dic
 2. En el panel emergente **Instalar código de encadenamiento**, especifique el nombre y la versión. **Observe** que las series de nombre y versión se utilizarán en las aplicaciones para que interactúen con el código de encadenamiento instalado. Pulse el botón **Examinar** y navegue por el sistema de archivos hasta el lugar en el que se han guardado los archivos de origen del código de encadenamiento. Seleccione uno o varios archivos de origen de código de encadenamiento para instalarlos en el igual. A continuación, seleccione el lenguaje del código de encadenamiento desde el desplegable **Tipo de código de encadenamiento**.
 
 Puede instalar el código de encadenamiento cargando un único o varios archivos GO o NODE, o puede cargar código de encadenamiento en un archivo .zip. Utilizar un archivo .zip mantendrá el código de encadenamiento con una estructura de directorios completa. Esto será útil si desea incluir paquetes de dependencias, o utilizar índices con CouchDB. Para obtener más información sobre CouchDB y cómo configurar índices, consulte
-[Prácticas recomendadas al utilizar CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) en la guía de aprendizaje de desarrollo de aplicaciones. También puede encontrar información sobre la [gestión de dependencias externas para el código de encadenamiento escrito en GO](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} en la documentación de Hyperledger Fabric.
+[Prácticas recomendadas al utilizar CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices) en la guía de aprendizaje de desarrollo de aplicaciones. También puede encontrar información sobre la [gestión de dependencias externas para el código de encadenamiento escrito en GO](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} en la documentación de Hyperledger Fabric.
 
   ![Instalar código de encadenamiento](../images/chaincode_install.png "Instalar código de encadenamiento")
 
@@ -62,7 +62,7 @@ Debe tener permiso de **Operador** o **Escritor** en el canal para crear la inst
   ![Instantiate Chaincode panel](../images/chaincode_instantiate_panel.png "Instantiate Chaincode panel")
 -->
 
-3. Especifique la [política de aprobación](/docs/services/blockchain/glossary.html#glossary-endorsement-policy) del código de encadenamiento. Puede obtener más información sobre cómo establecer políticas de aprobación en la [sección siguiente](#install-instantiate-chaincode-endorsement-policy).
+3. Especifique la [política de aprobación](/docs/services/blockchain?topic=blockchain-glossary#glossary-endorsement-policy) del código de encadenamiento. Puede obtener más información sobre cómo establecer políticas de aprobación en la [sección siguiente](#install-instantiate-chaincode-endorsement-policy).
 
 
 ## Especificación de las políticas de aprobación del código de encadenamiento
@@ -70,7 +70,7 @@ Debe tener permiso de **Operador** o **Escritor** en el canal para crear la inst
 
 Puede utilizar políticas de aprobación para especificar qué conjunto de iguales se necesita para validar una transacción nueva. Por ejemplo, una política de aprobación puede especificar que una transacción se añada al libro mayor solo si la mayoría de los miembros del canal validan la transacción.
 
-La política de aprobación se establece cuando se instancia un código de encadenamiento en un canal. La organización que instancia el código de encadenamiento puede seleccionar de entre los miembros del canal que hayan instalado el código de encadenamiento para que se conviertan en validadores, y establece la política de aprobación para todos los miembros del canal. Puede actualizar la política de aprobación siguiendo los pasos para [actualizar el código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc), y a continuación especificar una política nueva al reinstanciar el código de encadenamiento en el segundo paso.
+La política de aprobación se establece cuando se instancia un código de encadenamiento en un canal. La organización que instancia el código de encadenamiento puede seleccionar de entre los miembros del canal que hayan instalado el código de encadenamiento para que se conviertan en validadores, y establece la política de aprobación para todos los miembros del canal. Puede actualizar la política de aprobación siguiendo los pasos para [actualizar el código de encadenamiento](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc), y a continuación especificar una política nueva al reinstanciar el código de encadenamiento en el segundo paso.
 
 Cuando utilice el Supervisor de red para establecer la política de aprobación, puede utilizar la IU para especificar una **Política simple**, o utilizar JSON para especificar una **Política avanzada**.
 
@@ -91,7 +91,7 @@ Las políticas de aprobación no se actualizan automáticamente cuando nuevas or
 
 Puede actualizar un código de encadenamiento para cambiar la programación del mismo mientras que se mantiene su relación con los activos del libro mayor. Debido a la combinación de instalación y de creación de instancias, debe actualizar el código de encadenamiento en todos los iguales que se encuentren en el canal con este código de encadenamiento. Siga estos pasos para actualizar el código de encadenamiento:
 
-1. Instale un código de encadenamiento con el mismo nombre que su antiguo código de encadenamiento, pero con una versión distinta. Puede seguir los mismos pasos que en [Instalación de código de encadenamiento](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc). Asegúrese de seleccionar el mismo canal que su código de encadenamiento original.
+1. Instale un código de encadenamiento con el mismo nombre que su antiguo código de encadenamiento, pero con una versión distinta. Puede seguir los mismos pasos que en [Instalación de código de encadenamiento](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc). Asegúrese de seleccionar el mismo canal que su código de encadenamiento original.
 
   ![Actualizar código de encadenamiento](../images/upgrade_chaincode.png "Actualizar código de encadenamiento")
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -33,7 +33,7 @@ O [Fluxo de transação](https://hyperledger-fabric.readthedocs.io/en/release-1.
 ### Gerenciando Transações
 {: #best-practices-app-managing-transactions}
 
-Os clientes do aplicativo devem assegurar que suas propostas de transação sejam validadas e que as propostas sejam concluídas com sucesso. Uma proposta pode ser atrasada ou perdida por vários motivos, como uma indisponibilidade de rede ou uma falha de componente. É necessário codificar seu aplicativo para [alta disponibilidade](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app) para manipular a falha do componente. Também é possível [aumentar os valores de tempo limite](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk) em seu aplicativo para evitar que as propostas excedam o tempo limite antes que a rede possa responder.
+Os clientes do aplicativo devem assegurar que suas propostas de transação sejam validadas e que as propostas sejam concluídas com sucesso. Uma proposta pode ser atrasada ou perdida por vários motivos, como uma indisponibilidade de rede ou uma falha de componente. É necessário codificar seu aplicativo para [alta disponibilidade](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) para manipular a falha do componente. Também é possível [aumentar os valores de tempo limite](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) em seu aplicativo para evitar que as propostas excedam o tempo limite antes que a rede possa responder.
 
 Se um chaincode não estiver em execução, a primeira proposta de transação enviada para esse chaincode o iniciará. Enquanto o chaincode está iniciando, todas as outras propostas são rejeitadas com um erro indicando que o chaincode está iniciando atualmente. Isso é diferente da invalidação da transação. Se alguma proposta for rejeitada enquanto o chaincode estiver sendo iniciado, os aplicativos clientes precisarão reenviar as propostas rejeitadas após o chaincode ser iniciado. Os aplicativos clientes podem usar uma fila de mensagens para evitar a perda de propostas de transação.
 
@@ -70,19 +70,19 @@ Quando você gerencia as conexões entre seu aplicativo e sua rede, você pode c
   ```
   {:codeblock}
 
-  Também é possível localizar essas variáveis com as configurações recomendadas na seção `"peers"` de seu perfil de conexão de rede. As opções recomendadas serão importadas para seu aplicativo automaticamente se você usar o [perfil de conexão com o SDK](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile) para se conectar aos seus terminais de rede.
+  Também é possível localizar essas variáveis com as configurações recomendadas na seção `"peers"` de seu perfil de conexão de rede. As opções recomendadas serão importadas para seu aplicativo automaticamente se você usar o perfil de conexão com o SDK para se conectar aos seus terminais de rede. É possível localizar mais informações sobre como usar um perfil de conexão na [Documentação do Node SDK](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
 - Quando uma conexão não for mais necessária, use os comandos `peer.close()` e `orderer.close()` para liberar recursos e evitar degradação de desempenho. Para obter mais informações, consulte as classes [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} e [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} na documentação do Node SDK. Se você usou um perfil de conexão para incluir peers e solicitadores em um objeto de canal, será possível fechar todas as conexões que estão designadas a esse canal usando um comando `channel.close()`.
 
 ### Aplicativos altamente disponíveis
 {: #best-practices-app-ha-app}
 
-Como uma boa prática de alta disponibilidade, é altamente recomendável implementar um mínimo de dois peers por organização para failover. É necessário adaptar seus aplicativos para alta disponibilidade também. Instale o chaincode em ambos os peers e inclua-os em seus canais. Em seguida, prepare-se para enviar propostas de transação para ambos os terminais de peer ao configurar sua rede e construir sua lista de destino de peer. As redes do Enterprise Plan possuem vários solicitadores para failover, o que permite que seu aplicativo cliente envie transações endossadas para um solicitador diferente se um solicitador não estiver disponível. Se você usar seu [perfil de conexão](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) em vez de incluir terminais de rede manualmente, assegure-se de que seu perfil esteja atualizado e que os peers adicionais e os solicitadores tenham sido incluídos no canal relevante na seção `channels` do perfil. Em seguida, o SDK pode incluir os componentes que são associaos ao canal usando o perfil de conexão.
+Como uma boa prática de alta disponibilidade, é altamente recomendável implementar um mínimo de dois peers por organização para failover. É necessário adaptar seus aplicativos para alta disponibilidade também. Instale o chaincode em ambos os peers e inclua-os em seus canais. Em seguida, prepare-se para enviar propostas de transação para ambos os terminais de peer ao configurar sua rede e construir sua lista de destino de peer. As redes do Enterprise Plan possuem vários solicitadores para failover, o que permite que seu aplicativo cliente envie transações endossadas para um solicitador diferente se um solicitador não estiver disponível. Se você usar seu perfil de conexão em vez de incluir terminais de rede manualmente, assegure-se de que seu perfil esteja atualizado e que os peers e os solicitadores adicionais tenham sido incluídos no canal relevante na seção `channels` do perfil. Em seguida, o SDK pode incluir os componentes que são associaos ao canal usando o perfil de conexão.
 
 ## Ativando o TLS mútuo
 {: #best-practices-app-mutual-tls}
 
-Se você estiver executando redes do plano Enterprise que estão no nível do Fabric V1.1, você terá a opção de [ativar o TLS mútuo](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) para os seus aplicativos. Se você ativar o TLS mútuo, será necessário atualizar os seus aplicativos para suportarem essa função. Caso contrário, seus aplicativos não poderão se comunicar com a rede.
+Se você estiver executando redes do plano Enterprise que estão no nível do Fabric V1.1, você terá a opção de [ativar o TLS mútuo](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) para os seus aplicativos. Se você ativar o TLS mútuo, será necessário atualizar os seus aplicativos para suportarem essa função. Caso contrário, seus aplicativos não poderão se comunicar com a rede.
 
 No Perfil de conexão, localize a seção `certificateAuthorities`, na qual é possível localizar os atributos a seguir que são necessários para inscrever e obter os certificados para se comunicar com sua rede usando o TLS mútuo.
 

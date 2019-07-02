@@ -25,13 +25,13 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform ofrece varios métodos para solucionar problemas y obtener soporte, que dependen de las ofertas de {{site.data.keyword.blockchainfull_notm}} Platform que utilice.
 {:shortdesc}
 
-Para todas las ofertas de {{site.data.keyword.blockchainfull_notm}} Platform, se recomienda utilizar en primer lugar [recursos del soporte digital gratuito](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) para resolver problemas y obtener ayuda de {{site.data.keyword.IBM_notm}} y de la comunidad de Hyperledger Fabric. Si utiliza una red de Plan inicial o de Plan empresarial, puede acceder a la pantalla "Soporte" del supervisor de red, que contiene enlaces a estos recursos.
+Para todas las ofertas de {{site.data.keyword.blockchainfull_notm}} Platform, se recomienda utilizar en primer lugar [recursos del soporte digital gratuito](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) para resolver problemas y obtener ayuda de {{site.data.keyword.IBM_notm}} y de la comunidad de Hyperledger Fabric. Si utiliza una red de Plan inicial o de Plan empresarial, puede acceder a la pantalla "Soporte" del supervisor de red, que contiene enlaces a estos recursos.
 
-Si el problema no se puede resolver mediante ninguno de los [recursos del soporte digital gratuito](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources), tenga en cuenta los métodos siguientes para obtener soporte para las ofertas que utilice.
+Si el problema no se puede resolver mediante ninguno de los [recursos del soporte digital gratuito](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources), tenga en cuenta los métodos siguientes para obtener soporte para las ofertas que utilice.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
   Envíe un caso de soporte a través de {{site.data.keyword.cloud_notm}}. **El soporte se limita a las instancias Beta de la plataforma.** Para obtener más información, consulte
-[Envío de casos de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
+[Envío de casos de soporte](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
   Si ha adquirido una licencia de {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private y desea ponerse en contacto con el equipo de soporte al cliente, consulte [Acceso a la comunidad de soporte de {{site.data.keyword.IBM_notm}} y apertura de una incidencia de soporte](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
@@ -47,19 +47,14 @@ Si el problema no se puede resolver mediante ninguno de los [recursos del soport
   Para los problemas relacionados con AWS, puede utilizar tanto los [foros de soporte de la comunidad](https://forums.aws.amazon.com/index.jspa){: external} como el [soporte premium de AWS](https://aws.amazon.com/premiumsupport/){: external}.
 
 - **Plan inicial y Plan empresarial en {{site.data.keyword.cloud_notm}}**
-  Envíe un caso de soporte a través de {{site.data.keyword.cloud_notm}}. Para obtener más información, consulte [Envío de casos de soporte](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
-
-  <!--[placeholder] Starter Plan and Enterprise Plan are deprecated on May 30. No new Starter Plan and Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-  {: note} -->
+  Envíe un caso de soporte a través de {{site.data.keyword.cloud_notm}}. Para obtener más información, consulte
+[Envío de casos de soporte](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 ## Recursos y foros de soporte
 {: #blockchain-support-resources}
 
 **Documentación del servicio {{site.data.keyword.blockchainfull_notm}}**
-  La [documentación del servicio {{site.data.keyword.blockchainfull_notm}}](/docs/services/blockchain/index.html#get-started-ibp) proporciona una guía para comenzar a trabajar con {{site.data.keyword.blockchainfull_notm}} Platform. Encontrará los temas correspondientes en el navegador izquierdo o buscando un término con la función de búsqueda situada en la parte superior.
-
-**{{site.data.keyword.IBM_notm}} dWAnswers**  
-  [{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} es un foro de la comunidad dirigido a los usuarios de {{site.data.keyword.blockchainfull_notm}} Platform e Hyperledger Fabric, supervisado por expertos de {{site.data.keyword.IBM_notm}}, entre otros. Puede buscar respuestas a preguntas realizadas anteriormente o enviar una nueva pregunta. Asegúrese de incluir la palabra clave **blockchain** en la nueva pregunta.
+  La [documentación del servicio {{site.data.keyword.blockchainfull_notm}}](/docs/services/blockchain?topic=blockchain-get-started-ibp#get-started-ibp) proporciona una guía para comenzar a trabajar con {{site.data.keyword.blockchainfull_notm}} Platform. Encontrará los temas correspondientes en el navegador izquierdo o buscando un término con la función de búsqueda situada en la parte superior.
 
 **Recursos de Hyperledger Fabric**  
   La [documentación de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}, la [wiki de la comunidad Fabric](https://wiki.hyperledger.org/display/fabric){: external} y el [panel de control de Fabric Jira](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} ofrecen más información sobre la pila de Fabric.
@@ -77,9 +72,9 @@ Para problemas relacionados con {{site.data.keyword.blockchainfull_notm}} Platfo
 Si necesita ayuda con Hyperledger Fabric, Hyperledger Composer o sus aplicaciones, utilice los recursos anteriores de la comunidad o suscríbase a [{{site.data.keyword.blockchainfull_notm}} Services](https://www.ibm.com/blockchain/services){: external}. Se recomienda el uso de Hyperledger Composer únicamente para demostraciones y pruebas de concepto. {{site.data.keyword.IBM_notm}} no proporciona soporte para redes que utilicen Hyperledger Composer en producción, incluyendo la CLI de Composer, las API de JavaScript, el servidor REST y Web Playground.
 {:note}
 
-La respuesta a su caso de soporte depende del [plan de soporte de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.
+La respuesta a su caso de soporte depende del [plan de soporte de {{site.data.keyword.cloud_notm}}](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
 
-- Si ha adquirido el **Soporte Premium** o el **Soporte avanzado**, puede especificar un nivel de seguridad en su incidencia de Sev-1 a Sev-4. Sev-1 es el nivel de gravedad más alto. Los casos de soporte con niveles de gravedad más altos indican más urgencia y el equipo de soporte los responderá con mayor rapidez. Para obtener más información, consulte las [ofertas de planes de soporte de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.  
+- Si ha adquirido el **Soporte Premium** o el **Soporte avanzado**, puede especificar un nivel de seguridad en su incidencia de Sev-1 a Sev-4. Sev-1 es el nivel de gravedad más alto. Los casos de soporte con niveles de gravedad más altos indican más urgencia y el equipo de soporte los responderá con mayor rapidez. Para obtener más información, consulte las [ofertas de planes de soporte de {{site.data.keyword.cloud_notm}}](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
 - Si no adquiere ningún soporte, su cuenta de suscripción o de pago según uso de {{site.data.keyword.cloud_notm}} se entrega con un plan de **soporte básico** gratuito. En este caso, el caso de soporte se registrará automáticamente con Sev-4.
 
 Siga estos pasos para enviar un caso de soporte.

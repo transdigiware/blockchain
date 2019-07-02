@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-21"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
@@ -42,29 +42,29 @@ Hyperledger Fabric をベースとする {{site.data.keyword.blockchainfull}} Pl
   - **所属団体名 (Affiliation):** ID を所属させる組織内の団体名 (`org1` など) です。
   - **最大エンロール回数 (Maximum Enrollments):** このフィールドを使用すると、この ID を使用してエンロールする回数、つまり、証明書を生成する回数を制限できます。 このフィールドをブランクのままにすると、エンロール回数はデフォルト値の無制限になります。
 
-[リモート・ピア](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about)をデプロイする場合は、このパネルを使用して、新しいピア ID を登録できます。 一方、トランザクションをネットワークに送信できるアプリケーションを開発する場合は、クライアントを登録できます。 プラットフォームで Fabric SDK を使用する方法について詳しくは、[アプリケーションの開発チュートリアル](/docs/services/blockchain/v10_application.html#dev-app)を参照してください。
+[リモート・ピア](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about)をデプロイする場合は、このパネルを使用して、新しいピア ID を登録できます。 一方、トランザクションをネットワークに送信できるアプリケーションを開発する場合は、クライアントを登録できます。
 
 ### クライアント・サイド証明書の生成 (エンロール)
 {: #managing-certificates-enrollment}
 サード・パーティーのクライアントを {{site.data.keyword.blockchainfull_notm}} Platform に接続するには、その前に認証される必要があります。 必要な証明書、秘密鍵および証明書 (エンロール証明書または署名付き証明書とも呼ばれる) を生成するプロセスをエンロールと呼びます。 クライアントがネットワークと通信する際には、必ずこれらの証明書が必要になります。 ネットワークに対して呼び出しを送信するクライアントは、秘密鍵を使用してペイロードに署名し、正しい署名のある x509 証明書を付加する必要があります。
 
-[Fabric Node SDK を使用してエンロールする](/docs/services/blockchain/v10_application.html#dev-app)方法について詳しくは、[「アプリケーションの開発」のチュートリアル](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk)を参照してください。 SDK を使用してエンロールすると、秘密鍵、署名付き証明書、および署名付き証明書の作成に使用された公開鍵の 3 つの別個の項目が生成されます。
+Fabric SDK を使用してエンロールする場合、SDK によって秘密鍵と署名付き証明書が生成されます。秘密鍵と署名付き証明書は、SDK の操作に使用できるユーザー・コンテキストを形成します。
 
-[Fabric CA クライアント](/docs/services/blockchain/certificates.html#managing-certificates-enroll-register-caclient)を使用して、コマンド・ラインから証明書を生成することもできます。 Fabric CA クライアントは、より包括的な証明書のセットをメンバーシップ・サービス・プロバイダー (MSP) のフォルダー内に戻します。 このフォルダーには、CA が署名したルート証明書、中間証明書、秘密鍵、および署名付き証明書が含まれています。 MSP および MSP フォルダーの内容について詳しくは、[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain/certificates.html#managing-certificates-msp)を参照してください。
+[Fabric CA クライアント](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient)を使用して、コマンド・ラインから証明書を生成することもできます。 Fabric CA クライアントは、より包括的な証明書のセットをメンバーシップ・サービス・プロバイダー (MSP) のフォルダー内に戻します。 このフォルダーには、CA が署名したルート証明書、中間証明書、秘密鍵、および署名付き証明書が含まれています。 MSP および MSP フォルダーの内容について詳しくは、[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)を参照してください。
 
-認証局に登録されている ID でのみ (つまり、その ID の名前と秘密を使用してのみ) 証明書を生成できます。 デフォルトでは、**管理者** ID が既に CA に登録されており、「認証局」画面にリストされます。 ネットワーク・モニターの「概要」画面にある**「接続プロファイル」**ボタンをクリックすると、接続プロファイル内の管理者 ID の秘密を確認できます。 ネットワーク・モニターの「認証局」画面で[「ユーザーの追加」](/docs/services/blockchain/certificates.html#managing-certificates-ca-panel)ボタンをクリックして新規 ID を登録し、新規 ID の名前と秘密を使用して証明書を生成することもできます。
+認証局に登録されている ID でのみ (つまり、その ID の名前と秘密を使用してのみ) 証明書を生成できます。 デフォルトでは、**管理者** ID が既に CA に登録されており、「認証局」画面にリストされます。 ネットワーク・モニターの「概要」画面にある**「接続プロファイル」**ボタンをクリックすると、接続プロファイル内の管理者 ID の秘密を確認できます。 ネットワーク・モニターの「認証局」画面で[「ユーザーの追加」](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel)ボタンをクリックして新規 ID を登録し、新規 ID の名前と秘密を使用して証明書を生成することもできます。
 
-**注:** Fabric Node SDK または Fabric CA クライアントを使用して上記の証明書を生成する手順に従う場合、管理者 ID を使用してエンロールすることから開始します。 次に、それらの証明書を使用して、CA に新しいクライアント ID を登録します。 [アプリケーションの開発](/docs/services/blockchain/v10_application.html#dev-app)の SDK 手順を使用する場合、クライアント ID を使用して再度エンロールします。 次に、それらの証明書を使用して、ネットワークにトランザクションを送信できます。<!---You can an illustration of how the developing applications tutorial interacts with your organization CA in the diagram below.--->
+**注:** 以下の手順に従って Fabric CA クライアントを使用して証明書を生成する場合、管理者 ID を使用してエンロールすることから開始します。次に、それらの証明書を使用して、CA に新しいクライアント ID を登録します。 その後、そのクライアント ID を使用して再度エンロールすることもできます。これで、それらの証明書を使用して、ネットワークにトランザクションを送信できます。
 
 ### ネットワーク・モニターを使用した証明書の生成
 {: #managing-certificates-certs-panel}
 
-ネットワーク・モニターでは、管理者 ID を使用して証明書を生成し、それらの証明書を SDK に直接渡すことができます。 管理者 ID の横にある**「証明書の生成」**ボタンをクリックして、CA から新しい署名付き証明書と秘密鍵を取得します。 **「証明書」**フィールドには、署名付き証明書が含まれており、**「秘密鍵」**のすぐ上にあります。 各フィールドの端にあるコピー・アイコンをクリックすると、そのフィールドの値をコピーできます。 その後、アプリケーションにインポートできる場所にこれらの証明書を保存する必要があります。 詳しくは、[アプリケーションの開発チュートリアル](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel)を参照してください。 {{site.data.keyword.blockchainfull_notm}} Platform にはそれらの証明書が保管されないことに**注意してください**。 ユーザーがそれらを安全に保存して保管する必要があります。
+ネットワーク・モニターでは、管理者 ID を使用して証明書を生成し、それらの証明書を SDK に直接渡すことができます。 管理者 ID の横にある**「証明書の生成」**ボタンをクリックして、CA から新しい署名付き証明書と秘密鍵を取得します。 **「証明書」**フィールドには、署名付き証明書が含まれており、**「秘密鍵」**のすぐ上にあります。 各フィールドの端にあるコピー・アイコンをクリックすると、そのフィールドの値をコピーできます。 その後、アプリケーションにインポートできる場所にこれらの証明書を保存する必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform にはそれらの証明書が保管されないことに**注意してください**。 ユーザーがそれらを安全に保存して保管する必要があります。
 
 ### 署名付き証明書の {{site.data.keyword.blockchainfull_notm}} Platform へのアップロード
 {: #managing-certificates-upload-certs}
 
-ネットワークにトランザクションを送信するためにアプリケーションに必要なものは、有効な署名付き証明書のみです。 しかし、ピアにチェーンコードをインストールしたり、ピアをチャネルに参加させたりして、クライアントからネットワークを操作する場合は、そのクライアントが管理者として認識されていなければなりません。 各コンポーネントは、管理者が所有する一連の署名付き証明書を認識します。 クライアントからネットワークを操作する必要がある場合は、署名付き証明書をアップロードし、管理者証明書のリストに追加する必要があります。 プラットフォーム上でこの作業を行うには、ネットワーク・モニターの[「概説」パネル](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)の**「証明書」**タブで署名付き証明書をアップロードします。 アップロード後に表示される再始動ボタンを押して、この証明書をピアと同期します。 その後、クライアントはネットワークを操作できるようになります。 また、[Swagger API](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) を使用して署名付き証明書をアップロードし、管理者証明書を追加することもできます。
+ネットワークにトランザクションを送信するためにアプリケーションに必要なものは、有効な署名付き証明書のみです。 しかし、ピアにチェーンコードをインストールしたり、ピアをチャネルに参加させたりして、クライアントからネットワークを操作する場合は、そのクライアントが管理者として認識されていなければなりません。 各コンポーネントは、管理者が所有する一連の署名付き証明書を認識します。 クライアントからネットワークを操作する必要がある場合は、署名付き証明書をアップロードし、管理者証明書のリストに追加する必要があります。 プラットフォーム上でこの作業を行うには、ネットワーク・モニターの[「概説」パネル](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)の**「証明書」**タブで署名付き証明書をアップロードします。 アップロード後に表示される再始動ボタンを押して、この証明書をピアと同期します。 その後、クライアントはネットワークを操作できるようになります。 また、[Swagger API](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) を使用して署名付き証明書をアップロードし、管理者証明書を追加することもできます。
 
 チャネルも、チャネルの操作 (チャネルでチェーンコードをインスタンス化できることを含む) を許可された ID からの一連の管理者証明書を認識します。 リモート・クライアントで新しい署名付き証明書を使用する場合、チェーンコードをインスタンス化する前に、その証明書をチャネルに同期する必要があります。 証明書をチャネルに追加するには、ネットワーク・モニターで以下のステップを実行します。
 
@@ -77,7 +77,7 @@ Hyperledger Fabric をベースとする {{site.data.keyword.blockchainfull}} Pl
 ### 証明書の有効期限
 {: #managing-certificates-expiration}
 
-CA が {{site.data.keyword.blockchainfull_notm}} Platform で生成する証明書は、1 年または 3 年後に有効期限が切れます。 この有効期限は、Fabric SDK、Fabric CA クライアント、または[ネットワーク・モニター](/docs/services/blockchain/v10_application.html#dev-app-enroll-panel)を使用して生成される証明書の有効期限と同じです。 証明書の有効期限が切れると、アプリケーションはネットワークと対話できなくなります。 新しい証明書を生成するために再エンロールする必要があります。 ユーザーのエンロール制限に達している場合は、新規ユーザーを登録してエンロールすることができます。 以前の証明書を使用してネットワークを操作していた場合は、新しい証明書をプラットフォームにアップロードする必要もあります。
+CA が {{site.data.keyword.blockchainfull_notm}} Platform で生成する証明書は、1 年または 3 年後に有効期限が切れます。 有効期限は、Fabric SDK、Fabric CA クライアント、またはネットワーク・モニターを使用して生成される証明書でも同じです。証明書の有効期限が切れると、アプリケーションはネットワークと対話できなくなります。 新しい証明書を生成するために再エンロールする必要があります。 ユーザーのエンロール制限に達している場合は、新規ユーザーを登録してエンロールすることができます。 以前の証明書を使用してネットワークを操作していた場合は、新しい証明書をプラットフォームにアップロードする必要もあります。
 
 コマンド・ラインを使用して、証明書の有効期限日付を確認できます。 以下のコマンドを実行して、人間が読める形式で証明書を表示します。
 ```
@@ -110,7 +110,7 @@ Signature Algorithm: ecdsa-with-SHA256
 
 [Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm) (TLS) は、Hyperledger Fabric の信頼モデルに組み込まれています。 {{site.data.keyword.blockchainfull_notm}} Platform のすべてのコンポーネントは、TLS を使用して認証し、相互に通信します。 したがって、通信を検証したり暗号化したりするには、プラットフォームから発行された TLS 証明書を呼び出しに付加する必要があります。 このチュートリアルで説明してきたその他の証明書は、ネットワークによる取引やネットワークの管理を行う能力を保護するものです。 TLS 証明書は、ネットワークに対する呼び出しを保護するためのものです。
 
-TLS 証明書は、プラットフォームから公的に発行されます。すべてのネットワーク・コンポーネントで同じものを使用します。 メンバーシップ・プランとクラウドの場所に応じて、以下のリンクから TLS 証明書をダウンロードできます。 TLS 証明書は、[資格情報プロファイル](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile)内にもあります。 この証明書は、アプリケーションまたはコマンド・ラインから参照できる場所であればどこに置いてもかまいません。
+TLS 証明書は、プラットフォームから公的に発行されます。すべてのネットワーク・コンポーネントで同じものを使用します。 メンバーシップ・プランとクラウドの場所に応じて、以下のリンクから TLS 証明書をダウンロードできます。 TLS 証明書は、[資格情報プロファイル](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile)内にもあります。 この証明書は、アプリケーションまたはコマンド・ラインから参照できる場所であればどこに置いてもかまいません。
 
 - スターター・プラン用の TLS 証明書
   - US: [us01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert){: external}; [us02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert){: external};
@@ -122,7 +122,7 @@ TLS 証明書は、プラットフォームから公的に発行されます。�
   - シドニー: [aus01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert){: external}
 - [エンタープライズ・プラン用の TLS 証明書](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
-すべての {{site.data.keyword.blockchainfull_notm}} Platform ネットワークはサーバー・サイド TLS を使用するため、ネットワークがクライアントを認証する必要があります。 エンタープライズ・プラン・ネットワークでは相互 TLS を有効にすることもできます。この場合は、クライアントとサーバーが互いを認証するので、アプリケーションの保護が強化されます。 クライアント・サイド TLS 証明書 (相互 TLS の場合) は、クライアント CA で発行するので、ネットワークに固有の証明書です。 エンタープライズ・プラン・ネットワークを使用する場合は、相互 TLS を有効にすることをお勧めします。 相互 TLS について詳しくは、これらの[説明](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-mutual-tls)を参照してください。
+すべての {{site.data.keyword.blockchainfull_notm}} Platform ネットワークはサーバー・サイド TLS を使用するため、ネットワークがクライアントを認証する必要があります。 エンタープライズ・プラン・ネットワークでは相互 TLS を有効にすることもできます。この場合は、クライアントとサーバーが互いを認証するので、アプリケーションの保護が強化されます。 クライアント・サイド TLS 証明書 (相互 TLS の場合) は、クライアント CA で発行するので、ネットワークに固有の証明書です。 エンタープライズ・プラン・ネットワークを使用する場合は、相互 TLS を有効にすることをお勧めします。 相互 TLS について詳しくは、これらの[説明](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-mutual-tls)を参照してください。
 
 ### TLS 証明書からのドメイン・ネームの取得
 {: #managing-certificates-retrieve-domain}
@@ -179,7 +179,7 @@ Fabric の MSP フォルダーには、定義済みの構造があります。 F
 
 ネットワーク・モニターや Swagger API を使用して、Fabric CA クライアントが参照できる MSP フォルダーを作成することもできます。
 
-- **cacerts** および **intermediatecerts**: [Swagger API](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) で GET 要求を MSP API に発行すると、これらの証明書を取得できます。
+- **cacerts** および **intermediatecerts**: [Swagger API](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) で GET 要求を MSP API に発行すると、これらの証明書を取得できます。
 - **signcerts** および **keystore**: 「認証局」パネル上の**「証明書の生成 (Generate Certificates)」**ボタンをクリックすると、これらの証明書を生成できます。 ポップアップ・ウィンドウが開き、2 つの証明書がリストされます。 signcerts に**証明書**を、keystore に **秘密鍵**をコピーして格納してください。 これらの証明書はプラットフォーム上には保管されないので、安全な場所に保管してください。
 
 多くの Fabric コンポーネントの MSP フォルダー内には追加情報が含まれています。 例えば、リモート・ピアを操作する場合、以下のフォルダーを参照することもできます。
@@ -192,7 +192,7 @@ MSP の構造について詳しくは、Hyperledger Fabric 資料で[メンバ�
 ## Fabric CA クライアントを使用したエンロールと登録
 {: #managing-certificates-enroll-register-caclient}
 
-Fabric CA クライアントを使用して、証明書を生成し、新しい ID を認証局に登録することもできます。 以下の手順は、管理者 ID を使用して証明書を生成してから、それらの証明書を使用して新しいクライアントを登録する手順です。 Fabric CA クライアントを使用したエンロールおよび証明書の生成について詳しくは、[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain/certificates.html#managing-certificates-msp)を参照してください。
+Fabric CA クライアントを使用して、証明書を生成し、新しい ID を認証局に登録することもできます。 以下の手順は、管理者 ID を使用して証明書を生成してから、それらの証明書を使用して新しいクライアントを登録する手順です。 Fabric CA クライアントを使用したエンロールおよび証明書の生成について詳しくは、[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)を参照してください。
 
 ### Fabric CA クライアントを使用したエンロール
 {: #managing-certificates-enroll-app-caclient}
@@ -237,13 +237,11 @@ Fabric CA クライアントを使用して、証明書を生成し、新しい 
   ./fabric-ca-client enroll -u https://admin:dda0c53f7b@n7413e3b503174a58b112d30f3af55016-org1-ca.us3.blockchain.ibm.com:31011 --caname org1CA --tls.certfiles $HOME/tls/us2.blockchain.ibm.com.cert
   ```
 
-6. `$FABRIC_CA_CLIENT_HOME/msp/signcerts/cert.pem` 内で管理者証明書を見つけます。 見つけたら、ネットワーク・モニターから管理者証明書をブロックチェーン・ネットワークにアップロードできます。 証明書の追加に関する詳細情報については、ネットワーク・モニターの[「メンバー」パネルの「証明書」タブ](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)を参照してください。
+6. `$FABRIC_CA_CLIENT_HOME/msp/signcerts/cert.pem` 内で管理者証明書を見つけます。 見つけたら、ネットワーク・モニターから管理者証明書をブロックチェーン・ネットワークにアップロードできます。 証明書の追加に関する詳細情報については、ネットワーク・モニターの[「メンバー」パネルの「証明書」タブ](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)を参照してください。
 
   さらに、以下のディレクトリーで CA ルート証明書と管理者秘密鍵を見つけることができます。
   * CA ルート証明書: `$FABRIC_CA_CLIENT_HOME/msp/cacerts/--<ca_name>.pem`
   * 管理者秘密鍵: `$FABRIC_CA_CLIENT_HOME/msp/keystore/<>_sk file`
-
-Fabric CA クライアントを使用してエンロールし、生成された証明書を使用してネットワーク・コンポーネントを操作する例については、[リモート・ピアを操作する](/docs/services/blockchain/howto/peer_operate_icp.html#icp-peer-operate-cli-operate)手順を参照してください。
 
 ### Fabric CA クライアントを使用した登録
 {: #register-app-caclient}

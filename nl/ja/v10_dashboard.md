@@ -32,13 +32,13 @@ subcollection: blockchain
 {: #ibp-dashboard-left-navigation}
 
 ネットワーク・モニターの 3 つのセクションには、以下の画面が表示されます。 ネットワーク・モニターの左側のナビゲーターから各画面にナビゲートできます。
-- **「マイ・ネットワーク」**セクションには、[「概説」](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview)、[「メンバー」](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)、[「チャネル」](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels)、[「通知」](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-notifications)、[「認証局」](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-ca)、および[「API」](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-apis)の各画面が表示されます。
-- **「マイ・コード (My code)」**セクションには、「[コードの開発 (Develop code)](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-write_code)」、「[コードのインストール (Install code)](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-chaincode)」、「[サンプルの試行 (Try samples)](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-samples)」の各画面が表示されます。
-- 「[ヘルプの利用](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-support)」画面には、Helios と Hyperledger Fabric ({{site.data.keyword.blockchainfull_notm}} Platform の基礎となっているコード・ベース) のサポート情報とリリース・ノートが表示されます。
+- **「マイ・ネットワーク」**セクションには、[「概説」](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)、[「メンバー」](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)、[「チャネル」](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)、[「通知」](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)、[「認証局」](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)、および[「API」](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)の各画面が表示されます。
+- **「マイ・コード (My code)」**セクションには、「[コードの開発 (Develop code)](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write_code)」、「[コードのインストール (Install code)](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)」、「[サンプルの試行 (Try samples)](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)」の各画面が表示されます。
+- 「[ヘルプの利用](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)」画面には、Helios と Hyperledger Fabric ({{site.data.keyword.blockchainfull_notm}} Platform の基礎となっているコード・ベース) のサポート情報とリリース・ノートが表示されます。
 
-ブロックチェーン・ネットワークの名前は、左側のナビゲーション・ペインの上部にあります。 ネットワーク・モニターで [ネットワークの名前を変更](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-name)できます。
+ブロックチェーン・ネットワークの名前は、左側のナビゲーション・ペインの上部にあります。 ネットワーク・モニターで [ネットワークの名前を変更](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name)できます。
 
-ネットワーク・モニターの右上にあるドロップダウン・メニューから、[ネットワーク設定の確認と構成](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)を行えます。
+ネットワーク・モニターの右上にあるドロップダウン・メニューから、[ネットワーク設定の確認と構成](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)を行えます。
 
 このチュートリアルでは、上記の各画面および機能について説明します。
 
@@ -58,14 +58,14 @@ subcollection: blockchain
 
 順序付けサービス・ノードでは停止アクションと開始アクションは使用できません。 一般に、ネットワーク上のピア・ノードまたは CA ノードを停止したり開始したりする必要はありません。 停止アクションと開始アクションは、例えばクリーンな状態にするためにピアを再始動する必要がある場合に備えて用意されています。
 
-**「アクション」**ヘッダーの下のドロップダウン・リストから**「ログの表示 (View Logs)」**をクリックして、コンポーネントのログを確認することもできます。 ログでは、さまざまなネットワーク・リソース間で出された呼び出しを調べることができるため、デバッグやトラブルシューティングに役立ちます。 ネットワーク・ログの使用について詳しくは、[ブロックチェーン・ネットワークのモニタリング](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network)を参照してください。
+**「アクション」**ヘッダーの下のドロップダウン・リストから**「ログの表示 (View Logs)」**をクリックして、コンポーネントのログを確認することもできます。 ログでは、さまざまなネットワーク・リソース間で出された呼び出しを調べることができるため、デバッグやトラブルシューティングに役立ちます。 ネットワーク・ログの使用について詳しくは、[ブロックチェーン・ネットワークのモニタリング](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)を参照してください。
 
 ピアの開始と停止の影響を調べるために、ピアを停止し、そのピアをトランザクションのターゲットにしてみることができます。接続エラーがログに表示されるはずです。 ピアを再始動してトランザクションを再試行すると、接続が成功します。 チャネルがトランザクション処理を続行しているときに、長期間にわたってピアをダウン状態のままにすることもできます。 ピアが再び稼働すると、台帳が同期されていることが分かります。これは、ピアがダウン状態の間にコミットされたブロックを受信するためです。 台帳が完全に同期されたら、通常の呼び出しとそれに対する照会を実行できます。
 
 ### リモート・ピア構成
 {: #ibp-dashboard-peer-connection-information}
 
-{{site.data.keyword.cloud_notm}} の外部にピアをデプロイする場合は、構成の際に、ネットワークの API エンドポイント情報を提供する必要があります。 **「リモート・ピア構成 (Remote Peer Configuration)」**ボタンをクリックして、ピアを構成するネットワークの API エンドポイント情報を取得してください。 ポップアップ・ウィンドウに、ネットワーク ID、組織 MSP、CA 名、CA URL、および CA TLS 証明書を含む API エンドポイント情報が示されます。 各フィールドの端にあるコピー・アイコンをクリックしてそのフィールドの値をコピーすることも、**「ダウンロード」**ボタンをクリックしてすべてのフィールドの値を JSON ファイル形式で保存することもできます。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services について](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about)および[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private について](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about)を参照してください。
+{{site.data.keyword.cloud_notm}} の外部にピアをデプロイする場合は、構成の際に、ネットワークの API エンドポイント情報を提供する必要があります。 **「リモート・ピア構成 (Remote Peer Configuration)」**ボタンをクリックして、ピアを構成するネットワークの API エンドポイント情報を取得してください。 ポップアップ・ウィンドウに、ネットワーク ID、組織 MSP、CA 名、CA URL、および CA TLS 証明書を含む API エンドポイント情報が示されます。 各フィールドの端にあるコピー・アイコンをクリックしてそのフィールドの値をコピーすることも、**「ダウンロード」**ボタンをクリックしてすべてのフィールドの値を JSON ファイル形式で保存することもできます。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services について](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about)を参照しください。
 
 ### 接続プロファイル
 {: #ibp-dashboard-connection-profile}
@@ -75,7 +75,7 @@ subcollection: blockchain
 ### ピアの追加
 {: #ibp-dashboard-peers}
 
-ネットワーク・メンバーは、[ピア](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer)をデプロイして、ネットワーク台帳のコピーを保管し、チェーンコードを実行して台帳を照会または更新します。 エンドースメント・ポリシーがピアをエンドース・ピアとして定義している場合、ピアはエンドースメント結果もアプリケーションに返します。
+ネットワーク・メンバーは、[ピア](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer)をデプロイして、ネットワーク台帳のコピーを保管し、チェーンコードを実行して台帳を照会または更新します。 エンドースメント・ポリシーがピアをエンドース・ピアとして定義している場合、ピアはエンドースメント結果もアプリケーションに返します。
 
 右上の**「ピアの追加」**ボタンをクリックして、ネットワークにピア・ノードを追加できます。 ポップアップの「ピアの追加」パネルで、追加するピア・ノードの数とサイズを選択します。 独自の要件に基づいて、組織にさらにピアを追加できます。 追加のピアが必要なさまざまなシナリオが考えられます。 例えば、冗長性のために複数のピアが同じチャネルに参加するようにすることができます。 各ピアが、チャネルのトランザクションを処理して、それぞれの台帳のコピーに書き込みます。 ピアの 1 つが失敗した場合、もう一方のピア (または複数の他のピア) は、トランザクションとアプリケーション要求の処理を続行できます。 さらに、すべてのアプリケーション要求を複数のピアに均等にロード・バランシングすることも、機能ごとに異なるピアをターゲットにすることもできます。 例えば、あるピアを台帳の照会用に使用し、別のピアを台帳更新のエンドースメント処理用に使用することができます。
 
@@ -135,11 +135,11 @@ subcollection: blockchain
 
 ![チャネル](images/channels.png "チャネル")
 
-チャネルを作成すると、チャネル固有の台帳が生成されます。 詳しくは、[チャネルの作成](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel)を参照してください。
+チャネルを作成すると、チャネル固有の台帳が生成されます。 詳しくは、[チャネルの作成](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel)を参照してください。
 
-また、既存のチャネルを選択して、チャネル、メンバーシップ、アクティブ・チェーンコードに関する詳細を表示することもできます。 詳しくは、[ネットワークのモニター](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network)を参照してください。
+また、既存のチャネルを選択して、チャネル、メンバーシップ、アクティブ・チェーンコードに関する詳細を表示することもできます。 詳しくは、[ネットワークのモニター](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)を参照してください。
 
-「メンバー」画面の[「証明書」タブ](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-certificates)を使用して新規証明書をプラットフォームにアップロードした場合は、このパネルを使用して証明書をチャネルに追加できます。 関連するチャネルの横にある**「アクション」**ヘッダーの下のドロップダウン・リストから**「証明書の同期」**をクリックします。 これにより、チャネル上でのチェーンコードのインスタンス化など、リモート・クライアントからチャネルを操作できます。 詳しくは、[証明書の管理](/docs/services/blockchain/certificates.html#managing-certificates)チュートリアルの[署名付き証明書の {{site.data.keyword.blockchainfull_notm}} Platform へのアップロード](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs)を参照してください。
+「メンバー」画面の[「証明書」タブ](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates)を使用して新規証明書をプラットフォームにアップロードした場合は、このパネルを使用して証明書をチャネルに追加できます。 関連するチャネルの横にある**「アクション」**ヘッダーの下のドロップダウン・リストから**「証明書の同期」**をクリックします。 これにより、チャネル上でのチェーンコードのインスタンス化など、リモート・クライアントからチャネルを操作できます。 詳しくは、[証明書の管理](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates)チュートリアルの[署名付き証明書の {{site.data.keyword.blockchainfull_notm}} Platform へのアップロード](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)を参照してください。
 
 ## 通知
 {: #ibp-dashboard-notifications}
@@ -177,7 +177,7 @@ subcollection: blockchain
   - **所属団体名 (Affiliation):** ID を所属させる組織内の団体名 (`org1` など) です。
   - **最大登録数:** このフィールドを使用して、この ID を使用した証明書のエンロールまたは生成の回数を制限できます。 このフィールドをブランクのままにすると、エンロール回数はデフォルト値の無制限になります。
 
-CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の証明書の管理](/docs/services/blockchain/certificates.html#managing-certificates)チュートリアルを参照してください。
+CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の証明書の管理](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates)チュートリアルを参照してください。
 
 ## API
 {: #ibp-dashboard-apis}
@@ -188,7 +188,7 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 
 ![API](images/API_screen.png "API")
 
-**「Swagger UI」**リンクをクリックして Swagger UI を開きます。 API を実行するには、その前にネットワーク資格情報 (この API ページにあります) を使用して Swagger UI に権限を与える必要があることに注意してください。 詳しくは、[Swagger API を使用したネットワークとの対話](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger)を参照してください。
+**「Swagger UI」**リンクをクリックして Swagger UI を開きます。 API を実行するには、その前にネットワーク資格情報 (この API ページにあります) を使用して Swagger UI に権限を与える必要があることに注意してください。 詳しくは、[Swagger API を使用したネットワークとの対話](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger)を参照してください。
 
 ## コードの開発 (Develop Code)
 {: #ibp-dashboard-write-code}
@@ -201,7 +201,7 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 
 ![コードの開発 (Develop code)](images/write_code.png "コードの開発 (Develop code)")
 
-ビジネス・ネットワークの開発およびデプロイについて詳しくは、[スターター・プランおよびエンタープライズ・プランへのビジネス・ネットワークのデプロイ](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network)を参照してください。
+ビジネス・ネットワークの開発およびデプロイについて詳しくは、[スターター・プランおよびエンタープライズ・プランへのビジネス・ネットワークのデプロイ](/docs/services/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network)を参照してください。
 
 ## コードのインストール (Install code)
 {: #ibp-dashboard-chaincode}
@@ -212,12 +212,12 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 
 ![コードのインストール (Install code)](images/chaincode_install_overview.png "コードのインストール (Install code)")
 
-チェーンコードは、まずピアのファイル・システムにインストールされてから、チャネルでインスタンス化されます。 詳しくは、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode)を参照してください。
+チェーンコードは、まずピアのファイル・システムにインストールされてから、チャネルでインスタンス化されます。 詳しくは、[チェーンコードのインストール、インスタンス化、および更新](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode)を参照してください。
 
 ## サンプルの試行
 {: #ibp-dashboard-samples}
 
-サンプル・アプリケーションは、ブロックチェーン・ネットワークとアプリケーション開発についての理解を深めるのに役立ちます。 サンプルの使用方法、およびサンプルの {{site.data.keyword.blockchainfull_notm}} Platform へのデプロイ方法を学習するには、**「GitHub の表示」**リンクに従ってください。 サンプルの開発およびデプロイ方法について詳しくは、[サンプル・アプリケーションのデプロイ](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications)を参照してください。
+サンプル・アプリケーションは、ブロックチェーン・ネットワークとアプリケーション開発についての理解を深めるのに役立ちます。 サンプルの使用方法、およびサンプルの {{site.data.keyword.blockchainfull_notm}} Platform へのデプロイ方法を学習するには、**「GitHub の表示」**リンクに従ってください。 サンプルの開発およびデプロイ方法について詳しくは、[サンプル・アプリケーションのデプロイ](/docs/services/blockchain/howto?topic=blockchain-deploying-sample-applications#deploying-sample-applications)を参照してください。
 
 **図 12** に「サンプルの試行」画面を示します。
 
@@ -235,10 +235,9 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 ### ブロックチェーンのリソースおよびサポート・フォーラム
 {: #ibp-dashboard-support-forums}
 
-「サポート」タブのリソースを使用して、問題のトラブルシューティングを行い、{{site.data.keyword.IBM_notm}} および Fabric コミュニティーから支援を受けます。 「サポート」タブのリンクについて詳しくは、[サポートについて](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support)の[リソースおよびサポート・フォーラム](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources)を参照してください。
+「サポート」タブのリソースを使用して、問題のトラブルシューティングを行い、{{site.data.keyword.IBM_notm}} および Fabric コミュニティーから支援を受けます。 「サポート」タブのリンクについて詳しくは、[サポートについて](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support)の[リソースおよびサポート・フォーラム](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)を参照してください。
 
-[{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} は {{site.data.keyword.blockchainfull_notm}} Platform と Hyperledger Fabric のユーザー向けのコミュニティー・フォーラムであり、{{site.data.keyword.IBM_notm}} の専門家によって監視されています。 過去に投稿された質問への回答を探したり、新しい質問を送信したりできます。 問題をデバッグできない場合や、疑問点の答を突き止めることができない場合は、{{site.data.keyword.cloud_notm}} サービス・ポータルでサポート Case を送信してください。 詳しくは、[サポート・ケースの送信](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases)を参照してください。
-
+問題をデバッグできない場合や、疑問点の答を突き止めることができない場合は、{{site.data.keyword.cloud_notm}} サービス・ポータルでサポート Case を送信してください。 詳しくは、[サポート・ケースの送信](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)を参照してください。
 
 ### Fabric のリリース・ノート
 {: #ibp-dashboard-release-notes}
@@ -280,7 +279,7 @@ CA について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platfor
 
 デフォルトでは、「相互 TLS (mutual TLS)」ボタンは**「オフ」**に設定されています。 相互 TLS を有効にする場合は、この機能をサポートするようにアプリケーションを更新する必要があります。 そうしないと、アプリケーションはネットワークと通信できません。
 
-Fabric 1.1 Enterprise Plan ネットワークの場合は、組織ごとに独自の相互 TLS 認証局 (CA) があります。 相互 TLS の CA に接続するために必要な情報は、ネットワーク・モニターの**「概要」**画面で**「接続プロファイル (Connection Profile)」**ボタンをクリックしてアクセスできる[接続プロファイル](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile)で確認できます。 接続プロファイルには、CA に接続し、ネットワークに接続するために必要な証明書を取得するための必須情報が含まれています。
+Fabric 1.1 Enterprise Plan ネットワークの場合は、組織ごとに独自の相互 TLS 認証局 (CA) があります。 相互 TLS の CA に接続するために必要な情報は、ネットワーク・モニターの**「概要」**画面で**「接続プロファイル (Connection Profile)」**ボタンをクリックしてアクセスできる[接続プロファイル](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile)で確認できます。 接続プロファイルには、CA に接続し、ネットワークに接続するために必要な証明書を取得するための必須情報が含まれています。
 
 接続プロファイルで `certificateAuthorities` セクションを見つけます。このセクションには、相互 TLS を使用してネットワークと通信するための証明書を登録および取得するために必要な以下の属性があります。
 
@@ -302,7 +301,7 @@ Before Enterprise Plan upgrades to Fabric v1.1, all network peers store data in 
 
 To use CouchDB, your data must be stored in a data format that can be modeled in chaincode, such as JSON. If the decision is made to migrate from LevelDB to CouchDB, the {{site.data.keyword.blockchainfull_notm}} Platform will migrate your data from key-value format to the CouchDB format automatically.
 
-If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc).
+If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc).
 
 -->
 

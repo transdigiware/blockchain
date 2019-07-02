@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform, remote peer, operate peers, AWS peer, AWS peers, necessary certificates, command line
 
@@ -19,23 +19,23 @@ subcollection: blockchain
 # AWS에서 피어 운영
 {: #remote-peer-aws-operate}
 
-AWS에 {{site.data.keyword.blockchainfull}} Platform 피어를 설정한 다음 여러 작업 단계를 완료해야 피어가 블록체인 네트워크의 원장을 조회하고 호출하기 위한 트랜잭션을 발행할 수 있습니다. 이 단계에는 채널에 조직을 추가하고 피어가 채널에 가입하며 피어에 체인코드를 설치하고 채널에서 체인코드를 인스턴스화하며 애플리케이션을 피어에 연결하는 단계가 포함됩니다. [Fabric SDK](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-with-sdk) 또는 [명령행](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-cli-operate)을 사용하여 이러한 작업 단계를 완료할 수 있습니다. 지시사항에서는 SDK 오퍼레이션에 익숙하다고 가정하지만 Fabric SDK 경로를 사용하는 것이 좋습니다.
+AWS에 {{site.data.keyword.blockchainfull}} Platform 피어를 설정한 다음 여러 작업 단계를 완료해야 피어가 블록체인 네트워크의 원장을 조회하고 호출하기 위한 트랜잭션을 발행할 수 있습니다. 이 단계에는 채널에 조직을 추가하고 피어가 채널에 가입하며 피어에 체인코드를 설치하고 채널에서 체인코드를 인스턴스화하며 애플리케이션을 피어에 연결하는 단계가 포함됩니다. [Fabric SDK](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-with-sdk) 또는 [명령행](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate)을 사용하여 이러한 작업 단계를 완료할 수 있습니다. 지시사항에서는 SDK 오퍼레이션에 익숙하다고 가정하지만 Fabric SDK 경로를 사용하는 것이 좋습니다.
 
-**참고**: AWS의 {{site.data.keyword.blockchainfull_notm}} Platform 피어에서는 {{site.data.keyword.blockchainfull_notm}} Platform에서 호스팅되는 피어의 전체 기능 또는 지원에 액세스할 권한이 없습니다. 따라서 네트워크 모니터를 사용하여 피어를 작동시킬 수 없습니다. AWS에서 피어 실행을 시작하기 전에 [고려사항](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-limitations)을 검토하십시오.
+**참고**: AWS의 {{site.data.keyword.blockchainfull_notm}} Platform 피어에서는 {{site.data.keyword.blockchainfull_notm}} Platform에서 호스팅되는 피어의 전체 기능 또는 지원에 액세스할 권한이 없습니다. 따라서 네트워크 모니터를 사용하여 피어를 작동시킬 수 없습니다. AWS에서 피어 실행을 시작하기 전에 [고려사항](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations)을 검토하십시오.
 
 ## Fabric SDK를 사용하여 피어 운영
 {: #remote-peer-aws-operate-with-sdk}
 
 Hyperledger Fabric SDK에서는 애플리케이션에서 블록체인 네트워크와 상호작용하고 운영하는 데 사용할 수 있는 강력한 API 세트를 제공합니다. 지원되는 최신 언어 목록과 사용 가능한 전체 API 목록은 [Hyperledger Fabric SDK 커뮤니티 문서](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}에서 찾을 수 있습니다. Fabric SDK를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 채널에 피어를 가입시키고 피어에 체인코드를 설치하며 채널에서 체인코드를 인스턴스화할 수 있습니다.
 
-다음 지시사항에서는 [Fabric Node SDK](https://fabric-sdk-node.github.io/){: external}를 사용하여 피어를 운영하고 이미 SDK에 익숙하다고 가정합니다. [애플리케이션 개발 튜토리얼](/docs/services/blockchain/v10_application.html#dev-app)은 시작하기 전에 Node SDK를 사용하는 방법을 알아보고 체인코드를 호출하여 조회할 준비가 되었을 때 피어로 애플리케이션을 개발하기 위한 안내서로 사용할 수 있습니다.
+다음 지시사항에서는 [Fabric Node SDK](https://fabric-sdk-node.github.io/){: external}를 사용하여 피어를 운영하고 이미 SDK에 익숙하다고 가정합니다.
 
-AWS 빠른 시작의 {{site.data.keyword.blockchainfull_notm}} Platform 피어는 고가용성을 위해 두 개의 피어를 작성합니다. 따라서 피어마다 해당 오퍼레이션 단계를 한 번씩 수행해야 합니다. 애플리케이션에서 체인코드를 조회하고 호출할 준비가 되면 [애플리케이션의 고가용성](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app)을 위해 SDK를 두 피어 모두에 연결하십시오.
+AWS 빠른 시작의 {{site.data.keyword.blockchainfull_notm}} Platform 피어는 고가용성을 위해 두 개의 피어를 작성합니다. 따라서 피어마다 해당 오퍼레이션 단계를 한 번씩 수행해야 합니다. 애플리케이션에서 체인코드를 조회하고 호출할 준비가 되면 [애플리케이션의 고가용성](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)을 위해 SDK를 두 피어 모두에 연결하십시오.
 
 ### Node SDK 설치
 {: #remote-peer-aws-operate-install-sdk}
 
-NPM을 사용하여 [Node SDK](https://fabric-sdk-node.github.io/){: external}를 설치할 수 있습니다. 
+NPM을 사용하여 [Node SDK](https://fabric-sdk-node.github.io/){: external}를 설치할 수 있습니다.
 ```
 npm install fabric-client@1.2
 ```
@@ -46,7 +46,7 @@ Node SDK 버전 1.2를 사용하는 것이 좋습니다.
 ### 피어에서 작동하도록 SDK 준비
 {: #remote-peer-aws-operate-sdk}
 
-SDK를 사용하여 피어를 운영하기 전에 애플리케이션이 {{site.data.keyword.blockchainfull_notm}} Platform과 피어에서 네트워크와 통신하는 데 필요한 인증서(등록)를 생성해야 합니다. **admin** ID를 사용하여 [SDK에 등록](/docs/services/blockchain/v10_application.html#dev-app-enroll-sdk)하는 단계를 수행하십시오. [애플리케이션 개발](/docs/services/blockchain/v10_application.html#dev-app) 튜토리얼에서도 **admin**으로 등록하므로 샘플 코드를 수정하지 않아도 됩니다.
+SDK를 사용하여 피어를 운영하기 전에 애플리케이션이 {{site.data.keyword.blockchainfull_notm}} Platform과 피어에서 네트워크와 통신하는 데 필요한 인증서(등록)를 생성해야 합니다. {{site.data.keyword.cloud_notm}}에서 인증 기관을 통해 등록된 **admin** ID를 사용하여 등록하려면 SDK를 사용하십시오. 
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform에 signcert 업로드
 {: #remote-peer-aws-operate-upload-SDK}
@@ -58,7 +58,7 @@ SDK를 사용하여 피어를 운영하기 전에 애플리케이션이 {{site.d
 ### 피어에 signcert 업로드
 {: #remote-peer-aws-operate-upload-signcert}
 
-또한 SDK의 서명 인증서를 원격 피어에 업로드한 후 다시 시작해야 합니다. 원격 피어 컨테이너 내부의 [{{site.data.keyword.blockchainfull_notm}} Platform에 업로드](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-upload-SDK)한 것과 동일한 서명 인증서를 설치해야 합니다.
+또한 SDK의 서명 인증서를 원격 피어에 업로드한 후 다시 시작해야 합니다. 원격 피어 컨테이너 내부의 [{{site.data.keyword.blockchainfull_notm}} Platform에 업로드](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-upload-SDK)한 것과 동일한 서명 인증서를 설치해야 합니다.
 
 AWS 콘솔에서 인스턴스를 선택(**서비스 > EC2 > 인스턴스** 클릭)한 다음 연결 단추를 클릭하여 VPC 인스턴스로 SSH를 실행하십시오. ssh 명령을 실행하려면 AWS의 지시사항을 준수하십시오.
 
@@ -74,7 +74,7 @@ echo -e "<CERT.PEM>" > cert2.pem
 
   **참고:** 파일 `cert.pem`이 있으면 이를 겹쳐쓰지 말고 새 파일(예: `cert2.pem`)을 작성하십시오.
 
-새 인증서를 추가했으므로 피어에서 인증서를 선택하도록 컨테이너를 다시 시작해야 합니다. 다음 [지시사항](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-restart)을 따라 피어를 다시 시작하십시오.
+새 인증서를 추가했으므로 피어에서 인증서를 선택하도록 컨테이너를 다시 시작해야 합니다. 다음 [지시사항](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-restart)을 따라 피어를 다시 시작하십시오.
 
 ### 피어의 TLS 인증서를 SDK에 전달
 {: #remote-peer-aws-operate-download-tlscert}
@@ -108,23 +108,23 @@ var peer = fabric_client.newPeer('grpcs://<AWS_EC2_dashboard_Public_DNS>:7051', 
 
 블록체인 네트워크의 구성원으로서 조직이 네트워크의 채널에 추가되어야 피어를 채널에 가입할 수 있습니다.
 
-  - 피어의 새 채널을 시작할 수 있습니다. 채널 개시자로서 [채널 작성](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel) 중에 조직을 자동으로 포함시킬 수 있습니다.
+  - 피어의 새 채널을 시작할 수 있습니다. 채널 개시자로서 [채널 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel) 중에 조직을 자동으로 포함시킬 수 있습니다.
 
-  - 블록체인 네트워크의 다른 멤버도 [채널 업데이트](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel)를 사용하여 기존 채널에 조직을 추가할 수 있습니다.
+  - 블록체인 네트워크의 다른 멤버도 [채널 업데이트](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)를 사용하여 기존 채널에 조직을 추가할 수 있습니다.
 
     채널에 조직을 추가하고 나면 다른 구성원이 트랜잭션 중에 디지털 서명을 확인할 수 있도록 피어의 서명 인증서를 채널에 추가해야 합니다. 피어에서 설치 중에 서명 인증서를 업로드하므로 사용자는 채널에 인증서를 동기화하기만 하면 됩니다. 네트워크 모니터의 "화면" 채널에서 조직이 가입하는 채널을 찾고 **조치** 헤더의 드롭 다운 목록에서 **인증서 동기화**를 선택하십시오. 이 조치는 채널에 있는 피어 전체에서 인증서를 동기화합니다. 채널 가입 명령을 실행하기 전에 채널 동기화가 완료되도록 몇 분 동안 기다려야 합니다.
 
-조직이 채널의 일부이면 [채널 가입](/docs/services/blockchain/v10_application.html#dev-app-join-channel-sdk)의 지시사항을 따르십시오. 순서 지정 서비스의 URL과 채널 이름을 제공해야 합니다.
+조직이 채널의 멤버가 되면 SDK를 사용하여 [피어를 채널에 가입](https://fabric-sdk-node.github.io/release-1.4/Channel.html#joinChannel){: external}시킬 수 있습니다. 순서 지정 서비스의 URL과 채널 이름을 제공해야 합니다.
 
 ### SDK를 사용하여 피어에 체인코드 설치
 {: #remote-peer-aws-operate-install-cc-sdk}
 
-SDK를 사용하여 피어에 [체인코드를 설치](/docs/services/blockchain/v10_application.html#dev-app-install-cc-sdk)하려면 다음 지시사항을 준수하십시오.
+SDK를 사용하여 피어에 [체인코드를 설치](https://fabric-sdk-node.github.io/release-1.4/Client.html#installChaincode){: external}하십시오. 
 
 ### SDK를 사용하여 채널에서 체인코드 인스턴스화
 {: #remote-peer-aws-operate-instantiate-cc-sdk}
 
-채널의 한 멤버만 체인코드를 인스턴스화하거나 업데이트하면 됩니다. 따라서 {{site.data.keyword.blockchainfull_notm}} Platform에 피어가 있는 채널의 네트워크 구성원이 네트워크 모니터를 사용하여 체인코드를 인스턴스화하고 인증 정책을 지정할 수 있습니다. 그러나 피어를 사용하여 채널에서 체인코드를 인스턴스화하려면 SDK를 사용하고 지시사항에 따라 [체인코드를 인스턴스화](/docs/services/blockchain/v10_application.html#dev-app-instantiate-cc-sdk)할 수 있습니다.
+채널의 한 멤버만 체인코드를 인스턴스화하거나 업데이트하면 됩니다. 따라서 {{site.data.keyword.blockchainfull_notm}} Platform에 피어가 있는 채널의 네트워크 구성원이 네트워크 모니터를 사용하여 체인코드를 인스턴스화하고 인증 정책을 지정할 수 있습니다. 그러나 피어를 사용하여 채널에서 체인코드를 인스턴스화하려면 SDK를 사용하여 [체인코드를 인스턴스화](https://fabric-sdk-node.github.io/release-1.4/Channel.html#sendInstantiateProposal){: external}할 수 있습니다.
 
 
 ## CLI를 사용하여 피어 운영
@@ -135,7 +135,7 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 ### Fabric CA Client를 사용하여 등록
 {: #remote-peer-aws-operate-client-enroll}
 
-첫 번째 단계에서는 Fabric CA Client를 사용하여 필요한 인증서(등록)를 생성합니다. 먼저 Fabric CA Client를 설치해야 합니다. [플랫폼에 대한 fabric-ca 바이너리 v1.2.1](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/){: external}을 로컬 시스템에 다운로드하여 압축을 푼 다음 `$HOME/fabric-ca-remote/` 등의 폴더로 이동하십시오. 
+첫 번째 단계에서는 Fabric CA Client를 사용하여 필요한 인증서(등록)를 생성합니다. 먼저 Fabric CA Client를 설치해야 합니다. [플랫폼에 대한 fabric-ca 바이너리 v1.2.1](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/){: external}을 로컬 시스템에 다운로드하여 압축을 푼 다음 `$HOME/fabric-ca-remote/` 등의 폴더로 이동하십시오.
 
 1.  Fabric CA Client를 사용하도록 환경을 준비하십시오. 명령에서 직접 참조할 수 있도록 클라이언트 바이너리 파일을 이동한 디렉토리로 변경하십시오.
     ```
@@ -208,10 +208,9 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 ### 로컬 시스템에서 인증서 관리
 {: #remote-peer-aws-operate-manage-certs}
 
-로컬 시스템에서 인증서를 관리하고 Fabric CA Client에서 생성한 인증서를 {{site.data.keyword.blockchainfull_notm}} Platform과 피어에 업로드해야 피어를 운영할 수 있습니다. Platform과 피어에서 TLS 인증서도 다운로드해야 합니다. 작업할 인증서와 수행할 작업에 관한
-자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain/certificates.html#managing-certificates)를 참조하십시오.
+로컬 시스템에서 인증서를 관리하고 Fabric CA Client에서 생성한 인증서를 {{site.data.keyword.blockchainfull_notm}} Platform과 피어에 업로드해야 피어를 운영할 수 있습니다. Platform과 피어에서 TLS 인증서도 다운로드해야 합니다. 작업할 인증서와 수행할 작업에 관한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates)를 참조하십시오.
 
-로컬 시스템에서 명령 터미널을 열고 Fabric-CA-Client 바이너리 파일을 이동하고 MSP 폴더를 저장한 디렉토리로 이동합니다.
+로컬 시스템에서 명령 터미널을 열고 Fabric-CA-Client 2진 파일을 이동하고 MSP 폴더를 저장한 디렉토리로 이동합니다.
 
 1. `cert.pem` 파일을 `signcerts` 폴더에서 새 `admincerts` 폴더로 복사하십시오.
    ```
@@ -233,7 +232,7 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 
 3. 또한 피어의 TLS 인증서를 AWS의 피어 컨테이너에서 로컬 시스템으로 복사해야 합니다.
 
-    - [이 지시사항을 준수](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-test)하여 피어 컨테이너에 로그인하고 해당 번호가 뒤에 오는 빠른 시작 템플리트에 지정한 피어의 스택 이름으로 <PEER_ENROLL_ID>를 대체하는 다음 명령을 실행하십시오. (두 개의 VPC 인스턴스가 작성됨을 상기하십시오.)
+    - [이 지시사항을 준수](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-test)하여 피어 컨테이너에 로그인하고 해당 번호가 뒤에 오는 빠른 시작 템플리트에 지정한 피어의 스택 이름으로 <PEER_ENROLL_ID>를 대체하는 다음 명령을 실행하십시오. (두 개의 VPC 인스턴스가 작성됨을 상기하십시오.)
       ```
       cat /etc/hyperledger/<PEER_ENROLL_ID>/tls/ca.crt
       ```
@@ -274,7 +273,7 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 
       **참고:** cert.pem 파일이 이미 이 디렉토리에 있습니다. 해당 파일을 겹쳐쓰지 마십시오.
 
-    - 새 인증서를 추가했으므로 피어에서 인증서를 선택하도록 컨테이너를 다시 시작해야 합니다. 다음 지시사항을 따라 [피어 컨테이너를 다시 시작](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-restart)하십시오.
+    - 새 인증서를 추가했으므로 피어에서 인증서를 선택하도록 컨테이너를 다시 시작해야 합니다. 다음 지시사항을 따라 [피어 컨테이너를 다시 시작](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-restart)하십시오.
 
 5. 원격 CLI나 애플리케이션에서 채널 최초 블록을 페칭하고 체인코드를 인스턴스화하는 등의 채널 오퍼레이션을 수행하려면 동일한 `admincert/cert.pem` 인증서를 로컬 시스템에서 {{site.data.keyword.blockchainfull_notm}} Platform으로 업로드하십시오.
     1. 로컬 시스템에서 `/$FABRIC_CA_CLIENT_HOME/msp/admincerts/cert.pem` 파일을 카탈로그화한 다음 클립보드에 복사하십시오.
@@ -291,7 +290,7 @@ Fabric CA Client 및 Fabric 도구 컨테이너를 사용하여 명령행에서 
 ### Fabric 도구 컨테이너 설정
 {: #remote-peer-aws-operate-fabric-cli}
 
-모든 인증서를 필요한 위치로 옮기면 Docker의 Fabric 도구 컨테이너를 설치하고 사용할 수 있습니다. 이러한 명령은 시스템에서 로컬로 실행됩니다. 사용자의 MSP 폴더를 저장한 디렉토리에서 이러한 명령을 실행했는지 확인하십시오. 이러한 단계를 완료하려면 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}이 로컬 시스템에 설치되어 있어야 합니다.    
+모든 인증서를 필요한 위치로 옮기면 Docker의 Fabric 도구 컨테이너를 설치하고 사용할 수 있습니다. 이러한 명령은 시스템에서 로컬로 실행됩니다. 사용자의 MSP 폴더를 저장한 디렉토리에서 이러한 명령을 실행했는지 확인하십시오. 이러한 단계를 완료하려면 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}이 로컬 시스템에 설치되어 있어야 합니다.   
 
 다음 명령을 사용하여 Fabric 도구 Docker 이미지를 다운로드하십시오.
 
@@ -340,9 +339,9 @@ docker run -ti --network blockchain.com -v ${PWD}:/mnt -v path/to/toolsrc:/src i
 
 네트워크의 채널에 조직을 추가해야 피어를 채널에 가입시키는 CLI 명령을 실행할 수 있습니다.
 
-  - 피어의 새 채널을 시작할 수 있습니다. 채널 개시자로서 [채널 작성](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel) 중에 조직을 자동으로 포함시킬 수 있습니다.
+  - 피어의 새 채널을 시작할 수 있습니다. 채널 개시자로서 [채널 작성](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel) 중에 조직을 자동으로 포함시킬 수 있습니다.
 
-  - 블록체인 네트워크의 다른 멤버도 [채널 업데이트](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel)를 사용하여 기존 채널에 조직을 추가할 수 있습니다.
+  - 블록체인 네트워크의 다른 멤버도 [채널 업데이트](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)를 사용하여 기존 채널에 조직을 추가할 수 있습니다.
 
     채널에 조직을 추가하고 나면 다른 구성원이 트랜잭션 중에 디지털 서명을 확인할 수 있도록 피어의 서명 인증서를 채널에 추가해야 합니다. 피어에서 설치 중에 서명 인증서를 업로드하므로 사용자는 채널에 인증서를 동기화하기만 하면 됩니다. 네트워크 모니터의 "화면" 채널에서 조직이 가입하는 채널을 찾고 **조치** 헤더의 드롭 다운 목록에서 **인증서 동기화**를 선택하십시오. 이 조치는 채널에 있는 피어 전체에서 인증서를 동기화합니다.
 
@@ -386,7 +385,7 @@ docker run -ti --network blockchain.com -v ${PWD}:/mnt -v path/to/toolsrc:/src i
       - `<ORGANIZATION_MSP_ID>`를 `creds.json` 파일의 조직 이름으로 바꾸십시오.
       - `<PEER_ADDR>`을 이전 단계에서 구성한 값으로 바꾸십시오.  
 
-  예를 들면 다음과 같습니다.
+  예를 들어, 다음과 같습니다.
 
     ```
     export ORDERER_1=ash-zbc07b.4.secure.blockchain.ibm.com:21239
@@ -445,7 +444,7 @@ docker run -ti --network blockchain.com -v ${PWD}:/mnt -v path/to/toolsrc:/src i
 ### Fabric 도구 컨테이너를 사용하여 피어에 체인코드 설치
 {: #aws-toolcontainer-install-cc}
 
-이제 피어에 체인코드를 설치하고 인스턴스화할 준비가 되었습니다. 이러한 지시사항을 위해 [Fabric 도구 컨테이너를 설정](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-cli-operate)할 때 로컬 시스템에 이미 다운로드했어야 하는 Hyperledger `fabric-samples` 저장소에서 `fabcar` 체인코드를 설치합니다.  
+이제 피어에 체인코드를 설치하고 인스턴스화할 준비가 되었습니다. 이러한 지시사항을 위해 [Fabric 도구 컨테이너를 설정](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate)할 때 로컬 시스템에 이미 다운로드했어야 하는 Hyperledger `fabric-samples` 저장소에서 `fabcar` 체인코드를 설치합니다.  
 
 다음 피어 CLI 명령을 실행하여 `fabcar` 체인코드를 피어에 설치하십시오.
 
@@ -494,7 +493,7 @@ CORE_PEER_TLS_ROOTCERT_FILE=/mnt/msp/tls/cacert.pem CORE_PEER_TLS_ENABLED=true C
  ```
  {:codeblock}  
 
-또한 [HEAD 요청](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network-monitor-nodes)을 사용하여 피어의 가용성을 확인할 수 있습니다.
+또한 [HEAD 요청](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-nodes)을 사용하여 피어의 가용성을 확인할 수 있습니다.
 
 ## 피어 로그 보기
 
@@ -516,7 +515,7 @@ docker logs peer
 
 2. 채널의 모든 피어에 새 체인코드를 설치한 다음 네트워크 모니터 또는 [피어 체인코드 업그레이드](https://hyperledger-fabric.readthedocs.io/en/release-1.2/commands/peerchaincode.html#peer-chaincode-upgrade){: external} 명령을 사용하여 새 체인코드를 사용하도록 채널을 업데이트하십시오.
 
-네트워크 모니터의 코드 설치 패널을 사용하여 채널에서 체인코드를 업데이트하는 데 관한 자세한 정보는 해당 [지시사항](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) 중 2단계를 참조하십시오.
+네트워크 모니터의 코드 설치 패널을 사용하여 채널에서 체인코드를 업데이트하는 데 관한 자세한 정보는 해당 [지시사항](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc) 중 2단계를 참조하십시오.
 
 ## 문제점 해결
 {: #remote-peer-aws-operate-troubleshooting}
@@ -544,4 +543,4 @@ Error: Error endorsing chaincode: rpc error: code = Unknown desc = chaincode err
 ```
 
 **솔루션:**   
-관리자 인증서가 네트워크 모니터에 업로드된 후 해당 인증서가 채널에서 동기화되었는지 확인하십시오. 자세한 정보는 이 [지시사항](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate-manage-certs)의 5단계를 참조하십시오. 피어가 채널에 가입하기 전에 채널 인증서를 동기화하는 것이 중요하다는 점에 유의하십시오.
+관리자 인증서가 네트워크 모니터에 업로드된 후 해당 인증서가 채널에서 동기화되었는지 확인하십시오. 자세한 정보는 이 [지시사항](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-manage-certs)의 5단계를 참조하십시오. 피어가 채널에 가입하기 전에 채널 인증서를 동기화하는 것이 중요하다는 점에 유의하십시오.

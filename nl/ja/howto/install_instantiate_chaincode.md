@@ -40,7 +40,7 @@ subcollection: blockchain
 
 2. **「チェーンコードのインストール (Install Chaincode)」**ポップアップ・パネルで、チェーンコードの名前とバージョンを入力します。 この名前とバージョンのストリングは、インストールされたチェーンコードと対話するためにアプリケーションで使用されることに**注意**してください。 **「参照」**ボタンをクリックし、ローカル・ファイル・システム内でチェーンコード・ソース・ファイルが格納されている場所にナビゲートします。 ピアにインストールするチェーンコードのソース・ファイルを 1 つ以上選択します。 次に、**「チェーンコード・タイプ (Chaincode Type)」**ドロップダウンからチェーンコード言語を選択します。
 
-1 つまたは複数の GO あるいは NODE ファイルをアップロードすることによってチェーンコードをインストールするか、.zip ファイルに含めてチェーンコードをアップロードすることができます。 .zip ファイルを使用すると、チェーンコードが完全なディレクトリー構造で保持されます。 このことは、従属関係のパッケージを含めたり、CouchDB で索引を使用したりする場合に役立ちます。 CouchDB について、および索引のセットアップ方法について詳しくは、アプリケーションの開発チュートリアルの [CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices)を参照してください。 Hyperledger Fabric の資料で、[GO で作成されたチェーンコードの外部依存関係の管理](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external}に関する情報を参照することもできます。
+1 つまたは複数の GO あるいは NODE ファイルをアップロードすることによってチェーンコードをインストールするか、.zip ファイルに含めてチェーンコードをアップロードすることができます。 .zip ファイルを使用すると、チェーンコードが完全なディレクトリー構造で保持されます。 このことは、従属関係のパッケージを含めたり、CouchDB で索引を使用したりする場合に役立ちます。 CouchDB について、および索引のセットアップ方法について詳しくは、アプリケーションの開発チュートリアルの [CouchDB を使用する場合のベスト・プラクティス](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)を参照してください。 Hyperledger Fabric の資料で、[GO で作成されたチェーンコードの外部依存関係の管理](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external}に関する情報を参照することもできます。
 
   ![チェーンコードのインストール](../images/chaincode_install.png "チェーンコードのインストール")
 
@@ -61,7 +61,7 @@ subcollection: blockchain
   ![Instantiate Chaincode panel](../images/chaincode_instantiate_panel.png "Instantiate Chaincode panel")
 -->
 
-3. チェーンコードの[エンドースメント・ポリシー](/docs/services/blockchain/glossary.html#glossary-endorsement-policy)を指定します。 エンドースメント・ポリシーを設定する方法について詳しくは、[次のセクション](#install-instantiate-chaincode-endorsement-policy)を参照してください。
+3. チェーンコードの[エンドースメント・ポリシー](/docs/services/blockchain?topic=blockchain-glossary#glossary-endorsement-policy)を指定します。 エンドースメント・ポリシーを設定する方法について詳しくは、[次のセクション](#install-instantiate-chaincode-endorsement-policy)を参照してください。
 
 
 ## チェーンコードのエンドースメント・ポリシーの指定
@@ -69,7 +69,7 @@ subcollection: blockchain
 
 エンドースメント・ポリシーを使用して、新規トランザクションを検証する必要のあるピアのセットを指定できます。 例えば、エンドースメント・ポリシーで、チャネルのメンバーの大多数がトランザクションを承認する場合にのみそのトランザクションが台帳に追加されることを指定できます。
 
-エンドースメント・ポリシーは、チャネルでチェーンコードがインスタンス化されるときに設定されます。 チェーンコードをインスタンス化する組織は、チェーンコードをインストールしたチャネル・メンバーの中からどのメンバーがバリデーターになるのかを選択でき、すべてのチャネル・メンバーのエンドースメント・ポリシーを設定します。 [チェーンコードの更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc)のステップに従い、2 つ目のステップでチェーンコードを再インスタンス化する際に新規ポリシーを指定することによって、エンドースメント・ポリシーを更新することができます。
+エンドースメント・ポリシーは、チャネルでチェーンコードがインスタンス化されるときに設定されます。 チェーンコードをインスタンス化する組織は、チェーンコードをインストールしたチャネル・メンバーの中からどのメンバーがバリデーターになるのかを選択でき、すべてのチャネル・メンバーのエンドースメント・ポリシーを設定します。 [チェーンコードの更新](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc)のステップに従い、2 つ目のステップでチェーンコードを再インスタンス化する際に新規ポリシーを指定することによって、エンドースメント・ポリシーを更新することができます。
 
 ネットワーク・モニターを使用してエンドースメント・ポリシーを設定する場合、UI を使用して**単純ポリシー**を指定するか、または JSON を使用して**拡張ポリシー**を指定することができます。
 
@@ -90,7 +90,7 @@ subcollection: blockchain
 
 チェーンコードを更新して、台帳上の資産との関係を維持しながら、チェーンコードのプログラミングを変更することができます。 インストールとインスタンス化は結びついているため、このチェーンコードを使用してチャネル上のすべてのピアでチェーンコードを更新する必要があります。 チェーンコードを更新するには、以下の手順を実行します。
 
-1. 古いチェーンコードと同じ名前で別のバージョンのチェーンコードをインストールします。 [チェーンコードのインストール](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc)と同じ手順に従うことができます。 元のチェーンコードと同じチャネルを選択してください。
+1. 古いチェーンコードと同じ名前で別のバージョンのチェーンコードをインストールします。 [チェーンコードのインストール](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc)と同じ手順に従うことができます。 元のチェーンコードと同じチャネルを選択してください。
 
   ![チェーンコードの更新](../images/upgrade_chaincode.png "チェーンコードの更新")
 

@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2805px"
+   height="1295px"
+   viewBox="0 0 2805 1295"
+   version="1.1"
+   id="svg278"
+   sodipodi:docname="HA_Diagram-1.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata284">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs282" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview280"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="1.2663102"
+     inkscape:cx="1451.4699"
+     inkscape:cy="1016.2282"
+     inkscape:window-x="-9"
+     inkscape:window-y="51"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg278">
+    <sodipodi:guide
+       position="1002.9139,630.96706"
+       orientation="1,0"
+       id="guide606"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="1092.9392,585.95439"
+       orientation="1,0"
+       id="guide608"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+  <title
+     id="title2">IBP_Deployment 2 Copy</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <rect
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="rect6"
+     height="1295"
+     width="2805"
+     y="0"
+     x="0" />
+  <text
+     style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="500"
+     font-size="37.07"
+     id="IBM-Blockchain-Platf">
+    <tspan
+       id="tspan8"
+       y="409"
+       x="887.89697">Console IBM Blockchain Platform</tspan>
+  </text>
+  <text
+     style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="500"
+     font-size="37.07"
+     id="text13">
+    <tspan
+       id="tspan11"
+       y="866"
+       x="787.3421">Extension IBM Blockchain Platform pour VS Code</tspan>
+  </text>
+  <polygon
+     id="XMLID_12_"
+     points="1047.4962,1278 1047.4962,1244.7861 0,1244.7861 0,1178.2139 1047.4962,1178.2139 1047.4962,1145 1081,1211.4278 "
+     style="fill:#f2f5f7;fill-rule:evenodd;stroke:#5b6872;stroke-width:1.5"
+     transform="translate(862,9)" />
+  <text
+     id="Increasing-Blockchai"
+     font-size="20"
+     font-weight="normal"
+     style="font-weight:normal;font-size:20px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1142"
+       y="1223"
+       id="tspan16">Augmentation de la haute disponibilité de la blockchain</tspan>
+  </text>
+  <path
+     d="M 1320.6987,1148 H 879.15831 C 869.72124,1148 862,1140.9125 862,1132.2499 V 226.7501 C 862,218.08755 869.72124,211 879.15831,211 h 441.68339 c 9.4371,0 17.1583,7.08755 17.1583,15.7501 v 905.4998 c -0.143,8.6626 -7.8642,15.7501 -17.3013,15.7501 z"
+     id="XMLID_306_"
+     inkscape:connector-curvature="0"
+     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1" />
+  <path
+     d="M 1297.8171,1121 H 903.18291 C 893.73231,1121 886,1113.9642 886,1105.3648 V 296.63518 C 886,288.03583 893.73231,281 903.18291,281 h 394.63419 c 9.4506,0 17.1829,7.03583 17.1829,15.63518 v 808.72962 c 0,8.5994 -7.7323,15.6352 -17.1829,15.6352 z"
+     id="XMLID_305_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="M 1275.7143,1092 H 923.14286 C 913.71429,1092 906,1084.6478 906,1075.6619 V 322.33813 C 906,313.35216 913.71429,306 923.14286,306 h 352.71424 c 9.4286,0 17.1429,7.35216 17.1429,16.33813 v 753.32377 c -0.1429,8.9859 -7.8571,16.3381 -17.2857,16.3381 z"
+     id="XMLID_304_"
+     inkscape:connector-curvature="0"
+     style="fill:none;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" />
+  <path
+     d="M 1246.8646,1058 H 952.13542 C 942.71094,1058 935,1050.2535 935,1040.7856 V 422.21441 C 935,412.74648 942.71094,405 952.13542,405 h 294.72918 c 9.4245,0 17.1354,7.74648 17.1354,17.21441 v 618.42769 c 0,9.6114 -7.7109,17.3579 -17.1354,17.3579 z"
+     id="XMLID_303_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1" />
+  <path
+     d="M 1231.8054,1035 H 981.19457 C 971.73756,1035 964,1027.2716 964,1017.8257 V 506.17431 C 964,496.72844 971.73756,489 981.19457,489 h 250.61083 c 9.457,0 17.1946,7.72844 17.1946,17.17431 v 511.65139 c 0,9.4459 -7.7376,17.1743 -17.1946,17.1743 z"
+     id="XMLID_302_"
+     inkscape:connector-curvature="0"
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_298_"
+     transform="translate(934,422)">
+    <rect
+       id="XMLID_39_"
+       x="0.42857143"
+       y="9.4409275"
+       width="329.14285"
+       height="33.329334" />
+    <text
+       id="Worker-Pool"
+       font-size="24.0721"
+       font-weight="normal"
+       style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#000000">
+      <tspan
+         x="70.539856"
+         y="24.631969"
+         id="tspan25">Pool worker</tspan>
+    </text>
+  </g>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_292_"
+     transform="translate(947,221)">
+    <rect
+       id="XMLID_38_"
+       x="0.28465116"
+       y="10.571428"
+       width="305.43069"
+       height="48.57143" />
+    <text
+       id="Region-1"
+       font-size="24.0721"
+       font-weight="normal"
+       style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#ffffff">
+      <tspan
+         x="86.818604"
+         y="24"
+         id="tspan30">Région</tspan>
+      <tspan
+         x="163.10178"
+         y="24"
+         id="tspan32">1</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_291_"
+     x="981"
+     y="608"
+     width="238"
+     height="34" />
+  <text
+     id="XMLID_290_"
+     font-size="24.0721"
+     font-weight="normal"
+     style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1004"
+       y="538"
+       id="tspan37">Noeud worker</tspan>
+  </text>
+  <text
+     id="Single-Cluster"
+     font-size="24.0721"
+     font-weight="normal"
+     style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1000"
+       y="361"
+       id="tspan40">Cluster unique</tspan>
+  </text>
+  <path
+     d="m 1211.946,651 h -71.8919 C 1136.7243,651 1134,644.8656 1134,637.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
+     id="XMLID_279_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_25_"
+     x="976"
+     y="903"
+     width="235"
+     height="54" />
+  <text
+     id="Ordering-Node-1"
+     font-size="10.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:10.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="848"
+     y="9">
+    <tspan
+       x="1140.4106"
+       y="599"
+       id="tspan45"
+       style="font-size:12.06933308px">Noeud de tri 1</tspan>
+  </text>
+  <path
+     d="M 1879.8417,1148 H 1438.1583 C 1428.7212,1148 1421,1140.8055 1421,1132.0122 V 24.987835 C 1421,16.194526 1428.7212,9 1438.1583,9 h 441.6834 C 1889.2788,9 1897,16.194526 1897,24.987835 V 1131.8789 c 0,8.9266 -7.7212,16.1211 -17.1583,16.1211 z"
+     id="XMLID_272_"
+     inkscape:connector-curvature="0"
+     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1" />
+  <path
+     d="M 1857.9584,1121 H 1463.1828 C 1453.7323,1121 1446,1113.845 1446,1105.0999 V 107.90008 C 1446,99.155035 1453.7323,92 1463.1828,92 h 394.6324 c 9.4506,0 17.1828,7.155035 17.1828,15.90008 v 997.19982 c 0.1432,8.7451 -7.589,15.9001 -17.0396,15.9001 z"
+     id="XMLID_271_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="M 1834.8571,1092 H 1482.1429 C 1472.7143,1092 1465,1084.4752 1465,1075.2781 V 132.72187 C 1465,123.52484 1472.7143,116 1482.1429,116 h 352.7142 c 9.4286,0 17.1429,7.52484 17.1429,16.72187 v 942.69563 c 0,9.0577 -7.7143,16.5825 -17.1429,16.5825 z"
+     id="XMLID_270_"
+     inkscape:connector-curvature="0"
+     style="fill:none;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" />
+  <path
+     d="M 1806.8646,1058 H 1512.1354 C 1502.7109,1058 1495,1050.2732 1495,1040.8292 V 284.17077 C 1495,274.72685 1502.7109,267 1512.1354,267 h 294.7292 c 9.4245,0 17.1354,7.72685 17.1354,17.17077 v 756.65843 c 0,9.444 -7.7109,17.1708 -17.1354,17.1708 z"
+     id="XMLID_269_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_265_"
+     transform="translate(1494,275)">
+    <rect
+       id="XMLID_24_"
+       x="0.71428573"
+       y="8.7849464"
+       width="329.14285"
+       height="33.217113" />
+    <text
+       id="text59"
+       font-size="24.0721"
+       font-weight="normal"
+       style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#000000">
+      <tspan
+         x="70.854431"
+         y="24.022329"
+         id="tspan57">Pool worker</tspan>
+    </text>
+  </g>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_264_"
+     x="1518"
+     y="114"
+     width="283"
+     height="49" />
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_259_"
+     transform="translate(1505,29)">
+    <rect
+       id="XMLID_23_"
+       x="0.56930232"
+       y="10.177357"
+       width="305.43069"
+       height="48.736637" />
+    <text
+       id="text66"
+       font-size="24.0721"
+       font-weight="normal"
+       style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#ffffff">
+      <tspan
+         x="81.12558"
+         y="24"
+         id="tspan64">Région 1</tspan>
+    </text>
+  </g>
+  <path
+     d="M 1785.8054,545 H 1535.1946 C 1525.7376,545 1518,537.30705 1518,527.90456 V 356.09544 C 1518,346.69295 1525.7376,339 1535.1946,339 h 250.6108 c 9.457,0 17.1946,7.69295 17.1946,17.09544 V 527.90456 C 1803,537.30705 1795.2624,545 1785.8054,545 Z"
+     id="XMLID_258_"
+     inkscape:connector-curvature="0"
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_257_"
+     x="1542"
+     y="460"
+     width="238"
+     height="34" />
+  <text
+     id="XMLID_256_"
+     font-size="24.0721"
+     font-weight="normal"
+     style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1546"
+       y="390"
+       id="tspan71">Noeud worker 1</tspan>
+  </text>
+  <path
+     d="m 1609.6667,499 h -63.3334 C 1543.4,499 1541,492.8656 1541,485.368 v -43.736 c 0,-7.4976 2.4,-13.632 5.3333,-13.632 h 63.3334 c 2.9333,0 5.3333,6.1344 5.3333,13.632 v 43.736 c 0,7.4976 -2.4,13.632 -5.3333,13.632 z"
+     id="XMLID_255_"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="m 1696.1622,499 h -69.3244 C 1623.627,499 1621,492.8656 1621,485.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
+     id="path75"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="m 1785.1622,499 h -69.3244 C 1712.627,499 1710,492.8656 1710,485.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
+     id="path77"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_22_"
+     x="1543"
+     y="448"
+     width="235"
+     height="54" />
+  <text
+     id="Peer-1"
+     font-size="12.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1551"
+       y="458"
+       id="tspan80">Homologue 1</tspan>
+  </text>
+  <text
+     id="Org-1"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933333px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1560"
+       y="474"
+       id="tspan83">Org 1</tspan>
+  </text>
+  <text
+     id="Peers"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706699;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="844"
+     y="9">
+    <tspan
+       x="1626"
+       y="474"
+       id="tspan86">Homologues</tspan>
+  </text>
+  <path
+     d="m 1087.3684,651 h -77.5265 c -3.5907,0 -6.5286,-6.1344 -6.5286,-13.632 v -43.736 c 0,-7.4976 2.9379,-13.632 6.5286,-13.632 h 77.5265 c 3.5907,0 6.5286,6.1344 6.5286,13.632 v 43.736 c 0,7.4976 -2.9379,13.632 -6.5286,13.632 z"
+     id="path89"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1.10639179" />
+  <text
+     id="text93"
+     font-size="12.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="850"
+     y="9">
+    <tspan
+       x="1013"
+       y="610"
+       id="tspan91">Homologue 1</tspan>
+  </text>
+  <text
+     id="text97"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:9.06999969px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1032"
+       y="626"
+       id="tspan95"
+       style="font-size:12.06933308px">Org 1</tspan>
+  </text>
+  <text
+     id="(Raft)"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:9.06999969px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1160"
+       y="634"
+       id="tspan99"
+       style="font-size:12.06933308px">(Raft)</tspan>
+  </text>
+  <text
+     id="text104"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933333px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1736"
+       y="480"
+       id="tspan102">(Raft)</tspan>
+  </text>
+  <path
+     d="m 1212.946,736 h -71.8919 C 1137.7243,736 1135,729.8656 1135,722.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
+     id="path106"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <text
+     id="Ordering-Node-2"
+     font-size="10.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:10.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="846"
+     y="9">
+    <tspan
+       x="1140.4106"
+       y="683"
+       id="tspan108"
+       style="font-size:12.06933308px">Noeud de tri 2</tspan>
+  </text>
+  <text
+     id="text117"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1161"
+       y="718"
+       id="tspan115">(Raft)</tspan>
+  </text>
+  <path
+     d="m 1211.946,819 h -71.8919 C 1136.7243,819 1134,812.8656 1134,805.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
+     id="path119"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <text
+     id="Ordering-Node-3"
+     font-size="10.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1154.4106"
+       y="770"
+       id="tspan121">Noeud de</tspan>
+    <tspan
+       x="1156.3652"
+       y="782"
+       id="tspan123">tri 3</tspan>
+    <tspan
+       x="1191.6348"
+       y="782"
+       font-size="19.07"
+       id="tspan125"
+       style="font-size:19.06999969px" />
+  </text>
+  <text
+     id="text130"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1160"
+       y="803"
+       id="tspan128">(Raft)</tspan>
+  </text>
+  <path
+     d="m 1211.946,905 h -71.8919 C 1136.7243,905 1134,898.8656 1134,891.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
+     id="path132"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <text
+     id="Ordering-Node-4"
+     font-size="10.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1154.4106"
+       y="855"
+       id="tspan134">Noeud de</tspan>
+    <tspan
+       x="1156.3652"
+       y="867"
+       id="tspan136">tri 4</tspan>
+    <tspan
+       x="1191.6348"
+       y="867"
+       font-size="19.07"
+       id="tspan138"
+       style="font-size:19.06999969px" />
+  </text>
+  <text
+     id="text143"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1160"
+       y="889"
+       id="tspan141">(Raft)</tspan>
+  </text>
+  <path
+     d="m 1211.946,995 h -71.8919 C 1136.7243,995 1134,988.8656 1134,981.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
+     id="path145"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <text
+     id="Ordering-Node-5"
+     font-size="10.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1154.4106"
+       y="944"
+       id="tspan147">Noeud de</tspan>
+    <tspan
+       x="1156.3652"
+       y="956"
+       id="tspan149">tri 5</tspan>
+    <tspan
+       x="1191.6348"
+       y="956"
+       font-size="19.07"
+       id="tspan151"
+       style="font-size:19.06999969px" />
+  </text>
+  <text
+     id="text156"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1160"
+       y="979"
+       id="tspan154">(Raft)</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1.07670403"
+     inkscape:connector-curvature="0"
+     id="path158"
+     d="m 1084.4974,736 h -73.4218 c -3.4006,0 -6.1829,-6.1344 -6.1829,-13.632 v -43.736 c 0,-7.4976 2.7823,-13.632 6.1829,-13.632 h 73.4218 c 3.4006,0 6.1829,6.1344 6.1829,13.632 v 43.736 c 0,7.4976 -2.7823,13.632 -6.1829,13.632 z" />
+  <text
+     style="font-weight:normal;font-size:12.57014179px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1.04143679"
+     font-weight="normal"
+     font-size="12.07"
+     id="Peer-2"
+     transform="scale(1.0414368,0.9602119)"
+     x="957.22827"
+     y="692.55548">
+    <tspan
+       id="tspan160"
+       y="724.71503"
+       x="970.56671"
+       style="stroke-width:1.04143679">Homologue 2</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:12.56944752px;font-family:Helvetica;opacity:0.51706699;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1.04143679"
+     font-weight="normal"
+     font-size="9.07"
+     id="text165"
+     transform="scale(1.0414368,0.9602119)"
+     x="964.90991"
+     y="692.55548">
+    <tspan
+       id="tspan163"
+       y="741.85712"
+       x="985.65857"
+       style="stroke-width:1.04143679">Org 1</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1.06711304"
+     inkscape:connector-curvature="0"
+     id="path168"
+     d="m 1083.0856,866 h -72.1196 c -3.3404,0 -6.0733,-6.1344 -6.0733,-13.632 v -43.736 c 0,-7.4976 2.7329,-13.632 6.0733,-13.632 h 72.1196 c 3.3402,0 6.0732,6.1344 6.0732,13.632 v 43.736 c 0,7.4976 -2.733,13.632 -6.0732,13.632 z" />
+  <text
+     style="font-weight:normal;font-size:12.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="12.07"
+     id="CA-1"
+     x="1012"
+     y="795">
+    <tspan
+       id="tspan170"
+       y="825.88"
+       x="1031.9231">AC 1</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706699;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="9.07"
+     id="text175"
+     x="992"
+     y="795">
+    <tspan
+       id="tspan173"
+       y="842.34003"
+       x="1013.3462">Homologues</tspan>
+  </text>
+  <path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1.07210159"
+     inkscape:connector-curvature="0"
+     id="path178"
+     d="m 1083.8184,950 h -72.7955 c -3.3716,0 -6.1302,-6.1344 -6.1302,-13.632 v -43.736 c 0,-7.4976 2.7586,-13.632 6.1302,-13.632 h 72.7955 c 3.3715,0 6.1301,6.1344 6.1301,13.632 v 43.736 c 0,7.4976 -2.7586,13.632 -6.1301,13.632 z" />
+  <text
+     style="font-weight:normal;font-size:12.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="12.07"
+     id="CA-2"
+     x="1012"
+     y="879">
+    <tspan
+       id="tspan180"
+       y="901.35999"
+       x="1030.5">AC 2</tspan>
+  </text>
+  <text
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706699;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="normal"
+     font-size="8.07"
+     id="Ordering-Service"
+     x="1004"
+     y="879">
+    <tspan
+       id="tspan183"
+       y="918.23999"
+       x="1010.7257">Service de tri</tspan>
+  </text>
+  <text
+     id="text189"
+     font-size="12.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06999969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="870"
+     y="9">
+    <tspan
+       x="1649"
+       y="458"
+       id="tspan187">AC 1</tspan>
+  </text>
+  <text
+     id="text193"
+     font-size="24.0721"
+     font-weight="normal"
+     style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1555"
+       y="167"
+       id="tspan191">Cluster unique</tspan>
+  </text>
+  <g
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="Group"
+     transform="translate(1518,585)">
+    <path
+       d="M 267.81407,206.96619 H 17.329146 c -9.4522616,0 -17.18592992,-7.70771 -17.18592992,-17.12824 V 17.699178 c 0,-9.4205304 7.73366832,-17.12823679 17.18592992,-17.12823679 H 267.81407 C 277.26633,0.57094121 285,8.2786476 285,17.699178 V 189.83795 c 0,9.42053 -7.73367,17.12824 -17.18593,17.12824 z"
+       id="XMLID_248_"
+       inkscape:connector-curvature="0"
+       style="fill:#4278bd" />
+    <rect
+       id="XMLID_247_"
+       x="23.344221"
+       y="35.826561"
+       width="238.45477"
+       height="33.257324" />
+    <text
+       id="XMLID_246_"
+       font-size="24.0721"
+       font-weight="normal"
+       style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#ffffff">
+      <tspan
+         x="26.562859"
+         y="50.957989"
+         id="tspan197">Noeud worker 2</tspan>
+    </text>
+  </g>
+  <path
+     d="m 1769.5315,750 h -53.063 C 1714.0108,750 1712,743.8656 1712,736.368 v -43.736 c 0,-7.4976 2.0108,-13.632 4.4685,-13.632 h 53.063 c 2.4577,0 4.4685,6.1344 4.4685,13.632 v 43.736 c 0,7.4976 -2.0108,13.632 -4.4685,13.632 z"
+     id="path201"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="m 1613.5877,750 h -68.6519 c -3.1797,0 -5.7813,-6.1344 -5.7813,-13.632 v -43.736 c 0,-7.4976 2.6016,-13.632 5.7813,-13.632 h 68.6519 c 3.18,0 5.7814,6.1344 5.7814,13.632 v 43.736 c 0,7.4976 -2.6014,13.632 -5.7814,13.632 z"
+     id="path203"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1.10243893" />
+  <path
+     d="m 1694.2432,750 h -56.4864 C 1635.1405,750 1633,743.8656 1633,736.368 v -43.736 c 0,-7.4976 2.1405,-13.632 4.7568,-13.632 h 56.4864 c 2.6163,0 4.7568,6.1344 4.7568,13.632 v 43.736 c 0,7.4976 -2.1405,13.632 -4.7568,13.632 z"
+     id="path205"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="m 1785.8054,1037 h -250.6108 c -9.457,0 -17.1946,-7.693 -17.1946,-17.0954 V 848.09544 C 1518,838.69295 1525.7376,831 1535.1946,831 h 250.6108 c 9.457,0 17.1946,7.69295 17.1946,17.09544 v 171.80916 c 0,9.4024 -7.7376,17.0954 -17.1946,17.0954 z"
+     id="XMLID_240_"
+     inkscape:connector-curvature="0"
+     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="XMLID_239_"
+     x="1542"
+     y="951"
+     width="238"
+     height="34" />
+  <text
+     id="text211"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933333px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1651"
+       y="732"
+       id="tspan209">(Raft)</tspan>
+  </text>
+  <text
+     id="XMLID_238_"
+     font-size="24.0721"
+     font-weight="normal"
+     style="font-weight:normal;font-size:24.07209969px;font-family:Helvetica;fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1546"
+       y="880"
+       id="tspan213">Noeud worker 3</tspan>
+  </text>
+  <text
+     id="Ordering-node-3"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="852"
+     y="9">
+    <tspan
+       x="1716.856"
+       y="700"
+       id="tspan216">Noeud de</tspan>
+    <tspan
+       x="1720.6293"
+       y="711"
+       id="tspan218">tri 3</tspan>
+  </text>
+  <text
+     id="Ordering-node-2"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="852"
+     y="9">
+    <tspan
+       x="1639.356"
+       y="701"
+       id="tspan221">Noeud de</tspan>
+    <tspan
+       x="1643.1293"
+       y="712"
+       id="tspan223">tri 2</tspan>
+  </text>
+  <path
+     d="m 1699.1622,988 h -69.3244 C 1626.627,988 1624,981.8656 1624,974.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
+     id="path226"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <text
+     id="Ordering-node-4"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="854"
+     y="9">
+    <tspan
+       x="1637.856"
+       y="938"
+       id="tspan228">Noeud de</tspan>
+    <tspan
+       x="1641.6293"
+       y="949"
+       id="tspan230">tri 4</tspan>
+  </text>
+  <text
+     id="Ordering-node-1"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="852"
+     y="9">
+    <tspan
+       x="1724.856"
+       y="450"
+       id="tspan233">Noeud de</tspan>
+    <tspan
+       x="1728.6293"
+       y="461"
+       id="tspan235">tri 1</tspan>
+  </text>
+  <rect
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     id="rect238"
+     x="1533"
+     y="787"
+     width="53"
+     height="54" />
+  <text
+     id="text242"
+     font-size="11.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="846"
+     y="9">
+    <tspan
+       x="1545"
+       y="702"
+       id="tspan240">Homologue 2</tspan>
+  </text>
+  <text
+     id="text246"
+     font-size="10.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933333px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1567"
+       y="721"
+       id="tspan244">Org 1</tspan>
+  </text>
+  <text
+     id="text250"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933333px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1649"
+       y="967"
+       id="tspan248">(Raft)</tspan>
+  </text>
+  <path
+     d="m 1610.1622,988 h -69.3244 C 1537.627,988 1535,981.8656 1535,974.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
+     id="path252"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="m 1786.1622,988 h -69.3244 C 1713.627,988 1711,981.8656 1711,974.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
+     id="path254"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <text
+     id="text258"
+     font-size="8.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;opacity:0.51706699;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="856"
+     y="9">
+    <tspan
+       x="1540.2257"
+       y="960"
+       id="tspan256">Service de tri</tspan>
+  </text>
+  <text
+     id="text262"
+     font-size="15.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="872"
+     y="9">
+    <tspan
+       x="1562"
+       y="943"
+       id="tspan260">AC 2</tspan>
+  </text>
+  <text
+     id="Ordering-node-5"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933308px;font-family:Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="852"
+     y="9">
+    <tspan
+       x="1725.856"
+       y="938"
+       id="tspan264">Noeud de</tspan>
+    <tspan
+       x="1729.6293"
+       y="949"
+       id="tspan266">tri 5</tspan>
+  </text>
+  <text
+     id="+-anti-affinity"
+     font-size="21.6649"
+     font-style="italic"
+     font-weight="bold"
+     style="font-style:italic;font-weight:bold;font-size:21.66489983px;font-family:Helvetica-BoldOblique, Helvetica;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1549"
+       y="213"
+       id="tspan269">+ anti-affinité</tspan>
+  </text>
+  <text
+     id="text274"
+     font-size="9.07"
+     font-weight="normal"
+     style="font-weight:normal;font-size:12.06933333px;font-family:Helvetica;opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="862"
+     y="9">
+    <tspan
+       x="1736"
+       y="966"
+       id="tspan272">(Raft)</tspan>
+  </text>
+</svg>

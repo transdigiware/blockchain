@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -28,7 +28,7 @@ O {{site.data.keyword.cloud}}  é hospedado em todo o mundo em vários locais. L
 
 Diferentes ofertas do {{site.data.keyword.blockchainfull_notm}} Platform estão disponíveis em diferentes locais do {{site.data.keyword.cloud_notm}}. É possível criar redes de blockchain somente em locais do {{site.data.keyword.cloud_notm}} em que os planos do {{site.data.keyword.blockchainfull_notm}} Platform estão disponíveis.
 
-A Tabela 1 e a Figura 1 mostram as regiões e os locais do {{site.data.keyword.cloud_notm}} que o {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} suporta.
+A Tabela 1 e a Figura 1 mostram as regiões e as localizações do {{site.data.keyword.cloud_notm}} que o {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} suporta.
 
 Se você desejar usar um cluster {{site.data.keyword.cloud_notm}} Kubernetes grátis, não escolha um cluster grátis na Ásia-Pacífico. Caso contrário, seu cluster grátis será criado em Melbourne no Sul da AP em vez de na Norte da AP. Os clusters do Sul da AP não podem ser usados para implementar o {{site.data.keyword.blockchainfull_notm}} Platform v2.0 agora. Escolha os locais **Sul dos EUA** ou **Central da UE** se você planeja usar um cluster grátis.
 {: note}
@@ -39,10 +39,10 @@ Se você desejar usar um cluster {{site.data.keyword.cloud_notm}} Kubernetes gr�
 | AP Norte | Tokyo, Chennai, Hong Kong, Seul, Singapura |
 | Central da UE | Frankfurt, Amsterdã, Milão, Oslo, Paris |
 
-_Tabela 1. Locais do {{site.data.keyword.cloud_notm}} do {{site.data.keyword.blockchainfull_notm}} Platform_
+_Tabela 1. Localizações do {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}_
 
 
-![Locais do {{site.data.keyword.cloud_notm}} do {{site.data.keyword.blockchainfull_notm}} Platform](../images/ibp_v2_regions.png "Locais do {{site.data.keyword.cloud_notm}} do {{site.data.keyword.blockchainfull_notm}} Platform")
+![Localizações do {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}](../images/ibp_v2_regions.png "Localizações do {{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}}")
 
 
 A Tabela 2 e a Figura 2 mostram as regiões e os locais {{site.data.keyword.cloud_notm}} que o {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan e o Enterprise Plan suportam.
@@ -61,4 +61,4 @@ A Tabela 2 e a Figura 2 mostram as regiões e os locais {{site.data.keyword.clou
 _Tabela 2. Locais do Starter Plan e do Enterprise Plan_
 
 
-![Locais do plano Starter e do plano Enterprise](../images/ibp_regions.png "Locais do {{site.data.keyword.blockchainfull_notm}} Platform")
+![Localizações do Starter Plan e do Enterprise Plan](../images/ibp_regions.png "Localizações do {{site.data.keyword.blockchainfull_notm}} Platform")

@@ -36,12 +36,12 @@ AWS について詳しくは、[AWS の概要ドキュメント](https://d1.awss
  * パブリック・サブネットでは、2 つの可用性ゾーンにまたがる 2 つのピア (サブネットごとに 1 つのピア)。
  * 各パブリック・サブネットにおいて、組み込み LevelDB データベースまたは 2 次 CouchDB コンテナーを持つピア・コンテナー。
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS ピアをデプロイする前に、[ピアに関する考慮事項](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-limitations)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS ピアをデプロイする前に、[ピアに関する考慮事項](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations)を参照してください。
 
 ## 前提条件
 {: #remote-peer-aws-prerequisites}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS ピア (リモート・ピア) を使用するには、{{site.data.keyword.blockchainfull_notm}} Platform 上でホストされているブロックチェーン・ネットワークのメンバーである組織が必要です。 {{site.data.keyword.cloud_notm}} 上のネットワーク・モニターを使用して、ネットワーク資格情報およびネットワークの API エンドポイントにアクセスする必要があります。 ブロックチェーン・ネットワークのメンバーではない場合は、ネットワークを作成するか、ネットワークに参加する必要があります。 詳しくは、[ネットワークの作成](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-create-network)または[ネットワークへの参加](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS ピア (リモート・ピア) を使用するには、{{site.data.keyword.blockchainfull_notm}} Platform 上でホストされているブロックチェーン・ネットワークのメンバーである組織が必要です。 {{site.data.keyword.cloud_notm}} 上のネットワーク・モニターを使用して、ネットワーク資格情報およびネットワークの API エンドポイントにアクセスする必要があります。 ブロックチェーン・ネットワークのメンバーではない場合は、ネットワークを作成するか、ネットワークに参加する必要があります。 詳しくは、[ネットワークの作成](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-create-network)または[ネットワークへの参加](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw)を参照してください。
 
 ピアのデフォルト VPC インスタンス・タイプは `m4.xlarge` です。  CPU、メモリー、およびストレージの要件に基づいて、選択するインスタンス・タイプを最適化する必要があります。 ピアには、少なくとも以下が必要です。  
 -	2 基の CPU
@@ -142,9 +142,9 @@ echo -e "<CERT>" > admin.pem
 
 以下の表では、パラメーターはカテゴリー別にリストされており、2 つのデプロイメント・オプションについて別々に説明されています。
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を新規 VPC にデプロイするためのパラメーター](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc)
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を新規 VPC にデプロイするためのパラメーター](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-newvpc)
 
-  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を既存 VPC にデプロイするためのパラメーター](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-existvpc).
+  * [{{site.data.keyword.blockchainfull_notm}} Platform for AWS を既存 VPC にデプロイするためのパラメーター](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-existvpc)。
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform for AWS を新規 VPC にデプロイするためのパラメーター
 {: #remote-peer-aws-parameters-newvpc}
@@ -157,8 +157,8 @@ echo -e "<CERT>" > admin.pem
 | | | |
 | **ネットワーク構成** | |
 | `アベイラビリティー・ゾーン (Availability Zones)` |VPC 内のサブネット用に使用する 2 つのアベイラビリティー・ゾーン。 注: 論理順序は保持されます。 | |
-| `SSH アクセス CIDR の許可 (Allowed SSH access CIDR)` | {{site.data.keyword.blockchain_notm}} ピア・インスタンスへの外部 SSH アクセスを許可する [CIDR ブロック](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external}。0.0.0.0/0 に設定することで、任意の場所からのアクセスを許可できます (非推奨)。 | |
-| `PeerEndpointAccessCIDR` | {{site.data.keyword.blockchainfull_notm}} ピア・インスタンスへの外部 gRPC アクセスを許可する [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} ブロック。通常は 0.0.0.0/0 に設定して、任意の場所からのアクセスを許可します (非推奨)。 | |
+| `SSH アクセス CIDR の許可 (Allowed SSH access CIDR)` | {{site.data.keyword.blockchainfull_notm}} ピア・インスタンスへの外部 SSH アクセスを許可する [CIDR ブロック](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external}。 0.0.0.0/0 に設定することで、任意の場所からのアクセスを許可できます (非推奨)。 | |
+| `PeerEndpointAccessCIDR` | {{site.data.keyword.blockchainfull_notm}} ピア・インスタンスへの外部 gRPC アクセスを許可する [CIDR](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize){: external} ブロック。 通常は 0.0.0.0/0 に設定して、任意の場所からのアクセスを許可します (非推奨)。 | |
 | | | |
 | **Amazon EC2 の構成** | | |
 | `InstanceType` | ピア・インスタンス用の EC2 インスタンスのタイプ。 | m4.xlarge |
@@ -205,7 +205,7 @@ echo -e "<CERT>" > admin.pem
 
 - 既存の VPC に関連付けられたセキュリティー・グループを作成し、ポート 22 および 7051 のインバウンド・ルールをこのセキュリティー・グループに追加してください。 ポート 22 上の TCP 接続は、生成されたインスタンスへの SSH アクセスを可能にする一方で、ポート 7051 上の TCP 接続は、ピア・インスタンスへの外部 gRPC アクセスを可能にします (Fabric ツール CLI および Fabric SDK を使用してピアを操作するために必要)。 クイック・スタートを起動するときに、これらの VPC 設定の入力を求めるプロンプトが出されます。
 
- {{site.data.keyword.blockchainfull_notm}} Platform for AWS ピアを既存の VPC にデプロイする場合は、[上記の](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws-parameters-newvpc)対応するセクションで説明したパラメーターの代わりに、以下のパラメーターを使用してください。
+ {{site.data.keyword.blockchainfull_notm}} Platform for AWS ピアを既存の VPC にデプロイする場合は、[上記の](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws-parameters-newvpc)対応するセクションで説明したパラメーターの代わりに、以下のパラメーターを使用してください。
 
 |  パラメーター    | 説明 | デフォルト |
 | --------------|-------------|---------|
@@ -242,7 +242,7 @@ AWS CloudFormation テンプレートによってスタックが正常に作成�
 
   * `docker exec -it peer sh` を実行して、ピア・コンテナー内でシェル・セッションを作成できます。
 
-オプションで、ピア接続が {{site.data.keyword.blockchainfull_notm}} Platform ネットワークに対して機能していることを確認したい場合は、ピア・コンテナー内部から `peer channel fetch` CLI コマンドを実行できます。 そうでない場合は、[ピアの操作](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate)の説明にスキップできます。  
+オプションで、ピア接続が {{site.data.keyword.blockchainfull_notm}} Platform ネットワークに対して機能していることを確認したい場合は、ピア・コンテナー内部から `peer channel fetch` CLI コマンドを実行できます。 そうでない場合は、[ピアの操作](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate)の説明にスキップできます。  
 
 `peer channel fetch` CLI コマンドを実行して、チャネルからジェネシス・ブロックをフェッチします。
 
@@ -274,9 +274,9 @@ AWS CloudFormation テンプレートによってスタックが正常に作成�
 
 2. ジェネシス・ブロックをフェッチするには、まず、組織をネットワーク内のチャネルに追加する必要があります。
 
-  - ピアに対して新しいチャネルを開始できます。 チャネル・イニシエーターは、[チャネル作成](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel)時に組織を自動的に含めることができます。
+  - ピアに対して新しいチャネルを開始できます。 チャネル・イニシエーターは、[チャネル作成](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel)時に組織を自動的に含めることができます。
 
-  - ブロックチェーン・ネットワークの別のメンバーが、[チャネル更新](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel)を使用して、組織を既存のチャネルに追加することもできます。
+  - ブロックチェーン・ネットワークの別のメンバーが、[チャネル更新](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)を使用して、組織を既存のチャネルに追加することもできます。
 
   - 組織がチャネルに追加されたら、ピアの署名証明書をチャネルに追加する必要があります。 証明書とチャネルを同期するだけで良いように、ピアはインストール時にその署名証明書をアップロードします。 ネットワーク・モニターの「チャネル」画面で、組織が参加したチャネルを見つけ、**「アクション」**ヘッダーの下にあるドロップダウン・リストから**「証明書の同期」**を選択します。 このアクションによって、チャネルのすべてのピアで証明書が同期されます。
 
@@ -353,13 +353,13 @@ AWS CloudFormation テンプレートによってスタックが正常に作成�
 ## 次の作業
 {: #remote-peer-aws-whats-next}
 
-AWS でピアをセットアップした後に、いくつかの操作ステップを完了してからトランザクションを実行し、ブロックチェーン・ネットワークからの分散台帳を読み取ることができます。 詳しくは、[AWS でのピアの操作](/docs/services/blockchain/howto/remote_peer_operate_aws.html#remote-peer-aws-operate)を参照してください。
+AWS でピアをセットアップした後に、いくつかの操作ステップを完了してからトランザクションを実行し、ブロックチェーン・ネットワークからの分散台帳を読み取ることができます。 詳しくは、[AWS でのピアの操作](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate)を参照してください。
 
 ## 高可用性 (HA)
 {: #remote-peer-aws-high-availability}
 
 デフォルトでは、高可用性をサポートするために、クイック・スタート・テンプレートによってピアの 2 つのインスタンスが 2 つの異なるアベイラビリティー・ゾーンにデプロイされます。
-この高可用性サポートを利用するために、[クライアント・アプリケーションを高可用性向けに](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app)構成する必要もあります。
+この高可用性サポートを利用するために、[クライアント・アプリケーションを高可用性向けに](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)構成する必要もあります。
 
 ## セキュリティーに関する考慮事項
 {: #remote-peer-aws-security}
@@ -397,14 +397,14 @@ levelDB または couchDB のどちらを使用している場合でも、状態
 {: #remote-peer-aws-data-residency}
 
 データの常駐では、すべてのブロックチェーン台帳データの処理およびストレージが 1 つの国にとどまることが求められます。
-これを実現する方法について詳しくは、[データの所在場所](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about-data-residency)を参照してください。
+これを実現する方法について詳しくは、[データの所在場所](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-data-residency)を参照してください。
 
 #### 鍵管理
 {: #remote-peer-aws-security-key-management}
 
-鍵管理はピア・セキュリティーの重要な側面です。 秘密鍵が漏えいしたり、失われたりすると、悪意を持つアクターがピアのデータおよび機能にアクセスできる可能性があります。 {{site.data.keyword.blockchainfull_notm}} Platform エンタープライズ・プランでは、[ハードウェア・セキュリティー・モジュール](/docs/services/blockchain/glossary.html#glossary-hsm) (HSM) を使用して、ネットワークの秘密鍵を保管します。 HSM は、他者による秘密鍵へのアクセスを防ぐ物理アプライアンスです。
+鍵管理はピア・セキュリティーの重要な側面です。 秘密鍵が漏えいしたり、失われたりすると、悪意を持つアクターがピアのデータおよび機能にアクセスできる可能性があります。 {{site.data.keyword.blockchainfull_notm}} Platform エンタープライズ・プランでは、[ハードウェア・セキュリティー・モジュール](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) (HSM) を使用して、ネットワークの秘密鍵を保管します。 HSM は、他者による秘密鍵へのアクセスを防ぐ物理アプライアンスです。
 
-AWS でピアをデプロイする場合は、秘密鍵を管理する必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform によって秘密鍵が生成されますが、鍵は Platform には保管されません。 鍵が漏えいしないように、安全な場所に保管することが重要です。 ピアの秘密鍵は、ピア MSP の keystore フォルダーにあります (ピア・コンテナー内の `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` ディレクトリー)。 ピア内部の証明書について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の証明書の管理](/docs/services/blockchain/certificates.html#managing-certificates)のトピックの[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain/certificates.html#managing-certificates-msp)のセクションを参照してください。
+AWS でピアをデプロイする場合は、秘密鍵を管理する必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform によって秘密鍵が生成されますが、鍵は Platform には保管されません。 鍵が漏えいしないように、安全な場所に保管することが重要です。 ピアの秘密鍵は、ピア MSP の keystore フォルダーにあります (ピア・コンテナー内の `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` ディレクトリー)。 ピア内部の証明書について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform の証明書の管理](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates)のトピックの[メンバーシップ・サービス・プロバイダー](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)のセクションを参照してください。
 
 鍵エスクローを使用して、失われた秘密鍵を復旧することができます。 これは、鍵が失われる前に実行する必要があります。 秘密鍵を復旧できない場合は、認証局から新しい署名付き証明書を取得することで、新しい秘密鍵を取得する必要があります。 また、自身が参加しているすべてのチャネルから管理者証明書を削除して置き換える必要もあります。
 
@@ -421,7 +421,7 @@ In {{site.data.keyword.blockchainfull_notm}} Platform when a private key is crea
 #### メンバーシップ・サービス・プロバイダーの構成
 {: #remote-peer-aws-security-MSP}
 
-{{site.data.keyword.blockchainfull_notm}} Platform のコンポーネントは、メンバーシップ・サービス・プロバイダー (MSP) を介して ID を使用します。 MSP は、CA から発行された証明書を、ネットワークとチャネルの役割に関連付けます。MSP とピアの連係について詳しくは、こちらの[トピック](/docs/services/blockchain/certificates.html#managing-certificates-msp)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform のコンポーネントは、メンバーシップ・サービス・プロバイダー (MSP) を介して ID を使用します。 MSP は、CA から発行された証明書を、ネットワークとチャネルの役割に関連付けます。 MSP とピアの連係について詳しくは、こちらの[トピック](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)を参照してください。
 
 #### アプリケーション・セキュリティー
 {: #remote-peer-aws-security-appl}

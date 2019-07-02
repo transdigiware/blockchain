@@ -14,7 +14,10 @@
    version="1.1"
    id="svg267"
    sodipodi:docname="IBP-IKS-Diagram.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:export-filename="D:\_work\IBM\BM140\BM140ABD141_007\UT_kumi\01_work\_Art\01_New\jpn\IBP-IKS-Diagram.png"
+   inkscape:export-xdpi="48.248276"
+   inkscape:export-ydpi="48.248276">
   <metadata
      id="metadata271">
     <rdf:RDF>
@@ -40,8 +43,8 @@
      id="namedview269"
      showgrid="false"
      inkscape:zoom="0.59991621"
-     inkscape:cx="1193.5"
-     inkscape:cy="580"
+     inkscape:cx="633.79688"
+     inkscape:cy="532.06539"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -202,20 +205,6 @@
        id="tspan49">Hyperledger Fabric コンポーネント</tspan>
   </text>
   <text
-     id="Certificate-Authorit"
-     font-size="25.07"
-     font-weight="500"
-     line-spacing="32"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="233.35194"
-     y="625.35681">
-    <tspan
-       sodipodi:role="line"
-       id="tspan462"
-       x="233.35194"
-       y="625.35681">認証局</tspan>
-  </text>
-  <text
      id="CA"
      font-size="20.07"
      font-weight="500"
@@ -268,25 +257,6 @@
      width="112"
      height="72"
      style="fill:none;fill-rule:evenodd;stroke:#011688;stroke-width:1" />
-  <text
-     id="Orderer"
-     font-size="20.07"
-     font-weight="500"
-     line-spacing="32"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.66666667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;"
-     x="903.44556"
-     y="783.71228">
-    <tspan
-       sodipodi:role="line"
-       id="tspan480"
-       x="903.44556"
-       y="783.71228">順序付け</tspan>
-    <tspan
-       sodipodi:role="line"
-       x="903.44556"
-       y="804.86499"
-       id="tspan482">プログラム</tspan>
-  </text>
   <g
      id="g77"
      transform="translate(625,713)"
@@ -303,20 +273,20 @@
      font-size="20.07"
      font-weight="500"
      line-spacing="22"
-     style="font-weight:500;font-size:18.06498718px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.90009904"
-     x="220.37105"
-     y="411.34528"
-     transform="scale(0.90009908,1.1109888)">
+     style="font-weight:500;font-size:17.06030655px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.8500402"
+     x="293.62958"
+     y="388.46835"
+     transform="scale(0.85004019,1.176415)">
     <tspan
-       x="713.38275"
-       y="670.66388"
+       x="759.22247"
+       y="633.36505"
        id="tspan79"
-       style="stroke-width:0.90009904">スマート・</tspan>
+       style="stroke-width:0.8500402">スマート・</tspan>
     <tspan
-       x="702.85083"
-       y="690.46606"
+       x="749.27631"
+       y="652.06592"
        id="tspan81"
-       style="stroke-width:0.90009904">コントラクト</tspan>
+       style="stroke-width:0.8500402">コントラクト</tspan>
   </text>
   <g
      id="g86"
@@ -341,38 +311,6 @@
        x="503"
        y="841"
        id="tspan88">CouchDB</tspan>
-  </text>
-  <text
-     id="text93"
-     font-size="25.07"
-     font-weight="500"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="581.73395"
-     y="622.02307">
-    <tspan
-       sodipodi:role="line"
-       id="tspan466"
-       x="581.73395"
-       y="622.02307">ピア</tspan>
-  </text>
-  <text
-     id="Ordering-Service"
-     font-size="25.07"
-     font-weight="500"
-     line-spacing="31"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="880.10895"
-     y="598.6864">
-    <tspan
-       sodipodi:role="line"
-       id="tspan470"
-       x="880.10895"
-       y="598.6864">順序付け</tspan>
-    <tspan
-       sodipodi:role="line"
-       x="880.10895"
-       y="640.99182"
-       id="tspan472">サービス</tspan>
   </text>
   <rect
      id="rect101"
@@ -407,55 +345,57 @@
        id="Rectangle-2" />
   </g>
   <text
-     style="font-weight:500;font-size:37.06999969px;font-family:'Source Han Sans';fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:40px;font-family:'Source Han Sans';fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="37.07"
      id="Cluster"
-     x="1683"
+     x="1701"
      y="341">
     <tspan
        id="tspan110"
        y="393"
-       x="1906.6672">クラスター</tspan>
+       x="1924.6672"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">クラスター</tspan>
   </text>
   <text
-     style="font-weight:500;font-size:37.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:37.33333333px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="37.07"
      id="Persistent-storage"
-     x="1753"
+     x="1751"
      y="341">
     <tspan
        id="tspan113"
        y="943"
-       x="1882.8241">永続ストレージ</tspan>
+       x="1880.8241"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:37.33333333px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">永続ストレージ</tspan>
   </text>
   <text
      style="font-weight:500;font-size:21.06999969px;font-family:'Source Han Sans';opacity:0.62490701;fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:1"
      font-weight="500"
      font-size="21.07"
      id="(ex:-4-CPU-x-16GB-RA"
-     x="1717"
+     x="1727"
      y="341">
     <tspan
        id="tspan116"
        y="420"
-       x="1891.0194">(例: 4 CPU x 16GB RAM)</tspan>
+       x="1901.0194">(例: 4 CPU x 16GB RAM)</tspan>
   </text>
   <text
      style="font-weight:500;font-size:21.06999969px;font-family:'Source Han Sans';opacity:0.82568359;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
      font-weight="500"
      font-size="21.07"
      id="Separate,-physical-s"
-     x="1749"
+     x="1753"
      y="341">
     <tspan
        id="tspan119"
        y="970"
-       x="1902.4779">別個の物理ストレージ</tspan>
+       x="1906.4779">別個の物理ストレージ</tspan>
   </text>
   <text
-     style="font-weight:500;font-size:25.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:26.66666667px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="25.07"
      id="Worker-node"
@@ -464,7 +404,8 @@
     <tspan
        id="tspan122"
        y="507"
-       x="1913.3304">ワーカー・ノード</tspan>
+       x="1913.3304"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">ワーカー・ノード</tspan>
   </text>
   <g
      style="fill:#ffffff;fill-rule:evenodd;stroke:#979797;stroke-width:1"
@@ -489,28 +430,30 @@
        id="rect129" />
   </g>
   <text
-     style="font-weight:500;font-size:25.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:26.66666667px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="25.07"
      id="Pod"
-     x="1713"
+     x="1717"
      y="341">
     <tspan
        id="tspan133"
        y="590"
-       x="1981.1376">ポッド</tspan>
+       x="1985.1376"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">ポッド</tspan>
   </text>
   <text
-     style="font-weight:500;font-size:25.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:26.66666667px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="25.07"
      id="App-containers"
-     x="1691"
+     x="1693"
      y="341">
     <tspan
        id="tspan136"
        y="673"
-       x="1901.0795">アプリ・コンテナー</tspan>
+       x="1903.0795"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">アプリ・コンテナー</tspan>
   </text>
   <g
      style="fill:#ffffff;fill-rule:evenodd;stroke:#979797;stroke-width:1"
@@ -524,18 +467,18 @@
        id="rect139" />
   </g>
   <text
-     style="font-weight:500;font-size:21.82321167px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.87049109"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.46677208px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.80105191"
      font-weight="500"
      font-size="25.07"
      id="File-storage-(defaul"
-     x="2006.5046"
-     y="296.83746"
-     transform="scale(0.87049111,1.1487768)">
+     x="2220.3296"
+     y="273.15872"
+     transform="scale(0.80105195,1.2483585)">
     <tspan
        id="tspan143"
-       y="900.95831"
-       x="2152.9868"
-       style="stroke-width:0.87049109">ファイル・ストレージ (デフォルト)</tspan>
+       y="829.08875"
+       x="2355.1267"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.46677208px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.80105191">ファイル・ストレージ (デフォルト)</tspan>
   </text>
   <rect
      style="fill:#bfeef6;fill-rule:evenodd;stroke:#fffbfb;stroke-width:1"
@@ -554,14 +497,15 @@
      mask="url(#mask-2)"
      id="use151" />
   <text
-     style="font-weight:500;font-size:25.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:26.66666667px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="25.07"
      id="Containers">
     <tspan
        id="tspan153"
        y="711"
-       x="1151.3236">コンテナー</tspan>
+       x="1151.3236"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">コンテナー</tspan>
   </text>
   <text
      style="font-weight:500;font-size:37.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
@@ -791,28 +735,28 @@
        d="M 41.5,0 C 18.580183,0 0,16.565464 0,37 0,57.434536 18.580183,74 41.5,74 64.419817,74 83,57.434536 83,37 83,27.18699 78.627691,17.775895 70.844931,10.837049 63.062172,3.8982031 52.506484,0 41.5,0 Z M 23.34375,50.875 h -5.1875 v -27.75 h 5.1875 z m 33.71875,6.9375 h -31.125 v -4.625 h 31.125 z m 0,-37 h -31.125 v -4.625 h 31.125 z m 7.78125,30.0625 h -5.1875 v -27.75 h 5.1875 z" />
   </g>
   <text
-     style="font-weight:normal;font-size:19.74513054px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.98381323"
+     style="font-weight:normal;font-size:19.78149223px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.98562491"
      line-spacing="32"
      font-weight="normal"
      font-size="20.07"
      id="Each-component-consi"
-     x="37.590069"
-     transform="scale(0.98381324,1.0164531)">
+     x="33.351978"
+     transform="scale(0.9856249,1.0145848)">
     <tspan
        id="tspan230"
-       y="733.92468"
-       x="1169.9591"
-       style="stroke-width:0.98381323">各コンポーネントは、Kubernetes ポッド内に</tspan>
+       y="735.27618"
+       x="1167.8063"
+       style="stroke-width:0.98562491">各コンポーネントは、Kubernetes ポッド内に</tspan>
     <tspan
        id="tspan232"
-       y="765.40668"
-       x="1169.9591"
-       style="stroke-width:0.98381323">デプロイされるコンテナーで構成され、Kubernetes</tspan>
+       y="766.81616"
+       x="1167.8063"
+       style="stroke-width:0.98562491">デプロイされるコンテナーで構成され、Kubernetes</tspan>
     <tspan
        id="tspan234"
-       y="796.88873"
-       x="1169.9591"
-       style="stroke-width:0.98381323">ダッシュボード内に表示されます。</tspan>
+       y="798.35614"
+       x="1167.8063"
+       style="stroke-width:0.98562491">ダッシュボード内に表示されます。</tspan>
   </text>
   <text
      style="font-weight:normal;font-size:15.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
@@ -837,14 +781,15 @@
      x="1279.5"
      id="rect242" />
   <text
-     style="font-weight:500;font-size:25.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     style="font-weight:bold;font-size:26.66666667px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1;-inkscape-font-specification:'Source Han Sans, Bold';font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
      font-weight="500"
      font-size="25.07"
      id="text246">
     <tspan
        id="tspan244"
        y="462"
-       x="1307.1376">ポッド</tspan>
+       x="1307.1376"
+       style="-inkscape-font-specification:'Source Han Sans, Bold';font-family:'Source Han Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;">ポッド</tspan>
   </text>
   <rect
      style="fill:#0ccaeb;fill-rule:evenodd;stroke:none;stroke-width:1"
@@ -894,30 +839,90 @@
      font-weight="normal"
      font-size="20.07"
      id="Each-Fabric-componen"
-     x="1308.5161"
-     y="495.06912">
+     x="1310.183"
+     y="501.73672">
     <tspan
        sodipodi:role="line"
-       id="tspan491"
-       x="1308.5161"
-       y="495.06912">各 Fabric コンポーネントは、</tspan>
+       id="tspan216"
+       x="1310.183"
+       y="501.73672">各 Fabric コンポーネントは、個々の</tspan>
     <tspan
        sodipodi:role="line"
-       x="1308.5161"
-       y="520.15576"
-       id="tspan493">個々のポッドにデプロイされます。</tspan>
+       x="1310.183"
+       y="526.82336"
+       id="tspan219">ポッドにデプロイされます。</tspan>
   </text>
   <text
-     style="font-weight:normal;font-size:16.94046021px;font-family:'Source Han Sans';fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:0.99241126"
+     style="font-weight:normal;font-size:16.78369141px;font-family:'Source Han Sans';fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:0.98322743"
      font-weight="normal"
      font-size="17.07"
      id="*-Storage-cost-is-no"
-     x="10.543898"
-     transform="scale(0.99241126,1.0076468)">
+     x="59.213707"
+     transform="scale(0.98322745,1.0170587)">
     <tspan
        id="tspan263"
-       y="1085.6979"
-       x="1746.4292"
-       style="stroke-width:0.99241126">* ストレージ・コストは Kubernetes クラスターのコストに含まれません</tspan>
+       y="1075.6509"
+       x="1779.035"
+       style="stroke-width:0.98322743">* ストレージ・コストは Kubernetes クラスターのコストに含まれません</tspan>
+  </text>
+  <text
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:1;"
+     font-weight="500"
+     font-size="37.07"
+     id="Cluster-0"
+     x="-1.1050209"
+     y="580.0108">
+    <tspan
+       id="tspan110-9"
+       y="632.0108"
+       x="222.56223"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;">認証局</tspan>
+  </text>
+  <text
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="500"
+     font-size="37.07"
+     id="Cluster-0-7"
+     x="355.39243"
+     y="576.27081"
+     inkscape:transform-center-x="-31.67109"
+     inkscape:transform-center-y="1.6668994">
+    <tspan
+       id="tspan110-9-1"
+       y="628.27081"
+       x="579.05969"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">ピア</tspan>
+  </text>
+  <text
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#2e2e2e;fill-rule:evenodd;stroke:none;stroke-width:1"
+     font-weight="500"
+     font-size="37.07"
+     id="Cluster-0-8"
+     x="599.09424"
+     y="577.93768">
+    <tspan
+       id="tspan110-9-2"
+       y="629.93768"
+       x="822.76147"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">順序付けサービス</tspan>
+  </text>
+  <text
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.06933403px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
+     line-spacing="32"
+     font-weight="normal"
+     font-size="20.07"
+     id="Each-Fabric-componen-0"
+     x="895.30432"
+     y="781.83801">
+    <tspan
+       sodipodi:role="line"
+       id="tspan179"
+       x="895.30432"
+       y="781.83801">順序付け</tspan>
+    <tspan
+       sodipodi:role="line"
+       id="tspan181"
+       x="895.30432"
+       y="806.92468">プログラム</tspan>
   </text>
 </svg>

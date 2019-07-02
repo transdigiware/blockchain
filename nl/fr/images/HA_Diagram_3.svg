@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1214 932"
+   style="enable-background:new 0 0 1214 932;"
+   xml:space="preserve"
+   sodipodi:docname="HA_Diagram_3.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+   id="metadata187"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs185">
+	
+	
+	
+	
+	
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</defs><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1001"
+   id="namedview183"
+   showgrid="false"
+   inkscape:zoom="1.4324223"
+   inkscape:cx="572.67298"
+   inkscape:cy="671.59154"
+   inkscape:window-x="-9"
+   inkscape:window-y="51"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#2D3F49;stroke:#2D3F49;}
+	.st2{fill:none;stroke:#00B39F;stroke-width:2;stroke-dasharray:8;}
+	.st3{fill:#FFFFFF;stroke:#6182BB;}
+	.st4{fill:none;}
+	.st5{font-family:'Helvetica';}
+	.st6{font-size:24.0721px;}
+	.st7{fill:#4278BD;}
+	.st8{font-size:12.07px;}
+	.st9{font-size:9.07px;}
+	.st10{font-size:11.07px;}
+	.st11{font-size:10.07px;}
+	.st12{font-family:'Helvetica-BoldOblique';}
+	.st13{font-size:21.6649px;}
+</style>
+<title
+   id="title4">3</title>
+<desc
+   id="desc6">Created with Sketch.</desc>
+<rect
+   style="fill:#ffffff"
+   y="0"
+   x="0"
+   id="rect8"
+   height="932"
+   width="1214"
+   class="st0" /><path
+   id="XMLID_272_"
+   class="st1"
+   d="M 358.2,817.5 H 49.3 c -6.6,0 -12,-5 -12,-11.2 V 31.7 c 0,-6.2 5.4,-11.2 12,-11.2 h 308.9 c 6.6,0 12,5 12,11.2 v 774.5 c 0,6.3 -5.4,11.3 -12,11.3 z"
+   inkscape:connector-curvature="0"
+   style="fill:#2d3f49;stroke:#2d3f49" /><path
+   id="XMLID_271_"
+   class="st0"
+   d="M 341.6,798 H 65.9 c -6.6,0 -12,-5 -12,-11.1 V 89.1 C 53.9,83 59.3,78 65.9,78 h 275.6 c 6.6,0 12,5 12,11.1 v 697.7 c 0.1,6.2 -5.3,11.2 -11.9,11.2 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><path
+   id="XMLID_270_"
+   class="st2"
+   d="M 327.2,777.9 H 80.3 c -6.6,0 -12,-5.3 -12,-11.7 V 106.6 c 0,-6.4 5.4,-11.7 12,-11.7 h 246.9 c 6.6,0 12,5.3 12,11.7 v 659.7 c 0,6.3 -5.4,11.6 -12,11.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" /><path
+   id="XMLID_269_"
+   class="st3"
+   d="M 306.9,754.3 H 100.5 c -6.6,0 -12,-5.4 -12,-12 V 213.5 c 0,-6.6 5.4,-12 12,-12 h 206.4 c 6.6,0 12,5.4 12,12 v 528.8 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#6182bb" /><rect
+   id="XMLID_24_"
+   x="88.5"
+   y="213.60001"
+   class="st4"
+   width="230.39999"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st5 st6"
+   id="text15"
+   style="font-size:24.07209969px;font-family:Helvetica"
+   x="137.5981"
+   y="231.45351">Pool worker</text>
+
+
+<rect
+   id="XMLID_264_"
+   x="105.3"
+   y="94.900002"
+   class="st4"
+   width="196.89999"
+   height="34"
+   style="fill:none" /><rect
+   id="XMLID_23_"
+   x="96.400002"
+   y="40.599998"
+   class="st4"
+   width="214.60001"
+   height="34"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text19"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="153"
+   y="57.5">Région 1</text>
+
+
+<path
+   id="XMLID_258_"
+   class="st7"
+   d="M 292,396.1 H 117.1 c -6.6,0 -12,-5.4 -12,-12 V 263.5 c 0,-6.6 5.4,-12 12,-12 H 292 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_257_"
+   x="121.3"
+   y="336.10001"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text23"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="123.5474"
+   y="293.97299">Noeud worker 1</text>
+
+
+<path
+   id="XMLID_255_"
+   class="st0"
+   d="m 167.85207,362.6 h -49.88721 c -2.35423,0 -4.14792,-4.3 -4.14792,-9.6 v -30.8 c 0,-5.3 1.9058,-9.6 4.14792,-9.6 h 49.88721 c 2.35423,0 4.14793,4.3 4.14793,9.6 V 353 c 0,5.3 -1.9058,9.6 -4.14793,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.05880165" /><path
+   id="XMLID_1_"
+   class="st0"
+   d="m 229.9,362.6 h -48.8 c -2.3,0 -4.1,-4.3 -4.1,-9.6 v -30.8 c 0,-5.3 1.8,-9.6 4.1,-9.6 h 48.8 c 2.3,0 4.1,4.3 4.1,9.6 V 353 c 0,5.3 -1.8,9.6 -4.1,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><path
+   id="XMLID_2_"
+   class="st0"
+   d="m 291.9,362.6 h -48.8 c -2.3,0 -4.1,-4.3 -4.1,-9.6 v -30.8 c 0,-5.3 1.8,-9.6 4.1,-9.6 h 48.8 c 2.3,0 4.1,4.3 4.1,9.6 V 353 c 0,5.3 -1.8,9.6 -4.1,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><rect
+   id="XMLID_22_"
+   x="122.7"
+   y="327.89999"
+   class="st4"
+   width="163.60001"
+   height="37.700001"
+   style="fill:none" /><text
+   class="st5 st8"
+   id="text29"
+   style="font-size:12.06999969px;font-family:Helvetica"
+   x="115"
+   y="335.60001"><tspan
+     style="font-size:9.06933308px"
+     id="tspan127">Homologue 1</tspan></text>
+
+
+<text
+   class="st5 st9"
+   id="text31"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="134"
+   y="348.60001">Org 1</text>
+
+
+<text
+   class="st5 st9"
+   id="text33"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="179"
+   y="348.60001">Homologues</text>
+
+
+<text
+   class="st5 st9"
+   id="text35"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="257"
+   y="352.60001">(Raft)</text>
+
+
+<text
+   class="st5 st8"
+   id="text37"
+   style="font-size:12.06999969px;font-family:Helvetica"
+   x="191"
+   y="337.60001">AC 1</text>
+
+
+<text
+   class="st5 st6"
+   id="text39"
+   style="font-size:24.07209969px;font-family:Helvetica"
+   x="131"
+   y="137.5">Cluster unique</text>
+
+
+<path
+   id="XMLID_248_"
+   class="st7"
+   d="M 292,567.6 H 117.1 c -6.6,0 -12,-5.4 -12,-12 V 435 c 0,-6.6 5.4,-12 12,-12 H 292 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_247_"
+   x="121.3"
+   y="447.70001"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text43"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="123.5474"
+   y="465.48669">Noeud worker 2</text>
+
+
+<path
+   id="XMLID_3_"
+   class="st0"
+   d="m 163.94296,536 h -49.56521 c -2.26441,0 -4.1514,-4.3 -4.1514,-9.6 v -30.8 c 0,-5.3 1.88699,-9.6 4.1514,-9.6 h 49.56521 c 2.26439,0 4.15139,4.3 4.15139,9.6 v 30.8 c 0,5.3 -1.887,9.6 -4.15139,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.12160611" /><path
+   id="XMLID_240_"
+   class="st7"
+   d="M 292,739.1 H 117.1 c -6.6,0 -12,-5.4 -12,-12 V 606.5 c 0,-6.6 5.4,-12 12,-12 H 292 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_239_"
+   x="121.3"
+   y="679.09998"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text48"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="123.5474"
+   y="637.00128">Noeud worker 3</text>
+
+
+<text
+   class="st5 st9"
+   id="text50"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="250.356"
+   y="330.60001">Noeud de  </text>
+
+
+<text
+   class="st5 st9"
+   id="text52"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="254.1293"
+   y="341.60001">tri 1</text>
+
+
+<path
+   id="XMLID_4_"
+   class="st0"
+   d="m 226.9,536 h -48.8 c -2.3,0 -4.1,-4.3 -4.1,-9.6 v -30.8 c 0,-5.3 1.8,-9.6 4.1,-9.6 h 48.8 c 2.3,0 4.1,4.3 4.1,9.6 v 30.8 c 0,5.3 -1.8,9.6 -4.1,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><text
+   class="st5 st9"
+   id="text55"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="192"
+   y="526">(Raft)</text>
+
+
+<text
+   class="st5 st9"
+   id="text57"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="185.356"
+   y="504">Noeud de  </text>
+
+
+<text
+   class="st5 st9"
+   id="text59"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="189.1293"
+   y="515">tri 2</text>
+
+
+<path
+   id="XMLID_5_"
+   class="st0"
+   d="m 288.9,536 h -48.8 c -2.3,0 -4.1,-4.3 -4.1,-9.6 v -30.8 c 0,-5.3 1.8,-9.6 4.1,-9.6 h 48.8 c 2.3,0 4.1,4.3 4.1,9.6 v 30.8 c 0,5.3 -1.8,9.6 -4.1,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><text
+   class="st5 st9"
+   id="text62"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="254"
+   y="526">(Raft)</text>
+
+
+<text
+   class="st5 st9"
+   id="text64"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="247.356"
+   y="504">Noeud de  </text>
+
+
+<text
+   class="st5 st9"
+   id="text66"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="251.1293"
+   y="515">tri 3</text>
+
+
+<path
+   id="XMLID_6_"
+   class="st0"
+   d="m 196.9,715 h -48.8 c -2.3,0 -4.1,-4.3 -4.1,-9.6 v -30.8 c 0,-5.3 1.8,-9.6 4.1,-9.6 h 48.8 c 2.3,0 4.1,4.3 4.1,9.6 v 30.8 c 0,5.3 -1.8,9.6 -4.1,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><text
+   class="st5 st9"
+   id="text69"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="162"
+   y="705">(Raft)</text>
+
+
+<text
+   class="st5 st9"
+   id="text71"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="155.356"
+   y="683">Noeud de  </text>
+
+
+<text
+   class="st5 st9"
+   id="text73"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="159.1293"
+   y="694">tri 4</text>
+
+
+<path
+   id="XMLID_7_"
+   class="st0"
+   d="m 260.9,716 h -48.8 c -2.3,0 -4.1,-4.3 -4.1,-9.6 v -30.8 c 0,-5.3 1.8,-9.6 4.1,-9.6 h 48.8 c 2.3,0 4.1,4.3 4.1,9.6 v 30.8 c 0,5.3 -1.8,9.6 -4.1,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><text
+   class="st5 st9"
+   id="text76"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="226"
+   y="706">(Raft)</text>
+
+
+<text
+   class="st5 st9"
+   id="text78"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="219.356"
+   y="684">Noeud de  </text>
+
+
+<text
+   class="st5 st9"
+   id="text80"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="223.1293"
+   y="695">tri 5</text>
+
+
+<rect
+   id="XMLID_8_"
+   x="115.7"
+   y="563.79999"
+   class="st4"
+   width="37"
+   height="37.700001"
+   style="fill:none" /><text
+   class="st5 st10"
+   id="text83"
+   style="font-size:11.06999969px;font-family:Helvetica"
+   x="112"
+   y="506"><tspan
+     style="font-size:9.06933308px"
+     id="tspan189">Homologue 2</tspan></text>
+
+
+<text
+   class="st5 st11"
+   id="text85"
+   style="font-size:10.06999969px;font-family:Helvetica"
+   x="130"
+   y="520">Org 1</text>
+
+
+<text
+   class="st12 st13"
+   id="text87"
+   style="font-size:21.66489983px;font-family:Helvetica-BoldOblique"
+   x="127"
+   y="169.5">+ anti-affinité</text>
+
+
+<path
+   id="XMLID_9_"
+   class="st1"
+   d="M 758.2,817.5 H 449.3 c -6.6,0 -12,-5 -12,-11.2 V 31.7 c 0,-6.2 5.4,-11.2 12,-11.2 h 308.9 c 6.6,0 12,5 12,11.2 v 774.5 c 0,6.3 -5.4,11.3 -12,11.3 z"
+   inkscape:connector-curvature="0"
+   style="fill:#2d3f49;stroke:#2d3f49" /><path
+   id="XMLID_10_"
+   class="st0"
+   d="M 741.6,798 H 465.9 c -6.6,0 -12,-5 -12,-11.1 V 89.1 c 0,-6.1 5.4,-11.1 12,-11.1 h 275.6 c 6.6,0 12,5 12,11.1 v 697.7 c 0.1,6.2 -5.3,11.2 -11.9,11.2 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><path
+   id="XMLID_11_"
+   class="st2"
+   d="M 727.2,777.9 H 480.3 c -6.6,0 -12,-5.3 -12,-11.7 V 106.6 c 0,-6.4 5.4,-11.7 12,-11.7 h 246.9 c 6.6,0 12,5.3 12,11.7 v 659.7 c 0,6.3 -5.4,11.6 -12,11.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" /><path
+   id="XMLID_12_"
+   class="st3"
+   d="M 706.9,754.3 H 500.5 c -6.6,0 -12,-5.4 -12,-12 V 213.5 c 0,-6.6 5.4,-12 12,-12 h 206.4 c 6.6,0 12,5.4 12,12 v 528.8 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#6182bb" /><rect
+   id="XMLID_13_"
+   x="488.5"
+   y="213.60001"
+   class="st4"
+   width="230.39999"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st5 st6"
+   id="text95"
+   style="font-size:24.07209969px;font-family:Helvetica"
+   x="537.59808"
+   y="231.45351">Pool worker</text>
+
+
+<rect
+   id="XMLID_14_"
+   x="505.29999"
+   y="94.900002"
+   class="st4"
+   width="196.89999"
+   height="34"
+   style="fill:none" /><rect
+   id="XMLID_15_"
+   x="496.39999"
+   y="40.599998"
+   class="st4"
+   width="214.60001"
+   height="34"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text99"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="553"
+   y="57.5">Région 2</text>
+
+
+<path
+   id="XMLID_16_"
+   class="st7"
+   d="M 692,396.1 H 517.1 c -6.6,0 -12,-5.4 -12,-12 V 263.5 c 0,-6.6 5.4,-12 12,-12 H 692 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_17_"
+   x="521.29999"
+   y="336.10001"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text103"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="523.54742"
+   y="293.97299">Noeud worker 1</text>
+
+
+<path
+   id="XMLID_19_"
+   class="st0"
+   d="m 648.07679,362.6 h -90.04041 c -4.24371,0 -7.56487,-4.3 -7.56487,-9.6 v -30.8 c 0,-5.3 3.32116,-9.6 7.56487,-9.6 h 90.04041 c 4.24371,0 7.56487,4.3 7.56487,9.6 V 353 c 0,5.3 -3.32116,9.6 -7.56487,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.35834098" /><rect
+   id="XMLID_20_"
+   x="522.70001"
+   y="327.89999"
+   class="st4"
+   width="163.60001"
+   height="37.700001"
+   style="fill:none" /><text
+   class="st5 st9"
+   id="text107"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="571"
+   y="348.60001"><tspan
+     style="font-size:11.06933308px"
+     id="tspan424">Homologues</tspan></text>
+
+
+<text
+   class="st5 st8"
+   id="text109"
+   style="font-size:12.06999969px;font-family:Helvetica"
+   x="591"
+   y="337.60001">AC 1</text>
+
+
+<text
+   class="st5 st6"
+   id="text111"
+   style="font-size:24.07209969px;font-family:Helvetica"
+   x="531"
+   y="137.5">Cluster unique</text>
+
+
+<path
+   id="XMLID_25_"
+   class="st7"
+   d="M 692,567.6 H 517.1 c -6.6,0 -12,-5.4 -12,-12 V 435 c 0,-6.6 5.4,-12 12,-12 H 692 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_26_"
+   x="521.29999"
+   y="447.70001"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text115"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="523.54742"
+   y="465.48669">Noeud worker 2</text>
+
+
+<path
+   id="XMLID_28_"
+   class="st0"
+   d="m 642.0246,537 h -81.25673 c -3.71223,0 -6.80577,-4.3 -6.80577,-9.6 v -30.8 c 0,-5.3 3.09354,-9.6 6.80577,-9.6 h 81.25673 c 3.71223,0 6.80577,4.3 6.80577,9.6 v 30.8 c 0,5.3 -3.09354,9.6 -6.80577,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.43608975" /><path
+   id="XMLID_29_"
+   class="st7"
+   d="M 692,739.1 H 517.1 c -6.6,0 -12,-5.4 -12,-12 V 606.5 c 0,-6.6 5.4,-12 12,-12 H 692 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_30_"
+   x="521.29999"
+   y="679.09998"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text120"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="523.54742"
+   y="637.00128">Noeud worker 3</text>
+
+
+<rect
+   id="XMLID_32_"
+   x="515.70001"
+   y="563.79999"
+   class="st4"
+   width="37"
+   height="37.700001"
+   style="fill:none" /><text
+   class="st5 st10"
+   id="text123"
+   style="font-size:11.06999969px;font-family:Helvetica"
+   x="567"
+   y="507">Homologue 3</text>
+
+
+<text
+   class="st5 st11"
+   id="text125"
+   style="font-size:10.06999969px;font-family:Helvetica"
+   x="587"
+   y="521">Org 1</text>
+
+
+<path
+   id="XMLID_33_"
+   class="st0"
+   d="m 636.74458,713 h -72.8854 c -3.32978,0 -6.10461,-4.3 -6.10461,-9.6 v -30.8 c 0,-5.3 2.77483,-9.6 6.10461,-9.6 h 72.8854 c 3.32978,0 6.10461,4.3 6.10461,9.6 v 30.8 c 0,5.3 -2.77483,9.6 -6.10461,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.36010408" /><text
+   class="st5 st10"
+   id="text128"
+   style="font-size:11.06999969px;font-family:Helvetica"
+   x="568"
+   y="683">Homologue 4</text>
+
+
+<text
+   class="st5 st11"
+   id="text130"
+   style="font-size:10.06999969px;font-family:Helvetica"
+   x="588"
+   y="697">Org 1</text>
+
+
+<text
+   class="st12 st13"
+   id="text132"
+   style="font-size:21.66489983px;font-family:Helvetica-BoldOblique"
+   x="527"
+   y="169.5">+ anti-affinité</text>
+
+
+<path
+   id="XMLID_34_"
+   class="st1"
+   d="M 1158.2,817.5 H 849.3 c -6.6,0 -12,-5 -12,-11.2 V 31.7 c 0,-6.2 5.4,-11.2 12,-11.2 h 308.9 c 6.6,0 12,5 12,11.2 v 774.5 c 0,6.3 -5.4,11.3 -12,11.3 z"
+   inkscape:connector-curvature="0"
+   style="fill:#2d3f49;stroke:#2d3f49" /><path
+   id="XMLID_35_"
+   class="st0"
+   d="M 1141.6,798 H 865.9 c -6.6,0 -12,-5 -12,-11.1 V 89.1 c 0,-6.1 5.4,-11.1 12,-11.1 h 275.6 c 6.6,0 12,5 12,11.1 v 697.7 c 0.1,6.2 -5.3,11.2 -11.9,11.2 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" /><path
+   id="XMLID_36_"
+   class="st2"
+   d="M 1127.2,777.9 H 880.3 c -6.6,0 -12,-5.3 -12,-11.7 V 106.6 c 0,-6.4 5.4,-11.7 12,-11.7 h 246.9 c 6.6,0 12,5.3 12,11.7 v 659.7 c 0,6.3 -5.4,11.6 -12,11.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" /><path
+   id="XMLID_37_"
+   class="st3"
+   d="M 1106.9,754.3 H 900.5 c -6.6,0 -12,-5.4 -12,-12 V 213.5 c 0,-6.6 5.4,-12 12,-12 h 206.4 c 6.6,0 12,5.4 12,12 v 528.8 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:#6182bb" /><rect
+   id="XMLID_38_"
+   x="888.5"
+   y="213.60001"
+   class="st4"
+   width="230.39999"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st5 st6"
+   id="text140"
+   style="font-size:24.07209969px;font-family:Helvetica"
+   x="937.59808"
+   y="231.45351">Pool worker</text>
+
+
+<rect
+   id="XMLID_39_"
+   x="905.29999"
+   y="94.900002"
+   class="st4"
+   width="196.89999"
+   height="34"
+   style="fill:none" /><rect
+   id="XMLID_40_"
+   x="896.40002"
+   y="40.599998"
+   class="st4"
+   width="214.60001"
+   height="34"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text144"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="953"
+   y="57.5">Région 3</text>
+
+
+<path
+   id="XMLID_41_"
+   class="st7"
+   d="M 1092,396.1 H 917.1 c -6.6,0 -12,-5.4 -12,-12 V 263.5 c 0,-6.6 5.4,-12 12,-12 H 1092 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_42_"
+   x="921.29999"
+   y="336.10001"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text148"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="923.54742"
+   y="293.97299">Noeud worker 1</text>
+
+
+<path
+   id="XMLID_44_"
+   class="st0"
+   d="m 1047.459,361.5 h -92.43117 c -4.35639,0 -7.76573,-4.3 -7.76573,-9.6 v -30.8 c 0,-5.3 3.40934,-9.6 7.76573,-9.6 h 92.43117 c 4.3564,0 7.7657,4.3 7.7657,9.6 v 30.8 c 0,5.3 -3.4093,9.6 -7.7657,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.37625623" /><rect
+   id="XMLID_45_"
+   x="890"
+   y="323.89999"
+   class="st4"
+   width="163.60001"
+   height="37.700001"
+   style="fill:none" /><text
+   class="st5 st9"
+   id="text152"
+   style="font-size:9.06999969px;font-family:Helvetica"
+   x="970.29999"
+   y="347.5"><tspan
+     style="font-size:11.06933308px"
+     id="tspan426">Homologues</tspan></text>
+
+
+<text
+   class="st5 st8"
+   id="text154"
+   style="font-size:12.06999969px;font-family:Helvetica"
+   x="984.29999"
+   y="336.5">AC 1</text>
+
+
+<text
+   class="st5 st6"
+   id="text156"
+   style="font-size:24.07209969px;font-family:Helvetica"
+   x="931"
+   y="137.5">Cluster unique</text>
+
+
+<path
+   id="XMLID_47_"
+   class="st7"
+   d="M 1092,567.6 H 917.1 c -6.6,0 -12,-5.4 -12,-12 V 435 c 0,-6.6 5.4,-12 12,-12 H 1092 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_48_"
+   x="921.29999"
+   y="447.70001"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text160"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="923.54742"
+   y="465.48669">Noeud worker 2</text>
+
+
+<path
+   id="XMLID_50_"
+   class="st0"
+   d="m 1049.6951,536.5 h -90.82404 c -4.14931,0 -7.60708,-4.3 -7.60708,-9.6 v -30.8 c 0,-5.3 3.45777,-9.6 7.60708,-9.6 h 90.82404 c 4.1493,0 7.607,4.3 7.607,9.6 v 30.8 c 0,5.3 -3.4577,9.6 -7.607,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.5182811" /><path
+   id="XMLID_51_"
+   class="st7"
+   d="M 1092,739.1 H 917.1 c -6.6,0 -12,-5.4 -12,-12 V 606.5 c 0,-6.6 5.4,-12 12,-12 H 1092 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.6 -5.4,12 -12,12 z"
+   inkscape:connector-curvature="0"
+   style="fill:#4278bd" /><rect
+   id="XMLID_52_"
+   x="921.29999"
+   y="679.09998"
+   class="st4"
+   width="166.5"
+   height="23.299999"
+   style="fill:none" /><text
+   class="st0 st5 st6"
+   id="text165"
+   style="font-size:24.07209969px;font-family:Helvetica;fill:#ffffff"
+   x="923.54742"
+   y="637.00128">Noeud worker 3</text>
+
+
+<rect
+   id="XMLID_54_"
+   x="915.70001"
+   y="563.79999"
+   class="st4"
+   width="37"
+   height="37.700001"
+   style="fill:none" /><text
+   class="st5 st10"
+   id="text168"
+   style="font-size:11.06999969px;font-family:Helvetica"
+   x="971"
+   y="506.5">Homologue 5</text>
+
+
+<text
+   class="st5 st11"
+   id="text170"
+   style="font-size:10.06999969px;font-family:Helvetica"
+   x="985"
+   y="520.5">Org 1</text>
+
+
+<path
+   id="XMLID_55_"
+   class="st0"
+   d="m 1051.3489,704.5 h -90.22603 c -4.12201,0 -7.557,-4.3 -7.557,-9.6 v -30.8 c 0,-5.3 3.43499,-9.6 7.557,-9.6 h 90.22603 c 4.122,0 7.557,4.3 7.557,9.6 v 30.8 c 0,5.3 -3.435,9.6 -7.557,9.6 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke-width:1.51327491" /><text
+   class="st5 st10"
+   id="text173"
+   style="font-size:11.06999969px;font-family:Helvetica"
+   x="974"
+   y="674.5">Homologue 6</text>
+
+
+<text
+   class="st5 st11"
+   id="text175"
+   style="font-size:10.06999969px;font-family:Helvetica"
+   x="988"
+   y="688.5">Org 1</text>
+
+
+<text
+   class="st12 st13"
+   id="text177"
+   style="font-size:21.66489983px;font-family:Helvetica-BoldOblique"
+   x="927"
+   y="169.5">+ anti-affinité</text>
+
+
+<rect
+   style="fill:none"
+   height="34"
+   width="196.89999"
+   class="st4"
+   y="94.400002"
+   x="885.5"
+   id="XMLID_217_" />
+</svg>

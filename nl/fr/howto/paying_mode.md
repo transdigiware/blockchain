@@ -22,7 +22,7 @@ subcollection: blockchain
 Les frais d'{{site.data.keyword.blockchainfull}} Platform sont mensuels avec des frais d'appartenance et des frais d'homologue. Les membres réseau peuvent régler leur facture avec leurs comptes {{site.data.keyword.cloud_notm}} qui contiennent l'espace nécessaire à la création de l'instance de réseau. Un membre réseau peut aussi couvrir les factures d'autres membres du réseau et payer pour l'intégralité du réseau. Le débiteur peut aussi transférer les factures à d'autres membres si nécessaire.
 {:shortdesc}
 
-Selon le plan de réseau que vous choisissez et la quantité de ressources que vous utilisez, vos paiements peuvent varier. Pour plus d'informations, voir [Tarification](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+Selon le plan de réseau que vous choisissez et la quantité de ressources que vous utilisez, vos paiements peuvent varier. Pour plus d'informations, voir [Tarification](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 
 Remarque : Lorsque plusieurs organisations génèrent un consortium, il leur est recommandé d'utiliser une adresse e-mail fonctionnelle pour créer leur réseau. Dans ce cas, l'accès au réseau ne dépend pas de la disponibilité d'une personne.
 
@@ -62,7 +62,7 @@ Un membre du réseau peut couvrir les frais d'un ou de plusieurs autres membres 
          - **Rôles d'espace** : Développeur.
       3. Cliquez sur **Inviter des utilisateurs**.  
    **Remarque **: Si le débiteur paye pour plusieurs membres, il doit recommencer cette étape pour inviter d'autres membres et leur accéder un accès à chacun.
-3. Le débiteur crée un réseau de blockchain {{site.data.keyword.blockchainfull_notm}} Platform et invite d'autres membres au réseau de blockchain dans le Moniteur réseau du réseau. Pour plus d'informations sur les membres réseau, voir [Membres](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
+3. Le débiteur crée un réseau de blockchain {{site.data.keyword.blockchainfull_notm}} Platform et invite d'autres membres au réseau de blockchain dans le Moniteur réseau du réseau. Pour plus d'informations sur les membres réseau, voir [Membres](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
 4. Chaque membre reçoit ensuite une courrier électronique de notification contenant une invitation à rejoindre le réseau. Le membre peut procéder comme suit pour rejoindre le réseau.
    1. Cliquez sur le bouton "Poursuivre" dans le courrier électronique de notification. Vous êtes alors redirigé vers la page de service blockchain dans {{site.data.keyword.cloud_notm}}.
    2. Connectez-vous à {{site.data.keyword.cloud_notm}} et vérifiez que vous utilisez l'organisation et l'espace {{site.data.keyword.cloud_notm}} corrects, que le débiteur vous ajoute.
@@ -73,7 +73,7 @@ Un membre du réseau peut couvrir les frais d'un ou de plusieurs autres membres 
       2. Vérifiez que l'organisation et l'espace sont ceux auxquels le débiteur vous ajoute.
       3. Sélectionnez le plan d'appartenance avec lequel vous allez créer votre instance de réseau. Votre plan d'appartenance doit être le même que celui avec lequel le débiteur crée le réseau.
       4. Cliquez sur **Créer**.
-   4. Dès que vous avez créé l'instance de service blockchain, suivez les instructions de l'assistant pour rejoindre le réseau.  Pour plus d'informations, voir [Rejoindre un réseau](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+   4. Dès que vous avez créé l'instance de service blockchain, suivez les instructions de l'assistant pour rejoindre le réseau.  Pour plus d'informations, voir [Rejoindre un réseau](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
 
 ### Limitations connues
 {: #paying-mode-limitation}
@@ -95,8 +95,8 @@ Au lieu d'ajouter les comptes d'autres membres au compte du débiteur, il est au
   4. Sous la section **Cloud Foundry access**, choisissez l'organisation que vous voulez ajouter au compte du débiteur à partir de la liste déroulante.
   5. Choisissez **Responsable de la facturation** pour **Rôles d'organisation**.
   6. Configurez les autres zones comme il convient, puis cliquez sur **Inviter des utilisateurs**.  
-3. Le débiteur invite d'autres membres au réseau de blockchain dans le Moniteur réseau du réseau. Pour plus d'informations sur les membres réseau, voir [Membres](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
-4. Chaque membre reçoit ensuite une courrier électronique de notification contenant une invitation à rejoindre le réseau. Le membre peut ensuite rejoindre le réseau. Pour plus d'informations, voir l'**étape 4** sous [Paiement pour d'autres membres du réseau](/docs/services/blockchain/howto/paying_mode.html#paying-mode-pay-for-others).
+3. Le débiteur invite d'autres membres au réseau de blockchain dans le Moniteur réseau du réseau. Pour plus d'informations sur les membres réseau, voir [Membres](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
+4. Chaque membre reçoit ensuite une courrier électronique de notification contenant une invitation à rejoindre le réseau. Le membre peut ensuite rejoindre le réseau. Pour plus d'informations, voir l'**étape 4** sous [Paiement pour d'autres membres du réseau](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others).
 
 ### Limitation connue
 {: #paying-mode-let-other-pay-limitation}

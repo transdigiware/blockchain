@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -32,7 +32,7 @@ Ce guide vous aidera à comprendre la tarification des plans d'appartenance à {
 
 *Figure 1. Vue d'ensemble de la tarification d'{{site.data.keyword.blockchainfull_notm}} Platform*
 
-Les frais mensuels sont facturés par jour au prorata. Par exemple, une organisation (avec des frais d'appartenance de 1 000 dollars) ayant deux homologues (frais par homologue de 1 000 dollars X 2 homologues) doit payer 3 000 dollars par mois. Si le mois comporte 30 jours, le membre paie 100 dollars (3 000/30) par jour. Pour plus d'informations sur le mode de règlement pour vos réseaux, voir [Mode de paiement](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
+Les frais mensuels sont facturés par jour au prorata. Par exemple, une organisation (avec des frais d'appartenance de 1 000 dollars) ayant deux homologues (frais par homologue de 1 000 dollars X 2 homologues) doit payer 3 000 dollars par mois. Si le mois comporte 30 jours, le membre paie 100 dollars (3 000/30) par jour. Pour plus d'informations sur le mode de règlement pour vos réseaux, voir [Mode de paiement](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode).
 
 
 ## Composants de base du réseau
@@ -42,7 +42,7 @@ Pour comprendre la tarification, nous devons commencer par une présentation des
 
 -	**Organisations** – Entité quelconque ayant besoin de conserver une copie du registre blockchain et de valider des transactions. Une même entreprise peut avoir plusieurs organisations blockchain.
 -	**Homologues** – Noeud associé à une organisation et qui contient le registre de blockchain et valide des transactions. Les homologues sont associés à une organisation blockchain spécifique.
--	**Service de tri** – Composé d'un seul service de tri (SOLO) ou de plusieurs. Le service de tri séquence les transactions, crée des blocs, et envoie les blocs aux homologues pour validation.
+-	**Service de tri** – Composé d'un seul noeud de tri ou d'une collection de noeuds de tri. Le service de tri séquence les transactions, crée des blocs, et envoie les blocs aux homologues pour validation.
 -	**Autorité de certification** – Emet des certificats numériques à des fins d'identification à n'importe quel composant interactif.
 
 {{site.data.keyword.blockchainfull_notm}} Platform offre deux plans d'appartenance, le plan **Starter** et le plan **Enterprise**, que vous pouvez sélectionner dans {{site.data.keyword.cloud_notm}}. Les deux plans vous permettent de créer des organisations et vous allouent une autorité de certification. Les plans divergent quant aux homologues, autorités de certification et service de tri.

@@ -24,82 +24,116 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private は、ローカル {{site.data.keyword.cloud_notm}} Private クラスターにインストールできる Helm チャートとして提供されます。 Helm チャートをインストールすると、{{site.data.keyword.cloud_notm}} Private カタログで {{site.data.keyword.blockchainfull_notm}} Platform をアプリケーションとして見つけることができます。
 
-Helm チャートは、[パスポート・アドバンテージ・オンライン](https://www.ibm.com/software/passportadvantage/pao_customer.html){: external}から購入する必要があります。購入時に、{{site.data.keyword.blockchainfull_notm}} Platform のテクニカル・サポートが含まれています。
+Helm チャートは、[パスポート・アドバンテージ・オンライン](https://www.ibm.com/software/passportadvantage/pao_customer.html){: external}から購入する必要があります。 購入時に、{{site.data.keyword.blockchainfull_notm}} Platform のテクニカル・サポートが含まれています。
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private をインストールする前に、[考慮事項と制限](/docs/services/blockchain/console-icp-about.html#console-icp-about-considerations)を確認してください。 料金、サポート、およびセキュリティーとデータ・レジデンシーに関する考慮事項について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private について](/docs/services/blockchain/console-icp-about.html#console-icp-about)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private をインストールする前に、[考慮事項と制限](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about-considerations)を確認してください。 料金、サポート、およびセキュリティーとデータ・レジデンシーに関する考慮事項について詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private について](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about)を参照してください。
 
 ## Helm チャートをインストールするための前提条件
 {: #console-helm-install-prereqs}
 
-Helm チャートをインストールする前に、{{site.data.keyword.cloud_notm}} Private クラスターを構成し、ポッド・セキュリティー・ポリシーにバインドされた新しいターゲット名前空間を作成しておく必要があります。 [{{site.data.keyword.cloud_notm}} Private クラスターのセットアップおよび構成](/docs/services/blockchain/ICP_console_setup.html#icp-console-setup)手順を確認してください。 複数のブロックチェーン・ネットワークを作成する場合は (例えば、開発用、ステージング用、実動用に別々の環境を作成する場合など)、環境ごとに固有の名前空間を作成しておく必要があります。
+Helm チャートをインストールする前に、{{site.data.keyword.cloud_notm}} Private クラスターを構成し、ポッド・セキュリティー・ポリシーにバインドされた新しいターゲット名前空間を作成しておく必要があります。 [{{site.data.keyword.cloud_notm}} Private クラスターのセットアップおよび構成](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)手順を確認してください。 デプロイできるコンソールは、名前空間ごとに 1 つのみです。複数のブロックチェーン・ネットワークを作成する場合は (例えば、開発用、ステージング用、実動用に別々の環境を作成する場合など)、環境ごとに固有の名前空間を作成しておく必要があります。
 
 ### PodSecurityPolicy の要件
 {: #console-helm-install-prereqs-pod-security-requirements}
 
-{{site.data.keyword.blockchainfull_notm}} Platform の Helm チャートをインストールする前に、PodSecurityPolicy をターゲット名前空間にバインドしておく必要があります。事前定義された PodSecurityPolicy を選択するか、クラスター管理者にカスタム PodSecurityPolicy の作成を依頼してください。
-- 事前定義された PodSecurityPolicy 名: [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-- カスタム PodSecurityPolicy 定義:
-  ```
-  apiVersion: extensions/v1beta1
-  kind: PodSecurityPolicy
-  metadata:
-    name: ibm-blockchain-platform-psp
-  spec:
-    hostIPC: false
-    hostNetwork: false
-    hostPID: false
-    privileged: true
-    allowPrivilegeEscalation: true
-    readOnlyRootFilesystem: false
-    seLinux:
-      rule: RunAsAny
-    supplementalGroups:
-      rule: RunAsAny
-    runAsUser:
-      rule: RunAsAny
-    fsGroup:
-      rule: RunAsAny
-    requiredDropCapabilities:
-    - ALL
-    allowedCapabilities:
-    - NET_BIND_SERVICE
-    - CHOWN
-    - DAC_OVERRIDE
-    - SETGID
-    - SETUID
-    volumes:
-    - '*'
-  ```
-- カスタム PodSecurityPolicy のカスタム ClusterRole:
-  ```
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    annotations:
-    name: ibm-blockchain-platform-clusterrole
-  rules:
-  - apiGroups:
-    - extensions
-    resourceNames:
-    - ibm-blockchain-platform-psp
-    resources:
-    - podsecuritypolicies
-    verbs:
-    - use
-  - apiGroups:
-    - ""
-    resources:
-    - secrets
-    verbs:
-    - create
-    - delete
-    - get
-    - list
-    - patch
-    - update
-    - watch
-  ```
-- カスタム ClusterRole のカスタム ClusterRoleBinding:
+{{site.data.keyword.blockchainfull_notm}} Platform の Helm チャートをインストールする前に、特定のセキュリティー・ポリシーおよびアクセス・ポリシーをターゲット名前空間にバインドする必要があります。Helm チャートを構成する前に、以下の手順を使用して、ポリシーを構成します。
+
+1. 名前空間の事前定義された PodSecurityPolicy を選択するか、クラスター管理者にカスタム PodSecurityPolicy の作成を依頼してください。
+  - 事前定義された PodSecurityPolicy の [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp) を使用できます。
+  - 以下の YAML を使用してカスタム PodSecurityPolicy 定義を作成することもできます。
+
+    ```
+    apiVersion: extensions/v1beta1
+    kind: PodSecurityPolicy
+    metadata:
+      name: ibm-blockchain-platform-psp
+    spec:
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      privileged: true
+      allowPrivilegeEscalation: true
+      readOnlyRootFilesystem: false
+      seLinux:
+        rule: RunAsAny
+      supplementalGroups:
+        rule: RunAsAny
+      runAsUser:
+        rule: RunAsAny
+      fsGroup:
+        rule: RunAsAny
+      requiredDropCapabilities:
+      - ALL
+      allowedCapabilities:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - DAC_OVERRIDE
+      - SETGID
+      - SETUID
+      volumes:
+      - '*'
+    ```
+    {:codeblock}
+
+2. PodSecurityPolicy の ClusterRole を作成します。
+  - カスタム・セキュリティー・ポリシーを作成した場合は、以下の YAML ファイルを使用して ClusterRole を作成できます。
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+      name: ibm-blockchain-platform-clusterrole
+      rules:
+    - apiGroups:
+      - extensions
+      resourceNames:
+      - ibm-blockchain-platform-psp
+      resources:
+      - podsecuritypolicies
+      verbs:
+      - use
+    - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    ```
+    {:codeblock}
+
+  - 事前定義された PodSecurityPolicy を使用している場合は、2 番目の apiGroups セクションを使用して ClusterRole を作成するだけで済みます。
+
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+      name: ibm-blockchain-platform-clusterrole
+      rules:
+      - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    ```
+    {:codeblock}
+
+3. カスタム ClusterRoleBinding を作成します。以下のファイルで ServiceAccount 名を変更する場合は、Helm チャートのデプロイ時に、構成ページの**「すべてのパラメーター」**セクションの `Service account name` フィールドに名前を指定する必要があります。
+
   ```
   apiVersion: rbac.authorization.k8s.io/v1
   kind: ClusterRoleBinding
@@ -114,6 +148,25 @@ Helm チャートをインストールする前に、{{site.data.keyword.cloud_n
     name: default
     namespace: default
   ```
+  {:codeblock}
+
+以下の手順を実行すると、YAML ファイルを使用して、セキュリティー・ポリシーおよびアクセス・ポリシーを名前空間にバインドできます。
+
+1. ローカル・システムに YAML ファイルを保存します。
+
+2. {{site.data.keyword.cloud_notm}} Private クラスターにログインし、デプロイメントのターゲット名前空間を選択します。
+
+  ```
+  docker login <cluster_CA_domain>:8500
+  ```
+  {:codeblock}
+
+3. 以下のコマンドを使用して、ポリシーをターゲット名前空間に適用します。
+
+  ```
+  kubectl apply -f <filename>.yaml
+  ```
+  {:codeblock}
 
 ## {{site.data.keyword.cloud_notm}} Private への Helm チャートのインポート
 {: #console-helm-install-importing}
@@ -127,7 +180,7 @@ Helm チャートをインストールする前に、{{site.data.keyword.cloud_n
   ```
   {:codeblock}
 
-3. [Docker CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/manage_images/configuring_docker_cli.html) が構成されていることを確認します。Docker CLI を構成したら、以下のコマンドを使用してクラスター上のイメージ・レジストリーにアクセスします。
+3. [Docker CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/manage_images/configuring_docker_cli.html) が構成されていることを確認します。 Docker CLI を構成したら、以下のコマンドを使用してクラスター上のイメージ・レジストリーにアクセスします。
   ```
   docker login <cluster_CA_domain>:8500
   ```
@@ -156,11 +209,17 @@ Helm チャートをインストールする前に、{{site.data.keyword.cloud_n
   このコマンドが正常に完了すると、以下のような情報が表示されます。
 
   ```  
-  Loading Helm chart
+  Uploading Helm chart(s)
+   Processing chart: charts/ibm-blockchain-platform-prod-1.1.0.tgz
+   Updating chart values.yaml
+   Uploading chart
   Loaded Helm chart
-
-  Synch charts on repo: <repo-name>
   OK
+
+  Synch charts
+  OK
+
+  Archive finished processing
   ```  
   </details>
 
@@ -169,4 +228,4 @@ Helm チャートをインストールする前に、{{site.data.keyword.cloud_n
 ## 次のステップ
 {: #console-helm-install-next-steps}
 
-Helm チャートをインストールしたら、{{site.data.keyword.cloud_notm}} Private のカタログの **ibm-blockchain-platform-prod** タイルを使用して、{{site.data.keyword.blockchainfull_notm}} Platform コンソールをデプロイできます。構成ページに入力する前に、デプロイメント用の新しいターゲット名前空間を作成し、{{site.data.keyword.blockchainfull_notm}} Platform コンポーネント用の十分なリソースがクラスターにあることを確認する必要があります。詳しくは、[{{site.data.keyword.cloud_notm}} Private への {{site.data.keyword.blockchainfull_notm}} コンソールのデプロイ](/docs/services/blockchain/howto/console-deploy-icp.html#console-deploy-icp)を参照してください。
+Helm チャートをインストールしたら、{{site.data.keyword.cloud_notm}} Private のカタログの **ibm-blockchain-platform-prod** タイルを使用して、{{site.data.keyword.blockchainfull_notm}} Platform コンソールをデプロイできます。 構成ページに入力する前に、デプロイメント用の新しいターゲット名前空間を作成し、{{site.data.keyword.blockchainfull_notm}} Platform コンポーネント用の十分なリソースがクラスターにあることを確認する必要があります。 詳しくは、[{{site.data.keyword.cloud_notm}} Private への {{site.data.keyword.blockchainfull_notm}} コンソールのデプロイ](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp)を参照してください。

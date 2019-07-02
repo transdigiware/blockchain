@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -33,7 +33,7 @@ El Hyperledger Fabric [flujo de transacciones](https://hyperledger-fabric.readth
 ### Gestión de transacciones
 {: #best-practices-app-managing-transactions}
 
-Los clientes de aplicaciones deben asegurarse de que sus propuestas de transacción se validan y de que las propuestas se completan correctamente. Una propuesta se puede retrasar o perder por varios motivos, como una interrupción de la red o una anomalía de un componente. Debe preparar el código para [alta disponibilidad](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app) para que pueda gestionar una anomalía en un componente. También puede [aumentar los valores de tiempo de espera](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk) en la aplicación para evitar que las propuestas excedan el tiempo de espera antes de que la red pueda responder.
+Los clientes de aplicaciones deben asegurarse de que sus propuestas de transacción se validan y de que las propuestas se completan correctamente. Una propuesta se puede retrasar o perder por varios motivos, como una interrupción de la red o una anomalía de un componente. Debe preparar el código para [alta disponibilidad](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) para que pueda gestionar una anomalía en un componente. También puede [aumentar los valores de tiempo de espera](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) en la aplicación para evitar que las propuestas excedan el tiempo de espera antes de que la red pueda responder.
 
 Si un código de encadenamiento no se está ejecutando, la primera propuesta que se envía a dicho código de encadenamiento lo inicia. Mientras se inicia el código de encadenamiento, todas las demás propuestas se rechazan con un error que indica que el código de encadenamiento se está iniciando. Esto difiere de la invalidación de la transacción. Si una propuesta se rechaza mientras se está iniciando el código de encadenamiento, los clientes de la aplicación deben volver a enviar las propuestas rechazadas después de que se inicie el código de encadenamiento. Los clientes de la aplicación pueden utilizar una cola de mensajes para evitar que se pierdan las propuestas de transacción.
 
@@ -70,19 +70,19 @@ Al gestionar las conexiones entre la aplicación y la red, puede tener en cuenta
   ```
   {:codeblock}
 
-  También puede encontrar estas variables con los valores recomendados en la sección `"peers"` del perfil de conexión de la red. Las opciones recomendadas se importarán en la aplicación de forma automática si utiliza el [perfil de conexión con el SDK](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile) para conectarse a los puntos finales de red.
+  También puede encontrar estas variables con los valores recomendados en la sección `"peers"` del perfil de conexión de la red. Las opciones recomendadas se importarán en la aplicación de forma automática si utiliza el perfil de conexión con el SDK para conectarse a los puntos finales de red. Encontrará más información sobre cómo utilizar un perfil de conexión en la [documentación de SDK de Node](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
 - Si una conexión deja de ser necesaria, utilice los mandatos `peer.close()` y `orderer.close()` para liberar recursos y evitar que se degrade el rendimiento. Para obtener más información, consulte las clases [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} y [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} en la documentación del SDK de Node. Si ha utilizado un perfil de conexión para añadir iguales y clasificadores a un objeto de canal, puede cerrar todas las conexiones que estén asignadas a dicho canal utilizando un mandato `channel.close()`.
 
 ### Aplicaciones de alta disponibilidad
 {: #best-practices-app-ha-app}
 
-Como práctica recomendada de alta disponibilidad, es muy recomendable desplegar un mínimo de dos iguales por organización para la migración tras error. También necesita adaptar sus aplicaciones a la alta disponibilidad. Instale el código de encadenamiento en ambos iguales y añádalos a los canales. Luego prepárese para enviar propuestas de transacciones a los puntos finales de ambos iguales cuando configure la red y cree su lista de destinos de iguales. Las redes del Plan empresarial tienen varios clasificadores para la migración tras error, lo que permite que la aplicación cliente pueda enviar transacciones aprobadas a un clasificador distinto si uno no está disponible. Si utiliza el [perfil de conexión](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) en su lugar para añadir puntos finales de red manualmente, asegúrese de que el perfil esté actualizado y de que los iguales y clasificadores adicionales se hayan añadido al canal correspondiente en la sección `channels` del perfil. A continuación, el SDK puede añadir los componentes que se han unido al canal utilizando el perfil de conexión.
+Como práctica recomendada de alta disponibilidad, es muy recomendable desplegar un mínimo de dos iguales por organización para la migración tras error. También necesita adaptar sus aplicaciones a la alta disponibilidad. Instale el código de encadenamiento en ambos iguales y añádalos a los canales. Luego prepárese para enviar propuestas de transacciones a los puntos finales de ambos iguales cuando configure la red y cree su lista de destinos de iguales. Las redes del Plan empresarial tienen varios clasificadores para la migración tras error, lo que permite que la aplicación cliente pueda enviar transacciones aprobadas a un clasificador distinto si uno no está disponible. Si utiliza el perfil de conexión en su lugar para añadir puntos finales de red manualmente, asegúrese de que el perfil esté actualizado y de que los iguales y clasificadores adicionales se hayan añadido al canal correspondiente en la sección `channels` del perfil. A continuación, el SDK puede añadir los componentes que se han unido al canal utilizando el perfil de conexión.
 
 ## Habilitación de TLS mutuo
 {: #best-practices-app-mutual-tls}
 
-Si ejecuta redes del plan empresarial que estén al nivel de Fabric V1.1, tiene la opción de [habilitar TLS mutuo](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) para las aplicaciones. Si habilita TLS mutuo, debe actualizar las aplicaciones para dar soporte a esta función. De lo contrario, las aplicaciones no podrán comunicarse con la red.
+Si ejecuta redes del plan empresarial que estén al nivel de Fabric V1.1, tiene la opción de [habilitar TLS mutuo](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) para las aplicaciones. Si habilita TLS mutuo, debe actualizar las aplicaciones para dar soporte a esta función. De lo contrario, las aplicaciones no podrán comunicarse con la red.
 
 En el Perfil de conexión, localice la sección `certificateAuthorities`, donde encontrará los siguientes atributos que son necesarios para inscribir y obtener los certificados para comunicarse con la red utilizando TLS mutuo.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.IBM}} では、実動の Hyperledger Composer を使用するネットワークをサポートしていません。これには Composer CLI、JavaScript API、REST サーバー、および Web Playground が含まれます。
 {:note}
 
-[ビジネス・ネットワーク](/docs/services/blockchain/glossary.html#glossary-business-network)は、{{site.data.keyword.blockchainfull_notm}} Platform 開発者環境と Hyperledger Composer 開発者ツール・セットを使用して開発し、スターター・プランとエンタープライズ・プランのネットワークにデプロイすることができます。
+[ビジネス・ネットワーク](/docs/services/blockchain?topic=blockchain-glossary#glossary-business-network)は、{{site.data.keyword.blockchainfull_notm}} Platform 開発者環境と Hyperledger Composer 開発者ツール・セットを使用して開発し、スターター・プランとエンタープライズ・プランのネットワークにデプロイすることができます。
 {:shortdesc}
 
 開発者環境で、ブロックチェーンのビジネス・ネットワークを素早くモデル化してテストしたら、それらを {{site.data.keyword.blockchainfull_notm}} Platform のスターター・プランまたはエンタープライズ・プランのネットワークにデプロイできます。
@@ -36,14 +36,14 @@ subcollection: blockchain
 ### 始めに
 {: #deploying-a-business-network-before-begin}
 
-[スターター・プランについて](/docs/services/blockchain/starter_plan.html#starter-plan-about)を必ず読み、[スターター・プランの概説](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan)の説明に従ってスターター・プラン・ネットワークを作成しておいてください。
+[スターター・プランについて](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about)を必ず読み、[スターター・プランの概説](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan)の説明に従ってスターター・プラン・ネットワークを作成しておいてください。
 
 Node v8.9 以上、npm v5.x、および Hyperledger Composer がインストールされていることを確認します。
 
 - ネットワークが Fabric バージョン 1.2 上にある場合は、Hyperledger Composer v0.20.x を使用します。
 - ネットワークが Fabric バージョン 1.1 上にある場合は、Hyperledger Composer v0.19.x を使用します。
 
-Fabric のバージョンは、ネットワーク・モニターで[「ネットワーク設定 (Network preferences)」ウィンドウ](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences)を開くことで確認できます。
+Fabric のバージョンは、ネットワーク・モニターで[「ネットワーク設定 (Network preferences)」ウィンドウ](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)を開くことで確認できます。
 
 ### ステップ 1: 管理シークレットの取得
 {: #deploying-a-business-network-retrieve-admin-secret}
@@ -187,7 +187,7 @@ Fabric のバージョンは、ネットワーク・モニターで[「ネット
 
 {{site.data.keyword.blockchainfull_notm}} 開発者環境をインストールします。ビジネス・ネットワークの開発とデプロイの方法を理解しておく必要があります。 ビジネス・ネットワークの作成に関するガイダンスは、[Hyperledger Composer の資料](https://hyperledger.github.io/composer/latest/business-network/business-network-index)から参照できます。
 
-{{site.data.keyword.blockchainfull_notm}} Platform のエンタープライズ・プラン・インスタンスに対するアクセス権限が必要であり、事前にピアを作成しておく必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform エンタープライズ・プランについて詳しくは、[エンタープライズ・プランの概説](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about)を参照してください。
+{{site.data.keyword.blockchainfull_notm}} Platform のエンタープライズ・プラン・インスタンスに対するアクセス権限が必要であり、事前にピアを作成しておく必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform エンタープライズ・プランについて詳しくは、[エンタープライズ・プランの概説](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about)を参照してください。
 
 ### ステップ 1: {{site.data.keyword.blockchainfull_notm}} Platform の接続プロファイルの作成
 {: #deploying-a-business-network-create-connection-profile}

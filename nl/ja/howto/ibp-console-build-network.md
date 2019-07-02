@@ -22,18 +22,18 @@ subcollection: blockchain
 # ネットワーク構築チュートリアル
 {: #ibp-console-build-network}
 
-{{site.data.keyword.blockchainfull}} Platform は、ブロックチェーンのアプリケーションとネットワークを開発、デプロイ、運用できるようにする Blockchain as a Service オファリングです。 ブロックチェーンの各コンポーネントの概要およびコンポーネント同士の連携について詳しくは、[ブロックチェーン・コンポーネントの概要](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview)を参照してください。 このチュートリアルは、[サンプル・ネットワークのチュートリアル・シリーズ](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-sample-tutorial)の第 1 部です。{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用して、選択したクラウド・インフラストラクチャーにデプロイした Kubernetes クラスター上に、正常に機能するネットワークを構築する方法を説明します。
+{{site.data.keyword.blockchainfull}} Platform は、ブロックチェーンのアプリケーションとネットワークを開発、デプロイ、運用できるようにする Blockchain as a Service オファリングです。 ブロックチェーンの各コンポーネントの概要およびコンポーネント同士の連携について詳しくは、[ブロックチェーン・コンポーネントの概要](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview)を参照してください。 このチュートリアルは、[サンプル・ネットワークのチュートリアル・シリーズ](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-sample-tutorial)の第 1 部です。{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用して、選択したクラウド・インフラストラクチャーにデプロイした Kubernetes クラスター上に、正常に機能するネットワークを構築する方法を説明します。
 {:shortdesc}
 
 
-ベータ・トライアル・バージョンの {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} を使用している場合は、コンソールの一部のパネルが、一般出荷可能 (GA) サービス・インスタンスに合わせて最新の情報が記載されている現在の文書とは異なる可能性があります。 ベータ版のサービス・インスタンスを使用していて、最新機能をすべて利用したいという場合は、この段階で [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks)の手順に従い、GA サービス・インスタンスをプロビジョンすることをお勧めします。
+ベータ・トライアル・バージョンの {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} を使用している場合は、コンソールの一部のパネルが、一般出荷可能 (GA) サービス・インスタンスに合わせて最新の情報が記載されている現在の文書とは異なる可能性があります。 ベータ版のサービス・インスタンスを使用していて、最新機能をすべて利用したいという場合は、この段階で [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks)の手順に従い、GA サービス・インスタンスをプロビジョンすることをお勧めします。
 {: important}
 
 **対象者:** このトピックは、ブロックチェーン・ネットワークの作成、モニター、管理を担当するネットワーク・オペレーターを対象に設計されています。
 
-まだ {{site.data.keyword.blockchainfull_notm}} Platform コンソールで {{site.data.keyword.cloud_notm}} Kubernetes Service を使用してコンポーネントを Kubernetes クラスターにデプロイしていない場合は、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) ({{site.data.keyword.cloud_notm}} クラスターを使用する場合) または [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の概説](/docs/services/blockchain/get-started-console-icp.html#get-started-console-icp) ({{site.data.keyword.cloud_notm}} Private を使用して {{site.data.keyword.cloud_notm}} 以外のクラウド・プロバイダーにデプロイする場合) を参照してください。コンソール自体はクラスター内に存在しないことに注意してください。 これは、クラスターにコンポーネントをデプロイするために使用できるツールです。
+まだ {{site.data.keyword.blockchainfull_notm}} Platform コンソールで {{site.data.keyword.cloud_notm}} Kubernetes Service を使用してコンポーネントを Kubernetes クラスターにデプロイしていない場合は、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} の概説](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) ({{site.data.keyword.cloud_notm}} クラスターを使用する場合) または [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud の概説](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp) ({{site.data.keyword.cloud_notm}} Private を使用して {{site.data.keyword.cloud_notm}} 以外のクラウド・プロバイダーにデプロイする場合) を参照してください。 コンソール自体はクラスター内に存在しないことに注意してください。 これは、クラスターにコンポーネントをデプロイするために使用できるツールです。
 
-有料版または無料版のどちらの Kubernetes クラスターにコンポーネントをデプロイするかにかかわらず、ノードをデプロイしてチャネルを作成するときには、使用可能なリソースを慎重に確認してください。 Kubernetes クラスターを管理し、必要に応じて追加のリソースをデプロイする責任はユーザーにあります。 {{site.data.keyword.cloud_notm}} 無料版のクラスターにもコンポーネントは正常にデプロイできますが、追加するコンポーネントが多くなるほど、コンポーネントの実行速度は遅くなります。 コンポーネントのサイズ設定およびコンソールと {{site.data.keyword.cloud_notm}} Kubernetes Service クラスターの対話方法の詳細については、[リソースの割り振り](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction)を参照してください。{{site.data.keyword.cloud_notm}} Private を使用して別のクラウド・プロバイダーにデプロイする場合は、そのプロバイダーの資料を参照し、そこでリソースをモニターする方法を確認する必要があります。
+有料版または無料版のどちらの Kubernetes クラスターにコンポーネントをデプロイするかにかかわらず、ノードをデプロイしてチャネルを作成するときには、使用可能なリソースを慎重に確認してください。 Kubernetes クラスターを管理し、必要に応じて追加のリソースをデプロイする責任はユーザーにあります。 {{site.data.keyword.cloud_notm}} 無料版のクラスターにもコンポーネントは正常にデプロイできますが、追加するコンポーネントが多くなるほど、コンポーネントの実行速度は遅くなります。 コンポーネントのサイズ設定およびコンソールと {{site.data.keyword.cloud_notm}} Kubernetes Service クラスターの対話方法の詳細については、[リソースの割り振り](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction)を参照してください。 {{site.data.keyword.cloud_notm}} Private を使用して別のクラウド・プロバイダーにデプロイする場合は、そのプロバイダーの資料を参照し、そこでリソースをモニターする方法を確認する必要があります。
 
 ## サンプル・ネットワークのチュートリアル・シリーズ
 {: #ibp-console-build-network-sample-tutorial}
@@ -44,8 +44,8 @@ subcollection: blockchain
 {: important}
 
 * **ネットワーク構築チュートリアル** このチュートリアルでは、2 つの組織を作成することでネットワークをホストするプロセスを学習します。組織の 1 つはピア用で、もう 1 つは順序付けサービスおよびチャネル用です。 順序付けサービスを作成して組織を追加することで、ブロックチェーン・コンソーシアムを形成する場合は、このチュートリアルを使用してください。
-* [ネットワーク参加チュートリアル](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network)では、ピアを作成して既存のチャネルに参加させることで、既存のネットワークに参加するプロセスを学習します。 このチュートリアルは、順序付けサービスを作成することでネットワークをホストする予定がない場合、あるいは他のネットワークに参加するプロセスを学習する場合に使用します。
-* [ネットワークにスマート・コントラクトをデプロイする](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts)では、スマート・コントラクトを作成してネットワークにデプロイする方法を学習します。
+* [ネットワーク参加チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network)では、ピアを作成して既存のチャネルに参加させることで、既存のネットワークに参加するプロセスを学習します。 このチュートリアルは、順序付けサービスを作成することでネットワークをホストする予定がない場合、あるいは他のネットワークに参加するプロセスを学習する場合に使用します。
+* [ネットワークにスマート・コントラクトをデプロイする](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts)では、スマート・コントラクトを作成してネットワークにデプロイする方法を学習します。
 
 
 ### このネットワークの構造
@@ -62,7 +62,7 @@ subcollection: blockchain
 * **1 つの順序付けサービス組織**: `Ordering Service`  
   分散台帳を作成するので、ピアと順序付けサービスは別々の組織に所属していなければなりません。 そのため、順序付けサービスのために別の組織を作成します。 特に、順序付けサービス・ノードは、トランザクションのブロックに順序を付け、台帳に書き込んでブロックチェーンにするためにピアに送るノードです。 `Ordering Service` 組織の定義を作成します。
 * **3 つの認証局 (CA)**: `Org1 CA、Org2 CA、Ordering Service CA`   
-  CA は、組織に関連付けられているユーザーおよびノードの両方に証明書を発行するノードです。 CA は組織ごとに 1 つデプロイするのがベスト・プラクティスです。そのため、各ピア組織用に 1 つと、順序付けサービス組織用に 1 つ、合計 3 つの CA をデプロイします。 これらの CA は、メンバーシップ・サービス・プロバイダー (MSP) によってカプセル化される、各組織の定義も作成します。 各組織 CA とともに TLS CA が自動的にデプロイされ、ノード間の通信に使用する TLS 証明書が提供されます。詳しくは、[TLS CA の使用](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-tlsca)を参照してください。
+  CA は、組織に関連付けられているユーザーおよびノードの両方に証明書を発行するノードです。 CA は組織ごとに 1 つデプロイするのがベスト・プラクティスです。そのため、各ピア組織用に 1 つと、順序付けサービス組織用に 1 つ、合計 3 つの CA をデプロイします。 これらの CA は、メンバーシップ・サービス・プロバイダー (MSP) によってカプセル化される、各組織の定義も作成します。 各組織 CA とともに TLS CA が自動的にデプロイされ、ノード間の通信に使用する TLS 証明書が提供されます。 詳しくは、[TLS CA の使用](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca)を参照してください。
 * **1 つの順序付けサービス:** `Ordering Service`  
   有料クラスターで実行しているデプロイメントには、1 つのノードの順序付けサービスまたはクラッシュ・フォールト・トレラントの 5 つのノードの順序付けサービスのいずれかをデプロイするオプションがありますが、無料のクラスターで使用できるのは、単一のノードを実行するオプションのみです。 5 つのノードの順序付けサービスでは、Raft プロトコルの実装を使用し (Raft の詳細については、[The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external} を参照してください)、これがこのチュートリアルで使用するデプロイメント・オプションです。 現時点では、組織に関連付けられている順序付けノードの数にかかわらず、サポートされる順序付けサービス組織は順序付けサービスごとに 1 つのみです。 この順序付けサービスは、チャネルを作成し、チャネルに参加できるピア組織のリストである「コンソーシアム」にピア組織を追加します。 別々のクラスターにデプロイされている複数の組織を持つチャネルを作成する (ほとんどの実動ネットワークはこのような構造になっています) 場合、順序付けサービスの管理者は、別のコンソールにデプロイされているピア組織を自分のコンソールにインポートする必要があります。 これにより、その順序付けサービスでホストされているチャネルに、そのピア組織を参加させることができます。
 * **ピア 2 つ:** `Peer Org1` および `Peer Org2`  
@@ -75,7 +75,7 @@ subcollection: blockchain
 この**ネットワーク構築**チュートリアルでは、上図のネットワークの一部だけを構築します。1 つのチャネルで 1 つの順序付けサービスと、ピア組織およびピアを 1 つホストするために使用できるシンプルなネットワークです。 以下の図は、上図のネットワークのうちここで構築する部分を示しています。
 ![シンプルなネットワーク構造](../images/ibp2-simple-network.svg "シンプルなネットワーク構造")
 
-この構成は、すぐにスマート・コントラクトを開始してテストしたい場合には便利ですが、取引相手になる他の組織を追加して実際に分散したネットワークを作成しないと、あまり意味はありません。 そのため、次の[ネットワーク参加](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network)チュートリアルで、追加のピア組織とピアを作成する方法、および新しい組織をチャネルに追加する方法を説明します。
+この構成は、すぐにスマート・コントラクトを開始してテストしたい場合には便利ですが、取引相手になる他の組織を追加して実際に分散したネットワークを作成しないと、あまり意味はありません。 そのため、次の[ネットワーク参加](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network)チュートリアルで、追加のピア組織とピアを作成する方法、および新しい組織をチャネルに追加する方法を説明します。
 
 このチュートリアルでは、全体を通して、コンソールのフィールドの**推奨値**を記載しています。 推奨値を使用すれば、タブやドロップダウン・リストで名前や ID を見つけやすくなります。 これらの値は必須ではありませんが、使用すると便利です。特に、前のステップで入力した登録ユーザーの ID や機密事項といった特定の値を記憶しておく必要がある場合に役立ちます。 これらの値はコンソールに格納されないため、忘れた場合は、追加ユーザーを登録して、プロセスをはじめからやり直す必要があります。 各タスクの後に推奨値の表を示します。推奨値を使用しない場合は、チュートリアルを進めながら、使用する値を記録することをお勧めします。
 {:tip}
@@ -83,7 +83,7 @@ subcollection: blockchain
 ## 手順 1: ピア組織とピアを作成する
 {: #ibp-console-build-network-create-peer-org1}
 
-コンソールを使用して作成する組織ごとに、CA を 1 つ以上デプロイする必要があります。 CA とは、すべてのネットワーク参加者 (ピア、順序付けサービス、クライアント、管理者など) に証明書を発行するノードです。 ネットワーク参加者は、署名証明書および秘密鍵を含むこれらの証明書を使用して通信および認証することができ、最終的にトランザクションを実行できます。 これらの CA により、組織に属するすべての ID および証明書を作成し、さらに組織そのものを定義します。 その後、それらの ID を使用して、ノードのデプロイ、管理者 ID の作成、トランザクションの送信を行えます。 CA および作成する必要がある ID について詳しくは、[ID の管理](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities)を参照してください。
+コンソールを使用して作成する組織ごとに、CA を 1 つ以上デプロイする必要があります。 CA とは、すべてのネットワーク参加者 (ピア、順序付けサービス、クライアント、管理者など) に証明書を発行するノードです。 ネットワーク参加者は、署名証明書および秘密鍵を含むこれらの証明書を使用して通信および認証することができ、最終的にトランザクションを実行できます。 これらの CA により、組織に属するすべての ID および証明書を作成し、さらに組織そのものを定義します。 その後、それらの ID を使用して、ノードのデプロイ、管理者 ID の作成、トランザクションの送信を行えます。 CA および作成する必要がある ID について詳しくは、[ID の管理](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities)を参照してください。
 
 このチュートリアルでは、組織を 2 つ作成します。ピアを所有する組織と、順序付けサービスを所有する組織です。 どちらの組織にも、その組織の証明書を発行する CA が必要です。そのため、**2 つの CA** を作成する必要があります。 このチュートリアルの目的に合わせて、**ここでは、CA を 1 つだけ作成します**。
 
@@ -99,10 +99,10 @@ subcollection: blockchain
 最初の組織の証明書を発行する CA を作成するには、コンソールで以下の手順を実行します。
 
 1. 左側の**「ノード」**タブにナビゲートし、**「認証局の追加 (Add Certificate Authority)」**をクリックします。 サイド・パネルを使用して、作成する CA をカスタマイズできるとともに、この CA によって鍵が発行される対象となる組織をカスタマイズできます。
-2. このチュートリアルではノードを作成するので、認証局を**「作成」**するオプションが選択されていることを確認します。次に、**「次へ」**をクリックします。
+2. このチュートリアルではノードを作成するので、認証局を**「作成」**するオプションが選択されていることを確認します。 次に、**「次へ」**をクリックします。
 3. 2 つ目のサイド・パネルを使用して、CA に**表示名**を付けます。 この CA にお勧めする値は、`Org1 CA` です。
 4. 次のパネルで、**CA 管理者の登録 ID** として `admin` を指定し、機密事項として `adminpw` を指定して、CA 管理者に資格情報を付与します。 この場合も、これらは**推奨値**です。
-5. 有料クラスターを使用している場合は、ノードのリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックします。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。無料クラスターを使用している場合は、**「サマリー」**ページが表示されます。
+5. 有料クラスターを使用している場合は、ノードのリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックします。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。 無料クラスターを使用している場合は、**「サマリー」**ページが表示されます。
 6. 「サマリー」ページを確認し、**「認証局の追加 (Add Certificate Authority)」**をクリックします。
 
 **タスク: ピア組織の CA の作成**
@@ -115,7 +115,7 @@ subcollection: blockchain
 
 CA をデプロイしたら、組織 MSP の作成、ユーザーの登録、**ピア**の作成を行うときにその CA を使用します。
 
-既に独自の CA を所有している上級ユーザーは、コンソールで CA を新規作成する必要はない可能性があります。 既存の CA が `X.509` 形式の証明書を発行できる場合は、ここで新規 CA を作成せずに、その独自の外部 CA を使用できます。 詳しくは、[外部 CA からの証明書をピアまたは順序付けサービスに使用する](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca)のトピックを参照してください。
+既に独自の CA を所有している上級ユーザーは、コンソールで CA を新規作成する必要はない可能性があります。 既存の CA が `X.509` 形式の証明書を発行できる場合は、ここで新規 CA を作成せずに、その独自の外部 CA を使用できます。 詳しくは、[外部 CA からの証明書をピアまたは順序付けサービスに使用する](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca)のトピックを参照してください。
 
 ### CA を使用して ID を登録する
 {: #ibp-console-build-network-use-CA-org1}
@@ -131,8 +131,8 @@ CA をデプロイしたら、組織 MSP の作成、ユーザーの登録、**�
 CA が実行されると (タイルの緑のボックスで示されます)、以下の手順を実行してこれらの証明書が生成されます。
 
 1. `Org1 CA` をクリックし、この CA に作成した `admin` ID が表に表示されていることを確認します。 次に、**「ユーザーの登録」**ボタンをクリックします。
-2. まず、組織の管理者を登録します。これには、**「登録 ID」**に `org1admin` を指定し、**「機密事項」**に `org1adminpw` を指定します。 次に、この ID の`「タイプ」`を `client` に設定します (管理者 ID は常に `client` として登録する必要がありますが、ノード ID は常に `peer` タイプを使用して登録する必要があります)。 **「最大登録数」**フィールドは無視してかまいません。 エンロールの詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register)を参照してください。 **「次へ」**をクリックします。
-3. このチュートリアルでは、**「属性の追加 (Add Attribute)」**を使用する必要はありません。 ID 属性の詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register)を参照してください。
+2. まず、組織の管理者を登録します。これには、**「登録 ID」**に `org1admin` を指定し、**「機密事項」**に `org1adminpw` を指定します。 次に、この ID の`「タイプ」`を `client` に設定します (管理者 ID は常に `client` として登録する必要がありますが、ノード ID は常に `peer` タイプを使用して登録する必要があります)。 **「最大登録数」**フィールドは無視してかまいません。 エンロールの詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)を参照してください。 **「次へ」**をクリックします。
+3. このチュートリアルでは、**「属性の追加 (Add Attribute)」**を使用する必要はありません。 ID 属性の詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)を参照してください。
 4. 組織管理者を登録したら、ピアの ID に対しても同じプロセスを繰り返します (この場合も `Org1 CA` を使用します)。 ピア ID に、登録 ID として `peer1` を指定し、機密事項として `peer1pw` を指定します。 これはノード ID なので、**「タイプ」**に`ピア`を選択します。 **「最大登録数」**フィールドは無視してかまいません。また、次のパネルでは、先ほどと同様に**「属性 (Attributes)」**を割り当てないでください。
 
 これらの ID を CA に登録することは、ID を**作成**する最初のステップにすぎません。 これらの ID は、**エンロール**されるまでは使用できません。 `org1admin` ID の場合、エンロールは MSP の作成中に行われます。これについて、次の手順で説明します。 ピアの場合は、ピアの作成中にエンロールが行われます。
@@ -155,7 +155,7 @@ CA が実行されると (タイルの緑のボックスで示されます)、�
 1. 左側ナビゲーションの**「組織」**タブにナビゲートし、**「MSP 定義の作成 (Create MSP definition)」**をクリックします。
 2. MSP の表示名に `Org1 MSP` および MSP ID に `org1msp` を指定します。 このフィールドで独自の MSP ID を指定する場合は、ツールチップに表示されるこの名前の制限事項に関する指定内容に従ってください。
 3. **「ルート認証局の詳細 (Root Certificate Authority details)」**の下で、前の手順で ID を登録するために使用した CA を指定します。 このチュートリアルを初めて実行する場合には、`Org1 CA` だけが表示されます。
-4. これの下の**「登録 ID」**フィールドと**「機密事項の登録」**フィールドには、CA を使用して作成した最初のユーザーの登録 ID と機密事項 (`admin` および `adminpw`) が自動的に入力されます。 ただし、この ID を使用すると、組織の管理者 ID が CA の ID と同じになります。セキュリティー上の理由から、これはお勧めしません。代わりに、組織管理者用に作成した登録 ID である `org1admin` をドロップダウン・リストから選択し、この ID に関連付けられている機密事項の `org1adminpw` を入力します。 そして、この ID に表示名 `Org1 Admin` を指定します。
+4. これの下の**「登録 ID」**フィールドと**「機密事項の登録」**フィールドには、CA を使用して作成した最初のユーザーの登録 ID と機密事項 (`admin` および `adminpw`) が自動的に入力されます。 ただし、この ID を使用すると、組織の管理者 ID が CA の ID と同じになります。セキュリティー上の理由から、これはお勧めしません。 代わりに、組織管理者用に作成した登録 ID である `org1admin` をドロップダウン・リストから選択し、この ID に関連付けられている機密事項の `org1adminpw` を入力します。 そして、この ID に表示名 `Org1 Admin` を指定します。
 5. **「生成 (Generate)」**ボタンをクリックして、このアイデンティティーを組織の管理者として登録して、このアイデンティティーをウォレットにエクスポートします。これは、ピアの作成時やチャネルの作成時に使用されます。
 6. **「エクスポート」**をクリックして、管理者の証明書をファイル・システムにエクスポートします。 前述のように、この ID はコンソールに保管されることも {{site.data.keyword.IBM_notm}} によって管理されることもありません。 これはブラウザーのローカル・ストレージのみに保管されます。 ブラウザーを変更する場合は、ピアを管理できるようにするために、この ID をウォレットにインポートする必要があります。
 7. **「MSP 定義の作成 (Create MSP definition)」**をクリックします。
@@ -181,7 +181,7 @@ MSP を作成すると、**「ウォレット (Wallet)」**にピア組織管理
 
   *図 6. ウォレットの確認*
 
-MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto/ibp-console-organizations.html#ibp-console-organizations)を参照してください。
+MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#ibp-console-organizations)を参照してください。
 
 これらの証明書の管理および保護はお客様が行う作業ですので、組織管理者 ID をエクスポートすることは大切です。 ブラウザーを切り替える場合、この管理 ID をインポートする必要があります。そうしないと、Org1 を操作できなくなります。
 {:important}
@@ -189,12 +189,12 @@ MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto
 ### ピアを作成する
 {: #ibp-console-build-network-peer-create}
 
-[CA を作成し](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-CA-org1CA)、それを使用して Org1 ID を登録し、[Org1 MSP](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-peers-org1) を作成したら、Org1 用のピアを作成する準備は完了です。
+[CA を作成し](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)、それを使用して Org1 ID を登録し、[Org1 MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1) を作成したら、Org1 用のピアを作成する準備は完了です。
 
 #### ピアの役割
 {: #ibp-console-build-network-peer-role}
 
-重要な留意事項として、組織自体が台帳を保守することはありません。 ピアが保守します。 また組織はピアを使用して、トランザクション提案に署名して、チャネル構成の更新を承認します。 チャネル上にピアが組織あたり 2 つ以上存在すると、組織の可用性が高まります。チャネルにピアを組織あたり 3 つ参加させることが、実動レベルの実装のベスト・プラクティスです。これにより、1 つのピアが保守のために停止しているときでも、高可用性が維持されるためです。ただし、このチュートリアルでは、単一のピアを作成するプロセスだけを説明します。このプロセスを独自のビジネス・ニーズに合わせて繰り返してください。
+重要な留意事項として、組織自体が台帳を保守することはありません。 ピアが保守します。 また組織はピアを使用して、トランザクション提案に署名して、チャネル構成の更新を承認します。 チャネル上にピアが組織あたり 2 つ以上存在すると、組織の可用性が高まります。チャネルにピアを組織あたり 3 つ参加させることが、実動レベルの実装のベスト・プラクティスです。これにより、1 つのピアが保守のために停止しているときでも、高可用性が維持されるためです。 ただし、このチュートリアルでは、単一のピアを作成するプロセスだけを説明します。 このプロセスを独自のビジネス・ニーズに合わせて繰り返してください。
 
 リソース割り振りの観点からは、同じピアを複数のチャネルに参加させることが可能です。 ピアの設計上、いずれかのチャネルのデータを、ピアを介して別のチャネルに渡すことができないようになっています。 ただし、ピアにはチャネルごとに別個の台帳が保管されるため、トランザクションとデータの負荷を処理するための十分な処理能力とストレージをピアが備えていることを確認する必要があります。
 
@@ -204,12 +204,12 @@ MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto
 コンソールを使用して以下の手順を実行します。
 
 1. **「ノード」**ページで、**「ピアの追加」**をクリックします。
-2. ピアを**作成**するオプションが選択されていることを確認します。次に、**「次へ」**をクリックします。
+2. ピアを**作成**するオプションが選択されていることを確認します。 次に、**「次へ」**をクリックします。
 3. ピアの**「表示名」**に `Peer Org1` を指定します。 このチュートリアルでは、ピアの外部 CA を使用することを選択しないでください。詳細については、[外部 CA からの証明書の使用](#ibp-console-build-network-third-party-ca)を参照してください。 **「次へ」**をクリックします。
 4. 次の画面で、ピア ID を登録するために使用した CA である、`Org1 CA` を選択します。 ピア用に作成したピア ID の**登録 ID** である `peer1` をドロップダウン・リストから選択し、この ID に関連付けられている**機密事項**の `peer1pw` を入力します。 そして、ドロップダウン・リストから `Org1 MSP` を選択し、**「次へ」**をクリックします。
-5. 次のサイド・パネルでは、TLS CA 情報が求められます。 CA を作成したときに、TLSCA が一緒に作成されています。 この CA は、ノードのセキュア通信層の証明書を作成するために使用されます。 このため、ピア用に作成したピア ID の**登録 ID** である `peer1` をドロップダウン・リストから選択し、この ID に関連付けられている**機密事項**の `peer1pw` を入力します。 **「TLS Certificate Signing Request ホスト名 (TLS Certificate Signing Request (CSR) hostname)」**は、ピアのエンドポイントのアドレス指定に使用できるカスタム・ドメイン名を指定する上級者用のオプションです。カスタム・ドメイン名はこのチュートリアルでは扱わないため、ここでは**「TLS CSR ホスト名 (TLS CSR hostname)」**は空白のままにします。
-6. 次のサイド・パネルでは、**ID を関連付けて**、ピアの管理者にすることを要求されます。 このチュートリアルでは、組織の管理者である `Org1 Admin` をピアの管理者にもします。 `Org1 CA` に異なる ID を登録およびエンロールして、その ID をピアの管理者にすることもできますが、このチュートリアルでは `Org1 Admin` ID を使用します。
-7. 有料クラスターを使用している場合は、次のパネルで、ノードのリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックしてかまいません。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。無料 {{site.data.keyword.cloud_notm}} クラスターを使用している場合は、**「サマリー」**ページが表示されます。
+5. 次のサイド・パネルでは、TLS CA 情報が求められます。 CA を作成したときに、TLSCA が一緒に作成されています。 この CA は、ノードのセキュア通信層の証明書を作成するために使用されます。 このため、ピア用に作成したピア ID の**登録 ID** である `peer1` をドロップダウン・リストから選択し、この ID に関連付けられている**機密事項**の `peer1pw` を入力します。 **「TLS Certificate Signing Request ホスト名 (TLS Certificate Signing Request (CSR) hostname)」**は、ピアのエンドポイントのアドレス指定に使用できるカスタム・ドメイン名を指定する上級者用のオプションです。 カスタム・ドメイン名はこのチュートリアルでは扱わないため、ここでは**「TLS CSR ホスト名 (TLS CSR hostname)」**は空白のままにします。
+6. 有料クラスターを使用している場合は、次のパネルで、ノードのリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックしてかまいません。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。 無料の {{site.data.keyword.cloud_notm}} クラスターを使用している場合は、**「ID の関連付け (Associate an identity)」**パネルが表示されます。
+7. 最後のサイド・パネルでは、**ID を関連付けて**、ピアの管理者にすることを要求されます。このチュートリアルでは、組織の管理者である `Org1 Admin` をピアの管理者にもします。 `Org1 CA` に異なる ID を登録およびエンロールして、その ID をピアの管理者にすることもできますが、このチュートリアルでは `Org1 Admin` ID を使用します。
 8. 要約を確認し、**「ピアの追加」**をクリックします。
 
 **タスク: ピアのデプロイ**
@@ -226,7 +226,7 @@ MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto
 
   *図 7. ピアのデプロイ*
 
-実動シナリオでは、組織ごとに各チャネルに 3 つのピアをデプロイすることをお勧めします。同じ 3 つのピアを複数の異なるチャネルに参加させることも、異なるピアを使用することもできます。それは組織によって決められます。これは、1 つのピアがダウンしていても (例えば、保守期間中に)、可用性の高いピアを保持できるようにするためです。 1 つの組織に複数のピアをデプロイするには、最初のピア ID を登録するために使用したものと同じ CA を使用します。 このチュートリアルでは、これは `Org1 CA` です。 次に、個別の登録 ID と機密事項を使用して新しいピア ID を登録します。 例えば、`org1secondpeer` と `org1secondpeerpw` です。 ピアの作成時に、この登録 ID と機密事項を指定します。 このピアはまだ Org1 に関連付けられているため、ドロップダウン・リストから `Org1 CA`、`Org1 MSP`、および `Org1 Admin` を選択します。 この新しいピアに異なる管理者を指定して、`Org1 CA` に登録およびエンロールすることもできますが、これはオプションです。 このチュートリアルのシリーズでは、ピア組織ごとに単一のピアを作成するプロセスのみを説明します。
+実動シナリオでは、組織ごとに各チャネルに 3 つのピアをデプロイすることをお勧めします。 同じ 3 つのピアを複数の異なるチャネルに参加させることも、異なるピアを使用することもできます。 それは組織によって決められます。 これは、1 つのピアがダウンしていても (例えば、保守期間中に)、可用性の高いピアを保持できるようにするためです。 1 つの組織に複数のピアをデプロイするには、最初のピア ID を登録するために使用したものと同じ CA を使用します。 このチュートリアルでは、これは `Org1 CA` です。 次に、個別の登録 ID と機密事項を使用して新しいピア ID を登録します。 例えば、`org1secondpeer` と `org1secondpeerpw` です。 ピアの作成時に、この登録 ID と機密事項を指定します。 このピアはまだ Org1 に関連付けられているため、ドロップダウン・リストから `Org1 CA`、`Org1 MSP`、および `Org1 Admin` を選択します。 この新しいピアに異なる管理者を指定して、`Org1 CA` に登録およびエンロールすることもできますが、これはオプションです。 このチュートリアルのシリーズでは、ピア組織ごとに単一のピアを作成するプロセスのみを説明します。
 {:tip}
 
 ## 手順 2: 順序付けサービスの作成
@@ -255,9 +255,9 @@ Ethereum や Bitcoin などの他の分散ブロックチェーンでは、ト�
 
 使用可能な実動レベルの順序付けサービスは、`etcd` での Raft プロトコルの実装に基づくクラッシュ・フォールト・トレラント (CFT) 順序付けサービスです。 Raft は「リーダーとフォロワー」モデルに従います。このモデルでは、リーダー・ノードが (チャネルごとに) 選ばれ、その決定がフォロワーによって複製されます。 Raft の順序付けサービスは、Kafka ベースの順序付けサービスよりも設定と管理が簡単です。また、その設計により、複数の異なる組織が 1 つの分散順序付けサービスにノードを提供できます。 Raft について詳しくは、[The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external} を参照してください。
 
-現時点で使用可能な順序付けノードのクラッシュ・フォールト・トレラント構成は、**5 つ**のノードの構成のみです。 3 ノードのみを使用してクラッシュ・フォールト・トレラントの順序付けサービスを作成することも可能ですが、この構成にはリスクがあります。例えば、保守サイクルなどで 1 ノードがダウンした場合は、2 ノードのみになります。このサイクル中に**何らかの理由で**ノードがもう 1 つ失われると、1 ノードのみになります。この状態では、3 ノードで順序付けサービスを開始したのに 1 ノードしかないので、使用可能なノード数が過半数 (「クォーラム」とも呼ばれます) を切ったことになります。クォーラムがないと、トランザクションをプッシュできません。そのチャネルは機能しなくなります。
+現時点で使用可能な順序付けノードのクラッシュ・フォールト・トレラント構成は、**5 つ**のノードの構成のみです。 3 ノードのみを使用してクラッシュ・フォールト・トレラントの順序付けサービスを作成することも可能ですが、この構成にはリスクがあります。 例えば、保守サイクルなどで 1 ノードがダウンした場合は、2 ノードのみになります。 このサイクル中に**何らかの理由で**ノードがもう 1 つ失われると、1 ノードのみになります。 この状態では、3 ノードで順序付けサービスを開始したのに 1 ノードしかないので、使用可能なノード数が過半数 (「クォーラム」とも呼ばれます) を切ったことになります。 クォーラムがないと、トランザクションをプッシュできません。 そのチャネルは機能しなくなります。
 
-5 つのノードがあれば、2 つのノードを失ってもクォーラムを保持できます。つまり、高可用性を維持した状態で保守サイクルを実行できます。そのため、有料クラスターの選択肢は、1 つのノードか 5 つのノードのみになります。 1 つのノードの順序付けサービスは、定義上はクラッシュ・フォールト・トレラントではないため、実動ネットワークでは 5 つのノードのオプションを選択する必要があります。
+5 つのノードがあれば、2 つのノードを失ってもクォーラムを保持できます。つまり、高可用性を維持した状態で保守サイクルを実行できます。 そのため、有料クラスターの選択肢は、1 つのノードか 5 つのノードのみになります。 1 つのノードの順序付けサービスは、定義上はクラッシュ・フォールト・トレラントではないため、実動ネットワークでは 5 つのノードのオプションを選択する必要があります。
 
 このチュートリアルでは、5 つのノードの順序付けサービスを作成します。
 
@@ -267,13 +267,13 @@ Ethereum や Bitcoin などの他の分散ブロックチェーンでは、ト�
 順序付けサービスのために CA を作成するプロセスは、ピアのために作成する場合と同じです。
 
 1. **「ノード」**タブにナビゲートし、**「認証局の追加 (Add Certificate Authority)」**をクリックします。
-2. このチュートリアルではノードを作成するので、認証局を**「作成」**するオプションが選択されていることを確認します。次に、**「次へ」**をクリックします。
+2. このチュートリアルではノードを作成するので、認証局を**「作成」**するオプションが選択されていることを確認します。 次に、**「次へ」**をクリックします。
 3. この CA に固有の表示名 `Ordering Service CA` を指定します。
 4. **CA 管理者の登録 ID** である `admin` および機密事項である `adminpw` を再利用できます。 これは異なる CA であるため、ID と機密事項が同一であっても、この ID は `Org1 CA` に対して作成される CA 管理者 ID とは異なります。
-5. 有料クラスターを使用している場合は、次のパネルで、CA のリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックします。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。無料クラスターを使用している場合は、**「サマリー」**ページが表示されます。
+5. 有料クラスターを使用している場合は、次のパネルで、CA のリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックします。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。 無料クラスターを使用している場合は、**「サマリー」**ページが表示されます。
 6. 「サマリー」ページを確認し、**「認証局の追加 (Add Certificate Authority)」**をクリックします。
 
-ピアの場合と同様に、上級者は既に独自の CA を所有しており、コンソールを使用して CA を新規作成する必要はない場合があります。 既存の CA が `X.509` 形式の証明書を発行できる場合は、ここで新規 CA を作成せずに、その独自の外部 CA を使用できます。 詳しくは、[外部 CA からの証明書をピアまたは順序付けサービスに使用する](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca)のトピックを参照してください。
+ピアの場合と同様に、上級者は既に独自の CA を所有しており、コンソールを使用して CA を新規作成する必要はない場合があります。 既存の CA が `X.509` 形式の証明書を発行できる場合は、ここで新規 CA を作成せずに、その独自の外部 CA を使用できます。 詳しくは、[外部 CA からの証明書をピアまたは順序付けサービスに使用する](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca)のトピックを参照してください。
 
 ### CA を使用して順序付けサービス・ノードおよび順序付けサービス管理者 ID を登録する
 {: #ibp-console-build-network-use-CA-orderer}
@@ -286,8 +286,8 @@ Ethereum や Bitcoin などの他の分散ブロックチェーンでは、ト�
 CA が実行されると (`「Ordering Service CA」`のタイルの緑のボックスで示されます)、以下の手順を実行して、これらの証明書が生成されます。
 
 1. **「ノード」**タブで`「Ordering Service CA」`をクリックし、CA 用に作成した `admin` ID が表に表示されていることを確認します。 次に、**「ユーザーの登録」**ボタンをクリックします。
-2. まず、組織の管理者を登録します。これには、**「登録 ID」**に `OSadmin` を指定し、**「機密事項」**に `OSadminpw` を指定します。 次に、この ID の`「タイプ」`を `client` に設定します (管理者 ID は常に `client` として登録する必要がありますが、ノード ID は常に `peer` タイプを使用して登録する必要があります)。 **「最大登録数」**フィールドは無視してかまいません。 エンロールの詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register)を参照してください。 **「次へ」**をクリックします。
-3. このチュートリアルでは、**「属性の追加 (Add Attribute)」**を使用する必要はありません。 ID 属性の詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-register)を参照してください。
+2. まず、組織の管理者を登録します。これには、**「登録 ID」**に `OSadmin` を指定し、**「機密事項」**に `OSadminpw` を指定します。 次に、この ID の`「タイプ」`を `client` に設定します (管理者 ID は常に `client` として登録する必要がありますが、ノード ID は常に `peer` タイプを使用して登録する必要があります)。 **「最大登録数」**フィールドは無視してかまいません。 エンロールの詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)を参照してください。 **「次へ」**をクリックします。
+3. このチュートリアルでは、**「属性の追加 (Add Attribute)」**を使用する必要はありません。 ID 属性の詳細については、[アイデンティティーの登録](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)を参照してください。
 4. 組織管理者を登録したら、順序付けサービスの ID に対しても同じプロセスを繰り返します (この場合も `Ordering Service CA` を使用します)。 順序付けサービス・ノード ID に、登録 ID として `OS1` を指定し、機密事項として `OS1pw` を指定します。 これはノード ID なので、**「タイプ」**に`ピア`を選択します。 **「最大登録数」**フィールドは無視してかまいません。また、次のパネルでは、先ほどと同様に**「属性 (Attributes)」**を割り当てないでください。
 
 **タスク: CA の作成およびユーザーの登録**
@@ -337,7 +337,7 @@ MSP を作成すると、**「ウォレット (Wallet)」**に順序付けサー
 
   *図 10. 順序付けサービス組織の MSP 定義の作成*
 
-MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto/ibp-console-organizations.html#ibp-console-organizations)を参照してください。
+MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#ibp-console-organizations)を参照してください。
 
 これらの証明書の管理および保護はお客様が行う作業ですので、組織管理者 ID をエクスポートすることは大切です。 順序付けサービスおよび順序付けサービスの MSP 定義をエクスポートすれば、それらを別のコンソールにインポートできます。そうすれば、そのコンソールで別のオペレーターが順序付けサービスに新しいチャネルを作成したり、チャネルにピアを参加させたりできるようになります。
 {:important}
@@ -348,13 +348,13 @@ MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto
 コンソールから以下の手順を実行します。
 
 1. **「ノード」**ページで、**「順序付けサービスの追加 (Add ordering service)」**をクリックします。
-2. 順序付けサービスを**「作成」**するオプションが選択されていることを確認します。次に、**「次へ」**をクリックします。
+2. 順序付けサービスを**「作成」**するオプションが選択されていることを確認します。 次に、**「次へ」**をクリックします。
 3. 順序付けサービスの**「表示名」**に `Ordering Service` を指定します。有料クラスターの場合は、順序付けサービスに 1 つのノード (テストには十分です) を含めるか、5 つのノード (実動に適しています) を含めるかを選択します。 **「5 ノード (five nodes)」**を選択します。 また、外部 CA を使用することは選択しないでください。 これは拡張オプションです。 このチュートリアルでは、順序付けサービスの外部 CA を使用することを選択しないでください。詳細については、[外部 CA からの証明書の使用](#ibp-console-build-network-third-party-ca)を参照してください。 **「次へ」**をクリックします。
 4. 次のパネルで、`Ordering Service CA` を CA として選択します。 次に、順序付けサービス用に作成したノード ID の**登録 ID** である `OS1` をドロップダウン・リストから選択し、この ID に関連付けられている**機密事項**の `OS1pw` を入力します。 続けて、ドロップダウン・リストから、ご使用の MSP である `Ordering Service MSP` を選択します。
-5. 次のサイド・パネルでは、TLS CA 情報が求められます。 CA を作成したときに、TLS CA が一緒に作成されています。 この CA は、ノードのセキュア通信層の証明書を作成するために使用されます。 そのため、作成した順序付けサービス ID の**登録 ID** である `OS1` をドロップダウン・リストから選択し、この ID に関連付けられている**機密事項**の `OS1pw` を入力します。 **「TLS Certificate Signing Request (CSR) ホスト名 (TLS Certificate Signing Request (CSR) hostname)」**は、順序付けサービスのエンドポイントのアドレス指定に使用できるカスタム・ドメイン名を指定する上級者用のオプションです。カスタム・ドメイン名はこのチュートリアルでは扱わないため、ここでは**「TLS CSR ホスト名 (TLS CSR hostname)」**は空白のままにします。
-6. **「ID の関連付け (Associate identity)」**のステップでは、順序付けサービスの管理者を選択できます。 前と同じく `Ordering Service Admin` を選択し、**「次へ」**をクリックします。
-7. 有料クラスターを使用している場合は、次のパネルで、ノードのリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックしてかまいません。 ここで選択した内容は、5 つの順序付けノードすべてに適用されます。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。
-7. 「サマリー」ページを確認し、**「順序付けサービスの追加 (Add ordering service)」**をクリックします。
+5. 次のサイド・パネルでは、TLS CA 情報が求められます。 CA を作成したときに、TLS CA が一緒に作成されています。 この CA は、ノードのセキュア通信層の証明書を作成するために使用されます。 そのため、作成した順序付けサービス ID の**登録 ID** である `OS1` をドロップダウン・リストから選択し、この ID に関連付けられている**機密事項**の `OS1pw` を入力します。 **「TLS Certificate Signing Request (CSR) ホスト名 (TLS Certificate Signing Request (CSR) hostname)」**は、順序付けサービスのエンドポイントのアドレス指定に使用できるカスタム・ドメイン名を指定する上級者用のオプションです。 カスタム・ドメイン名はこのチュートリアルでは扱わないため、ここでは**「TLS CSR ホスト名 (TLS CSR hostname)」**は空白のままにします。
+6. 有料クラスターを使用している場合は、次のパネルで、ノードのリソース割り振りを構成できます。 このチュートリアルでは、すべてのデフォルトを受け入れ、**「次へ」**をクリックしてかまいません。 ここで選択した内容は、5 つの順序付けノードすべてに適用されます。 {{site.data.keyword.cloud_notm}} のリソースをノードに割り振る方法について詳しくは、[リソースの割り振り](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)で該当するトピックを参照してください。
+7. **「ID の関連付け (Associate identity)」**のステップでは、順序付けサービスの管理者を選択できます。 前と同じく `Ordering Service Admin` を選択し、**「次へ」**をクリックします。
+8. 「サマリー」ページを確認し、**「順序付けサービスの追加 (Add ordering service)」**をクリックします。
 
 **タスク: 順序付けサービスの作成**
 
@@ -390,12 +390,12 @@ MSP について詳しくは、[組織の管理](/docs/services/blockchain/howto
 
 このプロセスが完了したら、`Org1` は `Ordering Service` 上でホストされるチャネルを作成、またはチャネルに参加できるようになります。
 
-このチュートリアルでは、ピア組織と順序付けサービス組織の両方を同じコンソールで作成したので、`Org1 MSP` に簡単にアクセスできます。 実動シナリオでは、それぞれのネットワーク・オペレーターが、各自のクラスター内で、各自の {{site.data.keyword.blockchainfull_notm}} コンソールを使用して、その他の組織の MSP 定義を作成することになります。 このような場合に、組織がコンソーシアムに参加するには、組織の MSP 定義を帯域外操作でコンソールに送信する必要があります。 また、順序付けサービスをエクスポートして組織に送信して、組織が自分のコンソールに順序付けサービスをインポートし、ピアをチャネルに参加させる (または新しいチャネルを作成する) ことができるようにする必要もあります。 このプロセスについては、ネットワーク参加チュートリアルの[組織情報のエクスポート](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-add-org2-remote)の下で説明しています。
+このチュートリアルでは、ピア組織と順序付けサービス組織の両方を同じコンソールで作成したので、`Org1 MSP` に簡単にアクセスできます。 実動シナリオでは、それぞれのネットワーク・オペレーターが、各自のクラスター内で、各自の {{site.data.keyword.blockchainfull_notm}} コンソールを使用して、その他の組織の MSP 定義を作成することになります。 このような場合に、組織がコンソーシアムに参加するには、組織の MSP 定義を帯域外操作でコンソールに送信する必要があります。 また、順序付けサービスをエクスポートして組織に送信して、組織が自分のコンソールに順序付けサービスをインポートし、ピアをチャネルに参加させる (または新しいチャネルを作成する) ことができるようにする必要もあります。 このプロセスについては、ネットワーク参加チュートリアルの[組織情報のエクスポート](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2-remote)の下で説明しています。
 
 ## 手順 4: チャネルを作成する
 {: #ibp-console-build-network-create-channel}
 
-チャネルの更新方法については、[チャネル構成の更新](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-update-channel)を参照してください。
+チャネルの更新方法については、[チャネル構成の更新](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel)を参照してください。
 
 通常、ネットワークのメンバーは、互いに取引することを求めている関連ビジネス組織ですが、他のメンバーに知られずに取引したいというメンバーが存在する場合もあります。 これは、そのようなトランザクションを行うための**チャネル**を作成することで実現できます。 チャネルは、メンバー、ピア、順序付けサービス、台帳、ポリシー、およびスマート・コントラクトを含むという点で、ブロックチェーン・ネットワークの構造と同じです。 しかし、メンバーシップを制限し、時によってはチャネルの認識さえも一部のネットワーク・メンバーシップに制限すれば、必要に応じてプライバシーを維持しながら、ネットワーク・メンバーがネットワークの構造全体を利用できる状態を確保できます。
 
@@ -415,7 +415,7 @@ Note that even though the {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
 コンソールは、ピアを使用して、ピアが属するチャネルについての情報を収集するので、**組織がピアをチャネルに参加させていなければ、コンソールはチャネルと対話できません**。
 
-CA、ID、MSP、順序付けサービス、およびピアを作成して、ピア組織をコンソーシアムに追加したら、左側のナビゲーションにある**「チャネル」**タブにナビゲートします。ここでチャネルの作成と管理を行います。
+CA、ID、MSP、順序付けサービス、およびピアを作成して、ピア組織をコンソーシアムに追加したら、左側のナビゲーションにある**「チャネル」**タブにナビゲートします。 ここでチャネルの作成と管理を行います。
 
 このタブは初めてナビゲートしたときには空の状態です。**「チャネルの作成」**ボタンと**「チャネルに参加 (Join channel)」**ボタンがあるだけです。 なぜなら、まだチャネルを作成してもいなければ、チャネルにピアを参加させてもいないからです。
 
@@ -430,8 +430,8 @@ CA、ID、MSP、順序付けサービス、およびピアを作成して、ピ�
 4. ドロップダウン・リストから `Ordering Service` を選択します。
 5. このチャネルに属する**「組織」**を選択します。 作成した組織は 1 つのみであるため、これは `Org1 MSP (org1msp)` になります。 この組織を**「オペレーター」**にします。 注記: ここでは `Ordering Service MSP` を使用しないでください。
 6. チャネルの**「チャネル更新ポリシー (Channel update policy)」**を選択します。 これは、チャネル構成の更新を承認する必要がある組織の数を指定するポリシーです。 このチュートリアルでは単一の組織しか作成しないため、このポリシーは `1 out of 1` にする必要があります。チャネルに組織を追加したら、ユース・ケースのニーズを反映するようにこのポリシーを変更する必要があります。 妥当な標準は、組織の大多数を使用することです。 例えば、`3 out of 5` とします。
-7. 適用する**「アクセス制御」**の制限を指定します。 注意: これは**拡張オプション**です。 あるリソースへのアクセス権限を特定の組織に対して設定した場合、チャネル内のその他の組織は、そのリソースへのアクセスを禁止されます。例えば、すべての組織について、特定のリソースへのデフォルトのアクセス権限が `Readers` の場合に、`Org1` のこのアクセス権限を `Admin` に変更すると、Org1 の管理者**のみ**がそのリソースにアクセスできるようになります。 特定のリソースに対するアクセス権限はチャネルの円滑な操作の基本であるため、アクセス制御に関する決定は慎重に行うことを強くお勧めします。 リソースに対するアクセスを制限することを決定した場合は、必要に応じて、各組織にそのリソースへのアクセス権限が追加されていることを確認してください。
-8. **「チャネル作成者の組織 (Channel creator organization)」**を選択します。 コンソールでは、単一のユーザーが複数の組織を所有することが許可されるため、チャネルを作成する組織を指定する必要があります。 このチュートリアルでは、単一の組織のみを作成するため、ドロップダウン・リストから `Org1 MSP` (org1msp) を選択します。同様に、チャネルを作成する ID として `Org1 Admin` を選択します。
+7. 適用する**「アクセス制御」**の制限を指定します。 注意: これは**拡張オプション**です。 あるリソースへのアクセス権限を特定の組織に対して設定した場合、チャネル内のその他の組織は、そのリソースへのアクセスを禁止されます。 例えば、すべての組織について、特定のリソースへのデフォルトのアクセス権限が `Readers` の場合に、`Org1` のこのアクセス権限を `Admin` に変更すると、Org1 の管理者**のみ**がそのリソースにアクセスできるようになります。 特定のリソースに対するアクセス権限はチャネルの円滑な操作の基本であるため、アクセス制御に関する決定は慎重に行うことを強くお勧めします。 リソースに対するアクセスを制限することを決定した場合は、必要に応じて、各組織にそのリソースへのアクセス権限が追加されていることを確認してください。
+8. **「チャネル作成者の組織 (Channel creator organization)」**を選択します。 コンソールでは、単一のユーザーが複数の組織を所有することが許可されるため、チャネルを作成する組織を指定する必要があります。 このチュートリアルでは、単一の組織のみを作成するため、ドロップダウン・リストから `Org1 MSP` (org1msp) を選択します。 同様に、チャネルを作成する ID として `Org1 Admin` を選択します。
 
 準備ができたら、**「チャネルの作成」**をクリックします。 **「チャネル」**タブに戻り、作成したチャネルの処理中のタイルが表示されます。
 
@@ -465,13 +465,13 @@ CA、ID、MSP、順序付けサービス、およびピアを作成して、ピ�
 ## 次のステップ
 {: #ibp-console-build-network-next-steps}
 
-チャネルを作成し、チャネルにピアを参加させたので、基本的ではありますが正常に機能するブロックチェーン・ネットワークが完成しました。以下の手順を使用して、スマート・コントラクトをデプロイし、トランザクションの送信を開始できます。
+チャネルを作成し、チャネルにピアを参加させたので、基本的ではありますが正常に機能するブロックチェーン・ネットワークが完成しました。 以下の手順を使用して、スマート・コントラクトをデプロイし、トランザクションの送信を開始できます。
 
-- コンソールを使用して[ネットワークにスマート・コントラクトをデプロイします](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts)。
-- スマート・コントラクトをインストールしてインスタンス化すると、[クライアント・アプリケーションを使用してトランザクションを送信](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-connect-to-SDK)できます。
-- [コマーシャル・ペーパーのサンプル](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper)を使用してスマート・コントラクトのサンプルをデプロイし、サンプル・アプリケーション・コードを使用してトランザクションを送信します。
+- コンソールを使用して[ネットワークにスマート・コントラクトをデプロイします](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts)。
+- スマート・コントラクトをインストールしてインスタンス化すると、[クライアント・アプリケーションを使用してトランザクションを送信](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK)できます。
+- [コマーシャル・ペーパーのサンプル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)を使用してスマート・コントラクトのサンプルをデプロイし、サンプル・アプリケーション・コードを使用してトランザクションを送信します。
 
-[ネットワーク参加チュートリアル](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-structure)を使用して、別のピア組織を作成することもできます。 チャネルに 2 つ目の組織を追加して、2 つのピアが単一のチャネル台帳を共有する分散ネットワークをシミュレートすることもできます。
+[ネットワーク参加チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-structure)を使用して、別のピア組織を作成することもできます。 チャネルに 2 つ目の組織を追加して、2 つのピアが単一のチャネル台帳を共有する分散ネットワークをシミュレートすることもできます。
 
 ## 外部 CA からの証明書をピアまたは順序付けサービスに使用する
 {: #ibp-console-build-network-third-party-ca}
@@ -485,7 +485,7 @@ CA、ID、MSP、順序付けサービス、およびピアを作成して、ピ�
 **注:** ファイル内の証明書は、`PEM` 形式でも `base64 エンコード`形式でもかまいません。
  * **ピアまたは順序付けサービスの ID の証明書** これは、このピアまたは順序付けサービス用に外部 CA で作成された署名証明書です。
  * **ピアまたは順序付けサービスの ID の秘密鍵**  これは、このピアまたは順序付けサービス用にサード・パーティー CA で作成された署名付き証明書に対応する秘密鍵です。
- * **ピア組織または順序付けサービス組織の MSP 定義** [MSP の JSON ファイルの手動作成](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-build-msp)に記載している手順を使用して、このファイルを手動で生成する必要があります。
+ * **ピア組織または順序付けサービス組織の MSP 定義** [MSP の JSON ファイルの手動作成](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-build-msp)に記載している手順を使用して、このファイルを手動で生成する必要があります。
  * **TLS CA 証明書** これは、このピアまたは順序付けサービス用に外部 TLS CA で作成された公開署名証明書です。
   * **TLS CA 秘密鍵** これは、ネットワークの他のメンバーとセキュアな通信を行うために、このピアまたは順序付けサービス用に TLS CA で作成された署名付き証明書に対応する秘密鍵です。
  * **TLS CA ルート証明書** (オプション) これは、外部 TLS CA のルート証明書です。 TLS CA ルート証明書または中間 TLS CA 証明書のいずれかを指定する必要があります。その両方を指定することもできます。
@@ -518,12 +518,12 @@ CA、ID、MSP、順序付けサービス、およびピアを作成して、ピ�
 ### オプション 2: 外部 CA からの証明書を使用して 5 つのノードの順序付けサービスを作成する
 {: #ibp-console-build-network-create-five-node}
 
-有料の {{site.data.keyword.cloud_notm}} Kubernetes Service クラスターを使用する場合、または {{site.data.keyword.cloud_notm}} Private を使用して別のクラウド・プロバイダーでホストするクラスターを使用する場合は、Raft コンセンサス・プロトコルを使用する 5 ノードの順序付けサービスをデプロイする追加オプションを選択できます。5 ノードの順序付けサービスをデプロイする前に、以下の手順で 5 ノードの証明書をすべて含む JSON ファイルを作成する必要があります。
+有料の {{site.data.keyword.cloud_notm}} Kubernetes Service クラスターを使用する場合、または {{site.data.keyword.cloud_notm}} Private を使用して別のクラウド・プロバイダーでホストするクラスターを使用する場合は、Raft コンセンサス・プロトコルを使用する 5 ノードの順序付けサービスをデプロイする追加オプションを選択できます。  5 ノードの順序付けサービスをデプロイする前に、以下の手順で 5 ノードの証明書をすべて含む JSON ファイルを作成する必要があります。
 
 #### 証明書 JSON ファイルを作成する
 {: #ibp-console-build-network-create-certs-file}
 
-必要な証明書 JSON ファイルには、5 つの `msp` エントリーの配列が含まれています。この各配列エレメントに、いずれかの順序付けノードの証明書が含まれています。 通常の環境では、すべてのノードがまったく同じ証明書のセットを使用します。 ただし、ノードごとに異なる証明書を指定することもできます。 `component` セクションの証明書はノード自体の証明書を表し、`tls` セクションには TLS CA によって発行される証明書が含まれています。  
+必要な証明書 JSON ファイルには、5 つの `msp` エントリーの配列が含まれています。この各配列エレメントに、いずれかの順序付けノードの証明書が含まれています。  ノードごとに固有の証明書を指定する必要があります。異なる順序付けノード間で証明書を再使用しないでください。`component` セクションの証明書はノード自体の証明書を表し、`tls` セクションには TLS CA によって発行される証明書が含まれています。  
 
 - **keystore**: このノードの秘密鍵
 - **signcerts**: このノードに対して CA が割り当てる公開鍵 (署名証明書またはエンロールメント証明書とも呼ばれます)。
@@ -652,6 +652,6 @@ cat <cert.pem> | base64 $FLAG
 {: #ibp-console-build-network-third-party-ca-next}
 
 サード・パーティー CA で作成されたピアまたは順序付けサービスの証明書をすべて集め、対応する組織 MSP 定義を作成し、ピアまたは順序付けサービスを作成しました。 チュートリアルに沿って進めている場合は、次の手順に戻ることができます。
-- ピア・ノードを作成した場合、次の手順は[トランザクションを順序付けするノードを作成する](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-orderer)です。
-- 既存のネットワークに参加するためのノードを作成した場合、次の手順は[取引できる組織のリストに組織を追加する](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-add-org2)です。
-- 順序付けサービスを作成した場合、次の手順は[チャネルを作成する](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel)です。
+- ピア・ノードを作成した場合、次の手順は[トランザクションを順序付けするノードを作成する](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer)です。
+- 既存のネットワークに参加するためのノードを作成した場合、次の手順は[取引できる組織のリストに組織を追加する](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2)です。
+- 順序付けサービスを作成した場合、次の手順は[チャネルを作成する](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)です。

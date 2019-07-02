@@ -57,7 +57,7 @@
                 </g>
                 <text id="Peer" font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="20.07" font-weight="500" line-spacing="32" fill="#000000">
                     <tspan x="33.2352941" y="40">Igual</tspan>
-            </text>
+                </text>
             </g>
             <rect id="Rectangle" stroke="#011688" x="126.5" y="294.5" width="112" height="72"></rect>
             <rect id="Rectangle" stroke="#011688" x="789.5" y="294.5" width="112" height="72"></rect>

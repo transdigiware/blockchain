@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -39,7 +39,7 @@ Se você estiver usando o Starter Plan, será possível alternar entre organiza�
 
 A **Figura 2** mostra como Alternar entre organizações:
 
-![Switching between organizations](../images/switch_orgs_starter.gif "Switching between organizations"){: gif}
+![Alternando entre organizações](../images/switch_orgs_starter.gif "Alternando entre organizações"){: gif}
 
 
 ## Autorizando APIs do Swagger
@@ -53,7 +53,7 @@ Usando autenticação Aut. básica, quaisquer credenciais que você especificar 
 
 A **Figura 3** mostra o processo para autorizar APIs do Swagger:
 
-![Authorize APIs](../images/swaggerUIAuthorize.gif "Authorize APIs"){: gif}
+![Autorizar APIs](../images/swaggerUIAuthorize.gif "Autorizar APIs"){: gif}
 
 
 ## Tentando APIs
@@ -82,7 +82,7 @@ A **Figura 6** mostra o corpo de resposta da API, a URL e o comando CURL:
 
 Por padrão, todos os usuários com uma função que não é de Auditor no {{site.data.keyword.cloud_notm}} podem visualizar e usar as **Credenciais de rede** visíveis no painel APIs do Swagger e, portanto, podem gerenciar sua rede usando as APIs. No entanto, se você preferir não expor suas credenciais de rede da API do Swagger na IU, será possível copiar e proteger seus valores de chave e segredo existentes e gerar novas credenciais que não sejam válidas para uso com as APIs do Swagger. Uma sinalização, denominada resetCredentials, é fornecida e permite que você controle o acesso concluindo as etapas a seguir:
 
-1. Siga as etapas para gerar uma nova credencial de rede, conforme descrito no [Painel de credenciais de serviço](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Siga as etapas para gerar uma nova credencial de rede, conforme descrito no [Painel de credenciais de serviço](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 2. No entanto, na caixa **Incluir parâmetros de configuração sequencial**, cole o valor a seguir:
    ```
    {
@@ -104,7 +104,7 @@ Agora, as credenciais válidas originais serão visíveis nas informações de *
 ### 401 Desautorizado  
 {: #ibp-swagger-401}
 
-  Assegure-se de que você tenha autorizado a API de REST fornecendo as suas credenciais de rede. Para obter mais informações, veja [Autorizando APIs do Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger).
+  Assegure-se de que você tenha autorizado a API de REST fornecendo as suas credenciais de rede. Para obter mais informações, veja [Autorizando APIs do Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger).
 
 ### 400 Erro: Solicitação inválida
 {: #ibp-swagger-400}

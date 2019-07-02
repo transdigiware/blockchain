@@ -4,13 +4,11 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
-keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
-
 subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +16,7 @@ subcollection: blockchain
 
 # チャネルの作成または更新
 {: #ibp-create-channel}
+
 
 チャネルは、データのパーティショニングおよび分離のための非常に強力なメカニズムであり、データのプライバシーのための主要な基盤を提供します。 同じチャネルのメンバーだけが、このチャネルのデータにアクセスできます。
 {:shortdesc}
@@ -74,5 +73,5 @@ subcollection: blockchain
 
 十分な数のチャネル・オペレーターが要求を承認した場合、任意のチャネル・メンバーが**「要求の実行依頼 (Submit Request)」**ボタンをクリックすると、チャネルが更新されます。 すべてのチャネル・メンバーは、ネットワーク・モニターの「チャネル(Channels)」画面で更新されたチャネルを確認できます。
 
-エンドースメント・ポリシーは、新規組織がチャネルに参加してチェーンコードをインストールしたときに、自動的には更新されません。 例えば、トランザクションを承認するために 5 つの組織のうち 2 つを必要とするポリシーは、新しい組織がチャネルに参加したときに、6 つの組織のうち 2 つを必要とするようには更新されません。 代わりに、新規組織はポリシーにリストされず、トランザクションを承認することはできません。 新規組織をエンドースメント・ポリシーに追加するには、[関連するチェーンコードを更新](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc)します。 詳しくは、[チェーンコードのエンドースメント・ポリシーの指定](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy)を参照してください。
+エンドースメント・ポリシーは、新規組織がチャネルに参加してチェーンコードをインストールしたときに、自動的には更新されません。 例えば、トランザクションを承認するために 5 つの組織のうち 2 つを必要とするポリシーは、新しい組織がチャネルに参加したときに、6 つの組織のうち 2 つを必要とするようには更新されません。 代わりに、新規組織はポリシーにリストされず、トランザクションを承認することはできません。 新規組織をエンドースメント・ポリシーに追加するには、[関連するチェーンコードを更新](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc)します。 詳しくは、[チェーンコードのエンドースメント・ポリシーの指定](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy)を参照してください。
 {:important}

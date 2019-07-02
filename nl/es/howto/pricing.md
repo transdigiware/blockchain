@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -32,7 +32,7 @@ Esta guía le ayuda a comprender los precios de los planes de suscripción a {{s
 
 *Figura 1. Visión general de los precios de {{site.data.keyword.blockchainfull_notm}} Platform*
 
-La cuota mensual se factura prorrateada por día. Por ejemplo, un miembro (cuota de suscripción asociada de 1.000 $) con dos iguales (la cuota por igual es de 1.000 $ X 2 iguales) pagaría 3.000 $ al mes. Si el mes tiene 30 días, el miembro paga 100 $ (3.000 $/30) al día. Para obtener más información sobre cómo pagar para las redes, consulte [Modalidad de pago](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
+La cuota mensual se factura prorrateada por día. Por ejemplo, un miembro (cuota de suscripción asociada de 1.000 $) con dos iguales (la cuota por igual es de 1.000 $ X 2 iguales) pagaría 3.000 $ al mes. Si el mes tiene 30 días, el miembro paga 100 $ (3.000 $/30) al día. Para obtener más información sobre cómo pagar para las redes, consulte [Modalidad de pago](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode).
 
 
 ## Componentes básicos de la red
@@ -42,7 +42,7 @@ Para entender los precios, necesitamos empezar con una introducción a los compo
 
 -	**Organizaciones**: Cualquier entidad que necesite mantener una copia del libro mayor de blockchain y que necesite validar las transacciones. Puede haber varias organizaciones de blockchain para una sola compañía.
 -	**Iguales**: El nodo asociado con una organización que contiene el libro mayor de blockchain y que valida transacciones. Los iguales están asociados con una organización de blockchain individual.
--	**Servicio de ordenación**: Compuesto por un clasificador único (SOLO) o una recopilación de clasificadores. El servicio de ordenación secuencia transacciones, crea bloques y envía bloques a iguales para su validación.
+-	**Servicio de ordenación**: Compuesto por un único nodo de ordenación (SOLO) o una recopilación de nodos de ordenación. El servicio de ordenación secuencia transacciones, crea bloques y envía bloques a iguales para su validación.
 -	**Entidad emisora de certificados (CA)**: Emite certificados digitales para fines de identificación a cualquier componente de red interactivo.
 
 La plataforma de {{site.data.keyword.blockchainfull_notm}} ofrece dos planes de suscripción, el **Plan inicial** y el **Plan empresarial**, que puede elegir en {{site.data.keyword.cloud_notm}}. Ambos planes le permiten crear organizaciones y le proporcionan una entidad emisora de certificados. Los planes difieren entre iguales, CA y el servicio de ordenación.
