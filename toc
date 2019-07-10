@@ -27,6 +27,7 @@ IBM Blockchain Platform
 
 	blockchain_component_overview.md
 	ibp-console-ha.md
+	data-residency.md
 	howto/ibp-v2-faq.md
 	needtoknow.md
 	{: .navgroup-end}
@@ -96,6 +97,7 @@ IBM Blockchain Platform
 	glossary.md
 	reference/ibp_regions.md
 	reference/videos.md
+	reference/at-events.md
 	reference/v10_fabric.md
 	reference/k8s.md
 	{: .navgroup-end}
