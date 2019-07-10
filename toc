@@ -97,7 +97,6 @@ IBM Blockchain Platform
 	glossary.md
 	reference/ibp_regions.md
 	reference/videos.md
-	reference/at-events.md
 	reference/v10_fabric.md
 	reference/k8s.md
 	{: .navgroup-end}
