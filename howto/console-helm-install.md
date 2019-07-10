@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-10"
 
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, install, Helm chart, PodSecurityPolicy
@@ -35,7 +35,7 @@ Before you install {{site.data.keyword.blockchainfull_notm}} Platform for {{site
 Before you install the Helm chart, you must have configured an {{site.data.keyword.cloud_notm}} Private cluster and created a new target namespace that is bound to a pod security policy. Review the instructions for [setting up and configuring an {{site.data.keyword.cloud_notm}} Private cluster](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup). You can only deploy one console per namespace. If you plan to create multiple blockchain networks, for example to create different environments for development, staging, and production, you should create a unique namespace for each environment.
 
 ### PodSecurityPolicy Requirements
-{: #console-helm-install-prereqs-pod-security-requirements}
+{: #console-helm-install-setup-psp}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires specific security and access policies be bound to the target namespace prior to installation. We provide YAML files defining the policies in the steps below. You can save these files to your local system and then bind them your namespace using the {{site.data.keyword.cloud_notm}} Private CLI. Follow the steps below prior to deploying the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart.
 

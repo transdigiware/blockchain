@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,6 +37,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
 - [Why does my peer fail to start?](#ibp-console-build-network-troubleshoot-entry2)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
@@ -154,6 +155,19 @@ You may receive this error if this version of the smart contract already exists 
 - Open your Kubernetes dashboard and ensure the peer status is `Running`.  
 - Open the peer node and ensure the smart contract version does not already exist on the peer and try again with the proper version.
 - If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
+{: tsResolve}
+
+## Why is the smart contract that I installed on the peer not listed in the UI?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+A smart contract was installed on a peer but when you click on the **Smart contracts** tab, it is not listed.
+{: tsSymptoms}
+
+This issue can occur when another user or application installs the smart contract onto the peer and you do not have the peer admin identity in your browser wallet.
+{: tsCauses}
+
+In order to view the smart contracts installed on a peer, you need to be a peer admin. Ensure that the peer admin identity exists in your browser wallet. If it does not, you need to import it into your console wallet.
 {: tsResolve}
 
 ## How can I view my smart contract container logs?

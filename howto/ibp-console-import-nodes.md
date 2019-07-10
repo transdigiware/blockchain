@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,6 +55,7 @@ Before you can import nodes into the console, they have to be exported from the 
 - You cannot patch nodes that you imported into the console.
 - You cannot delete nodes that you imported into the console from the cluster where they were deployed. You can only remove the node from the console.
 - If you are importing a node that is deployed on {{site.data.keyword.cloud_notm}} Private, you must ensure that the gRPC web proxy port used by the component is externally exposed to the console. For more information, see [Importing nodes from {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
+- When you open the tile of an imported node, the Fabric version is not visible and the **Usage and info** tab is not available.
 
 ## Start here: Gathering certificates or credentials
 {: #ibp-console-import-start-here}

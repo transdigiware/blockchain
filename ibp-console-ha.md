@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -38,7 +38,7 @@ Before proceeding, we recommend you review your platform-specific guidance for H
 You can use this topic for details on blockchain specific HA guidance along with the recommendations from the platform specific topics above.
 
 ## Overview of potential points of failure in {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
-{: #ibp-console-ha-points-of-failure}
+{: #ibp-console-ha-points-of-failure-overview}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform architecture is designed to ensure reliability, low processing latency, and a maximum uptime of the service. However, failures can happen. {{site.data.keyword.blockchainfull_notm}} Platform provides several approaches to add more availability to your cluster by adding redundancy and [anti-affinity](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external} policies, when available, to ensure that blockchain components of the same type and organization are deployed across different worker nodes.  By adding redundancy across your blockchain network, you can avoid failures or downtime.  
 
@@ -66,16 +66,19 @@ The following table contains a list of options to consider as you plan for incre
 |  | Single node | Single cluster with multiple nodes | Multizone ({{site.data.keyword.cloud_notm}} only**)| Multiple clusters across regions |
 |-----|-----|-----|-----|-----|
 | Redundant peers | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Anti-affinity (peers) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | ![Checkmark icon](../../icons/checkmark-icon.svg)|
 | Redundant anchors peers on a channel| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
+| Anti-affinity*** (peers) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
 |Raft ordering service | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
-| Anti-affinity (ordering nodes) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | ![Checkmark icon](../../icons/checkmark-icon.svg)|
+| Anti-affinity*** (ordering nodes) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
 |Development or Test environment | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 | Production environment | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Table 1. Comparison of deployment scenarios to increase your network HA" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
+
+*** The {{site.data.keyword.blockchainfull_notm}} Platform deployer cannot guarantee that peers or ordering nodes are spread across different zones. You can use the {{site.data.keyword.blockchainfull_notm}} Platform APIs to deploy nodes to specific zones on {{site.data.keyword.cloud_notm}} and ensure that your network is resilient to a zone failure. For more information, see [Multizone HA](#ibp-console-ha-multi-zone).  
+
 ** The default configuration for a Standard Kubernetes cluster on {{site.data.keyword.cloud_notm}} is a 4 CPU x 16 GB RAM cluster that includes three zones with three worker nodes each. You can scale up or down, by selecting a smaller configuration, according to your needs.
 
 ## Potential points of failure
@@ -128,7 +131,7 @@ _This scenario only applies to customers using the {{site.data.keyword.cloud_not
 
    A single zone is sufficient for a development and test environment if you can tolerate an zone outage. Therefore, to leverage the HA benefits of multiple zones,  when you provision your cluster, ensure that multiple zones are selected. Two zones are better than one, but three are recommended for HA to increase the liklihood that the two additional zones can absorb the workload of any single zone failure.  When redundant peers from the same organization and channel and ordering nodes are spread across multiple zones, a failure in any one zone should not affect the ability of the network to process transactions as the workload will shift to the blockchain nodes in the other zones.
 
-   The {{site.data.keyword.blockchainfull_notm}} Platform deployer cannot guarantee that blockchain components are spread across **zones**. The deployer will deploy components to multiple zones based on the resources available on the worker nodes, but it will not necessarily put two peers from the same organization or the ordering nodes in separate zones.
+   The {{site.data.keyword.blockchainfull_notm}} Platform deployer cannot guarantee that blockchain components are spread across **zones**. The deployer will deploy components to multiple zones based on the resources available on the worker nodes, but it will not necessarily put two peers from the same organization or the ordering nodes in separate zones. If you want to ensure that certain nodes are deployed in different zones, you can use the {{site.data.keyword.blockchainfull_notm}} Platform APIs to specify the zone where a node is created. For more information, see [Creating a node within a specific zone](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
    {:note}
 
    This scenario uses redundant peers and orderers across multiple worker nodes and multiple zones, which protects against zone failure, but does not protect from an unlikely entire region failure. This is a recommended scenario for a production network.

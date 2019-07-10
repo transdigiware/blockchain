@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,11 +23,27 @@ subcollection: blockchain
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+## 10 July 2019
+{: #07-10-2019}
+
+**Ordering node patch `1.4.1-1`**  
+
+This patch fixes a problem that occurs when ordering nodes restart. The genesis block is updated which prevents the ordering node from communicating with the other nodes in the ordering service. You can apply this patch to all existing ordering nodes in your ordering services by following these [instructions](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) to update each ordering node. All new ordering nodes that you create will automatically include this fix.
+
+**Anchor peer removal**  
+
+You now have the ability to remove anchor peers from a channel.
+
+**Miscellaneous bug fixes**  
+
+Bug fixes and translation updates.
 
 ## 24 May 2019
 {: #05-24-2019}
 
-**Raft consensus protocol** The five node Raft ordering service, recommended for production networks, is now available. In addition, for development and testing purposes, you can deploy a single node Raft ordering service.
+**Raft consensus protocol**  
+
+The five node Raft ordering service, recommended for production networks, is now available. In addition, for development and testing purposes, you can deploy a single node Raft ordering service.
 
 ## 9 May 2019
 {: #05-09-2019}
