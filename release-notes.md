@@ -26,7 +26,7 @@ Use these release notes that are grouped by date to learn about the latest chang
 ## 10 July 2019
 {: #07-10-2019}
 
-**Ordering node patch `1.4.1-1`**  
+**Ordering node patch `1.4.1-2`**  
 
 This patch fixes a problem that occurs when ordering nodes restart. The genesis block is updated which prevents the ordering node from communicating with the other nodes in the ordering service. You can apply this patch to all existing ordering nodes in your ordering services by following these [instructions](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) to update each ordering node. All new ordering nodes that you create will automatically include this fix.
 
