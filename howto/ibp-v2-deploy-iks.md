@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -54,7 +54,6 @@ Before you deploy the console, ensure that you understand the following consider
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is built with Hyperledger Fabric v1.4.1.
 - All peers deployed with the console or APIs use CouchDB as their state database.
 - You have the option to link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to a free Kubernetes cluster for evaluation of the offering, however capacity and performance are limited, none of your data can be migrated, and the cluster is deleted after 30 days.
-- While the beta trial is free, you still need to pay for your Kubernetes cluster, if you choose a paid cluster.
 - You are responsible for the management of health monitoring, security, and logging  of your Kubernetes cluster. See this [information](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} for details on what {{site.data.keyword.cloud_notm}} manages and what you are responsible for.
 - You are also responsible for monitoring the resource usage of your Kubernetes cluster by using the Kubernetes dashboard. If you need to increase storage capacity or performance of your cluster, see this information on how to [modify your existing volume](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster.
@@ -140,7 +139,7 @@ Use the following steps to create a service instance of {{site.data.keyword.bloc
 
 1. Locate the [Blockchain service](https://cloud.ibm.com/catalog/services/blockchain){: external} in {{site.data.keyword.cloud_notm}} Catalog, or search for `Blockchain` in your {{site.data.keyword.cloud_notm}} Catalog page.
 2. We recommend that you rename the **Service name** for your instance so you can recognize it easily in the future.
-3. For Beta, **Dallas** is the only available region and it cannot be changed. Additional regions can be chosen in a paid cluster. For more information, see [Regions](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+3. Choose your region. For a list of available regions, see [Regions](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 4. You can leave the resource group and tags fields unchanged.
 5. Choose **Standard** plan.
 6. Click **Create** to provision the service instance.

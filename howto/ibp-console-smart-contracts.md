@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -106,8 +106,9 @@ Use your console to perform these steps:
 2. On the side panel that opens, select a channel to instantiate the smart contract on. You can select the channel, named `channel1`, which you created. Then, click **Next**.
 3. Specify the [endorsement policy for the smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse), described in the following section. When multiple organizations are members of the channel, you have the opportunity choose how many organizations are required to endorse the smart contract transactions.
 4. You also need to select the organization members to be included in the endorsement policy. If you are following along in the tutorial, that would be `org1msp` and possibly `org2msp` if you completed both the **Build a network** and **Join a network** tutorials.
-5. If your smart contract includes Fabric private data collections, you need to upload the associated collection configuration JSON file, otherwise you can skip this step. See this topic for more information on using [private data](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
-6. On the last panel you are prompted to specify the smart contract function that you want to run when the smart contract starts, along with the associated arguments to pass to that function.
+5. On the Select peer panel, select a peer from the drop-down list that is from an organization that is a member of the channel.
+6. If your smart contract includes Fabric private data collections, you need to upload the associated collection configuration JSON file, otherwise you can skip this step. See this topic for more information on using [private data](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
+7. On the last panel you are prompted to specify the name of the smart contract initialization function, along with the associated arguments to pass to that function.
 
 You can view all of the smart contracts that have been instantiated on a channel by clicking the channel icon in the left navigation, selecting a channel from the table, and then clicking the **Channel details** tab.
 
@@ -133,6 +134,8 @@ When you follow the steps to [instantiate a smart contract](/docs/services/block
 
 Click the **Advanced** button if you want to specify a policy in JSON format. You can use this method to specify more complicated endorsement policies, such as requiring that a certain member of the channel has to validate a transaction, along with a majority of other members. You can find additional [examples of advanced endorsement policies](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external} in the Hyperledger Fabric documentation. For more information about writing endorsement policies in JSON, see [Hyperledger Fabric Node SDK documentation](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}.
 
+Endorsement policies are not updated automatically when new organizations join the channel and install a chaincode. For example, if the endorsement policy requires two of five organizations to endorse a transaction, the policy will not be updated to require two out of six organizations when a new organization joins the channel. Instead, the new organization will not be listed on the policy, and they will not be able to endorse transactions. You can add another organization to an endorsement policy by upgrading the relevant chaincode and updating the policy.
+
 ## Upgrading a smart contract
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -142,7 +145,8 @@ You can upgrade a smart contract to change its code, endorsement policy, or priv
 3. When a private data collection has changed, for example an organization is added or removed you need to upgrade your smart contract. Or, use this action whenever a new private data collection is added to the collection configuration JSON file.
 4. The smart contract initialization arguments have changed.
 
-**Before you upgrade an instantiated smart contract, the new version of the smart contract must be installed on all peers in the channel that are running the previous level of the smart contract.**
+{:important}
+Before you upgrade an instantiated smart contract, the new version of the smart contract must be installed on all peers in the channel that are running the previous level of the smart contract.
 
 ### How to upgrade a smart contract
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -159,9 +163,10 @@ When a new member that will run the smart contract joins the channel, it is mand
 
  1. Select the smart contract version that you want to upgrade on the channel from the drop-down list.
  2. Update the endorsement policy by adding or removing channel members. You can also click **Advanced** to paste in a new JSON formatted string, which modifies the existing policy.
- 3. If you want to associate a private data collection configuration file with the smart contract you can upload the JSON file. Or if you want to update an existing collection configuration, you can upload the JSON file.   
+ 3. On the Select peer panel you need to select a peer that can approve the proposal to upgrade the smart contract. Therefore, you need to select a peer from the drop-down list that is from an organization that was a member of the channel before the smart contract was last instantiated on the channel.
+ 4. If you want to associate a private data collection configuration file with the smart contract you can upload the JSON file. Or if you want to update an existing collection configuration, you can upload the JSON file.   
  If the smart contract was previously instantiated with a collection configuration file, you **must** again upload the previous version or a new version of the collection configuration file during this step.  
- 4. (Optional) Modify the smart contract initialization argument values if the parameters have changed. If you are unsure about it, check with your smart contract developer. If they have not changed, you can leave this field blank.
+ 5. (Optional) Modify the smart contract initialization argument values if the parameters have changed. If you are unsure about it, check with your smart contract developer. If they have not changed, you can leave this field blank.
 
 After you upgrade the smart contract, you will change the version of the contract that is instantiated on the channel, and change the smart contract container for all the peers that have installed the new version. If you are using private data collections, be sure you have configured anchor peers on the channel.
 

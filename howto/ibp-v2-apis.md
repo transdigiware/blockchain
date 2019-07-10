@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -160,10 +160,21 @@ You can use APIs to create blockchain components in your instance of the {{site.
 
 7. If you want to use the console to operate your blockchain components, you must import your administrator identity into your console wallet. Use the wallet tab to import the certificate and private key of your node admin into the console and create an identity. You then need to use the console to associate this identity with the components you created. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
-8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts.
+8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) for more information.
 {: note}
+
+### Creating a node within a specific zone
+{: #ibp-v2-apis-zone}
+
+If you are using a multizone cluster, you can use the APIs to deploy a blockchain component to a specific zone of {{site.data.keyword.cloud_notm}}. This allows your network to maintain availability in the event of a zone failure. You can use the following steps to deploy a peer or ordering node to a specific zone.
+
+1. Find the zones that your worker nodes are located on. Navigate to the overview screen of your multizone cluster on the [{{site.data.keyword.cloud_notm}} Kubernetes service on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. From the cluster overview screen, click **Worker Nodes** to see a table of all the worker nodes in your cluster. You can find the zone that each worker node is located on in the **Zone** column of the table.
+
+  You can also find the zones of your worker nodes using the kubectl CLI. Navigate to the **Access** panel and follow the instructions under **Gain access to your cluster** to connect to your cluster using the {{site.data.keyword.cloud_notm}} and kubectl CLI tools. Once you are connected, use the command `kubectl get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `zone` field under the `LABELS` column.
+
+2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain?code=try#create-an-ordering-service) or [Create a peer](/apidocs/blockchain?code=try#create-an-ordering-service) API calls using using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
 
 ## Import a network by using APIs
 {: #ibp-v2-apis-import-with-apis}
@@ -185,7 +196,7 @@ You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} co
 
 5. If you plan to use the {{site.data.keyword.blockchainfull_notm}} Platform console to operate your blockchain components, you must import your component administrator identities into your console wallet. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
-6. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts.
+6. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 The service credential that is used for API authentication must have the `Writer` role in IAM to be able to import components. See the table in this topic on [user roles](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) for more information.
 {: note}
