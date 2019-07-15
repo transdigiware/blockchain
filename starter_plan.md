@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,11 +22,14 @@ subcollection: blockchain
 # About Starter Plan
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 {{site.data.keyword.blockchainfull}} Platform Starter Plan is an entry level option that enables organizations to simulate multi-organization blockchain networks, quickly develop applications, and work with sample smart contracts and business networks. It also boasts the same UI experience as other membership options, helping to eliminate any learning curve. New Starter Plan networks that are created after October 04, 2018 are built on Hyperledger Fabric V1.2.1. Older Starter Plan networks remain at Fabric V1.1.0 level.
 {:shortdesc}
+
+Starter Plan is now deprecated, therefore no new Starter Plan networks can be created at this time.** Make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}  
+
+**Your existing networks are not affected and you can continue to use them until June 4, 2020.
+
 
 **Starter Plan** is an environment for those who want to get started developing blockchain networks or start learning about blockchain technology. You can use Starter Plan as a development or test environment that will allow you to start small and scale your network's membership or transaction volume before moving to a production environment.
 
