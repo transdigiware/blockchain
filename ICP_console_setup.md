@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-15"
 
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
@@ -255,5 +255,5 @@ Once you have saved the PodSecurityPolicy, ClusterRole, and ClusterRoleBinding Y
 4. After applying the policies, your must grant your service account the required level of permissions to deploy your console. Run the following command with the name of your target namespace:
 
   ```
-  kubectl -n <namespace> create rolebinding ibp-blockchain-platform-clusterrole-rolebinding --clusterrole=ibp-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
   ```
