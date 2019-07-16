@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,17 +76,19 @@ The following table provides two examples of pricing with [default resource allo
 
 | Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Production Network** |
 |-|------------|-----------------------------|
-| **CPU allocation** |  1.85 CPU <br> Includes: <br> - 1 peer <br> - 2 CAs <br> - 1 ordering node| 4.9 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute)** <br>- 1 CA <br>  |
-| **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.54 USD <br> (1.85 CPU x $0.29 USD/VPC-hr) | $1.42 USD <br> (4.9 CPU x $0.29 USD/VPC-hr ) |
+| **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer <br> - 2 CAs <br> - 1 ordering node| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute)** <br>- 1 CA <br>  |
+| **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-hr ) |
 | **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.12 USD <br> (Compute: 2 x 4 tier) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 tier) <br> (IP Allocation: $16 USD/month) |
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
-| **Total hourly cost** | **$0.73 USD** | **$2.01 USD**| |
+| **Total hourly cost** | **$0.67 USD** | **$1.90 USD**| |
 ** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.  
 
 Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer.
 {:note}
 
-There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster, but you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in your cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all the service instances.
+There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster, but you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in your cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all the service instances.  
+
+**Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options. 
 
 ## Default resource allocations
 {: #ibp-saas-pricing-default}
@@ -95,9 +97,9 @@ The values in the following table are useful to estimate the hourly cost of your
 
 | **Component** (all containers) | CPU  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.2            | 2.4                   | 200 (includes 100GB for peer and 100GB for CouchDB)|
+| **Peer**                       | 1.1            | 2.4                   | 200 (includes 100GB for peer and 100GB for CouchDB)|
 | **CA**                         | 0.1            | 0.2                    | 20                     |
-| **Ordering node**                    | 0.45           | 0.9                    | 100                    |
+| **Ordering node**                    | 0.35           | 0.9                    | 100                    |
 
 
 ## Billing
