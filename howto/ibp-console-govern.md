@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, channel update, reallocate resources
 
@@ -46,12 +46,12 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.2           | 2.4                   | 200 (includes 100GB for peer and 100GB for CouchDB)|
+| **Peer**                       | 1.1           | 2.4                   | 200 (includes 100GB for peer and 100GB for CouchDB)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
-| **Ordering node**              | 0.45          | 0.9                   | 100                    |
+| **Ordering node**              | 0.35          | 0.9                   | 100                    |
 ** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.  
 
-If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 2.25 CPU, 4.5 GB of memory, and 500 GB of storage for the five Raft nodes. This makes the five node ordering service larger than a 2 CPU Kubernetes single worker node.
+If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 4.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4 CPU Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
 
 For cases when a user wants to minimize charges without bringing a node down completely or deleting it, it is possible to scale a node down to a minimum of 0.001 CPU (1 milliCPU). Note that the node will not be functional when using this amount of CPU.

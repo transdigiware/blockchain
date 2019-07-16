@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -46,6 +46,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why are the transactions I submit from VS Code failing?](#ibp-v2-troubleshooting-anchor-peer)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
 - [Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?](#ibp-v2-troubleshooting-healthchecks)
+- [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## When I hover over my node, the status is `Status unavailable`, what does this mean?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -284,3 +285,16 @@ If you have deployed, removed, and upgraded nodes on your cluster many times, pe
 {: tsCauses}
 
 To address this issue, remove the failed pods and deploy your nodes again. You can also restart the Docker service on the cluster.
+
+## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+When I invoke a smart contract to submit a transaction, the transaction returns the following endorsement policy failure:
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+{: tsCauses}
