@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-15"
+lastupdated: "2019-07-17"
 
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
@@ -212,21 +212,21 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
 
 3. Save the file below that defines the ClusterRoleBinding as `ibm-blockchain-platform-clusterrolebinding.yaml`. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** section of the configuration page when deploying the Helm chart.
 
-  ```
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRoleBinding
-  metadata:
-   name: ibm-blockchain-platform-clusterrolebinding
-  roleRef:
-   apiGroup: rbac.authorization.k8s.io
-   kind: ClusterRole
-   name: ibm-blockchain-platform-clusterrole
-  subjects:
-  - kind: ServiceAccount
-    name: default
-    namespace: default
-  ```
-  {:codeblock}
+    ```
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+      name: ibm-blockchain-platform-clusterrolebinding
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: ibm-blockchain-platform-clusterrole
+    subjects:
+    - kind: ServiceAccount
+      name: default
+      namespace: default
+    ```
+    {:codeblock}
 
 Once you have saved the PodSecurityPolicy, ClusterRole, and ClusterRoleBinding YAML files to your local system, a cluster administrator will need use the {{site.data.keyword.cloud_notm}} Private CLI to bind the policies to your namespace.
 
