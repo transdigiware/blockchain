@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-12"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
