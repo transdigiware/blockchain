@@ -1,16 +1,16 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2019-03-20"
+  years: 2018, 2019
+lastupdated: "2019-06-18"
 
-keywords: ibm blockchain platform, free 2.0 beta, starter plan, videos, getting started
+keywords: IBM Blockchain Platform, video series, videos, getting started videos, demo videos
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -20,27 +20,24 @@ subcollection: blockchain
 {:download: .download}
 
 
-# {{site.data.keyword.blockchainfull_notm}} Platform getting started videos
+# {{site.data.keyword.blockchainfull_notm}} Platform 入门视频
 {: #ibp-videos}
 
-You can watch the getting started video series to learn more about how to use {{site.data.keyword.blockchainfull}} Platform.
+您可以观看入门视频系列，以了解有关如何使用 {{site.data.keyword.blockchainfull}} Platform 的更多信息。
 {:shortdesc}
 
-The video series are in a playlist and play continuously in the video frame below. You can also click the menu icon in the upper left corner of the video to open the playlist and switch to another video.
-{:note}
+此视频系列位于播放列表中，并且按照以下视频帧连续播放。您还可以单击视频左上角中的菜单图标以打开播放列表并切换到其他视频。{:note}
 
-## Getting started with {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta
+## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 入门
 {: #ibp-videos-ibp-v2}
 
-Watch the following video series to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta and how you can get started to build your own network.
+请观看以下[视频系列]( http://ibm.biz/BlockchainPlatformSeries)，了解有关 {{site.data.keyword.blockchainfull_notm}} Platform 的更多信息，以及如何着手构建您自己的网络。
 
-<iframe class="embed-responsive-item" id="youtubeplayer" title="Starter Plan videos" type="text/html" width="640" height="390" src="https://www.youtube.com/embed?listType=playlist&list=PL7LSy0eQMvjtIJkNRCJZC7mGfB5K49lrX" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-*Video 1. Getting started with {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta*
-
-## Getting started with {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan
+## {{site.data.keyword.blockchainfull_notm}} Platform 入门套餐入门
 {: #ibp-videos-starter}
 
-Watch the following video series to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan and how you can get started to develop a blockchain network.
+请观看以下视频系列，了解有关 {{site.data.keyword.blockchainfull_notm}} Platform 入门套餐的更多信息，以及如何着手开发区块链网络。
 
-<iframe class="embed-responsive-item" id="youtubeplayer" title="Starter Plan videos" type="text/html" width="640" height="390" src="https://www.youtube.com/embed?listType=playlist&list=PL7LSy0eQMvjvBdal2mm74JlcNGMXYSGOe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-*Video 2. Getting started with {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan*
+<iframe class="embed-responsive-item" id="youtubeplayer2" title="入门套餐视频" type="text/html" width="640" height="390" src="https://www.youtube.com/embed?listType=playlist&list=PL7LSy0eQMvjvBdal2mm74JlcNGMXYSGOe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
+*视频 2. {{site.data.keyword.blockchainfull_notm}} Platform 入门套餐入门*
