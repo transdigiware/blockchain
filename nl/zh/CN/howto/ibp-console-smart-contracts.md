@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019
-
-lastupdated: "2019-03-25"
+lastupdated: "2019-06-18"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -11,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,183 +19,186 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Deploy a smart contract on the network tutorial
+# 在网络上部署智能合同教程
 {: #ibp-console-smart-contracts}
 
-A smart contract is the code, sometimes referred to as chaincode, that allows you to read and update data on the blockchain ledger. A smart contract can turn business logic into an executable program agreed to and verified by all members of a blockchain network. This tutorial is the third part in the [sample network tutorial series](/docs/services/blockchain/howto/ibp-console-smart-contracts.md.html#ibp-console-smart-contracts-structure) and describes how to deploy smart contracts to start transactions in the blockchain network.
+智能合同是允许您在区块链分类帐上读取和更新数据的代码，有时称为链代码。智能合同可以将业务逻辑转变为区块链网络的所有成员同意并验证的可执行程序。本教程是[样本网络教程系列](#ibp-console-smart-contracts-structure)的第三部分，描述了如何部署智能合同以在区块链网络中开始处理事务。
 {:shortdesc}
 
-**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network. Additionally, application developers may be interested in the sections that reference how to create a smart contract.
+如果使用的是 Beta 试用版 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}，那么控制台中的某些面板可能与当前的文档不一致，该文档对应于一般可用 (GA) 服务实例并保持最新。要利用所有最新的功能，目前建议您遵循 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 入门](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks)中的指示信息来供应新的 GA 服务实例。
+{: important}
 
-## Sample network tutorial series
+**目标受众：**本主题适用于负责创建、监视和管理区块链网络的网络操作员。此外，应用程序开发者可能对说明如何创建智能合同的部分感兴趣。
+
+## 样本网络教程系列
 {: #ibp-console-smart-contracts-structure}
 
-This three-part tutorial series guides you through the process of creating and interconnecting a relatively simple, multi-node Hyperledger Fabric network by using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to deploy a network into your Kubernetes cluster and install and instantiate a smart contract.
+本教程系列分为三个部分，可指导您完成以下过程：使用 {{site.data.keyword.blockchainfull_notm}} Platform 控制台将网络部署到 Kubernetes 集群，并安装和实例化智能合同，以创建和互连相对简单的多节点 Hyperledger Fabric 网络。
 
-* [Build a network tutorial](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) guides you through the process of hosting a network by creating an orderer and peer.
-* [Join a network tutorial](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) guides you through the process of joining an existing network by creating a peer and joining it to a channel.
-* **Deploy a smart contract on the network** This current tutorial provides information on how to write a smart contract and deploy it on your network.
+* [构建网络教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)将指导您完成通过创建排序节点和同级来托管网络的过程。
+* [加入网络教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network)将指导您完成通过创建同级并将其加入通道来加入现有网络的过程。
+* **在网络上部署智能合同**（即本教程）提供了有关如何编写智能合同并将其部署在网络上的信息。
 
-You can use the steps in these tutorials to build a network with multiple organizations in one cluster for the purposes of development and testing. Use the **Build a network** tutorial if you want to form a blockchain consortium by creating an orderer node and adding organizations. Use the **Join a network** tutorial to connect a peer to the network. Following the tutorials with different consortium members allows you to create a truly **distributed** blockchain network.  
+可以使用这些教程中的步骤在一个集群中构建具有多个组织的网络，以用于开发和测试目的。如果要通过创建排序节点和添加组织来构成区块链联盟，请使用**构建网络**教程。使用**加入网络**教程将同级连接到网络。通过遵循这些教程对其他联盟成员执行相应操作，可以创建真正的**分布式**区块链网络。  
 
-This final tutorial is meant to show how to create and package a smart contract, how to install the smart contract on a peer, and how to instantiate the smart contract on a channel.  
+这最后一个教程旨在说明如何创建和打包智能合同，如何在同级上安装智能合同，以及如何在通道上实例化智能合同。  
 
-Smart contracts are installed on peers and then instantiated on channels. **All members that want to submit transactions or read data by using a smart contract need to install the contract on their peer.** A smart contract is defined by its name and version. Therefore, both the name and version of the installed contract need to be consistent across all peers on the channel that plan to run the smart contract.
+智能合同安装在同级上，然后在通道上进行实例化。**要使用智能合同提交事务或读取数据的所有成员都需要在其同级上安装该合同。**智能合同通过其名称和版本进行定义。因此，在通道中计划运行该智能合同的所有同级上，安装的合同的名称和版本需要保持一致。
 
-After a smart contract is installed on the peers, a single network member instantiates the contract on the channel. The network member needs to have joined the channel in order to perform this action. Instantiation updates the ledger with the initial data used by the smart contract, and then starts smart contract containers on peers joined to the channel that have the contract installed. The peers can then use the running containers to transact.  
-- **Only one network member needs to instantiate a smart contract.**
-- **If a peer with a smart contract installed joins a channel where the same smart contract version has already been instantiated, the smart contract container starts automatically.**  
+在同级上安装智能合同后，单个网络成员可在通道上实例化该合同。网络成员需要加入通道才能执行此操作。实例化会使用智能合同所用的初始数据来更新分类帐，然后在已加入通道且安装了该合同的同级上启动智能合同容器。然后，同级可使用正在运行的容器以进行交易。  
+- **仅一个网络成员需要实例化智能合同。**
+- **如果已安装智能合同的同级加入的通道中已实例化相同的智能合同版本，那么智能合同容器将自动启动。**  
 
-In this tutorial, we will go through the steps to use the {{site.data.keyword.blockchainfull_notm}} Platform console to manage the deployment of smart contracts on your network:
+在本教程中，我们将完成使用 {{site.data.keyword.blockchainfull_notm}} Platform 控制台来管理网络上的智能合同部署的步骤：
 
-- [Install smart contracts on your peers](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-install).
-- [Instantiate them on channels](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-instantiate).
-- [Specify endorsement policies](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-endorse).
-- [Upgrade the smart contract policies and code](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-upgrade).
+- [在同级上安装智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)。
+- [在通道上实例化智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)。
+- [指定背书策略](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)。
+- [更新智能合同策略和代码](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)。
 
 
-## Before you begin
+## 开始之前
 
-Before you can install a smart contract, ensure that you have the following things ready.
+要能够安装智能合同，请先确保以下各项已准备就绪。
 
-- You must either [build a network](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) or [join a network](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) by using your {{site.data.keyword.blockchainfull_notm}} Platform console.
-- Because smart contracts are installed onto peers, ensure that you [add peers](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-peer-org1) to your console.  
-- Smart contracts are instantiated on a channel. Therefore, you must [create a channel](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel) or [join a channel](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network-join-peer-org2) by using your console.
+- 必须使用 {{site.data.keyword.blockchainfull_notm}} Platform 控制台来[构建网络](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)或[加入网络](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network)。
+- 由于智能合同是安装在同级上，因此请确保向控制台[添加同级](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1)。  
+- 在通道上实例化智能合同。因此，必须使用控制台来[创建通道](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)或[加入通道](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2)。
 
-## Step one: Write a smart contract
+## 步骤 1：编写智能合同
 
-The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* of smart contracts rather than development. If you are interested in developing smart contracts, you can get started using tutorials provided by the Hyperledger Fabric community and tooling provided by {{site.data.keyword.IBM_notm}}.
+{{site.data.keyword.blockchainfull_notm}} 控制台管理的是智能合同的*部署*，而不是开发。如果您感兴趣的是开发智能合同，可以从 Hyperledger Fabric 社区提供的教程和 {{site.data.keyword.IBM_notm}} 提供的工具入手。
 
-- To learn how smart contracts can be used to conduct transactions among multiple parties, see the [Developing applications topic ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "Developing applications topic") in the Hyperledger Fabric documentation.
-- For a complete end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "Hyperledger Fabric Commercial Paper tutorial").
-- To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control "Chaincode for Developers").
-- When you are ready to start building smart contracts, you can use the [{{site.data.keyword.blockchainfull_notm}} Visual Studio code extension ![External link icon](../images/external_link.svg "External link icon")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform "{{site.data.keyword.blockchainfull_notm}} Platform - Visual Studio Marketplace") to start building your own smart contract project. You can also use that extension to [connect directly to your network from Visual Studio code](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-vscode).
-- When you are ready to install, the smart contract must be packaged into [.cds format ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/latest/chaincode4noah.html#packaging "packaging smart contracts") so that it can be installed onto the peers. For more information, see [Packaging smart contracts](/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract). Alternatively, you can use the [peer cli commands ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package "peer chaincode package") to build the package.
+- 要了解如何使用智能合同在多方之间进行事务处理，请参阅 Hyperledger Fabric 文档中的 [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} 主题。
+- 准备好开始构建智能合同时，可以使用 [{{site.data.keyword.blockchainfull_notm}} Visual Studio Code 扩展](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}来开始构建您自己的智能合同项目。还可以使用该扩展[通过 Visual Studio Code 直接连接到网络](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-vscode)，并探索内联教程。
+- 有关开发智能合同的快速教程，请参阅 [Develop a smart contract with the IBM Blockchain Platform VS Code extension](https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/){: external}。
+- 有关使用应用程序与智能合同进行交互的更深入端到端教程，请参阅 [Hyperledger Fabric Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}。
+- 要了解如何将访问控制机制合并到智能合同中，请参阅 [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}。
+- 准备好安装时，必须将智能合同打包成 [.cds 格式](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}，这样才能将其安装到同级上。有关更多信息，请参阅[打包智能合同](/docs/services/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract)。或者，可以使用 [peer cli 命令](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}来构建包。
 <!-- Update the tutorial link to release1-4 when it is published -->
 
 
-## Step two: Install a smart contract
+## 步骤 2：安装智能合同
 {: #ibp-console-smart-contracts-install}
 
-Use your console to perform these steps:
+使用控制台来执行以下步骤：
 
-1. Click the **Smart contracts** tab to install one or more smart contracts.
-2. Click **Install smart contract** to upload the smart contract package file in [.cds format ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/latest/chaincode4noah.html#packaging "packaging smart contracts").
-You can use the {{site.data.keyword.blockchainfull_notm}} Visual Studio code extension to [create a smart contract package](/docs/services/blockchain/vscode-extension.html#packaging-a-smart-contract). When you install the package from the **Smart contracts** tab, you can select one or more peer nodes to install the smart contracts on.
+1. 单击**智能合同**选项卡以安装一个或多个智能合同。
+2. 单击**安装智能合同**以上传 [.cds 格式](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}的智能合同包文件。_智能合同包文件的大小必须小于 4 MB。_可以使用 {{site.data.keyword.blockchainfull_notm}} Visual Studio Code 扩展来[创建智能合同包](/docs/services/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract)。在**智能合同**选项卡中安装包时，可以选择一个或多个要安装智能合同的同级节点。
 
-If only one peer exists in the console, the smart contract will be installed on it. You are not prompted to select a peer to install the smart contract on. You can navigate to the nodes tab and click a peer that is managed by your console to view the list of smart contracts that have been installed on an individual peer.
+如果控制台中只存在一个同级，那么智能合同会安装在该同级上。系统不会提示您选择要安装智能合同的同级。您可以导航至“节点”选项卡，然后单击由控制台管理的某个同级，以查看已在单个同级上安装的智能合同的列表。
 
-You can return to the **Smart contracts** tab later to install the smart contract on additional peers, even after the smart contract was instantiated on the channel. If the version of the smart contract that you install is the same as the instantiated version, these additional peers can process transactions just like the existing peers.
+以后可返回到**智能合同**选项卡以在其他同级上安装该智能合同，即使在通道上已实例化该智能合同之后也可执行此操作。如果安装的智能合同版本与实例化的版本相同，那么这些新增的同级可以像现有同级一样处理事务。
 {:tip}
 
-**This console cannot be used to install Hyperledger Composer `.bna` files.**
+**此控制台不能用于安装 Hyperledger Composer `.bna` 文件。**
 
-<!-- Instead, `.bna` files must be installed on a peer by using the [`Composer` CLI commands ![External link icon](../images/external_link.svg "External link icon")]("peer chaincode").  -->
+<!-- Instead, `.bna` files must be installed on a peer by using the [`Composer` CLI commands]("peer chaincode" "peer chaincode").  -->
 
-## Step three: Instantiate a smart contract
+## 步骤 3：实例化智能合同
 {: #ibp-console-smart-contracts-instantiate}
 
-Smart contracts are instantiated on a channel. Any console member with peers joined to a channel can instantiate a smart contract and specify the associated [endorsement policy](/docs/services/blockchain/glossary.html#glossary-endorsement-policy).
+在通道上实例化智能合同。具有加入通道的同级的任何控制台成员都可以实例化智能合同并指定关联的[背书策略](/docs/services/blockchain?topic=blockchain-glossary#glossary-endorsement-policy)。
 
-Use your console to perform these steps:
+使用控制台来执行以下步骤：
 
-1. On the smart contracts tab, find the smart contract from the list installed on your peers and click **Instantiate** from the overflow menu on the right side of the row.
-2. On the side panel that opens, select a channel to instantiate the smart contract on and select the orderer where the channel resides. You can select the channel, named `channel1`, and orderer node, named `Orderer`, which you created. Then, click **Next**.
-3. Specify the [endorsement policy for the smart contract](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-endorse), described in the following section.
-4. You also need to select the organization members to be included in the policy. If you are following along in the tutorial, that would be `org1msp` and possibly `org2msp` if you completed both the **Build a network** and **Join a network** tutorials.
-5. If your smart contract includes Fabric private data collections, you need to upload the associated collection configuration JSON file, otherwise you can skip this step. See this topic for more information on using [private data](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data).
-6. On the last panel you are prompted to specify the smart contract function that you want to run when the smart contract starts, along with the associated arguments to pass to that function.
+1. 在“智能合同”选项卡上，从同级上安装的智能合同列表中找到相应智能合同，然后单击行右侧溢出菜单中的**实例化**。
+2. 在打开的侧面板上，选择要在其中实例化智能合同的通道。可以选择已创建的名为 `channel1` 的通道。然后，单击**下一步**。
+3. 指定[智能合同的背书策略](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)，如以下部分中所述。当多个组织是通道的成员时，您有机会选择需要多少个组织来对智能合同事务背书。
+4. 还需要选择要包含在背书策略中的组织成员。如果您是按部就班地学习本教程，那么在完成了**构建网络**和**加入网络**教程后，组织成员将为 `org1msp`，也可能为 `org2msp`。
+5. 如果智能合同包含 Fabric 专用数据集合，那么需要上传关联的集合配置 JSON 文件，否则可以跳过此步骤。请参阅有关使用[专用数据](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)的主题，以获取更多信息。
+6. 在最后一个面板上，系统会提示您指定智能合同启动时要运行的智能合同函数，以及要传递给该函数的关联自变量。
 
-You can view all of the smart contracts that have been instantiated on a channel by clicking the channel icon in the left navigation, selecting a channel from the table, and then clicking the **Channel details** tab.
+通过单击左侧导航中的“通道”图标，从表中选择一个通道，然后单击**通道详细信息**选项卡，可以查看已在通道上实例化的所有智能合同。
 
-Be aware that if you use a free {{site.data.keyword.cloud_notm}} Kubernetes service cluster, instantiation can take significantly longer than in a paid cluster. Depending on the number of peers you have deployed in your cluster, this can take several minutes.
+请注意，如果使用的是免费 {{site.data.keyword.cloud_notm}} Kubernetes Service 集群，那么实例化所用时间可能比付费集群长得多。实例化可能需要几分钟时间，具体取决于集群中部署的同级数。
 
-The combination of **installation and instantiation** is a powerful feature because it allows for a peer to use a single smart contract across many channels. Peers may want to join multiple channels that use the same smart contract, but with different sets of network members able to access the data. A peer can install the smart contract once, and then use the same smart contract container on any channel where it has been instantiated. This lightweight approach saves compute and storage space, and helps you scale your network.
+**安装和实例化**组合是一个强大的功能，因为它支持同级在多个通道上使用单个智能合同。同级可能希望加入使用同一智能合同，但能够访问数据的网络成员组不同的多个通道。同级可安装智能合同一次，然后在已实例化该合同的任何通道上使用相同的智能合同容器。此轻量级方法节省计算和存储空间，并帮助缩放网络。
 
-## Step four: Send transactions by using your client applications
+## 步骤 4：使用客户机应用程序发送事务
 {: #ibp-console-smart-contracts-connect-to-SDK}
 
-After a smart contract has been instantiated on a channel, you can use a client application to transact with other members of your network. Applications can invoke the business logic contained in smart contracts to create, transfer, or update assets on the blockchain ledger.
+智能合同在通道上实例化后，您可以使用客户机应用程序与网络中的其他成员之间进行事务处理。应用程序可以调用智能合同中包含的业务逻辑，以在区块链分类帐上创建、转让或更新资产。
 
-### Connect with SDK
+### 使用 SDK 进行连接
 {: #ibp-console-smart-contracts-connect-to-SDK-panel}
-The **Smart Contracts** tab contains the information that you need to connect to an instantiated smart contract from a client app. Next to each instantiated smart contract, navigate to the overflow menu. Click the **Connect with your SDK** button. This opens a side panel that provides the information that you need to connect to this smart contract: the contract name, the channel name, and your connection profile. For more information, see [Creating applications](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app).
+**智能合同**选项卡包含从客户机应用程序连接到已实例化智能合同所需的信息。导航至每个已实例化的智能合同旁边的溢出菜单。单击**使用 SDK 进行连接**按钮。这将打开一个侧面板，其中提供连接到此智能合同所需的信息：合同名称、通道名称和连接概要文件。有关更多信息，请参阅[创建应用程序](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app)。
 
-## Specifying an endorsement policy
+## 指定背书策略
 {: #ibp-console-smart-contracts-endorse}
 
-Every smart contract must have an endorsement policy, which is specified during instantiation. The endorsement policy specifies the set of organizations, the peers, on a channel that can execute the smart contract and independently validate the transaction output. For example, an endorsement policy can specify that a transaction is added to the ledger only if a majority of the members on the channel endorse the transaction. The organization that instantiates the smart contract can select from among the members who have installed the smart contract to become validators, and sets the endorsement policy for all channel members. You can update your endorsement policy by following the steps for [updating your smart contract](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-upgrade).
+每个智能合同都必须有一个背书策略，该策略在智能合同实例化期间指定。背书策略指定通道上可以执行该智能合同并独立验证事务输出的组织集，即同级。例如，背书策略可以指定仅当通道上的大多数成员对某个事务背书时，才会将该事务添加到分类帐。对智能合同进行实例化的组织可以从已安装智能合同的成员中选择成员，使其成为验证者，并设置用于所有通道成员的背书策略。通过执行[更新智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)的步骤，可以更新背书策略。
 
-When you follow the steps to [instantiate a smart contract](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-instantiate), you can use the side panel to set a contract's endorsement policy after selecting the channel. Use this panel to specify a simple policy by selecting the peers that need to endorse the transaction from the list of peers that have installed the smart contract on the channel. You can use this method to specify an endorsement policy of all channel members, a majority of them, a single member, or a simple +1 preventing members from self signing. The default endorsement policy is set to `1 of x`, meaning only a single member is required to endorse a smart contract transaction.
+执行[实例化智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)的步骤时，在选择通道后，可以使用侧面板来设置合同的背书策略。使用此面板通过从已在通道上安装智能合同的同级列表中选择需要对事务背书的同级来指定简单策略。可以使用此方法来指定背书策略：所有通道成员、大多数通道成员、单个成员，或防止成员自签名的简单 +1 策略。缺省背书策略设置为 `1/x`，这意味着只需要一个成员来对智能合同事务背书。
 
-Click the **Advanced** button if you want to specify a policy in JSON format. You can use this method to specify more complicated endorsement policies, such as requiring that a certain member of the channel has to validate a transaction, along with a majority of other members. You can find additional [examples of advanced endorsement policies ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies "Example endorsement policies") in the Hyperledger Fabric documentation. For more information about writing endorsement policies in JSON, see [Hyperledger Fabric Node SDK documentation ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest "Hyperledger Fabric Node SDK documentation").
+如果要指定 JSON 格式的策略，请单击**高级**按钮。可以使用此方法来指定更复杂的背书策略，例如要求通道的某个成员必须与大多数其他成员一起验证事务。可以在 Hyperledger Fabric 文档中找到其他[高级背书策略示例](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external}。有关使用 JSON 编写背书策略的更多信息，请参阅 [Hyperledger Fabric Node SDK 文档](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}。
 
-## Upgrading a smart contract
+## 升级智能合同
 {: #ibp-console-smart-contracts-upgrade}
 
-You can upgrade a smart contract to change its code, endorsement policy, or private data collection while maintaining its relationship to the assets on the ledger. There are a variety of reasons why you may want to upgrade an instantiated smart contract.
-1. You can upgrade the smart contract to add or remove functionality from its code and iterate on the logic of your business network.
-2. Whenever a new member is added to a channel, the endorsement policy of the instantiated smart contracts *must* be updated to include the new channel member. In order to work with the new channel member, the smart contract must be repackaged with a new version number and instantiated on the channel, even if the smart contract itself is unchanged. Otherwise, transaction endorsement cannot succeed.
-3. When a private data collection has changed, for example an organization is added or removed you need to upgrade your smart contract. Or, use this action whenever a new private data collection is added to the collection configuration JSON file.
-4. The smart contract initialization arguments have changed.
+您可以升级智能合同以更改其代码、背书策略或专用数据集合，同时保持它与分类帐上资产的关系。您可能希望升级已实例化智能合同的原因有多种。
+1. 可以升级智能合同以在其代码中添加或除去功能，并迭代业务网络的逻辑。
+2. 每当将新成员添加到通道时，都*必须*更新已实例化智能合同的背书策略，以包含新通道成员。为了使用新的通道成员，智能合同必须使用新的版本号重新打包并在通道上进行实例化，即使智能合同本身没有变化。否则，无法成功对事务背书。
+3. 专用数据集合发生更改（例如添加或除去了组织）时，需要升级智能合同。或者，每当将新的专用数据集合添加到集合配置 JSON 文件时，都使用此操作。
+4. 更改了智能合同初始化自变量。
 
-**Before you upgrade an instantiated smart contract, the new version of the smart contract must be installed on all peers in the channel that are running the previous level of the smart contract.**
+**在升级已实例化的智能合同之前，必须在通道中运行先前级别智能合同的所有同级上安装智能合同的新版本。**
 
-### How to upgrade a smart contract
+### 如何升级智能合同
 {: #ibp-console-smart-contracts-upgrade-howto}
 
-To upgrade a smart contract, install the updated code by specifying the same smart contract name but by using and a new version number. If you have installed a newer version of a smart contract on any peer in the channel, notice that the original version now has the `Upgrade Available` button next to it in the **Instantiated smart contracts** table.
+要升级智能合同，请通过指定相同的智能合同名称但使用新的版本号来安装更新的代码。如果已在通道中的任何同级上安装了更新版本的智能合同，请注意在**已实例化的智能合同**表中，现在原始版本旁边会有`升级可用`按钮。
 
 {:important}
-When a new member that will run the smart contract joins the channel, it is mandatory to update the smart contract by installing a new version on all the peers and instantiating it on the channel with a modified endorsement policy that includes the new member.
+在将要运行智能合同的新成员加入通道时，该成员必须通过在所有同级上安装新版本，并使用修改后包含新成员的背书策略在通道上实例化智能合同，以更新智能合同。
 
-- Scroll down to the **Instantiated smart contracts** table.
-- In the **Instantiated smart contracts** table, locate the smart contract version and channel that you want to upgrade. It must have the **Upgrade Available** label next to it.
-- Click the **overflow menu** on the right side of the smart contract row and click **Upgrade** to perform the following steps:  
+- 导航至左侧的**智能合同**选项卡。
+- 向下滚动到**已实例化的智能合同**表。
+- 在**已实例化的智能合同**表中，找到要升级的智能合同版本和通道。该合同旁边必定有**升级可用**标签。
+- 单击智能合同行右侧的**溢出菜单**，然后单击**升级**以执行以下步骤：  
 
- 1. Select the smart contract version that you want to upgrade on the channel from the drop-down list.
- 2. Update the endorsement policy by adding or removing channel members. You can also click **Advanced** to paste in a new JSON formatted string, which modifies the existing policy.
- 3. If you want to associate a private data collection configuration file with the smart contract you can upload the JSON file. Or if you want to update an existing collection configuration, you can upload the JSON file.   
- If the smart contract was previously instantiated with a collection configuration file, you **must** again upload the previous version or a new version of the collection configuration file during this step.  
- {:important}
- 4. (Optional) Modify the smart contract initialization argument values if the parameters have changed. If you are unsure about it, check with your smart contract developer. If they have not changed you can leave this field blank.
+ 1. 从下拉列表中选择要在通道上升级的智能合同版本。
+ 2. 通过添加或除去通道成员来更新背书策略。还可以单击**高级**以粘贴新的 JSON 格式字符串，该字符串用于修改现有策略。
+ 3. 如果要将专用数据集合配置文件与智能合同相关联，可以上传 JSON 文件。或者，如果要更新现有集合配置，也可以上传 JSON 文件。   
+如果智能合同先前已使用集合配置文件进行实例化，那么**必须**在此步骤中重新上传集合配置文件的先前版本或新版本。  
+ 4. （可选）如果参数已更改，请修改智能合同初始化自变量值。如果不确定参数是否更改，请咨询智能合同开发者。如果没有更改，那么可以将此字段保留为空白。
 
-After you upgrade the smart contract, you will change the version of the contract that is instantiated on the channel, and change the smart contract container for all the peers that have installed the new version. If you are using private data collections, be sure you have configured anchor peers on the channel.
+升级智能合同后，请更改在通道上实例化的合同版本，然后更改已安装新版本的所有同级的智能合同容器。如果要使用专用数据集合，请确保已在通道上配置了锚点同级。
 
-### Considerations when you upgrade smart contracts
+### 升级智能合同时的注意事项
 {: #ibp-console-smart-contracts-upgrade-considerations}
 
-1. Do I need to install the new version of the smart contract on all my peers?  
+1. 需要在所有同级上安装智能合同的新版本吗？  
 
-  When a smart contract is invoked on a peer, it attempts to run the version that is instantiated on the channel. If a previous version is running on the peer, it results in an error. Therefore, before you upgrade a smart contract on a channel, *it is a best practice to install the latest version of the smart contract on all peers that are running the previous version.*  
+  在同级上调用智能合同时，它会尝试运行已在通道上实例化的版本。如果先前版本正在同级上运行，那么会导致错误。因此，在升级通道上的智能合同之前，*最佳做法是在运行先前版本的所有同级上安装智能合同的最新版本*。  
 
-2. Can a subsequent smart contract version still process data on the ledger from a prior version of the smart contract?  
+2. 后续智能合同版本仍可以处理先前版本智能合同中分类帐上的数据吗？  
 
-  Yes. As long as the new smart contract code addresses the data in a compatible way (by adding new JSON fields and not changing the semantics or type of the existing fields), any subsequent version of the smart contract can run against the data from a prior version.
+  对。只要新的智能合同代码能以兼容的方式处理数据（通过添加新的 JSON 字段，而不更改现有字段的语义或类型），智能合同的任何后续版本都可以针对先前版本的数据运行。
 
-3. What happens to my peers if I forget to upgrade them to the latest version before updating the smart contract on the channel?  
+3. 如果更新通道上的智能合同之前忘记将其升级到最新版本，同级会发生什么情况？  
 
-  After updating the channel to use the new version of the smart contract, if there are still peers on the channel running the previous version, those peers are no longer able to endorse transactions for the smart contract. Also, you risk not having enough endorsements for transactions to be committed to the ledger, depending on how the smart contract endorsement policy is defined. However, it is possible to install the new version of the smart contract on these peers later and they will again be able to endorse transactions, effectively catching up.
+  在更新通道以使用智能合同的新版本之后，如果通道上仍有同级在运行先前版本，那么这些同级无法再对智能合同的事务背书。此外，根据智能合同背书策略的定义方式，您会面临事务没有足够背书而无法提交给分类帐的风险。但是，以后可以在这些同级上安装智能合同的新版本，然后这些同级就能再次对事务背书，从而实际跟上其他同级的步伐。
 
-4. What happens when I remove an organization from my private data collection?
+4. 从专用数据集合中除去组织时会发生什么情况？
 
-   The peers in that organization will continue to store data in the private data collection until it's ledger reaches the block that removes it's membership from the collection. After that occurs, the peers will not receive private data in any future transactions, and _clients_ of that organization will no longer be able to query the private data via chaincode from any peer.
+   该组织中的同级会继续将数据存储在专用数据集合中，直到其分类帐到达从该集合中除去其成员资格的区块为止。在此之后，同级就不会再接收任何未来事务中的专用数据，并且该组织的_客户机_无法再从任何同级通过链代码来查询专用数据。
 
-## Private data
+## 专用数据
 {: #ibp-console-smart-contracts-private-data}
 
-Private data is a feature of Hyperledger Fabric networks at version 1.2 or higher and is used to keep sensitive information private from other organization members **on a channel**. Data privacy is achieved through the use of [private data collections  ![External link icon")](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection "What is a private data collection?"). For example, several wholesalers and a set of farmers might be joined to a single channel. If a farmer and a wholesaler want to transact privately, they can create a channel for this purpose. But they can also decide to create a private data collection on the smart contract that governs their business interactions to maintain privacy over sensitive aspects of the sale, such as the price, without having to create a secondary channel. To learn more about when to use private data within a blockchain, visit the [Private Data ![External link icon")](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#private-data "Private data") concept article in the Fabric documentation.
+专用数据是 Hyperledger Fabric 网络（V1.2 或更高版本）的一项功能，用于**在通道上**使来自其他组织成员的敏感信息保持专用。通过使用[专用数据集合](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection "What is a private data collection?"){: external}可实现数据隐私。例如，多家批发商和一组农场主可能会加入一个通道。如果某个农场主和某个批发商希望私下进行交易，他们可以创建用于此目的的通道。但是，他们还可以决定在智能合同上创建专用数据集合，用于管理其业务交互，针对销售的敏感方面（例如，价格）保持隐私，而无需创建辅助通道。要了解有关何时在区块链中使用专用数据的更多信息，请访问 Fabric 文档中的[专用数据](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#private-data "Private data"){: external}概念文章。
 
-In order to use private data with {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta, the following three conditions must be satisfied:  
-1. **Define the private data collection.** A private data collection file can be added to your smart contract. Then, at runtime, your client application can use private data specific chaincode APIs to input and retrieve data from the collection. For more information about how to use private data collections with your smart contract, see the Fabric SDK tutorial on [Using private data ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/tutorial-private-data.html "How to use Private Data") in the Fabric SDK documentation.  
+为了将专用数据用于 {{site.data.keyword.blockchainfull_notm}} Platform，必须满足以下三个条件：  
+1. **定义专用数据集合。**可以将专用数据集合文件添加到智能合同。然后，在运行时，客户机应用程序可以使用特定于专用数据的链代码 API 在集合中输入和检索数据。有关如何在智能合同中使用专用数据集合的更多信息，请参阅 Fabric SDK 文档中有关[使用专用数据](https://fabric-sdk-node.github.io/tutorial-private-data.html){: external}的 Fabric SDK 教程。  
 
-2. **Install and instantiate the smart contract.** Once the smart contract private data collection has been defined, you need to install the smart contract on the peers that are members of the channel. When you instantiate the smart contract on the channel by using the console, you need to upload the collection configuration JSON file. For more information on how to [create a collection definition JSON file ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/tutorial-private-data.html "How to use private data") see the Fabric SDK documentation topic.
+2. **安装和实例化智能合同。**定义了智能合同专用数据集合后，需要在作为通道成员的同级上安装智能合同。使用控制台在通道上实例化智能合同时，需要上传集合配置 JSON 文件。有关如何[创建集合定义 JSON 文件](https://fabric-sdk-node.github.io/tutorial-private-data.html){: external}的更多信息，请参阅 Fabric SDK 文档主题。
 
-  Instead of using the console to install and instantiate your smart contract with a collection config file, you can also use the Fabric SDK. Those instructions are also available under [How to use private data ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html "how to use private data") in the Node SDK documentation.  
+  除了使用控制台来安装智能合同并通过集合配置文件实例化智能合同，您还可以使用 Fabric SDK。这些指示信息还可在 Node SDK 文档中的 [How to use private data](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html){: external} 下找到。  
 
-  **Note:** A client needs to be an admin of your peer in order to install or instantitate a smart contract using the SDK. Therefore, you need to download the certificates of the peer admin identity from your console wallet and pass the peer admin's public and private key to directly to the SDK instead of creating an application identity. For an example of how to pass a key pair to the SDK, see [Connecting to your network using low level Fabric SDK APIs](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-low-level).  
+  **注：**客户机需要成为同级的管理员，才能使用 SDK 来安装或实例化智能合同。因此，需要从控制台电子钱包中下载同级管理员身份的证书，并将同级管理员的签名证书和专用密钥直接传递给 SDK，而不是创建应用程序身份。有关如何将密钥对传递给 SDK 的示例，请参阅[使用低级别 Fabric SDK API 连接到网络](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-low-level)。  
 
 
-3. **Configure anchor peers.** Because cross organizational [gossip ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html "Gossip data dissemination protocol") must be enabled for private data to work, an anchor peer must exist for each organization in the collection definition. Refer to this information for [how to configure anchor peers](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-channels-anchor-peers) on your network.
+3. **配置锚点同级。**由于必须启用跨组织的 [Gossip](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external}，专用数据才能起作用，因此在集合定义中每个组织必须存在一个锚点同级。请参阅有关在网络上[如何配置锚点同级](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers)的信息。
 
-Your channel is now configured to use private data.
+现在，通道已配置为使用专用数据。

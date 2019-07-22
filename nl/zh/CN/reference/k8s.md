@@ -2,13 +2,13 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,42 +20,42 @@ subcollection: blockchain
 # Kubernetes
 {: #k8s-overview}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta console is deployed on a Kubernetes cluster via {{site.data.keyword.cloud_notm}} Kubernetes Service. Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+通过 {{site.data.keyword.blockchainfull_notm}} Platform，可以将区块链组件供应到 {{site.data.keyword.cloud_notm}} Kubernetes 集群中。Kubernetes 是一个开放式源代码系统，用于自动对容器化应用程序进行部署、缩放和管理。
 {:shortdesc}
 
-Kubernetes provides a container-centric management environment. It orchestrates computing, networking, and storage infrastructure on behalf of user workloads. This provides much of the simplicity of Platform as a Service (PaaS) with the flexibility of Infrastructure as a Service (IaaS), and enables portability across infrastructure providers.
+Kubernetes 提供的是以容器为中心的管理环境。Kubernetes 代表用户工作负载来编排计算、联网和存储基础架构。这不仅提供了平台即服务 (PaaS) 的大部分简洁性和基础架构即服务 (IaaS) 的灵活性，还支持不同基础架构提供者之间的可移植性。
 
-The following diagram explains the architecture of Kubernetes. For more explanation about nodes, containers, and pod, see the [Key Kubernetes objects](#k8s-overview-key-obj) section below.
+下图说明了 Kubernetes 的体系结构。有关节点、容器和 pod 的更多说明，请参阅下面的[主要 Kubernetes 对象](#k8s-overview-key-obj)部分。
 
-![Kubernetes architecture diagram](../images/k8s-archi-diagram.svg "{{site.data.keyword.cloud_notm}} Kubernetes Service architecture")
-*Figure 1. Kubernetes architecture diagram*
+![Kubernetes 体系结构图](../images/k8s-archi-diagram.svg "{{site.data.keyword.cloud_notm}} Kubernetes Service 体系结构")
 
 
 ## {{site.data.keyword.cloud_notm}} Kubernetes Service
 {: #k8s-overview-iks}
 
-{{site.data.keyword.cloud_notm}} Kubernetes Service delivers powerful tools by combining Docker containers, the Kubernetes technology, an intuitive user experience, and built-in security and isolation to automate the deployment, operation, scaling, and monitoring of containerized apps in a cluster of compute hosts.
+{{site.data.keyword.cloud_notm}} Kubernetes Service 通过组合 Docker 容器、Kubernetes 技术、直观的用户体验以及内置安全性和隔离，提供功能强大的工具来自动对计算主机集群中的容器化应用程序进行部署、操作、缩放和监视。
 
-For more information about {{site.data.keyword.cloud_notm}} Kubernetes Service, see the following topics in {{site.data.keyword.cloud_notm}} Kubernetes Service documentation:
-- [{{site.data.keyword.cloud_notm}} Kubernetes Service technology ![External link icon](../images/external_link.svg "External link icon")](https://cloud.ibm.com/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology "{{site.data.keyword.cloud_notm}} Kubernetes Service technology documentation")
-- [Why {{site.data.keyword.cloud_notm}} Kubernetes Service ![External link icon](../images/external_link.svg "External link icon")](https://cloud.ibm.com/docs/containers?topic=containers-cs_ov#cs_ov "Why {{site.data.keyword.cloud_notm}} Kubernetes Service documentation")
+有关 {{site.data.keyword.cloud_notm}} Kubernetes Service 的更多信息，请参阅 {{site.data.keyword.cloud_notm}} Kubernetes Service 文档中的以下主题：
+- [{{site.data.keyword.cloud_notm}} Kubernetes Service 技术](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
+- [为什么选择 {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
+- [定义 Kubernetes 策略](/docs/containers?topic=containers-strategy#strategy){: external}
 
 
-## Key Kubernetes objects
+## 主要 Kubernetes 对象
 {: #k8s-overview-key-obj}
 
-- **Cluster**
+- **集群**
 
-  A set of machines, called nodes, that run containerized applications managed by Kubernetes. A cluster has several worker nodes and at least one master node.
+  一组机器（称为节点），用于运行由 Kubernetes 管理的容器化应用程序。一个集群具有多个工作程序节点，并且至少有一个主节点。
 
-- **Node**
+- **节点**
 
-  A node is a worker machine in Kubernetes. A node may be a VM or physical machine, depending on the cluster. Each node contains the services necessary to run pods and is managed by the master components. The services on a node include the container runtime, `kubelet` and `kube-proxy`. For more information, see the [Kubernetes Node section ![External link icon](../images/external_link.svg "External link icon")](https://kubernetes.io/docs/concepts/architecture/nodes/ "Kubernetes Node section") in the Kubernetes documentation.
+  节点是 Kubernetes 中的工作程序机器。节点可以是 VM，也可以是物理机器，具体取决于集群。每个节点都包含运行 pod 所必需的服务，并由主节点组件进行管理。节点上的服务包括容器运行时 `kubelet` 和 `kube-proxy`。有关更多信息，请参阅 Kubernetes 文档中的 [Kubernetes 节点](https://kubernetes.io/docs/concepts/architecture/nodes/){: external}部分。
 
-- **Container**
+- **容器**
 
-  A lightweight and portable executable image that contains software and all of its dependencies. Containers decouple applications from underlying host infrastructure to make deployment easier in different cloud or OS environments, and for easier scaling.
+  一种轻量级、可移植的可执行映像，包含软件及其所有依赖项。容器将应用程序与底层主机基础架构相分离，因此能更轻松地在不同的云或操作系统环境中进行部署，并且缩放也更轻松。
 
 - **Pod**
 
-  The smallest and simplest Kubernetes object. A Pod represents a set of running containers on your cluster. A Pod is typically set up to run a single primary container. It can also run optional sidecar containers that add supplementary features like logging. Pods are commonly managed by a Deployment. For more information, see the [Kubernetes Pod section ![External link icon](../images/external_link.svg "External link icon")](https://kubernetes.io/docs/concepts/workloads/pods/pod/) in the Kubernetes documentation.
+  最小且最简单的 Kubernetes 对象。Pod 表示集群上正在运行的一组容器。Pod 通常设置为运行单个主容器。它还可以运行可选的侧柜容器，侧柜容器用于添加补充功能，如日志记录等。Pod 通常由部署进行管理。有关更多信息，请参阅 Kubernetes 文档中的 [Kubernetes Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/){: external} 部分。

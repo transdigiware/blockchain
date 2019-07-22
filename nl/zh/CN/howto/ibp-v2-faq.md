@@ -2,14 +2,15 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
 subcollection: blockchain
 
 ---
 
-
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -19,72 +20,128 @@ subcollection: blockchain
 {:faq: data-hd-content-type='faq'}
 {:pre: .pre}
 
-# FAQs
+# 常见问题
 {: #ibp-v2-faq}
 
-- [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-fabric-version)
-- [Do I need to pay anything for the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-cost)
-- [Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-existing-cluster)
-- [What database do the Peers use for their ledger?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-couchDB)
-- [What languages are supported for smart contracts?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-cc-langs)
-- [Can I migrate from the V2.0 beta to v2.0 GA?](/docs/services/blockchain/ibp-v2-deploy-iks.html#ibp-v2-faq-migrate)
-- [Do we have access to logging services and what logs are available to me?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-logs)
-- [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta over native Hyperledger Fabric?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-native-fabric)
-- [How can I maximize performance and scale my {{site.data.keyword.blockchainfull_notm}} Platform solution?](/docs/services/blockchain/ibp-v2-faq.html#ibp-v2-faq-perf-scale)
+**常规**   
 
-## What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta?
-{: #ibp-v2-faq-fabric-version}
+- [通过本机 Hyperledger Fabric 使用 {{site.data.keyword.blockchainfull_notm}} Platform 有何价值？](#ibp-v2-faq-v2-IBP-Overview-1-7)
+- [哪个版本的 Hyperledger Fabric 用于 {{site.data.keyword.blockchainfull_notm}} Platform？](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+- [同级将哪个数据库用于其分类帐？](#ibp-v2-faq-v2-IBP-Overview-1-3)
+- [智能合同支持哪些编程语言？](#ibp-v2-faq-v2-IBP-Overview-1-4)
+- [支持使用来自非 IBM 认证中心 (CA) 的证书吗？](#ibp-v2-faq-v2-external-certs)  
+
+**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
+
+- [可以从 V1.0 升级到新的 {{site.data.keyword.blockchainfull_notm}} Platform 吗？](#ibp-v2-faq-v2-IBP-Overview-1-5)
+- [删除 {{site.data.keyword.blockchainfull_notm}} Platform 服务会发生什么情况？](#ibp-v2-faq-v2-IBP-Overview-1-8)
+- [哪些区域可用于在 {{site.data.keyword.cloud_notm}} 上运行的区块链服务？](#ibp-v2-faq-v2-IBP-Overview-1-9)
+- [可以使用现有 {{site.data.keyword.cloud_notm}} Kubernetes Service 集群吗？](#ibp-v2-faq-v2-Infrastructure-4-2)
+- [我有权访问日志记录服务吗？我可以使用哪些日志？](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
+
+**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**    
+
+- [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 的优点是什么？](#ibp-v2-faq-icp-benefits)
+- [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 支持哪些环境？](#ibp-v2-faq-icp-environments)
+- [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 的定价模型是什么？](#ibp-v2-faq-icp-pricing)
+- [为了使用 {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud，我需要安装哪些服务？](#ibp-v2-faq-icp-services)
+- [如何针对开发、测试和生产环境估算 {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 的大小设置需求？](#ibp-v2-faq-icp-sizing)
+- [删除 Helm 发布时，区块链组件会发生什么情况？](#ibp-v2-faq-icp-delete)
+
+## 通过本机 Hyperledger Fabric 使用 {{site.data.keyword.blockchainfull_notm}} Platform 有何价值？
+{: #ibp-v2-faq-v2-IBP-Overview-1-7}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta uses Hyperledger Fabric v1.4 and includes support for gossip, service discovery and private data.
+{{site.data.keyword.blockchainfull_notm}} Platform 支持客户机轻松部署定制区块链网络。您可以使用直观的控制台 UI 来快速部署网络，轻松安装和实例化智能合同以及监视事务。
 
-## Do I need to pay anything for the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta?
-{: #ibp-v2-faq-cost}
+## 哪个版本的 Hyperledger Fabric 用于 {{site.data.keyword.blockchainfull_notm}} Platform？
+{: #ibp-v2-faq-v2-Hyperledger-Fabric-3-1}
 {: faq}
 
-The beta release is free. But you may still incur charges for your {{site.data.keyword.cloud_notm}} Kubernetes cluster, unless you selected a free cluster.  However, be aware that the free cluster is automatically deleted after 30 days per {{site.data.keyword.cloud_notm}} Kubernetes service policy and performance and capacity are limited.  If you want to persist your service beyond 30 days, you need to pay for a standard instance of the Kubernetes service. 
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 和 {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 使用 Hyperledger Fabric V1.4.1。
 
-## Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?
-{: #ibp-v2-faq-existing-cluster}
+## 同级将哪个数据库用于其分类帐？
+{: #ibp-v2-faq-v2-IBP-Overview-1-3}
 {: faq}
 
-Your existing Kubernetes cluster will work with the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta as long as it satisfies the following conditions:
-- It is in the {{site.data.keyword.cloud_notm}} Dallas region.
-- It is running Kubernetes v1.11 or higher. See these instructions for information on how to [upgrade the Kubernetes version of your cluster](/docs/services/blockchain/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-updating-kubernetes).
-- There are enough available resources in the cluster. See this topic on [minimum resource requirements](/docs/services/blockchain/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-resources-required) for more information.
+通过 {{site.data.keyword.blockchainfull_notm}} Platform 部署的所有同级都使用 CouchDB 作为分类帐的数据库。
 
-## What database do the Peers use for their ledger?
-{: #ibp-v2-faq-couchDB}
+## 智能合同支持哪些语言？
+{: #ibp-v2-faq-v2-IBP-Overview-1-4}
 {: faq}
 
-All peers are deployed with the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta use CouchDB database. It is not possible to query the CouchDB directly though.
+{{site.data.keyword.blockchainfull_notm}} Platform 支持使用 Go 和 Node.js 编写的智能合同。新的 Hyperledger Fabric 编程模型目前仅支持 Node.js，但即将支持更多语言。如果您希望保留现有的应用程序代码，或者将 Fabric SDK 用于除 Node.js 以外的语言，那么仍然可以使用较低级别的 Fabric SDK API 来连接到 {{site.data.keyword.blockchainfull_notm}} Platform 网络。
 
-## What languages are supported for smart contracts?
-{: #ibp-v2-faq-cc-langs}
+## 支持使用来自非 IBM 认证中心的证书吗？
+{: #ibp-v2-faq-v2-external-certs}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts written in Go, Node.js, and Java. The new Hyperledger Fabric programming model currently only supports Node.js, more are coming soon. If you are interested in preserving your existing application code, or using Fabric SDKs for languages other than Node.js, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta network using lower level Fabric SDK API's.
+支持，您可以自带证书，只要证书是由符合 X.509 的 CA 签发的即可。
 
-## Can I migrate from the V2.0 beta to v2.0 GA? 
-{: #ibp-v2-faq-migrate}
+## 可以从 V1.0 升级到新的 {{site.data.keyword.blockchainfull_notm}} Platform 吗？
+{: #ibp-v2-faq-v2-IBP-Overview-1-5}
 {: faq}
 
-You will not be able to migrate your 2.0 beta offering to the 2.0 GA offering.
+入门套餐不能。无法通过入门套餐升级到新的 {{site.data.keyword.blockchainfull_notm}} Platform。对于企业套餐，未来能够升级到新的 {{site.data.keyword.blockchainfull_notm}} Platform。您将收到 {{site.data.keyword.blockchainfull_notm}} Platform 团队发送给帐户所有者的电子邮件，用于提供相关帮助。
 
-## Do we have access to logging services and what logs are available to me?
-{: #ibp-v2-faq-logs}
+## 删除 {{site.data.keyword.blockchainfull_notm}} Platform 服务会发生什么情况？
+{: #ibp-v2-faq-v2-IBP-Overview-1-8}
 {: faq}
 
-With {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can now directly access your peer, CA and orderer logs from your Kubernetes dashboard. We recommend you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA ![External link icon](../images/external_link.svg "External link icon")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "Managing Kubernetes cluster logs with IBM Log Analysis with LogDNA") service which allows you to easily parse the logs in real-time.
+删除 {{site.data.keyword.blockchainfull_notm}} Platform 服务实例时，将删除所有区块链 CA、同级和排序节点及其关联的存储器。
 
-## What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta over native Hyperledger Fabric?
-{: #ibp-v2-faq-native-fabric}
+## 哪些区域可用于在 {{site.data.keyword.cloud_notm}} 上运行的区块链服务？
+{: #ibp-v2-faq-v2-IBP-Overview-1-9}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta enables clients to easily deploy a custom blockchain network. The platform includes an intuitive console for quick deployment of a network and the ability to easily install and instantiate smart contracts. With the platform you also receive support from experts at {{site.data.keyword.IBM_notm}} to help you with developing your smart contract and building your network.
+{{site.data.keyword.blockchainfull_notm}} Platform 的可用区域在 [{{site.data.keyword.blockchainfull_notm}} Platform 位置](/docs/services/blockchain?topic=blockchain-ibp-regions-locations)中列出。请注意，必须在区块链服务所在的区域中创建 {{site.data.keyword.cloud_notm}} Kubernetes Service 集群，才能识别到该集群。识别在其他区域中所创建集群的功能即将可用。
 
-## How can I maximize performance and scale my {{site.data.keyword.blockchainfull_notm}} Platform solution?
-{: #ibp-v2-faq-perf-scale}
+## 可以使用现有 {{site.data.keyword.cloud_notm}} Kubernetes Service 集群吗？
+{: #ibp-v2-faq-v2-Infrastructure-4-2}
 {: faq}
 
-Check out this [blog series ![External link icon](../images/external_link.svg "External link icon")](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/ "Answering your questions on Hyperledger Fabric performance and scale") for factors that affect performance of your solution and information on how blockchain can scale.
+只要现有 Kubernetes 集群满足以下条件，就能用于 {{site.data.keyword.blockchainfull_notm}} Platform：
+- 在 Kubernetes V1.11 或更高的稳定版本上运行。
+- 集群中有足够的可用资源。
+
+## 我有权访问日志记录服务吗？我可以使用哪些日志？
+{: #ibp-v2-faq-v2-Logging-and-Monitoring-11-6}
+{: faq}
+
+现在，通过 {{site.data.keyword.blockchainfull_notm}} Platform，您可以直接在 Kubernetes 仪表板中访问同级、CA 和排序节点日志。建议您利用 {{site.data.keyword.cloud_notm}} LogDNA 服务，此服务支持您轻松地实时解析日志。
+
+## {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 的优点是什么？
+{: #ibp-v2-faq-icp-benefits}
+{: faq}
+
+请参阅有关 [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 提供的功能](/docs/services/blockchain?topic=blockchain-console-icp-about#what-ibm-blockchain-platform-for-ibm-cloud-private-offers)的主题。
+
+## {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 支持哪些环境？
+{: #ibp-v2-faq-icp-environments}
+{: faq}
+
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 支持 {{site.data.keyword.cloud_notm}} Private V3.2 支持的所有环境。请参阅 [Supported operating systems and platforms](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/supported_system_config/supported_os.html){: external}，以获取更多信息。
+
+## {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 的定价模型是什么？
+{: #ibp-v2-faq-icp-pricing}
+{: faq}
+
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud [许可](/docs/services/blockchain?topic=blockchain-ibp-software-pricing)基于产品可用的 CPU (VPC) 数量。有关详细信息，请[联系 IBM](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}。
+
+## 为了使用 {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud，我需要安装哪些服务？
+{: #ibp-v2-faq-icp-services}
+{: faq}
+
+您只需要安装 {{site.data.keyword.cloud_notm}} Private V3.2。
+
+## 如何针对开发、测试和生产环境估算 {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 的大小设置需求？
+{: #ibp-v2-faq-icp-sizing}
+{: faq}
+
+了解了需要多少 CA、同级和排序节点后，就可以检查[缺省资源分配表](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources)，以获取网络所需的 CPU (VPC) 大致估算值。
+
+## 删除 Helm 发布时，区块链组件会发生什么情况？
+{: #ibp-v2-faq-icp-delete}
+{: faq}
+
+从 {{site.data.keyword.cloud_notm}} Private 集群中删除 Helm 发布时，不会删除关联的区块链组件。要从集群中正确删除 Helm 发布，应首先使用区块链控制台或区块链 API 来删除所有组件。然后可以删除 Helm chart。  
