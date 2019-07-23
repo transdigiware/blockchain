@@ -2,8 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-17"
-
+lastupdated: "2019-07-23"
 
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
@@ -126,8 +125,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
         rule: RunAsAny
       fsGroup:
         rule: RunAsAny
-      requiredDropCapabilities:
-      - ALL
       allowedCapabilities:
       - NET_BIND_SERVICE
       - CHOWN
@@ -211,7 +208,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
     ```
     {:codeblock}
 
-3. Save the file below that defines the ClusterRoleBinding as `ibm-blockchain-platform-clusterrolebinding.yaml`. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** section of the configuration page when deploying the Helm chart.
+3. Save the file below that defines the ClusterRoleBinding as `ibm-blockchain-platform-clusterrolebinding.yaml`. Replace `<namespace>` with the name of the target namespace. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** section of the configuration page when deploying the Helm chart.
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -225,7 +222,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
     subjects:
     - kind: ServiceAccount
       name: default
-      namespace: default
+      namespace: <namespace>
     ```
     {:codeblock}
 
