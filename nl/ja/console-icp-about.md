@@ -22,13 +22,13 @@ subcollection: blockchain
 # {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud について
 {: #console-icp-about}
 
-{{site.data.keyword.blockchainfull}} Platform は、{{site.data.keyword.cloud_notm}}、独自のデータ・センター、サード・パーティーのパブリック・クラウドなど、複数のパブリック・クラウドおよびプライベート・クラウド間にデプロイできます。 このマルチクラウド・デプロイメントは、IBM の Kubernetes ベースのコンテナー・オーケストレーション・プラットフォームである {{site.data.keyword.cloud_notm}} Private によって実現できます。 このリリースには、{{site.data.keyword.cloud_notm}} Private クラスターでブロックチェーン・コンポーネントをデプロイおよび管理するために使用できるブロックチェーン・コンソール・ユーザー・インターフェースが用意されています。{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private は Hyperledger Fabric v1.4.1 コード・ベースを使用し、{{site.data.keyword.cloud_notm}} Private v3.2.0 でのデプロイメントをサポートしています。
+{{site.data.keyword.blockchainfull}} Platform は、{{site.data.keyword.cloud_notm}}、独自のデータ・センター、サード・パーティーのパブリック・クラウドなど、複数のパブリック・クラウドおよびプライベート・クラウド間にデプロイできます。 このマルチクラウド・デプロイメントは、IBM の Kubernetes ベースのコンテナー・オーケストレーション・プラットフォームである {{site.data.keyword.cloud_notm}} Private によって実現できます。 このリリースには、{{site.data.keyword.cloud_notm}} Private クラスターでブロックチェーン・コンポーネントをデプロイおよび管理するために使用できるブロックチェーン・コンソール・ユーザー・インターフェースが用意されています。 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private は Hyperledger Fabric v1.4.1 コード・ベースを使用し、{{site.data.keyword.cloud_notm}} Private v3.2.0 でのデプロイメントをサポートしています。
 {:shortdesc}
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private の提供内容
 {: #console-icp-about-offers}
 
-このオファリングを使用して、{{site.data.keyword.cloud_notm}} Private のデプロイメントに {{site.data.keyword.blockchainfull_notm}} Platform コンソールをインストールできます。その後、そのコンソールを使用して、Hyperledger Fabric ブロックチェーンのすべての基礎コンポーネント、認証局、順序付けサービス、およびピアをローカル・クラスター上に作成できます。 Hyperledger Fabric ネットワークのビルディング・ブロックについて詳しくは、[ブロックチェーン・コンポーネントの概要](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview)を参照してください。 また、他の {{site.data.keyword.cloud_notm}} プライベート・クラスター上または {{site.data.keyword.cloud_notm}} 上にデプロイされたノードをインポートすれば、コンソールを使用して分散マルチクラウド・ネットワークを操作することもできます。
+このオファリングを使用して、{{site.data.keyword.cloud_notm}} Private のデプロイメントに {{site.data.keyword.blockchainfull_notm}} Platform コンソールをインストールできます。 その後、そのコンソールを使用して、Hyperledger Fabric ブロックチェーンのすべての基礎コンポーネント、認証局、順序付けサービス、およびピアをローカル・クラスター上に作成できます。 Hyperledger Fabric ネットワークのビルディング・ブロックについて詳しくは、[ブロックチェーン・コンポーネントの概要](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview)を参照してください。 また、他の {{site.data.keyword.cloud_notm}} プライベート・クラスター上または {{site.data.keyword.cloud_notm}} 上にデプロイされたノードをインポートすれば、コンソールを使用して分散マルチクラウド・ネットワークを操作することもできます。
 
 この {{site.data.keyword.blockchainfull_notm}} Platform リリースには、以下の主要機能が含まれています。
 
@@ -74,9 +74,9 @@ subcollection: blockchain
 
 - ブロックチェーン・コンポーネントの正常性モニター、セキュリティー、ロギング、リソース使用状況を管理するのはお客様の責任です。
 - このコンソールは、Hyperledger Fabric v1.4.1 以上をベースとするコンポーネントの作成および管理にのみ使用できます。
-- Kubernetes 名前空間ごとに 1 つのコンソールのみをデプロイできます。複数のブロックチェーン・ネットワークを作成する場合は (例えば、開発用、ステージング用、実動用に別々の環境を作成する場合など)、環境ごとに固有の名前空間を作成しておく必要があります。
+- Kubernetes 名前空間ごとに 1 つのコンソールのみをデプロイできます。 複数のブロックチェーン・ネットワークを作成する場合は (例えば、開発用、ステージング用、実動用に別々の環境を作成する場合など)、環境ごとに固有の名前空間を作成しておく必要があります。
 - 他の {{site.data.keyword.blockchainfull_notm}} Platform コンソールからエクスポートされたノードのみをインポートできます。 インポートされたピアや順序付けノードをコンソールから操作できるようにするには、関連付けられているノードの組織 MSP 定義および管理者 ID もコンソールにインポートする必要があります。
-- {{site.data.keyword.blockchainfull_notm}} Platform は、{{site.data.keyword.cloud_notm}} Private v3.2 Enterprise Edition でのみサポートされます。{{site.data.keyword.cloud_notm}} Private v3.2 Community Edition はサポートされていません。
+- {{site.data.keyword.blockchainfull_notm}} Platform は、{{site.data.keyword.cloud_notm}} Private v3.2 Enterprise Edition でのみサポートされます。  {{site.data.keyword.cloud_notm}} Private v3.2 Community Edition はサポートされていません。
 - {{site.data.keyword.IBM_notm}} Multicloud Manager を使用して {{site.data.keyword.blockchainfull_notm}} Platform Helm チャートをインストールすることはできません。
 
 {{site.data.keyword.cloud_notm}} Private でサポートされる環境については、[Supported environments](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_environments/environments_overview.html){: external} を参照してください。
@@ -85,7 +85,7 @@ subcollection: blockchain
 ## システム前提条件
 {: #console-icp-about-prerequisites}
 
-{{site.data.keyword.cloud_notm}} Private のハードウェアおよびソフトウェアの前提条件のリストについては、[システム要件](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_system_config/system_reqs.html){: external}を参照してください。ただし、{{site.data.keyword.blockchainfull_notm}} Platform は、Linux on Power (ppc64le) POWER8 システムではサポートされないことに注意してください。
+{{site.data.keyword.cloud_notm}} Private のハードウェアおよびソフトウェアの前提条件のリストについては、[システム要件](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_system_config/system_reqs.html){: external}を参照してください。 ただし、{{site.data.keyword.blockchainfull_notm}} Platform は、Linux on Power (ppc64le) POWER8 システムではサポートされないことに注意してください。
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm チャートは、以下のワーカー・ノードおよび補助ストレージを使用して、Ubuntu Linux 上の {{site.data.keyword.cloud_notm}} Private v3.2 クラスターで稼働することが検証されました。
 
@@ -114,7 +114,7 @@ subcollection: blockchain
 ### データ・セキュリティー
 {: #console-icp-about-security-data}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} では、[対称鍵暗号](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html){: external} に基づくディスク全体の暗号化を使用して、各サービス・インスタンスで作成されるすべてのデータを保護します。ご使用の環境でも同様のステップを実行して、ピア・データを保護する必要があります。
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} では、[対称鍵暗号](https://www.ibm.com/support/knowledgecenter/en/SSB23S_1.1.0.14/gtps7/s7symm.html){: external} に基づくディスク全体の暗号化を使用して、各サービス・インスタンスで作成されるすべてのデータを保護します。 ご使用の環境でも同様のステップを実行して、ピア・データを保護する必要があります。
 
 状態データベース内のデータは、LevelDB と CouchDB のどちらを使用するかに関係なく、暗号化されません。 アプリケーション・レベルの暗号化によって、状態データベースに保管されているデータを保護できます。
 
@@ -130,14 +130,14 @@ Data residency requirements can mandate that the processing and storage of all b
 
 鍵管理はセキュリティーの重要な側面です。 秘密鍵が漏えいしたり、失われたりすると、悪意を持つアクターがデータおよび機能にアクセスできる可能性があります。 {{site.data.keyword.IBM_notm}} では、[ハードウェア・セキュリティー・モジュール](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) (HSM) と呼ばれる物理アプライアンスを使用して、{{site.data.keyword.blockchainfull_notm}} Platform エンタープライズ・プラン・ネットワークの秘密鍵を保管します。
 
-秘密鍵の管理は、お客様の責任となります。{{site.data.keyword.blockchainfull_notm}} Platform コンソール UI を使用して秘密鍵を生成できますが、それらの鍵は、コンソールによって保管されることや、{{site.data.keyword.cloud_notm}} Private 内に保管されることはありません。鍵が漏えいしないように、鍵を安全に保管することが重要です。
+秘密鍵の管理は、お客様の責任となります。 {{site.data.keyword.blockchainfull_notm}} Platform コンソール UI を使用して秘密鍵を生成できますが、それらの鍵は、コンソールによって保管されることや、{{site.data.keyword.cloud_notm}} Private 内に保管されることはありません。 鍵が漏えいしないように、鍵を安全に保管することが重要です。
 
 鍵エスクローを使用して、失われた秘密鍵を復旧することができます。 これは、鍵が失われる前に実行する必要があります。 秘密鍵を復旧できない場合は、認証局に新しい ID を登録して、新しい秘密鍵を取得する必要があります。 また、参加しているチャネルから signCert を削除し、置き換える必要があります。
 
 ### TLS
 {: #console-icp-about-security-tls}
 
-[Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} (TLS) は、Hyperledger Fabric の信頼モデルに組み込まれています。 すべての {{site.data.keyword.blockchainfull_notm}} Platform コンポーネントは、TLS を使用して相互に認証し、通信します。したがって、{{site.data.keyword.cloud_notm}} Private のノードは、他のコンポーネントおよびアプリケーションと TLS ハンドシェークを実行できる必要があります。これに関連して、ホワイト・リストなどを使用して、クライアント・アプリからノードまでファイアウォールでパススルーできる必要があります。
+[Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} (TLS) は、Hyperledger Fabric の信頼モデルに組み込まれています。 すべての {{site.data.keyword.blockchainfull_notm}} Platform コンポーネントは、TLS を使用して相互に認証し、通信します。 したがって、{{site.data.keyword.cloud_notm}} Private のノードは、他のコンポーネントおよびアプリケーションと TLS ハンドシェークを実行できる必要があります。 これに関連して、ホワイト・リストなどを使用して、クライアント・アプリからノードまでファイアウォールでパススルーできる必要があります。
 
 ### アプリケーション・セキュリティー
 {: #console-icp-about-security-appl}

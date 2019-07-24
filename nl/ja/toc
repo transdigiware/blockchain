@@ -6,7 +6,7 @@ IBM Blockchain Platform
 
 	{: .navgroup id="learn"}
 	{: .topicgroup}
-	入門チュートリアル
+	概説チュートリアル
 		index.md
 		howto/ibp-v2-deploy-iks.md
 		get-started-console-icp.md
@@ -27,6 +27,7 @@ IBM Blockchain Platform
 
 	blockchain_component_overview.md
 	ibp-console-ha.md
+	data-residency.md
 	howto/ibp-v2-faq.md
 	needtoknow.md
 	{: .navgroup-end}
