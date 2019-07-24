@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -40,7 +40,7 @@ subcollection: blockchain
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform](../images/IBP-Diagram.svg " {{site.data.keyword.blockchainfull_notm}} Platform のコンポーネント")
 
-- **{{site.data.keyword.blockchainfull_notm}} Platform コンソール (UI)**: これは、ブロックチェーン・コンポーネントを作成および管理できるコンソールです。{{site.data.keyword.cloud_notm}} でサービス・インスタンスをプロビジョンしたら、{{site.data.keyword.blockchainfull_notm}} コンソールのインスタンスをデプロイし、それを {{site.data.keyword.cloud_notm}} Kubernetes クラスターにリンクすることができます。 その後、コンソールを使用して、Kubernetes クラスター内にブロックチェーン・コンポーネントを作成し、管理することができます。コンソールに対しては課金されません。
+- **{{site.data.keyword.blockchainfull_notm}} Platform コンソール (UI)**: これは、ブロックチェーン・コンポーネントを作成および管理できるコンソールです。 {{site.data.keyword.cloud_notm}} でサービス・インスタンスをプロビジョンしたら、{{site.data.keyword.blockchainfull_notm}} コンソールのインスタンスをデプロイし、それを {{site.data.keyword.cloud_notm}} Kubernetes クラスターにリンクすることができます。 その後、コンソールを使用して、Kubernetes クラスター内にブロックチェーン・コンポーネントを作成し、管理することができます。 コンソールに対しては課金されません。
 
 - **Hyperledger Fabric コンポーネント**: コンソールを使用して、Hyperledger Fabric v1.4.1 の認証局、ピア、順序付けサービスのイメージをベースとするブロックチェーン・コンポーネントを作成および管理します。  これらのコンポーネントは Kubernetes クラスターにデプロイされます。コンポーネントがデプロイされるときには、コンポーネント用のストレージが`デフォルトの`ストレージ・クラスを使用してプロビジョンされます。
 
@@ -54,7 +54,6 @@ subcollection: blockchain
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} は、Hyperledger Fabric v1.4.1 を使用して構築されています。
 - コンソールまたは API でデプロイされるすべてのピアでは、状態データベースとして CouchDB が使用されます。
 - オファリングの評価のために、{{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンスを無料の Kubernetes クラスターにリンクすることもできますが、キャパシティーとパフォーマンスには制限があり、データはマイグレーションできず、30 日後にクラスターは削除されます。
-- ベータ版トライアルは無料ですが、有料のクラスターを選択した場合は、Kubernetes クラスターに対する支払いが必要になります。
 - Kubernetes クラスターの正常性モニター、セキュリティー、およびロギングの管理は、お客様が行う作業です。 {{site.data.keyword.cloud_notm}} が管理する範囲と、お客様が行う作業範囲について詳しくは、こちらの[情報](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external}を参照してください。
 - Kubernetes ダッシュボードで Kubernetes クラスターのリソース使用量をモニターすることもお客様の作業です。 クラスターのストレージ容量またはパフォーマンスを向上させる必要がある場合は、[既存のボリュームの変更方法に関するこちらの情報](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}を参照してください。
 - 証明書および秘密鍵の管理および保護は、お客様が行う作業です。 {{site.data.keyword.IBM_notm}} は、お客様の証明書を Kubernetes クラスターに保管しません。
@@ -63,6 +62,7 @@ subcollection: blockchain
 - {{site.data.keyword.cloud_notm}} Kubernetes クラスターの Kubernetes は 1.11 以上の安定したバージョンでなければなりません。 [アップグレード手順](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes)に従って、新規および既存のクラスターをこのバージョンにアップグレードしてください。
 - {{site.data.keyword.cloud_notm}} で Kubernetes クラスターをプロビジョンするときに事前選択されるデフォルトのブロンズ・ファイル・ストレージを使用しない場合は、任意のストレージをプロビジョンできます。 詳しくは、[永続ストレージに関する考慮事項](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)で該当するトピックを参照してください。
 - {{site.data.keyword.cloud_notm}} マルチゾーン・サポートをKubernetes クラスターに組み込む場合は、独自のストレージをプロビジョンする必要があります。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform での複数ゾーン (MZR) クラスターの使用](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)を参照してください。
+- Virtual Routing and Forwarding (VRF) はサポートされません。{site.data.keyword.blockchainfull_notm}} Platform サービスは、サブネット IP ブロック間の自動グローバル・ルーティングを有効にしたアカウントでは使用できません。同様に、プライベート VLAN を使用して構成した Kubernetes クラスターもサポートされません。
 
 ## ビデオのチュートリアル
 {: #ibp-v2-deploy-video}
@@ -107,7 +107,7 @@ subcollection: blockchain
 |無料** | 評価に適しています | 2 | 4 GB | 1 |  
 ** {{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンスを無料の {{site.data.keyword.cloud_notm}} Kubernetes クラスターにリンクすると、30 日間料金なしで {{site.data.keyword.blockchainfull_notm}} Platform をプレビューできます。 スループット、ストレージ、および機能性の面でパフォーマンスが制限されます。 {{site.data.keyword.cloud_notm}} では、30 日後に Kubernetes クラスターが削除され、無料のクラスターから有料のクラスターにノードまたはデータを移行することはできません。
 
-テストおよび試験目的には、これらのリソースで十分です。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)では、ピアを 2 つ、CA を 2 つ、順序付けサービスを 1 つ作成し、約 4.85 CPU を消費します。5 ノードの順序付けサービスがそのうちの 2.25 CPU を消費します。 したがって、5 ノードの順序付けサービスをデプロイする場合は、順序付けサービスと合わないので、2 CPU の単一ワーカー・ノードの Kubernetes クラスターをデプロイしないでください。 4 CPU 以上のノードのクラスターをお勧めします。 追加するワーカー・ノードが多いほど、クラスターでデプロイメントを処理しやすくなります。
+テストおよび試験目的には、これらのリソースで十分です。 [ネットワーク構築チュートリアル](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)では、ピアを 2 つ、CA を 2 つ、順序付けサービスを 1 つ作成し、約 4.15 CPU を消費します。そのうちの 1.75 CPU を 5 ノード構成の順序付けサービスが消費します。したがって、5 ノード構成の順序付けサービスをデプロイする場合は、順序付けサービスが他のノードとうまく合わないので、2 CPU の単一ワーカー・ノードの Kubernetes クラスターはデプロイしないでください。4 CPU 以上のノードのクラスターをお勧めします。 追加するワーカー・ノードが多いほど、クラスターでデプロイメントを処理しやすくなります。
 {:note}
 
 #### 有料クラスター
@@ -115,7 +115,7 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull_notm}} Platform の実動レベルのデプロイメントは、{{site.data.keyword.cloud_notm}} Kubernetes Service の有料クラスターにデプロイします。 このクラスターのサイズや構成は、それぞれのユース・ケースのニーズによって決まります。 大規模なデプロイメントは、必然的に大規模なクラスターにデプロイする必要があります。 計画しているデプロイメントの規模よりもクラスターの規模をどれほど大きくするかは、お客様次第です。 少なくともいくらかの余裕を持たせることが理想です。そうすれば、ノードのサイズを調整する**前に** Kubernetes クラスターに追加のリソースをデプロイしなくても、ピアや順序付けサービスを追加のチャネルに参加させ、高いスループットを実現することができます。 こうした値の調整方法の詳細については、[リソースの再割り振り](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources)を参照してください。
 
-{{site.data.keyword.blockchainfull_notm}} Platform をデプロイするには、Kubernetes タイプのクラスターを作成する必要があります。{{site.data.keyword.blockchainfull_notm}} Platform は、{{site.data.keyword.IBM_notm}} Kubernetes サービスを使用して作成された OpenShift クラスターをサポートしません。
+{{site.data.keyword.blockchainfull_notm}} Platform をデプロイするには、Kubernetes タイプのクラスターを作成する必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform は、{{site.data.keyword.IBM_notm}} Kubernetes サービスを使用して作成された OpenShift クラスターをサポートしません。
 {:important}
 
 追加のノードやポッドをデプロイする作業をいくらか自動で実行する[{{site.data.keyword.cloud_notm}} Kubernetes Service 自動スケール機能](/docs/containers?topic=containers-ca#ca){: external}を使用しないお客様の場合は、拡大できる余地を残した十分なサイズの初期デプロイメントを作成することが特に重要になります。
@@ -126,11 +126,11 @@ subcollection: blockchain
 
 | **コンポーネント** (すべてのコンテナー) | CPU  | メモリー (GB) | ストレージ (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **ピア**                       | 1.2            | 2.4                  | 200 (ピア用に 100 GB と CouchDB 用に 100 GB を含む)|
+| **ピア**                       | 1.1            | 2.4                  | 200 (ピア用に 100 GB と CouchDB 用に 100 GB を含む)|
 | **CA**                         | 0.1            | 0.2                  | 20                     |
-| **順序付けノード**              | 0.45           | 0.9                  | 100                    |
+| **順序付けノード**              | 0.35           | 0.9                  | 100                    |
 
-5 ノードの Raft 順序付けサービスをデプロイする場合は、順序付けノードのデプロイメントが 5 倍に増えることに注意してください。 つまり、5 つの Raft ノードに、合計 2.25 の CPU、4.5 GB のメモリー、および 500 GB のストレージが必要になります。 その結果、5 ノードの順序付けサービスは単一の 2 CPU の Kubernetes ワーカー・ノードよりも大きくなります。
+5 ノードの Raft 順序付けサービスをデプロイする場合は、デプロイメントの合計が 5 倍に増えることに注意してください。 つまり、5 つの Raft ノードに、合計 1.75 の CPU、4.5 GB のメモリー、および 500 GB のストレージが必要になります。 Raft クラスターおよびデプロイする他のノード用に十分な CPU を確保するために、少なくとも 4 CPU の Kubernetes 単一ワーカー・ノード・クラスターをお勧めします。
 {:tip}
 
 ## 手順 1: {{site.data.keyword.cloud_notm}} でサービス・インスタンスを作成する
@@ -140,7 +140,7 @@ subcollection: blockchain
 
 1. {{site.data.keyword.cloud_notm}} カタログで [ブロックチェーン・サービス](https://cloud.ibm.com/catalog/services/blockchain){: external}を見つけるか、自分の {{site.data.keyword.cloud_notm}} カタログ・ページで`ブロックチェーン`を検索します。
 2. インスタンスの**サービス名**を、わかりやすい名前に変更することをお勧めします。
-3. ベータ版では、利用可能な地域は**ダラス**のみです。これは変更できません。 有料クラスターでは、追加の地域を選択できます。 詳しくは、[地域](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
+3. 地域を選択します。使用可能な地域のリストについては、[地域](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
 4. リソース・グループとタグ・フィールドはそのままでかまいません。
 5. **「標準」**プランを選択します。
 6. **「作成」**をクリックして、サービス・インスタンスをプロビジョンします。
@@ -153,7 +153,7 @@ subcollection: blockchain
 1. **「ようこそ」&「前提条件」**ステップ。 **ダラス**地域に既に {{site.data.keyword.IBM_notm}} Kubernetes サービス・クラスターがあり、ブロックチェーン・サービス用にそのクラスターを使用する場合は、該当するチェック・ボックスを選択します。 **既存のクラスターを使用する場合は、次のステップをスキップできます。ただし、Kubernetes バージョンが v1.11 以降の安定したバージョンであることを確認してください**。 **「続行 (Continue)」**をクリックします。
 2. **「クラスターの作成」**ステップ。 ステップ 1 で既存の Kubernetes クラスターを使用するチェック・ボックスを選択した場合は、このステップはスキップしてください。 そうでない場合は、**「クラスターの新規作成 (Create a new cluster)」**をクリックします。クラスターを作成するための {{site.data.keyword.cloud_notm}} Kubernetes ダッシュボードが起動します。 詳しくは、[{{site.data.keyword.cloud_notm}} Kubernetes サービスの概説](/docs/containers?topic=containers-getting-started){: external}を参照してください。 このプロセスの実行時間には余裕をみておいてください。
   - クラスターの場所について詳しくは、[地域](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)を参照してください。
-  - **標準クラスター (推奨):** 複数ノードで高可用性を実現できる長期用のオプションが必要な場合に選択してください。 クラスター・タイプについては、**「Kubernetes」**を選択します。**少なくとも v.1.11 以降の安定したバージョンを選択してください。** 有料クラスターをデプロイする場合は、[標準クラスターの作成](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}を参照してください。 ただし、高可用性や災害復旧が必要な場合は、使用するストレージ・クラスを決定する必要があります。 動的プロビジョニングでは、クラスターの`デフォルト`のストレージ・クラスが使用されます。 そのため、お客様はデフォルトとして任意のストレージ・クラスを設定できます。 詳しくは、[ファイル・ストレージ構成の決定](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}を参照してください。
+  - **標準クラスター (推奨):** 複数ノードで高可用性を実現できる長期用のオプションが必要な場合に選択してください。 クラスター・タイプについては、**「Kubernetes」**を選択します。 **少なくとも v.1.11 以降の安定したバージョンを選択してください。** 有料クラスターをデプロイする場合は、[標準クラスターの作成](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}を参照してください。 ただし、高可用性や災害復旧が必要な場合は、使用するストレージ・クラスを決定する必要があります。 動的プロビジョニングでは、クラスターの`デフォルト`のストレージ・クラスが使用されます。 そのため、お客様はデフォルトとして任意のストレージ・クラスを設定できます。 詳しくは、[ファイル・ストレージ構成の決定](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}を参照してください。
   - **無料クラスター (Free cluster):** プラットフォームのプレビュー期間が 30 日未満の場合に選択してください。 無料のクラスターから有料のクラスターには移行できないので**注意してください**。 無料タイプのクラスターでは、利用できるストレージとトランザクションのスループットが限られています。 Kubernetes クラスターの有効期限が切れた場合の対応手順については、[Kubernetes クラスターの有効期限](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration)に関するトピックを参照してください。
   - {{site.data.keyword.cloud_notm}} 上の無料と有料の Kubernetes クラスターの違いについて詳しくは、[フリー・クラスターと標準クラスターの比較](/docs/containers?topic=containers-cluster_types#cluster_types){: external}を参照してください。  
 
@@ -210,7 +210,7 @@ subcollection: blockchain
 - [LogDNA および Sysdig を使用してログを分析し、アプリケーションの正常性をモニター](/docs/tutorials?topic=solution-tutorials-application-log-analysis)する方法については、このチュートリアルを参照してください。
 
 **ストレージ**  
-- ブロックチェーン・ノードがプロビジョンされるときに、{{site.data.keyword.cloud_notm}} の[ファイル・ストレージ](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage)および[ブロック・ストレージ](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage)を使用します。ブロックチェーンが {{site.data.keyword.cloud_notm}} ストレージ・オプションとどのように統合されるかについて詳しくは、[永続ストレージに関する考慮事項](#ibp-console-storage)のこのトピックを参照してください。
+- ブロックチェーン・ノードがプロビジョンされるときに、{{site.data.keyword.cloud_notm}} の[ファイル・ストレージ](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage)および[ブロック・ストレージ](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage)を使用します。 ブロックチェーンが {{site.data.keyword.cloud_notm}} ストレージ・オプションとどのように統合されるかについて詳しくは、[永続ストレージに関する考慮事項](#ibp-console-storage)のこのトピックを参照してください。
 
 - [Portworx](/docs/containers?topic=containers-portworx#portworx) をセットアップして、コンテナー化された複数のデータベースをまたいでローカルの永続ストレージを管理するか、複数のゾーンにまたがるポッド間でデータを共有します。
 

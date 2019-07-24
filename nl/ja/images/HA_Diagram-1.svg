@@ -1,969 +1,376 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="2805px"
-   height="1295px"
-   viewBox="0 0 2805 1295"
-   version="1.1"
-   id="svg278"
-   sodipodi:docname="HA_Diagram-1.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-  <metadata
-     id="metadata284">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs282" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     id="namedview280"
-     showgrid="false"
-     inkscape:zoom="0.72197997"
-     inkscape:cx="1275.5525"
-     inkscape:cy="609.36837"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg278" />
-  <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-  <title
-     id="title2">IBP_Deployment 2 Copy</title>
-  <desc
-     id="desc4">Created with Sketch.</desc>
-  <rect
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="rect6"
-     height="1295"
-     width="2805"
-     y="0"
-     x="0" />
-  <text
-     style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     font-weight="500"
-     font-size="37.07"
-     id="IBM-Blockchain-Platf">
-    <tspan
-       id="tspan8"
-       y="409"
-       x="887.89697">IBM Blockchain Platform コンソール (UI)</tspan>
-  </text>
-  <text
-     style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     font-weight="500"
-     font-size="37.07"
-     id="text13">
-    <tspan
-       id="tspan11"
-       y="866"
-       x="787.3421">IBM Blockchain Platform の VS Code 用の拡張機能</tspan>
-  </text>
-  <polygon
-     id="XMLID_12_"
-     points="1047.4962,1278 1047.4962,1244.7861 0,1244.7861 0,1178.2139 1047.4962,1178.2139 1047.4962,1145 1081,1211.4278 "
-     style="fill:#f2f5f7;fill-rule:evenodd;stroke:#5b6872;stroke-width:1.5"
-     transform="translate(862,9)" />
-  <text
-     id="Increasing-Blockchai"
-     font-size="20"
-     font-weight="normal"
-     style="font-weight:normal;font-size:20px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1142"
-       y="1223"
-       id="tspan16">ブロックチェーンの高可用性の向上</tspan>
-  </text>
-  <path
-     d="M 1320.6987,1148 H 879.15831 C 869.72124,1148 862,1140.9125 862,1132.2499 V 226.7501 C 862,218.08755 869.72124,211 879.15831,211 h 441.68339 c 9.4371,0 17.1583,7.08755 17.1583,15.7501 v 905.4998 c -0.143,8.6626 -7.8642,15.7501 -17.3013,15.7501 z"
-     id="XMLID_306_"
-     inkscape:connector-curvature="0"
-     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1" />
-  <path
-     d="M 1297.8171,1121 H 903.18291 C 893.73231,1121 886,1113.9642 886,1105.3648 V 296.63518 C 886,288.03583 893.73231,281 903.18291,281 h 394.63419 c 9.4506,0 17.1829,7.03583 17.1829,15.63518 v 808.72962 c 0,8.5994 -7.7323,15.6352 -17.1829,15.6352 z"
-     id="XMLID_305_"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="M 1275.7143,1092 H 923.14286 C 913.71429,1092 906,1084.6478 906,1075.6619 V 322.33813 C 906,313.35216 913.71429,306 923.14286,306 h 352.71424 c 9.4286,0 17.1429,7.35216 17.1429,16.33813 v 753.32377 c -0.1429,8.9859 -7.8571,16.3381 -17.2857,16.3381 z"
-     id="XMLID_304_"
-     inkscape:connector-curvature="0"
-     style="fill:none;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" />
-  <path
-     d="M 1246.8646,1058 H 952.13542 C 942.71094,1058 935,1050.2535 935,1040.7856 V 422.21441 C 935,412.74648 942.71094,405 952.13542,405 h 294.72918 c 9.4245,0 17.1354,7.74648 17.1354,17.21441 v 618.42769 c 0,9.6114 -7.7109,17.3579 -17.1354,17.3579 z"
-     id="XMLID_303_"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1" />
-  <path
-     d="M 1231.8054,1035 H 981.19457 C 971.73756,1035 964,1027.2716 964,1017.8257 V 506.17431 C 964,496.72844 971.73756,489 981.19457,489 h 250.61083 c 9.457,0 17.1946,7.72844 17.1946,17.17431 v 511.65139 c 0,9.4459 -7.7376,17.1743 -17.1946,17.1743 z"
-     id="XMLID_302_"
-     inkscape:connector-curvature="0"
-     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <g
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_298_"
-     transform="translate(934,422)">
-    <rect
-       id="XMLID_39_"
-       x="0.42857143"
-       y="9.4409275"
-       width="329.14285"
-       height="33.329334" />
-    <text
-       id="Worker-Pool"
-       font-size="24.0721"
-       font-weight="normal"
-       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000">
-      <tspan
-         x="70.539856"
-         y="24.631969"
-         id="tspan25">ワーカー・プール</tspan>
-    </text>
-  </g>
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     height="48.57143"
-     width="305.43069"
-     y="231.57143"
-     x="947.28467"
-     id="XMLID_38_" />
-  <text
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     font-weight="normal"
-     font-size="24.0721"
-     id="Region-1"
-     x="971"
-     y="221">
-    <tspan
-       id="tspan30"
-       y="245"
-       x="1057.8186">地域 1</tspan>
-    <tspan
-       id="tspan32"
-       y="245"
-       x="1134.1018" />
-  </text>
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_291_"
-     x="981"
-     y="608"
-     width="238"
-     height="34" />
-  <text
-     id="XMLID_290_"
-     font-size="24.0721"
-     font-weight="normal"
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1004"
-       y="538"
-       id="tspan37">ワーカー・ノード</tspan>
-  </text>
-  <text
-     id="Single-Cluster"
-     font-size="24.0721"
-     font-weight="normal"
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="884"
-     y="9">
-    <tspan
-       x="1022"
-       y="361"
-       id="tspan40">単一クラスター</tspan>
-  </text>
-  <path
-     d="m 1211.946,651 h -71.8919 C 1136.7243,651 1134,644.8656 1134,637.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
-     id="XMLID_279_"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_25_"
-     x="976"
-     y="903"
-     width="235"
-     height="54" />
-  <text
-     id="Ordering-Node-1"
-     font-size="10.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1154.4106"
-       y="599"
-       id="tspan45">順序付け</tspan>
-    <tspan
-       x="1156.3652"
-       y="611"
-       id="tspan47">ノード 1</tspan>
-    <tspan
-       x="1191.6348"
-       y="611"
-       font-size="19.07"
-       id="tspan49"
-       style="font-size:19.06999969px" />
-  </text>
-  <path
-     d="M 1879.8417,1148 H 1438.1583 C 1428.7212,1148 1421,1140.8055 1421,1132.0122 V 24.987835 C 1421,16.194526 1428.7212,9 1438.1583,9 h 441.6834 C 1889.2788,9 1897,16.194526 1897,24.987835 V 1131.8789 c 0,8.9266 -7.7212,16.1211 -17.1583,16.1211 z"
-     id="XMLID_272_"
-     inkscape:connector-curvature="0"
-     style="fill:#2d3f49;fill-rule:evenodd;stroke:#2d3f49;stroke-width:1" />
-  <path
-     d="M 1857.9584,1121 H 1463.1828 C 1453.7323,1121 1446,1113.845 1446,1105.0999 V 107.90008 C 1446,99.155035 1453.7323,92 1463.1828,92 h 394.6324 c 9.4506,0 17.1828,7.155035 17.1828,15.90008 v 997.19982 c 0.1432,8.7451 -7.589,15.9001 -17.0396,15.9001 z"
-     id="XMLID_271_"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="M 1834.8571,1092 H 1482.1429 C 1472.7143,1092 1465,1084.4752 1465,1075.2781 V 132.72187 C 1465,123.52484 1472.7143,116 1482.1429,116 h 352.7142 c 9.4286,0 17.1429,7.52484 17.1429,16.72187 v 942.69563 c 0,9.0577 -7.7143,16.5825 -17.1429,16.5825 z"
-     id="XMLID_270_"
-     inkscape:connector-curvature="0"
-     style="fill:none;fill-rule:evenodd;stroke:#00b39f;stroke-width:2;stroke-dasharray:8" />
-  <path
-     d="M 1806.8646,1058 H 1512.1354 C 1502.7109,1058 1495,1050.2732 1495,1040.8292 V 284.17077 C 1495,274.72685 1502.7109,267 1512.1354,267 h 294.7292 c 9.4245,0 17.1354,7.72685 17.1354,17.17077 v 756.65843 c 0,9.444 -7.7109,17.1708 -17.1354,17.1708 z"
-     id="XMLID_269_"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:#6182bb;stroke-width:1" />
-  <g
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_265_"
-     transform="translate(1494,275)">
-    <rect
-       id="XMLID_24_"
-       x="0.71428573"
-       y="8.7849464"
-       width="329.14285"
-       height="33.217113" />
-    <text
-       id="text59"
-       font-size="24.0721"
-       font-weight="normal"
-       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000">
-      <tspan
-         x="70.854431"
-         y="24.022329"
-         id="tspan57">ワーカー・プール</tspan>
-    </text>
-  </g>
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_264_"
-     x="1518"
-     y="114"
-     width="283"
-     height="49" />
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     height="48.736637"
-     width="305.43069"
-     y="39.177357"
-     x="1505.5693"
-     id="XMLID_23_" />
-  <text
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     font-weight="normal"
-     font-size="24.0721"
-     id="text66"
-     x="1541"
-     y="29">
-    <tspan
-       id="tspan64"
-       y="53"
-       x="1622.1256">地域 1</tspan>
-  </text>
-  <path
-     d="M 1785.8054,545 H 1535.1946 C 1525.7376,545 1518,537.30705 1518,527.90456 V 356.09544 C 1518,346.69295 1525.7376,339 1535.1946,339 h 250.6108 c 9.457,0 17.1946,7.69295 17.1946,17.09544 V 527.90456 C 1803,537.30705 1795.2624,545 1785.8054,545 Z"
-     id="XMLID_258_"
-     inkscape:connector-curvature="0"
-     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_257_"
-     x="1542"
-     y="460"
-     width="238"
-     height="34" />
-  <text
-     id="XMLID_256_"
-     font-size="24.0721"
-     font-weight="normal"
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1546"
-       y="390"
-       id="tspan71">ワーカー・ノード 1</tspan>
-  </text>
-  <path
-     d="m 1609.6667,499 h -63.3334 C 1543.4,499 1541,492.8656 1541,485.368 v -43.736 c 0,-7.4976 2.4,-13.632 5.3333,-13.632 h 63.3334 c 2.9333,0 5.3333,6.1344 5.3333,13.632 v 43.736 c 0,7.4976 -2.4,13.632 -5.3333,13.632 z"
-     id="XMLID_255_"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="m 1696.1622,499 h -69.3244 C 1623.627,499 1621,492.8656 1621,485.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
-     id="path75"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="m 1785.1622,499 h -69.3244 C 1712.627,499 1710,492.8656 1710,485.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
-     id="path77"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_22_"
-     x="1543"
-     y="448"
-     width="235"
-     height="54" />
-  <text
-     id="Peer-1"
-     font-size="12.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1551"
-       y="458"
-       id="tspan80">ピア 1</tspan>
-  </text>
-  <text
-     id="Org-1"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1560"
-       y="474"
-       id="tspan83">Org 1</tspan>
-  </text>
-  <text
-     id="Peers"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1644"
-       y="474"
-       id="tspan86">ピア</tspan>
-  </text>
-  <path
-     d="m 1080.6667,651 h -63.3334 C 1014.4,651 1012,644.8656 1012,637.368 v -43.736 c 0,-7.4976 2.4,-13.632 5.3333,-13.632 h 63.3334 c 2.9333,0 5.3333,6.1344 5.3333,13.632 v 43.736 c 0,7.4976 -2.4,13.632 -5.3333,13.632 z"
-     id="path89"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="text93"
-     font-size="12.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1025"
-       y="610"
-       id="tspan91">ピア 1</tspan>
-  </text>
-  <text
-     id="text97"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1032"
-       y="626"
-       id="tspan95">Org 1</tspan>
-  </text>
-  <text
-     id="(Raft)"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1160"
-       y="634"
-       id="tspan99">(Raft)</tspan>
-  </text>
-  <text
-     id="text104"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1736"
-       y="480"
-       id="tspan102">(Raft)</tspan>
-  </text>
-  <path
-     d="m 1212.946,736 h -71.8919 C 1137.7243,736 1135,729.8656 1135,722.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
-     id="path106"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="Ordering-Node-2"
-     font-size="10.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1156.4106"
-       y="683"
-       id="tspan108">順序付け</tspan>
-    <tspan
-       x="1158.3652"
-       y="695"
-       id="tspan110">ノード 2</tspan>
-    <tspan
-       x="1193.6348"
-       y="695"
-       font-size="19.07"
-       id="tspan112"
-       style="font-size:19.06999969px" />
-  </text>
-  <text
-     id="text117"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1161"
-       y="718"
-       id="tspan115">(Raft)</tspan>
-  </text>
-  <path
-     d="m 1211.946,819 h -71.8919 C 1136.7243,819 1134,812.8656 1134,805.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
-     id="path119"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="Ordering-Node-3"
-     font-size="10.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1154.4106"
-       y="770"
-       id="tspan121">順序付け</tspan>
-    <tspan
-       x="1156.3652"
-       y="782"
-       id="tspan123">ノード 3</tspan>
-    <tspan
-       x="1191.6348"
-       y="782"
-       font-size="19.07"
-       id="tspan125"
-       style="font-size:19.06999969px" />
-  </text>
-  <text
-     id="text130"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1160"
-       y="803"
-       id="tspan128">(Raft)</tspan>
-  </text>
-  <path
-     d="m 1211.946,905 h -71.8919 C 1136.7243,905 1134,898.8656 1134,891.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
-     id="path132"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="Ordering-Node-4"
-     font-size="10.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1154.4106"
-       y="855"
-       id="tspan134">順序付け</tspan>
-    <tspan
-       x="1156.3652"
-       y="867"
-       id="tspan136">ノード 4</tspan>
-    <tspan
-       x="1191.6348"
-       y="867"
-       font-size="19.07"
-       id="tspan138"
-       style="font-size:19.06999969px" />
-  </text>
-  <text
-     id="text143"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1160"
-       y="889"
-       id="tspan141">(Raft)</tspan>
-  </text>
-  <path
-     d="m 1211.946,995 h -71.8919 C 1136.7243,995 1134,988.8656 1134,981.368 v -43.736 c 0,-7.4976 2.7243,-13.632 6.0541,-13.632 h 71.8919 c 3.3297,0 6.054,6.1344 6.054,13.632 v 43.736 c 0,7.4976 -2.7243,13.632 -6.054,13.632 z"
-     id="path145"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="Ordering-Node-5"
-     font-size="10.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1154.4106"
-       y="944"
-       id="tspan147">順序付け</tspan>
-    <tspan
-       x="1156.3652"
-       y="956"
-       id="tspan149">ノード 5</tspan>
-    <tspan
-       x="1191.6348"
-       y="956"
-       font-size="19.07"
-       id="tspan151"
-       style="font-size:19.06999969px" />
-  </text>
-  <text
-     id="text156"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1160"
-       y="979"
-       id="tspan154">(Raft)</tspan>
-  </text>
-  <g
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="Group-4"
-     transform="translate(1012,665)">
-    <path
-       d="M 68.666667,71 H 5.3333333 C 2.4,71 0,64.8656 0,57.368 V 13.632 C 0,6.1344 2.4,0 5.3333333,0 H 68.666667 C 71.6,0 74,6.1344 74,13.632 V 57.368 C 74,64.8656 71.6,71 68.666667,71 Z"
-       id="path158"
-       inkscape:connector-curvature="0"
-       style="fill:#ffffff" />
-    <text
-       id="Peer-2"
-       font-size="12.07"
-       font-weight="normal"
-       style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000">
-      <tspan
-         x="12.807693"
-         y="30.879999"
-         id="tspan160">ピア 2</tspan>
-    </text>
-    <text
-       id="text165"
-       font-size="9.07"
-       font-weight="normal"
-       style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000">
-      <tspan
-         x="19.923077"
-         y="47.34"
-         id="tspan163">Org 1</tspan>
-    </text>
-  </g>
-  <g
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="Group-2"
-     transform="translate(1012,795)">
-    <path
-       d="M 68.666667,71 H 5.3333333 C 2.4,71 0,64.8656 0,57.368 V 13.632 C 0,6.1344 2.4,0 5.3333333,0 H 68.666667 C 71.6,0 74,6.1344 74,13.632 V 57.368 C 74,64.8656 71.6,71 68.666667,71 Z"
-       id="path168"
-       inkscape:connector-curvature="0"
-       style="fill:#ffffff" />
-    <text
-       id="CA-1"
-       font-size="12.07"
-       font-weight="normal"
-       style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000">
-      <tspan
-         x="19.923077"
-         y="30.879999"
-         id="tspan170">CA 1</tspan>
-    </text>
-    <text
-       id="text175"
-       font-size="9.07"
-       font-weight="normal"
-       style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000">
-      <tspan
-         x="21.346153"
-         y="47.34"
-         id="tspan173">ピア</tspan>
-    </text>
-  </g>
-  <g
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="Group-3"
-     transform="translate(1012,879)">
-    <path
-       d="M 68.666667,71 H 5.3333333 C 2.4,71 0,64.8656 0,57.368 V 13.632 C 0,6.1344 2.4,0 5.3333333,0 H 68.666667 C 71.6,0 74,6.1344 74,13.632 V 57.368 C 74,64.8656 71.6,71 68.666667,71 Z"
-       id="path178"
-       inkscape:connector-curvature="0"
-       style="fill:#ffffff" />
-    <text
-       id="CA-2"
-       font-size="12.07"
-       font-weight="normal"
-       style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000">
-      <tspan
-         x="18.5"
-         y="22.360001"
-         id="tspan180">CA 2</tspan>
-    </text>
-    <text
-       id="Ordering-Service"
-       font-size="8.07"
-       font-weight="normal"
-       style="font-weight:normal;font-size:8.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000">
-      <tspan
-         x="6.7256789"
-         y="39.240002"
-         id="tspan183">順序付けサービス</tspan>
-    </text>
-  </g>
-  <text
-     id="text189"
-     font-size="12.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:12.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1641"
-       y="458"
-       id="tspan187">CA 1</tspan>
-  </text>
-  <text
-     id="text193"
-     font-size="24.0721"
-     font-weight="normal"
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1555"
-       y="167"
-       id="tspan191">単一クラスター</tspan>
-  </text>
-  <g
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="Group"
-     transform="translate(1518,585)">
-    <path
-       d="M 267.81407,206.96619 H 17.329146 c -9.4522616,0 -17.18592992,-7.70771 -17.18592992,-17.12824 V 17.699178 c 0,-9.4205304 7.73366832,-17.12823679 17.18592992,-17.12823679 H 267.81407 C 277.26633,0.57094121 285,8.2786476 285,17.699178 V 189.83795 c 0,9.42053 -7.73367,17.12824 -17.18593,17.12824 z"
-       id="XMLID_248_"
-       inkscape:connector-curvature="0"
-       style="fill:#4278bd" />
-    <rect
-       id="XMLID_247_"
-       x="23.344221"
-       y="35.826561"
-       width="238.45477"
-       height="33.257324" />
-    <text
-       id="XMLID_246_"
-       font-size="24.0721"
-       font-weight="normal"
-       style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff">
-      <tspan
-         x="26.562859"
-         y="50.957989"
-         id="tspan197">ワーカー・ノード 2</tspan>
-    </text>
-  </g>
-  <path
-     d="m 1769.5315,750 h -53.063 C 1714.0108,750 1712,743.8656 1712,736.368 v -43.736 c 0,-7.4976 2.0108,-13.632 4.4685,-13.632 h 53.063 c 2.4577,0 4.4685,6.1344 4.4685,13.632 v 43.736 c 0,7.4976 -2.0108,13.632 -4.4685,13.632 z"
-     id="path201"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="m 1612.2432,750 h -56.4864 C 1553.1405,750 1551,743.8656 1551,736.368 v -43.736 c 0,-7.4976 2.1405,-13.632 4.7568,-13.632 h 56.4864 c 2.6163,0 4.7568,6.1344 4.7568,13.632 v 43.736 c 0,7.4976 -2.1405,13.632 -4.7568,13.632 z"
-     id="path203"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="m 1694.2432,750 h -56.4864 C 1635.1405,750 1633,743.8656 1633,736.368 v -43.736 c 0,-7.4976 2.1405,-13.632 4.7568,-13.632 h 56.4864 c 2.6163,0 4.7568,6.1344 4.7568,13.632 v 43.736 c 0,7.4976 -2.1405,13.632 -4.7568,13.632 z"
-     id="path205"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="m 1785.8054,1037 h -250.6108 c -9.457,0 -17.1946,-7.693 -17.1946,-17.0954 V 848.09544 C 1518,838.69295 1525.7376,831 1535.1946,831 h 250.6108 c 9.457,0 17.1946,7.69295 17.1946,17.09544 v 171.80916 c 0,9.4024 -7.7376,17.0954 -17.1946,17.0954 z"
-     id="XMLID_240_"
-     inkscape:connector-curvature="0"
-     style="fill:#4278bd;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="XMLID_239_"
-     x="1542"
-     y="951"
-     width="238"
-     height="34" />
-  <text
-     id="text211"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1651"
-       y="732"
-       id="tspan209">(Raft)</tspan>
-  </text>
-  <text
-     id="XMLID_238_"
-     font-size="24.0721"
-     font-weight="normal"
-     style="font-weight:normal;font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1546"
-       y="880"
-       id="tspan213">ワーカー・ノード 3</tspan>
-  </text>
-  <text
-     id="Ordering-node-3"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1726.856"
-       y="700"
-       id="tspan216">順序付け</tspan>
-    <tspan
-       x="1730.6293"
-       y="711"
-       id="tspan218">ノード 3</tspan>
-  </text>
-  <text
-     id="Ordering-node-2"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1649.356"
-       y="701"
-       id="tspan221">順序付け</tspan>
-    <tspan
-       x="1653.1293"
-       y="712"
-       id="tspan223">ノード 2</tspan>
-  </text>
-  <path
-     d="m 1699.1622,988 h -69.3244 C 1626.627,988 1624,981.8656 1624,974.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
-     id="path226"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="Ordering-node-4"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1645.856"
-       y="938"
-       id="tspan228">順序付け</tspan>
-    <tspan
-       x="1649.6293"
-       y="949"
-       id="tspan230">ノード 4</tspan>
-  </text>
-  <text
-     id="Ordering-node-1"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1734.856"
-       y="450"
-       id="tspan233">順序付け</tspan>
-    <tspan
-       x="1738.6293"
-       y="461"
-       id="tspan235">ノード 1</tspan>
-  </text>
-  <rect
-     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     id="rect238"
-     x="1533"
-     y="787"
-     width="53"
-     height="54" />
-  <text
-     id="text242"
-     font-size="11.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:11.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1561"
-       y="702"
-       id="tspan240">ピア 2</tspan>
-  </text>
-  <text
-     id="text246"
-     font-size="10.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:10.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1567"
-       y="721"
-       id="tspan244">Org 1</tspan>
-  </text>
-  <text
-     id="text250"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1649"
-       y="967"
-       id="tspan248">(Raft)</tspan>
-  </text>
-  <path
-     d="m 1610.1622,988 h -69.3244 C 1537.627,988 1535,981.8656 1535,974.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
-     id="path252"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <path
-     d="m 1786.1622,988 h -69.3244 C 1713.627,988 1711,981.8656 1711,974.368 v -43.736 c 0,-7.4976 2.627,-13.632 5.8378,-13.632 h 69.3244 c 3.2108,0 5.8378,6.1344 5.8378,13.632 v 43.736 c 0,7.4976 -2.627,13.632 -5.8378,13.632 z"
-     id="path254"
-     inkscape:connector-curvature="0"
-     style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1" />
-  <text
-     id="text258"
-     font-size="8.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:8.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1546.2257"
-       y="960"
-       id="tspan256">順序付けサービス</tspan>
-  </text>
-  <text
-     id="text262"
-     font-size="15.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:15.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1552"
-       y="943"
-       id="tspan260">CA 2</tspan>
-  </text>
-  <text
-     id="Ordering-node-5"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1735.856"
-       y="938"
-       id="tspan264">順序付け</tspan>
-    <tspan
-       x="1739.6293"
-       y="949"
-       id="tspan266">ノード 5</tspan>
-  </text>
-  <text
-     id="+-anti-affinity"
-     font-size="21.6649"
-     font-style="italic"
-     font-weight="bold"
-     style="font-style:italic;font-weight:bold;font-size:21.66489983px;font-family:'Source Han Sans', 'Source Han Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1549"
-       y="213"
-       id="tspan269">+ アンチアフィニティー</tspan>
-  </text>
-  <text
-     id="text274"
-     font-size="9.07"
-     font-weight="normal"
-     style="font-weight:normal;font-size:9.06999969px;font-family:'Source Han Sans';opacity:0.51706681;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="862"
-     y="9">
-    <tspan
-       x="1736"
-       y="966"
-       id="tspan272">(Raft)</tspan>
-  </text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2805px" height="1295px" viewBox="0 0 2805 1295" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>HA_Diagram-1 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HA_Diagram-1">
+            <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="2805" height="1295"></rect>
+            <text id="IBM-Blockchain-Platform-Console-(UI)" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="37.07" font-weight="500">
+                <tspan x="781.89699" y="408">IBM Blockchain Platform コンソール (UI)</tspan>
+        </text>
+            <text id="IBM-Blockchain-Platform-Extension-for-VS-Code" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="37.07" font-weight="500">
+                <tspan x="681.3421" y="865">IBM Blockchain Platform の VS Code 用の拡張機能  </tspan>
+        </text>
+            <g id="Group-5-Copy" transform="translate(756.000000, 8.000000)">
+                <polygon id="XMLID_12_" stroke="#5B6872" stroke-width="1.5" fill="#F2F5F7" fill-rule="nonzero" points="0 1178.2139 1047.49618 1178.2139 1047.49618 1145 1081 1211.4278 1047.49618 1278 1047.49618 1244.7861 0 1244.7861"></polygon>
+                <g id="Increasing-Blockchai" transform="translate(280.000000, 1185.000000)" fill="#000000" font-family="Helvetica" font-size="30" font-weight="normal">
+                    <text id="Increasing-Blockchain-high-availability">
+                        <tspan x="0" y="29">ブロックチェーンの高可用性の向上</tspan>
+            </text>
+                </g>
+                <path d="M458.698708,1139 L17.1583058,1139 C7.72123761,1139 0,1131.91245 0,1123.24989 L0,217.750105 C0,209.087547 7.72123761,202 17.1583058,202 L458.841694,202 C468.278762,202 476,209.087547 476,217.750105 L476,1123.24989 C475.857014,1131.91245 468.135777,1139 458.698708,1139 Z" id="XMLID_306_" stroke="#2D3F49" fill="#2D3F49" fill-rule="nonzero"></path>
+                <path d="M435.817089,1112 L41.1829105,1112 C31.7323097,1112 24,1104.96417 24,1096.36482 L24,287.635179 C24,279.035831 31.7323097,272 41.1829105,272 L435.817089,272 C445.26769,272 453,279.035831 453,287.635179 L453,1096.36482 C453,1104.96417 445.26769,1112 435.817089,1112 Z" id="XMLID_305_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M413.714286,1083 L61.1428571,1083 C51.7142857,1083 44,1075.64784 44,1066.66187 L44,313.338126 C44,304.352157 51.7142857,297 61.1428571,297 L413.857143,297 C423.285714,297 431,304.352157 431,313.338126 L431,1066.66187 C430.857143,1075.64784 423.142857,1083 413.714286,1083 Z" id="XMLID_304_" stroke="#00B39F" stroke-width="2" stroke-dasharray="8"></path>
+                <path d="M384.864583,1049 L90.1354167,1049 C80.7109375,1049 73,1041.25351 73,1031.78559 L73,413.214411 C73,403.746485 80.7109375,396 90.1354167,396 L384.864583,396 C394.289063,396 402,403.746485 402,413.214411 L402,1031.64214 C402,1041.25351 394.289063,1049 384.864583,1049 Z" id="XMLID_303_" stroke="#6182BB" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M369.80543,1026 L119.19457,1026 C109.737557,1026 102,1018.27156 102,1008.82569 L102,497.174312 C102,487.72844 109.737557,480 119.19457,480 L369.80543,480 C379.262443,480 387,487.72844 387,497.174312 L387,1008.82569 C387,1018.27156 379.262443,1026 369.80543,1026 Z" id="XMLID_302_" fill="#4278BD" fill-rule="nonzero"></path>
+                <path d="M349.945946,642 L278.054054,642 C274.724324,642 272,635.8656 272,628.368 L272,584.632 C272,577.1344 274.724324,571 278.054054,571 L349.945946,571 C353.275676,571 356,577.1344 356,584.632 L356,628.368 C356,635.8656 353.275676,642 349.945946,642 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-1" transform="translate(276.000000, 571.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-1">
+                        <tspan x="12.365208" y="39">ノード 1</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(291.000000, 611.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+                </g>
+                <g id="XMLID_298_" transform="translate(72.000000, 409.000000)">
+                    <rect id="XMLID_39_" x="0.428571429" y="13.4409274" width="329.142857" height="33.3293347"></rect>
+                    <g id="Worker-Pool" transform="translate(70.000000, 0.000000)" fill="#000000" font-family="Helvetica" font-size="28" font-weight="normal">
+                        <text>
+                            <tspan x="0.5398571" y="28.63197">ワーカー・プール</tspan>
+                    </text>
+                    </g>
+                </g>
+                <g id="XMLID_292_" transform="translate(85.000000, 212.000000)">
+                    <rect id="XMLID_38_" x="0.284651163" y="10.5714286" width="305.430698" height="48.5714286"></rect>
+                    <g id="Region-1" transform="translate(86.000000, 0.000000)" fill="#FFFFFF" font-family="Helvetica" font-size="24.0721" font-weight="normal">
+                        <text id="Region">
+                            <tspan x="0.8186047" y="24">地域</tspan>
+                    </text>
+                        <text id="1">
+                            <tspan x="77.101773" y="24">1</tspan>
+        </text>
+                    </g>
+                </g>
+                <rect id="XMLID_291_" x="119" y="599" width="238" height="34"></rect>
+                <g id="XMLID_290_" transform="translate(142.000000, 500.000000)" fill="#FFFFFF" font-family="Helvetica" font-size="30" font-weight="normal">
+                    <text id="Worker-Node">
+                        <tspan x="0" y="29">ワーカー・ノード</tspan>
+            </text>
+                </g>
+                <g id="Single-Cluster" transform="translate(138.000000, 323.000000)" fill="#000000" font-family="Helvetica" font-size="30" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="29">単一クラスター</tspan>
+            </text>
+                </g>
+                <path d="M349.945946,642 L278.054054,642 C274.724324,642 272,635.8656 272,628.368 L272,584.632 C272,577.1344 274.724324,571 278.054054,571 L349.945946,571 C353.275676,571 356,577.1344 356,584.632 L356,628.368 C356,635.8656 353.275676,642 349.945946,642 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <rect id="XMLID_25_" x="114" y="894" width="235" height="54"></rect>
+                <g id="Ordering-Node-1" transform="translate(276.000000, 571.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-1">
+                        <tspan x="12.365208" y="39">ノード 1</tspan>
+                    </text>
+                </g>
+                <path d="M1017.84169,1139 L576.158306,1139 C566.721238,1139 559,1131.80547 559,1123.01217 L559,15.9878348 C559,7.19452568 566.721238,0 576.158306,0 L1017.84169,0 C1027.27876,0 1035,7.19452568 1035,15.9878348 L1035,1122.87893 C1035,1131.80547 1027.27876,1139 1017.84169,1139 Z" id="XMLID_272_" stroke="#2D3F49" fill="#2D3F49" fill-rule="nonzero"></path>
+                <path d="M995.958401,1112 L601.182832,1112 C591.732274,1112 584,1104.84497 584,1096.09992 L584,98.9000773 C584,90.1550348 591.732274,83 601.182832,83 L995.815211,83 C1005.26577,83 1013,90.1550348 1013,98.9000773 L1013,1096.09992 C1013.14123,1104.84497 1005.40896,1112 995.958401,1112 Z" id="XMLID_271_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M972.857143,1083 L620.142857,1083 C610.714286,1083 603,1075.47516 603,1066.27813 L603,123.721873 C603,114.524843 610.714286,107 620.142857,107 L972.857143,107 C982.285714,107 990,114.524843 990,123.721873 L990,1066.41748 C990,1075.47516 982.285714,1083 972.857143,1083 Z" id="XMLID_270_" stroke="#00B39F" stroke-width="2" stroke-dasharray="8"></path>
+                <path d="M944.864583,1049 L650.135417,1049 C640.710938,1049 633,1041.27315 633,1031.82923 L633,275.170767 C633,265.726845 640.710938,258 650.135417,258 L944.864583,258 C954.289062,258 962,265.726845 962,275.170767 L962,1031.82923 C962,1041.27315 954.289062,1049 944.864583,1049 Z" id="XMLID_269_" stroke="#6182BB" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="XMLID_265_" transform="translate(632.000000, 262.000000)">
+                    <rect id="XMLID_24_" x="0.714285714" y="12.7849462" width="329.142857" height="33.2171147"></rect>
+                    <g id="Worker-Pool" transform="translate(70.000000, 0.000000)" fill="#000000" font-family="Helvetica" font-size="28" font-weight="normal">
+                        <text>
+                            <tspan x="0.8544286" y="28.0223284">ワーカー・プール</tspan>
+                    </text>
+                    </g>
+                </g>
+                <rect id="XMLID_264_" x="656" y="105" width="283" height="49"></rect>
+                <g id="XMLID_259_" transform="translate(643.000000, 20.000000)">
+                    <rect id="XMLID_23_" x="0.569302326" y="10.1773567" width="305.430698" height="48.7366375"></rect>
+                    <g id="Region-1" transform="translate(81.000000, 0.000000)" fill="#FFFFFF" font-family="Helvetica" font-size="24.0721" font-weight="normal">
+                        <text>
+                            <tspan x="0.1255814" y="24">地域 1</tspan>
+                </text>
+                    </g>
+                </g>
+                <path d="M923.80543,536 L673.19457,536 C663.737557,536 656,528.307054 656,518.904564 L656,347.095436 C656,337.692946 663.737557,330 673.19457,330 L923.80543,330 C933.262443,330 941,337.692946 941,347.095436 L941,518.904564 C941,528.307054 933.262443,536 923.80543,536 Z" id="XMLID_258_" fill="#4278BD" fill-rule="nonzero"></path>
+                <path d="M924.945946,490 L853.054054,490 C849.724324,490 847,483.8656 847,476.368 L847,432.632 C847,425.1344 849.724324,419 853.054054,419 L924.945946,419 C928.275676,419 931,425.1344 931,432.632 L931,476.368 C931,483.8656 928.275676,490 924.945946,490 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-1" transform="translate(849.000000, 419.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-1">
+                        <tspan x="12.365208" y="39">ノード 1</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(866.000000, 459.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M830.666667,491 L767.333333,491 C764.4,491 762,484.8656 762,477.368 L762,433.632 C762,426.1344 764.4,420 767.333333,420 L830.666667,420 C833.6,420 836,426.1344 836,433.632 L836,477.368 C836,484.8656 833.6,491 830.666667,491 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <text id="CA-1" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                    <tspan x="775.923077" y="447.88">CA 1</tspan>
+            </text>
+                <g id="Peers" opacity="0.517066592" transform="translate(773.000000, 454.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="(Peers)">
+                        <tspan x="0.3461538" y="19.34">(</tspan>
+                        <tspan x="7.00631005" y="19.34" font-size="15">ピア</tspan>
+                        <tspan x="46.1908804" y="19.34">)</tspan>
+                    </text>
+                </g>
+                <rect id="XMLID_257_" x="680" y="451" width="238" height="34"></rect>
+                <g id="XMLID_256_" transform="translate(684.000000, 352.000000)" fill="#FFFFFF" font-family="Helvetica" font-size="30" font-weight="normal">
+                    <text id="Worker-Node-1">
+                        <tspan x="0" y="29">ワーカー・ノード 1</tspan>
+            </text>
+                </g>
+                <polygon id="XMLID_22_" points="681 439 699.222495 439 916 439 916 493 728.77243 493 681 493"></polygon>
+                <g id="Org-1" opacity="0.517066592" transform="translate(698.000000, 450.000000)"></g>
+                <path d="M218.666667,642 L155.333333,642 C152.4,642 150,635.8656 150,628.368 L150,584.632 C150,577.1344 152.4,571 155.333333,571 L218.666667,571 C221.6,571 224,577.1344 224,584.632 L224,628.368 C224,635.8656 221.6,642 218.666667,642 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Peer-1" transform="translate(155.000000, 580.000000)" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="21">ピア 1</tspan>
+                </text>
+                </g>
+                <g id="Org-1" opacity="0.517066592" transform="translate(170.000000, 604.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="19">Org 1</tspan>
+            </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(291.000000, 611.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M349.945946,642 L278.054054,642 C274.724324,642 272,635.8656 272,628.368 L272,584.632 C272,577.1344 274.724324,571 278.054054,571 L349.945946,571 C353.275676,571 356,577.1344 356,584.632 L356,628.368 C356,635.8656 353.275676,642 349.945946,642 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-1" transform="translate(276.000000, 571.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-1">
+                        <tspan x="12.365208" y="39">ノード 1</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(291.000000, 611.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M350.945946,727 L279.054054,727 C275.724324,727 273,720.8656 273,713.368 L273,669.632 C273,662.1344 275.724324,656 279.054054,656 L350.945946,656 C354.275676,656 357,662.1344 357,669.632 L357,713.368 C357,720.8656 354.275676,727 350.945946,727 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-2" transform="translate(276.000000, 655.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-2">
+                        <tspan x="12.365208" y="41">ノード 2</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(295.000000, 697.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M349.945946,810 L278.054054,810 C274.724324,810 272,803.8656 272,796.368 L272,752.632 C272,745.1344 274.724324,739 278.054054,739 L349.945946,739 C353.275676,739 356,745.1344 356,752.632 L356,796.368 C356,803.8656 353.275676,810 349.945946,810 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-3" transform="translate(276.000000, 742.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-3">
+                        <tspan x="16.365208" y="40">ノード</tspan>
+                        <tspan x="64.177708" y="40" font-size="10.07"> </tspan>
+                        <tspan x="66.9754766" y="40">3</tspan>
+        </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(296.000000, 782.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M349.945946,896 L278.054054,896 C274.724324,896 272,889.8656 272,882.368 L272,838.632 C272,831.1344 274.724324,825 278.054054,825 L349.945946,825 C353.275676,825 356,831.1344 356,838.632 L356,882.368 C356,889.8656 353.275676,896 349.945946,896 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-4" transform="translate(276.000000, 827.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-4">
+                        <tspan x="13.365208" y="40">ノード 4</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(297.000000, 872.000000)" fill="#000000" font-family="Helvetica" font-size="16" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="15">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M349.945946,986 L278.054054,986 C274.724324,986 272,979.8656 272,972.368 L272,928.632 C272,921.1344 274.724324,915 278.054054,915 L349.945946,915 C353.275676,915 356,921.1344 356,928.632 L356,972.368 C356,979.8656 353.275676,986 349.945946,986 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-5" transform="translate(276.000000, 916.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-5">
+                        <tspan x="11.365208" y="41">ノード 5</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(298.000000, 960.000000)" fill="#000000" font-family="Helvetica" font-size="16" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="15">(Raft)</tspan>
+            </text>
+                </g>
+                <g id="Group-4" transform="translate(150.000000, 656.000000)">
+                    <path d="M68.6666667,71 L5.33333333,71 C2.4,71 0,64.8656 0,57.368 L0,13.632 C0,6.1344 2.4,0 5.33333333,0 L68.6666667,0 C71.6,0 74,6.1344 74,13.632 L74,57.368 C74,64.8656 71.6,71 68.6666667,71 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <g id="Org-1" opacity="0.517066592" transform="translate(18.000000, 33.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                        <text>
+                            <tspan x="0.9230769" y="19.34">Org 1</tspan>
+            </text>
+                    </g>
+                </g>
+                <text id="Peer-2" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                    <tspan x="155" y="688">ピア 2</tspan>
+            </text>
+                <g id="Group-2" transform="translate(150.000000, 786.000000)">
+                    <path d="M68.6666667,71 L5.33333333,71 C2.4,71 0,64.8656 0,57.368 L0,13.632 C0,6.1344 2.4,0 5.33333333,0 L68.6666667,0 C71.6,0 74,6.1344 74,13.632 L74,57.368 C74,64.8656 71.6,71 68.6666667,71 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <g id="CA-1" transform="translate(13.000000, 6.000000)" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                        <text>
+                            <tspan x="0.9230769" y="21.88">CA 1</tspan>
+            </text>
+                    </g>
+                    <g id="Peers" opacity="0.517066592" transform="translate(11.000000, 34.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                        <text id="(Peers)">
+                            <tspan x="0.3461538" y="19.34">(</tspan>
+                            <tspan x="7.00631005" y="19.34" font-size="15">ピア</tspan>
+                            <tspan x="46.1908804" y="19.34">)</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-3" transform="translate(150.000000, 870.000000)">
+                    <path d="M68.6666667,71 L5.33333333,71 C2.4,71 0,64.8656 0,57.368 L0,13.632 C0,6.1344 2.4,0 5.33333333,0 L68.6666667,0 C71.6,0 74,6.1344 74,13.632 L74,57.368 C74,64.8656 71.6,71 68.6666667,71 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <g id="CA-2" transform="translate(11.000000, 1.000000)" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                        <text>
+                            <tspan x="0.5" y="21.36">CA 2</tspan>
+            </text>
+                    </g>
+                    <g id="Ordering-Service" opacity="0.517066592" transform="translate(1.000000, 24.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                        <text id="(Ordering-Service)">
+                            <tspan x="0.72567871" y="18.24">(</tspan>
+                            <tspan x="6.71981934" y="18.24" font-size="16">順序付け</tspan>
+                            <tspan x="68.9698193" y="18.24"></tspan>
+                            <tspan x="0.72567871" y="40.24"> </tspan>
+                            <tspan x="5.72665527" y="40.24" font-size="16">サービス</tspan>
+                            <tspan x="59.0782178" y="40.24">)</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Single-Cluster" transform="translate(693.000000, 129.000000)" fill="#000000" font-family="Helvetica" font-size="30" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="29">単一クラスター</tspan>
+            </text>
+                </g>
+                <g id="Group" transform="translate(656.000000, 576.000000)">
+                    <path d="M267.81407,206.96619 L17.3291457,206.96619 C7.87688442,206.96619 0.14321608,199.258484 0.14321608,189.837954 L0.14321608,17.6991777 C0.14321608,8.27864761 7.87688442,0.570941215 17.3291457,0.570941215 L267.81407,0.570941215 C277.266332,0.570941215 285,8.27864761 285,17.6991777 L285,189.837954 C285,199.258484 277.266332,206.96619 267.81407,206.96619 Z" id="XMLID_248_" fill="#4278BD" fill-rule="nonzero"></path>
+                    <rect id="XMLID_247_" x="23.3442211" y="35.8265612" width="238.454774" height="33.2573257"></rect>
+                    <g id="XMLID_246_" transform="translate(26.000000, 21.000000)" fill="#FFFFFF" font-family="Helvetica" font-size="30" font-weight="normal">
+                        <text id="Worker-Node-2">
+                            <tspan x="0.5628593" y="29.9579886">ワーカー・ノード 2</tspan>
+                </text>
+                    </g>
+                </g>
+                <path d="M929.945946,735 L858.054054,735 C854.724324,735 852,728.8656 852,721.368 L852,677.632 C852,670.1344 854.724324,664 858.054054,664 L929.945946,664 C933.275676,664 936,670.1344 936,677.632 L936,721.368 C936,728.8656 933.275676,735 929.945946,735 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-3" transform="translate(854.000000, 665.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-3">
+                        <tspan x="16.365208" y="40">ノード</tspan>
+                        <tspan x="64.177708" y="40" font-size="10.07"> </tspan>
+                        <tspan x="66.9754766" y="40">3</tspan>
+        </text>
+                </g>
+                <text id="(Raft)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+                    <tspan x="876" y="725">(Raft)</tspan>
+            </text>
+                <path d="M923.80543,1028 L673.19457,1028 C663.737557,1028 656,1020.30705 656,1010.90456 L656,839.095436 C656,829.692946 663.737557,822 673.19457,822 L923.80543,822 C933.262443,822 941,829.692946 941,839.095436 L941,1010.90456 C941,1020.30705 933.262443,1028 923.80543,1028 Z" id="XMLID_240_" fill="#4278BD" fill-rule="nonzero"></path>
+                <path d="M895.945946,979 L824.054054,979 C820.724324,979 818,972.8656 818,965.368 L818,921.632 C818,914.1344 820.724324,908 824.054054,908 L895.945946,908 C899.275676,908 902,914.1344 902,921.632 L902,965.368 C902,972.8656 899.275676,979 895.945946,979 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-5" transform="translate(822.000000, 909.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-5">
+                        <tspan x="11.365208" y="41">ノード 5</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(844.000000, 953.000000)" fill="#000000" font-family="Helvetica" font-size="16" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="15">(Raft)</tspan>
+            </text>
+                </g>
+                <path d="M776.945946,979 L705.054054,979 C701.724324,979 699,972.8656 699,965.368 L699,921.632 C699,914.1344 701.724324,908 705.054054,908 L776.945946,908 C780.275676,908 783,914.1344 783,921.632 L783,965.368 C783,972.8656 780.275676,979 776.945946,979 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Ordering-Node-4" transform="translate(703.000000, 910.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                    <text id="Ordering">
+                        <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+                    <text id="Node-4">
+                        <tspan x="13.365208" y="40">ノード 4</tspan>
+                    </text>
+                </g>
+                <g id="(Raft)" opacity="0.517066592" transform="translate(724.000000, 955.000000)" fill="#000000" font-family="Helvetica" font-size="16" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="15">(Raft)</tspan>
+            </text>
+                </g>
+                <rect id="XMLID_239_" x="680" y="942" width="238" height="34"></rect>
+                <g id="XMLID_238_" transform="translate(684.000000, 842.000000)" fill="#FFFFFF" font-family="Helvetica" font-size="30" font-weight="normal">
+                    <text id="Worker-Node-3">
+                        <tspan x="0" y="29">ワーカー・ノード 3</tspan>
+                </text>
+                </g>
+                <rect id="XMLID_22_" x="671" y="778" width="53" height="54"></rect>
+                <g id="+-anti-affinity" transform="translate(687.000000, 179.000000)" fill="#000000" font-family="Helvetica-BoldOblique, Helvetica" font-size="26" font-style="italic" font-weight="bold">
+                    <text>
+                        <tspan x="0" y="25">+ アンチアフィニティー</tspan>
+                </text>
+                </g>
+            </g>
+            <path d="M1506.66667,745 L1443.33333,745 C1440.4,745 1438,738.8656 1438,731.368 L1438,687.632 C1438,680.1344 1440.4,674 1443.33333,674 L1506.66667,674 C1509.6,674 1512,680.1344 1512,687.632 L1512,731.368 C1512,738.8656 1509.6,745 1506.66667,745 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <g id="Peer-1" transform="translate(1444.000000, 683.000000)" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                <text id="Peer-2">
+                    <tspan x="0" y="21">ピア 2</tspan>
+            </text>
+            </g>
+            <g id="Org-1" opacity="0.517066592" transform="translate(1459.000000, 707.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                <text>
+                    <tspan x="0" y="19">Org 1</tspan>
+            </text>
+            </g>
+            <path d="M1498.66667,498 L1435.33333,498 C1432.4,498 1430,491.8656 1430,484.368 L1430,440.632 C1430,433.1344 1432.4,427 1435.33333,427 L1498.66667,427 C1501.6,427 1504,433.1344 1504,440.632 L1504,484.368 C1504,491.8656 1501.6,498 1498.66667,498 Z" id="XMLID_255_" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <g id="Peer-1" transform="translate(1435.000000, 436.000000)" fill="#000000" font-family="Helvetica" font-size="22" font-weight="normal">
+                <text>
+                    <tspan x="0" y="21">ピア 1</tspan>
+                </text>
+            </g>
+            <g id="Org-1" opacity="0.517066592" transform="translate(1450.000000, 460.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+                <text>
+                    <tspan x="0" y="19">Org 1</tspan>
+            </text>
+            </g>
+        </g>
+        <path d="M1595.94595,744 L1524.05405,744 C1520.72432,744 1518,737.8656 1518,730.368 L1518,686.632 C1518,679.1344 1520.72432,673 1524.05405,673 L1595.94595,673 C1599.27568,673 1602,679.1344 1602,686.632 L1602,730.368 C1602,737.8656 1599.27568,744 1595.94595,744 Z" id="XMLID_279_" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <g id="Ordering-Node-2" transform="translate(1521.000000, 672.000000)" fill="#000000" font-family="Helvetica" font-size="20" font-weight="normal">
+            <text id="Ordering">
+                <tspan x="0.410703" y="19">順序付け</tspan>
+                    </text>
+            <text id="Node-2">
+                <tspan x="12.365208" y="41">ノード 2</tspan>
+                    </text>
+        </g>
+        <g id="(Raft)" opacity="0.517066592" transform="translate(1540.000000, 714.000000)" fill="#000000" font-family="Helvetica" font-size="18" font-weight="normal">
+            <text>
+                <tspan x="0" y="18">(Raft)</tspan>
+            </text>
+        </g>
+    </g>
 </svg>

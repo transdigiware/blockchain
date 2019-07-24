@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,14 +37,16 @@ subcollection: blockchain
 - [自分の順序付けサービスを開いたときに `Unable to get system channel` というエラーが表示されるのはなぜですか?](#ibp-troubleshoot-ordering-service)
 - [ピアを開始できないのはなぜですか?](#ibp-console-build-network-troubleshoot-entry2)
 - [スマート・コントラクトのインストール、インスタンス化、またはアップグレードが失敗するのはなぜですか?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [ピアにインストールしたスマート・コントラクトが UI にリスト表示されないのはなぜですか?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [スマート・コントラクトのコンテナー・ログを表示するにはどうしたらよいですか?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [コンソールにチャネル、スマート・コントラクト、ID が表示されなくなりました。 どうすれば元に戻せますか?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [新規組織 MSP 定義の作成時に、`「指定された登録 ID とシークレットで認証できません (Unable to authenticate with the enroll ID and secret you provided)」`というエラーが表示されるのはなぜですか?](#ibp-v2-troubleshooting-create-msp)
 - [組織をチャネルに追加しようとするとエラー `An error occurred when updating channel` が発生するのはなぜですか?](#ibp-v2-troubleshooting-update-channel)
-- [{{site.data.keyword.cloud_notm}} Kubernetes クラスターの有効期限が切れました。これはどういう意味ですか?](#ibp-v2-troubleshooting-cluster-expired)
+- [{{site.data.keyword.cloud_notm}} Kubernetes クラスターの有効期限が切れました。 これはどういう意味ですか?](#ibp-v2-troubleshooting-cluster-expired)
 - [VS Code から実行するトランザクションが失敗するのはなぜですか?](#ibp-v2-troubleshooting-anchor-peer)
 - [コンソールにログインすると、401 無許可エラーが表示されるのはなぜですか?](#ibp-v2-troubleshooting-console-401)
 - [{{site.data.keyword.cloud_notm}} Private にデプロイしたノードがトランザクションを処理せず、ヘルス・チェックに失敗するのはなぜですか?](#ibp-v2-troubleshooting-healthchecks)
+- [トランザクションが「signature set did not satisfy policy」というエンドースメント・ポリシー・エラーを返すのはなぜですか?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## ノードにマウスオーバーすると、状況が「`状況が不明です (Status unavailable)`」になります。これはどういう意味ですか?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -104,7 +106,7 @@ Kubernetes ダッシュボードを調べて、ピアまたはノードの状況
 {: #ibp-troubleshoot-ordering-service}
 {: troubleshoot}
 
-{{site.data.keyword.cloud_notm}} Private コンソールで順序付けサービスを作成すると、状況は `Running` になります。ただし、順序付けサービスを開くと、次のエラーが表示されます。
+{{site.data.keyword.cloud_notm}} Private コンソールで順序付けサービスを作成すると、状況は `Running` になります。 ただし、順序付けサービスを開くと、次のエラーが表示されます。
 
 ```
 Unable to get system channel. If you associated an identity without administrative privilege on the ordering service node,
@@ -113,12 +115,12 @@ you will not be able to view or manage ordering service details.
 
 {: tsSymptoms}
 
-この状態は、{{site.data.keyword.cloud_notm}} Private で実行されているブロックチェーン・コンソールで発生します。Chrome 以外のブラウザーでは、コンソールがノードと正しく通信するためには、証明書を受け入れる必要があります。
+この状態は、{{site.data.keyword.cloud_notm}} Private で実行されているブロックチェーン・コンソールで発生します。 Chrome 以外のブラウザーでは、コンソールがノードと正しく通信するためには、証明書を受け入れる必要があります。
 {: tsCauses}
 
 この問題は、複数の方法で解決できます。
-1. コンソール・ブラウザーの URL が記載された Helm リリース・ノートには、URL に移動して証明書を受け入れるためのノートもあります。その URL を参照し、証明書を受け入れます。ここで、順序付けサービスを開きます。エラーは発生しなくなります。
-2. Chrome ブラウザーを使用できる場合は、Chrome でブロック・チェーン・コンソールを開き、順序付けサービスを開きます。エラーは発生しません。すべての処理が継続するようにするには、Chrome 以外のブラウザーでコンソール・ウォレットから ID をエクスポートし、Chrome ブラウザーのウォレットにインポートする必要があります。
+1. コンソール・ブラウザーの URL が記載された Helm リリース・ノートには、URL に移動して証明書を受け入れるためのノートもあります。 その URL を参照し、証明書を受け入れます。 ここで、順序付けサービスを開きます。 エラーは発生しなくなります。
+2. Chrome ブラウザーを使用できる場合は、Chrome でブロック・チェーン・コンソールを開き、順序付けサービスを開きます。 エラーは発生しません。 すべての処理が継続するようにするには、Chrome 以外のブラウザーでコンソール・ウォレットから ID をエクスポートし、Chrome ブラウザーのウォレットにインポートする必要があります。
 {: tsResolve}
 
 ## ピアを開始できないのはなぜですか?
@@ -153,6 +155,19 @@ you will not be able to view or manage ordering service details.
 - Kubernetes ダッシュボードを開いて、ピアの状況が `Running` であることを確認してください。  
 - ピア・ノードを開いて、対象のスマート・コントラクトのバージョンがピア上にないことを確認し、適切なバージョンでやり直してください。
 - ノードの起動後も問題が発生する場合は、エラーについて[ノード・ログを確認](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)してください。  
+{: tsResolve}
+
+## ピアにインストールしたスマート・コントラクトが UI に表示されないのはなぜですか?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+スマート・コントラクトがピアにインストールされたのに、**「スマート・コントラクト」**タブをクリックしても表示されません。
+{: tsSymptoms}
+
+この問題は、他のユーザーまたはアプリケーションがスマート・コントラクトをピアにインストールし、自分のブラウザー・ウォレットにはピア管理者 ID が存在しない場合に発生します。
+{: tsCauses}
+
+ピアにインストールされたスマート・コントラクトを表示するには、ピア管理者になる必要があります。ブラウザー・ウォレットにピア管理者 ID が存在することを確認してください。存在しない場合は、コンソール・ウォレットにインポートする必要があります。
 {: tsResolve}
 
 ## スマート・コントラクトのコンテナー・ログを表示するにはどうしたらよいですか?
@@ -215,7 +230,7 @@ you will not be able to view or manage ordering service details.
 **「チャネルの更新 (Update channel)」**パネルで、**「チャネル・アップデーター MSP ID (Channel Updater MSP ID)」**にスクロールダウンし、チャネルの作成時に指定した MSP ID を選択するか、チャネルの管理者である MSP ID を指定します。
 {: tsResolve}
 
-## {{site.data.keyword.cloud_notm}} Kubernetes クラスターの有効期限が切れました。これはどういう意味ですか?
+## {{site.data.keyword.cloud_notm}} Kubernetes クラスターの有効期限が切れました。 これはどういう意味ですか?
 {: #ibp-v2-troubleshooting-cluster-expired}
 {: troubleshoot}
 
@@ -262,10 +277,23 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 {: #ibp-v2-troubleshooting-healthchecks}
 {: troubleshoot}
 
-コンソールで、ピアと順序付けノードがまだ実行されていると示されます。ただし、トランザクションが失敗します。ノード・ポッドで活性検査または作動可能検査を実行すると、ポッドが正常でないことが示されます。
+コンソールで、ピアと順序付けノードがまだ実行されていると示されます。 ただし、トランザクションが失敗します。 ノード・ポッドで活性検査または作動可能検査を実行すると、ポッドが正常でないことが示されます。
 {: tsSymptoms}
 
-クラスターでノードを何度もデプロイ、削除、およびアップグレードした場合、おそらくテストの結果として、{{site.data.keyword.cloud_notm}} Private の既知の問題が原因で Docker が失敗することがあります。詳しくは、[{{site.data.keyword.cloud_notm}} Private の資料](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}でこの問題について参照してください。
+クラスターでノードを何度もデプロイ、削除、およびアップグレードした場合、おそらくテストの結果として、{{site.data.keyword.cloud_notm}} Private の既知の問題が原因で Docker が失敗することがあります。 詳しくは、[{{site.data.keyword.cloud_notm}} Private の資料](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}でこの問題について参照してください。
 {: tsCauses}
 
-この問題に対処するには、失敗したポッドを削除し、ノードを再デプロイします。クラスター上の Docker サービスを再始動することもできます。
+この問題に対処するには、失敗したポッドを削除し、ノードを再デプロイします。 クラスター上の Docker サービスを再始動することもできます。
+
+## トランザクションが「signature set did not satisfy policy」というエンドースメント・ポリシー・エラーを返すのはなぜですか?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+スマート・コントラクトを呼び出してトランザクションを送信すると、トランザクションが以下のエンドースメント・ポリシー・エラーを返します。
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+最近チャネルに参加し、スマート・コントラクトをインストールした場合に、組織をエンドースメント・ポリシーに追加していないとこのエラーが発生します。組織が、スマート・コントラクトのトランザクションを承認できる組織のリストに含まれていないため、ピアからの承認がチャネルによって拒否されています。この問題が発生した場合は、スマート・コントラクトをアップグレードしてエンドースメント・ポリシーを変更します。詳しくは、[エンドースメント・ポリシーの指定](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)および[スマート・コントラクトのアップグレード](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)を参照してください。
+{: tsCauses}

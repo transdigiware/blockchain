@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,17 +76,19 @@ VPC は {{site.data.keyword.IBM_notm}} 製品のライセンス交付コスト�
 
 | 料金オプション** (1 VPC = 1 CPU)| **ネットワークのテスト** | **実動ネットワークへの参加** |
 |-|------------|-----------------------------|
-| **CPU 割り振り** |  1.85 CPU <br> 内容: <br> - 1 つのピア <br> - 2 つの CA <br> - 1 つの順序付けノード| 4.9 CPU <br> 内容: <br> - 2 つのピア (HA を確保) <br> **(デフォルトのコンピュートの 2 倍)** <br>- 1 つの CA <br>  |
-| **1 時間当たりのコスト: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.54 USD <br> (1.85 CPU x $0.29 USD/1 時間の VPC ) | $1.42 USD <br> (4.9 CPU x $0.29 USD/1 時間の VPC ) |
+| **CPU 割り振り** |  1.65 CPU <br> 内容: <br> - 1 つのピア <br> - 2 つの CA <br> - 1 つの順序付けノード| 4.5 CPU <br> 内容: <br> - 2 つのピア (HA を確保) <br> **(デフォルトのコンピュートの 2 倍)** <br>- 1 つの CA <br>  |
+| **1 時間当たりのコスト: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/1 時間の VPC ) | $1.31 USD <br> (4.5 CPU x $0.29 USD/1 時間の VPC ) |
 | **1 時間当たりのコスト: {{site.data.keyword.cloud_notm}} Kubernetes クラスター**    | $0.12 USD <br> (コンピュート: 2 x 4 層) <br> (IP 割り当て: $16 USD/月) | $0.46 USD <br> (コンピュート: 8 x 32 層) <br> (IP 割り当て: $16 USD/月) |
 | **1 時間当たりのコスト: ストレージ** | $0.07 USD <br> 340 GB  <br> [ブロンズ](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420 GB <br> [シルバー](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
-| **1 時間当たりのコストの合計** | **$0.73 USD** | **$2.01 USD**| |
+| **1 時間当たりのコストの合計** | **$0.67 USD** | **$1.90 USD**| |
 ** {{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンスを無料の {{site.data.keyword.cloud_notm}} Kubernetes クラスターにリンクすると、30 日間料金なしで {{site.data.keyword.blockchainfull_notm}} Platform をプレビューできます。 スループット、ストレージ、および機能性の面でパフォーマンスが制限されます。 {{site.data.keyword.cloud_notm}} では、30 日後に Kubernetes クラスターが削除され、無料のクラスターから有料のクラスターにノードまたはデータを移行することはできません。  
 
-実際のコストは、トランザクション率、必要なチャネル数、トランザクションのペイロード・サイズ、並行トランザクションの最大数などの追加の要素に応じて異なります。 上記の料金の例は、{{site.data.keyword.cloud_notm}} Kubernetes 単一ゾーン・クラスターのみに基づいています。マルチゾーン・クラスターを選択した場合は、追加のゾーンおよび必要なマルチゾーン・ロード・バランサーに対して追加料金がかかります。
+実際のコストは、トランザクション率、必要なチャネル数、トランザクションのペイロード・サイズ、並行トランザクションの最大数などの追加の要素に応じて異なります。 上記の料金の例は、{{site.data.keyword.cloud_notm}} Kubernetes 単一ゾーン・クラスターのみに基づいています。  マルチゾーン・クラスターを選択した場合は、追加のゾーンおよび必要なマルチゾーン・ロード・バランサーに対して追加料金がかかります。
 {:note}
 
-プロビジョンして単一の Kubernetes クラスターに関連付けることができるサービス・インスタンスの数に制限はありませんが、サービスが中断されるのを避けるために、CPU、メモリー、およびストレージの使用量をモニターして、十分なリソースを使用できるようにする必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform ノードは、その独自のクラスターに属する必要はありません。 ブロックチェーン・コンポーネントが実行されているクラスターで、他の {{site.data.keyword.cloud_notm}} サービスを実行することができますが、同様に、すべてのサービス・インスタンスのすべての要件に対応するために、十分なコンピュートとストレージを確保する必要があります。
+プロビジョンして単一の Kubernetes クラスターに関連付けることができるサービス・インスタンスの数に制限はありませんが、サービスが中断されるのを避けるために、CPU、メモリー、およびストレージの使用量をモニターして、十分なリソースを使用できるようにする必要があります。 {{site.data.keyword.blockchainfull_notm}} Platform ノードは、その独自のクラスターに属する必要はありません。 ブロックチェーン・コンポーネントが実行されているクラスターで、他の {{site.data.keyword.cloud_notm}} サービスを実行することができますが、同様に、すべてのサービス・インスタンスのすべての要件に対応するために、十分なコンピュートとストレージを確保する必要があります。  
+
+**開始する準備ができましたか?** オプションについては、[{{site.data.keyword.blockchainfull_notm}} Platform の概説](/docs/services/blockchain?topic=blockchain-get-started-ibp)を参照してください。 
 
 ## デフォルトのリソース割り振り
 {: #ibp-saas-pricing-default}
@@ -95,9 +97,9 @@ VPC は {{site.data.keyword.IBM_notm}} 製品のライセンス交付コスト�
 
 | **コンポーネント** (すべてのコンテナー) | CPU  | メモリー (GB) | ストレージ (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **ピア**                       | 1.2            | 2.4                   | 200 (ピア用に 100 GB と CouchDB 用に 100 GB を含む)|
+| **ピア**                       | 1.1            | 2.4                   | 200 (ピア用に 100 GB と CouchDB 用に 100 GB を含む)|
 | **CA**                         | 0.1            | 0.2                    | 20                     |
-| **順序付けノード**                    | 0.45           | 0.9                    | 100                    |
+| **順序付けノード**                    | 0.35           | 0.9                    | 100                    |
 
 
 ## 課金
@@ -111,29 +113,30 @@ VPC は {{site.data.keyword.IBM_notm}} 製品のライセンス交付コスト�
 ### 使用量のモニタリング
 {: #ibp-saas-pricing-usage}
 
-料金を取得する前に、{{site.data.keyword.cloud_notm}} ダッシュボードの**「使用量」**タイルから {{site.data.keyword.blockchainfull_notm}} プラットフォームと Kubernetes クラスターのコストをモニターできます。{{site.data.keyword.blockchainfull_notm}} プラットフォームの VPC の使用量は、1 時間ごとに評価されます。**これらのコストは見積もりにすぎません。**実際のコストは、毎月の料金に反映されます。
+料金を取得する前に、{{site.data.keyword.cloud_notm}} ダッシュボードの**「使用量」**タイルから {{site.data.keyword.blockchainfull_notm}} プラットフォームと Kubernetes クラスターのコストをモニターできます。 {{site.data.keyword.blockchainfull_notm}} プラットフォームの VPC の使用量は、1 時間ごとに評価されます。  **これらのコストは見積もりにすぎません。** 実際のコストは、毎月の料金に反映されます。
 
 #### {{site.data.keyword.blockchainfull_notm}} Platform と Kubernetes サービスの使用量
 
-このクリップでは、単一の CA ノードを含む {{site.data.keyword.blockchainfull_notm}} プラットフォームの料金を表示する方法の簡単な例を示します。
+<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
 
-![使用量のモニタリング](../images/usage_monitoring.gif){: gif}
+![Monitoring your usage](../images/usage_monitoring.gif){: gif}
+-->
 
 {{site.data.keyword.cloud_notm}} ダッシュボードの上部にある**「管理」**にナビゲートして、**「請求および使用量」**をクリックして、左側のメニューの**「使用量」**をクリックします。 **「サービス」**サブセクションの下の円グラフには、その月に使用および消費したサービス・オファリングのタイプ別で、合計コストの明細が示されます。このグラフを使用すると、{{site.data.keyword.blockchainfull_notm}} Platform、Kubernetes サービス、およびストレージがどのように合計コストに寄与しているかを理解できます。
 
-スクロールダウンすると、リスト表示で、**タイプ**および**コスト**ごとの同様の明細を表示できます。 クラスターでプロビジョンした他のサービスとともに、「Kubernetes サービス」と「Blockchain Platform」がリストされます。これらの各項目の横にある**「プランの表示」**をクリックすると、メトリック別のコストの明細について理解できます。例えば、`VIRTUAL_PROCESSOR_CORE_HOURS` は、これまでに評価された VPC 時間の総数を表します。この値を使用すると、**$0.29 USD/1 時間の VPC** の料金設定のメトリックに基づく、課金される予定の金額を理解できます。
+スクロールダウンすると、リスト表示で、**タイプ**および**コスト**ごとの同様の明細を表示できます。 クラスターでプロビジョンした他のサービスとともに、「Kubernetes サービス」と「Blockchain Platform」がリストされます。これらの各項目の横にある**「プランの表示」**をクリックすると、メトリック別のコストの明細について理解できます。 例えば、`VIRTUAL_PROCESSOR_CORE_HOURS` は、これまでに評価された VPC 時間の総数を表します。 この値を使用すると、**$0.29 USD/1 時間の VPC** の料金設定のメトリックに基づく、課金される予定の金額を理解できます。
 
 #### IP 割り当て料金
 
-{{site.data.keyword.cloud_notm}} で Kubernetes クラスターをプロビジョンすると、IP 割り当てに対して毎月の固定料金が評価されます。この料金はゾーン別に課金されるため、クラスター内に 3 つのゾーンをプロビジョンする場合は、この料金に 3 を乗算します。以下の例は、単一ゾーンの料金を示しています。
+{{site.data.keyword.cloud_notm}} で Kubernetes クラスターをプロビジョンすると、IP 割り当てに対して毎月の固定料金が評価されます。 この料金はゾーン別に課金されるため、クラスター内に 3 つのゾーンをプロビジョンする場合は、この料金に 3 を乗算します。 以下の例は、単一ゾーンの料金を示しています。
 
 ![IP 割り当て料金](../images/ip_allocation_charge.png "Kubernetes クラスターの IP 割り当て料金")
 
-この料金は、「使用量」タイルの**「送り状」**タブに表示されます。IP 割り当ての料金を確認するには、**「次の繰り返し送り状 (Next Recurring Invoice)」**の下のリンクをクリックします。
+この料金は、「使用量」タイルの**「送り状」**タブに表示されます。 IP 割り当ての料金を確認するには、**「次の繰り返し送り状 (Next Recurring Invoice)」**の下のリンクをクリックします。
 
 #### ストレージの使用量
 
-{{site.data.keyword.cloud_notm}} のファイル・ストレージを使用している場合、コストは毎月評価されるため、ストレージ・コストの見積もりは月末まで表示されません。ただし、月全体を通してプロビジョンしたストレージは、**「セールス」** > **「オーダー」**の下の「使用量」タイルに明細としてリストされます。ピア、CA、または順序付けノードをデプロイしたときに動的にプロビジョンされたストレージの説明については、**「項目」**列を参照してください。
+{{site.data.keyword.cloud_notm}} のファイル・ストレージを使用している場合、コストは毎月評価されるため、ストレージ・コストの見積もりは月末まで表示されません。 ただし、月全体を通してプロビジョンしたストレージは、**「セールス」** > **「オーダー」**の下の「使用量」タイルに明細としてリストされます。 ピア、CA、または順序付けノードをデプロイしたときに動的にプロビジョンされたストレージの説明については、**「項目」**列を参照してください。
 
 ## ノードのコストの最適化
 {: #ibp-saas-pricing-shutdown}

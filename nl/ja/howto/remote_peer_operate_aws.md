@@ -19,7 +19,7 @@ subcollection: blockchain
 # AWS でのピアの操作
 {: #remote-peer-aws-operate}
 
-AWS 内で {{site.data.keyword.blockchainfull}} Platform ピアをセットアップした後に、いくつかの操作ステップを実行する必要があります。その後、ブロックチェーン・ネットワークの台帳を照会および呼び出すためのトランザクションをピアから発行できるようになります。 このステップでは、チャネルへの組織の追加、チャネルへのピアの参加、ピアでのチェーンコードのインストール、チャネルでのチェーンコードのインスタンス化、およびピアへのアプリケーションの接続を行います。 [Fabric SDK](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-with-sdk) または[コマンド・ライン](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate)を使用して、これらの操作ステップを実行できます。推奨されるパスは Fabric SDK ですが、この手順では、SDK の操作に精通していることが前提となっています。
+AWS 内で {{site.data.keyword.blockchainfull}} Platform ピアをセットアップした後に、いくつかの操作ステップを実行する必要があります。その後、ブロックチェーン・ネットワークの台帳を照会および呼び出すためのトランザクションをピアから発行できるようになります。 このステップでは、チャネルへの組織の追加、チャネルへのピアの参加、ピアでのチェーンコードのインストール、チャネルでのチェーンコードのインスタンス化、およびピアへのアプリケーションの接続を行います。 [Fabric SDK](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-with-sdk) または[コマンド・ライン](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-cli-operate)を使用して、これらの操作ステップを実行できます。 推奨されるパスは Fabric SDK ですが、この手順では、SDK の操作に精通していることが前提となっています。
 
 **注**: AWS 内の {{site.data.keyword.blockchainfull_notm}} Platform ピアは、{{site.data.keyword.blockchainfull_notm}} Platform でホストされているピアの全機能やサポートにアクセスすることはできません。 結果として、ネットワーク・モニターを使用してリモート・ピアを操作することはできません。 AWS 内でピアの実行を開始する前に、必ず[考慮事項](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about-limitations)を確認してください。
 
@@ -114,7 +114,7 @@ var peer = fabric_client.newPeer('grpcs://<AWS_EC2_dashboard_Public_DNS>:7051', 
 
     組織がチャネルに追加されたら、他のメンバーがトランザクション中にデジタル署名を検証できるように、ピアの署名証明書をチャネルに追加する必要があります。 証明書とチャネルを同期するだけで良いように、ピアはインストール時にその署名証明書をアップロードします。 ネットワーク・モニターの「チャネル」画面で、組織が参加したチャネルを見つけ、**「アクション」**ヘッダーの下にあるドロップダウン・リストから**「証明書の同期」**を選択します。 このアクションによって、チャネルのすべてのピアで証明書が同期されます。 join channel コマンドを発行する前にチャネル同期が完了できるように、数分待機することが必要になる場合があります。
 
-組織がチャネルのメンバーになったら、SDK を使用して、[ピアをチャネルに参加させる](https://fabric-sdk-node.github.io/release-1.4/Channel.html#joinChannel){: external}ことができます。順序付けサービスの URL とチャネル名を指定する必要があります。
+組織がチャネルのメンバーになったら、SDK を使用して、[ピアをチャネルに参加させる](https://fabric-sdk-node.github.io/release-1.4/Channel.html#joinChannel){: external}ことができます。 順序付けサービスの URL とチャネル名を指定する必要があります。
 
 ### SDK を使用したピアへのチェーンコードのインストール
 {: #remote-peer-aws-operate-install-cc-sdk}
@@ -542,4 +542,4 @@ Error: Error endorsing chaincode: rpc error: code = Unknown desc = chaincode err
 ```
 
 **解決策:**   
-管理者証明書がネットワーク・モニターにアップロードされた後に、証明書がチャネル上で同期されるようにしてください。 詳しくは、こちらの[手順](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-manage-certs)のステップ 5 を参照してください。ピアがチャネルに参加する前に、チャネル証明書を同期することが重要であることに留意してください。
+管理者証明書がネットワーク・モニターにアップロードされた後に、証明書がチャネル上で同期されるようにしてください。 詳しくは、こちらの[手順](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-operate#remote-peer-aws-operate-manage-certs)のステップ 5 を参照してください。 ピアがチャネルに参加する前に、チャネル証明書を同期することが重要であることに留意してください。

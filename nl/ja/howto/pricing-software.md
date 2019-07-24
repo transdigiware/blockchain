@@ -39,4 +39,4 @@ _この料金モデルの対象は、{{site.data.keyword.blockchainfull_notm}} P
 
 {{site.data.keyword.cloud_notm}} Private の VPC について詳しくは、{{site.data.keyword.IBM_notm}} Knowledge Center の [仮想プロセッサー・コア (VPC)](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/Inventory/overview/c_virtual_processor_core_licenses.html){: external} を参照してください。 [{{site.data.keyword.IBM_notm}} License Metric Tool](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/welcome/LMT_welcome.html){: external} を使用して、ライセンスを取得するために必要な VPC の数を判別するために使用できるレポートを構成および作成できます。
 
-さまざまなライセンス交付オプションが使用可能です。詳しくは[お問い合わせください](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}。
+さまざまなライセンス交付オプションが使用可能です。 詳しくは[お問い合わせください](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}。

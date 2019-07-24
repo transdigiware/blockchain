@@ -28,7 +28,7 @@ subcollection: blockchain
 ## 必要なリソース
 {: #console-deploy-icp-resources-required}
 
-コンソールと作成するコンポーネントの最小ハードウェア・リソース要件を {{site.data.keyword.cloud_notm}} Private システムが満たしていることを確認してください。 必要な vCPU/CPU の数は、インフラストラクチャー、ネットワーク設計、およびパフォーマンス要件によって異なります。{{site.data.keyword.cloud_notm}} の [デフォルトのリソース割り振りの表](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)を調べることにより、vCPU/CPU 要件の概算を行うことができます。ただし、割り振りは {{site.data.keyword.cloud_notm}} Private では若干異なります。実際のリソース割り振りは、ノードをデプロイすると、ブロックチェーン・コンソールに表示されます。
+コンソールと作成するコンポーネントの最小ハードウェア・リソース要件を {{site.data.keyword.cloud_notm}} Private システムが満たしていることを確認してください。 必要な vCPU/CPU の数は、インフラストラクチャー、ネットワーク設計、およびパフォーマンス要件によって異なります。 {{site.data.keyword.cloud_notm}} の [デフォルトのリソース割り振りの表](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)を調べることにより、vCPU/CPU 要件の概算を行うことができます。ただし、割り振りは {{site.data.keyword.cloud_notm}} Private では若干異なります。 実際のリソース割り振りは、ノードをデプロイすると、ブロックチェーン・コンソールに表示されます。
 
 **注:**  
 
@@ -38,7 +38,7 @@ subcollection: blockchain
 ## ストレージ
 {: #console-deploy-icp-storage}
 
-{{site.data.keyword.blockchainfull_notm}} Helm チャートでは、コンソールおよび作成するブロックチェーン・コンポーネントによって使用されるストレージをプロビジョンするために、動的プロビジョニングが使用されます。コンソールをデプロイする前に、コンソールおよびコンポーネント用に十分な量の補助ストレージを持つ storageClass を作成する必要があります。作成した storageClass の名前は、構成中に指定する必要があります。
+{{site.data.keyword.blockchainfull_notm}} Helm チャートでは、コンソールおよび作成するブロックチェーン・コンポーネントによって使用されるストレージをプロビジョンするために、動的プロビジョニングが使用されます。 コンソールをデプロイする前に、コンソールおよびコンポーネント用に十分な量の補助ストレージを持つ storageClass を作成する必要があります。 作成した storageClass の名前は、構成中に指定する必要があります。
 
 - デフォルト設定を使用した場合は、Helm チャートによって Helm リリースの名前でコンソール・データ用の永続ボリューム・クレームが新規作成されます。
 
@@ -60,19 +60,19 @@ subcollection: blockchain
 ## クラスター・イメージ・ポリシーの要件
 {: #console-deploy-icp-image-policy}
 
-ICP 3.2 以降では、[コンテナー・イメージ・セキュリティー](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_images/image_security.html)はデフォルトで有効になっています。そのため、Helm チャートのインストール時に指定した Docker Hub コンテナー・レジストリーを、トラステッド・レジストリーのリストに追加する必要があります。そうしないと、コンソール・デプロイメントがそのレジストリー内のイメージにアクセスできなくなります。以下の手順に従って、新しいイメージ・ポリシーを作成します。
+ICP 3.2 以降では、[コンテナー・イメージ・セキュリティー](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_images/image_security.html)はデフォルトで有効になっています。 そのため、Helm チャートのインストール時に指定した Docker Hub コンテナー・レジストリーを、トラステッド・レジストリーのリストに追加する必要があります。 そうしないと、コンソール・デプロイメントがそのレジストリー内のイメージにアクセスできなくなります。 以下の手順に従って、新しいイメージ・ポリシーを作成します。
 
-1. {{site.data.keyword.cloud_notm}} Private コンソールにログインします。 左側のナビゲーション・パネルで、**「管理」**、**「リソース・セキュリティー」**の順にクリックします。**「リソース・セキュリティー」**メニューで、**「イメージ・ポリシー」**にナビゲートし、**「イメージ・ポリシーの作成」**をクリックします。
+1. {{site.data.keyword.cloud_notm}} Private コンソールにログインします。 左側のナビゲーション・パネルで、**「管理」**、**「リソース・セキュリティー」**の順にクリックします。 **「リソース・セキュリティー」**メニューで、**「イメージ・ポリシー」**にナビゲートし、**「イメージ・ポリシーの作成」**をクリックします。
 
 2. **「ポリシーの詳細」**セクションで、以下のフィールドに次のように入力します。
-  - 新しいイメージ・ポリシーの**「名前」**を入力します。例えば、`ibp-imagepolicy` などです。
+  - 新しいイメージ・ポリシーの**「名前」**を入力します。 例えば、`ibp-imagepolicy` などです。
   - **「有効範囲」**で、`namespace` を選択します。
   - **「名前空間」**で、Helm チャートをインストールした名前空間を選択します。   
 
 3. **「ポリシーの詳細」**セクションで**「レジストリーの追加」**をクリックし、[Helm チャートをインストールした](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install-importing)ときに指定したイメージ・レジストリーの後に `/*` を付けて指定します。
   - 例えば、`<cluster_CA_domain>:8500/*`、または `<cluster_CA_domain>:8500/ibp/*` と `<cluster_CA_domain>:8500/op-tools/*` のレジストリーを指定できます。
 
-YAML ファイルおよび kubectl コマンド・ライン・ツールを使用して、新しいクラスター・イメージ・ポリシーを追加することもできます。YAML ファイルの例を以下に示します。
+YAML ファイルおよび kubectl コマンド・ライン・ツールを使用して、新しいクラスター・イメージ・ポリシーを追加することもできます。 YAML ファイルの例を以下に示します。
 
 ```
 apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
