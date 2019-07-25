@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-17"
+lastupdated: "2019-07-25"
 
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, install, Helm chart, PodSecurityPolicy
@@ -61,8 +61,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
         rule: RunAsAny
       fsGroup:
         rule: RunAsAny
-      requiredDropCapabilities:
-      - ALL
       allowedCapabilities:
       - NET_BIND_SERVICE
       - CHOWN
@@ -146,7 +144,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
     ```
     {:codeblock}
 
-3. Save the file below that defines the ClusterRoleBinding as `ibm-blockchain-platform-clusterrolebinding.yaml`. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** section of the configuration page when deploying the Helm chart.
+3. Save the file below that defines the ClusterRoleBinding as `ibm-blockchain-platform-clusterrolebinding.yaml`. Replace `<namespace>` with the name of the target namespace. If you decide to change the ServiceAccount name in the file below, you need to provide the name to the `Service account name` field in the **All Parameters** section of the configuration page when deploying the Helm chart.
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -160,7 +158,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Helm chart requires speci
     subjects:
     - kind: ServiceAccount
       name: default
-      namespace: default
+      namespace: <namespace>
     ```
     {:codeblock}
 
@@ -199,7 +197,7 @@ Once you have saved the PodSecurityPolicy, ClusterRole, and ClusterRoleBinding Y
 
 1. Download the Helm chart of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private from [Passport Advantage Online](https://www.ibm.com/software/passportadvantage/pao_customer.html){: external}.
 
-2. If you haven't already, log in to your {{site.data.keyword.cloud_notm}} Private cluster.
+2. If you haven't already, log in to your {{site.data.keyword.cloud_notm}} Private cluster and select the target namespace of your deployment.
 
   ```
   cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
@@ -212,15 +210,7 @@ Once you have saved the PodSecurityPolicy, ClusterRole, and ClusterRoleBinding Y
   ```
   {:codeblock}
 
-4. Find the name of the repository in {{site.data.keyword.cloud_notm}} Private to upload your Helm chart by using the following command:
-  ```
-  cloudctl catalog repos
-  ```
-  {:codeblock}
-
-  When this command completes successfully, you can see a list of repo's in your cluster. Choose the name of the target repo and save it. You need to use it in the command below.
-
-5. Import Helm chart by using the command line. From the directory where you stored the downloaded Helm chart package from PPA, run the following command in the {{site.data.keyword.cloud_notm}} Private CLI to import the Helm chart into your {{site.data.keyword.cloud_notm}} Private cluster.
+4. Import Helm chart by using the command line. From the directory where you stored the downloaded Helm chart package from PPA, run the following command in the {{site.data.keyword.cloud_notm}} Private CLI to import the Helm chart into your {{site.data.keyword.cloud_notm}} Private cluster.
 
   ```
   cloudctl catalog load-archive --archive <archive-name> --registry <cluster_CA_domain>:8500 --repo <repo-name>
@@ -230,7 +220,9 @@ Once you have saved the PodSecurityPolicy, ClusterRole, and ClusterRoleBinding Y
   Replace the following values:
   - `<archive-name>` with the name of the downloaded `.tgz` file.
   - `<cluster_CA_domain>:8500` with domain that you use to log in to your {{site.data.keyword.cloud_notm}} Private cluster.
-  - `<repo-name>` with the helm repository where you want to upload the chart. Run 'cloudctl catalog repos' to list your repositories.
+  - `<repo-name>` with the Helm repository where you want to upload the chart.
+
+    You create a new repository for your {{site.data.keyword.blockchainfull_notm}} Platform Helm carts, ie "blockchain-repo", by providing a new repo name to the install command when you are issuing the command for the first time. You will then be able to find the new repository on your cluster by running `cloudctl catalog repos`. After creating the repository, select the same repository when you are installing your Helm chart on additional namespaces.
 
   When this command completes successfully, you can see something that is similar to the following information:
 
