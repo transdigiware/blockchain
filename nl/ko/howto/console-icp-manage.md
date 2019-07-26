@@ -61,7 +61,7 @@ subcollection: blockchain
 ### 콘솔에서 사용자 삭제
 {: #console-icp-manage-icp-remove-user}
 
-관리자 역할의 사용자인 경우 콘솔에 대한 사용자의 액세스 권한을 제거할 수 있습니다. 콘솔의 **사용자** 탭에서 특정 사용자 행의 시작 부분에 있는 선택란을 클릭하십시오. 그런 다음 **새 사용자 추가** 단추 옆에 있는 표의 맨 위에 있는 **휴지통** 아이콘을 클릭하십시오. 표에서 사용자를 제거하고 나면 콘솔에 다시 로그인할 수 없습니다. 
+관리자 역할의 사용자인 경우 콘솔에 대한 사용자의 액세스 권한을 제거할 수 있습니다. 콘솔의 **사용자** 탭에서 특정 사용자 행의 시작 부분에 있는 선택란을 클릭하십시오. 그런 다음 **새 사용자 추가** 단추 옆에 있는 표의 맨 위에 있는 **휴지통** 아이콘을 클릭하십시오. 표에서 사용자를 제거하고 나면 콘솔에 다시 로그인할 수 없습니다.
 
 ## {{site.data.keyword.blockchainfull_notm}} API 사용
 {: #console-icp-manage-apis}
@@ -83,7 +83,7 @@ API를 사용하려면 다음 정보를 수집해야 합니다.
 
 각 API 키는 사용자가 수행할 수 있는 기능을 제어하는 역할과 연관됩니다. API 키는 사용자 이름과 비밀번호를 사용하여 콘솔에 로그인하는 사용자의 역할과 동일한 액세스 정책 역할을 사용합니다. 각 역할이 수행할 수 있는 조치 목록은 [사용자 관리](#console-icp-manage-users) 섹션의 표를 참조하십시오. 관리자 역할만 API 키를 작성할 수 있으므로 콘솔 관리자는 독자 및 작성자 사용자용 API 키를 작성해야 합니다. API 키는 만료되지 않습니다. 그러므로 사용하지 않는 API 키는 콘솔 관리자가 삭제해야 합니다.
 
-API 키를 관리하기 위해 3개의 API를 사용할 수 있습니다. 
+API 키를 관리하기 위해 3개의 API를 사용할 수 있습니다.
 - [API 키 작성](#console-icp-manage-create-api-key)
 - [API 키 보기](#console-icp-manage-view-api-keys)
 - [API 키 삭제](#console-icp-manage-delete-api-keys)
@@ -167,7 +167,7 @@ API를 사용하여 콘솔에 로그인하거나 콘솔 API에 액세스할 수 
 - [사용자 추가](#console-icp-manage-add-users-api)
 - [사용자 제거](#console-icp-manage-remove-users-api)
 
-콘솔의 설정 및 사용자를 관리하고 네트워크의 노드를 관리하는 API의 경우, TLS 인증서에 대한 요구사항을 무시하도록 ``-K`` 또는 ``--insecure`` 플래그를 추가해야 합니다. 또한 브라우저를 사용하여 콘솔에서 TLS 인증서를 다운로드할 수도 있습니다. 
+콘솔의 설정 및 사용자를 관리하고 네트워크의 노드를 관리하는 API의 경우, TLS 인증서에 대한 요구사항을 무시하도록 ``-K`` 또는 ``--insecure`` 플래그를 추가해야 합니다. 또한 브라우저를 사용하여 콘솔에서 TLS 인증서를 다운로드할 수도 있습니다.
 
 #### 사용자 나열
 {: #console-icp-manage-list-users-api}
@@ -177,7 +177,7 @@ API를 사용하여 콘솔에 로그인하거나 콘솔 API에 액세스할 수 
 |-------------|-----------|
 | 경로 | GET `<API_endpoint>`/ak/api/v1/permissions/users |
 | **응답 본문 필드** | |
-| <ul><li>`uuids`</li><li>`email`</li><li>`roles`</li><li>`created`</li></ul>| <ul><li>`string` 사용자 ID</li><li>`string` 이메일 주소</li><li>`["<role>"]`</li><li>`number` Unix 시간소인(밀리초) </li></ul>|
+| <ul><li>`uuids`</li><li>`email`</li><li>`roles`</li><li>`created`</li></ul>| <ul><li>`string` 사용자 ID</li><li>`string` 이메일 주소</li><li>`["<role>"]`</li><li>`number` Unix 시간소인(밀리초)</li></ul>|
 | 필요한 권한 | 읽기 권한 |
 
 #### curl 요청 예: 사용자 나열
@@ -281,7 +281,7 @@ curl -X DELETE \
 
 [{{site.data.keyword.blockchainfull_notm}} Platform API 참조](https://test.cloud.ibm.com/apidocs/blockchain)에서는 사용할 수 있는 전체 API 세트를 볼 수 있습니다.
 
-사용자는 API를 사용하여 {{site.data.keyword.cloud_notm}} Private에서 콘솔과 통신하기 때문에 {{site.data.keyword.cloud_notm}}에세 제공하는 권한을 콘솔에서 제공하는 인증과 함께 사용해야 합니다. API 참조의 ``Bearer Auth``를 ``-u <api_key>:<api_secret>``으로 대체하십시오. 또한 ``-K`` 또는 ``--insecure`` 플래그를 명령에 추가하거나 브라우저를 사용하여 콘솔 TLS 인증서를 다운로드해야 할 수 있습니다. **시험 사용** 탭에서는 {{site.data.keyword.cloud_notm}} Private의 네트워크용 API를 테스트할 수 없습니다. 
+사용자는 API를 사용하여 {{site.data.keyword.cloud_notm}} Private에서 콘솔과 통신하기 때문에 {{site.data.keyword.cloud_notm}}에세 제공하는 권한을 콘솔에서 제공하는 인증과 함께 사용해야 합니다. API 참조의 ``Bearer Auth``를 ``-u <api_key>:<api_secret>``으로 대체하십시오. 또한 ``-K`` 또는 ``--insecure`` 플래그를 명령에 추가하거나 브라우저를 사용하여 콘솔 TLS 인증서를 다운로드해야 할 수 있습니다. **시험 사용** 탭에서는 {{site.data.keyword.cloud_notm}} Private의 네트워크용 API를 테스트할 수 없습니다.
 
 예를 들어 아래의 API 호출은 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}의 서비스 인스턴스에서 실행하는 모든 컴포넌트에 대한 정보를 리턴합니다.
 ```
@@ -357,23 +357,23 @@ API를 사용하여 콘솔이 배치된 클러스터에 노드를 작성하고 �
 ### 스마트 계약 컨테이너 로그 보기
 {: #console-icp-manage-container-logs}
 
-스마트 계약 관련 문제가 발생할 경우 문제를 디버깅하기 위해 스마트 계약 또는 체인코드, 컨테이너 로그를 확인할 수 있습니다. 다음 명령을 실행하여 스마트 계약 컨테이너 로그를 확인할 수 있습니다. 
+스마트 계약 관련 문제가 발생할 경우 문제를 디버깅하기 위해 스마트 계약 또는 체인코드, 컨테이너 로그를 확인할 수 있습니다. 다음 명령을 실행하여 스마트 계약 컨테이너 로그를 확인할 수 있습니다.
 
 ```
 kubectl  logs -f <peer_ped> -c fluentd
 ```
 {:codeblock}
 
-`<peer_pod>`을 체인코드가 실행 중인 피어 팟(Pod)의 이름으로 대체하십시오. `kubectl get po` 명령을 사용하여 실행 중인 팟(Pod)의 목록을 가져오십시오. 
+`<peer_pod>`을 체인코드가 실행 중인 피어 팟(Pod)의 이름으로 대체하십시오. `kubectl get po` 명령을 사용하여 실행 중인 팟(Pod)의 목록을 가져오십시오.
 
 ## 노드 패치 설치
 {: #console-icp-manage-patch}
 
-시간 경과에 따라 피어, CA 및 순서 지정자 노드에 대한 기본 {{site.data.keyword.IBM_notm}} Hyperledger Fabric Docker 이미지를 업데이트해야 할 수 있습니다(예: 보안 업데이트 사용 또는 새 Fabric 지점 릴리스로). {{site.data.keyword.blockchainfull_notm}} Platform helm 차트를 업그레이드할 때 Fabric 이미지를 업데이트할 수 있습니다. 
+시간 경과에 따라 피어, CA 및 순서 지정자 노드에 대한 기본 {{site.data.keyword.IBM_notm}} Hyperledger Fabric Docker 이미지를 업데이트해야 할 수 있습니다(예: 보안 업데이트 사용 또는 새 Fabric 지점 릴리스로). {{site.data.keyword.blockchainfull_notm}} Platform helm 차트를 업그레이드할 때 Fabric 이미지를 업데이트할 수 있습니다.
 
 Helm 차트를 업그레이드하고 나면 컴포넌트 업데이트를 사용할 수 있는 경우 노드 타일에서 **패치 사용 가능** 텍스트를 찾을 수 있습니다. 이 패치는 준비가 되면 언제든 노드에 설치할 수 있습니다. 이러한 패치는 선택사항이지만 권장됩니다. 콘솔로 가져온 노드는 패치할 수 없습니다.
 
 패치는 한 번에 하나의 노드에만 적용됩니다. 패치가 적용되는 동안에는 노드를 사용하여 요청 또는 트랜잭션을 처리할 수 없습니다. 따라서 서비스 중단을 방지하려면 가능한 경우 동일한 유형의 다른 노드가 요청을 처리할 수 있는지 확인해야 합니다. 노드에 패치를 설치하는 작업을 완료하는 데 약 1분이 걸리고 업데이트가 완료되면 노드가 요청을 처리할 준비가 됩니다.
 {:note}
 
-노드에 패치를 적용하려면 노드 타일을 열고 **패치 설치** 단추를 클릭하십시오. 콘솔로 가져온 노드는 패치할 수 없습니다. 
+노드에 패치를 적용하려면 노드 타일을 열고 **패치 설치** 단추를 클릭하십시오. 콘솔로 가져온 노드는 패치할 수 없습니다.

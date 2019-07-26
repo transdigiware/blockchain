@@ -28,7 +28,7 @@ subcollection: blockchain
 ## 필수 리소스
 {: #console-deploy-icp-resources-required}
 
-사용자의 {{site.data.keyword.cloud_notm}} Private 시스템이 콘솔 및 작성하는 컴포넌트에 대한 최소 하드웨어 리소스 요구사항을 충족하는지 확인하십시오. 필요한 vCPU/CPU 수는 인프라, 네트워크 디자인 및 성능 요구사항에 따라 달라질 수 있습니다. 대략적인 vCPU/CPU 요구사항은 할당량이 {{site.data.keyword.cloud_notm}} Private에서 약간 다르더라도 {{site.data.keyword.cloud_notm}}에 대한 [기본 리소스 할당 표](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)를 조사하여 작성할 수 있습니다. 실제 리소스 할당은 노드를 배치할 때 블록체인 콘솔에서 볼 수 있습니다. 
+사용자의 {{site.data.keyword.cloud_notm}} Private 시스템이 콘솔 및 작성하는 컴포넌트에 대한 최소 하드웨어 리소스 요구사항을 충족하는지 확인하십시오. 필요한 vCPU/CPU 수는 인프라, 네트워크 디자인 및 성능 요구사항에 따라 달라질 수 있습니다. 대략적인 vCPU/CPU 요구사항은 할당량이 {{site.data.keyword.cloud_notm}} Private에서 약간 다르더라도 {{site.data.keyword.cloud_notm}}에 대한 [기본 리소스 할당 표](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)를 조사하여 작성할 수 있습니다. 실제 리소스 할당은 노드를 배치할 때 블록체인 콘솔에서 볼 수 있습니다.
 
 **참고:**  
 
@@ -38,7 +38,7 @@ subcollection: blockchain
 ## 스토리지
 {: #console-deploy-icp-storage}
 
-{{site.data.keyword.blockchainfull_notm}} Helm 차트는 동적 프로비저닝을 사용하여 작성하는 블록체인 컴포넌트 및 콘솔에서 사용할 스토리지를 프로비저닝합니다. 콘솔을 배치하기 전에 콘솔 및 컴포넌트에 대한 충분한 양의 백업 스토리지가 있는 storageClass를 작성해야 합니다. 구성 중에 작성한 storageClass의 이름을 제공해야 합니다. 
+{{site.data.keyword.blockchainfull_notm}} Helm 차트는 동적 프로비저닝을 사용하여 작성하는 블록체인 컴포넌트 및 콘솔에서 사용할 스토리지를 프로비저닝합니다. 콘솔을 배치하기 전에 콘솔 및 컴포넌트에 대한 충분한 양의 백업 스토리지가 있는 storageClass를 작성해야 합니다. 구성 중에 작성한 storageClass의 이름을 제공해야 합니다.
 
 - 기본 설정을 사용하는 경우 콘솔 데이터에 대해 이름이 Helm 릴리스인 지속적 볼륨 청구가 Helm 차트에서 새로 작성됩니다.
 
@@ -46,33 +46,33 @@ subcollection: blockchain
 ## 콘솔 배치를 위한 전제조건
 {: #console-deploy-icp-prerequisites}
 
-1. {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 설치하려면 먼저 [{{site.data.keyword.cloud_notm}} Private을 설치](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)하고 [{{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console_helm-install)해야 합니다. 
+1. {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 설치하려면 먼저 [{{site.data.keyword.cloud_notm}} Private을 설치](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)하고 [{{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console_helm-install)해야 합니다.
 
-2. {{site.data.keyword.blockchainfull_notm}} Platform 배치용 사용자 정의 네임스페이스를 새로 작성해야 합니다. 네임스페이스는 [필요한 PodSecurityPolicy](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install-prereqs-pod-security-requirements)를 사용해야 합니다. 예를 들어 개발, 스테이징 및 프로덕션 목적의 여러 환경을 작성하기 위해 블록체인 네트워크를 여러 개 작성하려는 경우 고유한 네임스페이스를 환경별로 작성해야 합니다. 네임스페이스당 하나의 Helm 차트만 배치할 수 있으므로 콘솔의 다중 인스턴스가 동일한 클러스터에서 실행되도록 하려면 별도의 네임스페이스를 사용해야 합니다. 
+2. {{site.data.keyword.blockchainfull_notm}} Platform 배치용 사용자 정의 네임스페이스를 새로 작성해야 합니다. 네임스페이스는 [필요한 PodSecurityPolicy](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install-prereqs-pod-security-requirements)를 사용해야 합니다. 예를 들어 개발, 스테이징 및 프로덕션 목적의 여러 환경을 작성하기 위해 블록체인 네트워크를 여러 개 작성하려는 경우 고유한 네임스페이스를 환경별로 작성해야 합니다. 네임스페이스당 하나의 Helm 차트만 배치할 수 있으므로 콘솔의 다중 인스턴스가 동일한 클러스터에서 실행되도록 하려면 별도의 네임스페이스를 사용해야 합니다.
 
 3. {{site.data.keyword.cloud_notm}} Private 콘솔에서 CA의 클러스터 프록시 IP 주소 값을 검색하십시오. **참고:** 프록시 IP에 액세스하려면 [클러스터 관리자](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/user_management/assign_role.html){: external}여야 합니다. {{site.data.keyword.cloud_notm}} Private 클러스터에 로그인하십시오. 왼쪽 탐색 패널에서 **플랫폼**, **노드**를 차례로 클릭하여 클러스터에 정의되어 있는 노드를 표시하십시오. 역할이 `proxy`인 노드를 클릭한 후 테이블에서 `Host IP`의 값을 복사하십시오. **중요:** 이 값을 저장하십시오. 이 값은 Helm 차트의 `Proxy IP` 필드를 구성할 때 사용하게 됩니다.
 
-4. 배치 시 클러스터 Docker 레지스트리에서 필수 이미지를 다운로드하도록 해주는 [이미지 보안 정책](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-image-policy)을 작성하십시오. 
+4. 배치 시 클러스터 Docker 레지스트리에서 필수 이미지를 다운로드하도록 해주는 [이미지 보안 정책](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-image-policy)을 작성하십시오.
 
 5. 콘솔에 처음 로그인할 때 사용할 비밀번호를 작성한 후 {{site.data.keyword.cloud_notm}} Private의 시크릿 오브젝트에 저장하십시오. 시크릿을 작성하는 단계는 [다음 섹션](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret)에 있습니다.
 
 
-## 클러스터 이미지 정책 요구사항 
+## 클러스터 이미지 정책 요구사항
 {: #console-deploy-icp-image-policy}
 
 [컨테이너 이미지 보안](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_images/image_security.html)은 ICP 3.2+에서 기본적으로 사용으로 설정되어 있습니다. 따라서 신뢰할 수 있는 레지스트리 목록에 Helm 차트를 설치할 때 지정한 Docker 허브 컨테이너 레지스트리를 추가해야 합니다. 그렇지 않으면 콘솔 배치가 해당 레지스트리의 이미지에 액세스할 수 없습니다. 새 이미지 정책을 작성하려면 아래 단계를 따르십시오.
 
 1. {{site.data.keyword.cloud_notm}} Private 콘솔에 로그인하십시오. 왼쪽 탐색 패널에서 **관리**를 클릭한 후 **리소스 보안**을 클릭하십시오. **리소스 보안** 메뉴 아래에서 **이미지 정책**으로 이동한 후 **이미지 정책 작성**을 클릭하십시오.
 
-2. **정책 세부사항** 섹션에서 다음 필드를 완료하십시오. 
+2. **정책 세부사항** 섹션에서 다음 필드를 완료하십시오.
   - 새 이미지 정책의 **이름**을 입력하십시오. 예를 들면 `ibp-imagepolicy`입니다.
   - **범위**에서 `namespace`를 선택하십시오.
-  - **네임스페이스**에서 Helm 차트를 설치한 네임스페이스를 선택하십시오.    
+  - **네임스페이스**에서 Helm 차트를 설치한 네임스페이스를 선택하십시오.   
 
 3. **정책 세부사항** 섹션에서 **레지스트리 추가**를 클릭하고 [Helm 차트를 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install-importing)할 때 지정한 이미지 레지스트리를 뒤에 `/*`가 오도록 하여 제공하십시오.
   - 예를 들어 `<cluster_CA_domain>:8500/*` 또는 `<cluster_CA_domain>:8500/ibp/*` 및 `<cluster_CA_domain>:8500/op-tools/*`의 레지스트리를 제공할 수 있습니다.
 
-YAML 파일 및 kubectl 명령행 도구를 사용하여 새 클러스터 이미지 정책을 추가할 수도 있습니다. 아래에서 예제 YAML 파일을 찾을 수 있습니다. 
+YAML 파일 및 kubectl 명령행 도구를 사용하여 새 클러스터 이미지 정책을 추가할 수도 있습니다. 아래에서 예제 YAML 파일을 찾을 수 있습니다.
 
 ```
 apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
@@ -283,7 +283,7 @@ helm install --name jnchart2 mycluster/ibm-blockchain-platform \
 구성 매개변수를 완료하고 **설치** 단추를 클릭한 후 **Helm 릴리스 보기** 단추를 클릭하여 배치를 보십시오. 성공한 경우 배치 테이블의 `DESIRED`, `CURRENT`, `UP TO DATE` 및 `AVAILABLE` 필드에 값 1이 표시됩니다. 새로 고치기를 클릭하고 테이블이 업데이트될 때까지 기다려야 할 수 있습니다.
 
 **배치** 개요 화면으로 이동하여 작성된 팟(Pod)을 클릭하면 배치 세부사항을 확인할 수 있습니다. Helm 차트 배치는 클러스터에 5개의 컨테이너를 작성합니다.
-- **optools**: 콘솔 UI입니다. 
+- **optools**: 콘솔 UI입니다.
 - **deployer**: 콘솔에서 배치와 통신할 수 있는 도구입니다.
 - **configtxlator**:콘솔에서 채널 업데이트를 읽고 작성하는 데 사용되는 도구입니다.
 - **couchdb**: 권한 정보를 포함한 콘솔 데이터를 저장하는 CouchDB의 인스턴스입니다.
@@ -304,4 +304,4 @@ Helm 차트를 프로비저닝한 관리자는 다른 사용자에게 콘솔 액
 
 콘솔에 액세스한 후에는 콘솔 UI의 **노드** 탭을 볼 수 있습니다. 이 화면에서 로컬 클러스터에 컴포넌트를 배치할 수 있습니다. 콘솔 사용을 시작하려면 [네트워크 빌드 튜토리얼](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)을 방문하십시오. 이 탭에서는 다른 노드에 작성된 노드를 작동시킬 수도 있습니다. 자세한 정보는 [노드 가져오기](/docs/services/blockchain/howto?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes)를 참조하십시오.
 
-콘솔에 액세스할 수 있는 사용자를 관리하는 방법을 알아보려면 {{site.data.keyword.blockchainfull_notm}} Platform API를 사용하여 콘솔 및 블록체인 컴포넌트의 로그를 확인한 후 [{{site.data.keyword.cloud_notm}} Private에서 콘솔 관리](/docs/services/blockchain/howto?topic=blockchain-console-icp-manage#console-icp-manage)를 방문하십시오. 
+콘솔에 액세스할 수 있는 사용자를 관리하는 방법을 알아보려면 {{site.data.keyword.blockchainfull_notm}} Platform API를 사용하여 콘솔 및 블록체인 컴포넌트의 로그를 확인한 후 [{{site.data.keyword.cloud_notm}} Private에서 콘솔 관리](/docs/services/blockchain/howto?topic=blockchain-console-icp-manage#console-icp-manage)를 방문하십시오.

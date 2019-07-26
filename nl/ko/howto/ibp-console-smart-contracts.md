@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -71,9 +71,9 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull_notm}} 콘솔은 스마트 계약의 개발이 아니라 *배치*를 관리합니다. 스마트 계약의 개발에 관심이 있는 경우, Hyperledger Fabric 커뮤니티에 의해 제공되는 튜토리얼 및 {{site.data.keyword.IBM_notm}}에 의해 제공되는 도구를 사용하여 시작할 수 있습니다.
 
 - 다중 당사자 간에 트랜잭션을 수행하기 위해 스마트 계약을 사용하는 방법을 알아보려면 Hyperledger Fabric 문서에서 [애플리케이션 개발 주제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external}를 참조하십시오.
-- 스마트 계약 빌드를 시작할 준비가 되었으면 [{{site.data.keyword.blockchainfull_notm}} Visual Studio 코드 확장](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}을 사용하여 자체 스마트 계약 프로젝트 빌드를 시작하십시오. 또한 해당 확장을 사용하여 [Visual Studio 코드에서 네트워크로 직접 연결](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-vscode)하고 인라인 튜토리얼을 탐색할 수 있습니다. 
+- 스마트 계약 빌드를 시작할 준비가 되었으면 [{{site.data.keyword.blockchainfull_notm}} Visual Studio 코드 확장](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}을 사용하여 자체 스마트 계약 프로젝트 빌드를 시작하십시오. 또한 해당 확장을 사용하여 [Visual Studio 코드에서 네트워크로 직접 연결](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-vscode)하고 인라인 튜토리얼을 탐색할 수 있습니다.
 - 스마트 계약 개발에 대한 빠른 튜토리얼의 경우 [IBM Blockchain Platform VS Code 확장으로 스마트 계약 개발](https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/){: external}을 참조하십시오.
-- 애플리케이션을 사용하여 스마트 계약과 상호작용하는 데 필요한 더 많은 엔드-투-엔드 튜토리얼을 보려면 [Hyperledger Fabric 상업 어음 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}을 참조하십시오. 
+- 애플리케이션을 사용하여 스마트 계약과 상호작용하는 데 필요한 더 많은 엔드-투-엔드 튜토리얼을 보려면 [Hyperledger Fabric 상업 어음 튜토리얼](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}을 참조하십시오.
 - 액세스 제어 메커니즘을 스마트 계약에 통합하는 방법에 대해 알아보려면 [개발자용 체인코드](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}를 참조하십시오.
 - 설치할 준비가 되었으면 스마트 계약을 피어에 설치할 수 있도록 [.cds 형식](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}으로 패키징해야 합니다. 자세한 정보는 [스마트 계약 패키지](/docs/services/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract)를 참조하십시오. 또는 [피어 cli 명령](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}을 사용하여 패키지를 빌드할 수 있습니다.
 <!-- Update the tutorial link to release1-4 when it is published -->
@@ -107,8 +107,9 @@ subcollection: blockchain
 2. 열리는 사이드 패널에서 스마트 계약을 인스턴스화할 채널을 선택하십시오. 사용자가 작성한 `channel1` 채널을 선택할 수 있습니다. 그런 후 **다음**을 클릭하십시오.
 3. 다음 절에 설명된 [스마트 계약에 대한 보증 정책](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)을 지정하십시오. 다중 조직이 채널의 멤버인 경우 스마트 계약 트랜잭션을 보증하는 데 필요한 조직의 수를 선택할 수 있습니다.
 4. 또한 보증 정책에 포함시킬 조직 구성원을 선택해야 합니다. 튜토리얼에 따른 경우, `org1msp`일 것이며 **네트워크 빌드** 및 **네트워크에 가입** 튜토리얼을 둘 다 완료한 경우, `org2msp`일 것입니다.
-5. 스마트 계약에 Fabric 개인용 데이터 콜렉션 정의가 포함된 경우, 연관된 콜렉션 구성 JSON 파일을 업로드해야 합니다. 그렇지 않으면 이 단계를 건너뛸 수 있습니다. [개인용 데이터](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) 사용에 대한 자세한 정보는 이 주제를 참조하십시오.
-6. 마지막 패널에서 스마트 계약을 시작할 때 실행할 스마트 계약 함수와 해당 함수에 전달할 연관 인수를 함께 지정하도록 프롬프트됩니다.
+5. 피어 선택 패널에서 채널의 멤버인 조직에서 발생한 드롭 다운 목록에서 피어를 선택하십시오. 
+6. 스마트 계약에 Fabric 개인용 데이터 콜렉션 정의가 포함된 경우, 연관된 콜렉션 구성 JSON 파일을 업로드해야 합니다. 그렇지 않으면 이 단계를 건너뛸 수 있습니다. [개인용 데이터](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) 사용에 대한 자세한 정보는 이 주제를 참조하십시오.
+7. 마지막 패널에서 스마트 계약을 시작할 때 스마트 계약 초기화 기능의 이름과 해당 함수에 전달할 연관 인수를 함께 지정하도록 프롬프트됩니다.
 
 왼쪽 탐색에서 채널 아이콘을 클릭하고 표에서 채널을 선택한 다음 **채널 세부사항** 탭을 클릭하여 채널에서 인스턴스화된 모든 스마트 계약을 볼 수 있습니다.
 
@@ -134,6 +135,8 @@ subcollection: blockchain
 
 JSON 형식으로 정책을 지정하려면 **고급** 단추를 클릭하십시오. 이 방법을 사용하면 채널의 특정 구성원이 기타 대부분의 구성원과 함께 트랜잭션을 유효성 검증하도록 요청하는 것과 같이 보다 복잡한 보증을 지정할 수 있습니다. 추가 [고급 보증 정책 예제](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external}는 Hyperledger Fabric 문서에서 찾을 수 있습니다. 보증 정책을 JSON으로 작성하는 방법에 대한 자세한 정보는 [Hyperledger Fabric Node SDK 문서](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}를 참조하십시오.
 
+새 조직에서 채널에 가입하고 체인코드를 설치할 때 보증 정책은 자동으로 업데이트되지 않습니다. 예를 들어, 보증 정책에서 5개 조직 중 2개 조직에서 트랜잭션을 보증해야 하는 경우 새로운 조직에서 채널에 가입할 때 6개 조직 중 2개 조직이 필요하도록 정책이 업데이트되지 않습니다. 대신 새 조직이 정책에 나열되지 않으며 트랜잭션을 보증할 수 없습니다. 관련 체인코드를 업데이트하고 정책을 업그레이드하여 다른 조직을 보증 정책에 추가할 수 있습니다.
+
 ## 스마트 계약 업그레이드
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -143,7 +146,8 @@ JSON 형식으로 정책을 지정하려면 **고급** 단추를 클릭하십시
 3. 개인용 데이터 콜렉션이 변경된 경우(예: 조직이 추가되거나 제거됨) 스마트 계약을 업그레이드해야 합니다. 또는 새 개인용 데이터 콜렉션이 콜렉션 구성 JSON 파일에 추가될 때마다 이 조치를 사용하십시오.
 4. 스마트 계약 초기화 인수가 변경되었습니다.
 
-**인스턴스화된 스마트 계약을 업그레이드하기 전에 스마트 계약의 이전 레벨을 실행 중인 채널의 모든 피어에 새 버전의 스마트 계약을 설치해야 합니다.**
+{:important}
+인스턴스화된 스마트 계약을 업그레이드하기 전에 스마트 계약의 이전 레벨을 실행 중인 채널의 모든 피어에 새 버전의 스마트 계약을 설치해야 합니다.
 
 ### 스마트 계약을 업그레이드하는 방법
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -160,9 +164,10 @@ JSON 형식으로 정책을 지정하려면 **고급** 단추를 클릭하십시
 
  1. 드롭 다운 목록에서 채널에서 업그레이드할 스마트 계약 버전을 선택하십시오.
  2. 채널 구성원을 추가하거나 제거하여 보증 정책을 업데이트하십시오. 또한 **고급**을 클릭하여 기존 정책을 수정하는 새 JSON 형식의 문자열을 붙여넣을 수 있습니다.
- 3. 개인용 데이터 콜렉션 구성 파일을 스마트 계약과 연관시키려는 경우 JSON 파일을 업로드할 수 있습니다. 또는 기존 콜렉션 구성을 업데이트하려는 경우 JSON 파일을 업로드할 수 있습니다.   
+ 3. 피어 선택 패널에서 스마트 계약을 업그레이드하기 위해 프로토콜을 승인할 수 있는 피어를 선택해야 합니다. 그러므로 스마트 계약이 채널에서 마지막으로 인스턴스화되기 전에 채널의 멤버였던 조직에서 발생한 드롭 다운 목록에서 피어를 선택해야 합니다. 
+ 4. 개인용 데이터 콜렉션 구성 파일을 스마트 계약과 연관시키려는 경우 JSON 파일을 업로드할 수 있습니다. 또는 기존 콜렉션 구성을 업데이트하려는 경우 JSON 파일을 업로드할 수 있습니다.   
  스마트 계약이 이전에 콜렉션 구성 파일로 인스턴스화된 경우 이 단계 중에 이전 버전 또는 새 버전의 콜렉션 구성 파일을 **반드시** 다시 업로드해야 합니다.  
- 4. (선택사항) 매개변수가 변경된 경우 스마트 계약 초기화 인수 값을 수정하십시오. 확실하지 않은 경우, 스마트 계약 개발자와 함께 확인하십시오. 변경되지 않은 경우 이 필드를 공백으로 둘 수 있습니다.
+ 5. (선택사항) 매개변수가 변경된 경우 스마트 계약 초기화 인수 값을 수정하십시오. 확실하지 않은 경우, 스마트 계약 개발자와 함께 확인하십시오. 변경되지 않은 경우 이 필드를 공백으로 둘 수 있습니다.
 
 스마트 계약을 업그레이드한 후, 채널에서 인스턴스화된 계약의 버전을 변경하고 새 버전을 설치한 모든 피어에 대해 스마트 계약 컨테이너를 변경하십시오. 개인용 데이터 콜렉션을 사용 중인 경우 채널에 앵커 피어를 구성했는지 확인하십시오.
 

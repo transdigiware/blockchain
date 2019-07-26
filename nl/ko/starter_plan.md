@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,11 +22,14 @@ subcollection: blockchain
 # 스타터 플랜 정보
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 {{site.data.keyword.blockchainfull}} Platform 스타터 플랜은 조직이 다중 조직 블록체인 네트워크를 시뮬레이션하고 신속하게 애플리케이션을 개발하며 샘플 스마트 계약 및 비즈니스 네트워크에 대한 작업을 수행할 수 있도록 하는 엔트리 레벨 옵션입니다. 또한 다른 멤버십 옵션과 동일한 UI 경험을 제공하여 학습 과정을 줄여줍니다. 2018년 10월 4일 이후에 작성된 새 스타터 플랜 네트워크는 Hyperledger Fabric V1.2.1에 빌드됩니다. 이전 스타터 플랜 네트워크는 Fabric V1.1.0 레벨로 유지됩니다.
 {:shortdesc}
+
+이제 스타터 플랜이 더 이상 사용되지 않으므로 현재 새 스타터 플랜 네트워크를 작성할 수 없습니다.** [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks)에 방문하여 이제 블록체인 기술의 2세대에서 사용 가능한 최신 사용자 인터페이스 및 기능을 활용하십시오.
+{: important}  
+
+**기존 네트워크는 영향을 받지 않으며 2020년 6월 4일까지 계속해서 사용할 수 있습니다. 
+
 
 **스타터 플랜**은 블록체인 네트워크 개발을 시작하거나
 블록체인 기술 학습을 시작하려는 사용자를 위한 환경입니다. 프로덕션 환경으로 이동하기 전에 스타터 플랜을 개발 또는

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -55,15 +55,15 @@ subcollection: blockchain
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}는 Hyperledger Fabric v1.4.1을 사용하여 빌드됩니다.
 - 콘솔 또는 API를 사용하여 배치되는 모든 피어는 CouchDB를 상태 데이터베이스로 사용합니다.
 - 오퍼링을 평가하기 위해 {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스를 무료 Kubernetes 클러스터에 링크하는 옵션이 있지만 용량 및 성능이 제한적이며 데이터를 마이그레이션할 수 없고 30일 후에 클러스터가 삭제됩니다.
-- 베타 평가판은 무료이지만, 유료 클러스터를 선택하는 경우 Kubernetes 클러스터에 대한 비용을 지불해야 합니다.
 - 사용자가 Kubernetes 클러스터의 상태 모니터링, 보안 및 로깅 관리를 책임집니다. {{site.data.keyword.cloud_notm}}에서 관리하는 항목 및 사용자의 책임에 대한 자세한 내용은 이 [정보](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external}를 참조하십시오.
 - Kubernetes 대시보드를 사용하여 Kubernetes 클러스터의 자원 사용량을 모니터링할 책임도 있습니다. 스토리지 용량 또는 클러스터의 성능을 개선해야 하는 경우 [기존 볼륨 수정](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external} 방법에 대한 정보를 참조하십시오.
 - 인증서 및 개인 키에 대한 관리와 보안은 사용자의 책임입니다. {{site.data.keyword.IBM_notm}}은 사용자의 인증서를 Kubernetes 클러스터에 저장하지 않습니다.
 - {{site.data.keyword.blockchainfull_notm}} Platform은 특정 지역에서만 사용할 수 있습니다. 업데이트된 목록은 [{{site.data.keyword.blockchainfull_notm}} Platform 위치](/docs/services/blockchain/howto?topic=blockchain-ibp-regions-locations)에 대한 주제를 참조하십시오.
-- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.IBM_notm}} Kubernetes 서비스를 사용하여 작성된 OpenShift 클러스터에 배치할 수 없습니다. 
+- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.IBM_notm}} Kubernetes 서비스를 사용하여 작성된 OpenShift 클러스터에 배치할 수 없습니다.
 - Kubernetes는 {{site.data.keyword.cloud_notm}} Kubernetes 클러스터 내에서 버전 1.11 또는 그 이상의 안정적인 버전이어야 합니다. 이러한 지시사항에 따라 [신규 및 기존 클러스터를 해당 버전으로 업그레이드](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes)하십시오.
 - {{site.data.keyword.cloud_notm}}에서 Kubernetes 클러스터를 프로비저닝할 때 사전 선택되는 기본 Bronze File 스토리지를 사용하지 않으려는 경우 원하는 스토리지를 프로비저닝할 수 있습니다. 자세히 알아보려면 [지속적 스토리지 고려사항](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)에 대한 주제를 참조하십시오.
 - {{site.data.keyword.cloud_notm}} 다중 구역 지원을 Kubernetes 클러스터에 포함시키려는 경우 사용자 고유의 스토리지를 프로비저닝해야 합니다. 자세한 내용은 [{{site.data.keyword.blockchainfull_notm}} Platform에서 다중 구역(MZR) 클러스터 사용](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)을 참조하십시오.
+- VRF(Virtual Routing and Forwarding)는 지원되지 않습니다. {site.data.keyword.blockchainfull_notm}} Platform 서비스는 서브넷 IP 블록 간 자동 글로벌 라우팅에 사용할 수 있는 계정과 호환되지 않습니다. 이와 유사하게, 사설 VLAN에 구성된 Kubernetes 클러스터도 지원되지 않습니다. 
 
 ## 동영상 튜토리얼
 {: #ibp-v2-deploy-video}
@@ -112,7 +112,7 @@ Kubernetes 버전을 확인하고 버전을 업그레이드하는 방법에 대�
 | 무료** | 평가에 적합 |2 | 4GB |   1 |  
 ** {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스를 {{site.data.keyword.cloud_notm}} Kubernetes 무료 클러스터에 링크하는 경우 30일 동안 무료로 {{site.data.keyword.blockchainfull_notm}} Platform을 미리 사용합니다. 성능은 처리량, 스토리지 및 기능에 따라 제한됩니다. {{site.data.keyword.cloud_notm}}가 30일 후에 Kubernetes 클러스터를 삭제하며 노드 또는 데이터를 무료 클러스터에서 유료 클러스터로 마이그레이션할 수 없습니다.
 
-이러한 리소스는 테스트 및 실험을 수행하는 데 충분합니다. 두 개의 피어, 두 개의 CA 및 순서 지정 서비스를 작성하는 [네트워크 빌드 튜토리얼](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)은 약 4.85 CPU를 사용하는데, 5개 노드 순서 지정 서비스가 그 중 2.25 CPU를 사용합니다. 따라서 5개 노드 순서 지정 서비스를 배치하려는 경우에는 해당 순서 지정 서비스가 적합하지 않으므로 2 CPU 단일 작업 노드가 있는 Kubernetes 클러스터를 이 서비스에 배치하면 안됩니다. 최소 4 CPU 노드가 있는 클러스터를 사용하는 것이 좋습니다. 추가하는 작업자 노드가 많을수록 클러스터가 더 쉽게 배치를 처리할 수 있습니다.
+이러한 리소스는 테스트 및 실험을 수행하는 데 충분합니다. 두 개의 피어, 두 개의 CA 및 순서 지정 서비스를 작성하는 [네트워크 빌드 튜토리얼](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)은 약 4.15 CPU를 사용하는데, 5개 노드 순서 지정 서비스가 그 중 1.75 CPU를 사용합니다. 따라서 5개 노드 순서 지정 서비스를 배치하려는 경우에는 순서 지정 서비스가 기타 노드에 적합하지 않으므로 2 CPU 단일 작업자 노드가 있는 Kubernetes 클러스터를 이 서비스에 배치하면 안 됩니다. 최소 4 CPU 노드가 있는 클러스터를 사용하는 것이 좋습니다. 추가하는 작업자 노드가 많을수록 클러스터가 더 쉽게 배치를 처리할 수 있습니다.
 {:note}
 
 #### 유료 클러스터
@@ -131,11 +131,11 @@ Kubernetes 버전을 확인하고 버전을 업그레이드하는 방법에 대�
 
 | **컴포넌트**(모든 컨테이너) | CPU  | 메모리(GB) | 스토리지(GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **피어**                       | 1.2            | 2.4                  | 200(피어용 100GB 및 CouchDB용 100GB 포함)|
+| **피어**                       | 1.1            | 2.4                  | 200(피어용 100GB 및 CouchDB용 100GB 포함)|
 | **CA**                         | 0.1            | 0.2                  | 20                     |
-| **순서 지정 노드**              | 0.45           | 0.9                  | 100                    |
+| **순서 지정 노드**              | 0.35           | 0.9                  | 100                    |
 
-5개 노드 Raft 순서 지정 서비스를 배치하려는 경우 순서 지정 노드 배치가 5배 증가합니다. 따라서 5개 Raft 노드에는 총 2.25CPU, 4.5GB의 메모리, 500GB의 스토리지가 있습니다. 즉, 5개 노드 순서 지정 서비스가 2 CPU Kubernetes 단일 작업자 노드보다 큽니다.
+5개 노드 Raft 순서 지정 서비스를 배치하려는 경우 배치 총계가 5배 증가합니다. 따라서 5개 Raft 노드에는 총 1.75 CPU, 4.5GB의 메모리, 500GB의 스토리지가 있습니다. Raft 클러스터 및 배치하는 기타 모든 노드에 충분한 CPU를 허용하려면 4 CPU Kubernetes 단일 작업자 노드 클러스터가 최소한으로 권장됩니다.
 {:tip}
 
 ## 1단계: {{site.data.keyword.cloud_notm}}에서 서비스 인스턴스 작성
@@ -146,7 +146,7 @@ Kubernetes 버전을 확인하고 버전을 업그레이드하는 방법에 대�
 
 1. {{site.data.keyword.cloud_notm}} 카탈로그에서 [블록체인 서비스](https://cloud.ibm.com/catalog/services/blockchain){: external}를 찾거나, {{site.data.keyword.cloud_notm}} 카탈로그 페이지에서 `Blockchain`을 검색하십시오.
 2. 나중에 쉽게 인식할 수 있도록 사용자의 인스턴스에 대한 **서비스 이름**을 바꾸는 것이 좋습니다.
-3. 베타의 경우, **댈러스**가 유일하게 사용 가능한 지역이며 이는 변경할 수 없습니다. 추가 지역은 유료 클러스터에서 선택할 수 있습니다. 자세한 정보는 [지역](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)을 참조하십시오.
+3. 지역을 선택하십시오. 사용 가능한 지역의 목록은 [ 지역](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)을 참조하십시오.
 4. 리소스 그룹 및 태그 필드를 변경되지 않은 상태로 둘 수 있습니다.
 5. **표준** 플랜을 선택하십시오.
 6. **작성**을 클릭하여 서비스 인스턴스를 프로비저닝하십시오.
@@ -208,7 +208,7 @@ Kubernetes 버전을 확인하고 버전을 업그레이드하는 방법에 대�
 ## {{site.data.keyword.cloud_notm}} 및 기타 서드파티 서비스와의 통합
 {: #ibp-v2-deploy-iks-integrations}
 
-{{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.cloud_notm}} 카탈로그에 제공된 서비스 제품군을 활용하여 사용자에게 보다 많은 가시성을 제공하거나 다른 서비스와 통합합니다. 
+{{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.cloud_notm}} 카탈로그에 제공된 서비스 제품군을 활용하여 사용자에게 보다 많은 가시성을 제공하거나 다른 서비스와 통합합니다.
 
 ![{{site.data.keyword.blockchainfull_notm}} 플랫폼 통합](../images/integrations-updated.png "{{site.data.keyword.cloud_notm}} 통합")  
 
@@ -216,16 +216,16 @@ Kubernetes 버전을 확인하고 버전을 업그레이드하는 방법에 대�
 - [{{site.data.keyword.cloud_notm}} IAM(Identity and Access Management)](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-iam)을 사용하여 사용자를 안전하게 인증하고 모든 클라우드 리소스에 대한 액세스를 제어하십시오.
 
 **모니터링**  
-- [{{site.data.keyword.cloud_notm}} Activity Tracker with LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started) 서비스를 사용하여 실시간으로 로그 문제를 해결하고 문제를 진단하고 Kubernetes 클러스터에서 문제점을 식별하십시오. 
+- [{{site.data.keyword.cloud_notm}} Activity Tracker with LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started) 서비스를 사용하여 실시간으로 로그 문제를 해결하고 문제를 진단하고 Kubernetes 클러스터에서 문제점을 식별하십시오.
 
 - [{{site.data.keyword.cloud_notm}} Activity Tracker with SysDig](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-getting-started#getting-started)를 사용하여 IBM Cloud에서 서비스 및 애플리케이션의 활동과 상태를 모니터링하십시오.
 
 - [LogDNA 및 Sysdig로 로그를 분석하고 애플리케이션 상태를 모니터](/docs/tutorials?topic=solution-tutorials-application-log-analysis)하는 방법에 대해 이 튜토리얼을 참조하십시오.
 
 **스토리지**  
-- 블록체인 노드가 프로비저닝될 때 {{site.data.keyword.cloud_notm}} [파일 스토리지](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) 및 [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage)를 활용하십시오. 블록체인이 {{site.data.keyword.cloud_notm}} 스토리지 옵션과 통합하는 방법에 대해 자세히 알아보려면 [지속적 스토리지 고려사항](#ibp-console-storage)의 이 주제를 참조하십시오. 
+- 블록체인 노드가 프로비저닝될 때 {{site.data.keyword.cloud_notm}} [파일 스토리지](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) 및 [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage)를 활용하십시오. 블록체인이 {{site.data.keyword.cloud_notm}} 스토리지 옵션과 통합하는 방법에 대해 자세히 알아보려면 [지속적 스토리지 고려사항](#ibp-console-storage)의 이 주제를 참조하십시오.
 
-- [Portworx](/docs/containers?topic=containers-portworx#portworx)를 설정하여 컨테이너화된 데이터베이스 간에 로컬 지속적 스토리지를 관리하거나 다중 구역에 대해 로컬 간에 데이터를 공유하십시오. 
+- [Portworx](/docs/containers?topic=containers-portworx#portworx)를 설정하여 컨테이너화된 데이터베이스 간에 로컬 지속적 스토리지를 관리하거나 다중 구역에 대해 로컬 간에 데이터를 공유하십시오.
 
 사용 가능한 {{site.data.keyword.cloud_notm}} 서비스 및 다른 서드파티 통합에 대한 자세한 정보는 [지원되는 {{site.data.keyword.cloud_notm}} 및 서드파티 통합](/docs/containers?topic=containers-supported_integrations#supported_integrations){: external}의 이 목록을 참조하십시오.
 
@@ -252,7 +252,7 @@ Kubernetes 버전이 1.11 이상이 아닌 경우, 다음 단계를 완료하여
 
 {{site.data.keyword.IBM_notm}} Kubernetes Service 클러스터 및 작업 노드의 Kubernetes 버전 업데이트에 대한 자세한 정보는 [클러스터, 작업자 노드 및 추가 기능 업데이트](/docs/containers?topic=containers-update#update){: external}를 참조하십시오.  
 
-[{{site.data.keyword.blockchainfull_notm}} Platform 배치를 재개](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-steps)하려면 업데이트가 완료될 때까지 대기해야 합니다. 
+[{{site.data.keyword.blockchainfull_notm}} Platform 배치를 재개](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-steps)하려면 업데이트가 완료될 때까지 대기해야 합니다.
 
 ## Kubernetes 액세스 역할을 지정하는 방법
 {: #ibp-v2-deploy-iks-k8x-access-roles}

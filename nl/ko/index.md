@@ -45,7 +45,7 @@ AWS(Amazon Web Services) 등의 서드파티일 수 있습니다. 이 튜토리�
 | [**{{site.data.keyword.blockchainfull_notm}} Platform Extension for VS Code**](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode) | 개발자는 스마트 계약을 신속하게 개발하기 위해 명령 팔레트에서 액세스 가능한 탐색기 및 명령을 제공하는 IDE로 시작할 수 있습니다. | 무료 |로컬 시스템에서 실행 |
 | [**{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview) | {{site.data.keyword.cloud_notm}} Kubernetes 클러스터에서 블록체인 컴포넌트를 배치하고 관리하는 데 사용될 수 있는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔 및 API | [VPC 가격 $0.29 USD/VPC-시간](/docs/services/blockchain/howto?topic=blockchain-ibp-saas-pricing) | {{site.data.keyword.cloud_notm}} |
 | [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about) | 블록체인 컴포넌트 프로비저닝 및 관리를 위해 Kubernetes Helm 차트 및 API를 사용하여 {{site.data.keyword.cloud_notm}} Private 클러스터에 배치된 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔. | [VPC 가격](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) | {{site.data.keyword.cloud_notm}} Private |
-| [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about) | {{site.data.keyword.cloud_notm}} 외부의 원격 피어를 배치하기 위한 AWS 빠른 시작 템플릿. | 무료 | AWS |
+| [**{{site.data.keyword.blockchainfull_notm}} Platform for AWS**](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about) | {{site.data.keyword.cloud_notm}} 외부의 원격 피어를 배치하기 위한 AWS 빠른 시작 템플릿.| 무료 | AWS |
 
 *그림 1. {{site.data.keyword.blockchainfull_notm}} Platform 오퍼링*
 
@@ -76,11 +76,11 @@ AWS(Amazon Web Services) 등의 서드파티일 수 있습니다. 이 튜토리�
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
 
-  {{site.data.keyword.cloud_notm}}에 로그인하여 오퍼링을 사용하여 서비스 인스턴스를 작성하십시오. 마법사를 따라 네트워크의 초기 구성을 완료하십시오. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service 시작하기](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks)를 참조하십시오. 
+  {{site.data.keyword.cloud_notm}}에 로그인하여 오퍼링을 사용하여 서비스 인스턴스를 작성하십시오. 마법사를 따라 네트워크의 초기 구성을 완료하십시오. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service 시작하기](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks)를 참조하십시오.
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
 
-  네트워크를 배치하기 전에 {{site.data.keyword.cloud_notm}} Private 클러스터에 Helm 차트를 설치해야 합니다. 그런 다음 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 배치하여 로컬 클러스터에서 블록체인 컴포넌트를 배치 및 작동하는 데 사용할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 시작하기](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp)를 참조하십시오. 
+  네트워크를 배치하기 전에 {{site.data.keyword.cloud_notm}} Private 클러스터에 Helm 차트를 설치해야 합니다. 그런 다음 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 배치하여 로컬 클러스터에서 블록체인 컴포넌트를 배치 및 작동하는 데 사용할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 시작하기](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp)를 참조하십시오.
 
 * **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
 

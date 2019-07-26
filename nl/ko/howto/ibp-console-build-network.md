@@ -226,7 +226,7 @@ MSP에 대한 자세한 정보는 [조직 관리](/docs/services/blockchain/howt
 3. 피어에 **표시 이름**인 `Peer Org1`를 제공하십시오. 이 튜토리얼의 목적을 위해 피어에 대해 외부 CA를 사용하도록 선택하지 마십시오. 자세한 정보를 원하는 경우 [외부 CA의 인증서 사용](#ibp-console-build-network-third-party-ca)을 참조하십시오. **다음**을 클릭하십시오.
 4. 다음 화면에서 `Org1 CA`를 선택하십시오. 이는 피어 ID를 등록하는 데 사용한 CA입니다. 드롭 다운 목록에서 피어에 대해 작성한 피어 ID의 **등록 ID**로 `peer1`을 선택하고 이와 연관된 **시크릿**으로 `peer1pw`를 입력하십시오. 그런 다음, 드롭 다운 목록에서 `Org1 MSP`를 선택하고 **다음**을 클릭하십시오.
 5. 다음 사이드 패널에서는 TLS CA 정보를 요청합니다. CA를 작성할 때 TLSCA가 함께 작성되었습니다. 이 CA는 노드에 대한 보안 통신 계층의 인증서를 작성하는 데 사용됩니다. 따라서 드롭 다운 목록에서 피어에 대해 작성한 피어 ID인 `peer1`을 **등록 ID**로 선택하고, 연관된 **시크릿**으로 `peer1pw`를 입력하십시오. **TLS 인증서 서명 요청(CSR) 호스트 이름**은 피어 엔드포인트를 처리하는 데 사용될 수 있는 사용자 정의 도메인 이름을 지정하려는 고급 사용자가 사용할 수 있는 옵션입니다. 사용자 정의 도메인 이름은 이 튜토리얼의 일부가 아니므로 지금은 **TLS CSR 호스트 이름**을 공백으로 두십시오.
-6. 유료 클러스터를 사용 중인 하는 경우 다음 패널에서 노드에 대한 리소스 할당을 구성할 수 있는 기회가 제공됩니다. 이 튜토리얼의 목적에 따라 모든 기본값을 허용하고 **다음**을 클릭하십시오. 리소스를 노드의 {{site.data.keyword.cloud_notm}}에 할당하는 방법을 알아보려면 [리소스 할당](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)에 대한 주제를 참조하십시오. 무료 {{site.data.keyword.cloud_notm}} 클러스터를 사용 중인 경우 **ID 연관** 패널이 표시됩니다. 
+6. 유료 클러스터를 사용 중인 하는 경우 다음 패널에서 노드에 대한 리소스 할당을 구성할 수 있는 기회가 제공됩니다. 이 튜토리얼의 목적에 따라 모든 기본값을 허용하고 **다음**을 클릭하십시오. 리소스를 노드의 {{site.data.keyword.cloud_notm}}에 할당하는 방법을 알아보려면 [리소스 할당](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources)에 대한 주제를 참조하십시오. 무료 {{site.data.keyword.cloud_notm}} 클러스터를 사용 중인 경우 **ID 연관** 패널이 표시됩니다.
 7. 마지막 사이드 패널에서 피어의 관리자가 될 수 있도록 **ID 연관**을 요청합니다. 이 튜토리얼의 목적에 따라 조직 관리자 `Org1 Admin`을 피어의 관리자로도 설정하십시오. `Org1 CA`와 다른 ID를 등록하고 해당 ID를 피어의 관리자로 설정할 수 있지만 이 튜토리얼에서는 `Org1 Admin` ID를 사용합니다.
 8. 요약 내용을 검토하고 **피어 추가**를 클릭하십시오.
 

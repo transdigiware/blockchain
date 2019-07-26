@@ -65,7 +65,7 @@ subcollection: blockchain
 ### 원격 피어 구성
 {: #ibp-dashboard-peer-connection-information}
 
-{{site.data.keyword.cloud_notm}} 외부에 피어를 배치하는 경우 구성 중에 네트워크의 API 엔드포인트 정보를 제공해야 합니다. 피어를 구성하려면 **원격 피어 구성** 단추를 클릭하여 네트워크의 API 엔드포인트 정보를 검색하십시오. 팝업 창에서는 네트워크 ID, 조직 MSP, CA 이름, CA URL 및 CA TLS 인증서의 API 엔드포인트 정보를 제공합니다. 각 필드의 끝에 있는 복사 아이콘을 클릭하여 해당 필드의 값을 복사하거나 **다운로드** 단추를 클릭하여 모든 필드의 값을 JSON 파일에 저장할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services 정보](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about)를 참조하십시오. 
+{{site.data.keyword.cloud_notm}} 외부에 피어를 배치하는 경우 구성 중에 네트워크의 API 엔드포인트 정보를 제공해야 합니다. 피어를 구성하려면 **원격 피어 구성** 단추를 클릭하여 네트워크의 API 엔드포인트 정보를 검색하십시오. 팝업 창에서는 네트워크 ID, 조직 MSP, CA 이름, CA URL 및 CA TLS 인증서의 API 엔드포인트 정보를 제공합니다. 각 필드의 끝에 있는 복사 아이콘을 클릭하여 해당 필드의 값을 복사하거나 **다운로드** 단추를 클릭하여 모든 필드의 값을 JSON 파일에 저장할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services 정보](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about)를 참조하십시오.
 
 ### 연결 프로파일
 {: #ibp-dashboard-connection-profile}
@@ -139,7 +139,7 @@ subcollection: blockchain
 
 또한 기존 채널을 선택하여 채널, 멤버십 및 활성 체인코드에 대한 더 정확한 세부사항을 볼 수 있습니다. 자세한 정보는 [네트워크 모니터링](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)을 참조하십시오.
 
-"구성원" 화면의 ["인증서" 탭](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates)을 사용하여 새 인증서를 플랫폼에 업로드한 경우 이 패널을 사용하여 인증서를 채널에 추가할 수 있습니다. 관련 채널 옆에 있는 **조치** 헤더 아래의 드롭 다운 목록에서 **인증서 동기화**를 클릭하십시오. 이 경우 채널의 체인코드를 인스턴스화할 수 있음은 물론 원격 클라이언트에서 채널을 작동할 수 있게 됩니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오. 
+"구성원" 화면의 ["인증서" 탭](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates)을 사용하여 새 인증서를 플랫폼에 업로드한 경우 이 패널을 사용하여 인증서를 채널에 추가할 수 있습니다. 관련 채널 옆에 있는 **조치** 헤더 아래의 드롭 다운 목록에서 **인증서 동기화**를 클릭하십시오. 이 경우 채널의 체인코드를 인스턴스화할 수 있음은 물론 원격 클라이언트에서 채널을 작동할 수 있게 됩니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오.
 
 ## 알림
 {: #ibp-dashboard-notifications}
@@ -193,8 +193,7 @@ CA에서 새 공용 인증서 및 개인 키를 가져오려면 관리자 ID 옆
 ## 코드 개발
 {: #ibp-dashboard-write-code}
 
-{{site.data.keyword.IBM_notm}}은 Composer CLI, JavaScript API, REST 서버 및 웹 플레이그라운드를 포함하여 프로덕션에서 Hyperledger Composer를 사용하는 네트워크를 지원하지 않습니다.
-{:note}
+{{site.data.keyword.IBM_notm}}은 Composer CLI, JavaScript API, REST 서버 및 웹 플레이그라운드를 포함하여 프로덕션에서 Hyperledger Composer를 사용하는 네트워크를 지원하지 않습니다.{:note}
 
 스타터 플랜 및 엔터프라이즈 플랜은 개발 환경에 산업 표준 도구 및 기술을 제공합니다. 네트워크를 개발한 후 이를 네트워크에 배치할 수 있습니다.
 

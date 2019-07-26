@@ -75,9 +75,9 @@ subcollection: blockchain
 - 블록체인 컴포넌트의 상태 모니터링, 보안, 로깅 및 리소스 사용량 관리 작업은 사용자가 수행해야 합니다.
 - 콘솔에서는 Hyperledger Fabric v1.4.1 이상을 기반으로 하는 컴포넌트를 작성하고 제어할 수만 있습니다.
 - 하나의 콘솔 피어 Kubernetes 네임스페이스만 배치할 수 있습니다. 예를 들어 개발, 스테이징 및 프로덕션 목적의 여러 환경을 작성하기 위해 블록체인 네트워크를 여러 개 작성하려는 경우 고유한 네임스페이스를 환경별로 작성해야 합니다.
-- 다른 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔에서 내보낸 노드만 가져올 수 있습니다. 가져온 피어 또는 순서 지정 노드가 콘솔에서 작동하려면 연관된 노드의 조직 MSP 정의와 관리자 ID도 콘솔로 가져와야 합니다. 
-- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.cloud_notm}} Private v3.2 Enterprise Edition에서만 지원됩니다. {{site.data.keyword.cloud_notm}} Private v3.2 Community Edition은 지원되지 않습니다. 
-- {{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 설치하기 위해 {{site.data.keyword.IBM_notm}} Multicloud Manager를 사용할 수 없습니다. 
+- 다른 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔에서 내보낸 노드만 가져올 수 있습니다. 가져온 피어 또는 순서 지정 노드가 콘솔에서 작동하려면 연관된 노드의 조직 MSP 정의와 관리자 ID도 콘솔로 가져와야 합니다.
+- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.cloud_notm}} Private v3.2 Enterprise Edition에서만 지원됩니다.  {{site.data.keyword.cloud_notm}} Private v3.2 Community Edition은 지원되지 않습니다.
+- {{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 설치하기 위해 {{site.data.keyword.IBM_notm}} Multicloud Manager를 사용할 수 없습니다.
 
 {{site.data.keyword.cloud_notm}} Private에서 지원하는 환경을 검토하려면 [지원되는 환경](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_environments/environments_overview.html){: external}을 참조하십시오.
 {:important}
@@ -85,7 +85,7 @@ subcollection: blockchain
 ## 시스템 전제조건
 {: #console-icp-about-prerequisites}
 
-{{site.data.keyword.cloud_notm}} Private에 대한 하드웨어 및 소프트웨어 전제조건 목록의 경우 [시스템 요구사항](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_system_config/system_reqs.html){: external}을 참조하십시오. 그러나 {{site.data.keyword.blockchainfull_notm}} Platform은 Linux on Power(ppc64le) POWER8 시스템에서 지원되지 않음에 유의하십시오. 
+{{site.data.keyword.cloud_notm}} Private에 대한 하드웨어 및 소프트웨어 전제조건 목록의 경우 [시스템 요구사항](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_system_config/system_reqs.html){: external}을 참조하십시오. 그러나 {{site.data.keyword.blockchainfull_notm}} Platform은 Linux on Power(ppc64le) POWER8 시스템에서 지원되지 않음에 유의하십시오.
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm 차트는 다음과 같은 작업자 노드 및 백업 스토리지를 사용하여 Ubuntu Linux 기반 {{site.data.keyword.cloud_notm}} Private v3.2 클러스터에서 실행되도록 유효성 검증되었습니다.
 
@@ -100,9 +100,9 @@ subcollection: blockchain
 ## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 설치
 {: #console-icp-about-install}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private은 로컬 {{site.data.keyword.cloud_notm}} Private 클러스터에 설치될 수 있는 Helm 차트 파일로 제공됩니다. Helm 차트를 설치한 후에는 {{site.data.keyword.cloud_notm}} Private 카탈로그에서 애플리케이션으로 {{site.data.keyword.blockchainfull_notm}} Platform을 찾을 수 있습니다. Helm 차트 및 필요한 전제조건을 설치하는 방법에 대한 지시사항은 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#helm-console-install)를 참조하십시오. 
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private은 로컬 {{site.data.keyword.cloud_notm}} Private 클러스터에 설치될 수 있는 Helm 차트 파일로 제공됩니다. Helm 차트를 설치한 후에는 {{site.data.keyword.cloud_notm}} Private 카탈로그에서 애플리케이션으로 {{site.data.keyword.blockchainfull_notm}} Platform을 찾을 수 있습니다. Helm 차트 및 필요한 전제조건을 설치하는 방법에 대한 지시사항은 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#helm-console-install)를 참조하십시오.
 
-{{site.data.keyword.cloud_notm}} Private의 신규 사용자이며 {{site.data.keyword.cloud_notm}} Private 설치 및 배치에 대한 정보와 팁이 필요한 경우 [{{site.data.keyword.cloud_notm}} Private 설정](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)을 참조하십시오. 
+{{site.data.keyword.cloud_notm}} Private의 신규 사용자이며 {{site.data.keyword.cloud_notm}} Private 설치 및 배치에 대한 정보와 팁이 필요한 경우 [{{site.data.keyword.cloud_notm}} Private 설정](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)을 참조하십시오.
 
 공용 인터넷에 액세스하지 않고 {{site.data.keyword.blockchainfull_notm}} Platform을 방화벽 뒤에 배치할 수 있습니다. 다운로드된 Helm 차트 패키지에는 배치 중에 DockerHub에서 가져오지 않고 {{site.data.keyword.blockchainfull_notm}} Platform에서 사용하는 모든 Fabric 컴포넌트 Docker 이미지가 포함되어 있습니다.
 
