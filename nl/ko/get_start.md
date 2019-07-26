@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -19,9 +19,6 @@ subcollection: blockchain
 
 # 엔터프라이즈 플랜 시작하기
 {: #getting-started-with-enterprise-plan}
-
-<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note}-->
 
 {{site.data.keyword.blockchainfull}} Platform은 높은 보안, 무결성, 확장성 및 성능을 가진 블록체인 네트워크를 제공합니다. 정상 작동되는 네트워크를 신속하게 프로비저닝하고 GUI 대시보드인 네트워크 모니터를 사용하면 처음부터 네트워크를 설계하고 구성하지 않고도 즉시 [체인코드](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode) 및 애플리케이션을 실행할 수 있습니다.
 {:shortdesc}

@@ -146,4 +146,4 @@ subcollection: blockchain
 {: #ibp-v2-faq-icp-delete}
 {: faq}
 
-{{site.data.keyword.cloud_notm}} Private 클러스터에서 Helm 릴리스를 삭제할 경우, 연관된 블록체인 컴포넌트는 삭제되지 않습니다. 클러스터에서 Helm 릴리스를 제대로 제거하려면 먼저 블록체인 콘솔 또는 블록체인 API를 사용하여 모든 컴포넌트를 삭제해야 합니다. 그러고 나면 Helm 차트를 삭제할 수 있습니다.   
+{{site.data.keyword.cloud_notm}} Private 클러스터에서 Helm 릴리스를 삭제할 경우, 연관된 블록체인 컴포넌트는 삭제되지 않습니다. 클러스터에서 Helm 릴리스를 제대로 제거하려면 먼저 블록체인 콘솔 또는 블록체인 API를 사용하여 모든 컴포넌트를 삭제해야 합니다. 그러고 나면 Helm 차트를 삭제할 수 있습니다.  

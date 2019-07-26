@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
@@ -57,7 +58,7 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ## 필수 리소스
 {: #icp-console-setup-resources}
 
-사용자의 {{site.data.keyword.cloud_notm}} Private 시스템이 콘솔 및 작성하는 컴포넌트에 대한 최소 하드웨어 리소스 요구사항을 충족하는지 확인하십시오. 필요한 vCPU/CPU 수는 인프라, 네트워크 디자인 및 성능 요구사항에 따라 달라질 수 있습니다. 대략적인 vCPU/CPU 요구사항은 할당량이 {{site.data.keyword.cloud_notm}} Private에서 약간 다르더라도 {{site.data.keyword.cloud_notm}}에 대한 [기본 리소스 할당 표](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)를 조사하여 작성할 수 있습니다. 실제 리소스 할당은 노드를 배치할 때 블록체인 콘솔에서 볼 수 있습니다. 
+사용자의 {{site.data.keyword.cloud_notm}} Private 시스템이 콘솔 및 작성하는 컴포넌트에 대한 최소 하드웨어 리소스 요구사항을 충족하는지 확인하십시오. 필요한 vCPU/CPU 수는 인프라, 네트워크 디자인 및 성능 요구사항에 따라 달라질 수 있습니다. 대략적인 vCPU/CPU 요구사항은 할당량이 {{site.data.keyword.cloud_notm}} Private에서 약간 다르더라도 {{site.data.keyword.cloud_notm}}에 대한 [기본 리소스 할당 표](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)를 조사하여 작성할 수 있습니다. 실제 리소스 할당은 노드를 배치할 때 블록체인 콘솔에서 볼 수 있습니다.
 
 **참고:**  
 
@@ -67,7 +68,7 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ### 스토리지 고려사항
 {: #icp-console-setup-storage-considerations}
 
-{{site.data.keyword.blockchainfull_notm}} Helm 차트는 동적 프로비저닝을 사용하여 작성하는 블록체인 컴포넌트 및 콘솔에서 사용할 스토리지를 프로비저닝합니다. 콘솔을 배치하기 전에 콘솔 및 컴포넌트에 대한 충분한 양의 백업 스토리지가 있는 storageClass를 작성해야 합니다. 구성 중에 작성한 storageClass의 이름을 제공해야 합니다. 
+{{site.data.keyword.blockchainfull_notm}} Helm 차트는 동적 프로비저닝을 사용하여 작성하는 블록체인 컴포넌트 및 콘솔에서 사용할 스토리지를 프로비저닝합니다. 콘솔을 배치하기 전에 콘솔 및 컴포넌트에 대한 충분한 양의 백업 스토리지가 있는 storageClass를 작성해야 합니다. 구성 중에 작성한 storageClass의 이름을 제공해야 합니다.
 
 - 기본 설정을 사용하는 경우 콘솔 데이터에 대해 이름이 Helm 릴리스인 지속적 볼륨 청구가 Helm 차트에서 새로 작성됩니다.
 - NFS v2/v3 지속적 볼륨을 사용하는 경우 NFS 파일 시스템이 존재하는 호스트 시스템에서 **NFSv2/v3 파일 시스템 잠금을 위한 NFS 상태 모니터** 모듈(**rpc-statd**)을 사용으로 설정해야 합니다. 이 모듈은 NFS 파일 시스템에서 다른 프로세스가 보유한 파일에 대한 독점적 잠금을 확인할 수 있도록 해줍니다. 이 모듈을 사용으로 설정하려면 다음 명령을 실행하십시오.
@@ -91,20 +92,18 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 
 2. {{site.data.keyword.cloud_notm}} Private CLI [3.2.0](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_cli.html){: external}을 설치하여 Helm 차트를 설치하십시오.
 
-3. {{site.data.keyword.blockchainfull_notm}} Platform 배치용 사용자 정의 네임스페이스를 새로 작성하십시오. 네임스페이스당 하나의 Helm 차트만 배치할 수 있으므로 콘솔의 다중 인스턴스가 동일한 클러스터에서 실행되도록 하려면 별도의 네임스페이스를 사용해야 합니다. 
+3. {{site.data.keyword.blockchainfull_notm}} Platform 배치용 사용자 정의 네임스페이스를 새로 작성하십시오. 네임스페이스당 하나의 Helm 차트만 배치할 수 있으므로 콘솔의 다중 인스턴스가 동일한 클러스터에서 실행되도록 하려면 별도의 네임스페이스를 사용해야 합니다.
 
 4. 대상 네임스페이스에 대한 보안 및 액세스 정책을 설정하십시오. 지시사항은 [다음 절](#icp-console-setup-psp)에서 제공됩니다.
 
-{{site.data.keyword.cloud_notm}} Private을 설치하고 팟(Pod) 보안 정책을 대상 네임스페이스에 바인드한 후에도 계속 {{site.data.keyword.cloud_notm}} Private 클러스터로 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm 차트를 가져올](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install) 수 있습니다. 
+{{site.data.keyword.cloud_notm}} Private을 설치하고 팟(Pod) 보안 정책을 대상 네임스페이스에 바인드한 후에도 계속 {{site.data.keyword.cloud_notm}} Private 클러스터로 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm 차트를 가져올](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install) 수 있습니다.
 
 ## PodSecurityPolicy 요구사항
 {: #icp-console-setup-psp}
 
-{{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 사용하려면 설치 전에 특정 보안 및 액세스 정책을 대상 네임스페이스에 바인드해야 합니다. 다음 단계를 사용하여 Helm 차트 구성 전에 정책을 구성하십시오. 
+{{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 사용하려면 설치 전에 특정 보안 및 액세스 정책을 대상 네임스페이스에 바인드해야 합니다. 아래 단계에 있는 정책을 정의하는 YAML 파일을 제공합니다. 이 파일을 로컬 시스템에 저장한 후 {{site.data.keyword.cloud_notm}} Private CLI를 사용하여 네임스페이스에 바인드할 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 배치하기 전에 아래의 단계를 따르십시오. 
 
-1. 네임스페이스에 대해 사전 정의된 PodSecurityPolicy를 선택하거나 클러스터 관리자가 사용자를 위해 사용자 정의 PodSecurityPolicy를 작성하도록 하십시오.
-  - [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)의 사전 정의된 PodSecurityPolicy를 사용할 수 있습니다.
-  - 사용자 정의 PodSecurityPolicy 정의 아래의 YAML을 사용하여 작성할 수도 있습니다. 
+1. {{site.data.keyword.blockchainfull_notm}} Platform PodSecurityPolicy를 정의하는 아래 파일을 로컬 시스템의 `ibm-blockchain-platform-psp.yaml`로 저장하십시오. 
 
     ```
     apiVersion: extensions/v1beta1
@@ -134,13 +133,13 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. PodSecurityPolicy에 대한 ClusterRole을 작성하십시오.
-  - 사용자 정의 보안 정책을 작성한 경우, 아래의 YAML 파일을 사용하여 ClusterRole을 작성할 수 있습니다. 
+2. PodSecurityPolicy에 필요한 ClusterRole을 정의하는 아래 파일을 `ibm-blockchain-platform-clusterrole.yaml`로 저장하십시오.
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -158,45 +157,60 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - 사전 정의된 PodSecurityPolicy를 사용하는 경우, 두 번째 apiGroups 섹션을 사용하여 ClusterRole을 작성하기만 하면 됩니다. 
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. 사용자 정의 ClusterRoleBinding을 작성하십시오. 아래 파일에서 ServiceAccount 이름을 변경하려는 경우, Helm 차트를 배치할 때 구성 페이지의 **모든 매개변수** 섹션에 있는 `서비스 계정 이름` 필드에 이름을 제공해야 합니다. 
+3. ClusterRoleBinding을 정의하는 아래 파일을 로컬 시스템에 `ibm-blockchain-platform-clusterrolebinding.yaml`로 저장하십시오. 아래 파일에서 ServiceAccount 이름을 변경하려는 경우, Helm 차트를 배치할 때 구성 페이지의 **모든 매개변수** 섹션에 있는 `서비스 계정 이름` 필드에 이름을 제공해야 합니다. 
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -214,20 +228,32 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
   ```
   {:codeblock}
 
-YAML 파일을 사용하도록 다음 단계를 완료하여 네임스페이스에 보안 및 액세스 정책을 바인드할 수 있습니다. 
+PodSecurityPolicy, ClusterRole 및 ClusterRoleBinding YAML 파일을 로컬 시스템에 저장하면 클러스터 관리자는 {{site.data.keyword.cloud_notm}} Private CLI를 사용하여 정책을 네임스페이스에 바인드해야 합니다. 
 
-1. YAML 파일을 로컬 시스템에 저장하십시오. 
+1. {{site.data.keyword.cloud_notm}} Private 클러스터에 로그인하고 배치의 대상 네임스페이스를 선택하십시오.
 
-2. {{site.data.keyword.cloud_notm}} Private 클러스터에 로그인하고 배치의 대상 네임스페이스를 선택하십시오. 
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. 클러스터의 Docker 이미지 레지스트리에 로그인하십시오. 
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
    {:codeblock}
 
-3. 다음 명령을 사용하여 대상 네임스페이스에 정책을 적용하십시오. 
+3. 다음 명령을 사용하여 정책을 대상 네임스페이스에 적용하십시오. 
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
-   {:codeblock}
+  {:codeblock}
+
+4. 정책을 적용한 후 서비스 계정에 필요한 권한 레벨을 부여하여 콘솔을 배치해야 합니다. 대상 네임스페이스의 이름을 사용하여 다음 명령을 실행하십시오. 
+
+  ```
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```

@@ -27,6 +27,7 @@ IBM Blockchain Platform
 
 	blockchain_component_overview.md
 	ibp-console-ha.md
+	data-residency.md
 	howto/ibp-v2-faq.md
 	needtoknow.md
 	{: .navgroup-end}

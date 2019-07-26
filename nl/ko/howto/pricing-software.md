@@ -35,7 +35,7 @@ _이 가격 모델은 {{site.data.keyword.blockchainfull_notm}} Platform for Mul
 ## 가격
 {: #ibp-software-pricing-pricing}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud의 가격은 사용되는 가상 프로세서 코어(VPC)에 따라 달라집니다. VPC 또는 vCPU는 가상 서버에 지정된 가상 코어 또는 파티션되지 않은 서버의 실제 프로세서 코어가 될 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform에서 사용할 수 있는 각각의 VPC에 대한 라이센스를 받아야 합니다. 필요한 vCPU 또는 CPU 수는 인프라, 네트워크 디자인 및 성능 요구사항에 따라 달라질 수 있습니다.  
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud의 가격은 사용되는 가상 프로세서 코어(VPC)에 따라 달라집니다. VPC 또는 vCPU는 가상 서버에 지정된 가상 코어 또는 파티션되지 않은 서버의 실제 프로세서 코어가 될 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform에서 사용할 수 있는 각각의 VPC에 대한 라이센스를 받아야 합니다. 필요한 vCPU 또는 CPU 수는 인프라, 네트워크 디자인 및 성능 요구사항에 따라 달라질 수 있습니다. 
 
 {{site.data.keyword.cloud_notm}} Private의 VPC에 대한 자세한 정보는 {{site.data.keyword.IBM_notm}} Knowledge Center에서 [가상 프로세서 코어(VPC)](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/Inventory/overview/c_virtual_processor_core_licenses.html){: external}를 참조하십시오. [{{site.data.keyword.IBM_notm}} License Metric Tool](https://www.ibm.com/support/knowledgecenter/en/SS8JFY_9.2.0/com.ibm.lmt.doc/welcome/LMT_welcome.html){: external}을 사용하여 라이센스가 필요한 VPC의 수를 판별하기 위해 사용할 수 있는 보고서를 구성 및 작성할 수 있습니다.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,11 +23,27 @@ subcollection: blockchain
 이 릴리스 정보(날짜로 그룹화됨)를 사용하여 Hyperledger Fabric v1.4.1을 기반으로 빌드된 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}의 최신 변경사항에 대해 알아보십시오.
 {:shortdesc}
 
+## 2019년 7월 10일
+{: #07-10-2019}
+
+**순서 지정 노드 패치`1.4.1-2`**  
+
+이 패치는 순서 지정 노드가 다시 시작할 때 발생하는 수정사항을 수정합니다. 최초 블록은 순서 지정 노드가 순서 지정 서비스의 다른 노드와 통신하지 못하도록 업데이트됩니다. 이 [지시사항](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)에 따라 순서 지정 서비스의 모든 기존 순서 지정 노드에 이 패치를 적용하여 각 순서 지정 노드를 업데이트할 수 있습니다. 작성하는 모든 새 순서 지정 노드에는 자동으로 이 수정사항이 포함됩니다. 
+
+**앵커 피어 제거**  
+
+이제 채널에서 앵커 피어를 제거할 수 있는 기능이 제공됩니다. 
+
+**기타 버그 수정**  
+
+버그 수정 및 번역 업데이트입니다. 
 
 ## 2019년 5월 24일
 {: #05-24-2019}
 
-**Raft 합의 프로토콜**: 프로덕션 네트워크에 권장되는 5개 노드 Raft 순서 지정 서비스를 이제 사용할 수 있습니다. 또한 개발 및 테스트 목적으로 단일 노드 Raft 순서 지정 서비스를 배치할 수 있습니다.
+**Raft 합의 프로토콜**  
+
+: 프로덕션 네트워크에 권장되는 5개 노드 Raft 순서 지정 서비스를 이제 사용할 수 있습니다. 또한 개발 및 테스트 목적으로 단일 노드 Raft 순서 지정 서비스를 배치할 수 있습니다.
 
 ## 2019년 5월 9일
 {: #05-09-2019}

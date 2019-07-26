@@ -87,8 +87,7 @@ Hyperledger Fabric SDK에서는 애플리케이션에서 블록체인 네트워�
                   ...
   ```
 
-애플리케이션에서 조직 외부의 네트워크 리소스를 대상으로 지정할 수 있습니다. 예를 들어, 체인코드 [보증 정책](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy)에 채널에 있는 다른 조직의 보증이 필요한 경우, 조직의 피어가 정책을 따르기에 충분하도록 트랜잭션을 전송해야 합니다. Hyperledger Fabric의 [서비스 발견](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}은 스타터 플랜 또는 엔터프라이즈 플랜에 대해 지원되지 않습니다. 연결 프로파일의 "피어" 섹션을 사용하여 피어의 엔드포인트 정보 및 기타 조직의 TLS 인증서를 얻어야 합니다. 특정 채널에 가입한 피어에 관해서는 다른 조직의 관리자에게 문의할 수 있습니다.
-{:note}
+애플리케이션에서 조직 외부의 네트워크 리소스를 대상으로 지정할 수 있습니다. 예를 들어, 체인코드 [보증 정책](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy)에 채널에 있는 다른 조직의 보증이 필요한 경우, 조직의 피어가 정책을 따르기에 충분하도록 트랜잭션을 전송해야 합니다. Hyperledger Fabric의 [서비스 발견](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external}은 스타터 플랜 또는 엔터프라이즈 플랜에 대해 지원되지 않습니다. 연결 프로파일의 "피어" 섹션을 사용하여 피어의 엔드포인트 정보 및 기타 조직의 TLS 인증서를 얻어야 합니다. 특정 채널에 가입한 피어에 관해서는 다른 조직의 관리자에게 문의할 수 있습니다.{:note}
 
 3. 다음 예제에 표시된 대로 API 엔드포인트 정보를 애플리케이션의 구성 파일에 플러그로 지정하십시오.
   ```
@@ -437,7 +436,7 @@ SDK도 사용하여 블록체인 네트워크를 운영할 수 있습니다. 이
   });
   ```
 
-최초 블록을 페치하려면 먼저 채널에 signCert를 추가해야 합니다. 조직에서 채널에 가입한 후에 인증서를 생성한 경우 signCert를 플랫폼에 업로드한 후 "채널" 화면에서 **인증서 동기화** 단추를 클릭하십시오. join channel 명령을 실행하기 전에 채널 동기화가 완료될 때까지 몇 분 정도 대기해야 할 수도 있습니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오. 
+최초 블록을 페치하려면 먼저 채널에 signCert를 추가해야 합니다. 조직에서 채널에 가입한 후에 인증서를 생성한 경우 signCert를 플랫폼에 업로드한 후 "채널" 화면에서 **인증서 동기화** 단추를 클릭하십시오. join channel 명령을 실행하기 전에 채널 동기화가 완료될 때까지 몇 분 정도 대기해야 할 수도 있습니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오.
 
 ### 체인코드 설치
 {: #dev-app-install-cc-sdk}
@@ -480,7 +479,7 @@ var request = {
 
 현재 파일에 있는 `return channel.sendTransactionProposal(request);` 대신 `return channel.sendInstantiateProposal(request);`에 이 요청을 보내십시오. 채널에 인스턴스화 요청을 보낸 다음 인증된 제안을 트랜잭션으로 순서 지정 서비스에 보내야 합니다. 여기에서는 트랜잭션을 보낼 때와 동일한 메소드를 사용하므로, 나머지 파일은 변경하지 않은 상태로 유지할 수 있습니다. 인스턴스화 제안에서 [제한시간 값을 증가](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-set-timeout-in-sdk)시킬 수 있습니다. 그렇지 않으면 플랫폼에서 체인코드 컨테이너를 시작할 수 있기 전에 제한시간이 초과될 수 있습니다.
 
-체인코드를 인스턴스화하려면 먼저 채널에 signCert를 추가해야 합니다. 채널에 가입한 후에 인증서를 생성한 경우 signCert를 플랫폼에 업로드한 후 "채널" 화면에서 **인증서 동기화** 단추를 클릭하십시오. instantiate chaincode 명령을 실행하기 전에 채널 동기화가 완료될 때까지 몇 분 정도 대기해야 할 수도 있습니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오. 
+체인코드를 인스턴스화하려면 먼저 채널에 signCert를 추가해야 합니다. 채널에 가입한 후에 인증서를 생성한 경우 signCert를 플랫폼에 업로드한 후 "채널" 화면에서 **인증서 동기화** 단추를 클릭하십시오. instantiate chaincode 명령을 실행하기 전에 채널 동기화가 완료될 때까지 몇 분 정도 대기해야 할 수도 있습니다. 자세한 정보는 [인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 튜토리얼의 [{{site.data.keyword.blockchainfull_notm}} Platform에 서명 인증서 업로드](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)를 참조하십시오.
 
 ## 네트워크에서 애플리케이션 연결 끊기
 {: #dev-app-disconnect-app}

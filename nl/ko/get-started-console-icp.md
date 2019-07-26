@@ -31,7 +31,7 @@ subcollection: blockchain
 {: #get-started-console-icp-step-one-set-up-k8s-on-icp}
 
 첫 번째 단계는 {{site.data.keyword.cloud_notm}} Private의 원하는 클라우드 플랫폼에서 Kubernetes 클러스터를 설정하는 것입니다.
-권장사항 및 지침은 [{{site.data.keyword.cloud_notm}} Private 설정](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)을 참조하십시오. 
+권장사항 및 지침은 [{{site.data.keyword.cloud_notm}} Private 설정](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup)을 참조하십시오.
 
 프로덕션에 사용할 네트워크를 빌드하는 경우 고가용성을 구현하도록 클러스터 배치 및 블록체인 네트워크를 설정해야 합니다.
 
@@ -41,12 +41,12 @@ subcollection: blockchain
 ## 2단계: {{site.data.keyword.blockchainfull_notm}} Platform 설치
 {: #get-started-console-icp-step-two-deploy-console}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private은 PPA(Passport Advantage)에서 다운로드할 수 있는 Helm 차트로 제공됩니다. 로컬 클러스터에 Helm 차트를 설치하는 자세한 방법은 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install)를 참조하십시오. 
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private은 PPA(Passport Advantage)에서 다운로드할 수 있는 Helm 차트로 제공됩니다. 로컬 클러스터에 Helm 차트를 설치하는 자세한 방법은 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 설치](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install)를 참조하십시오.
 
 ## 3단계: {{site.data.keyword.blockchainfull_notm}} Platform 콘솔 배치
 {: #get-started-console-icp-step-three-deploy-console}
 
-Helm 차트를 설치한 후에는 카탈로그 페이지에서 {{site.data.keyword.blockchainfull_notm}} Platform 애플리케이션 타일을 클릭하여 로컬 클러스터에 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 설치할 수 있습니다. 콘솔 구성 방법과 블록체인 컴포넌트에 필요한 리소스에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform 콘솔 배치](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp)를 참조하십시오. 
+Helm 차트를 설치한 후에는 카탈로그 페이지에서 {{site.data.keyword.blockchainfull_notm}} Platform 애플리케이션 타일을 클릭하여 로컬 클러스터에 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 설치할 수 있습니다. 콘솔 구성 방법과 블록체인 컴포넌트에 필요한 리소스에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform 콘솔 배치](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp)를 참조하십시오.
 
 ## 4단계: 콘솔에 사용자를 관리자로 추가
 {: #get-started-console-icp-step-four-add-console-admin}

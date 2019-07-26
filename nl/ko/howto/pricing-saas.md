@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,17 +76,19 @@ VPC는 {{site.data.keyword.IBM_notm}} 제품의 라이센싱 비용을 판별하
 
 | 가격 옵션**(1 VPC = 1 CPU)| **테스트 네트워크** | **프로덕션 네트워크에 가입** |
 |-|------------|-----------------------------|
-| **CPU 할당** |  1.85 CPU <br> 포함: <br> - 1개의 피어 <br> - 2개의 CA <br> - 1개의 순서 지정 노드 | 4.9 CPU <br> 포함: <br> - 2개의 피어(HA용) <br> **(2x 기본 컴퓨팅)** <br>- 1개의 CA <br>  |
-| **시간별 비용: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.54 USD <br> (1.85 CPU x $0.29 USD/VPC-시간) | $1.42 USD <br> (4.9 CPU x $0.29 USD/VPC-시간) |
+| **CPU 할당** |  1.65 CPU <br> 포함: <br> - 1개의 피어 <br> - 2개의 CA <br> - 1개의 순서 지정 노드| 4.5 CPU <br> 포함: <br> - 2개의 피어(HA용) <br> **(2x 기본 컴퓨팅)** <br>- 1개의 CA <br>  |
+| **시간별 비용: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-시간) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-시간) |
 | **시간별 비용: {{site.data.keyword.cloud_notm}} Kubernetes 클러스터**    | $0.12 USD <br> (컴퓨팅: 2 x 4티어) <br>  (IP 할당: $16 USD/월) | $0.46 USD <br> (컴퓨팅: 8 x 32티어) <br>  (IP 할당: $16 USD/월) |
 | **시간별 비용: 스토리지** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4IOPS/GB  |
-| **총 시간별 비용** | **$0.73 USD** | **$2.01 USD**| |
+| **총 시간별 비용** | **$0.67 USD** | **$1.90 USD**| |
 ** {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스를 {{site.data.keyword.cloud_notm}} Kubernetes 무료 클러스터에 링크하는 경우 30일 동안 무료로 {{site.data.keyword.blockchainfull_notm}} Platform을 미리 사용합니다. 성능은 처리량, 스토리지 및 기능에 따라 제한됩니다. {{site.data.keyword.cloud_notm}}가 30일 후에 Kubernetes 클러스터를 삭제하며 노드 또는 데이터를 무료 클러스터에서 유료 클러스터로 마이그레이션할 수 없습니다.  
 
-실제 비용은 트랜잭션 비율, 필요한 채널 수, 트랜잭션의 페이로드 크기 및 최대 동시 트랜잭션 수와 같은 추가 요인에 따라 다릅니다. 위의 가격 책정 예제는 {{site.data.keyword.cloud_notm}} Kubernetes 단일 구역 클러스터만을 기반으로 합니다. 다중 구역 클러스터를 선택할 경우, 추가 구역 및 필수 다중 구역 로드 밸런서에 대한 추가 요금이 있습니다.
+실제 비용은 트랜잭션 비율, 필요한 채널 수, 트랜잭션의 페이로드 크기 및 최대 동시 트랜잭션 수와 같은 추가 요인에 따라 다릅니다. 위의 가격 책정 예제는 {{site.data.keyword.cloud_notm}} Kubernetes 단일 구역 클러스터만을 기반으로 합니다.  다중 구역 클러스터를 선택할 경우, 추가 구역 및 필수 다중 구역 로드 밸런서에 대한 추가 요금이 있습니다.
 {:note}
 
-프로비저닝하고 단일 Kubernetes 클러스터와 연관시킬 수 있는 서비스 인스턴스 수에는 제한이 없지만 서비스 중단을 방지하려면 CPU, 메모리 및 스토리지 사용량을 모니터링하여 적절한 리소스가 사용 가능한지 확인해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform 노드가 자체 클러스터에 있을 필요는 없습니다. 블록체인 컴포넌트가 실행 중인 클러스터에서 실행 중인 다른 {{site.data.keyword.cloud_notm}} 서비스가 있을 수 있지만 모든 서비스 인스턴스의 모든 요구사항을 처리하기에 충분한 컴퓨팅 및 스토리지가 있는지 다시 한 번 확인해야 합니다.
+프로비저닝하고 단일 Kubernetes 클러스터와 연관시킬 수 있는 서비스 인스턴스 수에는 제한이 없지만 서비스 중단을 방지하려면 CPU, 메모리 및 스토리지 사용량을 모니터링하여 적절한 리소스가 사용 가능한지 확인해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform 노드가 자체 클러스터에 있을 필요는 없습니다. 블록체인 컴포넌트가 실행 중인 클러스터에서 실행 중인 다른 {{site.data.keyword.cloud_notm}} 서비스가 있을 수 있지만 모든 서비스 인스턴스의 모든 요구사항을 처리하기에 충분한 컴퓨팅 및 스토리지가 있는지 다시 한 번 확인해야 합니다.  
+
+**시작하시겠습니까?** [{{site.data.keyword.blockchainfull_notm}} Platform 시작하기](/docs/services/blockchain?topic=blockchain-get-started-ibp)를 참조하여 옵션을 확인하십시오.  
 
 ## 기본 리소스 할당
 {: #ibp-saas-pricing-default}
@@ -95,9 +97,9 @@ VPC는 {{site.data.keyword.IBM_notm}} 제품의 라이센싱 비용을 판별하
 
 | **컴포넌트**(모든 컨테이너) | CPU  | 메모리(GB) | 스토리지(GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **피어**                       | 1.2            | 2.4                   | 200(피어용 100GB 및 CouchDB용 100GB 포함)|
+| **피어**                       | 1.1            | 2.4                   | 200(피어용 100GB 및 CouchDB용 100GB 포함)|
 | **CA**                         | 0.1            | 0.2                    | 20                     |
-| **순서 지정 노드**                    | 0.45           | 0.9                    | 100                    |
+| **순서 지정 노드**                    | 0.35           | 0.9                    | 100                    |
 
 
 ## 청구
@@ -111,17 +113,18 @@ VPC는 {{site.data.keyword.IBM_notm}} 제품의 라이센싱 비용을 판별하
 ### 사용량 모니터링
 {: #ibp-saas-pricing-usage}
 
-청구서를 가져오기 전에 {{site.data.keyword.cloud_notm}} 대시보드 **사용량** 타일에서 {{site.data.keyword.blockchainfull_notm}} Platform 및 Kubernetes 클러스터 비용을 모니터링할 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform VPC 사용량은 1시간마다 평가됩니다. **이러한 비용은 추정치일 뿐입니다.** 실제 비용은 월별 청구서에 반영됩니다. 
+청구서를 가져오기 전에 {{site.data.keyword.cloud_notm}} 대시보드 **사용량** 타일에서 {{site.data.keyword.blockchainfull_notm}} Platform 및 Kubernetes 클러스터 비용을 모니터링할 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform VPC 사용량은 1시간마다 평가됩니다.  **이러한 비용은 추정치일 뿐입니다.** 실제 비용은 월별 청구서에 반영됩니다.
 
-#### {{site.data.keyword.blockchainfull_notm}} Platform 및 Kubernetes 서비스 사용량 
+#### {{site.data.keyword.blockchainfull_notm}} Platform 및 Kubernetes 서비스 사용량
 
-이 클립은 단일 CA 노드가 포함된 {{site.data.keyword.blockchainfull_notm}} Platform에 대한 요금을 보는 방법에 대한 간단한 예를 제공합니다. 
+<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
 
-![사용량 모니터링](../images/usage_monitoring.gif){: gif}
+![Monitoring your usage](../images/usage_monitoring.gif){: gif}
+-->
 
 {{site.data.keyword.cloud_notm}} 대시보드의 상단에 있는 **관리**로 이동하여 **청구 및 사용량**을 클릭한 후 왼쪽 메뉴에서 **사용량**을 클릭하십시오. **서비스** 하위 섹션 아래의 원형 차트는 사용자가 이번 달에 사용하고 이용한 서비스 오퍼링의 유형별 총 비용의 분류를 제공합니다.이 차트를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform, Kubernetes 서비스 및 스토리지가 총 비용에 얼마나 기여하는지를 이해할 수 있습니니다.
 
-아래로 스크롤하면 목록 보기에서 **유형** 및 **비용**별로 유사한 분류를 볼 수 있습니다. 클러스터에서 프로비저닝한 다른 서비스와 함께 나열된 "Kubernetes Service" 및 "Blockchain Platform"을 찾을 수 있습니다. 메트릭별 비용 분류를 이해하려면 이러한 각각의 항목 옆에 있는 **플랜 보기**를 클릭하십시오. 예를 들어 `VIRTUAL_PROCESSOR_CORE_HOURS`는 지금까지 평가된 총 VPC 시간을 나타냅니다. 이 값을 사용하여 **$0.29 USD/VPC-hour** 가격 메트릭을 기반으로 청구되는 금액을 확인하십시오. 
+아래로 스크롤하면 목록 보기에서 **유형** 및 **비용**별로 유사한 분류를 볼 수 있습니다. 클러스터에서 프로비저닝한 다른 서비스와 함께 나열된 "Kubernetes Service" 및 "Blockchain Platform"을 찾을 수 있습니다.메트릭별 비용 분류를 이해하려면 이러한 각각의 항목 옆에 있는 **플랜 보기**를 클릭하십시오. 예를 들어 `VIRTUAL_PROCESSOR_CORE_HOURS`는 지금까지 평가된 총 VPC 시간을 나타냅니다. 이 값을 사용하여 **$0.29 USD/VPC-hour** 가격 메트릭을 기반으로 청구되는 금액을 확인하십시오.
 
 #### IP 할당 요금
 
@@ -129,7 +132,7 @@ VPC는 {{site.data.keyword.IBM_notm}} 제품의 라이센싱 비용을 판별하
 
 ![IP 할당 요금](../images/ip_allocation_charge.png "Kubernetes 클러스터 IP 할당 요금")
 
-이 요금은 사용량 타일의 **송장** 탭에 표시됩니다. IP 할당 요금을 보려면 **다음 반복 송장** 아래의 링크를 클릭하십시오. 
+이 요금은 사용량 타일의 **송장** 탭에 표시됩니다. IP 할당 요금을 보려면 **다음 반복 송장** 아래의 링크를 클릭하십시오.
 
 #### 스토리지 사용량
 

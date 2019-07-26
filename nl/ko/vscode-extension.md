@@ -49,21 +49,21 @@ subcollection: blockchain
 ### 전제조건
 {: #develop-vscode-prerequisites}
 
-- Windows 10, Linux 또는 Mac OS는 현재 지원되는 운영 체제입니다. 
+- Windows 10, Linux 또는 Mac OS는 현재 지원되는 운영 체제입니다.
 - [VS Code 버전 1.32 이상](https://code.visualstudio.com/){: external}.
 - [Node v8.x 이상 및 npm v5.x 이상](https://nodejs.org/en/download/){: external}.
 - [Docker 버전 v17.06.2-ce 이상](https://www.docker.com/get-started){: external}.
 - [Docker Compose v1.14.0 이상](https://docs.docker.com/compose/install/){: external}.
 - [Go 계약 개발용 Go 버전 v1.12 이상](https://golang.org/dl/){: external}.
 
-Windows를 사용하는 경우, 다음을 확인해야 합니다. 
+Windows를 사용하는 경우, 다음을 확인해야 합니다.
 
 - Docker for Windows가 Linux 컨테이너를 사용하도록 구성되어 있습니다(기본값).
 - [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools#windows-build-tools){: external}에 C++ Build Tools for Windows를 설치했습니다.
 - [Win32 OpenSSL](http://slproweb.com/products/Win32OpenSSL.html){: external}에서 OpenSSL v1.0.2를 설치했습니다.
   - "light"로 표시된 버전이 아닌 일반 버전을 설치합니다.
-  - 32비트 시스템에 Win32 버전을 C:\OpenSSL-Win32에 설치합니다. 
-  - 64비트 시스템에 Win64 버전을 C:\OpenSSL-Win64에 설치합니다. 
+  - 32비트 시스템에 Win32 버전을 C:\OpenSSL-Win32에 설치합니다.
+  - 64비트 시스템에 Win64 버전을 C:\OpenSSL-Win64에 설치합니다.
 
 ### 확장 설치
 {: #develop-vscode-installing-the-extension}
