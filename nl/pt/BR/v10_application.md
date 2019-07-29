@@ -19,7 +19,7 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# Desenvolvendo aplicativos com os SDKs do Fabric
+# Desenvolvendo aplicativos com os Fabric SDKs
 {: #dev-app}
 
 O {{site.data.keyword.blockchainfull}} Platform fornece APIs que podem ser usadas para conectar aplicativos à rede de blockchain. É possível usar os terminais de API da rede no perfil de conexão para chamar seu chaincode e atualizar ou consultar o livro-razão específico do canal em seus peers. Também é possível usar APIs na [IU do Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) para gerenciar nós, canais e membros de sua rede.
@@ -60,7 +60,7 @@ São necessários os pré-requisitos a seguir antes de poder usar o tutorial **G
 
 - Recupere o Perfil de conexão de sua rede na tela "Visão geral" do Monitor de rede. Salve o Perfil de conexão em seu diretório `fabcar` e renomeie-o para `creds.json`.
 
-## Usando os SDKs do Fabric
+## Utilizando os SDKs do Fabric
 {: #dev-app-fabric-sdks}
 
 Os Hyperledger Fabric SDKs fornecem um conjunto poderoso de APIs que permitem que os aplicativos interajam com redes de blockchain. É possível localizar a lista mais recente de idiomas suportados na [documentação da comunidade do Hyperledger Fabric SDK](https://hyperledger-fabric.readthedocs.io/en/release-1.2/getting_started.html#hyperledger-fabric-sdks){: external}. Recomenda-se usar o Node SDK ou o Java SDK com o {{site.data.keyword.blockchainfull_notm}} Platform. É possível saber mais sobre as APIs fornecidas pelos SDKs nos repositórios individuais dos SDKs.

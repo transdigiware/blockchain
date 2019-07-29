@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,17 +76,19 @@ A tabela a seguir fornece dois exemplos de precificação com [alocações de re
 
 | Opções de precificação** (1 VPC = 1 CPU)| **Rede de teste** | **Associar uma rede de produção** |
 |-|------------|-----------------------------|
-| **Alocação de CPU** |  1,85 CPU <br> Inclui: <br> - 1 peer <br> - 2 CAs <br> -1 nó de pedido| 4,9 CPUs <br> Inclui: <br> - 2 peers (para HA) <br> **(Cálculo padrão 2x)** <br>- 1 CA <br>  |
-| **Custo por hora: {{site.data.keyword.blockchainfull_notm}} Platform** | US$ 0,54 <br> (1,85 CPU x US$ 0,29/VPC-hora) | US$ 1,42 <br> (4,9 CPUs x US$ 0,29/VPC-hora) |
+| **Alocação de CPU** |  1,65 de CPU <br> Inclui: <br> - 1 peer <br> - 2 CAs <br> -1 nó de pedido| 4,5 CPU <br> Inclui: <br> - 2 peers (para HA) <br> **(Cálculo padrão 2x)** <br>- 1 CA <br>  |
+| **Custo por hora: {{site.data.keyword.blockchainfull_notm}} Platform** | US$ 0,48 <br> (1,65 de CPU x US$ 0,29 VPC/hora) | $1,31 USD <br> (4,5 CPU x $0,29 USD/VPC-h) |
 | **Custo por hora: cluster {{site.data.keyword.cloud_notm}} Kubernetes**    | US$ 0,12 <br> (Cálculo: camada 2 x 4) <br> (Alocação de IP: US$ 16/mês) | $0,46 USD <br> (Cálculo: camada 8 x 32) <br> (Alocação de IP: US$ 16/mês) |
 | **Custo por hora: armazenamento** | $0,07 USD <br> 340 GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | US$ 0,13 <br> 420 GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
-| **Custo por hora total** | **US$ 0,73** | **US$ 2,01**| |
+| **Custo por hora total** | **US$ 0,67** | **$1,90 USD**| |
 ** Visualize o {{site.data.keyword.blockchainfull_notm}} Platform sem encargos por 30 dias ao vincular sua instância de serviço do {{site.data.keyword.blockchainfull_notm}} Platform a um cluster grátis do {{site.data.keyword.cloud_notm}} Kubernetes. O desempenho será limitado por rendimento, armazenamento e funcionalidade. O {{site.data.keyword.cloud_notm}} excluirá seu cluster Kubernetes após 30 dias e não será possível migrar nós nem dados de um cluster grátis para um cluster pago.  
 
 Seus custos reais variam dependendo de fatores adicionais, como taxa de transação, o número de canais que você requer, o tamanho da carga útil nas transações e o número máximo de transações simultâneas. Os exemplos de precificação acima são baseados em um cluster Kubernetes de zona única do {{site.data.keyword.cloud_notm}} apenas.  Se você tiver escolhido um cluster com múltiplas zonas, haverá taxas extras para as zonas adicionais e o balanceador de carga de múltiplas zonas necessários.
 {:note}
 
-Não há limite para o número de instâncias de serviço que é possível provisionar e associar a um único cluster Kubernetes, mas é necessário assegurar que os recursos adequados estejam disponíveis monitorando o uso de CPU, memória e armazenamento para evitar interrupção do serviço. Os nós do {{site.data.keyword.blockchainfull_notm}} Platform não precisam estar em seu próprio cluster. É possível ter outros serviços do {{site.data.keyword.cloud_notm}} em execução no cluster em que seus componentes de blockchain estão em execução, mas novamente é necessário assegurar-se de que tenha o cálculo e o armazenamento adequados para direcionar todos os requisitos de todas as instâncias de serviço.
+Não há limite para o número de instâncias de serviço que é possível provisionar e associar a um único cluster Kubernetes, mas é necessário assegurar que os recursos adequados estejam disponíveis monitorando o uso de CPU, memória e armazenamento para evitar interrupção do serviço. Os nós do {{site.data.keyword.blockchainfull_notm}} Platform não precisam estar em seu próprio cluster. É possível ter outros serviços do {{site.data.keyword.cloud_notm}} em execução no cluster em que seus componentes de blockchain estão em execução, mas novamente é necessário assegurar-se de que tenha o cálculo e o armazenamento adequados para direcionar todos os requisitos de todas as instâncias de serviço.  
+
+**Pronto para começar a usar?** Consulte [Introdução ao {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) para ver as opções. 
 
 ## Alocações de recursos padrão
 {: #ibp-saas-pricing-default}
@@ -95,9 +97,9 @@ Os valores na tabela a seguir são úteis para estimar o custo por hora de sua r
 
 | **Componente** (todos os contêineres) | CPU  | Memória (GB) | Armazenamento (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2            | 2.4                   | 200 (inclui 100 GB para peer e 100 GB para CouchDB)|
+| **Peer**                       | 1.1            | 2.4                   | 200 (inclui 100 GB para peer e 100 GB para CouchDB)|
 | **CA**                         | 0,1            | 0,2                    | 20                     |
-| **Nó de pedido**                    | 0,45           | 0,9                    | 100                    |
+| **Nó de pedido**                    | 0,35           | 0,9                    | 100                    |
 
 
 ## faturamento
@@ -115,9 +117,10 @@ Antes de obter uma conta, é possível monitorar os custos de cluster do {{site.
 
 #### Uso do {{site.data.keyword.blockchainfull_notm}} Platform e do Kubernetes Service
 
-Este clipe fornece um exemplo simples de como visualizar seus encargos para um {{site.data.keyword.blockchainfull_notm}} Platform que inclui um único nó de CA.
+<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
 
-![Monitorando seu uso](../images/usage_monitoring.gif){: gif}
+![Monitoring your usage](../images/usage_monitoring.gif){: gif}
+-->
 
 Navegue para **Gerenciar** na parte superior de seu painel do {{site.data.keyword.cloud_notm}}, clique em **Faturamento e uso** e, em seguida, clique em **Uso** no menu à esquerda. O gráfico de pizza na subseção **Serviços** fornece um detalhamento de seu custo total pelos tipos de ofertas de serviços que você usou e consumiu este mês. Use esse gráfico para entender como seu {{site.data.keyword.blockchainfull_notm}} Platform, seu serviço do Kubernetes e o armazenamento contribuem com o custo total.
 

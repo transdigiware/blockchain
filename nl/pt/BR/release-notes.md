@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,11 +23,27 @@ subcollection: blockchain
 Use estas notas sobre a liberação que são agrupadas por data para conhecer as mudanças mais recentes para o {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, que é construído no Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+## 10 de julho de 2019
+{: #07-10-2019}
+
+**Correção do nó de pedido `1.4.1-2`**  
+
+Essa correção corrige um problema que ocorre na reinicialização dos nós de pedido. O bloco genesis é atualizado, o que evita que o nó de pedido se comunique com os outros nós no serviço de pedido. É possível aplicar essa correção a todos os nós de pedido existentes em seus serviços de pedido seguindo essas [instruções](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) para atualizar cada nó de pedido. Todos os novos nós de pedido que você criar incluirão automaticamente essa correção.
+
+**Remoção de peer de âncora**  
+
+Agora você tem a capacidade de remover peers de âncora de um canal.
+
+**Correções de erro diversas**  
+
+Correções de erro e atualizações de conversão.
 
 ## 24 de maio de 2019
 {: #05-24-2019}
 
-**Protocolo de consenso do Raft** O serviço de pedido Raft de cinco nós, recomendado para redes de produção, agora está disponível. Além disso, para propósitos de desenvolvimento e teste, é possível implementar um serviço de pedido Raft de nó único.
+**Protocolo de consenso do Raft**  
+
+ O serviço de pedido Raft de cinco nós, recomendado para redes de produção, agora está disponível. Além disso, para propósitos de desenvolvimento e teste, é possível implementar um serviço de pedido Raft de nó único.
 
 ## 9 de maio de 2019
 {: #05-09-2019}

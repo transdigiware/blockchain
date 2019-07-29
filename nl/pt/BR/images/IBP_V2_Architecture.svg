@@ -1,50 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 1400 1548"
-   style="enable-background:new 0 0 1400 1548;"
-   xml:space="preserve"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="IBP_V2_Architecture.svg"><metadata
-   id="metadata191"><rdf:RDF><cc:Work
-       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-   id="defs189" /><sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="1280"
-   inkscape:window-height="748"
-   id="namedview187"
-   showgrid="false"
-   inkscape:zoom="0.99214206"
-   inkscape:cx="743.88799"
-   inkscape:cy="514.00367"
-   inkscape:window-x="-8"
-   inkscape:window-y="-8"
-   inkscape:window-maximized="1"
-   inkscape:current-layer="IBP_V2_Architecture" />
-<style
-   type="text/css"
-   id="style3">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1400 1548" style="enable-background:new 0 0 1400 1548;" xml:space="preserve">
+<style type="text/css">
 	.st0{fill:#FFFFFF;stroke:#979797;}
 	.st1{opacity:0.2003;}
 	.st2{fill:#DCDCDC;}
@@ -72,977 +30,197 @@
 	.st24{font-family:'IBMPlexSans';}
 	.st25{font-size:20px;}
 </style>
-<title
-   id="title5">IBP_V2_Architecture</title>
-<desc
-   id="desc7">Created with Sketch.</desc>
-<g
-   id="IBP_V2_Architecture">
-	<rect
-   id="Rectangle"
-   x="1.5"
-   y="0.5"
-   class="st0"
-   width="1398"
-   height="1546" />
-	<g
-   id="Group-14-Copy"
-   transform="translate(165.000000, 579.000000)"
-   class="st1">
-		<rect
-   id="Rectangle-Copy-8"
-   y="69"
-   class="st2"
-   width="757"
-   height="805" />
-		<text
-   transform="matrix(1 0 0 1 0 22)"
-   class="st3 st4 st5"
-   id="text13">Cluster Kubernetes - </text>
-
-
-		<text
-   transform="matrix(1 0 0 1 0 50)"
-   class="st3 st4 st5"
-   id="text15">Instância de serviço 3</text>
-
-
+<title>IBP_V2_Architecture</title>
+<desc>Created with Sketch.</desc>
+<g id="IBP_V2_Architecture">
+	<rect id="Rectangle" x="1.5" y="0.5" class="st0" width="1398" height="1546"/>
+	<g id="Group-14-Copy" transform="translate(165.000000, 579.000000)" class="st1">
+		<rect id="Rectangle-Copy-8" y="69" class="st2" width="757" height="805"/>
+		<text transform="matrix(1 0 0 1 0 22)" class="st3 st4 st5">Cluster Kubernetes - </text>
+		<text transform="matrix(1 0 0 1 0 50)" class="st3 st4 st5">Instância de serviço 3</text>
 	</g>
-	<g
-   id="Group-14"
-   transform="translate(311.000000, 506.000000)"
-   class="st6">
-		<rect
-   id="Rectangle-Copy-8_1_"
-   y="69"
-   class="st2"
-   width="757"
-   height="805" />
-		<text
-   class="st3 st4 st5"
-   id="text19"
-   x="-72.696129"
-   y="20.574585"
-   style="font-size:21px;font-family:IBMPlexSans-Medium;fill:#161515">Cluster Kubernetes - </text>
-
-
-		<text
-   class="st3 st4 st5"
-   id="text21"
-   x="-102.44199"
-   y="50"
-   style="font-size:21px;font-family:IBMPlexSans-Medium;fill:#161515">Instance2 de serviço</text>
-
-
+	<g id="Group-14" transform="translate(311.000000, 506.000000)" class="st6">
+		<rect id="Rectangle-Copy-8_1_" y="69" class="st2" width="757" height="805"/>
+		<text transform="matrix(1 0 0 1 0 22)" class="st3 st4 st5">Cluster Kubernetes - </text>
+		<text transform="matrix(1 0 0 1 0 50)" class="st3 st4 st5">Instance2 de serviço</text>
 	</g>
-	<g
-   id="Group-13-Copy"
-   transform="translate(308.000000, 194.000000)"
-   class="st7">
-		<g
-   id="Group">
+	<g id="Group-13-Copy" transform="translate(308.000000, 194.000000)" class="st7">
+		<g id="Group">
 		</g>
 	</g>
-	<g
-   id="Group-13-Copy-2"
-   transform="translate(513.000000, 310.000000)"
-   class="st8">
+	<g id="Group-13-Copy-2" transform="translate(513.000000, 310.000000)" class="st8">
 	</g>
-	<g
-   id="Group-17"
-   transform="translate(165.000000, 189.000000)"
-   class="st9">
-		<g
-   id="Group_1_"
-   transform="translate(0.000000, 69.000000)">
-			<rect
-   id="Rectangle_1_"
-   class="st2"
-   width="757"
-   height="128" />
+	<g id="Group-17" transform="translate(165.000000, 189.000000)" class="st9">
+		<g id="Group_1_" transform="translate(0.000000, 69.000000)">
+			<rect id="Rectangle_1_" class="st2" width="757" height="128"/>
 		</g>
-		<text
-   class="st3 st4 st5"
-   id="text29"
-   transform="matrix(1 0 0 1 0 22)">Cluster Kubernetes do IBM Blockchain Platform - </text>
+		<text transform="matrix(1 0 0 1 0 22)" class="st3 st4 st5">Cluster Kubernetes do IBM Blockchain Platform - </text>
+		<text transform="matrix(1 0 0 1 0 50)" class="st3 st4 st5">Ferramentas Operacionais</text>
+		<g id="Group-2" transform="translate(64.000000, 87.000000)">
+			<rect id="Rectangle_2_" x="0.5" y="0.5" class="st10" width="308" height="88"/>
+			<text transform="matrix(1 0 0 1 81 39)" class="st11 st4 st12">Ferramentas Operacionais </text>
+			<text transform="matrix(1 0 0 1 81 63)" class="st11 st4 st12">Console</text>
+			<g id="_x39_658-200">
 
-
-		<text
-   transform="matrix(1 0 0 1 0 50)"
-   class="st3 st4 st5"
-   id="text31">Ferramentas Operacionais</text>
-
-
-		<g
-   id="Group-2"
-   transform="translate(64.000000, 87.000000)">
-			<rect
-   id="Rectangle_2_"
-   x="0.5"
-   y="0.5"
-   class="st10"
-   width="308"
-   height="88" />
-			<text
-   transform="matrix(1 0 0 1 81 39)"
-   class="st11 st4 st12"
-   id="text35">Ferramentas Operacionais </text>
-
-
-			<text
-   class="st11 st4 st12"
-   id="text37"
-   x="73"
-   y="77"
-   style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff">Ocorrência</text>
-
-
-			<g
-   id="_x39_658-200">
-				
-					<image
-   sodipodi:absref="C:\FORMAT\BM140\ABD141S001\Formatacao\images\C9FED2EB5474981B.png"
-   xlink:href="C9FED2EB5474981B.png"
-   style="overflow:visible;enable-background:new    ;"
-   width="200"
-   height="200"
-   transform="matrix(0.135 0 0 0.135 28 31)"
-   id="image40">
+					<image style="overflow:visible;enable-background:new    ;" width="200" height="200" xlink:href="C9FED2EB5474981B.png"  transform="matrix(0.135 0 0 0.135 28 31)">
 				</image>
-				<g
-   id="g42">
-					<rect
-   id="rect-1"
-   x="28"
-   y="31"
-   class="st11"
-   width="27"
-   height="27" />
+				<g>
+					<rect id="rect-1" x="28" y="31" class="st11" width="27" height="27"/>
 				</g>
 			</g>
 		</g>
-		<path
-   id="Path-Copy"
-   class="st13"
-   d="M430,686h-21.5c-11,0-20-9-20-20V141c0-11-9-20-20-20H348" />
+		<path id="Path-Copy" class="st13" d="M430,686h-21.5c-11,0-20-9-20-20V141c0-11-9-20-20-20H348"/>
 	</g>
-	<g
-   id="Group-18"
-   transform="translate(308.000000, 125.000000)"
-   class="st14">
-		<g
-   id="Group-16">
-			<rect
-   id="Rectangle_3_"
-   y="69"
-   class="st2"
-   width="757"
-   height="128" />
-			<text
-   class="st3 st4 st5"
-   id="text49"
-   transform="matrix(1 0 0 1 0 22)">Cluster Kubernetes do IBM Blockchain Platform - </text>
+	<g id="Group-18" transform="translate(308.000000, 125.000000)" class="st14">
+		<g id="Group-16">
+			<rect id="Rectangle_3_" y="69" class="st2" width="757" height="128"/>
+			<text transform="matrix(1 0 0 1 0 22)" class="st3 st4 st5">Cluster Kubernetes do IBM Blockchain Platform - </text>
+			<text transform="matrix(1 0 0 1 0 50)" class="st3 st4 st5">Ferramentas Operacionais</text>
+			<g id="Group-2_1_" transform="translate(64.000000, 87.000000)">
+				<rect id="Rectangle_4_" x="0.5" y="0.5" class="st10" width="308" height="88"/>
+				<text transform="matrix(1 0 0 1 81 39)" class="st11 st4 st12">Blockchain operacional</text>
+				<text transform="matrix(1 0 0 1 81 63)" class="st11 st4 st12">Console</text>
+				<g id="_x39_658-200_1_">
 
-
-			<text
-   class="st3 st4 st5"
-   id="text51"
-   transform="matrix(1 0 0 1 0 50)">Ferramentas Operacionais</text>
-
-
-			<g
-   id="Group-2_1_"
-   transform="translate(64.000000, 87.000000)">
-				<rect
-   id="Rectangle_4_"
-   x="0.5"
-   y="0.5"
-   class="st10"
-   width="308"
-   height="88" />
-				<text
-   transform="matrix(1 0 0 1 81 39)"
-   class="st11 st4 st12"
-   id="text55">Ferramentas Operacionais </text>
-
-
-				<text
-   transform="matrix(1 0 0 1 81 63)"
-   class="st11 st4 st12"
-   id="text57">Ocorrência</text>
-
-
-				<g
-   id="_x39_658-200_1_">
-					
-						<image
-   sodipodi:absref="C:\FORMAT\BM140\ABD141S001\Formatacao\images\C9FED2EB5474981C.png"
-   xlink:href="C9FED2EB5474981C.png"
-   style="overflow:visible;enable-background:new    ;"
-   width="200"
-   height="200"
-   transform="matrix(0.135 0 0 0.135 28 31)"
-   id="image60">
+						<image style="overflow:visible;enable-background:new    ;" width="200" height="200" xlink:href="C9FED2EB5474981C.png"  transform="matrix(0.135 0 0 0.135 28 31)">
 					</image>
-					<g
-   id="g62">
-						<rect
-   id="rect-2"
-   x="28"
-   y="31"
-   class="st11"
-   width="27"
-   height="27" />
+					<g>
+						<rect id="rect-2" x="28" y="31" class="st11" width="27" height="27"/>
 					</g>
 				</g>
 			</g>
 		</g>
-		<path
-   id="Path-Copy_1_"
-   class="st13"
-   d="M430,658h-21.5c-11,0-20-9-20-20V113c0-11-9-20-20-20H348" />
+		<path id="Path-Copy_1_" class="st13" d="M430,658h-21.5c-11,0-20-9-20-20V113c0-11-9-20-20-20H348"/>
 	</g>
-	<g
-   id="Group-14_1_"
-   transform="translate(449.000000, 438.000000)">
-		<rect
-   id="Rectangle_5_"
-   y="69"
-   class="st2"
-   width="757"
-   height="805" />
-		<text
-   transform="matrix(1 0 0 1 0 22)"
-   class="st3 st4 st5"
-   id="text68">Cluster Kubernetes - </text>
-
-
-		<text
-   transform="matrix(1 0 0 1 0 50)"
-   class="st3 st4 st5"
-   id="text70">Instância de serviço 1</text>
-
-
+	<g id="Group-14_1_" transform="translate(449.000000, 438.000000)">
+		<rect id="Rectangle_5_" y="69" class="st2" width="757" height="805"/>
+		<text transform="matrix(1 0 0 1 0 22)" class="st3 st4 st5">Cluster Kubernetes - </text>
+		<text transform="matrix(1 0 0 1 0 50)" class="st3 st4 st5">Instância de serviço 1</text>
 	</g>
-	<path
-   id="Path"
-   class="st15"
-   d="M689,1049V927c0-11,8.9-20,20-20h138" />
-	<g
-   id="Group-8"
-   transform="translate(513.000000, 731.000000)">
-		<g
-   id="Group-7">
-			<rect
-   id="Rectangle_6_"
-   x="0.5"
-   y="0.5"
-   class="st16"
-   width="642"
-   height="104" />
-			<g
-   id="Group-4"
-   transform="translate(253.342000, 44.000000)">
-				<rect
-   id="Rectangle-Copy-7"
-   x="0.5"
-   y="0.5"
-   class="st17"
-   width="135.3"
-   height="47" />
-				<text
-   transform="matrix(1 0 0 1 36.311 31)"
-   class="st18 st4 st12"
-   id="text78">Ingresso</text>
-
-
+	<path id="Path" class="st15" d="M689,1049V927c0-11,8.9-20,20-20h138"/>
+	<g id="Group-8" transform="translate(513.000000, 731.000000)">
+		<g id="Group-7">
+			<rect id="Rectangle_6_" x="0.5" y="0.5" class="st16" width="642" height="104"/>
+			<g id="Group-4" transform="translate(253.342000, 44.000000)">
+				<rect id="Rectangle-Copy-7" x="0.5" y="0.5" class="st17" width="135.3" height="47"/>
+				<text transform="matrix(1 0 0 1 36.311 31)" class="st18 st4 st12">Ingresso</text>
 			</g>
-			<text
-   transform="matrix(1 0 0 1 199.9255 35)"
-   class="st11 st4 st12"
-   id="text80">Namespace da instância de</text>
-
-
+			<text transform="matrix(1 0 0 1 199.9255 35)" class="st11 st4 st12">Namespace da instância de</text>
 		</g>
-		<g
-   id="Group-6"
-   transform="translate(0.000000, 145.000000)">
-			<rect
-   id="Rectangle_7_"
-   x="0.5"
-   y="0.5"
-   class="st19"
-   width="642"
-   height="104" />
-			<g
-   id="Group-5"
-   transform="translate(253.342000, 45.000000)">
-				<rect
-   id="Rectangle-Copy-5"
-   x="0.5"
-   y="0.5"
-   class="st17"
-   width="135.3"
-   height="47" />
-				<text
-   transform="matrix(1 0 0 1 44.3195 31)"
-   class="st18 st4 st12"
-   id="text86">Proxy</text>
-
-
+		<g id="Group-6" transform="translate(0.000000, 145.000000)">
+			<rect id="Rectangle_7_" x="0.5" y="0.5" class="st19" width="642" height="104"/>
+			<g id="Group-5" transform="translate(253.342000, 45.000000)">
+				<rect id="Rectangle-Copy-5" x="0.5" y="0.5" class="st17" width="135.3" height="47"/>
+				<text transform="matrix(1 0 0 1 44.3195 31)" class="st18 st4 st12">Proxy</text>
 			</g>
-			<text
-   transform="matrix(1 0 0 1 163.8985 35)"
-   class="st11 st4 st12"
-   id="text88">Namespace do IBM Blockchain Platform</text>
-
-
+			<text transform="matrix(1 0 0 1 163.8985 35)" class="st11 st4 st12">Namespace do IBM Blockchain Platform</text>
 		</g>
-		<path
-   id="Line-2"
-   class="st20"
-   d="M321.5,136.5V105v-0.5h1v0.5v31.5h4l-4.5,9l-4.5-9H321.5z" />
+		<path id="Line-2" class="st20" d="M321.5,136.5V105v-0.5h1v0.5v31.5h4l-4.5,9l-4.5-9H321.5z"/>
 	</g>
-	<g
-   id="Group-10"
-   transform="translate(895.000000, 1061.000000)">
-		<rect
-   id="Rectangle_8_"
-   x="0.5"
-   y="0.5"
-   class="st19"
-   width="259"
-   height="131" />
-		<g
-   id="Group-9"
-   transform="translate(77.000000, 73.000000)">
-			<rect
-   id="Rectangle-Copy-6"
-   x="0.5"
-   y="0.5"
-   class="st17"
-   width="105"
-   height="47" />
-			<text
-   transform="matrix(1 0 0 1 28.49 31)"
-   class="st18 st4 st12"
-   id="text95">RBAC</text>
-
-
+	<g id="Group-10" transform="translate(895.000000, 1061.000000)">
+		<rect id="Rectangle_8_" x="0.5" y="0.5" class="st19" width="259" height="131"/>
+		<g id="Group-9" transform="translate(77.000000, 73.000000)">
+			<rect id="Rectangle-Copy-6" x="0.5" y="0.5" class="st17" width="105" height="47"/>
+			<text transform="matrix(1 0 0 1 28.49 31)" class="st18 st4 st12">RBAC</text>
 		</g>
-		<text
-   class="st11 st4 st12"
-   id="text97"
-   x="34.541714"
-   y="21.298344"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.99999976px;line-height:125%;font-family:IBMPlexSans-Medium;-inkscape-font-specification:'IBMPlexSans-Medium, Normal';text-align:start;writing-mode:lr;text-anchor:start;fill:#ffffff;"
-   sodipodi:linespacing="125%"><tspan
-     sodipodi:role="line"
-     id="tspan4337">Namespace do IBM </tspan><tspan
-     sodipodi:role="line"
-     id="tspan4339">Blockchain Platform</tspan></text>
-
-
-		<text
-   transform="translate(41.3045,63)"
-   class="st11 st4 st12"
-   id="text99"
-   style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff" />
-
-
+		<text transform="matrix(1 0 0 1 63.05 39)" class="st11 st4 st12">IBM Blockchain </text>
+		<text transform="matrix(1 0 0 1 41.3045 63)" class="st11 st4 st12">Namespace da plataforma</text>
 	</g>
-	<rect
-   id="Rectangle_9_"
-   x="513.5"
-   y="1061.5"
-   class="st16"
-   width="105"
-   height="61" />
-	<text
-   transform="matrix(1 0 0 1 536.0975 1111)"
-   class="st11 st4 st12"
-   id="text102">Peer-1</text>
-
-
-	<rect
-   id="Rectangle_10_"
-   x="753.5"
-   y="1061.5"
-   class="st16"
-   width="105"
-   height="61" />
-	<text
-   class="st11 st4 st12"
-   id="text105"
-   transform="matrix(1 0 0 1 763.041 1107)">Orderer-1</text>
-
-
-	<g
-   id="Group-12"
-   transform="translate(856.000000, 546.000000)">
-		<rect
-   id="Rectangle-Copy-4"
-   x="0.5"
-   y="28.5"
-   class="st21"
-   width="270"
-   height="122" />
-		<rect
-   id="Rectangle-Copy-3"
-   x="14.5"
-   y="14.5"
-   class="st21"
-   width="270"
-   height="122" />
-		<g
-   id="Group-11"
-   transform="translate(28.000000, 0.000000)">
-			<rect
-   id="Rectangle-Copy"
-   x="0.5"
-   y="0.5"
-   class="st21"
-   width="270"
-   height="122" />
-			<g
-   id="Group-3"
-   transform="translate(83.000000, 62.000000)">
-				<rect
-   id="Rectangle-Copy-2"
-   x="0.5"
-   y="0.5"
-   class="st17"
-   width="105"
-   height="47" />
-				<text
-   transform="matrix(1 0 0 1 31.0075 31)"
-   class="st18 st4 st12"
-   id="text114">Tiller</text>
-
-
+	<rect id="Rectangle_9_" x="513.5" y="1061.5" class="st16" width="105" height="61"/>
+	<text transform="matrix(1 0 0 1 536.0975 1111)" class="st11 st4 st12">Peer-1</text>
+	<rect id="Rectangle_10_" x="753.5" y="1061.5" class="st16" width="105" height="61"/>
+	<text transform="matrix(1 0 0 1 763.041 1107)" class="st11 st4 st12">Orderer-1</text>
+	<g id="Group-12" transform="translate(856.000000, 546.000000)">
+		<rect id="Rectangle-Copy-4" x="0.5" y="28.5" class="st21" width="270" height="122"/>
+		<rect id="Rectangle-Copy-3" x="14.5" y="14.5" class="st21" width="270" height="122"/>
+		<g id="Group-11" transform="translate(28.000000, 0.000000)">
+			<rect id="Rectangle-Copy" x="0.5" y="0.5" class="st21" width="270" height="122"/>
+			<g id="Group-3" transform="translate(83.000000, 62.000000)">
+				<rect id="Rectangle-Copy-2" x="0.5" y="0.5" class="st17" width="105" height="47"/>
+				<text transform="matrix(1 0 0 1 31.0075 31)" class="st18 st4 st12">Tiller</text>
 			</g>
-			<text
-   transform="matrix(1 0 0 1 79.26 30)"
-   class="st11 st4 st12"
-   id="text116">kube-system</text>
-
-
-			<text
-   transform="matrix(1 0 0 1 192.3468 30)"
-   class="st11 st4 st12"
-   id="text118"> </text>
-
-
-			<text
-   transform="matrix(1 0 0 1 85.948 54)"
-   class="st11 st4 st12"
-   id="text120">namespace</text>
-
-
+			<text transform="matrix(1 0 0 1 79.26 30)" class="st11 st4 st12">kube-system</text>
+			<text transform="matrix(1 0 0 1 192.3468 30)" class="st11 st4 st12"> </text>
+			<text transform="matrix(1 0 0 1 85.948 54)" class="st11 st4 st12">namespace</text>
 		</g>
 	</g>
-	<rect
-   id="Rectangle_11_"
-   x="514.5"
-   y="1131.5"
-   class="st16"
-   width="105"
-   height="61" />
-	<text
-   transform="matrix(1 0 0 1 537.0975 1180)"
-   class="st11 st4 st12"
-   id="text123">Peer-2</text>
+	<rect id="Rectangle_11_" x="514.5" y="1131.5" class="st16" width="105" height="61"/>
+	<text transform="matrix(1 0 0 1 537.0975 1180)" class="st11 st4 st12">Peer-2</text>
+	<rect id="Rectangle_12_" x="514.5" y="1200.5" class="st16" width="105" height="61"/>
+	<text transform="matrix(1 0 0 1 537.0975 1249)" class="st11 st4 st12">Espe-3</text>
+	<rect id="Rectangle_13_" x="631.5" y="1061.5" class="st16" width="105" height="61"/>
+	<text transform="matrix(1 0 0 1 662.378 1110)" class="st11 st4 st12">CA-1</text>
+	<rect id="Rectangle_14_" x="632.5" y="1131.5" class="st16" width="105" height="61"/>
+	<text transform="matrix(1 0 0 1 663.378 1179)" class="st11 st4 st12">CA-2</text>
+	<path id="Line-2_1_" class="st20" d="M688.5,1051.5V999v-0.5h1v0.5v52.5h4l-4.5,9l-4.5-9H688.5z"/>
+	<path id="Path_1_" class="st15" d="M565,1056v-36c0-11,9-20,20-20h209c11.1,0,20,9,20,20v36"/>
 
-
-	<rect
-   id="Rectangle_12_"
-   x="514.5"
-   y="1200.5"
-   class="st16"
-   width="105"
-   height="61" />
-	<text
-   transform="matrix(1 0 0 1 537.0975 1249)"
-   class="st11 st4 st12"
-   id="text126">Espe-3</text>
-
-
-	<rect
-   id="Rectangle_13_"
-   x="631.5"
-   y="1061.5"
-   class="st16"
-   width="105"
-   height="61" />
-	<text
-   transform="matrix(1 0 0 1 662.378 1110)"
-   class="st11 st4 st12"
-   id="text129">CA-1</text>
-
-
-	<rect
-   id="Rectangle_14_"
-   x="632.5"
-   y="1131.5"
-   class="st16"
-   width="105"
-   height="61" />
-	<text
-   transform="matrix(1 0 0 1 663.378 1179)"
-   class="st11 st4 st12"
-   id="text132">CA-2</text>
-
-
-	<path
-   id="Line-2_1_"
-   class="st20"
-   d="M688.5,1051.5V999v-0.5h1v0.5v52.5h4l-4.5,9l-4.5-9H688.5z" />
-	<path
-   id="Path_1_"
-   class="st15"
-   d="M565,1056v-36c0-11,9-20,20-20h209c11.1,0,20,9,20,20v36" />
-	
-		<g
-   id="tip-type"
-   transform="translate(813.000000, 1053.000000) rotate(90.000000) translate(-813.000000, -1053.000000) translate(809.000000, 1049.000000)">
-		<polygon
-   id="Triangle"
-   class="st20"
-   points="8,4 0,8 0,0   " />
+		<g id="tip-type" transform="translate(813.000000, 1053.000000) rotate(90.000000) translate(-813.000000, -1053.000000) translate(809.000000, 1049.000000)">
+		<polygon id="Triangle" class="st20" points="8,4 0,8 0,0 		"/>
 	</g>
-	
-		<g
-   id="tip-type_1_"
-   transform="translate(835.000000, 727.000000) rotate(90.000000) translate(-835.000000, -727.000000) translate(831.000000, 723.000000)">
-		<polygon
-   id="Triangle_1_"
-   class="st20"
-   points="8,4 0,8 0,0   " />
+
+		<g id="tip-type_1_" transform="translate(835.000000, 727.000000) rotate(90.000000) translate(-835.000000, -727.000000) translate(831.000000, 723.000000)">
+		<polygon id="Triangle_1_" class="st20" points="8,4 0,8 0,0 		"/>
 	</g>
-	
-		<g
-   id="tip-type_2_"
-   transform="translate(824.000000, 197.000000) scale(1, -1) rotate(180.000000) translate(-824.000000, -197.000000) translate(820.000000, 193.000000)">
-		<polygon
-   id="Triangle_2_"
-   class="st20"
-   points="8,4 0,8 0,0   " />
+
+		<g id="tip-type_2_" transform="translate(824.000000, 197.000000) scale(1, -1) rotate(180.000000) translate(-824.000000, -197.000000) translate(820.000000, 193.000000)">
+		<polygon id="Triangle_2_" class="st20" points="8,4 0,8 0,0 		"/>
 	</g>
-	
-		<g
-   id="tip-type_3_"
-   transform="translate(564.000000, 1053.000000) rotate(90.000000) translate(-564.000000, -1053.000000) translate(560.000000, 1049.000000)">
-		<polygon
-   id="Triangle_3_"
-   class="st20"
-   points="8,4 0,8 0,0   " />
+
+		<g id="tip-type_3_" transform="translate(564.000000, 1053.000000) rotate(90.000000) translate(-564.000000, -1053.000000) translate(560.000000, 1049.000000)">
+		<polygon id="Triangle_3_" class="st20" points="8,4 0,8 0,0 		"/>
 	</g>
-	
-		<image
-   sodipodi:absref="C:\FORMAT\BM140\ABD141S001\Formatacao\images\C9FED2EB5474981D.png"
-   xlink:href="C9FED2EB5474981D.png"
-   style="overflow:visible;enable-background:new    ;"
-   width="48"
-   height="48"
-   id="IBM_Cloud-Copy"
-   transform="matrix(0.7708 0 0 0.7708 527 740)">
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy" xlink:href="C9FED2EB5474981D.png"  transform="matrix(0.7708 0 0 0.7708 527 740)">
 	</image>
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		<image
-   sodipodi:absref="C:\FORMAT\BM140\ABD141S001\Formatacao\images\C9FED2EB5474980B.png"
-   xlink:href="C9FED2EB5474980B.png"
-   style="overflow:visible;enable-background:new    ;"
-   width="48"
-   height="48"
-   id="IBM_Cloud-Copy-4"
-   transform="matrix(0.5417 0 0 0.5417 793 1066)">
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy-2" xlink:href="C9FED2EB5474981F.png"  transform="matrix(0.5417 0 0 0.5417 553 1067)">
 	</image>
-	<g
-   id="Group-13"
-   transform="translate(449.000000, 62.000000)">
-		<g
-   id="Group_2_"
-   transform="translate(0.000000, 69.000000)">
-			<rect
-   id="Rectangle_15_"
-   class="st2"
-   width="757"
-   height="128" />
-			<path
-   id="Path_2_"
-   class="st13"
-   d="M427,627h-21.5c-11,0-20-9-20-20V82c0-11-9-20-20-20H345" />
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy-5" xlink:href="C9FED2EB5474981A.png"  transform="matrix(0.5417 0 0 0.5417 553 1137)">
+	</image>
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy-7" xlink:href="C9FED2EB54749808.png"  transform="matrix(0.5417 0 0 0.5417 553 1206)">
+	</image>
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy-3" xlink:href="C9FED2EB54749809.png"  transform="matrix(0.5417 0 0 0.5417 671 1065)">
+	</image>
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy-6" xlink:href="C9FED2EB5474980A.png"  transform="matrix(0.5417 0 0 0.5417 671 1135)">
+	</image>
+
+		<image style="overflow:visible;enable-background:new    ;" width="48" height="48" id="IBM_Cloud-Copy-4" xlink:href="C9FED2EB5474980B.png"  transform="matrix(0.5417 0 0 0.5417 793 1066)">
+	</image>
+	<g id="Group-13" transform="translate(449.000000, 62.000000)">
+		<g id="Group_2_" transform="translate(0.000000, 69.000000)">
+			<rect id="Rectangle_15_" class="st2" width="757" height="128"/>
+			<path id="Path_2_" class="st13" d="M427,627h-21.5c-11,0-20-9-20-20V82c0-11-9-20-20-20H345"/>
 		</g>
-		<text
-   transform="matrix(1 0 0 1 0 22)"
-   class="st3 st4 st5"
-   id="text155">Cluster Kubernetes do IBM Blockchain Platform - </text>
+		<text transform="matrix(1 0 0 1 0 22)" class="st3 st4 st5">Cluster Kubernetes do IBM Blockchain Platform - </text>
+		<text transform="matrix(1 0 0 1 0 50)" class="st3 st4 st5">Ferramentas Operacionais</text>
+		<g id="Group-2_2_" transform="translate(64.000000, 87.000000)">
+			<rect id="Rectangle_16_" x="0.5" y="0.5" class="st10" width="308" height="88"/>
+			<text transform="matrix(1 0 0 1 81 39)" class="st11 st4 st12">Ferramentas Operacionais </text>
+			<text transform="matrix(1 0 0 1 81 63)" class="st11 st4 st12">Console</text>
+			<g id="_x39_658-200_2_">
 
-
-		<text
-   transform="matrix(1 0 0 1 0 50)"
-   class="st3 st4 st5"
-   id="text157">Ferramentas Operacionais</text>
-
-
-		<g
-   id="Group-2_2_"
-   transform="translate(64.000000, 87.000000)">
-			<rect
-   id="Rectangle_16_"
-   x="0.5"
-   y="0.5"
-   class="st10"
-   width="308"
-   height="88" />
-			<text
-   class="st11 st4 st12"
-   id="text161"
-   x="64.039795"
-   y="34.357773"
-   style="font-size:18.66826057px;font-family:IBMPlexSans-Medium;fill:#ffffff"
-   transform="scale(0.98254005,1.0177702)">Ferramentas Operacionais </text>
-
-
-			<text
-   class="st11 st4 st12"
-   id="text163"
-   x="65.320442"
-   y="60.14917"
-   style="font-size:19px;font-family:IBMPlexSans-Medium;fill:#ffffff">Ocorrência</text>
-
-
-			<g
-   id="_x39_658-200_2_">
-				
-					<image
-   sodipodi:absref="C:\FORMAT\BM140\ABD141S001\Formatacao\images\31D47C0334D9FAE4.png"
-   xlink:href="31D47C0334D9FAE4.png"
-   style="overflow:visible;enable-background:new    ;"
-   width="200"
-   height="200"
-   transform="matrix(0.135 0 0 0.135 28 31)"
-   id="image166">
+					<image style="overflow:visible;enable-background:new    ;" width="200" height="200" xlink:href="31D47C0334D9FAE4.png"  transform="matrix(0.135 0 0 0.135 28 31)">
 				</image>
-				<g
-   id="g168">
-					<rect
-   id="rect-3"
-   x="28"
-   y="31"
-   class="st11"
-   width="27"
-   height="27" />
+				<g>
+					<rect id="rect-3" x="28" y="31" class="st11" width="27" height="27"/>
 				</g>
 			</g>
 		</g>
 	</g>
-	<g
-   id="Group-15"
-   transform="translate(43.000000, 1349.000000)">
-		<rect
-   id="Rectangle_17_"
-   class="st22"
-   width="1308"
-   height="166" />
-		<text
-   transform="matrix(1 0 0 1 21.112 44)"
-   class="st11 st4 st23"
-   id="text173">Detalhes do cluster da instância de serviço</text>
-
-
-		<text
-   transform="matrix(1 0 0 1 30 93)"
-   class="st11 st24 st25"
-   id="text175">- Os clusters podem ser uma zona única ou</text>
-
-
-		<text
-   transform="matrix(1 0 0 1 366.4356 93)"
-   class="st11 st24 st25"
-   id="text177"> </text>
-
-
-		<text
-   transform="matrix(1 0 0 1 30 120)"
-   class="st11 st24 st25"
-   id="text179">multizona</text>
-
-
-		<text
-   transform="matrix(1 0 0 1 463 93)"
-   class="st11 st24 st25"
-   id="text181"
-   style="-inkscape-font-specification:'IBMPlexSans, Normal';font-family:IBMPlexSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:20px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;"
-   sodipodi:linespacing="125%"><tspan
-     sodipodi:role="line"
-     id="tspan4345">- As regras de antiafinidade serão usadas </tspan><tspan
-     sodipodi:role="line"
-     id="tspan4347">para implementar nó em MZR </tspan><tspan
-     sodipodi:role="line"
-     id="tspan4349">(Multi Zone Region)</tspan></text>
-
-
-		<text
-   transform="translate(463,120)"
-   class="st11 st24 st25"
-   id="text183"
-   style="font-size:20px;font-family:IBMPlexSans;fill:#ffffff" />
-
-
-		<text
-   transform="matrix(1 0 0 1 904.43 94)"
-   class="st11 st24 st25"
-   id="text185"
-   style="-inkscape-font-specification:'IBMPlexSans, Normal';font-family:IBMPlexSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:20px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;"
-   sodipodi:linespacing="125%"><tspan
-     sodipodi:role="line"
-     id="tspan4351">-Cálculo de provisões de </tspan><tspan
-     sodipodi:role="line"
-     id="tspan4353">provisões de clientes</tspan></text>
-
-
+	<g id="Group-15" transform="translate(43.000000, 1349.000000)">
+		<rect id="Rectangle_17_" class="st22" width="1308" height="166"/>
+		<text transform="matrix(1 0 0 1 21.112 44)" class="st11 st4 st23">Detalhes do cluster da instância de serviço</text>
+		<text transform="matrix(1 0 0 1 30 93)" class="st11 st24 st25">- Os clusters podem ser uma zona única ou</text>
+		<text transform="matrix(1 0 0 1 366.4356 93)" class="st11 st24 st25"> </text>
+		<text transform="matrix(1 0 0 1 30 120)" class="st11 st24 st25">multizona</text>
+		<text transform="matrix(1 0 0 1 463 93)" class="st11 st24 st25">- As regras de antiafinidade serão usadas para implementar </text>
+		<text transform="matrix(1 0 0 1 463 120)" class="st11 st24 st25">nó em MZR (Multi Zone Region)</text>
+		<text transform="matrix(1 0 0 1 904.43 94)" class="st11 st24 st25">-Cálculo de provisões de provisões de clientes</text>
 	</g>
-<image
-   y="736.32043"
-   x="523.26245"
-   id="image4280"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="44"
-   width="51" /><image
-   y="1062.3567"
-   x="787.8916"
-   id="image4302"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="29.889118"
-   width="39.91288" /><image
-   y="1135.8873"
-   x="548.96698"
-   id="image4335"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="27.873278"
-   width="39.91288" /><image
-   y="1133.8716"
-   x="665.00452"
-   id="image4346"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="26.865356"
-   width="38.904957" /><image
-   y="1201.418"
-   x="547.97491"
-   id="image4357"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="32.91288"
-   width="38.904957" /><image
-   y="1064.3251"
-   x="666.94116"
-   id="image4368"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="27.873278"
-   width="33.865356" /><image
-   y="1064.3726"
-   x="543.97491"
-   id="image4379"
-   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAAAA3NCSVQICAjb4U/gAAAFJUlEQVRY
-he2Yy28TRxzHf7+Z3fXazsZZ23mQFwRKJUKhPIpakKqq6oNCywGBOPRAb720l977L/Rc9ci56qkU
-icKhoi+R0lIpLUWUkgTHTRwnftv7nPn1YEODg+11QtQK5XtYrWZ+v998dh6/mVnE2Hn4X4r91wAt
-tUXWvbbIutfTTsYjLLJdVwzliUSr68mQxQ6MHbrw3uDJvU8kWl3dkbGwpo8mFENvrpAkXSDZXIwc
-tYSuGNqmk2kJY+jMsdiRCeSPlBOglJwIm+2TkdFzk+FhY9PJvELVr9g9+ybU+CONCcu3UiW/5Kwu
-RI7m4VFjctReqKyDjKP+fHBrcn03W4xO7vDLjpvJA1GDzPZrd7PVP5dE1X1obOwZnHj/2OLF6eL0
-0qaTAYBftkTV8XJlUarVyVhIVft6QBIAIgB5AggAQO2LIGeLX96S7poJGEC4jrMGKhyISEgtGUue
-OmI8Nx4eSyAKr1i272dLN2ZK0yl7Po8cWUhZ3YubTlaXceCZ0Q9Ph8fj9my6+vusmy0gSaUvosUj
-wnJWvrld+mVufZE7k6n9SfPMafu3G9Vf/5CWR0LUPULD8cF3T4a2JZY+v1i5eU84EmhVRBV5mPVM
-TpDn1+aWvZVKvRYZKjE1vE3d9dFbtz6+7GQ6LIt280zWau58OvbmyfipE8CYPTMDgNrwwMC5d+z7
-C+nPvrBnlsinNW4gHbLncwCg9Ial45EnACB2aPveT86MnX85dWGq8FOqPVYHMgCQlWrt9l01aSrx
-uDU9rSST5huvEMn85e9EodzGERlIx0XOUVMBCEjGDo2ThLlPr2Wv3oE1n/OYCIHmGUNUkEV7+04c
-1/rj+Ytf2ffmYE1ebUTknEdDihnhYa6ZMdAVBEm+R46o3sl4RSsIFgAE24MlkUfqQFIb31G+ds2Z
-S7fCAmSKaWgDMaZxYTnOUglVrpoRfTSpD5uhoXj+hzvug5nXXkHzGSpcHRkBrlenpmS12sqM6RoL
-qaJmu5mCu1jwchVvuewsFOxUzsuVo88OGfvG7fSyqHROJQHIEDFqoKYpAyPewqKXmn2Y+psNOUeG
-0nJExSLX/7eCSDqet1yy04XQkBl7YVdx6q+OZJ32TUSWGEJFI5LkC38lC7JFQkcEBPJ88vzHDhZJ
-cDLF7KWb4YkhfdjcKBkzB5lhykoRfCFth2yrpSkRCUmtuB/IL1u1uZz5+v4NkbHkON950M/Og/BB
-SFmukOe3sW81yk1auXIj8epBNWEga7GMOpAxZGP7QDKwagBAUkirTMHabi/372XFNEMjCVgvGaNw
-nyjlGkdVKaVVaznJuhERScmR8fa5o3U+QyTUybUb/iTBsYhzQAw4ai0Da8wre+5Keb1kkiSpqMUA
-sRFCig0y1aXv3lW7t+hm8rT24rBKrUdTSqiVKLkH2Cp6khvtMJUZLx7NX7lOrte+z1qTEUHqOoVN
-2NbdobeNeK8RP3taWF7l51sdjdvms/wszv1IO1+D0HouP01ClfWdON5z9Fjh8lXpdN6d2pJJAbPf
-gm/TSx9A/x7Adou8QzPRnt4339b3Hy5e+tqdzwZxCXAKQkGTZyGxGxDBqwJJZIAcGCNggAjIABgx
-BoCADJABY4CMkBMgoKLwnjDTFDedqn1/VWSXAp6CAt8DkEO0H6L9wDgAAAOEOkr9KF1/NFgBHzwB
-wHdFOS+LefK6u6oE/kdCAqoZqDUPROP7cdX7Y3yp4366ATIAIAISzUybpqf9/9lmaIuse22Rda9/
-AFGaXRxPAhONAAAAAElFTkSuQmCC
-"
-   style="image-rendering:optimizeQuality"
-   preserveAspectRatio="none"
-   height="29.889118"
-   width="36.889118" /></g>
+</g>
 </svg>

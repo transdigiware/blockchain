@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,17 +15,20 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
 
 # Introdução ao Starter Plan
 {: #getting-started-with-starter-plan}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
-O {{site.data.keyword.blockchainfull}} Platform Starter Plan oferece uma rede de blockchain pré-configurada com um único clique. Ele provisiona uma rede permissionizada com a configuração de duas [organizações](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), um [peer](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) para cada organização e um [canal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) por padrão. Depois que a rede é criada, é possível escalar e incluir mais organizações e peers em sua rede. Essas redes são destinadas a usuários que são novos no {{site.data.keyword.blockchainfull_notm}} Platform. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
+O {{site.data.keyword.blockchainfull}} Platform Starter Plan oferece uma rede de blockchain pré-configurada com um único clique. Ele provisiona uma rede permissionizada com a configuração de duas [organizações](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), um [peer](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) para cada organização e um [canal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) por padrão. Depois que a rede é criada, é possível escalar e incluir mais organizações e peers em sua rede. Essas redes são destinadas a usuários novatos que são novos para o {{site.data.keyword.blockchainfull_notm}} Platform.
 {:shortdesc}
+
+O Starter Plan agora está descontinuado, portanto, nenhuma nova rede do Starter Plan pode ser criada neste momento. ** Use a interface com o usuário e os recursos mais recentes disponíveis agora na segunda geração da tecnologia de blockchain visitando o [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}  
+
+**Suas redes existentes não são afetadas e é possível continuar a usá-las até 4 de junho de 2020.
 
 O Starter Plan permite aprender e desenvolver habilidades com o {{site.data.keyword.blockchainfull_notm}} Platform, executar aplicativos de amostra, testar os seus próprios aplicativos e simular um cenário de múltiplas organizações. Esse tutorial de introdução orientará você sobre como usar o Starter Plan para começar a desenvolver e a transacionar em uma rede de blockchain.
 
@@ -151,7 +154,7 @@ Recupere as suas credenciais de serviço com as etapas a seguir:
 2. Clique em **Nova credencial** na tela "Credenciais de serviço".
 3. Na tela "Incluir nova credencial", dê à credencial um nome e insira **{"type": "service_instance_token"}** no campo "Incluir parâmetro de configuração sequencial". Clique em **Incluir**. A nova credencial é incluída na tabela. É possível clicar em **Visualizar credenciais** sob a coluna "AÇÕES" para visualizar os detalhes da credencial. Essa credencial contém a chave API e o segredo, que você pode usar para autorizar APIs.
 
-![Recuperando credenciais da rede](images/service_credentials.gif "Recuperando credenciais da rede"){: gif}
+![Retrieving network credentials](images/service_credentials.gif "Retrieving network credentials"){: gif}
 
 ### Recuperando no Monitor de rede
 {: #getting-started-with-starter-plan-network-creds}
