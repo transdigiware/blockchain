@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,6 +37,7 @@ Este tópico descreve problemas comuns que podem ocorrer ao usar o console do {{
 - [Por que obtenho o erro `Unable to get system channel` ao abrir meu serviço de pedido?](#ibp-troubleshoot-ordering-service)
 - [Por que meu peer falha ao ser iniciado?](#ibp-console-build-network-troubleshoot-entry2)
 - [Por que minha instalação, instanciação ou upgrade do contrato inteligente falha?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Por que o contrato inteligente que eu instalei no peer não está listado na IU?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [Como posso visualizar os logs de contêiner do meu contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Meu canal, contratos inteligentes e identidades desapareceram do console. Como posso obtê-los de volta?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Por que estou obtendo o erro `Unable to authenticate with the enroll ID and secret you provided` quando crio uma nova definição do MSP da organização?](#ibp-v2-troubleshooting-create-msp)
@@ -45,6 +46,7 @@ Este tópico descreve problemas comuns que podem ocorrer ao usar o console do {{
 - [Por que as transações que eu envio do VS Code estão falhando?](#ibp-v2-troubleshooting-anchor-peer)
 - [Por que obtenho um erro 401 Desautorizado quando efetuo login no meu console?](#ibp-v2-troubleshooting-console-401)
 - [Por que os nós que eu implemento no {{site.data.keyword.cloud_notm}} Private não processam transações e estão falhando ao verificar o funcionamento?](#ibp-v2-troubleshooting-healthchecks)
+- [Por que minhas transações estão retornando um erro de política de endosso: a assinatura configurada não satisfez a política?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## Quando passo o mouse sobre o meu nó, o status é `Status unavailable`. O que isso significa?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -152,6 +154,19 @@ Você poderá receber esse erro se essa versão do contrato inteligente já exis
 - Abra o painel do Kubernetes e assegure-se de que o status do peer seja `Running`.  
 - Abra o nó de peer e assegure-se de que a versão do contrato inteligente ainda não exista no peer e tente novamente com a versão adequada.
 - Se você ainda estiver tendo problemas após o nó estar ativo, [verifique os seus logs de nó](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) quanto a erros.  
+{: tsResolve}
+
+## Por que o contrato inteligente que eu instalei no peer não está listado na IU?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+Um contrato inteligente foi instalado em um peer, mas quando você clica na guia **Contratos inteligentes**, ele não é listado.
+{: tsSymptoms}
+
+Esse problema pode ocorrer quando outro usuário ou aplicativo instala o contrato inteligente no peer e você não tem a identidade de administrador de peer em sua carteira eletrônica do navegador.
+{: tsCauses}
+
+Para visualizar os contratos inteligentes instalados em um peer, é necessário que você seja um administrador de peer. Assegure-se de que a identidade do administrador de peer exista em sua carteira eletrônica do navegador. Se não existir, será necessário importá-la para a sua carteira eletrônica do console.
 {: tsResolve}
 
 ## Como posso visualizar os logs de contêiner do meu contrato inteligente?
@@ -268,3 +283,16 @@ Se você tiver implementado, removido e atualizado nós em seu cluster várias v
 {: tsCauses}
 
 Para resolver esse problema, remova os pods com falha e implemente seus nós novamente. Também é possível reiniciar o serviço do Docker no cluster.
+
+## Por que minhas transações estão retornando um erro de política de endosso: a assinatura configurada não satisfez a política?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+Quando eu chamo um contrato inteligente para enviar uma transação, a transação retorna a falha de política de endosso a seguir:
+```
+erro retornado: erro de VSCC: falha de política de endosso, erro: assinatura configurada não satisfez a política
+```
+{: tsSymptoms}
+
+Se você se associou recentemente a um canal e instalou o contrato inteligente, esse erro ocorrerá se você não tiver incluído sua organização na política de endosso. Como sua organização não está na lista de organizações que podem endossar uma transação por meio do contrato inteligente, o endosso de seus peers é rejeitado pelo canal. Se você encontrar esse problema, será possível mudar a política de endosso fazendo upgrade do contrato inteligente. Para obter mais informações, consulte [Especificando uma política de endosso](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) e [Atualizando um contrato inteligente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+{: tsCauses}

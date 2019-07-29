@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,11 +22,14 @@ subcollection: blockchain
 # Sobre o Starter Plan
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 O {{site.data.keyword.blockchainfull}} Platform Starter Plan é uma opção de nível de entrada que permite que as organizações simulem redes de blockchain de múltiplas organizações, desenvolvam aplicativos rapidamente e trabalhem com contratos inteligentes de amostra e redes de negócios. Ele também possui a mesma experiência de UI que outras opções de associação, ajudando a eliminar qualquer curva de aprendizado. As novas redes do Starter Plan que forem criadas após 4 de outubro de 2018 serão construídas no Hyperledger Fabric V1.2.1. As redes mais antigas do Starter Plan permanecem no nível do Fabric V1.1.0.
 {:shortdesc}
+
+O Starter Plan agora está descontinuado, portanto, nenhuma nova rede do Starter Plan pode ser criada neste momento. ** Use a interface com o usuário e os recursos mais recentes disponíveis agora na segunda geração da tecnologia de blockchain visitando o [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}  
+
+**Suas redes existentes não são afetadas e é possível continuar a usá-las até 4 de junho de 2020.
+
 
 **Starter Plan** é um ambiente para aqueles que desejam começar a desenvolver redes de blockchain ou começar a aprender sobre a tecnologia de blockchain. É possível usar o Starter Plan como um ambiente de desenvolvimento ou de teste que permitirá iniciar em pequeno porte e escalar a associação de sua rede ou o volume de transação antes de mover-se para um ambiente de produção.
 
@@ -72,7 +75,7 @@ O Starter Plan é um ponto de entrada para o {{site.data.keyword.blockchainfull_
     Deve-se ter uma conta paga do {{site.data.keyword.cloud_notm}}, por exemplo, um tipo **Pay-As-You-Go**. Todos os planos de associação que o {{site.data.keyword.blockchainfull_notm}} Platform oferece requerem uma conta paga do {{site.data.keyword.cloud_notm}}. Para fazer upgrade de sua conta para um tipo Pré-pago, acesse **Gerenciar** > **Faturamento e uso** > **Faturamento** no console do {{site.data.keyword.cloud_notm}} e clique em **Incluir cartão de crédito**.
 - **Diferenças do Enterprise Plan**
     - A [CA](/docs/services/blockchain?topic=blockchain-glossary#glossary-CA) e serviço de pedido não são tolerantes a falhas porque cada organização tem somente uma CA e uma rede tem somente um [solicitador](/docs/services/blockchain?topic=blockchain-glossary#glossary-orderer).
-    - O serviço de pedido usa apenas [SOLO](/docs/services/blockchain?topic=blockchain-glossary#glossary-solo) [consenso](/docs/services/blockchain?topic=blockchain-glossary#glossary-consensus). Uma rede do Starter Plan consiste em somente um solicitador que executa o consenso para todos os peers.
+    - O serviço de solicitação usa apenas [SOLO](/docs/services/blockchain?topic=blockchain-glossary#glossary-solo) [consenso](/docs/services/blockchain?topic=blockchain-glossary#glossary-consensus). Uma rede do Starter Plan consiste em somente um solicitador que executa o consenso para todos os peers.
     - O [Hardware Security Module (HSM)](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) não está disponível para proteger e gerenciar chaves digitais para autenticação forte e o processamento de criptografia.
 - **Versões e upgrade do Starter Plan**
     - As novas redes do Starter Plan que forem criadas após 4 de outubro de 2018 serão construídas no Hyperledger Fabric V1.2.1. As redes mais antigas do Starter Plan permanecem no nível do Fabric V1.1.0.

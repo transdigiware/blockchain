@@ -50,8 +50,8 @@ Se o problema não puder ser resolvido por nenhum dos [recursos de suporte digit
 ## Recursos e fóruns de suporte
 {: #blockchain-support-resources}
 
-**Docs do {{site.data.keyword.blockchainfull_notm}} Service **
-  [Docs do {{site.data.keyword.blockchainfull_notm}} Service](/docs/services/blockchain?topic=blockchain-get-started-ibp#get-started-ibp), fornece orientação sobre como iniciar o {{site.data.keyword.blockchainfull_notm}} Platform. É possível localizar tópicos correspondentes no navegador esquerdo ou procurar qualquer termo com a função de procura na parte superior.
+**Docs do {{site.data.keyword.blockchainfull_notm}} Service**
+  [Docs do {{site.data.keyword.blockchainfull_notm}} Service](/docs/services/blockchain?topic=blockchain-get-started-ibp#get-started-ibp) fornecem orientação sobre como iniciar com o {{site.data.keyword.blockchainfull_notm}} Platform. É possível localizar tópicos correspondentes no navegador esquerdo ou procurar qualquer termo com a função de procura na parte superior.
 
 **Recursos do Hyperledger Fabric**  
   A [documentação do Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}, o [wiki da comunidade do Fabric](https://wiki.hyperledger.org/display/fabric){: external} e o [painel do Fabric Jira](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} fornecem mais detalhes sobre a pilha do Fabric.
@@ -69,9 +69,9 @@ Para problemas relacionados ao {{site.data.keyword.blockchainfull_notm}} Platfor
 Se você precisar de ajuda com o Hyperledger Fabric, o Hyperledger Composer ou seus aplicativos, use os recursos da comunidade acima ou participe dos [serviços do {{site.data.keyword.blockchainfull_notm}}](https://www.ibm.com/blockchain/services){: external}. Recomenda-se usar o Hyperledger Composer unicamente para demos e provas de conceito. A {{site.data.keyword.IBM_notm}} não fornece suporte para redes que usam o Hyperledger Composer na produção, incluindo a CLI do Composer, as APIs de JavaScript, o servidor REST e o Web Playground.
 {:note}
 
-A resposta para o caso de suporte depende de seu plano de suporte do [{{site.data.keyword.cloud_notm}}](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
+A resposta para o caso de suporte depende de seu [{{site.data.keyword.cloud_notm}} plano de suporte](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
 
-- Se você comprou o **Suporte Premium** ou o **Suporte Avançado**, será possível especificar um nível de severidade em seu chamado de Sev-1 a Sev-4. Sev-1 é o mais alto nível de severidade. Os casos de suporte com níveis de severidade mais altos indicam mais urgência e serão respondidos mais rapidamente pela equipe de suporte. Para obter mais informações, consulte as ofertas de plano de suporte do [{{site.data.keyword.cloud_notm}}](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
+- Se você comprou o **Suporte Premium** ou o **Suporte Avançado**, será possível especificar um nível de severidade em seu chamado de Sev-1 a Sev-4. Sev-1 é o mais alto nível de severidade. Os casos de suporte com níveis de severidade mais altos indicam mais urgência e serão respondidos mais rapidamente pela equipe de suporte. Para obter mais informações, consulte [{{site.data.keyword.cloud_notm}} ofertas de plano de suporte](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
 - Se você não comprar suporte, sua conta pré-paga ou de assinatura do {{site.data.keyword.cloud_notm}} será fornecida com um plano de **Suporte Básico** gratuito. Nesse caso, o caso de suporte será automaticamente registrado como Sev-4.
 
 Siga essas etapas para enviar um caso de suporte.

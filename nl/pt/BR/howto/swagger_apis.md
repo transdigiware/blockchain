@@ -39,7 +39,7 @@ Se você estiver usando o Starter Plan, será possível alternar entre organiza�
 
 A **Figura 2** mostra como Alternar entre organizações:
 
-![Alternando entre organizações](../images/switch_orgs_starter.gif "Alternando entre organizações"){: gif}
+![Switching between organizations](../images/switch_orgs_starter.gif "Switching between organizations"){: gif}
 
 
 ## Autorizando APIs do Swagger
@@ -53,7 +53,7 @@ Usando autenticação Aut. básica, quaisquer credenciais que você especificar 
 
 A **Figura 3** mostra o processo para autorizar APIs do Swagger:
 
-![Autorizar APIs](../images/swaggerUIAuthorize.gif "Autorizar APIs"){: gif}
+![Authorize APIs](../images/swaggerUIAuthorize.gif "Authorize APIs"){: gif}
 
 
 ## Tentando APIs

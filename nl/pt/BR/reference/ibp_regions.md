@@ -61,4 +61,4 @@ A Tabela 2 e a Figura 2 mostram as regiões e os locais {{site.data.keyword.clou
 _Tabela 2. Locais do Starter Plan e do Enterprise Plan_
 
 
-![Localizações do Starter Plan e do Enterprise Plan](../images/ibp_regions.png "Localizações do {{site.data.keyword.blockchainfull_notm}} Platform")
+Localizações do ![Localizações do Starter Plan e do Enterprise Plan](../images/ibp_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform")
