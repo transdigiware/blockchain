@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -160,10 +160,21 @@ API 参照資料の**「Try it out」**機能を使用して、アプリケー�
 
 7. コンソールを使用してブロックチェーン・コンポーネントを操作する場合は、コンソール・ウォレットに管理者 ID をインポートする必要があります。 ウォレットのタブを使用して、ノード管理者の証明書と秘密鍵をコンソールにインポートして、ID を作成します。 その後、コンソールを使用して、作成したコンポーネントにこの ID を関連付ける必要があります。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform コンソールへの管理者 ID のインポート](#ibp-v2-apis-admin-console)を参照してください。
 
-8. ネットワークをデプロイしたら、Fabric SDK、ピア CLI、またはコンソール UI を使用して、チャネルを作成し、スマート・コントラクトをインストールまたはインスタンス化できます。
+8. ネットワークをデプロイしたら、Fabric SDK、ピア CLI、またはコンソール UI を使用して、チャネルを作成し、スマート・コントラクトをインストールまたはインスタンス化できます。プログラムでチャネルを作成する必要がある場合は、コンソーシアム名を指定する必要があります。{{site.data.keyword.blockchainfull}} Platform の場合は、コンソーシアム名を `SampleConsortium` に設定する必要があります。
 
 コンポーネントを作成できるように、API 認証に使用されるサービス資格情報には、IAM での `Manager` の役割が必要です。 詳しくは、[ユーザーの役割](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)に関するトピックの表を参照してください。
 {: note}
+
+### 特定のゾーン内でのノードの作成
+{: #ibp-v2-apis-zone}
+
+複数ゾーン・クラスターを使用する場合は、API を使用して {{site.data.keyword.cloud_notm}} の特定のゾーンにブロックチェーン・コンポーネントをデプロイできます。これによって、ゾーン障害時のネットワークの可用性を維持できます。以下の手順を使用して、ピアまたは順序付けノードを特定のゾーンにデプロイできます。
+
+1. ワーカー・ノードが配置されているゾーンを確認します。[{{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloud_notm}} Kubernetes サービス](https://cloud.ibm.com/kubernetes/clusters){: external}の複数ゾーン・クラスターの概要画面にナビゲートします。クラスターの概要画面で、**「ワーカー・ノード」**をクリックして、クラスター内のすべてのワーカー・ノードを示す表を表示します。その表の**「ゾーン」**列で、各ワーカー・ノードが配置されているゾーンを確認できます。
+
+  kubectl CLI を使用してワーカー・ノードのゾーンを確認することもできます。**「アクセス」**パネルにナビゲートし、**「クラスターへのアクセス (Gain access to your cluster)」**の説明に従って {{site.data.keyword.cloud_notm}} および kubectl CLI ツールを使用してクラスターに接続します。接続したら、コマンド `kubectl get nodes --show-labels` を使用して、クラスターのノードおよびゾーンの完全なリストを取得します。各ワーカー・ノードが配置されているゾーンが、`「LABELS」`列の`「zone」` フィールドの後に表示されます。
+
+2. 特定のゾーン内にノードを作成するには、[順序付けサービスの作成](/apidocs/blockchain?code=try#create-an-ordering-service) API または[ピアの作成](/apidocs/blockchain?code=try#create-an-ordering-service) API 呼び出しで、要求本文の zone フィールドを使用してゾーン名を指定します。{{site.data.keyword.blockchainfull_notm}} Platform コンソールのアンチアフィニティー・ポリシーは、使用可能なリソースに基づいてコンポーネントを各ゾーンのさまざまなワーカー・ノードに自動的にデプロイします。
 
 ## API を使用したネットワークのインポート
 {: #ibp-v2-apis-import-with-apis}
@@ -185,7 +196,7 @@ API を使用して、API または {{site.data.keyword.blockchainfull_notm}} Pl
 
 5. {{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用してブロックチェーン・コンポーネントを操作する予定の場合は、コンソール・ウォレットにコンポーネント管理者 ID をインポートする必要があります。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform コンソールへの管理者 ID のインポート](#ibp-v2-apis-admin-console)を参照してください。
 
-6. ネットワークをデプロイしたら、Fabric SDK、ピア CLI、またはコンソール UI を使用して、チャネルを作成し、スマート・コントラクトをインストールまたはインスタンス化できます。
+6. ネットワークをデプロイしたら、Fabric SDK、ピア CLI、またはコンソール UI を使用して、チャネルを作成し、スマート・コントラクトをインストールまたはインスタンス化できます。プログラムでチャネルを作成する必要がある場合は、コンソーシアム名を指定する必要があります。{{site.data.keyword.blockchainfull}} Platform の場合は、コンソーシアム名を `SampleConsortium` に設定する必要があります。
 
 コンポーネントをインポートできるように、API 認証に使用されるサービス資格情報には、IAM での `Writer` の役割が必要です。 詳しくは、[ユーザーの役割](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)に関するトピックの表を参照してください。
 {: note}
@@ -666,7 +677,7 @@ cat $HOME/fabric-ca-client/peer-admin/msp/signcerts/cert.pem | base64 $FLAG
 ## 構成ファイルの作成
 {: #ibp-v2-apis-config}
 
-API を使用してピアまたは順序付けノードを作成するには、構成ファイルを完成させる必要があります。 このファイルは、API 呼び出しの要求本文の `config` オブジェクトとして API に提供されます。 複数の順序付けノードを作成する場合は、作成するノードごとに構成ファイルを API 要求の配列に指定する必要があります。例えば、5 ノードの Raft 順序付けサービスの場合、5 つの構成ファイルの配列を作成する必要があります。指定する登録 ID のエンロール制限が十分に高い限り、ノードごとに同じファイルを指定できます。ファイルを完成させる前に、CA を {{site.data.keyword.cloud_notm}} Platform サービス・インスタンスにデプロイして、必要な ID を登録およびエンロールする手順を実行する必要があります。
+API を使用してピアまたは順序付けノードを作成するには、構成ファイルを完成させる必要があります。 このファイルは、API 呼び出しの要求本文の `config` オブジェクトとして API に提供されます。 複数の順序付けノードを作成する場合は、作成するノードごとに構成ファイルを API 要求の配列に指定する必要があります。 例えば、5 ノードの Raft 順序付けサービスの場合、5 つの構成ファイルの配列を作成する必要があります。 指定する登録 ID のエンロール制限が十分に高い限り、ノードごとに同じファイルを指定できます。 ファイルを完成させる前に、CA を {{site.data.keyword.cloud_notm}} Platform サービス・インスタンスにデプロイして、必要な ID を登録およびエンロールする手順を実行する必要があります。
 
 構成ファイルのテンプレートを以下に示します。
 ```

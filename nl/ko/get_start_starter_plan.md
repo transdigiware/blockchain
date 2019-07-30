@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,17 +15,20 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
 
 # 스타터 플랜 시작하기
 {: #getting-started-with-starter-plan}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
-{{site.data.keyword.blockchainfull}} Platform 스타터 플랜은 한 번의 클릭으로 사전 구성된 블록체인 네트워크를 제공합니다. 스타터 플랜은 기본적으로 두 개의 [조직](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), 각각의 조직당 하나의 [피어](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) 및 하나의 [채널](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel)이 구성되어 있는 권한 부여된 네트워크를 프로비저닝합니다. 네트워크가 작성된 후에는 조직 및 피어를 스케일링하고 네트워크에 추가할 수 있습니다. 이러한 네트워크는 {{site.data.keyword.blockchainfull_notm}} Platform을 처음 사용하는 초보 사용자용입니다. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
+{{site.data.keyword.blockchainfull}} Platform 스타터 플랜은 한 번의 클릭으로 사전 구성된 블록체인 네트워크를 제공합니다. 스타터 플랜은 기본적으로 두 개의 [조직](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), 각각의 조직당 하나의 [피어](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) 및 하나의 [채널](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel)이 구성되어 있는 권한 부여된 네트워크를 프로비저닝합니다. 네트워크가 작성된 후에는 조직 및 피어를 스케일링하고 네트워크에 추가할 수 있습니다. 이러한 네트워크는 {{site.data.keyword.blockchainfull_notm}} Platform을 처음 사용하는 초보 사용자용입니다.
 {:shortdesc}
+
+이제 스타터 플랜이 더 이상 사용되지 않으므로 현재 새 스타터 플랜 네트워크를 작성할 수 없습니다.** [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks)에 방문하여 이제 블록체인 기술의 2세대에서 사용 가능한 최신 사용자 인터페이스 및 기능을 활용하십시오.
+{: important}  
+
+**기존 네트워크는 영향을 받지 않으며 2020년 6월 4일까지 계속해서 사용할 수 있습니다. 
 
 스타터 플랜을 사용하면 {{site.data.keyword.blockchainfull_notm}} Platform에 대한 기술을 학습하고 개발하며 샘플 애플리케이션을 실행하고 고유 애플리케이션을 테스트하고 다중 조직 시나리오를 시뮬레이션할 수 있습니다. 이 시작하기 튜토리얼은 스타터 플랜을 사용하여 블록체인 네트워크에서 개발 및 트랜잭션을 시작하는 방법을 안내합니다.
 
@@ -44,7 +47,7 @@ subcollection: blockchain
 - [조직을 네트워크에 초대](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-inviting-members)
 - [스타터 플랜 네트워크에 가입](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-joining-a-network)
 
-네트워크에 가입한 조직의 컨소시엄 내에서 채널을 작성하여 개인적으로 해당 조직 세트와 관련된 트랜잭션을 수행할 수 있습니다.
+네트워크에 가입한 조직의 컨소시엄 내에서 채널을 작성하여 해당 조직 세트와 개인적으로 거래를 할 수 있습니다.
 
 - [채널 작성](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-create-channels)
 
@@ -185,5 +188,4 @@ subcollection: blockchain
 
 네트워크를 삭제하거나 나가려는 경우, {{site.data.keyword.cloud_notm}} 대시보드에서 블록체인 서비스 인스턴스를 삭제할 수 있습니다.
 
-네트워크를 나가기 전에 네트워크 내의 채널의 구성원이 아닌지 확인하십시오. 구성원이면 네트워크를 나갈 때 오류가 발생합니다. 채널 업데이트 프로세스를 완료하려면 채널 구성원을 제거해야 합니다. 채널 업데이트 프로세스에 대한 자세한 정보는 [채널 업데이트](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)를 참조하십시오.
-{:note}
+네트워크를 나가기 전에 네트워크 내의 채널의 구성원이 아닌지 확인하십시오. 구성원이면 네트워크를 나갈 때 오류가 발생합니다. 채널 업데이트 프로세스를 완료하려면 채널 구성원을 제거해야 합니다. 채널 업데이트 프로세스에 대한 자세한 정보는 [채널 업데이트](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)를 참조하십시오.{:note}

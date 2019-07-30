@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 ## 新規リリースが提供する機能
 {: #ibp-console-overview-capabilities}
 
-この最新リリースは、{{site.data.keyword.blockchainfull_notm}} および Hyperledger Fabric の上級者ユーザー向けに設計されており、ネットワークをホストしたり、他の {{site.data.keyword.blockchainfull_notm}} ネットワークに参加できる組織を新規作成したりできます。 スターター・プランまたはエンタープライズ・プランの既存のお客様は、{{site.data.keyword.IBM_notm}} にネットワークを管理してもらうのではなく、お客様自身がお客様の Kubernetes クラスターにコンポーネントをプロビジョンし、モニター、管理して、ネットワークを完全にコントロールできるようになりました。
+この最新リリースは、{{site.data.keyword.blockchainfull_notm}} および Hyperledger Fabric の上級者ユーザー向けに設計されており、{{site.data.keyword.blockchainfull_notm}} ネットワークをホストしたり、ネットワークに参加したりできます。スターター・プランまたはエンタープライズ・プランの既存のお客様は、{{site.data.keyword.IBM_notm}} にネットワークを管理してもらうのではなく、お客様自身がお客様の Kubernetes クラスターにコンポーネントをプロビジョンし、モニター、管理して、ネットワークを完全にコントロールできるようになりました。
 
 この {{site.data.keyword.blockchainfull_notm}} Platform リリースには、以下の主要機能が含まれています。
 
@@ -39,10 +39,11 @@ subcollection: blockchain
 - **シンプルになった DevOps** により、Kubernetes リソースをスケールアップしてコンポーネントを追加することで、単一の環境で開発からテスト、本番環境へと移行できます。
 - **Fabric の最新の主要な機能**。 以下の Hyperledger Fabric v1.4.1 の最新機能を利用できます。
   -  [Raft 順序付けサービス](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - **{{site.data.keyword.cloud_notm}} サービス統合。** {{site.data.keyword.cloud_notm}} Kubernetes Service ダッシュボード、{{site.data.keyword.IBM_notm}} Log Analysis with LogDNA、{{site.data.keyword.cloud_notm}} IAM (ID およびアクセス管理) など、{{site.data.keyword.cloud_notm}} の標準サービスを活用できます。
   - [**プライベート・データ**・コレクション](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data): ゴシップ・プロトコルにより、許可されたピアでのみ台帳データを共有することでデータ・プライバシーを向上させます。
   - [サービス・ディスカバリー](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}: アプリケーションとネットワークがどのように対話しているかを動的に検出し、更新できます。
   - [チャネル・アクセス制御リスト](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}: チャネルおよびスマート・コントラクトのガバナンス・コントロールを強化します。
+- {{site.data.keyword.cloud_notm}} サービス統合。{{site.data.keyword.cloud_notm}} Kubernetes Service ダッシュボード、{{site.data.keyword.IBM_notm}} Log Analysis with LogDNA、{{site.data.keyword.cloud_notm}} IAM (ID およびアクセス管理) など、[{{site.data.keyword.cloud_notm}} の標準サービス](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations)を活用できます。
+
 
 **操作 --- デプロイメントの完全な制御**
 - **必要なコンポーネントのみデプロイする**。 ピアを複数のチャネルおよびネットワークに接続したり、ビジネス・パートナーが接続できる順序付けサービスをホストしたりできます。
@@ -80,6 +81,7 @@ subcollection: blockchain
 - {{site.data.keyword.cloud_notm}} で Kubernetes クラスターをプロビジョンするときに事前選択されるデフォルトのブロンズ・ファイル・ストレージを使用しない場合は、任意のストレージをプロビジョンできます。 詳しくは、[永続ストレージに関する考慮事項](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)で該当するトピックを参照してください。
 - {{site.data.keyword.cloud_notm}} マルチゾーン・サポートをKubernetes クラスターに組み込む場合は、独自のストレージをプロビジョンする必要があります。 詳しくは、[{{site.data.keyword.blockchainfull_notm}} Platform での複数ゾーン (MZR) クラスターの使用](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)を参照してください。
 - ご使用の {{site.data.keyword.blockchainfull_notm}} Platform サービス・インスタンスを {{site.data.keyword.cloud_notm}} Kubernetes 無料クラスターにリンクすれば、{{site.data.keyword.blockchainfull_notm}} Platform を 30 日間無料でプレビューできます。  スループット、ストレージ、および機能性の面でパフォーマンスが制限されます。 無料クラスターは 30 日後に {{site.data.keyword.cloud_notm}} によって削除され、無料クラスターから有料クラスターにノードやデータをマイグレーションすることはできません。 また、{{site.data.keyword.blockchainfull_notm}} Platform のベータ・トライアルは無料ですが、制限付きの無料クラスターではなく、有料の Kubernetes クラスターを選択した場合は、ご使用の {{site.data.keyword.cloud_notm}} アカウントに対して Kubernetes サービスの料金が請求されます。
+- Virtual Routing and Forwarding (VRF) はサポートされません。{site.data.keyword.blockchainfull_notm}} Platform サービスは、サブネット IP ブロック間の自動グローバル・ルーティングを有効にしたアカウントでは使用できません。同様に、プライベート VLAN を使用して構成した Kubernetes クラスターもサポートされません。
 
 ## マイグレーション
 {: #ibp-console-overview-migration}

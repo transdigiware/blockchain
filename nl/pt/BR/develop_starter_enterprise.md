@@ -54,7 +54,7 @@ Assegure-se de ter instalado o Node v8.9 ou superior, o npm v5.x e o Hyperledger
 
 3. Dentro do perfil de conexão, vá até o fim até você ver 'registrar'. Dentro de 'registrar', sob 'enrollId' há uma propriedade **enrollSecret**. Recupere o segredo e salve uma cópia dele.
 
-    ![Recuperar segredo do administrador](images/get_enroll_secret.gif "Recuperar segredo do administrador"){: gif}
+    ![Recuperação de segredo do administrador](images/get_enroll_secret.gif "Recuperação de segredo do administrador"){: gif}
 
 ### Etapa dois: criar uma placa de autoridade de certificação
 {: #deploying-a-business-network-CA-card}

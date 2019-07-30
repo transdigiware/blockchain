@@ -176,7 +176,7 @@ echo -e "<CERT>" > admin.pem
 | `Peer 2 enroll ID` | {{site.data.keyword.blockchainfull_notm}} Platform UI 인증 기관 패널에서 두 번째 피어에 대해 입력한 등록 ID입니다. | |
 | `Peer 2 enroll secret` | {{site.data.keyword.blockchainfull_notm}} Platform UI 인증 기관 패널에서 두 번째 피어에 대해 입력한 등록 시크릿입니다. | |
 | | | |
-|**{{site.data.keyword.blockchainfull_notm}} 서비스 신임 정보**| | |
+|**{{site.data.keyword.blockchainfull_notm}} 서비스 인증 정보**| | |
 | `Organization MSP` | 이 값은 {{site.data.keyword.blockchainfull_notm}} Platform UI에서 찾을 수 있습니다. 개요 패널에서 원격 피어 구성 단추를 클릭한 후 해당 정보를 복사하여 여기에 붙여넣으십시오. | |
 | `Certificate Authority (CA) Name` | 이 값은 {{site.data.keyword.blockchainfull_notm}} Platform UI에서 찾을 수 있습니다. 개요 패널에서 원격 피어 구성 단추를 클릭한 후 해당 정보를 복사하여 여기에 붙여넣으십시오.| |
 | `Certificate Authority (CA) URL` | 이 값은 {{site.data.keyword.blockchainfull_notm}} Platform UI에서 찾을 수 있습니다. 개요 패널에서 원격 피어 구성 단추를 클릭한 후 해당 정보를 복사하여 여기에 붙여넣으십시오(포트 포함). 지정되지 않은 경우 기본 포트는 443입니다. | |
@@ -408,7 +408,7 @@ levelDB를 사용하는지 또는 couchDB를 사용하는지 여부에 관계 �
 
 키 관리는 피어 보안 측면에서 매우 중요한 요소입니다. 개인 키가 손상되거나 유실되는 경우 적대적인 액터가 피어의 데이터 및 기능에 액세스할 수도 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform 엔터프라이즈 플랜에서는 HSM([Hardware Security Modules](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm))을 사용하여 네트워크의 개인 키를 저장합니다. HSM은 다른 당사자가 개인 키에 액세스하지 못하게 하는 물리적 어플라이언스입니다.
 
-AWS에 피어를 배치하는 경우 사용자가 개인 키를 관리해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform에서 개인 키를 생성해도 해당 키는 Platform에 저장되지 않습니다. 키가 손상되지 않도록 안전한 위치에 저장하는 것이 중요합니다. 피어의 개인 키는 피어 MSP의 키 저장소 폴더(피어 컨테이너 내에 있는 `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` 디렉토리)에 있습니다. 피어 내에 있는 인증서에 대한 자세한 정보를 확인하려면 [{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 주제의 [MSP(Membership Services Provider)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp) 절을 참조하십시오. 
+AWS에 피어를 배치하는 경우 사용자가 개인 키를 관리해야 합니다. {{site.data.keyword.blockchainfull_notm}} Platform에서 개인 키를 생성해도 해당 키는 Platform에 저장되지 않습니다. 키가 손상되지 않도록 안전한 위치에 저장하는 것이 중요합니다. 피어의 개인 키는 피어 MSP의 키 저장소 폴더(피어 컨테이너 내에 있는 `/etc/hyperledger/<PEER_ENROLL_ID>/msp/keystore/` 디렉토리)에 있습니다. 피어 내에 있는 인증서에 대한 자세한 정보를 확인하려면 [{{site.data.keyword.blockchainfull_notm}} Platform에서 인증서 관리](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) 주제의 [MSP(Membership Services Provider)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp) 절을 참조하십시오.
 
 Key Escrow를 사용하여 유실된 개인 키를 복구할 수 있습니다. 이 작업은 키 유실 전에 수행해야 합니다. 개인 키를 복구할 수 없는 경우 인증 기관에서 새 signCert를 받아서 새 개인 키를 가져와야 합니다. 또한 가입한 모든 채널에서 관리자 인증서를 제거하고 대체해야 합니다.
 

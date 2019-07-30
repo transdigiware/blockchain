@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -106,8 +106,9 @@ Use seu console para executar estas etapas:
 2. No painel lateral que se abre, selecione um canal no qual instanciar o contrato inteligente. É possível selecionar o canal, denominado `channel1`, que você criou. Em seguida, clique em  ** Avançar **.
 3. Especifique a [política de endosso para o contrato inteligente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse), descrito na seção a seguir. Quando diversas organizações são membros do canal, você tem a oportunidade de escolher quantas organizações forem necessárias para aprovar as transações do contrato inteligente.
 4. Também é necessário selecionar os membros da organização a serem incluídos na política de aprovação. Se estiver seguindo adiante no tutorial, isso será `org1msp` e possivelmente `org2msp` se você tiver concluído os tutoriais **Construir uma rede** e **Associar-se a uma rede**.
-5. Se seu contrato inteligente inclui coletas de dados privados do Fabric, é necessário fazer upload do arquivo JSON da configuração de coleta associado, caso contrário, você pode ignorar esta etapa. Consulte este tópico para obter mais informações sobre usar [dados privados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
-6. No último painel, você é solicitado a especificar a função de contrato inteligente que deseja executar quando o contrato inteligente é iniciado, juntamente com os argumentos associados a serem passados para essa função.
+5. No painel Selecionar peer, selecione um peer na lista suspensa que seja de uma organização membro do canal.
+6. Se seu contrato inteligente inclui coletas de dados privados do Fabric, é necessário fazer upload do arquivo JSON da configuração de coleta associado, caso contrário, você pode ignorar esta etapa. Consulte este tópico para obter mais informações sobre usar [dados privados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
+7. No último painel, você é solicitado a especificar o nome da função de inicialização do contrato inteligente, juntamente com os argumentos associados para passar para essa função.
 
 É possível visualizar todos os contratos inteligentes que foram instanciados em um canal, clicando no ícone de canal na navegação à esquerda, selecionando um canal na tabela e, em seguida, clicando na guia **Detalhes do canal**.
 
@@ -133,6 +134,8 @@ Quando você segue as etapas para [instanciar um contrato inteligente](/docs/ser
 
 Clique no botão **Avançado** se você desejar especificar uma política no formato JSON. É possível usar esse método para especificar políticas de endosso mais complicadas, como requerer que um determinado membro do canal tenha que validar uma transação, junto com a maioria de outros membros. É possível localizar [exemplos adicionais de políticas de endosso avançado](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external} na Documentação do Hyperledger Fabric. Para obter mais informações sobre como gravar políticas de endosso em JSON, consulte [Documentação do Hyperledger Fabric Node SDK](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}.
 
+As políticas de endosso não são atualizadas automaticamente quando novas organizações se associam ao canal e instalam um chaincode. Por exemplo, se a política de endosso precisar de duas de cinco organizações para endossar uma transação, a política não será atualizada para requerer duas de seis organizações quando uma nova organização se associar ao canal. Em vez disso, a nova organização não será listada na política e eles não serão capazes de endossar transações. É possível incluir outra organização em uma política de endosso fazendo upgrade do chaincode relevante e atualizando a política.
+
 ## Fazendo upgrade de um contrato inteligente
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -142,7 +145,8 @@ Clique no botão **Avançado** se você desejar especificar uma política no for
 3. Quando uma coleta de dados privados é mudada, por exemplo, uma organização é incluída ou removida, é necessário fazer upgrade de seu contrato inteligente. Ou essa ação deverá ser usada sempre que uma nova coleta de dados privados for incluída no arquivo JSON de configuração de coleta.
 4. Os argumentos de inicialização de contrato inteligente foram mudados.
 
-**Antes de fazer upgrade de um contrato inteligente instanciado, a nova versão do contrato inteligente deve ser instalada em todos os peers no canal que está executando o nível anterior do contrato inteligente.**
+{:important}
+Antes de fazer upgrade de um contrato inteligente instanciado, a nova versão do contrato inteligente deve ser instalada em todos os peers no canal que estão executando o nível anterior do contrato inteligente.
 
 ### Como fazer upgrade de um contrato inteligente
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -159,9 +163,10 @@ Quando um novo membro que executará o contrato inteligente se associa ao canal,
 
  1. Selecione a versão do contrato inteligente que você deseja fazer upgrade no canal na lista suspensa.
  2. Atualize a política de endosso, incluindo ou removendo membros do canal. Também é possível clicar em **Avançado** para colar em uma nova sequência formatada JSON, que modifica a política existente.
- 3. Se desejar associar um arquivo de configuração de coleta de dados privados ao contrato inteligente, será possível fazer upload do arquivo JSON. Ou, se desejar atualizar uma configuração de coleta existente, será possível fazer upload do arquivo JSON.   
+ 3. No painel Selecionar peer, é necessário selecionar um peer que possa aprovar a proposta para fazer upgrade do contrato inteligente. Portanto, é necessário selecionar um peer na lista suspensa que seja de uma organização que foi um membro do canal antes de o contrato inteligente ter sido instanciado pela última vez no canal.
+ 4. Se desejar associar um arquivo de configuração de coleta de dados privados ao contrato inteligente, será possível fazer upload do arquivo JSON. Ou, se desejar atualizar uma configuração de coleta existente, será possível fazer upload do arquivo JSON.   
  Se o contrato inteligente foi instanciado anteriormente com um arquivo de configuração de coleta, **deve-se** fazer upload novamente da versão anterior ou de uma nova versão do arquivo de configuração de coleta durante essa etapa.  
- 4. (Opcional) Modifique os valores de argumento de inicialização de contrato inteligente se os parâmetros tiverem sido mudados. Se você não tiver certeza sobre isso, verifique com seu desenvolvedor de contrato inteligente. Se eles não tiverem mudado, esse campo poderá ser deixado em branco.
+ 5. (Opcional) Modifique os valores de argumento de inicialização de contrato inteligente se os parâmetros tiverem sido mudados. Se você não tiver certeza sobre isso, verifique com seu desenvolvedor de contrato inteligente. Se eles não tiverem mudado, esse campo poderá ser deixado em branco.
 
 Depois de fazer upgrade do contrato inteligente, você mudará a versão do contrato que é instanciada no canal e mudará o contêiner de contrato inteligente para todos os peers que instalaram a nova versão. Se estiver usando coletas de dados privados, certifique-se de ter configurado peers de âncora no canal.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -30,7 +30,7 @@ O {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.clo
 ## O que a nova liberação oferece
 {: #ibp-console-overview-capabilities}
 
-Essa liberação mais recente é customizada para usuários experientes do {{site.data.keyword.blockchainfull_notm}} e do Hyperledger Fabric e permite que eles hospedam redes ou criem novas organizações que possam se associar a outras redes do {{site.data.keyword.blockchainfull_notm}}. Se você for um cliente do Starter ou do Enterprise Plan existente, em vez de a {{site.data.keyword.IBM_notm}} gerenciar sua rede, você terá agora o controle total com a capacidade de provisionar, monitorar e gerenciar seus componentes dentro de seu próprio cluster Kubernetes.
+Essa liberação mais recente é customizada para usuários experientes do {{site.data.keyword.blockchainfull_notm}} e do Hyperledger Fabric e permite que eles hospedem e se associem a redes do {{site.data.keyword.blockchainfull_notm}}. Se você for um cliente do Starter ou do Enterprise Plan existente, em vez de a {{site.data.keyword.IBM_notm}} gerenciar sua rede, você terá agora o controle total com a capacidade de provisionar, monitorar e gerenciar seus componentes dentro de seu próprio cluster Kubernetes.
 
 Essa liberação do {{site.data.keyword.blockchainfull_notm}} Platform inclui os recursos-chave a seguir:
 
@@ -39,13 +39,14 @@ Essa liberação do {{site.data.keyword.blockchainfull_notm}} Platform inclui os
 - **DevOps simplificado** permite mover de desenvolvimento para testar para produção em um único ambiente, escalando para cima seus recursos do Kubernetes para incluir mais componentes.
 - **Recursos-chave atualizados do Fabric**. Aproveite os recursos mais recentes do Hyperledger Fabric v1.4.1:
   -  [Serviço de pedido do Raft](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - **Integração de serviço do {{site.data.keyword.cloud_notm}}.** Aproveite os serviços integrados do {{site.data.keyword.cloud_notm}}, como o {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, o {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA e o {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
   - [Coletas de **dados privados**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) que fornecem privacidade de dados aumentada, assegurando que os dados contábeis sejam compartilhados apenas com peers autorizados através do protocolo gossip.
   - [Descoberta de serviço](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, permitindo que você descubra e atualize dinamicamente como seu aplicativo interage com sua rede.
   - [Listas de controle de acesso ao canal](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} que permitem o controle adicional da governança de seus canais e contratos inteligentes.
+- Integração do serviço {{site.data.keyword.cloud_notm}}. Aproveite os [serviços integrados do {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations), como o {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, o {{site.data.keyword.IBM_notm}} Log Analysis com LogDNA e o {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
+
 
 **OPERE --- Controle total de suas implementações**
-- ** Implemente somente os componentes necessários **. Conectar um peer a múltiplos canais e redes ou hospede um serviço de pedido ao qual os parceiros de negócios podem se conectar.
+- ** Implemente somente os componentes necessários **. Conectar um peer a múltiplos canais e redes ou hospede um serviço de solicitação ao qual os parceiros de negócios podem se conectar.
 - ** Manter o controle completo de suas identidades **. Armazene e gerencie as chaves que são usadas para administrar seus nós sem armazenar suas chaves privadas no {{site.data.keyword.cloud_notm}}.
 - **Operação centralizada**. O console do {{site.data.keyword.blockchainfull_notm}} Platform permite implementar e gerenciar todas as suas organizações e nós em **um console central** sem ter que depender da {{site.data.keyword.IBM_notm}} ou de outros fornecedores para gerenciar seus solicitadores ou Autoridades de certificação. Também é possível incluir ou remover membros de um consórcio de blockchain, criar e associar canais e instalar e instanciar contratos inteligentes por meio de seu console.
 - **Hospedar ou se associar a uma rede**. Implemente peers hospedados em seu cluster para múltiplos canais em múltiplas nuvens ou convide outras organizações para associar seu consórcio ou canais enquanto as organizações gerenciam seus nós de forma independente entre as infraestruturas.
@@ -80,6 +81,7 @@ Antes de implementar o console, assegure-se de que entenda as considerações a 
 - Se não desejar usar o armazenamento de Arquivo bronze padrão pré-selecionado para você ao provisionar um cluster Kubernetes no {{site.data.keyword.cloud_notm}}, será possível provisionar o armazenamento de sua escolha. Consulte esse tópico em [Considerações de armazenamento persistente](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) para saber mais.
 - No caso de decidir incluir o suporte de várias zonas do {{site.data.keyword.cloud_notm}} no cluster Kubernetes, deve-se provisionar seu próprio armazenamento. Consulte [Usando clusters de Várias zonas (MZR) com o {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) para obter mais detalhes.
 - É possível visualizar o {{site.data.keyword.blockchainfull_notm}} Platform sem encargos por 30 dias ao vincular sua instância de serviço do {{site.data.keyword.blockchainfull_notm}} Platform a um cluster grátis do {{site.data.keyword.cloud_notm}} Kubernetes.  O desempenho será limitado por rendimento, armazenamento e funcionalidade. O {{site.data.keyword.cloud_notm}} excluirá seu cluster após 30 dias e não será possível migrar nenhum nó ou dado de um cluster grátis para um cluster pago. E embora a avaliação beta do {{site.data.keyword.blockchainfull_notm}} Platform seja grátis, se você escolher um cluster Kubernetes pago em vez do cluster grátis limitado, encargos incorrerão para o serviço Kubernetes em sua conta do {{site.data.keyword.cloud_notm}}.
+- O Virtual Routing and Forwarding (VRF) não é suportado. O serviço {site.data.keyword.blockchainfull_notm}} Platform não é compatível com as contas que são ativadas para o roteamento global automático entre os blocos de IP de sub-rede. Da mesma forma, os clusters Kubernetes que são configurados com VLANs privadas também não são suportados.
 
 ## Migração
 {: #ibp-console-overview-migration}

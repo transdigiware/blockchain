@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,17 +15,20 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
 
 # スターター・プランの概説
 {: #getting-started-with-starter-plan}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
-{{site.data.keyword.blockchainfull}} Platform Starter Plan は、構成済みのブロックチェーン・ネットワークをクリック 1 回でユーザーに提供します。 デフォルトでは 2 つの[組織](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization)、それぞれの組織ごとに 1 つの [ピア](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer)、そして 1 つの[チャネル](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel)で構成される許可制ネットワークをプロビジョンします。 ネットワークが作成されたら、これを拡張してさらに組織やピアをネットワークに追加できます。 これらのネットワークは {{site.data.keyword.blockchainfull_notm}} Platform を初めて使用する初心者ユーザーを対象としています。<!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
+{{site.data.keyword.blockchainfull}} Platform Starter Plan は、構成済みのブロックチェーン・ネットワークをクリック 1 回でユーザーに提供します。 デフォルトでは 2 つの[組織](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization)、それぞれの組織ごとに 1 つの [ピア](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer)、そして 1 つの[チャネル](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel)で構成される許可制ネットワークをプロビジョンします。 ネットワークが作成されたら、これを拡張してさらに組織やピアをネットワークに追加できます。 これらのネットワークは {{site.data.keyword.blockchainfull_notm}} Platform を初めて使用する初心者ユーザーを対象としています。
 {:shortdesc}
+
+スターター・プランは非推奨になったので、現時点では新規スターター・プラン・ネットワークは作成できません。** [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks) にアクセスして、第 2 世代のブロックチェーン・テクノロジーで現在提供されている最新のユーザー・インターフェースおよび機能を使用してください。
+{: important}  
+
+**既存のネットワークは影響を受けないので、2020 年 6 月 4 日まで使用を継続できます。
 
 スターター・プランを使用すると、{{site.data.keyword.blockchainfull_notm}} プラットフォームのスキルを習得し、サンプル・アプリケーションを実行し、独自のアプリケーションをテストし、複数組織のシナリオをシミュレートできます。 この入門チュートリアルは、スターター・プランを使用してブロックチェーン・ネットワークで開発およびトランザクションを開始するステップを案内します。
 

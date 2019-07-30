@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, channel update, reallocate resources
 
@@ -46,12 +46,12 @@ Como a instância do console do {{site.data.keyword.blockchainfull_notm}} Platfo
 
 | **Componente** (todos os contêineres) | CPU**  | Memória (GB) | Armazenamento (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2           | 2.4                   | 200 (inclui 100 GB para peer e 100 GB para CouchDB)|
+| **Peer**                       | 1.1           | 2.4                   | 200 (inclui 100 GB para peer e 100 GB para CouchDB)|
 | **CA**                         | 0,1           | 0,2                   | 20                     |
-| **Nó de pedido**              | 0,45          | 0,9                   | 100                    |
+| **Nó de pedido**              | 0,35          | 0,9                   | 100                    |
 ** Esses valores poderão variar um pouco se você estiver usando o {{site.data.keyword.cloud_notm}} Private. As alocações de VPC reais são visíveis no console de blockchain quando um nó é implementado.  
 
-Se você planeja implementar um serviço de pedido Raft de cinco nós, observe que o total de sua implementação aumentará por um fator de cinco. Portanto, um total de 2,25 de CPU, 4,5 GB de memória e 500 GB de armazenamento para os cinco nós Raft. Isso torna o serviço de pedido de cinco nós maior que um único nó de trabalhador do Kubernetes de 2 CPUs.
+Se você planeja implementar um serviço de pedido Raft de cinco nós, observe que o total de sua implementação aumentará por um fator de cinco. Portanto, um total de 1,75 de CPU, 4,5 GB de memória e 500 GB de armazenamento para os cinco nós Raft. Um cluster de nó do trabalhador único do Kubernetes de 4 CPUs é minimamente recomendado para permitir uma grande quantidade de CPU para o cluster Raft e qualquer outro nó que você implementar.
 {:tip}
 
 Para casos nos quais um usuário deseja minimizar os encargos sem desativar um nó completamente ou excluí-lo, é possível diminuir sua capacidade até um mínimo de 0.001 CPU (1 milliCPU). Observe que o nó não será funcional ao usar essa quantidade de CPU.
@@ -192,7 +192,13 @@ Você verá que o **Nome do canal** está esmaecido e não pode ser editado. Iss
 
 * **Organizações**. Esta seção do painel é como as organizações são incluídas ou removidas de um canal. As organizações que podem ser incluídas podem ser vistas na lista suspensa. Observe que uma organização deve ser um membro do consórcio do serviço de pedido antes que ela possa ser incluída em um canal. Para obter mais informações sobre como incluir uma organização no consórcio, consulte [Incluir sua organização na lista de organizações que podem ser transacionadas](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org).
 
-* **Política de atualização de canal**. A política de atualização de um canal especifica quantas organizações (do número total de organizações no canal), quem deve aprovar uma atualização para a configuração de canal. Para assegurar um bom equilíbrio entre a administração colaborativa e o processamento eficiente de atualizações de configuração de canal, considere configurar essa política para a maioria dos administradores. Por exemplo, se houver cinco administradores em um canal, escolha `3 out of 5`.
+  Também é possível atualizar o nível de permissão de uma organização no canal:
+
+   - Um **operador** de canal tem permissão para criar e assinar atualizações de configuração do canal. Deve haver pelo menos um operador em cada canal.
+   - Um **gravador** de canal pode atualizar o livro-razão do canal chamando um contrato inteligente. Um gravador de canal também pode instanciar um contrato inteligente em um canal.
+   - Um **leitor** de canal pode consultar apenas o livro-razão do canal chamando uma função somente leitura no contrato inteligente, por exemplo.
+
+* **Política de atualização de canal**. A política de atualização de um canal especifica a quantidade de organizações (fora o número total de operadores no canal), que devem aprovar uma atualização para a configuração do canal. Para assegurar um bom equilíbrio entre a administração colaborativa e o processamento eficiente de atualizações de configuração de canal, considere configurar essa política para a maioria dos administradores. Por exemplo, se houver cinco administradores em um canal, escolha `3 out of 5`.
 
 * **Parâmetros de recorte de bloco**. (Opção avançada) Como uma mudança nos parâmetros de recorte de bloco padrão deve ser assinada por um administrador da organização de serviço de pedido, esses campos não estão presentes no painel de criação de canal. No entanto, como essa configuração de canal será enviada para todas as organizações relevantes no canal, é possível enviar uma solicitação de atualização de configuração de canal com mudanças nos parâmetros de recorte de bloco. Esses campos determinam as condições sob as quais o serviço de pedido recorta um novo bloco. Para obter informações sobre como esses campos afetam quando os blocos são recortados, consulte [Parâmetros de recorte de bloco](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning-batch-size).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-25"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -56,6 +56,7 @@ The {{site.data.keyword.blockchainfull_notm}} Helm chart uses dynamic provisioni
 
 5. Create a password that you will use to login to the console for the first time and store it inside a secret object in {{site.data.keyword.cloud_notm}} Private. You can find the steps to create the secret in a [following section](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret).
 
+6. Create an [imagePullSecret](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-imagepullsecret) to store the credentials that your deployment will use to access the docker registry. This step allows you to deploy the console to a non default namespace.
 
 ## Cluster Image Policy requirements
 {: #console-deploy-icp-image-policy}
@@ -112,6 +113,16 @@ Before you can access your console, you need to create a default password that y
 
 Provide the name of the secret to the `Console administrator password secret name` field of the configuration page when you deploy your console. You will need to use the value that you encoded in step one to login to the console for the first time. This value will become the default password of the console unless changed by a console administrator. For more information, see [Managing users from the console](/docs/services/blockchain/howto?topic=blockchain-console-icp-manage#console-icp-manage-users).
 
+## Creating an imagePullSecret
+{: #console-deploy-icp-imagepullsecret}
+
+You need to create a imagePullSecret to store the credentials that your deployment will use to access the docker registry. Completing this step allows you to deploy the {{site.data.keyword.blockchainfull_notm}} Platform console to a non default namespace. Use the instructions in the {{site.data.keyword.cloud_notm}} Private documentation to [create an imagePullSecret](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_images/imagepullsecret.html) and load the secret to the namespace you created to deploy the console.
+
+Provide the name of the imagePullSecret to the `imagePullSecret name` field of the configuration page when you deploy the console.
+
+If you do not want to create an imagePullSecret, you can also change the scope of the Hyperledger Fabric images used by your console. Log in to the {{site.data.keyword.cloud_notm}} Private console, open the menu and navigate to **Container Images**. Search for `hlfabric` to retrieve the list of Hyperledger Fabric images. Click on `namespace` in the table and change the scope from `namespace` to `global` for each of the nine images. This allows you to deploy the console to a non default namespace without creating an imagePullSecret.
+{:note}
+
 ## Creating TLS secret (Optional)
 {: #console-deploy-icp-tls-secret}
 
@@ -145,7 +156,7 @@ The console uses TLS to secure communication between your console and your block
 
 Provide the name of the secret you create to the `TLS secret` field in the all parameters section of the configuration page when you deploy your console.
 
-Secrets not removed from your {{site.data.keyword.cloud_notm}} Private cluster when you delete your Helm release. You are responsible for managing the password and TLS secrets in your {{site.data.keyword.cloud_notm}} Private cluster. If you plan to deploy another console in the future, you may reuse the secrets. Otherwise, you are responsible for deleting them from your {{site.data.keyword.cloud_notm}} Private cluster.
+Secrets are not removed from your {{site.data.keyword.cloud_notm}} Private cluster when you delete your Helm release. You are responsible for managing the password and TLS secrets in your {{site.data.keyword.cloud_notm}} Private cluster. If you plan to deploy another console in the future, you may reuse the secrets. Otherwise, you are responsible for deleting them from your {{site.data.keyword.cloud_notm}} Private cluster.
 {:note}
 
 ## Configuration
@@ -158,9 +169,12 @@ After you create the TLS secret object, you can deploy the console by using the 
 3. Click the **Configuration** tab on the top of the panel or click the **Configure** button in the lower-right corner.
 4. Specify the values for the [Configuration and pod security parameters](#icp-peer-deploy-configuration-parms) and accept the license agreement.
 5. Navigate to the **Parameters** section:
-- You can deploy the console by using only the [Quickstart parameters](#icp-peer-deploy-quickstart-parms). Use this option if you are experimenting or getting started.
+- You can deploy the console by using only the [Quickstart parameters](#icp-peer-deploy-quickstart-parms). Use this option if you are experimenting or getting started. If you are deploying the helm chart to a non default namespace (recommended), you also need to complete the `imagePullSecret name` field in the [All parameters](#icp-peer-deploy-quickstart-parms) section.
 - You can use the [All parameters](#icp-peer-deploy-quickstart-parms) section to customize network access, resources, and storage used by your console. The **All parameters** section is recommended for only more experienced Kubernetes users.
 6. Click **Install**.
+
+When you provide the namespace to the `namespace` field on the configuration field, you will see the following error: `Pod Security Conflict this chart requires a namespace with a ibm-privileged-psp pod security policy.` This error does not stop you from deploying the console and can be safely ignored.
+{:note}
 
 The following tables describe the configuration parameter fields and their default values.
 
@@ -210,7 +224,7 @@ Use the quickstart section if you are experimenting or getting started. The All 
 | `Console administrator email` | Email used to log in to the console. | None | Yes |
 | `Console administrator password secret name` | Name of the secret that you [created to store the password](#console-deploy-icp-password-secret) that you will use to login to the console. | None | Yes|
 | **Docker image settings** | **Use these settings to customize the Fabric images to be pulled by the console** | | |
-| `imagePullSecret name` | imagePullSecret to be used to download images. | `ibp-ibmregistry` | No |
+| `imagePullSecret name` | Name of the [imagePullSecret](#console-deploy-icp-imagepullsecret) that you created| `ibp-ibmregistry` | No |
 | **Network settings** | **Network access to your console** | | |
 | `Console hostname` | Enter the same value as the proxy IP. | None | Yes |
 | `Console port` | Enter any port you would like to use in the range of 31210 - 31220. | None | Yes |

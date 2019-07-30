@@ -46,7 +46,7 @@ Node SDK 버전 1.2를 사용하는 것이 좋습니다.
 ### 피어에서 작동하도록 SDK 준비
 {: #remote-peer-aws-operate-sdk}
 
-SDK를 사용하여 피어를 운영하기 전에 애플리케이션이 {{site.data.keyword.blockchainfull_notm}} Platform과 피어에서 네트워크와 통신하는 데 필요한 인증서(등록)를 생성해야 합니다. {{site.data.keyword.cloud_notm}}에서 인증 기관을 통해 등록된 **admin** ID를 사용하여 등록하려면 SDK를 사용하십시오. 
+SDK를 사용하여 피어를 운영하기 전에 애플리케이션이 {{site.data.keyword.blockchainfull_notm}} Platform과 피어에서 네트워크와 통신하는 데 필요한 인증서(등록)를 생성해야 합니다. {{site.data.keyword.cloud_notm}}에서 인증 기관을 통해 등록된 **admin** ID를 사용하여 등록하려면 SDK를 사용하십시오.
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform에 signcert 업로드
 {: #remote-peer-aws-operate-upload-SDK}
@@ -119,7 +119,7 @@ var peer = fabric_client.newPeer('grpcs://<AWS_EC2_dashboard_Public_DNS>:7051', 
 ### SDK를 사용하여 피어에 체인코드 설치
 {: #remote-peer-aws-operate-install-cc-sdk}
 
-SDK를 사용하여 피어에 [체인코드를 설치](https://fabric-sdk-node.github.io/release-1.4/Client.html#installChaincode){: external}하십시오. 
+SDK를 사용하여 피어에 [체인코드를 설치](https://fabric-sdk-node.github.io/release-1.4/Client.html#installChaincode){: external}하십시오.
 
 ### SDK를 사용하여 채널에서 체인코드 인스턴스화
 {: #remote-peer-aws-operate-instantiate-cc-sdk}

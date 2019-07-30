@@ -67,7 +67,7 @@ subcollection: blockchain
 
 Hyperledger Fabric v1.4.1 の詳細については、[Hyperledger Fabric の資料](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}を参照してください。 {{site.data.keyword.cloud_notm}} Private について詳しくは、[{{site.data.keyword.cloud_notm}} Private v3.2 の資料](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/kc_welcome_containers.html){: external}を参照してください。
 
-前のリリースの {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private の資料は、新しい場所に移動されました。まだ {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private v1.0.1 または v1.0.2 を使用している場合は、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private の資料](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-get-started-icp)を参照してください。
+前のリリースの {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private の資料は、新しい場所に移動されました。 まだ {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private v1.0.1 または v1.0.2 を使用している場合は、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private の資料](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-get-started-icp)を参照してください。
 
 ## 2019 年 5 月 31 日
 {: #whats-new-5-31-2019}

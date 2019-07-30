@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -38,7 +38,7 @@ Antes de continuar, recomendamos que você revise sua orientação específica d
 É possível usar esse tópico para obter detalhes sobre a orientação de HA específica do blockchain juntamente com as recomendações dos tópicos específicos da plataforma acima.
 
 ## Visão geral de possíveis pontos de falha no {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
-{: #ibp-console-ha-points-of-failure}
+{: #ibp-console-ha-points-of-failure-overview}
 
 A arquitetura do {{site.data.keyword.blockchainfull_notm}} Platform é projetada para assegurar confiabilidade, baixa latência de processamento e um tempo de atividade máximo do serviço. No entanto, falhas podem acontecer. O {{site.data.keyword.blockchainfull_notm}} Platform fornece várias abordagens para incluir mais disponibilidade em seu cluster, incluindo políticas de redundância e [antiafinidade](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external}, quando disponíveis, para assegurar que os componentes de blockchain do mesmo tipo e organização sejam implementados em diferentes nós do trabalhador.  Ao incluir redundância em sua rede de blockchain, é possível evitar falhas ou tempo de inatividade.  
 
@@ -66,10 +66,10 @@ A tabela a seguir contém uma lista de opções a serem consideradas à medida q
 |  | Nó único | Cluster único com múltiplos nós | Múltiplas zonas ({{site.data.keyword.cloud_notm}} somente**)| Múltiplos clusters em regiões |
 |-----|-----|-----|-----|-----|
 | Peers redundantes | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) |
-| Antiafinidade (peers) |  | ![Ícone de visto](../../icons/checkmark-icon.svg) |  | ![Ícone de visto](../../icons/checkmark-icon.svg)|
 | Peers de âncora redundantes em um canal| ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg)|
+| Antiafinidade*** (peers) |  | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg)|
 |Serviço de pedido do Raft | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | |
-| Antiafinidade (nós de pedido) |  | ![Ícone de visto](../../icons/checkmark-icon.svg) |  | ![Ícone de visto](../../icons/checkmark-icon.svg)|
+| Antiafinidade*** (nós de pedido) |  | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg)|
 |Ambiente de desenvolvimento ou teste | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) | | |
 | Ambiente de
 produção | | | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone de visto](../../icons/checkmark-icon.svg) |
@@ -77,6 +77,9 @@ produção | | | ![Ícone de visto](../../icons/checkmark-icon.svg) | ![Ícone d
 {: class="comparison-table"}
 {: caption="Tabela 1. Comparação de cenários de implementação para aumentar sua HA de rede" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
+
+*** O implementador do {{site.data.keyword.blockchainfull_notm}} Platform não pode garantir que os peers ou os nós de pedido sejam difundidos entre as diferentes zonas. É possível usar as APIs do {{site.data.keyword.blockchainfull_notm}} Platform para implementar nós em zonas específicas no {{site.data.keyword.cloud_notm}} e assegurar que a sua rede seja resiliente a uma falha de zona. Para obter mais informações, consulte [HA multizona](#ibp-console-ha-multi-zone).  
+
 ** A configuração padrão para um cluster Standard Kubernetes no {{site.data.keyword.cloud_notm}} é um cluster de 4 CPU x 16 GB de RAM que inclui três zonas com três nós do trabalhador cada. É possível aumentar ou diminuir a capacidade selecionando uma configuração menor, de acordo com suas necessidades.
 
 ## Potenciais pontos de falha
@@ -129,7 +132,7 @@ _Este cenário se aplica apenas aos clientes que usam o {{site.data.keyword.clou
 
    Uma única zona será suficiente para um ambiente de desenvolvimento e teste se você puder tolerar uma indisponibilidade de zona. Portanto, para aproveitar os benefícios de HA de múltiplas zonas, quando você provisionar seu cluster, assegure-se de que múltiplas zonas estejam selecionadas. Duas zonas são melhores que uma, mas três são recomendadas para HA para aumentar a probabilidade de que as duas zonas adicionais possam absorver a carga de trabalho de qualquer falha de zona única.  Quando os peers redundantes da mesma organização e os nós de pedido são difundidos em múltiplas zonas, uma falha em qualquer zona não deve afetar a capacidade da rede de processar transações, pois a carga de trabalho mudará para os nós de blockchain nas outras zonas.
 
-   O implementador do {{site.data.keyword.blockchainfull_notm}} Platform não pode garantir que os componentes de blockchain sejam difundidos pelas **zonas**. O implementador implementará componentes para múltiplas zonas com base nos recursos disponíveis nos nós do trabalhador, mas não colocará necessariamente dois peers da mesma organização ou os nós de pedido em zonas separadas.
+   O implementador do {{site.data.keyword.blockchainfull_notm}} Platform não pode garantir que os componentes de blockchain sejam difundidos pelas **zonas**. O implementador implementará componentes para múltiplas zonas com base nos recursos disponíveis nos nós do trabalhador, mas não colocará necessariamente dois peers da mesma organização ou os nós de pedido em zonas separadas. Se você desejar assegurar que determinados nós sejam implementados em diferentes zonas, será possível usar as APIs do {{site.data.keyword.blockchainfull_notm}} Platform para especificar a zona em que um nó é criado. Para obter mais informações, consulte [Criando um nó dentro de uma zona específica](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
    {:note}
 
    Este cenário usa peers e solicitadores redundantes em vários nós do trabalhador e múltiplas zonas, que protege contra falhas de zona, mas não protege de uma improvável falha de região inteira. Este é um cenário recomendado para uma rede de produção.

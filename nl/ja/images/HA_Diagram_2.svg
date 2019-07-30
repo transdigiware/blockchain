@@ -1,749 +1,182 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 1070 932"
-   style="enable-background:new 0 0 1070 932;"
-   xml:space="preserve"
-   sodipodi:docname="HA_Diagram_2.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
-   id="metadata170"><rdf:RDF><cc:Work
-       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-   id="defs168">
-	
-	
-
-		
-	
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-				
-				
-				
-			
-					
-					
-					
-				
-					
-					
-					
-				
-					
-					
-					
-					
-				
-						
-						
-					</defs><sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1017"
-   id="namedview166"
-   showgrid="false"
-   inkscape:zoom="0.90987124"
-   inkscape:cx="255.12165"
-   inkscape:cy="415.80326"
-   inkscape:window-x="-8"
-   inkscape:window-y="-8"
-   inkscape:window-maximized="1"
-   inkscape:current-layer="Layer_1" />
-<style
-   type="text/css"
-   id="style2">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1070 932" style="enable-background:new 0 0 1070 932;" xml:space="preserve">
+<style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{fill:#2D3F49;stroke:#2D3F49;}
 	.st2{fill:#FFFFFF;stroke:#00B39F;stroke-width:2;stroke-dasharray:8;}
 	.st3{fill:#FFFFFF;stroke:#6182BB;}
 	.st4{fill:none;}
-	.st5{font-family:'Source Han Sans';}
+	.st5{font-family:'Helvetica';}
 	.st6{font-size:24.0721px;}
 	.st7{fill:#4278BD;}
 	.st8{font-size:20.07px;}
 	.st9{font-size:16.07px;}
 	.st10{font-size:21.07px;}
 	.st11{font-size:14.07px;}
-	.st12{font-family:'Source Han Sans';}
+	.st12{font-family:'Helvetica-BoldOblique';}
 	.st13{font-size:21.6649px;}
 	.st14{font-size:12.07px;}
 </style>
-<title
-   id="title4">2</title>
-<desc
-   id="desc6">Created with Sketch.</desc>
-<rect
-   style="fill:#ffffff"
-   y="0"
-   x="0"
-   id="rect8"
-   height="932"
-   width="1070"
-   class="st0" /><path
-   style="fill:#2d3f49;stroke:#2d3f49"
-   inkscape:connector-curvature="0"
-   d="M 1016.4,819 H 84.5 c -6.6,0 -12,-5 -12,-11.2 V 32.2 C 72.5,26 77.9,21 84.5,21 h 931.9 c 6.6,0 12,5 12,11.2 v 775.5 c 0,6.3 -5.4,11.3 -12,11.3 z"
-   class="st1"
-   id="XMLID_232_" /><path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 685.1,798.5 H 409.5 c -6.6,0 -12,-5 -12,-11.1 V 89.6 c 0,-6.1 5.4,-11.1 12,-11.1 h 275.6 c 6.6,0 12,5 12,11.1 v 697.7 c 0,6.2 -5.4,11.2 -12,11.2 z"
-   class="st0"
-   id="XMLID_231_" /><path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 375.3,798.5 H 101 c -6.6,0 -11.9,-5 -11.9,-11.1 V 89.6 c 0,-6.1 5.4,-11.1 11.9,-11.1 h 274.1 c 6.6,0 11.9,5 11.9,11.1 v 697.7 c 0.2,6.2 -5.2,11.2 -11.7,11.2 z"
-   class="st0"
-   id="XMLID_230_" /><path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 995.6,798.5 H 720 c -6.6,0 -12,-5 -12,-11.1 V 89.6 c 0,-6.1 5.4,-11.1 12,-11.1 h 275.6 c 6.6,0 12,5 12,11.1 v 697.7 c 0,6.2 -5.4,11.2 -12,11.2 z"
-   class="st0"
-   id="XMLID_1_" /><path
-   style="fill:#ffffff;stroke:#00b39f;stroke-width:2;stroke-dasharray:8"
-   inkscape:connector-curvature="0"
-   d="M 969.1,787 H 115.5 c -6.6,0 -12,-5 -12,-11.2 V 145.2 c 0,-6.2 5.4,-11.2 12,-11.2 h 853.6 c 6.6,0 12,5 12,11.2 v 630.7 c 0,6.1 -5.4,11.1 -12,11.1 z"
-   class="st2"
-   id="XMLID_229_" /><path
-   style="fill:#ffffff;stroke:#6182bb"
-   inkscape:connector-curvature="0"
-   d="M 941.3,773.7 H 135.8 c -6.6,0 -12,-5.4 -12,-12.1 V 229.8 c 0,-6.6 5.4,-12.1 12,-12.1 h 805.5 c 6.6,0 12,5.4 12,12.1 v 531.9 c 0,6.6 -5.4,12 -12,12 z"
-   class="st3"
-   id="XMLID_228_" /><g
-   transform="translate(386,229)"
-   id="XMLID_219_">
-				<rect
-   style="fill:none"
-   x="0"
-   height="23"
-   width="235"
-   class="st4"
-   y="6"
-   id="XMLID_45_" />
-				<text
-   style="font-size:24.07209969px;font-family:'Source Han Sans'"
-   id="text17"
-   class="st5 st6"
-   transform="translate(50,24)">ワーカー・プール</text>
-
-			</g><rect
-   style="fill:none"
-   height="34"
-   width="196.89999"
-   class="st4"
-   y="95.400002"
-   x="140.5"
-   id="XMLID_217_" /><text
-   style="font-size:24.07209969px;font-family:'Source Han Sans'"
-   id="text21"
-   class="st5 st6"
-   x="201.74271"
-   y="113.1874">ゾーン 1</text>
-<g
-   transform="translate(473,35)"
-   id="XMLID_201_">
-				<rect
-   style="fill:none"
-   x="0"
-   height="34"
-   width="128"
-   class="st4"
-   y="6"
-   id="XMLID_43_" />
-				<text
-   style="font-size:24.07209969px;font-family:'Source Han Sans';fill:#ffffff"
-   id="text24"
-   class="st0 st5 st6"
-   transform="translate(42,24)">地域 1</text>
-
-			</g><text
-   style="font-size:24.07209969px;font-family:'Source Han Sans'"
-   id="text27"
-   class="st5 st6"
-   x="408.79929"
-   y="171">複数ゾーン・クラスター</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 324.2,419.9 H 149.3 c -6.6,0 -12,-5.4 -12,-12 V 287.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 408 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_200_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="300"
-   x="153.5"
-   id="XMLID_199_" /><text
-   style="font-size:22.69018936px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.94259286"
-   id="text31"
-   class="st0 st5 st6"
-   x="150.79366"
-   y="299.58524"
-   transform="scale(0.94259288,1.0609034)">ワーカー・ノード 1</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 324.2,591.4 H 149.3 c -6.6,0 -12,-5.4 -12,-12 V 458.9 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_190_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="471.5"
-   x="153.5"
-   id="XMLID_189_" /><text
-   style="font-size:22.69018936px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.94259286"
-   id="text37"
-   class="st0 st5 st6"
-   x="150.79366"
-   y="461.25186"
-   transform="scale(0.94259288,1.0609034)">ワーカー・ノード 2</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 324.2,762.9 H 149.3 c -6.6,0 -12,-5.4 -12,-12 V 630.4 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 V 751 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_178_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="643"
-   x="153.5"
-   id="XMLID_177_" /><text
-   style="font-size:22.69018936px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.94259286"
-   id="text43"
-   class="st0 st5 st6"
-   x="150.79366"
-   y="622.92126"
-   transform="scale(0.94259288,1.0609034)">ワーカー・ノード 3</text>
-<path
-   id="XMLID_174_"
-   class="st0"
-   d="M 308,738.9 H 165.5 c -6.6,0 -12,-5.4 -12,-12 v -38.5 c 0,-6.6 5.4,-12 12,-12 H 308 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z"
-   inkscape:connector-curvature="0"
-   style="fill:#ffffff" /><g
-   id="XMLID_149_"
-   transform="translate(138,685)">
-							<rect
-   id="XMLID_36_"
-   x="9"
-   y="9.8000002"
-   class="st4"
-   width="163.60001"
-   height="37.700001"
-   style="fill:none" />
-							<text
-   transform="translate(21.9765,19)"
-   class="st5 st8"
-   id="text47"
-   style="font-size:20.06999969px;font-family:'Source Han Sans'">順序付けノード 1</text>
-
-						</g><rect
-   style="fill:none"
-   height="34"
-   width="196.89999"
-   class="st4"
-   y="95.400002"
-   x="439.5"
-   id="XMLID_148_" /><text
-   style="font-size:24.07209969px;font-family:'Source Han Sans'"
-   id="text56"
-   class="st5 st6"
-   x="500.71729"
-   y="113.1874">ゾーン 2</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 626.9,417.5 H 452 c -6.6,0 -12,-5.4 -12,-12 V 285 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_146_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="321"
-   x="454.5"
-   id="XMLID_143_" /><text
-   style="font-size:22.32045937px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.92723358"
-   id="text60"
-   class="st0 st5 st6"
-   x="481.21823"
-   y="294.33362"
-   transform="scale(0.9272336,1.0784769)">ワーカー・ノード 1</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 622.2,591.4 H 447.3 c -6.6,0 -12,-5.4 -12,-12 V 458.9 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_128_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="510.5"
-   x="454.5"
-   id="XMLID_127_" /><text
-   style="font-size:22.32045937px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.92723358"
-   id="text64"
-   class="st0 st5 st6"
-   x="476.86023"
-   y="453.73734"
-   transform="scale(0.9272336,1.0784769)">ワーカー・ノード 2</text>
-<g
-   transform="translate(445,505)"
-   id="Group_1_">
-				<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 83.5,72 H 6.5 C 2.9,72 0,65.8 0,58.2 V 13.8 C 0,6.2 2.9,0 6.5,0 h 77 C 87.1,0 90,6.2 90,13.8 V 58.2 C 90,65.8 87.1,72 83.5,72 Z"
-   class="st0"
-   id="XMLID_124_" />
-			</g><path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 621.9,759.5 H 447 c -6.6,0 -12,-5.4 -12,-12 V 627 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_44_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="682"
-   x="454.5"
-   id="XMLID_42_" /><text
-   style="font-size:22.32045937px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.92723358"
-   id="text70"
-   class="st0 st5 st6"
-   x="476.58206"
-   y="612.40002"
-   transform="scale(0.9272336,1.0784769)">ワーカー・ノード 3</text>
-<rect
-   style="fill:none"
-   height="34"
-   width="196.89999"
-   class="st4"
-   y="98.199997"
-   x="756.30005"
-   id="XMLID_3_" /><text
-   style="font-size:24.07209969px;font-family:'Source Han Sans'"
-   id="text73"
-   class="st5 st6"
-   x="815.58447"
-   y="116.0419">ゾーン 3</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 922.9,417.5 H 748 c -6.6,0 -12,-5.4 -12,-12 V 285 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_71_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="339"
-   x="752.5"
-   id="XMLID_70_" /><text
-   style="font-size:22.23815155px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.92381442"
-   id="text77"
-   class="st0 st5 st6"
-   x="801.61456"
-   y="293.24826"
-   transform="scale(0.92381434,1.0824686)">ワーカー・ノード 1</text>
-<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 906.7,393.5 H 764.2 c -6.6,0 -12,-5.4 -12,-12 V 343 c 0,-6.6 5.4,-12 12,-12 h 142.5 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z"
-   class="st0"
-   id="XMLID_68_" /><path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 918.9,588.5 H 744 c -6.6,0 -12,-5.4 -12,-12 V 456 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_63_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="510.5"
-   x="752.5"
-   id="XMLID_62_" /><text
-   style="font-size:22.23815155px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.92381442"
-   id="text82"
-   class="st0 st5 st6"
-   x="802.13739"
-   y="452.66904"
-   transform="scale(0.92381434,1.0824686)">ワーカー・ノード 2</text>
-<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="m 873,572 h -83 c -3.8,0 -7,-5.4 -7,-12.1 v -38.8 c 0,-6.7 3.1,-12.1 7,-12.1 h 83 c 3.8,0 7,5.4 7,12.1 v 38.8 c 0,6.7 -3.1,12.1 -7,12.1 z"
-   class="st0"
-   id="XMLID_59_" /><text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text85"
-   class="st5 st9"
-   x="216"
-   y="726">(Raft)</text>
-<path
-   style="fill:#4278bd"
-   inkscape:connector-curvature="0"
-   d="M 919.9,759.5 H 745 c -6.6,0 -12,-5.4 -12,-12 V 627 c 0,-6.6 5.4,-12 12,-12 h 174.9 c 6.6,0 12,5.4 12,12 v 120.6 c 0,6.5 -5.4,11.9 -12,11.9 z"
-   class="st7"
-   id="XMLID_54_" /><rect
-   style="fill:none"
-   height="23.299999"
-   width="166.5"
-   class="st4"
-   y="682"
-   x="752.5"
-   id="XMLID_26_" /><path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 903.7,735.5 H 761.2 c -6.6,0 -12,-5.4 -12,-12 V 685 c 0,-6.6 5.4,-12 12,-12 h 142.5 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z"
-   class="st0"
-   id="XMLID_8_" /><g
-   transform="translate(154,335)"
-   id="Group_2_">
-				<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 73.6,63.4 H 6 C 2.9,63.4 0.3,58 0.3,51.4 V 12.9 C 0.3,6.3 2.9,0.9 6,0.9 h 67.6 c 3.1,0 5.7,5.4 5.7,12 v 38.5 c 0,6.6 -2.6,12 -5.7,12 z"
-   class="st0"
-   id="XMLID_255_" />
-				<g
-   transform="translate(1,1)"
-   id="XMLID_251_">
-					<rect
-   style="fill:none"
-   height="37.700001"
-   width="163.60001"
-   class="st4"
-   y="18.299999"
-   x="0.69999999"
-   id="XMLID_22_" />
-					<text
-   style="font-size:21.06999969px;font-family:'Source Han Sans'"
-   id="text94"
-   class="st5 st10"
-   transform="translate(9,30)">ピア 1</text>
-
-					<text
-   style="font-size:14.06999969px;font-family:'Source Han Sans'"
-   id="text96"
-   class="st5 st11"
-   transform="translate(21,47)">Org 1</text>
-
-					<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 156.3,62.5 H 88.7 C 85.6,62.5 83,57.1 83,50.5 V 12 C 83,5.4 85.6,0 88.7,0 h 67.6 c 3.1,0 5.7,5.4 5.7,12 v 38.5 c 0,6.6 -2.6,12 -5.7,12 z"
-   class="st0"
-   id="XMLID_4_" />
-					<text
-   style="font-size:21.06999969px;font-family:'Source Han Sans'"
-   id="text99"
-   class="st5 st10"
-   transform="translate(102,30)">CA 1</text>
-
+<title>2</title>
+<desc>Created with Sketch.</desc>
+<g id="_x32_">
+	<rect class="st0" width="1070" height="932"/>
+	<g id="Blockchain-update---high-availability-cluster" transform="translate(-688.000000, 0.000000)">
+		<g id="Text">
+			<path id="XMLID_232_" class="st1" d="M1704.4,819H772.5c-6.6,0-12-5-12-11.2V32.2c0-6.2,5.4-11.2,12-11.2h931.9
+				c6.6,0,12,5,12,11.2v775.5C1716.4,814,1711,819,1704.4,819z"/>
+			<path id="XMLID_231_" class="st0" d="M1373.1,798.5h-275.6c-6.6,0-12-5-12-11.1V89.6c0-6.1,5.4-11.1,12-11.1h275.6
+				c6.6,0,12,5,12,11.1v697.7C1385.1,793.5,1379.7,798.5,1373.1,798.5z"/>
+			<path id="XMLID_230_" class="st0" d="M1063.3,798.5H789c-6.6,0-11.9-5-11.9-11.1V89.6c0-6.1,5.4-11.1,11.9-11.1h274.1
+				c6.6,0,11.9,5,11.9,11.1v697.7C1075.2,793.5,1069.8,798.5,1063.3,798.5z"/>
+			<path id="XMLID_1_" class="st0" d="M1683.6,798.5H1408c-6.6,0-12-5-12-11.1V89.6c0-6.1,5.4-11.1,12-11.1h275.6
+				c6.6,0,12,5,12,11.1v697.7C1695.6,793.5,1690.2,798.5,1683.6,798.5z"/>
+			<path id="XMLID_229_" class="st2" d="M1657.1,787H803.5c-6.6,0-12-5-12-11.2V145.2c0-6.2,5.4-11.2,12-11.2h853.6
+				c6.6,0,12,5,12,11.2v630.7C1669.1,782,1663.7,787,1657.1,787z"/>
+			<path id="XMLID_228_" class="st3" d="M1629.3,773.7H823.8c-6.6,0-12-5.4-12-12.1V229.8c0-6.6,5.4-12.1,12-12.1h805.5
+				c6.6,0,12,5.4,12,12.1v531.9C1641.3,768.3,1635.9,773.7,1629.3,773.7z"/>
+			<g id="XMLID_219_" transform="translate(1116.000000, 229.000000)">
+				<rect id="XMLID_45_" y="6" class="st4" width="235" height="23"/>
+				<text transform="matrix(1 0 0 1 50 24)" class="st5 st6">ワーカー・プール</text>
+			</g>
+			<rect id="XMLID_217_" x="828.5" y="95.4" class="st4" width="196.9" height="34"/>
+			<text transform="matrix(1 0 0 1 889.7427 113.1874)" class="st5 st6">ゾーン 1</text>
+			<g id="XMLID_201_" transform="translate(1143.000000, 35.000000)">
+				<rect id="XMLID_43_" y="6" class="st4" width="128" height="34"/>
+				<text transform="matrix(1 0 0 1 42 24)" class="st0 st5 st6">地域 1</text>
+			</g>
+			<text transform="matrix(1 0 0 1 1140.7993 171)" class="st5 st6">複数ゾーン・クラスター</text>
+			<g id="Group" transform="translate(825.000000, 275.000000)">
+				<g>
+					<path id="XMLID_200_" class="st7" d="M187.2,144.9H12.3c-6.6,0-12-5.4-12-12V12.4c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+						V133C199.2,139.5,193.8,144.9,187.2,144.9z"/>
+					<rect id="XMLID_199_" x="16.5" y="25" class="st4" width="166.5" height="23.3"/>
+					<text transform="matrix(1 0 0 1 18.7827 42.831)" class="st0 st5 st6">ワーカー・ノード 1</text>
 				</g>
-			</g><g
-   transform="translate(498.7,336.6)"
-   id="Group_3_">
-				<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 73.3,62.5 H 5.7 C 2.6,62.5 0,57.1 0,50.5 V 12 C 0,5.4 2.6,0 5.7,0 H 73.3 C 76.4,0 79,5.4 79,12 v 38.5 c 0,6.6 -2.6,12 -5.7,12 z"
-   class="st0"
-   id="XMLID_5_" />
-				<g
-   transform="translate(0.7,10.1)"
-   id="XMLID_7_">
-					<rect
-   style="fill:none"
-   height="37.700001"
-   width="163.60001"
-   class="st4"
-   y="8.3000002"
-   x="0.69999999"
-   id="XMLID_6_" />
-					<text
-   style="font-size:21.06999969px;font-family:'Source Han Sans'"
-   id="text105"
-   class="st5 st10"
-   transform="translate(9,20)">ピア 3</text>
-
-					<text
-   style="font-size:14.06999969px;font-family:'Source Han Sans'"
-   id="text107"
-   class="st5 st11"
-   transform="translate(21,37)">Org 1</text>
-
+				<g transform="translate(0.000000, 171.000000)">
+					<path id="XMLID_190_" class="st7" d="M187.2,145.4H12.3c-6.6,0-12-5.4-12-12V12.9c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+						v120.6C199.2,140,193.8,145.4,187.2,145.4z"/>
+					<rect id="XMLID_189_" x="16.5" y="25.5" class="st4" width="166.5" height="23.3"/>
+					<text transform="matrix(1 0 0 1 18.7827 43.3437)" class="st0 st5 st6">ワーカー・ノード 2</text>
 				</g>
-			</g><g
-   transform="translate(190,508)"
-   id="Group_4_">
-				<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 83.5,62.5 H 6.5 C 2.9,62.5 0,57.1 0,50.5 V 12 C 0,5.4 2.9,0 6.5,0 h 77 C 87.1,0 90,5.4 90,12 v 38.5 c 0,6.6 -2.9,12 -6.5,12 z"
-   class="st0"
-   id="XMLID_9_" />
-				<g
-   transform="translate(5.7,11.1)"
-   id="XMLID_12_">
-					<rect
-   style="fill:none"
-   height="37.700001"
-   width="163.60001"
-   class="st4"
-   y="8.3000002"
-   x="0.69999999"
-   id="XMLID_11_" />
-					<text
-   style="font-size:21.06999969px;font-family:'Source Han Sans'"
-   id="text113"
-   class="st5 st10"
-   transform="translate(9,20)">ピア 2</text>
-
-					<text
-   style="font-size:14.06999969px;font-family:'Source Han Sans'"
-   id="text115"
-   class="st5 st11"
-   transform="translate(21,37)">Org 1</text>
-
+				<g transform="translate(0.000000, 343.000000)">
+					<path id="XMLID_178_" class="st7" d="M187.2,144.9H12.3c-6.6,0-12-5.4-12-12V12.4c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+						V133C199.2,139.5,193.8,144.9,187.2,144.9z"/>
+					<rect id="XMLID_177_" x="16.5" y="25" class="st4" width="166.5" height="23.3"/>
+					<text transform="matrix(1 0 0 1 18.7827 42.8593)" class="st0 st5 st6">ワーカー・ノード 3</text>
+					<g transform="translate(9.000000, 58.000000)">
+						<path id="XMLID_174_" class="st0" d="M162,62.9H19.5c-6.6,0-12-5.4-12-12V12.4c0-6.6,5.4-12,12-12H162c6.6,0,12,5.4,12,12
+							v38.5C174,57.5,168.6,62.9,162,62.9z"/>
+						<g id="XMLID_149_" transform="translate(0.000000, 9.000000)">
+							<rect id="XMLID_36_" x="9" y="9.8" class="st4" width="163.6" height="37.7"/>
+							<text transform="matrix(1 0 0 1 21.9765 19)" class="st5 st8">順序付けノード 1</text>
+						</g>
+					</g>
 				</g>
-				<rect
-   style="fill:none"
-   height="37.700001"
-   width="163.60001"
-   class="st4"
-   y="19.299999"
-   x="605.70001"
-   id="XMLID_13_" />
-				<text
-   style="font-size:21.06999969px;font-family:'Source Han Sans'"
-   id="text119"
-   class="st5 st10"
-   transform="translate(614,31)">ピア 4</text>
-
-				<text
-   style="font-size:14.06999969px;font-family:'Source Han Sans'"
-   id="text121"
-   class="st5 st11"
-   transform="translate(626,48)">Org 1</text>
-
-			</g><path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="M 609.7,735.5 H 467.2 c -6.6,0 -12,-5.4 -12,-12 V 685 c 0,-6.6 5.4,-12 12,-12 h 142.5 c 6.6,0 12,5.4 12,12 v 38.5 c 0,6.6 -5.4,12 -12,12 z"
-   class="st0"
-   id="XMLID_14_" /><text
-   style="font-size:22.23815155px;font-family:'Source Han Sans';fill:#ffffff;stroke-width:0.92381442"
-   id="text125"
-   class="st0 st5 st6"
-   x="799.36591"
-   y="609.71753"
-   transform="scale(0.92381434,1.0824686)">ワーカー・ノード 3</text>
-<g
-   transform="translate(440.7,678.6)"
-   id="XMLID_17_">
-				<rect
-   style="fill:none"
-   height="37.700001"
-   width="163.60001"
-   class="st4"
-   y="9.8000002"
-   x="9"
-   id="XMLID_16_" />
-				<text
-   style="font-size:20.06999969px;font-family:'Source Han Sans'"
-   id="text128"
-   class="st5 st8"
-   transform="translate(21.9765,19)">順序付けノード 3</text>
-
-				<text
-   style="font-size:20.06999969px;font-family:'Source Han Sans'"
-   id="text130"
-   class="st5 st8"
-   transform="translate(311.9766,19)">順序付けノード 5</text>
-
-			</g><g
-   transform="translate(456,512)"
-   id="XMLID_19_">
-				<rect
-   style="fill:none"
-   height="38"
-   width="109"
-   class="st4"
-   y="6"
-   x="6"
-   id="XMLID_18_" />
-				<text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text134"
-   class="st5 st9"
-   transform="translate(2.2388,15)">順序付け </text>
-
-				<text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text136"
-   class="st5 st9"
-   x="0.92420006"
-   y="34">ノード 2</text>
-
-			</g><g
-   transform="translate(735.7,337.6)"
-   id="XMLID_21_">
-				<rect
-   style="fill:none"
-   height="37.700001"
-   width="163.60001"
-   class="st4"
-   y="9.8000002"
-   x="9"
-   id="XMLID_20_" />
-				<text
-   style="font-size:20.06999969px;font-family:'Source Han Sans'"
-   id="text140"
-   class="st5 st8"
-   transform="translate(21.9766,19)">順序付けノード 4</text>
-
-			</g><text
-   style="font-size:21.66489983px;font-family:'Source Han Sans'"
-   id="text143"
-   class="st12 st13"
-   x="324"
-   y="198">+ アンチアフィニティー (ワーカー・ノード間)</text>
-<text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text145"
-   class="st5 st9"
-   x="512.70001"
-   y="723.59998">(Raft)</text>
-<text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text147"
-   class="st5 st9"
-   x="809.70001"
-   y="722.59998">(Raft)</text>
-<text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text149"
-   class="st5 st9"
-   x="470"
-   y="565">(Raft)</text>
-<text
-   style="font-size:16.06999969px;font-family:'Source Han Sans'"
-   id="text151"
-   class="st5 st9"
-   x="812.70001"
-   y="380.60001">(Raft)</text>
-<text
-   style="font-size:14.06999969px;font-family:'Source Han Sans'"
-   id="text153"
-   class="st5 st11"
-   x="260"
-   y="383">ピア</text>
-<path
-   style="fill:#ffffff"
-   inkscape:connector-curvature="0"
-   d="m 621.8,577 h -73.6 c -3.4,0 -6.2,-6.2 -6.2,-13.8 v -44.4 c 0,-7.6 2.8,-13.8 6.2,-13.8 h 73.6 c 3.4,0 6.2,6.2 6.2,13.8 v 44.4 c 0,7.6 -2.8,13.8 -6.2,13.8 z"
-   class="st0"
-   id="XMLID_23_" /><text
-   style="font-size:21.06999969px;font-family:'Source Han Sans'"
-   id="text156"
-   class="st5 st10"
-   x="562"
-   y="535">CA 2</text>
-<text
-   style="font-size:12.06999969px;font-family:'Source Han Sans'"
-   id="text158"
-   class="st5 st14"
-   x="563.02002"
-   y="552">順序付け </text>
-<text
-   style="font-size:12.06999969px;font-family:'Source Han Sans'"
-   id="text160"
-   class="st5 st14"
-   x="562.37653"
-   y="566">サービス</text>
-
+			</g>
+			<rect id="XMLID_148_" x="1127.5" y="95.4" class="st4" width="196.9" height="34"/>
+			<text transform="matrix(1 0 0 1 1188.7173 113.1874)" class="st5 st6">ゾーン 2</text>
+			<path id="XMLID_146_" class="st7" d="M1314.9,417.5H1140c-6.6,0-12-5.4-12-12V285c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+				v120.6C1326.9,412.1,1321.5,417.5,1314.9,417.5z"/>
+			<rect id="XMLID_143_" x="1142.5" y="321" class="st4" width="166.5" height="23.3"/>
+			<text transform="matrix(1 0 0 1 1146.4573 317.432)" class="st0 st5 st6">ワーカー・ノード 1</text>
+			<path id="XMLID_128_" class="st7" d="M1310.2,591.4h-174.9c-6.6,0-12-5.4-12-12V458.9c0-6.6,5.4-12,12-12h174.9
+				c6.6,0,12,5.4,12,12v120.6C1322.2,586,1316.8,591.4,1310.2,591.4z"/>
+			<rect id="XMLID_127_" x="1142.5" y="510.5" class="st4" width="166.5" height="23.3"/>
+			<text transform="matrix(1 0 0 1 1141.7573 489.3452)" class="st0 st5 st6">ワーカー・ノード 2</text>
+			<g id="Group_1_" transform="translate(1133.000000, 505.000000)">
+				<path id="XMLID_124_" class="st0" d="M83.5,72h-77C2.9,72,0,65.8,0,58.2V13.8C0,6.2,2.9,0,6.5,0h77C87.1,0,90,6.2,90,13.8v44.4
+					C90,65.8,87.1,72,83.5,72z"/>
+			</g>
+			<path id="XMLID_44_" class="st7" d="M1309.9,759.5H1135c-6.6,0-12-5.4-12-12V627c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+				v120.6C1321.9,754.1,1316.5,759.5,1309.9,759.5z"/>
+			<rect id="XMLID_42_" x="1142.5" y="682" class="st4" width="166.5" height="23.3"/>
+			<text transform="matrix(1 0 0 1 1141.4573 660.4593)" class="st0 st5 st6">ワーカー・ノード 3</text>
+			<rect id="XMLID_3_" x="1444.3" y="98.2" class="st4" width="196.9" height="34"/>
+			<text transform="matrix(1 0 0 1 1505.5845 116.0419)" class="st5 st6">ゾーン 3</text>
+			<path id="XMLID_71_" class="st7" d="M1610.9,417.5H1436c-6.6,0-12-5.4-12-12V285c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+				v120.6C1622.9,412.1,1617.5,417.5,1610.9,417.5z"/>
+			<rect id="XMLID_70_" x="1440.5" y="339" class="st4" width="166.5" height="23.3"/>
+			<text transform="matrix(1 0 0 1 1442.434 317.432)" class="st0 st5 st6">ワーカー・ノード 1</text>
+			<path id="XMLID_68_" class="st0" d="M1594.7,393.5h-142.5c-6.6,0-12-5.4-12-12V343c0-6.6,5.4-12,12-12h142.5c6.6,0,12,5.4,12,12
+				v38.5C1606.7,388.1,1601.3,393.5,1594.7,393.5z"/>
+			<path id="XMLID_63_" class="st7" d="M1606.9,588.5H1432c-6.6,0-12-5.4-12-12V456c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+				v120.6C1618.9,583.1,1613.5,588.5,1606.9,588.5z"/>
+			<rect id="XMLID_62_" x="1440.5" y="510.5" class="st4" width="166.5" height="23.3"/>
+			<text transform="matrix(1 0 0 1 1443 490)" class="st0 st5 st6">ワーカー・ノード 2</text>
+			<path id="XMLID_59_" class="st0" d="M1561,572h-83c-3.8,0-7-5.4-7-12.1v-38.8c0-6.7,3.1-12.1,7-12.1h83c3.8,0,7,5.4,7,12.1v38.8
+				C1568,566.6,1564.9,572,1561,572z"/>
+			<text transform="matrix(1 0 0 1 904 726)" class="st5 st9">(Raft)</text>
+			<path id="XMLID_54_" class="st7" d="M1607.9,759.5H1433c-6.6,0-12-5.4-12-12V627c0-6.6,5.4-12,12-12h174.9c6.6,0,12,5.4,12,12
+				v120.6C1619.9,754.1,1614.5,759.5,1607.9,759.5z"/>
+			<rect id="XMLID_26_" x="1440.5" y="682" class="st4" width="166.5" height="23.3"/>
+			<text transform="matrix(1 0 0 1 1442.7339 699.8593)" class="st0 st5 st6">ワーカー・ノード 3</text>
+			<path id="XMLID_8_" class="st0" d="M1591.7,735.5h-142.5c-6.6,0-12-5.4-12-12V685c0-6.6,5.4-12,12-12h142.5c6.6,0,12,5.4,12,12
+				v38.5C1603.7,730.1,1598.3,735.5,1591.7,735.5z"/>
+			<g id="Group_2_" transform="translate(842.000000, 335.000000)">
+				<path id="XMLID_255_" class="st0" d="M73.6,63.4H6c-3.1,0-5.7-5.4-5.7-12V12.9c0-6.6,2.6-12,5.7-12h67.6c3.1,0,5.7,5.4,5.7,12
+					v38.5C79.3,58,76.7,63.4,73.6,63.4z"/>
+				<g id="XMLID_251_" transform="translate(1.000000, 1.000000)">
+					<rect id="XMLID_22_" x="0.7" y="18.3" class="st4" width="163.6" height="37.7"/>
+					<text transform="matrix(1 0 0 1 9 30)" class="st5 st10">ピア 1</text>
+					<text transform="matrix(1 0 0 1 21 47)" class="st5 st11">Org 1</text>
+					<path id="XMLID_4_" class="st0" d="M156.3,62.5H88.7c-3.1,0-5.7-5.4-5.7-12V12c0-6.6,2.6-12,5.7-12h67.6c3.1,0,5.7,5.4,5.7,12
+						v38.5C162,57.1,159.4,62.5,156.3,62.5z"/>
+					<text transform="matrix(1 0 0 1 102 30)" class="st5 st10">CA 1</text>
+				</g>
+			</g>
+			<g id="Group_3_" transform="translate(1186.700000, 336.600000)">
+				<path id="XMLID_5_" class="st0" d="M73.3,62.5H5.7c-3.1,0-5.7-5.4-5.7-12V12C0,5.4,2.6,0,5.7,0h67.6C76.4,0,79,5.4,79,12v38.5
+					C79,57.1,76.4,62.5,73.3,62.5z"/>
+				<g id="XMLID_7_" transform="translate(0.700000, 10.100000)">
+					<rect id="XMLID_6_" x="0.7" y="8.3" class="st4" width="163.6" height="37.7"/>
+					<text transform="matrix(1 0 0 1 9 20)" class="st5 st10">ピア 3</text>
+					<text transform="matrix(1 0 0 1 21 37)" class="st5 st11">Org 1</text>
+				</g>
+			</g>
+			<g id="Group_4_" transform="translate(878.000000, 508.000000)">
+				<path id="XMLID_9_" class="st0" d="M83.5,62.5h-77c-3.6,0-6.5-5.4-6.5-12V12C0,5.4,2.9,0,6.5,0h77C87.1,0,90,5.4,90,12v38.5
+					C90,57.1,87.1,62.5,83.5,62.5z"/>
+				<g id="XMLID_12_" transform="translate(5.700000, 11.100000)">
+					<rect id="XMLID_11_" x="0.7" y="8.3" class="st4" width="163.6" height="37.7"/>
+					<text transform="matrix(1 0 0 1 9 20)" class="st5 st10">ピア 2</text>
+					<text transform="matrix(1 0 0 1 21 37)" class="st5 st11">Org 1</text>
+				</g>
+				<rect id="XMLID_13_" x="605.7" y="19.3" class="st4" width="163.6" height="37.7"/>
+				<text transform="matrix(1 0 0 1 614 31)" class="st5 st10">ピア 4</text>
+				<text transform="matrix(1 0 0 1 626 48)" class="st5 st11">Org 1</text>
+			</g>
+			<path id="XMLID_14_" class="st0" d="M1297.7,735.5h-142.5c-6.6,0-12-5.4-12-12V685c0-6.6,5.4-12,12-12h142.5c6.6,0,12,5.4,12,12
+				v38.5C1309.7,730.1,1304.3,735.5,1297.7,735.5z"/>
+			<text transform="matrix(1 0 0 1 1440 660)" class="st0 st5 st6">ワーカー・ノード 3</text>
+			<g id="XMLID_17_" transform="translate(1136.700000, 678.600000)">
+				<rect id="XMLID_16_" x="9" y="9.8" class="st4" width="163.6" height="37.7"/>
+				<text transform="matrix(1 0 0 1 21.9765 19)" class="st5 st8">順序付けノード 3</text>
+				<text transform="matrix(1 0 0 1 311.9766 19)" class="st5 st8">順序付けノード 5</text>
+			</g>
+			<g id="XMLID_19_" transform="translate(1144.000000, 512.000000)">
+				<rect id="XMLID_18_" x="6" y="6" class="st4" width="109" height="38"/>
+				<text transform="matrix(1 0 0 1 2.2388 15)" class="st5 st9">順序付け </text>
+				<text transform="matrix(1 0 0 1 8.9242 34)" class="st5 st9">ノード 2</text>
+			</g>
+			<g id="XMLID_21_" transform="translate(1429.700000, 337.600000)">
+				<rect id="XMLID_20_" x="9" y="9.8" class="st4" width="163.6" height="37.7"/>
+				<text transform="matrix(1 0 0 1 21.9766 19)" class="st5 st8">順序付けノード 4</text>
+			</g>
+			<text transform="matrix(1 0 0 1 1056 198)" class="st12 st13">+ アンチアフィニティー (ワーカー・ノード間)</text>
+			<text transform="matrix(1 0 0 1 1200.7 723.6)" class="st5 st9">(Raft)</text>
+			<text transform="matrix(1 0 0 1 1497.7 722.6)" class="st5 st9">(Raft)</text>
+			<text transform="matrix(1 0 0 1 1158 565)" class="st5 st9">(Raft)</text>
+			<text transform="matrix(1 0 0 1 1500.7 380.6)" class="st5 st9">(Raft)</text>
+			<text transform="matrix(1 0 0 1 948 383)" class="st5 st11">ピア</text>
+			<path id="XMLID_23_" class="st0" d="M1309.8,577h-73.6c-3.4,0-6.2-6.2-6.2-13.8v-44.4c0-7.6,2.8-13.8,6.2-13.8h73.6
+				c3.4,0,6.2,6.2,6.2,13.8v44.4C1316,570.8,1313.2,577,1309.8,577z"/>
+			<text transform="matrix(1 0 0 1 1250 535)" class="st5 st10">CA 2</text>
+			<text transform="matrix(1 0 0 1 1251.02 552)" class="st5 st14">順序付け </text>
+			<text transform="matrix(1 0 0 1 1254.3765 566)" class="st5 st14">サービス</text>
+		</g>
+	</g>
+</g>
 </svg>

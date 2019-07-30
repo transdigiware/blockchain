@@ -361,7 +361,7 @@ Execute as etapas a seguir em seu console:
 
   |  | **Nome de exibição** | **ID do MSP** | **ID de inscrição** | **Segredo** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Criar serviço de pedido** | Serviço de pedido | osmsp |||
+  | **Criar serviço de pedido** | Serviço de Solicitação | osmsp |||
   | **CA** | CA do serviço de pedido ||||
   | **Identidade do serviço de pedido** | |  | OS1 | OS1pw |
   | **Certificado de administrador** | MSP do serviço de pedido ||||
@@ -376,7 +376,7 @@ Depois que o serviço de pedido tiver sido criado, você será capaz de vê-lo n
 ## Etapa três: juntar o consórcio hospedado pelo serviço de pedido
 {: #ibp-console-build-network-add-org}
 
-Conforme observamos anteriormente, uma organização peer deve ser conhecida do serviço de pedido antes que possa criar ou se associar a um canal (isso também é conhecido como associação ao "consórcio", a lista de organizações conhecidas do serviço de pedido). Isso é porque os canais são, em um nível técnico, **caminhos de sistema de mensagens** entre peers por meio do serviço de pedido. Assim como um peer pode ser associado a vários canais sem que as informações passem de um canal para outro, um serviço de pedido também pode ter vários canais em execução por meio dele sem expor dados às organizações em outros canais.
+Conforme observamos anteriormente, uma organização peer deve ser conhecida do serviço de solicitação antes que possa criar ou se associar a um canal (isso também é conhecido como associação ao "consórcio", a lista de organizações conhecidas do serviço de solicitação). Isso é porque os canais são, em um nível técnico, **caminhos de sistema de mensagens** entre peers por meio do serviço de solicitação. Assim como um peer pode ser associado a vários canais sem que as informações passem de um canal para outro, um serviço de solicitação também pode ter vários canais em execução por meio dele sem expor dados às organizações em outros canais.
 
 Como somente os administradores do serviço de pedido podem incluir organizações de peer no consórcio, você precisará **ser** o administrador do serviço de pedido ou **enviar** informações do MSP para o administrador do serviço de pedido.
 
@@ -441,7 +441,7 @@ Quando estiver pronto, clique em **Criar canal**. Você será levado de volta pa
   |  **Campo** | **Nome** |
   | ------------------------- |-----------|
   | **Nome de canal** | channel1 |
-  | **Serviço de pedido** | Serviço de pedido |
+  | **Serviço de solicitação** | Serviço de pedido |
   | **Organizações** | Org1 MSP |
   | **Política de atualização de canal** | 1 de 1 |
   | **Lista de controle de acesso** | Nenhum |

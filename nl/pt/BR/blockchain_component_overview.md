@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -53,7 +53,7 @@ Para obter mais informações sobre o serviço de pedido, consulte [O serviço d
 ## Peers
 {: #blockchain-component-overview-peer}
 
-Em um nível físico, uma rede de blockchain é composta principalmente por nós de peer (ou, simplesmente, peers). Peers são os elementos fundamentais da rede porque hospedam livros-razão e contratos inteligentes (que estão contidos em ["chaincode"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}. Mais precisamente, o peer hospeda **instâncias** do livro-razão e **instâncias** de contratos inteligentes. Como os contratos inteligentes e os livros-razão são usados para encapsular os processos compartilhados e as informações compartilhadas em uma rede, respectivamente, esses aspectos de um peer fazem deles um bom ponto de partida para entender o que uma rede do Fabric realmente faz.
+Em um nível físico, uma rede de blockchain é composta principalmente por nós de peer (ou, simplesmente, peers). Peers são os elementos fundamentais da rede porque hospedam os livros-razão e os contratos inteligentes (que estão contidos em ["chaincode"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}). Mais precisamente, o peer hospeda **instâncias** do livro-razão e **instâncias** de contratos inteligentes. Como os contratos inteligentes e os livros-razão são usados para encapsular os processos compartilhados e as informações compartilhadas em uma rede, respectivamente, esses aspectos de um peer fazem deles um bom ponto de partida para entender o que uma rede do Fabric realmente faz.
 
 Para saber mais sobre os peers especificamente, consulte [este documento focando apenas nos peers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external} na documentação da comunidade do Fabric.
 

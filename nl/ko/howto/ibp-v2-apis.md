@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,7 +126,7 @@ curl -X <API method> \
 ## 제한사항
 {: #ibp-v2-apis-limitations}
 
-다른 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 네트워크에서는 기존 CA, 피어 및 순서 지정 노드만 가져올 수 있습니다. 
+다른 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 네트워크에서는 기존 CA, 피어 및 순서 지정 노드만 가져올 수 있습니다.
 
 ## API를 사용하여 네트워크 빌드
 {: #ibp-v2-apis-build-with-apis}
@@ -152,7 +152,7 @@ API를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 인스
 
 3. [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp)를 호출하여 [조직에 대한 MSP 정의를 작성](#ibp-v2-apis-msp)하십시오.
 
-4. 순서 지정 서비스 또는 피어를 작성하는 데 필요한 [구성 파일을 빌드](#ibp-v2-apis-config)하십시오. 작성할 각 순서 지정 서비스 또는 피어마다 고유한 구성 파일을 빌드해야 합니다. 다중 순서 지정 노드를 배치하는 경우, 작성하려는 각 노드에 대한 구성 파일을 제공해야 합니다. 
+4. 순서 지정 서비스 또는 피어를 작성하는 데 필요한 [구성 파일을 빌드](#ibp-v2-apis-config)하십시오. 작성할 각 순서 지정 서비스 또는 피어마다 고유한 구성 파일을 빌드해야 합니다. 다중 순서 지정 노드를 배치하는 경우, 작성하려는 각 노드에 대한 구성 파일을 제공해야 합니다.
 
 5. [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service)를 호출하여 순서 지정 서비스를 작성하십시오.
 
@@ -160,10 +160,21 @@ API를 사용하여 {{site.data.keyword.blockchainfull_notm}} Platform의 인스
 
 7. 콘솔을 사용하여 블록체인 컴포넌트를 작동시키려면 관리자 ID를 콘솔 지갑으로 가져와야 합니다. 지갑 탭을 사용하여 노드 관리자의 인증서 및 개인 키를 콘솔로 가져오고 ID를 작성하십시오. 그런 다음 콘솔을 사용하여 이 ID를 사용자가 작성한 컴포넌트와 연관시켜야 합니다. 자세한 정보는 [관리자 ID를 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔로 가져오기](#ibp-v2-apis-admin-console)를 참조하십시오.
 
-8. 네트워크를 배치한 후 Fabric SDK, 피어 CLI 또는 콘솔 UI를 사용하여 채널을 작성하고 스마트 계약을 설치하거나 인스턴스화할 수 있습니다.
+8. 네트워크를 배치한 후 Fabric SDK, 피어 CLI 또는 콘솔 UI를 사용하여 채널을 작성하고 스마트 계약을 설치하거나 인스턴스화할 수 있습니다. 채널을 프로그래밍 방식으로 작성해야 하는 경우 컨소시엄 이름을 제공해야 합니다. {{site.data.keyword.blockchainfull}} Platform의 경우 컨소시엄 이름이 `SampleConsortium`으로 설정되어야 합니다.
 
 컴포넌트를 작성할 수 있으려면 API 인증에 사용되는 서비스 인증 정보에 IAM의 `Manager` 역할이 있어야 합니다. 자세한 정보는 [사용자 역할](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)에 대한 주제의 표를 참조하십시오.
 {: note}
+
+### 특정 구역 내에 노드 작성
+{: #ibp-v2-apis-zone}
+
+다중 구역 클러스터를 사용하는 경우 API를 사용하여 블록체인 컴포넌트를 {{site.data.keyword.cloud_notm}}의 특정 구역에 배치할 수 있습니다. 이를 통해 구역 실패 시 네트워크에서 가용성이 유지될 수 있습니다. 다음 단계를 사용하여 피어 또는 순서 지정 노드를 특정 구역에 배치할 수 있습니다. 
+
+1. 작업자 노드가 위치한 구역을 찾으십시오. {{site.data.keyword.cloud_notm}}{: external}의 [{{site.data.keyword.cloud_notm}} Kubernetes 서비스에서 다중 구역 클러스터의 개요 화면으로 이동하십시오. 클러스터 개요 화면에서 **작업자 노드**를 클릭하여 클러스터에 있는 모든 작업자 노드의 테이블을 보십시오. 각 작업자 노드가 테이블의 **구역** 열에 위치하는 구역을 찾을 수 있습니다. 
+
+  kubectl CLI를 사용하여 작업자 노드의 구역을 찾을 수도 있습니다. 액세스 패널로 이동하여 클러스터에 대한 액세스 권한 얻기 아래의 지시사항에 따라 {{site.data.keyword.cloud_notm}} 및 kubectl CLI 도구를 사용하여 클러스터에 연결하십시오. 연결되면 kubectl get nodes --show-labels 명령을 사용하여 클러스터의 노드 및 구역의 전체 목록을 가져오십시오. 각 작업자 노드가 LABELS 열 아래의 zone 필드 뒤에 위치하는 구역을 찾을 수 있습니다. 
+
+2. 특정 구역 내에 노드를 작성하려면 요청 본문의 구역 필드를 사용하여 [순서 지정 서비스 작성](/apidocs/blockchain?code=try#create-an-ordering-service)(https://cloud.ibm.com/kubernetes/clusters)] 또는 [피어 작성](/apidocs/blockchain?code=try#create-an-ordering-service) API 호출에 구역 이름을 제공하십시오. {{site.data.keyword.blockchainfull_notm}} Platform 콘솔의 반친화성 정책은 사용 가능한 리소스를 기반으로 하여 각 구역 내의 여러 작업자 노드에 컴포넌트를 자동으로 배치합니다. 
 
 ## API를 사용하여 네트워크 가져오기
 {: #ibp-v2-apis-import-with-apis}
@@ -185,7 +196,7 @@ API를 사용하여 API 또는 {{site.data.keyword.blockchainfull_notm}} Platfor
 
 5. {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용하여 블록체인 컴포넌트를 작동시키려면 컴포넌트 관리자 ID를 콘솔 지갑으로 가져와야 합니다. 자세한 정보는 [관리자 ID를 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔로 가져오기](#ibp-v2-apis-admin-console)를 참조하십시오.
 
-6. 네트워크를 배치한 후 Fabric SDK, 피어 CLI 또는 콘솔 UI를 사용하여 채널을 작성하고 스마트 계약을 설치하거나 인스턴스화할 수 있습니다.
+6. 네트워크를 배치한 후 Fabric SDK, 피어 CLI 또는 콘솔 UI를 사용하여 채널을 작성하고 스마트 계약을 설치하거나 인스턴스화할 수 있습니다. 채널을 프로그래밍 방식으로 작성해야 하는 경우 컨소시엄 이름을 제공해야 합니다. {{site.data.keyword.blockchainfull}} Platform의 경우 컨소시엄 이름이 `SampleConsortium`으로 설정되어야 합니다.
 
 컴포넌트를 가져올 수 있으려면 API 인증에 사용되는 서비스 인증 정보에 IAM의 `Writer` 역할이 있어야 합니다. 자세한 정보는 [사용자 역할](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)에 대한 주제의 표를 참조하십시오.
 {: note}
@@ -502,7 +513,7 @@ fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_po
   fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-등록한 후에는 TLS CA를 사용하여 컴포넌트를 등록하기 위해 필요한 인증서를 보유하게 됩니다. 다음 명령을 실행하여 순서 지정 노드 또는 피어를 등록하십시오. 
+등록한 후에는 TLS CA를 사용하여 컴포넌트를 등록하기 위해 필요한 인증서를 보유하게 됩니다. 다음 명령을 실행하여 순서 지정 노드 또는 피어를 등록하십시오.
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
@@ -605,7 +616,7 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
   WVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBa
   ```
 
-  예를 들면 다음과 같습니다.
+  예를 들어, 다음과 같습니다.
 
   ```
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -777,7 +788,7 @@ VEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJB
 WVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBa
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어, 다음과 같습니다.
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)

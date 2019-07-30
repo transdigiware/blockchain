@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,6 +55,7 @@ Antes de poder importar os nós para o console, eles precisam ser exportados do 
 - Não é possível corrigir os nós importados para o console.
 - Não é possível excluir nós que você importou no console por meio do cluster no qual eles foram implementados. É possível remover o nó apenas do console.
 - Se estiver importando um nó que esteja implementado no {{site.data.keyword.cloud_notm}} Private, deverá assegurar-se de que a porta do proxy da web gRPC usada pelo componente seja exposta externamente para o console. Para obter mais informações, consulte [Importando nós do {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
+- Ao abrir o bloco de um nó importado, a versão do Fabric não está visível e a guia **Uso e informações** não está disponível.
 
 ## Iniciar aqui: Reunindo Certificados ou Credenciais
 {: #ibp-console-import-start-here}

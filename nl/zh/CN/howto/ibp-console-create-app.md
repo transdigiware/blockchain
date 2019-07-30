@@ -2,13 +2,15 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -17,70 +19,61 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Creating applications
+# 创建应用程序
 {: #ibp-console-app}
 
-After installing smart contracts and deploying your nodes, you can use client applications to transact with other members of your network. Applications can invoke the business logic contained in smart contracts to create, transfer, or update assets on the blockchain ledger. Use this tutorial to learn how to use client applications to interact with networks that you manage from {{site.data.keyword.blockchainfull}} Platform console.
+安装智能合同并部署节点后，可以使用客户机应用程序与网络中的其他成员之间进行事务处理。应用程序可以调用智能合同中包含的业务逻辑，以在区块链分类帐上创建、转让或更新资产。使用本教程可了解如何使用客户机应用程序与通过 {{site.data.keyword.blockchainfull}} Platform 控制台管理的网络进行交互。
 {:shortdesc}
 
-**Target audience:** This topic is designed for application developers who are interested in learning more about how to create a client application that interacts with a blockchain network.
+**目标受众：**本主题适用于有兴趣进一步了解如何创建与区块链网络进行交互的客户机应用程序的应用程序开发者。
 
-## Learning resources
+## 学习资源
 {: #ibp-console-app-learning-resources}
 
-You can learn more about how applications and smart contracts work together by visiting the [Developing applications topic ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "developing applications") in the Hyperledger Fabric documentation. The topic explores a hypothetical use case where banks and corporations trade commercial paper and describes how the transactions are encoded in smart contracts. The [commercial paper tutorial ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "commercial paper tutorial") extends this topic by allowing you to deploy the smart contracts on fabric network and use sample application code to create and transfer the commercial paper between network members.
+您可以在商业票据样本中了解有关应用程序和智能合同如何协同工作的更多信息。请访问有关如何[在 {{site.data.keyword.blockchainfull_notm}} Platform 上运行商业票据样本](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)的主题，在其中可以学习部署和调用商业票据合同。
 
-**Application samples and tutorials**
+开发应用程序可能需要网络中的两个不同用户（即，网络操作员和应用程序开发者）之间进行协调：
+- **网络操作员**是使用 {{site.data.keyword.blockchainfull_notm}} Platform 控制台部署组织节点并在网络上安装智能合同的管理员。
+- **应用程序开发者**构建将由最终用户使用的客户机应用程序。开发者使用 [Hyperledger Fabric SDK](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks){: external} 来调用智能合同中编写的事务。
 
-|  Sample  |  Description    |  Difficulty    | Language | Location |
-| -----------------|---------|---------|---------|
-| [FabCar ![External link icon](../images/external_link.svg "External link icon")](https://developer.ibm.com/patterns/write-a-smart-contract-for-the-fabcarcommercial-paper-or-iks-cluster-with-saas-v2-beta-network-think/ "Blockchain")| Use an IKS Cluster to deploy a simple Fabric network smart contract onto the Blockchain Platform. | Intermediate | Node.js | DeveloperWorks documentation|
-| [Commercial Paper ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "Commercial Paper")| Use the commercial paper smart contract to trade on a local instance of Hyperledger Fabric. | Intermediate | Node.js | Hyperledger Fabric documentation|
-| **Coming Soon:** Advanced Commercial Paper  | Advanced sample with best practices of ownership and privacy by using private data collections and state based endorsement. | Advanced | Node.js | Hyperledger Fabric documentation|
-| [Run a commercial paper smart contract with the {{site.data.keyword.blockchainfull_notm}} VSCode extension ![External link icon](../images/external_link.svg "External link icon")](https://developer.ibm.com/tutorials/run-commercial-paper-smart-contract-with-ibm-blockchain-vscode-extension/ "Run a commercial paper smart contract with VSCode")|  Learn to use the VScode extension to install and invoke the commercial paper smart contract on a local instance of Hyperledger Fabric. | Intermediate | Node.js | IBM Developer|
-| [Run the commercial paper sample on the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper)| Learn to deploy and invoke the commercial paper contract on an {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network. | Intermediate |  Node.js | {{site.data.keyword.blockchainfull_notm}} Platform documentation|  
+如果您是**网络操作员**，那么您需要先完成以下步骤，然后应用程序开发者才能与您的网络进行交互：
+1. 使用组织 CA 来[注册应用程序身份](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)。
+2. 通过“智能合同”面板[下载连接概要文件](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)。
+3. 向应用程序开发者发送以下对象和信息：
+  - 应用程序身份的注册标识和私钥。
+  - 连接概要文件。
+  - 智能合同名称。
+  - 在其中实例化智能合同的通道的名称。  
 
-Developing an application might require coordination between two distinct users of your network, The network operator and the application developer:
-- **The network operator** is the administrator who uses the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy the nodes of your organization and installs the smart contracts on your network.
-- **The application developer** builds the client application will be consumed by end users. The developer uses the [Hyperledger Fabric SDKs ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks "Hyperledger Fabric SDKs"){:new_window} to invoke transactions written in the smart contracts.
+如果您是**应用程序开发者**，请使用网络操作员提供的信息来完成以下步骤：
+1. 使用应用程序身份的注册标识和私钥以及连接概要文件中的 CA 端点信息来生成证书和专用密钥。
+2. 使用连接概要文件、通道名称、智能合同名称和应用程序密钥来调用智能合同。  
 
-If you are the **network operator**, you will need to complete the following steps before the application developer can interact with your network:
-1. Use your organization CA to [register an application identity](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities).
-2. [Download the connection profile](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile) from the smart contracts panel.
-3. Send the application developer the following objects and information:
-  - The enroll ID and secret of the application identity.
-  - The connection profile.
-  - The smart contract name.
-  - The name of the channel the smart contract was instantiated on.  
+通过 {{site.data.keyword.blockchainfull_notm}} Platform 控制台下载的连接概要文件只能用于通过 Node.js（JavaScript 和 TypeScript）和 Java Fabric SDK 来连接到网络。
+{: note}
 
-If you are the **application developer**, use the information provided by the network operator to complete following steps:
-1. Generate a public and private key pair using the enroll ID and secret of the application identity, along with CA endpoint information inside your connection profile.
-2. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
+应用程序开发者可以使用两个编程模型与网络进行交互：
 
-The application developer can use two programming models to interact with the network:
+**高级别 Fabric SDK API**
 
-**High Level Fabric SDK APIs**
+从 Fabric V1.4 开始，用户可以利用经过简化的应用程序和智能合同编程模型。新模型减少了提交事务所需的步骤数和代码量。只有使用 **Node.js** 编写的应用程序支持此模型。如果要利用新模型，可以使用此教程在 {{site.data.keyword.blockchainfull_notm}} Platform 网络上完成以下操作：
 
-Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code required to submit a transaction. This model is only supported for applications written in **Node.js**. If you want to take advantage of the new model, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network:
+- 使用 SDK [为应用程序生成证书](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-enroll)。
+- [通过 SDK 调用智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-invoke)。
+- 通过将[商业票据教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)部署到通过控制台管理的节点，了解有关应用程序开发的信息。此教程将提供有关如何使用 Fabric 电子钱包和网关的更多背景信息。
 
-- [Generate certificates for your application](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-enroll) using the SDK.
-- [Invoke a smart contract from the SDK](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-invoke).
-- Use the [IBM Blockchain VScode extension](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-vscode) to write, deploy, and iteratively develop and test your smart contracts.
-- Learn about application development by deploying the [commercial paper tutorial](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-commercial-paper) to the nodes managed from your console. This tutorial will provide more background on how to use Fabric Wallets and Gateways.
+**低级别 Fabric SDK API**
 
+如果要继续使用现有的智能合同和应用程序代码，或使用 Hyperledger 社区提供的其他 Fabric SDK 语言，那么可以使用[低级别 Fabric SDK API](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-low-level) 来连接到网络。
 
-**Low Level Fabric SDK APIs**
-
-If you want to continue to use your existing smart contract and application code, or use the other Fabric SDK languages provided by the Hyperledger community, you can use the [low level Fabric SDK APIs](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-low-level) to connect to your network.
-
-## Registering an application identity
+## 注册应用程序身份
 {: #ibp-console-app-identities}
 
-Applications need to sign the transactions they submit to {{site.data.keyword.blockchainfull_notm}} nodes, and attach a public key that is used by nodes to verify that the transactions are being sent by the proper party. This ensures that transactions are submitted by the organizations that have permission to participate.
+应用程序需要对它们提交到 {{site.data.keyword.blockchainfull_notm}} 节点的事务进行签名，并附加签名证书，以供节点用于验证这些事务是否由正确的当事方发送。这可确保事务是有权参与的组织提交的。
 
-The network operator needs to use the organization's CA to register an application identity, which can then be used by the application developer to generate a public and private key. The operator can provide the enroll ID and secret of the identity, along the CA endpoint information, to be used by the SDK to generate certificates. By enrolling on the client side, the application developer ensures that no other party has access to the private key of the application. During registration, the network operator can set an enrollment limit of one for additional security. After the application developer enrolls, the enroll ID and secret cannot be used to generate another private key.
+网络操作员需要使用组织的 CA 来[注册应用程序身份](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register)，然后应用程序开发者可以使用此身份来生成证书和专用密钥。操作员可以提供身份的注册标识和私钥以及 CA 端点信息，以供 SDK 用于生成证书。通过在客户机端进行注册，应用程序开发者可确保没有其他当事方有权访问应用程序的专用密钥。在注册期间，网络操作员可以将注册限制设置为 1 以实现额外的安全性。应用程序开发者注册后，该注册标识和私钥即不能用于生成其他专用密钥。
 
-If you are less worried about security, the network operator can enroll an application identity using the [CA tab](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll). The operator can then download the identity or export it to the console wallet. In order to use the certificates from the SDK, the keys need to decoded from base64 into PEM format. You can decode the certs by running the following command on your local machine:
+如果您不是很担心安全性，那么网络操作员可以使用 [CA 选项卡](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll)来注册应用程序身份。然后，操作员可以下载身份，或将其导出到控制台电子钱包。要通过 SDK 使用证书，密钥需要从 Base64 解码为 PEM 格式。可以通过在本地计算机上运行以下命令来解码证书：
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -88,24 +81,31 @@ echo <base64_string> | base64 --decode $FLAG > <key>.pem
 ```
 {:codeblock}
 
-## Downloading your connection profile
+## 下载连接概要文件
 {: #ibp-console-app-profile}
 
-Applications are able to submit transactions only to the smart contracts that have been instantiated on channels. As a result, the information you need to connect to interact with a smart contract can be found in the list of instantiated smart contracts in your console. This means you must have already installed and instantiated your smart contract.
+应用程序只能向已在通道上实例化的智能合同提交事务。因此，可以在控制台中已实例化的智能合同的列表中找到进行连接以与智能合同交互所需要的信息。这意味着您必须已经安装并实例化智能合同。
 
-The Hyperledger Fabric [Transaction Flow ![External link icon](../images/external_link.svg "External link icon")]( https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "Transaction Flow"){:new_window} spans multiple components, with the client applications collecting endorsements from peers and sending endorsed transactions to the ordering service. The connection profile provides your application with the endpoints of the peers and ordering nodes it needs to submit a transaction. It also contains information about your organization, such your Certificate Authorities and your MSP ID. The Fabric SDKs can read the connection profile directly, without you having to write code that manages the transaction and endorsement flow.
+通过 {{site.data.keyword.blockchainfull_notm}} Platform 控制台下载的连接概要文件只能用于通过 Node.js（JavaScript 和 TypeScript）和 Java Fabric SDK 来连接到网络。
+{: note}
 
-In order to take advantage of service the [Service Discovery ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html "Service discovery") feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information about how to configure anchor peers, see step three of the [private data topic](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial.
+Hyperledger Fabric [事务处理流程](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}跨多个组件，其中客户机应用程序收集同级的背书，并将已背书的事务发送到排序服务。连接概要文件为应用程序提供了提交事务所需的同级和排序节点的端点。其中还包含有关您组织的信息，例如认证中心和 MSP 标识。Fabric SDK 可以直接读取连接概要文件，而无需编写管理事务处理和背书流程的代码。
 
-Navigate to the smart contracts tab in your platform console. Next to each instantiated smart contract, navigate to the overflow menu. Click on the button named **Connect with SDK**. This will open a side panel that will allow you to build and download your connection profile. First, you need to select the CA of your organization that you used to register your application identity. You will also need to select your organization MSP definition. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
+为了利用 Hyperledger Fabric 的[服务发现](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}功能，必须配置锚点同级。通过服务发现，应用程序可了解组织外部通道上哪些同级需要对事务进行背书。若不使用服务发现，您需要通过频带外操作从其他组织获取这些同级的端点信息，并将其添加到连接概要文件。有关更多信息，请参阅[配置锚点同级](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers)。
 
-## Enrolling by using the SDK
+导航至 Platform 控制台中的**智能合同**选项卡。导航至每个已实例化的智能合同旁边的溢出菜单。单击名为**使用 SDK 连接**的按钮。这将打开一个侧面板，允许您构建和下载连接概要文件。首先，需要选择用于注册应用程序身份的组织 CA。此外，还需要选择组织 MSP 定义。然后，就能够下载可用于生成证书并调用智能合同的连接概要文件。
+
+如果节点是部署在 {{site.data.keyword.cloud_notm}} Private 上，那么需要确保连接概要文件中的认证中心、同级和排序节点使用的端口在外部公开给客户机应用程序。
+{: note}
+
+
+## 使用 SDK 进行注册
 {: #ibp-console-app-enroll}
 
-Once the network operator provides the enroll ID and secret of the application identity and the network connection profile, an application developer can use the Fabric SDKs or the Fabric CA client to generate client side certificates. You can use the following steps to enroll an application identity using the [Fabric SDK for Node.js ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/ "Fabric SDK for Node.js").
+网络操作员提供应用程序身份的注册标识和私钥以及网络连接概要文件后，应用程序开发者就可以使用 Fabric SDK 或 Fabric CA 客户机来生成客户机端证书。可以使用以下步骤通过 [Fabric SDK for Node.js](https://fabric-sdk-node.github.io/){: external} 来注册应用程序身份。
 
-1. Save the connection profile to your local machine and rename it `connection.json`.
-2. Save the following code block as `enrollUser.js` in the same directory as your connection profile:
+1. 将连接概要文件保存到本地计算机，并将其重命名为 `connection.json`。
+2. 在连接概要文件所在的目录中，将以下代码块保存为 `enrollUser.js`：
 
     ```
     'use strict';
@@ -154,28 +154,28 @@ Once the network operator provides the enroll ID and secret of the application i
     ```
     {:codeblock}
 
-3. Edit `enrollUser.js` to replace the following values:
-  - Replace  ``<CA_Name>`` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
-  - Replace ``<app_enroll_id>`` with the application enroll ID provided by your network operator.
-  - Replace ``<app_enroll_secret>`` with the application enroll secret provided by your network operator.
-  - Replace ``<msp_id>`` with the MSP ID of your organization. You can find your MSP ID under the "organizations" section of your connection profile.
-4. Navigate to `enrollUser.js` using a terminal and run `node enrollUser.js`. If the command runs successfully, you should see the following output:
+3. 编辑 `enrollUser.js` 以替换以下值：
+  - 将 ``<CA_Name>`` 替换为组织 CA 的名称。您可以在连接概要文件的 "organizations" 部分中的 "Certificate Authorities" 下找到 CA 名称。不要使用 "Certificate Authorities" 部分中的 "caName"。
+  - 将 ``<app_enroll_id>`` 替换为网络操作员提供的应用程序注册标识。
+  - 将 ``<app_enroll_secret>`` 替换为网络操作员提供的应用程序注册私钥。
+  - 将 ``<msp_id>`` 替换为组织的 MSP 标识。您可以在连接概要文件的 "organizations" 部分下找到 MSP 标识。
+4. 使用终端导航至 `enrollUser.js`，并运行 `node enrollUser.js`。如果命令成功运行，您应该会看到以下输出：
 
   ```
   Successfully enrolled client "user1" and imported it into the wallet
   ```
-  The SDK will create and store your certificates inside the `wallet/user1/` directory created by the command. This directory is the File System wallet used submit future transactions.
+  SDK 将在该命令创建的 `wallet/user1/` 目录中创建并存储证书。此目录是用于提交未来事务的文件系统电子钱包。
 
-The wallets used by the Fabric SDKs are different from the wallet in the {{site.data.keyword.blockchainfull_notm}} Platform console. The identities stored in your console wallet cannot be directly used by the SDK.
+Fabric SDK 使用的电子钱包与 {{site.data.keyword.blockchainfull_notm}} Platform 控制台中的电子钱包不同。SDK 无法直接使用存储在控制台电子钱包中的身份。
 {: note}
 
-## Invoking a smart contract by using the SDK
+## 使用 SDK 调用智能合同
 {: #ibp-console-app-invoke}
 
-After you have generated the application public and private key and stored them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was instantiated on. You can use the steps below to invoke a smart contract using the [Fabric SDK for Node.js ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/ "Fabric SDK for Node.js").
+生成应用程序签名证书和专用密钥并将其存储在电子钱包中后，即已准备好提交事务。您需要知道智能合同的名称以及在其中实例化该合同的通道的名称。可以使用以下步骤通过 [Fabric SDK for Node.js](https://fabric-sdk-node.github.io/){: external} 来调用智能合同。
 
 
-1. Save the file below on your local machine as `invoke.js`. Save the file in the same directory as `enrollUser.js`
+1. 在本地计算机上将以下文件保存为 `invoke.js`。请将该文件保存在 `enrollUser.js` 所在的目录中。
 
     ```
     'use strict';
@@ -224,82 +224,61 @@ After you have generated the application public and private key and stored them 
     ```
     {:codeblock}
 
-2. Edit `invoke.js` to replace the following values:
-  - Replace  ``<channel_name>`` with the name of the channel the smart contract was instantiated on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
-  - Replace ``<smart_contract_name>`` with the name of the installed smart contract. You can get this value from your network operator.
-  - Edit the contents of `submitTransaction` to invoke a function inside your smart contract. The `invoke.js` file is written to invoke the [fabcar smart contract ![External link icon](../images/external_link.svg "External link icon")](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar). If you want to run the file below to submit a transaction, install fabcar and instantiate the smart contract on one of your channels.
+2. 编辑 `invoke.js` 以替换以下值：
+  - 将 ``<channel_name>`` 替换为在其中实例化智能合同的通道的名称。您可以在连接概要文件的 "Certificate Authorities" 部分下找到 CA 名称。
+  - 将 ``<smart_contract_name>`` 替换为已安装智能合同的名称。可以从网络操作员那里获取此值。
+  - 编辑 `submitTransaction` 的内容以调用智能合同中的函数。编写 `invoke.js` 文件是为了调用 [fabcar 智能合同](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar){: external}。如果要运行以下文件来提交事务，请安装 fabcar 并在其中一个通道上实例化智能合同。
 
-3. Navigate to `invoke.js` using a terminal and run `node invoke.js`. If the command runs successfully, you should see the following output:
+3. 使用终端导航至 `invoke.js`，并运行 `node invoke.js`。如果命令成功运行，您应该会看到以下输出：
 
   ```
   Transaction has been submitted
   ```
   {:codeblock}
-  If you navigate to you channel using the console, you will be able to see another block added by the transaction.
+  如果使用控制台导航至通道，您将能够看到该事务添加的另一个区块。
 
-
-## Connecting with the {{site.data.keyword.blockchainfull_notm}} VScode extension
-{: #ibp-console-app-vscode}
-
-The {{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code extension provides an environment within Visual Studio Code for developing, packaging, and deploying smart contract packages. Be sure you have your connection profile and the set of key files generated using your CA. You can then use the VScode extension to connect to a network you are managing using your console.
-
-Follow the instructions to download the [VScode extension ![External link icon](../images/external_link.svg "External link icon")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform#overview "VScode extension") on the visual studio code marketplace. After the extension is installed, open VScode and you can access the extension by clicking **View > Command Palette**. Enter the command *IBM Blockchain Platform: Create Smart Contract Project* to create a new smart contract project.
-
-Once you have created the new project, you can connect directly to your network from Visual Studio code using the information in your instantiated smart contract from your console. Use the  **Instantiated smart contracts** table on the Smart contracts tab to download your [connection profile](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile) to your local file system. Then [create an application identity](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities) and use your CA to create and download a certificate (public key) and private key. Follow the instructions above to convert the private key and certificate into PEM format. Once you have downloaded your connection profile and keys, use the following steps to connect to your network.
-
-1. Open the _{{site.data.keyword.blockchainfull_notm}} Platform_ tab in Visual Studio Code.
-2. In the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane, click **Add new connection**.
-3. Enter a name for the connection. This name will be displayed in the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane.
-4. Enter the fully qualified file path of your connection profile.
-5. Enter the fully qualified file path of your certificate (public key) in PEM format.
-6. Enter the fully qualified file path of the private key in PEM format.
-7. Your connection should now appear in the connections list underneath `local_fabric`. Double-click the connection name to connect.
-
-Once you are connected from VScode, you will be able to see the list of peers from your organization and channels they have joined in the blockchain connections pane. You will be able to see the list of installed smart contracts under each peers. To install a new smart contract from your project on your network, first right click a peer and select **Install smart contract**. You can then instantiate that smart contract by right clicking on a channel and select **Install smart contract**. You can use learn more about using the {{site.data.keyword.blockchainfull_notm}} Platform extension by visiting the documentation in the [Visual Studio code marketplace ![External link icon](../images/external_link.svg "External link icon")](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform#overview "VScode extension").
-
-
-## Runing the Commercial Paper sample
+## 运行商业票据样本
 {: #ibp-console-app-commercial-paper}
 
-The [commercial paper tutorial ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "commercial paper tutorial") in the Hyperledger Fabric documentation takes developers through a use case in which multiple parties buy, sell and redeem commercial paper. It extends the [Developing applications topic ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html "developing applications") by providing sample  smart contract and application code that allows you to create and trade assets on a local instance of Fabric.
+Hyperledger Fabric 文档中的 [Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external} 将引导开发者完成多个当事方购买、销售和兑换商业票据的用例。该教程通过提供样本智能合同和应用程序代码以允许在 Fabric 的本地实例上创建和交易资产，扩展了 [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} 主题。
 
-You can also deploy the commercial paper tutorial sample code onto an {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network. This will allow you to quickly get started interacting with your network and use the sample to download the necessary dependencies. The sample code also includes examples of how you can import certificates into a [wallet ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "Wallet") and use your connection profile to build a [Fabric gateway ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html "Fabric gateway"). The tutorial can be used by two different organizations to complete different transactions with a single asset. If you used the [Build a network tutorial](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) to deploy two peer organizations connected to a channel, you can interact with the tutorial using both organizations.
+此外，还可以将商业票据教程样本代码部署到 {{site.data.keyword.blockchainfull_notm}} Platform 网络上。这将允许您快速开始与网络进行交互，并使用样本来下载必要的依赖项。样本代码还包括如何将证书导入到[电子钱包](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external}，并使用连接概要文件构建 [Fabric 网关](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}的示例。两个不同的组织可以使用该教程来完成与单个资产之间的不同事务处理。如果使用[构建网络教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)来部署连接到通道的两个同级组织，那么可以使用这两个组织与该教程进行交互。
 
-Follow the steps below to deploy the sample on your network. You can review the tutorial in the Fabric Documentation [commercial paper tutorial ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html "commercial paper tutorial") for more details about the smart contracts and the application structure.
+执行以下步骤在网络上部署样本。可以查看 Fabric 文档 [Commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external} 中的教程，以了解有关智能合同和应用程序结构的更多详细信息。
 
-### Prerequisites
+### 先决条件
 
-Before you can deploy the commercial paper sample, you will need to install required tools on your local machine:
-  * [Git ![External link icon](../images/external_link.svg "External link icon")](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git"){:new_window}
-  * [Node.js ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#node-js-runtime-and-npm "Node.js"){:new_window}
+需要先在本地计算机上安装必需的工具，然后才能部署商业票据样本：
+  * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){: external}
+  * [Node.js](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#node-js-runtime-and-npm){: external}
 
-You will also need a use text editor to edit and save files in the sample. You can use many of the high quality editors that are available for free, such as [Atom ![External link icon](../images/external_link.svg "External link icon")](https://atom.io/ "atom"), [Sublime text ![External link icon](../images/external_link.svg "External link icon")](http://www.sublimetext.com/ "Git"), or [Brackets ![External link icon](../images/external_link.svg "External link icon")](http://brackets.io/ "Brackets").
+您还需要使用文本编辑器来编辑和保存样本中的文件。可以使用许多免费提供的高质量编辑器，例如 [Visual Studio Code](https://code.visualstudio.com/){: external}、[Atom](https://atom.io/){: external}、[Sublime Text](http://www.sublimetext.com/){: external} 或 [Brackets](http://brackets.io/){: external}。
 
-### Step one: Download the sample
+### 步骤 1：下载样本
 
-You download the commercial paper sample by cloning the [Fabric Samples repository ![External link icon](../images/external_link.svg "External link icon")](https://github.com/hyperledger/fabric-samples "Fabric Samples repository"):
+可以通过克隆 [Fabric 样本存储库](https://github.com/hyperledger/fabric-samples){: external}来下载商业票据样本：
 
 ```
 git clone https://github.com/hyperledger/fabric-samples.git
 ```
 {:codeblock}
 
-Once you have downloaded the Fabric Samples, run the following commands to ensure that you are using the version of the samples compatible with Fabric v1.4.
+下载 Fabric 样本后，运行以下命令以确保使用与 Fabric V1.4 兼容的样本版本。
 
 ```
 cd fabric-samples
-git checkout v1.4.0
+git checkout v1.4.1
 ```
 {:codeblock}
 
-You can find the sample in the `commercial paper` folder of `fabric-samples`.
+可以在 `fabric-samples` 的 `commercial paper` 文件夹中找到该样本。
 
 ```
 cd $HOME/fabric-samples/commercial-paper
 ```
 {:codeblock}
 
-The tutorial contains two sample organizations, **magnetocorp** and **digibank**. Each organization has its own sample application code, stored in two separate folders under the `organization` directory.
+教程包含两个样本组织：**magnetocorp** 和 **digibank**。每个组织都有自己的样本应用程序代码，存储在 `organization` 目录下的两个不同文件夹中。
 
 ```
 cd organization && ls
@@ -307,44 +286,44 @@ digibank	magnetocorp
 ```
 {:codeblock}
 
-In the course of the tutorial, you will first use the magnetocorp application code to issue a commercial paper. You can then use the digibank application code to buy and redeem the paper. Both directories contain the same smart contract.
+在使用教程的过程中，将首先使用 magnetocorp 应用程序代码来发行商业票据。然后，可以使用 digibank 应用程序代码来购买和兑换票据。两个目录包含相同的智能合同。
 
-Navigate to the application code inside the magnetocorp directory.
+导航至 magnetocorp 目录中的应用程序代码。
 
 ```
 cd magnetocorp/application
 ```
 {:codeblock}
 
-Once you are inside the directory, you can download the application dependencies by running the following command:
+位于该目录后，可以通过运行以下命令来下载应用程序依赖项：
 
 ```
-npm install
-```
+  npm install
+  ```
 {:codeblock}
 
-### Step two: Install and instantiate smart contract
+### 步骤 2：安装和实例化智能合同
 
-You can find the commercial paper smart contract inside the `contract` folder of the `digibank` and `magnetocorp` directory. You need to install this smart contract on all the peers of the organizations using the tutorial. You will then need to instantiate the commercial paper contract on a channel. The smart contract needs to be packaged in [.cds format ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/latest/chaincode4noah.html#packaging "packaging smart contracts") to be installed using the console.
+您可以在 `digibank` 和 `magnetocorp` 目录的 `contract` 文件夹中找到商业票据智能合同。需要使用该教程在组织的所有同级上安装此智能合同。然后，需要在通道上实例化商业票据合同。智能合同需要打包成 [.cds 格式](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}，才能使用控制台进行安装。
 
-You can use the [IBM Blockchain VScode extension](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-vscode) to package the smart contract. After installing the extension, use Visual Studio Code to open the `contracts` folder in your workspace. Open the _{{site.data.keyword.blockchainfull_notm}} Platform_ tab. In the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane, navigate to the smart contract packages section and click **Package a Smart Contract Project**. The VScode extension will use the files in the `contracts` folder to create a new package named `papernet-js@.0.0.1.cds`. Right click this package to export it to your local file system. You can then use your console to [install the smart contracts on your peers](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-install) and then [instantiate the smart contract on a channel](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-instantiate).
+可以使用 [{{site.data.keyword.blockchainfull_notm}} VS Code 扩展](/docs/services/blockchain?topic=blockchain-develop-vscode)来打包智能合同。安装该扩展后，使用 Visual Studio Code 打开工作空间中的 `contracts` 文件夹。打开 _{{site.data.keyword.blockchainfull_notm}} Platform_ 选项卡。在 _{{site.data.keyword.blockchainfull_notm}} Platform_ 窗格中，导航至“智能合同包”部分，然后单击**打包智能合同项目**。VS Code 扩展将使用 `contracts` 文件夹中的文件来创建名为 `papernet-js@.0.0.1.cds` 的新包。右键单击此包以将其导出到本地文件系统。接着，可以使用控制台[在同级上安装智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)，然后[在通道上实例化智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)。
 
-### Step three: Generate certificates for your wallet
+### 步骤 3：为电子钱包生成证书
 
-Applications need to sign the requests they send to fabric components. If the components do not recognize the organizations submitting the transactions, the transactions will be rejected and return with an error. The commercial paper sample creates a file system wallet that will store your certificates and sign your transactions. For more information about how applications use wallets, see the [wallet ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html "Wallet") topic in the Fabric Documentation. The wallets used by the Fabric SDKs are different from the wallet in the {{site.data.keyword.blockchainfull_notm}} Platform console. The identities stored in your console wallet cannot be directly used by the SDK.
+应用程序需要对它们发送给 Fabric 组件的请求签名。如果组件无法识别提交事务的组织，那么会拒绝事务并返回错误。商业票据样本将创建一个文件系统电子钱包，用于存储证书并对事务签名。有关应用程序如何使用电子钱包的更多信息，请参阅 Fabric 文档中的 [Wallet](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/wallet.html){: external} 主题。Fabric SDK 使用的电子钱包与 {{site.data.keyword.blockchainfull_notm}} Platform 控制台中的电子钱包不同。SDK 无法直接使用存储在控制台电子钱包中的身份。
 
-The original sample uses the `addToWallet.js` file to create a file system wallet using certificates from the fabric samples folder. We are going to create a new file that uses the SDK to generate a client side certificates and store them directly inside a new wallet.
+原始样本使用 `addToWallet.js` 文件通过 fabric samples 文件夹中的证书来创建文件系统电子钱包。我们将创建一个新文件，此文件使用 SDK 来生成客户机端证书，并将其直接存储在新的电子钱包中。
 
-Choose the CA of the organization you want to use to operate the tutorial as magnetocorp. For example, you can use Org1 if you have completed the the Build a network tutorial. Use the CA to [create an application identity](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities). **Save** the enroll ID and secret.
+选择要用于以 magnetocorp 身份操作教程的组织的 CA。例如，如果已完成“构建网络”教程，那么可以使用 Org1。使用 CA 来[创建应用程序身份](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)。**保存**注册标识和私钥。
 
-Use your console to [download your connection profile](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile). Save the connection profile to your local file system and rename it `connection.json`. Then use following command to move the connection profile to a directory where it will be referenced by future commands.
+使用控制台来[下载连接概要文件](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)。将连接概要文件保存到本地文件系统，并将其重命名为 `connection.json`。然后使用以下命令将连接概要文件移至未来命令可在其中引用此概要文件的目录。
 
   ```
   mv $HOME/<path_to_creds>/connection.json /gateway/connection.json
   ```
   {:codeblock}
 
-Navigate to the ``/magnetocorp/application`` directory and save the following code block as `enrollUser.js`.
+导航至 `/magnetocorp/application` 目录，并将以下代码块保存为 `enrollUser.js`。
 
     ```
     'use strict';
@@ -390,7 +369,7 @@ Navigate to the ``/magnetocorp/application`` directory and save the following co
     ```
     {:codeblock}
 
-We should take moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
+在编辑此文件之前，应该花些时间来研究此文件的运作方式。首先，`enrollUser.js` 会从 `fabric-network` 库中导入 `FileSystemWallet` 和 `X509WalletMixin` 类。
 
 ```
 const FabricCAServices = require('fabric-ca-client');
@@ -398,14 +377,14 @@ const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
 ```
 {:codeblock}
 
-The file then uses the `FileSystemWallet` class to build a wallet on your local filesystem. You can edit the line below to store the wallet in a different location.
+然后，该文件使用 `FileSystemWallet` 类在本地文件系统上构建电子钱包。可以编辑以下行，以将电子钱包存储在其他位置。
 
 ```
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet')
 ```
 {:codeblock}
 
-After creating the wallet, the code snippet uses the enroll ID and secret to enroll using your organization CA. It then creates an identity for the public private key pair and imports them into the wallet. Notice how the file passes your organization MSP ID into the wallet as well.
+创建电子钱包后，代码片段使用注册标识和私钥通过组织 CA 进行注册。然后，它会为签名证书和专用密钥创建身份，并将其导入到电子钱包中。此外，请注意此文件如何将组织 MSP 标识传递到电子钱包中。
 
 ```
 // Enroll the admin user, and import the new identity into the wallet.
@@ -416,58 +395,58 @@ console.log('Successfully enrolled client "user1" and imported it into the walle
 ```
 {:codeblock}
 
-**Edit** `enrollUser.js` to replace the following values:
-- Replace  `'<CA_Name>'` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
-- Replace `'<app_enroll_id>` with the application enroll ID provided by your network operator.
-- Replace `'<app_enroll_secret>'` with the application enroll secret provided by your network operator.
-- Replace `'<msp_id>'` with the MSP ID of your organization. You can find this MSP ID under the "organizations" section of your connection profile.
+**编辑** `enrollUser.js` 以替换以下值：
+- 将 `'<CA_Name>'` 替换为组织 CA 的名称。您可以在连接概要文件的 "organizations" 部分中的 "Certificate Authorities" 下找到 CA 名称。不要使用 "Certificate Authorities" 部分中的 "caName"。
+- 将 `'<app_enroll_id>'` 替换为网络操作员提供的应用程序注册标识。
+- 将 `'<app_enroll_secret>'` 替换为网络操作员提供的应用程序注册私钥。
+- 将 `'<msp_id>'` 替换为组织的 MSP 标识。您可以在连接概要文件的 "organizations" 部分下找到此 MSP 标识。
 
-Save `enrollUser.js` and close it. In the `magnetocorp` directory, run the following command:
+保存 `enrollUser.js` 并将其关闭。在 `magnetocorp` 目录中，运行以下命令：
 ```
 node enrollUser.js
 ```
 {:codeblock}
 
-When the command completes successfully, you should see the following output:
+命令成功完成后，您应该会看到以下输出：
 
 ```
 Successfully enrolled client "user1" and imported it into the wallet
 ```
 {:codeblock}
 
-You can find the wallet that was created in the `identity` folder of the `magnetocorp` directory.
+您可以找到在 `magnetocorp` 目录的 `identity` 文件夹中创建的电子钱包。
 
-### Step four: Use the connection profile to build a fabric gateway
+### 步骤 4：使用连接概要文件构建 Fabric 网关
 
-The Hyperledger Fabric [Transaction Flow ![External link icon](../images/external_link.svg "External link icon")]( https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html "Transaction Flow"){:new_window} spans multiple components, with the client applications playing a unique role. Your application needs to connect to the peers that need to endorse the transaction and needs to connect to the ordering service that will order the transaction and add it into a block. You can provide the endpoints of these nodes to your application by using your connection profile to construct a Fabric Gateway. The Gateway then conducts the low level interactions with your fabric network. To learn more, visit the [Fabric gateway ![External link icon](../images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html "Fabric gateway") topic in the Fabric Documentation.
+Hyperledger Fabric [事务处理流程](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}跨多个组件，其中客户机应用程序扮演唯一角色。应用程序需要连接到需背书事务的同级，还需要连接到将对事务排序并将其添加到区块中的排序服务。可以使用连接概要文件来构造 Fabric 网关，以向应用程序提供这些节点的端点。然后，网关会与 Fabric 网络进行低级别交互。要了解更多信息，请访问 Fabric 文档中的 [Fabric 网关](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/gateway.html){: external}主题。
 
-You have already downloaded your connection profile and used it to connect to your organization's Certificate Authority. Now we will use the connection profile to build a gateway.
+您已经下载了连接概要文件，并将其用于连接到组织的认证中心。现在，将使用连接概要文件来构建网关。
 
-Open the file `issue.js` in a text editor. Before you edit the file, notice that it imports the `FileSystemWallet` and `Gateway` classes from fabric-network library.
+在文本编辑器中打开 `issue.js` 文件。在编辑此文件之前，请注意此文件将从 fabric-network 库中导入 `FileSystemWallet` 和 `Gateway` 类。
 
 ```
 const { FileSystemWallet, Gateway } = require('fabric-network')
 ```
 {:codeblock}
 
-The `Gateway` class is used to construct a gateway that you will used to submit your transaction.
+`Gateway` 类用于构造提交事务所使用的网关。
 
 ```
 const gateway = new Gateway()
 ```
 {:codeblock}
 
-The `FileSystemWallet` class is used to load the wallet you created in the previous step. **Edit** the line below if you changed the location of the wallet on your filesystem.
+`FileSystemWallet` 类用于装入在上一步中创建的电子钱包。如果更改了电子钱包在文件系统上的位置，请**编辑**以下行。
 
 ```
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 ```
 {:codeblock}
 
-After importing your wallet, use the following code to pass your connection profile and wallet to the new gateway. You will need to make the following **Edits** to the code so it resembles the code snippet below. The lines that print logs have been removed for brevity.
-- Update the `userName` to match the value that you selected for your `identityLabel` in `enrollUser.js`.
-- Update the discovery options to take advantage of service discovery on your network. Set `discovery: { enabled: true, asLocalhost: false }`.  
-- Update the section importing your connection profile. The console connection profile is in JSON format rather than a YAML file used by the sample.  
+导入电子钱包后，使用以下代码将连接概要文件和电子钱包传递到新网关。您需要对代码进行以下**编辑**，以使其类似于以下代码片段。为简洁起见，除去了输出日志的行。
+- 更新 `userName` 以匹配在 `enrollUser.js` 中为 `identityLabel` 选择的值。
+- 更新发现选项，以利用网络上的服务发现。设置 `discovery: { enabled: true, asLocalhost: false }`。  
+- 更新用于导入连接概要文件的部分。控制台连接概要文件为 JSON 格式，而不是样本使用的 YAML 文件。  
 
 ```
 const userName = 'user1';
@@ -488,50 +467,50 @@ await gateway.connect(connectionProfile, connectionOptions);
 ```
 {:codeblock}
 
-This code snippet uses the gateway to open GRPC connections to the peer and orderer nodes, and interact with your network.
+此代码片段使用网关来打开与同级节点和排序节点的 gRPC 连接，并与网络进行交互。
 
-### Step five: Invoke the smart contract
+### 步骤 5：调用智能合同
 
-After configuring the gateway to connect to the network managed by your console, we will edit the portion of the `issue.js` file that connects to the commercial paper smart contract. You will need to provide the gateway the contract name and the channel on which you instantiated the smart contract.
+配置网关以连接到控制台管理的网络后，我们将编辑 `issue.js` 文件中用于连接到商业票据智能合同的部分。您需要为网关提供合同名称以及在其中实例化智能合同的通道。
 
-**Edit** the line below, replacing `mychannel` with your channel name.
+**编辑**以下行，以将 `mychannel` 替换为通道名称。
 
 ```
 const network = await gateway.getNetwork('mychannel');
 ```
 {:codeblock}
 
-Following a line of code that prints a message to your console, you can find a line that provides the gateway the smart contract name. **Edit** the line below to change the name `papercontract` to the name of the contract you installed.
+在用于向控制台输出消息的一行代码后面，可以找到用于为网关提供智能合同名称的一行。**编辑**以下行，以将名称 `papercontract` 更改为安装的合同的名称。
 
 ```
 const contract = await network.getContract('papercontract-js', 'org.papernet.commercialpaper');
 ```
 {:codeblock}
 
-The gateway now has all the information it needs to submit a transaction. The following line invokes the `issue` function in the commercial paper contract, with the arguments defining the new commercial paper asset.
+现在，网关已拥有提交事务所需的所有信息。以下行将使用定义新的商业票据资产的自变量，调用商业票据合同中的 `issue` 函数。
 
 ```
 const issueResponse = await contract.submitTransaction('issue', 'MagnetoCorp', '00001', '2020-05-31', '2020-11-30', '5000000');
 ```
 {:codeblock}
 
-After submitting the transaction using the gateway, the `issue.js` file disconnects the gateway connection.
+使用网关提交事务后，`issue.js` 文件会断开网关连接。
 
 ```
 gateway.disconnect();
 ```
 {:codeblock}
 
-This command closes the GRPC connections opened by your gateway. Closing connections will save network resources and improve performance.
+此命令会关闭网关打开的 gRPC 连接。关闭连接将节省网络资源并提高性能。
 
-After completing the edits from this step and **Step four**, save `issue.js` and close it. Submit the transaction that creates the new commercial paper using the following command:
+完成此步骤和**步骤 4** 中的编辑后，保存 `issue.js`，然后将其关闭。使用以下命令提交创建新商业票据的事务：
 
 ```
 node issue.js
 ```
 {:codeblock}
 
-If the transaction is successful, you should be able to see the following output in your terminal:
+如果事务成功，您应该能够在终端中看到以下输出：
 
 ```
 Transaction complete.
@@ -539,18 +518,18 @@ Disconnect from Fabric gateway.
 Issue program complete.
 ```
 
-### Step six: Operate the sample as digibank
+### 步骤 6：以 digibank 身份操作样本
 
-After creating the commercial paper operating as magnetocorp, you can buy and redeem the commercial paper by operating the tutorial as digibank. You can use the digibank application code using the same organization as magnetocorp, or use the CA, peers and connection profile of a different organization. If you competed the [Build a network tutorial](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network), this is a good opportunity operate the tutorial as Org2.
+通过以 magnetocorp 身份操作来创建商业票据后，可以通过以 digibank 身份操作教程来购买和兑换商业票据。可以使用相同的组织 magnetocorp 来使用 digibank 应用程序代码，也可以使用不同组织的 CA、同级和连接概要文件。如果已完成[构建网络教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)，那么这是一个以 Org2 身份操作教程的好机会。
 
-Navigate to the `digibank/application` directory. You can follow the directions provided in **Step three** to create to generate the certificates and wallet that will sign the transaction as digibank. You can then use the `buy.js` file to purchase the commercial paper from magnetocorp, and then use `redeem.js` to redeem the paper. You can follow **Step four** and **Step five** to edit those files so that they point to the correct connection profile, channel and smart contract.
+导航至 `digibank/application` 目录。可以遵循**步骤 3** 中提供的指导信息，创建和生成证书与电子钱包，用于以 digibank 身份对事务签名。接着，可以使用 `buy.js` 文件向 magnetocorp 购买商业票据，然后使用 `redeem.js` 兑换票据。可以遵循**步骤 4** 和**步骤 5** 来编辑这些文件，使其指向正确的连接概要文件、通道和智能合同。
 
-## Connecting to your network using low level Fabric SDK APIs
+## 使用低级别 Fabric SDK API 连接到网络
 {: #ibp-console-app-low-level}
 
-If you are interested in preserving your existing application code, or using Fabric SDKs for languages other than Node.js, you can still connect to your network using lower level Fabric SDK APIs. Use the console to [download your connection profile](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile). You can then import the endpoints of the peers and ordering nodes of your channel directly from the connection profile, or use the node endpoint information to manually add peer and orderer objects. You will also need to use your CA to [create an application identity](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities), and then use the CA endpoint information enroll on the client side, or generate certificates using your console.
+如果您希望保留现有的应用程序代码，或者将 Fabric SDK 用于除 Node.js 以外的语言，那么仍然可以使用较低级别的 Fabric SDK API 来连接到网络。使用控制台来[下载连接概要文件](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile)。然后，可以直接从连接概要文件导入通道的同级和排序节点的端点，或者使用节点端点信息来手动添加同级和排序节点对象。此外，还需要使用 CA 来[创建应用程序身份](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities)，然后在客户机端使用 CA 端点信息注册，或使用控制台生成证书。
 
-The [Fabric Node SDK ![External link icon](../images/external_link.svg "External link icon ")](https://fabric-sdk-node.github.io "Fabric Node SDK") documentation provides a tutorial on how to [connect to your network using a connection profile ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/tutorial-network-config.html "connection profile tutorial"){:new_window}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a public and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs [Fabric Client class ![External link icon](../images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/Client.html "Fabric Client class") using the code below:
+[Fabric Node SDK](https://fabric-sdk-node.github.io){: external} 文档提供了有关如何[使用连接概要文件连接到网络](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}的教程。本教程使用连接概要文件中的 CA 端点信息通过 SDK 生成密钥。还可以使用控制台来生成签名证书和专用密钥，并将这些密钥转换为 PEM 格式。然后，可以使用以下代码将密钥直接传递到 SDK 的 [Fabric Client 类](https://fabric-sdk-node.github.io/Client.html){: external}来设置用户上下文：
 
 ```
 fabric_client.createUser({
@@ -563,10 +542,10 @@ fabric_client.createUser({
 ```
 {:codeblock}
 
-If you are using low level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. For more information, see [Best practices for application connectivity and availability](/docs/services/blockchain/best_practices.html#best-practices-app-connectivity-availability).
+如果是使用低级别 SDK API 连接到网络，那么可以执行额外的步骤来管理应用程序的性能和可用性。有关更多信息，请参阅[应用程序连接和可用性的最佳实践](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability)。
 
 
-## Using indexes with CouchDB
+## 将索引用于 CouchDB
 {: #console-app-couchdb}
 
-If you use CouchDB as your state database, you can perform JSON data queries from your smart contracts against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contracts. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state. To learn how to use indexes with your smart contracts and your applications, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices).
+如果将 CouchDB 用作状态数据库，那么可以根据通道的状态数据，从智能合同执行 JSON 数据查询。强烈建议您为 JSON 查询创建索引，并在智能合同中使用这些索引。索引允许应用程序在网络添加更多全局状态的事务和条目区块时高效地检索数据。要了解如何将索引用于智能合同和应用程序，请参阅[使用 CouchDB 时的最佳实践](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)。

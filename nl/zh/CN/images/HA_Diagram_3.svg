@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1214 932"
+   style="enable-background:new 0 0 1214 932;"
+   xml:space="preserve"
+   inkscape:version="0.47 r22583"
+   width="100%"
+   height="100%"
+   sodipodi:docname="HA_Diagram_3.svg"><metadata
+   id="metadata187"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title>3</dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs185"><inkscape:perspective
+     sodipodi:type="inkscape:persp3d"
+     inkscape:vp_x="0 : 466 : 1"
+     inkscape:vp_y="0 : 1000 : 0"
+     inkscape:vp_z="1214 : 466 : 1"
+     inkscape:persp3d-origin="607 : 310.66667 : 1"
+     id="perspective189" /></defs><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1440"
+   inkscape:window-height="838"
+   id="namedview183"
+   showgrid="false"
+   inkscape:zoom="0.71621116"
+   inkscape:cx="645.89775"
+   inkscape:cy="633.54835"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<style
+   type="text/css"
+   id="style3">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#2D3F49;stroke:#2D3F49;}
+	.st2{fill:none;stroke:#00B39F;stroke-width:2;stroke-dasharray:8;}
+	.st3{fill:#FFFFFF;stroke:#6182BB;}
+	.st4{fill:none;}
+	.st5{font-family:'Helvetica';}
+	.st6{font-size:24.0721px;}
+	.st7{fill:#4278BD;}
+	.st8{font-size:12.07px;}
+	.st9{font-size:9.07px;}
+	.st10{font-size:11.07px;}
+	.st11{font-size:10.07px;}
+	.st12{font-family:'Helvetica-BoldOblique';}
+	.st13{font-size:21.6649px;}
+</style>
+<title
+   id="title5">3</title>
+<desc
+   id="desc7">Created with Sketch.</desc>
+<g
+   id="_x33__1_">
+	<rect
+   class="st0"
+   width="1214"
+   height="932"
+   id="rect10" />
+	<g
+   id="Group-5"
+   transform="translate(12.000000, 0.000000)">
+		<path
+   id="XMLID_272_"
+   class="st1"
+   d="M346.2,817.5H37.3c-6.6,0-12-5-12-11.2V31.7c0-6.2,5.4-11.2,12-11.2h308.9    c6.6,0,12,5,12,11.2v774.5C358.2,812.5,352.8,817.5,346.2,817.5z" />
+		<path
+   id="XMLID_271_"
+   class="st0"
+   d="M329.6,798H53.9c-6.6,0-12-5-12-11.1V89.1c0-6.1,5.4-11.1,12-11.1h275.6c6.6,0,12,5,12,11.1    v697.7C341.6,793,336.2,798,329.6,798z" />
+		<path
+   id="XMLID_270_"
+   class="st2"
+   d="M315.2,777.9H68.3c-6.6,0-12-5.3-12-11.7V106.6c0-6.4,5.4-11.7,12-11.7h246.9    c6.6,0,12,5.3,12,11.7v659.7C327.2,772.6,321.8,777.9,315.2,777.9z" />
+		<path
+   id="XMLID_269_"
+   class="st3"
+   d="M294.9,754.3H88.5c-6.6,0-12-5.4-12-12V213.5c0-6.6,5.4-12,12-12h206.4c6.6,0,12,5.4,12,12    v528.8C306.9,748.9,301.5,754.3,294.9,754.3z" />
+		<rect
+   id="XMLID_24_"
+   x="76.5"
+   y="213.6"
+   class="st4"
+   width="230.4"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 125.5981 231.4535)"
+   class="st5 st6"
+   id="text18"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3005">工作程序池</tspan></text>
+
+		<rect
+   id="XMLID_264_"
+   x="93.3"
+   y="94.9"
+   class="st4"
+   width="196.9"
+   height="34" />
+		<rect
+   id="XMLID_23_"
+   x="84.4"
+   y="40.6"
+   class="st4"
+   width="214.6"
+   height="34" />
+		<text
+   transform="matrix(1 0 0 1 141 57.5)"
+   class="st0 st5 st6"
+   id="text22"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan2995">区域</tspan> 1</text>
+
+		<path
+   id="XMLID_258_"
+   class="st7"
+   d="M280,396.1H105.1c-6.6,0-12-5.4-12-12V263.5c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12    v120.6C292,390.7,286.6,396.1,280,396.1z" />
+		<rect
+   id="XMLID_257_"
+   x="109.3"
+   y="336.1"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 293.973)"
+   class="st0 st5 st6"
+   id="text26"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3007">工作程序节点</tspan> 1</text>
+
+		<path
+   id="XMLID_255_"
+   class="st0"
+   d="M156.3,362.6h-44.5c-2.1,0-3.7-4.3-3.7-9.6v-30.8c0-5.3,1.7-9.6,3.7-9.6h44.5    c2.1,0,3.7,4.3,3.7,9.6V353C160,358.3,158.3,362.6,156.3,362.6z" />
+		<path
+   id="XMLID_1_"
+   class="st0"
+   d="M217.9,362.6h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6V353C222,358.3,220.2,362.6,217.9,362.6z" />
+		<path
+   id="XMLID_2_"
+   class="st0"
+   d="M279.9,362.6h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6V353C284,358.3,282.2,362.6,279.9,362.6z" />
+		<rect
+   id="XMLID_22_"
+   x="110.7"
+   y="327.9"
+   class="st4"
+   width="163.6"
+   height="37.7" />
+		<text
+   transform="matrix(1 0 0 1 117 337.6)"
+   class="st5 st8"
+   id="text32"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3009">同级</tspan> 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 122 348.6)"
+   class="st5 st9"
+   id="text34"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3011">组织</tspan> 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 181 348.6)"
+   class="st5 st9"
+   id="text36"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3013">同级</tspan></text>
+
+		<text
+   class="st5 st9"
+   id="text38"
+   x="243"
+   y="352.60001"
+   style="font-size:9.06999969px;font-family:Helvetica">(Raft)</text>
+
+		<text
+   transform="matrix(1 0 0 1 179 337.6)"
+   class="st5 st8"
+   id="text40">CA 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 119 137.5)"
+   class="st5 st6"
+   id="text42"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3001">单个集群</tspan></text>
+
+		<path
+   id="XMLID_248_"
+   class="st7"
+   d="M280,567.6H105.1c-6.6,0-12-5.4-12-12V435c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,562.2,286.6,567.6,280,567.6z" />
+		<rect
+   id="XMLID_247_"
+   x="109.3"
+   y="447.7"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 465.4867)"
+   class="st0 st5 st6"
+   id="text46"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3019">工作程序节点</tspan> 2</text>
+
+		<path
+   id="XMLID_3_"
+   class="st0"
+   d="M150.7,536h-39.4c-1.8,0-3.3-4.3-3.3-9.6v-30.8c0-5.3,1.5-9.6,3.3-9.6h39.4    c1.8,0,3.3,4.3,3.3,9.6v30.8C154,531.7,152.5,536,150.7,536z" />
+		<path
+   id="XMLID_240_"
+   class="st7"
+   d="M280,739.1H105.1c-6.6,0-12-5.4-12-12V606.5c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12    v120.6C292,733.7,286.6,739.1,280,739.1z" />
+		<rect
+   id="XMLID_239_"
+   x="109.3"
+   y="679.1"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 637.0013)"
+   class="st0 st5 st6"
+   id="text51"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3033">工作程序节点</tspan> 3</text>
+
+		<text
+   class="st5 st9"
+   id="text53"
+   x="244.356"
+   y="330.60001"
+   style="font-size:9.06999969px;font-family:Helvetica"><tspan
+     style="font-family:SimHei;-inkscape-font-specification:SimHei"
+     id="tspan3015">排序</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 242.1293 341.6)"
+   class="st5 st9"
+   id="text55"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3017">节点</tspan> 1</text>
+
+		<path
+   id="XMLID_4_"
+   class="st0"
+   d="M214.9,536h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6v30.8C219,531.7,217.2,536,214.9,536z" />
+		<text
+   class="st5 st9"
+   id="text58"
+   x="178"
+   y="526"
+   style="font-size:9.06999969px;font-family:Helvetica">(Raft)</text>
+
+		<text
+   class="st5 st9"
+   id="text60"
+   x="177.356"
+   y="504"
+   style="font-size:9.06999969px;font-family:Helvetica"><tspan
+     style="font-family:SimHei;-inkscape-font-specification:SimHei"
+     id="tspan3025">排序</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 177.1293 515)"
+   class="st5 st9"
+   id="text62"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3027">节点</tspan> 2</text>
+
+		<path
+   id="XMLID_5_"
+   class="st0"
+   d="M276.9,536h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6v30.8C281,531.7,279.2,536,276.9,536z" />
+		<text
+   class="st5 st9"
+   id="text65"
+   x="240"
+   y="526"
+   style="font-size:9.06999969px;font-family:Helvetica">(Raft)</text>
+
+		<text
+   class="st5 st9"
+   id="text67"
+   x="239.356"
+   y="504"
+   style="font-size:9.06999969px;font-family:Helvetica"><tspan
+     style="font-family:SimHei;-inkscape-font-specification:SimHei"
+     id="tspan3029">排序</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 239.1293 515)"
+   class="st5 st9"
+   id="text69"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3031">节点</tspan> 3</text>
+
+		<path
+   id="XMLID_6_"
+   class="st0"
+   d="M184.9,715h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6v30.8C189,710.7,187.2,715,184.9,715z" />
+		<text
+   class="st5 st9"
+   id="text72"
+   x="148"
+   y="705"
+   style="font-size:9.06999969px;font-family:Helvetica">(Raft)</text>
+
+		<text
+   class="st5 st9"
+   id="text74"
+   x="147.356"
+   y="683"
+   style="font-size:9.06999969px;font-family:Helvetica"><tspan
+     style="font-family:SimHei;-inkscape-font-specification:SimHei"
+     id="tspan3035">排序</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 147.1293 694)"
+   class="st5 st9"
+   id="text76"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3037">节点</tspan> 4</text>
+
+		<path
+   id="XMLID_7_"
+   class="st0"
+   d="M248.9,716h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6v30.8C253,711.7,251.2,716,248.9,716z" />
+		<text
+   class="st5 st9"
+   id="text79"
+   x="212"
+   y="706"
+   style="font-size:9.06999969px;font-family:Helvetica">(Raft)</text>
+
+		<text
+   class="st5 st9"
+   id="text81"
+   x="211.356"
+   y="684"
+   style="font-size:9.06999969px;font-family:Helvetica"><tspan
+     style="font-family:SimHei;-inkscape-font-specification:SimHei"
+     id="tspan3039">排序</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 211.1293 695)"
+   class="st5 st9"
+   id="text83"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3041">节点</tspan> 5</text>
+
+		<rect
+   id="XMLID_8_"
+   x="103.7"
+   y="563.8"
+   class="st4"
+   width="37"
+   height="37.7" />
+		<text
+   class="st5 st10"
+   id="text86"
+   x="116"
+   y="506"
+   style="font-size:11.06999969px;font-family:Helvetica"><tspan
+   style="font-family:SimHei;-inkscape-font-specification:SimHei"
+   id="tspan3021">同级</tspan> 2</text>
+
+		<text
+   transform="matrix(1 0 0 1 118 520)"
+   class="st5 st11"
+   id="text88"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3023">组织</tspan> 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 115 169.5)"
+   class="st12 st13"
+   id="text90">+ <tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3003">反亲缘关系</tspan></text>
+
+	</g>
+	<g
+   id="Group-5_1_"
+   transform="translate(412.000000, 0.000000)">
+		<path
+   id="XMLID_9_"
+   class="st1"
+   d="M346.2,817.5H37.3c-6.6,0-12-5-12-11.2V31.7c0-6.2,5.4-11.2,12-11.2h308.9c6.6,0,12,5,12,11.2    v774.5C358.2,812.5,352.8,817.5,346.2,817.5z" />
+		<path
+   id="XMLID_10_"
+   class="st0"
+   d="M329.6,798H53.9c-6.6,0-12-5-12-11.1V89.1c0-6.1,5.4-11.1,12-11.1h275.6c6.6,0,12,5,12,11.1    v697.7C341.6,793,336.2,798,329.6,798z" />
+		<path
+   id="XMLID_11_"
+   class="st2"
+   d="M315.2,777.9H68.3c-6.6,0-12-5.3-12-11.7V106.6c0-6.4,5.4-11.7,12-11.7h246.9    c6.6,0,12,5.3,12,11.7v659.7C327.2,772.6,321.8,777.9,315.2,777.9z" />
+		<path
+   id="XMLID_12_"
+   class="st3"
+   d="M294.9,754.3H88.5c-6.6,0-12-5.4-12-12V213.5c0-6.6,5.4-12,12-12h206.4c6.6,0,12,5.4,12,12    v528.8C306.9,748.9,301.5,754.3,294.9,754.3z" />
+		<rect
+   id="XMLID_13_"
+   x="76.5"
+   y="213.6"
+   class="st4"
+   width="230.4"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 125.5981 231.4535)"
+   class="st5 st6"
+   id="text98"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3047">工作程序池</tspan></text>
+
+		<rect
+   id="XMLID_14_"
+   x="93.3"
+   y="94.9"
+   class="st4"
+   width="196.9"
+   height="34" />
+		<rect
+   id="XMLID_15_"
+   x="84.4"
+   y="40.6"
+   class="st4"
+   width="214.6"
+   height="34" />
+		<text
+   transform="matrix(1 0 0 1 141 57.5)"
+   class="st0 st5 st6"
+   id="text102"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan2997">区域</tspan> 2</text>
+
+		<path
+   id="XMLID_16_"
+   class="st7"
+   d="M280,396.1H105.1c-6.6,0-12-5.4-12-12V263.5c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,390.7,286.6,396.1,280,396.1z" />
+		<rect
+   id="XMLID_17_"
+   x="109.3"
+   y="336.1"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 293.973)"
+   class="st0 st5 st6"
+   id="text106"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3049">工作程序节点</tspan> 1</text>
+
+		<path
+   id="XMLID_19_"
+   class="st0"
+   d="M217.9,362.6h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6V353C222,358.3,220.2,362.6,217.9,362.6z" />
+		<rect
+   id="XMLID_20_"
+   x="110.7"
+   y="327.9"
+   class="st4"
+   width="163.6"
+   height="37.7" />
+		<text
+   transform="matrix(1 0 0 1 181 348.6)"
+   class="st5 st9"
+   id="text110"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3051">同级</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 179 337.6)"
+   class="st5 st8"
+   id="text112">CA 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 119 137.5)"
+   class="st5 st6"
+   id="text114"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3043">单个集群</tspan></text>
+
+		<path
+   id="XMLID_25_"
+   class="st7"
+   d="M280,567.6H105.1c-6.6,0-12-5.4-12-12V435c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,562.2,286.6,567.6,280,567.6z" />
+		<rect
+   id="XMLID_26_"
+   x="109.3"
+   y="447.7"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 465.4867)"
+   class="st0 st5 st6"
+   id="text118"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3053">工作程序节点</tspan> 2</text>
+
+		<path
+   id="XMLID_28_"
+   class="st0"
+   d="M207.7,537h-39.4c-1.8,0-3.3-4.3-3.3-9.6v-30.8c0-5.3,1.5-9.6,3.3-9.6h39.4    c1.8,0,3.3,4.3,3.3,9.6v30.8C211,532.7,209.5,537,207.7,537z" />
+		<path
+   id="XMLID_29_"
+   class="st7"
+   d="M280,739.1H105.1c-6.6,0-12-5.4-12-12V606.5c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,733.7,286.6,739.1,280,739.1z" />
+		<rect
+   id="XMLID_30_"
+   x="109.3"
+   y="679.1"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 637.0013)"
+   class="st0 st5 st6"
+   id="text123">工作程序节点 3</text>
+
+		<rect
+   id="XMLID_32_"
+   x="103.7"
+   y="563.8"
+   class="st4"
+   width="37"
+   height="37.7" />
+		<text
+   class="st5 st10"
+   id="text126"
+   x="173"
+   y="507"
+   style="font-size:11.06999969px;font-family:Helvetica"><tspan
+   style="font-family:SimHei;-inkscape-font-specification:SimHei"
+   id="tspan3055">同级</tspan> 3</text>
+
+		<text
+   transform="matrix(1 0 0 1 175 521)"
+   class="st5 st11"
+   id="text128"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3057">组织</tspan> 1</text>
+
+		<path
+   id="XMLID_33_"
+   class="st0"
+   d="M208.7,713h-39.4c-1.8,0-3.3-4.3-3.3-9.6v-30.8c0-5.3,1.5-9.6,3.3-9.6h39.4    c1.8,0,3.3,4.3,3.3,9.6v30.8C212,708.7,210.5,713,208.7,713z" />
+		<text
+   class="st5 st10"
+   id="text131"
+   x="174"
+   y="683"
+   style="font-size:11.06999969px;font-family:Helvetica"><tspan
+   style="font-family:SimHei;-inkscape-font-specification:SimHei"
+   id="tspan3059">同级</tspan> 4</text>
+
+		<text
+   transform="matrix(1 0 0 1 176 697)"
+   class="st5 st11"
+   id="text133"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3061">组织</tspan> 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 115 169.5)"
+   class="st12 st13"
+   id="text135">+ <tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3045">反亲缘关系</tspan></text>
+
+	</g>
+	<g
+   id="Group-5_2_"
+   transform="translate(812.000000, 0.000000)">
+		<path
+   id="XMLID_34_"
+   class="st1"
+   d="M346.2,817.5H37.3c-6.6,0-12-5-12-11.2V31.7c0-6.2,5.4-11.2,12-11.2h308.9c6.6,0,12,5,12,11.2    v774.5C358.2,812.5,352.8,817.5,346.2,817.5z" />
+		<path
+   id="XMLID_35_"
+   class="st0"
+   d="M329.6,798H53.9c-6.6,0-12-5-12-11.1V89.1c0-6.1,5.4-11.1,12-11.1h275.6c6.6,0,12,5,12,11.1    v697.7C341.6,793,336.2,798,329.6,798z" />
+		<path
+   id="XMLID_36_"
+   class="st2"
+   d="M315.2,777.9H68.3c-6.6,0-12-5.3-12-11.7V106.6c0-6.4,5.4-11.7,12-11.7h246.9    c6.6,0,12,5.3,12,11.7v659.7C327.2,772.6,321.8,777.9,315.2,777.9z" />
+		<path
+   id="XMLID_37_"
+   class="st3"
+   d="M294.9,754.3H88.5c-6.6,0-12-5.4-12-12V213.5c0-6.6,5.4-12,12-12h206.4c6.6,0,12,5.4,12,12    v528.8C306.9,748.9,301.5,754.3,294.9,754.3z" />
+		<rect
+   id="XMLID_38_"
+   x="76.5"
+   y="213.6"
+   class="st4"
+   width="230.4"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 125.5981 231.4535)"
+   class="st5 st6"
+   id="text143"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3067">工作程序池</tspan></text>
+
+		<rect
+   id="XMLID_39_"
+   x="93.3"
+   y="94.9"
+   class="st4"
+   width="196.9"
+   height="34" />
+		<rect
+   id="XMLID_40_"
+   x="84.4"
+   y="40.6"
+   class="st4"
+   width="214.6"
+   height="34" />
+		<text
+   transform="matrix(1 0 0 1 141 57.5)"
+   class="st0 st5 st6"
+   id="text147"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan2999">区域</tspan> 3</text>
+
+		<path
+   id="XMLID_41_"
+   class="st7"
+   d="M280,396.1H105.1c-6.6,0-12-5.4-12-12V263.5c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,390.7,286.6,396.1,280,396.1z" />
+		<rect
+   id="XMLID_42_"
+   x="109.3"
+   y="336.1"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 293.973)"
+   class="st0 st5 st6"
+   id="text151"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3069">工作程序节点</tspan> 1</text>
+
+		<path
+   id="XMLID_44_"
+   class="st0"
+   d="M211.2,361.5h-48.8c-2.3,0-4.1-4.3-4.1-9.6v-30.8c0-5.3,1.8-9.6,4.1-9.6h48.8    c2.3,0,4.1,4.3,4.1,9.6v30.8C215.3,357.2,213.5,361.5,211.2,361.5z" />
+		<rect
+   id="XMLID_45_"
+   x="78"
+   y="323.9"
+   class="st4"
+   width="163.6"
+   height="37.7" />
+		<text
+   transform="matrix(1 0 0 1 174.3 347.5)"
+   class="st5 st9"
+   id="text155"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3071">同级</tspan></text>
+
+		<text
+   transform="matrix(1 0 0 1 172.3 336.5)"
+   class="st5 st8"
+   id="text157">CA 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 119 137.5)"
+   class="st5 st6"
+   id="text159"><tspan
+     style="-inkscape-font-specification:SimHei;font-family:SimHei"
+     id="tspan3063">单个集群</tspan></text>
+
+		<path
+   id="XMLID_47_"
+   class="st7"
+   d="M280,567.6H105.1c-6.6,0-12-5.4-12-12V435c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,562.2,286.6,567.6,280,567.6z" />
+		<rect
+   id="XMLID_48_"
+   x="109.3"
+   y="447.7"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 465.4867)"
+   class="st0 st5 st6"
+   id="text163"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3073">工作程序节点</tspan> 2</text>
+
+		<path
+   id="XMLID_50_"
+   class="st0"
+   d="M205.7,536.5h-39.4c-1.8,0-3.3-4.3-3.3-9.6v-30.8c0-5.3,1.5-9.6,3.3-9.6h39.4    c1.8,0,3.3,4.3,3.3,9.6v30.8C209,532.2,207.5,536.5,205.7,536.5z" />
+		<path
+   id="XMLID_51_"
+   class="st7"
+   d="M280,739.1H105.1c-6.6,0-12-5.4-12-12V606.5c0-6.6,5.4-12,12-12H280c6.6,0,12,5.4,12,12v120.6    C292,733.7,286.6,739.1,280,739.1z" />
+		<rect
+   id="XMLID_52_"
+   x="109.3"
+   y="679.1"
+   class="st4"
+   width="166.5"
+   height="23.3" />
+		<text
+   transform="matrix(1 0 0 1 111.5474 637.0013)"
+   class="st0 st5 st6"
+   id="text168"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3079">工作程序节点</tspan> 3</text>
+
+		<rect
+   id="XMLID_54_"
+   x="103.7"
+   y="563.8"
+   class="st4"
+   width="37"
+   height="37.7" />
+		<text
+   class="st5 st10"
+   id="text171"
+   x="171"
+   y="506.5"
+   style="font-size:11.06999969px;font-family:Helvetica"><tspan
+   style="font-family:SimHei;-inkscape-font-specification:SimHei"
+   id="tspan3075">同级</tspan> 5</text>
+
+		<text
+   transform="matrix(1 0 0 1 173 520.5)"
+   class="st5 st11"
+   id="text173"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3077">组织</tspan> 1</text>
+
+		<path
+   id="XMLID_55_"
+   class="st0"
+   d="M208.7,704.5h-39.4c-1.8,0-3.3-4.3-3.3-9.6v-30.8c0-5.3,1.5-9.6,3.3-9.6h39.4    c1.8,0,3.3,4.3,3.3,9.6v30.8C212,700.2,210.5,704.5,208.7,704.5z" />
+		<text
+   class="st5 st10"
+   id="text176"
+   x="174"
+   y="674.5"
+   style="font-size:11.06999969px;font-family:Helvetica"><tspan
+   style="font-family:SimHei;-inkscape-font-specification:SimHei"
+   id="tspan3081">同级</tspan> 6</text>
+
+		<text
+   transform="matrix(1 0 0 1 176 688.5)"
+   class="st5 st11"
+   id="text178"><tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3083">组织</tspan> 1</text>
+
+		<text
+   transform="matrix(1 0 0 1 115 169.5)"
+   class="st12 st13"
+   id="text180">+ <tspan
+   style="-inkscape-font-specification:SimHei;font-family:SimHei"
+   id="tspan3065">反亲缘关系</tspan></text>
+
+	</g>
+	<rect
+   id="XMLID_217_"
+   x="885.5"
+   y="94.4"
+   class="st4"
+   width="196.9"
+   height="34" />
+</g>
+</svg>

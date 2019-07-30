@@ -2,7 +2,8 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, install, Helm chart, PodSecurityPolicy
 
@@ -26,7 +27,7 @@ subcollection: blockchain
 
 Helm 차트는 [Passport Advantage Online](https://www.ibm.com/software/passportadvantage/pao_customer.html){: external}을 통해 구매해야 합니다. 구매 시 {{site.data.keyword.blockchainfull_notm}} Platform을 위한 기술 지원이 포함됩니다.
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private을 설치하기 전에 [고려사항 및 제한사항](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about-considerations)을 검토하십시오. 가격, 지원, 보안 및 데이터 상주 고려사항에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 정보](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about)를 참조하십시오. 
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private을 설치하기 전에 [고려사항 및 제한사항](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about-considerations)을 검토하십시오. 가격, 지원, 보안 및 데이터 상주 고려사항에 대한 자세한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private 정보](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about)를 참조하십시오.
 
 ## Helm 차트를 설치하기 위한 전제조건
 {: #console-helm-install-prereqs}
@@ -36,11 +37,9 @@ Helm 차트를 설치하기 전에 {{site.data.keyword.cloud_notm}} Private 클�
 ### PodSecurityPolicy 요구사항
 {: #console-helm-install-prereqs-pod-security-requirements}
 
-{{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 사용하려면 설치 전에 특정 보안 및 액세스 정책을 대상 네임스페이스에 바인드해야 합니다. 다음 단계를 사용하여 Helm 차트 구성 전에 정책을 구성하십시오. 
+{{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 사용하려면 설치 전에 특정 보안 및 액세스 정책을 대상 네임스페이스에 바인드해야 합니다. 아래 단계에 있는 정책을 정의하는 YAML 파일을 제공합니다. 이 파일을 로컬 시스템에 저장한 후 {{site.data.keyword.cloud_notm}} Private CLI를 사용하여 네임스페이스에 바인드할 수 있습니다. {{site.data.keyword.blockchainfull_notm}} Platform Helm 차트를 배치하기 전에 아래의 단계를 따르십시오. 
 
-1. 네임스페이스에 대해 사전 정의된 PodSecurityPolicy를 선택하거나 클러스터 관리자가 사용자를 위해 사용자 정의 PodSecurityPolicy를 작성하도록 하십시오.
-  - [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)의 사전 정의된 PodSecurityPolicy를 사용할 수 있습니다.
-  - 사용자 정의 PodSecurityPolicy 정의 아래의 YAML을 사용하여 작성할 수도 있습니다. 
+1. {{site.data.keyword.blockchainfull_notm}} Platform PodSecurityPolicy를 정의하는 아래 파일을 로컬 시스템의 `ibm-blockchain-platform-psp.yaml`로 저장하십시오. 
 
     ```
     apiVersion: extensions/v1beta1
@@ -70,13 +69,13 @@ Helm 차트를 설치하기 전에 {{site.data.keyword.cloud_notm}} Private 클�
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. PodSecurityPolicy에 대한 ClusterRole을 작성하십시오.
-  - 사용자 정의 보안 정책을 작성한 경우, 아래의 YAML 파일을 사용하여 ClusterRole을 작성할 수 있습니다. 
+2. PodSecurityPolicy에 필요한 ClusterRole을 정의하는 아래 파일을 `ibm-blockchain-platform-clusterrole.yaml`로 저장하십시오.
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -94,45 +93,60 @@ Helm 차트를 설치하기 전에 {{site.data.keyword.cloud_notm}} Private 클�
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - 사전 정의된 PodSecurityPolicy를 사용하는 경우, 두 번째 apiGroups 섹션을 사용하여 ClusterRole을 작성하기만 하면 됩니다. 
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. 사용자 정의 ClusterRoleBinding을 작성하십시오. 아래 파일에서 ServiceAccount 이름을 변경하려는 경우, Helm 차트를 배치할 때 구성 페이지의 **모든 매개변수** 섹션에 있는 `서비스 계정 이름` 필드에 이름을 제공해야 합니다. 
+3. ClusterRoleBinding을 정의하는 아래 파일을 로컬 시스템에 `ibm-blockchain-platform-clusterrolebinding.yaml`로 저장하십시오. 아래 파일에서 ServiceAccount 이름을 변경하려는 경우, Helm 차트를 배치할 때 구성 페이지의 **모든 매개변수** 섹션에 있는 `서비스 계정 이름` 필드에 이름을 제공해야 합니다. 
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -150,23 +164,35 @@ Helm 차트를 설치하기 전에 {{site.data.keyword.cloud_notm}} Private 클�
   ```
   {:codeblock}
 
-YAML 파일을 사용하도록 다음 단계를 완료하여 네임스페이스에 보안 및 액세스 정책을 바인드할 수 있습니다. 
+PodSecurityPolicy, ClusterRole 및 ClusterRoleBinding YAML 파일을 로컬 시스템에 저장하면 클러스터 관리자는 {{site.data.keyword.cloud_notm}} Private CLI를 사용하여 정책을 네임스페이스에 바인드해야 합니다. 
 
-1. YAML 파일을 로컬 시스템에 저장하십시오. 
+1. {{site.data.keyword.cloud_notm}} Private 클러스터에 로그인하고 배치의 대상 네임스페이스를 선택하십시오.
 
-2. {{site.data.keyword.cloud_notm}} Private 클러스터에 로그인하고 배치의 대상 네임스페이스를 선택하십시오. 
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. 클러스터의 Docker 이미지 레지스트리에 로그인하십시오. 
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
-  {:codeblock}
+   {:codeblock}
 
-3. 다음 명령을 사용하여 대상 네임스페이스에 정책을 적용하십시오. 
+3. 다음 명령을 사용하여 정책을 대상 네임스페이스에 적용하십시오. 
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
   {:codeblock}
+
+4. 정책을 적용한 후 서비스 계정에 필요한 권한 레벨을 부여하여 콘솔을 배치해야 합니다. 대상 네임스페이스의 이름을 사용하여 다음 명령을 실행하십시오. 
+
+  ```
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```
 
 ## Helm 차트를 {{site.data.keyword.cloud_notm}} Private에 가져오기
 {: #console-helm-install-importing}

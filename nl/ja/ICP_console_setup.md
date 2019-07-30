@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
@@ -57,7 +58,7 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ## 必要なリソース
 {: #icp-console-setup-resources}
 
-コンソールと作成するコンポーネントの最小ハードウェア・リソース要件を {{site.data.keyword.cloud_notm}} Private システムが満たしていることを確認してください。 必要な vCPU/CPU の数は、インフラストラクチャー、ネットワーク設計、およびパフォーマンス要件によって異なります。{{site.data.keyword.cloud_notm}} の [デフォルトのリソース割り振りの表](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)を調べることにより、vCPU/CPU 要件の概算を行うことができます。ただし、割り振りは {{site.data.keyword.cloud_notm}} Private では若干異なります。実際のリソース割り振りは、ノードをデプロイすると、ブロックチェーン・コンソールに表示されます。
+コンソールと作成するコンポーネントの最小ハードウェア・リソース要件を {{site.data.keyword.cloud_notm}} Private システムが満たしていることを確認してください。 必要な vCPU/CPU の数は、インフラストラクチャー、ネットワーク設計、およびパフォーマンス要件によって異なります。 {{site.data.keyword.cloud_notm}} の [デフォルトのリソース割り振りの表](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)を調べることにより、vCPU/CPU 要件の概算を行うことができます。ただし、割り振りは {{site.data.keyword.cloud_notm}} Private では若干異なります。 実際のリソース割り振りは、ノードをデプロイすると、ブロックチェーン・コンソールに表示されます。
 
 **注:**  
 
@@ -67,7 +68,7 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ### ストレージについての考慮事項
 {: #icp-console-setup-storage-considerations}
 
-{{site.data.keyword.blockchainfull_notm}} Helm チャートでは、コンソールおよび作成するブロックチェーン・コンポーネントによって使用されるストレージをプロビジョンするために、動的プロビジョニングが使用されます。コンソールをデプロイする前に、コンソールおよびコンポーネント用に十分な量の補助ストレージを持つ storageClass を作成する必要があります。作成した storageClass の名前は、構成中に指定する必要があります。
+{{site.data.keyword.blockchainfull_notm}} Helm チャートでは、コンソールおよび作成するブロックチェーン・コンポーネントによって使用されるストレージをプロビジョンするために、動的プロビジョニングが使用されます。 コンソールをデプロイする前に、コンソールおよびコンポーネント用に十分な量の補助ストレージを持つ storageClass を作成する必要があります。 作成した storageClass の名前は、構成中に指定する必要があります。
 
 - デフォルト設定を使用した場合は、Helm チャートによって Helm リリースの名前でコンソール・データ用の永続ボリューム・クレームが新規作成されます。
 - NFS v2/v3 永続ボリュームを使用する場合は、NFS ファイル・システムが存在するホスト・システムで、**rpc-statd** とも呼ばれる **NFS status monitor for NFSv2/v3 Filesystem Locks** モジュールを有効にする必要があります。 このモジュールにより、NFS ファイル・システムは、他のプロセスが保持しているファイルの排他ロックを検査できます。 以下のコマンドを実行して、このモジュールを有効にします。
@@ -93,18 +94,16 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 
 3. {{site.data.keyword.blockchainfull_notm}} Platform デプロイメント用の新しいカスタム名前空間を作成します。 名前空間ごとに 1 つの Helm チャートのみをデプロイできるため、コンソールの複数インスタンスを同じクラスターで実行する場合は、必ず別個の名前空間を使用してください。
 
-4. ターゲット名前空間のセキュリティー・ポリシーおよびアクセス・ポリシーをセットアップします。[次のセクション](#icp-console-setup-psp)に説明があります。
+4. ターゲット名前空間のセキュリティー・ポリシーおよびアクセス・ポリシーをセットアップします。 [次のセクション](#icp-console-setup-psp)に説明があります。
 
 {{site.data.keyword.cloud_notm}} Private をインストールして、ポッド・セキュリティー・ポリシーをターゲット名前空間にバインドしたら、[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm チャート](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install)を {{site.data.keyword.cloud_notm}} Private クラスターにインポートする作業に進むことができます。
 
 ## PodSecurityPolicy の要件
 {: #icp-console-setup-psp}
 
-{{site.data.keyword.blockchainfull_notm}} Platform の Helm チャートをインストールする前に、特定のセキュリティー・ポリシーおよびアクセス・ポリシーをターゲット名前空間にバインドする必要があります。Helm チャートを構成する前に、以下の手順を使用して、ポリシーを構成します。
+{{site.data.keyword.blockchainfull_notm}} Platform の Helm チャートをインストールする前に、特定のセキュリティー・ポリシーおよびアクセス・ポリシーをターゲット名前空間にバインドする必要があります。 以下の手順でポリシーを定義した YAML ファイルが用意されています。これらのファイルをローカル・システムに保存してから、{{site.data.keyword.cloud_notm}} Private CLI を使用して名前空間にバインドします。{{site.data.keyword.blockchainfull_notm}} Platform Helm チャートをデプロイする前に、以下の手順を実行してください。
 
-1. 名前空間の事前定義された PodSecurityPolicy を選択するか、クラスター管理者にカスタム PodSecurityPolicy の作成を依頼してください。
-  - 事前定義された PodSecurityPolicy の [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp) を使用できます。
-  - 以下の YAML を使用してカスタム PodSecurityPolicy 定義を作成することもできます。
+1. {{site.data.keyword.blockchainfull_notm}} Platform の PodSecurityPolicy を定義する以下のファイルを、`ibm-blockchain-platform-psp.yaml` としてローカル・システムに保存します。
 
     ```
     apiVersion: extensions/v1beta1
@@ -134,13 +133,13 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. PodSecurityPolicy の ClusterRole を作成します。
-  - カスタム・セキュリティー・ポリシーを作成した場合は、以下の YAML ファイルを使用して ClusterRole を作成できます。
+2. PodSecurityPolicy に必須の ClusterRole を定義する以下のファイルを、`ibm-blockchain-platform-clusterrole.yaml` として保存します。
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -158,45 +157,60 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - 事前定義された PodSecurityPolicy を使用している場合は、2 番目の apiGroups セクションを使用して ClusterRole を作成するだけで済みます。
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. カスタム ClusterRoleBinding を作成します。以下のファイルで ServiceAccount 名を変更する場合は、Helm チャートのデプロイ時に、構成ページの**「すべてのパラメーター」**セクションの `Service account name` フィールドに名前を指定する必要があります。
+3. ClusterRoleBinding を定義する以下のファイルを、`ibm-blockchain-platform-clusterrolebinding.yaml` として保存します。以下のファイルの ServiceAccount 名を変更する場合は、Helm チャートのデプロイ時に、構成ページの**「All Parameters (すべてのパラメーター)」**セクションの`「サービス・アカウント名 (Service account name)」`フィールドにその名前を指定する必要があります。
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -214,11 +228,15 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
   ```
   {:codeblock}
 
-以下の手順を実行すると、YAML ファイルを使用して、セキュリティー・ポリシーおよびアクセス・ポリシーを名前空間にバインドできます。
+PodSecurityPolicy、ClusterRole、および ClusterRoleBinding の各 YAML ファイルをローカル・システムに保存したら、クラスター管理者は {{site.data.keyword.cloud_notm}} Private CLI を使用してポリシーを名前空間にバインドする必要があります。
 
-1. ローカル・システムに YAML ファイルを保存します。
+1. {{site.data.keyword.cloud_notm}} Private クラスターにログインし、デプロイメントのターゲット名前空間を選択します。
 
-2. {{site.data.keyword.cloud_notm}} Private クラスターにログインし、デプロイメントのターゲット名前空間を選択します。
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. クラスターの Docker イメージ・レジストリーにログインします。
 
   ```
   docker login <cluster_CA_domain>:8500
@@ -228,6 +246,14 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 3. 以下のコマンドを使用して、ポリシーをターゲット名前空間に適用します。
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
-   {:codeblock}
+  {:codeblock}
+
+4. ポリシーを適用したら、サービス・アカウントに、コンソールをデプロイするために必要なレベルの権限を付与する必要があります。ターゲット名前空間の名前を指定して、以下のコマンドを実行します。
+
+  ```
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,11 +22,14 @@ subcollection: blockchain
 # Starter Plan について
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 {{site.data.keyword.blockchainfull}} Platform スターター・プランは、組織が複数組織のブロックチェーン・ネットワークをシミュレートしたり、アプリケーションを迅速に開発したり、サンプルのスマート・コントラクトやビジネス・ネットワークを使用したりできるようにする、エントリー・レベルのオプションです。 また、他のメンバーシップ・オプションと同じ UI エクスペリエンスが提供されるので、効率良く習得できます。 2018 年 10 月 4 日より後に作成された新しいスターター・プラン・ネットワークは、Hyperledger Fabric V1.2.1 でビルドされます。 古いスターター・プラン・ネットワークは、Fabric V1.1.0 レベルのままです。
 {:shortdesc}
+
+スターター・プランは非推奨になったので、現時点では新規スターター・プラン・ネットワークは作成できません。** [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks) にアクセスして、第 2 世代のブロックチェーン・テクノロジーで現在提供されている最新のユーザー・インターフェースおよび機能を使用してください。
+{: important}  
+
+**既存のネットワークは影響を受けないので、2020 年 6 月 4 日まで使用を継続できます。
+
 
 **スターター・プラン**は、ブロックチェーン・ネットワークの開発を始めたいお客様や、ブロックチェーン・テクノロジーの学習を始めたいお客様向けの環境です。 スターター・プランを開発環境またテスト環境として使用して、小規模な環境から開始し、ネットワークのメンバーシップまたはトランザクション・ボリュームを拡張して実稼働環境に移行できます。
 

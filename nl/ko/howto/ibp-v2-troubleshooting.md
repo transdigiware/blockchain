@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -29,7 +29,7 @@ subcollection: blockchain
 콘솔을 사용하여 노드, 채널 또는 스마트 계약을 관리할 때 일반 문제가 발생할 수 있습니다. 대부분의 경우 몇 개의 간단한 단계를 수행하면 이러한 문제점으로부터 복구할 수 있습니다.
 {:shortdesc}
 
-이 주제에서는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용할 때 발생할 수 있는 공통 문제를 설명합니다. 
+이 주제에서는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용할 때 발생할 수 있는 공통 문제를 설명합니다.
 
 - [내 노드 위에 마우스를 올려 놓으면 상태는 `Status unavailable`이 됩니다. 이는 무엇을 의미합니까?](#ibp-v2-troubleshooting-status-unavailable)
 - [내 노드 위에 마우스를 올려 놓으면 상태는 `Status undetectable`이 됩니다. 이는 무엇을 의미합니까?](#ibp-v2-troubleshooting-status-undetectable)
@@ -37,6 +37,7 @@ subcollection: blockchain
 - [내 순서 지정 서비스가 열릴 때 `Unable to get system channel` 오류가 표시되는 이유는 무엇입니까?](#ibp-troubleshoot-ordering-service)
 - [피어가 시작하지 못하는 이유는 무엇입니까?](#ibp-console-build-network-troubleshoot-entry2)
 - [스마트 계약 설치, 인스턴스화 또는 업그레이드에 실패하는 이유는 무엇입니까? ](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [피어에 설치한 스마트 계약이 UI에 나열되지 않는 이유는 무엇입니까?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [스마트 계약 컨테이너 로그를 보려면 어떻게 해야 합니까? ](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [채널, 스마트 계약 및 ID가 콘솔에서 사라졌습니다. 어떻게 하면 되돌릴 수 있습니까?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [조직 MSP 정의를 새로 작성할 때 `제공한 등록 ID와 시크릿으로 인증할 수 없음` 오류가 표시되는 이유는 무엇입니까?](#ibp-v2-troubleshooting-create-msp)
@@ -45,6 +46,7 @@ subcollection: blockchain
 - [VS Code에서 제출하는 트랜잭션이 실패하는 이유는 무엇입니까?](#ibp-v2-troubleshooting-anchor-peer)
 - [내 콘솔에 로그인하면 401 권한 없음 오류가 표시되는 이유는 무엇입니까?](#ibp-v2-troubleshooting-console-401)
 - [{{site.data.keyword.cloud_notm}} Private에 배치한 노드가 트랜잭션을 처리하지 않고 상태 검사에 실패하는 이유는 무엇입니까?](#ibp-v2-troubleshooting-healthchecks)
+- [내 트랜잭션이 서명 세트가 정책을 충족시키지 못했다는 보증 정책 오류를 리턴하는 이유는 무엇입니까?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## 내 노드 위에 마우스를 올려 놓으면 상태는 `Status unavailable`이 됩니다. 이는 무엇을 의미합니까?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -105,7 +107,7 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 {: #ibp-troubleshoot-ordering-service}
 {: troubleshoot}
 
-{{site.data.keyword.cloud_notm}} Private 콘솔에서 순서 지정 서비스를 작성하고 나면 상태가 `Running`입니다. 그러나 순서 지정 서비스가 열리면 오류가 표시됩니다. 
+{{site.data.keyword.cloud_notm}} Private 콘솔에서 순서 지정 서비스를 작성하고 나면 상태가 `Running`입니다. 그러나 순서 지정 서비스가 열리면 오류가 표시됩니다.
 
 ```
 시스템 채널을 가져올 수 없습니다. 순서 지정 서비스 노드에서 관리 권한이 없는 ID를 연관시킨 경우,
@@ -117,8 +119,8 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 이 조건은 {{site.data.keyword.cloud_notm}} Private에서 실행되는 블록체인 콘솔에서 발생합니다. Chrome이 아닌 브라우저에서는 콘솔이 노드와 통신하도록 하기 위해 인증서를 수락해야 합니다.
 {: tsCauses}
 
-이 문제를 해결하는 방법은 여러 가지입니다. 
-1. 콘솔 브라우저 URL이 제공되는 Helm 릴리스 정보에는 URL로 이동하고 인증서를 수락하기 위한 참고사항도 있습니다. 해당 URL을 찾아보고 인증서를 수락하십시오. 이제 순서 지정 서비스를 여십시오. 더 이상 오류가 발생하지 않아야 합니다. 
+이 문제를 해결하는 방법은 여러 가지입니다.
+1. 콘솔 브라우저 URL이 제공되는 Helm 릴리스 정보에는 URL로 이동하고 인증서를 수락하기 위한 참고사항도 있습니다. 해당 URL을 찾아보고 인증서를 수락하십시오. 이제 순서 지정 서비스를 여십시오. 더 이상 오류가 발생하지 않아야 합니다.
 2. Chrome 브라우저를 사용할 수 있는 경우 블록체인 콘솔을 Chrome에서 열고 순서 지정 서비스를 여십시오. 해당 오류가 발생하지 않습니다. Chrome이 아닌 브라우저의 콘솔 지갑에서 ID를 내보낸 다음 이를 Chrome 브라우저의 지갑으로 가져와 모두 계속 작동하도록 해야 함에 유의하십시오.
 {: tsResolve}
 
@@ -133,11 +135,11 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 
 - 이 오류는 다음 상황에서 발생할 수 있습니다.
   - 피어 또는 순서 지정 서비스의 조직 MSP 정의를 작성할 때 `client`가 아닌 `peer` 유형의 ID에 해당하는 등록 ID 및 시크릿을 지정했습니다. `client` 유형이어야 합니다.
-  - 피어 또는 순서 지정 서비스의 조직 MSP 정의를 작성할 때 해당 조직 관리자 ID의 등록 ID 또는 시크릿과 일치하지 않는 등록 ID 및 시크릿을 지정했습니다. 
-  - 피어 또는 순서 지정 서비스를 작성할 때 'peer' 유형이 아닌 ID의 등록 ID 및 시크릿을 지정했습니다. 
+  - 피어 또는 순서 지정 서비스의 조직 MSP 정의를 작성할 때 해당 조직 관리자 ID의 등록 ID 또는 시크릿과 일치하지 않는 등록 ID 및 시크릿을 지정했습니다.
+  - 피어 또는 순서 지정 서비스를 작성할 때 'peer' 유형이 아닌 ID의 등록 ID 및 시크릿을 지정했습니다.
 
 - 피어 또는 순서 지정 서비스 CA 노드를 열고 **등록된 사용자** 테이블에 나열된 등록된 ID를 확인하십시오.
-- 피어 또는 순서 지정 서비스를 삭제하고 올바른 등록 ID 및 시크릿을 신중히 지정하여 다시 작성하십시오. 
+- 피어 또는 순서 지정 서비스를 삭제하고 올바른 등록 ID 및 시크릿을 신중히 지정하여 다시 작성하십시오.
 - 피어 또는 순서 지정 서비스를 작성하기 전에 'client' 유형의 조직 관리자 ID를 작성해야 합니다. 조직 MSP 정의를 작성할 때 등록 ID와 동일한 ID를 지정해야 합니다. [피어 ID 등록](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) 및 [순서 지정자 ID 등록](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer)에 대해서는 이러한 지침을 참조하십시오.
 {: tsResolve}
 
@@ -156,6 +158,19 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 - 노드가 작동된 후에도 여전히 문제가 발생하는 경우에는 [노드 로그](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)에서 오류가 있는지 확인하십시오.  
 {: tsResolve}
 
+## 피어에 설치한 스마트 계약이 UI에 나열되지 않는 이유는 무엇입니까?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+스마트 계약이 피어에 설치되어 있으나 **스마트 계약** 탭을 클릭하면 스마트 계약이 나열되지 않습니다.
+{: tsSymptoms}
+
+이 문제는 다른 사용자 또는 애플리케이션이 피어에 스마트 계약을 설치하고 브라우저 지갑에 피어 관리자 ID가 없는 경우 발생합니다.
+{: tsCauses}
+
+피어에 설치된 스마트 계약을 보려면 피어 관리자여야 합니다. 피어 관리자 ID가 브라우저 지갑에 있는지 확인하십시오. 그렇지 않으면, 피어 관리자 ID를 콘솔 브라우저에 가져와야 합니다.
+{: tsResolve}
+
 ## 스마트 계약 컨테이너 로그를 보려면 어떻게 해야 합니까?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
 {: troubleshoot}
@@ -163,7 +178,7 @@ Kubernetes 대시보드를 확인하고 피어 또는 노드 상태가 `Running`
 스마트 계약 문제를 디버깅하기 위해 스마트 계약 또는 체인코드, 컨테이너 로그를 확인해야 할 수도 있습니다.
 {: tsSymptoms}
 
-스마트 계약 컨테이너 로그를 보려면 다음 지시사항을 따르십시오. 
+스마트 계약 컨테이너 로그를 보려면 다음 지시사항을 따르십시오.
 - [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
 - [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
 {: tsResolve}
@@ -269,4 +284,17 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 클러스터에서 노드를 여러 번 배치, 제거 및 업그레이드한 경우 테스트 결과로 Docker는 {{site.data.keyword.cloud_notm}} Private과 관련된 알려진 문제의 결과로 실패할 수 있습니다. 자세한 정보는 [{{site.data.keyword.cloud_notm}} Private 문서](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}에서 이 문제를 참조하십시오.
 {: tsCauses}
 
-이 문제를 해결하려면 실패한 팟(Pod)을 제거하고 노드를 다시 배치하십시오. 클러스터에서 Docker 서비스도 다시 시작할 수 있습니다. 
+이 문제를 해결하려면 실패한 팟(Pod)을 제거하고 노드를 다시 배치하십시오. 클러스터에서 Docker 서비스도 다시 시작할 수 있습니다.
+
+## 내 트랜잭션이 서명 세트가 정책을 충족시키지 못했다는 보증 정책 오류를 리턴하는 이유는 무엇입니까?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+트랜잭션을 제출하기 위해 스마트 계약을 호출하는 경우 트랜잭션은 다음 보증 정책 실패를 리턴합니다. 
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+최근에 채널에 가입하고 스마트 계약을 설치한 경우 조직을 보증 정책에 추가하지 않으면 이 오류가 발생합니다. 조직이 스마트 계약에서 트랜잭션을 보증할 수 있는 조직의 목록에 없으면 피어의 보증이 채널에서 거부됩니다. 이 문제점이 발생하면 스마트 계약을 업그레이드하여 보증 정책을 변경할 수 있습니다. 자세한 정보는 [보증 정책 지정](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) 및 [스마트 계약 업그레이드](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)를 참조하십시오.
+{: tsCauses}

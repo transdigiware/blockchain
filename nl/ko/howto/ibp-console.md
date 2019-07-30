@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 ## 새 릴리스에서 제공하는 내용
 {: #ibp-console-overview-capabilities}
 
-이 최신 릴리스는 숙련된 {{site.data.keyword.blockchainfull_notm}} 및 Hyperledger Fabric 사용자용이며 사용자가 네트워크를 호스팅하거나 다른 {{site.data.keyword.blockchainfull_notm}} 네트워크에 가입할 수 있는 조직을 새로 작성할 수 있습니다. 기존 스타터 또는 엔터프라이즈 플랜 고객인 경우, {{site.data.keyword.IBM_notm}}에서 네트워크를 관리하는 대신 사용자가 자신의 Kubernetes 클러스터 내에서 컴포넌트를 프로비저닝, 모니터 및 관리할 수 있는 기능을 전체적으로 제어할 수 있습니다.
+이 최신 릴리스는 숙련된 {{site.data.keyword.blockchainfull_notm}} 및 Hyperledger Fabric 사용자용이며 사용자가 {{site.data.keyword.blockchainfull_notm}} 네트워크를 호스팅하거나 해당 네트워크에 가입할 수 있습니다. 기존 스타터 또는 엔터프라이즈 플랜 고객인 경우, {{site.data.keyword.IBM_notm}}에서 네트워크를 관리하는 대신 사용자가 자신의 Kubernetes 클러스터 내에서 컴포넌트를 프로비저닝, 모니터 및 관리할 수 있는 기능을 전체적으로 제어할 수 있습니다.
 
 이 {{site.data.keyword.blockchainfull_notm}} Platform 릴리스에는 다음과 같은 주요 기능이 포함되어 있습니다.
 
@@ -39,10 +39,11 @@ subcollection: blockchain
 - **단순화된 DevOps**를 사용하면 더 많은 컴포넌트를 추가할 수 있도록 Kubernetes 자원을 스케일링하여 개발에서 테스트까지 단일 환경의 프로덕션으로 이동할 수 있습니다.
 - **최신 Fabric 주요 기능**. Hyperledger Fabric v1.4.1의 최신 기능을 활용합니다.
   -  [Raft 순서 지정 서비스](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - **{{site.data.keyword.cloud_notm}} 서비스 통합.** {{site.data.keyword.cloud_notm}} Kubernetes Service 대시보드, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA 및 {{site.data.keyword.cloud_notm}} Identity and Access Management(IAM)와 같은 기본 제공 {{site.data.keyword.cloud_notm}} 서비스를 활용합니다.
   - gossip 프로토콜을 통해 권한 부여된 피어만 원장 데이터를 공유할 수 있도록 하여 강화된 데이터 개인정보 보호를 제공하는 [**개인용 데이터** 콜렉션](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)
   - [서비스 발견](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} - 애플리케이션이 네트워크와 상호작용하는 방식을 동적으로 검색하고 업데이트할 수 있습니다.
   - [채널 액세스 제어 목록 ](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} - 채널 및 스마트 계약을 추가적으로 통제할 수 있습니다.
+- {{site.data.keyword.cloud_notm}} 서비스 통합. [{{site.data.keyword.cloud_notm}} Kubernetes Service 대시보드, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA 및 {{site.data.keyword.cloud_notm}} Identity and Access Management(IAM)와 같은 기본 제공 {{site.data.keyword.cloud_notm}} 서비스](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations)를 활용합니다.
+
 
 **조작 --- 종합적인 배치 제어**
 - **필요한 컴포넌트만 배치.**. 피어를 여러 채널 및 네트워크에 연결하거나 비즈니스 파트너가 연결할 수 있는 순서 지정 서비스를 호스팅합니다.
@@ -75,11 +76,12 @@ subcollection: blockchain
 - Kubernetes 클러스터의 리소스 사용량을 모니터링하는 것도 사용자의 책임입니다. Kubernetes 리소스를 모니터링하려면 [{{site.data.keyword.cloud_notm}} SysDig](https://www.ibm.com/cloud/sysdig){: external} 도구를 {{site.data.keyword.cloud_notm}} Kubernetes 대시보드와 함께 사용하는 것이 좋습니다. 스토리지 용량 또는 클러스터의 성능을 개선해야 하는 경우 [기존 볼륨 수정](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external} 방법에 대한 정보를 참조하십시오.
 - 인증서 및 개인 키에 대한 관리와 보안은 사용자의 책임입니다. {{site.data.keyword.IBM_notm}}은 사용자의 인증서를 Kubernetes 클러스터나 콘솔에 저장하지 않습니다. 사용자의 브라우저의 로컬 스토리지에만 저장됩니다. 브라우저를 전환하는 경우에는 작성된 ID를 해당 브라우저로 가져와야 합니다.
 - {{site.data.keyword.blockchainfull_notm}} Platform은 특정 지역에서만 사용할 수 있습니다. 업데이트된 목록은 [{{site.data.keyword.blockchainfull_notm}} Platform 위치](/docs/services/blockchain/howto?topic=blockchain-ibp-regions-locations)에 대한 주제를 참조하십시오.
-- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.IBM_notm}} Kubernetes 서비스를 사용하여 작성된 OpenShift 클러스터에 배치할 수 없습니다. 
+- {{site.data.keyword.blockchainfull_notm}} Platform은 {{site.data.keyword.IBM_notm}} Kubernetes 서비스를 사용하여 작성된 OpenShift 클러스터에 배치할 수 없습니다.
 - Kubernetes는 {{site.data.keyword.cloud_notm}} Kubernetes 클러스터 내에서 버전 1.11 또는 그 이상의 안정적인 버전이어야 합니다. 이러한 지시사항에 따라 [신규 및 기존 클러스터를 해당 버전으로 업그레이드](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes)하십시오.
 - {{site.data.keyword.cloud_notm}}에서 Kubernetes 클러스터를 프로비저닝할 때 사전 선택되는 기본 Bronze File 스토리지를 사용하지 않으려는 경우 원하는 스토리지를 프로비저닝할 수 있습니다. 자세히 알아보려면 [지속적 스토리지 고려사항](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)에 대한 주제를 참조하십시오.
 - {{site.data.keyword.cloud_notm}} 다중 구역 지원을 Kubernetes 클러스터에 포함시키려는 경우 사용자 고유의 스토리지를 프로비저닝해야 합니다. 자세한 내용은 [{{site.data.keyword.blockchainfull_notm}} Platform에서 다중 구역(MZR) 클러스터 사용](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)을 참조하십시오.
 - {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인스턴스를 {{site.data.keyword.cloud_notm}} Kubernetes 무료 클러스터에 링크하는 경우 30일 동안 무료로 {{site.data.keyword.blockchainfull_notm}} Platform을 미리 사용할 수 있습니다.  성능은 처리량, 스토리지 및 기능에 따라 제한됩니다. {{site.data.keyword.cloud_notm}}가 30일 후에 클러스터를 삭제하며 노드 또는 데이터를 무료 클러스터에서 유료 클러스터로 마이그레이션할 수 없습니다. 또한 {{site.data.keyword.blockchainfull_notm}} Platform 베타 평가판은 무료이지만 제한된 무료 클러스터 대신 유료 Kubernetes 클러스터를 선택하면 {{site.data.keyword.cloud_notm}} 계정에 Kubernetes 관련 비용이 발생합니다.
+- VRF(Virtual Routing and Forwarding)는 지원되지 않습니다. {site.data.keyword.blockchainfull_notm}} Platform 서비스는 서브넷 IP 블록 간 자동 글로벌 라우팅에 사용할 수 있는 계정과 호환되지 않습니다. 이와 유사하게, 사설 VLAN에 구성된 Kubernetes 클러스터도 지원되지 않습니다. 
 
 ## 마이그레이션
 {: #ibp-console-overview-migration}
@@ -96,7 +98,7 @@ subcollection: blockchain
 ## 시작하기
 {: #ibp-console-overview-deploy}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}를 배치하는 방법에 대한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 시작하기](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks)를 참조하십시오. 
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}를 배치하는 방법에 대한 정보는 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 시작하기](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks)를 참조하십시오.
 
 콘솔을 사용하여 노드 배치 및 컨소시엄 빌드를 시작하는 방법에 대한 자세한 정보는 [네트워크 빌드](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) 튜토리얼을 참조하십시오. 이 튜토리얼은 콘솔을 사용하여 세 개의 조직(하나의 순서 지정 조직, 두 개의 피어 조직) 및 두 개의 피어가 가입된 채널이 있는 샘플 네트워크를 작성하는 프로세스를 안내합니다. 이 샘플 네트워크를 사용하여 데모 또는 PoC(proof of concept)를 배치하거나 튜토리얼 내의 단계를 조정 및 확장하여 고유한 사용자 정의 블록체인 구성을 작성할 수 있습니다.
 

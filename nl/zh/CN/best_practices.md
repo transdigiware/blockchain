@@ -2,13 +2,15 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
+
+keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -17,44 +19,44 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Best practices for application development
+# 应用程序开发的最佳实践
 {: #best-practices-app}
 
-This guide is for users who have already learned the basics of application development and are ready to scale their solution. Follow these best practices to maximize the performance of your network, and avoid application downtime.
+本指南适用于已经学习了应用程序开发基础知识并准备好缩放其解决方案的用户。遵循这些最佳实践可最大限度地提高网络性能，并避免应用程序产生停机时间。
 {:shortdesc}
 
-## Application connectivity and availability
+## 应用程序连接和可用性
 {: #best-practices-app-connectivity-availability}
 
-The Hyperledger Fabric [Transaction Flow ![External link icon](images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html "Transaction Flow"){:new_window} spans multiple components, with the client applications playing a unique role. The SDK submits transaction proposals to the peers for endorsement. It then collects the endorsed proposals to be sent to the ordering service, which then sends blocks of transactions to the peers to be added to channel ledgers. Developers of production applications should be prepared to manage their interactions between the SDK and their networks for efficiency and availability.
+Hyperledger Fabric [事务处理流程](https://hyperledger-fabric.readthedocs.io/en/release-1.4/txflow.html){: external}跨多个组件，其中客户机应用程序扮演唯一角色。SDK 会将事务建议提交给同级进行背书。然后，SDK 会收集已背书建议以发送给排序服务，然后将事务区块发送给同级以添加到通道分类帐。生产应用程序的开发者应该做好准备来管理 SDK 与其网络之间的交互，以实现效率和可用性。
 
-### Managing transactions
+### 管理事务
 {: #best-practices-app-managing-transactions}
 
-Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
+应用程序客户机必须确保验证其事务处理建议，并确保建议成功完成。建议可能会由于多种原因（例如，网络中断或组件故障）而延迟或丢失。对应用程序编码时应实现[高可用性](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)，以便处理组件故障。此外，还可以在应用程序中[增大超时值](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk)，以防止建议在网络可以响应之前超时。
 
-If a chaincode is not running, the first transaction proposal that is sent to this chaincode starts the chaincode. While the chaincode is starting, all other proposals are rejected with an error that indicates that the chaincode is currently starting. This is different from transaction invalidation. If any proposal is rejected while the chaincode is starting, application clients need to resend the rejected proposals after the chaincode starts. Application clients can use a message queue to avoid losing transaction proposals.
+如果链代码未运行，那么发送到此链代码的第一个事务处理建议将启动链代码。链代码正在启动时，将拒绝其他所有建议，并返回指示链代码当前正在启动的错误。这不同于事务失效。如果在启动链代码期间拒绝了任何建议，那么应用程序客户机需要在链代码启动后重新发送被拒绝的建议。应用程序客户机可以使用消息队列来避免丢失事务建议。
 
-You can use a channel-based event service to monitor transactions and build message queues. The [channelEventHub ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/ChannelEventHub.html "channelEventHub"){:new_window} class can register listeners based on transaction, block, and chaincode events. Channel-based listeners from the channel eventhub can scale to multiple channels and distinguish between traffic on different channels.
+可以使用基于通道的事件服务来监视事务并构建消息队列。[channelEventHub](https://fabric-sdk-node.github.io/ChannelEventHub.html){: external} 类可以根据事务、区块和链代码事件来注册侦听器。来自通道 eventhub 的基于通道的侦听器可以缩放到多个通道，并区分不同通道上的流量。
 
-It is recommended that you use the channelEventHub rather than the old EventHub class. EventHub is single threaded and contains events from all channels that could slow down or even hang listeners across channels. The eventHub class also provides no guarantee that an event will be delivered, and provides no way of retrieving events from a certain point, such as a block number, to track events that were missed.
+建议您使用 channelEventHub，而不是旧的 EventHub 类。eventHub 采用单个线程，包含所有通道的事件，可以减缓甚至挂起各通道中的侦听器。eventHub 类也不保证会传递事件，不提供从特定点（例如块号）检索事件以跟踪缺失事件的方式。
 
-**Note:** The peer EventHub class will be deprecated in a future release of the Fabric SDK. If you have existing applications that use the peer EventHub class, update your applications to use the channel EventHub class instead. For more information, see [How to use the channel-based event service ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "How to use the channel-based event service"){:new_window} in the Node SDK Documentation.
+**注：**在未来的 Fabric SDK 发行版中，不推荐使用同级 EventHub 类。如果您的现有应用程序使用同级 EventHub，请更新应用程序以改为使用通道 EventHub 类。有关更多信息，请参阅 Node SDK 文档中的 [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}。
 
-### Opening and closing network connections
+### 打开和关闭网络连接
 {: #best-practices-app-connections}
 
-When you create peer and orderer objects with the SDK before submitting transaction proposals, you are opening a gRPC connection between your application and the network component. For example, the following command opens a connection to `org1-peer1`. This connection continues to be active while your application is running.
+在提交事务建议之前使用 SDK 创建同级和排序节点对象时，您将打开应用程序和网络组件之间的 gRPC 连接。例如，以下命令打开与 `org1-peer1` 的连接。应用程序正在运行时，此连接继续保持活动状态。
 
 ```
 var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null});
 ```
 {:codeblock}
 
-When you manage the connections between your application and your network, you might consider the following recommendations.
+管理应用程序和网络之间的连接时，您可能考虑以下建议。
 
-- Reuse peer and orderer objects when you interact with your network, instead of opening new connections to submit transactions. Reusing peer and orderer objects can save resources and lead to better performance.  
-- To maintain a persistent connection to your network components, use [gRPC keepalives ![External link icon](images/external_link.svg "External link icon")](https://github.com/grpc/grpc/blob/master/doc/keepalive.md "gRPC Keepalives"). Keepalives keep the gRPC connection active and prevent an "unused" connection from being closed. The following example of peer connection adds gRPC options to the [Connection Options ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/global.html#ConnectionOpts "Connection") object. The gRPC options are set to values that {{site.data.keyword.blockchainfull_notm}} Platform recommends.  
+- 与网络交互时，请复用同级和排序节点对象，而不是打开新连接来提交事务。复用同级和排序节点对象可以节省资源并提高性能。  
+- 要维护与网络组件的持续连接，请使用 [gRPC 保持活动](https://github.com/grpc/grpc/blob/master/doc/keepalive.md){: external}。保持活动让 gRPC 连接保持活动状态，并阻止关闭“未使用的”连接。以下同级连接示例将 gRPC 选项添加到 [ConnectionOpts](https://fabric-sdk-node.github.io/global.html#ConnectionOpts){: external} 对象。gRPC 选项设置为 {{site.data.keyword.blockchainfull_notm}}Platform 建议的值。  
   ```
   var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null},
   "grpcOptions": {
@@ -68,34 +70,34 @@ When you manage the connections between your application and your network, you m
   ```
   {:codeblock}
 
-  You can also find these variables with the recommended settings in the `"peers"` section of your network connection profile. The recommended options will be imported into your application automatically if you use the [connection profile with the SDK](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile) to connect to your network endpoints.
+  您还可以在网络连接概要文件的 `"peers"` 部分中找到带有所建议设置的这些变量。如果通过 SDK 使用连接概要文件连接到网络端点，那么建议的选项将自动导入到应用程序中。您可以在 [Node SDK 文档](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}中找到有关如何使用连接概要文件的更多信息。
 
-- When a connection is no longer needed, use the `peer.close()` and `orderer.close()` commands to free up resources and prevent performance degradation. For more information, see the [peer close ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/Peer.html#close__anchor "peer close") and [orderer close![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/Orderer.html#close__anchor "orderer close") classes in the Node SDK documentation. If you used a connection profile to add peers and orderers to a channel object, you can close all connections that are assigned to that channel by using a `channel.close()` command.
+- 不再需要连接时，请使用 `peer.close()` 和 `order.close()` 命令来释放资源并防止性能下降。有关更多信息，请参阅 Node SDK 文档中的 [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} 和 [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} 类。如果您已使用连接概要文件将同级和排序节点添加到通道对象，那么可以使用 `channel.close()` 命令来关闭分配给该通道的所有连接。
 
-### Highly available applications
+### 高可用性应用程序
 {: #best-practices-app-ha-app}
 
-As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well. Install chaincode on both peers and add them to your channels. Then be prepared to submit transaction proposals to both peer endpoints when setting up your network and building your peer target list. Enterprise Plan networks have multiple orderers for failover, which allows your client application to send endorsed transactions to a different orderer if one orderer is not available. If you use your [connection profile](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) instead to add network endpoints manually, ensure that your profile is up to date and that the additional peers and orderers have been added to the relevant channel in the `channels` section of the profile. The SDK can then add the components that are joined on the channel by using the connection profile.
+作为高可用性最佳实践，强烈建议您每个组织至少部署两个同级以实现故障转移。您还需要调整应用程序以获得高可用性。在两个同级上安装链代码，并将这两个同级添加到通道。然后，在设置网络并构建同级目标列表时，请准备好向这两个同级端点提交事务建议。企业套餐网络有多个排序节点以用于故障转移，允许您的客户机应用程序在一个排序节点不可用时将背书的事务发送到其他排序节点。如果改为使用连接概要文件来手动添加网络端点，请确保概要文件是最新的，并且其他同级和排序节点已添加到概要文件的 `channels` 部分中的相关通道。然后，SDK 可以使用连接概要文件添加通道上加入的组件。
 
-## Enabling mutual TLS
+## 启用双向 TLS
 {: #best-practices-app-mutual-tls}
 
-If you are running Enterprise Plan networks that is at Fabric V1.1 level, you have the option of [enabling mutual TLS](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) for your applications. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications cannot communicate with your network.
+如果运行的是 Fabric V1.1 级别的企业套餐网络，那么可以选择为应用程序[启用双向 TLS](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)。如果启用双向 TLS，那么需要更新应用程序以支持此功能。否则，应用程序无法与网络通信。
 
-In the Connection Profile, locate the `certificateAuthorities` section where you can find the following attributes that are necessary to enroll and get the certificates to communicate with your network by using mutual TLS.
+在连接概要文件中，找到 `certificateAuthorities` 部分，您可在其中找到注册以及获取证书以使用双向 TLS 与网络进行通信所需的以下属性。
 
-- `url`: URL for connecting to the CA that can give out mutual TLS certificates
-- `enrollId`: Enroll ID to use for getting a certificate
-- `enrollSecret`: Enroll secret to use for getting a certificate
-- `x-tlsCAName`: CA name to use for getting certificate that allows the application to communicate with Mutual TLS.
+- `url`：用于连接到可提供双向 TLS 证书的 CA 的 URL
+- `enrollId`：用于获取证书的注册标识
+- `enrollSecret`：用于获取证书的注册密钥
+- `x-tlsCAName`：用于获取将允许应用程序使用双向 TLS 进行通信的证书的 CA 名称。
 
-For more information about updating your applications to support mutual TLS, see [How to configure mutual TLS ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html "mutual tls"){:new_window}.
+有关更新应用程序以支持双向 TLS 的更多信息，请参阅 [How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}。
 
 
-## (Optional) Setting timeout values in Fabric SDKs
+## （可选）在 Fabric SDK 中设置超时值
 {: #best-practices-app-set-timeout-in-sdk}
 
-Fabric SDKs set default timeout values in client applications for events in the blockchain network. See the following example about default timeout settings in Fabric Java SDK. The file path is `src\main\java\org\hyperledger\fabric\sdk\helper\Config.java`.
+Fabric SDK 针对区块链网络中的事件在客户机应用程序中设置缺省超时值。请参阅以下有关 Fabric Java SDK 中缺省超时设置的示例。文件路径为 `src\main\java\org\hyperledger\fabric\sdk\helper\Config.java`。
 
 ```
     /**
@@ -135,7 +137,7 @@ Fabric SDKs set default timeout values in client applications for events in the 
 ```
 {:codeblock}
 
-However, you might need to change the default timeout values in your own application. For example, when your application invokes a transaction that needs more than 5000 ms, which is the default timeout value for event hub connection to respond, you might get a failing error because the invoke event ends at 5000 ms before the transaction completes. You can set the system property to overwrite the default values from your client application. Because the default values are initialized before you set the system property, the system property might not take effect. Therefore, you need to set the system property for timeout in a static construct in your client application. See the following example on changing timeout value for event hub connection to 15000 ms in Fabric Java SDK. The file path is `src\main\java\org\hyperledger\fabric\sdk\helper\Config.java`.
+但是，您可能需要更改自己应用程序中的缺省超时值。例如，在应用程序调用响应所需时间超过 5000 毫秒（Event Hub 连接的缺省超时值）的事务时，可能会收到失败错误，因为调用事件在 5000 毫秒时结束，而此时事务未完成。您可以设置系统属性以覆盖客户机应用程序的缺省值。因为在设置系统属性前初始化缺省值，所以系统属性可能不会生效。因此，需要在客户机应用程序的静态结构中设置超时系统属性。请参阅以下示例，以了解如何将 Fabric Java SDK 中 Event Hub 连接的超时值更改为 15000 毫秒。文件路径为 `src\main\java\org\hyperledger\fabric\sdk\helper\Config.java`。
 
 ```
  public static final String EVENTHUB_CONNECTION_WAIT_TIME = "org.hyperledger.fabric.sdk.eventhub_connection.wait_time";
@@ -147,29 +149,29 @@ However, you might need to change the default timeout values in your own applica
 ```
 {:codeblock}
 
-If you are using the Node SDK, you can specify the timeout values directly in the method called. As an example, you would use the line below to increase the timeout value for [instantiating a chaincode ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal "sendInstantiateProposal") to 5 minutes.
+如果使用的是 Node SDK，那么可以直接在调用的方法中指定超时值。例如，可以使用下面的一行将[实例化链代码](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}的超时值增加到 5 分钟。
 ```
 channel.sendInstantiateProposal(request, 300000);
 ```
 {:codeblock}
 
-## Best practices when using CouchDB
+## 使用 CouchDB 时的最佳实践
 {: #best-practices-app-couchdb-indices}
 
-If you use CouchDB as your state database, you can perform JSON data queries from your chaincode against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your chaincode. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state.
+如果将 CouchDB 用作状态数据库，那么可以根据通道的状态数据，从链代码执行 JSON 数据查询。强烈建议您为 JSON 查询创建索引，并在链代码中使用这些索引。索引允许应用程序在网络添加更多全局状态的事务和条目区块时高效地检索数据。
 
-For more information about CouchDB and how to set up indexes, see [CouchDB as the State Database ![External link icon](images/external_link.svg "External link icon")](http://hyperledger-fabric.readthedocs.io/en/release-1.1/couchdb_as_state_database.html "CouchDB as the State Database"){:new_window} in the Hyperledger Fabric documentation. You can also find an example that uses an index with chaincode in the [Fabric CouchDB tutorial ![External link icon](images/external_link.svg "External link icon")](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html).
+有关 CouchDB 以及如何设置索引的更多信息，请参阅 Hyperledger Fabric 文档中的 [CouchDB 作为状态数据库](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external}。您还可以在 [Fabric CouchDB 教程](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}中找到将索引与链代码配合使用的示例。
 
-Avoid using chaincode for queries that will result in a scan of the entire CouchDB database. Full length database scans will result in long response times and will degrade the performance of your network. You can take some of the following steps to avoid and manage large queries:
-- Set up indexes with your chaincode.
-- All fields in the index must also be in the selector or sort sections of your query for the index to be used.
-- More complex queries will have a lower performance and will be less likely to use an index.
-- You should try to avoid operators that will result in a full table scan or a full index scan, such as `$or`, `$in` and `$regex`.
+避免对将导致扫描整个 CouchDB 数据库的查询使用链代码。全面的数据库扫描将导致很长的响应时间，并且会降低网络的性能。您可以执行以下某些步骤来避免和管理大型查询：
+- 使用链代码设置索引。
+- 索引中的所有字段还必须位于查询的选择器或排序部分，才能使用索引。
+- 查询越复杂，查询性能越低，使用索引的可能性越小。
+- 应该设法避免将导致全表扫描或全索引扫描的运算符，例如 `$or`、`$in` 和 `$regex`。
 
-You can find examples that demonstrate how queries use indexes and what type of queries will have the best performance in the [Fabric CouchDB tutorial ![External link icon](https://hyperledger-fabric.readthedocs.io/en/release-1.2/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes).
+在 [Fabric CouchDB 教程](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}中可以找到演示查询如何使用索引以及哪种类型的查询具有最佳性能的示例。
 
-Peers on the {{site.data.keyword.blockchainfull_notm}} Platform have a set queryLimit, and will only return 10,000 entries from the state database. If your query hits the queryLimit, you can use multiple queries to get the remaining results. If you need more results from a range query, start subsequent queries with the last key returned by the previous query. If you need more results from JSON queries, sort your query using one of the variables in your data, then use the last value from the previous query in a 'greater than' filter for the next query.
+{{site.data.keyword.blockchainfull_notm}} Platform 上的同级设置有 queryLimit，因此将仅从状态数据库返回 10,000 个条目。如果查询达到 queryLimit，您可以使用多个查询来获取剩余的结果。如果需要来自某个范围查询的更多结果，请使用上一个查询返回的最后一个键来启动后续查询。如果需要来自 JSON 查询的更多结果，请使用数据中的其中一个变量对查询进行排序，然后在“大于”过滤器中将上一个查询中的最后一个值用于下一个查询。
 
-Do not query the entire database for the purpose of aggregation or reporting. If you want to build a dashboard or collect large amounts of data as part of your application, you can query an off chain database that replicates the data from your blockchain network. This will allow you to understand the data on the blockchain without degrading the performance of your network or disrupting transactions.
+不要为了汇总或报告目的而查询整个数据库。如果要构建仪表板或收集大量数据以作为应用程序的一部分，那么可以查询从区块链网络复制数据的链外数据库。这将允许您了解区块链上的数据，而不会降低网络性能或中断事务。
 
-You can use the channel-based event services client provided by the Fabric SDKs to build an off chain data store. For example, you can use a block listener to get the latest transactions being added to a channel ledger. The transaction read and write sets from the valid transactions can then be used to update a copy of the world state that has been stored in a separate database. For more information, see [How to use the channel-based event service ![External link icon](images/external_link.svg "External link icon")](https://fabric-sdk-node.github.io/tutorial-channel-events.html "How to use the channel-based event service"){:new_window} in the Node SDK documentation.
+可以使用 Fabric SDK 提供的基于通道的事件服务客户机来构建链外数据存储。例如，您可以使用块侦听器获取添加到通道分类帐的最新事务。然后，可以使用来自有效事务处理的事务读集和写集来更新已存储在单独数据库中的全局状态的副本。有关更多信息，请参阅 Node SDK 文档中的 [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external}。

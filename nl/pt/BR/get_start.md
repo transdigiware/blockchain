@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -19,9 +19,6 @@ subcollection: blockchain
 
 # Introdução ao Plano Corporativo
 {: #getting-started-with-enterprise-plan}
-
-<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note}-->
 
 O {{site.data.keyword.blockchainfull}} Platform Enterprise Plan fornece uma rede de blockchain com alta segurança, integridade, escalabilidade e desempenho. É possível provisionar rapidamente uma rede totalmente funcional e usar o Monitor de rede, que é um painel da GUI, para executar imediatamente o [chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode) e aplicativos sem a necessidade de projetar e configurar uma rede do zero.
 {:shortdesc}

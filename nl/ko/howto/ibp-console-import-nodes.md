@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,9 +55,10 @@ subcollection: blockchain
 
 - 스타터 플랜 또는 엔터프라이즈 플랜 네트워크에서는 노드를 가져올 수 없습니다.
 - 가져올 모든 노드는 {{site.data.keyword.blockchainfull_notm}} Platform 콘솔을 사용하여 배치해야 합니다.
-- 콘솔로 가져온 노드는 패치할 수 없습니다. 
-- 배치된 클러스터에서 콘솔에 가져온 노드를 삭제할 수 없습니다. 콘솔에서만 노드를 제거할 수 있습니다. 
-- {{site.data.keyword.cloud_notm}} Private에 배치된 노드를 가져오는 경우, 컴포넌트에서 사용되는 gRPC 웹 프록시 포트가 외부적으로 콘솔에 노출되었는지 확인해야 합니다. 자세한 정보는 [{{site.data.keyword.cloud_notm}} Private에서 노드 가져오기](#ibp-console-import-icp)를 참조하십시오. 
+- 콘솔로 가져온 노드는 패치할 수 없습니다.
+- 배치된 클러스터에서 콘솔에 가져온 노드를 삭제할 수 없습니다. 콘솔에서만 노드를 제거할 수 있습니다.
+- {{site.data.keyword.cloud_notm}} Private에 배치된 노드를 가져오는 경우, 컴포넌트에서 사용되는 gRPC 웹 프록시 포트가 외부적으로 콘솔에 노출되었는지 확인해야 합니다. 자세한 정보는 [{{site.data.keyword.cloud_notm}} Private에서 노드 가져오기](#ibp-console-import-icp)를 참조하십시오.
+- 가져온 노드의 타일을 열면 Fabric 버전이 표시되지 않고 **사용량 및 정보** 탭이 사용 불가능합니다. 
 
 ## 여기에서 시작: 인증서 또는 인증 정보 수집
 {: #ibp-console-import-start-here}
@@ -175,12 +176,12 @@ MSP가 다른 {{site.data.keyword.blockchainfull_notm}} Platform 서비스 인�
 - **MSP 정의 가져오기**를 클릭하여 JSON 파일을 업로드하십시오.
 - (선택사항) MSP 관리자 ID를 지갑으로 가져온 경우 `MSP 정의에 대한 관리자 ID 있음` 선택란을 선택하십시오. 이 옵션을 선택하지 않으면 나중에 피어 또는 순서 지정 서비스를 작성하려고 할 때 이 조직의 MSP 정의가 MSP 드롭 다운 목록에 나열되지 않습니다.
 
-## {{site.data.keyword.cloud_notm}} Private에서 노드 가져오기 
+## {{site.data.keyword.cloud_notm}} Private에서 노드 가져오기
 {: #ibp-console-import-icp}
 
-{{site.data.keyword.cloud_notm}} Private에 작성된 노드를 다른 {{site.data.keyword.cloud_notm}} Private 클러스터 또는 {{site.data.keyword.cloud_notm}}에 배치된 콘솔로 가져올 수 있습니다. 그러나 노드의 gRPC URL에서 사용된 포트가 클러스터 외부에서 노출되었는지 확인해야 합니다. 방화벽 뒤에 {{site.data.keyword.cloud_notm}} Private를 배치하는 경우, 노드와 통신하도록 클러스터 외부의 콘솔을 허용하려면 화이트리스트를 사용하여 패스스루를 사용으로 설정해야 합니다. 
+{{site.data.keyword.cloud_notm}} Private에 작성된 노드를 다른 {{site.data.keyword.cloud_notm}} Private 클러스터 또는 {{site.data.keyword.cloud_notm}}에 배치된 콘솔로 가져올 수 있습니다. 그러나 노드의 gRPC URL에서 사용된 포트가 클러스터 외부에서 노출되었는지 확인해야 합니다. 방화벽 뒤에 {{site.data.keyword.cloud_notm}} Private를 배치하는 경우, 노드와 통신하도록 클러스터 외부의 콘솔을 허용하려면 화이트리스트를 사용하여 패스스루를 사용으로 설정해야 합니다.
 
-예를 들어 아래의 {{site.data.keyword.cloud_notm}} Private에서 내보낸 피어의 JSON 파일을 찾을 수 있습니다. 다른 콘솔에서 피어와 통신하려면 `grpcwp_url` 포트(이 예에서는 포트 32403)가 외부 트래픽에 열려 있는지 확인해야 합니다. 
+예를 들어 아래의 {{site.data.keyword.cloud_notm}} Private에서 내보낸 피어의 JSON 파일을 찾을 수 있습니다. 다른 콘솔에서 피어와 통신하려면 `grpcwp_url` 포트(이 예에서는 포트 32403)가 외부 트래픽에 열려 있는지 확인해야 합니다.
 
 ```
 {

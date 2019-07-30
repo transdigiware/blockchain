@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -53,8 +53,9 @@ subcollection: blockchain
 - スターター・プラン・ネットワークおよびエンタープライズ・プラン・ネットワークからノードをインポートすることはできません。
 - インポートするノードはすべて、{{site.data.keyword.blockchainfull_notm}} Platform コンソールを使用してデプロイされたものでなければなりません。
 - コンソールにインポートしたノードにパッチを適用することはできません。
-- コンソールにインポートしたノードを、それらがデプロイされたクラスターから削除することはできません。ノードは、コンソールからのみ削除できます。
-- {{site.data.keyword.cloud_notm}} Private にデプロイされたノードをインポートする場合は、コンポーネントが使用する gRPC Web プロキシー・ポートが、コンソールに外部から公開されるようにする必要があります。詳しくは、[{{site.data.keyword.cloud_notm}} Private からのノードのインポート](#ibp-console-import-icp)を参照してください。
+- コンソールにインポートしたノードを、それらがデプロイされたクラスターから削除することはできません。 ノードは、コンソールからのみ削除できます。
+- {{site.data.keyword.cloud_notm}} Private にデプロイされたノードをインポートする場合は、コンポーネントが使用する gRPC Web プロキシー・ポートが、コンソールに外部から公開されるようにする必要があります。 詳しくは、[{{site.data.keyword.cloud_notm}} Private からのノードのインポート](#ibp-console-import-icp)を参照してください。
+- インポートされたノードのタイルを開いても、Fabric バージョンは表示されず、**「使用状況と情報 (Usage and info)」**タブも使用できません。
 
 ## 開始: 証明書または資格情報の収集
 {: #ibp-console-import-start-here}
@@ -162,9 +163,9 @@ CA をコンソールにインポートしたら、その CA を使用して、�
 ## {{site.data.keyword.cloud_notm}} Private からのノードのインポート
 {: #ibp-console-import-icp}
 
-{{site.data.keyword.cloud_notm}} Private で作成されたノードを、他の {{site.data.keyword.cloud_notm}} Private クラスターまたは {{site.data.keyword.cloud_notm}} にデプロイされたコンソールにインポートできます。ただし、ノードの gRPC URL で使用されるポートが、クラスターの外部から公開されるようにする必要があります。{{site.data.keyword.cloud_notm}} Private をファイアウォールの内側にデプロイする場合は、ホワイト・リストなどを使用してパススルーを有効にし、クラスター外部のコンソールがノードと通信できるようにする必要があります。
+{{site.data.keyword.cloud_notm}} Private で作成されたノードを、他の {{site.data.keyword.cloud_notm}} Private クラスターまたは {{site.data.keyword.cloud_notm}} にデプロイされたコンソールにインポートできます。 ただし、ノードの gRPC URL で使用されるポートが、クラスターの外部から公開されるようにする必要があります。 {{site.data.keyword.cloud_notm}} Private をファイアウォールの内側にデプロイする場合は、ホワイト・リストなどを使用してパススルーを有効にし、クラスター外部のコンソールがノードと通信できるようにする必要があります。
 
-例えば、以下の {{site.data.keyword.cloud_notm}} Private からエクスポートされたピアの JSON ファイルを見つけることができます。別のコンソールからピアと通信するには、`grpcwp_url` ポート (この例ではポート 32403) が外部トラフィックに対して開いた状態にする必要があります。
+例えば、以下の {{site.data.keyword.cloud_notm}} Private からエクスポートされたピアの JSON ファイルを見つけることができます。 別のコンソールからピアと通信するには、`grpcwp_url` ポート (この例ではポート 32403) が外部トラフィックに対して開いた状態にする必要があります。
 
 ```
 {
