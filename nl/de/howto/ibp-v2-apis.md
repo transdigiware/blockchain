@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -11,7 +11,7 @@ subcollection: blockchain
 ---
 
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,9 +28,9 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform stellt REST-konforme APIs bereit, mit denen Sie Blockchain-Komponenten erstellen, importieren, bearbeiten und löschen sowie die Protokollierung, das Senden von Benachrichtigungen und die Konsoleneinstellungen verwalten können. Sie können die APIs sowie die entsprechenden SDKs verwenden, um Anwendungen zu entwickeln, die mit Ihrem Blockchain-Netz interagieren.
 {: shortdesc}
 
-Im vorliegenden Lernprogramm erhalten Sie eine Einführung zum allgemeinen Ablauf bei der Erstellung eines Blockchain-Netzes mit den APIs von {{site.data.keyword.blockchainfull_notm}} Platform. Weiterführende Informationen zu den verschiedenen APIs finden Sie im [{{site.data.keyword.blockchainfull_notm}} Platform-API-Referenzdokument ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/apidocs/blockchain "{{site.data.keyword.blockchainfull_notm}} Platform-API-Referenzdokument"){: new_window}.
+Im vorliegenden Lernprogramm erhalten Sie eine Einführung zum allgemeinen Ablauf bei der Erstellung eines Blockchain-Netzes mit den APIs von {{site.data.keyword.blockchainfull_notm}} Platform. Weitere Informationen zu jeder API finden Sie im [{{site.data.keyword.blockchainfull_notm}} Platform-API-Referenzdokument](/apidocs/blockchain){: external}.
 
-Diese APIs sind nur mit {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} v0.1.77 oder einer höheren Version des Produkts kompatibel. Um die Version zu überprüfen, rufen Sie die Adresse `https://[your_console_url]/version.txt` auf. Hierbei steht *`[your_console_url]`* für die URL Ihrer {{site.data.keyword.blockchainfull_notm}} Platform-Konsole. Beispiel: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt
+Diese APIs sind nur mit {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} v0.1.77 oder höher kompatibel. Um die Version zu überprüfen, rufen Sie die Adresse `https://[your_console_url]/version.txt` auf. Hierbei steht *`[your_console_url]`* für die URL Ihrer {{site.data.keyword.blockchainfull_notm}} Platform-Konsole. Beispiel: https://1ee1869ffa6496d6bc1ce4b-optools.bp01.blockchain.cloud.ibm.com/version.txt
 {:note}
 
 ## Vorbemerkungen
@@ -48,11 +48,11 @@ Um die APIs für den Zugriff auf das Blockchain-Netz zu verwenden, das Sie mit {
 
 Sie benötigen die Berechtigungsnachweise für die Basisauthentifizierung, um sicherzustellen, dass Sie auf Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz unter {{site.data.keyword.cloud_notm}} zugreifen können.
 
-1. Öffnen Sie in der [{{site.data.keyword.cloud_notm}}-Ressourcenliste ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/resources) die Blockchain-Serviceinstanz, die Sie erstellt haben.
+1. Öffnen Sie in der [{{site.data.keyword.cloud_notm}}-Ressourcenliste](https://cloud.ibm.com/resources){: external} die Blockchain-Serviceinstanz, die Sie erstellt haben.
 2. Klicken Sie auf **Serviceberechtigungsnachweise** im linken Navigator.
-3. Klicken Sie auf die Schaltfläche "Neuer Berechtigungsnachweis" auf der Seite **Serviceberechtigungsnachweise**, um einen neuen Berechtigungsnachweis zu erstellen.
+3. Klicken Sie auf die Schaltfläche **Neuer Berechtigungsnachweis** auf der Seite **Serviceberechtigungsnachweise**, um einen neuen Berechtigungsnachweis zu erstellen.
   1. Legen Sie einen Namen für den Berechtigungsnachweis fest, z. B. *UseAPIs*.
-  2. Das Feld "Inline-Konfigurationsparameter hinzufügen" muss nicht ausgefüllt werden. 
+  2. Das Feld **Inline-Konfigurationsparameter hinzufügen** muss nicht ausgefüllt werden.
   3. Klicken Sie auf die Schaltfläche **Hinzufügen**.
 4. Klicken Sie nach dem Erstellen des neuen Berechtigungsnachweises auf **Berechtigungsnachweise anzeigen** unter der Überschrift **Aktionen** dieses Berechtigungsnachweises. Der Inhalt des Berechtigungsnachweises sieht in etwa wie das folgende Beispiel aus:
 
@@ -119,14 +119,14 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-Für jede API werden in der [{{site.data.keyword.blockchainfull_notm}} Platform-API-Referenzdokumentation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/apidocs/blockchain "{{site.data.keyword.blockchainfull_notm}} Platform-API-Referenzdokumentation") Beispiele für curl-Befehle aufgeführt.
+Für jede API werden in der [{{site.data.keyword.blockchainfull_notm}} Platform-API-Referenzdokumentation](/apidocs/blockchain){: external} Beispiele für curl-Befehle aufgeführt.
 
 Des Weiteren können Sie die Funktion für das **Ausprobieren** in der API-Referenzdokumentation verwenden, um Ihre API-Aufrufe zu testen, bevor Sie sie zu Ihren Anwendungen hinzufügen. Sie müssen bei {{site.data.keyword.cloud_notm}} angemeldet sein, um die Funktion für das **Ausprobieren** zu benutzen. Sie können eine beliebige Serviceinstanz in der Dropdown-Liste auswählen. Alle API-Anforderungen werden an das Netz gesendet, das im API-Endpunkt angegeben ist.
 
 ## Einschränkungen
 {: #ibp-v2-apis-limitations}
 
-Sie können nur bereits vorhandene Knoten für Zertifizierungsstellen, Peers und Anordnungsknoten aus anderen {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}-Netzen importieren.
+Sie können nur bereits vorhandene CA-, Peer- und Anordnungsknoten aus anderen {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}-Netzen importieren.
 
 ## Netz mit APIs erstellen
 {: #ibp-v2-apis-build-with-apis}
@@ -148,13 +148,13 @@ Sie können APIs verwenden, um Blockchain-Komponenten in Ihrer {{site.data.keywo
   - Außerdem müssen Sie einen [Organisationsadministrator registrieren](#ibp-v2-apis-config-register-admin) und anschließend in einem MSP-Ordner [Zertifikate für den Administrator generieren](#ibp-v2-apis-config-enroll-admin). Wenn Sie Ihre Administratoridentität bereits registriert haben, müssen Sie diesen Schritt nicht ausführen.
   - [Registrieren Sie die neue Komponente bei Ihrer TLS-Zertifizierungsstelle](#ibp-v2-apis-config-register-component-tls).
 
-  Sie können diese Schritte auch über die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole ausführen. Weitere Informationen hierzu finden Sie im Abschnitt zum [Erstellen und Verwalten von Identitäten](/docs/services/blockchain/howto/ibp-console-identities.html).
+  Sie können diese Schritte auch über die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole ausführen. Weitere Informationen hierzu finden Sie im Abschnitt zum [Erstellen und Verwalten von Identitäten](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities).
 
 3. [Erstellen Sie eine MSP-Definition für Ihre Organisation](#ibp-v2-apis-msp), indem Sie [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp) aufrufen.
 
-4. [Erstellen Sie die Konfigurationsdatei](#ibp-v2-apis-config), die zum Erstellen eines Anordnungsknotens oder Peers erforderlich ist. Sie müssen für jeden Anordnungsknoten oder Peer, den Sie erstellen wollen, eine individuelle Konfigurationsdatei erstellen.
+4. [Erstellen Sie die Konfigurationsdatei](#ibp-v2-apis-config), die zum Erstellen eines Anordnungsservice oder Peers erforderlich ist. Sie müssen für jeden Anordnungsservice oder Peer, den Sie erstellen möchten, eine eindeutige Konfigurationsdatei erstellen. Wenn Sie mehrere Anordnungsknoten bereitstellen, müssen Sie eine Konfigurationsdatei für jeden Knoten bereitsellen, den Sie erstellen möchten.
 
-5. Erstellen Sie einen Anordnungsknoten, indem Sie [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer) aufrufen.
+5. Erstellen Sie einen Anordnungsservice, indem Sie [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service) aufrufen.
 
 6. Erstellen Sie einen Peer, indem Sie [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer) aufrufen.
 
@@ -168,7 +168,7 @@ Die Serviceberechtigungsnachweise, die für die API-Authentifizierung verwendet 
 ## Netz mit APIs importieren
 {: #ibp-v2-apis-import-with-apis}
 
-Die APIs können auch zum Importieren von {{site.data.keyword.blockchainfull_notm}}-Komponenten, die mit den APIs oder über die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole erstellt wurden, in eine andere Serviceinstanz von {{site.data.keyword.blockchainfull_notm}} Platform 2.0 verwendet werden.
+Sie können auch die APIs verwenden, um {{site.data.keyword.blockchainfull_notm}}-Komponenten zu importieren, die mithilfe der APIs erstellt wurden, oder die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole in einer anderen Serviceinstanz von {{site.data.keyword.blockchainfull_notm}} Platform.
 
 1. Importieren Sie eine Zertifizierungsstelle, indem Sie [`POST /ak/api/v1/components/ca`](/apidocs/blockchain?code=try#import-a-ca) aufrufen.
 
@@ -179,7 +179,7 @@ Die APIs können auch zum Importieren von {{site.data.keyword.blockchainfull_not
 
 2. Importieren Sie die MSP-Definition einer Organisation, indem Sie [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp) aufrufen.
 
-3. Importieren Sie einen Anordnungsknoten, indem Sie [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer) aufrufen.
+3. Importieren Sie einen Anordnungsservice, indem Sie [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service) aufrufen.
 
 4. Importieren Sie einen Peer, indem Sie [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer) aufrufen.
 
@@ -198,9 +198,9 @@ Zum Betrieb Ihrer Zertifizierungsstellen können Sie den Fabric-CA-Client verwen
 ### Fabric-CA-Client einrichten
 {: #ibp-v2-apis-setup-fabric-ca-client}
 
-1. Laden Sie den [Fabric-CA-Client ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client "Fabric-CA-Client herunterladen") in Ihr lokales Dateisystem herunter.
+1. Laden Sie den [Fabric-CA-Client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external} in Ihr lokales Dateisystem herunter.
 
-  Am einfachsten erhalten Sie den Fabric-CA-Client, indem Sie alle Binärdateien für die Fabric-Tools direkt herunterladen. Navigieren Sie zu einem Verzeichnis, in das Sie die Binärdateien mithilfe der Befehlszeile herunterladen wollen, und rufen Sie die Dateien durch die Ausführung des folgenden [curl-Befehls ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl "Curl") ab.
+  Am einfachsten erhalten Sie den Fabric-CA-Client, indem Sie alle Binärdateien für die Fabric-Tools direkt herunterladen. Navigieren Sie zu einem Verzeichnis, in das Sie die Binärdaten mithilfe der Befehlszeile herunterladen möchten, und rufen Sie die Dateien ab, indem Sie den folgenden [curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external}-Befehl ausführen.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.0 1.4.0 -d -s
@@ -230,7 +230,7 @@ Zum Betrieb Ihrer Zertifizierungsstellen können Sie den Fabric-CA-Client verwen
   ```
   {:codeblock}
 
-4. Legen Sie als Wert der Umgebungsvariablen `$FABRIC_CA_CLIENT_HOME` den Pfad fest, in dem der CA-Client die generierten [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp)-Zertifikate speichert. Achten Sie darauf, das Konfigurationsmaterial zu entfernen, das möglicherweise bei früheren Versuchen erstellt wurde. Falls Sie den Befehl `enroll` zuvor noch nie ausgeführt haben, sind der Ordner `msp` und die Datei `.yaml` nicht vorhanden.
+4. Legen Sie als Wert für die Umgeungsvariable `$FABRIC_CA_CLIENT_HOME` den Pfad fest, in dem der CA-Client die generierten MSP-Zertifikate speichern wird. Achten Sie darauf, das Konfigurationsmaterial zu entfernen, das möglicherweise bei früheren Versuchen erstellt wurde. Falls Sie den Befehl `enroll` zuvor noch nie ausgeführt haben, sind der Ordner `msp` und die Datei `.yaml` nicht vorhanden.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -254,9 +254,9 @@ Zum Betrieb Ihrer Zertifizierungsstellen können Sie den Fabric-CA-Client verwen
 ### Zertifikate als CA-Administrator generieren
 {: #ibp-v2-apis-enroll-ca-admin}
 
-Beim Erstellen Ihrer Zertifizierungsstelle wurde automatisch die Identität eines **CA-Administrators** registriert. Sie können nun den Namen und das Kennwort dieses Administrators verwenden, um mit dem Fabric-CA-Client einen Befehl `enroll` zum Generieren eines MSP-Ordners mit Zertifikaten abzusetzen, die anschließend zum Registrieren anderer Identitäten für Peers oder Anordnungsknoten verwendet werden.
+Beim Erstellen Ihrer Zertifizierungsstelle wurde automatisch die Identität eines **CA-Administrators** registriert. Sie können nun den Namen und das Kennwort dieses Administrators verwenden, um mit dem Fabric-CA-Client einen Befehl `enroll` abzusetzen, die anschließend zum Registrieren anderer Identitäten für Peer- oder Anordnungsknoten verwendet werden.
 
-1. Stellen Sie sicher, dass Sie die Schritte für die [Einrichtung des Fabric-CA-Clients](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client) ausgeführt und für `$FABRIC_CA_CLIENT_HOME` das Verzeichnis festgelegt haben, in dem Sie die Zertifikate für den CA-Administrator speichern wollen.
+1. Stellen Sie sicher, dass Sie die Schritte für die [Einrichtung des Fabric-CA-Clients](#ibp-v2-apis-config-fabric-ca-client) ausgeführt und für `$FABRIC_CA_CLIENT_HOME` das Verzeichnis festgelegt haben, in dem Sie die Zertifikate für den CA-Administrator speichern wollen.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -289,9 +289,9 @@ Beim Erstellen Ihrer Zertifizierungsstelle wurde automatisch die Identität eine
   ```
   {:codeblock}
 
-  Der Befehl `enroll` generiert einen vollständigen Satz von Zertifikaten, der auch als "MSP-Ordner" (MSP = Membership Service Provider) bezeichnet wird und sich innerhalb des Verzeichnisses befindet, das Sie als Pfad von `$HOME` für Ihren Fabric-CA-Client festgelegt haben. Beispiel: `$HOME/fabric-ca-client/ca-admin`. Weitere Informationen zu MSPs und zum Inhalt des MSP-Ordners finden Sie unter [Membership Service Providers (MSPs)](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
+  Der Befehl `enroll` generiert einen vollständigen Satz von Zertifikaten, der auch als "MSP-Ordner" (MSP = Membership Service Provider) bezeichnet wird und sich innerhalb des Verzeichnisses befindet, das Sie als Pfad von `$HOME` für Ihren Fabric-CA-Client festgelegt haben. Beispiel: `$HOME/fabric-ca-client/ca-admin`. Weitere Informationen zu MSPs und zum Inhalt des MSP-Ordners finden Sie unter [Membership Service Providers (MSPs)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
-  Falls der Befehl `enroll` fehlschlägt, finden Sie unter [Fehlerbehebung](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) Informationen zu möglichen Ursachen.
+  Falls der Befehl `enroll` fehlschlägt, finden Sie unter [Fehlerbehebung](#ibp-v2-apis-config-troubleshooting) Informationen zu möglichen Ursachen.
 
   Durch einen Befehl "tree" können Sie prüfen, ob Sie alle vorausgesetzten Schritte ausgeführt haben. Navigieren Sie zu dem Verzeichnis, in dem Sie Ihre Zertifikate gespeichert haben. Der Befehl "tree" sollte ein Ergebnis ähnlich der folgenden Struktur generieren:
 
@@ -353,7 +353,7 @@ Zuerst müssen Sie eine Komponentenidentität bei Ihrer Zertifizierungsstelle re
   ```
   {:codeblock}
 
-  Erstellen Sie einen Namen und ein Kennwort für die Komponente und ersetzen Sie `name` und `secret` durch diese Werte.  Notieren Sie diese Informationen. Legen Sie für `--id.type` den Wert `orderer` fest, falls Sie einen Anordnungsknoten bereitstellen; legen Sie `peer` fest, falls Sie einen Peer bereitstellen. Der Befehl könnte wie im folgenden Beispiel aussehen:
+  Erstellen Sie einen Namen und ein Kennwort für die Komponente und ersetzen Sie `name` und `secret` durch diese Werte.  Notieren Sie diese Informationen. Legen Sie für `--id.type` den Wert `orderer` fest, wenn Sie einen Anordnungsknoten bereitstellen möchten, oder legen Sie `peer` fest, wenn Sie einen Peer bereitstellen möchten. Der Befehl könnte wie im folgenden Beispiel aussehen:
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -378,7 +378,7 @@ Zuerst müssen Sie eine Komponentenidentität bei Ihrer Zertifizierungsstelle re
 
 Sie müssen außerdem eine Administratoridentität erstellen, die Sie zum Betrieb Ihres Netzes verwenden können. Sie werden diese Identität verwenden, um bestimmte Komponenten zu betreiben, z. B. durch Installation eines Smart Contract auf Ihrem Peer. Sie können diese Identität auch für den Administrator Ihrer Organisation verwenden und zum Erstellen und Bearbeiten von Kanälen benutzen.  
 
-Diese neue Identität müssen Sie bei Ihrer Zertifizierungsstelle registrieren. Anschließend verwenden Sie sie, um einen MSP-Ordner zu generieren. Sie können diese Identität einem Organisationsadministrator zuordnen, indem Sie das zugehörige signCert-Zertifikat zum MSP Ihrer Organisation hinzufügen. Das signCert-Zertifikat muss außerdem zu Ihrer Konfigurationsdatei hinzugefügt werden, sodass es bei der Bereitstellung als Administratorzertifikat des Anordnungsknotens oder des Peers benutzt werden kann. Für Ihre Organisation müssen Sie nur eine einzige Administratoridentität erstellen. Demzufolge müssen diese Schritt auch nur einmal ausgeführt werden. Sie können das signCert-Zertifikat verwenden, das Sie zur Bereitstellung zahlreicher Peers oder Anordnungsknoten generiert haben.
+Diese neue Identität müssen Sie bei Ihrer Zertifizierungsstelle registrieren. Anschließend verwenden Sie sie, um einen MSP-Ordner zu generieren. Sie können diese Identität einem Organisationsadministrator zuordnen, indem Sie das zugehörige signCert-Zertifikat zum MSP Ihrer Organisation hinzufügen. Außerdem müssen Sie das signCert-Zertifikat zu Ihrer Konfigurationsdatei hinzufügen, damit es bei der Bereitstellung als Administratorzertifikat des Anordnungsknotens oder Peers verwendet werden kann. Für Ihre Organisation müssen Sie nur eine einzige Administratoridentität erstellen. Demzufolge müssen diese Schritt auch nur einmal ausgeführt werden. Sie können das signCert-Zertifikat verwenden, das Sie zur Bereitstellung zahlreicher Peers oder Anordnungsknoten generiert haben.
 
 Stellen Sie sicher, dass für `$FABRIC_CA_CLIENT_HOME` der Pfad zum MSP Ihrer CA-Domäne festgelegt ist.
 
@@ -395,7 +395,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-Erstellen Sie für den Administrator eine neue Benutzeridentität mit den Werten für `name` and `secret`. Achten Sie darauf, andere Werte als für die Peer- oder Anordnungsknotenidentität zu verwenden, die Sie gerade registriert haben. Der Befehl hat das im folgenden Beispiel dargestellte Format:
+Erstellen Sie für den Administrator eine neue Benutzeridentität mit den Werten für `name` and `secret`. Achten Sie darauf, andere Werte zu verwenden als für die Identität des Peers oder Anordnungsknotens, den Sie gerade registriert haben. Der Befehl hat das im folgenden Beispiel dargestellte Format:
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -480,7 +480,7 @@ Sie müssen diesen Ordner erneut aufrufen, um die MSP-Definition Ihrer Organisat
 ### Komponentenidentität bei der TLS-Zertifizierungsstelle registrieren
 {: #ibp-v2-apis-config-register-component-tls}
 
-Bei der Erstellung Ihrer Zertifizierungsstelle wurde zusammen mit Ihrer Standardzertifizierungsstelle auch eine TLS-Zertifizierungsstelle bereitgestellt. Der Anordnungsknoten oder Peer muss auch bei der TLS-Zertifizierungsstelle registriert werden. Hierzu müssen Sie zuerst die Eintragung mithilfe des Administrators der TLS-Zertifizierungsstelle vornehmen. Ändern Sie den Wert für `$FABRIC_CA_CLIENT_HOME` und geben Sie ein Verzeichnis an, in dem Sie Ihre Administratorzertifikate für die TLS-Zertifizierungsstelle speichern wollen.
+Bei der Erstellung Ihrer Zertifizierungsstelle wurde zusammen mit Ihrer Standardzertifizierungsstelle auch eine TLS-Zertifizierungsstelle bereitgestellt. Außerdem müssen Sie den Anordnungsknoten oder Peer bei Ihrer TLS-Zertifizierungsstelle registrieren. Hierzu müssen Sie zuerst die Eintragung mithilfe des Administrators der TLS-Zertifizierungsstelle vornehmen. Ändern Sie den Wert für `$FABRIC_CA_CLIENT_HOME` und geben Sie ein Verzeichnis an, in dem Sie Ihre Administratorzertifikate für die TLS-Zertifizierungsstelle speichern wollen.
 
 ```
 cd $HOME/fabric-ca-client
@@ -489,7 +489,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-Führen Sie den folgenden Befehl aus, um sich als Administrator für die TLS-Zertifizierungsstelle einzutragen. Die Eintragungs-ID und das Kennwort des Administrators Ihrer TLS-Zertifizierungsstelle stimmen mit den entsprechenden Werten Ihrer Standardzertifizierungsstelle überein. Demzufolge ist der folgende Befehl identisch mit dem Befehl, der zur Eintragung Ihres [CA-Administrators](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin) verwendet wurde. Hierbei wird lediglich der Name der TLS-Zertifizierungsstelle angegeben. Ihr TLS-CA-Name entspricht dem Wert für **Name der TLS-Zertifizierungsstelle** aus der Anzeige mit den **Einstellungen** der Zertifizierungsstelle in der Konsole oder dem Wert für `"tlsca_name"`, der von der API zum `Erstellen einer Zertifizierungsstelle` zurückgegeben wurde.
+Führen Sie den folgenden Befehl aus, um sich als Administrator für die TLS-Zertifizierungsstelle einzutragen. Die Eintragungs-ID und das Kennwort des Administrators Ihrer TLS-Zertifizierungsstelle stimmen mit den entsprechenden Werten Ihrer Standardzertifizierungsstelle überein. Demzufolge ist der folgende Befehl identisch mit dem Befehl, der zur Eintragung Ihres [CA-Administrators](#ibp-v2-apis-enroll-ca-admin) verwendet wurde. Hierbei wird lediglich der Name der TLS-Zertifizierungsstelle angegeben. Ihr TLS-CA-Name entspricht dem Wert für **Name der TLS-Zertifizierungsstelle** aus der Anzeige mit den **Einstellungen** der Zertifizierungsstelle in der Konsole oder dem Wert für `"tlsca_name"`, der von der API zum `Erstellen einer Zertifizierungsstelle` zurückgegeben wurde.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -509,7 +509,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-Dieser Befehl ähnelt dem Befehl, den Sie zum Registrieren der Komponentenidentität bei der Zertifizierungsstelle verwendet haben, mit Ausnahme, dass hier der Name der TLS-Zertifizierungsstelle verwendet wird. Falls Sie anstelle eines Peers einen Anordnungsknoten registrieren, legen Sie für `--id.type` den Wert `orderer` statt `peer` fest. Sie müssen für diese Identität einen anderen Benutzernamen und ein anderes Kennwort angeben, als Sie für Ihre Standardzertifizierungsstelle verwendet haben. Eine echte Registrierung könnte ähnlich wie der folgende Befehl aussehen:
+Dieser Befehl ähnelt dem Befehl, den Sie zum Registrieren der Komponentenidentität bei der Zertifizierungsstelle verwendet haben, mit Ausnahme, dass hier der Name der TLS-Zertifizierungsstelle verwendet wird. Falls Sie anstelle eines Peers einen Anordungsknoten registrieren, legen Sie für `--id.type` den Wert `orderer` und nicht den Wert `peer` fest. Sie müssen für diese Identität einen anderen Benutzernamen und ein anderes Kennwort angeben, als Sie für Ihre Standardzertifizierungsstelle verwendet haben. Eine echte Registrierung könnte ähnlich wie der folgende Befehl aussehen:
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -517,6 +517,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 Sie müssen die Werte für `"enrollid"` und `"enrollsecret"` aus dem obigen Befehl speichern, da Sie sie bei der Erstellung Ihrer Konfigurationsdatei benötigen.
 {: important}
+
+### Fehlerbehebung
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **Problem:** Fehler bei Ausführung des Befehls `enroll`
+{: #ibp-v2-apis-config-enroll-error1}
+
+Bei der Ausführung des Befehls "enroll" im Fabric-CA-Client schlägt der Befehl möglicherweise mit dem folgenden Fehler fehl:
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**Lösung:**
+
+Dieser Fehler kann auftreten, wenn der Fabric-CA-Client versucht, eine Eintragung vorzunehmen, jedoch keine Verbindung zur Ihrer Zertifizierungsstelle herstellen kann. Dies kann in den folgenden Fällen vorkommen:   
+
+- Der Befehl `enroll` enthält eine zusätzliche Angabe `https://` im Parameter `-u`.
+- Der Name Ihrer Zertifizierungsstelle ist falsch.
+- Ihr Benutzername oder Ihr Kennwort ist falsch.
+
+Prüfen Sie die Parameter, die Sie im Befehl `enroll` angegeben haben, und stellen Sie sicher, dass keine dieser Bedingungen vorliegt.
+
+#### **Problem:** Fehler bei der URL der Zertifizierungsstelle bei Ausführung des Befehls `enroll`
+{: #ibp-v2-apis-config-enroll-error2}
+
+Der Befehl zum Eintragen des Fabric-CA-Clients kann fehlschlagen, wenn die Eintragungs-URL (der Wert des Parameters `-u`) ein Sonderzeichen enthält. Beispiel: Der folgende Befehl mit der Eintragungs-ID und dem Kennwort `admin:C25A06287!0`
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+schlägt fehl und führt zu folgendem Fehler:
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **Lösung:**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+Sie müssen entweder das Sonderzeichen codieren oder die URL in einfache Anführungszeichen einschließen. Beispiel: `!` wird zu `%21` oder der Befehl sieht wie folgt aus:
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## MSP-Definition einer Organisation erstellen
 {: #ibp-v2-apis-msp}
@@ -619,7 +666,7 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
 ## Konfigurationsdatei erstellen
 {: #ibp-v2-apis-config}
 
-Sie müssen eine Konfigurationsdatei vervollständigen, um einen Peer oder Anordnungsknoten mithilfe der APIs erstellen zu können. Diese Datei wird für die API als Objekt `config` im Anforderungshauptteil des API-Aufrufs bereitgestellt. Sie müssen eine Zertifizierungsstelle für Ihre {{site.data.keyword.cloud_notm}} Platform-Serviceinstanz bereitstellen und dann die Schritte zur Registrierung und Eintragung der erforderlichen Identitäten ausführen, bevor Sie die Datei abschließen.
+Sie müssen eine Konfigurationsdatei  vervollständigen, um einen Peer oder Anordnungsknoten mithilfe der APIs zu erstellen. Diese Datei wird für die API als Objekt `config` im Anforderungshauptteil des API-Aufrufs bereitgestellt. Wenn Sie mehrere Anordnungsknoten erstellen, müssen Sie eine Konfigurationsdatei für jeden Knoten, den Sie erstellen möchten, in einem Array für die API-Anforderung bereitstellen. Für einen Raft-Anordnungsservice mit fünf Knoten müssen Sie z. B. ein Array mit fünf Konfigurationsdateien erstellen. Sie können für jeden Knoten dieselbe Datei bereitstellen, sofern die von Ihnen angegebenen Eintragungs-IDs über ein entsprechend hohes Eintragungslimit verfügen.. Sie müssen eine Zertifizierungsstelle für Ihre {{site.data.keyword.cloud_notm}} Platform-Serviceinstanz bereitstellen und dann die Schritte zur Registrierung und Eintragung der erforderlichen Identitäten ausführen, bevor Sie die Datei abschließen.
 
 Die Vorlage für die Konfigurationsdatei ist nachfolgend dargestellt:
 ```
@@ -654,7 +701,7 @@ Die Vorlage für die Konfigurationsdatei ist nachfolgend dargestellt:
 ```
 {:codeblock}
 
-Kopieren Sie diese gesamte Datei in einen Texteditor, in dem Sie sie bearbeiten und als JSON-Datei in Ihrem lokalen Dateisystem speichern können. Führen Sie die folgenden Schritte aus, um diese Konfigurationsdatei zu vervollständigen und sie zur Bereitstellung eines Anordnungsknotens oder Peers zu verwenden.
+Kopieren Sie diese gesamte Datei in einen Texteditor, in dem Sie sie bearbeiten und als JSON-Datei in Ihrem lokalen Dateisystem speichern können. Führen Sie die folgenden Schritte aus, um diese Konfigurationsdatei zu vervollständigen und sie zur Bereitstellung eines Anordnungsservice oder Peers zu verwenden.
 
 ### Verbindungsinformationen der Zertifizierungsstelle abrufen
 {: #ibp-v2-apis-config-connx-info}
@@ -667,7 +714,7 @@ Zunächst müssen Sie die Verbindungsinformationen Ihrer Zertifizierungsstelle i
 **Bei Verwendung der APIs:**
 Sie können [`GET /ak/api/v1/components`](https://test.cloud.ibm.com/apidocs/blockchain?code=try#get-all-components) aufrufen, um die Verbindungsinformationen Ihrer Zertifizierungsstelle abzurufen. Wenn Sie die Zertifizierungsstelle mit der API zum `Erstellen einer Fabric-CA` erstellt haben, können Sie die erforderlichen Informationen auch im Antworthauptteil finden.
 
-- Die Werte für `"cahost"` und `"caport"` werden im Feld `ca_url` im Antworthauptteil oder in der JSON-Datei der Zertifizierungsstelle, die Sie exportiert haben, angezeigt. Wenn der Wert für `ca_url` z. B. https://9.30.94.174:30167 lautet, dann lautet der Wert für `"cahost"` `9.30.94.174` und der Wert für `"caport"` `30167`.
+- Die Werte für `"cahost"` und `"caport"` werden im Feld `ca_url` im Antworthauptteil oder in der JSON-Datei der Zertifizierungsstelle, die Sie exportiert haben, angezeigt.  Wenn der Wert für `ca_url` z. B. https://9.30.94.174:30167 lautet, dann lautet der Wert für `"cahost"` `9.30.94.174` und der Wert für `"caport"` `30167`.
 - In `"caname"` wird der Name der Zertifizierungsstelle angegeben, der bei der Bereitstellung der Zertifizierungsstelle festgelegt wurde. Dies ist der Wert im Feld `ca_name` des Antworthauptteils oder der exportierten JSON-Datei.
 - Der Wert für `"cacert"` ist das in Base64 codierte TLS-Zertifikat Ihrer Zertifizierungsstelle. Dies ist der Wert im Feld `pem` des Antworthauptteils oder der exportierten JSON-Datei.
 
@@ -800,7 +847,7 @@ Nachdem Sie alle obigen Schritte ausgeführt haben, könnte Ihre aktualisierte K
 ```
 {:codeblock}
 
-Die anderen Felder können leer bleiben. Nachdem Sie diese Datei vervollständigt haben, können Sie sie im Feld `config` an den Anforderungshauptteil der API zum `Erstellen eines Anordnungsknotens` oder zum `Erstellen eines Peers` übergeben.
+Die anderen Felder können leer bleiben. Nachdem Sie die Datei vervollständigt haben, können Sie sie im Feld `config` an den Anforderungshauptteil der API zum `Erstellen eines Anordnungsservice` oder zum `Erstellen eines Peers` übergeben.
 
 ### Administratoridentität in {{site.data.keyword.blockchainfull_notm}} Platform-Konsole importieren
 {: #ibp-v2-apis-admin-console}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -32,7 +32,7 @@ Bei {{site.data.keyword.blockchainfull_notm}} Platform werden Organisationen, di
 
 *Abbildung 1. Übersicht über die Preisstruktur bei {{site.data.keyword.blockchainfull_notm}} Platform*
 
-Die monatliche Gebühr wird nach täglichen Anteilen in Rechnung gestellt. Beispiel: Ein Mitglied (zugeordnete Mitgliedsgebühr 1.000 $) von zwei Peers (Peergebühr 1.000 $ x 2 Peers) muss 3.000 $ pro Monat bezahlen. Wenn der Monat 30 Tage hat, bezahlt das Mitglied 100 $ (3.000 $/30) pro Tag. Weitere Informationen zur Bezahlung für Ihre Netze finden Sie unter [Zahlungsmodus](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
+Die monatliche Gebühr wird nach täglichen Anteilen in Rechnung gestellt. Beispiel: Ein Mitglied (zugeordnete Mitgliedsgebühr 1.000 $) von zwei Peers (Peergebühr 1.000 $ x 2 Peers) muss 3.000 $ pro Monat bezahlen. Wenn der Monat 30 Tage hat, bezahlt das Mitglied 100 $ (3.000 $/30) pro Tag. Weitere Informationen zur Bezahlung für Ihre Netze finden Sie unter [Zahlungsmodus](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode).
 
 
 ## Basisnetzkomponenten
@@ -42,7 +42,7 @@ Um die Preisstruktur problemlos nachvollziehen zu können, müssen Sie mit den B
 
 -	**Organisation** – Eine Entität, bei der ein Bedarf für das Verwalten einer Kopie des Blockchain-Ledgers und das Validieren von Transaktionen besteht. In einer Firma kann es mehrere Blockchain-Organisationen geben.
 -	**Peer** – Der zu einer Organisation gehörige Knoten, der das Blockchain-Ledger enthält und Transaktionen validiert. Peers sind einer bestimmten Blockchain-Organisation zugeordnet.
--	**Anordnungsservice** – Besteht aus einem einzelnen Anordnungsknoten (SOLO) oder einer Gruppe von Anordnungsknoten. Der Anordnungsservice ordnet die Transaktionen, erstellt Blöcke und sendet Blöcke zur Validierung an Peers.
+-	**Anordnungsservice** – Besteht aus einem einzelnen Anordnungsknoten oder aus einer Gruppe von Anordnungsknoten. Der Anordnungsservice ordnet die Transaktionen, erstellt Blöcke und sendet Blöcke zur Validierung an Peers.
 -	**Zertifizierungsstelle (CA = Certificate Authority)** – Gibt digitale Zertifikate zu Identifikationszwecken an interaktive Netzkomponenten aus.
 
 {{site.data.keyword.blockchainfull_notm}} Platform stellt zwei Mitgliedschaftspläne in {{site.data.keyword.cloud_notm}} zur Auswahl: den **Starter Plan** und den **Enterprise Plan**. Beide Pläne ermöglichen das Erstellen von Organisationen und stellen eine Zertifizierungsstelle zur Verfügung. Die Pläne unterscheiden sich in Bezug auf die Peers, die Zertifizierungsstellen und den Anordnungsservice.
@@ -67,8 +67,7 @@ Der Starter Plan beinhaltet ebenso wie der Enterprise Plan zwei für den Preis r
 
 In Abbildung 2 werden die Mitgliedsgebühren anhand eines Beispiels mit Netzinstanzen erläutert. In der Abbildung werden über das betreffende {{site.data.keyword.cloud_notm}}-Konto drei Netzinstanzen bereitgestellt: eine Enterprise Plan-Instanz mit der Bezeichnung *Blockchain-11* und zwei Starter Plan-Instanzen mit den Bezeichnungen *Blockchain-cz* und *Blockchain-da*. Für jede Instanz ist ein eigener Anordnungsservice sowie eine Zertifizierungsstelle erforderlich. In diesem Fall entstehen für das betreffende {{site.data.keyword.cloud_notm}}-Konto drei Mitgliedsgebühren (jeweils eine Mitgliedsgebühr für die einzelnen Netzinstanzen).
 
-![Blockchain-Netzinstanzen](../images/ibp_instance_example.png "Blockchain-Netzinstanzen")  
-*Abbildung 2. Blockchain-Netzinstanzen*
+![Blockchain-Netzinstanzen](../images/ibp_instance_example.png "Blockchain-Netzinstanzen")
 
 
 ## Preisstruktur des Starter Plans

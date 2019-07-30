@@ -2,13 +2,13 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,7 +28,6 @@ Kubernetes stellt eine containerorientierte Verwaltungsumgebung bereit. Es werde
 Im folgenden Diagramm wird die Architektur von Kubernetes erläutert. Weitere Erläuterungen zu Knoten, Containern und Pods finden Sie im Abschnitt [Zentrale Kubernetes-Objekte](#k8s-overview-key-obj) weiter unten.
 
 ![Kubernetes-Architekturdiagramm](../images/k8s-archi-diagram.svg "{{site.data.keyword.cloud_notm}} Kubernetes Service-Architektur")
-*Abbildung 1. Kubernetes-Architekturdiagramm*
 
 
 ## {{site.data.keyword.cloud_notm}} Kubernetes Service
@@ -37,9 +36,9 @@ Im folgenden Diagramm wird die Architektur von Kubernetes erläutert. Weitere Er
 {{site.data.keyword.cloud_notm}} Kubernetes Service stellt leistungsfähige Tools bereit und kombiniert dabei Docker-Container, die Kubernetes-Technologie, eine intuitive Funktionalität für Benutzer mit integrierter Sicherheit und Isolation, um die Bereitstellung, den Betrieb, die Skalierung sowie die Überwachung containerisierter Apps in einem Cluster von Rechenhosts zu automatisieren.
 
 Weitere Informationen zu {{site.data.keyword.cloud_notm}} Kubernetes Service finden Sie in den folgenden Themen der Dokumentation zu {{site.data.keyword.cloud_notm}} Kubernetes Service:
-- [Technologie von {{site.data.keyword.cloud_notm}} Kubernetes Service![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology "{{site.data.keyword.cloud_notm}} Kubernetes Service - Dokumentation zur Technologie")
-- [Warum {{site.data.keyword.cloud_notm}} Kubernetes Service ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/containers?topic=containers-cs_ov#cs_ov "Dokumentation 'Warum {{site.data.keyword.cloud_notm}} Kubernetes Service'")
-- [Kubernetes-Strategie definieren ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/containers?topic=containers-strategy#strategy "Kubernetes-Strategie definieren")
+- [{{site.data.keyword.cloud_notm}} Kubernetes Service - Technologie](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
+- [Warum {{site.data.keyword.cloud_notm}} Kubernetes Service?](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
+- [Kubernetes-Strategie definieren](/docs/containers?topic=containers-strategy#strategy){: external}
 
 
 ## Zentrale Kubernetes-Objekte
@@ -51,7 +50,7 @@ Weitere Informationen zu {{site.data.keyword.cloud_notm}} Kubernetes Service fin
 
 - **Knoten**
 
-  Ein Knoten ist eine Workermaschine in Kubernetes. Bei einem Knoten kann es sich in Abhängigkeit vom Cluster um eine VM oder um eine physische Maschine handeln. Jeder Knoten enthält die Services, die für die Ausführung von Pods erforderlich sind; er wird von den Masterkomponenten verwaltet. Zu den Services auf einem Knoten gehört die Containerlaufzeit (`kubelet` und `kube-proxy`). Weitere Informationen finden Sie im Abschnitt zu den [Kubernetes-Knoten ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://kubernetes.io/docs/concepts/architecture/nodes/ "Kubernetes-Knoten") in der Kubernetes-Dokumentation.
+  Ein Knoten ist eine Workermaschine in Kubernetes. Bei einem Knoten kann es sich in Abhängigkeit vom Cluster um eine VM oder um eine physische Maschine handeln. Jeder Knoten enthält die Services, die für die Ausführung von Pods erforderlich sind; er wird von den Masterkomponenten verwaltet. Zu den Services auf einem Knoten gehört die Containerlaufzeit (`kubelet` und `kube-proxy`). Weitere Informationen finden Sie im Abschnitt zum [Kubernetes-Knoten](https://kubernetes.io/docs/concepts/architecture/nodes/){: external} in der Kubernetes-Dokumentation.
 
 - **Container**
 
@@ -59,4 +58,4 @@ Weitere Informationen zu {{site.data.keyword.cloud_notm}} Kubernetes Service fin
 
 - **Pod**
 
-  Das kleinste und einfachste Kubernetes-Objekt. Ein Pod stellt eine Gruppe von aktiven Containern in Ihrem Cluster dar. Ein Pod ist in der Regel so konfiguriert, dass er einen einzigen primären Container ausführen kann. Ein Pod kann außerdem optionale Sidecar-Container ausführen, über die ergänzende Features wie die Protokollierung hinzugefügt werden. Pods werden allgemein durch eine Bereitstellung verwaltet. Weitere Informationen finden Sie im Abschnitt zu den [Kubernetes-Pods ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://kubernetes.io/docs/concepts/workloads/pods/pod/) in der Kubernetes-Dokumentation.
+  Das kleinste und einfachste Kubernetes-Objekt. Ein Pod stellt eine Gruppe von aktiven Containern in Ihrem Cluster dar. Ein Pod ist in der Regel so konfiguriert, dass er einen einzigen primären Container ausführen kann. Ein Pod kann außerdem optionale Sidecar-Container ausführen, über die ergänzende Features wie die Protokollierung hinzugefügt werden. Pods werden allgemein durch eine Bereitstellung verwaltet. Weitere Informationen finden Sie im Abschnitt zum [Kubernetes-Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/){: external} in der Kubernetes-Dokumentation.

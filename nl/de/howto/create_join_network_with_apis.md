@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -10,33 +10,34 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 # Swagger-APIs zur Netzerstellung oder Netzteilnahme verwenden
 {: #swagger-network}
 
-{{site.data.keyword.blockchainfull}} Platform stellt eine Reihe von REST-APIs bereit, die Sie verwenden können, um ein Blockchain-Netz in {{site.data.keyword.cloud_notm}} zu erstellen oder daran teilzunehmen. Sie können diese APIs mithilfe der [Swagger-Benutzerschnittstelle](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) testen, die Ihrem Netz zugeordnet ist.
+{{site.data.keyword.blockchainfull}} Platform stellt eine Reihe von REST-APIs bereit, die Sie verwenden können, um ein Blockchain-Netz in {{site.data.keyword.cloud_notm}} zu erstellen oder daran teilzunehmen. Sie können diese APIs mithilfe der [Swagger-Benutzerschnittstelle](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) testen, die Ihrem Netz zugeordnet ist.
 {:shortdesc}
 
 
 ## Basisauthentifizierungsberechtigungsnachweise für die API abrufen
 {: #swagger-network-retrieve-id-token}
 
-Bevor Sie beginnen, müssen Sie eine [{{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod) mit dem Starter Plan oder dem Enterprise Plan in {{site.data.keyword.cloud_notm}} erstellen.
+Bevor Sie beginnen, müssen Sie eine [{{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} mit dem Starter Plan oder dem Enterprise Plan in {{site.data.keyword.cloud_notm}} erstellen.
 
 Wenn Sie Swagger-APIs verwenden möchten, um ein Netz zu erstellen oder an einem Netz teilzunehmen, benötigen Sie einen Basisauthentifizierungsberechtigungsnachweis, um sicherzustellen, dass Sie über Zugriff auf die Serviceinstanz in {{site.data.keyword.cloud_notm}} verfügen.
 
-1. Öffnen Sie im [{{site.data.keyword.cloud_notm}}-Dashboard ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/resources) die Serviceinstanz, die Sie erstellt haben.
+1. Öffnen Sie im [{{site.data.keyword.cloud_notm}}-Dashboard](https://cloud.ibm.com/resources){: external} die Serviceinstanz, die Sie erstellt haben.
 2. Klicken Sie auf **Serviceberechtigungsnachweise** im linken Navigator.
 3. Klicken Sie auf die Schaltfläche "Neuer Berechtigungsnachweis" auf der Seite **Serviceberechtigungsnachweise**, um einen neuen Berechtigungsnachweis zu erstellen.
     1. Legen Sie einen Namen für den Berechtigungsnachweis fest, z. B. *CreateJoin*.
     2. Geben Sie im Feld "Inline-Konfigurationsparameter hinzufügen" **{"type": "service_instance_token"}** ein.
     3. Klicken Sie auf die Schaltfläche **Hinzufügen**.
-![Serviceberechtigungsnachweise abrufen](../images/service_credentials.gif "Serviceberechtigungsnachweise abrufen")
+![Serviceberechtigungsnachweise abrufen](../images/service_credentials.gif "Serviceberechtigungsnachweise abrufen"){: gif}
 4. Klicken Sie nach dem Erstellen des neuen Berechtigungsnachweises auf **Berechtigungsnachweise anzeigen** unter der Überschrift **Aktionen** dieses Berechtigungsnachweises. Der Inhalt des Berechtigungsnachweises sieht in etwa wie das folgende Beispiel aus:
 
     ```
@@ -113,9 +114,9 @@ Die Swagger-URL (``swagger_url``) stellt den API-Endpunkt dar, den Sie beim Erst
 
 Wenn Sie den Enterprise Plan verwenden, müssen Sie zwei Schritte ausführen, um ein Netz mit den APIs zu erstellen.
 
-1. Erstellen Sie eine Blockchain-Serviceinstanz in {{site.data.keyword.cloud_notm}} mit dem Enterprise Plan. <!-- or Enterprise Plus Plan-->  Rufen Sie die Serviceinstanz-ID und das zugehörige Token als Basisauthentifizierungsbenutzernamen und -kennwort ab. Weitere Informationen finden Sie in [Basisauthentifizierungsberechtigungsnachweis für API abrufen](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Erstellen Sie eine Blockchain-Serviceinstanz in {{site.data.keyword.cloud_notm}} mit dem Enterprise Plan. <!-- or Enterprise Plus Plan-->  Rufen Sie die Serviceinstanz-ID und das zugehörige Token als Basisauthentifizierungsbenutzernamen und -kennwort ab. Weitere Informationen finden Sie in [Basisauthentifizierungsberechtigungsnachweis für API abrufen](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
-2. Rufen Sie mit diesen Serviceberechtigungsnachweisen die API **Netz erstellen** auf. Rufen Sie diese API für die API ``swagger_url`` auf, die wie im Abschnitt [Verfügbare Netzadressen überprüfen](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location) beschrieben abgerufen wurde. Navigieren Sie zum Link zur Swagger-URL (``swagger_url link``), um die API zum Erstellen eines Netzes über die Swagger-Benutzerschnittstelle aufzurufen, oder geben Sie den Befehl programmgesteuert über die URL-Adresse ohne ``/api-docs`` aus. Geben Sie beispielsweise Folgendes an:
+2. Rufen Sie mit diesen Serviceberechtigungsnachweisen die API **Netz erstellen** auf. Rufen Sie diese API für die API ``swagger_url`` auf, die wie im Abschnitt [Verfügbare Netzadressen überprüfen](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location) beschrieben abgerufen wurde. Navigieren Sie zum Link zur Swagger-URL (``swagger_url link``), um die API zum Erstellen eines Netzes über die Swagger-Benutzerschnittstelle aufzurufen, oder geben Sie den Befehl programmgesteuert über die URL-Adresse ohne ``/api-docs`` aus. Geben Sie beispielsweise Folgendes an:
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api/v1/networks
@@ -123,16 +124,16 @@ Wenn Sie den Enterprise Plan verwenden, müssen Sie zwei Schritte ausführen, um
     {:codeblock}
 
 **Parameter**:
-- `location_id`: Die ID einer verfügbaren Netzadresse. Geben Sie den Wert für die Standort-ID (`loation_id`) an, den Sie zuvor (siehe [Verfügbare Netzadressen überprüfen](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location)) notiert haben.
+- `location_id`: Die ID einer verfügbaren Netzadresse. Geben Sie den Wert für die Standort-ID (`loation_id`) an, den Sie zuvor (siehe [Verfügbare Netzadressen überprüfen](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location)) notiert haben.
 - `company_name`: Ihre ID als Mitglied im Netz.
 - `email`: Ihre E-Mail-Adresse für Benachrichtigungen.
 - `peers`: Die Anzahl der Peers, die für dieses Mitglied erstellt werden sollen. Gültige Werte liegen im Bereich 0 - 6. Sie können auch zu einem späteren Zeitpunkt Peers für Ihr Mitglied in der Network Monitor-Benutzerschnittstelle erstellen.
-- `ledger_type`: Der Ledgertyp dieses Netzes. Gültige Werte sind 'levelDB' und 'couchDB'. **levelDB** ist der Standardwert.
+- `ledger_type`: Der Ledgertyp dieses Netzes. Gültige Werte sind "levelDB" und "couchDB". **levelDB** ist der Standardwert.
 
 
 ## Neue Mitglieder in ein Netz einladen
 
-Nach der Erstellung eines Blockchain-Netzes können Sie andere Mitglieder einladen, am Netz teilzunehmen. Sie müssen die ID des Netzes angeben, in das Sie Mitglieder einladen möchten. Der Basisauthentifizierungsberechtigungsnachweis, der zum Einladen eines Mitglieds erforderlich ist, unterscheidet sich von dem, der in der API **Netz erstellen** verwendet wird. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> Sie können den Berechtigungsnachweis zum Einladen eines Mitglieds mithilfe der API **Netzberechtigungsnachweise abrufen** in der [Swagger-Benutzerschnittstelle](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-retrieving-network-credentials) oder über die Option [Basisauthentifizierungsinformationen für API abrufen](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token) in Ihrer Serviceinstanz in {{site.data.keyword.cloud_notm}} abrufen.
+Nach der Erstellung eines Blockchain-Netzes können Sie andere Mitglieder einladen, am Netz teilzunehmen. Sie müssen die ID des Netzes angeben, in das Sie Mitglieder einladen möchten. Der Basisauthentifizierungsberechtigungsnachweis, der zum Einladen eines Mitglieds erforderlich ist, unterscheidet sich von dem, der in der API **Netz erstellen** verwendet wird. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> Sie können den Berechtigungsnachweis zum Einladen eines Mitglieds mithilfe der API **Netzberechtigungsnachweise abrufen** in der [Swagger-Benutzerschnittstelle](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials) oder über die Option [Basisauthentifizierungsinformationen für API abrufen](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token) in Ihrer Serviceinstanz in {{site.data.keyword.cloud_notm}} abrufen.
 
 ```
 /networks/{networkID}/invite
@@ -150,9 +151,9 @@ Das eingeladene Mitglied erhält eine E-Mail-Einladung mit Anweisungen zur Teiln
 
 Wenn Sie zur Teilnahme an einem Blockchain-Netz eingeladen werden, erhalten Sie eine E-Mail mit einer Netzeinladung, die die Standort-ID (`location_id`) und Netz-ID (`network id`) enthält.
 
-1. Vor der Teilnahme an einem Netz müssen Sie eine {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz erstellen und die Serviceinstanz-ID sowie das zugehörige Token als Basisauthentifizierungsbenutzernamen und -kennwort abrufen. Weitere Informationen finden Sie in [Basisauthentifizierungsberechtigungsinformationen für API abrufen](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Vor der Teilnahme an einem Netz müssen Sie eine {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz erstellen und die Serviceinstanz-ID sowie das zugehörige Token als Basisauthentifizierungsbenutzernamen und -kennwort abrufen. Weitere Informationen finden Sie in [Basisauthentifizierungsberechtigungsinformationen für API abrufen](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
-2. [Überprüfen Sie die verfügbaren Netzadressen](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location), um die Swagger-URL (`swagger_url`) für die Standort-ID (`location_id`) in Ihrer Einladungs-E-Mail zu erhalten. Dabei handelt es sich um eine URL ähnlich der folgenden:
+2. [Überprüfen Sie die verfügbaren Netzadressen](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location), um die Swagger-URL (`swagger_url`) für die Standort-ID (`location_id`) in Ihrer Einladungs-E-Mail zu erhalten. Dabei handelt es sich um eine URL ähnlich der folgenden:
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api-docs

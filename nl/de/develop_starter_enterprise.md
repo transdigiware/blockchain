@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
@@ -10,13 +10,14 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:gif: data-image-type='gif'}
 
 # Unternehmensnetze im Starter und Enterprise Plan bereitstellen
 {: #deploying-a-business-network}
@@ -24,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.IBM}} bietet keinen Support für Netze, die Hyperledger Composer in Produktionsumgebungen nutzen, inklusive Composer-Befehlszeilenschnittstelle, JavaScript-APIs, REST-Server und Web Playground.
 {:note}
 
-[Unternehmensnetze](/docs/services/blockchain/glossary.html#glossary-business-network) können unter Verwendung der Entwicklerumgebung von {{site.data.keyword.blockchainfull_notm}} Platform und mithilfe des Hyperledger Composer-Toolsets entwickelt und in Starter Plan- und Enterprise Plan-Netzen bereitgestellt werde.
+[Unternehmensnetze](/docs/services/blockchain?topic=blockchain-glossary#glossary-business-network) können unter Verwendung der Entwicklerumgebung von {{site.data.keyword.blockchainfull_notm}} Platform und mithilfe des Hyperledger Composer-Toolsets entwickelt und in Starter Plan- und Enterprise Plan-Netzen bereitgestellt werde.
 {:shortdesc}
 
 In der Entwicklerumgebung können Sie Blockchain-Unternehmensnetze schnell entwickeln und in einem Starter Plan oder Enterprise Plan-Netz von {{site.data.keyword.blockchainfull_notm}} Platform bereitstellen.
@@ -35,25 +36,25 @@ In der Entwicklerumgebung können Sie Blockchain-Unternehmensnetze schnell entwi
 ### Vorbemerkungen
 {: #deploying-a-business-network-before-begin}
 
-Stellen Sie sicher, dass Sie die [Inforationen zum Starter Plan](/docs/services/blockchain/starter_plan.html#starter-plan-about) lesen und anhand der Anweisungen im Abschnitt [Einführung in den Starter Plan](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan) ein Starter Plan-Netz erstellt haben.
+Stellen Sie sicher, dass Sie die [Inforationen zum Starter Plan](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about) lesen und anhand der Anweisungen im Abschnitt [Einführung in den Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan) ein Starter Plan-Netz erstellt haben.
 
 Stellen Sie sicher, dass Sie Node v8.9 oder höher, npm v5.x und Hyperledger Composer installiert haben:
 
 - Wenn Ihr Netz den Stand von Fabric Version 1.2 aufweist, verwenden Sie Hyperledger Composer v0.20.x.
 - Wenn Ihr Netz den Stand von Fabric Version 1.2 aufweist, verwenden Sie Hyperledger Composer v0.19.x.
 
-Ihre Fabric-Version können Sie ermitteln, indem Sie das [Fenster "Netzvorgaben"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) im Network Monitor öffnen.
+Ihre Fabric-Version können Sie ermitteln, indem Sie das [Fenster "Netzvorgaben"](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) im Network Monitor öffnen.
 
 ### Schritt 1: Geheimen Administratorschlüssel abrufen
 {: #deploying-a-business-network-retrieve-admin-secret}
 
-1. Klicken Sie in der Anzeige der Starter Plan-Übersicht auf **Verbindungsprofil** und dann auf 'Download'. Benennen Sie diese Datei in 'connection-profile.json' um.
+1. Klicken Sie in der Anzeige der Starter Plan-Übersicht auf **Verbindungsprofil** und dann auf "Download". Benennen Sie diese Datei in "connection-profile.json" um.
 
 2. Verschieben Sie diese Datei in das Verzeichnis, in dem sich auch die `.bna`-Datei befindet.
 
-3. Blättern Sie im Verbindungsprofil nach unten bis zum Eintrag 'registrar'. In 'registrar' ist unter 'enrollId' die Eigenschaft **enrollSecret** (geheimer Eintragungsschlüssel) aufgeführt. Rufen Sie den geheimen Schlüssel ab und speichern Sie eine Kopie davon.
+3. Blättern Sie im Verbindungsprofil nach unten bis zum Eintrag "registrar". In "registrar" ist unter "enrollId" die Eigenschaft **enrollSecret** (geheimer Eintragungsschlüssel) aufgeführt. Rufen Sie den geheimen Schlüssel ab und speichern Sie eine Kopie davon.
 
-    ![Geheimen Administratorschlüssel abrufen](images/get_enroll_secret.gif "Geheimen Administratorschlüssel abrufen")
+    ![Geheimen Administratorschlüssel abrufen](images/get_enroll_secret.gif "Geheimen Administratorschlüssel abrufen"){: gif}
 
 ### Schritt 2: Zertifizierungsstellenkarte erstellen
 {: #deploying-a-business-network-CA-card}
@@ -92,18 +93,18 @@ Die Zertifikate müssen zum Starter Plan-Netz hinzugefügt werden. Zur Vereinfac
 
 1. Klicken Sie in Starter Plan Network Monitor auf die Registerkarte **Mitglieder**, dann auf **Zertifikate** und anschließend auf **Zertifikat hinzufügen**. Rufen Sie das Verzeichnis `credentials` auf. Kopieren Sie den Inhalt der Datei `admin-pub.pem` und fügen Sie ihn in das Zertifikatsfeld ein. Übergeben Sie das Zertifikat und starten Sie die Peers erneut. Hinweis: Der Neustart der Peers nimmt eine Minute in Anspruch.
 
-    ![Zertifikate hinzufügen](images/add_cert.gif "Zertifikate hinzufügen")
+    ![Zertifikate hinzufügen](images/add_cert.gif "Zertifikate hinzufügen"){: gif}
 
 2. Als nächstes müssen die Zertifikate im Kanal synchronisiert werden. Klicken Sie auf die Registerkarte **Kanäle**, dann auf die Schaltfläche **Aktionen** und dann auf **Zertifikat synchronisieren** und auf **Übergeben**.
 
-    ![Zertifikate synchronisieren](images/sync_cert.gif "Zertifikate synchronisieren")
+    ![Zertifikate synchronisieren](images/sync_cert.gif "Zertifikate synchronisieren"){: gif}
 
 ### Schritt 4: Unternehmensnetzkarte für den Administrator erstellen
 {: #deploying-a-business-network-create-admin-card}
 
 Da jetzt die richtigen Zertifikate mit den Peers synchronisiert sind, können Unternehmensnetzkarten erstellt werden, die über die Berechtigung zum Installieren der Hyperledger Composer-Laufzeit und zum Starten des Chaincodes verfügen.
 
-1. Erstellen Sie mit dem folgenden Befehl eine Administratorkarte mit den Rollen 'Kanaladministrator' (ChannelAdmin) und Peeradministrator (PeerAdmin):
+1. Erstellen Sie mit dem folgenden Befehl eine Administratorkarte mit den Rollen für Kanaladministrator (ChannelAdmin) und Peeradministrator (PeerAdmin):
 
    ```
    composer card create -f adminCard.card -p connection-profile.json -u admin -c ./credentials/admin-pub.pem -k ./credentials/admin-priv.pem --role PeerAdmin --role ChannelAdmin
@@ -186,7 +187,7 @@ Dieses Lernprogramm erläutert den nächsten Schritt des Lebenszyklus eines Unte
 
 Stellen Sie sicher, dass Sie die {{site.data.keyword.blockchainfull_notm}}-Entwicklerumgebung installiert haben und mit der Entwicklung und Bereitstellung von Unternehmensnetzen vertraut sind. Anleitungen zum Schreiben von Unternehmensnetzen sind in der [Hyperledger Composer-Dokumentation](https://hyperledger.github.io/composer/latest/business-network/business-network-index) verfügbar.
 
-Sie benötigen Zugriff auf eine Enterprise Plan-Instanz von {{site.data.keyword.blockchainfull_notm}} Platform und müssen bereits Ihre Peers erstellt haben. Weitere Informationen zum {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan finden Sie in der [Übersicht zu Enterprise Plan](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+Sie benötigen Zugriff auf eine Enterprise Plan-Instanz von {{site.data.keyword.blockchainfull_notm}} Platform und müssen bereits Ihre Peers erstellt haben. Weitere Informationen zum {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan finden Sie in der [Übersicht zu Enterprise Plan](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
 ### Schritt 1: Verbindungsprofil für {{site.data.keyword.blockchainfull_notm}} Platform erstellen
 {: #deploying-a-business-network-create-connection-profile}
