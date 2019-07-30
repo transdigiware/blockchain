@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,6 +17,8 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
+{:gif: data-image-type='gif'}
 
 # Network Monitor verwenden
 {: #ibp-dashboard}
@@ -31,13 +32,13 @@ In diesem Lernprogramm erfahren Sie, wie Sie mit Network Monitor ein Enterprise 
 {: #ibp-dashboard-left-navigation}
 
 Der Network Monitor präsentiert die folgenden Anzeigen in drei Abschnitten. Sie können über den Navigator auf der linken Seite zu jeder Anzeige in Network Monitor navigieren.
-- Der Abschnitt **Eigenes Netz** enthält die Anzeigen "[Übersicht](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-overview)", "[Mitglieder](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members)", "[Kanäle](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-channels)", "[Benachrichtigungen](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-notifications)", "[Zertifizierungsstelle](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-ca)" und "[APIs](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-apis)".
-- Der Abschnitt **Eigener Code** enthält die Anzeigen "[Code entwickeln](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-write_code)", "[Code installieren](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-chaincode)" und "[Beispiele ausprobieren](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-samples)".
-- Die Anzeige "[Hilfe anfordern](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-support)" zeigt Unterstützungsinformationen und Releaseinformationen für Helios und Hyperledger Fabric (die Codebasis von {{site.data.keyword.blockchainfull_notm}} Platform) an.
+- Der Abschnitt **Eigenes Netz** enthält die Anzeigen "[Übersicht](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)", "[Mitglieder](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)", "[Kanäle](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)", "[Benachrichtigungen](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)", "[Zertifizierungsstelle](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)" und "[APIs](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)".
+- Der Abschnitt **Eigener Code** enthält die Anzeigen "[Code entwickeln](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write_code)", "[Code installieren](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)" und "[Beispiele ausprobieren](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)".
+- Die Anzeige "[Hilfe anfordern](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)" zeigt Unterstützungsinformationen und Releaseinformationen für Helios und Hyperledger Fabric (die Codebasis von {{site.data.keyword.blockchainfull_notm}} Platform) an.
 
-Im linken Navigationsfenster ist oben der Name Ihres Blockchain-Netzes angegeben. In Network Monitor können Sie den [Namen des Netzes ändern](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-name).
+Im linken Navigationsfenster ist oben der Name Ihres Blockchain-Netzes angegeben. In Network Monitor können Sie den [Namen des Netzes ändern](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name).
 
-Über das Dropdown-Menü in der rechten oberen Ecke in Network Monitor können Sie die [Netzvorgaben überprüfen und konfigurieren](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences).
+Über das Dropdown-Menü in der rechten oberen Ecke in Network Monitor können Sie die [Netzvorgaben überprüfen und konfigurieren](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences).
 
 In diesem Lernprogramm werden die oben aufgeführten Anzeigen und Funktionen beschrieben.
 
@@ -49,7 +50,6 @@ Die Anzeige "Übersicht" zeigt Statusinformationen zu Blockchain-Ressourcen (ein
 In **Abbildung 1** ist die Anzeige "Übersicht" zu sehen:
 
 ![Anzeige 'Übersicht'](images/myresources.png "Netzübersicht")
-*Abbildung 1. Netzübersicht*
 
 ### Knotenaktionen
 {: #ibp-dashboard-node-actions}
@@ -58,14 +58,14 @@ Unter der Überschrift **Aktionen** befinden sich Schaltflächen zum Starten ode
 
 Die Stopp- und die Startaktion sind für einen Anordnungsknoten nicht verfügbar. Im Allgemeinen besteht keine Notwendigkeit, Peer- oder CA-Knoten in einem Netz zu stoppen oder zu starten. Die Stopp- und die Startaktion sind für den Fall vorhanden, dass Sie einen Peer erneut starten müssen, zum Beispiel um ihn in einem bereinigten Status verfügbar zu machen.
 
-Sie können auch Komponentenprotokolle prüfen, indem Sie in der Dropdown-Liste unter der Überschrift **Aktionen** auf **Protokolle anzeigen** klicken. Die Protokolle zeigen die Aufrufe zwischen den verschiedenen Netzressourcen und sind für die Fehlersuche und -behebung von Nutzen. Weitere Informationen zur Verwendung der Netzprotokolle enthält der Abschnitt [Blockchain-Netz überwachen](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network).
+Sie können auch Komponentenprotokolle prüfen, indem Sie in der Dropdown-Liste unter der Überschrift **Aktionen** auf **Protokolle anzeigen** klicken. Die Protokolle zeigen die Aufrufe zwischen den verschiedenen Netzressourcen und sind für die Fehlersuche und -behebung von Nutzen. Weitere Informationen zur Verwendung der Netzprotokolle enthält der Abschnitt [Blockchain-Netz überwachen](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
 Zur Veranschaulichung der Effekte des Startens und Stoppens eines Peers können Sie einen Peer probeweise stoppen und dann versuchen, eine Transaktion an diesen Peer zu senden; in den Protokollen werden daraufhin Konnektivitätsfehler angezeigt. Wenn Sie den Peer erneut starten und die Transaktion erneut versuchen, wird eine erfolgreiche Verbindung angezeigt. Sie können einen Peer auch für einen längeren Zeitraum inaktiv lassen, während über Ihre Kanäle weiterhin Transaktionen durchgeführt werden. Wenn der Peer wieder aktiviert wird, werden Sie eine Synchronisation des Ledgers bemerken, da der Peer die Blöcke empfängt, die festgeschrieben wurden, als er inaktiv war. Wenn das Ledger vollständig synchronisiert wurde, können Sie normale Aufrufe und Abfragen für das Ledger ausführen.
 
 ### Ferne Peers konfigurieren
 {: #ibp-dashboard-peer-connection-information}
 
-Wenn Sie einen Peer außerhalb von {{site.data.keyword.cloud_notm}} bereitstellen, dann müssen Sie die Informationen zum API-Endpunkt Ihres Netzes während der Konfiguration angeben. Klicken Sie auf die Schaltfläche **Konfiguration ferner Peers**, um die Informationen zum API-Endpunkt des Netzes abzurufen und den Peer zu konfigurieren. Das Popup-Fenster enthält die Informationen zum API-Endpunkt mit der Netz-ID, dem MSP der Organisation, dem CA-Namen, der CA-URL sowie dem CA-TLS-Zertifikat. Sie können entweder auf das Kopiersymbol klicken, das sich am Ende aller Felder befindet, um den Wert dieses Felds zu kopieren, oder auf die Schaltfläche **Download**, um die Werte aller Felder in einer JSON-Datei zu speichern. Weitere Angaben finden Sie unter [Informationen zu {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto/remote_peer.html#remote-peer-aws-about) und [Informationen zu {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about).
+Wenn Sie einen Peer außerhalb von {{site.data.keyword.cloud_notm}} bereitstellen, dann müssen Sie die Informationen zum API-Endpunkt Ihres Netzes während der Konfiguration angeben. Klicken Sie auf die Schaltfläche **Konfiguration ferner Peers**, um die Informationen zum API-Endpunkt des Netzes abzurufen und den Peer zu konfigurieren. Das Popup-Fenster enthält die Informationen zum API-Endpunkt mit der Netz-ID, dem MSP der Organisation, dem CA-Namen, der CA-URL sowie dem CA-TLS-Zertifikat. Sie können entweder auf das Kopiersymbol klicken, das sich am Ende aller Felder befindet, um den Wert dieses Felds zu kopieren, oder auf die Schaltfläche **Download**, um die Werte aller Felder in einer JSON-Datei zu speichern. Weitere Angaben enthält der Abschnitt [Informationen zu {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about).
 
 ### Verbindungsprofil
 {: #ibp-dashboard-connection-profile}
@@ -75,7 +75,7 @@ Sie können die JSON-Datei zu Low-Level-Netzinformationen zu den einzelnen Resso
 ### Peers hinzufügen
 {: #ibp-dashboard-peers}
 
-Netzmitglieder stellen [Peers](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer) bereit, um ihre Kopien des Ledgers zu speichern und Chaincode zum Abfragen und Aktualisieren des Ledgers auszuführen. Wenn die Bewilligungsrichtlinie einen Peer als bewilligenden Peer definiert, gibt der Peer außerdem Bewilligungsergebnisse an Anwendungen zurück.
+Netzmitglieder stellen [Peers](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer) bereit, um ihre Kopien des Ledgers zu speichern und Chaincode zum Abfragen und Aktualisieren des Ledgers auszuführen. Wenn die Bewilligungsrichtlinie einen Peer als bewilligenden Peer definiert, gibt der Peer außerdem Bewilligungsergebnisse an Anwendungen zurück.
 
 Klicken Sie auf die Schaltfläche **Peers hinzufügen** in der rechten oberen Ecke, um Ihrem Netz Peerknoten hinzuzufügen. Wählen Sie im Popup-Fenster "Peers hinzufügen" die Anzahl und Größe der Peerknoten aus, die Sie hinzufügen wollen. Sie können bei Bedarf weitere Peers für Ihre Organisationen hinzufügen. In anderen Szenarios kann eine höhere Anzahl an Peers erforderlich sein. Sie könnten z. B. mehrere Peers benötigen, um sie zu Redundanzzwecken mit demselben Kanal zu verknüpfen. Jeder Peer verarbeitet die Transaktionen des Kanals und schreibt in seine jeweilige Kopie des Ledgers. Wenn einer der Peers ausfällt, kann der andere Peer (oder können mehrere andere Peers) die Verarbeitung von Transaktionen und Anwendungsanforderungen fortsetzen. Sie können außerdem alle Anwendungsanforderungen symmetrisch auf die Peers verteilen oder Sie können verschiedene Peers für verschiedene Funktionen vorsehen. Sie können zum Beispiel einen Peer zum Abfragen des Ledgers und einen anderen Peer zur Verarbeitung von Bewilligungen für Ledgeraktualisierungen verwenden.
 
@@ -87,7 +87,6 @@ Der **Starter Plan** erstellt standardmäßig einen Peer für jede der beiden Or
 In **Abbildung 2** ist die Registerkarte "Speicher" dargestellt, auf der die Speichernutzung Ihres Netzes angezeigt wird.
 
 ![Registerkarte 'Speicher' in der Anzeige 'Übersicht'](images/monitor_storage_starter.png "Speicher")
-*Abbildung 2. Speicher*
 
 Im Diagramm "Ressourcen" wird der Speicherplatz angezeigt, der von Peers und Zertifizierungsstellen verwendet wird. In diesem Pool sind alle Organisationen enthalten, die Sie erstellt oder zur Teilnahme an Ihrem Netz eingeladen haben. Die Organisationen, die Ressourcen verbrauchen, sind in der Anzeige unter dem zweiten Listenpunkt aufgeführt.
 
@@ -104,7 +103,6 @@ Die Anzeige "Mitglieder" enthält zwei Registerkarten. Auf der Registerkarte "Mi
 In **Abbildung 3** ist die erste Anzeige "Mitglieder" zu sehen, die Ihre Netzmitglieder im Netz auf der Registerkarte "Mitglieder" anzeigt:
 
 ![Registerkarte 'Mitglieder' in der Anzeige 'Mitglieder'](images/monitor_members.png "Netzmitglieder")
-*Abbildung 3. Netzmitglieder*
 
 Auf der Registerkarte "Mitglieder" können Sie andere Mitglieder einladen und zu denjenigen Mitgliedern hinzufügen, die Sie bei der Erstellung des Netzes ursprünglich eingeladen hatten. Um ein Mitglied in Ihr Netz einzuladen, geben Sie den Namen der Institution und die E-Mail-Adresse des Operators ein und klicken Sie auf **Mitglied hinzufügen**. Ein Netz kann insgesamt 15 Mitglieder haben (einschließlich des Netzinitiators). Um ein Mitglied aus Ihrem Netz zu entfernen, klicken Sie auf das Symbol "Entfernen" am Ende der Zeile des Mitglieds.
 
@@ -113,7 +111,6 @@ Auf der Registerkarte "Mitglieder" können Sie andere Mitglieder einladen und zu
 **Abbildung 4** zeigt das Fenster "Mitglied hinzufügen".
 
 ![Mitglied hinzufügen](images/invite_member_starter.png "Mitglied hinzufügen")
-*Abbildung 4. Mitglied hinzufügen*
 
 Wenn Sie auf **Mitglied hinzufügen** klicken, werden zwei Optionen angezeigt:
 - **Mitglied einladen**. Sie können andere Organisationen einladen, Mitglieder Ihres Netzes zu werden. Die eingeladenen Organisationen können dann teilnehmen und mit Ihnen im Netz zusammenarbeiten.
@@ -126,11 +123,8 @@ Wenn Sie auf **Mitglied hinzufügen** klicken, werden zwei Optionen angezeigt:
 In **Abbildung 5** ist die erste Anzeige "Mitglieder" dargestellt, die Mitgliedszertifikate auf der Registerkarte "Zertifikate" anzeigt:
 
 ![Registerkarte 'Zertifikate' in der Anzeige 'Mitglieder'](images/monitor_certificates.png "Zertifikate")
-*Abbildung 5. Zertifikate*
 
 Operatoren können die Zertifikate für die Mitglieder in derselben Institution auf der Registerkarte "Zertifikate" verwalten. Klicken Sie auf **Zertifikat hinzufügen**, um die Anzeige "Zertifikat hinzufügen" zu öffnen. Geben Sie Ihrem Zertifikat einen Namen, fügen Sie die clientseitigen Zertifikate im PEM-Format in das Feld "Schlüssel" ein und klicken Sie auf **Übergeben**. Sie müssen die Peers erneut starten, damit die clientseitigen Zertifikate wirksam werden.
-
-Weitere Informationen zur Generierung Ihres Zertifikatsschlüssels finden Sie unter [Anwendung eintragen](/docs/services/blockchain/v10_application.html#dev-app-enroll).
 
 ## Kanäle
 {: #ibp-dashboard-channels}
@@ -140,13 +134,12 @@ Kanäle, die aus einer Untergruppe von Netzmitgliedern bestehen, die private Tra
 In **Abbildung 6** ist die Anfangsanzeige des Dashboards mit einer Übersicht aller Kanäle in Ihrem Netz zu sehen:
 
 ![Kanäle](images/channels.png "Kanäle")
-*Abbildung 6. Kanäle*
 
-Durch das Erstellen eines Kanals wird ein kanalspezifisches Ledger generiert. Weitere Informationen finden Sie unter [Kanal erstellen](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel).
+Durch das Erstellen eines Kanals wird ein kanalspezifisches Ledger generiert. Weitere Informationen finden Sie unter [Kanal erstellen](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel).
 
-Sie können auch einen vorhandenen Kanal auswählen, um genauere Details zu Kanal, Mitgliedschaft und aktivem Chaincode anzuzeigen. Weitere Informationen finden Sie unter [Netz überwachen](/docs/services/blockchain/howto/monitor_network.html#monitor-blockchain-network).
+Sie können auch einen vorhandenen Kanal auswählen, um genauere Details zu Kanal, Mitgliedschaft und aktivem Chaincode anzuzeigen. Weitere Informationen finden Sie unter [Netz überwachen](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
-Wenn Sie unter Verwendung der [Registerkarte "Zertifikate"](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-certificates) in der Anzeige "Mitglieder" ein neues Zertifikat in die Plattform hochgeladen haben, können Sie diese Anzeige verwenden, um das Zertifikat zu einem Kanal hinzuzufügen. Klicken Sie in der Dropdown-Liste unter der Überschrift **Aktionen** neben dem entsprechenden Kanal auf **Zertifikat synchronisieren**. Auf diese Weise können Sie den Kanal von einem fernen Client aus betreiben, was auch die Möglichkeit einschließt, einen Chaincode auf dem Kanal zu instanziieren. Weitere Informationen enthält der Abschnitt [Signierzertifikate in {{site.data.keyword.blockchainfull_notm}} Platform hochladen](/docs/services/blockchain/certificates.html#managing-certificates-upload-certs) im Lernprogramm [Zertifikate verwalten](/docs/services/blockchain/certificates.html#managing-certificates).
+Wenn Sie unter Verwendung der [Registerkarte "Zertifikate"](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates) in der Anzeige "Mitglieder" ein neues Zertifikat in die Plattform hochgeladen haben, können Sie diese Anzeige verwenden, um das Zertifikat zu einem Kanal hinzuzufügen. Klicken Sie in der Dropdown-Liste unter der Überschrift **Aktionen** neben dem entsprechenden Kanal auf **Zertifikat synchronisieren**. Auf diese Weise können Sie den Kanal von einem fernen Client aus betreiben, was auch die Möglichkeit einschließt, einen Chaincode auf dem Kanal zu instanziieren. Weitere Informationen enthält der Abschnitt [Signierzertifikate in {{site.data.keyword.blockchainfull_notm}} Platform hochladen](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs) im Lernprogramm [Zertifikate verwalten](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 ## Benachrichtigungen
 {: #ibp-dashboard-notifications}
@@ -156,7 +149,6 @@ Wenn Sie einen Kanal erstellen oder in einen neuen Kanal eingeladen werden, wird
 In **Abbildung 7** ist die Anzeige "Benachrichtigungen" dargestellt:
 
 ![Benachrichtigungen](images/notifications.png "Benachrichtigungen")
-*Abbildung 7. Benachrichtigungen*
 
 Die Anforderungen werden auf den untergeordneten Registerkarten "Alle", "Anstehend" und "Abgeschlossen" gruppiert. Die Zahlen hinter der Registerkartenüberschrift geben die Anzahl der Anforderungen auf den einzelnen untergeordneten Registerkarten an.
    * Auf der untergeordneten Registerkarte "Alle" werden alle Ihre Anforderungen angezeigt.
@@ -175,9 +167,8 @@ Die Tabelle in der Anzeige "Zertifizierungsstelle (CA)" enthält alle Identität
 In **Abbildung 8** ist die Anzeige "Zertifizierungsstelle" dargestellt:
 
 ![Zertifizierungsstelle](images/CA_screen.png "Zertifizierungsstelle")
-*Abbildung 8. Zertifizierungsstelle*
 
-Klicken Sie auf die Schaltfläche **Zertifikat generieren** neben Ihrer Administratoridentität, um ein neues öffentliches Zertifikat sowie einen privaten Schlüssel von Ihrer CA abzurufen. Das Feld **Zertifikat** enthält das öffentliche Zertifikat, das auch als signCert-Zertifikat oder Eintragungszertifikat bezeichnet wird. Es befindet sich direkt über dem Feld **Privater Schlüssel**. Sie können auf das Kopiersymbol klicken, das sich am Ende aller Felder befindet, um den Wert zu kopieren. Diese Anzeige bietet eine alternative Möglichkeit zum Generieren eines Paars aus öffentlichem und privatem Schlüssel für eine Clientanwendung, die mit dem Fabric-SDK arbeitet. Weitere Informationen bietet das Lernprogramm [Anwendungen entwickeln](/docs/services/blockchain/v10_application.html#dev-app). **Beachten Sie hierbei**, dass diese Zertifikate unter {{site.data.keyword.blockchainfull_notm}} Platform nicht gespeichert werden. Sie müssen sie an einem sicheren Ort aufbewahren und speichern.
+Klicken Sie auf die Schaltfläche **Zertifikat generieren** neben Ihrer Administratoridentität, um ein neues öffentliches Zertifikat sowie einen privaten Schlüssel von Ihrer CA abzurufen. Das Feld **Zertifikat** enthält das öffentliche Zertifikat, das auch als signCert-Zertifikat oder Eintragungszertifikat bezeichnet wird. Es befindet sich direkt über dem Feld **Privater Schlüssel**. Sie können auf das Kopiersymbol klicken, das sich am Ende aller Felder befindet, um den Wert zu kopieren. Diese Anzeige bietet eine alternative Möglichkeit zum Generieren eines Paars aus öffentlichem und privatem Schlüssel für eine Clientanwendung, die mit dem Fabric-SDK arbeitet. **Beachten Sie hierbei**, dass diese Zertifikate unter {{site.data.keyword.blockchainfull_notm}} Platform nicht gespeichert werden. Sie müssen sie an einem sicheren Ort aufbewahren und speichern.
 
 Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, um eine neue Identität bei Ihrer Organisation zu registrieren. Füllen Sie im Popup-Fenster **Benutzer hinzufügen** die folgenden Felder aus und klicken Sie anschließend auf **Abschicken**.
   - **Eintragungs-ID:** Dies ist der Name Ihrer neuen Identität. `` **Speichern Sie diesen Wert.** Sie benötigen ihn, wenn Sie einen fernen Peer konfigurieren oder eine neue Anwendung eintragen.
@@ -186,7 +177,7 @@ Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, um eine neue Identit
   - **Zugehörigkeit:** Dies ist die Zugehörigkeit innerhalb Ihrer Organisation, z. B. `org1`, zu der die Identität gehören wird.
   - **Maximale Anzahl der Eintragungen:** In diesem Feld können Sie die Anzahl der Wiederholungen für die Eintragung oder die Generierung von Zertifikaten mit dieser Identität einschränken. Erfolgt in dem Feld keine Angabe, dann wird standardmäßig der Wert für eine unbeschränkte Anzahl von Eintragungen verwendet.
 
-Weitere Informationen zu Ihrer Zertifizierungsstelle (CA) erhalten Sie, wenn Sie das Lernprogramm [Zertifikate in {{site.data.keyword.blockchainfull_notm}} Platform verwalten](/docs/services/blockchain/certificates.html#managing-certificates) aufrufen.
+Weitere Informationen zu Ihrer Zertifizierungsstelle (CA) erhalten Sie, wenn Sie das Lernprogramm [Zertifikate in {{site.data.keyword.blockchainfull_notm}} Platform verwalten](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) aufrufen.
 
 ## APIs
 {: #ibp-dashboard-apis}
@@ -196,9 +187,8 @@ Weitere Informationen zu Ihrer Zertifizierungsstelle (CA) erhalten Sie, wenn Sie
 In **Abbildung 9** ist die Anzeige "APIs" zu sehen:
 
 ![APIs](images/API_screen.png "APIs")
-*Abbildung 9. APIs*
 
-Klicken Sie auf den Link für die **Swagger-Benutzerschnittstelle (UI)**, um die Swagger-Benutzerschnittstelle zu öffnen. Beachten Sie, dass Sie die Swagger-Benutzerschnittstelle mit Ihren Netzberechtigungsnachweisen (die auf dieser Seite "APIs" zu finden sind) berechtigen müssen, bevor Sie die APIs ausführen können. Weitere Informationen finden Sie in [Swagger-APIs verwenden, um mit dem Netz zu interagieren](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger).
+Klicken Sie auf den Link für die **Swagger-Benutzerschnittstelle (UI)**, um die Swagger-Benutzerschnittstelle zu öffnen. Beachten Sie, dass Sie die Swagger-Benutzerschnittstelle mit Ihren Netzberechtigungsnachweisen (die auf dieser Seite "APIs" zu finden sind) berechtigen müssen, bevor Sie die APIs ausführen können. Weitere Informationen finden Sie in [Swagger-APIs verwenden, um mit dem Netz zu interagieren](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger).
 
 ## Code entwickeln
 {: #ibp-dashboard-write-code}
@@ -210,9 +200,8 @@ Der Starter Plan und der Enterprise Plan bieten eine Entwicklungsumgebung mit To
 In **Abbildung 10** ist die Anzeige "Code entwickeln" dargestellt:
 
 ![Code entwickeln](images/write_code.png "Code entwickeln")
-*Abbildung 10. Code entwickeln*
 
-Weitere Informationen zum Entwickeln und Bereitstellen Ihrer Unternehmensnetze finden Sie im Abschnitt [Unternehmensnetze auf Basis des Starter und Enterprise Plans bereitstellen](/docs/services/blockchain/develop_starter_enterprise.html#deploying-a-business-network).
+Weitere Informationen zum Entwickeln und Bereitstellen Ihrer Unternehmensnetze finden Sie im Abschnitt [Unternehmensnetze auf Basis des Starter und Enterprise Plans bereitstellen](/docs/services/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network).
 
 ## Code installieren
 {: #ibp-dashboard-chaincode}
@@ -222,19 +211,17 @@ Bei Chaincode, der auch als "Smart Contract" bezeichnet wird, handelt es sich um
 In **Abbildung 11** ist die Anzeige "Code installieren" zu sehen:
 
 ![Code installieren](images/chaincode_install_overview.png "Code installieren")
-*Abbildung 11. Code installieren*
 
-Ein Chaincode wird zunächst im Dateisystem eines Peers installiert und anschließend auf einem Kanal instanziiert. Weitere Informationen finden Sie in [Chaincode installieren, instanziieren und aktualisieren](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode).
+Ein Chaincode wird zunächst im Dateisystem eines Peers installiert und anschließend auf einem Kanal instanziiert. Weitere Informationen finden Sie in [Chaincode installieren, instanziieren und aktualisieren](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 ## Beispiele ausprobieren
 {: #ibp-dashboard-samples}
 
-eispielanwendungen helfen Ihnen, sich mit Blockchain-Netzen und der Anwendungsentwicklung vertraut zu machen. Rufen Sie die Links für **Auf GitHub anzeigen** auf und informieren Sie sich, wie die Beispiele genutzt und in {{site.data.keyword.blockchainfull_notm}} Platform bereitgestellt werden können. Weitere Informationen zur Entwicklung und Bereitstellung eigener Beispiele finden Sie unter [Beispielanwendungen bereitstellen](/docs/services/blockchain/howto/prebuilt_samples.html#deploying-sample-applications).
+eispielanwendungen helfen Ihnen, sich mit Blockchain-Netzen und der Anwendungsentwicklung vertraut zu machen. Rufen Sie die Links für **Auf GitHub anzeigen** auf und informieren Sie sich, wie die Beispiele genutzt und in {{site.data.keyword.blockchainfull_notm}} Platform bereitgestellt werden können. Weitere Informationen zur Entwicklung und Bereitstellung eigener Beispiele finden Sie unter [Beispielanwendungen bereitstellen](/docs/services/blockchain/howto?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
 
 In **Abbildung 12** ist die Anzeige "Beispiele ausprobieren" dargestellt:
 
 ![Beispiele ausprobieren](images/sample_overview_ep.png "Beispiel ausprobieren")
-*Abbildung 12. Beispiele*
 
 ## Hilfe anfordern
 {: #ibp-dashboard-support}
@@ -244,15 +231,13 @@ Die Anzeige "Hilfe anfordern" enthält eine Registerkarte "Support", auf der ein
 **Abbildung 13** zeigt die Informationen, die anfangs auf der Registerkarte "Support" zu sehen sind:
 
 ![Support](images/support.png "Support")
-*Abbildung 13. Blockchain-Support*
 
 ### Blockchain-Ressourcen und Unterstützungsforen
 {: #ibp-dashboard-support-forums}
 
-Mit den Ressourcen auf der Registerkarte "Support" können Sie Fehler beheben sowie Hilfe von {{site.data.keyword.IBM_notm}} und der Fabric-Community anfordern. Weitere Informationen zu den Links auf der Registerkarte "Support" finden Sie unter [Ressourcen und Unterstützungsforen](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-resources) im Abschnitt [Support anfordern](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support).
+Mit den Ressourcen auf der Registerkarte "Support" können Sie Fehler beheben sowie Hilfe von {{site.data.keyword.IBM_notm}} und der Fabric-Community anfordern. Weitere Informationen zu den Links auf der Registerkarte "Support" finden Sie unter [Ressourcen und Unterstützungsforen](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) im Abschnitt [Support anfordern](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
-[{{site.data.keyword.IBM_notm}} dWAnswers ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://developer.ibm.com/answers/smartspace/blockchain/index.html){:new_window} ist ein von IBM Experten betreutes Community-Forum für Benutzer von {{site.data.keyword.blockchainfull_notm}} Platform und Hyperledger Fabric. Sie können nach Antworten auf bereits gestellte Fragen suchen oder eine neue Frage stellen. Wenn Sie Ihr Problem nicht beheben können oder keine Antwort auf Ihre Frage finden, reichen Sie einen Supportfall im {{site.data.keyword.cloud_notm}} Service Portal ein. Weitere Informationen finden Sie unter [Supportfälle einreichen](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases).
-
+Wenn Sie Ihr Problem nicht beheben können oder keine Antwort auf Ihre Frage finden, reichen Sie einen Supportfall im {{site.data.keyword.cloud_notm}} Service Portal ein. Weitere Informationen finden Sie unter [Supportfälle einreichen](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 ### Releaseinformationen zu Fabric
 {: #ibp-dashboard-release-notes}
@@ -262,12 +247,10 @@ Auf der Registerkarte "Releaseinformationen" werden die neuesten Funktionen Ihre
 In **Abbildung 14** sind die Releaseinformationen zur Network Monitor-Benutzerschnittstelle dargestellt.
 
 ![Releaseinformationen für Helios](images/releasenotes_helios.png "Releaseinformationen zur Network Monitor-Benutzerschnittstelle")
-*Abbildung 14. Releaseinformationen zur Network Monitor-Benutzerschnittstelle*
 
 **Abbildung 15** zeigt die Releaseinformationen zur Version von Hyperledger Fabric und der Fabric-Zertifizierungsstelle, die in Ihrem Netz verwendet wird.
 
 ![Releaseinformationen für Fabric](images/releasenotes_Fabric.png "Releaseinformationen zu Fabric")
-*Abbildung 15. Releaseinformationen für Fabric*
 
 ## Netzvorgaben
 {: #ibp-dashboard-network-preferences}
@@ -285,8 +268,7 @@ Standardmäßig ist für das Web-Inaktivitätszeitlimit der Wert **Aus** festgel
 
 In **Abbildung 16** ist das Fenster "Netzvorgaben" dargestellt:
 
-![Netzvorgaben](images/network_preferences.gif "Netzvorgaben")
-*Abbildung 16. Netzvorgaben*
+![Netzvorgaben](images/network_preferences.gif "Netzvorgaben"){: gif}
 
 ### Gegenseitige TLS-Authentifizierung (für Enterprise Plan-Netze)
 {: #ibp-dashboard-mutual-tls}
@@ -297,7 +279,7 @@ Bei **Enterprise Plan-Netzen** können Sie die gegenseitige TLS-Authentifizierun
 
 Standardmäßig ist für die TLS-Schaltfläche die Einstellung **Aus** festgelegt. Wenn Sie MTLS aktivieren, müssen Sie die Anwendungen so aktualisieren, dass sie diese Funktion unterstützen. Andernfalls können die Anwendungen nicht mit dem Netz kommunizieren.
 
-Bei einem Enterprise Plan-Netz in Fabric 1.1 verfügt jede Organisation über eine eigene MTLS-Zertifizierungsstelle. Die Informationen, die für die Herstellung einer Verbindung zur MTLS-Zertifizierungsstelle erforderlich sind, stehen im [Verbindungsprofil](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-connection-profile) zur Verfügung, auf das Sie über die Anzeige **Übersicht** in Network Monitor zugreifen können, indem Sie auf die Schaltfläche **Verbindungsprofil** klicken. Das Verbindungsprofil enthält die Informationen, die erforderlich sind, um eine Verbindung zur Zertifizierungsstelle herzustellen und die Zertifikate abzurufen, die Sie für die Verbindung zu Ihrem Netz benötigen.
+Bei einem Enterprise Plan-Netz in Fabric 1.1 verfügt jede Organisation über eine eigene MTLS-Zertifizierungsstelle. Die Informationen, die für die Herstellung einer Verbindung zur MTLS-Zertifizierungsstelle erforderlich sind, stehen im [Verbindungsprofil](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile) zur Verfügung, auf das Sie über die Anzeige **Übersicht** in Network Monitor zugreifen können, indem Sie auf die Schaltfläche **Verbindungsprofil** klicken. Das Verbindungsprofil enthält die Informationen, die erforderlich sind, um eine Verbindung zur Zertifizierungsstelle herzustellen und die Zertifikate abzurufen, die Sie für die Verbindung zu Ihrem Netz benötigen.
 
 Suchen Sie im Verbindungsprofil nach dem Abschnitt `certificateAuthorities`. Hier finden Sie die folgenden Attribute, die für die Eintragung und das Abrufen der Zertifikate für die Kommunikation mit dem Netz über MTLS erforderlich sind.
 
@@ -306,7 +288,7 @@ Suchen Sie im Verbindungsprofil nach dem Abschnitt `certificateAuthorities`. Hie
 - `enrollSecret`: Geheimer Eintragungsschlüssel für das Abrufen eines Zertifikats.
 - `x-tlsCAName`: Name der Zertifizierungsstelle für das Abrufen des Zertifikats, das der Anwendung die Kommunikation über MTLS (Mutual TLS) ermöglicht.
 
-Weitere Informationen zum Aktualisieren der Anwendungen für die Unterstützung von MTLS finden Sie unter [How to configure mutual TLS ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html).
+Weitere Informationen zum Aktualisieren der Anwendung für die Unterstützung von MTLS finden Sie unter [How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
 
 <!--
 
@@ -319,14 +301,13 @@ Before Enterprise Plan upgrades to Fabric v1.1, all network peers store data in 
 
 To use CouchDB, your data must be stored in a data format that can be modeled in chaincode, such as JSON. If the decision is made to migrate from LevelDB to CouchDB, the {{site.data.keyword.blockchainfull_notm}} Platform will migrate your data from key-value format to the CouchDB format automatically.
 
-If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc).
+If you switch to CouchDB, you need to update your chaincode to take advantage of indexes and rich queries. For more information about CouchDB and how to set up indexes, see [Best practices when using CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) in the Developing applications tutorial. For more information about updating chaincode in {{site.data.keyword.blockchainfull_notm}} Platform, see [Updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc).
 
 -->
 
 In **Abbildung 17** ist das Fenster "Netzvorgaben" dargestellt:
 
 ![Netzvorgaben](images/network_preferences_ep_tmp.png "Netzvorgaben")
-*Abbildung 17. Netzvorgaben*
 
 ## Netznamen aktualisieren
 {: #ibp-dashboard-network-name}
@@ -337,8 +318,7 @@ Klicken Sie oben im linken Navigator in Network Monitor auf den Netznamen. Damit
 
 **Abbildung 18** zeigt die Schritte zur Aktualisierung des Starter Plan-Netznamens vom zugewiesenen Namen in "Starter Plan Network".
 
-![Netznamen aktualisieren](images/update_network_name_ep.gif "Netznamen aktualisieren")
-*Abbildung 18. Netznamen aktualisieren*
+![Netznamen aktualisieren](images/update_network_name_ep.gif "Netznamen aktualisieren"){: gif}
 
 
 ## Zwischen Netzen wechseln (für Starter Plan-Netze)
@@ -350,8 +330,7 @@ Klicken Sie oben im linken Navigator in Network Monitor auf das Pfeilsymbol nebe
 
 **Abbildung 19** zeigt die Schritte zum Wechseln zu einem anderen Starter Plan-Netz.
 
-![Netz wechseln](images/switch_network.gif "Netz wechseln")
-*Abbildung 19. Netz wechseln*
+![Netz wechseln](images/switch_network.gif "Netz wechseln"){: gif}
 
 
 ## Netz zurücksetzen (für Starter Plan-Netze)
@@ -366,4 +345,3 @@ Klicken Sie in der rechten oberen Ecke, um das Dropdown-Menü zu öffnen. Klicke
 In **Abbildung 20** ist die Funktion "Netz zurücksetzen" zu sehen:
 
 ![Netz zurücksetzen](images/reset_network.png "Netz zurücksetzen")
-*Abbildung 20. Netz zurücksetzen*

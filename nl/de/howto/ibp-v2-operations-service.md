@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: logging levels, metrics, health check, peer, orderer
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,7 +22,7 @@ subcollection: blockchain
 # Knoten mit Operationsservice betreiben
 {: #operations_service}
 
-{{site.data.keyword.blockchainfull}} Platform v2.0 basiert auf Hyperledger Fabric v1.4.1. Die Plattform unterstützt die Operationsservicefunktion, die eine REST-konforme API für Operationen bietet, die Operatoren die Möglichkeit zur Durchführung von Statusprüfungen, zum Extrahieren von Metriken zum Systembetrieb aus dem Peer und den Anordnungsknoten sowie zur Verwaltung der Protokollierungsstufen gibt. Der Peer und der Anordnungsknoten hosten einen HTTP-Server, der die REST-konforme API für Operationen bereitstellt. Weitere Informationen zum Operationsservice finden Sie im Abschnitt zum [Operationsservice ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html "Operationsservice"){:new_window}.
+Die {{site.data.keyword.blockchainfull}} Platform basiert auf Hyperledger Fabric v1.4.1. Die Plattform unterstützt die Operationsservicefunktion, die eine REST-konforme API für Operationen bietet, die Operatoren die Möglichkeit zur Durchführung von Knotenstatusprüfungen, zum Extrahieren von Metriken zum Systembetrieb aus dem Peer und den Anordnungsknoten sowie zur Verwaltung der Protokollierungsstufen gibt. Der Peer und der Anordnungsknoten hosten einen HTTP-Server, der die REST-konforme API für Operationen bereitstellt.  Weiter Informationen zum Operationsservice finden Sie im Abschnitt zum [Operationsservice](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}.
 {:shortdesc}
 
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 {: #operations_service_consideration_limitation}
 
 - Alle Peer- und Anordnungsknoten sind mit der Einstellung `clientAuthRequired: false` konfiguriert, sodass auf das Statusprüfprogramm zugegriffen werden kann. Da für `clientAuthRequired` die Einstellung `false` angegeben ist und auch die gegenseitige TLS-Authentifizierung aktiviert wurde, müssen Sie beim Zugriff auf den REST-Server die TLS-Identitäten übergeben, um die Authentifizierung durchführen zu können. Diese Einstellung stellt sicher, dann nur Benutzer mit den entsprechenden Schlüsseln die Protokolle anzeigen können.
-- Momentan wird als einziges Modell zum Extrahieren von Metriken das auf [Prometheus ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus) basierende Modell unterstützt.
+- Momentan wird als einziges Modell zum Extrahieren von Metriken das auf [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external} basierende Modell unterstützt.
 
 ## Vorbemerkungen
 {: #operations_service_before_you_begin}
@@ -108,7 +108,7 @@ curl -k https://169.46.208.93:3210/healthz
 ```
 {:codeblock}
 
-Weitere Informationen zu Statusprüfungen finden Sie im Abschnitt zu den [Statusprüfungen ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks "Statusprüfungen").
+Weitere Informationen zu Statusprüfungen finden Sie im Abschnitt zu [Statusprüfungen](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}.
 
 
 ## Metriken anzeigen
@@ -129,7 +129,7 @@ curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcert
 {:codeblock}
 
 
-Weitere Informationen zu Metriken finden Sie im Abschnitt zu den [Metriken ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics "Metriken").
+Weitere Informationen zu Metriken finden Sie unter [Metriken](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}.
 
 
 ## Protokollierungsstufen anzeigen
@@ -147,12 +147,6 @@ Beispiel:
 curl -k https://169.46.208.93:3210/logspec --cert msp/org1/ca/tls/msp/signcerts/cert.pem --key msp/org1/ca/tls/msp/keystore/key.pem  --cacert msp/org1/ca/tls/msp/cacerts/tlsca.pem
 ```
 
-<!--
-```
-curl https://169.46.208.93:3210/logspec --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
-
 Im Folgenden wird ein Beispiel für das Ergebnis dargestellt:
 
 ```
@@ -162,7 +156,7 @@ Im Folgenden wird ein Beispiel für das Ergebnis dargestellt:
 ## Protokollierungsstufen festlegen
 {: #operations_service_log_level_set}
 
-Um die vorhandene Einstellung für die Protokollierungsstufe zu ändern, müssen Sie den folgenden Befehl ausführen, der die Methode `PUT` mit einem JSON-Hauptteil verwendet, der aus einem einzelnen Attribut mit dem Namen `spec` besteht. Ersetzen Sie `<log-level>` durch die von Ihnen erwarteten Protokollierungsstufen. Weitere Informationen zu den Protokollierungsstufen, die festgelegt werden können, finden Sie in der [Protokollierungsspezifikation ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification "Protokollierungsspezifikation") in der Hyperledger Fabric-Dokumentation.
+Um die vorhandene Einstellung für die Protokollierungsstufe zu ändern, müssen Sie den folgenden Befehl ausführen, der die Methode `PUT` mit einem JSON-Hauptteil verwendet, der aus einem einzelnen Attribut mit dem Namen `spec` besteht. Ersetzen Sie `<log-level>` durch die von Ihnen erwarteten Protokollierungsstufen. Weitere Information zu den Protollierungsstufen, die Sie festlegen können, finden Sie in der [Protokollierungsspezifikation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external} in der Hyperledger Fabric-Dokumentation.
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -176,10 +170,4 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 
 Nachdem Sie eine neue Protokollierungsstufe festgelegt haben, können Sie den [Befehl zum Anzeigen der Protokollierungsstufe](#operations_service_log_level_view) verwenden, um Ihre Einstellungen zu überprüfen.
 
-<!--
-```
-curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:info"}' --cert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/signcerts/cert.pem --key temp/1mycluster-test-32240/msp/org1/ca/tls/msp/keystore/3fb20abb935f88b83a8da68317a44a4fa0953d7ec6d06bb19a6fc3979a603095_sk  --cacert temp/1mycluster-test-32240/msp/org1/ca/tls/msp/cacerts/169-55-231-152-30021-tlsca.pem
-```
--->
-
-Weitere Informationen zur Konfiguration der Protokollierungsstufe finden Sie im Abschnitt zum [Protokollierungsstufenmanagement ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management "Protokollierungsstufenmanagement") in der Hyperledger Fabric-Dokumentation.
+Weitere Informationen Zur Konfiguration der Protokollierungsstufen finden Sie im Abschnitt zum [Protokollierungsstufenmanagement](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external} in der Hyperledger Fabric-Dokumentation.

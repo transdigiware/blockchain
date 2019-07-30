@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain offerings, Linux Foundation, Hyperledger Fabric, open source, community contribution
 
@@ -10,7 +10,6 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -18,16 +17,17 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Haftungsausschluss
 {: #disclaimer}
 
 **ACHTUNG:** Sie müssen die folgenden Informationen überprüfen, bevor Sie {{site.data.keyword.blockchainfull}}-Pläne verwenden können.
 
-## IBM Support-Aussage
+## {{site.data.keyword.IBM_notm}} Support-Aussage
 {: #disclaimer-support-statement}
 
-Mit den {{site.data.keyword.blockchainfull_notm}} Platform-Angeboten für {{site.data.keyword.cloud_notm}} setzt {{site.data.keyword.IBM}} seine langjährige Tradition der Bereitstellung innovativer Lösungen fort. Blockchain ist eine rasch fortschreitende Technologie, die das Ziel verfolgt, die Finanzwirtschaft, lokale und weltweite Supply-Chains sowie die logistische Unterstützung zahlreicher Geschäftsfelder neu zu gestalten. Durch verschiedene Early-Adoption-Programme haben {{site.data.keyword.IBM_notm}} Kunden und Business Partner Blockchain als Branchenlösung aktiv vorangetrieben. {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} ist eines dieser Programme. **Wie bei jeder neuen Technologie sollten sich Benutzer von {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} darüber im Klaren sein, dass schnelle und grundlegende Änderungen möglich sind**.
+Mit den {{site.data.keyword.blockchainfull_notm}} Platform-Angeboten für {{site.data.keyword.cloud_notm}} setzt {{site.data.keyword.IBM_notm}} seine langjährige Tradition der Bereitstellung innovativer Lösungen fort. Blockchain ist eine rasch fortschreitende Technologie, die das Ziel verfolgt, die Finanzwirtschaft, lokale und weltweite Supply-Chains sowie die logistische Unterstützung zahlreicher Geschäftsfelder neu zu gestalten. Durch verschiedene Early-Adoption-Programme haben {{site.data.keyword.IBM_notm}} Kunden und Business Partner Blockchain als Branchenlösung aktiv vorangetrieben. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} ist eines dieser Programme. **Wie bei jeder neuen Technologie sollten sich Benutzer von {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} darüber im Klaren sein, dass schnelle und grundlegende Änderungen möglich sind**.
 {:shortdesc}
 
 {{site.data.keyword.blockchainfull_notm}} baut auf der Architektur des Hyperledger Fabric-Projekts der Linux Foundation auf. Jeder Beitrag der Open-Source-Community trägt zur Verbesserung von Hyperledger Fabric bei, kann jedoch im Hinblick auf die Akzeptanz eine Herausforderung darstellen. **{{site.data.keyword.IBM_notm}} warnt vor dem direkten Definieren oder Austauschen von Finanzanlagen<!--, or any assets of value,--> in einem auf Hyperledger Fabric basierenden Blockchain-Netz**.

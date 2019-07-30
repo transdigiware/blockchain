@@ -4,8 +4,6 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-05"
 
-keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
-
 subcollection: blockchain
 
 ---
@@ -18,6 +16,7 @@ subcollection: blockchain
 
 # Kanal erstellen oder aktualisieren
 {: #ibp-create-channel}
+
 
 Kanäle sind ein äußerst leistungsfähiger Mechanismus für die Partitionierung und Isolierung von Daten zum Datenschutz. Nur Mitglieder desselben Kanals können auf die Daten dieses Kanals zugreifen.
 {:shortdesc}
@@ -76,5 +75,5 @@ Alle Kanalmitglieder erhalten E-Mail-Benachrichtigungen über die Anforderung zu
 
 Wenn eine ausreichende Anzahl von Kanaloperatoren der Anforderung zustimmen, kann jedes beliebige Kanalmitglied auf die Schaltfläche **Anforderung übergeben** klicken und der Kanal wird aktualisiert. Alle Kanalmitglieder finden den aktualisierten Kanal in der Anzeige "Kanäle" im Network Monitor.
 
-Bewilligungsrichtlinien werden nicht automatisch aktualisiert, wenn neue Organisationen dem Kanal beitreten und den Chaincode installieren. Falls die Richtlinie beispielsweise zwei von fünf Organisationen erforderlich macht, damit eine Transaktion bewilligt wird, wird sie nicht dahingehend aktualisiert, dass zwei von sechs Organisationen erforderlich sind, nachdem eine neue Organisation dem Kanal beigetreten ist. Stattdessen wird die neue Organisation nicht in der Richtlinie aufgeführt und ist nicht in der Lage, Transaktionen zu bewilligen. Sie können eine neue Organisation zu einer Bewilligungsrichtlinie hinzufügen, indem Sie den [entsprechenden Chaincode aktualisieren](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc). Weitere Informationen finden Sie im Abschnitt [Bewilligungsrichtlinien des Chaincodes angeben](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-endorsement-policy).
+Bewilligungsrichtlinien werden nicht automatisch aktualisiert, wenn neue Organisationen dem Kanal beitreten und den Chaincode installieren. Falls die Richtlinie beispielsweise zwei von fünf Organisationen erforderlich macht, damit eine Transaktion bewilligt wird, wird sie nicht dahingehend aktualisiert, dass zwei von sechs Organisationen erforderlich sind, nachdem eine neue Organisation dem Kanal beigetreten ist. Stattdessen wird die neue Organisation nicht in der Richtlinie aufgeführt und ist nicht in der Lage, Transaktionen zu bewilligen. Sie können eine neue Organisation zu einer Bewilligungsrichtlinie hinzufügen, indem Sie den [entsprechenden Chaincode aktualisieren](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc). Weitere Informationen finden Sie im Abschnitt [Bewilligungsrichtlinien des Chaincodes angeben](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy).
 {:important}
