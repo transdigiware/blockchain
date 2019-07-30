@@ -74,7 +74,7 @@ Puede volver a crear la configuración de las organizaciones (miembros), canales
 [Utilización del supervisor de red](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview).
 3. Configure los canales añadiendo miembros y estableciendo políticas de canal de la misma manera que en la red del Plan inicial.
 
-**Nota:** para conseguir alta disponibilidad, debe crear al menos dos iguales para su organización, unirlos al mismo canal y codificar las aplicaciones de cliente correctamente para pasar de un igual al otro cuando sea necesario.
+**Nota:** para conseguir alta disponibilidad, debe crear al menos dos iguales para su organización, unirlos al mismo canal y programar las aplicaciones de cliente correctamente para pasar de un igual al otro cuando sea necesario.
 
 ### Migrar código de encadenamiento
 {: #migrate_starter_to_enterprise_cc}

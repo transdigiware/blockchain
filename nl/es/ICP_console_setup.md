@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
@@ -108,11 +109,13 @@ Después de instalar {{site.data.keyword.cloud_notm}} Private y enlazar una pol�
 {: #icp-console-setup-psp}
 
 El diagrama de Helm de {{site.data.keyword.blockchainfull_notm}} requiere que se enlacen políticas de seguridad y de acceso específicas
-con el espacio de nombres de destino antes de la instalación. Utilice los pasos siguientes para configurar las políticas antes de configurar el diagrama de Helm:
+con el espacio de nombres de destino antes de la instalación. Se proporcionan los archivos YAML que definen las políticas en los pasos siguientes. Puede guardar estos archivos en su sistema local y, a continuación, enlazarlos a su espacio de nombres utilizando la CLI de
+{{site.data.keyword.cloud_notm}} Private. Siga los pasos siguientes antes de desplegar el diagrama de Helm de
+{{site.data.keyword.blockchainfull_notm}}.
 
-1. Elija una política de seguridad de pod (PodSecurityPolicy) predefinida para el espacio de nombres o solicite al administrador del clúster que cree una PodSecurityPolicy personalizada:
-  - Puede utilizar la PodSecurityPolicy predefinida [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-  - También puede crear, mediante el YAML siguiente, una definición de PodSecurityPolicy personalizada:
+1. Guarde el archivo siguiente que define la política de seguridad de pod (PodSecurityPolicy) de
+{{site.data.keyword.blockchainfull_notm}} Platform como
+`ibm-blockchain-platform-psp.yaml` en el sistema local:
 
     ```
     apiVersion: extensions/v1beta1
@@ -142,13 +145,14 @@ con el espacio de nombres de destino antes de la instalación. Utilice los pasos
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. Cree un rol de clúster (ClusterRole) para la política de seguridad de pod (PodSecurityPolicy).
-  - Si ha creado una política de seguridad personalizada, puede crear un rol de clúster utilizando el archivo YAML siguiente:
+2. Guarde el archivo siguiente que define el rol de clúster (ClusterRole) necesario para la política de seguridad de pod como
+`ibm-blockchain-platform-clusterrole.yaml`:
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -166,45 +170,61 @@ con el espacio de nombres de destino antes de la instalación. Utilice los pasos
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - Si utiliza una política de seguridad de pod (PodSecurityPolicy) predefinida, solo necesitará crear un rol de clúster utilizando la segunda sección apiGroups:
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. Cree un enlace de rol de clúster (ClusterRoleBinding) personalizado. Si decide cambiar el nombre de la cuenta de servicio (ServiceAccount) en el archivo siguiente, necesitará proporcionar el nombre en el campo `Nombre de cuenta de servicio` en la sección
+3. Guarde el archivo siguiente que define el enlace de rol de clúster (ClusterRoleBinding) como
+`ibm-blockchain-platform-clusterrolebinding.yaml`. Si decide cambiar el nombre de cuenta de servicio en el archivo siguiente, debe proporcionar el nombre en el campo `Nombre de cuenta de servicio` de la sección
 **Todos los parámetros** de la página de configuración al desplegar el diagrama de Helm.
 
   ```
@@ -223,20 +243,32 @@ con el espacio de nombres de destino antes de la instalación. Utilice los pasos
   ```
   {:codeblock}
 
-Puede completar los pasos siguientes para utilizar archivos YAML para enlazar las políticas de seguridad y de acceso al espacio de nombres:
+Una vez que haya guardado los archivos YAML PodSecurityPolicy, ClusterRole y ClusterRoleBinding en su sistema local, un administrador de clúster deberá utilizar la CLI de {{site.data.keyword.cloud_notm}} Private para enlazar las políticas con el espacio de nombres.
 
-1. Guarde el archivo YAML en el sistema local.
+1. Inicie sesión en el clúster de {{site.data.keyword.cloud_notm}} y seleccione el espacio de nombres de destino de su despliegue.
 
-2. Inicie sesión en el clúster de {{site.data.keyword.cloud_notm}} y seleccione el espacio de nombres de destino de su despliegue.
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. Inicie sesión en el registro de imágenes de Docker del clúster:
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
    {:codeblock}
 
-3. Utilice el mandato siguiente para aplicar la política al espacio de nombres de destino:
+3. Utilice los mandatos siguientes para aplicar las políticas a su espacio de nombres de destino:
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
-   {:codeblock}
+  {:codeblock}
+
+4. Tras aplicar las políticas, debe otorgar a su cuenta de servicio el nivel necesario de permisos para desplegar la consola. Ejecute el mandato siguiente con el nombre del espacio de nombres de destino:
+
+  ```
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```

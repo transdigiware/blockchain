@@ -43,11 +43,11 @@ Los planes de la oferta {{site.data.keyword.blockchainfull_notm}} on {{site.data
 ## Sentencia de soporte del código de encadenamiento
 {: #disclaimer-chaincode-support-statement}
 
-Las siguientes prácticas de codificación NO reciben soporte en las redes de {{site.data.keyword.blockchainfull_notm}}:
+Las siguientes prácticas de programación NO reciben soporte en las redes de {{site.data.keyword.blockchainfull_notm}}:
 
 1. Uso de matrices asociativas con iteración (el orden es aleatorio en Go).
 2. Lectura de una lista de elementos desde una tabla KVS (el orden no está garantizado).
-3. Grabación del código de encadenamiento de hebras no seguras (se pueden invocar la consulta y la invocación en paralelo).
+3. Escritura del código de encadenamiento de hebras no seguras (se pueden invocar la consulta y la invocación en paralelo).
 4. Sustitución de la memoria global o del almacenamiento de memoria caché para variables de estado de libro mayor en el código de encadenamiento.
 5. Acceso a servicios externos, como por ejemplo bases de datos, directamente desde el código de encadenamiento.
 6. Uso de bibliotecas o de variables globales que podrían introducir el no determinismo (como utilizar "random" o "time").

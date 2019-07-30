@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -177,10 +177,30 @@ Puede utilizar API para crear componentes de blockchain en su instancia de
 7. Si desea utilizar la consola para trabajar con los componentes de blockchain, debe importar la identidad de administrador en la cartera de la consola. Utilice el separador de la cartera para importar el certificado y la clave privada del administrador del nodo en la consola y crear una identidad. A continuación, debe utilizar la consola para asociar esta identidad con los componentes que haya creado. Para obtener más información, consulte [Importación de una identidad de administrador en la consola
 de {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-v2-apis-admin-console).
 
-8. Tras desplegar la red, puede utilizar los SDK de Fabric, la CLI del igual o la interfaz de usuario de la consola para crear canales e instalar o crear instancias de contratos inteligentes.
+8. Tras desplegar la red, puede utilizar los SDK de Fabric, la CLI del igual o la interfaz de usuario de la consola para crear canales e instalar o crear instancias de contratos inteligentes. Si necesita crear un canal mediante programación, debe proporcionar el nombre del consorcio. Para
+{{site.data.keyword.blockchainfull}} Platform, el nombre del consorcio se debe establecer en `SampleConsortium`.
 
 La credencial de servicio utilizada para la autenticación de API debe tener el rol `Gestor` en IAM para poder crear componentes. Consulte la tabla de este tema sobre [roles de usuario](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) para obtener más información.
 {: note}
+
+### Creación de un nodo dentro de una zona específica
+{: #ibp-v2-apis-zone}
+
+Si utiliza un clúster de varias zonas, puede utilizar las API para desplegar un componente de blockchain en una zona específica de
+{{site.data.keyword.cloud_notm}}. Esto permite que la red pueda mantener la disponibilidad en caso de que se produzca un error de zona. Puede utilizar los pasos siguientes para desplegar un igual o un nodo de ordenación en una zona específica.
+
+1. Busque las zonas en las que se encuentran los nodos trabajadores. Vaya a la pantalla de visión general del clúster de varias zonas en el [servicio {{site.data.keyword.cloud_notm}} Kubernetes on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. En la pantalla de visión general del clúster, pulse
+**Nodos trabajadores** para ver una tabla con todos los nodos trabajadores del clúster. Puede encontrar la zona en que se encuentra cada nodo trabajador en la columna **Zona** de la tabla.
+
+  También puede encontrar las zonas de sus nodos trabajadores utilizando la CLI de kubectl. Vaya al panel **Acceso** y siga las instrucciones de
+**Obtener acceso al clúster** para conectarse al clúster utilizando las herramientas de CLI de
+{{site.data.keyword.cloud_notm}} y kubectl. Una vez que se haya conectado, utilice el mandato `kubectl get nodes --show-labels` para obtener la lista completa de nodos y zonas del clúster. Podrá ver la zona en que se encuentra cada nodo trabajador después del campo
+`zone` bajo la columna `LABELS`.
+
+2. Para crear un nodo dentro de una zona específica, proporcione el nombre de la zona en las llamadas de API
+[Crear un servicio de ordenación](/apidocs/blockchain?code=try#create-an-ordering-service) o
+[Crear un igual](/apidocs/blockchain?code=try#create-an-ordering-service) utilizando el campo de zona del cuerpo de la solicitud. La política antiafinidad de la consola de
+{{site.data.keyword.blockchainfull_notm}} Platform desplegará automáticamente su componente en distintos nodos trabajadores dentro de cada zona en función de los recursos disponibles.
 
 ## Importar una red utilizando las API
 {: #ibp-v2-apis-import-with-apis}
@@ -204,7 +224,8 @@ También puede utilizar las API para importar componentes de {{site.data.keyword
 5. Si tiene pensado utilizar la consola de {{site.data.keyword.blockchainfull_notm}} Platform para trabajar con los componentes de blockchain, debe importar las identidades de administrador de componentes en la cartera de la consola. Para obtener más información, consulte [Importación de una identidad de administrador en la consola
 de {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-v2-apis-admin-console).
 
-6. Tras desplegar la red, puede utilizar los SDK de Fabric, la CLI del igual o la interfaz de usuario de la consola para crear canales e instalar o crear instancias de contratos inteligentes.
+6. Tras desplegar la red, puede utilizar los SDK de Fabric, la CLI del igual o la interfaz de usuario de la consola para crear canales e instalar o crear instancias de contratos inteligentes. Si necesita crear un canal mediante programación, debe proporcionar el nombre del consorcio. Para
+{{site.data.keyword.blockchainfull}} Platform, el nombre del consorcio se debe establecer en `SampleConsortium`.
 
 La credencial de servicio utilizada para la autenticación de API debe tener el rol `Escritor` en IAM para poder importar componentes. Consulte la tabla de este tema sobre [roles de usuario](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) para obtener más información.
 {: note}

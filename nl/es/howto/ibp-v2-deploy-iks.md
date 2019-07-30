@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -54,7 +54,6 @@ Antes de desplegar la consola, asegúrese de que comprende las consideraciones s
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} se basa en Hyperledger Fabric v1.4.1.
 - Todos los iguales desplegados con la consola o las API utilizan CouchDB como base de datos de estado.
 - Tiene la opción de enlazar su instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform con un clúster Kubernetes gratuito para la evaluación de la oferta; sin embargo, la capacidad y el rendimiento están limitados, no se pueden migrar datos y el clúster se suprime después de 30 días.
-- Aunque la prueba beta es gratuita, tiene que pagar el clúster de Kubernetes, si elige un clúster de pago.
 - El usuario es responsable de gestionar la supervisión del estado, la seguridad y el registro del clúster de Kubernetes. Consulte esta [información](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} para ver detalles sobre lo que gestiona {{site.data.keyword.cloud_notm}} y lo que es responsabilidad del usuario.
 - También es responsable de supervisar el uso de recursos del clúster de Kubernetes utilizando el panel de control de Kubernetes. Si tiene que aumentar la capacidad de almacenamiento o el rendimiento del clúster, consulte esta información sobre cómo [modificar un volumen existente](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - Es responsable de gestionar y proteger sus certificados y sus claves privadas. {{site.data.keyword.IBM_notm}} no almacena sus certificados en el clúster de Kubernetes.
@@ -63,6 +62,7 @@ Antes de desplegar la consola, asegúrese de que comprende las consideraciones s
 - Kubernetes debe tener la versión estable 1.11 o superior en el clúster de Kubernetes de {{site.data.keyword.cloud_notm}}. Utilice estas instrucciones para [actualizar los clústeres nuevos y existentes](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) a esta versión.
 - Si no desea utilizar el almacenamiento de archivos de nivel bronce predeterminado preseleccionado automáticamente al suministrar un clúster de Kubernetes en {{site.data.keyword.cloud_notm}}, puede suministrar el almacenamiento que elija. Consulte este tema sobre [Consideraciones sobre el almacenamiento persistente](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) para obtener más información.
 - Si decide incluir el soporte multizona de {{site.data.keyword.cloud_notm}} en el clúster de Kubernetes, debe suministrar su propio almacenamiento. Consulte [Utilización de clústeres multizona (MZR) con {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) para obtener más detalles.
+- No hay soporte para el Direccionamiento virtual y reenvío (VRF). El servicio {site.data.keyword.blockchainfull_notm}} Platform no es compatible con las cuentas que estén habilitadas para el direccionamiento global automático entre bloques de IP de subred. Del mismo modo, no hay soporte para clústeres de Kubernetes que estén configurados con VLAN privadas.
 
 ## Vídeo de guía de aprendizaje
 {: #ibp-v2-deploy-video}
@@ -107,7 +107,7 @@ En la lista siguiente se especifica el software de navegador mínimo necesario p
 |Gratuito** | Adecuado para evaluación | 2 | 4 GB | 1 |  
 ** Obtenga una vista previa de {{site.data.keyword.blockchainfull_notm}} Platform sin coste alguno durante 30 días al enlazar su instancia de servicio de {{site.data.keyword.blockchainfull_notm}} Platform con un clúster Kubernetes gratuito de {{site.data.keyword.cloud_notm}}. El rendimiento estará limitado por el uso, almacenamiento y funcionalidad. {{site.data.keyword.cloud_notm}} suprimirá el clúster Kubernetes después de 30 días y no se podrán migrar los nodos ni los datos de un clúster gratuito a un clúster de pago.
 
-Estos recursos son suficientes para pruebas y experimentación. La [guía de aprendizaje sobre creación de una red](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), en la que creará dos iguales, dos CA y un servicio de ordenación, consume aproximadamente 4,85 CPU, de las que el servicio de ordenación de cinco nodos ocupa hasta 2,25 CPU. Por lo tanto, si tiene previsto desplegar un servicio de ordenación de cinco nodos, no debe desplegar un clúster de Kubernetes con un solo nodo trabajador de 2 CPU, ya que el servicio de ordenación no cabrá. Recomendamos utilizar un clúster con nodos de al menos 4 CPU. Cuantos más nodos trabajadores añada, más fácilmente podrá el clúster manejar los despliegues.
+Estos recursos son suficientes para pruebas y experimentación. La [guía de aprendizaje sobre creación de una red](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), en la que creará dos iguales, dos CA y un servicio de ordenación, consume aproximadamente 4,15 CPU, de las que el servicio de ordenación de cinco nodos ocupa hasta 1,75 CPU. Por lo tanto, si tiene previsto desplegar un servicio de ordenación de cinco nodos, no debe desplegar un clúster de Kubernetes con un solo nodo trabajador de 2 CPU, ya que el servicio de ordenación no tendrá cabida de manera adecuada con otros nodos. Recomendamos utilizar un clúster con nodos de al menos 4 CPU. Cuantos más nodos trabajadores añada, más fácilmente podrá el clúster manejar los despliegues.
 {:note}
 
 #### Clústeres de pago
@@ -126,11 +126,11 @@ Para tener una idea de cuánto almacenamiento y potencia de cálculo necesitará
 
 | **Componente** (todos los contenedores) | CPU  | Memoria (GB) | Almacenamiento (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Igual**                       | 1,2            | 2,4                  | 200 (incluye 100 GB para el igual y 100 GB para CouchDB)|
+| **Igual**                       | 1,1            | 2,4                  | 200 (incluye 100 GB para el igual y 100 GB para CouchDB)|
 | **CA**                         | 0,1            | 0,2                  | 20                     |
-| **Nodo de ordenación**              | 0,45           | 0,9                  | 100                    |
+| **Nodo de ordenación**              | 0,35           | 0,9                  | 100                    |
 
-Si tiene previsto desplegar un servicio de ordenación Raft de cinco nodos, tenga en cuenta que el despliegue del nodo de ordenación aumentará en un factor de cinco. Esto dará un total de 2,25 CPU, 4,5 GB de memoria y 500 GB de almacenamiento para los cinco nodos Raft. Esto hace que el servicio de ordenación de cinco nodos sea mayor que un solo nodo trabajador de Kubernetes de 2 CPU.
+Si tiene previsto desplegar un servicio de ordenación Raft de cinco nodos, tenga en cuenta que el total del despliegue aumentará en un factor de cinco. Esto dará un total de 1,75 CPU, 4,5 GB de memoria y 500 GB de almacenamiento para los cinco nodos Raft. Un solo nodo trabajador de Kubernetes de 4 CPU es la recomendación mínima para permitir bastante CPU para el clúster Raft y cualquier otro nodo que despliegue.
 {:tip}
 
 ## Paso uno: crear una instancia de servicio en {{site.data.keyword.cloud_notm}}
@@ -140,7 +140,8 @@ Siga los pasos siguientes para crear una instancia de servicio de {{site.data.ke
 
 1. Localice el [servicio blockchain](https://cloud.ibm.com/catalog/services/blockchain){: external} en el catálogo de {{site.data.keyword.cloud_notm}} o busque `Blockchain` en la página del catálogo de {{site.data.keyword.cloud_notm}}.
 2. Se recomienda que cambie el **Nombre de servicio** de su instancia para que pueda reconocerla fácilmente en el futuro.
-3. Para la versión beta, **Dallas** es la única región disponible y no se puede modificar. Puede elegir regiones adicionales en un clúster de pago. Para obtener más información, consulte [Regiones](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+3. Elija su región. Para ver una lista de las regiones disponibles, consulte
+[Regiones](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 4. Puede dejar si modificar los campos de grupo de recursos y etiquetas.
 5. Elija el plan **Estándar**.
 6. Pulse **Crear** para suministrar la instancia de servicio.

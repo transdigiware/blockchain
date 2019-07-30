@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,23 +15,24 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
 
 # Iniciación al Plan inicial
 {: #getting-started-with-starter-plan}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
-El Plan inicial (Starter Plan) de {{site.data.keyword.blockchainfull}} Platform le ofrece una red blockchain preconfigurada con una simple pulsación. Proporciona una red autorizada con la configuración de dos [organizaciones](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), un [igual](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) por cada organización y un [canal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) de forma predeterminada. Una vez creada la red, puede extenderla y añadir más organizaciones e iguales a la red. Estas redes están pensadas para usuarios novatos que son nuevos en la plataforma
-{{site.data.keyword.blockchainfull_notm}}. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
+El Plan inicial (Starter Plan) de {{site.data.keyword.blockchainfull}} Platform le ofrece una red blockchain preconfigurada con una simple pulsación. Proporciona una red autorizada con la configuración de dos [organizaciones](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), un [igual](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) por cada organización y un [canal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) de forma predeterminada. Una vez creada la red, puede extenderla y añadir más organizaciones e iguales a la red. Estas redes están pensadas para usuarios novatos que son nuevos en la plataforma {{site.data.keyword.blockchainfull_notm}}.
 {:shortdesc}
+
+El Plan inicial ahora está en desuso, por lo que no se pueden crear nuevas redes del Plan inicial en este momento.** Haga uso de la interfaz de usuario y las características más recientes disponibles ahora en la segunda generación de la tecnología de blockchain accediendo a [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}  
+
+**Sus redes existentes no se verán afectadas y podrá seguir utilizándolas hasta el 4 de junio de 2020.
 
 El Plan inicial le permite aprender y desarrollar habilidades con la plataforma {{site.data.keyword.blockchainfull_notm}}, ejecutar aplicaciones de ejemplo, probar sus propias aplicaciones y simular un escenario de varias organizaciones. Esta guía de aprendizaje de iniciación le enseñará a utilizar el Plan inicial para empezar a desarrollar y realizar transacciones en una red blockchain.
 
-Si es nuevo en {{site.data.keyword.blockchainfull_notm}} Platform y en blockchain, puede obtener más información acerca de blockchain consultando la [visión general de los componentes fundamentales](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview) de las redes creadas sobre
-[Hyperledger Fabric](/docs/services/blockchain/reference?topic=blockchain-hyperledger-fabric#hyperledger-fabric) de código abierto. También puede revisar la [documentación de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}.
+Si es nuevo en {{site.data.keyword.blockchainfull_notm}} Platform y en blockchain, puede obtener más información acerca de blockchain consultando la [visión general de los componentes fundamentales](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview) de las redes creadas sobre [Hyperledger Fabric](/docs/services/blockchain/reference?topic=blockchain-hyperledger-fabric#hyperledger-fabric) de código abierto. También puede revisar la [documentación de Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}.
 
 **Nota**: el Plan inicial de {{site.data.keyword.blockchainfull_notm}} Platform es un entorno de desarrollo y prueba, y no es adecuado para cargas de trabajo de producción. Si necesita un entorno de producción, consulte [Acerca del Plan empresarial](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
@@ -114,8 +115,7 @@ Encontrará su instancia de servicio de blockchain en el [panel de control del s
 ## Crear canales
 {: #getting-started-with-starter-plan-create-channels}
 
-Los grupos de organizaciones utilizan canales para realizar transacciones sin exponer los datos a otras organizaciones. Puede crear un
-[canal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) con miembros seleccionados de su red de Plan inicial, y políticas sobre quién puede actualizar el canal.
+Los grupos de organizaciones utilizan canales para realizar transacciones sin exponer los datos a otras organizaciones. Puede crear un [canal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) con miembros seleccionados de su red de Plan inicial, y políticas sobre quién puede actualizar el canal.
 
 Para obtener más información, consulte [Creación de un canal](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). Si otra organización le invita a un canal, también encontrará instrucciones sobre cómo aceptar la invitación y hacer que sus iguales se unan al canal.
 
