@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+{:gif: data-image-type='gif'}
 
 
 # Konsole verwalten
@@ -28,16 +29,16 @@ Es gibt verschiedene Aktionen, die Sie ausführen können, um das Konsolenverhal
 
 **Zielgruppe:** Dieser Abschnitt richtet sich an Netzoperatoren, die für die Erstellung, Überwachung und Verwaltung des Blockchain-Netzes verantwortlich sind.
 
-## Benutzer zur Konsole hinzufügen und aus ihr entfernen
+## Benutzer in der Konsole hinzufügen und entfernen
 {: #ibp-console-manage-console-add-remove}
 
-Jedem Benutzer mit Zugriff auf die Konsole muss eine Zugriffsrichtlinie mit einer definierten {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)-Benutzerrolle zugewiesen sein. Die Richtlinie bestimmt, welche Aktionen der Benutzer innerhalb der Konsole ausführen kann. Die {{site.data.keyword.blockchainfull}} Platform-Konsole wird mit der E-Mail-Adresse des {{site.data.keyword.cloud_notm}}-Eigners als Konsolenadministrator bereitgestellt.  Standardmäßig wird diesem {{site.data.keyword.cloud_notm}}-Benutzer die Rolle **Manager** für den {{site.data.keyword.blockchainfull}} Platform 2.0-Service in IAM zugeordnet. Der Konsolenadministrator kann daraufhin anderen Benutzern über die IAM-Benutzerschnittstelle den Zugriff auf die Konsole gewähren. Weitere Informationen zu IAM finden Sie unter [Was ist IAM ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link") ](/docs/iam?topic=iam-iamoverview#iamoverview "Was ist IAM?").  
+Jedem Benutzer mit Zugriff auf die Konsole muss eine Zugriffsrichtlinie mit einer definierten {{site.data.keyword.cloud}} Identity and Access Management (IAM)-Benutzerrolle zugewiesen sein. Die Richtlinie bestimmt, welche Aktionen der Benutzer innerhalb der Konsole ausführen kann. Die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole wird mit der E-Mail-Adresse des {{site.data.keyword.cloud_notm}}-Eigners als Konsolenadministrator bereitgestellt.  Diesem {{site.data.keyword.cloud_notm}}-Benutzer wird standardmäßig die Rolle **Manager** für den {{site.data.keyword.blockchainfull_notm}} Platform-Service in IAM zugeordnet. Der Konsolenadministrator kann daraufhin anderen Benutzern über die IAM-Benutzerschnittstelle den Zugriff auf die Konsole gewähren. Weitere Informationen zu IAM finden Sie unter [Was ist IAM?](/docs/iam?topic=iam-iamoverview#iamoverview){: external}.  
 
-Wenn Sie [mit IAM Benutzer einladen ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/iam?topic=iam-iamuserinv#iamuserinv "mit IAM Benutzer einladen"), müssen Sie die folgenden Schritte zum Konfigurieren ihrer Rollen und ihres Zugriffs auf die Konsole ausführen:
+Wenn Sie [mit IAM Benutzer einladen](/docs/iam?topic=iam-iamuserinv#iamuserinv){: external} müssen Sie die folgenden Schritte ausführen, um ihre Rollen und ihren Zugriff auf die Konsole zu konfigurieren:
  1. Klicken Sie in der Menüleiste auf **verwalten** > **Zugriff (IAM)** und wählen Sie dann **Benutzer** aus.
  2. Klicken Sie auf **Benutzer einladen**.
  3. Geben Sie die E-Mail-Adresse des oder der Benutzer ein.
- 4. Wählen Sie aus der Dropdown-Liste **Services** die Option **Blockchain Platform 2.0**.
+ 4. Wählen Sie in der Dropdown-Liste **Services** die Option **Blockchain Platform** aus.
  5. Blättern Sie abwärts bis zu **Rollen auswählen**.
  6. Wählen Sie unter **Zugriffsrollen für Service zuweisen** eine Rolle für den Benutzer aus. Dies kann die Rolle **Manager**, **Schreibberechtigter** oder **Leseberechtigter** sein.
  7. Klicken Sie auf **Benutzer einladen**.
@@ -50,10 +51,10 @@ Wenn Sie [mit IAM Benutzer einladen ![Symbol für externen Link](../images/exter
 
  Berechtigungen sind kumulativ. Wenn Sie eine **Manager**-Rolle auswählen, kann der Benutzer auch alle Aktionen des **Leseberechtigten** und **Schreibberechtigten** ausführen. Diese Rollen müssen nicht zusätzlich aktiviert werden.   Ebenso kann ein Benutzer mit der Rolle `Schreibberechtigter` alle Aktionen der Rolle des **Leseberechtigten** ausführen. Für den Konsolenzugriff müssen Sie lediglich unter **Zugriffsrollen für Service** eine Rolle auswählen. Unter **Zugriffsrollen für Plattform** muss keine Auswahl getroffen werden. Überprüfen Sie die entsprechende Rolle unter **Zugriffsrollen für Plattform zuweisen**, wenn es von Bedeutung ist, dass die Serviceinstanz im {{site.data.keyword.cloud_notm}}-Dashboard des eingeladenen Benutzers sichtbar ist.
 
-![Kubernetes-Version aktualisieren](../images/AddICPUser.gif)
+![Benutzer hinzufügen](../images/AddICPUser.gif){: gif}
 
 
-Nachdem Sie der Konsole neue Benutzer hinzugefügt haben, kann es sein, dass Benutzer nicht alle Knoten, Kanäle oder Chaincodes, die von anderen Benutzern bereitgestellt werden, anzeigen können. Um mit diesen Komponenten arbeiten zu können, müssen die einzelnen Benutzer die zugehörigen Identitäten in ihr eigenes Konsolenwalletimportieren. Weitere Informationen hierzu finden Sie unter [Identitäten in der Konsolenwalletspeichern](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
+Nachdem Sie der Konsole neue Benutzer hinzugefügt haben, kann es sein, dass Benutzer nicht alle Knoten, Kanäle oder Chaincodes, die von anderen Benutzern bereitgestellt werden, anzeigen können. Um mit diesen Komponenten arbeiten zu können, müssen die einzelnen Benutzer die zugehörigen Identitäten in ihr eigenes Konsolenwalletimportieren. Weitere Informationen hierzu finden Sie unter [Identitäten in der Konsolenwalletspeichern](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 Gehen Sie wie folgt vor, wenn Sie die Rolle eines Benutzers ändern müssen:
@@ -65,9 +66,9 @@ Gehen Sie wie folgt vor, wenn Sie die Rolle eines Benutzers ändern müssen:
  6. Wählen Sie unter **Zugriffsrollen für Service zuweisen** eine Rolle für den Benutzer aus. Dies kann die Rolle **Manager**, **Schreibberechtigter** oder **Leseberechtigter** sein.
  7. Klicken Sie auf **Zuweisen**.
 
-Wenn Sie den Zugriff eines Benutzers auf die Konsole entfernen müssen, befolgen Sie die Anweisungen im Abschnitt [IAM-Thema 'Benutzer entfernen' ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](/docs/iam?topic=iam-remove#remove "Benutzer entfernen").
+Wenn Sie den Zugriff eines Benutzers auf die Konsole entfernen müssen, befolgen Sie die Anweisungen im [IAM-Thema "Benutzer entfernen"](/docs/iam?topic=iam-remove#remove){: external}.
 
-### Zugriffsrollen zu Einzelpersonen oder Benutzergruppen in IAM zuweisen
+### Zugriffsrollen für Einzelpersonen oder Benutzergruppen in IAM zuweisen
 {: #ibp-console-manage-console-users-groups}
 
 Wenn Sie {{site.data.keyword.cloud_notm}}-IAM-Richtlinien festlegen, können Sie Rollen zu einem einzelnen Benutzer oder einer Benutzergruppe zuweisen.
@@ -96,7 +97,7 @@ Beim Arbeiten mit der {{site.data.keyword.blockchainfull_notm}} Platform-Konsole
 ### Konsolenprotokolle anzeigen
 {: #ibp-console-manage-console-logs}
 
-Sie können problemlos auf die Konsolenprotokolle zugreifen, wenn Sie Fehler beheben müssen, die bei der Verwendung der Konsole und der Knoten aufgetreten sind. Sie können die Anzahl der Protokolle, die von der Konsole erfasst werden, auch erhöhen oder verringern, indem Sie die Protokollierungsstufe entsprechend festlegen. Die Protokolle der Konsole werden getrennt von den [Knotenprotokollen](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs) erfasst, die von {{site.data.keyword.cloud_notm}} Kubernetes Service gesammelt werden.
+Sie können problemlos auf die Konsolenprotokolle zugreifen, wenn Sie Fehler beheben müssen, die bei der Verwendung der Konsole und der Knoten aufgetreten sind. Sie können die Anzahl der Protokolle, die von der Konsole erfasst werden, auch erhöhen oder verringern, indem Sie die Protokollierungsstufe entsprechend festlegen. Die Protokolle der Konsole werden getrennt von den [Knotenprotokollen](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) erfasst, die von {{site.data.keyword.cloud_notm}} Kubernetes Service gesammelt werden.
 
 Navigieren Sie zu der Registerkarte **Einstellungen** im Konsolenbrowser, um die Protokollierungseinstellungen zu ändern. Die Konsolenprotokolle werden aus zwei separaten Quellen erfasst:
 
@@ -110,36 +111,40 @@ Sie können die Konsolenprotokolle nur anzeigen, wenn Sie als Konsolenadministra
 ### Konsolenprotokolle anzeigen
 {: #ibp-console-manage-console-node-logs}
 
-Die Protokolle Ihrer Peers, Anordnungsknoten und Zertifizierungsstellen werden von {{site.data.keyword.IBM_notm}} Kubernetes Service erfasst. Führen Sie die folgenden Schritte aus, um die Protokolle Ihrer Knoten aus dem Cluster anzuzeigen, in dem Sie Ihr {{site.data.keyword.blockchainfull_notm}} Platform 2.0-Netz implementiert haben.
+Die Protokolle Ihrer Peers, Anordnungsknoten und Zertifizierungsstellen werden von {{site.data.keyword.IBM_notm}} Kubernetes Service erfasst. Führen Sie die folgenden Schritte aus, um die Protokolle Ihrer Knoten aus dem Cluster anzuzeigen, in dem Sie Ihr {{site.data.keyword.blockchainfull_notm}} Platform-Netz bereitgestellt haben.
 
-1. Öffnen Sie das [{{site.data.keyword.cloud_notm}}-Dashboard ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/resources) und navigieren Sie zu der Übersichtsanzeige Ihres {{site.data.keyword.IBM_notm}} Kubernetes Service-Clusters.
+Zum einfacheren Lokalisieren Ihrer Knotenprotokolle wird empfohlen, nach dem Namensbereich zu filtern, der beim Bereitstellen der Knoten verwendet wurde. Um den Namensbereich zu ermitteln, öffnen Sie einen beliebigen CA-Knoten in Ihrer Konsole und klicken Sie auf das Symbol **Einstellungen**. Zeigen Sie den Wert der **Endpunkt-URL der Zertifizierungsstelle** an. Beispiel: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+
+Der Namensbereich ist der erste Teil der URL, der mit dem Buchstaben `n` beginnt. Danach folgt eine zufällige Zeichenfolge aus sechs alphanumerischen Zeichen. Im Beispiel oben lautet der Wert für den Namensbereich `n2734d0`.
+
+1. Öffnen Sie das [{{site.data.keyword.cloud_notm}}-Dashboard](https://cloud.ibm.com/resources){: external} und navigieren Sie zur Übersichtsanzeige für Ihren {{site.data.keyword.IBM_notm}} Kubernetes Service-Cluster.
 2. Klicken Sie oberhalb der Übersichtsanzeige für den Cluster auf **Kubernetes-Dashboard**.
-3. Verwenden Sie im Kubernetes-Dashboard die Dropdown-Liste der Namensbereiche im linken Navigationsbereich, um den Namensbereich in die {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz zu ändern. Der Name der Serviceinstanz ist eine lange Zeichenfolge aus Buchstaben und Zahlen. Sie finden den Namen der Serviceinstanz am Anfang der URL für Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Konsole.
+3. Verwenden Sie im Kubernetes-Dashboard die Dropdown-Liste **Namensbereich** im linken Navigationsbereich, um den Namensbereich für Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz zu verwenden, die Sie zuvor aufgespürt haben.
 4. Klicken Sie im linken Navigationsbereich auf **Pods**, um die Liste der von Ihnen bereitgestellten Knotenpods anzuzeigen.
-5. Klicken Sie auf einen Pod. Klicken Sie anschließend im oberen Menü auf **Protokolle anzeigen**, um die Protokolle Ihres Knotens zu öffnen. Über den Protokollen können Sie das Dropdown-Menü nach **Protokolle von** verwenden, um die Protokolle aus den verschiedenen Containern innerhalb des Pods anzuzeigen. Ihr Peer und die Statusdatenbank (z. B. CouchDB) werden beispielsweise in verschiedenen Containern ausgeführt und generieren daher unterschiedliche Protokolle.
+5. Klicken Sie auf einen Pod. Klicken Sie anschließend im oberen Menü auf **Protokolle**, um die Protokolle für Ihren Knoten zu öffnen. Über den Protokollen können Sie das Dropdown-Menü nach **Protokolle von** verwenden, um die Protokolle aus den verschiedenen Containern innerhalb des Pods anzuzeigen. Ihr Peer und die Statusdatenbank (z. B. CouchDB) werden beispielsweise in verschiedenen Containern ausgeführt und generieren daher unterschiedliche Protokolle.
 
-Standardmäßig werden die Protokolle Ihrer Knoten lokal in Ihrem Cluster erfasst. Sie können auch den {{site.data.keyword.cloud_notm}} Log Analysis-Service oder den Service eines anderen Anbieters verwenden, um Ihre Protokolle aus dem Netz zu erfassen, zu speichern und zu analysieren. Weitere Informationen hierzu finden Sie im Abschnitt [Protokollierung und Überwachung für {{site.data.keyword.IBM_notm}} Kubernetes Service ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/containers?topic=containers-health#health "Protokollierung und Überwachung für {{site.data.keyword.IBM_notm}} Kubernetes Service"). Es wird empfohlen, den Service [{{site.data.keyword.cloud_notm}} LogDNA ![Symbol für externen Link](../images/external_link.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube "Protokolle für Kubernetes-Cluster mit IBM Log Analysis with LogDNA verwalten") zu nutzen, der das Analysieren der Protokolle in Echtzeit ohne großen Aufwand ermöglicht.
+Standardmäßig werden die Protokolle Ihrer Knoten lokal in Ihrem Cluster erfasst. Sie können auch die {{site.data.keyword.cloud_notm}}-Services oder den Service eines anderen Anbieters verwenden, um die Protokolle aus Ihrem Netz zu erfassen, zu speichern und zu analysieren. Weitere Informationen finden Sie im Abschnitt [Protokollierung und Überwachung für {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. Es wird empfohlen, die Vorteile des [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external}-Service zu nutzen, mit dem die Protokolle auf einfache Weise in Echtzeit analysiert werden können.
 
 ### Protokolle für Ihren Smart-Contract-Container anzeigen
 {: #ibp-console-manage-console-container-logs}
 
 Bei Problemen mit Ihrem Smart Contract können Sie die Containerprotokolle für Smart Contract oder Chaincode anzeigen, um die Probleme zu beheben:
 
-- Öffnen Sie das Kubernetes-Dashboard und klicken Sie auf den Peer-Pod, in dem der Smart Contract ausgeführt wird.
-- Klicken Sie auf den Link `exec` in Ihrem Dashboard, um den Befehl 'exec' in dem Pod auszuführen. Der Link verweist standardmäßig auf den Peer-Container.
-- Wechseln Sie in den Container `dind`, indem Sie ihn in der Dropdown-Liste auswählen.
-- Führen Sie den Befehl `docker ps -a` aus, um die Liste der Chaincode-Container anzuzeigen.
-- Führen Sie `docker logs <chaincode-container-ID>` aus und ersetzen Sie dabei `<chaincode-container-ID>` durch die ID Ihres Chaincode-Containers.
+- Öffnen Sie das Kubernetes-Dashboard, filtern Sie nach Ihrem [Namensbereich](#ibp-console-manage-console-node-logs) und klicken Sie auf den Peer-Pod, in dem der Smart Contract ausgeführt wird.
+- Klicken Sie in Ihrem Dashboard auf den Link `Protokolle`. Der Link verweist standardmäßig auf den Peer-Container.
+- Wechseln Sie zum Container `fluentd`, indem Sie ihn in der Dropdown-Liste auswählen.  
 
-## Programmkorrekturen für Knoten installieren
+In diesem Fenster werden alle Ihre Smart Contract-Protokolle aufgelistet und können über das Download-Symbol in der Anzeige heruntergeladen werden.
+
+## Programmkorrekturen für Ihre Knoten installieren
 {: #ibp-console-manage-patch}
 
-Die zugrunde liegenden IBM Hyperledger Fabric-Docker-Images für den Peer, die Zertifizierungsstelle und die Anordnungsknoten müssen im Zeitverlauf möglicherweise aktualisiert werden, z. B. mit Sicherheitsupdates oder zur Migration auf ein neues Fabric-Punktrelease. Der Text **Patch verfügbar** auf einer Knotenkachel gibt an, dass eine solche Programmkorrektur (Patch) verfügbar ist und jederzeit auf dem Knoten installiert werden kann. Diese Programmkorrekturen sind optional, werden aber empfohlen.   
+Die zugrunde liegenden {{site.data.keyword.IBM_notm}} Hyperledger Fabric-Docker-Images für den Peer, die Zertifizierungsstelle und die Anordnungsknoten müssen im Laufe der Zeit möglicherweise aktualisiert werden (z. B. mit Sicherheitsupdates oder durch ein neues Punktrelease für Fabric). Der Text **Patch verfügbar** auf einer Knotenkachel gibt an, dass eine solche Programmkorrektur (Patch) verfügbar ist und jederzeit auf dem Knoten installiert werden kann. Diese Programmkorrekturen sind optional, werden aber empfohlen. Knoten, die in die Konsole importiert wurden, können nicht aktualisiert werden.
 
 Programmkorrekturen werden auf Knoten nacheinander angewendet. Während der Anwendung der Programmkorrektur steht der Knoten für die Verarbeitung von Anforderungen und Transaktionen nicht zur Verfügung. Um Unterbrechungen der Serviceverfügbarkeit zu vermeiden, sollten Sie deshalb sicherstellen, einen weiteren Knoten desselben Typs verfügbar zu halten, der die Anforderungen verarbeiten kann, sofern dies möglich ist. Die Installation einer Programmkorrektur auf einem Knoten dauert ca. eine Minute. Nach Abschluss der Aktualisierung ist der Knoten wieder zur Verarbeitung von Anforderungen bereit.
 {:note}
 
-Öffnen Sie zum Anwenden einer Programmkorrektur auf einen Knoten die Kachel des betreffenden Knotens und klicken Sie dann auf die Schaltfläche **Programmkorrektur installieren**.
+Öffnen Sie zum Anwenden einer Programmkorrektur auf einen Knoten die Kachel des betreffenden Knotens und klicken Sie dann auf die Schaltfläche **Programmkorrektur installieren**. Knoten, die Sie in die Konsole importiert haben, können nicht aktualisiert werden.
 
 ## Ablauf des Kubernetes-Clusters
 {: #ibp-console-manage-console-cluster-expiration}
@@ -152,4 +157,4 @@ Wenn Sie einen kostenlosen {{site.data.keyword.cloud_notm}} Kubernetes Service-C
 4. Blättern Sie zum Pfeilsymbol von **Kubernetes-Clusters** und erweitern Sie es, um Ihren kostenlosen Cluster anzuzeigen.
 5. Wenn Ihr kostenloser Cluster aufgelistet ist, klicken Sie auf das Aktionsmenü für den Cluster und anschließend auf **Löschen**, um diesen kostenlosen Cluster zu löschen.
 
-Nachdem diese Aktionen abgeschlossen sind, können Sie die [ursprünglichen Schritte](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) ausführen, um über die IBM Cloud-Katalogseite einen neuen Kubernetes-Cluster und eine Blockchain-Serviceinstanz zu erstellen.
+Nachdem diese Aktionen abgeschlossen sind, können Sie die [ursprünglichen Schritte ](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) ausführen, um über die {{site.data.keyword.cloud_notm}}-Katalogseite einen neuen Kubernetes-Cluster und eine Blockchain-Serviceinstanz zu erstellen.

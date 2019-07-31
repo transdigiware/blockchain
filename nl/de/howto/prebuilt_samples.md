@@ -1,10 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018.2019
 lastupdated: "2019-03-05"
-
-keywords: IBM Blockchain Platform, sample applications, Javascript application, IBM Cloud
 
 subcollection: blockchain
 
@@ -33,4 +31,4 @@ IBM bietet keinen Support für Netze, die Hyperledger Composer in Produktionsumg
 
 Die Beispielanwendungen werden von IBM und Community-Partnern erstellt. Unterstützung für die Beispiele wird über die entsprechenden GitHub-Repositorys bereitgestellt. Sollte ein Problem auftreten, klicken Sie auf den Link **Hilfe anfordern** neben dem Namen des Publishers und stellen Sie das Problem im GitHub-Repository ein, um das entsprechende Team zu informieren.
 
-Zum Bereitstellen von Beispielen benötigen Sie ein Blockchain-Netz in {{site.data.keyword.cloud_notm}} mit dem Starter Plan oder Enterprise Plan und Sie müssen einen Kanal und die zugehörigen Peers konfigurieren. Weitere Informationen finden Sie im Abschnitt [Einführung in den Starter Plan](/docs/services/blockchain/get_start_starter_plan.html#getting-started-with-starter-plan) und [Einführung in den Enterprise Plan](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan).
+Zum Bereitstellen von Beispielen benötigen Sie ein Blockchain-Netz in {{site.data.keyword.cloud_notm}} mit dem Starter Plan oder Enterprise Plan und Sie müssen einen Kanal und die zugehörigen Peers konfigurieren. Weitere Informationen finden Sie im Abschnitt [Einführung in den Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan) und [Einführung in den Enterprise Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform, video series, videos, getting started videos, demo videos
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ Informationen zur Verwendung von {{site.data.keyword.blockchainfull}} Platform f
 Die Videoreihe ist in einer Wiedergabeliste enthalten und wird im unten stehenden Videobereich fortlaufend wiedergegeben. Sie können auch auf das Menüsymbol in der oberen linken Ecke des Videos klicken, um die Wiedergabeliste zu öffnen und zu einem anderen Video zu wechseln.
 {:note}
 
-## Einführung in {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}
+## Einführung in {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-videos-ibp-v2}
 
 In der folgenden [Videoreihe]( http://ibm.biz/BlockchainPlatformSeries) finden Sie weiterführende Informationen zu {{site.data.keyword.blockchainfull_notm}} Platform und zu den ersten Schritten, die zur Erstellung eines eigenen Netzes erforderlich sind.

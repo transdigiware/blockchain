@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-05-31"
 
 keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,7 +22,7 @@ subcollection: blockchain
 Für {{site.data.keyword.blockchainfull}} Platform werden monatliche Mitgliedsgebühren und Peergebühren in Rechnung gestellt. Netzmitglieder können ihre Rechnung über ihre {{site.data.keyword.cloud_notm}}-Konten bezahlen, die den Bereich zum Erstellen der Netzinstanz enthalten. Alternativ hierzu kann ein Netzmitglied die Rechnung für andere (oder auch alle) Mitglieder im Netz übernehmen und für das gesamte Netz bezahlen. Der Zahler kann die Abrechnungen bei Bedarf auch an andere Mitglieder zurückübertragen.
 {:shortdesc}
 
-Ihre Kosten sind je nach ausgewähltem Netzplan und Größe der genutzten Ressourcen unterschiedlich. Weitere Informationen zur Preisstruktur finden Sie unter [Preisstruktur](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+Ihre Kosten sind je nach ausgewähltem Netzplan und Größe der genutzten Ressourcen unterschiedlich. Weitere Informationen zur Preisstruktur finden Sie unter [Preisstruktur](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 
 Hinweis: Wenn mehrere Organisationen ein Konsortium erstellen, wird empfohlen, dass die teilnehmenden Organisationen eine funktionale E-Mail-Adresse verwenden, um ihr Netz zu erstellen. In diesem Fall ist der Zugriff auf das Netz nicht von der Verfügbarkeit der einzelnen Personen abhängig.
 
@@ -62,7 +62,7 @@ Ein Mitglied innerhalb eines Netzes kann die Gebühren für einzelne oder mehrer
          - **Bereichsrollen:** Entwickler.
       3. Klicken Sie auf **Benutzer einladen**.  
    **Hinweis**: Wenn der Zahler für mehrere Mitglieder bezahlt, dann muss er diesen Schritt wiederholen, um weitere Mitglieder einzuladen und diesen Mitgliedern Zugriff zu erteilen.
-3. Der Zahler erstellt ein Blockchain-Netz unter {{site.data.keyword.blockchainfull_notm}} Platform und lädt andere Mitglieder in das Blockchain-Netz in der Network Monitor-Instanz des Netzes ein. Weitere Informationen zur Einladung von Netzmitgliedern finden Sie unter [Mitglieder](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
+3. Der Zahler erstellt ein Blockchain-Netz unter {{site.data.keyword.blockchainfull_notm}} Platform und lädt andere Mitglieder in das Blockchain-Netz in der Network Monitor-Instanz des Netzes ein. Weitere Informationen zur Einladung von Netzmitgliedern finden Sie unter [Mitglieder](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
 4. Jedes Mitglied empfängt eine Benachrichtigungs-E-Mail, die eine Einladung zur Teilnahme am Netz enthält. Das Mitglied kann die folgenden Schritte ausführen, um dem Netz beizutreten.
    1. Klicken Sie auf die Schaltfläche "Fortfahren" in der Benachrichtigungs-E-Mail, sodass Sie zur Blockchain-Serviceseite in {{site.data.keyword.cloud_notm}} gelangen.
    2. Melden Sie sich bei {{site.data.keyword.cloud_notm}} an und vergewissern Sie sich, dass Sie die korrekte Angaben für die {{site.data.keyword.cloud_notm}}-Organisation und den entsprechenden Bereich verwenden, zu denen Sie der Zahler hinzugefügt hat.
@@ -73,13 +73,13 @@ Ein Mitglied innerhalb eines Netzes kann die Gebühren für einzelne oder mehrer
       2. Vergewissern Sie sich, dass die Organisation und der Bereich mit der Organisation und dem Bereich übereinstimmen, zu denen Sie der Zahler hinzugefügt hat.
       3. Wählen Sie den Mitgliedschaftsplan aus, mit dem Ihre Netzinstanz erstellt werden soll. Ihr Mitgliedschaftsplan muss mit dem Mitgliedschaftsplan identisch sein, mit dem der Zahler das Netz erstellt hat.
       4. Klicken Sie auf **Erstellen**.
-   4. Befolgen Sie nach der Erstellung der Blockchain-Serviceinstanz die Anweisungen des Assistenten, um dem Netz beizutreten.  Weitere Informationen finden Sie unter [Am Netz teilnehmen](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+   4. Befolgen Sie nach der Erstellung der Blockchain-Serviceinstanz die Anweisungen des Assistenten, um dem Netz beizutreten.  Weitere Informationen finden Sie unter [Am Netz teilnehmen](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
 
 ### Bekannte Einschränkungen
 {: #paying-mode-limitation}
 - Da sich alle Mitglieder innerhalb des {{site.data.keyword.cloud_notm}}-Kontos des Zahlers befinden, hat der Zahler Zugriff auf die Blockchain-Instanzen aller Mitglieder und kann deren Identität annehmen. Daher wird dieser Zahlungsmodus am besten für PoC-Umgebungen (PoC = Proof of Concept; Machbarkeitsnachweis) oder in Fällen verwendet, in denen der Zahlungspflichtige das gesamte Management für {{site.data.keyword.blockchainfull_notm}} Platform abwickelt und den Mitgliedern lediglich eine Anwendung bereitgestellt wird.  
 - Für alle Mitglieder in der Cloud Foundry-Organisation des Zahlers sind alle Bereiche in der Organisation sichtbar.  Allerdings können die Mitglieder die Organisationen nicht bearbeiten oder ändern, da sie nicht die entsprechenden Berechtigungen haben.  
-- Beachten Sie, dass jedes Mitglied in der Cloud Foundry-Organisation des Zahlers die IBM Cloud-IDs anderer Mitglieder in derselben Cloud Foundry-Organisation sehen kann.  
+- Beachten Sie, dass jedes Mitglied in der Cloud Foundry-Organisation des Zahlers die {{site.data.keyword.cloud_notm}}-IDs anderer Mitglieder in derselben Cloud Foundry-Organisation sehen kann.  
 - Wenn der Zahler alle Mitglieder zum {{site.data.keyword.cloud_notm}}-Konto des Zahlers hinzugefügt und ihnen Zugriff zum Bereitstellen von Blockchain-Instanzen erteilt hat und die Mitglieder dem Netz beigetreten sind, erteilt der Zahler den Mitgliedern auch Zugriff zum Erstellen weiterer Services, die zusätzliche Gebühren verursachen können. Alle Mitglieder können eine Vereinbarung unterzeichnen, in der festgehalten wird, dass diese Mitglieder keine nicht autorisierten Services in ihren Konten erstellen werden und so zusätzliche Kosten für das Konto des Zahlers verursachen.  
 
 ## Mitglied bezahlen lassen
@@ -95,8 +95,8 @@ Eine Alternative zum Hinzufügen weiterer Mitgliederkonten zum Konto des Zahlers
   4. Wählen Sie im Abschnitt **Cloud Foundry-Zugriff** in der Dropdown-Liste Ihre Organisation aus, zu der das Konto des Zahlers hinzugefügt werden soll.
   5. Wählen Sie als **Organisationsrolle** die Option **Abrechnungsmanager** aus.
   6. Konfigurieren Sie die weiteren Felder entsprechend und klicken Sie dann auf **Benutzer einladen**.  
-3. Der Zahler lädt weitere Mitglieder zum Blockchain-Netz in der Network Monitor-Instanz des Netzes ein. Weitere Informationen zur Einladung von Netzmitgliedern finden Sie unter [Mitglieder](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
-4. Jedes Mitglied empfängt eine Benachrichtigungs-E-Mail, die eine Einladung zur Teilnahme am Netz enthält. Das Mitglied kann dem Netz nun beitreten. Weitere Informationen finden Sie in **Schritt 4** unter [Für andere Netzmitglieder bezahlen](/docs/services/blockchain/howto/paying_mode.html#paying-mode-pay-for-others).
+3. Der Zahler lädt weitere Mitglieder zum Blockchain-Netz in der Network Monitor-Instanz des Netzes ein. Weitere Informationen zur Einladung von Netzmitgliedern finden Sie unter [Mitglieder](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
+4. Jedes Mitglied empfängt eine Benachrichtigungs-E-Mail, die eine Einladung zur Teilnahme am Netz enthält. Das Mitglied kann dem Netz nun beitreten. Weitere Informationen finden Sie in **Schritt 4** unter [Für andere Netzmitglieder bezahlen](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others).
 
 ### Bekannte Einschränkung
 {: #paying-mode-let-other-pay-limitation}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -20,7 +20,7 @@ subcollection: blockchain
 # Glossar
 {: #glossary}
 
-In diesem Abschnitt werden spezielle Begriffe von {{site.data.keyword.blockchainfull}} definiert, die in der vorliegenden Dokumentation Verwendung finden. Eine eingehendere Erläuterung der Begriffe sowie ein Glossar der Begriffe, die im Zusammenhang mit den Konzepten von Hyperledger Fabric verwendet werden, enthält das [Glossar für Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html).
+In diesem Abschnitt werden spezielle Begriffe von {{site.data.keyword.blockchainfull}} definiert, die in der vorliegenden Dokumentation Verwendung finden. Eine eingehendere Erläuterung der Begriffe sowie ein Glossar der Begriffe, die im Zusammenhang mit den Konzepten von Hyperledger Fabric verwendet werden, enthält das [Hyperledger Fabric-Glossar](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
 {:shortdesc}
 
 ## Aktueller Status
@@ -29,7 +29,7 @@ Der aktuelle Status des Ledgers stellt die neuesten Werte für alle Schlüssel d
 
 ## Anordnungsknoten
 {: #glossary-orderer}
-Der Knoten, der Transaktionen von Netzmitgliedern erfasst, die Transaktionen anordnet und sie zu Blöcken bündelt. Diese Blöcke werden anschließend an Peers verteilt, die wiederum die Blöcke prüfen und den Ledgern in jedem Kanal hinzufügen. Anordnungsknoten enthalten das Identitätsmaterial für die Verschlüsselung, das an jedes Mitglied gebunden ist, und authentifizieren die Identität von Clients und Peers für den Zugriff auf das Netz. Die Funktion, die von einem Anordnungsknoten oder einer solchen Knotengruppe bereitgestellt wird, wird als **Anordnungsservice** bezeichnet.
+Der Knoten, der Transaktionen von Netzmitgliedern erfasst, die Transaktionen anordnet und sie zu Blöcken bündelt. Wird auch als "Bündelungsknoten" bezeichnet. Diese Blöcke werden anschließend an Peers verteilt, die wiederum die Blöcke prüfen und den Ledgern in jedem Kanal hinzufügen. Anordnungsknoten enthalten das Identitätsmaterial für die Verschlüsselung, das an jedes Mitglied gebunden ist, und authentifizieren die Identitä von Clients und Peers für den Zugriff auf das Netz. Die Funktion, die von einem Anordnungsknoten oder einer solchen Knotengruppe bereitgestellt wird, wird als **Anordnungsservice** bezeichnet.
 
 ## Asset
 {: #glossary-asset}
@@ -77,15 +77,15 @@ Der Konfigurationsblock, der ein Blockchain-Netz oder einen Blockchain-Kanal ini
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric ermöglicht Peers die Zusammenstellung wichtiger Netzinformationen anderer Peers, ohne dass hierzu der Anordnungsservice benötigt wird. Das [Gossip-Datenverteilungsprotokoll ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html) bietet eine sichere, zuverlässige und skalierbare Möglichkeit, mit deren Hilfe Peers Nachrichten austauschen können. Wenn Peers beispielsweise bestimmte Blöcke nicht erhalten, weil es zu Verzögerungen, Netzausfällen oder anderen Problemen gekommen ist, können Sie sich auf den aktuellen Ledgerstatus synchronisieren, indem Sie über den Gossip-Nachrichtenaustausch Kontakt zu anderen Peers aufnehmen, die über die fehlenden Blöcke verfügen.
+Hyperledger Fabric ermöglicht Peers die Zusammenstellung wichtiger Netzinformationen anderer Peers, ohne dass hierzu der Anordnungsservice benötigt wird. Das [Gossip-Datenverteilungsprotokoll](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} bietet eine sichere, zuverlässige und skalierbare Möglichkeit, mit deren Hilfe Peers Nachrichten austauschen können. Wenn Peers beispielsweise bestimmte Blöcke nicht erhalten, weil es zu Verzögerungen, Netzausfällen oder anderen Problemen gekommen ist, können Sie sich auf den aktuellen Ledgerstatus synchronisieren, indem Sie über den Gossip-Nachrichtenaustausch Kontakt zu anderen Peers aufnehmen, die über die fehlenden Blöcke verfügen.
 
 ## HSM
 {: #glossary-hsm}
-Hardwaresicherheitsmodul (Hardware Security Module). Stellt Verschlüsselung, Schlüsselmanagement und Schlüsselspeicher als verwalteten Service auf Anforderung zur Verfügung. HSM ist eine physische Einheit (Appliance), die die ressourcenintensiven Tasks der Verschlüsselungsverarbeitung abwickelt und die Latenz für Anwendungen verringert. Weitere Informationen finden Sie unter [Hardware Security Module ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://www.ibm.com/cloud/hardware-security-module).
+Hardwaresicherheitsmodul (Hardware Security Module). Stellt Verschlüsselung, Schlüsselmanagement und Schlüsselspeicher als verwalteten Service auf Anforderung zur Verfügung. HSM ist eine physische Einheit (Appliance), die die ressourcenintensiven Tasks der Verschlüsselungsverarbeitung abwickelt und die Latenz für Anwendungen verringert. Weitere Informationen finden Sie im Abschnitt zum [Hardwaresicherheitsmodul](https://www.ibm.com/cloud/hardware-security-module){: external}.
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) ist ein unternehmensorientiertes Blockchain-Framework, das von der Linux Foundation als Basis für die Entwicklung von Blockchain-Anwendungen oder -Lösungen mit einer modularen Architektur zur Verfügung gestellt wird. Hyperledger Fabric-Komponenten wie Konsens- und Mitgliedschaftsservices sind Plug-and-play-fähig.
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external} ist ein unternehmensorientiertes Blockchain-Framework, das von der Linux Foundation als Basis für die Entwicklung von Blockchain-Anwendungen oder -Lösungen mit einer modularen Architektur zur Verfügung gestellt wird. Hyperledger Fabric-Komponenten wie Konsens- und Mitgliedschaftsservices sind Plug-and-play-fähig.
 
 ## Installation
 {: #glossary-install}
@@ -105,7 +105,7 @@ Ein Kanal besteht aus einer Untergruppe der Netzmitglieder, die Transaktionen pr
 
 ## Knoten
 {: #glossary-node}
-Die Kommunikationsentität der Blockchain. Es gibt drei Typen von Knoten: Zertifizierungsstellenknoten (CA), Peerknoten und Anordnungsknoten.
+Die Kommunikationsentität der Blockchain. Es gibt drei Typen von Knoten: Zertifizierungsstellenknoten, Peerknoten und Anordnungsknoten.
 
 ## Konsens
 {: #glossary-consensus}
@@ -149,7 +149,7 @@ Werden in der Anzeige "APIs" im Network Monitor angezeigt. Berechtigungsnachweis
 
 ## Organisation
 {: #glossary-organization}
-Siehe [Mitglied](/docs/services/blockchain/glossary.html#glossary-member).
+Siehe [Mitglied](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Peer
 {: #glossary-peer}
@@ -157,15 +157,15 @@ Eine Blockchain-Netzressource, die die Services zur Ausführung und Validierung 
 
 ## Raft
 {: #glossary-raft}
-Raft ist ein CFT-Anordnungsservice (CFT = Crash Fault Tolerant; fehlertolerant), der auf einer Implementierung des [Raft-Protokolls ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://raft.github.io/raft.pdf) in `etcd` basiert. Raft orientiert sich an einem sog. Leader-and-Follower-Modell, das vorgibt, dass ein Leaderknoten (pro Kanal) ausgewählt wird, dessen Entscheidungen von den Followern repliziert werden. Raft-Anordnungsservices sind im Vergleich zu Kafka-basierten Anordnungsservices einfacher einzurichten und zu verwalten. Ein Cluster dieser Knoten kann über {{site.data.keyword.blockchainfull_notm}} Platform erstellt werden.
+Raft ist ist ein CFT-Anordnungsservice (CFT = Crash Fault Tolerant, fehlertolerant), der auf einer Implementierung des [Raft-Protokolls](https://raft.github.io/raft.pdf){: external} in `etcd` basiert. Raft orientiert sich an einem sog. Leader-and-Follower-Modell, das vorgibt, dass ein Leaderknoten (pro Kanal) ausgewählt wird, dessen Entscheidungen von den Followern repliziert werden. Raft-Anordnungsservices sind im Vergleich zu Kafka-basierten Anordnungsservices einfacher einzurichten und zu verwalten. Ein Cluster dieser Knoten kann über {{site.data.keyword.blockchainfull_notm}} Platform erstellt werden.
 
 ## SDK
 {: #glossary-sdk}
-Hyperledger Fabric unterstützt zwei Software Development Kits (SDKs). Ein Node-SDK und ein Java-SDK.  Das Node-SDK kann über NPM und das Java-SDK über Maven installiert werden.  Die SDKs haben eigene Git-Repositorys, nämlich [Fabric Node SDK ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://github.com/hyperledger/fabric-sdk-node) und [Fabric Java SDK ![Symbol für externen Link](images/external_link.svg "Symbol für externen Link")](https://github.com/hyperledger/fabric-sdk-java), mit Dokumentation für die verfügbaren APIs. Die Hyperledger Fabric Client-SDKs ermöglichen die Interaktion zwischen Ihrer Clientanwendung und Ihrem Blockchain-Netz.
+Hyperledger Fabric unterstützt zwei Software Development Kits (SDKs). Ein Node-SDK und ein Java-SDK.  Das Node-SDK kann über NPM und das Java-SDK über Maven installiert werden.  Die SDKs verfügen über eigene Git-Repositorys, nämlich [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} und [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external} mit Dokumentation für die verfügbaren APIs. Die Hyperledger Fabric Client-SDKs ermöglichen die Interaktion zwischen Ihrer Clientanwendung und Ihrem Blockchain-Netz.
 
 ## Serviceberechtigungsnachweise
 {: #glossary-service-credentials}
-Serviceberechtigungsnachweise liegen im JSON-Format vor und enthalten die Informationen zu den API-Endpunkten sowie die Eintrags-IDs (enrollIDs) und die geheimen Schlüssel (secrets) für Ihre Netzressourcen, das heißt für Zertifizierungsstellen, Anordnungsknoten und Peers. Ihre Anwendung interagiert mit Netzressourcen über diese API-Endpunkte.
+Serviceberechtigungsnachweise liegen im JSON-Format vor und enthalten die Informationen zu API-Endpunkten sowie die Eintrags-IDs und geheimen Schlüssel für Ihre Netzressourcen, d. h. für Zertifizierungsstellen (CAs), Anordnungsknoten und Peers. Ihre Anwendung interagiert mit Netzressourcen über diese API-Endpunkte.
 
 ## signCert-Zertifikat
 {: #glossary-sign-cert}
@@ -173,7 +173,7 @@ Das Zertifikat, das alle Entitäten (Organisationen oder Administratoren) an ihr
 
 ## Smart Contracts
 {: #glossary-smart-contracts}
-Siehe [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode).
+Siehe [Chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -193,12 +193,12 @@ Der Mechanismus, über den Teilnehmer im Blockchain-Netz mit Assets interagieren
 
 ## Verbindungsprofil
 {: #glossary-connection-profile}
-Das Verbindungsprofil ist in der Anzeige "Übersicht" im Network Monitor sichtbar, wenn Sie auf die Schaltfläche **Verbindungsprofil** klicken. Die Informationen sind im JSON-Format verfügbar und enthalten die Informationen zu den API-Endpunkten sowie die Eintrags-IDs (enrollIDs) und die geheimen Schlüssel (secrets) für Ihre Netzressourcen, das heißt für Peers, Anordnungsknoten und Zertifizierungsstellen (CA). Ihre Anwendung interagiert mit Netzressourcen über diese API-Endpunkte.
+Das Verbindungsprofil ist in der Anzeige "Übersicht" im Network Monitor sichtbar, wenn Sie auf die Schaltfläche **Verbindungsprofil** klicken. Die Informationen sind im JSON-Format verfügbar und enthalten die Informationen zu den API-Endpunkten sowie die Eintragungs-IDs und geheimen Schlüssel für Ihre Netzressourcen, d. h. für Peers, Anordnungsknoten und Zertifizierungsstellen (CAs). Ihre Anwendung interagiert mit Netzressourcen über diese API-Endpunkte.
 
 ## World-Status
 {: #glossary-world-state}
-Siehe [Aktueller Status](/docs/services/blockchain/glossary.html#glossary-current-state).
+Siehe [Aktueller Status](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).
 ## Zertifizierungsstelle (CA)
 {: #glossary-CA}
-CA steht als Abkürzung für den englischen Begriff "Certificate Authority", zu Deutsch "Zertifizierungsstelle". Hierbei handelt es sich um die Komponente, die Zertifikate an alle teilnehmenden Mitglieder ausgibt. Diese Zertifikate stellen die Identität eines Mitglieds dar. Alle Entitäten im Netz (Peers, Anordnungsknoten, Clients usw.) müssen eine Identität haben, um kommunizieren, sich authentifizieren und letztlich Transaktionen ausführen zu können. Diese Identitäten sind für jede direkte Teilnahme am Blockchain-Netz erforderlich.
+CA steht als Abkürzung für den englischen Begriff "Certificate Authority", zu Deutsch "Zertifizierungsstelle". Hierbei handelt es sich um die Komponente, die Zertifikate an alle teilnehmenden Mitglieder ausgibt. Diese Zertifikate stellen die Identität eines Mitglieds dar. Alle Entitäten im Netz (Peers, Anordnungsknoten, Clients usw.) müssen über eine Identität verfügen, um kommunizieren, sich authentifizieren und letztlich Transaktionen ausführen zu können. Diese Identitäten sind für jede direkte Teilnahme am Blockchain-Netz erforderlich.
 
