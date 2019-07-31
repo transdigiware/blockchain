@@ -2,12 +2,7 @@
 
 copyright:
   years: 2018, 2019
-<<<<<<< HEAD
-lastupdated: "2019-07-23"
-=======
 lastupdated: "2019-07-25"
->>>>>>> 803b578f67af6ad3f766126c95af12ef36b6879e
-
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
