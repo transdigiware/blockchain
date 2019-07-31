@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -33,7 +33,7 @@ Il [flusso di transazioni](https://hyperledger-fabric.readthedocs.io/en/release-
 ### Gestione delle transazioni
 {: #best-practices-app-managing-transactions}
 
-I client dell'applicazione devono garantire che le loro proposte di transazione siano convalidate e vengano completate correttamente. Una proposta può essere ritardata o persa per diversi motivi, ad esempio un'interruzione della rete o un guasto di un componente. Devi codificare la tua applicazione per l'[alta disponibilità](/docs/services/blockchain/best_practices.html#best-practices-app-ha-app) per gestire i guasti dei componenti. Puoi anche [aumentare i valori di timeout](/docs/services/blockchain/best_practices.html#best-practices-app-set-timeout-in-sdk) nella tua applicazione per impedire che le proposte scadano prima che la rete possa rispondere.
+I client dell'applicazione devono garantire che le loro proposte di transazione siano convalidate e vengano completate correttamente. Una proposta può essere ritardata o persa per diversi motivi, ad esempio un'interruzione della rete o un guasto di un componente. Devi codificare la tua applicazione per l'[alta disponibilità](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) per gestire i guasti dei componenti. Puoi anche [aumentare i valori di timeout](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) nella tua applicazione per impedire che le proposte scadano prima che la rete possa rispondere.
 
 Se un chaincode non è in esecuzione, la prima proposta di transazione inviata a questo chaincode avvia il chaincode. Mentre il chaincode viene avviato, tutte le altre proposte vengono rifiutate con un errore che indica che il chaincode è attualmente in fase di avvio. Questo è diverso dall'invalidità della transazione. Se una proposta viene rifiutata mentre il chaincode è in fase di avvio, i client dell'applicazione devono inviare nuovamente le proposte rifiutate dopo l'avvio del chaincode. I client dell'applicazione possono utilizzare una coda messaggi per evitare di perdere le proposte di transazione.
 
@@ -70,19 +70,19 @@ Quando gestisci le connessioni tra la tua applicazione e la tua rete, potresti p
   ```
   {:codeblock}
 
-  Puoi anche trovare queste variabili con le impostazioni suggerite nella sezione `"peers"` del tuo profilo di connessione di rete. Le opzioni suggerite verranno importate nella tua applicazione automaticamente se utilizzi il [profilo di connessione con l'SDK](/docs/services/blockchain/v10_application.html#best-practices-app-connection-profile) per stabilire una connessione ai tuoi endpoint di rete.
+  Puoi anche trovare queste variabili con le impostazioni suggerite nella sezione `"peers"` del tuo profilo di connessione di rete. Le opzioni suggerite verranno importate nella tua applicazione automaticamente se utilizzi il profilo di connessione con l'SDK per stabilire una connessione ai tuoi endpoint di rete. Puoi trovare ulteriori informazioni su come utilizzare un profilo di connessione nella [documentazione di SDK Node](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
 - Quando una connessione non è più necessaria, usa i comandi `peer.close()` e `orderer.close()` per liberare risorse e impedire una riduzione delle prestazioni. Per ulteriori informazioni, vedi le classi [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} e [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} nella documentazione dell'SDK Node. Se hai bisogno di un profilo di connessione per aggiungere peer e ordinanti a un oggetto canale, puoi chiudere tutte le connessioni assegnate a tale canale utilizzando il comando `channel.close()`.
 
 ### Applicazioni altamente disponibili
 {: #best-practices-app-ha-app}
 
-Come procedura ottimale per l'alta disponibilità, si consiglia vivamente di distribuire almeno due peer per ogni organizzazione per il failover. Devi anche adattare le tue applicazioni per l'alta disponibilità. Installa il chaincode su entrambi i peer e aggiungili ai tuoi canali. Quindi, preparati a inviare le proposte di transazione a entrambi gli endpoint del peer durante l'impostazione della rete e la creazione dell'elenco di destinazione del peer. Le reti piano Enterprise hanno più ordinanti per failover, il che consente alla tua applicazione client di inviare transazioni approvate a un ordinante differente nel caso in cui un ordinante non sia disponibile. Se utilizzi il tuo [profilo di connessione](/docs/services/blockchain/v10_application.html#dev-app-connection-profile) invece di aggiungere gli endpoint di rete manualmente, assicurati che il tuo profilo sia aggiornato e che siano stati aggiunti peer e ordinanti aggiuntivi al canale pertinente nella sezione `channels` del profilo. L'SDK può quindi aggiungere i componenti uniti al canale utilizzando il profilo di connessione.
+Come procedura ottimale per l'alta disponibilità, si consiglia vivamente di distribuire almeno due peer per ogni organizzazione per il failover. Devi anche adattare le tue applicazioni per l'alta disponibilità. Installa il chaincode su entrambi i peer e aggiungili ai tuoi canali. Quindi, preparati a inviare le proposte di transazione a entrambi gli endpoint del peer durante l'impostazione della rete e la creazione dell'elenco di destinazione del peer. Le reti piano Enterprise hanno più ordinanti per failover, il che consente alla tua applicazione client di inviare transazioni approvate a un ordinante differente nel caso in cui un ordinante non sia disponibile. Se utilizzi il tuo profilo di connessione invece di aggiungere gli endpoint di rete manualmente, assicurati che il tuo profilo sia aggiornato e che siano stati aggiunti peer e ordinanti aggiuntivi al canale pertinente nella sezione `channels` del profilo. L'SDK può quindi aggiungere i componenti uniti al canale utilizzando il profilo di connessione.
 
 ## Abilitazione di TLS reciproco
 {: #best-practices-app-mutual-tls}
 
-Se stai eseguendo reti piano Enterprise che sono a livello di Fabric V1.1, hai la possibilità di [abilitare il TLS reciproco](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-network-preferences) per le tue applicazioni. Se abiliti il TLS reciproco, devi aggiornare le tue applicazioni per supportare questa funzione. In caso contrario, le tue applicazioni non possono comunicare con la tua rete.
+Se stai eseguendo reti piano Enterprise che sono a livello di Fabric V1.1, hai la possibilità di [abilitare il TLS reciproco](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) per le tue applicazioni. Se abiliti il TLS reciproco, devi aggiornare le tue applicazioni per supportare questa funzione. In caso contrario, le tue applicazioni non possono comunicare con la tua rete.
 
 Nel profilo di connessione, individua la sezione `certificateAuthorities` dove puoi trovare i seguenti attributi che sono necessari per registrare e ottenere i certificati per comunicare con la tua rete utilizzando il TLS reciproco.
 
@@ -160,7 +160,7 @@ channel.sendInstantiateProposal(request, 300000);
 
 Se utilizzi CouchDB come tuo database dello stato, puoi eseguire le query di dati JSON dal tuo chaincode sui dati di stato del canale. Ti consigliamo vivamente di creare indici per le tue query JSON e di utilizzarli nel tuo chaincode. Gli indici consentono alle tue applicazioni di richiamare in modo efficiente i dati quando la tua rete aggiunge blocchi aggiuntivi di transazioni e voci nello stato globale.
 
-Per ulteriori informazioni su CouchDB e su come configurare gli indici, vedi [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external} nella documentazione di Hyperledger Fabric. Puoi anche trovare un esempio che utilizza un indice con il chaincode nell'[esercitazione di Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}. 
+Per ulteriori informazioni su CouchDB e su come configurare gli indici, vedi [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external} nella documentazione di Hyperledger Fabric. Puoi anche trovare un esempio che utilizza un indice con il chaincode nell'[esercitazione di Fabric CouchDB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_tutorial.html){: external}.
 
 Evita di usare il chaincode per le query che produrranno una scansione dell'intero database CouchDB. Delle scansioni del database complete comporteranno dei tempi di risposta lunghi e ridurranno le prestazioni della tua rete. Per evitare e gestire delle query di grandi dimensioni, puoi eseguire alcuni dei seguenti passi:
 - Configura gli indici con il tuo chaincode.

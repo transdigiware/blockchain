@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,7 +126,7 @@ Inoltre, puoi utilizzare la funzione **Provalo** nella documentazione di riferim
 ## Limitazioni
 {: #ibp-v2-apis-limitations}
 
-Puoi importare solo CA, peer e nodi di ordine esistenti da altre reti {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
+Puoi importare solo CA, peer e nodi di ordinazione esistenti da altre reti {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Creazione di una rete utilizzando le API
 {: #ibp-v2-apis-build-with-apis}
@@ -148,22 +148,33 @@ Puoi utilizzare le API per creare i componenti blockchain nella tua istanza di {
   - Devi anche [registrare un amministratore dell'organizzazione](#ibp-v2-apis-config-register-admin) e successivamente [generare i certificati per l'amministratore](#ibp-v2-apis-config-enroll-admin) in una cartella MSP. Non devi completare questo passo se hai già registrato la tua identità amministratore.
   - [Registra il nuovo componente con la tua CA TLS](#ibp-v2-apis-config-register-component-tls).
 
-  Puoi anche completare questa procedura utilizzando la tua console {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni, vedi [Creazione e gestione delle identità](/docs/services/blockchain/howto/ibp-console-identities.html).
+  Puoi anche completare questa procedura utilizzando la tua console {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni, vedi [Creazione e gestione delle identità](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities).
 
 3. [Crea una definizione di MSP per la tua organizzazione](#ibp-v2-apis-msp) richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
-4. [Crea il file di configurazione](#ibp-v2-apis-config) necessario per creare un ordinante o un peer. Devi creare un file di configurazione univoco per ogni ordinante o peer che desideri creare.
+4. [Crea il file di configurazione](#ibp-v2-apis-config) necessario per creare un servizio di ordinazione o un peer. Devi creare un file di configurazione univoco per ogni servizio di ordinazione o peer che desideri creare. Se stai distribuendo più nodi di ordinazione, devi fornire un file di configurazione per ogni nodo che vuoi creare.
 
-5. Crea un ordinante richiamando [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-orderer).
+5. Crea un servizio di ordinazione richiamando [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service).
 
 6. Crea un peer richiamando [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer).
 
 7. Se vuoi utilizzare la console per gestire i tuoi componenti blockchain, devi importare la tua identità amministratore nel tuo portafoglio della console. Utilizza la scheda del portafoglio per importare il certificato e la chiave privata del tuo amministratore del nodo nella console e crea un'identità. Devi poi utilizzare la console per associare questa identità ai componenti che hai creato. Per ulteriori informazioni, vedi [Importazione di un'identità amministratore nella console {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-v2-apis-admin-console).
 
-8. Dopo aver distribuito la tua rete, puoi utilizzare gli SDK Fabric, la CLI peer o l'IU della console per creare dei canali e installare o istanziare gli smart contract.
+8. Dopo aver distribuito la tua rete, puoi utilizzare gli SDK Fabric, la CLI peer o l'IU della console per creare dei canali e installare o istanziare gli smart contract. Se devi creare in modo programmatico un canale, devi fornire il nome del consorzio. Per {{site.data.keyword.blockchainfull}} Platform, il nome del consorzio deve essere impostato su `SampleConsortium`.
 
 Le credenziali del servizio utilizzate per l'autenticazione API devono avere il ruolo di gestore (`Manager`) in IAM per poter creare i componenti. Per ulteriori informazioni, vedi la tabella in questo argomento sui [ruoli utente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
 {: note}
+
+### Creazione di un nodo all'interno di una zona specifica
+{: #ibp-v2-apis-zone}
+
+Se stai utilizzando un cluster multizona, puoi utilizzare le API per distribuire un componente blockchain a una zona specifica di {{site.data.keyword.cloud_notm}}. Questo consente alla tua rete di mantenere la disponibilità nel caso di un malfunzionamento di zona. Puoi utilizzare la seguente procedura per distribuire un nodo di ordinazione o peer a una zona specifica.
+
+1. Trova le zone su cui sono ubicati i tuoi nodi di lavoro. Passa alla schermata della panoramica del tuo cluster multizona sul [Servizio {{site.data.keyword.cloud_notm}} Kubernetes su {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. Dalla schermata di panoramica del cluster, fai clic su **Worker Nodes** per visualizzare una tabella di tutti i nodi di lavoro nel tuo cluster. Puoi trovare la zona in cui è ubicato ogni nodo di lavoro nella colonna **Zone** della tabella.
+
+  Puoi anche trovare le zone dei tuoi nodi di lavoro utilizzando la CLI kubectl. Passa al pannello **Access** e segui le istruzioni in **Gain access to your cluster** per la connessione al tuo cluster tramite gli strumenti CLI {{site.data.keyword.cloud_notm}} e kubectl. Dopo la connessione, utilizza il comando `kubectl get nodes --show-labels` per ottenere l'elenco completo di nodi e zone del tuo cluster. Troverai la zona in cui è ubicato ciascun nodo di lavoro dopo il campo `zone` nella colonna `LABELS`.
+
+2. Per creare un nodo all'interno di una zona specifica, fornisci il nome della zona alle chiamate API [Crea un servizio di ordine](/apidocs/blockchain?code=try#create-an-ordering-service) o [Crea un peer](/apidocs/blockchain?code=try#create-an-ordering-service) utilizzando il campo zone del corpo della richiesta. La politica di anti-affinità della console {{site.data.keyword.blockchainfull_notm}} Platform distribuirà automaticamente il tuo componente a diversi nodi di lavoro all'interno di ogni zona in base alla disponibilità di risorse.
 
 ## Importa una rete utilizzando le API
 {: #ibp-v2-apis-import-with-apis}
@@ -179,13 +190,13 @@ Puoi utilizzare le API anche per importare i componenti {{site.data.keyword.bloc
 
 2. Importa una definizione di MSP dell'organizzazione richiamando [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
 
-3. Importa un ordinante richiamando [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-orderer).
+3. Importa un servizio di ordinazione richiamando [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service).
 
 4. Importa un peer richiamando [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer).
 
 5. Se pensi di utilizzare la console {{site.data.keyword.blockchainfull_notm}} Platform per gestire i tuoi componenti blockchain, devi importare le tue identità amministratore del componente nel tuo portafoglio della console. Per ulteriori informazioni, vedi [Importazione di un'identità amministratore nella console {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-v2-apis-admin-console).
 
-6. Dopo aver distribuito la tua rete, puoi utilizzare gli SDK Fabric, la CLI peer o l'IU della console per creare dei canali e installare o istanziare gli smart contract.
+6. Dopo aver distribuito la tua rete, puoi utilizzare gli SDK Fabric, la CLI peer o l'IU della console per creare dei canali e installare o istanziare gli smart contract. Se devi creare in modo programmatico un canale, devi fornire il nome del consorzio. Per {{site.data.keyword.blockchainfull}} Platform, il nome del consorzio deve essere impostato su `SampleConsortium`.
 
 Le credenziali del servizio utilizzate per l'autenticazione API devono avere il ruolo di scrittore (`Writer`) in IAM per poter importare i componenti. Per ulteriori informazioni, vedi la tabella in questo argomento sui [ruoli utente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
 {: note}
@@ -230,7 +241,7 @@ Puoi utilizzare il client CA Fabric per utilizzare le tue CA. Immetti i seguenti
   ```
   {:codeblock}
 
-4. Imposta il valore della variabile di ambiente `$FABRIC_CA_CLIENT_HOME` in modo che sia il percorso dove il client CA archivierà i certificati [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) generati. Assicurati di rimuovere il materiale di configurazione che potrebbe essere stato creato da dei tentativi precedenti. Se precedentemente non hai eseguito il comando `enroll`, la cartella `msp` e il file `.yaml` non esistono.
+4. Imposta il valore della variabile di ambiente `$FABRIC_CA_CLIENT_HOME` in modo che sia il percorso dove il client CA archivierà i certificati MSP generati. Assicurati di rimuovere il materiale di configurazione che potrebbe essere stato creato da dei tentativi precedenti. Se precedentemente non hai eseguito il comando `enroll`, la cartella `msp` e il file `.yaml` non esistono.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -254,9 +265,9 @@ Puoi utilizzare il client CA Fabric per utilizzare le tue CA. Immetti i seguenti
 ### Genera i certificati con il tuo amministratore CA
 {: #ibp-v2-apis-enroll-ca-admin}
 
-Un'identità **amministratore CA** è stata automaticamente registrata per te quando hai creato la tua CA. Puoi ora utilizzare tali nome e password amministratore per emettere un comando `enroll` con il client CA Fabric per generare una cartella MSP con i certificati che vengono poi utilizzati per registrare altre identità ordinanti o peer.
+Un'identità **amministratore CA** è stata automaticamente registrata per te quando hai creato la tua CA. Puoi ora utilizzare tali nome e password amministratore per emettere un comando `enroll` con il client CA Fabric per generare una cartella MSP con i certificati che vengono poi utilizzati per registrare altre identità del nodo di ordinazione o peer.
 
-1. Assicurati di completare le istruzioni per [configurare il client CA Fabric](/docs/services/blockchain/howto/CA_operate.html#ca-operate-fabric-ca-client) e che `$FABRIC_CA_CLIENT_HOME` sia impostata sulla directory in cui vuoi archiviare i tuoi certificati di amministrazione della CA.
+1. Assicurati di completare le istruzioni per [configurare il client CA Fabric](#ibp-v2-apis-config-fabric-ca-client) e che `$FABRIC_CA_CLIENT_HOME` sia impostata sulla directory in cui vuoi archiviare i tuoi certificati di amministrazione della CA.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -289,9 +300,9 @@ Un'identità **amministratore CA** è stata automaticamente registrata per te qu
   ```
   {:codeblock}
 
-  Il comando `enroll` genera una serie completa di certificati, nota come cartella MSP (Membership Service Provider), ubicata nella directory in cui hai impostato il percorso su `$HOME` per il tuo client CA Fabric. Ad esempio, `$HOME/fabric-ca-client/ca-admin`. Per ulteriori informazioni sulle MSP e su cosa la cartella MSP contiene, vedi [MSP (Membership Service Provider)](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp).
+  Il comando `enroll` genera una serie completa di certificati, nota come cartella MSP (Membership Service Provider), ubicata nella directory in cui hai impostato il percorso su `$HOME` per il tuo client CA Fabric. Ad esempio, `$HOME/fabric-ca-client/ca-admin`. Per ulteriori informazioni sulle MSP e su cosa la cartella MSP contiene, vedi [MSP (Membership Service Provider)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
-  Se il comando `enroll` ha esito negativo, vedi l'[argomento Risoluzione dei problemi](/docs/services/blockchain/howto/CA_operate.html#ca-operate-troubleshooting) per le cause possibili.
+  Se il comando `enroll` ha esito negativo, vedi l'[argomento Risoluzione dei problemi](#ibp-v2-apis-config-troubleshooting) per le cause possibili.
 
   Puoi eseguire un comando tree per verificare di aver completato tutti i passi preliminari. Passa alla directory in cui hai archiviato i tuoi certificati. Un comando tree dovrebbe generare un risultato simile alla seguente struttura:
 
@@ -346,14 +357,14 @@ Per prima cosa, devi registrare un'identità del componente con la tua CA. Il tu
 
   Prendi nota del secondo valore **affiliation**, ad esempio, `org1.department1`. Dovrai utilizzare questo valore nel comando riportato di seguito.
 
-3. Immetti il seguente comando per registrare il peer o l'ordinante.
+3. Immetti il seguente comando per registrare il peer o il nodo di ordinazione.
 
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
   {:codeblock}
 
-  Crea un nome e una password per il componente e utilizzali per sostituire `name` e `secret`.  Prendi nota di queste informazioni Imposta `--id.type` su `orderer` se stai distribuendo un ordinante, oppure su `peer` se stai distribuendo un peer. Il comando potrebbe essere simile al seguente esempio:
+  Crea un nome e una password per il componente e utilizzali per sostituire `name` e `secret`.  Prendi nota di queste informazioni Imposta `--id.type` su `orderer` se stai distribuendo un nodo di ordinazione, oppure su `peer` se stai distribuendo un peer. Il comando potrebbe essere simile al seguente esempio:
 
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -378,7 +389,7 @@ Per prima cosa, devi registrare un'identità del componente con la tua CA. Il tu
 
 Devi anche creare un'identità amministratore che puoi utilizzare per gestire la tua rete. Dovrai utilizzare questa identità per gestire componenti specifici, ad esempio installando uno smart contract sul tuo peer. Puoi anche utilizzare questa identità come un amministratore della tua organizzazione e utilizzarla per creare e modificare i canali.  
 
-Devi registrare questa nuova identità con la tua CA e utilizzarla per generare una cartella MSP. Puoi rendere questa identità un amministratore dell'organizzazione aggiungendo il suo signCert al tuo MSP dell'organizzazione. Dovrai anche aggiungere il signCert al tuo file di configurazione in modo che possa diventare il certificato amministratore dell'ordinante o del peer durante a distribuzione. Devi creare solo un'identità amministratore per la tua organizzazione. Di conseguenza, devi completare questa procedura solo una volta. Puoi utilizzare il signCert che hai generato per distribuire i tuoi peer o ordinanti.
+Devi registrare questa nuova identità con la tua CA e utilizzarla per generare una cartella MSP. Puoi rendere questa identità un amministratore dell'organizzazione aggiungendo il suo signCert al tuo MSP dell'organizzazione. Dovrai anche aggiungere il signCert al tuo file di configurazione in modo che possa diventare il certificato amministratore del nodo di ordinazione o del peer durante a distribuzione. Devi creare solo un'identità amministratore per la tua organizzazione. Di conseguenza, devi completare questa procedura solo una volta. Puoi utilizzare il signCert che hai generato per distribuire molti peer o nodi ordinazione.
 
 Assicurati che il tuo `$FABRIC_CA_CLIENT_HOME` sia impostato sul percorso alla MSP del tuo amministratore della CA.
 
@@ -395,7 +406,7 @@ fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation o
 ```
 {:codeblock}
 
-Crea dei nuovi `name` e `secret` dell'identità utente per l'amministratore. Assicurati di utilizzare dei valori differenti rispetto a quelli dell'identità peer o ordinante che hai appena registrato. Il comando è simile al seguente esempio:
+Crea dei nuovi `name` e `secret` dell'identità utente per l'amministratore. Assicurati di utilizzare dei valori differenti rispetto a quelli dell'identità del peer o del nodo di ordinazione che hai appena registrato. Il comando è simile al seguente esempio:
 
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -480,7 +491,7 @@ Dovrai ritornare a questa cartella quando crei la definizione di MSP dell'organi
 ### Registrazione dell'identità del componente con la CA TLS
 {: #ibp-v2-apis-config-register-component-tls}
 
-Quando hai creato la tua CA, è stata distribuita una CA TLS insieme alla tua CA predefinita. Devi registrare anche l'ordinante o il peer con la tua CA TLS. Per far ciò, dovrai prima eseguire l'iscrizione utilizzando l'amministratore della CA TLS. Modifica `$FABRIC_CA_CLIENT_HOME` con una directory in cui vuoi archiviare i tuoi certificati di gestione della CA TLS.
+Quando hai creato la tua CA, è stata distribuita una CA TLS insieme alla tua CA predefinita. Devi registrare anche il nodo di ordinazione o il peer con la tua CA TLS. Per far ciò, dovrai prima eseguire l'iscrizione utilizzando l'amministratore della CA TLS. Modifica `$FABRIC_CA_CLIENT_HOME` con una directory in cui vuoi archiviare i tuoi certificati di gestione della CA TLS.
 
 ```
 cd $HOME/fabric-ca-client
@@ -489,7 +500,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-Immetti il seguente comando per l'iscrizione come amministratore per la CA TLS. La password e l'ID di iscrizione del tuo amministratore CA TLS sono gli stessi della CA predefinita. Di conseguenza, il seguente comando è lo stesso che hai utilizzato per l'iscrizione come [amministratore della CA](/docs/services/blockchain/howto/CA_operate.html#ca-operate-enroll-ca-admin) soltanto con il nome della tua CA TLS. Il tuo nome della CA TLS è il valore **Nome CA TLS** dal pannello **Impostazioni** della CA nella tua console oppure il valore per `"tlsca_name"` restituito dall'API `Create a CA`.
+Immetti il seguente comando per l'iscrizione come amministratore per la CA TLS. La password e l'ID di iscrizione del tuo amministratore CA TLS sono gli stessi della CA predefinita. Di conseguenza, il seguente comando è lo stesso che hai utilizzato per l'iscrizione come [amministratore della CA](#ibp-v2-apis-enroll-ca-admin) soltanto con il nome della tua CA TLS. Il tuo nome della CA TLS è il valore **Nome CA TLS** dal pannello **Impostazioni** della CA nella tua console oppure il valore per `"tlsca_name"` restituito dall'API `Create a CA`.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -502,14 +513,14 @@ Una chiamata reale potrebbe essere simile al seguente esempio:
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-Dopo aver eseguito l'iscrizione, disponi dei certificati necessari per registrare il tuo componente con la CA TLS. Immetti il seguente comando per registrare il peer o l'ordinante:
+Dopo aver eseguito l'iscrizione, disponi dei certificati necessari per registrare il tuo componente con la CA TLS. Immetti il seguente comando per registrare il peer o il nodo di ordinazione:
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-Questo comando è simile a quello utilizzato per registrare l'identità del componente con la CA, con l'eccezione che devi utilizzare il nome della CA TLS. Se stai distribuendo un ordinante invece di un peer, imposta `--id.type` su `orderer` invece di `peer`. Devi fornire a questa identità un nome utente e una password diversi rispetto a quelli utilizzati con la CA predefinita. Una registrazione reale è simile al seguente comando:
+Questo comando è simile a quello utilizzato per registrare l'identità del componente con la CA, con l'eccezione che devi utilizzare il nome della CA TLS. Se stai distribuendo un nodo di ordinazione invece di un peer, imposta `--id.type` su `orderer` invece di `peer`. Devi fornire a questa identità un nome utente e una password diversi rispetto a quelli utilizzati con la CA predefinita. Una registrazione reale è simile al seguente comando:
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -517,6 +528,53 @@ fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.
 
 Devi salvare i valori `"enrollid"` e `"enrollsecret"` dal comando precedente per quando creerai il tuo file di configurazione.
 {: important}
+
+### Risoluzione dei problemi
+{: #ibp-v2-apis-config-troubleshooting}
+
+#### **Problema** errore durante l'esecuzione del comando `enroll`
+{: #ibp-v2-apis-config-enroll-error1}
+
+Quando esegui il comando enroll del client CA Fabric, è possibile che abbia esito negativo con il seguente errore:
+
+```
+Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
+```
+{:codeblock}
+
+**Soluzione:**
+
+Questo errore può verificarsi quando il tuo client CA Fabric tenta l'iscrizione ma non può collegarsi alla tua CA. Questo può succedere se:   
+
+- Il tuo comando `enroll` contiene un ulteriore `https://` nel parametro `-u`.
+- Il tuo nome della CA non è corretto.
+- Il nome utente o la password non è corretto.
+
+Rivedi i parametri che hai specificato nel tuo comando `enroll` e assicurati che non sia presente alcuna di queste condizioni.
+
+#### **Problema:** errore con l'URL della CA durante l'esecuzione del comando `enroll`
+{: #ibp-v2-apis-config-enroll-error2}
+
+Il comando di iscrizione del client CA Fabric potrebbe non riuscire se l'url di iscrizione, il valore del parametro `-u`, contiene un carattere speciale. Ad esempio, il seguente comando con l'ID e la password di iscrizione `admin:C25A06287!0`,
+
+```
+./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
+
+non riuscirà e produrrà il seguente errore:
+
+```
+!pw@9.12.19.115: event not found
+```
+
+#### **Soluzione:**
+{: #ibp-v2-apis-config-enroll-error2-solution}
+
+Devi codificare il carattere speciale o racchiudere l'url tra virgolette singole. Ad esempio, `!` diventa `%21` o il comando è simile a:
+
+```
+./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
+```
 
 ## Creazione di una definizione di MSP dell'organizzazione
 {: #ibp-v2-apis-msp}
@@ -619,7 +677,7 @@ cat $HOME/fabric-ca-client/peer-admin/msp/signcerts/cert.pem | base64 $FLAG
 ## Creazione di un file di configurazione
 {: #ibp-v2-apis-config}
 
-Devi completare un file di configurazione per poter creare un peer o un ordinante utilizzando le API. Questo file viene fornito all'API come oggetto `config` nel corpo della richiesta della chiamata API. Devi distribuire una CA alla tua istanza del servizio {{site.data.keyword.cloud_notm}} Platform e seguire la procedura per registrare ed iscrivere le identità richieste prima di completare il file.
+Devi completare un file di configurazione per poter creare un peer o un nodo di ordinazione utilizzando le API. Questo file viene fornito all'API come oggetto `config` nel corpo della richiesta della chiamata API. Se stai creando più nodi di ordinazione, devi fornire un file di configurazione per ogni nodo che vuoi creare in un array alla richiesta API. Ad esempio, per un servizio di ordinazione Raft a cinque nodi, devi creare un array di cinque file di configurazione. Puoi fornire lo stesso file ad ogni nodo finché gli enrollId che fornisci hanno un limite di iscrizione sufficientemente alto. Devi distribuire una CA alla tua istanza del servizio {{site.data.keyword.cloud_notm}} Platform e seguire la procedura per registrare ed iscrivere le identità richieste prima di completare il file.
 
 Il template per il file di configurazione può essere trovato qui di seguito:
 ```
@@ -654,7 +712,7 @@ Il template per il file di configurazione può essere trovato qui di seguito:
 ```
 {:codeblock}
 
-Copia questo file completo in un editor di testo in cui puoi modificarlo e salvarlo sul tuo file system locale come un file JSON. Utilizza la seguente procedura per completare questo file di configurazione e utilizzarlo per distribuire un ordinante o un peer.
+Copia questo file completo in un editor di testo in cui puoi modificarlo e salvarlo sul tuo file system locale come un file JSON. Utilizza la seguente procedura per completare questo file di configurazione e utilizzarlo per distribuire un servizio di ordinazione o un peer.
 
 ### Richiama le informazioni di connessione della CA
 {: #ibp-v2-apis-config-connx-info}
@@ -800,7 +858,7 @@ Dopo aver completato tutti i precedenti passi, il tuo file di configurazione agg
 ```
 {:codeblock}
 
-Puoi lasciare gli altri campi vuoti. Dopo aver completato questo file, puoi passarlo come il campo `config` al corpo della richiesta dell'API `Create an orderer` o `Create a peer`.
+Puoi lasciare gli altri campi vuoti. Dopo aver completato questo file, puoi passarlo come il campo `config` al corpo della richiesta dell'API `Create an ordering service` o `Create a peer`.
 
 ### Importazione di un'identità amministratore nella console {{site.data.keyword.blockchainfull_notm}} Platform.
 {: #ibp-v2-apis-admin-console}

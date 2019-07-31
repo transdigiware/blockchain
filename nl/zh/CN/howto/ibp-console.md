@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 ## 新发行版提供的功能
 {: #ibp-console-overview-capabilities}
 
-此最新发行版专为经验丰富的 {{site.data.keyword.blockchainfull_notm}} 和 Hyperledger Fabric 用户量身打造，支持他们托管网络或创建可加入其他 {{site.data.keyword.blockchainfull_notm}} 网络的新组织。如果您是现有的入门套餐或企业套餐客户，而不是由 {{site.data.keyword.IBM_notm}} 管理您的网络，那么现在您可完全控制自己的 Kubernetes 集群中的组件供应、监视和管理功能。
+此最新发行版专为经验丰富的 {{site.data.keyword.blockchainfull_notm}} 和 Hyperledger Fabric 用户量身打造，支持他们托管并加入 {{site.data.keyword.blockchainfull_notm}} 网络。如果您是现有的入门套餐或企业套餐客户，而不是由 {{site.data.keyword.IBM_notm}} 管理您的网络，那么现在您可完全控制自己的 Kubernetes 集群中的组件供应、监视和管理功能。
 
 此 {{site.data.keyword.blockchainfull_notm}} Platform 发行版包含以下主要功能：
 
@@ -39,10 +39,11 @@ subcollection: blockchain
 - **简化的 DevOps** 允许您通过扩展 Kubernetes 资源来添加更多组件，在单个环境中从开发移至测试，再移至生产。
 - **最新的 Fabric 主要功能**。利用 Hyperledger Fabric V1.4.1 的最新功能：
   -  [Raft 排序服务](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - **{{site.data.keyword.cloud_notm}} 服务集成**。利用内置 {{site.data.keyword.cloud_notm}} 服务，例如 {{site.data.keyword.cloud_notm}} Kubernetes Service 仪表板、{{site.data.keyword.IBM_notm}} Log Analysis with LogDNA 和 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)。
   - [**专用数据**集合](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)，用于通过 Gossip 协议确保仅与授权同级共享分类帐数据，以提高数据隐私性。
   - [服务发现](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}，允许您动态发现和更新应用程序与网络的交互方式。
   - [通道访问控制表](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}，允许您对通道和智能合同的管理进行额外控制。
+- {{site.data.keyword.cloud_notm}} 服务集成。利用内置 [{{site.data.keyword.cloud_notm}} 服务](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations)，例如 {{site.data.keyword.cloud_notm}} Kubernetes Service 仪表板、{{site.data.keyword.IBM_notm}} Log Analysis with LogDNA 和 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)。
+
 
 **操作 - 全面控制部署**
 - **仅部署所需的组件**。将一个同级连接到多个通道和网络，或者托管业务合作伙伴可以连接到的排序服务。
@@ -80,6 +81,7 @@ subcollection: blockchain
 - 如果您不想在 {{site.data.keyword.cloud_notm}} 中供应 Kubernetes 集群时使用预先选择的缺省铜牌级文件存储器，那么可以供应您选择的存储器。请参阅有关[持久性存储器注意事项](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)的主题来了解更多信息。
 - 如果决定在 Kubernetes 集群中包含 {{site.data.keyword.cloud_notm}} 多专区支持，那么必须供应您自己的存储器。请参阅[将多专区 (MZR) 集群用于 {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)，以获取更多详细信息。
 - 将 {{site.data.keyword.blockchainfull_notm}} Platform 服务实例链接到 {{site.data.keyword.cloud_notm}} Kubernetes 免费集群时，可以免费预览 {{site.data.keyword.blockchainfull_notm}} Platform 30 天。但性能在吞吐量、存储器和功能方面会受到限制。{{site.data.keyword.cloud_notm}} 将在 30 天后删除您的集群，并且您无法将任何节点或数据从免费集群迁移到付费集群。虽然 {{site.data.keyword.blockchainfull_notm}} Platform Beta 试用版是免费的，但如果选择付费 Kubernetes 集群，而不是受限的免费集群，那么会针对 Kubernetes 服务向您的 {{site.data.keyword.cloud_notm}} 帐户收费。
+- 不支持“虚拟路由和转发 (VRF)”。{site.data.keyword.blockchainfull_notm}} Platform 服务与启用了子网 IP 块之间自动全局路由的帐户不兼容。与此类似，配置了专用 VLAN 的 Kubernetes 集群也不受支持。
 
 ## 迁移
 {: #ibp-console-overview-migration}

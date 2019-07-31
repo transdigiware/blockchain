@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, authorize, service credentials, disable API access, IBM Cloud
 
@@ -39,7 +39,7 @@ Se stai utilizzando piano Starter, è possibile passare da un'organizzazione all
 
 La **Figura 2** mostra come passare da un'organizzazione all'altra:
 
-![Switch tra le organizzazioni](../images/switch_orgs_starter.gif "Switch tra le organizzazioni"){: gif}
+![Passaggio da un'organizzazione all'altra](../images/switch_orgs_starter.gif "Passaggio da un'organizzazione all'altra"){: gif}
 
 
 ## Autorizzazione delle API Swagger
@@ -82,7 +82,7 @@ La **Figura 6** mostra il comando CURL, l'URL e il corpo della risposta della AP
 
 Per impostazione predefinita, tutti gli utenti con un ruolo non Revisore in {{site.data.keyword.cloud_notm}} possono visualizzare e utilizzare le **Credenziali di rete** visibili nel pannello delle API Swagger e possono pertanto gestire la loro rete utilizzando le API. Tuttavia, se preferisci non esporre le tue credenziali di rete API Swagger nell'IU, puoi copiare e proteggere i tuoi valori di chiave e segreto esistenti e generare delle nuove credenziali che non sono valide per l'uso con le API Swagger. Viene fornito un indicatore denominato resetCredentials che ti consente di controllare l'accesso completando la seguente procedura:
 
-1. Attieniti alla procedura per generare delle nuove credenziali di rete, come descritto nel [dashboard Credenziali del servizio](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Attieniti alla procedura per generare delle nuove credenziali di rete, come descritto nel [dashboard Credenziali del servizio](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 2. Tuttavia, nella casella **Aggiungi parametri di configurazione inline**, incolla il seguente valore:
    ```
    {
@@ -104,7 +104,7 @@ Ora, le credenziali valide originali sono visibili nelle informazioni **Credenzi
 ### 401 Non autorizzato  
 {: #ibp-swagger-401}
 
-  Assicurati di disporre delle autorizzazioni necessarie per la API REST fornendo le tue credenziali di rete. Per ulteriori informazioni, vedi [Autorizzazione delle API Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-authorizing-swagger).
+  Assicurati di disporre delle autorizzazioni necessarie per la API REST fornendo le tue credenziali di rete. Per ulteriori informazioni, vedi [Autorizzazione delle API Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger).
 
 ### Errore 400: Richiesta non valida
 {: #ibp-swagger-400}

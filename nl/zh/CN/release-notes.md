@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,11 +23,27 @@ subcollection: blockchain
 使用这些按日期分组的发行说明，了解基于 Hyperledger Fabric V1.4.1 构建的 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} 的最新更改。
 {:shortdesc}
 
+## 2019 年 7 月 10 日
+{: #07-10-2019}
+
+**排序节点补丁 `1.4.1-2`**  
+
+此补丁修订了排序节点重新启动时发生的问题。起源区块进行了更新，可阻止排序节点与排序服务中的其他节点通信。您可以将此补丁应用到排序服务中的所有现有排序节点，只需遵循这些[指示信息](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)来更新每个排序节点即可。您创建的所有新排序节点将自动包含此修订。
+
+**除去锚点同级**  
+
+您现在能够将锚点同级从通道中除去。
+
+**其他错误修订**  
+
+错误修订和翻译更新。
 
 ## 2019 年 5 月 24 日
 {: #05-24-2019}
 
-**Raft 共识协议**：建议用于生产网络的五节点 Raft 排序服务现在可用。此外，出于开发和测试目的，还可以部署单节点 Raft 排序服务。
+**Raft 共识协议**  
+
+：建议用于生产网络的五节点 Raft 排序服务现在可用。此外，出于开发和测试目的，还可以部署单节点 Raft 排序服务。
 
 ## 2019 年 5 月 9 日
 {: #05-09-2019}

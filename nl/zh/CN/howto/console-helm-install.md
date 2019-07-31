@@ -2,7 +2,8 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, install, Helm chart, PodSecurityPolicy
 
@@ -36,11 +37,9 @@ Helm chart 必须通过 [Passport Advantage Online](https://www.ibm.com/software
 ### PodSecurityPolicy 需求
 {: #console-helm-install-prereqs-pod-security-requirements}
 
-{{site.data.keyword.blockchainfull_notm}} Platform Helm chart 在安装之前，需要将特定安全和访问策略绑定到目标名称空间。在配置 Helm chart 之前，请使用以下步骤来配置策略：
+{{site.data.keyword.blockchainfull_notm}} Platform Helm chart 在安装之前，需要将特定安全和访问策略绑定到目标名称空间。我们在下面的步骤中提供了用于定义策略的 YAML 文件。您可以将这些文件保存至本地系统，然后使用 {{site.data.keyword.cloud_notm}} Private CLI 将其与您的名称空间绑定。部署 {{site.data.keyword.blockchainfull_notm}} Platform Helm chart 之前，请先执行下面的步骤。
 
-1. 为名称空间选择预定义的 PodoSecurityPolicy，或要求集群管理员为您创建定制 PodSecurityPolicy：
-  - 可以使用预定义的 PodSecurityPolicy：[`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-  - 还可以使用以下 YAML 创建定制 PodSecurityPolicy 定义：
+1. 在本地系统上将定义 {{site.data.keyword.blockchainfull_notm}} Platform PodSecurityPolicy 的以下文件保存为 `ibm-blockchain-platform-psp.yaml`：
 
     ```
     apiVersion: extensions/v1beta1
@@ -70,13 +69,13 @@ Helm chart 必须通过 [Passport Advantage Online](https://www.ibm.com/software
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. 为 PodSecurityPolicy 创建 ClusterRole。
-  - 如果创建了定制安全策略，那么可以使用以下 YAML 文件来创建 ClusterRole：
+2. 将定义 PodSecurityPolicy 所需 ClusterRole 的以下文件保存为 `ibm-blockchain-platform-clusterrole.yaml`：
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -94,45 +93,60 @@ Helm chart 必须通过 [Passport Advantage Online](https://www.ibm.com/software
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - 如果使用的是预定义的 PodSecurityPolicy，那么只需使用第二个 apiGroups 部分来创建 ClusterRole：
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. 创建定制 ClusterRoleBinding。如果决定更改以下文件中的 ServiceAccount 名称，那么在部署 Helm chart 时，需要在配置页面的**所有参数**部分中为`服务帐户名称`字段提供该名称。
+3. 将定义 ClusterRoleBinding 的以下文件保存为 `ibm-blockchain-platform-clusterrolebinding.yaml`。如果决定更改以下文件中的 ServiceAccount 名称，那么在部署 Helm chart 时，需要在配置页面的**所有参数**部分中为`服务帐户名称`字段提供该名称。
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -150,23 +164,35 @@ Helm chart 必须通过 [Passport Advantage Online](https://www.ibm.com/software
   ```
   {:codeblock}
 
-可以完成以下步骤以使用 YAML 文件将安全和访问策略绑定到名称空间：
+将 PodSecurityPolicy、ClusterRole 和 ClusterRoleBinding YAML 文件保存到本地系统之后，集群管理员将需要使用 {{site.data.keyword.cloud_notm}} Private CLI 来将策略与您的名称空间绑定。
 
-1. 将 YAML 文件保存到本地系统。
+1. 登录到 {{site.data.keyword.cloud_notm}} Private 集群，然后选择部署的目标名称空间。
 
-2. 登录到 {{site.data.keyword.cloud_notm}} Private 集群，然后选择部署的目标名称空间。
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. 登录到集群的 Docker 映像注册表：
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
-  {:codeblock}
+   {:codeblock}
 
-3. 使用以下命令将策略应用于目标名称空间：
+3. 使用以下命令将策略应用到目标名称空间：
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
   {:codeblock}
+
+4. 应用策略之后，您必须授予服务帐户所需的许可权级别以部署控制台。使用您的目标名称空间的名称运行以下命令：
+
+  ```
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```
 
 ## 将 Helm chart 导入 {{site.data.keyword.cloud_notm}} Private
 {: #console-helm-install-importing}

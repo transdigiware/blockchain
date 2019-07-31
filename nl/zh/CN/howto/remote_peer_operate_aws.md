@@ -352,7 +352,6 @@ docker run -ti --network blockchain.com -v ${PWD}:/mnt -v path/to/toolsrc:/src i
 1. 从“网络监视器”的“概述”面板中提供的`连接概要文件`检索配置信息。单击**连接概要文件**，然后单击**下载**。
 
   -  通过搜索`排序节点 > URL` 下的**排序节点**来查找排序节点 URL。记下以网络名称开头的 URL。该 URL 类似于以下示例：
-    
 
     ```
     ash-zbc07b.4.secure.blockchain.ibm.com:21239

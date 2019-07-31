@@ -22,7 +22,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform prevede un addebito mensile con costi per le adesioni e costi per i peer. I membri della rete possono pagare la fattura con i loro account {{site.data.keyword.cloud_notm}} che contengono lo spazio per creare l'istanza della rete. In alternativa, un membro della rete può coprire la fattura per altri membri nella rete o anche per tutti i membri e pagare per l'intera rete. Il pagatore può anche trasferire le fatture ad altri membri, se necessario.
 {:shortdesc}
 
-A seconda del piano di rete da te scelto e dalla quantità di risorse da te utilizzata, i tuoi pagamenti sono differenti. Per ulteriori informazioni sui prezzi, vedi [Prezzi](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+A seconda del piano di rete da te scelto e dalla quantità di risorse da te utilizzata, i tuoi pagamenti sono differenti. Per ulteriori informazioni sui prezzi, vedi [Prezzi](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 
 Nota che, quando diverse organizzazioni creano un consorzio, si consiglia che le organizzazioni partecipanti utilizzino un indirizzo email funzionante per creare la loro rete. In questo caso, l'accesso alla rete non dipende dalla disponibilità di alcun singolo utente.
 
@@ -62,7 +62,7 @@ Un membro della rete può coprire le spese per uno o più altri membri della ret
          - **Ruoli spazio**: Sviluppatore.
       3. Fai clic su **Invita utenti**.  
    **Nota**: se il pagatore paga per più di un membro, dovrà ripetere questo passo per invitare altri membri e assegnare l'accesso per ciascuno di essi.
-3. Il pagatore crea una rete blockchain {{site.data.keyword.blockchainfull_notm}} Platform e invita altri membri alla rete blockchain nel Monitoraggio della rete della rete. Per ulteriori informazioni sull'invito di membri della rete, vedi [Membri](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
+3. Il pagatore crea una rete blockchain {{site.data.keyword.blockchainfull_notm}} Platform e invita altri membri alla rete blockchain nel Monitoraggio della rete della rete. Per ulteriori informazioni sull'invito di membri della rete, vedi [Membri](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
 4. Ogni membro riceve quindi un'email di notifica che contiene un invito ad aderire alla rete. Il membro può completare la seguente procedura per aderire alla rete.
    1. Fai clic sul pulsante "Procedi" nella email di notifica; verrai così reindirizzato alla pagina del servizio blockchain in {{site.data.keyword.cloud_notm}}.
    2. Accedi a {{site.data.keyword.cloud_notm}} e assicurati di utilizzare l'organizzazione e lo spazio {{site.data.keyword.cloud_notm}} corretti, a cui ti aggiunge il pagatore.
@@ -73,7 +73,7 @@ Un membro della rete può coprire le spese per uno o più altri membri della ret
       2. Verifica che l'organizzazione e lo spazio siano quelli a cui ti ha aggiunto il pagatore.
       3. Seleziona il piano di adesione con cui creare la tua istanza di rete. Il tuo piano di adesione deve essere uguale a quello con cui il pagatore crea la rete.
       4. Fai clic su **Crea**.
-   4. Dopo che hai creato l'istanza del servizio blockchain, attieniti alla procedura guidata per aderire alla rete.  Per ulteriori informazioni, vedi [Adesione a una rete](/docs/services/blockchain/get_start.html#getting-started-with-enterprise-plan-join-nw).
+   4. Dopo che hai creato l'istanza del servizio blockchain, attieniti alla procedura guidata per aderire alla rete.  Per ulteriori informazioni, vedi [Adesione a una rete](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
 
 ### Limitazioni note
 {: #paying-mode-limitation}
@@ -95,8 +95,8 @@ In alternativa all'aggiunta di account di altri membri all'account del pagatore,
   4. Nella sezione **Accesso Cloud Foundry**, scegli l'organizzazione a cui vuoi aggiungere l'account del pagatore dall'elenco a discesa.
   5. Scegli **Gestore di fatturazione** come **Ruoli organizzazione**.
   6. Configura di conseguenza gli altri campi, quindi fai clic su **Invita utenti**.  
-3. Il pagatore invita gli altri membri alla rete blockchain nel Monitoraggio della rete della rete. Per ulteriori informazioni sull'invito di membri della rete, vedi [Membri](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard-members).
-4. Ogni membro riceve quindi un'email di notifica che contiene un invito ad aderire alla rete. Il membro può quindi aderire alla rete. Per ulteriori informazioni, vedi il **passo 4** in [Pagamento per altri membri della rete](/docs/services/blockchain/howto/paying_mode.html#paying-mode-pay-for-others).
+3. Il pagatore invita gli altri membri alla rete blockchain nel Monitoraggio della rete della rete. Per ulteriori informazioni sull'invito di membri della rete, vedi [Membri](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
+4. Ogni membro riceve quindi un'email di notifica che contiene un invito ad aderire alla rete. Il membro può quindi aderire alla rete. Per ulteriori informazioni, vedi il **passo 4** in [Pagamento per altri membri della rete](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others).
 
 ### Limitazione nota
 {: #paying-mode-let-other-pay-limitation}

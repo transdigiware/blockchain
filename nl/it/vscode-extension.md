@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -49,16 +49,21 @@ Prima di installare l'estensione {{site.data.keyword.blockchainfull_notm}} Platf
 ### Prerequisiti
 {: #develop-vscode-prerequisites}
 
-- **Installa Visual Studio Code**  
-  Installa l'editor di codice [Visual Studio](https://code.visualstudio.com/).  
-- **Installa Yeoman**  
-  Yeoman è uno strumento generatore che puoi utilizzare per creare progetti smart contract di base. Installa Yeoman utilizzando il seguente comando: `npm install -g yo`.  
-- **Installa Docker**  
-  Per eseguire l'istanza preconfigurata di Fabric Hyperledger Fabric, assicurati di aver installato [Docker](https://www.docker.com/){: external}.  
-- **Requisiti relativi al sistema operativo**  
-  Attualmente, questa estensione è compatibile con Mac, Windows e Linux.  
-- **Requisiti relativi alla versione di Hyperledger Fabric**  
-  Questa estensione è compatibile con Hyperledger Fabric versioni 1.4.0 e successive.  
+- Windows 10, Linux o Mac OS sono al momento i sistemi operativi supportati.
+- [VS Code versione 1.32 o superiore](https://code.visualstudio.com/){: external}.
+- [Node v8.x o superiore e npm v5.x o superiore](https://nodejs.org/en/download/){: external}.
+- [Docker versione v17.06.2-ce o superiore](https://www.docker.com/get-started){: external}.
+- [Docker Compose v1.14.0 o superiore](https://docs.docker.com/compose/install/){: external}.
+- [Go versione v1.12 o superiore per lo sviluppo di contratti Go](https://golang.org/dl/){: external}.
+
+Se stai utilizzando Windows, devi anche assicurarti di quanto segue:
+
+- Docker per Windows è configurato per utilizzare i contenitori Linux (questa è l'impostazione predefinita).
+- Hai installato gli strumenti di build C++ per Windows da [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools#windows-build-tools){: external}.
+- Hai installato OpenSSL v1.0.2 da [Win32 OpenSSL](http://slproweb.com/products/Win32OpenSSL.html){: external}.
+  - Installa la versione normale, non la versione contrassegnata con "light".
+  - Installa la versione Win32 in C:\OpenSSL-Win32 su sistemi a 32-bit.
+  - Installa la versione Win64 in C:\OpenSSL-Win64 su sistemi a 64-bit.
 
 ### Installa l'estensione
 {: #develop-vscode-installing-the-extension}
@@ -231,11 +236,11 @@ Dopo che il file di test è stato creato, i test possono essere eseguiti facendo
 ## Passo sette: Connettiti alla tua rete {{site.data.keyword.blockchainfull_notm}} Platform
 {: #develop-vscode-connecting-ibp}
 
-Puoi utilizzare l'estensione anche per la connessione a {{site.data.keyword.blockchainfull_notm}} Platform e richiamare tutti gli smart contract installati e istanziati utilizzando l'IU della console {{site.data.keyword.blockchainfull_notm}} Platform.
+Puoi utilizzare l'estensione anche per la connessione a {{site.data.keyword.blockchainfull_notm}} Platform in esecuzione su {{site.data.keyword.cloud_notm}} o {{site.data.keyword.cloud_notm}} e richiamare tutti gli smart contract installati e istanziati utilizzando l'IU della console {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Apri la console {{site.data.keyword.blockchainfull_notm}} Platform associata alla tua istanza di {{site.data.keyword.blockchainfull_notm}} Platform. Vai alla scheda **Smart contract**. Utilizza la tabella **Smart contract istanziati** nella scheda smart contract per scaricare il tuo [profilo di connessione](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-profile) nel file system locale. Quindi, [crea un'identità dell'applicazione](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app-identities) utilizzando la tua CA e salva il segreto e l'ID di iscrizione. Segui questa procedura per la connessione a {{site.data.keyword.blockchainfull_notm}} Platform da VS Code.
+Apri la console {{site.data.keyword.blockchainfull_notm}} Platform associata alla tua istanza di {{site.data.keyword.blockchainfull_notm}} Platform. Vai alla scheda **Smart contract**. Utilizza la tabella **Smart contract istanziati** nella scheda smart contract per scaricare il tuo [profilo di connessione](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile) nel file system locale. Quindi, [crea un'identità dell'applicazione](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities) utilizzando la tua CA e salva il segreto e l'ID di iscrizione. Segui questa procedura per la connessione a {{site.data.keyword.blockchainfull_notm}} Platform da VS Code.
 
-1. Apri la scheda _{{site.data.keyword.blockchainfull_notm}} Platform_.
+1. Apri la scheda **{{site.data.keyword.blockchainfull_notm}} Platform**.
 2. Nel pannello **Fabric Gateways**, fai clic su **+**.
 3. Immetti un nome per la connessione.
 4. Immetti il percorso file completo del tuo profilo di connessione. La tua connessione dovrebbe ora comparire nell'elenco di connessioni sotto **local_fabric**.

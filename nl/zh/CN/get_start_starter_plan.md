@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,18 +15,21 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
 
 # 入门套餐入门
 {: #getting-started-with-starter-plan}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 {{site.data.keyword.blockchainfull}} Platform 入门套餐提供了一个预先配置的区块链网络，只需单击一下就可使用。入门套餐供应一个许可的网络，缺省情况下配置有两个[组织](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization)、每个组织一个[同级](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer)，还有一个[通道](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel)。创建网络后，可以向网络缩放和添加更多组织和同级。
-这些网络适合新接触 {{site.data.keyword.blockchainfull_notm}} Platform 的新手用户。<!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
+这些网络适合新接触 {{site.data.keyword.blockchainfull_notm}} Platform 的新手用户。
 {:shortdesc}
+
+现在不推荐使用入门套餐，因此目前无法创建新的入门套餐网络。** 请访问 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks)，以使用第二代区块链技术中目前提供的最新用户界面和功能。
+{: important}  
+
+**现有网络不会受到影响，您可继续使用到 2020 年 6 月 4 日。
 
 入门套餐支持您学习和培养使用 {{site.data.keyword.blockchainfull_notm}} Platform 的技能，运行样本应用程序，测试您自己的应用程序以及模拟多组织场景。本入门教程将指导您如何使用入门套餐在区块链网络上开始开发和事务处理。
 

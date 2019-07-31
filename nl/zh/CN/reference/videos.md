@@ -26,7 +26,8 @@ subcollection: blockchain
 您可以观看入门视频系列，以了解有关如何使用 {{site.data.keyword.blockchainfull}} Platform 的更多信息。
 {:shortdesc}
 
-此视频系列位于播放列表中，并且按照以下视频帧连续播放。您还可以单击视频左上角中的菜单图标以打开播放列表并切换到其他视频。{:note}
+此视频系列位于播放列表中，并且按照以下视频帧连续播放。您还可以单击视频左上角中的菜单图标以打开播放列表并切换到其他视频。
+{:note}
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 入门
 {: #ibp-videos-ibp-v2}

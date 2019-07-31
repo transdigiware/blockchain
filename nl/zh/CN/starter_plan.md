@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,12 +22,15 @@ subcollection: blockchain
 # 关于入门套餐
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 {{site.data.keyword.blockchainfull}} Platform 入门套餐是一个入门级选项，支持组织模拟多组织区块链网络，快速开发应用程序以及使用样本智能合同和业务网络。它还拥有与其他成员资格选项相同的 UI 体验，有助于消除任何学习曲线。
 2018 年 10 月 4 日之后创建的新入门套餐网络基于 Hyperledger Fabric V1.2.1 进行构建。较旧的入门套餐网络仍使用 Fabric V1.1.0 级别。
 {:shortdesc}
+
+现在不推荐使用入门套餐，因此目前无法创建新的入门套餐网络。** 请访问 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks)，以使用第二代区块链技术中目前提供的最新用户界面和功能。
+{: important}  
+
+**现有网络不会受到影响，您可继续使用到 2020 年 6 月 4 日。
+
 
 **入门套餐**是一种环境，适用于要开始开发区块链网络或开始学习有关区块链技术的用户。可以将入门套餐用作开发或测试环境，这将允许您在移至生产环境之前，从小规模网络成员资格或事务处理量开始，随后进行缩放。
 

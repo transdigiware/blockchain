@@ -40,7 +40,7 @@ Devi installare il chaincode su ogni peer che eseguirà questo chaincode. Per in
 
 2. Nel pannello a comparsa **Installa chaincode**, immetti il nome e la versione del tuo chaincode. **Nota**: le stringhe di nome e versione verranno utilizzate nelle applicazioni per interagire con il chaincode installato. Fai clic sul pulsante **Sfoglia** e accedi tramite il tuo file system locale alla posizione in cui sono memorizzati i file di origine chaincode. Seleziona uno o più di file di origine chaincode da installare sul peer. Quindi, seleziona il tuo linguaggio chaincode dal menu a discesa **Tipo chaincode**.
 
-Puoi installare il chaincode caricando uno o più file GO o NODE oppure puoi caricare il chaincode in un file .zip. L'utilizzo di un file .zip preserverà la struttura di directory completa del tuo chaincode. Ciò sarà utile se vuoi includere dei pacchetti di dipendenze oppure utilizzare gli indici con CouchDB. Per ulteriori informazioni su CouchDB e su come configurare gli indici, vedi [Passi ottimali quando si utilizza CouchDB](/docs/services/blockchain/best_practices.html#best-practices-app-couchdb-indices) nell'esercitazione Sviluppo di applicazioni. Puoi anche trovare informazioni sulla [gestione delle dipendenze esterne per il chaincode scritto in Go](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} nella documentazione di Hyperledger Fabric.
+Puoi installare il chaincode caricando uno o più file GO o NODE oppure puoi caricare il chaincode in un file .zip. L'utilizzo di un file .zip preserverà la struttura di directory completa del tuo chaincode. Ciò sarà utile se vuoi includere dei pacchetti di dipendenze oppure utilizzare gli indici con CouchDB. Per ulteriori informazioni su CouchDB e su come configurare gli indici, vedi [Passi ottimali quando si utilizza CouchDB](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices) nell'esercitazione Sviluppo di applicazioni. Puoi anche trovare informazioni sulla [gestione delle dipendenze esterne per il chaincode scritto in Go](https://hyperledger-fabric.readthedocs.io/en/release-1.2/chaincode4ade.html#managing-external-dependencies-for-chaincode-written-in-go){: external} nella documentazione di Hyperledger Fabric.
 
   ![Installa chaincode](../images/chaincode_install.png "Installa chaincode")
 
@@ -61,7 +61,7 @@ Dopo essere stato installato sul file system di ogni peer che aderisce a un cana
   ![Instantiate Chaincode panel](../images/chaincode_instantiate_panel.png "Instantiate Chaincode panel")
 -->
 
-3. Specifica la [politica di approvazione](/docs/services/blockchain/glossary.html#glossary-endorsement-policy) del tuo chaincode. Puoi scoprire di più sulla modalità di impostazione delle politiche di approvazione nella [prossima sezione](#install-instantiate-chaincode-endorsement-policy).
+3. Specifica la [politica di approvazione](/docs/services/blockchain?topic=blockchain-glossary#glossary-endorsement-policy) del tuo chaincode. Puoi scoprire di più sulla modalità di impostazione delle politiche di approvazione nella [prossima sezione](#install-instantiate-chaincode-endorsement-policy).
 
 
 ## Specifica delle politiche di approvazione del chaincode
@@ -69,7 +69,7 @@ Dopo essere stato installato sul file system di ogni peer che aderisce a un cana
 
 Puoi utilizzare le politiche di approvazione per specificare quali serie di peer deve convalidare una nuova transazione. Ad esempio, una politica di approvazione può specificare che una transazione verrà aggiunta al libro mastro solo se la maggioranza dei membri del canale la approva.
 
-La politica di approvazione viene impostata quando un chaincode viene istanziato su un canale. L'organizzazione che istanzia il chaincode può selezionare tra i membri del canale che hanno installato il chaincode perché diventino validatori e imposta la politica di approvazione per tutti i membri del canale. Puoi aggiornare la tua politica di approvazione attenendoti alla procedura per l'[aggiornamento del tuo chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) e specificando quindi una nuova politica quando istanzi nuovamente il tuo chaincode nel secondo passo.
+La politica di approvazione viene impostata quando un chaincode viene istanziato su un canale. L'organizzazione che istanzia il chaincode può selezionare tra i membri del canale che hanno installato il chaincode perché diventino validatori e imposta la politica di approvazione per tutti i membri del canale. Puoi aggiornare la tua politica di approvazione attenendoti alla procedura per l'[aggiornamento del tuo chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc) e specificando quindi una nuova politica quando istanzi nuovamente il tuo chaincode nel secondo passo.
 
 Quando utilizzi il Monitoraggio della rete per impostare la tua politica di approvazione, puoi utilizzare l'IU per specificare una **politica semplice** oppure utilizzare JSON per specificare una **politica avanzata**.
 
@@ -90,7 +90,7 @@ Le politiche di approvazione non vengono aggiornate automaticamente quando delle
 
 Puoi aggiornare un chaincode per modificare la programmazione del chaincode mentre conservi la sua relazione agli asset del libro mastro. A causa della combinazione di installazione e istanziazione, devi aggiornare il chaincode su tutti i peer presenti sul canale con questo chaincode. Completa la seguente procedura per aggiornare il tuo chaincode.
 
-1. Installa un chaincode con lo stesso nome del tuo precedente chaincode, ma con una versione differente. Puoi seguire gli stessi passi di [Installazione di un chaincode](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-install-cc). Assicurati di selezionare lo stesso canale del tuo chaincode originale.
+1. Installa un chaincode con lo stesso nome del tuo precedente chaincode, ma con una versione differente. Puoi seguire gli stessi passi di [Installazione di un chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc). Assicurati di selezionare lo stesso canale del tuo chaincode originale.
 
   ![Aggiorna chaincode](../images/upgrade_chaincode.png "Aggiorna chaincode")
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-21"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -35,7 +35,7 @@ Questa release {{site.data.keyword.blockchainfull_notm}} Platform include le seg
 - **Integrazione del servizio Kubernetes.** Avvaliti di servizi quali Grafana e Prometheus per la registrazione e Kibana per il monitoraggio.
 - **Funzioni chiave di Fabric aggiornate**. Avvaliti delle funzioni più recenti di Hyperledger Fabric v1.4.1:
   - [Servizio di ordine Raft](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - [Raccolte di dati privati](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) che forniscono una maggiore riservatezza dei dati garantendo che i dati del libro mastro siano condivisi solo con i peer autorizzati tramite il protocollo gossip.
+  - [Raccolte di dati privati](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) che forniscono una maggiore riservatezza dei dati garantendo che i dati del libro mastro siano condivisi solo con i peer autorizzati tramite il protocollo gossip.
   - Il [rilevamento dei servizi](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, che ti consente di rilevare e aggiornare in modo dinamico il modo in cui la tua applicazione interagisce con la tua rete.
   - Gli ACL ([Channel access control List](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}), che ti consentono un controllo aggiuntivo sulla governance dei tuoi canali e smart contract.
 
@@ -50,22 +50,24 @@ Questa release {{site.data.keyword.blockchainfull_notm}} Platform include le seg
 - **Raccolta della firma dinamica** che permette un migliore controllo sulla governance collaborativa sulle configurazioni del canale.
 
 **CRESCITA --- Scalabilità e flessibilità**
-- **Scegli la tua capacità di calcolo**. Hai la flessibilità di decidere la quantità di CPU, memoria e archiviazione di cui desideri eseguire il provisioning nel tuo cluster Kubernetes. Per ulteriori informazioni, vedi [In che modo la console interagisce con il tuo cluster Kubernetes](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction).
-- **Ridimensiona** ampliando e riducendo le risorse nel tuo cluster Kubernetes, pagando solo per quello di cui hai bisogno. Per ulteriori informazioni, vedi [Prezzi](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+- **Scegli la tua capacità di calcolo**. Hai la flessibilità di decidere la quantità di CPU, memoria e archiviazione di cui desideri eseguire il provisioning nel tuo cluster Kubernetes. Per ulteriori informazioni, vedi [In che modo la console interagisce con il tuo cluster Kubernetes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction).
+- **Ridimensiona** ampliando e riducendo le risorse nel tuo cluster Kubernetes, pagando solo per quello di cui hai bisogno. Per ulteriori informazioni, vedi [Prezzi](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 - **Ripristino di emergenza e disponibilità multizona.** Questa capacità duplica la tua distribuzione Kubernetes tra le zone, abilitando l'alta disponibilità (HA, High Availability) dei tuoi componenti e il ripristino di emergenza (DR, Disaster Recovery).
 - **Esegui ovunque**. Grazie alla **base di codice unificata** della console {{site.data.keyword.blockchainfull_notm}} Platform, puoi eseguire i tuoi componenti su qualsiasi ambiente supportato da {{site.data.keyword.cloud_notm}} Private.
 
-- Ulteriori informazioni su {{site.data.keyword.blockchainfull_notm}} Platform sono disponibili in [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview).
-- Le istruzioni su come distribuire la release nel provider cloud da te scelto utilizzando {{site.data.keyword.cloud_notm}} Private sono disponibili in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+
+**Le istruzioni per la distribuzione si trovano in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).**
+
+- Puoi trovare ulteriori informazioni in [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview).
 - Delle esercitazioni aggiornate per l'utilizzo di {{site.data.keyword.blockchainfull_notm}} Platform sono disponibili nella sottosezione **Console {{site.data.keyword.blockchainfull_notm}} Platform** sotto la categoria **COME**.
-  * [L'esercitazione Crea una rete](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) ti guida nel processo di hosting di una rete creando le CA, un servizio di ordine e un peer.
-  * [L'esercitazione relativa all'unione a una rete](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) spiega come unirsi a una rete esistente creando un peer e unendolo a un canale.
-  * [Distribuire uno smart contract sulla rete](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) fornisce informazioni su come scrivere uno smart contract e distribuirlo sulla tua rete.
-- L'offerta {{site.data.keyword.blockchainfull_notm}} Platform è basata su Hyperledger Fabric v1.4.1 e supporta il gossip peer-to-peer, il rilevamento dei servizi e i dati privati. Visita questo [argomento](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) per ulteriori informazioni su come configurare i dati privati sulla tua rete.
+  * [L'esercitazione Crea una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) ti guida nel processo di hosting di una rete creando le CA, un servizio di ordine e un peer.
+  * [L'esercitazione relativa all'unione a una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network) spiega come unirsi a una rete esistente creando un peer e unendolo a un canale.
+  * [Distribuire uno smart contract sulla rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) fornisce informazioni su come scrivere uno smart contract e distribuirlo sulla tua rete.
+- L'offerta {{site.data.keyword.blockchainfull_notm}} Platform è basata su Hyperledger Fabric v1.4.1 e supporta il gossip peer-to-peer, il rilevamento dei servizi e i dati privati. Visita questo [argomento](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) per ulteriori informazioni su come configurare i dati privati sulla tua rete.
 
 Per ulteriori informazioni su Hyperledger Fabric v1.4.1, vedi la [documentazione di Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}. Per ulteriori informazioni su {{site.data.keyword.cloud_notm}} Private, vedi la [documentazione di {{site.data.keyword.cloud_notm}} Private v3.2](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/kc_welcome_containers.html){: external} .
 
-Se stai ancora utilizzando {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private v1.0.1 o v1.0.2, vedi la [documentazione di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/ibp_for_icp_deployment_guide.html).
+La documentazione per le precedenti release di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private è stata spostata in una nuova posizione. Se stai ancora utilizzando {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private v1.0.1 o v1.0.2, vedi la [documentazione di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-get-started-icp).
 
 ## 31 maggio 2019
 {: #whats-new-5-31-2019}
@@ -80,7 +82,7 @@ Questa release {{site.data.keyword.blockchainfull_notm}} Platform include le seg
 - **Funzioni chiave di Fabric aggiornate**. Avvaliti delle funzioni più recenti di Hyperledger Fabric v1.4.1:
   -  [Servizio di ordine Raft](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
   - **Integrazione del servizio {{site.data.keyword.cloud_notm}}.** Avvaliti dei servizi {{site.data.keyword.cloud_notm}} integrati, come il dashboard del servizio {{site.data.keyword.cloud_notm}} Kubernetes, l'analisi log {{site.data.keyword.IBM_notm}} con LogDNA e {{site.data.keyword.cloud_notm}} IAM (Identity and Access Management).
-  - [Raccolte di **dati privati**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) che forniscono una maggiore riservatezza dei dati garantendo che i dati del libro mastro siano condivisi solo con i peer autorizzati tramite il protocollo gossip.
+  - [Raccolte di **dati privati**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) che forniscono una maggiore riservatezza dei dati garantendo che i dati del libro mastro siano condivisi solo con i peer autorizzati tramite il protocollo gossip.
   - Il [rilevamento dei servizi](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, che ti consente di rilevare e aggiornare in modo dinamico il modo in cui la tua applicazione interagisce con la tua rete.
   - Gli [Access Control List di canale](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external}, che ti consentono un controllo aggiuntivo sulla governance dei tuoi canali e smart contract.
 
@@ -95,18 +97,18 @@ Questa release {{site.data.keyword.blockchainfull_notm}} Platform include le seg
 - **Raccolta della firma dinamica** che permette un migliore controllo sulla governance collaborativa sulle configurazioni del canale.
 
 **CRESCITA --- Scalabilità e flessibilità**
-- **Scegli la tua capacità di calcolo**. Hai la flessibilità di decidere la quantità di CPU, memoria e archiviazione di cui desideri eseguire il provisioning nel tuo cluster Kubernetes. Per ulteriori informazioni, vedi [In che modo il servizio {{site.data.keyword.cloud_notm}} Kubernetes interagisce con la console](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction).
-- **Ridimensiona** ampliando e riducendo le risorse nel tuo cluster Kubernetes, pagando solo per quello di cui hai bisogno. Per ulteriori informazioni, vedi [Prezzi](/docs/services/blockchain/howto/pricing.html#ibp-pricing).
+- **Scegli la tua capacità di calcolo**. Hai la flessibilità di decidere la quantità di CPU, memoria e archiviazione di cui desideri eseguire il provisioning nel tuo cluster Kubernetes. Per ulteriori informazioni, vedi [In che modo il servizio {{site.data.keyword.cloud_notm}} Kubernetes interagisce con la console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction).
+- **Ridimensiona** ampliando e riducendo le risorse nel tuo cluster Kubernetes, pagando solo per quello di cui hai bisogno. Per ulteriori informazioni, vedi [Prezzi](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 - **Ripristino di emergenza e disponibilità multizona.** Questa opzione duplica la tua distribuzione Kubernetes tra le zone, abilitando l'alta disponibilità (HA, High Availability) dei tuoi componenti e il ripristino di emergenza (DR, Disaster Recovery).
 - **Esegui ovunque** (istruzioni presto disponibili). Grazie alla **base di codice unificata** della console {{site.data.keyword.blockchainfull_notm}} Platform, è possibile eseguire i tuoi componenti su {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private e cloud pubblici di terze parti.
 
-- Ulteriori informazioni su {{site.data.keyword.blockchainfull_notm}} Platform sono disponibili in [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview).
-- Le istruzioni su come distribuire la release in un cluster {{site.data.keyword.IBM_notm}} Kubernetes Service sono disponibili in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+- Ulteriori informazioni su {{site.data.keyword.blockchainfull_notm}} Platform sono disponibili in [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview).
+- Le istruzioni su come distribuire la release in un cluster {{site.data.keyword.IBM_notm}} Kubernetes Service sono disponibili in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 - Delle nuove esercitazioni per l'utilizzo di {{site.data.keyword.blockchainfull_notm}} Platform sono disponibili nella sottosezione **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** sotto la categoria **COME**.
-  * L'[Esercitazione: crea una rete](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) ti guida attraverso il processo di hosting di una rete creando un ordinante e un peer.
-  * [L'esercitazione relativa all'unione a una rete](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) spiega come unirsi a una rete esistente creando un peer e unendolo a un canale.
-  * [Distribuire uno smart contract sulla rete](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) fornisce informazioni su come scrivere uno smart contract e distribuirlo sulla tua rete.
-- L'offerta {{site.data.keyword.blockchainfull_notm}} Platform è basata su Hyperledger Fabric v1.4.1 e supporta il gossip peer-to-peer, il rilevamento dei servizi e i dati privati. Visita questo [argomento](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) per ulteriori informazioni su come configurare i dati privati sulla tua rete.
+  * L'[Esercitazione: crea una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) ti guida attraverso il processo di hosting di una rete creando un ordinante e un peer.
+  * [L'esercitazione relativa all'unione a una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network) spiega come unirsi a una rete esistente creando un peer e unendolo a un canale.
+  * [Distribuire uno smart contract sulla rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) fornisce informazioni su come scrivere uno smart contract e distribuirlo sulla tua rete.
+- L'offerta {{site.data.keyword.blockchainfull_notm}} Platform è basata su Hyperledger Fabric v1.4.1 e supporta il gossip peer-to-peer, il rilevamento dei servizi e i dati privati. Visita questo [argomento](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) per ulteriori informazioni su come configurare i dati privati sulla tua rete.
 
 ## 9 maggio 2019
 {: #whats-new-5-09-2019}
@@ -125,14 +127,14 @@ Release di {{site.data.keyword.blockchainfull_notm}} versione 1.0.0 dell'estensi
 - Codice di esempio
 - Funzionalità del portafoglio aggiornata
 
-Per ulteriori informazioni, vedi [Sviluppo di smart contract con l'estensione Visual Studio Code](/docs/services/blockchain/vscode-extension.html "Sviluppo di smart contract con l'estensione Visual Studio Code").
+Per ulteriori informazioni, vedi [Sviluppo di smart contract con l'estensione Visual Studio Code](/docs/services/blockchain?topic=blockchain-develop-vscode "Sviluppo di smart contract con l'estensione Visual Studio Code").
 
 ## 23 aprile 2019
 {: #whats-new-4-23-2019}
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private rilascia la v1.0.2, che utilizza la base di codice Hyperledger Fabric v1.4.0 e supporta la distribuzione su {{site.data.keyword.cloud_notm}} Private v3.1.2.
 
-Se desideri eseguire un upgrade del tuo {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private esistente alla v1.0.2, vedi [Upgrade del grafico Helm su {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto/helm_install_icp.html#helm-install-upgrading).
+Se desideri eseguire un upgrade del tuo {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private esistente alla v1.0.2, vedi [Upgrade del grafico Helm su {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-helm-install#helm-install-upgrading).
 
 Per ulteriori informazioni su Hyperledger Fabric v1.4.0, vedi la [documentazione di Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}. Per ulteriori informazioni su {{site.data.keyword.cloud_notm}} Private, vedi la [documentazione di {{site.data.keyword.cloud_notm}} Private v3.1.2](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/kc_welcome_containers.html){: external} .
 
@@ -159,15 +161,15 @@ Per ulteriori informazioni su Hyperledger Fabric v1.4.0, vedi la [documentazione
 *	Connetti facilmente un singolo peer a molteplici reti del settore
 *	Inizia in piccolo e, man mano che cresci, paghi per quello che usi senza investimenti iniziali ed esegui facilmente un upgrade utilizzando Kubernetes.
 
-- Ulteriori informazioni su {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta sono disponibili in [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-console.html#ibp-console-overview).
-- Le istruzioni su come distribuire la release 2.0 beta gratuita in un cluster {{site.data.keyword.IBM_notm}} Kubernetes Service sono disponibili in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+- Ulteriori informazioni su {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta sono disponibili in [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview).
+- Le istruzioni su come distribuire la release 2.0 beta gratuita in un cluster {{site.data.keyword.IBM_notm}} Kubernetes Service sono disponibili in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 - Delle nuove esercitazioni per utilizzare {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta sono disponibili nella sottosezione **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** sotto la categoria **COME**.
-  * L'[Esercitazione: crea una rete](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) ti guida attraverso il processo di hosting di una rete creando un ordinante e un peer.
-  * [L'esercitazione relativa all'unione a una rete](/docs/services/blockchain/howto/ibp-console-join-network.html#ibp-console-join-network) spiega come unirsi a una rete esistente creando un peer e unendolo a un canale.
-  * [Distribuire uno smart contract sulla rete](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts) fornisce informazioni su come scrivere uno smart contract e distribuirlo sulla tua rete.
-- L'offerta {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta è basata su Hyperledger Fabric v1.4 e supporta il gossip peer-to-peer, il rilevamento dei servizi e i dati privati. Visita questo [argomento](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) per ulteriori informazioni su come configurare i dati privati sulla tua rete.
+  * L'[Esercitazione: crea una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) ti guida attraverso il processo di hosting di una rete creando un ordinante e un peer.
+  * [L'esercitazione relativa all'unione a una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network) spiega come unirsi a una rete esistente creando un peer e unendolo a un canale.
+  * [Distribuire uno smart contract sulla rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) fornisce informazioni su come scrivere uno smart contract e distribuirlo sulla tua rete.
+- L'offerta {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta è basata su Hyperledger Fabric v1.4 e supporta il gossip peer-to-peer, il rilevamento dei servizi e i dati privati. Visita questo [argomento](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) per ulteriori informazioni su come configurare i dati privati sulla tua rete.
 
-- L'estensione {{site.data.keyword.blockchainfull_notm}} Visual Studio Code è disponibile dal Visual Studio Code Marketplace. Gli sviluppatori possono utilizzare l'estensione per creare, testare e distribuire gli smart contract ad un'istanza di Hyperledger Fabric. L'estensione è compatibile con Hyperledger Fabric 1.3 e successive. Per informazioni sull'utilizzo dell'estensione VS Code, vedi [Strumenti per smart contract](/docs/services/blockchain/vscode-extension.html#develop-vscode).  
+- L'estensione {{site.data.keyword.blockchainfull_notm}} Visual Studio Code è disponibile dal Visual Studio Code Marketplace. Gli sviluppatori possono utilizzare l'estensione per creare, testare e distribuire gli smart contract ad un'istanza di Hyperledger Fabric. L'estensione è compatibile con Hyperledger Fabric 1.3 e successive. Per informazioni sull'utilizzo dell'estensione VS Code, vedi [Strumenti per smart contract](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode).  
 
 L'indice è migliorato raggruppando tutti gli argomenti introduttivi insieme in una sezione denominata **Esercitazioni introduttive**. Inoltre, un'introduzione a ciascuna delle offerte {{site.data.keyword.blockchainfull_notm}} Platform è contenuta nella sottosezione **Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform** nella sezione **APPRENDI**.
 
@@ -176,16 +178,16 @@ L'indice è migliorato raggruppando tutti gli argomenti introduttivi insieme in 
 ## 7 dicembre 2018
 {: #whats-new-12-07-2018}
 
-Gli argomenti *Gestione della rete piano Starter* e *Gestione della rete piano Enterprise* sono stati combinati e sostituiti da una singola esercitazione sull'[Utilizzo del monitoraggio della rete](/docs/services/blockchain/v10_dashboard.html#ibp-dashboard).
+Gli argomenti *Gestione della rete piano Starter* e *Gestione della rete piano Enterprise* sono stati combinati e sostituiti da una singola esercitazione sull'[Utilizzo del monitoraggio della rete](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard).
 
 ## 27 novembre 2018
 {: #whats-new-11-27-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform rilascia {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.cloud_notm}} Private è una piattaforma dell'applicazione per sviluppare e gestire applicazioni inserite nel contenitore che sono basate su Kubernetes e consente agli utenti di distribuire CA (Certificate Authority, Autorità di certificazione), ordinanti e peer su x86, LinuxONE e {{site.data.keyword.IBM_notm}} Z. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private è basato su Hyperledger Fabric v1.2.1 ed è distribuito utilizzando i grafici Helm Kubernetes. Dopo che hai installato il grafico Helm, puoi trovarlo come un servizio in bundle nel catalogo {{site.data.keyword.cloud_notm}} Private. Nota: [questa offerta](/docs/services/blockchain/ibp-for-icp-about.html#ibp-icp-about) è più adatta per gli utenti Fabric esperti.
+{{site.data.keyword.blockchainfull_notm}} Platform rilascia {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private. {{site.data.keyword.cloud_notm}} Private è una piattaforma dell'applicazione per sviluppare e gestire applicazioni inserite nel contenitore che sono basate su Kubernetes e consente agli utenti di distribuire CA (Certificate Authority, Autorità di certificazione), ordinanti e peer su x86, LinuxONE e {{site.data.keyword.IBM_notm}} Z. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private è basato su Hyperledger Fabric v1.2.1 ed è distribuito utilizzando i grafici Helm Kubernetes. Dopo che hai installato il grafico Helm, puoi trovarlo come un servizio in bundle nel catalogo {{site.data.keyword.cloud_notm}} Private. Nota: [questa offerta](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-ibp-icp-about#ibp-icp-about) è più adatta per gli utenti Fabric esperti.
 
 Per ulteriori informazioni su {{site.data.keyword.cloud_notm}} Private, vedi la [documentazione di {{site.data.keyword.cloud_notm}} Private v3.1.0](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/kc_welcome_containers.html){: external} .
 
-La release di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private segna anche la fine del programma {{site.data.keyword.blockchainfull_notm}} Platform Remote Peer (Beta). Continua a essere possibile distribuire un peer in {{site.data.keyword.cloud_notm}} Private o in AWS e connetterlo a una rete piano Starter o Enterprise. Per ulteriori informazioni, vedi [distribuzione di un peer rispetto a un piano Starter o Enterprise](/docs/services/blockchain/howto/peer_deploy_ibp.html#ibp-peer-deploy) e [distribuzione di un peer in AWS](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws). Si ritiene che questi peer siano peer **distribuiti** invece di peer remoti perché la distribuzione è gestita dal cliente e, di conseguenza, non c'è alcuna ubicazione centrale rispetto a cui essere remoti.
+La release di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private segna anche la fine del programma {{site.data.keyword.blockchainfull_notm}} Platform Remote Peer (Beta). Continua a essere possibile distribuire un peer in {{site.data.keyword.cloud_notm}} Private o in AWS e connetterlo a una rete piano Starter o Enterprise. Per ulteriori informazioni, vedi [distribuzione di un peer rispetto a un piano Starter o Enterprise](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy) e [distribuzione di un peer in AWS](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws). Si ritiene che questi peer siano peer **distribuiti** invece di peer remoti perché la distribuzione è gestita dal cliente e, di conseguenza, non c'è alcuna ubicazione centrale rispetto a cui essere remoti.
 
 Questa release introduce anche alcuni miglioramento all'indice della documentazione. Se sei un utente Starter o Enterprise, il tuo contenuto continua a essere disponibile nelle sezioni **APPRENDI**, **COME**, **RIFERIMENTO** e **GUIDA** e i link continuano a essere gli stessi, Potrebbe semplicemente trovarsi in una sottosezione differente nell'indice.
 
@@ -194,37 +196,37 @@ Questa release introduce anche alcuni miglioramento all'indice della documentazi
 
 {{site.data.keyword.blockchainfull_notm}} Platform rilascia {{site.data.keyword.blockchainfull_notm}} Platform for AWS (Amazon Web Services).
 
-{{site.data.keyword.blockchainfull_notm}} Platform for AWS ti consente di eseguire i peer in AWS Cloud e di connettere i peer alle reti blockchain esistenti in {{site.data.keyword.cloud_notm}}. I tuoi peer in AWS possono avvalersi del profilo di connessione e di altri componenti blockchain nelle reti esistenti, offrendoti al tempo stesso più flessibilità di co-locare i tuoi peer con altre applicazioni al di fuori di {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni, vedi [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws).
-/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws
+{{site.data.keyword.blockchainfull_notm}} Platform for AWS ti consente di eseguire i peer in AWS Cloud e di connettere i peer alle reti blockchain esistenti in {{site.data.keyword.cloud_notm}}. I tuoi peer in AWS possono avvalersi del profilo di connessione e di altri componenti blockchain nelle reti esistenti, offrendoti al tempo stesso più flessibilità di co-locare i tuoi peer con altre applicazioni al di fuori di {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni, vedi [Informazioni su {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws).
+/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws
 
 ## 4 ottobre 2018
 {: #whats-new-10-04-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform esegue l'upgrade del piano Starter da Hyperledger Fabric v1.1.0 alla v1.2.1. Per ulteriori informazioni, vedi [Informazioni sul piano Starter](/docs/services/blockchain/starter_plan.html#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform esegue l'upgrade del piano Starter da Hyperledger Fabric v1.1.0 alla v1.2.1. Per ulteriori informazioni, vedi [Informazioni sul piano Starter](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
 
 **Importante:** Fabric v1.2.1 non è attualmente compatibile con Remote Peer beta, che utilizza un peer v1.1.0. Le reti piano Starter, create prima del 4 ottobre 2018 e basate su Fabric v1.1.0, non sono influenzate e possono ancora essere utilizzate con Remote Peer beta. {{site.data.keyword.blockchainfull_notm}} Platform aggiornerà Remote Peer beta per utilizzare il peer v1.2.1, che sarà compatibile con le nuove reti Starter, che sono al livello Fabric v1.2.1, e le reti Enterprise, che sono al livello Fabric v1.1.0. Finché Remote Peer beta non sarà stato aggiornato a Fabric v1.2.1, non provare a distribuire una rete remota v1.1.0 con una nuova rete Starter v1.2.1.
 
 ## 4 settembre 2018
 {: #whats-new-9-04-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform rilascia la versione beta dell'offerta Remote Peer. L'offerta Remote Peer è basata su Hyperledger Fabric v1.1.0. Utilizzando Remote Peer, puoi eseguire i nodi peer {{site.data.keyword.blockchainfull_notm}} Platform nel tuo ambiente {{site.data.keyword.cloud_notm}} Private o AWS (Amazon Web Services) cloud. Per ulteriori informazioni, vedi [Informazioni sui peer remoti](/docs/services/blockchain/howto/remote_peer_aws.html#remote-peer-aws).
+{{site.data.keyword.blockchainfull_notm}} Platform rilascia la versione beta dell'offerta Remote Peer. L'offerta Remote Peer è basata su Hyperledger Fabric v1.1.0. Utilizzando Remote Peer, puoi eseguire i nodi peer {{site.data.keyword.blockchainfull_notm}} Platform nel tuo ambiente {{site.data.keyword.cloud_notm}} Private o AWS (Amazon Web Services) cloud. Per ulteriori informazioni, vedi [Informazioni sui peer remoti](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws#remote-peer-aws).
 
 ## 15 giugno 2018
 {: #whats-new-6-15-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform rilascia la GA del piano Starter. Per ulteriori informazioni, vedi [Informazioni sul piano Starter](/docs/services/blockchain/starter_plan.html#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform rilascia la GA del piano Starter. Per ulteriori informazioni, vedi [Informazioni sul piano Starter](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
 
 ## 15 maggio 2018
 {: #whats-new-5-15-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform esegue l'upgrade del piano Enterprise da Hyperledger Fabric v1.0.0 alla v1.1.0. Per ulteriori informazioni, vedi [Informazioni sul piano Enterprise](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform esegue l'upgrade del piano Enterprise da Hyperledger Fabric v1.0.0 alla v1.1.0. Per ulteriori informazioni, vedi [Informazioni sul piano Enterprise](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
 ## 18 marzo 2018
 {: #whats-new-3-18-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform rilascia la versione beta del piano Starter. Il piano Starter ti offre un ambiente di sviluppo e test per apprendere e fare pratica in una rete {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni, vedi [Informazioni sul piano Starter](/docs/services/blockchain/starter_plan.html#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform rilascia la versione beta del piano Starter. Il piano Starter ti offre un ambiente di sviluppo e test per apprendere e fare pratica in una rete {{site.data.keyword.blockchainfull_notm}} Platform. Per ulteriori informazioni, vedi [Informazioni sul piano Starter](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
 
 ## 11 agosto 2017
 {: #whats-new-8-11-2017}
 
-{{site.data.keyword.blockchainfull_notm}} Platform sostituisce {{site.data.keyword.blockchainfull_notm}} on Cloud e rilascia il piano Enterprise. Per ulteriori informazioni, vedi [Informazioni sul piano Enterprise](/docs/services/blockchain/enterprise_plan.html#enterprise-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform sostituisce {{site.data.keyword.blockchainfull_notm}} on Cloud e rilascia il piano Enterprise. Per ulteriori informazioni, vedi [Informazioni sul piano Enterprise](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -52,6 +52,10 @@ Prima di poter importare i nodi nella console, devono essere esportati dalla con
 
 - Non puoi importare i nodi da reti del piano Starter o Enterprise.
 - Tutti i nodi da importare devono essere stati distribuiti utilizzando la console {{site.data.keyword.blockchainfull_notm}} Platform.
+- Non puoi applicare la patch sui nodi che hai importato nella console.
+- Non puoi eliminare i nodi che hai importato nella console dal cluster in cui sono stati distribuiti. Puoi solo rimuovere il nodo dalla console.
+- Se stai importando un nodo distribuito su {{site.data.keyword.cloud_notm}} Private, devi assicurarti che la porta del proxy web gRPC utilizzata dal componente sia esposta esternamente alla console. Per ulteriori informazioni, vedi [Importazione dei nodi da {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
+- Quando apri il tile di un nodo importato, la versione Fabric non è visibile e la scheda **Utilizzo e informazioni** non è disponibile.
 
 ## Inizia da qui: raccolta di certificati o credenziali
 {: #ibp-console-import-start-here}
@@ -70,11 +74,11 @@ Dopo aver completato il pannello **Aggiungi identità** e fatto clic su Invia, p
 ## Importazione di una CA
 {: #ibp-console-import-ca}
 
-Un nodo CA è il componente blockchain che emette i certificati per tutte le identità della rete (peer, servizi di ordine, client e così via) in modo che queste entità possano comunicare, autenticarsi e infine effettuare transazioni. Ogni organizzazione ha la propria CA che funge da radice di attendibilità. Devi aggiungere le tue organizzazioni se ti unisci o crei un consorzio blockchain. Puoi scoprire di più sulle CA nella [panoramica dei componenti blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-ca).  
+Un nodo CA è il componente blockchain che emette i certificati per tutte le identità della rete (peer, servizi di ordine, client e così via) in modo che queste entità possano comunicare, autenticarsi e infine effettuare transazioni. Ogni organizzazione ha la propria CA che funge da radice di attendibilità. Devi aggiungere le tue organizzazioni se ti unisci o crei un consorzio blockchain. Puoi scoprire di più sulle CA nella [panoramica dei componenti blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).  
 
 Esistono diversi motivi per cui potresti voler importare una CA nella tua console. Dopo che hai importato la CA, puoi utilizzarla per registrare altri utenti peer all'organizzazione peer facendo clic su **Registra utente**. Oppure, puoi utilizzare la CA per creare ulteriori identità di amministratore per un peer o un servizio di ordine.
 
-Per importare una CA nella console {{site.data.keyword.blockchainfull_notm}} Platform e gestirla, l'operatore di rete deve aver già esportato la CA da {{site.data.keyword.blockchainfull_notm}} Platform dove ne era stata eseguita la distribuzione. L'importazione di una CA ti consente di registrare nuovi utenti e [iscrivere le identità](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-enroll).
+Per importare una CA nella console {{site.data.keyword.blockchainfull_notm}} Platform e gestirla, l'operatore di rete deve aver già esportato la CA da {{site.data.keyword.blockchainfull_notm}} Platform dove ne era stata eseguita la distribuzione. L'importazione di una CA ti consente di registrare nuovi utenti e [iscrivere le identità](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll).
 
 ### Prima di cominciare
 {: #ibp-console-import-ca-before-you-begin}
@@ -92,12 +96,12 @@ L'importazione di una CA viene eseguita dalla scheda **Nodi**.
 4. Nel pannello successivo, puoi immettere l'ID e il segreto di registrazione di cui si è fatto uso quando è stata distribuita la CA.
 5. Per finire, immetti l'ID e il segreto di registrazione per la CA TLS che era stata utilizzata quando è stata distribuita la CA. Quando distribuisci una CA, vengono distribuite insieme sia una CA che una CA TLS. L'operatore di rete può utilizzare gli stessi ID e segreto di registrazione per entrambe oppure può specificare degli ID e dei segreti di registrazione univoci per la CA e la CA TLS quando viene distribuita una CA.
 
-Dopo aver importato la CA nella console, puoi utilizzare la CA per creare nuove identità e generare i certificati necessari per gestire i componenti e inviare transazioni alla rete. Per ulteriori informazioni, vedi [Gestione delle autorità di certificazione (CA)](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-manage-ca).
+Dopo aver importato la CA nella console, puoi utilizzare la CA per creare nuove identità e generare i certificati necessari per gestire i componenti e inviare transazioni alla rete. Per ulteriori informazioni, vedi [Gestione delle autorità di certificazione (CA)](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 
 ## Importazione di un servizio di ordine
 {: #ibp-console-import-orderer}
 
-Un servizio di ordine è il componente blockchain che raccoglie le transazioni dai membri della rete, ordina le transazioni e le raggruppa in blocchi. È l'associazione comune dei consorzi blockchain e deve essere distribuito se stai costituendo un consorzio a cui si uniranno altre organizzazioni. Puoi scoprire di più sui servizi di ordine nella [panoramica dei componenti blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-orderer).
+Un servizio di ordine è il componente blockchain che raccoglie le transazioni dai membri della rete, ordina le transazioni e le raggruppa in blocchi. È l'associazione comune dei consorzi blockchain e deve essere distribuito se stai costituendo un consorzio a cui si uniranno altre organizzazioni. Puoi scoprire di più sui servizi di ordine nella [panoramica dei componenti blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer).
 
 L'importazione di un servizio di ordine nella console ti consente di creare nuovi canali in modo che i peer possano effettuare transazioni private.
 
@@ -121,7 +125,7 @@ Dopo aver importato il servizio di ordine nella console, puoi aggiungere nuovi m
 ## Importazione di un peer
 {: #ibp-console-import-peer}
 
-Un nodo peer è il componente blockchain che gestisce un libro mastro e che esegue uno smart contract per effettuare operazioni di query e aggiornamento sul libro mastro. I membri dell'organizzazione possiedono e gestiscono i peer.  Ogni organizzazione che si unisce a un consorzio deve distribuire almeno un peer e un minimo di due per l'alta disponibilità (HA, High Availability). Puoi scoprire di più sui peer nella [panoramica dei componenti blockchain](/docs/services/blockchain/blockchain_component_overview.html#blockchain-component-overview-peer).
+Un nodo peer è il componente blockchain che gestisce un libro mastro e che esegue uno smart contract per effettuare operazioni di query e aggiornamento sul libro mastro. I membri dell'organizzazione possiedono e gestiscono i peer.  Ogni organizzazione che si unisce a un consorzio deve distribuire almeno un peer e un minimo di due per l'alta disponibilità (HA, High Availability). Puoi scoprire di più sui peer nella [panoramica dei componenti blockchain](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
 
 Dopo aver importato un peer nella console, puoi installare gli smart contract sul peer e unire il peer ad altri canali nella tua blockchain.
 
@@ -149,9 +153,28 @@ Dopo aver importato il peer nella console, puoi installare gli smart contract su
 ## Importazione di una definizione di MSP dell'organizzazione
 {: #ibp-console-import-msp}
 
-Devi importare la definizione di MSP di un'organizzazione se l'MSP era stato distribuito utilizzando un'altra console dell'istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform e intendi creare o aggiornare un canale che utilizza tale definizione di MSP. Inoltre, se intendi creare un peer o un servizio di ordine che fa parte di un MSP dell'organizzazione che era stato distribuito in un'altra console, devi importare l'MSP e l'identità di amministratore dell'MSP associata. L'operatore di rete che ha creato l'MSP deve esportare la definizione di MSP dell'organizzazione e l'identità di amministratore corrispondente in file JSON e condividerli con te.
+Devi importare la definizione di MSP di un'organizzazione se l'MSP era stato distribuito utilizzando un'altra console dell'istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform e intendi creare o aggiornare un canale che utilizza tale definizione di MSP. Inoltre, se intendi creare un peer o un servizio di ordine che fa parte di un MSP dell'organizzazione che era stato distribuito in un'altra console, devi importare l'MSP e l'identità di amministratore dell'MSP associata.  L'operatore di rete che ha creato l'MSP deve esportare la definizione di MSP dell'organizzazione e l'identità di amministratore corrispondente in file JSON e condividerli con te.
 
 - Se intendi creare un peer o un servizio di ordine che fa parte dell'organizzazione, importa l'identità di amministratore dell'MSP associata nel tuo portafoglio.
 - l'importazione della definizione di MSP dell'organizzazione viene eseguita dalla scheda **Organizzazioni**.
 - Fai clic su **Importa definizione di MSP** per caricare il file JSON
 - (Facoltativo) Se hai importato l'identità di amministratore MSP nel tuo portafoglio, selezionala casella di spunta `I have an administrator identity for the MSP definition`. Se non selezioni questa opzione, quando successivamente provi a creare un peer o un servizio di ordine, questa definizione di MSP dell'organizzazione non sarà elencata nell'elenco a discesa dell'MSP.
+
+## Importazione dei nodi da {{site.data.keyword.cloud_notm}} Private
+{: #ibp-console-import-icp}
+
+Puoi importare i nodi che sono stati creati su {{site.data.keyword.cloud_notm}} Private nelle console che sono state distribuite su altri cluster {{site.data.keyword.cloud_notm}} Private o su {{site.data.keyword.cloud_notm}}. Tuttavia, devi assicurarti che la porta utilizzata dall'URL gRPC dei tuoi nodi venga esposta dall'esterno del cluster. Se stai distribuendo {{site.data.keyword.cloud_notm}} Private dietro a un firewall, devi abilitare il pass-through, utilizzando ad esempio l'elenco elementi consentiti (whitelist), per consentire alla console all'esterno del cluster di comunicare con i tuoi nodi.
+
+Ad esempio, puoi trovare il file JSON di un peer che è stato esposto da {{site.data.keyword.cloud_notm}} Private qui di seguito. Per comunicare con il peer da un'altra console, devi assicurarti che la porta `grpcwp_url`, la porta 32403 in questo esempio, sia aperta al traffico esterno.
+
+```
+{
+    "name": "peer",
+    "grpcwp_url": "https://9.30.252.107:32403", \\ensure that port 32403 is externally exposed
+    "api_url": "grpcs://9.30.252.107:30891",
+    "operations_url": "https://9.30.252.107:30222",
+    "type": "fabric-peer",
+    "msp_id": "org1msp",
+    "pem": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNGekNDQWI2Z0F3SUJBZ0lVUi9zMGxGTG5ZNmdWRmV1Mlg5ajkrY3JDZFBrd0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWURWUVFERXdWMGJITmpZVEFlCkZ3MHhPVEEyTVRBeE9USXhNREJhRncwek5EQTJNRFl4T1RJeE1EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4RHpBTgpCZ05WQkFzVEJrWmhZbkpwWXpFT01Bd0dBMVVFQXhNRmRHeHpZMkV3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPClBRTUJCd05DQUFUYUtyN2srUHNYeXFkWkdXUHlJUXlGMGQxUkFFdmdCYlpkVnlsc3hReWZOcUdZS0FZV3A0SFUKVUVaVHVVNmtiRXN5Qi9aOVJQWEY0WVNGbW8reTVmSkhvMXd3V2pBT0JnTlZIUThCQWY4RUJBTUNBUVl3RWdZRApWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVUrcnBNb2dRc3dDTnZMQzJKNmp2cElQOExwaE13CkZRWURWUjBSQkE0d0RJY0VDUjc4YTRjRXJCRE5DakFLQmdncWhrak9QUVFEQWdOSEFEQkVBaUJGWmpMWU9XZUMKLy92L2RNMHdYNUxZT3NCaHFFNnNQZ1BSWWppOTZqT093QUlnZEppZDU0WmxjR2h0R3dEY3ZoZE02RVlBVFpQNwpmS29IMDZ3ZFhpK3VzVXM9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+}
+```

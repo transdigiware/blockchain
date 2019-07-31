@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -19,164 +19,167 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# High availability (HA)
+# Alta disponibilità (HA, High Availability)
 {: #ibp-console-ha}
 
-Use the built-in Kubernetes features along with {{site.data.keyword.blockchainfull}} Platform component deployment strategies to make your blockchain networks more highly available and to protect your network from downtime when a failure occurs in your cluster.
+Utilizza le funzioni Kubernetes integrate insieme alle strategie di distribuzione del componente {{site.data.keyword.blockchainfull}} Platform per rendere le tue reti blockchain altamente disponibili e per proteggere la tua rete da tempi di inattività quando si verifica un errore nel tuo cluster.
 {:shortdesc}
 
-**Target audience:** This topic is designed for architects and system administrators who are responsible for planning and configuring {{site.data.keyword.blockchainfull_notm}} on {{site.data.keyword.cloud_notm}} or on {{site.data.keyword.cloud_notm}} Private.
+**Gruppi di destinatari:** questo argomento è pensato per gli architetti e gli amministratori di sistema che sono responsabili della pianificazione e configurazione di {{site.data.keyword.blockchainfull_notm}} su {{site.data.keyword.cloud_notm}} o su {{site.data.keyword.cloud_notm}} Private.
 
-High availability is a core discipline in an IT infrastructure to keep your apps up and running, even after a partial or full site failure. The main purpose of high availability is to eliminate potential points of failures in an IT infrastructure. For example, you can prepare for the failure of one system by adding redundancy and setting up failover mechanisms.
+L'alta disponibilità è una disciplina fondamentale in un'infrastruttura IT per mantenere operative le tue applicazioni, anche dopo un'avaria parziale o totale del sito. Lo scopo principale dell'alta disponibilità è eliminare i potenziali punti di errore in un'infrastruttura IT. Ad esempio, puoi tutelarti in caso di errore di un sistema aggiungendo la ridondanza e configurando meccanismi di failover.
 
-You can achieve high availability on different levels in your IT infrastructure and within different layers of your cluster. The level of availability that is right for you depends on several factors, such as your business requirements, the Service Level Agreements that you have with your organizations, and the cost of redundancy.
+Puoi ottenere l'alta disponibilità su diversi livelli della tua infrastruttura IT e all'interno dei vari livelli del tuo cluster. l livello di disponibilità giusto per te dipende da diversi fattori, come i requisiti aziendali, gli SLA (Service Level Agreement) stipulati con le tue organizzazioni e il costo della ridondanza.
 
-Before proceeding, we recommend you review your platform-specific guidance for HA:
-- If you are using {{site.data.keyword.cloud_notm}}, you can read more about how HA works with Kubernetes in {{site.data.keyword.cloud_notm}} in this topic on [High availability for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ha){: external}.
-- If you are using {{site.data.keyword.cloud_notm}} Private, review the content about [Implementing HA on {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/cloud/garage/practices/manage/high-availability-ibm-cloud-private){: external}.  
+Prima di procedere, ti consigliamo di controllare le tue indicazioni specifiche per la piattaforma per l'HA:
+- Se stai utilizzando {{site.data.keyword.cloud_notm}}, puoi trovare ulteriori informazioni su come funziona l'HA con Kubernetes in {{site.data.keyword.cloud_notm}} in questo argomento su [Alta disponibilità per {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ha){: external}.
+- Se stai utilizzando {{site.data.keyword.cloud_notm}} Private, controlla il contenuto in [Implementing HA on {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/cloud/garage/practices/manage/high-availability-ibm-cloud-private){: external}.  
 
-You can use this topic for details on blockchain specific HA guidance along with the recommendations from the platform specific topics above.
+Puoi utilizzare questo argomento per i dettagli sulle indicazioni HA specifiche per blockchain con i consigli dai precedenti argomenti specifici per la piattaforma.
 
-## Overview of potential points of failure in {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
-{: #ibp-console-ha-points-of-failure}
+## Panoramica dei potenziali punti di errore in {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
+{: #ibp-console-ha-points-of-failure-overview}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform architecture is designed to ensure reliability, low processing latency, and a maximum uptime of the service. However, failures can happen. {{site.data.keyword.blockchainfull_notm}} Platform provides several approaches to add more availability to your cluster by adding redundancy and [anti-affinity](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external} policies, when available, to ensure that blockchain components of the same type and organization are deployed across different worker nodes.  By adding redundancy across your blockchain network, you can avoid failures or downtime.  
+L'architettura {{site.data.keyword.blockchainfull_notm}} Platform è progettata per garantire affidabilità, bassa latenza di elaborazione e una massima operatività del servizio. Tuttavia, possono verificarsi degli errori. {{site.data.keyword.blockchainfull_notm}} Platform fornisce diversi approcci per aggiungere più disponibilità al tuo cluster aggiungendo politiche di ridondanza e [anti affinità](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external}, quando disponibili, per assicurarti che i componenti blockchain dello stesso tipo e organizzazione vengano distribuiti in nodi di lavoro diversi.  Aggiungendo la ridondanza nella tua rete blockchain, eviti errori o tempo di inattività.  
 
-To achieve maximum high availability, it is recommended that you build redundancy by provisioning peers and orderers in Kubernetes clusters in multiple regions. When the components are spread across regions and the blockchain ledger is distributed across those components, a failure in any single region will not impact processing of transactions. CAs are less critical for daily transaction processing. After all the users have been registered and enrolled with the CA, it is no longer required until the next time those services are required.
+Per ottenere l'alta disponibilità massima, ti consigliamo di creare la ridondanza eseguendo il provisioning di peer e ordinanti in cluster Kubernetes in più regioni. Quando i componenti sono suddivisi tra le regioni e il libro mastro blockchain è distribuito tra tali componenti, un errore in una singola regione non influenzerà l'elaborazione delle transazioni. Le CA sono meno importanti per l'elaborazione della transazione giornaliera. Dopo che tutti gli utenti sono stati registrati ed iscritti con la CA, essa non è più necessaria fino alla volta successiva in cui sono necessari tali servizi.
 
-### Peer considerations
+### Considerazioni sui peer
 {: #ibp-console-ha-peers}
 
-HA for peers means always having redundant peers, that is at least two peers available for each organization on the same channel to process requests from client applications. Multiple peers can be deployed to a single worker node, or spread across worker nodes, zones (if you are using {{site.data.keyword.cloud_notm}}), or even regions. Whenever you deploy multiple peers and join them to the same channel, the peers act as HA pairs because the channel and the data are automatically synchronized across all peers in the channel.  By design, a blockchain network is meant to have multiple organizations transacting on the same channels.  Therefore, the common deployment model is that for any given channel, there are redundant peers for each organization spread across several organization account clusters that are all synchronizing data between each other.  Each organization can have a peer in their own cluster in any region. 
+L'alta disponibilità (HA) per i peer significa di disporre sempre di peer ridondanti, ossia almeno due peer disponibili per ogni organizzazione sullo stesso canale per elaborare le richieste dalle applicazioni client. Possono essere distribuiti più peer su un solo nodo di lavoro o suddivisi tra più nodi di lavoro, zone (se stai utilizzando {{site.data.keyword.cloud_notm}}) o anche regioni. Se distribuisci più peer e li unisci allo stesso canale, i peer agiscono come coppie HA perché il canale e i dati vengono automaticamente sincronizzati tra tutti i peer nel canale.  In base alla progettazione, una rete blockchain è destinata ad avere più organizzazioni che eseguono transazioni sugli stessi canali. Pertanto, il modello di distribuzione comune è che per ogni canale selezionato, esistano dei peer ridondanti per ogni organizzazione suddivisi in diversi cluster dell'account dell'organizzazione che hanno tutti i dati sincronizzati tra loro. Ogni organizzazione può avere un peer nel proprio cluster in tutte le regioni.
 
-For even more robust HA coverage, you can stand up multiple clusters in multiple regions and deploy peers in all of them. However, if high performance is desired, care must be taken when distributing peers to ensure the latency and bandwidth between them is sufficient to achieve your performance targets.
+Per una copertura HA ancora più solida, puoi impostare più cluster in più regioni e distribuire i peer in ognuno di essi.Tuttavia, se desideri prestazioni elevate, devi prestare attenzione quando distribuisci i peer per garantire che la latenza e la larghezza di banda tra loro sia sufficiente per ottenere i tuoi obiettivi di prestazioni.
 
-**Anchor peers** on a channel facilitate cross-organization communication that is required for private data, gossip, and service discovery to work. If only one anchor peer exists on a channel, and that peer becomes unavailable, the organizations are no longer connected and the cross-organization gossip is no longer possible. Therefore, when you create redundant peers for an organization, be sure to add redundant [anchor peers on the channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) as well.
+I **peer di ancoraggio** su un canale facilitano la comunicazione tra le organizzazioni necessaria per il funzionamento dei dati privati, del gossip e del rilevamento dei servizi. Se è presente solo un peer di ancoraggio su un canale e tale peer diventa indisponibile, le organizzazioni non sono più connesse e il gossip tra le organizzazioni non è più possibile. Pertanto, quando crei i peer ridondanti per un'organizzazione, assicurati di aggiungere anche dei [peer di ancoraggio sul canale](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) ridondanti.
 
-### Ordering service considerations
+### Considerazioni sul servizio di ordinazione
 {: #ibp-console-ha-ordering-service}
 
-{{site.data.keyword.blockchainfull_notm}} Platform is built upon Hyperledger Fabric v1.4.1 that includes the Raft ordering service. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node raft based orderer, with no HA, or five orderers in a single region that are automatically configured for HA via Raft.
+{{site.data.keyword.blockchainfull_notm}} Platform si basa su Hyperledger Fabric v1.4.1 che include il servizio di ordinazione Raft. Raft è un servizio di ordine con tolleranza di errori anomali (CFT) basato su un'implementazione del [protocollo Raft](https://raft.github.io/raft.pdf){: external}. In base alla progettazione, i nodi di ordinazione Raft sincronizzano automaticamente i dati tra loro utilizzando il consenso basato su Raft. In {{site.data.keyword.blockchainfull_notm}} Platform, un operatore di rete dell'organizzazione può scegliere di impostare un ordinante basato su Raft con un solo nodo, senza HA, oppure cinque ordinanti in una sola regione che vengono automaticamente configurati per l'HA tramite Raft.
 
-## HA Checklist
+## Elenco di controllo HA
 {: #ibp-console-ha-checklist}
 
-The following table contains a list of options to consider as you plan for increasing degrees of HA.
+La seguente tabella contiene un elenco di opzioni da prendere in considerazione quando pensi di incrementare il livello di HA.
 
-|  | Single node | Single cluster with multiple nodes | Multizone ({{site.data.keyword.cloud_notm}} only**)| Multiple clusters across regions |
+|  | Nodo singolo | Cluster singolo con più nodi | Multizona (solo {{site.data.keyword.cloud_notm}}**)| Più cluster tra le regioni |
 |-----|-----|-----|-----|-----|
-| Redundant peers | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Anti-affinity (peers) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | ![Checkmark icon](../../icons/checkmark-icon.svg)|
-| Redundant anchors peers on a channel| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
-|Raft ordering service | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
-| Anti-affinity (ordering nodes) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | ![Checkmark icon](../../icons/checkmark-icon.svg)|
-|Development or Test environment | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
-| Production environment | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Peer ridondanti | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) |
+| Peer di ancoraggio ridondanti su un canale| ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg)|
+| Anti-affinità*** (peer) |  | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg)|
+|Servizio di ordinazione Raft | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | |
+| Anti-affinità*** (nodi di ordinazione) |  | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg)|
+|Ambiente di sviluppo o test | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | | |
+| Ambiente di produzione | | | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) | ![Icona di casella di spunta](../../icons/checkmark-icon.svg) |
 {: row-headers}
 {: class="comparison-table"}
-{: caption="Table 1. Comparison of deployment scenarios to increase your network HA" caption-side="top"}
+{: caption="Tabella 1. Confronto tra gli scenari di distribuzione per aumentare la tua HA di rete" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
-** The default configuration for a Standard Kubernetes cluster on {{site.data.keyword.cloud_notm}} is a 4 CPU x 16 GB RAM cluster that includes three zones with three worker nodes each. You can scale up or down, by selecting a smaller configuration, according to your needs.
 
-## Potential points of failure
+*** Il deployer {{site.data.keyword.blockchainfull_notm}} Platform non può garantire che i nodi di ordinazione o peer siano suddivisi tra zone diverse. Puoi utilizzare le API {{site.data.keyword.blockchainfull_notm}} Platform per distribuire i nodi a zone specifiche su {{site.data.keyword.cloud_notm}} e assicurarti che la tua rete sia resiliente a un malfunzionamento di zona. Per ulteriori informazioni, vedi [HA multizona](#ibp-console-ha-multi-zone).  
+
+** La configurazione predefinita per un cluster Kubernetes standard su {{site.data.keyword.cloud_notm}} è un cluster con 4 CPU x 16 GB di RAM che include tre zone con tre nodi di lavoro ognuna. Puoi ridimensionare in modo incrementale o decrementale, selezionando una configurazione più piccola, in base ai tuoi bisogni.
+
+## Potenziali punti di errore
 {: #ibp-console-ha-points-of-failure}
 
-{{site.data.keyword.blockchainfull_notm}} Platform offers several approaches to add more availability to your network by adding redundancy and using anti-affinity policies. Review the following diagrams to learn more about potential points of failure and how to eliminate them. You can select a model based on your application criticality, service levels, and costs. As general rule, you can implement the redundancy to meet your service levels. All of these scenarios must be weighed against the cost of implementing greater resiliency.
+{{site.data.keyword.blockchainfull_notm}} Platform offre diversi approcci per aggiungere ulteriore disponibilità alla tua rete aggiungendo la ridondanza e utilizzando le politiche di anti-affinità. Controlla i seguenti diagrammi per ulteriori informazioni sui potenziali punti di errore e su come eliminarli. Puoi selezionare un modello basato su criticità, livelli di servizio e costi della tua applicazione. Come regola generale, puoi implementare la ridondanza per soddisfare i tuoi livelli di servizio. Tutti questi scenari devono essere confrontati con i costi di implementazione di una maggiore resilienza.
 
-### Single region HA
+### HA a singola regione
 {: #ibp-console-ha-single-region}
 
-![Blockchain HA single region options](images/HA_Diagram-1.svg "Blockchain HA options"){: caption="Figure 1. Blockchain HA single region options" caption-side="bottom"}
+![Opzioni singola regione HA blockchain](images/HA_Diagram-1.svg "Opzioni HA blockchain")
 
 
-1. **Component failure.**
+1. **Malfunzionamento del componente.**
 
-   **Single-zone cluster**:  
+   **Cluster a zona singola**:  
 
-   Every time you deploy a blockchain component, such as a peer or ordering node, a new pod is created for the component in a worker node. Containers and pods are, by design, short-lived and can fail unexpectedly. For example, a container or pod might crash if an error occurs in your component. So, to make your peer highly available, you must ensure that you have enough instances of it to handle the workload plus additional instances in case of a failure.
+   Ogni volta che distribuisci un componente blockchain, ad esempio un peer o un nodo di ordinazione, viene creato un nuovo pod per il componente in un nodo di lavoro. I contenitori e i pod sono, come progettati, di breve durata e possono avere un malfunzionamento imprevisto. Ad esempio, un contenitore o un pod potrebbe arrestarsi in modo anomalo se si verifica un errore nel tuo componente. Per cui, per rendere il tuo peer altamente disponibile, devi assicurarti di disporre di sufficienti istanze di esso per gestire il carico di lavoro e le istanze aggiuntive nel caso di un errore.
 
-   **Peers** How many peers are required? In a production scenario, the recommendation is to deploy three peers from the same organization to each channel. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain two highly available peers. Therefore, to compensate for a peer failure, and for the most basic level of HA, you can achieve peer redundancy by simply deploying three peers per organization on a channel on your worker node. Note that you need to ensure you have adequate resources available on your node to support these components.
+   **Peer** quanti peer sono necessari? In uno scenario di produzione, ti consigliamo di distribuire tre peer dalla stessa organizzazione per ogni canale. Questo per consentire a un peer di essere inattivo (ad esempio, durante un ciclo di manutenzione) e mantenere ancora due peer altamente disponibili. Pertanto, per compensare un malfunzionamento del peer e per il livello più elementare di HA, puoi ottenere la ridondanza dei peer semplicemente distribuendo tre peer per organizzazione su un canale sul tuo nodo di lavoro. Tieni presente che devi assicurarti di disporre di risorse disponibili adeguate sul tuo nodo per supportare questi componenti.
 
-   **Ordering service** As mentioned above, the HA ordering service is based on Raft, and contains five ordering nodes by default. Because the system can sustain the loss of nodes, including leader nodes, as long as there is a majority of ordering nodes (what’s known as a “quorum”) remaining, Raft is said to be “crash fault tolerant” (CFT). In other words, if you have five nodes in a channel, you can lose two nodes (leaving three remaining nodes). When you deploy an ordering service from the console, choose the five node service for HA.  
+   **Servizio di ordinazione** come menzionato precedentemente, il servizio di ordinazione HA si basa su Raft e contiene cinque nodi di ordinazione per impostazione predefinita. Poiché il sistema può sostenere la perdita dei nodi, inclusi i nodi leader, purché ci sia una maggioranza di nodi di ordinazione (nota come “quorum”) rimanenti, si dice che Raft è fornito di “tolleranza di errori anomali” (CFT). In altre parole, se hai cinque nodi in un canale, puoi perdere due nodi (lasciando tre nodi rimanenti). Quando distribuisci un servizio di ordinazione dalla console, scegli il servizio con cinque nodi per l'HA.  
 
-   This scenario uses redundant peers and orderers on a single worker node, which protects against component failure, but cannot protect from node failure. Therefore, it is only suitable for development and testing purposes.
+   Questo scenario utilizza peer e ordinanti ridondanti su un singolo nodo di lavoro, che protegge da malfunzionamenti del componente, ma non da malfunzionamenti del nodo. Pertanto, è adatto solo per scopi di sviluppo e test.
 
-2. **Worker node failure.**  
+2. **Malfunzionamento del nodo di lavoro.**  
 
-   **Single-zone cluster with multiple work nodes and anti-affinity**:
+   **Cluster a zona singola con più nodi di lavoro e l'anti-affinità**:
 
-   A worker node is a VM that runs on a physical hardware. Worker node failures include hardware outages, such as power, cooling, or networking, and issues on the VM itself. You can account for a worker node failure by setting up multiple worker nodes when you provision your cluster. When blockchain components are distributed across multiple worker nodes, you are protected from a worker node failure. Note that {{site.data.keyword.cloud_notm}} Kubnernetes service includes the option for multiple zones in a cluster. {{site.data.keyword.cloud_notm}} Private does not support zones.
+   Un nodo di lavoro è una VM eseguita su un hardware fisico. I malfunzionamenti dei nodi di lavoro includono interruzioni hardware, come alimentazione, raffreddamento o collegamento in rete e problemi nella VM stessa. Puoi tenere conto di un malfunzionamento del nodo di lavoro configurando più nodi di lavoro quando esegui il provisioning del tuo cluster. Quando i componenti blockchain sono distribuiti in più nodi di lavoro, sei protetto da un malfunzionamento del nodo di lavoro. Tieni presente che il servizio {{site.data.keyword.cloud_notm}} Kubnernetes include l'opzione per più zone in un cluster. {{site.data.keyword.cloud_notm}} Private non supporta le zone.
 
-   **Peers** The {{site.data.keyword.blockchainfull_notm}} Platform deployer anti-affinity policy distributes redundant peers, that is peers from the same organization, across the worker nodes in their cluster or zone.
+   **Peer** la politica anti-affinità del deployer {{site.data.keyword.blockchainfull_notm}} Platform distribuisce peer ridondanti, ossia peer dalla stessa organizzazione, in più nodi di lavoro nei loro cluster o nella loro zona.
 
-   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes.  
+   **Servizio di ordinazione** ogni volta che distribuisci un servizio di ordinazione Raft, vengono automaticamente distribuiti cinque nodi di ordinazione nei nodi di lavoro nel tuo cluster, utilizzando la politica di anti-affinità e in base alla disponibilità delle risorse sui nodi.  
 
-   This scenario uses redundant peers and orderers across multiple worker nodes in a single cluster or zone, which protects against node failure, but cannot protect from a cluster or zone failure. Therefore, it is not recommended for Production.
+   Questo scenario utilizza peer e ordinanti ridondanti in più nodi di lavoro in un singolo cluster o in una singola zona, che protegge da malfunzionamenti del nodo ma non da un malfunzionamento del cluster o della zona. Pertanto, non è consigliato per la produzione.
 
-### Multizone HA ({{site.data.keyword.cloud_notm}} Kubernetes service only)
+### HA multizona (solo servizio {{site.data.keyword.cloud_notm}} Kubernetes)
 {: #ibp-console-ha-multi-zone}
 
-_This scenario only applies to customers using the {{site.data.keyword.cloud_notm}} Kubernetes Service._
+_Questo scenario si applica solo ai clienti che utilizzano {{site.data.keyword.cloud_notm}} Kubernetes Service._
 
-![Blockchain HA single zone options](images/HA_Diagram_2.svg "Blockchain HA options"){: caption="Figure 2. Blockchain HA single zone options" caption-side="bottom"}
+![Opzioni zona singola HA blockchain](images/HA_Diagram_2.svg "Opzioni HA blockchain")
 
-   **Zone failure.**  
+   **Malfunzionamento della zona.**  
 
-   **Multizone clusters with multiple work nodes and anti-affinity**:
+   **Cluster multizona con più nodi di lavoro e l'anti-affinità**:
 
-   Think of a zone as a data center. A zone failure affects all physical compute hosts and NFS storage. Failures include power, cooling, networking, or storage outages, and natural disasters, like flooding, earthquakes, and hurricanes. To protect against a zone failure, you must have clusters in at least two different zones that are load balanced by an external load balancer. By default when you deploy a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, the cluster is configured with mulit-zone support, including three zones, although you can choose two zones.
+   Pensa a una zona come a un data center. Un malfunzionamento della zona riguarda tutti gli host di calcolo fisici e l'archiviazione NFS. I malfunzionamenti includono interruzioni di alimentazione, raffreddamento, collegamento in rete o di archiviazione e disastri naturali, come inondazioni, terremoti e uragani. Per la protezione da un malfunzionamento della zona, devi avere i cluster in almeno due zone differenti di cui viene bilanciato il carico da un programma di bilanciamento del carico esterno. Per impostazione predefinita, quando distribuisci un cluster Kubernetes in {{site.data.keyword.cloud_notm}}, il cluster viene configurato con il supporto multizona, che include tre zone, anche se puoi scegliere due zone.
 
-   A single zone is sufficient for a development and test environment if you can tolerate an zone outage. Therefore, to leverage the HA benefits of multiple zones,  when you provision your cluster, ensure that multiple zones are selected. Two zones are better than one, but three are recommended for HA to increase the liklihood that the two additional zones can absorb the workload of any single zone failure.  When redundant peers from the same organization and channel and ordering nodes are spread across multiple zones, a failure in any one zone should not affect the ability of the network to process transactions as the workload will shift to the blockchain nodes in the other zones.
+   Una singola zona è sufficiente per un ambiente di sviluppo e test se puoi tollerare un'interruzione della zona. Pertanto, per utilizzare i vantaggi HA che riguardano più zone, quando esegui il provisioning del tuo cluster, assicurati che siano selezionate più zone. Due zone sono meglio di una, ma se ne consigliano tre per l'HA per incrementare la probabilità che due zone aggiuntive possano assorbire il carico di lavoro di un qualsiasi malfunzionamento di una singola zona.  Quando i peer ridondanti dalla stessa organizzazione, dallo stesso canale e dagli stessi nodi di ordinazione sono suddivisi in più zone, un malfunzionamento in una qualsiasi delle zone non dovrebbe influenzare la capacità della rete di elaborare le transazioni perché il carico di lavoro sarà spostato ai nodi blockchain nelle altre zone.
 
-   The {{site.data.keyword.blockchainfull_notm}} Platform deployer cannot guarantee that blockchain components are spread across **zones**. The deployer will deploy components to multiple zones based on the resources available on the worker nodes, but it will not necessarily put two peers from the same organization or the ordering nodes in separate zones.
+   Il deployer {{site.data.keyword.blockchainfull_notm}} Platform non può garantire che i componenti blockchain siano suddivisi nelle **zone**. Il deployer distribuirà i componenti a più zone in base alle risorse disponibili sui nodi di lavoro, ma non metterà necessariamente due peer dalla stessa organizzazione o dagli stessi nodi di ordinazione in zone separate. Se vuoi assicurarti che alcuni nodi siano distribuiti in zone diverse, puoi utilizzare le API {{site.data.keyword.blockchainfull_notm}} Platform per specificare la zona in cui viene creato un nodo. Per ulteriori informazioni, vedi [Creazione di un nodo all'interno di una zona specifica](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
    {:note}
 
-   This scenario uses redundant peers and orderers across multiple worker nodes and multiple zones, which protects against zone failure, but does not protect from an unlikely entire region failure. This is a recommended scenario for a production network.
+   Questo scenario utilizza peer e ordinanti ridondanti in più nodi di lavoro e zone, che protegge da malfunzionamenti della zona ma non da un improbabile malfunzionamento dell'intera regione. Questo è uno scenario consigliato per una rete di produzione.
 
-### Multi-region HA
+### HA multiregione
 {: #ibp-console-ha-multi-region}
 
-This scenario offers the highest level of HA possible.
+Questo scenario offre il livello più elevato di HA possibile.
 
-![Blockchain HA multi-region options](images/HA_Diagram_3.svg "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
+![Opzioni multiregione HA blockchain](images/HA_Diagram_3.svg "Opzioni HA Blockchain")
 
-   **Region failure.**
+   **Malfunzionamento della regione.**
 
-   **Multi-region clusters with multiple work nodes and anti-affinity**:
+   **Cluster multiregione con più nodi di lavoro e l'anti-affinità**:
 
-   The likelihood of a full regional failure is low. However, to account for this failure, you can set up multiple clusters in different regions where each cluster has it's own linked console. If an entire region fails, redundant peers in the cluster in the other regions can service the work load. For production environments, configuring your blockchain **peers** across multiple regions provides the maximum HA coverage available.
+   La probabilità di un malfunzionamento a livello dell'intera regione è bassa. Tuttavia, per rendere conto di questo malfunzionamento, puoi impostare più cluster in diverse regioni in cui ogni cluster ha la propria console collegata. Se il malfunzionamento riguarda l'intera regione, i peer ridondanti nel cluster nelle altre regioni possono fornire il carico di lavoro. Per gli ambienti di produzione, la configurazione dei tuoi **peer** blockchain in più regioni fornisce la copertura HA massima disponibile.
 
-   This scenario uses redundant peers across multiple worker nodes in multiple regions, which provides the highest degree of HA. This is also a recommended scenario for a production network if your resiliency requirements merit the investment.  
+   Questo scenario utilizza i peer ridondanti in più nodi di lavoro in più regioni, che forniscono il livello più elevato di HA. Questo è anche lo scenario consigliato per una rete di produzione se i tuoi requisiti di resilienza meritano l'investimento.  
 
-   See this topic on [Setting up multi-region HA deployments](/docs/services/blockchain?topic=blockchain-ibp-console-hadr-mr) for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform peers across multiple regions.
+   Vedi questo argomento sulla [Configurazione di distribuzioni HA multiregione](/docs/services/blockchain?topic=blockchain-ibp-console-hadr-mr) per la procedura per configurare i tuoi peer {{site.data.keyword.blockchainfull_notm}} Platform in più regioni.
 
 
-## Disaster recovery (DR)
+## Ripristino di emergenza (DR, Disaster Recovery)
 {: #ibp-console-ha-dr}
 
-In all cases, to protect against data corruption, it is recommended that you regularly back up the storage associated with every deployed component. Because the ledger is shared across all the peers and ordering nodes, taking regular backups is critical. For example, if any one peer ledger becomes corrupted, it will spread to all the peer ledgers, and a backup is then required to restore the ledger across the network. You can decide how often to perform the backups based your recovery needs, but a general guideline would be to take daily backups.  
+In tutti i casi, per la protezione dal danneggiamento dei dati, ti consigliamo di eseguire in modo regolare il backup dell'archiviazione associata ad ogni componente distribuito. Poiché il libro mastro è condiviso tra tutti i peer e i nodi di ordinazione, effettuare dei backup regolari è molto importante. Ad esempio, se uno qualsiasi dei libri mastro del peer viene danneggiato, il danneggiamento si diffonderà a tutti i libri mastri del peer ed è quindi necessario un backup per ripristinare il libro mastro nella rete. Puoi decidere quanto spesso eseguire i backup in base ai tuoi bisogni di ripristino, ma una linea guida generale sarebbe di effettuarli giornalmente.  
 
-| Storage solution provider | Guidance |
+| Provider della soluzione di archiviazione | Guida |
 |----------|---------|
-| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/services/RegistryImages/ibm-backup-restore?topic=RegistryImages-ibmbackup_restore_starter#ibmbackup_restore_starter){: external}. But be aware that without snapshot capability, nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a reliable backup.  |
-| {{site.data.keyword.cloud_notm}} Private storage solution | You can use the backup or restore technology provided by your storage provider. Again, ensure you have [stopped](#ibp-console-ha-stop-nodes) the nodes before taking the backup. |
-| Portworx | A [snapshot capability](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/#prerequisites){: external} is available for taking backups without stopping the nodes. |
-{: caption="Table 2. Backup recommendations for storage" caption-side="top"}
+| Soluzione di archiviazione {{site.data.keyword.cloud_notm}} | Puoi utilizzare la [funzionalità fornita dal servizio {{site.data.keyword.cloud_notm}} Kubernetes](/docs/services/RegistryImages/ibm-backup-restore?topic=RegistryImages-ibmbackup_restore_starter#ibmbackup_restore_starter){: external}. Ma tieni presente che senza la funzionalità di istantanea, i nodi devono essere [arrestati](#ibp-console-ha-stop-nodes) per garantire un backup affidabile.  |
+| Soluzione di archiviazione {{site.data.keyword.cloud_notm}} Private | Puoi utilizzare la tecnologia di backup e ripristino fornita dal tuo provider di archiviazione. Nuovamente, assicurati di aver [arrestato](#ibp-console-ha-stop-nodes) i nodi prima di effettuare il backup. |
+| Portworx | Una [funzionalità di istantanea](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/#prerequisites){: external} è disponibile per effettuare i backup senza arrestare i nodi. |
+{: caption="Tabella 2. Consigli sul backup per l'archiviazione" caption-side="top"}
 
-When you need to restore a backup, the backups would need to be restored on every component across your network.
+Quando devi ripristinare un backup, i backup dovrebbero essere ripristinati su ogni componente nella tua rete.
 
-### Stopping nodes to prepare for a backup
+### Arresto dei nodi per preparare un backup
 {: #ibp-console-ha-stop-nodes}
 
-If you are not using Portworx as your storage solution, you can use the following `kubectl` command to stop the nodes before taking the backup, for example:
+Se non stai utilizzando Portworx come tua soluzione di archiviazione, puoi utilizzare il seguente comando `kubectl` per arrestare i nodi prima di effettuare il backup, ad esempio:
 
    ```
    kubectl scale deployment my-deployment --replicas=0
    ```
    {:codeblock}
 
-   Run the backup.
-   Restart the nodes:
+   Esegui il backup.
+   Riavvia i nodi:
 
    ```
    kubectl scale deployment my-deployment --replicas=1
