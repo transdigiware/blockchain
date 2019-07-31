@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-06-18"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -20,7 +20,7 @@ subcollection: blockchain
 # Creazione o unione di una rete con le API Swagger
 {: #swagger-network}
 
-{{site.data.keyword.blockchainfull}} Platform presenta diverse API REST che puoi utilizzare per creare o unire una rete blockchain in {{site.data.keyword.cloud_notm}}. Puoi provare queste API utilizzando la [IU Swagger](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) associata alla tua rete.
+{{site.data.keyword.blockchainfull}} Platform presenta diverse API REST che puoi utilizzare per creare o unire una rete blockchain in {{site.data.keyword.cloud_notm}}. Puoi provare queste API utilizzando la [IU Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) associata alla tua rete.
 {:shortdesc}
 
 
@@ -114,9 +114,9 @@ Lo ``swagger_url`` rappresenta l'endpoint api che utilizzerai quando crei una re
 
 Se utilizzi piano Enterprise, devi completare due passi per creare una rete con le API.
 
-1. Crea un'istanza del servizio blockchain in {{site.data.keyword.cloud_notm}} con piano Enterprise<!-- or Enterprise Plus Plan-->.  Richiama i tuoi token e ID istanza del servizio come password e nome utente di autenticazione di base. Per ulteriori informazioni, vedi [Richiamo delle credenziali di autenticazione di base della API](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Crea un'istanza del servizio blockchain in {{site.data.keyword.cloud_notm}} con piano Enterprise<!-- or Enterprise Plus Plan-->.  Richiama i tuoi token e ID istanza del servizio come password e nome utente di autenticazione di base. Per ulteriori informazioni, vedi [Richiamo delle credenziali di autenticazione di base della API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
-2. Richiama la API **Crea rete** utilizzando queste credenziali del servizio. Immetti questa API sullo ``swagger_url`` api richiamato da [Controllo delle ubicazioni della rete disponibili](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location). Vai allo ``swagger_url link`` per utilizzare l'IU Swagger per immettere la API di creazione della rete oppure immetti a livello programmatico il comando utilizzando l'indirizzo URL senza ``/api-docs``. Ad esempio,
+2. Richiama la API **Crea rete** utilizzando queste credenziali del servizio. Immetti questa API sullo ``swagger_url`` api richiamato da [Controllo delle ubicazioni della rete disponibili](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location). Vai allo ``swagger_url link`` per utilizzare l'IU Swagger per immettere la API di creazione della rete oppure immetti a livello programmatico il comando utilizzando l'indirizzo URL senza ``/api-docs``. Ad esempio,
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api/v1/networks
@@ -124,7 +124,7 @@ Se utilizzi piano Enterprise, devi completare due passi per creare una rete con 
     {:codeblock}
 
 **Parametri**:
-- `location_id`: l'ID di un'ubicazione della rete disponibile. Specifica il valore del `location_id` annotato da [Controllo delle ubicazioni della rete disponibili](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location).
+- `location_id`: l'ID di un'ubicazione della rete disponibile. Specifica il valore del `location_id` annotato da [Controllo delle ubicazioni della rete disponibili](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location).
 - `company_name`: il tuo identificativo come membro della rete.
 - `email`: il tuo indirizzo email per ricevere le notifiche.
 - `peers`: il numero di peer che vuoi creare per questo membro. I valori validi sono 0 - 6. Puoi inoltre creare i peer per il tuo membro successivamente nella IU Monitoraggio della rete.
@@ -133,7 +133,7 @@ Se utilizzi piano Enterprise, devi completare due passi per creare una rete con 
 
 ## Invito di nuovi membri in una rete.
 
-Dopo aver creato una rete blockchain, puoi invitare altri membri ad unirsi alla tua rete. Devi specificare l'ID della rete a cui vuoi invitare i nuovi membri ad unirsi. Le credenziali di autenticazione di base necessarie per invitare un membro sono diverse da quelle utilizzate nella API **Crea rete** API. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> Puoi ottenere le credenziali per invitare un membro con la API **Richiama credenziali rete** nella [IU Swagger ](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger-retrieving-network-credentials) o [richiamare le informazioni di autenticazione di base per la API](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token) dalla tua istanza del servizio in {{site.data.keyword.cloud_notm}}.
+Dopo aver creato una rete blockchain, puoi invitare altri membri ad unirsi alla tua rete. Devi specificare l'ID della rete a cui vuoi invitare i nuovi membri ad unirsi. Le credenziali di autenticazione di base necessarie per invitare un membro sono diverse da quelle utilizzate nella API **Crea rete** API. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> Puoi ottenere le credenziali per invitare un membro con la API **Richiama credenziali rete** nella [IU Swagger ](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials) o [richiamare le informazioni di autenticazione di base per la API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token) dalla tua istanza del servizio in {{site.data.keyword.cloud_notm}}.
 
 ```
 /networks/{networkID}/invite
@@ -151,9 +151,9 @@ Il membro invitato riceverà un invito email con le istruzioni su come unirsi al
 
 Se vieni invitato ad aderire a una rete blockchain, riceverai un'email di invito alla rete che include `location_id` e `network id`.
 
-1. Prima di aderire a una rete devi creare un'istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform e richiamare i tuoi token e ID istanza del servizio come password e nome utente di autenticazione di base. Per ulteriori informazioni, vedi [Richiamo delle informazioni di autenticazione di base per la API](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-retrieve-id-token).
+1. Prima di aderire a una rete devi creare un'istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform e richiamare i tuoi token e ID istanza del servizio come password e nome utente di autenticazione di base. Per ulteriori informazioni, vedi [Richiamo delle informazioni di autenticazione di base per la API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
-2. [Controlla le ubicazioni di rete disponibili](/docs/services/blockchain/howto/create_join_network_with_apis.html#swagger-network-check-location) per ottenere lo `swagger_url` per il `location_id` nella tua email di invito. Sarà qualcosa di simile a:
+2. [Controlla le ubicazioni di rete disponibili](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location) per ottenere lo `swagger_url` per il `location_id` nella tua email di invito. Sarà qualcosa di simile a:
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api-docs

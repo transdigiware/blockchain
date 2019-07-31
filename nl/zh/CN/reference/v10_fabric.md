@@ -20,7 +20,8 @@ subcollection: blockchain
 # Hyperledger Fabric
 {: #hyperledger-fabric}
 
-{{site.data.keyword.blockchainfull}} 网络以 Hyperledger Fabric 堆栈为基础构建，后者是 Linux Foundation Hyperledger 项目中的区块链项目之一。它是一个“许可”网络，其中所有用户和组件都具有已知标识。在每个通信接触点实施签名/验证逻辑，并通过一系列支持和验证检查来同意事务处理。在此意义上，它与传统的区块链实现有很大差异，因为传统区块链实现可提升匿名性，并强制依赖于加密货币和大量计算责任来验证事务处理。{:shortdesc}
+{{site.data.keyword.blockchainfull}} 网络以 Hyperledger Fabric 堆栈为基础构建，后者是 Linux Foundation Hyperledger 项目中的区块链项目之一。它是一个“许可”网络，其中所有用户和组件都具有已知标识。在每个通信接触点实施签名/验证逻辑，并通过一系列支持和验证检查来同意事务处理。在此意义上，它与传统的区块链实现有很大差异，因为传统区块链实现可提升匿名性，并强制依赖于加密货币和大量计算责任来验证事务处理。
+{:shortdesc}
 
 Hyperledger Fabric 提供模块化体系结构来提高可伸缩性和性能。本主题介绍了 Hyperledger Fabric 中的一些关键组件。有关 Hyperledger Fabric 的完整介绍，请参阅 [Hyperledger Fabric 文档](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}。
 

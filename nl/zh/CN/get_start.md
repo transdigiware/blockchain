@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -19,9 +19,6 @@ subcollection: blockchain
 
 # 企业套餐入门
 {: #getting-started-with-enterprise-plan}
-
-<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note}-->
 
 {{site.data.keyword.blockchainfull}} Platform 企业套餐提供具有很高的安全性、完整性、可伸缩性和性能的区块链网络。您可以快速供应功能完整的网络，并使用“网络监视器”（一种 GUI 仪表板）立即运行[链代码](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode)和应用程序，而无需从头开始设计和配置网络。
 {:shortdesc}

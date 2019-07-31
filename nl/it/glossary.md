@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -33,7 +33,7 @@ Un set ordinato di transazioni, che è crittograficamente collegato al precedent
 
 ## CA
 {: #glossary-CA}
-Un'abbreviazione di "Certificate Authority - Autorità di certificazione", si tratta del componente che emette i certificati a tutti i membri partecipanti. Questi certificati rappresentano l'identità di un membro. Tutte le entità nella rete (peer, ordinanti, client e così via) devono avere un'identità per comunicare, autenticare e, alla fine, interagire con il libro mastro. Queste identità sono richieste per qualsiasi partecipazione diretta nella rete blockchain.
+Un'abbreviazione di "Certificate Authority - Autorità di certificazione", si tratta del componente che emette i certificati a tutti i membri partecipanti. Questi certificati rappresentano l'identità di un membro. Tutte le entità nella rete (peer, nodi di ordinazione, client e così via) devono avere un'identità per comunicare, autenticare e, alla fine, interagire con il libro mastro. Queste identità sono richieste per qualsiasi partecipazione diretta nella rete blockchain.
 
 ## Catena
 {: #glossary-chain}
@@ -53,7 +53,7 @@ Il client rappresenta l'entità che agisce per conto di un utente. Deve connette
 
 ## Profilo di connessione
 {: #glossary-connection-profile}
-Il profilo di connessione è visibile nella schermata "Panoramica" del Monitoraggio della rete quando si fa clic sul pulsante **Profilo connessione**. Le informazioni sono disponibili in formato JSON e contengono le informazioni sugli endpoint API e gli ID registrazione (enrollID)/i segreti per le tue risorse di rete, ossia peer, ordinanti e CA. La tua applicazione interagisce con le risorse di rete tramite questi endpoint API.
+Il profilo di connessione è visibile nella schermata "Panoramica" del Monitoraggio della rete quando si fa clic sul pulsante **Profilo connessione**. Le informazioni sono disponibili in formato JSON e contengono le informazioni sugli endpoint API e gli ID registrazione (enrollID)/i segreti per le tue risorse di rete, ossia peer, nodi di ordinazione e CA. La tua applicazione interagisce con le risorse di rete tramite questi endpoint API.
 
 ## Consenso
 {: #glossary-consensus}
@@ -145,15 +145,15 @@ Il dashboard GUI fornito da {{site.data.keyword.blockchainfull_notm}} Platform p
 
 ## Nodo
 {: #glossary-node}
-L'entità di comunicazione della blockchain. Ci sono tre tipi di nodi: CA, peer e ordinante.
+L'entità di comunicazione della blockchain. Ci sono tre tipi di nodi: CA, peer e nodo di ordinazione.
 
-## Ordinante
+## Nodo di ordinazione
 {: #glossary-orderer}
-Il nodo che raccoglie le transazioni dai membri della rete, ordina le transazioni e le include in blocchi. Questi blocchi vengono poi distribuiti ai peer, che verificano quindi i blocchi e li aggiungono ai libri mastro su ogni canale. Gli ordinanti contengono il materiale di identità crittografica associato a ciascun membro e autenticano l'identità dei client e dei peer per l'accesso alla rete. La funzione generale fornita da un nodo di ordine o da una raccolta di nodi, è nota come **servizio di ordine**.
+Il nodo che raccoglie le transazioni dai membri della rete, ordina le transazioni e le include in blocchi. Noto anche come ordinante. Questi blocchi vengono poi distribuiti ai peer, che verificano quindi i blocchi e li aggiungono ai libri mastro su ogni canale. I nodi di ordinazione contengono il materiale di identità crittografica associato a ciascun membro e autenticano l'identità dei client e dei peer per l'accesso alla rete. La funzione generale fornita da un nodo di ordine o da una raccolta di nodi, è nota come **servizio di ordine**.
 
 ## Organizzazione
 {: #glossary-organization}
-Vedi [Membro](/docs/services/blockchain/glossary.html#glossary-member).
+Vedi [Membro](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Partecipante
 {: #glossary-participant}
@@ -169,7 +169,7 @@ Raft è un servizio di ordine con tolleranza di errori anomali (CFT) basato su u
 
 ## Credenziali del servizio
 {: #glossary-service-credentials}
-Le credenziali del servizio sono in formato JSON e contengono le informazioni sull'endpoint API e gli ID iscrizione(enrollID)/segreti per le tue risorse di rete, ossia le CA, gli ordinanti e i peer. La tua applicazione interagisce con le risorse di rete tramite questi endpoint API.
+Le credenziali del servizio sono in formato JSON e contengono le informazioni sull'endpoint API e gli ID iscrizione(enrollID)/segreti per le tue risorse di rete, ossia le CA, i nodi di ordinazione e i peer. La tua applicazione interagisce con le risorse di rete tramite questi endpoint API.
 
 ## SDK
 {: #glossary-sdk}
@@ -181,7 +181,7 @@ Il certificato che ogni entità, che sia un'organizzazione o un amministratore, 
 
 ## Smart contract
 {: #glossary-smart-contracts}
-Vedi [Chaincode](/docs/services/blockchain/glossary.html#glossary-chaincode).
+Vedi [Chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -201,4 +201,4 @@ Un utente è un partecipante in una rete blockchain che ha accesso indiretto al 
 
 ## Stato globale
 {: #glossary-world-state}
-vedi [Stato corrente](/docs/services/blockchain/glossary.html#glossary-current-state).
+vedi [Stato corrente](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).

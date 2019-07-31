@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -38,7 +38,7 @@ subcollection: blockchain
 可以使用此主题以获取有关特定于区块链的 HA 指导详细信息，并从以上特定于平台的主题中获得相关建议。
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 中的潜在故障点概述
-{: #ibp-console-ha-points-of-failure}
+{: #ibp-console-ha-points-of-failure-overview}
 
 {{site.data.keyword.blockchainfull_notm}} Platform 体系结构旨在确保可靠性、处理等待时间短以及服务正常运行时间最长。然而，还是可能发生故障。{{site.data.keyword.blockchainfull_notm}} Platform 提供了多种方法，通过添加冗余和[反亲缘关系](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external}策略来提高集群的可用性，并在可用时，确保在不同工作程序节点中部署相同类型和组织的区块链组件。通过在区块链网络中添加冗余，可以避免故障或停机时间。  
 
@@ -66,16 +66,19 @@ subcollection: blockchain
 |  |单个节点|具有多个节点的单个集群|多专区（仅限 {{site.data.keyword.cloud_notm}}**）|多个区域中的多个集群|
 |-----|-----|-----|-----|-----|
 |冗余同级| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)|
-|反亲缘关系（同级）|  | ![“复选标记”图标](../../icons/checkmark-icon.svg)|  | ![“复选标记”图标](../../icons/checkmark-icon.svg)|
 |通道上的冗余锚点同级| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)|
+|反亲缘关系***（同级）|  | ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)|
 |Raft 排序服务| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| |
-|反亲缘关系（排序节点）|  | ![“复选标记”图标](../../icons/checkmark-icon.svg)|  | ![“复选标记”图标](../../icons/checkmark-icon.svg)|
+|反亲缘关系***（排序节点）|  | ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)|
 |开发或测试环境| ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)| | |
 |生产环境| | | ![“复选标记”图标](../../icons/checkmark-icon.svg)| ![“复选标记”图标](../../icons/checkmark-icon.svg)|
 {: row-headers}
 {: class="comparison-table"}
 {: caption="表 1. 比较部署场景以提高网络 HA" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
+
+*** {{site.data.keyword.blockchainfull_notm}} Platform 部署节点无法保证同级或排序节点分布在不同的专区中。您可以使用 {{site.data.keyword.blockchainfull_notm}} Platform API 将节点部署到 {{site.data.keyword.cloud_notm}} 上的特定专区中，并确保网络可迅速应对专区故障。有关更多信息，请参阅[多专区 HA](#ibp-console-ha-multi-zone)。  
+
 ** {{site.data.keyword.cloud_notm}} 上标准 Kubernetes 集群的缺省配置是包含 4 个 CPU 和 16 GB RAM 的集群，其中包含三个专区，每个专区三个工作程序节点。可以根据需要选择更大或更小的配置来实现扩展或缩减。
 
 ## 潜在故障点
@@ -129,6 +132,7 @@ _此场景仅适用于使用 {{site.data.keyword.cloud_notm}} Kubernetes Service
    如果可以容许专区中断，那么单专区就足以满足开发和测试环境的要求。因此，要利用多个专区的 HA 优点，在供应集群时，请确保选择多个专区。两个专区优于一个专区，但建议使用三个专区来实现 HA，以提高在任何一个专区发生故障时，另外两个专区可以承担该专区工作负载的可能性。如果同一组织和通道的冗余同级和排序节点分布在多个专区中，那么任何一个专区中的故障都应该不会影响网络处理事务的能力，因为工作负载会切换到其他专区中的区块链节点。
 
    {{site.data.keyword.blockchainfull_notm}} Platform 部署节点无法保证区块链组件分布在多个**专区**中。部署节点将根据工作程序节点上的可用资源将组件部署到多个专区，但不一定会将同一组织的两个同级或将多个排序节点放入不同的专区中。
+   如果要确保将特定节点部署到不同的专区，您可以使用 {{site.data.keyword.blockchainfull_notm}} Platform API 指定创建节点的专区。有关更多信息，请参阅[在特定专区内创建节点](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)。
    {:note}
 
    此场景在多个工作程序节点和多个专区中使用冗余同级和排序节点，这可保护不受专区故障的影响，但无法避免受到整个区域故障的影响。这是生产网络的建议场景。

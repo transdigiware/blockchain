@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -21,7 +21,7 @@ subcollection: blockchain
 
 Puoi utilizzare la console {{site.data.keyword.blockchainfull}} Platform per creare una definizione di organizzazione formale nota come MSP (Membership Services Provider). La definizione di MSP della tua organizzazione consente ad altri membri del consorzio blockchain di verificare l'identità dei tuoi nodi e delle tue applicazioni. La tua definizione di MSP contiene anche i certificati di amministrazione della tua organizzazione.
 
-Puoi anche utilizzare la console per gestire quali organizzazioni sono membri della tua rete. L'amministratore del servizio di ordine può utilizzare la scheda delle organizzazioni per aggiungere membri al [consorzio](/docs/services/blockchain/glossary.html#glossary-consortium) blockchain. I membri del consorzio possono quindi utilizzare la console per aggiungere i membri a canali nuovi o esistenti.
+Puoi anche utilizzare la console per gestire quali organizzazioni sono membri della tua rete. L'amministratore del servizio di ordine può utilizzare la scheda delle organizzazioni per aggiungere membri al [consorzio](/docs/services/blockchain?topic=blockchain-glossary#glossary-consortium) blockchain. I membri del consorzio possono quindi utilizzare la console per aggiungere i membri a canali nuovi o esistenti.
 
 **Gruppi di destinatari:** questo argomento è pensato per gli operatori di rete che sono responsabili della creazione, del monitoraggio e della gestione della rete blockchain.
 
@@ -34,17 +34,17 @@ Ogni organizzazione del consorzio deve utilizzare la propria CA (Certificate Aut
 
 Prima di potersi unire a un consorzio, la tua organizzazione deve creare una definizione di organizzazione nota come **MSP (Membership Services Provider)**. L'MSP contiene le seguenti informazioni:
 - Un certificato firmato dalla tua **CA (Certificate Authority, Autorità di certificazione) root**. Questo certificato viene utilizzato per verificare l'identità dei tuoi nodi, dei tuoi canali e delle tue applicazioni.
-- Un certificato firmato dalla tua **CA TLS**. Un certificato TLS root consente ai tuoi peer di partecipare al gossip tra organizzazioni, che è necessario per avvalersi delle funzioni di [raccolte di **dati privati**](/docs/services/blockchain/howto/ibp-console-smart-contracts.html#ibp-console-smart-contracts-private-data) e delle funzioni di [rilevamento dei servizi](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} di Hyperledger Fabric.
+- Un certificato firmato dalla tua **CA TLS**. Un certificato TLS root consente ai tuoi peer di partecipare al gossip tra organizzazioni, che è necessario per avvalersi delle funzioni di [raccolte di **dati privati**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) e delle funzioni di [rilevamento dei servizi](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} di Hyperledger Fabric.
 - L'**ID MSP**. L'ID MSP è il nome formale della tua organizzazione all'interno del consorzio. Devi ricordarti l'ID MSP per i tuoi nodi e le tue applicazioni.
-- I **certificati di amministrazione** dalle tue identità **Amministratore peer** e **Amministratore organizzazione**. Questi certificati vengono passati al servizio di ordine e vengono utilizzati per verificare quali sono le identità nella tua organizzazione a cui è consentito creare o modificare canali. Quando utilizzi la tua console per creare un ordinante o un peer, i certificati di amministrazione all'interno MSP vengono distribuiti all'interno del nuovo nodo. Questi certificati possono essere quindi utilizzati per gestire i peer o gli ordinanti dalla tua console o da un'applicazione client.
+- I **certificati di amministrazione** dalle tue identità **Amministratore peer** e **Amministratore organizzazione**. Questi certificati vengono passati al servizio di ordine e vengono utilizzati per verificare quali sono le identità nella tua organizzazione a cui è consentito creare o modificare canali. Quando utilizzi la tua console per creare un nodo di ordinazione o un peer, i certificati di amministrazione all'interno dell'MSP vengono distribuiti all'interno del nuovo nodo. Questi certificati possono essere quindi utilizzati per gestire i peer o i nodi di ordinazione dalla tua console o da un'applicazione client.
 
 ## Gestione degli MSP nella console
 
-Vai alla scheda **Organizzazioni**. Puoi utilizzare questa scheda per [creare una definizione di MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-create-msp) utilizzando una CA (Certificate Authority, Autorità di certificazione) che esiste nella tua console. Puoi anche utilizzare questa scheda per [importare un MSP](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp) che era stato creato da un'altra organizzazione.
+Vai alla scheda **Organizzazioni**. Puoi utilizzare questa scheda per [creare una definizione di MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) utilizzando una CA (Certificate Authority, Autorità di certificazione) che esiste nella tua console. Puoi anche utilizzare questa scheda per [importare un MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) che era stato creato da un'altra organizzazione.
 
 Puoi visualizzare tutti gli MSP che hai creato o importato in **Organizzazioni disponibili**. Puoi utilizzare le definizioni di MSP nella scheda Organizzazioni per funzioni importanti all'interno della tua console:
 - Se stai creando dei nodi peer od ordinante, l'MSP della tua organizzazione viene utilizzato per fornire i certificati di amministrazione al nuovo nodo.
-- Se sei l'amministratore di un nodo di ordine, puoi utilizzare gli MSP per [aggiungere nuove organizzazioni al consorzio](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
+- Se sei l'amministratore di un nodo di ordine, puoi utilizzare gli MSP per [aggiungere nuove organizzazioni al consorzio](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - Se sei un membro del consorzio, puoi importare gli MSP di altri membri del consorzio nella tua console e aggiungere quindi i membri ai canali nuovi o esistenti.
 
 ## Creazione di un MSP per la tua organizzazione
@@ -153,14 +153,14 @@ Ad esempio, il tuo file JSON sarà simile a:
 
 Salva questa definizione come il tuo file `JSON` della definizione di MSP.  
 
-Hai creato una definizione di MSP, che definisce l'organizzazione per i tuoi nodi del peer o del servizio di ordine e utilizza i certificati da una CA esterna. Puoi ora ritornare alle istruzioni che descrivono [come utilizzare i certificati da una CA esterna con il tuo peer od ordinante](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-third-party-ca).
+Hai creato una definizione di MSP, che definisce l'organizzazione per i tuoi nodi del peer o del servizio di ordine e utilizza i certificati da una CA esterna. Puoi ora ritornare alle istruzioni che descrivono [come utilizzare i certificati da una CA esterna con il tuo peer od ordinante](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca).
 
 ## Importazione di un MSP
 {: #console-organizations-import-msp}
 
 Solo l'amministratore ordinante può aggiungere nuove organizzazioni al consorzio. Se sei l'amministratore ordinante, dovrai raccogliere le definizioni di MSP di tutte le organizzazioni che sono state invitate al consorzio e importare gli MSP nella console. Puoi quindi aggiungere gli MSP al servizio di ordine utilizzando il nodo ordinante.
 
-Dopo che l'amministratore ha creato una definizione di MSP, può utilizzare la scheda organizzazioni per scaricare l'MSP in formato JSON sul suo filesystem locale. Può quindi inviarti il file JSON MSP in un'operazione fuori banda. Vai alla scheda **Organizzazioni** e utilizza **Importa definizione dell'MSP** per importare il file MSP nella tua console. Dopo che la definizione dell'MSP è visibile nella sezione **Organizzazioni disponibili**, puoi andare al tuo nodo ordinante per [aggiungere l'organizzazione al consorzio](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-add-consortium).
+Dopo che l'amministratore ha creato una definizione di MSP, può utilizzare la scheda organizzazioni per scaricare l'MSP in formato JSON sul suo filesystem locale. Può quindi inviarti il file JSON MSP in un'operazione fuori banda. Vai alla scheda **Organizzazioni** e utilizza **Importa definizione dell'MSP** per importare il file MSP nella tua console. Dopo che la definizione dell'MSP è visibile nella sezione **Organizzazioni disponibili**, puoi andare al tuo nodo ordinante per [aggiungere l'organizzazione al consorzio](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 
 
 ## Aggiunta di un'organizzazione a un consorzio
@@ -168,7 +168,7 @@ Dopo che l'amministratore ha creato una definizione di MSP, può utilizzare la s
 
 Il consorzio di organizzazioni è ospitato dal servizio di ordine.
 
-Se sei l'amministratore del servizio di ordine, puoi utilizzare la console per aggiungere un'organizzazione al consorzio. Vai alla scheda **Nodi** e fai clic sul nodo di ordine. Nel pannello del nodo di ordine, sotto **Membri del consorzio**, fai clic su **Aggiungi organizzazione**. Questo aprirà un pannello laterale che ti consentirà di operare una selezione dall'elenco di definizioni di MSP disponibili che hai [importato nella tua scheda delle organizzazioni](/docs/services/blockchain/howto/ibp-console-organizations.html#console-organizations-import-msp). Puoi anche utilizzare l'opzione **Carica JSON** per importare il file di definizione dell'MSP creato da un'altra organizzazione direttamente.
+Se sei l'amministratore del servizio di ordine, puoi utilizzare la console per aggiungere un'organizzazione al consorzio. Vai alla scheda **Nodi** e fai clic sul nodo di ordine. Nel pannello del nodo di ordine, sotto **Membri del consorzio**, fai clic su **Aggiungi organizzazione**. Questo aprirà un pannello laterale che ti consentirà di operare una selezione dall'elenco di definizioni di MSP disponibili che hai [importato nella tua scheda delle organizzazioni](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). Puoi anche utilizzare l'opzione **Carica JSON** per importare il file di definizione dell'MSP creato da un'altra organizzazione direttamente.
 
 ## Creazione e modifica di un canale
 {: #console-organizations-create-channel}
@@ -181,7 +181,7 @@ Dopo che la tua organizzazione è stata aggiunta a un consorzio, puoi creare un 
 2. Importa gli MSP delle organizzazioni che desideri aggiungere al nuovo canale nella tua console utilizzando la scheda **Organizzazioni**. **Nota** che le organizzazioni devono essere aggiunte al consorzio prima di poter essere aggiunte a un canale.
 3. Vai alla scheda **Canali** e fai clic su **Crea canale**. Questo aprirà un pannello laterale che ti consente di specificare il nome canale, l'adesione e le politiche del canale. Puoi aggiungere qualsiasi organizzazione che è stata aggiunta al consorzio al nuovo canale.
 
-Per ulteriori informazioni su questi passi, vedi la sezione relativa alla [creazione di un canale](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel1) nell'esercitazione **Crea una rete**.
+Per ulteriori informazioni su questi passi, vedi la sezione relativa alla [creazione di un canale](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1) nell'esercitazione **Crea una rete**.
 
 ### Aggiornamento di un MSP in una definizione di canale
 {: #console-organizations-update-channel}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, channel update, reallocate resources
 
@@ -22,10 +22,10 @@ subcollection: blockchain
 # Governance dei componenti
 {: #ibp-console-govern}
 
-Dopo aver creato CA, peer, ordinanti, organizzazioni e canali, puoi utilizzare la console per aggiornare questi componenti.
+Dopo aver creato CA, peer, nodi di ordinazione, organizzazioni e canali, puoi utilizzare la console per aggiornare questi componenti.
 {:shortdesc}
 
-Se stai utilizzando la versione di prova beta di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, è probabile che alcuni pannelli nella tua console non corrisponderanno alla documentazione corrente, che viene mantenuta aggiornata con l'istanza del servizio generalmente disponibile (GA). Per avvalerti dei vantaggi di tutte le ultime funzionalità, ti incoraggiamo in questo momento ad eseguire il provisioning a una nuova istanza del servizio GA seguendo le istruzioni in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks).
+Se stai utilizzando la versione di prova beta di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, è probabile che alcuni pannelli nella tua console non corrisponderanno alla documentazione corrente, che viene mantenuta aggiornata con l'istanza del servizio generalmente disponibile (GA). Per avvalerti dei vantaggi di tutte le ultime funzionalità, ti incoraggiamo in questo momento ad eseguire il provisioning a una nuova istanza del servizio GA seguendo le istruzioni in [Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
 **Gruppi di destinatari:** questo argomento è pensato per gli operatori di rete che sono responsabili della creazione, del monitoraggio e della gestione della rete blockchain.
 
@@ -37,20 +37,21 @@ Se stai utilizzando la versione di prova beta di {{site.data.keyword.blockchainf
 
 Poiché la tua istanza della console {{site.data.keyword.blockchainfull_notm}} e il tuo cluster Kubernetes non comunicano direttamente le informazioni relative alle informazioni disponibili, il processo per distribuire o ridimensionare i componenti utilizzando la console deve seguire il seguente schema.
 
-1. **Definisci la dimensione della distribuzione che vuoi eseguire**. I pannelli **Allocazione risorse** per CA, peer e ordinante nella console offrono allocazioni di CPU, memoria e archiviazione predefinite per ciascun nodo. Potresti dover regolare questi valori in base al tuo caso d'uso. Se non sei sicuro, inizia con le allocazioni predefinite e regolale man mano che comprendi le tue esigenze. In modo analogo, il pannello **Riallocazione risorse** visualizza le allocazioni di risorse esistenti.
+1. **Definisci la dimensione della distribuzione che vuoi eseguire**. I pannelli **Allocazione risorse** per CA, peer e il nodo di ordinazione nella console offrono allocazioni di CPU, memoria e archiviazione predefinite per ciascun nodo. Potresti dover regolare questi valori in base al tuo caso d'uso. Se non sei sicuro, inizia con le allocazioni predefinite e regolale man mano che comprendi le tue esigenze. In modo analogo, il pannello **Riallocazione risorse** visualizza le allocazioni di risorse esistenti.
 
   Per avere un'idea di che quantità di archiviazione e calcolo avrai bisogno nel tuo cluster, fai riferimento al grafico dopo questo elenco, che contiene i valori predefiniti correnti per peer, ordinante e CA.
 
 2. **Verifica se disponi di risorse sufficienti nel tuo cluster Kubernetes**. Se stai utilizzando un cluster Kubernetes ospitato in {{site.data.keyword.cloud_notm}}, ti consigliamo di utilizzare lo strumento [{{site.data.keyword.cloud_notm}} SysDig](https://www.ibm.com/cloud/sysdig){: external} in combinazione con il tuo dashboard {{site.data.keyword.cloud_notm}} Kubernetes. Se non disponi di spazio a sufficienza nel tuo cluster per distribuire o ridimensionare le risorse, devi aumentare la dimensione del tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes Service. Per ulteriori informazioni su come aumentare la dimensione di un cluster, vedi [Ridimensionamento dei cluster](/docs/containers?topic=containers-ca#ca){: external}. Se stai utilizzando un provider cloud diverso da {{site.data.keyword.cloud_notm}}, dovrai consultare la relativa documentazione per informazioni su come ridimensionare i cluster. Se disponi di spazio sufficiente nel tuo cluster, puoi continuare con il passo 3.
 3. **Utilizza la console per distribuire o ridimensionare il tuo nodo**. Se il tuo pod Kubernetes è abbastanza grande da accogliere la nuova dimensione del nodo, la riallocazione dovrebbe procedere senza alcun problema. Se il nodo di lavoro su cui è in esecuzione il pod sta esaurendo le risorse, puoi aggiungere un nuovo nodo di lavoro più grande al tuo cluster ed eliminare quindi il nodo di lavoro esistente.
 
-| **Componente** (tutti i contenitori) | CPU  | Memoria (GB) | Archiviazione (GB) |
+| **Componente** (tutti i contenitori) | CPU**  | Memoria (GB) | Archiviazione (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2           | 2,4                   | 200 (include 100GB per peer e 100GB per CouchDB)|
+| **Peer**                       | 1,1           | 2,4                   | 200 (include 100GB per peer e 100GB per CouchDB)|
 | **CA**                         | 0,1           | 0,2                   | 20                     |
-| **Nodo di ordine**        | 0,45          | 0,9                   | 100                    |
+| **Nodo di ordine**              | 0,35          | 0,9                   | 100                    |
+** Questi valori possono variare leggermente se stai utilizzando {{site.data.keyword.cloud_notm}} Private. Le assegnazioni VPC reali sono visibili nella console blockchain quando viene distribuito un nodo.  
 
-Se intendi distribuire un servizio di ordine Raft a cinque nodi, tieni presente che il totale della tua distribuzione aumenterà di un fattore di cinque. Quindi un totale di 2,25 CPU, 4,5 GB di memoria e 500 GB di archiviazione per i cinque nodi Raft. Ciò rende il servizio di ordine a cinque nodi più grande di un nodo di lavoro singolo Kubernetes di 2 CPU.
+Se intendi distribuire un servizio di ordine Raft a cinque nodi, tieni presente che il totale della tua distribuzione aumenterà di un fattore di cinque. Quindi un totale di 1,75 CPU, 4,5 GB di memoria e 500 GB di archiviazione per i cinque nodi Raft. Un cluster di nodi di lavoro singolo Kubernetes di 4 CPU è il valore minimo consigliato per consentire molta CPU per il cluster Raft e per tutti gli altri nodi che distribuisci.
 {:tip}
 
 Per i casi in cui un utente desideri ridurre al minimo gli addebiti senza disattivare del tutto o eliminare un nodo, è possibile ridurre un nodo a un minimo di 0,001 CPU (1 milliCPU). Nota: il nodo non sarà operativo quando si utilizza questa quantità di CPU.
@@ -65,7 +66,7 @@ Mentre gli utenti di un cluster gratuito **devono utilizzare le dimensioni prede
 
 Il pannello **Allocazione risorse** nella console fornisce i valori predefiniti per i diversi campi coinvolti nella creazione di un nodo. Questi valori vengono scelti perché rappresentano un buon modo per iniziare. Tuttavia, ogni caso d'uso è diverso. Mentre questo argomento fornirà una guida sui modi in cui pensare a questi valori, in ultima istanza è responsabilità dell'utente monitorare i suoi nodi e trovare le dimensioni a lui adatte. Pertanto, fatta eccezione per le situazioni in cui gli utenti sono certi che avranno bisogno di valori diversi da quelli predefiniti, una strategia pratica consiste nell'utilizzare inizialmente questi valori predefiniti e regolarli in un secondo momento. Per una panoramica delle prestazioni e della scala di Hyperledger Fabric, su cui è basato {{site.data.keyword.blockchainfull_notm}} Platform, vedi [Answering your questions on Hyperledger Fabric performance and scale](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/){: external}.
 
-Tutti i contenitori associati al nodo hanno **CPU** e **memoria**, mentre alcuni contenitori associati a peer, ordinante e CA hanno anche **archiviazione**. Per ulteriori informazioni sull'archiviazione, vedi [Considerazioni sull'archiviazione persistente](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
+Tutti i contenitori associati al nodo hanno **CPU** e **memoria**, mentre alcuni contenitori associati a peer, nodo di ordinazione e CA hanno anche **archiviazione**. Per ulteriori informazioni sull'archiviazione, vedi [Considerazioni sull'archiviazione persistente](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
 
 Sei responsabile del monitoraggio del tuo consumo di CPU, memoria e archiviazione nel tuo cluster. Se si verifica una situazione in cui devi richiedere per un nodo blockchain più risorse di quante ne siano disponibili, il nodo non verrà avviato ma i nodi esistenti non ne risentiranno. Sei stai utilizzando {{site.data.keyword.cloud_notm}} come tuo provider cloud, CPU e memoria devono essere modificati utilizzando la console e il dashboard {{site.data.keyword.cloud_notm}} Kubernetes Service. Tuttavia, dopo che un nodo è stato creato, l'archiviazione può essere modificata in un secondo momento solo utilizzando la CLI {{site.data.keyword.cloud_notm}}. Per informazioni su come aumentare la CPU, la memoria e l'archiviazione in altri provider cloud, consulta la documentazione di quei provider cloud.
 {:note}
@@ -75,7 +76,7 @@ Ogni nodo ha un proxy web gRPC che esegue il bootstrap del livello di comunicazi
 ### Autorità di certificazione (CA, Certificate Authority)
 {: #ibp-console-govern-CA}
 
-A differenza di peer e ordinanti, che sono attivamente coinvolti nel processo di transazione, le CA sono coinvolte solo nella registrazione e nell'iscrizione delle identità e nella creazione di un MSP. Questo significa che richiedono meno CPU e memoria. Per sottoporre a stress una CA, un utente dovrebbe sovraccaricarla di richieste (probabilmente utilizzando delle API o uno script) oppure la CA avrebbe dovuto emettere un quantitativo tale di certificati da esaurire l'archiviazione. In condizioni operative normali, non dovrebbe verificarsi nessuna di queste due situazioni sebbene, come sempre, questi valori dovrebbero riflettere le esigenze di uno specifico caso d'uso.
+A differenza di peer e nodi di ordinazione, che sono attivamente coinvolti nel processo di transazione, le CA sono coinvolte solo nella registrazione e nell'iscrizione delle identità e nella creazione di un MSP. Questo significa che richiedono meno CPU e memoria. Per sottoporre a stress una CA, un utente dovrebbe sovraccaricarla di richieste (probabilmente utilizzando delle API o uno script) oppure la CA avrebbe dovuto emettere un quantitativo tale di certificati da esaurire l'archiviazione. In condizioni operative normali, non dovrebbe verificarsi nessuna di queste due situazioni sebbene, come sempre, questi valori dovrebbero riflettere le esigenze di uno specifico caso d'uso.
 
 La CA ha solo un contenitore associato che possiamo regolare.
 
@@ -105,7 +106,7 @@ Il peer include anche un contenitore per il **Log Collector** che incanala i log
 #### Dimensionamento di un peer durante la creazione
 {: #ibp-console-govern-peers-sizing-creation}
 
-Come detto nella nostra sezione relativa alla [Modalità di interazione della console con il tuo cluster Kubernetes](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction), ti consigliamo di utilizzare i valori predefiniti per questi contenitori peer e regolarli in un secondo momento quando diventa evidente come sono utilizzati dal tuo caso d'uso.
+Come detto nella nostra sezione relativa alla [Modalità di interazione della console con il tuo cluster Kubernetes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction), ti consigliamo di utilizzare i valori predefiniti per questi contenitori peer e regolarli in un secondo momento quando diventa evidente come sono utilizzati dal tuo caso d'uso.
 
 | Risorse | Condizione da aumentare |
 |-----------------|-----------------------|
@@ -127,14 +128,14 @@ Analogamente alla CA, un nodo di ordine ha solo un singolo contenitore associato
 #### Dimensionamento di un ordinante durante la creazione
 {: #ibp-console-govern-orderer-sizing-creation}
 
-Come detto nella nostra sezione relativa al [Modo in cui {{site.data.keyword.cloud_notm}} Kubernetes Service interagisce con la console](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-iks-console-interaction), ti consigliamo di usare i valori predefiniti per questi contenitori ordinante e di regolarli in un secondo momento quando diventa evidente come verranno utilizzati.
+Come detto nella nostra sezione relativa al [Modo in cui {{site.data.keyword.cloud_notm}} Kubernetes Service interagisce con la console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction), ti consigliamo di usare i valori predefiniti per questi contenitori ordinante e di regolarli in un secondo momento quando diventa evidente come verranno utilizzati.
 
 | Risorse | Condizione da aumentare |
 |-----------------|-----------------------|
 | **CPU e memoria del contenitore nodo di ordine** | Quando prevedi un'immediata velocità effettiva elevata delle transazioni. |
 | **Archiviazione del nodo di ordine** | Quando prevedi che questo nodo di ordine farà parte di un servizio di ordine su molti canali. Ricordati che il servizio di ordine conserva una copia della blockchain per ogni canale che ospita. L'archiviazione predefinita di un nodo di ordine è 100G, uguale al contenitore per il peer stesso. |
 
-Assicurarti che i tuoi nodi di ordine dispongano di CPU e memoria sufficienti è considerata una prassi ottimale. Se un servizio di ordine è sottoposto a uno stress eccessivo, potrebbe raggiungere dei timeout e iniziare a eliminare le transazioni, rendendo necessario inoltrare nuovamente le transazioni. Ciò causa molto più danno a una rete di un singolo peer che fa fatica a tenere il passo. In una configurazione del servizio di ordine Raft, un nodo libro mastro sottoposto a stress eccessivo potrebbe smettere di inviare messaggi heartbeat, attivando una designazione del leader e una temporanea cessazione dell'ordinazione di transazioni. Allo stesso modo, un nodo follower potrebbe non rilevare dei messaggi e provare ad attivare una designazione del leader laddove non ne occorre uno.
+Assicurarti che i tuoi nodi di ordinazione dispongano di CPU e memoria sufficienti è considerata una prassi ottimale. Se un servizio di ordine è sottoposto a uno stress eccessivo, potrebbe raggiungere dei timeout e iniziare a eliminare le transazioni, rendendo necessario inoltrare nuovamente le transazioni. Ciò causa molto più danno a una rete di un singolo peer che fa fatica a tenere il passo. In una configurazione del servizio di ordine Raft, un nodo libro mastro sottoposto a stress eccessivo potrebbe smettere di inviare messaggi heartbeat, attivando una designazione del leader e una temporanea cessazione dell'ordinazione di transazioni. Allo stesso modo, un nodo follower potrebbe non rilevare dei messaggi e provare ad attivare una designazione del leader laddove non ne occorre uno.
 {:important}
 
 ## Riallocazione di risorse
@@ -156,7 +157,7 @@ Per eseguire un ridimensionamento in modo manuale nella console, fai clic sul no
 
 Se desideri aumentare la CPU e la memoria per un nodo, utilizza la scheda **Allocazione risorse** nella console per aumentare i valori. La casella bianca in fondo alla pagina sommerà i nuovi valori. Dopo che hai fatto clic su **Rialloca risorse**, la pagina **Riepilogo** convertirà questo valore in una quantità di **VPC**, che viene utilizzata per calcolare la tua fattura. Devi quindi andare al tuo cluster Kubernetes per assicurarti che il tuo cluster disponga di risorse sufficienti per questa riallocazione. In caso affermativo, puoi fare clic su **Rialloca risorse**. Se non è disponibile una quantità sufficiente di risorse, dovrai aumentare le dimensioni del tuo cluster.
 
-Il metodo che utilizzerai per aumentare l'archiviazione dipenderà dalla classe di archiviazione da te scelta per il tuo cluster. Fai riferimento alla documentazione del tuo provider cloud per saperne di più su questo argomento. In {{site.data.keyword.cloud_notm}}, questo argomento è denominato [opzioni di archiviazione](/docs/containers?topic=containers-kube_concepts#kube_concepts){: external}. Nota: in {{site.data.keyword.cloud_notm}}, se stai per esaurire l'archiviazione sul tuo peer od ordinante, devi distribuire un nuovo peer od ordinante con un file system più grande e consentirgli di eseguire la sincronizzazione tramite i tuoi altri componenti sugli stessi canali.
+Il metodo che utilizzerai per aumentare l'archiviazione dipenderà dalla classe di archiviazione da te scelta per il tuo cluster. Fai riferimento alla documentazione del tuo provider cloud per saperne di più su questo argomento. In {{site.data.keyword.cloud_notm}}, questo argomento è denominato [opzioni di archiviazione](/docs/containers?topic=containers-kube_concepts#kube_concepts){: external}. Nota: in {{site.data.keyword.cloud_notm}}, se stai per esaurire l'archiviazione sul tuo peer o nodo di ordinazione, devi distribuire un nuovo peer o nodo di ordinazione con un file system più grande e consentirgli di eseguire la sincronizzazione tramite i tuoi altri componenti sugli stessi canali.
 
 In {{site.data.keyword.cloud_notm}}, CPU e memoria possono essere aumentate utilizzando la console (se hai risorse disponibili nel tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes Service). Tuttavia, l'archiviazione deve essere aumentata utilizzando la CLI {{site.data.keyword.cloud_notm}}. Per un'esercitazione su come eseguire questa operazione, vedi [Modifica della dimensione e dell'IOPS del tuo dispositivo di archiviazione esistente](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external}. Se stai utilizzando un provider cloud diverso da {{site.data.keyword.cloud_notm}}, fai riferimento alla documentazione di tale provider per il processo relativo all'aumento di CPU, memoria e archiviazione.
 
@@ -165,14 +166,14 @@ In {{site.data.keyword.cloud_notm}}, CPU e memoria possono essere aumentate util
 
 Nel corso del tempo, potresti dover aggiornare una definizione di MSP dell'organizzazione, ad esempio aggiungendo degli ulteriori amministratori dell'organizzazione o modificando il nome di visualizzazione dell'MSP nella console.
 
-- Ti basta esportare la definizione di MSP esistente dalla scheda **Organizzazioni** e modificare il file JSON generato per modificare il nome di visualizzazione, i certificati esistenti o per aggiungere dei nuovi certificati.Ti sconsigliamo di modificare il campo `msp_id` poiché ciò potrebbe causare modifiche che causano interruzioni alla tua rete.
+- Ti basta esportare la definizione di MSP esistente dalla scheda **Organizzazioni** e modificare il file JSON generato per modificare il nome di visualizzazione, i certificati esistenti o per aggiungere dei nuovi certificati. Ti sconsigliamo di modificare il campo `msp_id` poiché ciò potrebbe causare modifiche che causano interruzioni alla tua rete.
 - Fai clic sulla tua definizione di MSP nella scheda **Organizzazioni** per aprirla e fai quindi clic su **Aggiungi file** per caricare il nuovo file JSON.
 - Fai clic su **Aggiorna definizione di MSP**. Le modifiche hanno effetto immediatamente.
 
 ## Aggiornamento di una configurazione del canale
 {: #ibp-console-govern-update-channel}
 
-Mentre la creazione e l'aggiornamento di un canale hanno lo stesso obiettivo, fornendo agli utenti la possibilità di assicurarsi che la configurazione dei propri canali sia il più adatta possibile al loro caso di utilizzo, i due processi sono di fatto **attività** molto diverse nella console. Ricorda che dalla nostra documentazione sulla [Creazione di un canale](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-create-channel) questo è un processo utilizzato da una **sola organizzazione**. Finché un'organizzazione fa parte del consorzio del servizio di ordine che diventerà il servizio di ordine di un canale, possono creare il canale in qualsiasi modo vogliano. Possono fornire qualsiasi nome, aggiungere qualsiasi organizzazione (purché siano membri del consorzio), assegnare le autorizzazioni delle organizzazioni, impostare gli elenchi di controllo dell'accesso e così via.
+Mentre la creazione e l'aggiornamento di un canale hanno lo stesso obiettivo, fornendo agli utenti la possibilità di assicurarsi che la configurazione dei propri canali sia il più adatta possibile al loro caso di utilizzo, i due processi sono di fatto **attività** molto diverse nella console. Ricorda che dalla nostra documentazione sulla [Creazione di un canale](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel) questo è un processo utilizzato da una **sola organizzazione**. Finché un'organizzazione fa parte del consorzio del servizio di ordine che diventerà il servizio di ordine di un canale, possono creare il canale in qualsiasi modo vogliano. Possono fornire qualsiasi nome, aggiungere qualsiasi organizzazione (purché siano membri del consorzio), assegnare le autorizzazioni delle organizzazioni, impostare gli elenchi di controllo dell'accesso e così via.
 
 Le altre organizzazioni possono scegliere se partecipare a questo canale (ad esempio, se unire i peer ad esso), ma si presume che il processo collaborativo di scelta dei parametri del canale avvenga fuori banda, prima che un'organizzazione utilizzi la console per creare il canale.
 
@@ -189,11 +190,17 @@ Vedrai che il **Nome del canale** è grigio e non può essere modificato. Questo
 
 Puoi, tuttavia, modificare i seguenti parametri di configurazione del canale:
 
-* **Organizzazioni**. Questa sezione del pannello rappresenta come le organizzazioni vengono aggiunte o rimosse da un canale. Le organizzazioni che possono venire aggiunte possono essere visualizzate nell'elenco a discesa. Tieni presente che un'organizzazione deve essere un membro del consorzio del servizio di ordine prima di poter essere aggiunta a un canale. Per ulteriori informazioni su come aggiungere un'organizzazione al consorzio, vedi [Aggiungere la propria organizzazione all'elenco di organizzazioni che possono eseguire transazioni](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network-add-org).
+* **Organizzazioni**. Questa sezione del pannello rappresenta come le organizzazioni vengono aggiunte o rimosse da un canale. Le organizzazioni che possono venire aggiunte possono essere visualizzate nell'elenco a discesa. Tieni presente che un'organizzazione deve essere un membro del consorzio del servizio di ordine prima di poter essere aggiunta a un canale. Per ulteriori informazioni su come aggiungere un'organizzazione al consorzio, vedi [Aggiungere la propria organizzazione all'elenco di organizzazioni che possono eseguire transazioni](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org).
 
-* **Politica di aggiornamento canale**. La politica di aggiornamento di un canale specifica quante organizzazioni (rispetto al numero totale di organizzazioni nel canale), devono approvare un aggiornamento alla configurazione del canale. Per garantire un buon bilanciamento tra una gestione collaborativa e un'elaborazione efficiente degli aggiornamenti della configurazione del canale, prendi in considerazione di impostare questa politica su una maggioranza di amministratori. Ad esempio, se sono presenti cinque amministratori in un canale, scegli `3 out of 5`.
+  Puoi anche aggiornare il livello di autorizzazione di un'organizzazione sul canale:
 
-* **Parametri di taglio blocco**. (Opzione avanzata) Poiché una modifica ai parametri di taglio blocco deve essere firmata da un amministratore dell'organizzazione del servizio di ordine, questi campi non sono presenti nel pannello di creazione del canale. Tuttavia, poiché questa configurazione del canale sarà inviata a tutte le organizzazioni pertinenti nel canale, è possibile inviare una richiesta di aggiornamento della configurazione del canale con delle modifiche ai parametri di taglio blocco. Questi campi determinano le condizioni in cui il servizio di ordine taglia un nuovo blocco. Per informazioni su come questi campi influenzano il taglio dei blocchi, vedi [Parametri di taglio blocco](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-orderer-tuning-batch-size).
+   - Un **operatore** del canale ha l'autorizzazione per creare e firmare gli aggiornamenti di configurazione del canale. Ci deve essere almeno un operatore in ciascun canale.
+   - Uno **scrittore** del canale può aggiornare il libro mastro del canale richiamando uno smart contract. Uno scrittore del canale può anche istanziare uno smart contract su un canale.
+   - Un **lettore** può solo interrogare mediante query il libro mastro del canale, ad esempio richiamando una funzione di sola lettura nello smart contract.
+
+* **Politica di aggiornamento canale**. La politica di aggiornamento di un canale specifica quante organizzazioni (rispetto al numero totale di operatori nel canale), devono approvare un aggiornamento alla configurazione del canale. Per garantire un buon bilanciamento tra una gestione collaborativa e un'elaborazione efficiente degli aggiornamenti della configurazione del canale, prendi in considerazione di impostare questa politica su una maggioranza di amministratori. Ad esempio, se sono presenti cinque amministratori in un canale, scegli `3 out of 5`.
+
+* **Parametri di taglio blocco**. (Opzione avanzata) Poiché una modifica ai parametri di taglio blocco deve essere firmata da un amministratore dell'organizzazione del servizio di ordine, questi campi non sono presenti nel pannello di creazione del canale. Tuttavia, poiché questa configurazione del canale sarà inviata a tutte le organizzazioni pertinenti nel canale, è possibile inviare una richiesta di aggiornamento della configurazione del canale con delle modifiche ai parametri di taglio blocco. Questi campi determinano le condizioni in cui il servizio di ordine taglia un nuovo blocco. Per informazioni su come questi campi influenzano il taglio dei blocchi, vedi [Parametri di taglio blocco](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning-batch-size).
 
 * **Elenchi di controllo dell'accesso**. (Opzione avanzata) Per specificare un controllo più dettagliato sulle risorse, puoi limitare l'accesso a una risorsa a un'organizzazione e a un ruolo all'interno di tale organizzazione. Ad esempio, impostando l'accesso alla risorsa `ChaincodeExists` su `Application/Admins` significa che solo l'amministratore di un'applicazione sarà in grado accedere alla risorsa `ChaincodeExists`.
 
@@ -207,7 +214,7 @@ Se stai tentando di modificare uno dei **parametri di taglio blocco** e gestisci
 ### Flusso di raccolta delle firme
 {: #ibp-console-govern-update-channel-signature-collection}
 
-Per la verifica delle firme, le organizzazioni su un canale devono esportare gli MSP (in formato JSON) che rappresentano le proprie organizzazioni in altre organizzazioni sul canale, nonché importare gli MSP delle altre organizzazioni. Per esportare un MSP, fai clic sul pulsante di scaricamento sul tuo MSP (nella schermata **Organizzazioni**), poi invialo alle altre organizzazioni fuori banda. Quando ricevi un JSON di un MSP, importalo utilizzando la schermata **Organizzazioni**.
+Per la verifica delle firme, le organizzazioni su un canale devono esportare gli MSP (in formato JSON) che rappresentano le proprie organizzazioni in altre organizzazioni sul canale, nonché importare gli MSP delle altre organizzazioni. Per esportare un MSP, fai clic sul pulsante di scaricamento sul tuo MSP (nella scheda **Organizzazioni**), poi invialo alle altre organizzazioni fuori banda. Quando ricevi un JSON di un MSP, importalo utilizzando la schermata **Organizzazioni**.
 {: important}
 
 Dopo aver effettuato una richiesta di aggiornamento della configurazione del canale, sarà inviata alle organizzazioni nel canale che hanno il diritto di firmarla. Ad esempio, se esistono cinque operatori (amministratori del canale) in un canale, sarà inviata a tutti e cinque. Per approvare un aggiornamento della configurazione del canale, il numero di operatori del canale elencato nella **politica di aggiornamento del canale** deve essere soddisfatto. Se la politica indica `3 out of 5`, l'aggiornamento della configurazione del canale sarà inviato a tutti e cinque gli operatori e quando tre di loro lo firmano, il nuovo aggiornamento della configurazione del canale diventerà effettivo.

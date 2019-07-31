@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,6 +55,7 @@ subcollection: blockchain
 - 无法修补导入到控制台的节点。
 - 导入到控制台的节点无法从这些节点部署到的集群中删除。只能从控制台中除去节点。
 - 如果要导入在 {{site.data.keyword.cloud_notm}} Private 上部署的节点，那么必须确保该组件使用的 gRPC Web 代理端口外部公开给控制台。有关更多信息，请参阅[从 {{site.data.keyword.cloud_notm}} Private 导入节点](#ibp-console-import-icp)。
+- 打开已导入节点的磁贴时，Fabric 版本不可见，并且**使用情况和信息**选项卡不可用。
 
 ## 准备工作：收集证书或凭证
 {: #ibp-console-import-start-here}

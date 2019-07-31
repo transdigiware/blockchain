@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -106,8 +106,9 @@ subcollection: blockchain
 2. 在打开的侧面板上，选择要在其中实例化智能合同的通道。可以选择已创建的名为 `channel1` 的通道。然后，单击**下一步**。
 3. 指定[智能合同的背书策略](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)，如以下部分中所述。当多个组织是通道的成员时，您有机会选择需要多少个组织来对智能合同事务背书。
 4. 还需要选择要包含在背书策略中的组织成员。如果您是按部就班地学习本教程，那么在完成了**构建网络**和**加入网络**教程后，组织成员将为 `org1msp`，也可能为 `org2msp`。
-5. 如果智能合同包含 Fabric 专用数据集合，那么需要上传关联的集合配置 JSON 文件，否则可以跳过此步骤。请参阅有关使用[专用数据](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)的主题，以获取更多信息。
-6. 在最后一个面板上，系统会提示您指定智能合同启动时要运行的智能合同函数，以及要传递给该函数的关联自变量。
+5. 在“选择同级”面板上，从下拉列表中选择作为通道成员的组织中的同级。
+6. 如果智能合同包含 Fabric 专用数据集合，那么需要上传关联的集合配置 JSON 文件，否则可以跳过此步骤。请参阅有关使用[专用数据](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)的主题，以获取更多信息。
+7. 在最后一个面板上，系统会提示您指定智能合同初始化函数的名称，以及要传递给该函数的关联自变量。
 
 通过单击左侧导航中的“通道”图标，从表中选择一个通道，然后单击**通道详细信息**选项卡，可以查看已在通道上实例化的所有智能合同。
 
@@ -133,6 +134,8 @@ subcollection: blockchain
 
 如果要指定 JSON 格式的策略，请单击**高级**按钮。可以使用此方法来指定更复杂的背书策略，例如要求通道的某个成员必须与大多数其他成员一起验证事务。可以在 Hyperledger Fabric 文档中找到其他[高级背书策略示例](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external}。有关使用 JSON 编写背书策略的更多信息，请参阅 [Hyperledger Fabric Node SDK 文档](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}。
 
+当新组织加入通道并安装链代码时，不会自动更新支持策略。例如，如果支持策略需要五个组织中的两个组织来支持事务处理，那么在一个新组织加入该通道时，该策略将不会更新为需要六个组织中的两个组织。相反，新组织将不会在策略上列出，并且他们将无法支持事务处理。您可以通过升级相关链代码并更新策略来将其他组织添加到支持策略中。
+
 ## 升级智能合同
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -142,7 +145,8 @@ subcollection: blockchain
 3. 专用数据集合发生更改（例如添加或除去了组织）时，需要升级智能合同。或者，每当将新的专用数据集合添加到集合配置 JSON 文件时，都使用此操作。
 4. 更改了智能合同初始化自变量。
 
-**在升级已实例化的智能合同之前，必须在通道中运行先前级别智能合同的所有同级上安装智能合同的新版本。**
+{:important}
+在升级已实例化的智能合同之前，必须在通道中运行先前级别智能合同的所有同级上安装智能合同的新版本。
 
 ### 如何升级智能合同
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -159,9 +163,10 @@ subcollection: blockchain
 
  1. 从下拉列表中选择要在通道上升级的智能合同版本。
  2. 通过添加或除去通道成员来更新背书策略。还可以单击**高级**以粘贴新的 JSON 格式字符串，该字符串用于修改现有策略。
- 3. 如果要将专用数据集合配置文件与智能合同相关联，可以上传 JSON 文件。或者，如果要更新现有集合配置，也可以上传 JSON 文件。   
+ 3. 在“选择同级”面板上，您选择的同级需要能够核准升级智能合同的建议。因此，在通道上最后实例化智能合同之前，您需要从下拉列表中选择作为通道成员的组织中的同级。
+ 4. 如果要将专用数据集合配置文件与智能合同相关联，可以上传 JSON 文件。或者，如果要更新现有集合配置，也可以上传 JSON 文件。   
 如果智能合同先前已使用集合配置文件进行实例化，那么**必须**在此步骤中重新上传集合配置文件的先前版本或新版本。  
- 4. （可选）如果参数已更改，请修改智能合同初始化自变量值。如果不确定参数是否更改，请咨询智能合同开发者。如果没有更改，那么可以将此字段保留为空白。
+ 5. （可选）如果参数已更改，请修改智能合同初始化自变量值。如果不确定参数是否更改，请咨询智能合同开发者。如果没有更改，那么可以将此字段保留为空白。
 
 升级智能合同后，请更改在通道上实例化的合同版本，然后更改已安装新版本的所有同级的智能合同容器。如果要使用专用数据集合，请确保已在通道上配置了锚点同级。
 

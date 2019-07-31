@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -54,7 +54,6 @@ subcollection: blockchain
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} 基于 Hyperledger Fabric V1.4.1 而构建。
 - 使用控制台或 API 部署的所有同级都将 CouchDB 用作其状态数据库。
 - 可以选择将 {{site.data.keyword.blockchainfull_notm}} Platform 服务实例链接到免费的 Kubernetes 集群来评估产品，但是容量和性能有限，不能迁移任何数据，并且 30 天后会将集群删除。
-- 虽然 Beta 试用版是免费的，但如果选择付费集群，仍需要为 Kubernetes 集群付费。
 - 您负责管理 Kubernetes 集群的运行状况监视、安全性和日志记录。请参阅此[信息](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external}，以获取有关 {{site.data.keyword.cloud_notm}} 管理的内容以及您所负责部分的详细信息。
 - 您还负责使用 Kubernetes 仪表板监视 Kubernetes 集群的资源使用情况。如果需要提高集群的存储容量或性能，请参阅有关如何[修改现有卷](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}的信息。
 - 您负责管理和保护证书和专用密钥。{{site.data.keyword.IBM_notm}} 不会在 Kubernetes 集群中存储证书。
@@ -63,6 +62,7 @@ subcollection: blockchain
 - 在 {{site.data.keyword.cloud_notm}} Kubernetes 集群中，Kubernetes 必须是 V1.11 或更高稳定版本。使用以下指示信息[升级新集群和现有集群](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes)至此版本。
 - 如果您不想在 {{site.data.keyword.cloud_notm}} 中供应 Kubernetes 集群时使用预先选择的缺省铜牌级文件存储器，那么可以供应您选择的存储器。请参阅有关[持久性存储器注意事项](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)的主题来了解更多信息。
 - 如果决定在 Kubernetes 集群中包含 {{site.data.keyword.cloud_notm}} 多专区支持，那么必须供应您自己的存储器。请参阅[将多专区 (MZR) 集群用于 {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)，以获取更多详细信息。
+- 不支持“虚拟路由和转发 (VRF)”。{site.data.keyword.blockchainfull_notm}} Platform 服务与启用了子网 IP 块之间自动全局路由的帐户不兼容。与此类似，配置了专用 VLAN 的 Kubernetes 集群也不受支持。
 
 ## 视频教程
 {: #ibp-v2-deploy-video}
@@ -107,7 +107,7 @@ subcollection: blockchain
 |免费**|适用于评估|2|4 GB|1|  
 ** 将 {{site.data.keyword.blockchainfull_notm}} Platform 服务实例链接到 {{site.data.keyword.cloud_notm}} Kubernetes 免费集群时，可免费预览 {{site.data.keyword.blockchainfull_notm}} Platform 30 天。但性能在吞吐量、存储器和功能方面会受到限制。{{site.data.keyword.cloud_notm}} 将在 30 天后删除 Kubernetes 集群，并且您无法将任何节点或数据从免费集群迁移到付费集群。
 
-这些资源足以用于测试和试验。在[构建网络教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)中，将创建两个同级、两个 CA 和一个排序服务，该教程将占用大约 4.85 个 CPU，而五节点排序服务将占用其中 2.25 个 CPU。因此，如果计划部署五节点排序服务，那么不应部署具有 2 个 CPU 的单工作程序节点的 Kubernetes 集群，因为该排序服务不适用于这种集群。建议使集群中的节点至少具有 4 个 CPU。添加的工作程序节点越多，集群就能越轻松地处理部署。
+这些资源足以用于测试和试验。在[构建网络教程](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network)中，将创建两个同级、两个 CA 和一个排序服务，该教程将占用大约 4.15 个 CPU，而五节点排序服务将占用其中 1.75 个 CPU。因此，如果计划部署五节点排序服务，那么不应部署具有 2 个 CPU 的单工作程序节点的 Kubernetes 集群，因为该排序服务不能轻松适用于其他节点。建议使集群中的节点至少具有 4 个 CPU。添加的工作程序节点越多，集群就能越轻松地处理部署。
 {:note}
 
 #### 付费集群
@@ -126,11 +126,11 @@ subcollection: blockchain
 
 |**组件**（所有容器）|CPU|内存 (GB)|存储器 (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-|**同级**|1.2|2.4|200（包括 100 GB 用于同级，100 GB 用于 CouchDB）|
+|**同级**| 1.1            |2.4|200（包括 100 GB 用于同级，100 GB 用于 CouchDB）|
 |**CA**|0.1|0.2|20|
-|**排序节点**|0.45|0.9|100|
+|**排序节点**| 0.35           |0.9|100|
 
-如果计划部署五节点 Raft 排序服务，请注意排序节点部署将增加为五倍。因此，五个 Raft 节点共有 2.25 个 CPU、4.5 GB 内存和 500 GB 存储器。这将使五节点排序服务大于 2 个 CPU 的 Kubernetes 单工作程序节点。
+如果计划部署五节点 Raft 排序服务，请注意部署总数将增加为五倍。因此，五个 Raft 节点共有 1.75 个 CPU、4.5 GB 内存和 500 GB 存储器。建议至少使用具有 4 个 CPU 的 Kubernetes 单工作程序节点集群，以允许 Raft 集群及您部署的任何其他节点具有足够的 CPU。
 {:tip}
 
 ## 步骤 1：在 {{site.data.keyword.cloud_notm}} 中创建服务实例
@@ -140,7 +140,7 @@ subcollection: blockchain
 
 1. 在 {{site.data.keyword.cloud_notm}}“目录”中找到 [Blockchain 服务](https://cloud.ibm.com/catalog/services/blockchain){: external}，或者在 {{site.data.keyword.cloud_notm}}“目录”页面中搜索 `Blockchain`。
 2. 建议重命名实例的**服务名称**，以便将来易于识别。
-3. 对于 Beta，**达拉斯**是唯一可用的区域，无法更改。在付费集群中，还有其他区域可以选择。有关更多信息，请参阅[区域](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)。
+3. 选择区域。有关可用区域的列表，请参阅[区域](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations)。
 4. 可以将“资源组”和“标记”字段保留不变。
 5. 选择**标准**套餐。
 6. 单击**创建**以供应服务实例。

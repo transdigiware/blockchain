@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-10"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -32,7 +32,7 @@ Per una panoramica di alto livello dei componenti in una rete basata su Fabric, 
 
 *Sebbene questo video si concentri sui componenti dal punto di vista delle reti Starter ed Enterprise, le informazioni sono ancora molto rilevanti per la soluzione gestita dal cliente di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private.*
 
-Ai fini di questa panoramica, ci concentreremo solo sulle autorità di certificazione (CA, Certificate Authority), sugli ordinanti, sui peer, sugli smart contract e sulle applicazioni. Come puoi vedere dagli argomenti della [Guida per la creazione di una rete di {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) e [Guida alla distribuzione di {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/ibp_for_icp_deployment_guide.html#get-started-icp), questa sequenza non è arbitraria; riflette la sequenza in cui verranno distribuiti i componenti in una rete basata su Fabric.
+Ai fini di questa panoramica, ci concentreremo solo sulle autorità di certificazione (CA, Certificate Authority), sugli ordinanti, sui peer, sugli smart contract e sulle applicazioni. Come puoi vedere dall'[esercitazione relativa alla creazione di una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), questa sequenza non è arbitraria; rispecchia la sequenza in cui i componenti in una rete basata su Fabric saranno distribuiti.
 
 ## Autorità di certificazione (CA, Certificate Authority)
 {: #blockchain-component-overview-ca}
@@ -53,7 +53,7 @@ Per ulteriori informazioni sul servizio di ordine, vedi [The Ordering Service](h
 ## Peer
 {: #blockchain-component-overview-peer}
 
-A un livello fisico, una rete blockchain è formata principalmente da nodi peer (o semplicemente peer). I peer sono gli elementi fondamentali della rete perché ospitano i libri mastro e gli smart contract (che sono contenuti in ["chaincode"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}. Più precisamente, i peer ospitano le **istanze** del libro mastro e le **istanze** degli smart contract. Poiché gli smart contract e i libri mastro vengono utilizzati, rispettivamente, per incapsulare i processi condivisi e le informazioni condivise in una rete, questi aspetti di un peer li rendono un buon punto di partenza per comprendere cosa faccia realmente una rete Fabric.
+A un livello fisico, una rete blockchain è formata principalmente da nodi peer (o semplicemente peer). I peer sono gli elementi fondamentali della rete perché ospitano i libri mastro e gli smart contract (che sono contenuti in ["chaincode"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}). Più precisamente, i peer ospitano le **istanze** del libro mastro e le **istanze** degli smart contract. Poiché gli smart contract e i libri mastro vengono utilizzati, rispettivamente, per incapsulare i processi condivisi e le informazioni condivise in una rete, questi aspetti di un peer li rendono un buon punto di partenza per comprendere cosa faccia realmente una rete Fabric.
 
 Per maggiori informazioni specifiche sui peer, vedi [questo documento che si concentra solo sui peer](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external} dalla documentazione della community Fabric.
 
@@ -76,7 +76,7 @@ Nel mondo degli affari i contratti sono firmati e depositati tramite studi legal
 
 Le applicazioni client in una rete basata su Fabric come {{site.data.keyword.blockchainfull_notm}} Platform utilizzano infrastrutture sottostanti come API, SDK e smart contract per consentire le interazioni tra i client (richiami e query) a un livello di astrazione più elevato.
 
-Per vedere come le applicazioni interagiscono con una rete basata su Fabric, consulta l'argomento relativo allo [sviluppo di applicazioni](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} nella documentazione di Hyperledger Fabric. Puoi anche visitare l'argomento [creazione di applicazioni](/docs/services/blockchain/howto/ibp-console-create-app.html#ibp-console-app) per informazioni su come connettere le tue applicazioni a {{site.data.keyword.blockchainfull_notm}} Platform.
+Per vedere come le applicazioni interagiscono con una rete basata su Fabric, consulta l'argomento relativo allo [sviluppo di applicazioni](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} nella documentazione di Hyperledger Fabric. Puoi anche visitare l'argomento [creazione di applicazioni](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app) per informazioni su come connettere le tue applicazioni a {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Una rete di esempio
 {: #blockchain-component-overview-example-network}

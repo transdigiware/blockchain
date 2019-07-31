@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-16"
 
-keywords: getting started tutorials, videos, web browsers
+keywords: getting started tutorials, videos, web browsers, integration
 
 subcollection: blockchain
 
@@ -23,7 +23,7 @@ subcollection: blockchain
 # Introduzione a {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks}
 
-{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} include la console {{site.data.keyword.blockchainfull_notm}} Platform, un'interfaccia utente che può semplificare e accelerare le operazioni da te eseguite per distribuire e gestire i componenti blockchain. Questa esercitazione descrive come iniziare a lavorare con {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} e utilizzare la console per distribuire e gestire i componenti blockchain nel tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes Service su {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni su Kubernetes e sul servizio {{site.data.keyword.cloud_notm}} Kubernetes, vedi [Kubernetes](/docs/services/blockchain/reference/k8s.html "Kubernetes").
+{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} include la console {{site.data.keyword.blockchainfull_notm}} Platform, un'interfaccia utente che può semplificare e accelerare le operazioni da te eseguite per distribuire e gestire i componenti blockchain. Questa esercitazione descrive come iniziare a lavorare con {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} e utilizzare la console per distribuire e gestire i componenti blockchain nel tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes Service su {{site.data.keyword.cloud_notm}}. Per ulteriori informazioni su Kubernetes e sul servizio {{site.data.keyword.cloud_notm}} Kubernetes, vedi [Kubernetes](/docs/services/blockchain/reference?topic=blockchain-k8s-overview "Kubernetes").
 {:shortdesc}
 
 **Gruppi di destinatari:** questo argomento è pensato per gli amministratori del sistema che sono responsabili della configurazione di un cluster Kubernetes su {{site.data.keyword.cloud_notm}} e per la distribuzione di {{site.data.keyword.blockchainfull_notm}} Platform.
@@ -40,9 +40,9 @@ Il seguente diagramma illustra i tre elementi di {{site.data.keyword.blockchainf
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform](../images/IBP-Diagram.svg "Componenti di {{site.data.keyword.blockchainfull_notm}} Platform")
 
-- **Console {{site.data.keyword.blockchainfull_notm}} (IU)**: questa è la console che ti consente di creare e gestire i tuoi componenti blockchain. Dopo che hai eseguito il provisioning di un'istanza del servizio in {{site.data.keyword.cloud_notm}}, puoi distribuire un'istanza della console {{site.data.keyword.blockchainfull_notm}} e collegarla al tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes. Puoi quindi utilizzare la console per creare e gestire i tuoi componenti blockchain nel tuo cluster Kubernetes. Non c'è alcun addebito per la console.
+- **Console {{site.data.keyword.blockchainfull_notm}} Platform (IU)**: questa è la console che ti consente di creare e gestire i tuoi componenti blockchain. Dopo che hai eseguito il provisioning di un'istanza del servizio in {{site.data.keyword.cloud_notm}}, puoi distribuire un'istanza della console {{site.data.keyword.blockchainfull_notm}} e collegarla al tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes. Puoi quindi utilizzare la console per creare e gestire i tuoi componenti blockchain nel tuo cluster Kubernetes. Non c'è alcun addebito per la console.
 
-- **Componenti di Hyperledger Fabric**: la console viene utilizzata per creare e gestire i componenti blockchain che sono basati sulle immagini di servizio di ordine, peer e CA (Certificate Authority) di Hyperledger Fabric v1.4.1. Questi componenti vengono distribuiti nel tuo cluster di Kubernetes e viene eseguito il provisioning dell'archiviazione per essi utilizzando la classe di archiviazione predefinita (`default`) quando vengono distribuiti.
+- **Componenti di Hyperledger Fabric**: la console viene utilizzata per creare e gestire i componenti blockchain che sono basati sulle immagini di servizio di ordine, peer e CA (Certificate Authority) di Hyperledger Fabric v1.4.1.  Questi componenti vengono distribuiti nel tuo cluster di Kubernetes e viene eseguito il provisioning dell'archiviazione per essi utilizzando la classe di archiviazione predefinita (`default`) quando vengono distribuiti.
 
 - **Estensione {{site.data.keyword.IBM_notm}} VS Code (Strumenti di sviluppo)**: scarica l'estensione VS Code dal marketplace VS Code per iniziare a sviluppare, impacchettare e verificare applicazioni client e smart contract.
 
@@ -54,14 +54,15 @@ Prima di distribuire la console, assicurati di aver compreso le seguenti conside
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} è sviluppato con Hyperledger Fabric v1.4.1.
 - Tutti i peer distribuiti con la console o le API utilizzano CouchDB come loro database dello stato.
 - Hai l'opzione di collegare la tua istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform a un cluster Kubernetes gratuito per la valutazione dell'offerta; tuttavia, capacità e prestazioni sono limitate, nessuno dei tuoi dati può essere migrato e il cluster viene eliminato dopo 30 giorni.
-- Mentre la versione di prova beta è gratuita, dovrai ancora pagare per il tuo cluster Kubernetes, se scegli un cluster a pagamento.
-- Sei responsabile della gestione del monitoraggio dell'integrità, della sicurezza e della registrazione del tuo cluster Kubernetes. Vedi queste [informazioni](/docs/containers/cs_responsibilities.html#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} per i dettagli su quanto gestito da {{site.data.keyword.cloud_notm}} e su quanto è una tua responsabilità.
-- Sei anche responsabile del monitoraggio dell'utilizzo delle risorse del tuo cluster Kubernetes utilizzando il dashboard Kubernetes. Se devi aumentare la capacità di archiviazione o le prestazioni del tuo cluster, vedi queste informazioni su come [modificare il tuo volume esistente](/docs/containers/cs_storage_file.html#change_storage_configuration){: external}.
+- Sei responsabile della gestione del monitoraggio dell'integrità, della sicurezza e della registrazione del tuo cluster Kubernetes. Vedi queste [informazioni](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} per i dettagli su quanto gestito da {{site.data.keyword.cloud_notm}} e su quanto è una tua responsabilità.
+- Sei anche responsabile del monitoraggio dell'utilizzo delle risorse del tuo cluster Kubernetes utilizzando il dashboard Kubernetes. Se devi aumentare la capacità di archiviazione o le prestazioni del tuo cluster, vedi queste informazioni su come [modificare il tuo volume esistente](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - Sei responsabile della gestione e della protezione dei tuoi certificati e delle tue chiavi private. {{site.data.keyword.IBM_notm}} non archivia i tuoi certificati nel cluster Kubernetes.
 - {{site.data.keyword.blockchainfull_notm}} Platform è disponibile in regioni selezionate. Fai riferimento a questo argomento sulle [Ubicazioni {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto?topic=blockchain-ibp-regions-locations) per un elenco aggiornato.
-- Kubernetes deve essere alla versione 1.11 o a una versione stabile successiva nel tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes. Utilizza queste istruzioni per [eseguire un upgrade dei tuoi cluster nuovi ed esistenti](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-updating-kubernetes) a questa versione.
+- {{site.data.keyword.blockchainfull_notm}} Platform non può essere distribuito su cluster OpenShift creati utilizzando il servizio {{site.data.keyword.IBM_notm}} Kubernetes.
+- Kubernetes deve essere alla versione 1.11 o a una versione stabile successiva nel tuo cluster {{site.data.keyword.cloud_notm}} Kubernetes. Utilizza queste istruzioni per [eseguire un upgrade dei tuoi cluster nuovi ed esistenti](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) a questa versione.
 - Se non desideri utilizzare l'archiviazione file Bronze predefinita che è preselezionata per tuo conto quando esegui il provisioning di un cluster Kubernetes in {{site.data.keyword.cloud_notm}}, puoi eseguire il provisioning di archiviazione a tua scelta. Per ulteriori informazioni, vedi questo argomento sulle [Considerazioni sull'archiviazione persistente](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
 - Se decidi di includere il supporto multizona {{site.data.keyword.cloud_notm}} nel tuo cluster Kubernetes, devi eseguire il provisioning della tua archiviazione. Per ulteriori dettagli, vedi [Utilizzo dei cluster multizona (MZR) con {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr).
+- VRF (Virtual Routing and Forwarding) non è supportato. Il servizio {site.data.keyword.blockchainfull_notm}} Platform non è compatibile con gli account abilitati per l'instradamento globale automatico tra blocchi di IP di sottorete. Allo stesso modo, anche i cluster Kubernetes configurati con VLAN private non sono supportati.
 
 ## Esercitazione video
 {: #ibp-v2-deploy-video}
@@ -81,7 +82,7 @@ Prima di cominciare:
 Quando intendi utilizzare l'istanza del servizio nel contesto di una più ampia soluzione a livello dell'organizzazione, si consiglia che le organizzazioni partecipanti utilizzino un indirizzo email funzionale per creare la loro rete. In questo caso, l'accesso alla rete non dipende dalla disponibilità di alcun singolo utente.
 {:tip}  
 
-- Se intendi utilizzare un cluster {{site.data.keyword.cloud_notm}} Kubernetes Service esistente, controlla la versione di Kubernetes ed eseguine l'upgrade alla versione 1.11 o successiva, se necessario. Per ulteriori informazioni su come determinare quale sia la versione di Kubernetes che il tuo cluster sta eseguendo e su come eseguire un upgrade della versione, vedi [Aggiornamento della versione di Kubernetes del tuo cluster](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-updating-kubernetes).
+- Se intendi utilizzare un cluster {{site.data.keyword.cloud_notm}} Kubernetes Service esistente, controlla la versione di Kubernetes ed eseguine l'upgrade alla versione 1.11 o successiva, se necessario. Per ulteriori informazioni su come determinare quale sia la versione di Kubernetes che il tuo cluster sta eseguendo e su come eseguire un upgrade della versione, vedi [Aggiornamento della versione di Kubernetes del tuo cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
 
 ### Browser
 {: #ibp-v2-deploy-iks-browsers}
@@ -106,13 +107,16 @@ Il seguente elenco specifica il software browser richiesto minimo per la console
 |Gratuito** | Adatto per la valutazione | 2 | 4 GB | 1 |  
 ** Visualizza un'anteprima di {{site.data.keyword.blockchainfull_notm}} Platform gratuitamente per 30 giorni quando colleghi la tua istanza del servizio {{site.data.keyword.blockchainfull_notm}} Platform a un cluster gratuito {{site.data.keyword.cloud_notm}} Kubernetes. Le prestazioni saranno limitate da velocità effettiva, archiviazione e funzionalità. {{site.data.keyword.cloud_notm}} eliminerà il tuo cluster Kubernetes dopo 30 giorni e non puoi migrare i nodi o i dati da un cluster gratuito a uno a pagamento.
 
-Queste risorse sono sufficienti per l'esecuzione di test e la sperimentazione. L'[esercitazione Crea una rete](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network), in cui crei due peer, due CA e un servizio di ordine, richiede circa 4,85 CPU, con il servizio di ordine a cinque nodi che ne utilizza fino a 2,25 CPU. Pertanto, se intendi distribuire un servizio di ordine a cinque nodi, non devi distribuire un cluster Kubernetes con un nodo di lavoro singolo da 2 CPU al suo interno poiché non sarà sufficiente per il servizio di ordine. Consigliamo un cluster con dei nodi di almeno 4 CPU. Più nodi di lavoro aggiungi e più facilmente il tuo cluster potrà gestire le tue distribuzioni.
+Queste risorse sono sufficienti per l'esecuzione di test e la sperimentazione. L'[esercitazione Crea una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), in cui crei due peer, due CA e un servizio di ordinazione, richiede circa 4,15 CPU, con il servizio di ordinazione a cinque nodi che ne utilizza fino a 1,75 CPU. Pertanto, se intendi distribuire un servizio di ordinazione a cinque nodi, non devi distribuire un cluster Kubernetes con un nodo di lavoro singolo da 2 CPU poiché il servizio di ordinazione si adatterà con difficoltà agli altri nodi. Consigliamo un cluster con dei nodi di almeno 4 CPU. Più nodi di lavoro aggiungi e più facilmente il tuo cluster potrà gestire le tue distribuzioni.
 {:note}
 
 #### Cluster a pagamento
 {: #ibp-v2-deploy-iks-resources-required-paid}
 
-Le distribuzioni a livello di produzione di {{site.data.keyword.blockchainfull_notm}} Platform saranno distribuite a un cluster a pagamento del servizio {{site.data.keyword.cloud_notm}} Kubernetes. La dimensione e la configurazione di questo cluster dipenderanno dalle esigenze del tuo specifico caso d'uso. Le distribuzioni più grandi dovranno necessariamente essere distribuite su cluster più grandi. Sta a te decidere di quanto il tuo cluster debba essere più grande della tua distribuzione prevista. È opportuno avere almeno un po' di margine poiché consentirà ai peer e ai nodi di ordine di essere parte di ulteriori canali e assumersi una velocità effettiva maggiore senza dover distribuire ulteriori risorse nel tuo cluster Kubernetes **prima** di regolare la dimensione dei tuoi nodi. Per ulteriori informazioni su come vengono regolati questi valori, vedi [Riallocazione di risorse](/docs/services/blockchain/howto/ibp-console-govern.html#ibp-console-govern-reallocate-resources).
+Le distribuzioni a livello di produzione di {{site.data.keyword.blockchainfull_notm}} Platform saranno distribuite a un cluster a pagamento del servizio {{site.data.keyword.cloud_notm}} Kubernetes. La dimensione e la configurazione di questo cluster dipenderanno dalle esigenze del tuo specifico caso d'uso. Le distribuzioni più grandi dovranno necessariamente essere distribuite su cluster più grandi. Sta a te decidere di quanto il tuo cluster debba essere più grande della tua distribuzione prevista. È opportuno avere almeno un po' di margine poiché consentirà ai peer e ai nodi di ordine di essere parte di ulteriori canali e assumersi una velocità effettiva maggiore senza dover distribuire ulteriori risorse nel tuo cluster Kubernetes **prima** di regolare la dimensione dei tuoi nodi. Per ulteriori informazioni su come vengono regolati questi valori, vedi [Riallocazione di risorse](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources).
+
+Devi creare un cluster di tipo Kubernetes per distribuire {{site.data.keyword.blockchainfull_notm}} Platform. {{site.data.keyword.blockchainfull_notm}} Platform non supporta i cluster OpenShift creati utilizzando il servizio {{site.data.keyword.IBM_notm}} Kubernetes.
+{:important}
 
 La creazione di una distribuzione iniziale di dimensioni sufficienti per consentire la crescita è particolarmente importante per gli utenti che sceglieranno di non utilizzare l'[autoscaler di {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ca#ca){: external}, che si può assumere una parte del carico derivante dalla distribuzione di ulteriori nodi e pod per l'utente.
 
@@ -122,11 +126,11 @@ Per avere un'idea di che quantità di archiviazione e calcolo avrai bisogno nel 
 
 | **Componente** (tutti i contenitori) | CPU  | Memoria (GB) | Archiviazione (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2            | 2,4                  | 200 (include 100GB per peer e 100GB per CouchDB)|
+| **Peer**                       | 1,1            | 2,4                  | 200 (include 100GB per peer e 100GB per CouchDB)|
 | **CA**                         | 0,1            | 0,2                  | 20                     |
-| **Nodo di ordine**              | 0,45           | 0,9                  | 100                    |
+| **Nodo di ordine**              | 0,35          | 0,9                  | 100                    |
 
-Se intendi distribuire un servizio di ordine Raft a cinque nodi, tieni presente che la tua distribuzione di nodi di ordine aumenterà di un fattore di cinque. Quindi un totale di 2,25 CPU, 4,5 GB di memoria e 500 GB di archiviazione per i cinque nodi Raft. Ciò rende il servizio di ordine a cinque nodi più grande di un nodo di lavoro singolo Kubernetes di 2 CPU.
+Se intendi distribuire un servizio di ordine Raft a cinque nodi, tieni presente che il totale della tua distribuzione aumenterà di un fattore di cinque. Quindi un totale di 1,75 CPU, 4,5 GB di memoria e 500 GB di archiviazione per i cinque nodi Raft. Un cluster di nodi di lavoro singolo Kubernetes di 4 CPU è il valore minimo consigliato per consentire molta CPU per il cluster Raft e per tutti gli altri nodi che distribuisci.
 {:tip}
 
 ## Fase uno: Crea un'istanza del servizio in {{site.data.keyword.cloud_notm}}
@@ -136,7 +140,7 @@ Utilizza la seguente procedura per creare un'istanza del servizio di {{site.data
 
 1. Individua il [servizio blockchain](https://cloud.ibm.com/catalog/services/blockchain){: external} nel catalogo {{site.data.keyword.cloud_notm}} oppure cerca `Blockchain` nella tua pagina del catalogo {{site.data.keyword.cloud_notm}}.
 2. Ti consigliamo di rinominare il **Nome servizio** per la tua istanza in modo che tu possa riconoscerla facilmente in futuro.
-3. Per Beta, **Dallas** è la sola regione disponibile e non può essere modificata. In un cluster a pagamento è possibile scegliere delle regioni aggiuntive. Per ulteriori informazioni, vedi [Regioni](/docs/services/blockchain/reference/ibp_regions.html#ibp-regions-locations).
+3. Scegli la tua regione. Per un elenco di regioni disponibili, vedi [Regioni](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 4. Puoi lasciare i campi relativi alle tag e ai gruppi di risorse invariate.
 5. Scegli il piano **Standard** .
 6. Fai clic su **Crea** per eseguire il provisioning dell'istanza del servizio.
@@ -147,17 +151,17 @@ Utilizza la seguente procedura per creare un'istanza del servizio di {{site.data
 Puoi attenerti alle istruzioni per distribuire {{site.data.keyword.blockchainfull_notm}} Platform immediatamente dopo che hai creato l'istanza del servizio.
 
 1. Il passo **Benvenuti e prerequisiti**. Se già hai un cluster {{site.data.keyword.IBM_notm}} Kubernetes Service esistente nella regione **Dallas** e vuoi utilizzarlo per il tuo servizio blockchain, seleziona la casella di spunta. **Se utilizzi un cluster esistente, puoi saltare il prossimo passo; ma assicurati che la versione Kubernetes sia alla v1.11 o a una versione stabile successiva**. Fai clic su **Continua**.
-2. Il passo **Crea cluster**. Se selezioni la casella di spunta nel passo 1 per utilizzare un cluster Kubernetes esistente, questo passo viene tralasciato. Altrimenti, fai clic su **Crea un nuovo cluster**, che avvia il dashboard Kubernetes {{site.data.keyword.cloud_notm}} per creare un cluster. Per ulteriori informazioni, vedi [Introduzione a {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers/getting-started.html){: external}. Prevedi del tempo supplementare per il completamento di questo processo.
-  - Per informazioni sulle ubicazioni per il tuo cluster, vedi [Regioni](/docs/services/blockchain/reference/ibp_regions.html#ibp-regions-locations).
-  - Scegli **Cluster standard (consigliato)** se hai bisogno di un'opzione a più lungo termine che include più nodi per l'alta disponibilità. **Scegli almeno la v.1.11 o una versione stabile successiva.** Per distribuire un cluster a pagamento, vedi [Creazione di un cluster standard](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}. Nota: se desideri l'alta disponibilità o il ripristino di emergenza, dovrai prendere una decisione in merito alla classe di archiviazione che stai utilizzando. La classe di archiviazione predefinita (`default`) sul cluster verrà utilizzata dal provisioning dinamico. Quindi, i clienti possono impostare qualsiasi classe di archiviazione come quella predefinita. Per ulteriori informazioni, vedi [Decisioni relative alla configurazione dell'archiviazione file](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.
-  - Scegli **Cluster gratuito.** se vuoi visualizzare un'anteprima della piattaforma per meno di 30 giorni. **Nota** che non è possibile eseguire la migrazione da un cluster gratuito a un cluster a pagamento. Il tipo di cluster gratuito offre un'archiviazione e una velocità effettiva delle transazioni limitate. Per istruzioni su cosa fare quando scade il tuo cluster Kubernetes, vedi questo argomento relativo alla [scadenza del cluster Kubernetes](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-cluster-expiration).
-  - Per ulteriori informazioni sulle differenze tra i cluster Kubernetes e a pagamento su {{site.data.keyword.cloud_notm}}, vedi [Confronto tra i cluster standard e gratuito](https://cloud.ibm.com/docs/containers?topic=containers-cluster_types#cluster_types){: external}.  
+2. Il passo **Crea cluster**. Se selezioni la casella di spunta nel passo 1 per utilizzare un cluster Kubernetes esistente, questo passo viene tralasciato. Altrimenti, fai clic su **Crea un nuovo cluster**, che avvia il dashboard Kubernetes {{site.data.keyword.cloud_notm}} per creare un cluster. Per ulteriori informazioni, vedi [Introduzione a {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-getting-started){: external}. Prevedi del tempo supplementare per il completamento di questo processo.
+  - Per informazioni sulle ubicazioni per il tuo cluster, vedi [Regioni](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+  - Scegli **Cluster standard (consigliato)** se hai bisogno di un'opzione a più lungo termine che include più nodi per l'alta disponibilità. Per il tipo di cluster, seleziona **Kubernetes**. **Scegli almeno la v.1.11 o una versione stabile successiva.** Per distribuire un cluster a pagamento, vedi [Creazione di un cluster standard](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}. Nota: se desideri l'alta disponibilità o il ripristino di emergenza, dovrai prendere una decisione in merito alla classe di archiviazione che stai utilizzando. La classe di archiviazione predefinita (`default`) sul cluster verrà utilizzata dal provisioning dinamico. Quindi, i clienti possono impostare qualsiasi classe di archiviazione come quella predefinita. Per ulteriori informazioni, vedi [Decisioni relative alla configurazione dell'archiviazione file](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.
+  - Scegli **Cluster gratuito.** se vuoi visualizzare un'anteprima della piattaforma per meno di 30 giorni. **Nota** che non è possibile eseguire la migrazione da un cluster gratuito a un cluster a pagamento. Il tipo di cluster gratuito offre un'archiviazione e una velocità effettiva delle transazioni limitate. Per istruzioni su cosa fare quando scade il tuo cluster Kubernetes, vedi questo argomento relativo alla [scadenza del cluster Kubernetes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
+  - Per ulteriori informazioni sulle differenze tra i cluster Kubernetes e a pagamento su {{site.data.keyword.cloud_notm}}, vedi [Confronto tra i cluster standard e gratuito](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.  
 
    Devi ritornare a questa scheda nel tuo browser dopo che hai creato il cluster in modo da poter completare il processo di distribuzione di {{site.data.keyword.blockchainfull_notm}} Platform.  
    {:important}  
 
   Devi attendere fino a che il tuo cluster non sarà stata distribuito correttamente. Fai quindi clic sul pulsante **Ho un cluster**.
-3. La tua versione Kubernetes in esecuzione nel tuo cluster deve essere alla versione 1.11 o successiva. Attieniti alla seguente [procedura](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-updating-kubernetes) per controllare la tua versione del cluster ed eseguire l'upgrade, se necessario. Torna quindi indietro e procedi con queste istruzioni.
+3. La tua versione Kubernetes in esecuzione nel tuo cluster deve essere alla versione 1.11 o successiva. Attieniti alla seguente [procedura](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) per controllare la tua versione del cluster ed eseguire l'upgrade, se necessario. Torna quindi indietro e procedi con queste istruzioni.
 4. Il passo **Distribuisci su cluster**. Seleziona il cluster Kubernetes in cui vuoi distribuire {{site.data.keyword.blockchainfull_notm}} Platform dall'elenco a discesa e fai clic su **Distribuisci al cluster**.  
 
   Se il tuo cluster Kubernetes non è visibile nell'elenco a discesa, potrebbe essere a causa di una delle seguenti condizioni:
@@ -183,10 +187,34 @@ Per impostazione predefinita, la console utilizza [{{site.data.keyword.cloud_not
 ## Passi successivi
 {: #ibp-v2-deploy-iks-next-steps}
 
-- Prima di creare qualsiasi nodo, devi prendere una decisione in merito al plug-in di archiviazione per il tuo cluster Kubernetes. Se stai iniziando ora a utilizzare il prodotto e ne stai provando le funzioni, è adatta l'archiviazione file Bronze predefinita che è preselezionata per tuo conto quando esegui il provisioning del cluster. Non è richiesta alcuna ulteriore azione in questo momento. Quando però sei pronto a distribuire un cluster per la verifica formale o un utilizzo di produzione, devi prendere una decisione in merito al plug-in di archiviazione appropriato per le tue esigenze. Per iniziare, vedi questo argomento sulle [Considerazioni sull'archiviazione persistente](#ibp-console-storage).
+- Prima di creare qualsiasi nodo, devi prendere una decisione in merito al plug-in di archiviazione per il tuo cluster Kubernetes. Se stai iniziando ora a utilizzare il prodotto e ne stai provando le funzioni, è adatta l'archiviazione file Bronze predefinita che è preselezionata per tuo conto quando esegui il provisioning del cluster. Non è richiesta alcuna ulteriore azione in questo momento.  Quando però sei pronto a distribuire un cluster per la verifica formale o un utilizzo di produzione, devi prendere una decisione in merito al plug-in di archiviazione appropriato per le tue esigenze. Per iniziare, vedi questo argomento sulle [Considerazioni sull'archiviazione persistente](#ibp-console-storage).
 
-- Ora che la tua console è pronta per l'utilizzo, puoi procedere con l'[Esercitazione di creazione di una rete](/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network).
+- Ora che la tua console è pronta per l'utilizzo, puoi procedere con l'[Esercitazione di creazione di una rete](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
 Considera di contrassegnare con un segnalibro l'URL della tua console in modo da poterci tornare in un secondo momento se necessario. Altrimenti, puoi seguire la procedura in [Istruzioni di post-installazione](#ibp-v2-deploy-iks-post-install) per ritornarci dal tuo browser.
+
+## Integrazione con {{site.data.keyword.cloud_notm}} e altri servizi di terze parti
+{: #ibp-v2-deploy-iks-integrations}
+
+{{site.data.keyword.blockchainfull_notm}} Platform può utilizzare una suite di servizi forniti nel catalogo {{site.data.keyword.cloud_notm}} per fornire agli utenti una maggiore visibilità sulla loro rete o per l'integrazione con altri servizi.
+
+![{{site.data.keyword.blockchainfull_notm}} Platform - Integrazioni](../images/integrations-updated.png "{{site.data.keyword.cloud_notm}} - Integrazioni")  
+
+**Controllo dell'accesso**  
+- Autentica in modo sicuro gli utenti e controlla l'accesso a tutte le risorse cloud utilizzando [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-iam).
+
+**Monitoraggio**  
+- Utilizza il servizio [{{site.data.keyword.cloud_notm}} Activity Tracker with LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started) per risolvere i problemi con in log in tempo reale, diagnosticare gli errori e identificare i problemi nel tuo cluster Kubernetes.
+
+- Utilizza [{{site.data.keyword.cloud_notm}} Activity Tracker with SysDig](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-getting-started#getting-started) per monitorare l'attività e l'integrità dei servizi e delle applicazioni in IBM Cloud.
+
+- Vedi questa esercitazione su come [Analizzare i log e monitorare l'integrità dell'applicazione con LogDNA e Sysdig](/docs/tutorials?topic=solution-tutorials-application-log-analysis).
+
+**Archiviazione**  
+- Utilizza {{site.data.keyword.cloud_notm}} [File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) e [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage) quando viene eseguito il provisioning dei nodi blockchain. Vedi questo argomento sulle [Considerazioni sull'archiviazione persistente](#ibp-console-storage) per ulteriori informazioni su come blockchain si integra con le opzioni di archiviazione {{site.data.keyword.cloud_notm}}.
+
+- Configura [Portworx](/docs/containers?topic=containers-portworx#portworx) per gestire l'archiviazione persistente locale tra i tuoi database inseriti in contenitori o condividere i dati tra i pod in più zone.
+
+Per ulteriori informazioni sui servizi {{site.data.keyword.cloud_notm}} disponibili e sulle altre integrazioni di terze parti, vedi questo elenco di integrazioni [supportate {{site.data.keyword.cloud_notm}} e di terze parti](/docs/containers?topic=containers-supported_integrations#supported_integrations){: external}.
 
 ## Aggiornamento della versione di Kubernetes del tuo cluster
 {: #ibp-v2-deploy-iks-updating-kubernetes}
@@ -201,14 +229,14 @@ Se la versione di Kubernetes non è alla versione 1.11 o successiva, devi comple
 2. Seleziona una versione di 1.11 o successiva dall'elenco a discesa delle versioni di Kubernetes e fai clic su **Aggiorna**.
 3. Fai clic sul tuo cluster e vai alla scheda **Nodi di lavoro**. Seleziona la casella di spunta davanti al nodo di lavoro che desideri aggiornare e fai clic su **Aggiorna Kubernetes** dalla barra dei menu a comparsa. Se il tuo cluster contiene più nodi di lavoro, devono essere aggiornati tutti.
 
-  Gli aggiornamenti ai nodi di lavoro possono causare tempi di inattività per applicazioni e servizi. L'immagine della macchina del nodo di lavoro viene ricreata e i dati vengono eliminati se non sono [archiviati al di fuori del pod](https://cloud.ibm.com/docs/containers/cs_storage_planning.html#persistent_storage_overview){: external}.
+  Gli aggiornamenti ai nodi di lavoro possono causare tempi di inattività per applicazioni e servizi. L'immagine della macchina del nodo di lavoro viene ricreata e i dati vengono eliminati se non sono [archiviati al di fuori del pod](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external}.
   {:important}
 
 ![Aggiorna versione Kubernetes](../images/update_k8s_version.gif){: gif}
 
 Per ulteriori informazioni sull'aggiornamento della versione di Kubernetes per un cluster {{site.data.keyword.IBM_notm}} Kubernetes Service e i nodi di lavoro, vedi, [Aggiornamento dei cluster, dei nodi di lavoro e degli elementi aggiuntivi](/docs/containers?topic=containers-update#update){: external}.  
 
-Devi attendere il completamento dell'aggiornamento prima di poter [riprendere la distribuzione di {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks-steps).
+Devi attendere il completamento dell'aggiornamento prima di poter [riprendere la distribuzione di {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-steps).
 
 ## Come assegnare i ruoli di accesso Kubernetes
 {: #ibp-v2-deploy-iks-k8x-access-roles}
@@ -246,10 +274,10 @@ La tua console viene aperta nel tuo browser.
 ## Considerazioni sull'archiviazione persistente
 {: #ibp-console-storage}
 
-{{site.data.keyword.blockchainfull_notm}} Platform richiede l'archiviazione persistente per ogni CA, peer e nodo di ordine. Quando distribuisci un cluster Kubernetes standard in {{site.data.keyword.cloud_notm}}, viene fornito preconfigurato con il plug-in di [archiviazione file di livello Bronze](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} come classe di archiviazione predefinita (`default`). Quindi, quando distribuisci un nodo blockchain a tale cluster utilizzando la console o le API, viene dinamicamente eseguito il provisioning di una quantità di archiviazione file per il nodo basata sulla quantità di archiviazione che era stata richiesta quando era stato distribuito il nodo. Pertanto, la distribuzione esegue il provisioning dell'archiviazione nel cluster con la classe di archiviazione predefinita (`default`). Puoi scegliere da diverse [opzioni di archiviazione di Kubernetes](https://cloud.ibm.com/docs/containers/cs_storage_planning.html#persistent_storage_overview){: external} e decidere in merito al tipo di archiviazione più indicato per il tuo caso d'uso. Tieni presente che il tuo utilizzo dell'archiviazione ti viene addebitato separatamente; in questo modo, puoi tener conto del costo delle diverse opzioni di archiviazione quando operi la tua selezione.
+{{site.data.keyword.blockchainfull_notm}} Platform richiede l'archiviazione persistente per ogni CA, peer e nodo di ordine. Quando distribuisci un cluster Kubernetes standard in {{site.data.keyword.cloud_notm}}, viene fornito preconfigurato con il plug-in di [archiviazione file di livello Bronze](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} come classe di archiviazione predefinita (`default`). Quindi, quando distribuisci un nodo blockchain a tale cluster utilizzando la console o le API, viene dinamicamente eseguito il provisioning di una quantità di archiviazione file per il nodo basata sulla quantità di archiviazione che era stata richiesta quando era stato distribuito il nodo. Pertanto, la distribuzione esegue il provisioning dell'archiviazione nel cluster con la classe di archiviazione predefinita (`default`). Puoi scegliere da diverse [opzioni di archiviazione di Kubernetes](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external} e decidere in merito al tipo di archiviazione più indicato per il tuo caso d'uso. Tieni presente che il tuo utilizzo dell'archiviazione ti viene addebitato separatamente; in questo modo, puoi tener conto del costo delle diverse opzioni di archiviazione quando operi la tua selezione.
 
 Se vuoi aggiungere un tuo plug-in di archiviazione, devi creare una classe di archiviazione personalizzata. Leggi le informazioni relative a come
-[aggiungere una classe di archiviazione](/docs/containers/cs_storage_basics.html#storageclasses){: external} per la tua soluzione. Poiché {{site.data.keyword.blockchainfull_notm}} Platform utilizza [il provisioning di volumi dinamici](https://cloud.ibm.com/docs/containers/cs_storage_basics.html#dynamic_provisioning){: external} con la classe di archiviazione predefinita (`default`), devi modificare la classe di archiviazione predefinita per utilizzare il tuo plug-in di archiviazione eseguendo questo comando:
+[aggiungere una classe di archiviazione](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} per la tua soluzione. Poiché {{site.data.keyword.blockchainfull_notm}} Platform utilizza [il provisioning di volumi dinamici](/docs/containers?topic=containers-kube_concepts#dynamic_provisioning){: external} con la classe di archiviazione predefinita (`default`), devi modificare la classe di archiviazione predefinita per utilizzare il tuo plug-in di archiviazione eseguendo questo comando:
 
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
@@ -285,4 +313,4 @@ Quando non hai più bisogno della tua istanza del servizio, la puoi eliminare da
 **Scegli questa opzione attentamente.** Se elimini un'istanza del servizio, l'archiviazione associata a ciascun nodo viene eliminata e non può essere ripristinata. Tutti i tuoi dati del libro mastro verranno eliminati.
 {: important}
 
-Se l'eliminazione della tua istanza del servizio ha esito negativo, potrebbe essere perché il cluster Kubernetes non è accessibile. Se questo si verifica, apri un [ticket di supporto](/docs/services/blockchain/ibmblockchain_support.html#blockchain-support-cases) per richiedere l'eliminazione dell'istanza del servizio.
+Se l'eliminazione della tua istanza del servizio ha esito negativo, potrebbe essere perché il cluster Kubernetes non è accessibile. Se questo si verifica, apri un [ticket di supporto](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) per richiedere l'eliminazione dell'istanza del servizio.

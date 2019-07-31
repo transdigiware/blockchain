@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-18"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -32,7 +32,7 @@ Questo manuale ti aiuta a comprendere i prezzi per i piani di adesione {{site.da
 
 *Figura 1. Panoramica dei prezzi di {{site.data.keyword.blockchainfull_notm}} Platform*
 
-Il costo mensile viene addebitato ogni giorno su base proporzionale. Ad esempio, un membro (costo di adesione associato di $1.000) di due peer (costo per ogni peer di $1.000 X 2 peer) deve pagare $3.000 ogni mese. Se il mese ha 30 giorni, il membro paga $ 100 ($3.000/30) ogni giorno. Per ulteriori informazioni su come pagare per le tue reti, vedi [Modalità di pagamento](/docs/services/blockchain/howto/paying_mode.html#paying-mode).
+Il costo mensile viene addebitato ogni giorno su base proporzionale. Ad esempio, un membro (costo di adesione associato di $1.000) di due peer (costo per ogni peer di $1.000 X 2 peer) deve pagare $3.000 ogni mese. Se il mese ha 30 giorni, il membro paga $ 100 ($3.000/30) ogni giorno. Per ulteriori informazioni su come pagare per le tue reti, vedi [Modalità di pagamento](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode).
 
 
 ## Componenti di base della rete
@@ -42,7 +42,7 @@ Per comprendere i prezzi, dobbiamo iniziare con un'introduzione ai componenti di
 
 -	**Organizzazioni** – Qualsiasi entità che deve mantenere una copia del libro mastro blockchain e deve convalidare le transazioni. Ci possono essere più organizzazioni blockchain per una singola società.
 -	**Peer** – Il nodo associato a un'organizzazione che contiene il libro mastro blockchain e convalida le transazioni. I peer sono associati a una singola organizzazione blockchain.
--	**Servizio di ordine** – Composto da un singolo ordinante (SOLO) o da una raccolta di ordinanti. Il servizio di ordine mette in sequenza le transazioni, crea blocchi e invia questi blocchi ai peer per la convalida.
+-	**Servizio di ordinazione** – Composto da un singolo nodo di ordinazione o da una raccolta di nodi di ordinazione. Il servizio di ordine mette in sequenza le transazioni, crea blocchi e invia questi blocchi ai peer per la convalida.
 -	**CA (Certificate Authority, Autorità di certificazione)** – Emette certificati digitali per scopi di identificazione a qualsiasi componente di rete interattivo.
 
 {{site.data.keyword.blockchainfull_notm}} Platform offre due piani di adesione, il **piano Starter** e il **piano Enterprise**, che puoi scegliere in {{site.data.keyword.cloud_notm}}. Entrambi i piani ti consentono di creare organizzazioni e ti forniscono una CA (Certificate Authority, Autorità di certificazione). I piani differiscono per quanto riguarda peer, CA e servizio di ordine.

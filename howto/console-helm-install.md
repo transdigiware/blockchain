@@ -4,7 +4,6 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-07-25"
 
-
 keywords: IBM Cloud Private, IBM Blockchain Platform, install, Helm chart, PodSecurityPolicy
 
 subcollection: blockchain

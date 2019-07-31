@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,6 +37,7 @@ subcollection: blockchain
 - [为什么在打开排序服务时会收到错误：`无法获取系统通道`？](#ibp-troubleshoot-ordering-service)
 - [为什么同级无法启动？](#ibp-console-build-network-troubleshoot-entry2)
 - [为什么智能合同安装、实例化或升级失败？](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [为什么我在同级上安装的智能合同未列在 UI 中？](#ibp-console-build-network-troubleshoot-missing-sc)
 - [如何查看智能合同容器日志？](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [通道、智能合同和身份已从控制台中消失。怎样才能使其重新显示？](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [为什么在创建新组织 MSP 定义时，会收到错误：`无法使用提供的注册标识和私钥进行认证`？](#ibp-v2-troubleshooting-create-msp)
@@ -45,6 +46,7 @@ subcollection: blockchain
 - [为什么通过 VS Code 提交的事务失败？](#ibp-v2-troubleshooting-anchor-peer)
 - [登录到控制台时，为什么会收到“401 未授权”错误？](#ibp-v2-troubleshooting-console-401)
 - [为什么部署在 {{site.data.keyword.cloud_notm}} Private 上的节点不会处理事务，并且未通过运行状况检查？](#ibp-v2-troubleshooting-healthchecks)
+- [为什么我的事务返回支持策略错误：signature set did not satisfy policy？](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## 将鼠标悬停在节点上时，状态为`状态不可用`，这意味着什么？
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -153,6 +155,19 @@ CA、同级或排序节点的磁贴中的节点状态为灰色，这意味着节
 - 如果节点启动后仍遇到问题，请[查看节点日志](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)以查找相关错误。  
 {: tsResolve}
 
+## 为什么我在同级上安装的智能合同未列在 UI 中？
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+智能合同已安装在同级上，但在您单击**智能合同**选项卡时，该合同未列出。
+{: tsSymptoms}
+
+当其他用户或应用程序将智能合同安装到同级上，但您的浏览器电子钱包中不具有同级管理员身份时，可能会发生此问题。
+{: tsCauses}
+
+为查看同级上安装的智能合同，您需要成为同级管理员。请确保您的浏览器电子钱包中存在同级管理员身份。如果不存在，您需要将其导入控制台电子钱包中。
+{: tsResolve}
+
 ## 如何查看智能合同容器日志？
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
 {: troubleshoot}
@@ -161,7 +176,7 @@ CA、同级或排序节点的磁贴中的节点状态为灰色，这意味着节
 {: tsSymptoms}
 
 遵循这些指示信息在以下产品上查看智能合同容器日志：
-- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs)。
+- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
 - [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs)。
 {: tsResolve}
 
@@ -267,3 +282,16 @@ CA、同级或排序节点的磁贴中的节点状态为灰色，这意味着节
 {: tsCauses}
 
 要解决此问题，请除去失败的 pod，然后重新部署节点。还可以在集群上重新启动 Docker 服务。
+
+## 为什么我的事务返回支持策略错误：signature set did not satisfy policy？
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+当我调用智能合同以提交事务时，事务返回以下支持策略故障：
+```
+返回的错误为：VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+如果您最近刚加入通道并安装智能合同，那么在您未将组织添加到支持策略中时会发生此错误。由于您的组织未在可通过智能合同支持事务的组织列表中，通道会拒绝来自您的同级的支持。如果遇到此问题，您可以通过升级智能合同来更改支持策略。有关更多信息，请参阅[指定支持策略](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)和[升级智能合同](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)。
+{: tsCauses}

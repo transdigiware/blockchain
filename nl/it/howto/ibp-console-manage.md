@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -54,7 +54,7 @@ Quando [utilizzi IAM per invitare gli utenti](/docs/iam?topic=iam-iamuserinv#iam
 ![Aggiungi utenti](../images/AddICPUser.gif){: gif}
 
 
-Dopo che hai aggiunto dei nuovi utente alla console, potrebbero non essere in grado di visualizzare tutti i nodi, canali o chaincode distribuiti da altri utenti. Per lavorare con questi componenti, ciascun utente deve importare le identità associate in un suo portafoglio della console. Per ulteriori informazioni, vedi [Memorizzazione delle identità nel tuo portafoglio della console](/docs/services/blockchain/howto/ibp-console-identities.html#ibp-console-identities-wallet).
+Dopo che hai aggiunto dei nuovi utente alla console, potrebbero non essere in grado di visualizzare tutti i nodi, canali o chaincode distribuiti da altri utenti. Per lavorare con questi componenti, ciascun utente deve importare le identità associate in un suo portafoglio della console. Per ulteriori informazioni, vedi [Memorizzazione delle identità nel tuo portafoglio della console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 Se devi modificare il ruolo di un utente:
@@ -97,7 +97,7 @@ Quando utilizzi la console {{site.data.keyword.blockchainfull_notm}} Platform, p
 ### Visualizzazione dei tuoi log della console
 {: #ibp-console-manage-console-logs}
 
-Puoi facilmente accedere ai log della console se devi eseguire il debug di problemi che riscontri quando utilizzi la console o ti servi dei tuoi nodi. Puoi anche impostare il livello di registrazione nei log per aumentare o diminuire la quantità di log raccolta dalla console. I log della console sono raccolti separatamente dai [log dei nodi](/docs/services/blockchain/howto/ibp-console-manage.html#ibp-console-manage-console-node-logs), che sono raccolti dal servizio {{site.data.keyword.cloud_notm}} Kubernetes.
+Puoi facilmente accedere ai log della console se devi eseguire il debug di problemi che riscontri quando utilizzi la console o ti servi dei tuoi nodi. Puoi anche impostare il livello di registrazione nei log per aumentare o diminuire la quantità di log raccolta dalla console. I log della console sono raccolti separatamente dai [log dei nodi](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), che sono raccolti dal servizio {{site.data.keyword.cloud_notm}} Kubernetes.
 
 Vai alla scheda **Impostazioni** nel browser della console per modificare le impostazioni di registrazione. I log della console sono raccolti da due origini separate:
 
@@ -111,9 +111,9 @@ Puoi visualizzare i log della console solo se hai eseguito l'accesso come un amm
 ### Visualizzazione dei tuoi log di nodo
 {: #ibp-console-manage-console-node-logs}
 
-I log dei tuoi peer, dei tuoi ordinanti e delle tue CA (Certificate Authority, Autorità di certificazione) sono raccolti dal servizio {{site.data.keyword.IBM_notm}} Kubernetes. Utilizza la procedura di seguito indicata per visualizzare i log dei tuoi nodi dal cluster dove hai distribuito la tua rete {{site.data.keyword.blockchainfull_notm}} Platform.
+I log dei tuoi peer, dei tuoi nodi di ordinazione e delle tue CA (Certificate Authority, Autorità di certificazione) sono raccolti da {{site.data.keyword.IBM_notm}} Kubernetes Service. Utilizza la procedura di seguito indicata per visualizzare i log dei tuoi nodi dal cluster dove hai distribuito la tua rete {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Per individuare più facilmente i tuoi log del nodo, è utile applicare un filtro sullo spazio dei nomi utilizzato quando sono stati distribuiti i nodi. Per trovare lo spazio dei nomi, apri qualsiasi nodo CA nella tua console e fai clic sull'icona **Impostazioni**. Visualizza il valore dell'**URL endpoint dell'autorità di certificazione**. Ad esempio, `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+Per individuare più facilmente i tuoi log del nodo, ti consigliamo di applicare un filtro sullo spazio dei nomi utilizzato quando sono stati distribuiti i nodi. Per trovare lo spazio dei nomi, apri qualsiasi nodo CA nella tua console e fai clic sull'icona **Impostazioni**. Visualizza il valore dell'**URL endpoint dell'autorità di certificazione**. Ad esempio, `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 Lo spazio dei nomi è la prima parte dell'url che inizia con la lettera `n`, a cui segue una stringa casuale di sei caratteri alfanumerici. Quindi, nell'esempio precedente, il valore dello spazio dei nomi è `n2734d0`.
 
@@ -123,7 +123,7 @@ Lo spazio dei nomi è la prima parte dell'url che inizia con la lettera `n`, a c
 4. Nella navigazione di sinistra, fai clic su **Pod** per visualizzare l'elenco di pod di nodi che hai distribuito.
 5. Fai clic su un pod. Fai quindi clic su **Log** nel menu superiore per aprire i log del tuo nodo. Sopra i log, puoi utilizzare il menu a discesa dopo **Log da** per visualizzare i log da diversi contenitori all'interno del pod. Ad esempio, il tuo peer e il database dello stato (CouchDB ad esempio) sono eseguiti in contenitori differenti e generano dei log differenti.
 
-Per impostazione predefinita, i log dei tuoi nodi vengono raccolti localmente all'interno del tuo cluster. Puoi anche utilizzare i servizi {{site.data.keyword.cloud_notm}} o un servizio di terze parti per raccogliere, archiviare e analizzare i log dalla tua rete. Per ulteriori informazioni, vedi [Registrazione e monitoraggio per {{site.data.keyword.IBM_notm}} Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-health#health){: external}. Ti consigliamo di avvalerti del servizio [{{site.data.keyword.cloud_notm}} LogDNA](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} che ti consente di analizzare facilmente i log in tempo reale.
+Per impostazione predefinita, i log dei tuoi nodi vengono raccolti localmente all'interno del tuo cluster. Puoi anche utilizzare i servizi {{site.data.keyword.cloud_notm}} o un servizio di terze parti per raccogliere, archiviare e analizzare i log dalla tua rete. Per ulteriori informazioni, vedi [Registrazione e monitoraggio per {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. Ti consigliamo di avvalerti del servizio [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} che ti consente di analizzare facilmente i log in tempo reale.
 
 ### Visualizzazione dei tuoi log del contenitore dello smart contract
 {: #ibp-console-manage-console-container-logs}
@@ -139,12 +139,12 @@ Tutti i tuoi log di smart contract sono visibili in questa finestra e possono es
 ## Installazione di patch per i tuoi nodi
 {: #ibp-console-manage-patch}
 
-Nel corso del tempo, potrebbe essere necessario aggiornare le immagini docker {{site.data.keyword.IBM_notm}} Hyperledger Fabric sottostanti per i nodi ordinante, CA e peer, ad esempio con aggiornamenti della sicurezza o a una nuova release secondaria Fabric. Il testo **Patch disponibile** su un tile del nodo è l'indicatore che tale patch è disponibile e può essere installata sul nodo quando sei pronto. Queste patch sono facoltative, ma consigliate.  Non puoi applicare patch ai nodi che sono stati importati nella console.
+Nel corso del tempo, potrebbe essere necessario aggiornare le immagini docker {{site.data.keyword.IBM_notm}} Hyperledger Fabric sottostanti per i nodi di ordinazione, CA e peer, ad esempio con aggiornamenti della sicurezza o a una nuova release secondaria Fabric. Il testo **Patch disponibile** su un tile del nodo è l'indicatore che tale patch è disponibile e può essere installata sul nodo quando sei pronto. Queste patch sono facoltative, ma consigliate.  Non puoi applicare patch ai nodi che sono stati importati nella console.
 
 Le patch vengono applicate ai nodi una alla volta. Mentre una patch viene applicata, il nodo non è disponibile per elaborare richieste o transazioni. Pertanto, per evitare un'interruzione del servizio, se possibile dovresti assicurarti che un altro nodo dello stesso tipo sia disponibile per elaborare le richieste. L'installazione della patch su un nodo ha bisogno di circa un minuto per il completamento e quando l'aggiornamento è completo, il nodo è pronto ad elaborare le richieste.
 {:note}
 
-Per applicare una patch a un nodo, apri il tile del nodo e fai clic sul pulsante **Installa patch**.
+Per applicare una patch a un nodo, apri il tile del nodo e fai clic sul pulsante **Installa patch**. Non puoi applicare la patch sui nodi che hai importato nella console.
 
 ## Scadenza del cluster Kubernetes
 {: #ibp-console-manage-console-cluster-expiration}
@@ -157,4 +157,4 @@ Se stai utilizzando un cluster {{site.data.keyword.cloud_notm}} Kubernetes Servi
 4. Scorri al triangolino **Cluster Kubernetes** ed espandilo per visualizzare il tuo cluster gratuito.
 5. Se il tuo cluster gratuito è elencato, fai clic sul menu delle azioni per il cluster e fai quindi clic su **Elimina** per eliminare il cluster gratuito.
 
-Una volta completate queste azioni, puoi attenerti alla [procedura originale](/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) per creare un nuovo cluster Kubernetes e una nuova istanza del servizio blockchain dalla pagina del catalogo di {{site.data.keyword.cloud_notm}}.
+Una volta completate queste azioni, puoi attenerti alla [procedura originale](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) per creare un nuovo cluster Kubernetes e una nuova istanza del servizio blockchain dalla pagina del catalogo di {{site.data.keyword.cloud_notm}}.

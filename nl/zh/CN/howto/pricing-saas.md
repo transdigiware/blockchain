@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,17 +76,19 @@ VPC 是用于确定 {{site.data.keyword.IBM_notm}} 产品许可成本的计量�
 
 |定价选项**（1 个 VPC = 1 个 CPU）|**测试网络**|**加入生产网络**|
 |-|------------|-----------------------------|
-|**CPU 分配**|1.85 个 CPU<br> 包括：<br> - 1 个同级<br> - 2 个 CA<br> - 1 个排序节点|4.9 个 CPU<br> 包括：<br> - 2 个同级（用于 HA）<br> **（2 倍缺省计算资源）**<br>- 1 个 CA<br>  |
-|**每小时成本：{{site.data.keyword.blockchainfull_notm}} Platform**|0.54 美元<br> （1.85 个 CPU x 0.29 美元/VPC-小时）|1.42 美元<br> （4.9 个 CPU x 0.29 美元/VPC-小时）|
+|**CPU 分配**|  1.65 个 CPU <br> 包括：<br> - 1 个同级<br> - 2 个 CA<br> - 1 个排序节点| 4.5 个 CPU <br> 包括：<br> - 2 个同级（用于 HA）<br> **（2 倍缺省计算资源）**<br>- 1 个 CA<br>  |
+|**每小时成本：{{site.data.keyword.blockchainfull_notm}} Platform**| 0.48 美元 <br> （1.65 个 CPU x 0.29 美元/VPC-小时）| 1.31 美元 <br> （4.5 个 CPU x 0.29 美元/VPC-小时）|
 |**每小时成本：{{site.data.keyword.cloud_notm}} Kubernetes 集群**|0.12 美元<br> （计算资源：2 x 4 层）<br> （IP 分配：16 美元/月）|0.46 美元<br> （计算资源：8 x 32 层）<br> （IP 分配：16 美元/月）|
 |**每小时成本：存储器**|0.07 美元<br> 340 GB<br> [铜牌级](https://www.ibm.com/cloud/file-storage/pricing){: external}<br>  2 IOPS/GB|0.13 美元<br> 420 GB<br> [银牌级](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB|
-|**每小时总成本**|**0.73 美元**|**2.01 美元**| |
+|**每小时总成本**| **0.67 美元** | **1.90 美元**| |
 ** 将 {{site.data.keyword.blockchainfull_notm}} Platform 服务实例链接到 {{site.data.keyword.cloud_notm}} Kubernetes 免费集群时，可免费预览 {{site.data.keyword.blockchainfull_notm}} Platform 30 天。但性能在吞吐量、存储器和功能方面会受到限制。{{site.data.keyword.cloud_notm}} 将在 30 天后删除 Kubernetes 集群，并且您无法将任何节点或数据从免费集群迁移到付费集群。  
 
 您的实际成本将根据其他因素而变化，例如事务处理速率、需要的通道数、事务处理上的有效内容大小以及最大并发事务处理数。上述定价示例仅基于 {{site.data.keyword.cloud_notm}} Kubernetes 单专区集群。如果选择多专区集群，那么对于其他专区和必需的多专区负载均衡器，会收取额外费用。
 {:note}
 
-对于可以供应并关联到单个 Kubernetes 集群的服务实例数量没有限制，但您需要通过监视 CPU、内存和存储器使用情况来确保有足够的资源可用，以避免服务中断。{{site.data.keyword.blockchainfull_notm}} Platform 节点不必位于自己的集群中。可以在运行区块链组件的集群中运行其他 {{site.data.keyword.cloud_notm}} 服务，但同样需要确保有足够的计算资源和存储器来满足所有服务实例的所有需求。
+对于可以供应并关联到单个 Kubernetes 集群的服务实例数量没有限制，但您需要通过监视 CPU、内存和存储器使用情况来确保有足够的资源可用，以避免服务中断。{{site.data.keyword.blockchainfull_notm}} Platform 节点不必位于自己的集群中。可以在运行区块链组件的集群中运行其他 {{site.data.keyword.cloud_notm}} 服务，但同样需要确保有足够的计算资源和存储器来满足所有服务实例的所有需求。  
+
+**准备好开始了吗？**请查看 [{{site.data.keyword.blockchainfull_notm}} Platform 入门](/docs/services/blockchain?topic=blockchain-get-started-ibp)以查看选项。 
 
 ## 缺省资源分配
 {: #ibp-saas-pricing-default}
@@ -95,9 +97,9 @@ VPC 是用于确定 {{site.data.keyword.IBM_notm}} 产品许可成本的计量�
 
 |**组件**（所有容器）|CPU|内存 (GB)|存储器 (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-|**同级**|1.2|2.4|200（包括 100 GB 用于同级，100 GB 用于 CouchDB）|
+|**同级**| 1.1            |2.4|200（包括 100 GB 用于同级，100 GB 用于 CouchDB）|
 |**CA**|0.1|0.2|20|
-|**排序节点**|0.45|0.9|100|
+|**排序节点**| 0.35           |0.9|100|
 
 
 ## 帐单
@@ -115,9 +117,10 @@ VPC 是用于确定 {{site.data.keyword.IBM_notm}} 产品许可成本的计量�
 
 #### {{site.data.keyword.blockchainfull_notm}} Platform 和 Kubernetes Service 使用情况
 
-以下剪辑提供了如何针对包含单个 CA 节点的 {{site.data.keyword.blockchainfull_notm}} Platform 查看相应费用的简单示例。
+<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
 
-![监视使用情况](../images/usage_monitoring.gif){: gif}
+![Monitoring your usage](../images/usage_monitoring.gif){: gif}
+-->
 
 导航至 {{site.data.keyword.cloud_notm}} 仪表板顶部的**管理**，单击**计费和使用情况**，然后单击左侧菜单中的**使用情况**。**服务**子部分下的饼图按您本月使用和消耗的服务产品类型对总成本进行细分。使用此图表可了解 {{site.data.keyword.blockchainfull_notm}} Platform、Kubernetes Service 和存储器占总成本的比例。
 

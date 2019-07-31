@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -161,10 +161,21 @@ curl -X <API method> \
 
 7. 如果要使用控制台来操作区块链组件，那么必须将管理员身份导入到控制台电子钱包。使用“电子钱包”选项卡将节点管理员的证书和专用密钥导入到控制台，然后创建身份。接着，需要使用控制台将此身份与创建的组件相关联。有关更多信息，请参阅[将管理员身份导入到 {{site.data.keyword.blockchainfull_notm}} Platform 控制台](#ibp-v2-apis-admin-console)。
 
-8. 部署网络后，可以使用 Fabric SDK、同级 CLI 或控制台 UI 来创建通道，然后安装或实例化智能合同。
+8. 部署网络后，可以使用 Fabric SDK、同级 CLI 或控制台 UI 来创建通道，然后安装或实例化智能合同。如果需要通过编程方式创建通道，您必须提供联盟名称。对于 {{site.data.keyword.blockchainfull}} Platform，联盟名称必须设置为 `SampleConsortium`。
 
 用于 API 认证的服务凭证必须在 IAM 中具有`管理者`角色才能创建组件。请参阅有关[用户角色](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)的主题中的表，以获取更多信息。
 {: note}
+
+### 在特定专区内创建节点
+{: #ibp-v2-apis-zone}
+
+如果使用的是多专区集群，那么您可以使用 API 将区块链组件部署到 {{site.data.keyword.cloud_notm}} 的特定专区中。这样可让您的网络在发生专区故障时保持可用。可以使用以下步骤将同级或排序节点部署到特定专区。
+
+1. 查找您的工作程序节点所在的专区。导航至 [{{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloud_notm}} Kubernetes 服务](https://cloud.ibm.com/kubernetes/clusters){: external}中的多专区集群概述屏幕。在集群概述屏幕上，单击**工作程序节点**，以查看包含集群中所有工作程序节点的表。您可以在该表的**专区**列中查看每个工作程序节点所在的专区。
+
+  您还可以使用 kubectl CLI 查找工作程序节点的专区。导航至**访问权**面板，并遵循**获取对集群的访问权**下的指示信息，以使用 {{site.data.keyword.cloud_notm}} 和 kubectl CLI 工具连接到您的集群。连接之后，请使用命令 `kubectl get nodes --show-labels` 获取集群的节点和专区的完整列表。您可以在`标签`列下的`专区`字段后面查找每个工作程序节点所在的专区。
+
+2. 要在特定专区内创建节点，请使用请求主体的专区字段在[创建排序服务](/apidocs/blockchain?code=try#create-an-ordering-service)或[创建同级](/apidocs/blockchain?code=try#create-an-ordering-service) API 调用中提供专区名称。{{site.data.keyword.blockchainfull_notm}} Platform 控制台的反亲缘关系策略会根据可用的资源，将您的组件自动部署到每个专区内的不同工作程序节点中。
 
 ## 使用 API 导入网络
 {: #ibp-v2-apis-import-with-apis}
@@ -186,7 +197,7 @@ curl -X <API method> \
 
 5. 如果计划使用 {{site.data.keyword.blockchainfull_notm}} Platform 控制台来操作区块链组件，那么必须将组件管理员身份导入到控制台电子钱包。有关更多信息，请参阅[将管理员身份导入到 {{site.data.keyword.blockchainfull_notm}} Platform 控制台](#ibp-v2-apis-admin-console)。
 
-6. 部署网络后，可以使用 Fabric SDK、同级 CLI 或控制台 UI 来创建通道，然后安装或实例化智能合同。
+6. 部署网络后，可以使用 Fabric SDK、同级 CLI 或控制台 UI 来创建通道，然后安装或实例化智能合同。如果需要通过编程方式创建通道，您必须提供联盟名称。对于 {{site.data.keyword.blockchainfull}} Platform，联盟名称必须设置为 `SampleConsortium`。
 
 用于 API 认证的服务凭证必须在 IAM 中具有`写入者`角色才能导入组件。请参阅有关[用户角色](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)的主题中的表，以获取更多信息。
 {: note}

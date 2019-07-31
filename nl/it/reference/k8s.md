@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-16"
+lastupdated: "2019-06-18"
 
 subcollection: blockchain
 
@@ -36,7 +36,7 @@ Il seguente diagramma illustra l'architettura di Kubernetes. Per ulteriori spieg
 Il servizio {{site.data.keyword.cloud_notm}} Kubernetes fornisce potenti strumenti combinando i contenitori Docker, la tecnologia Kubernetes, un'esperienza utente intuitiva e la sicurezza e l'isolamento integrati per automatizzare la distribuzione, il funzionamento, il ridimensionamento e il monitoraggio di applicazioni caricate nei contenitori in un cluster di host di calcolo.
 
 Per ulteriori informazioni sul servizio {{site.data.keyword.cloud_notm}} Kubernetes, vedi i seguenti argomenti nella documentazione de servizio {{site.data.keyword.cloud_notm}} Kubernetes.
-- [Tecnologia {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers/cs_tech.html#ibm-cloud-kubernetes-service-technology){: external}
+- [Tecnologia {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
 - [Perché {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
 - [Definizione della tua strategia Kubernetes](/docs/containers?topic=containers-strategy#strategy){: external}
 
