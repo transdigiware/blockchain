@@ -113,8 +113,7 @@ Vous pouvez afficher uniquement les journaux de la console si vous êtes connect
 
 Les journaux de vos homologues, noeuds de tri et autorités de certification sont collectés par le service {{site.data.keyword.IBM_notm}} Kubernetes. Utilisez les étapes ci-dessous pour consulter les journaux de vos noeuds depuis le cluster où vous avez déployé votre réseau {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Pour localiser plus facilement les journaux de votre noeud, il est recommandé de filtrer sur l'espace de nom qui a été utilisé lors du déploiement des noeuds.
-Pour trouver l'espace de nom, ouvrez le noeud de votre autorité de certification et cliquez sur l'icône **Paramètres**. Affichez la valeur de l'**URL de noeud final de l'autorité de certification**. Par exemple : `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+Pour localiser plus facilement les journaux de votre noeud, il est recommandé de filtrer sur l'espace de nom qui a été utilisé lors du déploiement des noeuds. Pour trouver l'espace de nom, ouvrez le noeud de votre autorité de certification et cliquez sur l'icône **Paramètres**. Affichez la valeur de l'**URL de noeud final de l'autorité de certification**. Par exemple : `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 L'espace de nom est la première partie de l'URL commençant par la lettre `n` et suivie d'une chaîne aléatoire de six caractères alphanumériques. Ainsi, dans l'exemple ci-dessus, la valeur de l'espace de nom est `n2734d0`.
 

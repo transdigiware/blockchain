@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,6 +37,7 @@ Cette rubrique décrit les problèmes courants qui peuvent se présenter lors de
 - [Pourquoi est-ce que je reçois le message d'erreur `Impossible d'obtenir le canal système` lorsque j'ouvre mon service de tri ?](#ibp-troubleshoot-ordering-service)
 - [Pourquoi mon homologue ne parvient pas à démarrer ?](#ibp-console-build-network-troubleshoot-entry2)
 - [Pourquoi ne puis-je pas installer, instancier ou mettre à niveau mes contrats intelligents ?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Pourquoi est-ce que le contrat intelligent que j'ai installé sur l'homologue n'apparaît pas dans l'interface utilisateur ?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Mon canal, mes contrats intelligents et mes identités ont disparu de la console. Comment puis-je les récupérer ?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Pourquoi est-ce que je reçois le message d'erreur `Impossible d'effectuer l'authentification avec l'ID et le secret d'inscription que vous avez fournis` lorsque je crée une nouvelle définition MSP d'organisation ?](#ibp-v2-troubleshooting-create-msp)
@@ -45,6 +46,7 @@ Cette rubrique décrit les problèmes courants qui peuvent se présenter lors de
 - [Pourquoi les transactions que je soumets depuis le code VS échouent ?](#ibp-v2-troubleshooting-anchor-peer)
 - [Lorsque je me connecte à ma console, pourquoi est-ce que je reçois le message d'erreur 401 unauthorized ?](#ibp-v2-troubleshooting-console-401)
 - [Pourquoi les noeuds que j'ai déployés dans {{site.data.keyword.cloud_notm}} Private ne traitent pas les transactions et échouent aux diagnostics d'intégrité ?](#ibp-v2-troubleshooting-healthchecks)
+- [Pourquoi mes transactions retournent-elles une erreur de règle d'adhésion : signature set did not satisfy policy ?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## Lorsque je survole mon noeud, l'état est `Statut non disponible`. Qu'est-ce que cela signifie ?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -153,6 +155,19 @@ Vous pouvez recevoir cette erreur si cette version de contrat intelligent existe
 - Ouvrez votre tableau de bord Kubernetes et vérifiez que l'homologue est à l'état `En cours d'exécution`.  
 - Ouvrez le noeud homologue et vérifiez que la version du contrat intelligent n'existe pas déjà sur l'homologue, puis relancez l'opération avec la version appropriée.
 - Si vous rencontrez encore des problèmes une fois le noeud opérationnel, [recherchez d'éventuelles erreurs dans les journaux de ce noeud](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs).  
+{: tsResolve}
+
+## Pourquoi est-ce que le contrat intelligent que j'ai installé sur l'homologue n'apparaît pas dans l'interface utilisateur ?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+Un contrat intelligent a été installé sur un homologue mais lorsque vous cliquez sur l'onglet **Contrats intelligent**, il n'est pas répertorié.
+{: tsSymptoms}
+
+Ce problème peut se produire lorsqu'un autre utilisateur ou une autre application installe le contrat intelligent sur l'homologue et que l'identité admin de l'homologue d'administration ne se trouve pas dans le portefeuille de votre navigateur.
+{: tsCauses}
+
+Pour afficher les contrats intelligents installés sur un homologue, vous devez être un administrateur de l'homologue. Vérifiez que l'identité admin de l'homologue existe dans le portefeuille de votre navigateur. Si ce n'est pas le cas, vous devez l'importer dans le portefeuille de votre console.
 {: tsResolve}
 
 ## Comment puis-je consulter les journaux de mon conteneur de contrat intelligent ?
@@ -269,3 +284,16 @@ Si vous avez souvent déployé, retiré et mis à niveau des noeuds dans votre c
 {: tsCauses}
 
 Pour résoudre ce problème, retirez les pods défaillants et déployez de nouveau vos noeuds. Vous pouvez également redémarrer le service Docker dans le cluster.
+
+## Pourquoi mes transactions retournent-elles une erreur de règle d'adhésion : signature set did not satisfy policy ?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+Lorsque j'appelle un contrat intelligent pour la soumission d'une transaction, la transaction renvoie l'erreur de règle d'adhésion suivante :
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+Si vous avez récemment rejoint un canal et installé le contrat intelligent, cette erreur se produit si vous n'avez pas ajouté votre organisation à la règle d'adhésion. Comme votre organisation ne figure pas dans la liste des organisations qui peuvent approuver une transaction du contrat intelligente, l'approbation de vos homologues est rejetée par le canal. Si vous rencontrez ce problème, vous pouvez modifier la règle d'adhésion par la mise à niveau du contrat intelligent. Pour plus d'informations, voir [Indication d'une règle d'adhésion](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+{: tsCauses}

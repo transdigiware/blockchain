@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, channel update, reallocate resources
 
@@ -46,12 +46,12 @@ Comme votre instance de la console {{site.data.keyword.blockchainfull_notm}} Pla
 
 | **Composant** (tous les conteneurs) | UC**  | Mémoire (Go) | Stockage (Go) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Homologue**                       | 1,2           | 2,4                   | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
+| **Homologue**                       | 1,1           | 2,4                   | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
 | **AC**                         | 0,1           | 0,2                   | 20                     |
-| **Noeud de tri**              | 0,45          | 0,9                   | 100                    |
+| **Noeud de tri**              | 0,35          | 0,9                   | 100                    |
 ** Ces valeurs peuvent légèrement varier si vous utilisez {{site.data.keyword.cloud_notm}} Private. Les allocations VPC réelles sont visibles sur la console de blockchain lorsqu'un noeud est déployé.  
 
-Si vous envisagez de déployer un service de tri Raft à cinq noeuds, notez que votre déploiement total va s'accroître d'un facteur de cinq. Soit un total de 2,25 UC, 4,5 Go de mémoire et 500 Go de stockage pour les cinq noeuds Raft. Le service de tri à cinq noeuds est ainsi plus grand qu'un seul noeud worker Kubernetes à 2 UC.
+Si vous envisagez de déployer un service de tri Raft à cinq noeuds, notez que votre déploiement total va s'accroître d'un facteur de cinq. Soit un total de 1,75 UC, 4,5 Go de mémoire et 500 Go de stockage pour les cinq noeuds Raft. Un cluster de noeud worker unique Kubernetes à 4 UC est recommandé au minimum pour autoriser un grand nombre d'UC pour le cluster Raft cluster et les autres noeuds que vous déployez.
 {:tip}
 
 Dans les cas où un utilisateur souhaite minimiser les frais sans arrêter complètement un noeud ou sans le supprimer, il est possible de réduire un noeud à un minimum de 0,001 UC (1 milliCPU). Notez que le noeud ne sera pas opérationnel si cette quantité d'UC est utilisée.
@@ -192,7 +192,13 @@ Vous pouvez, toutefois, modifier les paramètres de configuration du canal suiva
 
 * **Organisations**. Cette section du panneau indique comment les organisations sont ajoutées ou supprimées d'un canal. Les organisations qui peuvent être ajoutées figurent dans la liste déroulante. Notez qu'une organisation doit être membre du consortium du service de tri pour pouvoir être ajoutée à un canal. Pour plus d'informations sur l'ajout d'une organisation au consortium, voir [Ajouter votre organisation à la liste des organisations pouvant effectuer une transaction](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org).
 
-* **Règle de mise à jour du canal**. La règle de mise à jour d'un canal indique combien d'organisations (sur le nombre total d'organisations du canal), doivent approuver une mise à jour de configuration de canal. Pour garantir un bon équilibre entre une administration collaborative et un traitement efficace des mises à jour de configuration de canal, pensez à définir cette règle pour une majorité d'administrateurs. Par exemple, s'il y a cinq admins dans un canal, choisissez `3 de 5`.
+  Vous pouvez également mettre à jour le niveau de droit d'une organisation sur le canal :
+
+   - Un **opérateur** de canal a le droit de créer et de signer des mises à jour de configuration de canal. Il doit y avoir au moins un opérateur dans chaque canal.
+   - Un **rédacteur** de canal peut mettre à jour le registre de canal en appelant un contrat intelligent. Un rédacteur de canal peut aussi instancier un contrat intelligent sur un canal.
+   - Un **lecteur** de canal peut uniquement interroger le registre de canal, en appelant une fonction en lecture dans un contrat intelligent par exemple.
+
+* **Règle de mise à jour du canal**. La règle de mise à jour d'un canal indique combien d'organisations (sur le nombre total d'opérateurs du canal), doivent approuver une mise à jour de configuration de canal. Pour garantir un bon équilibre entre une administration collaborative et un traitement efficace des mises à jour de configuration de canal, pensez à définir cette règle pour une majorité d'administrateurs. Par exemple, s'il y a cinq admins dans un canal, choisissez `3 de 5`.
 
 * **Paramètres de découpage de bloc**. (Option avancée) Comme une modification des paramètres de découpage de bloc par défaut doit être signée par un admin de l'organisation de service de tri, ces zones ne figurent pas dans le panneau de création de canal. Toutefois, comme cette configuration de canal va être envoyée à toutes les organisations appropriées du canal, il est possible d'envoyer une demande de mise à jour de configuration de canal avec des modifications des paramètres de découpage de bloc. Ces zones déterminent les conditions dans lesquelles le service de tri découpe un nouveau bloc. Pour plus d'informations sur la manière dont ces zones affectent le découpage de blocs, voir [Paramètres de découpage de bloc](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning-batch-size).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,11 +23,27 @@ subcollection: blockchain
 Ces notes sur l'édition sont classées par date et vous informent des dernières modifications apportées à {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} qui repose sur Hyperledger Fabric version 1.4.1.
 {:shortdesc}
 
+## 10 Juillet 2019
+{: #07-10-2019}
+
+**Correctif du noeud de tri `1.4.1-2`**  
+
+Ce correctif résout un problème qui se produit lors du redémarrage des noeuds de tri. Le bloc d'origine est mis à jour, ce qui empêche le noeud de tri de communiquer avec les autres noeuds du service de tri. Vous pouvez appliquer ce correctif à tous les noeuds de tri existants dans vos services de tri en suivant ces [instructions](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) pour mettre à jour chaque noeud de tri. Tous les nouveaux noeuds de tri que vous créez incluent automatiquement ce correctif.
+
+**Retrait d'un homologue d'ancrage**  
+
+Vous avez maintenant la possibilité de retirer des homologues d'ancrage d'un canal.
+
+**Divers correctifs de bogues **  
+
+Correctifs et mises à jour de traduction.
 
 ## 24 Mai 2019
 {: #05-24-2019}
 
-**Protocole de consensus Raft** Le service de tri Raft à cinq noeuds, recommandé pour les réseaux de production, est désormais disponible. De plus, aux fins de développement et de tests, vous pouvez déployer un service de tri Raft à un seul noeud.
+**Protocole de consensus Raft**  
+
+ Le service de tri Raft à cinq noeuds, recommandé pour les réseaux de production, est désormais disponible. De plus, aux fins de développement et de tests, vous pouvez déployer un service de tri Raft à un seul noeud.
 
 ## 9 Mai 2019
 {: #05-09-2019}

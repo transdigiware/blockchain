@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
 
@@ -57,7 +58,7 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ## Ressources obligatoires
 {: #icp-console-setup-resources}
 
-Vérifiez que votre système {{site.data.keyword.cloud_notm}} Private respecte les exigences de ressources matérielle minimum pour la console et les composant que vous créez .Le nombre de vCPU/UC requis peut varier en fonction de la conception de votre infrastructure, de votre réseau et des exigences de performances. Une approximation de vos besoins en termes de vCPU/UC peut être effectuée par un examen du [tableau des allocations de ressources par défaut](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) pour {{site.data.keyword.cloud_notm}}, bien que les allocations soient légèrement différentes dans {{site.data.keyword.cloud_notm}} Private. Vos allocations de ressources réelles sont visibles sur la console de votre blockchain lorsque vous déployez un noeud.
+Vérifiez que votre système {{site.data.keyword.cloud_notm}} Private respecte les exigences de ressources matérielle minimum pour la console et les composant que vous créez . Le nombre de vCPU/UC requis peut varier en fonction de la conception de votre infrastructure, de votre réseau et des exigences de performances. Une approximation de vos besoins en termes de vCPU/UC peut être effectuée par un examen du [tableau des allocations de ressources par défaut](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) pour {{site.data.keyword.cloud_notm}}, bien que les allocations soient légèrement différentes dans {{site.data.keyword.cloud_notm}} Private. Vos allocations de ressources réelles sont visibles sur la console de votre blockchain lorsque vous déployez un noeud.
 
 **Remarques :**  
 
@@ -100,11 +101,9 @@ Après que vous avez installé {{site.data.keyword.cloud_notm}} Private et lié 
 ## Exigences PodSecurityPolicy
 {: #icp-console-setup-psp}
 
-La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige que des politiques de sécurité et d'accès spécifiques soit liées à l'espace de nom cible avant l'installation. Utilisez les étapes suivantes pour configurer les politiques avant la configuration de la charte Helm :
+La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige que des politiques de sécurité et d'accès spécifiques soit liées à l'espace de nom cible avant l'installation. Nous fournissons des fichiers YAML qui définissent les règles dans les étapes ci-dessous. Vous pouvez sauvegarder ces fichiers sur votre système local et les lier ensuite à votre espace de noms à partir de l'interface CLI {{site.data.keyword.cloud_notm}}. Suivez les étapes ci-après avant de déployer la charte Helm {{site.data.keyword.blockchainfull_notm}} Platform.
 
-1. Choisissez une politique PodSecurityPolicy prédéfinie pour votre espace de nom ou demandez à votre administrateur de cluster de créer une politique PodSecurityPolicy personnalisée pour vous :
-  - Vous pouvez utiliser la politique PodSecurityPolicy prédéfinie de [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp)
-  - Vous pouvez également créer en utilisant YAML sous une définition PodSecurityPolicy personnalisée :
+1. Sauvegardez le fichier ci-dessous qui définit {{site.data.keyword.blockchainfull_notm}} Platform PodSecurityPolicy as `ibm-blockchain-platform-psp.yaml` sur votre système local :
 
     ```
     apiVersion: extensions/v1beta1
@@ -134,13 +133,13 @@ La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige que de
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. Créez un ClusterRole pour PodSecurityPolicy.
-  - Si vous avez créé une politique de sécurité personnalisée, vous pouvez créer un ClusterRole à l'aide du fichier YAML ci-dessous :
+2. Sauvegardez le fichier ci-dessous qui définit le ClusterRole requis pour PodSecurityPolicy en tant que `ibm-blockchain-platform-clusterrole.yaml` :
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -158,45 +157,60 @@ La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige que de
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - Si vous utilisez une politique PodSecurityPolicy prédéfinie, vous devez uniquement créer un rôle ClusterRole en utilisant la seconde section apiGroups :
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. Créez un ClusterRoleBinding personnalisé. Si vous décidez de modifier le nom ServiceAccount dans le fichier ci-dessous, vous devez fournir le nom dans la zone `Compte chez un fournisseur` de la section **Tous les paramètres** de la page de configuration lors du déploiement de la charte Helm.
+3. Sauvegardez le fichier ci-dessous qui définit le ClusterRoleBinding en tant que `ibm-blockchain-platform-clusterrolebinding.yaml`. Si vous décider de modifier le nom ServiceAccount dans le fichier ci-dessous, vous devez indiquer ce nom dans la zone `Service account name` de la section **All Parameters** de la page de configuration lors du déploiement de la charte Helm.
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -214,20 +228,32 @@ La charte Helm d'{{site.data.keyword.blockchainfull_notm}} Platform exige que de
   ```
   {:codeblock}
 
-Vous pouvez suivre la procédure ci-après afin d'utiliser les fichiers YAML pour lier les politiques de sécurité et d'accès à votre espace de nom :
+Une fois que vous avez sauvegardé les fichiers PodSecurityPolicy, ClusterRole et ClusterRoleBinding YAML sur votre système local, un administrateur de cluster devra utiliser l'interface CLI {{site.data.keyword.cloud_notm}} Private pour lier les règles à votre espace de nom.
 
-1. Sauvegardez le fichier YAML sur votre système local.
+1. Connectez-vous à votre cluster {{site.data.keyword.cloud_notm}} Private et sélectionnez l'espace de nom cible de votre déploiement.
 
-2. Connectez-vous à votre cluster {{site.data.keyword.cloud_notm}} Private et sélectionnez l'espace de nom cible de votre déploiement.
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. Connectez-vous au registre d'image docker pour votre cluster :
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
    {:codeblock}
 
-3. Utilisez la commande suivante pour appliquer la politique à l'espace de nom cible :
+3. Utilisez les commandes suivantes pour appliquer des règles à l'espace de nom cible :
 
   ```
-  kubectl apply -f <filename>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
-   {:codeblock}
+  {:codeblock}
+
+4. Après avoir appliqué les règles, vous devez accorder à votre compte de service le niveau d'autorisations requis pour déployer votre console. Exécutez la commande suivante avec le nom de votre espace de nom cible :
+
+  ```
+  kubectl -n <namespace> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namespace>
+  ```

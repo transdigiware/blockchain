@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -54,7 +54,6 @@ Avant de déployer la console, tenez compte des remarques suivantes :
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} est créé avec Hyperledger Fabric version 1.4.1.
 - Tous les homologues déployés avec la console ou les API utilisent CouchDB comme base de données d'état.
 - Vous avez la possibilité de lier votre instance de service {{site.data.keyword.blockchainfull_notm}} Platform à un cluster Kubernetes gratuit aux fins d'évaluation de l'offre : cependant, la capacité et les performances sont limitées, aucune de vos données ne peut être migrée, et le cluster est supprimé au bout de 30 jours.
-- Même si l'offre bêta est gratuite, vous devez quand même payer pour votre cluster Kubernetes, si vous choisissez un cluster payant.
 - Vous êtes chargé de gérer la surveillance de l'intégrité, de la sécurité et de la journalisation de votre cluster Kubernetes. Consultez ces [informations](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} pour plus de détails sur les éléments gérés par {{site.data.keyword.cloud_notm}} et sur ceux dont vous êtes responsable.
 - Vous êtes également responsable de la surveillance de l'utilisation des ressources de votre cluster Kubernetes à l'aide du tableau de bord Kubernetes. Si vous devez accroître la capacité de stockage ou les performances de votre cluster, consultez les informations relatives à la [modification de votre volume existant](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - Vous êtes responsable de la gestion et de la sécurisation de vos certificats et de vos clés privées. {{site.data.keyword.IBM_notm}} ne stocke pas vos certificats dans le cluster Kubernetes.
@@ -63,6 +62,7 @@ Avant de déployer la console, tenez compte des remarques suivantes :
 - Kubernetes doit être en version 1.11 ou une version stable suivante dans votre cluster {{site.data.keyword.cloud_notm}} Kubernetes. Utilisez ces instructions pour [mettre à niveau vos clusters nouveaux et existants](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) vers cette version.
 - Si vous ne souhaitez pas utiliser le stockage Bronze File par défaut qui est présélectionné lorsque vous mettez à disposition un cluster Kubernetes dans {{site.data.keyword.cloud_notm}}, vous pouvez mettre à disposition le stockage de votre choix. Pour plus détails, voir [Considérations relatives au stockage de persistance](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
 - Si vous décider d'inclure la prise en charge à zones multiples d'{{site.data.keyword.cloud_notm}} dans votre cluster Kubernetes, vous devez mettre à disposition votre propre stockage. Pour plus de détails, voir [Utilisation de clusters à zones multiples (MZR) avec {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr).
+- Virtual Routing and Forwarding (VRF) n'est pas pris en charge. Le service {site.data.keyword.blockchainfull_notm}} Platform n'est pas compatible avec des comptes qui sont définis pour le routage mondial automatique entre les blocs IP de sous-réseau. De même, les clusters Kubernetes qui sont configurés avec des VLAN privés ne sont pas pris en charge.
 
 ## Tutoriel vidéo
 {: #ibp-v2-deploy-video}
@@ -107,7 +107,7 @@ La liste suivante indique la version de navigateur minimum requise pour la conso
 |Gratuit** | Utilisable pour évaluation | 2 | 4 Go | 1 |  
 Essai de {{site.data.keyword.blockchainfull_notm}} Platform sans frais pendant 30 jours lorsque vous liez votre instance de service {{site.data.keyword.blockchainfull_notm}} Platform à un cluster Kubernetes {{site.data.keyword.cloud_notm}} gratuit. Les performances seront limitées en termes de débit, de stockage et de fonctionnalités. {{site.data.keyword.cloud_notm}} supprimera votre cluster Kubernetes au bout de 30 jours et vous ne pouvez pas migrer les noeuds ou les données depuis un cluster gratuit vers un cluster payant.
 
-Ces ressources sont suffisantes pour les tests et l'expérimentation. Le [tutoriel Générer un réseau](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), dans lequel vous créer deux homologues, deux autorités de certification et un service de tri, occupent environ 4,85 UC, dont 2,25 sont occupées par le service de tri à cinq noeuds. Par conséquent, si vous prévoyez de déployer un service de tri à cinq noeuds, vous ne devez pas déployer un cluster Kubernetes contenant un noeud worker simple à 2 UC car le service de tri ne pourra y être contenu. Nous recommandons un cluster avec les noeuds d'au moins 4 UC. Plus vous ajoutez des noeuds worker, plus il sera facile pour votre cluster de gérer vos déploiements.
+Ces ressources sont suffisantes pour les tests et l'expérimentation. Le [tutoriel Générer un réseau](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), dans lequel vous créez deux homologues, deux AC et un service de tri, prend environ 4,15 UC, dont le service de tri à cinq noeuds qui prend 1,75 UC. Par conséquent, si vous prévoyez de déployer un service de tri à cinq noeuds, vous ne devez pas déployer un cluster Kubernetes avec un noeud worker simple à 2 UC car le service de tri ne fonctionnerait pas confortablement avec les autres noeuds. Nous recommandons un cluster avec les noeuds d'au moins 4 UC. Plus vous ajoutez des noeuds worker, plus il sera facile pour votre cluster de gérer vos déploiements.
 {:note}
 
 #### Clusters payants
@@ -126,11 +126,11 @@ Pour vous faire une idée de la quantité de stockage et de calcul dont vous aur
 
 | **Composant** (tous les conteneurs) | UC  | Mémoire (Go) | Stockage (Go) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Homologue**                       | 1,2            | 2,4                  | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
+| **Homologue**                       | 1.1            | 2,4                  | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
 | **AC**                         | 0,1            | 0,2                  | 20                     |
-| **Noeud de tri**              | 0,45           | 0,9                  | 100                    |
+| **Noeud de tri**              | 0,35           | 0,9                  | 100                    |
 
-Si vous envisagez de déployer un service de tri Raft à cinq noeuds, notez que le déploiement de votre noeud de tri va s'accroître d'un facteur de cinq. Soit un total de 2,25 UC, 4,5 Go de mémoire et 500 Go de stockage pour les cinq noeuds Raft. Le service de tri à cinq noeuds est ainsi plus grand qu'un seul noeud worker Kubernetes à 2 UC.
+Si vous envisagez de déployer un service de tri Raft à cinq noeuds, notez que votre déploiement total va s'accroître d'un facteur de cinq. Soit un total de 1,75 UC, 4,5 Go de mémoire et 500 Go de stockage pour les cinq noeuds Raft. Un cluster de noeud worker unique Kubernetes à 4 UC est recommandé au minimum pour autoriser un grand nombre d'UC pour le cluster Raft cluster et les autres noeuds que vous déployez.
 {:tip}
 
 ## Etape 1 : Créer une instance de service dans {{site.data.keyword.cloud_notm}} Platform
@@ -140,7 +140,7 @@ Procédez comme suit pour créer instance de service d'{{site.data.keyword.block
 
 1. Localisez le [service de blockchain](https://cloud.ibm.com/catalog/services/blockchain){: external} dans le catalogue {{site.data.keyword.cloud_notm}}, ou recherchez `Blockchain` dans votre page de catalogue {{site.data.keyword.cloud_notm}}.
 2. Nous vous conseillons de renommer le **Nom de service** de votre instance afin qu'elle soit facile à reconnaître dans le futur.
-3. Pour la version bêta, **Dallas** est la seule région disponible et elle ne peut pas être modifiée. Il est possible de choisir des régions supplémentaires dans un cluster payant. Pour plus d'informations, voir [Régions](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+3. Choisissez votre région. Pour obtenir la liste des régions disponibles, voir [Régions](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 4. Vous pouvez laisser les zones de groupes de ressources et de balises vides.
 5. Choisissez le plan **Standard**.
 6. Cliquez sur **Créer** pour mettre à disposition l'instance de service.
@@ -192,7 +192,7 @@ Par défaut, la console utilise [{{site.data.keyword.cloud_notm}} Identity and A
 - A présent que votre console est prête pour utilisation, vous pouvez passer au [tutoriel Générer un réseau](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
 Pensez à ajouter un signet pour l'URL de votre console afin de pouvoir vous y reporter ultérieurement si nécessaire. Sinon, vous pouvez suivre les étapes des [instructions de post-installation](#ibp-v2-deploy-iks-post-install) pour y revenir depuis votre navigateur.
 
-## Intégration à {{site.data.keyword.cloud_notm}} et à d'autres services tiers 
+## Intégration à {{site.data.keyword.cloud_notm}} et à d'autres services tiers
 {: #ibp-v2-deploy-iks-integrations}
 
 {{site.data.keyword.blockchainfull_notm}} Platform peut optimiser une suite de services fournis dans le catalogue {{site.data.keyword.cloud_notm}} pour donner aux utilisateurs davantage de visibilité sur leur réseau ou pour s'intégrer à d'autres services tiers.

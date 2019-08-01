@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -30,7 +30,7 @@ L'{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_no
 ## Contenu de la nouvelle édition
 {: #ibp-console-overview-capabilities}
 
-Cette dernière édition est destinée aux utilisateurs {{site.data.keyword.blockchainfull_notm}} et Hyperledger Fabric expérimentés et elle leur permet d'héberger des réseaux ou de créer de nouvelles organisations qui peuvent rejoindre d'autres réseaux {{site.data.keyword.blockchainfull_notm}}. Si vous êtes un client de plan Starter ou Enterprise existant, au lieu de la gestion de votre réseau par {{site.data.keyword.IBM_notm}}, vous avez le contrôle total avec la possibilité de mettre à disposition, de surveiller et de gérer vos composants au sein de votre propre cluster Kubernetes.
+Cette dernière édition est destinée aux utilisateurs {{site.data.keyword.blockchainfull_notm}} and Hyperledger Fabric expérimentés et elle leur permet d'héberger et de rejoindre des réseaux {{site.data.keyword.blockchainfull_notm}}. Si vous êtes un client de plan Starter ou Enterprise existant, au lieu de la gestion de votre réseau par {{site.data.keyword.IBM_notm}}, vous avez le contrôle total avec la possibilité de mettre à disposition, de surveiller et de gérer vos composants au sein de votre propre cluster Kubernetes.
 
 Cette édition d'{{site.data.keyword.blockchainfull_notm}} Platform présente les caractéristiques suivantes :
 
@@ -39,10 +39,11 @@ Cette édition d'{{site.data.keyword.blockchainfull_notm}} Platform présente le
 - **Simplified DevOps** vous permet de passer du développement au test en production dans un environnement unique avec l'extension de vos ressources Kubernetes pour l'ajout de composants supplémentaires.
 - **A jour des fonctions principales de Fabric**. Bénéficiez des fonctionnalités les plus récentes d'Hyperledger Fabric v1.4.1 :
   -  [Service de tri Raft](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - **Intégration de service {{site.data.keyword.cloud_notm}}.** Optimisez les services {{site.data.keyword.cloud_notm}} intégrés, tels que {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA et {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
   - [**Collectes de données** privées](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) qui permettent une meilleure confidentialité des données avec la garantie que les données de registre sont partagées sur des homologues autorisés uniquement via le protocole gossip.
   - [Reconnaissance de service (Service Discovery)](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, qui vous permet de découvrir et de mettre à jour de manière dynamique la façon dont votre application interagit avec votre réseau.
   - [Listes de contrôle d'accès](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} qui vous donnent un contrôle supplémentaire sur la gouvernance de vos canaux et contrats intelligents.
+- Intégration de service {{site.data.keyword.cloud_notm}}. Optimisez les [services {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations) intégrés, tels que {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA et {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
+
 
 **OPERATE --- Contrôle total de vos déploiements**
 - **Déployez uniquement les composants dont vous avez besoin**. Connectez un homologue à plusieurs canaux et réseaux, ou hébergez un service de tri auquel les partenaires commerciaux peuvent se connecter.
@@ -80,6 +81,7 @@ Avant de déployer la console, tenez compte des remarques suivantes :
 - Si vous ne souhaitez pas utiliser le stockage Bronze File par défaut qui est présélectionné lorsque vous mettez à disposition un cluster Kubernetes dans {{site.data.keyword.cloud_notm}}, vous pouvez mettre à disposition le stockage de votre choix. Pour plus détails, voir [Considérations relatives au stockage de persistance](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
 - Si vous décider d'inclure la prise en charge à zones multiples d'{{site.data.keyword.cloud_notm}} dans votre cluster Kubernetes, vous devez mettre à disposition votre propre stockage. Pour plus de détails, voir [Utilisation de clusters à zones multiples (MZR) avec {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr).
 - Vous pouvez essayer {{site.data.keyword.blockchainfull_notm}} Platform sans frais pendant 30 jours lorsque vous liez votre i=instance de service {{site.data.keyword.blockchainfull_notm}} Platform à un cluster Kubernetes {{site.data.keyword.cloud_notm}} gratuit.  Les performances seront limitées en termes de débit, de stockage et de fonctionnalités. {{site.data.keyword.cloud_notm}} supprimera votre cluster au bout de 30 jours et vous ne pouvez pas migrer les noeuds ou les données depuis un cluster gratuit vers un cluster payant. Et comme la version d'essai bêta de {{site.data.keyword.blockchainfull_notm}} Platform est gratuite, si vous choisissez un cluster Kubernetes payant au lieu du cluster gratuit limité, des frais seront appliqués pour le service Kubernetes à votre compte {{site.data.keyword.cloud_notm}}.
+- Virtual Routing and Forwarding (VRF) n'est pas pris en charge. Le service {site.data.keyword.blockchainfull_notm}} Platform n'est pas compatible avec des comptes qui sont définis pour le routage mondial automatique entre les blocs IP de sous-réseau. De même, les clusters Kubernetes qui sont configurés avec des VLAN privés ne sont pas pris en charge.
 
 ## Migration
 {: #ibp-console-overview-migration}
