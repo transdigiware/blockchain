@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -38,7 +38,7 @@ Antes de continuar, se recomienda que revise las directrices específicas de su 
 Puede utilizar este tema para obtener detalles sobre las directrices para la alta disponibilidad específicas de blockchain junto con las recomendaciones de los temas anteriores específicos de la plataforma.
 
 ## Visión general de los puntos de anomalía potenciales en {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
-{: #ibp-console-ha-points-of-failure}
+{: #ibp-console-ha-points-of-failure-overview}
 
 La arquitectura de {{site.data.keyword.blockchainfull_notm}} Platform está diseñada para garantizar la fiabilidad, una latencia de proceso baja y el máximo tiempo de actividad del servicio. Sin embargo, se pueden producir errores. {{site.data.keyword.blockchainfull_notm}} Platform proporciona varios métodos para añadir una mayor disponibilidad al clúster añadiendo políticas de redundancia y [antiafinidad](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external}, cuando estén disponibles, para garantizar que los componentes de blockchain del mismo tipo y organización se despliegan en distintos nodos trabajadores.  Mediante la adición de redundancia en la red blockchain, puede evitar errores o periodos de inactividad.  
 
@@ -66,16 +66,19 @@ En la tabla siguiente se incluye una lista de opciones a tener en cuenta a medid
 |  | Nodo individual | Clúster individual con varios nodos | Varias zonas (solo {{site.data.keyword.cloud_notm}}**)| Varios clústeres entre regiones |
 |-----|-----|-----|-----|-----|
 | Iguales redundantes | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) |
-| Antiafinidad (iguales) |  | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) |  | ![Icono de marca de verificación](../../icons/checkmark-icon.svg)|
 | Iguales de ancla redundantes en un canal| ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg)|
+| Antiafinidad*** (iguales) |  | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg)|
 |Servicio de ordenación de Raft | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | |
-| Antiafinidad (nodos de ordenación) |  | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) |  | ![Icono de marca de verificación](../../icons/checkmark-icon.svg)|
+| Antiafinidad*** (nodos de ordenación) |  | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg)|
 |Entorno de desarrollo o pruebas | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | | |
 | Entorno de producción | | | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) | ![Icono de marca de verificación](../../icons/checkmark-icon.svg) |
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Tabla 1. Comparación de casos de ejemplo de despliegue para aumentar la alta disponibilidad de la red" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
+
+*** El desplegador de {{site.data.keyword.blockchainfull_notm}} Platform no puede garantizar que los iguales o los nodos de ordenación se distribuyan en diferentes zonas. Puede utilizar las API de {{site.data.keyword.blockchainfull_notm}} Platform para desplegar nodos en zonas específicas de {{site.data.keyword.cloud_notm}} y garantizar que la red sea resistente a un error de zona. Para obtener más información, consulte [Alta disponibilidad de varias zonas](#ibp-console-ha-multi-zone).  
+
 ** La configuración predeterminada para un clúster Kubernetes estándar en {{site.data.keyword.cloud_notm}} es un clúster de 4 CPU y 16 GB RAM que incluye tres zonas con tres nodos trabajadores en cada una. Puede aumentar o reducir la escala, seleccionando una configuración menor, en función de sus necesidades.
 
 ## Puntos de anomalía potenciales
@@ -128,7 +131,8 @@ _Este caso de ejemplo solo es aplicable para clientes que utilizan el servicio K
 
    Una única zona es suficiente para un entorno de desarrollo y de pruebas si puede tolerar un corte en la zona. Por lo tanto, para aprovechar las ventajas de la alta disponibilidad de varias zonas, al suministrar el clúster, asegúrese de que se seleccionan varias zonas. Dos zonas son mejores que una, pero se recomiendan tres para la alta disponibilidad para aumentar la probabilidad de que las dos zonas adicionales puedan absorber la carga de trabajo en caso de error en cualquier zona individual.  Cuando los iguales de la misma organización y canal y los nodos de ordenación se dispersan en varias zonas, un error en cualquiera de las zonas no debería afectar a la capacidad de la red de procesar transacciones, ya que la carga de trabajo pasará a los nodos blockchain de las demás zonas.
 
-   El desplegador de {{site.data.keyword.blockchainfull_notm}} Platform no puede garantizar que los componentes de blockchain se distribuyan en **zonas**. El desplegador desplegará componentes en varias zonas en función de los recursos disponibles en los nodos trabajadores, pero no colocará necesariamente dos iguales de la misma organización o los nodos de ordenación en zonas separadas.
+   El desplegador de {{site.data.keyword.blockchainfull_notm}} Platform no puede garantizar que los componentes de blockchain se distribuyan en **zonas**. El desplegador desplegará componentes en varias zonas en función de los recursos disponibles en los nodos trabajadores, pero no colocará necesariamente dos iguales de la misma organización o los nodos de ordenación en zonas separadas. Si desea asegurarse de que determinados nodos se desplieguen en zonas distintas, puede utilizar las API de {{site.data.keyword.blockchainfull_notm}} Platform para especificar la zona donde se crea un nodo. Para obtener más información, consulte
+[Creación de un nodo dentro de una zona específica](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
    {:note}
 
    Este caso de ejemplo utiliza iguales y clasificadores redundantes en varios nodos trabajadores y varias zonas, lo que protege frente a un error de zona, pero no frente a un error poco probable de una región completa. Este es un caso de ejemplo recomendado para una red de producción.

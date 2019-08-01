@@ -33,7 +33,7 @@ Puede utilizar esta oferta para instalar la consola de {{site.data.keyword.block
 Este release de {{site.data.keyword.blockchainfull_notm}} Platform incluye las siguientes características principales:
 
 **CREAR ---- Experiencia integrada del desarrollador**
-- **Codifique fácilmente** sus contratos inteligentes en Node.js, Golang o Java, escriba aplicaciones cliente con la nueva extensión de VS Code de {{site.data.keyword.blockchainfull_notm}}, aproveche la **integración de SDK** con la consola de la interfaz y aprenda con nuestras completas guías de aprendizaje y ejemplos.
+- **Programe fácilmente** sus contratos inteligentes en Node.js, Golang o Java, escriba aplicaciones cliente con la nueva extensión de VS Code de {{site.data.keyword.blockchainfull_notm}}, aproveche la **integración de SDK** con la consola de la interfaz y aprenda con nuestras completas guías de aprendizaje y ejemplos.
 - **DevOps simplificado** le permite pasar de la fase de desarrollo a la de prueba y producción en un solo entorno mediante la ampliación de los recursos de Kubernetes para añadir más componentes.
 - **Integración del servicio Kubernetes.** Aproveche servicios como Grafana y Prometheus para el registro y Kibana para la supervisión.
 - **Características principales de Fabric actualizadas**. Aproveche las características más recientes de Hyperledger Fabric v1.4.1:

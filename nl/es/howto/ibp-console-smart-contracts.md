@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -107,8 +107,9 @@ Utilice la consola para seguir estos pasos:
 2. En el panel lateral que se abre, seleccione un canal en el que crear la instancia del contrato inteligente. Puede seleccionar el canal, llamado `channel1`, que ha creado. A continuación, pulse **Siguiente**.
 3. Especifique la [política de aprobación para el contrato inteligente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse), que se describe en la sección siguiente. Cuando varias organizaciones son miembros del canal, tiene la oportunidad de elegir cuántas organizaciones se necesitan para validar las transacciones de contratos inteligentes.
 4. También tiene que seleccionar los miembros de la organización que se incluirán en la política de aprobación. Si sigue la guía de aprendizaje, sería `org1msp` y posiblemente `org2msp` si ha completado las guías de aprendizaje sobre **cómo crear una red** y **cómo unirse a una red**.
-5. Si su contrato inteligente incluye recopilaciones de datos privados, debe actualizar el archivo JSON de configuración de recopilaciones asociado. De lo contrario, puede omitir este paso. Consulte este tema para obtener más información sobre cómo utilizar los [datos privados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
-6. En el último panel se le solicitará que especifique la función de contrato inteligente que desea ejecutar cuando se inicie el contrato inteligente, junto con los argumentos asociados para pasar a dicha función.
+5. En el panel Seleccionar igual, seleccione un igual en la lista desplegable de una organización que sea miembro del canal.
+6. Si su contrato inteligente incluye recopilaciones de datos privados, debe actualizar el archivo JSON de configuración de recopilaciones asociado. De lo contrario, puede omitir este paso. Consulte este tema para obtener más información sobre cómo utilizar los [datos privados](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
+7. En el último panel se le solicita que especifique el nombre de la función de inicialización del contrato inteligente, junto con los argumentos asociados que se deben pasar a la función.
 
 Puede ver todos los contratos inteligentes que se han creado en un canal pulsando sobre el icono del canal en el panel de navegación de la izquierda, seleccionando un canal de la tabla y pulsando el separador **Detalles del canal**.
 
@@ -134,6 +135,8 @@ Cuando siga los pasos para [crear una instancia de un contrato inteligente](/doc
 
 Pulse el botón **Avanzado** si desea especificar una política en formato JSON. Puede utilizar este método para especificar políticas de aprobación más complicadas, como la necesidad de que un miembro determinado del canal tenga que validar una transacción, junto con la mayoría de los demás miembros. Encontrará más [ejemplos de políticas de aprobación](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external} en la documentación de Hyperledger Fabric. Para obtener más información sobre cómo escribir políticas de aprobación en JSON, consulte la [documentación del SDK de nodo de Hyperledger Fabric](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}.
 
+Las políticas de aprobación no se actualizan automáticamente cuando nuevas organizaciones se unen al canal e instalan un código de encadenamiento. Por ejemplo, si la política de aprobación requiere que dos de cinco organizaciones aprueben una transacción, la política no se actualizará para que necesite dos de seis organizaciones cuando una nueva organización se una al canal. En su lugar, la nueva organización no aparecerá en la política y no se podrán aprobar las transacciones. Puede añadir otra organización a una política de aprobación actualizando el código de encadenamiento correspondiente y actualizando la política.
+
 ## Actualización de un contrato inteligente
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -143,7 +146,8 @@ Puede actualizar un contrato inteligente para cambiar su código, su política d
 3. Si una recopilación de datos privados cambia, por ejemplo se añade o se elimina una organización, deberá actualizar el contrato inteligente. O bien, utilice esta acción cuando se añada una nueva recopilación de datos privados al archivo JSON de configuración de la recopilación.
 4. Los argumentos de inicialización del contrato inteligente han cambiado.
 
-**Para poder actualizar un contrato inteligente del que se ha creado una instancia, se debe instalar la nueva versión del contrato inteligente en todos los iguales del canal que ejecutan el nivel anterior del contrato inteligente.**
+{:important}
+Para poder actualizar un contrato inteligente del que se ha creado una instancia, se debe instalar la nueva versión del contrato inteligente en todos los iguales del canal que ejecutan el nivel anterior del contrato inteligente.
 
 ### Cómo actualizar un contrato inteligente
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -160,9 +164,10 @@ Cuando un miembro nuevo que va a ejecutar el contrato inteligente se une al cana
 
  1. Seleccione la versión del contrato inteligente que desee actualizar en el canal en la lista desplegable.
  2. Actualice la política de aprobación añadiendo o eliminando miembros del canal. También puede pulsar **Avanzado** para pegar en una nueva serie en formato JSON que modifique la política existente.
- 3. Si desea asociar un archivo de configuración de la recopilación de datos privados con el contrato inteligente, puede cargar el archivo JSON. O si desea actualizar una configuración de recopilación existente, puede cargar el archivo JSON.   
+ 3. En el panel Seleccionar igual, debe seleccionar un igual que pueda aprobar la propuesta de actualización del contrato inteligente. Por lo tanto, debe seleccionar un igual en la lista desplegable de una organización que fuera miembro del canal antes de que se creara por última vez una instancia del contrato inteligente en el canal.
+ 4. Si desea asociar un archivo de configuración de la recopilación de datos privados con el contrato inteligente, puede cargar el archivo JSON. O si desea actualizar una configuración de recopilación existente, puede cargar el archivo JSON.   
  Si el contrato inteligente se había instanciado previamente con un archivo de configuración de la recopilación, **deberá** volver a cargar la versión anterior o una nueva versión del archivo de configuración de la recopilación durante este paso.  
- 4. (Opcional) Modifique los valores de los argumentos de inicialización del contrato inteligente si los parámetros han cambiado. Si no está seguro de ello, consulte con el desarrollador de su contrato inteligente. Si no se han modificado, puede dejar este campo en blanco.
+ 5. (Opcional) Modifique los valores de los argumentos de inicialización del contrato inteligente si los parámetros han cambiado. Si no está seguro de ello, consulte con el desarrollador de su contrato inteligente. Si no se han modificado, puede dejar este campo en blanco.
 
 Después de actualizar el contrato inteligente, cambiará la versión del contrato del que se crea una instancia en el canal y cambiará el contenedor de contrato inteligente para todos los iguales que han instalado la nueva versión. Si utiliza recopilaciones de datos privados, asegúrese de haber configurado iguales de ancla en el canal.
 

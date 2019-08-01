@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,6 +55,8 @@ Para poder importar nodos en la consola, deben exportarse desde la consola de {{
 - No puede aplicar parches a nodos que haya importado en la consola.
 - No puede suprimir nodos que haya importado en la consola desde el clúster en el que se desplegaron. Solo puede eliminar el nodo de la consola.
 - Si va a importar un nodo que está desplegado en {{site.data.keyword.cloud_notm}} Private, debe asegurarse de que el puerto de proxy web gRPC utilizado por el componente se exponga externamente a la consola. Para obtener más información, consulte [Importación de nodos desde {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
+- Al abrir el mosaico de un nodo importado, la versión de Fabric no es visible y el separador
+**Uso e información** no está disponible.
 
 ## Empiece aquí: recopilación de certificados o credenciales
 {: #ibp-console-import-start-here}

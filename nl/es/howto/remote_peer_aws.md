@@ -106,7 +106,8 @@ Tiene que añadir una nueva identidad de igual a la red en {{site.data.keyword.b
 
 **Nota:** para obtener una alta disponibilidad, la plantilla de inicio rápido crea dos nodos de igual en dos zonas de disponibilidad. Por lo tanto, se necesitan dos ID de inscripción y dos secretos. **Repita este proceso dos veces para generar dos ID de inscripción y dos secretos**
 
-1. Inicie sesión en el supervisor de su red en {{site.data.keyword.blockchainfull_notm}} Platform. En la pantalla "Entidad emisora de certificados" del supervisor de red, puede ver todas las identidades que se han registrado con la red, como las aplicaciones de administrador o cliente. ![Pantalla CA](../images/CA_screen_starter.png "Pantalla CA")
+1. Inicie sesión en el supervisor de su red en {{site.data.keyword.blockchainfull_notm}} Platform. En la pantalla "Entidad emisora de certificados" del supervisor de red, puede ver todas las identidades que se han registrado con la red, como las aplicaciones de administrador o cliente.
+  ![Pantalla CA](../images/CA_screen_starter.png "Pantalla CA")
 
 2. Pulse el botón **Añadir usuario** del panel. Se abrirá una pantalla emergente que le permite registrar el igual en la red tras rellenar los campos que se indican a continuación. **Guarde el valor del ID y el secreto para utilizarlos más adelante cuando configure el igual en la plantilla de inicio rápido.**
   - **ID de inscripción:** nombre que desea utilizar para el igual, al que se hace referencia como `enroll ID` al configurar el igual. **Guarde este valor** para utilizarlo más adelante.

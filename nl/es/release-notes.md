@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -24,11 +24,28 @@ Utilice estas notas del release agrupadas por fecha para obtener información so
 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, que se basa en Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+## 10 de julio de 2019
+{: #07-10-2019}
+
+**Parche `1.4.1-2` del nodo de ordenación**  
+
+Esta parche arregla un problema que se produce cuando se reinician los nodos de ordenación. El bloque de origen se actualiza, lo que impide que el nodo de ordenación se pueda comunicar con los demás nodos del servicio de ordenación. Puede aplicar este parche para todos los nodos de ordenación existentes en sus servicios de ordenación siguiendo estas
+[instrucciones](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) para actualizar cada nodo de ordenación. Todos los nodos de ordenación nuevos que cree incluirán automáticamente este arreglo.
+
+**Eliminación de iguales de ancla**  
+
+Ahora tiene la posibilidad de eliminar iguales de ancla de un canal.
+
+**Correcciones de errores varias**  
+
+Correcciones de errores y actualizaciones de traducción.
 
 ## 24 de mayo de 2019
 {: #05-24-2019}
 
-**Protocolo de consenso Raft** El servicio de ordenación Raft de cinco nodos, recomendado para redes de producción, ya está disponible. Además, en entornos de desarrollo y de prueba, puede desplegar un servicio de ordenación Raft de un solo nodo.
+**Protocolo de consenso Raft**  
+
+ El servicio de ordenación Raft de cinco nodos, recomendado para redes de producción, ya está disponible. Además, en entornos de desarrollo y de prueba, puede desplegar un servicio de ordenación Raft de un solo nodo.
 
 ## 9 de mayo de 2019
 {: #05-09-2019}

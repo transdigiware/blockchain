@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,11 +22,14 @@ subcollection: blockchain
 # Acerca del Plan inicial
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 El Plan inicial de {{site.data.keyword.blockchainfull}} Platform es una opción de nivel de entrada que permite a las organizaciones simular redes de blockchain de varias organizaciones, desarrollar aplicaciones rápidamente y trabajar con contratos digitales de ejemplo y redes empresariales. También ofrece la misma experiencia de interfaz de usuario que otras opciones de suscripción, lo que ayuda a eliminar la curva de aprendizaje. Las nuevas redes del Plan inicial creadas después del 4 de octubre de 2018 están basadas en Hyperledger Fabric V1.2.1. Las redes del Plan inicial más antiguas siguen teniendo el nivel de Fabric V1.1.0.
 {:shortdesc}
+
+El Plan inicial ahora está en desuso, por lo que no se pueden crear nuevas redes del Plan inicial en este momento.** Haga uso de la interfaz de usuario y las características más recientes disponibles ahora en la segunda generación de la tecnología de blockchain accediendo a [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}  
+
+**Sus redes existentes no se verán afectadas y podrá seguir utilizándolas hasta el 4 de junio de 2020.
+
 
 El **Plan inicial** es un entorno para aquellos que desean empezar a desarrollar redes de blockchain o empezar a aprender sobre la tecnología de blockchain. Puede utilizar el Plan inicial como un entorno de desarrollo o de prueba que le permitirá comenzar con un entorno pequeño y escalar la pertenencia o el volumen de transacciones de la red antes de pasar a un entorno de producción.
 
@@ -35,18 +38,17 @@ El **Plan inicial** es un entorno para aquellos que desean empezar a desarrollar
 
 **Notas:**
 - El Plan inicial de {{site.data.keyword.blockchainfull_notm}} Platform es un entorno de desarrollo y de prueba, y no es adecuado para las cargas de trabajo de producción. Si necesita un entorno de producción, consulte [Acerca del Plan empresarial](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
-- {{site.data.keyword.blockchainfull_notm}} Platform es un servicio de plataforma en {{site.data.keyword.cloud_notm}} y todas las ofertas de pertenencia siguen las [condiciones de servicio de {{site.data.keyword.cloud_notm}}](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} de los acuerdos de nivel de servicio (SLA). El Plan inicial se proporciona en un centro de datos de una única ubicación geográfica. Para ver una lista de los lugares geográficos disponibles, consulte
-[Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+- {{site.data.keyword.blockchainfull_notm}} Platform es un servicio de plataforma en {{site.data.keyword.cloud_notm}} y todas las ofertas de pertenencia siguen las [condiciones de servicio de {{site.data.keyword.cloud_notm}}](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} de los acuerdos de nivel de servicio (SLA). El Plan inicial se proporciona en un centro de datos de una única ubicación geográfica. Para ver una lista de los lugares geográficos disponibles, consulte [Ubicaciones de {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 ## Qué ofrece el Plan inicial
 {: #starter-plan-about-what-starter-plan-offers}
 
 - **_Red lista con una pulsación_**
-El Plan inicial (Starter Plan) le suministra una red blockchain activa con una simple pulsación. Cada red se proporciona con una CA, un clasificador, dos organizaciones (con un igual por organización), y un canal predeterminado en el que realizar transacciones y desplegar el código de encadenamiento. {{site.data.keyword.blockchainfull_notm}} Platform gestiona la creación y la configuración de esta red (podrá actualizarla cuando la utilice en un entorno activo), permitiéndole centrarse en el desarrollo. Las redes del Plan inicial se crean en Fabric V1.2 y utilizan CouchDB como base de datos de estado.
+    El Plan inicial (Starter Plan) le suministra una red blockchain activa con una simple pulsación. Cada red se proporciona con una CA, un clasificador, dos organizaciones (con un igual por organización), y un canal predeterminado en el que realizar transacciones y desplegar el código de encadenamiento. {{site.data.keyword.blockchainfull_notm}} Platform gestiona la creación y la configuración de esta red (podrá actualizarla cuando la utilice en un entorno activo), permitiéndole centrarse en el desarrollo. Las redes del Plan inicial se crean en Fabric V1.2 y utilizan CouchDB como base de datos de estado.
 - **_Eficiencia de coste_**
-La opción de pertenencia al Plan inicial ofrece muchas de las funciones de blockchain que ofrecen las opciones de pertenencia al Plan empresarial, pero a un coste menor. Para obtener más información, consulte [Precios del Plan inicial](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)
+    La opción de pertenencia al Plan inicial ofrece muchas de las funciones de blockchain que ofrecen las opciones de pertenencia al Plan empresarial, pero a un coste menor. Para obtener más información, consulte [Precios del Plan inicial](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)
 - **_Simulación de red de varias organizaciones_**
-Puede utilizar el Plan inicial para simular la creación de una red con varias organizaciones. No es necesario que invite realmente a otras organizaciones a su red, ya que puede actuar usted mismo como otras organizaciones. Este mecanismo le permite aprender cómo se puede unir a la red una nueva organización, cómo funcionan juntas en la red varias organizaciones, etc. Puede cambiar entre organizaciones desde el supervisor de red para ver y gestionar la red desde la vista de diferentes organizaciones.
+    Puede utilizar el Plan inicial para simular la creación de una red con varias organizaciones. No es necesario que invite realmente a otras organizaciones a su red, ya que puede actuar usted mismo como otras organizaciones. Este mecanismo le permite aprender cómo se puede unir a la red una nueva organización, cómo funcionan juntas en la red varias organizaciones, etc. Puede cambiar entre organizaciones desde el supervisor de red para ver y gestionar la red desde la vista de diferentes organizaciones.
 
 {{site.data.keyword.IBM_notm}} no proporciona soporte para redes que utilicen Hyperledger Composer en producción, incluyendo la CLI de Composer, las API de JavaScript, el servidor REST y Web Playground.
 {:note}
@@ -73,8 +75,7 @@ El Plan inicial constituye un punto de entrada en {{site.data.keyword.blockchain
 Debe tener una cuenta de pago de {{site.data.keyword.cloud_notm}}, por ejemplo, un tipo de **Pago según uso**. Todos los planes de pertenencia que ofrece {{site.data.keyword.blockchainfull_notm}} Platform requieren una cuenta de pago de {{site.data.keyword.cloud_notm}}. Para actualizar su cuenta a un tipo Pago según uso, vaya a **Gestionar** > **Facturación y uso** > **Facturación** en la consola de {{site.data.keyword.cloud_notm}}, y pulse **Añadir tarjeta de crédito**.
 - **Diferencias del Plan empresarial**
     - [CA](/docs/services/blockchain?topic=blockchain-glossary#glossary-CA) y el servicio de ordenación no son tolerantes a errores porque cada organización tiene solo una CA y una red solo tiene un [clasificador](/docs/services/blockchain?topic=blockchain-glossary#glossary-orderer).
-    - El servicio de ordenación utiliza solo el [consenso](/docs/services/blockchain?topic=blockchain-glossary#glossary-consensus)
-[SOLO](/docs/services/blockchain?topic=blockchain-glossary#glossary-solo). Una red del Plan inicial solo consta de un clasificador que realiza el consenso para todos los iguales.
+    - El servicio de ordenación utiliza solo el [consenso](/docs/services/blockchain?topic=blockchain-glossary#glossary-consensus) [SOLO](/docs/services/blockchain?topic=blockchain-glossary#glossary-solo). Una red del Plan inicial solo consta de un clasificador que realiza el consenso para todos los iguales.
     - El [Módulo de seguridad de hardware (HSM)](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) no está disponible para proteger y gestionar las claves digitales para la autenticación segura y el proceso de cifrado.
 - **Versiones del Plan inicial y actualización**
     - Las nuevas redes del Plan inicial creadas después del 4 de octubre de 2018 están basadas en Hyperledger Fabric V1.2.1. Las redes del Plan inicial más antiguas siguen teniendo el nivel de Fabric V1.1.0.

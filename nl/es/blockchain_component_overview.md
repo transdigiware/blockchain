@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -55,7 +55,8 @@ Para obtener más información sobre el servicio de ordenación, consulte [El se
 ## Iguales
 {: #blockchain-component-overview-peer}
 
-A nivel físico, una red blockchain consta principalmente de nodos de igual (o, simplemente, iguales). Los iguales son los elementos fundamentales de la red porque contienen los libros de contabilidad y los contratos inteligentes (contenidos en el ["código de encadenamiento"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}. Más exactamente, el igual aloja
+A nivel físico, una red blockchain consta principalmente de nodos de igual (o, simplemente, iguales). Los iguales son los elementos fundamentales de la red, ya que alojan libros mayores y contratos inteligentes (contenidos en
+["código de encadenamiento"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}). Más exactamente, el igual aloja
 **instancias** del libro mayor e **instancias** de contratos inteligentes. Debido a que los contratos inteligentes y los libros mayores se utilizan para encapsular los procesos compartidos y la información compartida en la red, respectivamente, estos aspectos de un igual los convierten en un buen punto de partida para entender lo que hace realmente una red de Fabric.
 
 Para obtener más información sobre los iguales específicamente, consulte

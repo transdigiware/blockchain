@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -40,6 +40,7 @@ Estado no detectable, ¿qué significa esto?](#ibp-v2-troubleshooting-status-und
 - [¿Por qué obtengo el error `No se puede obtener el canal del sistema` cuando abro mi servicio de ordenación?](#ibp-troubleshoot-ordering-service)
 - [¿Por qué no se inicia mi igual?](#ibp-console-build-network-troubleshoot-entry2)
 - [¿Por qué ha fallado la instalación, la creación de una instancia o la actualización de mi contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [¿Por qué el contrato inteligente que he instalado en el igual no aparece en la interfaz de usuario?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [¿Cómo puedo ver los registros del contenedor del contrato inteligente?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Mi canal, los contratos inteligentes y las identidades han desaparecido de la consola. ¿Cómo puedo recuperarlos?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [¿Por qué recibo el error `No se puede autenticar con el ID y el secreto de inscripción que ha especificado` cuando creo una nueva definición de MSP de organización?](#ibp-v2-troubleshooting-create-msp)
@@ -48,6 +49,7 @@ Estado no detectable, ¿qué significa esto?](#ibp-v2-troubleshooting-status-und
 - [¿Por qué fallan las transacciones que envío desde VS Code?](#ibp-v2-troubleshooting-anchor-peer)
 - [Cuando inicio sesión en mi consola, ¿por qué obtengo un error 401 No autorizado?](#ibp-v2-troubleshooting-console-401)
 - [¿Por qué los nodos que he desplegado en {{site.data.keyword.cloud_notm}} Private no procesan transacciones y fallan las comprobaciones de estado?](#ibp-v2-troubleshooting-healthchecks)
+- [¿Por qué devuelven mis transacciones un error de política de aprobación: el conjunto de firmas no cumple la política?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## Cuando paso el puntero del ratón sobre mi nodo, el estado es
 `Estado no disponible`, ¿qué significa esto?
@@ -161,6 +163,20 @@ Puede recibir este error si esta versión del contrato inteligente ya existe en 
 - Abra el panel de control de Kubernetes y asegúrese de que el estado del igual sea `En ejecución`.  
 - Abra el nodo igual y asegúrese de que la versión del contrato inteligente no exista aún en el igual y vuelva a intentarlo con la versión adecuada.
 - Si sigue teniendo problemas después de que se active el nodo, [consulte los registros del nodo](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) para ver si hay errores.  
+{: tsResolve}
+
+## ¿Por qué el contrato inteligente que he instalado en el igual no aparece en la interfaz de usuario?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+Se ha instalado un contrato inteligente en un igual pero, al pulsar el separador
+**Contratos inteligentes**, no aparece.
+{: tsSymptoms}
+
+Este problema puede producirse cuando algún otro usuario o aplicación instala el contrato inteligente en el igual y no tiene la identidad de administrador del igual en la cartera del navegador.
+{: tsCauses}
+
+Para poder ver los contratos inteligentes instalados en un igual, debe ser un administrador de igual. Asegúrese de que la identidad de administrador de igual existe en la cartera del navegador. Si no es así, deberá importarla en la cartera de la consola.
 {: tsResolve}
 
 ## ¿Cómo puedo ver los registros del contenedor del contrato inteligente?
@@ -280,3 +296,17 @@ Si ha desplegado, eliminado y actualizado nodos en el clúster muchas veces, es 
 {: tsCauses}
 
 Para abordar este problema, elimine los pods que han fallado y vuelva a desplegar los nodos. También puede reiniciar el servicio de Docker en el clúster.
+
+## ¿Por qué devuelven mis transacciones un error de política de aprobación: el conjunto de firmas no cumple la política?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+Cuando invoco un contrato inteligente para enviar una transacción, la transacción devuelve el error de política de aprobación siguiente:
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+Si se ha unido recientemente a un canal y ha instalado el contrato inteligente, este error se produce si no ha añadido su organización a la política de aprobación. Debido a que su organización no está en la lista de organizaciones que pueden aprobar una transacción de un contrato inteligente, el canal rechazará la aprobación por parte de sus iguales. Si detecta este problema, puede cambiar la política de aprobación actualizando el contrato inteligente. Para obtener más información, consulte
+[Especificación de una política de aprobación](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) y [Actualización de un contrato inteligente](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+{: tsCauses}
