@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,11 +23,27 @@ subcollection: blockchain
 In diesen nach Datum gruppierten Releaseinformationen können Sie sich über die neuesten Änderungen an {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} informieren. Dieses Produkt basiert auf Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+## 10. Juli 2019
+{: #07-10-2019}
+
+**Programmkorrektur für Anordnungsknoten `1.4.1-2`**  
+
+Diese Programmkorrektur behebt ein Problem, das beim Neustart von Anordnungsknoten auftritt. Der Genesis-Block wurde aktualisiert, um die Kommunikation zwischen dem Anordnungsknoten und anderen Knoten im Anordnungsservice zu ermöglichen. Sie können diese Programmkorrektur auf alle vorhandenen Anordnungsknoten in Ihren Anordnungsservices anwenden, indem Sie diese [Anweisungen](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) zum Aktualisieren jedes Anordnungsknotens zulassen. Auf alle Anordnungsknoten, die Sie neu erstellen, wird diese Programmkorrektur automatisch angewendet.
+
+**Ankerpeers entfernen**  
+
+Sie haben nun die Möglichkeit, Ankerpeers aus einem Kanal zu entfernen.
+
+**Weitere Fehlerkorrekturen**  
+
+Fehlerkorrekturen und Übersetzungsänderungen
 
 ## 24. Mai 2019
 {: #05-24-2019}
 
-**Raft-Konsensprotokoll**: Der für Produktionsnetze empfohlene Raft-Anordnungsservice mit fünf Knoten ist jetzt verfügbar. Darüber hinaus können Sie für Entwicklungs- und Testzwecke einen Raft-Anordnungsservice mit nur einem Knoten bereitstellen.
+**Raft-Konsensprotokoll**  
+
+Der für Produktionsnetze empfohlene Raft-Anordnungsservice mit fünf Knoten ist jetzt verfügbar. Darüber hinaus können Sie für Entwicklungs- und Testzwecke einen Raft-Anordnungsservice mit nur einem Knoten bereitstellen.
 
 ## 9. Mai 2019
 {: #05-09-2019}

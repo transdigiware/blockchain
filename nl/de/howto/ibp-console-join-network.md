@@ -326,7 +326,7 @@ Dieser Schritt muss von einem Administrator der Organisation "Org1" ausgeführt 
 Die Organisation `Org1` muss die zugehörige MSP-Definition an Sie senden, damit Sie die Organisation zu dem Kanal hinzufügen können. Sie müssen ein Mitglied des vom Anordnungsservice gehosteten Konsortiums sein, damit Sie zum Kanal hinzugefügt werden können. Zum Ausführen dieser Schritte müssen Sie der Administrator der **Peerorganisation** sein. Dies bedeutet, die Administratoridentität für die Peerorganisation muss in Ihrer Wallet enthalten sein.
 
 1. Navigieren Sie zur Registerkarte **Organisationen**. Die Organisationen, die für den Export zur Verfügung stehen, sind unter **Verfügbare Organisationen** aufgelistet. Klicken Sie auf die Schaltfläche **Herunterladen** innerhalb der Kachel mit den Organisationen, um die JSON-Konfigurationsdatei herunterzuladen, die den MSP der Peerorganisation darstellt.
-2. Senden Sie diese Datei in einer externen Operation an das Mitglied des Konsortiums, das den Kanal erstellen wird. 
+2. Senden Sie diese Datei in einer externen Operation an das Mitglied des Konsortiums, das den Kanal erstellen wird.
 
 ### Organisationsdefinition importieren
 {: #ibp-console-join-network-create-channel-import-msp}

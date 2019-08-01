@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,11 +55,12 @@ Bevor Sie Knoten in die Konsole importieren können, müssen sie aus der {{site.
 - Knoten, die Sie in die Konsole importiert haben, können nicht aktualisiert werden.
 - Knoten, die Sie in die Konsole importiert haben, können nicht aus dem Cluster gelöscht werden, in dem sie bereitgestellt wurden. Sie können Knoten nur aus der Konsole entfernen.
 - Wenn Sie einen Knoten importieren, der in {{site.data.keyword.cloud_notm}} Private implementiert ist, müssen Sie sicherstellen, dass der von der Komponente verwendete gRPC-Web-Proxy-Port extern für die Konsole zugänglich ist. Weitere Informationen finden Sie im Abschnitt [Knoten aus {{site.data.keyword.cloud_notm}} Private importieren](#ibp-console-import-icp).
+- Wenn Sie die Kachel eines importierten Knotens öffnen, ist die Fabric-Version nicht sichtbar und die Registerkarte für **Verwendung und Informationen** ist nicht verfügbar.
 
 ## Starten Sie hier: Zertifikate oder Berechtigungsnachweise zusammenstellen
 {: #ibp-console-import-start-here}
 
-Bevor Sie eine vorhandene Blockchain-Komponente aus einer anderen {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz importieren können, müssen Sie die Administratoridentität für die Komponente in Ihre Konsolenwallet importieren. Durch Importieren der Identität in die Konsolenwallet wird die Knotenoperation optimiert. Der Netzoperator des Netzes, in dem der Knoten bereitgestellt wurde, sollte die Knotenadministrator-ID aus der Wallet in eine JSON-Datei exportieren, die Sie [importieren](#ibp-console-import-nodes-admin-identities) können. Bei der Knotenadministrator-ID handelt es sich in der Regel um den Administrator des Peers oder der Organisation des Anordungsknotens, der bzw. die bei der Erstellung der MSP-Definition für die Organisation angegeben wurde. Diese ID müsste bereits in der Konsolenwallet enthalten sein, in der sich der Knoten befindet.
+Bevor Sie eine vorhandene Blockchain-Komponente aus einer anderen {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz importieren können, müssen Sie die Administratoridentität für die Komponente in Ihre Konsolenwallet importieren. Durch Importieren der Identität in die Konsolenwallet wird die Knotenoperation optimiert.  Der Netzoperator des Netzes, in dem der Knoten bereitgestellt wurde, sollte die Knotenadministrator-ID aus der Wallet in eine JSON-Datei exportieren, die Sie [importieren](#ibp-console-import-nodes-admin-identities) können.  Bei der Knotenadministrator-ID handelt es sich in der Regel um den Administrator des Peers oder der Organisation des Anordungsknotens, der bzw. die bei der Erstellung der MSP-Definition für die Organisation angegeben wurde. Diese ID müsste bereits in der Konsolenwallet enthalten sein, in der sich der Knoten befindet.
 
 ### Administratoridentitäten in die Konsolenwallet importieren
 {: #ibp-console-import-nodes-admin-identities}
@@ -124,7 +125,7 @@ Nachdem Sie den Anordnungsservice in die Konsole importiert haben, können Sie n
 ## Peer importieren
 {: #ibp-console-import-peer}
 
-Ein Peerknoten ist die Blockchain-Komponente, die ein Ledger verwaltet und einen Smart Contract ausführt, um Abfrage- und Aktualisierungsoperationen für das Ledger auszuführen. Organisationsmitglieder besitzen und verwalten Peers. Jede Organisation, die einem Konsortium beitritt, sollte mindestens einen Peer bereitstellen (für Hochverfügbarkeit mindestens zwei). Weitere Informationen zu Peers finden Sie in der [Übersicht zu Blockchain-Komponenten](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
+Ein Peerknoten ist die Blockchain-Komponente, die ein Ledger verwaltet und einen Smart Contract ausführt, um Abfrage- und Aktualisierungsoperationen für das Ledger auszuführen. Organisationsmitglieder besitzen und verwalten Peers.  Jede Organisation, die einem Konsortium beitritt, sollte mindestens einen Peer bereitstellen (für Hochverfügbarkeit mindestens zwei). Weitere Informationen zu Peers finden Sie in der [Übersicht zu Blockchain-Komponenten](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer).
 
 Nachdem Sie einen Peer in die Konsole importiert haben, können Sie Smart Contracts auf dem Peer installieren und den Peer mit anderen Kanälen in der Blockchain verknüpfen.
 
@@ -152,7 +153,7 @@ Nachdem Sie den Peer in die Konsole importiert haben, können Sie Smart Contract
 ## MSP-Definition einer Organisation importieren
 {: #ibp-console-import-msp}
 
-Sie müssen die MSP-Definition einer Organisation importieren, wenn der MSP über die Konsole einer anderen {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz bereitgestellt wurde und wenn Sie beabsichtigen, einen Kanal zu erstellen oder zu aktualisieren, der diese MSP-Definition verwendet. Wenn Sie einen Peer oder Anordnungsservice erstellen möchten, der Teil der MSP-Definition einer Organisation ist, die in einer anderen Konsole bereitgestellt wurde, müssen Sie ebenfalls die MSP-Definition und die zugehörige MSP-Administrator-ID importieren. Der Netzoperator, von dem die MSP-Definition erstellt wurde, muss die MSP-Definition der Organisation und die zugehörige Administrator-ID in JSON-Dateien exportieren und für Sie freigeben.
+Sie müssen die MSP-Definition einer Organisation importieren, wenn der MSP über die Konsole einer anderen {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz bereitgestellt wurde und wenn Sie beabsichtigen, einen Kanal zu erstellen oder zu aktualisieren, der diese MSP-Definition verwendet. Wenn Sie einen Peer oder Anordnungsservice erstellen möchten, der Teil der MSP-Definition einer Organisation ist, die in einer anderen Konsole bereitgestellt wurde, müssen Sie ebenfalls die MSP-Definition und die zugehörige MSP-Administrator-ID importieren.  Der Netzoperator, von dem die MSP-Definition erstellt wurde, muss die MSP-Definition der Organisation und die zugehörige Administrator-ID in JSON-Dateien exportieren und für Sie freigeben.
 
 - Wenn Sie einen Peer- oder Anordnungsservice erstellen möchten, der Teil der Organisation ist, importieren Sie die zugehörige MSP-Administrator-ID in Ihre Wallet.
 - Das Importieren der MSP-Definition der Organisation erfolgt über die Registerkarte **Organisationen**.

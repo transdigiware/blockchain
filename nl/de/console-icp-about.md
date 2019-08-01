@@ -30,7 +30,6 @@ subcollection: blockchain
 
 Sie können dieses Angebot verwenden, um die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole in einer Bereitstellung von {{site.data.keyword.cloud_notm}} Private zu installieren. Anschließend können Sie die Konsole verwenden, um alle grundlegenden Komponenten einer Hyperledger Fabric-Blockchain (eine Zertifizierungsinstanz, einen Anordnungsservice und Peers) in Ihrem lokalen Cluster zu erstellen. Weitere Informationen zu den Bausteinen von Hyperledger Fabric-Netzen finden Sie unter [Blockchain-Komponenten im Überblick](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview). Außerdem können Sie mit der Konsole ein verteiltes Netz mit mehreren Clouds betreiben, indem Sie Knoten importieren, die in anderen {{site.data.keyword.cloud_notm}} Private-Clustern oder in {{site.data.keyword.cloud_notm}} bereitgestellt wurden.
 
-
 Dieses Release von {{site.data.keyword.blockchainfull_notm}} Platform enthält die folgenden Schlüsselfunktionen:
 
 **BUILD ---- Integrierte Entwicklererfahrung**
@@ -75,9 +74,9 @@ Machen Sie sich vor Beginn mit den folgenden Einschränkungen vertraut:
 
 - Für das Management der Statusüberwachung, der Sicherheits- und Protokollierungsfunktionen sowie der Ressourcennutzung Ihrer Blockchain-Komponenten sind Sie selbst verantwortlich.
 - Mit der Konsole können nur Komponenten erstellt und gesteuert werden, die auf Hyperledger Fabric v1.4.1 oder höher basieren.
-- In jedem Kubernetes-Namensbereich kann jeweils nur eine Konsole bereitgestellt werden. Wenn Sie mehrere Blockchain-Netze erstellen möchten (zum Beispiel für unterschiedliche Umgebungen für Entwicklung. Staging und Produktion) sollten Sie für jede Umgebung einen eindeutigen Namensbereich erstellen. 
+- In jedem Kubernetes-Namensbereich kann jeweils nur eine Konsole bereitgestellt werden. Wenn Sie mehrere Blockchain-Netze erstellen möchten (zum Beispiel für unterschiedliche Umgebungen für Entwicklung. Staging und Produktion) sollten Sie für jede Umgebung einen eindeutigen Namensbereich erstellen.
 - Sie können nur Knoten importieren, die aus anderen {{site.data.keyword.blockchainfull_notm}} Platform-Konsolen exportiert wurden. Damit ein importierter Peer oder Anordnungsknoten über die Konsole gesteuert werden kann, müssen Sie auch die zugehörige MSP-Definition der Organisation und die Administratoridentität in Ihre Konsole importieren.
-- {{site.data.keyword.blockchainfull_notm}} Platform wird nur unter {{site.data.keyword.cloud_notm}} Private v3.2 Enterprise Edition unterstützt. {{site.data.keyword.cloud_notm}} Private v3.2 Community Edition wird nicht unterstützt.
+- {{site.data.keyword.blockchainfull_notm}} Platform wird nur unter {{site.data.keyword.cloud_notm}} Private v3.2 Enterprise Edition unterstützt.  {{site.data.keyword.cloud_notm}} Private v3.2 Community Edition wird nicht unterstützt.
 - {{site.data.keyword.IBM_notm}} Multicloud Manager kann nicht verwendet werden, um das {{site.data.keyword.blockchainfull_notm}} Platform-Helm-Diagramm zu installieren.
 
 Einen Einblick in die von {{site.data.keyword.cloud_notm}} Private unterstützten Umgebungen finden Sie in [Unterstützte Umgebungen](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/supported_environments/environments_overview.html){: external}.

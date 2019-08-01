@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -53,7 +53,7 @@ Weitere Informationen zum Anordnungsservice finden Sie im Abschnitt zum [Anordnu
 ## Peers
 {: #blockchain-component-overview-peer}
 
-Physisch gesehen besteht ein Blockchain-Netz primär aus Peerknoten (kurz "Peers" genannt). Peers sind die grundlegenden Elemente des Netzes, da sie Ledger und Smart Contracts hosten (die in [Chaincode](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external} enthalten sind). Genauer gesagt hosten die Peers **Instanzen** des Ledgers und **Instanzen** von Smart Contracts. Da Smart Contracts und Ledger eingesetzt werden, um die gemeinsam genutzten Prozesse bzw. Informationen in einem Netzwerk zu kapseln, sind diese Aspekte eines Peers ein guter Ansatzpunkt für das Verständnis dessen, was ein Fabric-Netz eigentlich ausführt.
+Physisch gesehen besteht ein Blockchain-Netz primär aus Peerknoten (kurz "Peers" genannt). Peers sind die grundlegenden Elemente des Netzes, da sie Ledger und Smart Contracts hosten (die in ["Chaincode"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external} enthalten sind). Genauer gesagt hosten die Peers **Instanzen** des Ledgers und **Instanzen** von Smart Contracts. Da Smart Contracts und Ledger eingesetzt werden, um die gemeinsam genutzten Prozesse bzw. Informationen in einem Netzwerk zu kapseln, sind diese Aspekte eines Peers ein guter Ansatzpunkt für das Verständnis dessen, was ein Fabric-Netz eigentlich ausführt.
 
 Weitere spezielle Informationen zu Peers enthält [dieses Dokument über Peers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external} in der Dokumentation der Fabric-Community.
 

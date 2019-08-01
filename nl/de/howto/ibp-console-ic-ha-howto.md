@@ -35,9 +35,9 @@ Beim Einrichten der HA-Unterstützung mit mehreren Regionen für Peers werden di
 ## Konfigurationsschritte
 {: #ibp-console-hadr-config}
 
-Führen Sie beim Konfigurieren Ihres Blockchain-Netzes die folgenden Schritte aus, um die HA mit mehreren Regionen zu konfigurieren, indem Sie redundante Peers für jede Organisation erstellen: 
+Führen Sie beim Konfigurieren Ihres Blockchain-Netzes die folgenden Schritte aus, um die HA mit mehreren Regionen zu konfigurieren, indem Sie redundante Peers für jede Organisation erstellen:
 
-1. Erstellen Sie drei {{site.data.keyword.cloud_notm}}-Kubernetes-Cluster in den gewünschten Regionen. Diese Cluster können sich in jeder gewünschten Region befinden, sollten jedoch für eine optimale Leistung möglichst nahe beieinander positioniert werden. Beispiel: Die Regionen "USA - Ostküste", "USA - Westküste" und "Kanada" sind besser geeignet als die Regionen "USA - Westküste" und "Tokio".
+1. Erstellen Sie drei {{site.data.keyword.cloud_notm}}-Kubernetes-Cluster in den gewünschten Regionen.Diese Cluster können sich in jeder gewünschten Region befinden, sollten jedoch für eine optimale Leistung möglichst nahe beieinander positioniert werden.Beispiel: Die Regionen "USA - Ostküste", "USA - Westküste" und "Kanada" sind besser geeignet als die Regionen "USA - Westküste" und "Tokio".
 2. Stellen Sie eine neue Instanz von {{site.data.keyword.blockchainfull_notm}} Platform bereit und verknüpfen Sie sie mit dem Cluster in der ersten Region. Stellen Sie anschließend eine weitere Instanz von {{site.data.keyword.blockchainfull_notm}} Platform bereit und verknüpfen Sie sie mit dem Cluster in der zweiten Region. Wiederholen Sie den Vorgang, um eine dritte Serviceinstanz mit dem Cluster in der dritten Region zu verknüpfen. Danach verfügen Sie über drei separate {{site.data.keyword.blockchainfull_notm}} Platform-Instanzen, die mit drei separaten Clustern in verschiedenen Regionen verknüpft sind, und über drei separate Konsolen.
 
 In diesem Lernprogramm wird vorausgesetzt, dass ein Anordnungsservice mit einem definierten Kanal vorhanden ist, an dem Peers teilnehmen können.

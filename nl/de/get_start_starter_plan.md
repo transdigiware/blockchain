@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,17 +15,20 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
 
 # Einführung zum Starter Plan
 {: #getting-started-with-starter-plan}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
-Der {{site.data.keyword.blockchainfull}} Platform Starter Plan stellt durch einen Klick ein vorkonfiguriertes Blockchain-Netz bereit. Das Angebot stellt standardmäßig ein genehmigtes Netz mit Konfiguration von zwei [Organisationen](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), einem [Peer](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) pro Organisation und einem [Kanal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) bereit. Wenn das Netz erstellt ist, können Sie Ihr Netz skalieren und ihm weitere Organisationen und Peers hinzufügen. Diese Netze sind für Benutzer mit wenig Vorkenntnissen gedacht, die {{site.data.keyword.blockchainfull_notm}} Platform zum ersten Mal nutzen. <!--Note that it might cause extra cost if you exceed the default resource limits of two organizations and two peers.-->
+Der {{site.data.keyword.blockchainfull}} Platform Starter Plan stellt durch einen Klick ein vorkonfiguriertes Blockchain-Netz bereit. Das Angebot stellt standardmäßig ein genehmigtes Netz mit Konfiguration von zwei [Organisationen](/docs/services/blockchain?topic=blockchain-glossary#glossary-organization), einem [Peer](/docs/services/blockchain?topic=blockchain-glossary#glossary-peer) pro Organisation und einem [Kanal](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) bereit. Wenn das Netz erstellt ist, können Sie Ihr Netz skalieren und ihm weitere Organisationen und Peers hinzufügen. Diese Netze sind für Benutzer mit geringen Vorkenntnissen gedacht, die {{site.data.keyword.blockchainfull_notm}} Platform zum ersten Mal nutzen.
 {:shortdesc}
+
+Der Starter Plan wird nicht mehr verwendet, daher können zum gegenwärtigen Zeitpunkt keine neuen Starter Plan-Netze erstellt werden.** Verwenden Sie die neueste Benutzerschnittstelle und die neuesten Funktionen, die jetzt in der Blockchain-Technologie der zweiten Generation verfügbar sind, indem Sie [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks) aufrufen.
+{: important}  
+
+** Ihre bestehenden Netze sind nicht betroffen und Sie können diese bis zum 4. Juni 2020 weiterhin verwenden.
 
 Mit dem Starter Plan können Sie sich mit {{site.data.keyword.blockchainfull_notm}} Platform vertraut machen und sich Kenntnisse aneignen, Beispielanwendungen ausführen, eigene Anwendungen testen und ein Szenario mit mehreren Organisationen simulieren. Dieses Lernprogramm zur Einführung zeigt Ihnen, wie Sie den Starter Plan für die Entwicklung eines Blockchain-Netzes und die Interaktion mit diesem Netz einsetzen können.
 

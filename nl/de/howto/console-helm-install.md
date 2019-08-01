@@ -2,7 +2,8 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
+
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, install, Helm chart, PodSecurityPolicy
 
@@ -31,16 +32,14 @@ Lesen Sie vor der Installation von {{site.data.keyword.blockchainfull_notm}} Pla
 ## Voraussetzungen für die Installation des Helm-Diagramms
 {: #console-helm-install-prereqs}
 
-Vor der Installation des Helm-Diagramms müssen Sie einen {{site.data.keyword.cloud_notm}} Private-Cluster konfiguriert und einen neuen Zielnamensbereich erstellt haben, der an eine Pod-Sicherheitsrichtlinie gebunden ist. Lesen Sie hierzu die Anweisungen im Abschnitt über die [Einrichtung und Konfiguration eines {{site.data.keyword.cloud_notm}} Private-Clusters](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup). Sie können nur eine Konsole pro Namensbereich installieren. Wenn Sie mehrere Blockchain-Netze erstellen möchten (zum Beispiel für unterschiedliche Umgebungen für Entwicklung. Staging und Produktion) sollten Sie für jede Umgebung einen eindeutigen Namensbereich erstellen. 
+Vor der Installation des Helm-Diagramms müssen Sie einen {{site.data.keyword.cloud_notm}} Private-Cluster konfiguriert und einen neuen Zielnamensbereich erstellt haben, der an eine Pod-Sicherheitsrichtlinie gebunden ist. Lesen Sie hierzu die Anweisungen im Abschnitt über die [Einrichtung und Konfiguration eines {{site.data.keyword.cloud_notm}} Private-Clusters](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup). Sie können nur eine Konsole pro Namensbereich installieren. Wenn Sie mehrere Blockchain-Netze erstellen möchten (zum Beispiel für unterschiedliche Umgebungen für Entwicklung. Staging und Produktion) sollten Sie für jede Umgebung einen eindeutigen Namensbereich erstellen.
 
 ### Voraussetzungen für Podsicherheitsrichtlinie (PodSecurityPolicy)
 {: #console-helm-install-prereqs-pod-security-requirements}
 
-Vor der Installation des {{site.data.keyword.blockchainfull_notm}} Platform-Helm-Diagramms müssen bestimmte Sicherheits- und Zugriffsrichtlinien an den Zielnamensbereich gebunden werden. Führen Sie vor dem Konfigurieren des Helm-Diagramms die folgenden Schritte aus, um die Richtlinien zu konfigurieren:
+Vor der Installation des {{site.data.keyword.blockchainfull_notm}} Platform-Helm-Diagramms müssen bestimmte Sicherheits- und Zugriffsrichtlinien an den Zielnamensbereich gebunden werden. In den nachfolgenden Schritten werden YAML-Dateien bereitgestellt, die die Richtlinien definieren. Diese Dateien können Sie mithilfe der {{site.data.keyword.cloud_notm}} Private-CLI in Ihrem lokalen System speichern und an Ihren Namensbereich binden. Führen Sie diese Schritte aus, bevor Sie das {{site.data.keyword.blockchainfull_notm}} Platform-Helm-Diagramm bereitstellen.
 
-1. Wählen Sie entweder eine vordefinierte Pod-Sicherheitsrichtlinie für Ihren Namensbereich aus oder lassen Sie von Ihrem Clusteradministrator eine angepasste Pod-Sicherheitsrichtlinie erstellen:
-  - Sie können die vordefinierte Pod-Sicherheitsrichtlinie [`ibm-privileged-psp`](https://ibm.biz/cpkspec-psp) verwenden.
-  - Sie können auch mit dem nachfolgenden YAML-Code eine angepasste Definition für die Pod-Sicherheitsrichtlinie erstellen:
+1. Speichern Sie die nachfolgende Datei, in der die Richtlinie "PodSecurityPolicy" für {{site.data.keyword.blockchainfull_notm}} Platform definiert wird, als Datei `ibm-blockchain-platform-psp.yaml` in Ihrem lokalen System:
 
     ```
     apiVersion: extensions/v1beta1
@@ -70,13 +69,13 @@ Vor der Installation des {{site.data.keyword.blockchainfull_notm}} Platform-Helm
       - DAC_OVERRIDE
       - SETGID
       - SETUID
+      - FOWNER
       volumes:
       - '*'
     ```
     {:codeblock}
 
-2. Erstellen Sie eine Clusterrolle für die Pod-Sicherheitsrichtlinie.
-  - Wenn Sie eine angepasste Sicherheitsrichtlinie erstellt haben, können Sie mithilfe der nachfolgenden YAML-Datei eine Clusterrolle erstellen:
+2. Speichern Sie die nachfolgende Datei, in der die erforderliche Clusterrolle (ClusterRole) für "PodSecurityPolicy" definiert ist, als Datei `ibm-blockchain-platform-clusterrole.yaml`:
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -94,45 +93,60 @@ Vor der Installation des {{site.data.keyword.blockchainfull_notm}} Platform-Helm
       verbs:
       - use
     - apiGroups:
-      - ""
+      - "*"
       resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - persistentvolumes
+      - events
+      - configmaps
       - secrets
+      - ingresses
+      - roles
+      - rolebindings
+      - serviceaccounts
       verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
+      - '*'
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - persistentvolumeclaims
+      - persistentvolumes
+      - customresourcedefinitions
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      - ibpservices
+      - ibpcas
+      - ibppeers
+      - ibpfabproxies
+      - ibporderers
+      verbs:
+      - '*'
+    - apiGroups:
+      - ibp.com
+      resources:
+      - '*'
+      verbs:
+      - '*'
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+      verbs:
+      - '*'
     ```
     {:codeblock}
 
-  - Wenn Sie eine vordefinierte Pod-Sicherheitsrichtlinie verwenden, benötigen Sie zum Erstellen einer Clusterrolle nur den zweiten Abschnitt "apiGroups":
-
-    ```
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      annotations:
-      name: ibm-blockchain-platform-clusterrole
-      rules:
-      - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - create
-      - delete
-      - get
-      - list
-      - patch
-      - update
-      - watch
-    ```
-    {:codeblock}
-
-3. Erstellen Sie eine angepasste Clusterrollenbindung (ClusterRoleBinding). Wenn Sie den Namen des Servicekontos in der nachfolgenden Datei ändern möchten, müssen Sie den Namen im Feld `Name des Servicekontos` im Abschnitt **Alle Parameter** der Konfigurationsseite beim Bereitstellen des Helm-Diagramms angeben.
+3. Speichern Sie die nachfolgende Datei, in der die Clusterrollenbindung (ClusterRoleBinding) definiert ist, als Datei `ibm-blockchain-platform-clusterrolebinding.yaml`. Wenn Sie den Namen des Servicekontos (ServiceAccount) in der nachfolgenden Datei ändern möchten, müssen Sie den gewünschten Namen im Feld `Name des Servicekontos` im Abschnitt **Alle Parameter** der Konfigurationsseite beim Bereitstellen des Helm-Diagramms angeben.
 
   ```
   apiVersion: rbac.authorization.k8s.io/v1
@@ -150,23 +164,35 @@ Vor der Installation des {{site.data.keyword.blockchainfull_notm}} Platform-Helm
   ```
   {:codeblock}
 
-Sie können die folgenden Schritte ausführen, wenn Sie mithilfe von YAML-Dateien Sicherheits- und Zugriffsrichtlinien an Ihren Namensbereich binden möchten:
+Nachdem Sie die YAML-Dateien für Podsicherheitsrichtlinie, Clusterrolle und Clusterrollenbindung in Ihrem lokalen System gespeichert haben, müssen die Richtlinien von einem Clusteradministrator mithilfe der {{site.data.keyword.cloud_notm}} Private-CLI an Ihren Namensbereich gebunden werden.
 
-1. Speichern Sie die YAML-Datei in Ihrem lokalen System.
+1. Melden Sie sich bei Ihrem {{site.data.keyword.cloud_notm}} Private-Cluster an und wählen Sie den Zielnamensbereich Ihrer Bereitstellung aus.
 
-2. Melden Sie sich bei Ihrem {{site.data.keyword.cloud_notm}} Private-Cluster an und wählen Sie den Zielnamensbereich Ihrer Bereitstellung aus.
+  ```
+  cloudctl login -a https://<cluster_CA_domain>:8443 --skip-ssl-validation
+  ```
+
+2. Melden Sie sich bei der Docker-Image-Registry für Ihren Cluster an:
 
   ```
   docker login <cluster_CA_domain>:8500
   ```
-  {:codeblock}
+   {:codeblock}
 
-3. Verwenden Sie den folgenden Befehl, um die Richtlinie auf den Zielnamensbereich anzuwenden:
+3. Führen Sie die folgenden Befehle aus, um die Richtlinien auf Ihren Zielnamensbereich anzuwenden:
 
   ```
-  kubectl apply -f <dateiname>.yaml
+  kubectl apply -f ibm-blockchain-platform-psp.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrole.yaml
+  kubectl apply -f ibm-blockchain-platform-clusterrolebinding.yaml
   ```
   {:codeblock}
+
+4. Nach dem Anwenden der Richtlinien müssen Sie Ihrem Servicekonto die erforderliche Berechtigungsstufe zum Bereitstellen Ihrer Konsole erteilen. Führen Sie den folgenden Befehl mit Angabe des Zielnamensbereichs aus:
+
+  ```
+  kubectl -n <namensbereich> create rolebinding ibm-blockchain-platform-clusterrole-rolebinding --clusterrole=ibm-blockchain-platform-clusterrole --group=system:serviceaccounts:<namensbereich>
+  ```
 
 ## Helm-Diagramm in {{site.data.keyword.cloud_notm}} Private importieren
 {: #console-helm-install-importing}

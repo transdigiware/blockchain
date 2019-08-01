@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,15 +22,18 @@ subcollection: blockchain
 # Informationen zu Starter Plan
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 Der {{site.data.keyword.blockchainfull}} Platform Starter Plan ist eine Einstiegsoption, die Organisationen befähigt, Blockchain-Netze für mehrere Organisationen zu simulieren, schnell Anwendungen zu entwickeln und mit Smart Contracts und Unternehmensnetzen zu arbeiten. Dabei verfügt die Plattform über dieselbe Benutzerschnittstellenbedienung wie andere Mitgliedschaftsoptionen, um den Einarbeitungsaufwand zu minimieren. Nach dem 4. Oktober 2018 werden neue Starter Plan-Netze auf der Basis von Hyperledger Fabric Version 1.2.1 erstellt. Ältere Starter Plan-Netze behalten Fabric Version 1.1.0 bei.
 {:shortdesc}
 
+Der Starter Plan wird nicht mehr verwendet, daher können zum gegenwärtigen Zeitpunkt keine neuen Starter Plan-Netze erstellt werden.** Verwenden Sie die neueste Benutzerschnittstelle und die neuesten Funktionen, die jetzt in der Blockchain-Technologie der zweiten Generation verfügbar sind, indem Sie [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks) aufrufen.
+{: important}  
+
+** Ihre bestehenden Netze sind nicht betroffen und Sie können diese bis zum 4. Juni 2020 weiterhin verwenden.
+
+
 **Starter Plan** ist eine Umgebung für diejenigen, die Blockchain-Netze entwickeln möchten oder mehr zur Blockchain-Technologie erfahren möchten. Sie können den Starter Plan als Entwicklungs- oder Testumgebung verwenden, mit dem Sie klein anfangen und das Mitgliedschafts- oder Transaktionsvolumen Ihres Netzes skalieren können, bevor Sie in eine Produktionsumgebung wechseln.
 
- Wenn Sie ein Starter Plan-Netz bereitstellen möchten, registrieren Sie sich jetzt für Ihre [Starter-Mitgliegschaft](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}bei {{site.data.keyword.cloud_notm}}. Wenn Sie mit der Entwicklung Ihres Netzes beginnen möchten, besuchen Sie [Einführung in den Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
+ Wenn Sie ein Starter Plan-Netz bereitstellen möchten, registrieren Sie sich jetzt für Ihre [Starter-Mitgliedschaft](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external}bei {{site.data.keyword.cloud_notm}}. Wenn Sie mit der Entwicklung Ihres Netzes beginnen möchten, besuchen Sie [Einführung in den Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
 
 
 **Hinweise:**

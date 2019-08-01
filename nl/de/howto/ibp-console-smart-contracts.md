@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -25,7 +25,8 @@ subcollection: blockchain
 Ein Smart Contract (manchmal auch als "Chaincode" bezeichnet) ist der Code, der es Ihnen ermöglicht, Daten im Blockchain-Ledger zu lesen und zu aktualisieren. Ein Smart Contract kann Geschäftslogik in ein ausführbares Programm umwandeln, das alle Mitglieder im Blockchain-Netz vereinbart und verifiziert haben. Dieses Lernprogramm ist der dritte Teil in der [Beispielserie für das Netz-Lernprogramm](#ibp-console-smart-contracts-structure) und beschreibt, wie Sie Smart Contracts bereitstellen, um Transaktionen im Blockchain-Netz zu starten.
 {:shortdesc}
 
-Wenn Sie die Betatestversion von {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} verwenden, dann stimmen wahrscheinlich manche Anzeigen in Ihrer Konsole nicht mit den Darstellungen in der aktuellen Dokumentation überein, die stets auf den Stand der allgemein verfügbaren Serviceinstanz aktualisiert wird. Um alle Vorteile der neuesten Funktionalität nutzen zu können, sollten Sie eine neue GA-Serviceinstanz bereitstellen. Befolgen Sie hierzu die Anweisungen in der [Einführung in {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).{: important}
+Wenn Sie die Betatestversion von {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} verwenden, dann stimmen wahrscheinlich manche Anzeigen in Ihrer Konsole nicht mit den Darstellungen in der aktuellen Dokumentation überein, die stets auf den Stand der allgemein verfügbaren Serviceinstanz aktualisiert wird. Um alle Vorteile der neuesten Funktionalität nutzen zu können, sollten Sie eine neue GA-Serviceinstanz bereitstellen. Befolgen Sie hierzu die Anweisungen in der [Einführung in {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
+{: important}
 
 **Zielgruppe:** Dieser Abschnitt richtet sich an Netzoperatoren, die für die Erstellung, Überwachung und Verwaltung des Blockchain-Netzes verantwortlich sind. Darüber hinaus können die Abschnitte zum Erstellen eines Smart Contract für Anwendungsentwickler von Interesse sein.
 
@@ -105,8 +106,9 @@ Führen Sie die folgenden Schritte aus, indem Sie die Konsole verwenden:
 2. In der Seitenanzeige, die daraufhin geöffnet wird, wählen Sie einen Kanal aus, für den der Smart Contract instanziiert werden soll. Sie können den Kanal mit dem Namen `Kanal 1` auswählen, den Sie erstellt haben. Klicken Sie anschließend auf **Weiter**.
 3. Geben Sie die [Bewilligungsrichtlinie für den Smart Contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) an, die im folgenden Abschnitt beschrieben wird. Wenn mehrere Organisationen Mitglieder des Kanals sind, haben Sie die Möglichkeit auszuwählen, wie viele Organisationen die Smart-Contract-Transaktionen zulassen müssen.
 4. Sie müssen außerdem die Organisationsmitglieder auswählen, die in die Bewilligungsrichtlinie aufgenommen werden sollen. Falls Sie dem Lernprogramm folgen, wäre dies `org1msp` und möglicherweise `org2msp`, wenn Sie sowohl die Lernprogramme **Build a network** (Ein Netz erstellen) als auch **Join a network** (Einem Netz beitreten) ausgeführt haben.
-5. Wenn Ihr Smart Contract Sammlungen privater Fabric-Daten umfasst, müssen Sie die zugeordnete JSON-Konfigurationsdatei für die Datensammlung hochladen; ansonsten können Sie diesen Schritt überspringen. In diesem Abschnitt finden Sie weitere Informationen zur Nutzung [privater Daten](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
-6. Im letzten Fenster werden Sie aufgefordert, die Smart-Contract-Funktion, die beim Start des Smart Contracts ausgeführt werden soll, sowie die zugehörigen Argumente anzugeben, die an diese Funktion übergeben werden sollen.
+5. Wählen Sie in der Anzeige zum Auswählen des Peers in der Dropdown-Liste einen Peer aus einer Organisation aus, die Kanalmitglied ist.
+6. Wenn Ihr Smart Contract Sammlungen privater Fabric-Daten umfasst, müssen Sie die zugeordnete JSON-Konfigurationsdatei für die Datensammlung hochladen; ansonsten können Sie diesen Schritt überspringen. In diesem Abschnitt finden Sie weitere Informationen zur Nutzung [privater Daten](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
+7. In der abschließenden Anzeige werden Sie aufgefordert, die Smart Contract-Initialisierungsfunktion anzugeben sowie die zugehörigen Argumente, die an die Funktion übergeben werden sollen.
 
 Sie können alle Smart Contracts anzeigen, die auf einem Kanal instanziiert wurden, indem Sie im linken Navigationsbereich auf das Kanalsymbol klicken, einen Kanal aus der Tabelle auswählen und dann auf die Registerkarte **Kanaldetails** klicken.
 
@@ -132,6 +134,8 @@ Wenn Sie die Schritte zum [Instanziieren eines Smart Contracts](/docs/services/b
 
 Klicken Sie auf die Schaltfläche **Erweitert**, wenn Sie eine Richtlinie im JSON-Format angeben wollen. Sie können diese Methode verwenden, um kompliziertere Bewilligungsrichtlinien anzugeben, z. B. die Anforderung, dass ein bestimmtes Mitglied des Kanals eine Transaktion sowie eine Mehrheit der anderen Mitglieder bewilligen muss. Weitere [Beispiele für erweiterte Bewilligungsrichtlinien](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external} finden Sie in der Hyperledger Fabric-Dokumentation. Weitere Informationen zum Schreiben von Bewilligungsrichtlinien in JSON finden Sie in der [Dokumentation zum Hyperledger Fabric-Node-SDK](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}.
 
+Bewilligungsrichtlinien werden nicht automatisch aktualisiert, wenn neue Organisationen dem Kanal beitreten und einen Chaincode installieren. Wenn die Richtlinie beispielsweise erfordert, dass zwei von fünf Organisationen eine Transaktion bewilligen, wird die Richtlinie nicht dahingehend aktualisiert, dass zwei von sechs Organisationen die Bewilligung erteilen müssen, wenn eine neue Organisation dem Kanal beitritt. Stattdessen wird die neue Organisation nicht in der Richtlinie aufgeführt und ist nicht in der Lage, Transaktionen zu bewilligen. Sie können eine weitere Organisation zu einer Bewilligungsrichtlinie hinzufügen, indem Sie den betreffenden Chaincode und die Richtlinie aktualisieren.
+
 ## Upgrade eines Smart Contracts durchführen
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -141,7 +145,8 @@ Sie können einen Smart Contract aktualisieren, um seinen Code, seine Bewilligun
 3. Wenn eine Sammlung privater Daten geändert wurde, z. B. wenn eine Organisation hinzugefügt oder entfernt wurde, müssen Sie Ihren Smart Contract aktualisieren. Alternativ können Sie diese Aktion anwenden, sobald der JSON-Konfigurationsdatei für die Datensammlung eine neue Sammlung privater Daten hinzugefügt wird.
 4. Die Argumente für die Initialisierung des Smart Contracts haben sich geändert.
 
-**Vor dem Upgrade eines instanziierten Smart Contracts muss die neue Version des Smart Contracts auf allen Peers im Kanal installiert werden, die die vorherige Version des Smart Contracts ausführen.**
+{:important}
+Vor dem Upgrade eines instanziierten Smart Contracts muss die neue Version des Smart Contracts auf allen Peers im Kanal installiert werden, auf denen die vorherige Smart Contract-Version aktiv ist.
 
 ### Vorgehensweise beim Upgrade eines Smart Contracts
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -151,16 +156,17 @@ Wenn Sie ein Upgrade für einen Smart Contract durchführen möchten, installier
 {:important}
 Wenn ein neues Mitglied, das den Smart Contract ausführen möchte, dem Kanal beitritt, muss der Smart Contract aktualisiert werden, indem eine neue Version auf allen Peers installiert und diese auf dem Kanal mit einer geänderten Bewilligungsrichtlinie instanziiert wird, die das neue Mitglied enthält.
 
-- Navigieren Sie auf der linken Seite zur Registerkarte **Smart Contracts**. 
+- Navigieren Sie auf der linken Seite zur Registerkarte **Smart Contracts**.
 - Blättern Sie in der Tabelle **Instanziierte Smart Contracts** abwärts.
 - Suchen Sie in der Tabelle **Instanziierte Smart Contracts** die Version und den Kanal des Smart Contracts, für den Sie ein Upgrade durchführen möchten. Neben dem Smart Contract muss die Bezeichnung **Verfügbares Upgrade** stehen.
 - Klicken Sie auf das **Überlaufmenü** auf der rechten Seite der Smart-Contract-Zeile, und klicken Sie auf **Upgrade**, um die folgenden Schritte auszuführen:  
 
  1. Wählen Sie in der Dropdown-Liste die Smart-Contract-Version aus, für die Sie ein Upgrade auf dem Kanal durchführen möchten.
  2. Aktualisieren Sie die Bewilligungsrichtlinie, indem Sie Kanalmitglieder hinzufügen oder entfernen. Sie können auch auf **Erweitert** klicken, um eine neue Zeichenfolge mit JSON-Formatierung einzufügen, die die vorhandene Richtlinie ändert.
- 3. Wenn Sie dem Smart Contract eine Konfigurationsdatei für eine Sammlung privater Daten zuordnen möchten, können Sie die JSON-Datei hochladen. Sie können die JSON-Datei aber auch hochladen, wenn Sie eine bereits vorhandene Sammlungskonfiguration aktualisieren möchten.   
+ 3. Sie müssen in der Anzeige zum Auswählen des Peers einen Peer auswählen, der den Vorschlag zum Aktualisieren des Smart Contracts genehmigen kann. Daher müssen Sie in der Dropdown-Liste einen Peer aus einer Organisation auswählen, die bereits vor der letzten Instanziierung des Kanals ein Kanalmitglied war.
+ 4. Wenn Sie dem Smart Contract eine Konfigurationsdatei für eine Sammlung privater Daten zuordnen möchten, können Sie die JSON-Datei hochladen. Sie können die JSON-Datei aber auch hochladen, wenn Sie eine bereits vorhandene Sammlungskonfiguration aktualisieren möchten.   
  Wenn der Smart Contract bereits mit einer Konfigurationsdatei für Datensammlungen instanziiert wurde, **müssen** Sie die vorherige Version oder eine neue Version dieser Datei in diesem Schritt erneut hochladen.  
- 4. (Optional) Ändern Sie die Werte für die Initialisierungsargumente des Smart Contracts, wenn sich die Parameter geändert haben. Wenn Sie sich nicht sicher sind, wenden Sie sich an Ihren Smart-Contract-Entwickler. Wenn sie sich nicht geändert haben, können Sie dieses Feld leer lassen.
+ 5. (Optional) Ändern Sie die Werte für die Initialisierungsargumente des Smart Contracts, wenn sich die Parameter geändert haben. Wenn Sie sich nicht sicher sind, wenden Sie sich an Ihren Smart-Contract-Entwickler. Wenn sie sich nicht geändert haben, können Sie dieses Feld leer lassen.
 
 Nachdem Sie den Smart Contract aktualisiert haben, ändern Sie die Version des Smart Contracts, der auf dem Kanal instanziiert ist, und ändern Sie den Smart-Contract-Container für alle Peers, die die neue Version installiert haben. Wenn Sie mit Sammlungen privater Daten arbeiten, müssen Sie sicherstellen, dass Sie im Kanal Ankerpeers konfiguriert haben.
 
