@@ -186,14 +186,14 @@ Verwenden Sie den Quickstart-Abschnitt zum Experimentieren oder als Einstieg. Im
 | **Konsoleneinstellungen** | **Verwaltung und Bereitstellung Ihrer Konsole** | | |
 | `Proxy-IP` | Die IP-Adresse des Proxy-Knotens in Ihrem Cluster. | Keine| Ja |
 | `E-Mail-Adresse des Konsolenadministrators` | Die E-Mail-Adresse zum Anmelden bei der Konsole. | Keine | Ja |
-| `Name des geheimen Schlüssels für Konsolenadministratorkennwort` | Der Name  des geheimen Schlüssels, den Sie [zum Speichern des Kennworts erstellt](#console-deploy-icp-password-secret) haben, mit dem Sie sich bei der Konsole anmelden möchten. | Keine | Ja |
+| `Name des geheimen Schlüssels für Konsolenadministratorkennwort` | Der Name  des geheimen Schlüssels, den Sie [zum Speichern des Kennworts erstellt](#console-deploy-icp-password-secret) haben, mit dem Sie sich bei der Konsole anmelden möchten. | Keine | Ja|
 | **Netzeinstellungen** | **Netzzugriff auf Ihre Konsole** | | |
 | `Hostname für Konsole` | Geben Sie denselben Wert wie die Proxy-IP ein. | Keine | Ja |
 | `Port für Konsole` | Geben Sie den Port ein, den Sie verwenden möchten (im Bereich von 31210 bis 31220). Dieser Port darf von keiner anderen Anwendung verwendet werden. | Keine | Ja |
-| `Proxy-Hostname` | Der Hostname des Proxy-Servers.  Geben Sie denselben Wert wie die Proxy-IP ein. | Keine | Ja |
+| `Proxy-Hostname` | Der Hostname des Proxy-Servers. Geben Sie denselben Wert wie die Proxy-IP ein. | Keine | Ja |
 | `Proxy-Port` | Geben Sie den Port ein, den Sie verwenden möchten (im Bereich von 31210 bis 31220). Dieser Port darf weder von einer anderen Anwendung noch von der Konsole verwendet werden. | Keine | Ja |
 | **Speichereinstellungen** | **Der Speicher, der von Ihrer Konsole verwendet werden soll.** | | |
-| `Speicherklassenname` | Geben Sie den Namen der Speicherklasse ein, die von der Konsole sowie den von Ihnen erstellen Komponenten verwendet werden soll.| Keine | Ja |
+| `Speicherklassenname` | Geben Sie den Namen der Speicherklasse ein, die von der Konsole sowie den von Ihnen erstellen Komponenten verwendet werden soll. | Keine | Ja |
 {: caption="Tabelle 1. Quickstart-Parameter" caption-side="top"}
 {: #simpletabtable1}
 {: tab-title="Quickstart Parameters"}
@@ -206,21 +206,21 @@ Verwenden Sie den Quickstart-Abschnitt zum Experimentieren oder als Einstieg. Im
 | `Architektur` | Wählen Sie die Architektur Ihrer Cloutplattform aus. (AMD64 oder S390x) | AMD64 | Nein |
 | **Konsoleneinstellungen** | **Verwaltung und Bereitstellung Ihrer Konsole** | | |
 | `Name des Servicekontos` | Das Servicekonto, das vom Operator (Bediener) verwendet werden soll. | Keine | Nein |
-| `Proxy-IP` | Die IP-Adresse des Proxy-Knotens in Ihrem Cluster. | Keine | Ja |
+| `Proxy-IP` | Die IP-Adresse des Proxy-Knotens in Ihrem Cluster. | Keine | Ja|
 | `E-Mail-Adresse des Konsolenadministrators` | Die E-Mail-Adresse zum Anmelden bei der Konsole. | Keine | Ja |
-| `Name des geheimen Schlüssels für Konsolenadministratorkennwort` | Der Name  des geheimen Schlüssels, den Sie [zum Speichern des Kennworts erstellt](#console-deploy-icp-password-secret) haben, mit dem Sie sich bei der Konsole anmelden möchten. | Keine | Ja |
+| `Name des geheimen Schlüssels für Konsolenadministratorkennwort` | Der Name  des geheimen Schlüssels, den Sie [zum Speichern des Kennworts erstellt](#console-deploy-icp-password-secret) haben, mit dem Sie sich bei der Konsole anmelden möchten. | Keine | Ja|
 | **Docker-Image-Einstellungen** | **Mit diesen Einstellungen können Sie angeben, welche Fabric-Images von der Konsole extrahiert werden sollen.** | | |
 | `Name für "imagePullSecret"` | Der geheime Schlüssel zum Abrufen von Images (imagePullSecret), der zum Herunterladen von Images verwendet werden soll. | `ibp-ibmregistry` | Nein |
 | **Netzeinstellungen** | **Netzzugriff auf Ihre Konsole** | | |
 | `Hostname für Konsole` | Geben Sie denselben Wert wie die Proxy-IP ein. | Keine | Ja |
 | `Port für Konsole` | Geben Sie den Port ein, den Sie verwenden möchten (im Bereich von 31210 bis 31220). | Keine | Ja |
-| `Proxy-Hostname` | Der Hostname des Proxy-Servers.  Geben Sie denselben Wert wie die Proxy-IP ein. | Keine | Ja |
+| `Proxy-Hostname` | Der Hostname des Proxy-Servers. Geben Sie denselben Wert wie die Proxy-IP ein. | Keine | Ja |
 | `Proxy-Port` | Geben Sie den Port ein, den Sie verwenden möchten (im Bereich von 31210 bis 31220). Dieser Port darf weder von einer anderen Anwendung noch von der Konsole verwendet werden. | Keine | Ja |
 | `Geheimer TLS-Schlüssel` | Der Name des geheimen Schlüssels, den Sie [zum Speichern der TLS-Zertifikate erstellt](#console-deploy-icp-tls-secret) haben, die von der Konsole verwendet werden. | Keine | Nein |
 | **Speichereinstellungen**| **Speicher für Konsole und Tools bereitstellen** | | |
 | `Volume Claim-Größe`| Die Größe des Persistent Volume Claim, der bereitgestellt werden soll. | 10Gi  | Nein |
 | `Speicherklassenname`| Der Name der Speicherklasse, die von der Konsole und den von Ihnen erstellen Komponenten verwendet werden soll. | Keine | Ja |
-| `Speicherzugriffsmodus`| Geben Sie den Speicher[zugriffsmodus](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) für den PVC an. | ReadWriteMany | Nein |
+| `Speicherzugriffsmodus`| Geben Sie den Speicher[zugriffsmodus](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) für den PVC an.  | ReadWriteMany | Nein |
 | **Ressourcenzuordnung**| **Ressourcen für die Konsole zuordnen** | | |
 | `Opstools-CPU-Limit` | Maximale Anzahl CPUs, die für die Komponente "opstools" zugeordnet werden soll. | 500m | Nein |
 | `Opstools-Speicherbegrenzung` | Maximale Speicherkapazität, die für die Komponente "opstools" zugeordnet werden soll. | 1000 Mi | Nein |
@@ -282,7 +282,7 @@ Sie können eine neue Datei `yaml` erstellen, indem Sie die Datei `values.yaml` 
 
 Nachdem Sie die Konfigurationsparameter ausgefüllt und auf die Schaltfläche **Installieren** geklickt haben, können Sie die Bereitstellung prüfen, indem Sie auf die Schaltfläche **Helm-Release anzeigen** klicken. Wenn die Bereitstellung erfolgreich durchgeführt wurde, sollte der Wert 1 in den Feldern `GEWÜNSCHT`, `DERZEIT`, `AKTUELL` und `VERFÜGBAR` der Tabelle "Bereitstellung" angezeigt werden. Möglicherweise müssen Sie zur Aktualisierung klicken und warten, bis die Tabelle aktualisiert angezeigt wird.
 
-Navigieren Sie zum Anzeigen der Details Ihrer Bereitstellung zur Übersichtsanzeige **Bereitstellung** und klicken Sie auf den Pod, der erstellt wurde. Für die Bereitstellung des Helm-Diagramms werden diese fünf Container in Ihrem Cluster erstellt: 
+Navigieren Sie zum Anzeigen der Details Ihrer Bereitstellung zur Übersichtsanzeige **Bereitstellung** und klicken Sie auf den Pod, der erstellt wurde. Für die Bereitstellung des Helm-Diagramms werden diese fünf Container in Ihrem Cluster erstellt:
 - **optools**: Die Benutzerschnittstelle der Konsole.
 - **deployer**: Dieses Tool ermöglicht der Konsole die Kommunikation mit Ihren Bereitstellungen.
 - **configtxlator**: Dieses Tool wird von der Konsole verwendet, um Kanalaktualisierungen zu lesen und zu erstellen.

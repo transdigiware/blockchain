@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 ## Angebot des neuen Release
 {: #ibp-console-overview-capabilities}
 
-Dieses neueste Release ist auf erfahrene {{site.data.keyword.blockchainfull_notm}}- und Hyperledger Fabric-Benutzer zugeschnitten und ermöglicht diesen Nutzern das Hosten von Netzen oder das Erstellen neuer Organisationen, die an anderen {{site.data.keyword.blockchainfull_notm}}-Netzen teilnehmen können. Wenn Sie bereits Starter Plan- oder Enterprise Plan-Kunde sind, muss nicht {{site.data.keyword.IBM_notm}} Ihr Netz verwalten, sondern Sie haben jetzt die vollständige Kontrolle und die Möglichkeit, Ihre Komponenten in Ihrem eigenen Kubernetes-Cluster bereitzustellen, zu überwachen und zu verwalten.
+Dieses neueste Release ist auf erfahrene Benutzer von {{site.data.keyword.blockchainfull_notm}} und Hyperledger Fabric zugeschnitten und ermöglicht diesen Nutzern, {{site.data.keyword.blockchainfull_notm}}-Netze zu hosten und den Netzen beizutreten. Wenn Sie bereits Starter Plan- oder Enterprise Plan-Kunde sind, muss nicht {{site.data.keyword.IBM_notm}} Ihr Netz verwalten, sondern Sie haben jetzt die vollständige Kontrolle und die Möglichkeit, Ihre Komponenten in Ihrem eigenen Kubernetes-Cluster bereitzustellen, zu überwachen und zu verwalten.
 
 Dieses Release von {{site.data.keyword.blockchainfull_notm}} Platform enthält die folgenden Schlüsselfunktionen:
 
@@ -39,10 +39,11 @@ Dieses Release von {{site.data.keyword.blockchainfull_notm}} Platform enthält d
 - **Simplified DevOps** ermöglicht es Ihnen, von der Entwicklungs- in die Test- bis in die Produktionsumgebung in einer einzigen Umgebung zu wechseln, indem Sie Ihre Kubernetes-Ressourcen skalieren, um weitere Komponenten hinzuzufügen.
 - **Aktuelle Fabric-Schlüsselfunktionen**. Nutzen Sie die neuesten Funktionen von Hyperledger Fabric v1.4.1:
   -  [Raft-Anordnungsservice](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - **{{site.data.keyword.cloud_notm}}-Serviceintegration.** Nutzen Sie die in {{site.data.keyword.cloud_notm}} integrierten Services wie z. B. {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA und {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
   - [**Private Datensammlungen**](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data), die einen höheren Datenschutz gewährleisten, indem sichergestellt wird, dass die Ledger-Daten nur für berechtigte Peers über das Gossip-Protokoll freigegeben werden.
   - Die [Serviceerkennung](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} ermöglicht Ihnen, die Interaktion Ihrer Anwendung mit Ihrem Netz dynamisch zu erkennen und zu aktualisieren.
   - Die [Steuerungslisten für Kanalzugriff](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} ermöglichen Ihnen, die Governance Ihrer Kanäle und Smart Contracts genauer zu steuern.
+- {{site.data.keyword.cloud_notm}}-Serviceintegration. Nutzen Sie die integrierten [{{site.data.keyword.cloud_notm}}-Services](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations) wie {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA und {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
+
 
 **OPERATE --- Vollständige Kontrolle über Ihre Bereitstellungen**
 - **Stellen Sie nur die Komponenten bereit, die Sie benötigen**. Verbinden Sie einen Peer mit mehreren Kanälen und Netzen oder hosten Sie einen Anordnungsservice, mit dem sich Geschäftspartner verbinden können.
@@ -80,6 +81,7 @@ Stellen Sie vor der Bereitstellung der Konsole sicher, dass Sie die folgenden As
 - Wenn Sie bei der Bereitstellung eines Kubernetes-Clusters in {{site.data.keyword.cloud_notm}} nicht den vorausgewählten Standarddateispeicher der Bronzestufe verwenden möchten, können Sie den gewünschten Speicher bereitstellen. Weitere Angaben hierzu finden Sie unter [Hinweise zum persistenten Speicher](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
 - Wenn Sie sich entschließen, in Ihrem Kubernetes-Cluster {{site.data.keyword.cloud_notm}}-Unterstützung für mehrere Zonen einzubinden, müssen Sie eigenen Speicher bereitstellen. Weitere Angaben hierzu finden Sie unter [Cluster mit mehreren Zonen (MZR) für {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) verwenden.
 - Sie können {{site.data.keyword.blockchainfull_notm}} Platform für einen Zeitraum von 30 Tagen kostenlos testen, indem Sie Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz mit einem kostenlosen {{site.data.keyword.cloud_notm}} Kubernetes-Cluster verbinden.  Die Leistung dieser Testversion ist jedoch in Bezug auf Durchsatz, Speicherkapazität und Funktionalität beschränkt. {{site.data.keyword.cloud_notm}} löscht Ihren Cluster nach 30 Tagen. Eine Migration von Knoten oder Daten aus einem kostenlosen Cluster auf einen gebührenpflichtigen Cluster ist hierbei nicht möglich. Während die Betatestversion von {{site.data.keyword.blockchainfull_notm}} Platform kostenlos ist, fallen bei Auswahl des gebührenpflichtigen Kubernetes-Clusters anstelle des kostenlosen Clusters Gebühren für Kubernetes Service an, die Ihrem {{site.data.keyword.cloud_notm}}-Konto belastet werden.
+- VRF (Virtual Routing and Forwarding) wird nicht unterstützt. Der {site.data.keyword.blockchainfull_notm}} Platform-Service ist nicht kompatibel mit Konten, die für automatische globale Weiterleitung zwischen IP-Teilnetzblöcken aktiviert sind. Kubernetes-Cluster, die mit privaten VLANs konfiguriert sind, werden ebenfalls nicht unterstützt.
 
 ## Migration
 {: #ibp-console-overview-migration}
@@ -115,7 +117,7 @@ Beachten Sie, wie eine einzelne Instanz der Konsole, die auch als "Betriebstools
 
 | **Kubernetes-Cluster-Serviceinstanz** | **Beschreibung** |
 | ------------------------- |-----------|-----------|-----------|
-| **Tiller** | Teil des [Helm-Tooling](https://docs.helm.sh/glossary/#tiller){: external}. Der Tiller wird innerhalb des Kubernetes-Clusters ausgeführt, um die Installationen Ihrer Helm-Diagramme für Peer, Zertifizierungsstelle und Anordnungsknoten zu verwalten.|
+| **Tiller** | Teil des [Helm-Tooling](https://docs.helm.sh/glossary/#tiller){: external}. Der Tiller wird innerhalb des Kubernetes-Clusters ausgeführt, um die Installationen Ihrer Helm-Diagramme für Peer, Zertifizierungsstelle und Anordnungsknoten zu verwalten. |
 | **Ingress** | Ein [Kubernetes-Objekt](https://kubernetes.io/docs/concepts/services-networking/ingress/){: external}, das den Zugriff auf die Clusterressourcen von außerhalb des Clusters ermöglicht. |
 | **Proxy** | Der {{site.data.keyword.blockchainfull_notm}} Platform-Proxy ist für die Weiterleitung des Datenverkehrs an die richtigen Peer-, Zertifizierungsstellen- und Anordnungsknoten unter Verwendung des Host-Header-Routings verantwortlich. |
 | **Peers, Zertifizierungsstellen und Anordnungen** | Dies sind die Knoten, die durch die Bereitstellung der zugrunde liegenden Helm-Diagramme erstellt werden. Hinweis: Diese Knoten können auch aus anderen Kubernetes-Cluster-Serviceinstanzen importiert werden. Da die Schlüssel von {{site.data.keyword.IBM_notm}} niemals gespeichert werden, enthält jeder Peer- und Anordnungsknoten einen gRPC-Web-Proxy, der es der Konsole ermöglicht, mit jedem Knoten zu kommunizieren, indem die Schlüssel in der Konsolenwallet verwendet werden. |

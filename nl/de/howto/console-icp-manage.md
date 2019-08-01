@@ -71,7 +71,7 @@ Wenn Sie über die Benutzerrolle "Manager" verfügen, können Sie anderen Benutz
 ### Voraussetzungen
 {: #console-icp-manage-prereqs}
 
-Für die Verwendung der APIs müssen Sie die folgenden Informationen sammeln: 
+Für die Verwendung der APIs müssen Sie die folgenden Informationen sammeln:
 
 - **API-Endpunkt** der Konsole. Über diese URL rufen Sie die Konsole in Ihrem Browser auf. Diese URL ist im Abschnitt **Hinweise:** der Übersichtsanzeige für das Helm-Release angegeben.
 - Ein Benutzername und ein Kennwort für den Zugang zur Konsole. Zum Erstellen eines API-Schlüssels ist ein Konto mit einer [Managerrolle](#console-icp-manage-users) erforderlich.
@@ -144,7 +144,7 @@ curl -X GET \
 | **Anforderung** |  |
 |-------------|-----------|
 | Pfad | DELETE `<API_endpoint>`/ak/api/v1/permissions/keys:`<api_key>` |
-| Erforderliche Berechtigung | manager |
+| Erforderliche Berechtigung| manager |
 
 #### Beispiel für curl-Anforderung: API-Schlüssel löschen
 {: #console-icp-manage-delete-api-keys-example}

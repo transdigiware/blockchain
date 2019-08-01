@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,6 +37,7 @@ In diesem Abschnitt werden allgemeine Probleme beschrieben, die bei der Verwendu
 - [Warum wird der Fehler `Unable to get system channel` ausgegeben, wenn ich meinen Anordnungsservice öffne?](#ibp-troubleshoot-ordering-service)
 - [Warum kann mein Peer nicht gestartet werden?](#ibp-console-build-network-troubleshoot-entry2)
 - [Warum ist die Installation, die Instanziierung oder das Upgrade für meinen Smart Contract fehlgeschlagen?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Warum wird der Smart Contract, den ich im Peer installiert habe, in der Benutzerschnittstelle nicht aufgelistet?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [Wie kann ich meine Smart-Contract-Containerprotokolle anzeigen?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Mein Kanal, meine Smart Contracts und meine Identitäten werden in der Konsole nicht mehr angezeigt. Wie kann ich diese Informationen wieder anzeigen?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Warum wird der Fehler `Unable to authenticate with the enroll ID and secret you provided` ausgegeben, wenn ich eine neue MSP-Definition für die Organisation erstelle?](#ibp-v2-troubleshooting-create-msp)
@@ -45,6 +46,7 @@ In diesem Abschnitt werden allgemeine Probleme beschrieben, die bei der Verwendu
 - [Weshalb schlagen die Transaktionen, die ich über den VS Code übergebe, fehl?](#ibp-v2-troubleshooting-anchor-peer)
 - [Warum wird ein Fehler "401" für fehlende Autorisierung ausgegeben?](#ibp-v2-troubleshooting-console-401)
 - [Warum verarbeiten die Knoten, die ich in {{site.data.keyword.cloud_notm}} Private bereitgestellt habe, keine Transaktionen und bestehen die Statusprüfungen nicht?](#ibp-v2-troubleshooting-healthchecks)
+- [Warum wird für meine Transaktionen der Bewilligungsrichtlinienfehler "signature set did not satisfy policy" ausgegeben?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 
 ## Wenn ich den Mauszeiger über den Knoten bewege, lautet der `Status nicht verfügbar`. Was bedeutet das?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -54,7 +56,7 @@ Der Knotenstatus in der Kachel für die Zertifizierungsstelle, den Peer oder den
 {: tsSymptoms}
 
 Dieses Problem kann auftreten, wenn der Knoten neu erstellt wurde und der Bereitstellungsprozess noch nicht abgeschlossen ist. Wenn es sich bei dem Knoten um eine Zertifizierungsstelle handelt, ist er mit einiger Wahrscheinlichkeit nicht aktiv.
-Handelt es sich um einen Peer- oder Anordnungsknoten, dann tritt diese Bedingung auf, wenn das für den Peer bzw. Anordnungsknoten ausgeführte Statusprüfprogramm den Knoten nicht kontaktieren kann. Die Anforderung für den Status kann mit einem Zeitlimitfehler fehlschlagen, da der Knoten nicht innerhalb eines bestimmten Zeitraums antwortet, der Knoten inaktiv oder die Netzkonnektivität inaktiv ist.
+Handelt es sich um einen Peer- oder Anordnungsknoten, dann tritt diese Bedingung auf, wenn das für den Peer bzw. Anordnungsknoten ausgeführte Statusprüfprogramm den Knoten nicht kontaktieren kann.  Die Anforderung für den Status kann mit einem Zeitlimitfehler fehlschlagen, da der Knoten nicht innerhalb eines bestimmten Zeitraums antwortet, der Knoten inaktiv oder die Netzkonnektivität inaktiv ist.
 {: tsCauses}
 
 Wenn es sich um einen neuen Knoten handelt, warten Sie noch einige Minuten, bis die Bereitstellung abgeschlossen ist. Wenn der Knoten nicht neu erstellt wurde,
@@ -156,6 +158,19 @@ Dieser Fehler kann auftreten, wenn die betreffende Smart-Contract-Version auf de
 - Treten weiterhin Probleme auf, obwohl der Knoten betriebsbereit ist, [überprüfen Sie Ihre Knotenprotokolle ](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) auf Fehler.  
 {: tsResolve}
 
+## Warum wird der Smart Contract, den ich im Peer installiert habe, in der Benutzerschnittstelle nicht aufgelistet?
+{: #ibp-console-build-network-troubleshoot-missing-sc}
+{: troubleshoot}
+
+Ein Smart Contract wurde im Peer installiert. Nach Klicken auf die Registerkarte **Smart Contracts** wird der Smart Contract nicht aufgelistet.
+{: tsSymptoms}
+
+Dieses Problem kann auftreten, wenn der Smart Contract von einem anderen Benutzer oder einer anderen Anwendung im Peer installiert wird und die Peeradministratoridentität nicht in Ihrer Browser-Wallet enthalten ist.
+{: tsCauses}
+
+Zum Anzeigen der in einem Peer installierten Smart Contracts müssen Sie ein Peeradministrator sein. Stellen Sie sicher, dass die Peeradministrator-ID in Ihrer Browser-Wallet enthalten ist. Wenn dies nicht zutrifft, müssen Sie die ID in Ihre Konsolenwallet importieren.
+{: tsResolve}
+
 ## Wie kann ich meine Smart-Contract-Containerprotokolle anzeigen?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
 {: troubleshoot}
@@ -164,7 +179,7 @@ Es kann vorkommen, dass Sie die Containerprotokolle für Smart Contract oder Cha
 {: tsSymptoms}
 
 Mit den folgenden Schritten können Sie die Smart Contract-Containerprotokolle anzeigen:
-- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs)
+- [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
 - [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs)
 {: tsResolve}
 
@@ -270,3 +285,16 @@ Nach zahlreichen Bereitstellungs-, Entfernungs- und Upgradeaktionen für Knoten 
 {: tsCauses}
 
 Um das Problem zu umgehen, entfernen Sie die fehlgeschlagenen Pods und stellen Sie Ihre Knoten erneut bereit. Sie können auch den Dockerservice im Cluster erneut starten.
+
+## Warum wird für meine Transaktionen der Bewilligungsrichtlinienfehler "signature set did not satisfy policy" ausgegeben?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+Wenn ich einen Smart Contract aufrufe, um eine Transaktion zu übergeben, wird für die Transaktion der folgende Bewilligungsrichtlinienfehler ausgegeben:
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+{: tsSymptoms}
+
+Wenn Sie vor kurzem einem Kanal beigetreten sind und den Smart Contract installiert haben, tritt dieser Fehler auf, wenn Sie Ihre Organisation nicht zur Bewilligungsrichtlinie hinzugefügt haben. Da Ihre Organisation nicht in der Liste der Organisationen enthalten ist, die eine Transaktion über den Smart Contract bewilligen dürfen, wird die Bewilligung durch Ihre Peers vom Kanal abgelehnt. Falls dieses Problem auftritt, können Sie die Bewilligungsrichtlinie ändern, indem Sie den Smart Contract aktualisieren. Weitere Informationen finden Sie in den Abschnitten [Eine Bewilligungsrichtlinie angeben](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) und [Upgrade eines Smart Contracts durchführen](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+{: tsCauses}

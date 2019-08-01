@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, channel update, reallocate resources
 
@@ -46,12 +46,12 @@ Da Ihre Instanz der {{site.data.keyword.blockchainfull_notm}} Platform-Konsole u
 
 | **Komponente** (alle Container) | CPU**  | Hauptspeicher (GB) | Speicher (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2           | 2,4                   | 200 (umfasst 100 GB für Peer und 100 GB für CouchDB)|
+| **Peer**                       | 1,1           | 2,4                   | 200 (umfasst 100 GB für Peer und 100 GB für CouchDB)|
 | **Zertifizierungsstelle**                         | 0,1           | 0,2                   | 20                     |
-| **Anordnungsknoten**              | 0,45          | 0,9                   | 100                    |
+| **Anordnungsknoten**              | 0,35          | 0,9                   | 100                    |
 ** Diese Werte können geringfügig abweichen, wenn Sie {{site.data.keyword.cloud_notm}} Private verwenden. Die tatsächlichen VPC-Zuordnungen werden in der Blockchain-Konsole angezeigt, wenn ein Knoten bereitgestellt wird.  
 
-Wenn Sie beabsichtigen, einen Raft-Anordnungsservice mit fünf Knoten bereitzustellen, muss Ihre Bereitstellung um den Faktor fünf erhöht werden. Dies bedeutet in Summe 2,25 CPUs, 4,5 GB Hauptspeicher und 500 GB Speicher für die fünf Raft-Knoten. Dadurch wird der Anordnungsservice mit fünf Knoten größer als ein einzelner Kubernetes-Workerknoten mit 2 CPUs.
+Wenn Sie beabsichtigen, einen Raft-Anordnungsservice mit fünf Knoten bereitzustellen, muss Ihre Bereitstellung um den Faktor fünf erhöht werden. Dies bedeutet in Summe 1,75 CPUs, 4,5 GB Hauptspeicher und 500 GB Speicher für die fünf Raft-Knoten. Ein einzelner Kubernetes-Workerknoten mit 4 CPUs wird als Mindestvoraussetzung empfohlen, um ausreichend CPU-Kapazität für den Raft-Cluster und alle anderen Knoten, die Sie bereitstellen, zur Verfügung zu stellen.
 {:tip}
 
 Wenn ein Benutzer Gebühren minimieren möchte, ohne einen Knoten vollständig zu inaktivieren oder zu löschen, ist es möglich, einen Knoten auf ein Minimum von 0,001 CPU (1 Millicore) zu skalieren. Beachten Sie, dass der Knoten bei Verwendung einer solchen CPU-Menge nicht funktionsfähig ist.
@@ -133,7 +133,7 @@ Wie im Abschnitt zur [Interaktion von {{site.data.keyword.cloud_notm}} Kubernete
 | Ressourcen | Bedingung für eine Erhöhung |
 |-----------------|-----------------------|
 | **CPU und Hauptspeicher des Containers für den Anordnungsknoten** | Wenn Sie von Beginn an einen hohen Transaktionsdurchsatz erwarten. |
-| **Speicher für Anordnungsknoten** | Wenn Sie erwarten, dass dieser Anordnungsknoten Teil eines Anordnungsservice in vielen Kanälen sein wird. Beachten Sie, dass der Anordnungsservice eine Kopie der Blockchain für jeden von ihm gehosteten Kanal bereit hält. Der Standardspeicher für einen Anordnungsknoten beträgt 100 G, wie der Container für den Peer selbst.|
+| **Speicher für Anordnungsknoten** | Wenn Sie erwarten, dass dieser Anordnungsknoten Teil eines Anordnungsservice in vielen Kanälen sein wird. Beachten Sie, dass der Anordnungsservice eine Kopie der Blockchain für jeden von ihm gehosteten Kanal bereit hält. Der Standardspeicher für einen Anordnungsknoten beträgt 100 G, wie der Container für den Peer selbst. |
 
 Als bewährtes Verfahren gilt es, sicherzustellen, dass Ihre Anordnungsknoten über genügend CPU und Speicher verfügen. Wird ein Anordnungsservice zu stark beansprucht, kann es zu Zeitlimitüberschreitungen und zur Löschung von Transaktionen kommen, sodass Transaktionen erneut übergeben werden müssen. Dies schadet einem Netzwerk viel mehr als ein einzelner Peer, der nur mit Mühe betrieben werden kann. In einer Raft-Anordnungsservice-Konfiguration kann es vorkommen, dass ein überlasteter Führungsknoten keine Überwachungssignalnachrichten mehr sendet, eine Führungswahl und ein zeitweiliges Aussetzen der Transaktionenanordnung auslöst. Ebenso kann ein nachfolgender Knoten Nachrichten verpassen und versuchen, eine Führungswahl auszulösen, die nicht erforderlich ist.
 {:important}
@@ -192,7 +192,13 @@ Die folgenden Kanalkonfigurationsparameter können jedoch geändert werden:
 
 * **Organisationen**. In diesem Abschnitt der Anzeige können Organisationen zu einem Kanal hinzugefügt oder aus einem Kanal entfernt werden. Die Organisationen, die hinzugefügt werden können, werden in der Dropdown-Liste angezeigt. Beachten Sie hierbei, dass eine Organisation Mitglied des Konsortiums für den Anordnungsservice sein muss, damit sie zu einem Kanal hinzugefügt werden kann. Weitere Informationen zur Vorgehensweise beim Hinzufügen einer Organisation zum Konsortium finden Sie im Abschnitt zum [Hinzufügen Ihrer Organisation zur Liste der Organisationen, die Transaktionen ausführen können](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org).
 
-* **Kanalaktualisierungsrichtlinie**. Die Aktualisierungsrichtlinie eines Kanals gibt an, wie viele Organisationen (aus der Gesamtzahl der Organisationen im Kanal) eine Aktualisierung der Kanalkonfiguration genehmigen müssen. Um ein ausgewogenes Verhältnis zwischen kooperativer Administration und effizienter Verarbeitung von Kanalkonfigurationsaktualisierungen sicherzustellen, sollten Sie in dieser Richtlinie eine Mehrheit von Administratoren festlegen. Beispiel: Wenn ein Kanal fünf Administratoren hat, dann wählen Sie `3 von 5` aus.
+  Sie können auch die Berechtigungsstufe einer Organisation in dem Kanal aktualisieren:
+
+   - Ein **Operator** des Kanals verfügt über die Berechtigung zum Erstellen und Signieren von Kanalkonfigurationsaktualisierungen. Für jeden Kanal muss mindestens ein Operator definiert sein.
+   - Ein **Schreibberechtigter** des Kanals kann das Kanalledger aktualisieren (durch Aufrufen eines Smart Contracts). Ein Kanalmitglied mit Schreibberechtigung kann außerdem einen Smart Contract in einem Kanal instanziieren.
+   - Ein **Leseberechtigter** des Kanals kann das Kanalledger lediglich abfragen, z. B. durch Aufrufen einer schreibgeschützten Funktion in einem Smart Contract.
+
+* **Kanalaktualisierungsrichtlinie**. Die Aktualisierungsrichtlinie eines Kanals gibt an, wie viele Organisationen (aus der Gesamtzahl der Operatoren im Kanal) eine Aktualisierung der Kanalkonfiguration genehmigen müssen. Um ein ausgewogenes Verhältnis zwischen kooperativer Administration und effizienter Verarbeitung von Kanalkonfigurationsaktualisierungen sicherzustellen, sollten Sie in dieser Richtlinie eine Mehrheit von Administratoren festlegen. Beispiel: Wenn ein Kanal fünf Administratoren hat, dann wählen Sie `3 von 5` aus.
 
 * **Blockaufteilungsparameter**. (Erweiterte Option) Da eine Änderung der standardmäßigen Blockaufteilungsparameter von einem Administrator der Anordnungsserviceorganisation signiert werden muss, werden diese Felder in der Anzeige für die Kanalerstellung nicht aufgeführt. Da diese Kanalkonfiguration an alle relevanten Organisationen im Kanal gesendet wird, kann eine Anforderung zur Aktualisierung einer Kanalkonfiguration mit Änderungen an den Blockaufteilungsparametern gesendet werden. Diese Felder legen die Bedingungen fest, bei deren Eintreten der Anordnungsservice einen neuen Block aufteilt. Informationen zu den Auswirkungen dieser Felder auf den Zeitpunkt der Blockaufteilung finden Sie im Abschnitt zu den [Blockaufteilungsparametern](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning-batch-size).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,17 +76,19 @@ In der folgenden Tabelle werden zwei Beispiele für die Preisstruktur mit [stand
 
 | Preisoptionen** (1 VPC = 1 CPU)| **Testnetz** | **Beitritt zu einem Produktionsnetz** |
 |-|------------|-----------------------------|
-| **CPU-Zuordnung** |  1,85 CPUs <br> Umfasst Folgendes: <br> - 1 Peer <br> - 2 CAs <br> - 1 Anordnungsknoten| 4,9 CPUs <br> Umfasst Folgendes: <br> - 2 Peers (für HA) <br> **(2x Standardrechenleistung)** <br>- 1 CA <br>  |
-| **Kosten pro Stunde: {{site.data.keyword.blockchainfull_notm}} Platform** | 0,54 USD <br> (1,85 CPUs x 0,29 USD/VPC-Std.) | 1,42 USD <br> (4,9 CPUs x 0,29 USD/VPC-Std. ) |
+| **CPU-Zuordnung** |  1,65 CPUs <br> Umfasst Folgendes: <br> - 1 Peer <br> - 2 CAs <br> - 1 Anordnungsknoten| 4,5 CPUs <br> Umfasst Folgendes: <br> - 2 Peers (für HA) <br> **(2x Standardrechenleistung)** <br>- 1 CA <br>  |
+| **Kosten pro Stunde: {{site.data.keyword.blockchainfull_notm}} Platform** | 0,48 USD <br> (1,65 CPUs x 0,29 USD/VPC-Std.) | 1,31 USD <br> (4,5 CPUs x 0,29 USD/VPC-Std.) |
 | **Kosten pro Stunde: {{site.data.keyword.cloud_notm}} Kubernetes-Cluster**    | 0,12 USD <br> (Rechenleistung: 2 x 4 Tier) <br> (IP-Zuordnung: 16 USD/Monat) | 0,46 USD <br> (Rechenleistung: 8 x 32 Tier) <br> (IP-Zuordnung: 16 USD/Monat) |
 | **Kosten pro Stunde: Speicher** | 0,07 USD <br> 340 GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | 0,13 USD <br> 420 GB <br> [Silber](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
-| **Gesamtkosten pro Stunde** | **0,73 USD** | **2,01 USD**| |
+| **Gesamtkosten pro Stunde** | **0,67 USD** | **1,90 USD**| |
 ** Testen Sie {{site.data.keyword.blockchainfull_notm}} Platform für einen Zeitraum von 30 Tagen kostenlos, indem Sie Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz mit einem kostenlosen {{site.data.keyword.cloud_notm}} Kubernetes-Cluster verbinden. Die Leistung dieser Testversion ist jedoch in Bezug auf Durchsatz, Speicherkapazität und Funktionalität beschränkt. {{site.data.keyword.cloud_notm}} löscht Ihren Kubernetes-Cluster nach 30 Tagen. Eine Migration von Knoten oder Daten aus einem kostenlosen Cluster auf einen gebührenpflichtigen Cluster ist hierbei nicht möglich.  
 
-Ihre tatsächlichen Kosten können abhängig von zusätzlichen Faktoren wie beispielsweise der Transaktionsrate, der Anzahl der erforderlichen Kanäle, dem Nutzdatenvolumen der Transaktionen sowie der maximalen Anzahl gleichzeitig ausgeführter Transaktionen variieren. Die oben angegebenen Preisbeispiele basieren auf einem {{site.data.keyword.cloud_notm}} Kubernetes-Cluster mit nur einer Zone. Wenn Sie einen Cluster mit mehreren Zonen auswählen, fallen weitere Gebühren für die zusätzlichen Zonen und die erforderliche Lastausgleichsfunktion für mehrere Zonen an.
+Ihre tatsächlichen Kosten können abhängig von zusätzlichen Faktoren wie beispielsweise der Transaktionsrate, der Anzahl der erforderlichen Kanäle, dem Nutzdatenvolumen der Transaktionen sowie der maximalen Anzahl gleichzeitig ausgeführter Transaktionen variieren. Die oben angegebenen Preisbeispiele basieren auf einem {{site.data.keyword.cloud_notm}} Kubernetes-Cluster mit nur einer Zone.  Wenn Sie einen Cluster mit mehreren Zonen auswählen, fallen weitere Gebühren für die zusätzlichen Zonen und die erforderliche Lastausgleichsfunktion für mehrere Zonen an.
 {:note}
 
-Die Anzahl der Serviceinstanzen, die bereitgestellt und einem einzelnen Kubernetes-Cluster zugeordnet werden können, unterliegen keiner Beschränkung. Sie müssen jedoch sicherstellen, dass ausreichende Ressourcen verfügbar sind, indem Sie die Nutzung von CPU, Hauptspeicher und Speichereinheiten überwachen, um Serviceunterbrechungen zu vermeiden. Die {{site.data.keyword.blockchainfull_notm}} Platform-Knoten müssen nicht in einem eigenen Cluster bereitgestellt werden. In dem Cluster, der zur Ausführung Ihrer Blockchain-Komponenten benutzt wird, können weitere {{site.data.keyword.cloud_notm}}-Services ausgeführt werden. Allerdings muss auch hierbei sichergestellt werden, dass genügend Rechen- und Speicherkapazitäten verfügbar sind, um die Anforderungen aller Serviceinstanzen zu erfüllen.
+Die Anzahl der Serviceinstanzen, die bereitgestellt und einem einzelnen Kubernetes-Cluster zugeordnet werden können, unterliegen keiner Beschränkung. Sie müssen jedoch sicherstellen, dass ausreichende Ressourcen verfügbar sind, indem Sie die Nutzung von CPU, Hauptspeicher und Speichereinheiten überwachen, um Serviceunterbrechungen zu vermeiden. Die {{site.data.keyword.blockchainfull_notm}} Platform-Knoten müssen nicht in einem eigenen Cluster bereitgestellt werden. In dem Cluster, der zur Ausführung Ihrer Blockchain-Komponenten benutzt wird, können weitere {{site.data.keyword.cloud_notm}}-Services ausgeführt werden. Allerdings muss auch hierbei sichergestellt werden, dass genügend Rechen- und Speicherkapazitäten verfügbar sind, um die Anforderungen aller Serviceinstanzen zu erfüllen.  
+
+**Sind Sie bereit, loszulegen?** Unter [Einführung in {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) finden Sie die verfügbaren Optionen. 
 
 ## Standardmäßige Ressourcenzuordnungen
 {: #ibp-saas-pricing-default}
@@ -95,9 +97,9 @@ Die Werte in der folgenden Tabelle sind hilfreich, um die Kosten pro Stunde für
 
 | **Komponente** (alle Container) | CPU  | Hauptspeicher (GB) | Speicher (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2            | 2,4                   | 200 (umfasst 100 GB für Peer und 100 GB für CouchDB)|
+| **Peer**                       | 1,1            | 2,4                   | 200 (umfasst 100 GB für Peer und 100 GB für CouchDB)|
 | **Zertifizierungsstelle**                         | 0,1            | 0,2                    | 20                     |
-| **Anordnungsknoten**              | 0,45           | 0,9                    | 100                    |
+| **Anordnungsknoten**                    | 0,35           | 0,9                    | 100                    |
 
 
 ## Abrechnung
@@ -111,17 +113,18 @@ Wenn Sie einen neuen Knoten erstellen, kann es bis zu einer Stunde dauern, bis d
 ### Nutzung überwachen
 {: #ibp-saas-pricing-usage}
 
-Bevor Sie eine Rechnung erhalten, können Sie die Kosten für {{site.data.keyword.blockchainfull_notm}} Platform und Kubernetes-Cluster in der Kachel **Nutzung** im {{site.data.keyword.cloud_notm}}-Dashboard überwachen. Die VPC-Nutzung für {{site.data.keyword.blockchainfull_notm}} Platform wird stündlich bewertet. **Die angegebenen Kosten sind nur Schätzwerte.** Die tatsächlichen Kosten gehen aus Ihrer Monatsrechnung hervor.
+Bevor Sie eine Rechnung erhalten, können Sie die Kosten für {{site.data.keyword.blockchainfull_notm}} Platform und Kubernetes-Cluster in der Kachel **Nutzung** im {{site.data.keyword.cloud_notm}}-Dashboard überwachen. Die VPC-Nutzung für {{site.data.keyword.blockchainfull_notm}} Platform wird stündlich bewertet.  **Die angegebenen Kosten sind nur Schätzwerte.** Die tatsächlichen Kosten gehen aus Ihrer Monatsrechnung hervor.
 
 #### Nutzung von {{site.data.keyword.blockchainfull_notm}} Platform und Kubernetes Service
 
-Dieser Videoclip zeigt an einem einfachen Beispiel, wie Sie Ihre Gebühren für eine {{site.data.keyword.blockchainfull_notm}} Platform-Instanz mit einem einzelnen CA-Knoten anzeigen können.
+<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
 
-![Nutzung überwachen](../images/usage_monitoring.gif){: gif}
+![Monitoring your usage](../images/usage_monitoring.gif){: gif}
+-->
 
 Navigieren Sie zur Option **Verwalten** oben im {{site.data.keyword.cloud_notm}}-Dashboard, klicken Sie auf **Abrechnung und Nutzung** und dann im linken Menü auf **Nutzung**. Das Kreisdiagramm im Unterabschnitt **Services** enthält eine Aufgliederung der Gesamtkosten nach den Serviceangebotstypen, die von Ihnen im aktuellen Monat genutzt und verbraucht wurden.Verwenden Sie dieses Diagramm, um sich einen Überblick darüber zu verschaffen, wie {{site.data.keyword.blockchainfull_notm}} Platform, Kubernetes Service und Ihr Speicherbedarf zu den Gesamtkosten beitragen.
 
-Wenn Sie nach unten blättern, dann wird eine ähnliche Aufgliederung nach **Typ** und **Kosten** in einer Listenansicht dargestellt. "Kubernetes Service" und "Blockchain Platform" werden zusammen mit den anderen Services aufgelistet, die Sie in Ihrem Cluster bereitgestellt haben. Klicken Sie neben diesen Elementen auf **Pläne anzeigen**, um Ihre Kosten nach Metriken aufzugliedern. Beispiel: `VIRTUAL_PROCESSOR_CORE_HOURS` stellt die Gesamtzahl der VPC-Stunden dar, die bisher bewertet wurden. An diesem Wert können Sie ablesen, welche Gebühren Ihnen anhand der Preisstrukturmetrik **0,29 USD/VPC-Std.** in Rechnung gestellt werden.
+Wenn Sie nach unten blättern, dann wird eine ähnliche Aufgliederung nach **Typ** und **Kosten** in einer Listenansicht dargestellt. "Kubernetes Service" und "Blockchain Platform" werden zusammen mit den anderen Services aufgelistet, die Sie in Ihrem Cluster bereitgestellt haben.Klicken Sie neben diesen Elementen auf **Pläne anzeigen**, um Ihre Kosten nach Metriken aufzugliedern. Beispiel: `VIRTUAL_PROCESSOR_CORE_HOURS` stellt die Gesamtzahl der VPC-Stunden dar, die bisher bewertet wurden. An diesem Wert können Sie ablesen, welche Gebühren Ihnen anhand der Preisstrukturmetrik **0,29 USD/VPC-Std.** in Rechnung gestellt werden.
 
 #### Gebühren für IP-Zuordnung
 

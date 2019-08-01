@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -160,10 +160,21 @@ Sie können APIs verwenden, um Blockchain-Komponenten in Ihrer {{site.data.keywo
 
 7. Wenn Sie die Konsole zum Betrieb Ihrer Blockchain-Komponenten benutzen möchten, dann müssen Sie Ihre Administratoridentität in Ihre Konsolenwallet importieren. Verwenden Sie die Registerkarte für Wallets, um das Zertifikat und den privaten Schlüssel Ihres Knotenadministrators in die Konsole zu importieren und eine Identität zu erstellen. Anschließend müssen Sie über die Konsole diese Identität den von Ihnen erstellten Komponenten zuordnen. Weitere Informationen zu diesem Thema finden Sie im Abschnitt zum [Importieren einer Administratoridentität in die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole](#ibp-v2-apis-admin-console).
 
-8. Nach der Bereitstellung Ihres Netzes können Sie die Fabric-SDKs, die Peer-CLI oder die Benutzerschnittstelle der Konsole verwenden, um Kanäle zu erstellen und Smart Contracts zu installieren oder zu instanziieren.
+8. Nach der Bereitstellung Ihres Netzes können Sie die Fabric-SDKs, die Peer-CLI oder die Benutzerschnittstelle der Konsole verwenden, um Kanäle zu erstellen und Smart Contracts zu installieren oder zu instanziieren. Wenn Sie programmgesteuert einen Kanal erstellen müssen, müssen Sie den Namen des Konsortiums angeben. Für {{site.data.keyword.blockchainfull}} Platform muss `SampleConsortium` als Name für das Konsortium angegeben werden.
 
 Die Serviceberechtigungsnachweise, die für die API-Authentifizierung verwendet werden, müssen in IAM über die Rolle `Manager` verfügen, damit Komponenten erstellt werden können. In der in diesem Abschnitt dargestellten Tabelle zu den [Benutzerrollen](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) finden Sie weiterführende Informationen.
 {: note}
+
+### Einen Knoten in einer bestimmten Zone erstellen
+{: #ibp-v2-apis-zone}
+
+Wenn Sie einen Cluster mit mehreren Zonen verwenden, können Sie mithilfe der APIs eine Blockchain-Komponente in einer bestimmten Zone von {{site.data.keyword.cloud_notm}} bereitstellen. Auf diese Weise kann die Verfügbarkeit Ihres Netzes bei einem Zonenausfall aufrecht erhalten werden. Mit den folgenden Schritten können Sie einen Peer oder Anordnungsknoten in einer bestimmten Zone bereitstellen.
+
+1. Suchen Sie die Zonen, in denen sich Ihre Workerknoten befinden. Navigieren Sie zur Übersichtsanzeige Ihres mehrzonigen Clusters im [{{site.data.keyword.cloud_notm}} Kubernetes-Service in {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. Klicken Sie in der Anzeige mit der Clusterübersicht auf **Workerknoten**, um eine Tabelle mit allen Workerknoten in Ihrem Cluster anzuzeigen. In welcher Zone sich jeder Workerknoten befindet, können Sie anhand der Spalte **Zone** in der Tabelle feststellen.
+
+  Sie können die Zonen Ihrer Workerknoten auch über die kubectl-CLI finden. Navigieren Sie zur Anzeige **Zugriff** und führen Sie die Anweisungen unter **Zugriff auf Ihren Cluster erhalten** aus, um mithilfe der {{site.data.keyword.cloud_notm}}- und kubectl-CLI-Tools die Verbindung zu Ihrem Cluster herzustellen. Sobald die Verbindung hergestellt ist, führen Sie den Befehl `kubectl get nodes --show-labels` aus, um die vollständige Liste der Knoten und Zonen in Ihrem Cluster abzurufen. Die Zone, in der sich die einzelnen Workerknoten befinden, können Sie nach dem Feld `Zone` in der Spalte `BEZEICHNUNGEN` ermitteln.
+
+2. Wenn Sie einen Knoten in einer bestimmten Zone erstellen möchten, geben Sie den Namen der Zone in den Aufrufen der API [Anordnungsservice erstellen](/apidocs/blockchain?code=try#create-an-ordering-service) oder [Peer erstellen](/apidocs/blockchain?code=try#create-an-ordering-service) im Zonenfeld des Anforderungshauptteils an. Die Anti-Affinitätsrichtlinie der {{site.data.keyword.blockchainfull_notm}} Platform-Konsole stellt Ihre Komponente automatisch in verschiedenen Workerknoten innerhalb jeder Zone bereit (je nach Verfügbarkeit der Ressourcen).
 
 ## Netz mit APIs importieren
 {: #ibp-v2-apis-import-with-apis}
@@ -185,7 +196,7 @@ Sie können auch die APIs verwenden, um {{site.data.keyword.blockchainfull_notm}
 
 5. Wenn Sie die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole verwenden wollen, um Ihre Blockchain-Komponenten zu betreiben, dann müssen Sie die Identitäten Ihres Komponentenadministrators in Ihre Konsolenwallet importieren. Weitere Informationen zu diesem Thema finden Sie im Abschnitt zum [Importieren einer Administratoridentität in die {{site.data.keyword.blockchainfull_notm}} Platform-Konsole](#ibp-v2-apis-admin-console).
 
-6. Nach der Bereitstellung Ihres Netzes können Sie die Fabric-SDKs, die Peer-CLI oder die Benutzerschnittstelle der Konsole verwenden, um Kanäle zu erstellen und Smart Contracts zu installieren oder zu instanziieren.
+6. Nach der Bereitstellung Ihres Netzes können Sie die Fabric-SDKs, die Peer-CLI oder die Benutzerschnittstelle der Konsole verwenden, um Kanäle zu erstellen und Smart Contracts zu installieren oder zu instanziieren. Wenn Sie programmgesteuert einen Kanal erstellen müssen, müssen Sie den Namen des Konsortiums angeben. Für {{site.data.keyword.blockchainfull}} Platform muss `SampleConsortium` als Name für das Konsortium angegeben werden.
 
 Die Serviceberechtigungsnachweise, die für die API-Authentifizierung verwendet werden, müssen in IAM über die Rolle `Schreibberechtigter` verfügen, damit Komponenten importiert werden können. In der in diesem Abschnitt dargestellten Tabelle zu den [Benutzerrollen](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) finden Sie weiterführende Informationen.
 {: note}

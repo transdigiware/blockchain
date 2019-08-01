@@ -14,7 +14,7 @@
    id="svg74"
    sodipodi:docname="IBP-Diagram.svg"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   inkscape:export-filename="Y:\Projekte\EXTERN\BM140\AB\D141\Automatische Artwork-Suche\BM140ABD141_S007_CD_DOC_Ship-Artwork-Neu\images\IBP-Diagram.png"
+   inkscape:export-filename="Y:\Projekte\EXTERN\BM140\AB\D141\Automatische Artwork-Suche\BM140ABD141_S008_CD_DOC_Ship-Artwork-Ger aus Vorgängern (englische Dateien zum Vergleichen)\images\IBP-Diagram.png"
    inkscape:export-xdpi="192"
    inkscape:export-ydpi="192">
   <metadata
@@ -39,13 +39,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1012"
+     inkscape:window-width="3440"
+     inkscape:window-height="1372"
      id="namedview76"
      showgrid="false"
      inkscape:zoom="0.76309471"
-     inkscape:cx="1086.4466"
-     inkscape:cy="241.00566"
+     inkscape:cx="1002.9392"
+     inkscape:cy="248.60496"
      inkscape:window-x="-4"
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
@@ -176,10 +176,10 @@
      font-size="37.07"
      font-weight="500"
      style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="574"
+     x="554.60693"
      y="459">
     <tspan
-       x="818.42029"
+       x="799.02722"
        y="522"
        id="tspan43">Hyperledger Fabric-Komponenten</tspan>
   </text>
@@ -205,10 +205,10 @@
      font-size="25.07"
      font-weight="500"
      style="font-weight:500;font-size:25.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="574"
+     x="576.27228"
      y="459">
     <tspan
-       x="1058.8004"
+       x="1061.0726"
        y="657"
        id="tspan51">Peer</tspan>
   </text>
@@ -218,14 +218,14 @@
      font-weight="500"
      line-spacing="31"
      style="font-weight:500;font-size:25.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1"
-     x="574"
+     x="558.67535"
      y="459">
     <tspan
-       x="1361.7625"
+       x="1346.4377"
        y="644.39514"
        id="tspan54">Anordnungs-</tspan>
     <tspan
-       x="1369.5842"
+       x="1354.2595"
        y="675.39514"
        id="tspan56">service</tspan>
   </text>
@@ -243,11 +243,12 @@
      style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
      font-weight="500"
      font-size="37.07"
-     id="text65">
+     id="text65"
+     x="-15.837991">
     <tspan
        id="tspan63"
        y="409"
-       x="780.89697">IBM Blockchain Platform-Konsole (UI)</tspan>
+       x="765.05896">IBM Blockchain Platform-Konsole (UI)</tspan>
   </text>
   <g
      style="fill:#13171a;fill-rule:nonzero;stroke:none;stroke-width:1"
@@ -262,10 +263,11 @@
      style="font-weight:500;font-size:37.06999969px;font-family:IBMPlexSans-SemiBold, 'IBM Plex Sans';fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1"
      font-weight="500"
      font-size="37.07"
-     id="text71">
+     id="text71"
+     x="-17.611649">
     <tspan
        id="tspan69"
        y="866"
-       x="680.3421">IBM Blockchain Platform-Erweiterung für VS Code</tspan>
+       x="662.73047">IBM Blockchain Platform-Erweiterung für VS Code</tspan>
   </text>
 </svg>

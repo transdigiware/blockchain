@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-16"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -42,7 +42,7 @@ Das folgende Diagramm veranschaulicht die drei Elemente von {{site.data.keyword.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform-Konsole (Benutzerschnittstelle, UI)**: Mit dieser Konsole können Sie Blockchain-Komponenten erstellen und verwalten. Nachdem Sie eine Serviceinstanz in {{site.data.keyword.cloud_notm}} zur Verfügung gestellt haben, können Sie eine Instanz der {{site.data.keyword.blockchainfull_notm}}-Konsole bereitstellen und mit Ihrem {{site.data.keyword.cloud_notm}} Kubernetes-Cluster verknüpfen. Anschließend können Sie mit der Konsole eigene Blockchain-Komponenten in Ihrem Kubernetes-Cluster erstellen und verwalten. Die Konsole ist kostenlos.
 
-- **Hyperledger Fabric-Komponenten**: Mithilfe der Konsole werden Blockchain-Komponenten erstellt und verwaltet, die auf Hyperledger Fabric v1.4.1-Images für Zertifizierungsstelle, Peer und Anordnungsservice basieren. Diese Komponenten werden in Ihrem Kubernetes-Cluster bereitgestellt. Der Speicher für diese Komponenten wird bei ihrer Bereitstellung über die Speicherklasse `default` zur Verfügung gestellt.
+- **Hyperledger Fabric-Komponenten**: Mithilfe der Konsole werden Blockchain-Komponenten erstellt und verwaltet, die auf Hyperledger Fabric v1.4.1-Images für Zertifizierungsstelle, Peer und Anordnungsservice basieren.  Diese Komponenten werden in Ihrem Kubernetes-Cluster bereitgestellt. Der Speicher für diese Komponenten wird bei ihrer Bereitstellung über die Speicherklasse `default` zur Verfügung gestellt.
 
 - **{{site.data.keyword.IBM_notm}} VS Code-Erweiterung (Entwicklungstools)**: Laden Sie die VS Code-Erweiterung aus dem VS Code-Marktplatz herunter, um mit der Entwicklung, der Paketierung und dem Testen von Clientanwendungen und Smart Contracts zu beginnen.
 
@@ -54,7 +54,6 @@ Stellen Sie vor der Bereitstellung der Konsole sicher, dass Sie die folgenden As
 - {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} basiert auf Hyperledger Fabric v1.4.1.
 - Alle Peers, die mit der Konsole oder den APIs bereitgestellt werden, verwenden CouchDB als Statusdatenbank.
 - Sie haben die Möglichkeit, Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz mit einem kostenlosen Kubernetes-Cluster zu verbinden, um das Angebot zu bewerten. Kapazität und Leistung sind jedoch begrenzt und Ihre Daten können nicht migriert werden. Der Cluster wird nach 30 Tagen gelöscht.
-- Die Betatestversion ist zwar kostenlos, Sie müssen jedoch für Ihren Kubernetes-Cluster bezahlen, wenn Sie einen gebührenpflichtigen Cluster auswählen.
 - Sie sind für das Management der Statusüberwachung, der Sicherheit und der Protokollierung Ihres Kubernetes-Cluster verantwortlich. Hier finden Sie [weitere Informationen](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} dazu, welche Aspekte von {{site.data.keyword.cloud_notm}} verwaltet werden und für welche Aspekte Sie verantwortlich sind.
 - Sie sind auch für die Überwachung der Ressourcennutzung Ihres Kubernetes-Clusters über das Kubernetes-Dashboard verantwortlich. Wenn Sie die Speicherkapazität oder die Leistung Ihres Clusters erhöhen müssen, lesen Sie diese Informationen zum [Ändern des vorhandenen Datenträgers](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - Sie sind für die Verwaltung und Sicherung Ihrer Zertifikate und privaten Schlüssel verantwortlich. {{site.data.keyword.IBM_notm}} speichert Ihre Zertifikate nicht im Kubernetes-Cluster.
@@ -63,6 +62,7 @@ Stellen Sie vor der Bereitstellung der Konsole sicher, dass Sie die folgenden As
 - Kubernetes muss in Ihrem {{site.data.keyword.cloud_notm}} Kubernetes-Cluster die Version 1.11 oder höher aufweisen. Führen Sie die folgenden Anweisungen aus, um [ein Upgrade für Ihre neuen und vorhandenen Cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) auf diese Version zu aktualisieren.
 - Wenn Sie bei der Bereitstellung eines Kubernetes-Clusters in {{site.data.keyword.cloud_notm}} nicht den vorausgewählten Standarddateispeicher der Bronzestufe verwenden möchten, können Sie den gewünschten Speicher bereitstellen. Weitere Angaben hierzu finden Sie unter [Hinweise zum persistenten Speicher](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage).
 - Wenn Sie sich entschließen, in Ihrem Kubernetes-Cluster {{site.data.keyword.cloud_notm}}-Unterstützung für mehrere Zonen einzubinden, müssen Sie eigenen Speicher bereitstellen. Weitere Angaben hierzu finden Sie unter [Cluster mit mehreren Zonen (MZR) für {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) verwenden.
+- VRF (Virtual Routing and Forwarding) wird nicht unterstützt. Der {site.data.keyword.blockchainfull_notm}} Platform-Service ist nicht kompatibel mit Konten, die für automatische globale Weiterleitung zwischen IP-Teilnetzblöcken aktiviert sind. Kubernetes-Cluster, die mit privaten VLANs konfiguriert sind, werden ebenfalls nicht unterstützt.
 
 ## Schulungsvideo
 {: #ibp-v2-deploy-video}
@@ -107,7 +107,7 @@ Die folgende Liste enthält die Mindestanforderung für die Browsersoftware für
 |Kostenlos** | Für eine Evaluierung geeignet | 2 | 4 GB | 1 |  
 ** Testen Sie {{site.data.keyword.blockchainfull_notm}} Platform für einen Zeitraum von 30 Tagen kostenlos, indem Sie Ihre {{site.data.keyword.blockchainfull_notm}} Platform-Serviceinstanz mit einem kostenlosen {{site.data.keyword.cloud_notm}} Kubernetes-Cluster verbinden. Die Leistung dieser Testversion ist jedoch in Bezug auf Durchsatz, Speicherkapazität und Funktionalität beschränkt. {{site.data.keyword.cloud_notm}} löscht Ihren Kubernetes-Cluster nach 30 Tagen. Eine Migration von Knoten oder Daten aus einem kostenlosen Cluster auf einen gebührenpflichtigen Cluster ist hierbei nicht möglich.
 
-Diese Ressourcen sind für Tests und Versuchsreihen ausreichend. Das [Lernprogramm zum Erstellen eines Netzes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), in dem Sie zwei Peers, zwei Zertifizierungsstellen und einen Anordnungsservice erstellen, beansprucht ungefähr 4,85 CPUs. Der Anordnungsservice mit fünf Knoten beansprucht 2,25 CPUs davon. Wenn Sie planen, einen Anordungsservice mit fünf Knoten bereitzustellen, sollten Sie keinen Kubernetes-Cluster mit einem einzelnen Workerknoten, der 2 CPUs umfasst, bereitstellen. Dieser Cluster könnte den Anordnungsservice nicht aufnehmen. Es wird empfohlen, einen Cluster mit Knoten zu verwenden, der mindestens 4 CPUs umfasst. Je mehr Workerknoten Sie hinzufügen, umso leichter kann der Cluster Ihre Bereitstellungen verarbeiten.
+Diese Ressourcen sind für Tests und Versuchsreihen ausreichend. Das [Lernprogramm zum Erstellen eines Netzes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network), in dem Sie zwei Peers, zwei Zertifizierungsstellen und einen Anordnungsservice erstellen, beansprucht ungefähr 4,15 CPUs. Der Anordnungsservice mit fünf Knoten beansprucht 1,75 CPUs davon. Wenn Sie planen, einen Anordnungsservice mit fünf Knoten bereitzustellen, sollten Sie keinen Kubernetes-Cluster mit einem einzelnen Workerknoten, der 2 CPUs umfasst, bereitstellen. Dieser Anordnungsservice kann nicht nahtlos in andere Knoten eingepasst werden. Es wird empfohlen, einen Cluster mit Knoten zu verwenden, der mindestens 4 CPUs umfasst. Je mehr Workerknoten Sie hinzufügen, umso leichter kann der Cluster Ihre Bereitstellungen verarbeiten.
 {:note}
 
 #### Gebührenpflichtige Cluster
@@ -126,11 +126,11 @@ Die nachstehende Tabelle mit den aktuellen Standardwerten für den Peer, den Ano
 
 | **Komponente** (alle Container) | CPU  | Hauptspeicher (GB) | Speicher (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1,2            | 2,4                  | 200 (umfasst 100 GB für Peer und 100 GB für CouchDB)|
+| **Peer**                       | 1,1            | 2,4                  | 200 (umfasst 100 GB für Peer und 100 GB für CouchDB)|
 | **Zertifizierungsstelle**                         | 0,1            | 0,2                  | 20                     |
-| **Anordnungsknoten**              | 0,45           | 0,9                  | 100                    |
+| **Anordnungsknoten**              | 0,35           | 0,9                  | 100                    |
 
-Wenn Sie beabsichtigen, einen Raft-Anordnungsservice mit fünf Knoten bereitzustellen, muss Ihre Anordnungsknotenbereitstellung um den Faktor fünf erhöht werden. Dies bedeutet in Summe 2,25 CPUs, 4,5 GB Hauptspeicher und 500 GB Speicher für die fünf Raft-Knoten. Dadurch wird der Anordnungsservice mit fünf Knoten größer als ein einzelner Kubernetes-Workerknoten mit 2 CPUs.
+Wenn Sie beabsichtigen, einen Raft-Anordnungsservice mit fünf Knoten bereitzustellen, muss Ihre Bereitstellung um den Faktor fünf erhöht werden. Dies bedeutet in Summe 1,75 CPUs, 4,5 GB Hauptspeicher und 500 GB Speicher für die fünf Raft-Knoten. Ein einzelner Kubernetes-Workerknoten mit 4 CPUs wird als Mindestvoraussetzung empfohlen, um ausreichend CPU-Kapazität für den Raft-Cluster und alle anderen Knoten, die Sie bereitstellen, zur Verfügung zu stellen.
 {:tip}
 
 ## Schritt 1: Erstellen Sie ein Verbindungsprofil für {{site.data.keyword.cloud_notm}} Platform
@@ -140,7 +140,7 @@ Führen Sie die folgenden Schritte aus, um eine Serviceinstanz von {{site.data.k
 
 1. Suchen Sie den [Blockchain-Service](https://cloud.ibm.com/catalog/services/blockchain){: external} im {{site.data.keyword.cloud_notm}}-Katalog oder suchen Sie auf Ihrer {{site.data.keyword.cloud_notm}}-Katalogseite nach `Blockchain`.
 2. Sie sollten den **Service** für Ihre Instanz umbenennen, sodass Sie ihn in Zukunft einfacher erkennen können.
-3. Bei der Betaversion ist **Dallas** die einzige verfügbare Region und kann nicht geändert werden. In einem gebührenpflichtigen Cluster können zusätzliche Regionen ausgewählt werden. Weitere Informationen finden Sie unter [Regionen](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+3. Wählen Sie Ihre Region aus. Eine Liste der verfügbaren Regionen finden Sie unter [Regionen](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 4. Sie können die Felder für die Ressourcengruppe und die Tags unverändert lassen.
 5. Wählen Sie den Plan **Standard** aus.
 6. Klicken Sie auf **Erstellen**, um die Serviceinstanz bereitzustellen.
@@ -175,7 +175,7 @@ In der folgenden Abbildung ist dargestellt, wie die {{site.data.keyword.blockcha
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform und Kubernetes Service](../images/IBP-IKS-Diagram.svg "{{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}} Kubernetes Service bereitstellen")
 
-- **Pod**: Bei jeder Bereitstellung einer Zertifizierungsstelle, eines Peers oder eines Anordnungsservice wird ein neuer Post in einem Workerknoten in Ihrem Cluster erstellt. 
+- **Pod**: Bei jeder Bereitstellung einer Zertifizierungsstelle, eines Peers oder eines Anordnungsservice wird ein neuer Post in einem Workerknoten in Ihrem Cluster erstellt.
 - **App-Container**: In den Pods für jeden bereitgestellten Knoten werden Container erstellt.  
 - **Persistenter Speicher**: Bei jeder Bereitstellung eines Knotens wird Speicher für den Knoten über die Speicherklasse `default` dynamisch bereitgestellt.
 
@@ -187,7 +187,7 @@ Die Konsole verwendet standardmäßig [{{site.data.keyword.cloud_notm}} Identity
 ## Nächste Schritte
 {: #ibp-v2-deploy-iks-next-steps}
 
-- Vor dem Erstellen von Knoten müssen Sie festlegen, welches Speicher-Plug-in für Ihren Kubernetes-Cluster verwendet werden soll. Für den Einstieg und zum Experimentieren eignet sich die Dateispeicherstufe "Bronze", die automatisch ausgewählt wird, wenn Sie den Cluster bereitstellen. Im vorliegenden Beispiel ist keine weitere Aktion erforderlich. Wenn Sie jedoch einen Cluster für formelle Test- oder Produktionszwecke bereitstellen, müssen Sie das entsprechende Plug-in für Ihren Bedarf festlegen. Eine Einführung hierzu finden Sie im zugehörigen Thema [Hinweise zum persistenten Speicher](#ibp-console-storage).
+- Vor dem Erstellen von Knoten müssen Sie festlegen, welches Speicher-Plug-in für Ihren Kubernetes-Cluster verwendet werden soll. Für den Einstieg und zum Experimentieren eignet sich die Dateispeicherstufe "Bronze", die automatisch ausgewählt wird, wenn Sie den Cluster bereitstellen. Im vorliegenden Beispiel ist keine weitere Aktion erforderlich.  Wenn Sie jedoch einen Cluster für formelle Test- oder Produktionszwecke bereitstellen, müssen Sie das entsprechende Plug-in für Ihren Bedarf festlegen. Eine Einführung hierzu finden Sie im zugehörigen Thema [Hinweise zum persistenten Speicher](#ibp-console-storage).
 
 - Jetzt ist Ihre Konsole einsatzbereit und Sie können mit dem [Lernprogramm zum Erstellen eines Netzes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) fortfahren.
 Setzen Sie für die URL Ihrer Konsole ein Lesezeichen, sodass Sie sie zu einem späteren Zeitpunkt wieder aufrufen können. Andernfalls können Sie die Schritte ausführen, die im Abschnitt mit den [Nachinstallationsanweisungen](#ibp-v2-deploy-iks-post-install) aufgeführt sind, um die Konsole über Ihren Browser wieder aufzurufen.

@@ -64,7 +64,7 @@ Der Schnelleinstieg bietet zwei Bereitstellungsoptionen:
 ## Schritt 1: AWS-Konto vorbereiten
 {: #remote-peer-aws-account}
 
-1. Falls Sie noch nicht über ein AWS-Konto verfügen, erstellen Sie ein solches Konto [hier](https://aws.amazon.com){: external}, indem Sie die angezeigten Anweisungen ausführen. 
+1. Falls Sie noch nicht über ein AWS-Konto verfügen, erstellen Sie ein solches Konto [hier](https://aws.amazon.com){: external}, indem Sie die angezeigten Anweisungen ausführen.
 
 2. Wählen Sie mit der Regionsauswahl in der Navigationsleiste die AWS-Region aus, in der der Peer in AWS bereitgestellt werden soll.
 
