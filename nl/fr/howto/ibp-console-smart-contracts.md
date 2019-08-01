@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -107,8 +107,9 @@ Utilisez votre console pour exécuter cette procédure :
 cliquez sur **Suivant**.
 3. Indiquez la [règle d'adhésion pour le contrat intelligent](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse), décrite dans la section ci-après. Lorsque plusieurs organisations sont membres du canal, vous avez la possibilité de choisir le nombre d'organisations qui sont nécessaires pour valider les transactions de contrat intelligent.
 4. Vous devez également sélectionner les membres de l'organisation à inclure dans la règle de validation. Si vous suivez le tutoriel, il s'agit de `org1msp` et éventuellement de `org2msp` si vous avez suivi les tutoriels **Générer un réseau** et **Rejoindre un réseau**.
-5. Si votre contrat intelligent comporte des collectes de données privées Fabric, vous devez envoyer par téléchargement le fichier JSON de configuration de collection associé, sinon vous pouvez omettre cette étape. Consultez cette rubrique pour plus d'informations sur l'utilisation de [données privées](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
-6. Sur le dernier panneau, vous êtes invité à spécifier la fonction de contrat intelligent que vous souhaitez exécuter au démarrage du contrat intelligent, ainsi que les arguments à transmettre à cette fonction.
+5. Dans le panneau Sélectionner des homologues, sélectionnez dans la liste déroulante un homologue d'une organisation qui est membre du canal.
+6. Si votre contrat intelligent comporte des collectes de données privées Fabric, vous devez envoyer par téléchargement le fichier JSON de configuration de collection associé, sinon vous pouvez omettre cette étape. Consultez cette rubrique pour plus d'informations sur l'utilisation de [données privées](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
+7. Sur le dernier panneau, vous êtes invité à spécifier le nom de la fonction d'initialisation du contrat intelligent, ainsi que les arguments à transmettre à cette fonction.
 
 Pour voir l'ensemble des contrats intelligents qui ont été instanciés sur un canal, cliquez sur l'icône de canal dans la barre de navigation de gauche, sélectionnez un canal dans la table, puis cliquez sur l'onglet **Détails du canal**.
 
@@ -134,6 +135,8 @@ Lorsque vous suivez les étapes relatives à l'[instanciation d'un contrat intel
 
 Cliquez sur le bouton **Avancé** si vous voulez indiquer une règle au format JSON. Vous pouvez utiliser cette méthode pour spécifier des règles d'adhésion plus complexes, exigeant par exemple qu'un certain membre du canal valide une transaction, ainsi qu'une majorité des autres membres. Vous pouvez trouver d'autres [exemples de règles d'adhésion](https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html#example-endorsement-policies){: external} dans la documentation Hyperledger Fabric. Pour plus d'informations sur la composition de règles de validation dans JSON, reportez-vous à la [documentation du logiciel SDK Node Hyperledger Fabric](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}.
 
+Les règles de validation ne sont mises à jour automatiquement lorsque de nouvelles organisations rejoignent le canal et installent un code blockchain. Par exemple, si la règle d'adhésion requiert deux organisations sur cinq pour valider une transaction, elle ne sera pas mise à jour pour exiger deux organisations sur six lorsqu'une nouvelle organisation rejoint le canal. Au lieu de cela, la nouvelle organisation ne sera pas répertoriée dans la règle, et elle ne pourra pas valider les transactions. Vous pouvez ajouter une autre organisation à une règle de validation en mettant à niveau le code blockchain pertinent et en mettant à jour la règle.
+
 ## Mise à niveau d'un contrat intelligent
 {: #ibp-console-smart-contracts-upgrade}
 
@@ -143,7 +146,8 @@ Vous pouvez mettre à niveau un contrat intelligent afin de modifier son code ou
 3. Lorsqu'une collecte de données privées a changé, par exemple si une organisation est ajoutée ou retirée, vous devez mettre à niveau votre contrat intelligent. Ou bien, utilisez cette action chaque fois qu'une nouvelle collecte de données privées est ajoutée au fichier JSON de configuration de collecte.
 4. Les arguments d'initialisation du contrat intelligent ont changé.
 
-**Avant la mise à niveau d'un contrat intelligent instancié, la nouvelle version du contrat intelligent doit être installée sur tous les homologues du canal qui exécutent le niveau précédent du contrat intelligent.**
+{:important}
+Par conséquent, avant de mettre à niveau un contrat intelligent sur un canal, une meilleure pratique consiste à installer la version la plus récente du contrat intelligent sur tous les homologues qui exécutent la niveau précédent du contrat intelligent.
 
 ### Procédure de mise à niveau d'un contrat intelligent
 {: #ibp-console-smart-contracts-upgrade-howto}
@@ -160,9 +164,10 @@ Lorsqu'un nouveau membre qui va exécuter le contrat intelligent rejoint le cana
 
  1. Sélectionnez dans la liste déroulante la version de contrat intelligent que vous souhaitez mettre à niveau sur le canal.
  2. Mettez à jour la règles d'adhésion en ajoutant ou en retirant des membres de canal. Vous pouvez également cliquer sur **Avancé** pour coller une nouvelle chaîne au format JSON, qui modifie la règle existante.
- 3. Si vous voulez associer le fichier de configuration d'une collecte de données privées au contrat intelligent, vous pouvez envoyer par téléchargement le fichier JSON. Ou bien, si vous voulez mise à jour une configuration de collecte existante, vous pouvez envoyer par téléchargement le fichier JSON.   
+ 3. Sur le panneau Sélectionner des homologues, vous devez sélectionner un homologue qui peut approuver la proposition de mise à niveau du contrat intelligent. Par conséquent, vous devez sélectionner dans la liste déroulante un homologue d'une organisation qui était membre du canal avant que le contrat intelligent ne soit instancié pour la dernière fois sur le canal.
+ 4. Si vous voulez associer le fichier de configuration d'une collecte de données privées au contrat intelligent, vous pouvez envoyer par téléchargement le fichier JSON. Ou bien, si vous voulez mise à jour une configuration de collecte existante, vous pouvez envoyer par téléchargement le fichier JSON.   
  Si le contrat intelligent a été préalablement instancié avec un fichier de configuration de collecte, vous **devez** envoyer de nouveau par téléchargement la version précédente ou une nouvelle version du fichier de configuration de collecte au cours de cette étape.  
- 4. (Facultatif) Modifiez les valeurs d'argument d'initialisation de contrat intelligent si les paramètres ont changé. Si vous avez des doutes à ce sujet, vérifiez auprès du développeur de votre contrat intelligent. Si ces paramètres n'ont pas été modifiés, vous pouvez laisser cette zone vide.
+ 5. (Facultatif) Modifiez les valeurs d'argument d'initialisation de contrat intelligent si les paramètres ont changé. Si vous avez des doutes à ce sujet, vérifiez auprès du développeur de votre contrat intelligent. Si ces paramètres n'ont pas été modifiés, vous pouvez laisser cette zone vide.
 
 Une fois que vous avez mis à niveau le contrat intelligent, vous devez modifier la version du contrat qui est instancié sur le canal, puis modifier le conteneur de contrat intelligent pour tous les homologues qui ont installé la nouvelle version. Si vous utilisez des collectes de données privées, assurez-vous d'avoir configuré des homologues d'ancrage sur le canal.
 

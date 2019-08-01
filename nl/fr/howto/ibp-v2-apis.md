@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -152,7 +152,7 @@ Vous pouvez utiliser des API pour créer des réseaux de blockchain dans votre i
 
 3. [Créer une définition MSP pour votre organisation](#ibp-v2-apis-msp) en appelant [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
-4. [Générer le fichier de configuration](#ibp-v2-apis-config) qui est nécessaire à la création d'un noeud de tri ou d'un homologue. Vous devez générer un fichier de configuration unique pour chaque noeud de tri ou homologue que vous souhaitez créer.Si vous déployez plusieurs noeuds de tri, vous devez fournir un fichier de configuration pour chaque noeud que vous voulez créer.
+4. [Générer le fichier de configuration](#ibp-v2-apis-config) qui est nécessaire à la création d'un noeud de tri ou d'un homologue. Vous devez générer un fichier de configuration unique pour chaque noeud de tri ou homologue que vous souhaitez créer. Si vous déployez plusieurs noeuds de tri, vous devez fournir un fichier de configuration pour chaque noeud que vous voulez créer.
 
 5. Créer un noeud de tri en appelant [`poster/ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service).
 
@@ -160,10 +160,21 @@ Vous pouvez utiliser des API pour créer des réseaux de blockchain dans votre i
 
 7. Si vous souhaitez utiliser la console pour gérer vos composants de blockchain, vous devez importer l'identité de votre administrateur dans votre portefeuille de console. Utilisez l'onglet Portefeuille pour importer le certificat et la clé privée de votre admin de noeud sur la console et créer une identité. Vous devez ensuite utiliser la console pour associer cette identité aux composants que vous avez créés. Pour plus d'informations, voir [Importation d'une identité admin sur la console {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-v2-apis-admin-console).
 
-8. Après avoir déployé votre réseau, vous pouvez utiliser des logiciels SDK Fabric, l'interface CLI de l'homologue, ou l'interface utilisateur de la console pour créer des canaux et installer ou instancier des contrats intelligents.
+8. Après avoir déployé votre réseau, vous pouvez utiliser des logiciels SDK Fabric, l'interface CLI de l'homologue, ou l'interface utilisateur de la console pour créer des canaux et installer ou instancier des contrats intelligents. Si vous devez créer par programmation un canal, vous devez fournir le nom du consortium. Pour {{site.data.keyword.blockchainfull}} Platform, le nom de consortium doit être défini sur `SampleConsortium`.
 
 Les données d'identification du service qui sont utilisées pour l'authentification API doivent avoir le rôle `Gestionnaire` dans IAM pour pouvoir créer des composants. Consultez le tableau de la rubrique relative aux [rôles utilisateur](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) pour plus d'informations.
 {: note}
+
+### Création d'un noeud dans une zone spécifique
+{: #ibp-v2-apis-zone}
+
+Si vous utilisez un cluster à zones multiples, vous pouvez utiliser les API pour déployer un composant de blockchain dans une zone spécifique de {{site.data.keyword.cloud_notm}}. Cela permet à votre réseau de maintenir une disponibilité en cas de défaillance d'une zone. Vous pouvez utiliser les étapes suivantes pour déployer un homologue ou un noeud de tri dans une zone spécifique.
+
+1. Recherchez les zones dans lesquelles se trouvent vos noeuds worker. Accédez à l'écran de présentation de votre cluster à zones multiples dans le service [{{site.data.keyword.cloud_notm}} Kubernetes on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. Depuis l'écran de présentation du cluster, cliquez sur **Noeuds worker** pour afficher un tableau de tous les noeuds worker dans votre cluster. Vous pouvez voir la zone dans laquelle se situe chaque noeud worker dans la colonne **Zone** du tableau.
+
+  Vous pouvez également rechercher les zones de vos noeuds worker à l'aide de l'interface CLI kubectl. Accédez à l'écran **Accès** et suivez les instructions sous **Obtenez l'accès à votre cluster** afin de vous connecter à l'aide de {{site.data.keyword.cloud_notm}} et des outils de l'interface de ligne de commande kubectl. Une fois connecté, utilisez la commande `kubectl get nodes --show-labels` pour obtenir la liste complète des noeuds et des zones de votre cluster. Vous pourrez voir la zone dans laquelle se situe chaque noeud worker à proximité de `zone` sous la colonne `LABELS`.
+
+2. Pour créer un noeud au sein d'une zone spécifique, indiquez le nom de zone dans les appels d'API [Création d'un service de tri](/apidocs/blockchain?code=try#create-an-ordering-service) ou [Création d'un homologue](/apidocs/blockchain?code=try#create-an-ordering-service) à l'aide de la section zone du corps de demande. La politique anti-affinité de la console {{site.data.keyword.blockchainfull_notm}} Platform déploiera automatiquement votre composant sur différents noeuds worker au sein de chaque zone en fonction des ressources disponibles.
 
 ## Importation d'un réseau à l'aide d'API
 {: #ibp-v2-apis-import-with-apis}
@@ -185,7 +196,7 @@ Vous pouvez également utiliser les API pour importer des composants {{site.data
 
 5. Si vous prévoyez d'utiliser la console {{site.data.keyword.blockchainfull_notm}} Platform pour exploiter vos composants de blockchain, vous devez importer les identités de votre administrateur de composant dans votre portefeuille de console. Pour plus d'informations, voir [Importation d'une identité admin sur la console {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-v2-apis-admin-console).
 
-6. Après avoir déployé votre réseau, vous pouvez utiliser des logiciels SDK Fabric, l'interface CLI de l'homologue, ou l'interface utilisateur de la console pour créer des canaux et installer ou instancier des contrats intelligents.
+6. Après avoir déployé votre réseau, vous pouvez utiliser des logiciels SDK Fabric, l'interface CLI de l'homologue, ou l'interface utilisateur de la console pour créer des canaux et installer ou instancier des contrats intelligents. Si vous devez créer par programmation un canal, vous devez fournir le nom du consortium. Pour {{site.data.keyword.blockchainfull}} Platform, le nom de consortium doit être défini sur `SampleConsortium`.
 
 Les données d'identification du service qui sont utilisées pour l'authentification API doivent avoir le rôle `Auteur` dans IAM pour pouvoir importer des composants. Consultez le tableau de la rubrique relative aux [rôles utilisateur](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) pour plus d'informations.
 {: note}

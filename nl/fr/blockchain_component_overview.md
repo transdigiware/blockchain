@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -53,7 +53,7 @@ Pour plus d'informations sur le service de tri, voir [The Ordering Service](http
 ## Homologues
 {: #blockchain-component-overview-peer}
 
-A un niveau physique, un réseau de blockchain se compose essentiellement de noeuds homologues (ou, simplement, d'homologues). Les homologues sont un élément fondamental du réseau car ils hébergent des registres et des contrats intelligents (qui sont contenus dans un ["code blockchain"](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}. Plus précisément, l'homologue héberge des **instances** du registre et des **instances** de contrats intelligents. Comme les contrats intelligents et les registres sont utilisés pour encapsuler les processus partagés et les informations partagées au sein d'un réseau, respectivement, ces aspects d'un homologue constituent un bon point de départ pour comprendre ce que fait réellement un réseau Fabric.
+A un niveau physique, un réseau de blockchain se compose essentiellement de noeuds homologues (ou, simplement, d'homologues). Les homologues sont un élément fondamental du réseau car ils hébergent des registres et des contrats intelligents (qui sont contenus dans un [code blockchain](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html){: external}). Plus précisément, l'homologue héberge des **instances** du registre et des **instances** de contrats intelligents. Comme les contrats intelligents et les registres sont utilisés pour encapsuler les processus partagés et les informations partagées au sein d'un réseau, respectivement, ces aspects d'un homologue constituent un bon point de départ pour comprendre ce que fait réellement un réseau Fabric.
 
 Pour en savoir plus sur les homologues en particulier, consultez [ce document consacré uniquement aux homologues](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peers/peers.html){: external} dans la documentation Fabric Community.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-07-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -23,7 +23,8 @@ subcollection: blockchain
 # Tarification d'{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-Ce guide vous aide à comprendre le modèle de tarification d'{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, et à estimer vos coûts de développement et d'expansion de votre réseau de blockchain d'homologue, noeuds de tri, et composants d'autorité de certification, qui reposent sur Hyperledger Fabric version 1.4.1. {:shortdesc}
+Ce guide vous aide à comprendre le modèle de tarification d'{{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, et à estimer vos coûts de développement et d'expansion de votre réseau de blockchain d'homologue, noeuds de tri, et composants d'autorité de certification, qui reposent sur Hyperledger Fabric version 1.4.1.
+{:shortdesc}
 
 _Ce modèle de tarification concerne uniquement {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. Si vous utilisez le plan Starter ou le plan Enterprise Plan et avez des questions relatives à la tarification, consultez la rubrique relative à la [tarification](/docs/services/blockchain?topic=blockchain-ibp-pricing) des plans Starter et Enterprise._
 
@@ -75,17 +76,19 @@ Le tableau suivant fournit deux exemples de tarification avec des [allocations d
 
 | Options de tarification** (1 VPC = 1 UC)| **Réseau de test** | **Rejoindre un réseau de production** |
 |-|------------|-----------------------------|
-| **Allocation d'UC** |  1,85 UC <br> Inclut : <br> - 1 homologue <br> - 2 AC <br> - 1 noeud de tri| 4,9 UC <br> Inclut : <br> - 2 homologues (pour la haute disponibilité) <br> **(calcul par défaut x 2)** <br>- 1 AC <br>  |
-| **Coût horaire : {{site.data.keyword.blockchainfull_notm}} Platform** | 0,54 dollars <br> (1,85 UC x 0,29 dollar/VPC-hr) | 1,42 dollar <br> (4,9 UC x 0,29 dollar/VPC-hr ) |
+| **Allocation d'UC** |  1,65 UC <br> Inclut : <br> - 1 homologue <br> - 2 AC <br> - 1 noeud de tri| 4,5 UC <br> Inclut : <br> - 2 homologues (pour la haute disponibilité) <br> **(calcul par défaut x 2)** <br>- 1 AC <br>  |
+| **Coût horaire : {{site.data.keyword.blockchainfull_notm}} Platform** | 0,48 dollars <br> (1,65 UC x 0,29 dollar/VPC-hr) | 1,31 dollar <br> (4,5 UC x 0,29 dollar/VPC-hr ) |
 | **Coût horaire : cluster {{site.data.keyword.cloud_notm}} Kubernetes **    | 0,12 dollar <br> (Calcul : échelon 2 x 4) <br> (Allocation IP : 16 dollars/mois) | 0,46 dollar <br> (Calcul : échelon 8 x 32) <br> (Allocation IP : 16 dollars/mois) |
 | **Coût horaire : Stockage** | 0,07 dollar <br> 340 Go  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/Go | 0,13 dollar <br> 420 Go <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/Go  |
-| **Coût horaire total ** | **0,73 dollar** | **2,01 dollars**| |
+| **Coût horaire total ** | **0,67 dollars** | **1,90 dollars**| |
 Essai de {{site.data.keyword.blockchainfull_notm}} Platform sans frais pendant 30 jours lorsque vous liez votre instance de service {{site.data.keyword.blockchainfull_notm}} Platform à un cluster Kubernetes {{site.data.keyword.cloud_notm}} gratuit. Les performances seront limitées en termes de débit, de stockage et de fonctionnalités. {{site.data.keyword.cloud_notm}} supprimera votre cluster Kubernetes au bout de 30 jours et vous ne pouvez pas migrer les noeuds ou les données depuis un cluster gratuit vers un cluster payant.  
 
-Vos coûts réels varieront en fonction de facteurs supplémentaires tels que le débit de transaction, le nombre de canaux dont vous avez besoin, la taille de la charge sur les transactions, ainsi que le nombre maximum de transactions simultanées. Les exemples de tarification ci-dessus reposent sur un cluster {{site.data.keyword.cloud_notm}} Kubernetes à zone unique. Si vous choisissez un cluster multizone, des frais supplémentaires sont appliqués pour les zones supplémentaires et l'équilibrage de charge multizone requis.
+Vos coûts réels varieront en fonction de facteurs supplémentaires tels que le débit de transaction, le nombre de canaux dont vous avez besoin, la taille de la charge sur les transactions, ainsi que le nombre maximum de transactions simultanées. Les exemples de tarification ci-dessus reposent sur un cluster {{site.data.keyword.cloud_notm}} Kubernetes à zone unique.  Si vous choisissez un cluster multizone, des frais supplémentaires sont appliqués pour les zones supplémentaires et l'équilibrage de charge multizone requis.
 {:note}
 
-Il n'y a pas de limite au nombre d'instances de service que vous pouvez mettre à disposition et associer à un cluster Kubernetes unique, mais vous devez vous assurer que les ressources adéquates sont disponibles par la surveillance de l'utilisation de l'UC, de la mémoire et du stockage afin d'éviter toute interruption du service. Les noeuds {{site.data.keyword.blockchainfull_notm}} Platform n'ont pas à être dans leur propre cluster. D'autres services {{site.data.keyword.cloud_notm}} peuvent s'exécuter dans votre cluster où s'exécutent vos composants de blockchain, mais encore une fois, vous devez vous assurer de disposer du calcul et du stockage adéquats pour répondre aux besoins de toutes les instances de service.
+Il n'y a pas de limite au nombre d'instances de service que vous pouvez mettre à disposition et associer à un cluster Kubernetes unique, mais vous devez vous assurer que les ressources adéquates sont disponibles par la surveillance de l'utilisation de l'UC, de la mémoire et du stockage afin d'éviter toute interruption du service. Les noeuds {{site.data.keyword.blockchainfull_notm}} Platform n'ont pas à être dans leur propre cluster. D'autres services {{site.data.keyword.cloud_notm}} peuvent s'exécuter dans votre cluster où s'exécutent vos composants de blockchain, mais encore une fois, vous devez vous assurer de disposer du calcul et du stockage adéquats pour répondre aux besoins de toutes les instances de service.  
+
+**Prêt à commencer ?** Consultez [Initiation à {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) pour voir les options. 
 
 ## Allocations de ressources par défaut
 {: #ibp-saas-pricing-default}
@@ -94,9 +97,9 @@ Les valeurs du tableau suivant sont utiles pour estimer le coût horaire de votr
 
 | **Composant** (tous les conteneurs) | UC  | Mémoire (Go) | Stockage (Go) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Homologue**                       | 1,2            | 2,4                   | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
+| **Homologue**                       | 1,1            | 2,4                   | 200 (inclut 100 Go pour l'homologue et 100 Go pour CouchDB)|
 | **AC**                         | 0,1            | 0,2                    | 20                     |
-| **Noeud de tri**                    | 0,45           | 0,9                    | 100                    |
+| **Noeud de tri**                    | 0,35           | 0,9                    | 100                    |
 
 
 ## Facturation
@@ -114,9 +117,10 @@ Avant de recevoir une facture, vous pouvez surveiller les coûts d'{{site.data.k
 
 #### Utilisation d'{{site.data.keyword.blockchainfull_notm}} Platform et de Kubernetes Service
 
-Ce clip fournit un exemple simple de l'affichage de vos frais pour une instance d'{{site.data.keyword.blockchainfull_notm}} Platform comportant un seul noeud AC.
+<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
 
-![Surveillance de votre utilisation](../images/usage_monitoring.gif){: gif}
+![Monitoring your usage](../images/usage_monitoring.gif){: gif}
+-->
 
 Accédez à la section **Gérer** dans la partie supérieure de votre tableau de bord {{site.data.keyword.cloud_notm}}, cliquez sur **Facturation et utilisation**, puis cliquez sur **Utilisation** dans le menu de gauche. Le graphique circulaire sous la sous-section **Services** fournit une ventilation de votre coût total par types d'offres de service que vous avez utilisées et consommées ce mois-ci. Utilisez ce graphique afin de comprendre la part d'{{site.data.keyword.blockchainfull_notm}} Platform, de Kubernetes Services et de votre stockage dans votre coût total.
 

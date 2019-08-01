@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-08"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -22,11 +22,14 @@ subcollection: blockchain
 # A propos du plan Starter
 {: #starter-plan-about}
 
-<!--[placeholder] Starter Plan is deprecated on May 30. No new Starter Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 Le plan Starter de {{site.data.keyword.blockchainfull}} Platform est une option d'entrée de gamme qui permet aux organisations de simuler des réseaux blockchain composés de plusieurs organisations, de développer rapidement des applications et d'utiliser des exemples de contrats et de réseaux d'entreprise intelligents. Il bénéficie également de la même interface utilisateur que les autres options d'appartenance, ce qui élimine le besoin de mettre en place des formations. Les nouveaux réseaux de plan Starter qui sont créés après le 4 octobre 2018 sont basés sur Hyperledger Fabric version 1.2.1. Les réseaux de plan Starter plus anciens demeurent au niveau de version Fabric 1.1.0.
 {:shortdesc}
+
+Le plan Starter est désormais obsolète, par conséquent, aucun nouveau réseau de plan Starter ne peut à présent être créé.** Utilisez l'interface utilisateur et les fonctions les plus récentes disponibles maintenant dans la second génération de la technologie de blockchain en consultant [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}  
+
+**Vos réseaux existants ne sont pas affectés et vous pouvez continuer à les utiliser jusqu'au 4 juin 2020.
+
 
 Le **Plan Starter** est un environnement pour ceux qui souhaitent démarrer avec le développement de réseaux de blockchain ou commencer à apprendre la technologie de blockchain. Vous pouvez utiliser un plan Starter comme environnement de développement ou de test qui vous permettra de démarrer petit et d'étendre le volume d'appartenance ou de transactions de votre réseau avant de passer à un environnement de production.
 

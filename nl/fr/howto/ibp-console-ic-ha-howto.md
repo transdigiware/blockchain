@@ -32,7 +32,7 @@ Lorsque vous configurez la prise en charge de la haute disponibilité multi-rég
 - Créez vos noeuds blockchain dans différentes régions.
 - Utilisez la fonctionnalité d'importation/exportation de noeud pour gérer les noeuds à partir d'une seule console.
 
-## Etapes de la configuration 
+## Etapes de la configuration
 {: #ibp-console-hadr-config}
 
 Pour configurer la haute disponibilité multi-région en créant des homologues redondants pour chaque organisation, exécutez les étapes suivantes lorsque vous configurez votre réseau de blockchain :

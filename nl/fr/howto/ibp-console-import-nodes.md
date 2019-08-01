@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -55,6 +55,7 @@ Pour que des noeuds puissent être importés sur la console, ils doivent être e
 - Vous ne pouvez pas appliquer des correctifs à des noeuds que vous avez importés sur la console.
 - Vous ne pouvez pas supprimer des noeuds que vous avez importés sur la console depuis le cluster où ils ont été déployés. Vous pouvez uniquement supprimer le noeud à partir de la console.
 - Si vous importez un noeud déployé dans {{site.data.keyword.cloud_notm}} Private, vous devez vous assurer que le proxy Web gRPC utilisé par le composant est exposé en externe à la console. Pour plus d'informations, voir [Importation de noeuds depuis {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
+- Lorsque vous ouvrez la vignette d'un noeud importé, la version Fabric n'est pas visible et l'onglet **Utilisation et informations** n'est pas disponible.
 
 ## Premiers pas : Collecte des certificats ou des données d'identification
 {: #ibp-console-import-start-here}

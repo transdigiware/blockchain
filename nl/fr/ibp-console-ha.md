@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-21"
+lastupdated: "2019-07-10"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -35,25 +35,25 @@ Avant de poursuivre, nous vous recommandons de consulter les instructions spéci
 - Si vous utilisez {{site.data.keyword.cloud_notm}}, vous pouvez en apprendre davantage sur le fonctionnement de la haute disponibilité avec Kubernetes dans {{site.data.keyword.cloud_notm}} dans la rubrique relative à la [haute disponibilité pour {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ha){: external}.
 - Si vous utilisez {{site.data.keyword.cloud_notm}} Private, passez en revue les informations relatives à l'[implémentation de la haute disponibilité dans {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/cloud/garage/practices/manage/high-availability-ibm-cloud-private){: external}.  
 
-Vous pouvez consulter cette rubrique pour plus détails sur les conseils spécifique à la haute disponibilité et les recommandations des rubriques ci-dessus spécifiques à la plateforme. 
+Vous pouvez consulter cette rubrique pour plus détails sur les conseils spécifique à la haute disponibilité et les recommandations des rubriques ci-dessus spécifiques à la plateforme.
 
 ## Présentation des points de défaillance possibles dans {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
-{: #ibp-console-ha-points-of-failure}
+{: #ibp-console-ha-points-of-failure-overview}
 
-L'architecture d'{{site.data.keyword.blockchainfull_notm}} Platform est conçue pour garantir fiabilité, faible latence de traitement et disponibilité maximum du service. Cependant, il peut y avoir des incidents. {{site.data.keyword.blockchainfull_notm}} Platform propose plusieurs approches pour ajouter une plus grande disponibilité dans votre cluster par l'ajout de politiques de redondance et d'[anti-affinité](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external}, le cas échéant, pour garantir que les composants de blockchain de même type et organisation sont déployés dans différents noeuds worker. En ajoutant de la redondance au sein de votre réseau de blockchain, vous pouvez éviter des pannes ou des immobilisations.  
+L'architecture d'{{site.data.keyword.blockchainfull_notm}} Platform est conçue pour garantir fiabilité, faible latence de traitement et disponibilité maximum du service. Cependant, il peut y avoir des incidents. {{site.data.keyword.blockchainfull_notm}} Platform propose plusieurs approches pour ajouter une plus grande disponibilité dans votre cluster par l'ajout de politiques de redondance et d'[anti-affinité](https://www.ibm.com/blogs/cloud-archive/2016/07/ibm-containers-anti-affinity/){: external}, le cas échéant, pour garantir que les composants de blockchain de même type et organisation sont déployés dans différents noeuds worker.  En ajoutant de la redondance au sein de votre réseau de blockchain, vous pouvez éviter des pannes ou des immobilisations.  
 
 Pour atteindre une haute disponibilité maximum, il est recommandé de générer de la redondance en mettant à disposition des homologues et des noeuds de tri dans des clusters Kubernetes dans plusieurs régions. Lorsque les composants sont propagés dans des régions et que le registre de blockchain est distribué au sein de ces composants, une panne dans une seule région n'aura pas d'incidence sur le traitement des transactions. Les AC sont moins critiques pour le traitement quotidien des transaction. Une fois que tous les utilisateurs sont enregistrés et inscrits auprès de l'AC, il n'est plus obligatoire jusqu'au moment où ces services sont de nouveau requis.
 
 ### Remarques relatives aux homologues
 {: #ibp-console-ha-peers}
 
-La haute disponibilité pour les homologues signifie avoir des homologues redondants, c'est-à-dire au moins deux homologues disponibles pour chaque organisation sur le même canal pour traiter les demandes des applications client. Plusieurs homologues peuvent être déployés sur un seul noeud worker, ou propagés sur plusieurs noeuds worker, zones (si vous utilisez {{site.data.keyword.cloud_notm}}), ou même des régions. Chaque fois que vous déployez plusieurs homologues et les joignez au même canal, ces homologues font office de paire HA car le canal et les données sont automatiquement synchronisés au sein de tous les homologues dans le canal. De par sa conception, un réseau de blockchain est supposé comporter plusieurs organisations qui effectuent des transactions sur les mêmes canaux.  Par conséquent, le modèle de déploiement courant est que pour un canal donné, il existe des homologues redondants pour chaque organisation qui se propagent au sein de plusieurs clusters de compte d'organisation qui synchronisent tous des données entre eux. Chaque organisation peut comporter un homologue dans son propre cluster dans une région. 
+La haute disponibilité pour les homologues signifie avoir des homologues redondants, c'est-à-dire au moins deux homologues disponibles pour chaque organisation sur le même canal pour traiter les demandes des applications client. Plusieurs homologues peuvent être déployés sur un seul noeud worker, ou propagés sur plusieurs noeuds worker, zones (si vous utilisez {{site.data.keyword.cloud_notm}}), ou même des régions. Chaque fois que vous déployez plusieurs homologues et les joignez au même canal, ces homologues font office de paire HA car le canal et les données sont automatiquement synchronisés au sein de tous les homologues dans le canal.  De par sa conception, un réseau de blockchain est supposé comporter plusieurs organisations qui effectuent des transactions sur les mêmes canaux.  Par conséquent, le modèle de déploiement courant est que pour un canal donné, il existe des homologues redondants pour chaque organisation qui se propagent au sein de plusieurs clusters de compte d'organisation qui synchronisent tous des données entre eux. Chaque organisation peut comporter un homologue dans son propre cluster dans une région. 
 
 Pour une couverture de haute disponibilité encore plus robuste, vous pouvez mettre en place plusieurs clusters dans plusieurs régions et déployer des homologues dans l'ensemble de ces régions. Toutefois, si vous recherchez de hautes performances, vous devez être prudent lors de la distribution des homologues afin de garantir que la latence et la bande passante entre eux sont suffisantes pour atteindre vos objectifs de performances.
 
 Les **homologues d'ancrage** dans un canal facilitent la communication entre organisations qui est nécessaire pour que fonctionne la reconnaissance de données privées, des échanges gossip et des service. Si un seul homologue d'ancrage existe dans un canal, et que cet homologue devient indisponible, les organisations ne sont plus connectées et la communication gossip entre organisations n'est plus possible. Par conséquent, lorsque vous créez des homologues redondants pour une organisation, veillez à ajouter des [homologues d'ancrage dans le canal](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) également.
 
-### Remarques relatives au service de tri 
+### Remarques relatives au service de tri
 {: #ibp-console-ha-ordering-service}
 
 {{site.data.keyword.blockchainfull_notm}} Platform repose sur Hyperledger Fabric version 1.4.1 qui inclut le service de tri Raft. Raft est un service tri tolérant aux pannes reposant sur l'implémentation du [protocole Raft](https://raft.github.io/raft.pdf){: external}. De par leur conception, les noeuds de tri se synchronisent automatiquement entre eux à l'aide d'un consensus basé sur Raft. Dans {{site.data.keyword.blockchainfull_notm}} Platform, l'opérateur réseau d'une organisation peut choisir de mettre en place un service de tri single Raft basé sur un seul noeud, sans haute disponibilité, ou cinq services de tri dans une seule single région qui sont automatiquement configurés pour la haute disponibilité via Raft.
@@ -66,16 +66,19 @@ Le tableau suivant contient une liste des options à prendre en compte lorsque v
 |  | Noeud unique | Cluster unique avec plusieurs noeuds | Multizone ({{site.data.keyword.cloud_notm}} uniquement**)| Plusieurs clusters entre régions |
 |-----|-----|-----|-----|-----|
 | Homologues redondants | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) |
-| Anti-affinité (homologues) |  | ![Icône de coche](../../icons/checkmark-icon.svg) |  | ![Icône de coche](../../icons/checkmark-icon.svg)|
 | Homologues d'ancrage redondants dans un canal| ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg)|
-| Service de tri Raft | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | |
-| Anti-affinité (noeuds de tri) |  | ![Icône de coche](../../icons/checkmark-icon.svg) |  | ![Icône de coche](../../icons/checkmark-icon.svg)|
-| Environnement de développement ou de test | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | | |
+| Anti-affinité*** (homologues) |  | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg)|
+|Service de tri Raft | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | |
+| Anti-affinité*** (noeuds de tri) |  | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg)|
+|Environnement de développement ou de test | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) | | |
 | Environnement de production | | | ![Icône de coche](../../icons/checkmark-icon.svg) | ![Icône de coche](../../icons/checkmark-icon.svg) |
 {: row-headers}
 {: class="comparison-table"}
-{: caption="Tableau 1. Comparaison de scénarios de déploiement pour augmenter la haute disponibilité de votre réseau " caption-side="top"}
+{: caption="Tableau 1. Comparaison de scénarios de déploiement pour augmenter la haute disponibilité de votre réseau" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
+
+*** Le déployeur {{site.data.keyword.blockchainfull_notm}} Platform ne peut pas garantir que les homologues ou les noeuds de tri sont propagés entre différentes zones. Vous pouvez utiliser les API {{site.data.keyword.blockchainfull_notm}} Platform pour déployer des noeuds dans des zones spécifiques dans {{site.data.keyword.cloud_notm}} et vous assurer que votre réseau est résilient en cas de défaillance de zone. Pour plus d'informations, voir [Haute disponibilité multizone](#ibp-console-ha-multi-zone).  
+
 ** La configuration par défaut pour un cluster Kubernetes standard dans {{site.data.keyword.cloud_notm}} est de un cluster de 4 UC x 16 Go de RAM comportant trois de trois noeuds worker chacune. Vous pouvez augmenter ou réduire, en sélectionnant une configuration plus petite, selon vos besoins.
 
 ## Points de défaillance possibles
@@ -128,7 +131,8 @@ _Ce scénario s'applique uniquement aux clients qui utilisent {{site.data.keywor
 
    Une seule zone est suffisante pour un environnement de développement et de tests si vous pouvez tolérer une indisponibilité de zone. Par conséquent, pour optimiser les avantages de la haute disponibilité de plusieurs zones, lorsque vous mettez à disposition votre cluster, vérifiez que plusieurs zones sont sélectionnées. Deux zones valent mieux qu'une, mais trois zones sont recommandées pour la haute disponibilité afin d'augmenter la probabilité que les deux autres zones peuvent absorber la charge d'une autre zone défaillante.  Lorsque les homologues redondants de la même organisation ainsi que le canal et les noeuds de tri sont propagés sur plusieurs zones, une défaillance dans une zone ne devrait pas affecter la capacité du réseau de traiter les transactions car la charge de travail sera déplacée vers les noeuds de blockchain dans les autres zones.
 
-   Le déployeur {{site.data.keyword.blockchainfull_notm}} Platform ne peut pas garantir que les composants de blockchain sont propagés entre les **zones**. Le déployeur va déployer des composants dans plusieurs zones en fonction des ressources disponibles sur les noeuds worker, mais il ne placera pas nécessairement deux homologues de la même organisation ou les noeuds de tri dans des zones distinctes.  {:note}
+   Le déployeur {{site.data.keyword.blockchainfull_notm}} Platform ne peut pas garantir que les composants de blockchain sont propagés entre les **zones**. Le déployeur va déployer des composants dans plusieurs zones en fonction des ressources disponibles sur les noeuds worker, mais il ne placera pas nécessairement deux homologues de la même organisation ou les noeuds de tri dans des zones distinctes. Si vous souhaitez vous assurer que certains noeuds sont déployés dans différentes zones, vous pouvez utiliser les API {{site.data.keyword.blockchainfull_notm}} Platform pour indiquer la zone où un noeud est créé. Pour plus d'informations, voir [Création d'un noeud au sein d'une zone spécifique](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+   {:note}
 
    Ce scénario utilise des homologues et des services de tri redondants entre plusieurs noeuds worker dans plusieurs zones, ce qui protège contre la défaillance de zone, mais cela ne protège pas contre une défaillance d'une zone entière. Il s'agit d'un scénario recommandé pour un réseau de production.
 
