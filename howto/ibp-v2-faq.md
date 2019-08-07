@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-07"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -70,13 +70,13 @@ All peers that are deployed with the {{site.data.keyword.blockchainfull_notm}} P
 {: #ibp-v2-faq-v2-IBP-Overview-1-4}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in Go and Node.js. The new Hyperledger Fabric programming model currently supports only Node.js, but more are coming soon. If you are interested in preserving your existing application code, or using Fabric SDKs for languages other than Node.js, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in Go, JavaScript, and TypeScript, with Java support coming soon. The new Hyperledger Fabric programming model currently supports JavaScript, TypeScript, and Java, with Go support coming soon. If you are interested in preserving your existing application code, or using Fabric SDKs for *Go*, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
 
 ## Do you support using certificates from non-IBM Certificate Authorities?
 {: #ibp-v2-faq-v2-external-certs}
 {: faq}
 
-Yes, you can bring your own certificates as long as they are issued by a CA that is X.509 compliant.
+Yes, you can bring your own certificates as long as they are issued by a CA that is X.509 compliant. The CA should sign using ECDSA and the defaults should be set to use P256 curve.
 
 ## Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}

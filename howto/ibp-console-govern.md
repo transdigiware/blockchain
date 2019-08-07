@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-08-07"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, channel update, reallocate resources
 
@@ -24,8 +24,6 @@ subcollection: blockchain
 
 After creating CAs, peers, ordering nodes, organizations, and channels, you can use the console to update these components.
 {:shortdesc}
-
-If you are using the beta trial version of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, it is likely that some panels in your console will not match the current documentation, which is kept up to date with the generally available (GA) service instance. To gain the benefits of all the latest functionality, you are encouraged at this time to provision a new GA service instance by following instructions in [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network.
 
@@ -95,11 +93,13 @@ The CA has only a single container with values that you need to worry about beca
 ### Peers
 {: #ibp-console-govern-peers}
 
-The peer has three associated containers that we can adjust:
+The peer has five associated containers:
 
-- **The peer itself**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts installed on the peer.
-- **CouchDB**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
-- **Smart contract**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your smart contract container, which is known as a Docker-in-Docker container.  
+- **Peer container**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts installed on the peer.
+- **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
+- **Smart contract container**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your smart contract container, which is known as a Docker-in-Docker container.
+- **gRPC proxy container**: Contains the processes that allow the console to communicate with the peer. Under normal circumstances you should not need to change the resource allocations for this container.
+- **Log collector**: Pipes the logs from the smart contract container to the peer container. The CPU and memory allocations are fixed for this container.   
 
 The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container. Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
 
@@ -184,6 +184,8 @@ To update a channel, click on the channel inside the **Channels** tab. Click on 
 ### Channel configuration parameters you can update
 {: #ibp-console-govern-update-channel-available-parameters}
 
+For a look at the channel creation process, see [Creating the channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-channels-create) from the "Build a network" tutorial.
+
 It's possible to change some, but not all, of the configuration parameters of a channel after the channel has been created. And there is only one parameter that is possible to update and is not available during channel creation.
 
 You will see that the **Channel name** is greyed out and cannot be edited. This reflects the fact that a channel name cannot be changed after it has been created. Also, observe that the ordering service display name is not present, as the ordering service of a channel also cannot be changed after the channel has been created.
@@ -214,7 +216,7 @@ If you are attempting to change any of the **Block cutting parameters** and own 
 ### Signature collection flow
 {: #ibp-console-govern-update-channel-signature-collection}
 
-For signatures to be verified, the organizations on a channel should export the MSPs (in JSON format) representing their organizations to the other organizations on the channel, as well as importing the MSPs of other organizations. To export an MSP, click the download button on your MSP (on the **Organizations** tab), then send it to other organizations out of band. When you receive a JSON of an MSP, import it using the **Organizations** screen.
+For signatures to be verified, the organizations on a channel should export the MSPs (in JSON format) representing their organizations to the other organizations on the channel, as well as importing the MSPs of other organizations. To export an MSP, click the download button on your MSP (on the **Organizations** tab), then send it to other organizations out of band. When you receive an MSP JSON file, import it using the **Organizations** panel.
 {: important}
 
 After a channel configuration update request has been made, it will be sent to the organizations in the channel that have the right to sign it. For example, if there are five operators (channel admins) in a channel, it will be sent to all five. For the channel configuration update to be approved, the number of channel operators listed in the **channel update policy** must be satisfied. If this policy says `3 out of 5`, then the channel configuration update will be sent to all five operators, and when three of them sign it, the new channel configuration update will take effect.
