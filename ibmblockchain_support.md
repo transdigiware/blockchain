@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-7"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -72,7 +72,7 @@ If you need help with Hyperledger Fabric, Hyperledger Composer, or your applicat
 
 The response to your support case depends on your [{{site.data.keyword.cloud_notm}} support plan](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
 
-- If you have purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicates more urgency and will be responded to more quickly by the support team. For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
+- If you have purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicates more urgency and will be responded to more quickly by the support team. The ticket severity should be assigned based on the published criteria  [Case severity and response times](/docs/get-support?topic=get-support-support-case-severity#support-case-severity){: external}.  For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
 - If you do not purchase support, your {{site.data.keyword.cloud_notm}} Pay-As-You-Go or Subscription account comes with a free **Basic Support** plan. In this case, your support case will automatically be registered Sev-4.
 
 Follow these steps to submit a support case.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-07"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -325,49 +325,49 @@ Use your console to [download your connection profile](/docs/services/blockchain
 
 Navigate to the ``/magnetocorp/application`` directory and save the following code block as `enrollUser.js`.
 
-    ```
-    'use strict';
+  ```
+  'use strict';
 
-    const FabricCAServices = require('fabric-ca-client');
-    const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
-    const fs = require('fs');
-    const path = require('path');
+  const FabricCAServices = require('fabric-ca-client');
+  const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
+  const fs = require('fs');
+  const path = require('path');
 
-    const ccpPath = path.resolve(__dirname, '../gateway/connection.json');
-    const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
-    const ccp = JSON.parse(ccpJSON);
+  const ccpPath = path.resolve(__dirname, '../gateway/connection.json');
+  const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
+  const ccp = JSON.parse(ccpJSON);
 
-    async function main() {
-      try {
+  async function main() {
+    try {
 
-        // Create a new CA client for interacting with the CA.
-        const caURL = ccp.certificateAuthorities['<CA_Name>'].url;
-        const ca = new FabricCAServices(caURL);
+      // Create a new CA client for interacting with the CA.
+      const caURL = ccp.certificateAuthorities['<CA_Name>'].url;
+      const ca = new FabricCAServices(caURL);
 
-        // Create a new file system based wallet for managing identities.
-        const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
+      // Create a new file system based wallet for managing identities.
+      const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 
-        // Check to see if we've already enrolled the admin user.
-        const userExists = await wallet.exists('user1');
-        if (userExists) {
-          console.log('An identity for "user1" already exists in the wallet');
-          return;
-        }
+      // Check to see if we've already enrolled the admin user.
+      const userExists = await wallet.exists('user1');
+      if (userExists) {
+        console.log('An identity for "user1" already exists in the wallet');
+        return;
+      }
 
-        // Enroll the admin user, and import the new identity into the wallet.
-        const enrollment = await ca.enroll({ enrollmentID: '<app_enroll_id>', enrollmentSecret: '<app_enroll_secret>' });
-        const identity = X509WalletMixin.createIdentity('<msp_id>', enrollment.certificate, enrollment.key.toBytes());
-        await wallet.import('user1', identity);
-        console.log('Successfully enrolled client "user1" and imported it into the wallet');
+      // Enroll the admin user, and import the new identity into the wallet.
+      const enrollment = await ca.enroll({ enrollmentID: '<app_enroll_id>', enrollmentSecret: '<app_enroll_secret>' });
+      const identity = X509WalletMixin.createIdentity('<msp_id>', enrollment.certificate, enrollment.key.toBytes());
+      await wallet.import('user1', identity);
+      console.log('Successfully enrolled client "user1" and imported it into the wallet');
 
-        } catch (error) {
-          console.error(`Failed to enroll "user1": ${error}`);
-          process.exit(1);
-        }
-    }
-    main();
-    ```
-    {:codeblock}
+      } catch (error) {
+        console.error(`Failed to enroll "user1": ${error}`);
+        process.exit(1);
+      }
+  }
+  main();
+  ```
+  {:codeblock}
 
 We should take moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
 
@@ -396,10 +396,10 @@ console.log('Successfully enrolled client "user1" and imported it into the walle
 {:codeblock}
 
 **Edit** `enrollUser.js` to replace the following values:
-- Replace  `'<CA_Name>'` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
-- Replace `'<app_enroll_id>` with the application enroll ID provided by your network operator.
-- Replace `'<app_enroll_secret>'` with the application enroll secret provided by your network operator.
-- Replace `'<msp_id>'` with the MSP ID of your organization. You can find this MSP ID under the "organizations" section of your connection profile.
+- Replace  `<CA_Name>` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
+- Replace `<app_enroll_id>` with the application enroll ID provided by your network operator.
+- Replace `<app_enroll_secret>` with the application enroll secret provided by your network operator.
+- Replace `<msp_id>` with the MSP ID of your organization. You can find this MSP ID under the "organizations" section of your connection profile.
 
 Save `enrollUser.js` and close it. In the `magnetocorp` directory, run the following command:
 ```

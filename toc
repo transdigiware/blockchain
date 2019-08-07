@@ -26,6 +26,7 @@ IBM Blockchain Platform
 		howto/pricing-software.md
 
 	blockchain_component_overview.md
+	security.md
 	ibp-console-ha.md
 	data-residency.md
 	howto/ibp-v2-faq.md
@@ -94,11 +95,12 @@ IBM Blockchain Platform
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
-	glossary.md
-	reference/ibp_regions.md
-	reference/videos.md
 	reference/v10_fabric.md
 	reference/k8s.md
+	reference/videos.md
+	reference/ibp_regions.md
+	reference/logdna.md
+	glossary.md
 	{: .navgroup-end}
 
 	{: .navgroup id="help"}

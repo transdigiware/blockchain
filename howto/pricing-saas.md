@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-08-07"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -76,7 +76,7 @@ The following table provides two examples of pricing with [default resource allo
 
 | Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Production Network** |
 |-|------------|-----------------------------|
-| **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer <br> - 2 CAs <br> - 1 ordering node| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute)** <br>- 1 CA <br>  |
+| **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer (1.1 CPU) <br> - 2 CAs (0.1 CPU x 2) <br> - 1 ordering node (0.35 CPU)| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
 | **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-hr ) |
 | **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.12 USD <br> (Compute: 2 x 4 tier) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 tier) <br> (IP Allocation: $16 USD/month) |
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
@@ -88,7 +88,7 @@ Your actual costs will vary depending on additional factors such as transaction 
 
 There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster, but you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in your cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all the service instances.  
 
-**Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options. 
+**Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options.
 
 ## Default resource allocations
 {: #ibp-saas-pricing-default}
@@ -105,26 +105,7 @@ The values in the following table are useful to estimate the hourly cost of your
 ## Billing
 {: #ibp-saas-pricing-billing}
 
-Your billing and usage information for your **Pay as you go** account is available in the {{site.data.keyword.cloud_notm}} dashboard on your [usage](https://cloud.ibm.com/billing/usage) tile. A metering service takes hourly snapshots of your total {{site.data.keyword.blockchainfull_notm}} Platform VPC usage so that the monthly cumulative usage amount is reflected in the **Usage** tile.
-
-When you create a new node, it can take up to an hour for VPC usage to be reflected in the {{site.data.keyword.cloud_notm}} dashboard **Usage** tile.
-{:note}
-
-### Monitoring your usage
-{: #ibp-saas-pricing-usage}
-
-Before you get a bill, you can monitor your {{site.data.keyword.blockchainfull_notm}} Platform and Kubernetes cluster costs from your {{site.data.keyword.cloud_notm}} dashboard **Usage** tile. {{site.data.keyword.blockchainfull_notm}} Platform VPC usage is assessed hourly.  **These costs are estimates only.** Actual costs are reflected on your monthly bill.
-
-#### {{site.data.keyword.blockchainfull_notm}} Platform and Kubernetes Service usage
-
-<!--This clip provides a simple example of how to view your charges for an {{site.data.keyword.blockchainfull_notm}} Platform that includes a single CA node.
-
-![Monitoring your usage](../images/usage_monitoring.gif){: gif}
--->
-
-Navigate to **Manage** on the top of your {{site.data.keyword.cloud_notm}} dashboard, click **Billing and Usage**, and then click **Usage** in the left menu. The pie chart under the **Services** subsection gives you a breakdown of your total cost by the types of service offerings that you have used and consumed this month. Use this chart to understand how your {{site.data.keyword.blockchainfull_notm}} Platform, your Kubernetes service, and storage contribute to your total cost.
-
-When you scroll down, you can see a similar breakdown by **Type** and **Cost** in a list view. You can find "Kubernetes Service" and "Blockchain Platform" listed along with the other services you have provisioned in your cluster. Click **View plans** next to each of these items to understand your cost breakdown by metric. For example, `VIRTUAL_PROCESSOR_CORE_HOURS` represents the total number of VPC hours that have been assessed so far.  Use this value to see how much you are going to be charged based on the **$0.29 USD/VPC-hour** pricing metric.
+Your {{site.data.keyword.blockchainfull_notm}} Platform billing and invoices are based on the CPU and memory allocation for each node.
 
 #### IP Allocation charges
 

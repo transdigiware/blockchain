@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-08-07"
 
 keywords: getting started tutorials, videos, web browsers, integration
 
@@ -209,6 +209,8 @@ Consider bookmarking the url of your console so you can come back at a later tim
 
 - See this tutorial on how to [Analyze logs and monitor application health with LogDNA and Sysdig](/docs/tutorials?topic=solution-tutorials-application-log-analysis).
 
+- The {{site.data.keyword.blockchainfull_notm}} Platform peers and orderers are automatically configured to expose a /metrics endpoint that Prometheus can use to scrape a wide variety of blockchain metric data. Read more about using [Prometheus in {{site.data.keyword.cloud_notm}}](/docs/cloud-foundry?topic=cloud-foundry-monitoring#prometheus){: external}.
+
 **Storage**  
 - Utilize {{site.data.keyword.cloud_notm}} [File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) and [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage) when blockchain nodes are provisioned. See this topic on [Persistent storage considerations](#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
 
@@ -251,7 +253,7 @@ To configure this access you must complete the following steps:
    6. Check the **Administrator** and **Manager** roles for this user.
    7. Click **Assign**.
 
-![Update Kubernetes version](../images/k8sAccess.gif){: gif}
+<!-- ![Add IAM user](../images/k8sAccess.gif){: gif}-->
 
 For more information about Kubernetes access control, see [how to pick the right access policy and role for your users](/docs/containers?topic=containers-users#access_roles).
 
