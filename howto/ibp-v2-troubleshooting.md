@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-25"
+lastupdated: "2019-08-12"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -55,11 +55,12 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
 
-
 **Issues on {{site.data.keyword.cloud_notm}} Private**
 
 - [Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?](#ibp-v2-troubleshooting-healthchecks)
 - [Why am I getting the error: `Pod Security Conflict`](#ibp-v2-troubleshooting-podsecurityconflict)
+- [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
+
 
 ## When I hover over my node, the status is `Status unavailable`, what does this mean?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -333,3 +334,20 @@ When deploying the {{site.data.keyword.blockchainfull_notm}} Platform console us
 
 This error does not stop you from deploying the console and can be safely ignored.
 {: tsResolve}
+
+## How do I manually remove nodes running on my cluster?
+{: #ibp-v2-troubleshooting-manually-remove}
+{: troubleshoot}
+
+You can delete a node from your {{site.data.keyword.cloud_notm}} Private cluster using the {{site.data.keyword.blockchainfull_notm}} Platform console. If you try to manually remove a node deployment and the accompanying secrets and persistent volumes, the {{site.data.keyword.blockchainfull_notm}} Platform deployer will automatically restart the node. Nodes that were manually removed or had failed may restart when you deploy an {{site.data.keyword.blockchainfull_notm}} Platform console to a cluster with previous deployments.
+{: tsSymptoms}
+
+If you cannot use the {{site.data.keyword.blockchainfull_notm}} Platform console or APIs to remove your nodes, you can manually remove nodes from your cluster using the kubectl CLI:
+{: tsResolve}
+
+```
+kubectl delete ibpca --all -n <namespace>
+kubectl delete ibppeer --all -n <namespace>
+kubectl delete ibporderer --all -n <namespace>
+```
+{:codeblock}

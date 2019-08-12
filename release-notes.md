@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-08-12"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -22,6 +22,17 @@ subcollection: blockchain
 
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.1.
 {:shortdesc}
+
+## 12 August 2019
+{: #08-12-2019}
+
+**Beta trial of the {{site.data.keyword.blockchainfull_notm}} Platform ends**
+
+The Beta trial of the {{site.data.keyword.blockchainfull_notm}} Platform, which began on February 12, 2019, has officially ended. All of the beta instances of your console and the components that you deployed into your Kubernetes cluster using the beta console will be deleted.
+
+** Peer node patch `1.4.1-2`**
+
+This patch contains a security fix for the peer couchDB container.
 
 ## 10 July 2019
 {: #07-10-2019}
