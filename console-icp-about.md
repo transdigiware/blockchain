@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-12"
 
 keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes Helm chart, behind a firewall
 
@@ -118,12 +118,10 @@ Because these components are deployed on your own infrastructure, you are respon
 
 The data in your state database, whether you use LevelDB or CouchDB, is not encrypted. You can use application level encryption to protect the data at rest in your state database.
 
-<!--
 ### Data residency
 {: #console-icp-about-security-data-residency}
 
-Data residency requirements can mandate that the processing and storage of all blockchain ledger data remain within the border of a single country (or within some other defined boundary). For more information about how data residency can be accomplished, see [Data residency](#console-icp-about-data-residency).
--->
+Data residency requirements can mandate that the processing and storage of all blockchain ledger data remain within the border of a single country (or within some other defined boundary). For more information about how data residency can be accomplished, see [Data residency](/docs/services/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency).
 
 ### Key management
 {: #console-icp-about-security-key-management}
@@ -147,6 +145,6 @@ Because all chaincode invocations are signed, Fabric manages the application sec
 ## Getting support
 {: #console-icp-about-support}
 
-For more information about how to get support on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, as well as free blockchain developer resources and support forums that you can use to troubleshoot problems, see [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
+For more information about how to get support on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, as well as free blockchain developer resources and support forums that you can use to troubleshoot problems, see [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
 If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact Customer support, see the information about [accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](https://www-01.ibm.com/support/docview.wss?uid=ibm10740041){: external}.

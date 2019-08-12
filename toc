@@ -74,6 +74,7 @@ IBM Blockchain Platform
 
 	{: .topicgroup}
 	Starter and Enterprise Plan
+		enterprise_upgrade.md
 		get_start_starter_plan.md
 		starter_plan.md
 		get_start.md
