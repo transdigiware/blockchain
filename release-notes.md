@@ -26,13 +26,9 @@ Use these release notes that are grouped by date to learn about the latest chang
 ## 21 August 2019
 {: #08-21-2019}
 
-**Ability to update admin certs for peer nodes**  
+**Peer node patch `1.4.1-3`**
 
-You now have the ability to upload additional admin identities for a peer. See [Adding new peer admin certificates](/docs/services/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins) for more information.
-
-**Certificate Authority (CA) updates**   
-
-The console UI no longer uses enroll IDs and secrets for management of a CA. After you create a new CA, you are now responsible for generating the admin certificates by using the **Associate identity** button. Existing CAs are not affected. See [Associating the identity of the CA admin](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) for more details.
+With this patch, you now have the ability to upload additional admin identities for a peer. See [Adding new peer admin certificates](/docs/services/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins) for more information.
 
 **Select peer zone** ({{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} only)  
 
@@ -42,6 +38,11 @@ If multiple zones are configured in your {{site.data.keyword.cloud_notm}} Kubern
 
 You now have the option to choose between CouchDB and LevelDB for your Peer database. For more information, see [LevelDB vs CouchDB](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
 
+**Certificate Authority (CA) updates**   
+
+The console UI no longer uses enroll IDs and secrets for management of a CA. After you create a new CA, you are now responsible for generating the admin certificates by using the **Associate identity** button. Existing CAs are not affected. See [Associating the identity of the CA admin](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) for more details.
+
+
 ## 12 August 2019
 {: #08-12-2019}
 
@@ -49,7 +50,7 @@ You now have the option to choose between CouchDB and LevelDB for your Peer data
 
 The Beta trial of the {{site.data.keyword.blockchainfull_notm}} Platform, which began on February 12, 2019, has officially ended. All of the beta instances of your console and the components that you deployed into your Kubernetes cluster using the beta console will be deleted.
 
-** Peer node patch `1.4.1-2`**
+**Peer node patch `1.4.1-2`**
 
 This patch contains a security fix for the peer couchDB container.
 
