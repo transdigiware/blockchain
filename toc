@@ -100,7 +100,6 @@ IBM Blockchain Platform
 	reference/k8s.md
 	reference/videos.md
 	reference/ibp_regions.md
-	reference/at-events.md
 	reference/logdna.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
