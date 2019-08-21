@@ -107,7 +107,7 @@ The following table contains a list of options to consider as you plan for incre
 
 2. **Worker node failure.**  
 
-   **Single-zone cluster with multiple work nodes and anti-affinity**:
+   **Single-zone cluster with multiple worker nodes and anti-affinity**:
 
    A worker node is a VM that runs on a physical hardware. Worker node failures include hardware outages, such as power, cooling, or networking, and issues on the VM itself. You can account for a worker node failure by setting up multiple worker nodes when you provision your cluster. When blockchain components are distributed across multiple worker nodes, you are protected from a worker node failure. Note that {{site.data.keyword.cloud_notm}} Kubnernetes service includes the option for multiple zones in a cluster. {{site.data.keyword.cloud_notm}} Private does not support zones.
 
