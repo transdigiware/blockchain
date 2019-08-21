@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-08-21"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -67,9 +67,10 @@ The following table contains a list of options to consider as you plan for incre
 |-----|-----|-----|-----|-----|
 | Redundant peers | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Redundant anchors peers on a channel| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
-| Anti-affinity*** (peers) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
-|Raft ordering service | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
-| Anti-affinity*** (ordering nodes) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg)|
+| Anti-affinity*** (peers) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | |
+| Multi-zone (peers)*** |  |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
+|Raft ordering service | ![Checkmark icon](../../icons/checkmark-icon.svg) | | | |
+| Anti-affinity*** (ordering nodes) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 |Development or Test environment | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 | Production environment | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: row-headers}
@@ -77,7 +78,7 @@ The following table contains a list of options to consider as you plan for incre
 {: caption="Table 1. Comparison of deployment scenarios to increase your network HA" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
 
-*** The {{site.data.keyword.blockchainfull_notm}} Platform deployer cannot guarantee that peers or ordering nodes are spread across different zones. You can use the {{site.data.keyword.blockchainfull_notm}} Platform APIs to deploy nodes to specific zones on {{site.data.keyword.cloud_notm}} and ensure that your network is resilient to a zone failure. For more information, see [Multizone HA](#ibp-console-ha-multi-zone).  
+*** The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spread peers and ordering nodes across different worker nodes but cannot guarantee that it will happen due to resource limitations. However if you are using {{site.data.keyword.cloud_notm}}, you can use the {{site.data.keyword.blockchainfull_notm}} Platform APIs or the blockchain console to deploy nodes to specific zones on {{site.data.keyword.cloud_notm}} in order to ensure that your network is resilient to a zone failure. For more information, see [Multizone HA](#ibp-console-ha-multi-zone).  Multi-zone (MZR) functionality is available on {{site.data.keyword.cloud_notm}} only.
 
 ** The default configuration for a Standard Kubernetes cluster on {{site.data.keyword.cloud_notm}} is a 4 CPU x 16 GB RAM cluster that includes three zones with three worker nodes each. You can scale up or down, by selecting a smaller configuration, according to your needs.
 
@@ -131,10 +132,13 @@ _This scenario only applies to customers using the {{site.data.keyword.cloud_not
 
    A single zone is sufficient for a development and test environment if you can tolerate an zone outage. Therefore, to leverage the HA benefits of multiple zones,  when you provision your cluster, ensure that multiple zones are selected. Two zones are better than one, but three are recommended for HA to increase the liklihood that the two additional zones can absorb the workload of any single zone failure.  When redundant peers from the same organization and channel and ordering nodes are spread across multiple zones, a failure in any one zone should not affect the ability of the network to process transactions as the workload will shift to the blockchain nodes in the other zones.
 
-   The {{site.data.keyword.blockchainfull_notm}} Platform deployer cannot guarantee that blockchain components are spread across **zones**. The deployer will deploy components to multiple zones based on the resources available on the worker nodes, but it will not necessarily put two peers from the same organization or the ordering nodes in separate zones. If you want to ensure that certain nodes are deployed in different zones, you can use the {{site.data.keyword.blockchainfull_notm}} Platform APIs to specify the zone where a node is created. For more information, see [Creating a node within a specific zone](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+   You can use the {{site.data.keyword.blockchainfull_notm}} Platform console to specify the zone where a peer node is created. When you deploy a peer, look under the **Advanced deployment options** to see the list of zones that are currently configured for your Kubernetes cluster. Select the zone where you want the peer to reside. If you are deploying a redundant peer, you can see which zone the other peer was deployed to by opening the peer's tile and looking under the **Node location**.  Alternatively, you can use the APIs to deploy a peer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
    {:note}
 
    This scenario uses redundant peers and orderers across multiple worker nodes and multiple zones, which protects against zone failure, but does not protect from an unlikely entire region failure. This is a recommended scenario for a production network.
+
+   If you choose to use a multi-zone configuration for peers, you are responsible for configuring the storage for each zone and set the node affinity to zones.
+   {: important}
 
 ### Multi-region HA
 {: #ibp-console-ha-multi-region}

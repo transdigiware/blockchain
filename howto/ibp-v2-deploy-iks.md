@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
-keywords: getting started tutorials, videos, web browsers, integration
+keywords: getting started tutorials, videos, web browsers, integration, storage
 
 subcollection: blockchain
 
@@ -62,7 +62,7 @@ Before you deploy the console, ensure that you understand the following consider
 - Kubernetes must be version 1.11 or a higher stable version in your {{site.data.keyword.cloud_notm}} Kubernetes cluster. Use these instructions to [upgrade your new and existing clusters](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) to this version.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
-- Virtual Routing and Forwarding (VRF) is not supported. The {site.data.keyword.blockchainfull_notm}} Platform service is not compatible with accounts that are enabled for automatic global routing between subnet IP blocks. Similarly, Kubernetes clusters that are configured with private VLANs are also not supported.
+- Virtual Routing and Forwarding (VRF) is not supported. The {{site.data.keyword.blockchainfull_notm}} Platform service is not compatible with accounts that are enabled for automatic global routing between subnet IP blocks. Similarly, Kubernetes clusters that are configured with private VLANs are also not supported.
 
 ## Video tutorial
 {: #ibp-v2-deploy-video}
@@ -115,7 +115,7 @@ These resources are sufficient for testing and experimentation. The [Build a net
 #### Paid clusters
 {: #ibp-v2-deploy-iks-resources-required-paid}
 
-Production level deployments of the {{site.data.keyword.blockchainfull_notm}} Platform will be deployed to a paid cluster of {{site.data.keyword.cloud_notm}} Kubernetes Service. The size and configuration of this cluster will depend on the needs of your particular use case. Bigger deployments will necessarily need to be deployed on bigger clusters. How much bigger your cluster is than your projected deployment is up to you. Having at least some headroom is desirable, as it will allow peers and ordering services to be a part of additional channels and take on higher throughput without having to deploy additional resources into your Kubernetes cluster **before** adjusting the size of your nodes. For more information about how these values are adjusted, see [Reallocating resources](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources).
+Production level deployments of the {{site.data.keyword.blockchainfull_notm}} Platform will be deployed to a paid cluster of {{site.data.keyword.cloud_notm}} Kubernetes Service. The size and configuration of this cluster will depend on the needs of your particular use case. Bigger deployments will necessarily need to be deployed on bigger clusters. How much bigger your cluster is than your projected deployment is up to you. Having at least some headroom is desirable, as it will allow peers and ordering services to be a part of additional channels and take on higher throughput without having to deploy additional resources into your Kubernetes cluster **before** adjusting the size of your nodes. For more information about how these values are adjusted, see [Reallocating resources](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
 
 You need to create a cluster of type Kubernetes to deploy {{site.data.keyword.blockchainfull_notm}} Platform. {{site.data.keyword.blockchainfull_notm}} Platform does not support OpenShift clusters created using the {{site.data.keyword.IBM_notm}} Kubernetes service.
 {:important}
@@ -278,10 +278,13 @@ Your console opens in your browser.
 ## Persistent storage considerations
 {: #ibp-console-storage}
 
-{{site.data.keyword.blockchainfull_notm}} Platform requires persistent storage for each CA, peer, and ordering nodes. When you deploy a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it comes pre-configured with the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} plug-in as the `default` storage class. Then, when you deploy a blockchain node to that cluster by using the console or APIs, an amount of File Storage is dynamically provisioned for the node based on the amount of storage that was requested when the node was deployed. Therefore, the deployment provisions the storage in the cluster with the `default` storage class. You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection.
+{{site.data.keyword.blockchainfull_notm}} Platform requires persistent storage for each CA, peer, and ordering node. When you deploy a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it uses a pre-configured storage class that is backed by [{{site.data.keyword.cloud_notm}} File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-getting-started). You have the option to upgrade your storage class, change your backing storage, or use third party services.
 
-If you want to add your own storage plug-in, you must create a customized storage class. Read about how to
-[add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. Because the {{site.data.keyword.blockchainfull_notm}} Platform uses [dynamic volume provisioning](/docs/containers?topic=containers-kube_concepts#dynamic_provisioning){: external} with the `default` storage class, you need to change the default storage class to use your storage plug-in by running the following command:
+Every cluster on the {{site.data.keyword.IBM_notm}} Kubernetes Service comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}. If you make no changes, the `default` storage class is the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} backed by [Endurance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers).
+
+You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/infrastructure/FileStorage?topic=FileStorage-about#billing).
+
+If you want to use [Performance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-performance), [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
 
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
@@ -290,23 +293,23 @@ kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"stor
 
 Replace ``<storageclass>`` with the name of your storage class.
 
-After you deploy blockchain nodes to your cluster, you should not change the default storage class of the Kubernetes cluster, because you will lose the storage for the CAs, peers, and ordering nodes that are already deployed. Therefore, you need to decide on your storage plug-in before you deploy any blockchain nodes.
+After you deploy blockchain nodes to your cluster, you should not change the `default` storage class. This will result in losing the storage for the CAs, peers, and ordering nodes that are already deployed. Therefore, you need to decide on your storage before you deploy any blockchain nodes.
 {: important}
 
-### Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform
+## Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-console-mzr}
 
 In regions where it is offered, [multizone support](/docs/containers?topic=containers-regions-and-zones#regions_multizone){: external} is pre-selected by default when you create a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}. Although not required, this capability provides for high availability of your nodes in case any one zone, or data center, goes down. If your cluster includes multizone support, you need to bring your own storage solution. You can choose from several [persistent storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external}.
 
 After you create the storage class, run the `kubectl patch storageclass` command above to set the storage class of the multizone region to be the `default` storage class.
 
-### Pricing and Billing information
+## Pricing and Billing information
 {: #ibp-v2-deploy-iks-pricing-billing}
 
 - See [Pricing](/docs/services/blockchain/howto?topic=blockchain-ibp-saas-pricing) if you need to revisit the {{site.data.keyword.blockchainfull_notm}} Platform pricing information.
 - Your current {{site.data.keyword.cloud_notm}} usage information is available on your [usage tile](https://cloud.ibm.com/billing/){: external} of the {{site.data.keyword.cloud_notm}} dashboard and your bill is visible under [billing information](https://cloud.ibm.com/billing/billing-items){: external}. See this topic on [Billing](/docs/services/blockchain/howto?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-billing) for more details about how {{site.data.keyword.blockchainfull_notm}} Platform billing works.
 
-### Deleting a service instance
+## Deleting a service instance
 {: #ibp-v2-deploy-iks-delete-service-instance}
 
 When you no longer need your service instance it can be deleted from your Kubernetes cluster to free up resources. You can use the {{site.data.keyword.cloud_notm}} dashboard to delete your {{site.data.keyword.blockchainfull_notm}} Platform service instance.

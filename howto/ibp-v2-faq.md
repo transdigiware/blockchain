@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -30,7 +30,6 @@ subcollection: blockchain
 - [What database do the peers use for their ledger?](#ibp-v2-faq-v2-IBP-Overview-1-3)
 - [What languages are supported for smart contracts?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [Do you support using certificates from non-IBM Certificate Authorities (CAs)?](#ibp-v2-faq-v2-external-certs)
-- [Can Entry level support be upgraded to Elite support, can I trade-up, or do I need to buy new 1-year Elite license?](#ibp-v2-faq-v2-support)
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
 
@@ -39,6 +38,7 @@ subcollection: blockchain
 - [What regions are available for the blockchain service running on the {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-IBP-Overview-1-9)
 - [Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?](#ibp-v2-faq-v2-Infrastructure-4-2)
 - [Do we have access to logging services and what logs are available to me?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
+- [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](#ibp-v2-faq-cloud-storage)
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**    
 
@@ -53,7 +53,7 @@ subcollection: blockchain
 {: #ibp-v2-faq-v2-IBP-Overview-1-7}
 {: faq}
 
-Hyperledger Fabric is a very powerful, versatile, pluggable distributed ledger technology capable of addressing a wide variety of use cases across many industries. {{site.data.keyword.blockchainfull_notm}} Platform is built on top of Fabric and includes integrated tooling that provides end to end features for developers and network operators to develop, test, operate, monitor, and govern Hyperledger Fabric components using an intuitive console UI. Quickly deploy an instance and use the streamlined console UI to [build a network](/docs/services/blockchain?topic=blockchain-ibp-console-build-network), easily [install and instantiate smart contracts](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts), and [govern your network](/docs/services/blockchain?topic=blockchain-ibp-console-govern).  Interested in APIs? See the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain){: external}. With the {{site.data.keyword.blockchainfull_notm}} Platform, it is easy to extend a basic network, work with multicloud solutions, and receive {{site.data.keyword.IBM_notm}} world-wide support when needed. Finally, the {{site.data.keyword.blockchainfull_notm}} Platform provides additional security benefits that are essential for running an enterprise-grade production network.
+Hyperledger Fabric is a very powerful, versatile, pluggable distributed ledger technology capable of addressing a wide variety of use cases across many industries. {{site.data.keyword.blockchainfull_notm}} Platform is built on top of Fabric and includes integrated tooling that provides end to end features for developers and network operators to develop, test, operate, monitor, and govern Hyperledger Fabric components using an intuitive console UI. Quickly deploy an instance and use the streamlined console UI to [build a network](/docs/services/blockchain?topic=blockchain-ibp-console-build-network), easily [install and instantiate smart contracts](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts), [govern your components](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components), and [govern your channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern).  Interested in APIs? See the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain){: external}. With the {{site.data.keyword.blockchainfull_notm}} Platform, it is easy to extend a basic network, work with multicloud solutions, and receive {{site.data.keyword.IBM_notm}} world-wide support when needed. Finally, the {{site.data.keyword.blockchainfull_notm}} Platform provides additional security benefits that are essential for running an enterprise-grade production network.
 
 ## What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-Hyperledger-Fabric-3-1}
@@ -78,12 +78,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts 
 {: faq}
 
 Yes, you can bring your own certificates as long as they are issued by a CA that is X.509 compliant. The CA should sign using ECDSA and the defaults should be set to use P256 curve.
-
-## Can entry level support be upgraded to Elite support, can I trade-up, or do I need to buy new 1-year Elite license?
-{: #ibp-v2-faq-v2-support}
-{: faq}
-
-A new Elite support license purchase is required.
 
 ## Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
@@ -117,6 +111,12 @@ Your existing Kubernetes cluster will work with the {{site.data.keyword.blockcha
 {: faq}
 
 With {{site.data.keyword.blockchainfull_notm}} Platform, you can now directly access your peer, CA, and ordering node logs from your Kubernetes dashboard. It is recommend that you take advantage of the {{site.data.keyword.cloud_notm}} LogDNA service that allows you to easily parse the logs in real time.
+
+## What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?
+{: #ibp-v2-faq-cloud-storage}
+{: faq}
+
+By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Classic file storage. You can find more information on the [{{site.data.keyword.cloud_notm}} File storage page](/docs/containers?topic=containers-file_storage#file_storage){: external}. For a complete list of storage options, see this topic on [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 
 ## What are the benefits of {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
 {: #ibp-v2-faq-icp-benefits}

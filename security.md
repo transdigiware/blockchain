@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -132,7 +132,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to dep
 - [Keys and cluster access information](#ibp-security-Kubernetes-keys)
 - [Membership Service Providers (MSPs)](#ibp-security-kubernetes-msp)
 - [Storage](#ibp-security-kubernetes-storage)
-- [Data privacy](ibp-security-kubernetes-privacy)
+- [Data privacy](#ibp-security-kubernetes-privacy)
 - [GDPR](#ibp-security-kubernetes-gdpr)
 
 ### Kubernetes cluster security
@@ -248,7 +248,7 @@ Data at rest, that is in storage, can also be encrypted. When the blockchain con
 Customers are responsible for encrypting their own storage and the encryption must occur before any blockchain components are deployed to the cluster.
 {: important}
 
-For more information about encryption on {{site.data.keyword.cloud_notm}}:
+The default persistent storage type is File storage, also known as Endurance storage. For more information about encryption on all of the {{site.data.keyword.cloud_notm}} storage options:
 - [{{site.data.keyword.cloud_notm}} File storage managed encryption-at-rest](/docs/infrastructure/FileStorage?topic=FileStorage-encryption){: external}
 - [{{site.data.keyword.cloud_notm}} Block storage Provider managed encryption-at-rest](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption){: external}
 - [Portworx encrypting volumes](https://docs.portworx.com/reference/cli/encrypted-volumes/){: external}

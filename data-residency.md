@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-08-21"
 
 keywords: IBM Blockchain Platform, IBM Cloud Private, AWS, Data residency, world state
 
@@ -42,7 +42,7 @@ The architecture of Hyperledger Fabric that underlies the {{site.data.keyword.bl
 
 Peers maintain a separate ledger for each channel that they join. Only organizations that are members of the channel can join their peers to the channel and receive ledger updates from the ordering service. As a result, each channel is bound to an ordering service, which stores the blockchain portion of every channel ledger that it maintains. Client applications submit transactions to the peers and ordering service of a given channel. These transactions are added to the transaction log within the blockchain and include a [read-write set](https://hyperledger-fabric.readthedocs.io/en/release-1.4/readwrite.html){: external}, which is added to the key-value pairs in the world state.
 
-If in-country data residency is a requirement, you need to consider the location of your peers, the ordering service, as well as your client applications. You also need to know the location of the peers that belong to other organizations on your channels.  If you are using {{site.data.keyword.blockchainfull_notm}} Platform for  {{site.data.keyword.cloud_notm}}, you can find the list of [{{site.data.keyword.blockchainfull_notm}} Platform regions and locations](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations) where you and the members of your consortium can deploy your components.
+If in-country data residency is a requirement, you need to consider the location of your peers, the ordering service, as well as your client applications. You also need to know the location of the peers that belong to other organizations on your channels.  If you are using {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, you can find the list of [{{site.data.keyword.blockchainfull_notm}} Platform regions and locations](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations) where you and the members of your consortium can deploy your components.
 
 ## A use case for data residency
 {: #console-icp-about-data-residency-use-case}
@@ -98,6 +98,11 @@ Org C and Org D can also create a channel with all of the infrastructure within 
 In **Figure 5**, Org C and Org D have created a new channel for data that must not leave Germany. This requires the creation of a new ordering service located in Germany to ensure that the orderer's copy of the channel ledger is stored inside the country. Since in this case the ordering service, the OrgC-peer, and the OrgD-peer are located in Germany, Org C and Org D can now keep the data public on the channel if they choose, or they could still decide to use private data collections to prevent the full transaction data from being stored on the ordering service.
 
 Creating a channel with all of the components in one country ensures that all of the data resides within one region, including the key value pairs, the blockchain transaction log, and the hashes of any private data. However, this option requires the overhead to maintain a new channel and the costs associated with maintaining the ordering service.
+
+## Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console
+{: #console-icp-about-data-residency-considerations}
+
+When you create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}, you need to link the service instance to your {{site.data.keyword.cloud_notm}} Kubernetes cluster. No ledger data is ever transmitted to the blockchain service instance that is running in {{site.data.keyword.cloud_notm}}, however, when a user views channel details from their browser, the ledger data is visible in their broser. The ledger data is transmitted directly from the Kubernetes cluster to their browser, it is not passed to the service instance running on {{site.data.keyword.cloud_notm}}. Therefore, to preserve data residency, the end-user's browser and the Kubernetes cluster must reside in the same country.
 
 ## Reference material
 {: #console-icp-about-data-residency-reference}
