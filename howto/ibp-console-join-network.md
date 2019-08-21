@@ -126,6 +126,8 @@ You can view the CA admin identity in your console Wallet by clicking on the **W
   | ------------------------- |-----------|----------|
   | **Identity** | Org2 CA admin | Org2 CA admin identity |
 
+  *Figure 4. Check your Wallet*
+
 ### Using your CA to register identities
 {: #ibp-console-join-network-use-CA-org2}
 
@@ -151,7 +153,7 @@ Registering these identities with the CA is only the first step in **creating** 
   | **Register users** |  Org2 admin | org2admin | org2adminpw |
   | | Peer identity |  peer2 | peer2pw |
 
-*Figure 4. Using your CA to register users*  
+*Figure 5. Using your CA to register users*  
 
 ### Creating the peer organization MSP
 {: #ibp-console-join-network-create-peers-org2}
@@ -175,7 +177,7 @@ Now that we have created the peer's CA and used it to **register** our organizat
   | **Org Admin Cert** | |  | org2admin | org2adminpw |
   | **Identity** | Org2 admin |||||
 
-  *Figure 5. Create the peer organization MSP definition*  
+  *Figure 6. Create the peer organization MSP definition*  
 
 After you have created the MSP, you should be able to see the peer organization admin in your **Wallet**, which can be accessed by clicking on the **Wallet** in the left navigation.
 
@@ -185,7 +187,7 @@ After you have created the MSP, you should be able to see the peer organization 
   | ------------------------- |-----------|----------|
   | **Identity** | Org2 admin | Org2 identity |
 
-  *Figure 6. Check your Wallet*  
+  *Figure 7. Check your Wallet*  
 
 For more information about MSPs, see [managing organizations](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
@@ -235,7 +237,7 @@ Use your console to perform the following steps:
   | **TLS CA ID** | || peer2 | peer2pw |
   | **Associate identity** | Org2 admin |||||
 
-  *Figure 7. Deploying a peer*  
+  *Figure 8. Deploying a peer*  
 
 In a production scenario, it is recommended to deploy three peers to each channel. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org2 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org2secondpeer` and `org2secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org2, choose `Org2 CA`, `Org2 MSP`, and `Org2 admin` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org2 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
 {:tip}
