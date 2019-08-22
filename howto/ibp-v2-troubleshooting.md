@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -45,6 +45,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues with your Nodes**
 
+- [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 - [Why are my node operations failing after I create my peer or ordering service?](#ibp-console-build-network-troubleshoot-entry1)
 - [Why does my peer fail to start?](#ibp-console-build-network-troubleshoot-entry2)
 - [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
@@ -225,6 +226,23 @@ If your session has become inactive, you can try simply refreshing your browser.
 
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
+
+# Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
+{ #ibp-v2-troubleshooting-smart-contract-anchor-peers}
+{: troubleshoot}
+
+When I try to invoke a smart contract from the Fabric SDK, the transaction fails and returns the following error:
+{: tsSymptoms}
+
+```
+error: [Network]: _initializeInternalChannel: no suitable peers available to initialize from Failed to submit transaction: Error: no suitable peers available to initialize from
+```
+
+This error occurs if you have not configured an anchor peer on your channel. Unless you have manually updated your connection profile, your application needs to use the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature to learn about the peers it needs to submit the transaction to.
+{: tsCauses}
+
+Use the following steps to [configure anchor peers on your channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
+{: tsResolve}
 
 ## Why are my node operations failing after I create my peer or ordering service?
 {: #ibp-console-build-network-troubleshoot-entry1}
