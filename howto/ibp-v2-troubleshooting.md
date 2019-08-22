@@ -227,8 +227,8 @@ If your session has become inactive, you can try simply refreshing your browser.
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
 
-# Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
-{ #ibp-v2-troubleshooting-smart-contract-anchor-peers}
+## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
+{: #ibp-v2-troubleshooting-smart-contract-anchor-peers}
 {: troubleshoot}
 
 When I try to invoke a smart contract from the Fabric SDK, the transaction fails and returns the following error:
