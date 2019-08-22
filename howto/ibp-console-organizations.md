@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-21"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -14,6 +14,9 @@ subcollection: blockchain
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:note: .note}
+{:important: .important}
+{:tip: .tip}
 {:pre: .pre}
 
 # Managing organizations
@@ -36,9 +39,10 @@ Before your organization can join a consortium, it needs to create an organizati
 - A certificate signed by your **root Certificate Authority**. This certificate is used to verify the identity of your nodes, channels, and applications.
 - A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization gossip, which is necessary to take advantage of the [**Private data** collections](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
 - The **MSP ID**. The MSP ID is the formal name of your organization within the consortium. You need to remember the MSP ID for your nodes and applications.
-- **Admin certificates** from your **Peer admin** and **Org Admin** identities. These certificates are passed to the Ordering Service and are used to verify which identities in your organization are allowed to create or edit channels. When you use your console to create an ordering node or peer, the admin certificates inside the MSP are deployed within the new node. These certificates can then be used to operate the peers or ordering nodes from your console or a client application.
+- The **Admin certificates** of your **Organization Admin** identities. These certificates are passed to the Ordering Service and are used to verify which identities in your organization are allowed to create or edit channels. When you use your console to create an ordering node or peer, the admin certificates inside the MSP are deployed within the new node, making your organization admin identities your **Peer or Orderer Admins** as well. You can use these identities to operate your node, such as by installing a smart contract on a peer or joining a peer to a channel, from your console or a client application.
 
 ## Managing MSPs in the console
+{: #ibp-console-organizations-manage}
 
 Navigate to the **Organizations** tab. You can use this tab to [create an MSP definition](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) by using a Certificate Authority that exists in your console. You can also use this tab to [import an MSP](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) that was created by another organization.
 
@@ -46,6 +50,8 @@ You can view all of the MSPs that you have created or imported under **Available
 - If you are creating peer or orderer nodes, the MSP of your organization is used to provide admin certificates to the new node.
 - If you are the admin of an ordering node, you can use the MSPs to [add new organizations to the consortium](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - If you are a member of the consortium, you can import the MSPs of other consortium members into your console and then add the members to new or existing channels.
+
+You can click on an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
 
 ## Creating an MSP for your organization
 {: #console-organizations-create-msp}
@@ -72,6 +78,83 @@ Use the **Organizations** tab to generate an MSP definition for your organizatio
 Because your admin certs are passed to your nodes and channels by using the MSP definition, you need ensure that each of your node and org admin certificates are stored in the MSP. When you use the console to create an orderer, peer, or channel, you need to **Associate** one of the identities you exported in your console wallet with the admin certificates that were provided to the MSP definition. When you encounter an **Associate identity** section or panel, select an identity you generated and saved to the wallet when creating the MSP definition.
 
 After you have selected your root CA, MSP ID, and created your admin certs, click **Create MSP definition** to create the MSP definition. It is now listed as an organization in the Organizations tab. You will use the MSP definition when you deploy your nodes and join a blockchain consortium.
+
+## Updating an organization MSP definition
+{: #ibp-console-govern-update-msp}
+
+It is possible that you will need to update an organization MSP definition, such as the display name or the certificates that are included inside the MSP.  
+
+It is recommended that you do not change the `msp_id` field as this could cause breaking changes to your network.
+{: important}
+
+- Simply export the existing MSP definition from the **Organizations** tab and edit the generated JSON file to modify the display name, the existing certificates, or add new certificates.
+- Click your MSP definition in the **Organizations** tab to open it, click the **Settings** icon, and then click **Add file** to upload the new JSON file.
+- Click **Update MSP definition**. The changes are effective immediately.
+
+If you need to add a new admin certificate to an existing organization MSP definition, refer to the following tasks:
+- Add the certificate of an additional member of the peer's organization who can list and install a smart contract on a peer. See this section for [instructions](#ibp-console-organizations-new-admins).
+- Add the certificate of an additional member of the channel's operator organization who can instantiate a smart contract on an **existing** channel and can submit and approve updates to the channel. See this section for [instructions](#ibp-console-organizations-new-admins-existing-channel).
+
+### Adding a new peer admin certificate
+{: #ibp-console-organizations-new-admins}
+
+Because peer administrators can change over time, you will need to update your peer admin certificates. You can add new peer administrators by updating the peer's organization MSP definition to include the admin certificates of additional admin identities. Recall that a peer admin identity is required to install a smart contract on a peer and list the smart contracts already installed on the peer.
+
+When you update an MSP organization definition with a new admin cert, the associated peer nodes are also updated with the modified MSP definition. This update process includes an automatic restart of the associated peer nodes which means they will be unavailable for a brief period of time while they restart. If client applications are sending transactions to the peers during this period, the transactions may need to be resubmitted. Note that imported peer nodes, or peers that were not created by using your console, will not be updated.
+{: important}
+
+#### Before you begin
+{: #ibp-console-organizations-new-admins-before}
+
+In order to complete this process, you need to register and enroll the new peer admin identity with the same CA that the the existing peer admin was registered with.
+
+1. Follow the steps to [register a new peer admin identity](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
+2. Follow the steps to [enroll the new admin identity](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll) which generates the Certificate and private key for the new admin identity.  Be sure to download the generated Certificate and private key PEM files to your file system and add the identity to your console wallet.
+3. You need to convert the Certificate string from PEM format to base64 format by running the following command:
+
+```
+export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
+cat <certificate.pem> | base64 $FLAG
+```
+{: codeblock}
+
+Replace `<certificate.pem>` with the name of the Certificate PEM file that you downloaded.
+
+#### Updating the peer organization MSP definition
+{: #ibp-console-organizations-new-admins-steps}
+
+1. Open the **Nodes** tab in your console.
+2. Locate the peer node that requires the admin certificate update. The peer organization MSP name is listed on the tile. Make a note of the MSP name.
+3. Open the **Organizations** tab.
+4. Locate the MSP tile for the peer and click the **Export** icon.
+5. Open the downloaded MSP JSON file in a text editor.
+6. Edit the `admins` element. Paste the new admin certificate string that you downloaded and copied in the previous section, to the end of the list of comma separated admin certificates.
+7. Save your changes.
+8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
+9. In the side panel, click **Add file** and select the updated MSP JSON file.
+10. Click **Update MSP definition**.
+
+### Adding a new channel admin certificate
+{: #ibp-console-organizations-new-admins-existing-channel}
+
+Follow these instructions when you need to add a new admin certificate of another member from the same organization who can instantiate a smart contract on an existing channel and can submit and approve channel updates.  This task requires you to download and edit the existing MSP definition and add the new admin certificate and then update the MSP for the channel member.
+
+If you need to add a new organization as a channel admin, see this topic on [Updating a channel configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel).
+{: note}
+
+As with all channel updates, this update needs to be performed by a channel operator and the change will follow the channel update approval process according to the policy that was configured when the channel was created.  
+
+1. In the **Organizations** tab locate the existing organization MSP definition that you want to update and click it's tile to open it.
+2. Click **Export** to save the definition to a JSON file on your file system and open file in a text editor.
+3. Edit the `admins` element. Paste the new admin certificate to the end of the list of comma separated admin certificates.  
+4. Open the MSP definition in the console and click the **Settings** icon.  
+5. Click **Add file** and browse to the updated JSON file.
+6. Click **Update MSP definition**.
+7. Open the channel to be updated in the console.
+8. Click **Channel details** and scroll down to **Channel members**.
+9. Click the channel member that you want to update.
+10. With the **Existing MSP ID tab** selected browse to the updated MSP.
+11. Click **Update MSP definition**.
 
 ## Manually building an MSP JSON file
 {: #console-organizations-build-msp}
@@ -161,7 +244,6 @@ You have constructed an MSP definition, which defines the organization for your 
 Only the orderer admin can add new organizations to the consortium. If you are the orderer admin, you will need to collect the MSP definitions of all the organizations who have been invited to the consortium and import the MSPs into the console. You can then add the MSPs to the ordering service, by using the orderer node.
 
 After an administrator creates an MSP definition, they can use the Organizations tab to download the MSP in JSON format to their local filesystem. They can then send you the MSP JSON file in an out of band operation. Navigate to the **Organizations** tab and use **Import MSP Definition** to import the MSP file into your console. Once an MSP definition is visible in the **Available organizations** section, you can then navigate to your orderer node to [add the organization to the consortium](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
-
 
 ## Adding an organization to a consortium
 {: #console-organizations-add-consortium}

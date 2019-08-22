@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-21"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
 
@@ -65,11 +65,11 @@ Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} 
 ## Pricing examples
 {: #ibp-saas-pricing-scenarios}
 
-The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted.
+The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume the default CouchDB database is used as the peer database.
 - The **Test network** scenario is suitable for getting started and testing smart contracts.
 - The **Join a production network** scenario includes two peers, which are recommended for high availability, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
-   - Nodes can always be dialed back to a minimal utilization state (0.001 CPU) when they are not in use to [lower costs](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources).
+   - Nodes can always be dialed back to a minimal utilization state (0.001 CPU) when they are not in use to [lower costs](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
    - Because this scenario is intended for a **production** environment:
      - The default compute resources have been doubled to provide greater capacity.
      - The [Silver](/docs/containers?topic=containers-file_storage#file_silver){: external} storage class is chosen for faster performance.
@@ -78,9 +78,9 @@ The following table provides two examples of pricing with [default resource allo
 |-|------------|-----------------------------|
 | **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer (1.1 CPU) <br> - 2 CAs (0.1 CPU x 2) <br> - 1 ordering node (0.35 CPU)| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
 | **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-hr ) |
-| **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.12 USD <br> (Compute: 2 x 4 tier) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 tier) <br> (IP Allocation: $16 USD/month) |
+| **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.27 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) |
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
-| **Total hourly cost** | **$0.67 USD** | **$1.90 USD**| |
+| **Total hourly cost** | **$0.82 USD** | **$1.90 USD**| |
 ** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.  
 
 Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer.
@@ -125,7 +125,7 @@ If you are using {{site.data.keyword.cloud_notm}} File storage, the costs are as
 One of the key benefits of the {{site.data.keyword.blockchainfull_notm}} Platform pricing model is the ability to dial back or delete resources when they are not needed.
 
 - **Switch your nodes to Minimum Utilization State**  
-  CPU on individual nodes can be scaled down to 0.001 CPU to completely minimize charges. Taking these actions renders the node non-functional. When the compute is needed later, you can use the reallocation option in the {{site.data.keyword.blockchainfull_notm}} Platform console to scale up to what is required. For more information about how resources can be reallocated, see [Reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources).
+  CPU on individual nodes can be scaled down to 0.001 CPU to completely minimize charges. Taking these actions renders the node non-functional. When the compute is needed later, you can use the reallocation option in the {{site.data.keyword.blockchainfull_notm}} Platform console to scale up to what is required. For more information about how resources can be reallocated, see [Reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
 
 - **Delete unused peer and deploy a new one when needed**  
   Because the ledger is stored on the ordering node, when you deploy a new peer and join a channel, the peer receives a copy of the distributed ledger. The drawback to this approach is that you need to generate new certificates and join the peer to the channels again.

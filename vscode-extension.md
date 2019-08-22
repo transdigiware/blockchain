@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-21"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -21,7 +21,6 @@ subcollection: blockchain
 
 # Developing smart contracts with Visual Studio Code extension
 {: #develop-vscode}
-
 
 The {{site.data.keyword.blockchainfull}} Platform Visual Studio (VS) Code extension provides an environment within Visual Studio Code for developing, packaging, and testing smart contracts. You can use the extension to create your smart contract project and get started developing your business logic. You can then use VS Code to test your smart contract on your local machine by using a preconfigured instance of Hyperledger Fabric before you deploy the smart contract to the {{site.data.keyword.blockchainfull_notm}} Platform. This tutorial describes how to use the VS Code extension.
 
@@ -84,7 +83,7 @@ The extension also adds new commands to the Visual Studio Code command palette. 
 
 You can use the extension to create a new smart contract project in Visual Studio Code. The extension creates a basic smart contract that manages an example asset in the language of your choice. You can use the structure of example as a starting point for developing your own business logic. The extension provides all the dependencies that are required to deploy your smart contract to an instance of Hyperledger Fabric.
 
-1. Open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
+1. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
 2. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** VSCode allows you to create and test Java smart contracts locally, but you cannot deploy Java smart contracts to {{site.data.keyword.blockchainfull_notm}} Platform networks.
 3. **If you selected JavaScript, TypeScript, or Java**, select an asset to be managed by the example contract. For example, ***bond***.
 4. Create a folder with the name of your project and open it.
@@ -100,8 +99,9 @@ When the project opens, you can find the new smart contract in the explorer wind
 
 You need to package a smart contract in `.cds` format before you can install it on your {{site.data.keyword.blockchainfull_notm}} Platform network or the preconfigured Hyperledger Fabric network. Complete the following steps to package your smart contract:
 
-1. In VS Code, navigate to the **{{site.data.keyword.blockchainfull_notm}} Platform** panel. Ensure that you have a smart contract project open in the file viewer.
-2. In the **Smart Contracts** pane, click the overflow menu and select **Package Open Project**. You will be asked for the name of the package as well as the version.
+1. Open your smart contract project in VSCode by clicking **File** and then **Open ...**. You can also click **Open Workspace** if you saved your project as a workspace. Ensure that you have the smart contract project open in the file viewer.
+2. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab.
+3. In the **Smart Contracts** pane, click the overflow menu and select **Package Open Project**. You will be asked for the name of the package as well as the version.
   - If you have one smart contract project, it will be packaged automatically and be displayed in the **Smart Contracts** pane.
   - If you have multiple smart contract folders open, you will be asked which one to package.
   - If you have no smart contract folders open, you'll get an error message.

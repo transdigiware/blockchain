@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-21"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -236,6 +236,9 @@ After you have generated the application signing certificate and private key and
   ```
   {:codeblock}
   If you navigate to you channel using the console, you will be able to see another block added by the transaction.
+
+Your transaction may fail if you have not configured an anchor peer on your channel. Unless you have manually updated your connection profile, your application needs to use the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature to learn about the peers it needs to submit the transaction to. For more information, see [Configuring anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
+{: note}
 
 ## Running the Commercial Paper sample
 {: #ibp-console-app-commercial-paper}

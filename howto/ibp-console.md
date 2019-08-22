@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-08-21"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -39,9 +39,9 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Simplified DevOps** allows you to move from development to test to production in a single environment by scaling up your Kubernetes resources to add more components.
 - **Up-to-date Fabric key features**. Leverage the latest features of Hyperledger Fabric v1.4.1:
   -  [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - [**Private data** collections](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
-  - [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, allowing you to dynamically discover and update how your application interacts with your network.
-  - [Channel Access Control Lists](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} that allow you additional control the governance of your channels and smart contracts.
+  - [**Private data** collections](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
+  - [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, allows you to dynamically discover and update how your application interacts with your network.
+  - [Channel Access Control Lists](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} allow additional control over the governance of your channels and smart contracts.
 - {{site.data.keyword.cloud_notm}} service integration. Leverage the built-in [{{site.data.keyword.cloud_notm}} services](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-integrations), such as {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA, and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
 
 
@@ -56,7 +56,7 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Dynamic signature collection** that allows better control over collaborative governance over channel configurations.
 
 **GROW --- Scalability and flexibility**
-- **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see [How the {{site.data.keyword.cloud_notm}} Kubernetes Service interacts with the console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction).
+- **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see [How the {{site.data.keyword.cloud_notm}} Kubernetes Service interacts with the console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-iks-console-interaction).
 - **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
 - **Disaster recovery and multi-region high availability.** This option duplicates your Kubernetes deployment across regions, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Run Anywhere** (instructions coming soon). Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private, and third-party public clouds.
@@ -70,7 +70,6 @@ This offering is intended for experienced Fabric users who want to build and man
 
 Before you deploy the console, ensure that you understand the following considerations:
 
-- Because the availability of the beta trial and the generally available (GA) release of the {{site.data.keyword.blockchainfull_notm}} Platform will overlap, it is important to make sure you know what version of the {{site.data.keyword.blockchainfull_notm}} Platform you are using. New features and fixes will not be pushed to the beta, but they will be available in the GA version of the {{site.data.keyword.blockchainfull_notm}} Platform. As a result, if you are using the beta version of {{site.data.keyword.blockchainfull_notm}} Platform, it is likely that some panels in your console will not match the current documentation, which is kept up to date with the generally available service instance. To gain the benefits of all the latest functionality, you are encouraged at to provision a new GA service instance. To learn how to do that, see [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 - All peers deployed with this release use CouchDB as their state database.
 - You are responsible for the management of health monitoring, security, and logging of your Kubernetes cluster. See this [information](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} for details on what {{site.data.keyword.cloud_notm}} manages and what you are responsible for.
 - You are also responsible for monitoring the resource usage of your Kubernetes cluster. To monitor your Kubernetes resources, we recommend using the [{{site.data.keyword.cloud_notm}} SysDig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you need to increase storage capacity or performance of your cluster, see this information on how to [modify your existing volume](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
@@ -80,15 +79,13 @@ Before you deploy the console, ensure that you understand the following consider
 - Kubernetes must be version 1.11 or a higher stable version in your {{site.data.keyword.cloud_notm}} Kubernetes cluster. Use these instructions to [upgrade your new and existing clusters](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) to this version.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
-- You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster.  Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster. And while the {{site.data.keyword.blockchainfull_notm}} Platform beta trial is free, if you choose a paid Kubernetes cluster instead of the limited free cluster, you will incur charges for the Kubernetes service to your {{site.data.keyword.cloud_notm}} account.
+- You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster.  Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster. If you choose a paid Kubernetes cluster instead of the limited free cluster, you will incur charges for the Kubernetes service to your {{site.data.keyword.cloud_notm}} account.
 - Virtual Routing and Forwarding (VRF) is not supported. The {site.data.keyword.blockchainfull_notm}} Platform service is not compatible with accounts that are enabled for automatic global routing between subnet IP blocks. Similarly, Kubernetes clusters that are configured with private VLANs are also not supported.
 
 ## Migration
 {: #ibp-console-overview-migration}
 
 Currently, migration from any {{site.data.keyword.blockchainfull_notm}} platform offering to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is not possible.
-
-All {{site.data.keyword.blockchainfull_notm}} platform beta trial service instances cannot be migrated to the Generally Available (GA) release.
 
 ## License and pricing
 {: #ibp-console-overview-license-and-pricing}
@@ -127,5 +124,3 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 {: #ibp-console-overview-support}
 
 For more information about how to get support on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, as well as free blockchain developer resources and support forums that you can use to troubleshoot problems, see [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
-
-Support for the {{site.data.keyword.blockchainfull_notm}} Platform beta trial is limited during the beta period that ends August 3, 2019.

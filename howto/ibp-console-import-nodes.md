@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-08-21"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -40,7 +40,7 @@ After you import nodes in the console, a robust set of operational capability be
 - Instantiate smart contracts on channels
 - Upgrade smart contracts on channels
 
-When importing a node, you are required to provide its connection information. When you import a component, you do not actually import the physical component itself; instead, it uses the connection information to build a representation of the component in the console so that it can be operated from the console. Likewise, when you delete an imported node from the console, the node itself, which is still running at the location where it was deployed, is not deleted. Rather, it is only removed from the console where it was imported.  
+When importing a node, you are required to provide its connection information. When you import a component, you do not actually import the physical component itself; instead, it uses the connection information to build a representation of the component in the console so that it can be operated from the console. Likewise, when you delete an imported node from the console, the node itself, which is still running at the location where it was deployed, is not deleted. Rather, it is only removed from the console where it was imported.
 
 After you import a node into the console, you can also modify its connection information by using the node's **Settings** tab.
 
@@ -54,7 +54,7 @@ Before you can import nodes into the console, they have to be exported from the 
 - All nodes to be imported must have been deployed by using the {{site.data.keyword.blockchainfull_notm}} Platform console.
 - You cannot patch nodes that you imported into the console.
 - You cannot delete nodes that you imported into the console from the cluster where they were deployed. You can only remove the node from the console.
-- If you are importing a node that is deployed on {{site.data.keyword.cloud_notm}} Private, you must ensure that the gRPC web proxy port used by the component is externally exposed to the console. For more information, see [Importing nodes from {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp)
+- If you are importing a node that is deployed on {{site.data.keyword.cloud_notm}} Private, you must ensure that the gRPC web proxy port used by the component is externally exposed to the console. For more information, see [Importing nodes from {{site.data.keyword.cloud_notm}} Private](#ibp-console-import-icp).
 - When you open the tile of an imported node, the Fabric version is not visible and the **Usage and info** tab is not available.
 
 ## Start here: Gathering certificates or credentials
@@ -74,7 +74,7 @@ After you complete the **Add identity** panel and click submit, you can view the
 ## Importing a CA
 {: #ibp-console-import-ca}
 
-A CA node is the blockchain component that issues certificates to all network entities (peers, ordering services, clients, and so on) so that these entities can communicate, authenticate, and ultimately transact. Each organization has their own CA that acts as their root of trust. You should add your organizations whether you are joining or building a blockchain consortium. You can learn more about CA's in the [overview of blockchain components](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).  
+A CA node is the blockchain component that issues certificates to all network entities (peers, ordering services, clients, and so on) so that these entities can communicate, authenticate, and ultimately transact. Each organization has their own CA that acts as their root of trust. You should add your organizations whether you are joining or building a blockchain consortium. You can learn more about CA's in the [overview of blockchain components](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca).
 
 There are several reasons why you might want to import a CA into your console. After you import the CA, you can use it to register more peer users to the peer organization by clicking **Register user**. Or, you can use the CA to create additional admin identities for a peer or ordering service.
 
@@ -83,10 +83,10 @@ To import a CA to the {{site.data.keyword.blockchainfull_notm}} Platform console
 ### Before you begin
 {: #ibp-console-import-ca-before-you-begin}
 
-- Ensure that you have already imported the CA's admin identity JSON file into your console wallet, or you have the administrator enroll id and secret for both the CA and the TLS CA that were specified when the CA was originally deployed.
+- Ensure that you have already imported the CA's admin identity JSON file into your console wallet, or that you have the CA administrator enroll id and secret that was specified when the CA was originally deployed.
 - Ensure that the CA JSON file that was exported from the console where it was created is available.
 
-### How to import a CA  
+### How to import a CA
 {: #ibp-console-import-nodes-howto-ca}
 
 Importing a CA is performed from the **Nodes** tab.
@@ -94,7 +94,6 @@ Importing a CA is performed from the **Nodes** tab.
 2. Select the location where the CA was originally deployed from the **Certificate Authority location** drop-down list.
 3. Click **Add file** to upload the CA JSON file that was exported from the console where it was originally deployed.
 4. On the next panel, you can enter the enroll ID and secret that was used when the CA was deployed.
-5. Lastly, enter the enroll ID and secret for the TLS CA that was used when the CA was deployed. When you deploy a CA, both a CA and a TLS CA are deployed together. The network operator can use the same enroll ID and secret for both, or they can specify unique enroll ID and secrets for the CA and the TLS CA when a CA is deployed.
 
 After you have imported the CA into the console, you can use your CA to create new identities and generate the necessary certificates to operate your components and submit transactions to the network. To learn more, see [Managing certificate authorities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 

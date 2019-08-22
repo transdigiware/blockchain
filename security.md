@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -50,7 +50,7 @@ Identity and access management allows the owner of a console to control which us
 
 Identity and access management on {{site.data.keyword.cloud_notm}} is controlled by using the `IAM` service. Every user that accesses the blockchain console must have an IBMid account and be assigned an access policy in the IAM service. This policy determines what actions the user can perform within the console. Blockchain-specific permissions (for example, which users can create components) are based on the IAM roles which are mapped to blockchain permissions in this [Role to permissions mapping table](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping).
 
-When the {{site.data.keyword.blockchainfull_notm}} Platform console is provisioned, the email address of the {{site.data.keyword.cloud}} account owner is set as the console administrator, known in IAM as the **Manager** role. All new access requests will be sent to this user. This console administrator can then grant other IBMid users access to the console by using the IAM UI. For more information about IAM on {{site.data.keyword.cloud_notm}}, see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}. For the steps required to add new users, see [Adding and removing users from the console](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
+When the {{site.data.keyword.blockchainfull_notm}} Platform console is provisioned, the email address of the {{site.data.keyword.cloud_notm}} account owner is set as the console administrator, known in IAM as the **Manager** role. All new access requests will be sent to this user. This console administrator can then grant other IBMid users access to the console by using the IAM UI. For more information about IAM on {{site.data.keyword.cloud_notm}}, see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}. For the steps required to add new users, see [Adding and removing users from the console](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
 
 #### IAM on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud
 {: #ibp-security-ibp-iam-icp}
@@ -132,7 +132,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to dep
 - [Keys and cluster access information](#ibp-security-Kubernetes-keys)
 - [Membership Service Providers (MSPs)](#ibp-security-kubernetes-msp)
 - [Storage](#ibp-security-kubernetes-storage)
-- [Data privacy](ibp-security-kubernetes-privacy)
+- [Data privacy](#ibp-security-kubernetes-privacy)
 - [GDPR](#ibp-security-kubernetes-gdpr)
 
 ### Kubernetes cluster security
@@ -248,7 +248,7 @@ Data at rest, that is in storage, can also be encrypted. When the blockchain con
 Customers are responsible for encrypting their own storage and the encryption must occur before any blockchain components are deployed to the cluster.
 {: important}
 
-For more information about encryption on {{site.data.keyword.cloud_notm}}:
+The default persistent storage type is File storage, also known as Endurance storage. For more information about encryption on all of the {{site.data.keyword.cloud_notm}} storage options:
 - [{{site.data.keyword.cloud_notm}} File storage managed encryption-at-rest](/docs/infrastructure/FileStorage?topic=FileStorage-encryption){: external}
 - [{{site.data.keyword.cloud_notm}} Block storage Provider managed encryption-at-rest](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption){: external}
 - [Portworx encrypting volumes](https://docs.portworx.com/reference/cli/encrypted-volumes/){: external}

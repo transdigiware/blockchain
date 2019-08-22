@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -23,6 +23,26 @@ subcollection: blockchain
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
+## 21 August 2019
+{: #08-21-2019}
+
+**Peer node patch `1.4.1-3`**
+
+With this patch, you now have the ability to upload additional admin identities for a peer. See [Adding new peer admin certificates](/docs/services/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins) for more information.
+
+**Select peer zone** ({{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} only)  
+
+If multiple zones are configured in your {{site.data.keyword.cloud_notm}} Kubernetes cluster, you can now use the console UI to select the zone where the peer is deployed. This capability is important if you are configuring [multizone HA for peers](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone).
+
+**Peer database support now includes LevelDB**
+
+You now have the option to choose between CouchDB and LevelDB for your Peer database. For more information, see [LevelDB vs CouchDB](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
+
+**Certificate Authority (CA) updates**   
+
+The console UI no longer uses enroll IDs and secrets for management of a CA. After you create a new CA, you are now responsible for generating the admin certificates by using the **Associate identity** button. Existing CAs are not affected. See [Associating the identity of the CA admin](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) for more details.
+
+
 ## 12 August 2019
 {: #08-12-2019}
 
@@ -30,7 +50,7 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 The Beta trial of the {{site.data.keyword.blockchainfull_notm}} Platform, which began on February 12, 2019, has officially ended. All of the beta instances of your console and the components that you deployed into your Kubernetes cluster using the beta console will be deleted.
 
-** Peer node patch `1.4.1-2`**
+**Peer node patch `1.4.1-2`**
 
 This patch contains a security fix for the peer couchDB container.
 
@@ -72,7 +92,7 @@ Channel governance updates allow policies to be reconfigured. You can also contr
 
 **Ability to size and scale node resources**  
 
-When you deploy a node you now have the ability to specify the amount of CPU, memory, and storage to your containers, where applicable. You can later scale their resources up or down at a later time according to usage patterns. For more information, see [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-allocate-resources).
+When you deploy a node you now have the ability to specify the amount of CPU, memory, and storage to your containers, where applicable. You can later scale their resources up or down at a later time according to usage patterns. For more information, see [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
 
 **Use of {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)**  
 
@@ -87,4 +107,4 @@ When you add a peer or orderer node, you have the option to use certificates fro
 
 **Tuning orderer performance**
 
-New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
+New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-orderer-tuning) for instructions on how to configure the parameters.

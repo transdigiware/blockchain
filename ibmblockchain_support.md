@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-7"
+lastupdated: "2019-08-21"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -30,7 +30,7 @@ For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is reco
 If your problem cannot be solved by any of the [free digital support resources](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources), consider the following approaches to get support for the offerings that you use.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
-  Submit a support case through {{site.data.keyword.cloud_notm}}. **Support is limited for Beta instances of the platform.** For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
+  Submit a support case through {{site.data.keyword.cloud_notm}}. For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
   If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact customer support, see [Accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
@@ -58,6 +58,8 @@ If your problem cannot be solved by any of the [free digital support resources](
   [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}, the [Fabric community wiki](https://wiki.hyperledger.org/display/fabric){: external}, and the [Fabric Jira dashboard](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} provide more details about the Fabric stack.
 
   You can also talk to a Fabric expert in [Rocket.Chat](https://chat.hyperledger.org/channel/fabric){: external} to get answers to questions about Fabric.
+
+  You can also post questions or check if your question has been answered in [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-fabric){: external}.
 
 **Hyperledger Composer resources**  
   Because {{site.data.keyword.IBM_notm}} does not provide support for using Hyperledger Composer for production implementation, you are encouraged to engage with [Hyperledger Composer community](https://chat.hyperledger.org/channel/composer){: external} and [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-composer){: external} when you work on demos and proofs of concept.
