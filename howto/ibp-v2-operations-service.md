@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-08-21"
 
 keywords: logging levels, metrics, health check, peer, orderer
 
@@ -73,13 +73,15 @@ You need to gather the following information from your peer and orderer.
   You can find the certificate and private key of the TLS CA in the console.
 
   1. Click the peer or orderer's CA node in the **Node** tab.
-  2. On the CA page, click **TLS Certificate Authority**.
-  3. In the TLS CA table, locate the `admin` user and click the vertical dots under **Actions**. Then, click **Enroll identity**.
-  4. In the side panel, click **Next** and you can see the certificate and private key of the TLS CA.
-  5. Give the identity a display name and click **Export identity**  and then **Add identity to wallet** to save the certificate and private key of the TLS CA into a JSON file.
-  6. Open the exported JSON file.
-  7. Find the private key that is the value of the `private_key` parameter in the JSON file. This is your `client-tls-key` for use in the commands below.
-  8. Find the TLS CA certificate that is the value of the `cert` parameter in the JSON file. This is your `client-tls-cert` for use in the commands below.
+  2. On the CA tab, click the actions menu next to the `admin` user and click **Enroll identity**.
+  3. On the side panel that opens, select **TLS Certificate Authority** from the Certificate Authority drop-down list.
+  4. Enter the **Enroll secret** for the admin user and click **Next**.
+  5. Enter an **Identity display name** and click **Add identity to Wallet**.
+  6. Open the **Wallet** tab and click the identity you just created.
+  7. Click **Export identity** to download the Certificate and Private key to a JSON file.
+  8. Open the exported JSON file.
+  9. Find the private key that is the value of the `private_key` parameter in the JSON file. This is your `client-tls-key` for use in the commands below.
+  10. Find the TLS CA certificate that is the value of the `cert` parameter in the JSON file. This is your `client-tls-cert` for use in the commands below.
 
 - **`peer tls-ca cert`** or **`orderer tls-ca cert`**
 
