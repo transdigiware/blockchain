@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-08-22"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -71,6 +71,7 @@ The following table contains a list of options to consider as you plan for incre
 | Multi-zone (peers)*** |  |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 |Raft ordering service | ![Checkmark icon](../../icons/checkmark-icon.svg) | | | |
 | Anti-affinity*** (ordering nodes) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
+| Multi-zone (ordering nodes)*** |  |  | ![Checkmark icon](../../icons/checkmark-icon.svg) (API only) | |
 |Development or Test environment | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 | Production environment | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: row-headers}
@@ -161,7 +162,7 @@ This scenario offers the highest level of HA possible.
 ## Disaster recovery (DR)
 {: #ibp-console-ha-dr}
 
-In all cases, to protect against data corruption, it is recommended that you regularly back up the storage associated with every deployed component. Because the ledger is shared across all the peers and ordering nodes, taking regular backups is critical. For example, if any one peer ledger becomes corrupted, it will spread to all the peer ledgers, and a backup is then required to restore the ledger across the network. You can decide how often to perform the backups based your recovery needs, but a general guideline would be to take daily backups.  
+In all cases, to protect against data corruption, it is recommended that you regularly back up the storage associated with every deployed component. Because the ledger is shared across all the peers and ordering nodes, taking regular backups is critical. For example, if incorrect data is accidentally propagated to a peer's ledger or if data is mistakenly deleted, this might spread to the ledgers of some other peers. This would require the restoration of the ledgers of all the peers from an established backup point to ensure synchronicity. You can decide how often to perform the backups based your recovery needs, but a general guideline would be to take daily backups.  
 
 | Storage solution provider | Guidance |
 |----------|---------|
