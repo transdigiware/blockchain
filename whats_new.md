@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-08-27"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -21,6 +21,11 @@ subcollection: blockchain
 
 # What's new
 {: #whats-new}
+
+## August 27, 2019
+{: #whats-new-8-27-2019}
+
+The process to view view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes. See these instructions on [Viewing logs in Starter Plan](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs) to learn about the new process.
 
 ## August 7, 2019
 {: #whats-new-8-7-2019}
@@ -101,7 +106,7 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Centralized operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one central console** without having to rely on {{site.data.keyword.IBM_notm}} or other vendors to manage your orderers or Certificate Authority. You can also add or remove members from a blockchain consortium, create and join channels, and install and instantiate smart contracts from your console.
 - **Host or join a network**. Deploy peers hosted in your cluster to multiple channels on multiple clouds, or invite other organizations to join your consortium or channels while the organizations manage their nodes independently across infrastructures.
 - **Manage access** of the users who can administer or monitor your nodes.
-- **Direct access to the logs** of your nodes from the {{site.data.keyword.IBM_notm}} Kubernetes service. Use the {{site.data.keyword.cloud_notm}} Log Analysis service or a third-party service to extract and analyze your logs.
+- **Direct access to the logs** of your nodes from the {{site.data.keyword.IBM_notm}} Kubernetes service. Use the {{site.data.keyword.la_full_notm}} service or a third-party service to extract and analyze your logs.
 - **Interact directly with your pods** using the Kubernetes Dashboard. Exec into your pods and containers to execute commands and update certificates from the command line.
 - **Dynamic signature collection** that allows better control over collaborative governance over channel configurations.
 
