@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-08-27"
 
 keywords: view Logs, IBM Cloud Private, logs of a specific network component, monitor blockchain network
 
@@ -14,6 +14,9 @@ subcollection: blockchain
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:note: .note}
+{:important: .important}
+{:tip: .tip}
 {:pre: .pre}
 
 # Monitoring a blockchain network
@@ -60,7 +63,10 @@ The following figure shows a **HEAD** request with a 200 response in Chrome Post
 ## Using your network logs
 {: #monitor-blockchain-network-using-logs}
 
-The "Overview" screen of your Network Monitor displays the status of your Certificate Authority, ordering service, and peers. Click **View Logs** from the dropdown list under the **Actions** header to view the logs of a specific network component. If you use Enterprise Plan networks, you can view component logs in a text file format. If you use Starter Plan networks, component logs are gathered by the [{{site.data.keyword.cloud_notm}} Log Analysis service](https://cloud.ibm.com/catalog/services/log-analysis){: external} and you can view the logs in [Kibana](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs).
+Starting August 27, 2019, the way to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service directly to view the logs of your CA, peers and ordering nodes.
+{: note}
+
+In the "Overview" screen of your Network Monitor, click **View Logs** from the drop-down list under the **Actions** header to open each network component's logs in the {{site.data.keyword.la_full_notm}} dashboard. If you are using an Enterprise Plan network, you can view component logs in a text file format. If you are using a Starter Plan network, the component logs are visible in the [{{site.data.keyword.la_full_notm}} service](https://cloud.ibm.com/catalog/services/log-analysis){: external}
 
 Each component generates logs from different activities. This is because each component plays different roles within the Hyperledger Fabric [network architecture](https://hyperledger-fabric.readthedocs.io/en/release-1.2/network/network.html){: external} and [transaction flows](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external}.
 
@@ -75,16 +81,36 @@ Each component generates logs from different activities. This is because each co
 
 Hyperledger Fabric provides different [logging levels](https://hyperledger-fabric.readthedocs.io/en/release-1.2/logging-control.html){: external} based on the severity of the message. The default logging level on {{site.data.keyword.blockchainfull_notm}} Platform is `INFO`. To view additional logs, you can open a [support ticket](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) to set logging level to the more verbose `DEBUG`. Be aware that the `DEBUG` level logs display a large number of gossip messages that you might need to filter. Search for `warning` or `error` in your messages to detect problems from Hyperledger Fabric components. To detect if the component container fails or is killed, search for `panic` or `killed` messages that {{site.data.keyword.cloud_notm}} sent.
 
-## Viewing logs in Kibana in Starter Plan
+## Viewing logs in Starter Plan
 {: #monitor-blockchain-network-viewing-kibana-logs}
 
-The logs of your Starter Plan network are gathered by the [{{site.data.keyword.cloud_notm}} Log Analysis service](https://cloud.ibm.com/catalog/services/log-analysis){: external}. By default, your logs are collected by the Lite Plan of the Log Analysis service. This plan is free and **stores your logs for three days** before they are discarded. It also allows you to **search only the first 500 MB of your logs per day**. If your network logs exceed 500 MB, you cannot view new logs in Kibana. If your network generates more than 500 MB of logs, or you would like to retain your logs for more than three days, you can upgrade to a paid version of the Log Analysis Service.
+The logs of your Starter Plan network are visible in the [{{site.data.keyword.la_full_notm}} service](https://cloud.ibm.com/observe/logging/){: external}.  You can provision an instance of {{site.data.keyword.la_full_notm}} in {{site.data.keyword.cloud_notm}}, by clicking **Create logging instance** from the [Observability dashboard](https://cloud.ibm.com/observe/logging/){: external}). Choose the pricing plan according to your business needs.
 
-In the "Overview" screen of your Network Monitor, click **View Logs** from the drop-down list under the **Actions** header to open each network component's logs in the Kibana interface. When Kibana opens, it displays logs that are filtered by a search bar at the top. For example, when you click to view your peer logs, the search is filtered by your network ID and your peer id: `NETWORK_ID_str:"nf8389d520c243004bb21ff5d70fc8939" && NODE_NAME_str:"org1-peer1"`. You can enter an additional field in the search bar if you want to view more specific logs. For example, you can add `&& "marbles"` to display the logs from the `"marbles"` chaincode. Deleting the specific component term and searching only with the network ID, for example, `NETWORK_ID_str:"nf8389d520c243004bb21ff5d70fc8939"`, displays the logs from all network components.
+If you choose the LogDNA **Lite - Free** Plan, you can view your logs as they pass through the system, similar to a Unix `tail` command, but this plan does not support the ability to filter the logs by blockchain node.
+{: note}
 
-You can use the time range button at the top-right corner to change from what time period the logs are displayed. You can also use the tab on the left side of the screen to add and remove fields from the search. The most important field to display is the message field. It might be helpful to search with a message without the timestamp to find all instances of that message log. Click the **Save** button to save your current search and return to a specific view. For more information about displaying data in Kibana, see [Kibana User Guide](https://www.elastic.co/guide/en/kibana/6.2/index.html){: external}. You can also [download your logs](/docs/services/CloudLogAnalysis/how-to?topic=cloudloganalysis-downloading_logs#downloading_logs){: external} to your local file system by using the Log Analysis CLI.
+The following steps describe how to configure LogDNA to to work with your Starter Plan instance.
 
-**Note:** By default, Kibana is preconfigured to show logs from the 30 days of activity. If there is no activity in the last 30 days, you will see a message that says *No results found*. To view other logs, you can click the timer icon in the upper right corner under your user name and set a broader time range, such as *Year to date*.
+1. After you provision the LogDNA instance, navigate to the [Observability](https://cloud.ibm.com/observe) dashboard in {{site.data.keyword.cloud_notm}} and click **Logging**.
+2. Click **Configure platform service and logs**.
+3. Select the region where Starter Plan is running.
+4. Select the **{{site.data.keyword.la_full_notm}}** instance.
+5. Click Save.
+
+From the Observability dashboard, you can now launch the LogDNA dashboard by clicking **View LogDNA**.
+
+### View node logs
+{: #monitor-blockchain-network-viewing-logdna}
+
+Viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs with the the {{site.data.keyword.la_full_notm}} service is easy. After you have completed the steps to configure LogDNA to work with your Starter Plan instance, your Starter Plan node logs will start to appear in dashboard.
+You can use the search input box located at the bottom of the LogDNA page to filter the logs by node.
+
+It may take a few seconds for the logs from your nodes to show up in the {{site.data.keyword.la_full_notm}} service.
+{: note}
+
+You can view your peer, Certificate Authority (CA), or ordering node logs in the {{site.data.keyword.la_full_notm}} dashboard.  Filter the logs for a specific node by entering the node name in the search bar at the bottom of the panel. If you need to view your chaincode logs on a peer, simply type the chaincode name in the search bar.
+
+![Filtering on peer](../images/starter-logdna.png "Filtering logs by node"){: caption="Figure 1.Filtering logs by peer" caption-side="bottom"}  
 
 ## Monitoring channels
 {: #monitor-blockchain-network-monitor-channnels}
@@ -128,12 +154,3 @@ Expand a chaincode row to get detailed information about the chaincode:
 Enter Network Monitor and open the "Install Code" screen. If you have running chaincode, you can see the chaincode with chaincode IDs and versions in the table. Choose a peer from the drop-down list and you can see all chaincode for this peer in the table. You can view the logs of the chaincode on the ["Chaincode" tab](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc) of your specific "Channel" screen.
 
   ![Chaincode](../images/installed_cc.png "Chaincode")
-
-<!----
-## Monitoring sample applications
-{: #monitor-apps}
-
-In a Starter Plan network, you can view and access sample applications in the "Try Samples" screen of the Network Monitor.  After you deploy a sample application, you can click the **Launch** button to enter your application interface, or the **View on GitHub** link to visit the code repository.  For more information, see [Deploying sample applications](/docs/services/blockchain/prebuilt_samples.html#deploying-sample-applications).
-
-  ![Sample applications](../images/sampleappflow0.png "Sample applications")
---->
