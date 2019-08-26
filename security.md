@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-08-27"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -221,7 +221,7 @@ Using the results that are returned in this example, the external ports that can
 ### Cluster and operating system security
 {: #ibp-security-Kubernetes-container-os}
 
-- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}} and at rest. You can choose to enable encryption for your etcd data on the local disk of your Kubernetes master by [enabling {{site.data.keyword.keymanagementservicelong_notm}} encryption](/docs/containers?topic=containers-encryption#encryption) for your cluster.
+- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}, but you can choose to enable encryption for your etcd data on the local disk of your Kubernetes master by [enabling {{site.data.keyword.keymanagementservicelong_notm}} encryption](/docs/containers?topic=containers-encryption#encryption) for your cluster.
 
 - **Alpine Linux:** The Fabric Docker images use [Alpine Linux](https://alpinelinux.org/){: external}, which is a smaller, lighter, and therefore more secure version of Linux.
 
@@ -243,7 +243,7 @@ Organizations in a blockchain network are represented by [MSP](/docs/services/bl
 ### Storage
 {: #ibp-security-kubernetes-storage}
 
-Data at rest, that is in storage, can also be encrypted. When the blockchain console deploys a node, storage is dynamically provisioned for that node from persistent storage. You have the option of encrypting the persistent volume but there may be some performance implications with encryption to consider.  
+When the blockchain console deploys a node, storage is dynamically provisioned for that node from persistent storage. You have the option of encrypting the persistent volume but there may be some performance implications with encryption to consider.  
 
 Customers are responsible for encrypting their own storage and the encryption must occur before any blockchain components are deployed to the cluster.
 {: important}
