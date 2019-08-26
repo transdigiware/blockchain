@@ -63,7 +63,7 @@ The following figure shows a **HEAD** request with a 200 response in Chrome Post
 ## Using your network logs
 {: #monitor-blockchain-network-using-logs}
 
-Starting August 27, 2019, the way to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service directly to view the logs of your CA, peers and ordering nodes.
+Starting August 27, 2019, the process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service directly to view the logs of your CA, peers and ordering nodes.
 {: note}
 
 In the "Overview" screen of your Network Monitor, click **View Logs** from the drop-down list under the **Actions** header to open each network component's logs in the {{site.data.keyword.la_full_notm}} dashboard. If you are using an Enterprise Plan network, you can view component logs in a text file format. If you are using a Starter Plan network, the component logs are visible in the [{{site.data.keyword.la_full_notm}} service](https://cloud.ibm.com/catalog/services/log-analysis){: external}
