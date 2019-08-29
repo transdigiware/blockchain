@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-08-29"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -55,7 +55,7 @@ When the {{site.data.keyword.blockchainfull_notm}} Platform console is provision
 #### IAM on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud
 {: #ibp-security-ibp-iam-icp}
 
-Identity and access management for {{site.data.keyword.cloud_notm}} Private is built into the blockchain console and includes local console authentication and role management. As with the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, the user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console in {{site.data.keyword.cloud_notm}} Private is designated as the console administrator, also known as the **Manager**. This administrator can then add and grant other users access to the console by using the **Users** tab. It is also possible to change the console administrator. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. The definition of each role is provided in the [Role to permissions mapping table](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage--role-mapping). For the steps required to add new users, see [Managing users from the console](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
+Identity and access management for {{site.data.keyword.cloud_notm}} Private is built into the blockchain console and includes local console authentication and role management. As with the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, the user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console in {{site.data.keyword.cloud_notm}} Private is designated as the console administrator, also known as the **Manager**. This administrator can then add and grant other users access to the console by using the **Users** tab. It is also possible to change the console administrator. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. The definition of each role is provided in the [Role to permissions mapping table](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-role-mapping). For the steps required to add new users, see [Managing users from the console](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
 
 Note that for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
 
