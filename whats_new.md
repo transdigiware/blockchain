@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-08-29"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -25,14 +25,14 @@ subcollection: blockchain
 ## August 27, 2019
 {: #whats-new-8-27-2019}
 
-The process to view view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes. See these instructions on [Viewing logs in Starter Plan](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs) to learn about the new process.
+The process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes. See these instructions on [Viewing logs in Starter Plan](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs) to learn about the new process.
 
 ## August 7, 2019
 {: #whats-new-8-7-2019}
 
-Networks on Enterprise Plan will soon be upgraded to Fabric v1.4.2. This will allow your network to be migrated to a RAFT based ordering service from Kafka.
+Networks on Enterprise Plan will soon be upgraded to Fabric v1.4.3. This will allow your network to be migrated to a RAFT based ordering service from Kafka.
 
-This upgrade could cause breaking changes in your applications if they still use the peer based EventHub class of the Fabric SDKs. The peer based EventHub has been deprecated in Fabric v1.4.2. You must update your applications to use the new channel based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time. For more information, see [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} in the Node SDK documentation.
+This upgrade could cause breaking changes in your applications if they still use the peer based EventHub class of the Fabric SDKs. The peer based EventHub has been removed in Fabric v1.4.3. You must update your applications to use the new channel based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time. For more information, see [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} in the Node SDK documentation.
 
 Fabric v1.4 is the first long term support release of Hyperledger Fabric. You can learn more by visiting the [Whats new in v1.4](https://hyperledger-fabric.readthedocs.io/en/release-1.4/whatsnew.html){: external} in the Fabric documentation.
 
