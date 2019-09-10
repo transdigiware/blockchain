@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-09-10"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
 
@@ -32,7 +32,7 @@ There are various actions that you can take to manage your console behavior. Thi
 ## Adding and removing users from the console
 {: #ibp-console-manage-console-add-remove}
 
-Every user that accesses the console must be assigned an access policy with an {{site.data.keyword.cloud}} Identity and Access Management (IAM) user role defined. The policy determines what actions the user can perform within the console. The {{site.data.keyword.blockchainfull_notm}} Platform console is provisioned with the email address of the {{site.data.keyword.cloud_notm}} owner as the console administrator.  By default, this {{site.data.keyword.cloud_notm}} user is given the **Manager** role for the {{site.data.keyword.blockchainfull_notm}} Platform service in IAM. The console administrator can then grant other users access to the console by using the IAM UI. For more information about IAM，see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}.  
+Every user that accesses the console must be assigned an access policy with an {{site.data.keyword.cloud}} Identity and Access Management (IAM) user role defined. The policy determines what actions the user can perform within the console. The {{site.data.keyword.blockchainfull}} Platform console is provisioned with the email address of the {{site.data.keyword.cloud_notm}} owner as the console administrator.  By default, this {{site.data.keyword.cloud_notm}} user is given the **Manager** role for the {{site.data.keyword.blockchainfull_notm}} Platform service in IAM. The console administrator can then grant other users access to the console by using the IAM UI. For more information about IAM，see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}.  
 
 When you [use IAM to invite users](/docs/iam?topic=iam-iamuserinv#iamuserinv){: external}, you need to complete the following steps to configure their roles and access to the console:
  1. From the menu bar, click  **Manage** > **Access (IAM)** and then select **Users**.
@@ -43,9 +43,12 @@ When you [use IAM to invite users](/docs/iam?topic=iam-iamuserinv#iamuserinv){: 
  6. Under **Assign service access roles**, choose a role for the user, which can be **Manager**, **Writer**, and **Reader**.
  7. Click **Invite users**.
 
-| Role | Capabilities |
+### Role to permissions mapping table
+{: #ibp-console-manage-console-role-mapping}
+
+| Role | Permissions |
 |--------|----------|
-| Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li></ul> |
+| Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components such as CAs, peers, and ordering services, by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li></ul> |
 | Writer | As a Writer, you have permissions beyond the Reader role, including: <ul><li>Import components by using the console or APIs.</li><li>Remove imported components by using the console or APIs.</li><li>Register users on a CA.</li><li> Add or remove notifications by using the console or APIs.</li></ul>  |
 | Reader | As a reader, you can perform read-only actions including: <ul><li>View console UI.</li><li>View console log.</li><li>Export components.</li><li>Issue any GET API.</li></ul> | |
 
@@ -123,7 +126,7 @@ The namespace is the first part of the url beginning with the letter `n` and fol
 4. On the left navigation, click **Pods** to view the list of node pods that you have deployed.
 5. Click on a pod. Then click **Logs** on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
 
-By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that allows you to easily parse the logs in real time.
+By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that allows you to easily parse the logs in real time. See this [tutorial](/docs/services/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
@@ -139,7 +142,7 @@ All of your smart contract logs are visible in this window and can be downloaded
 ## Installing patches for your nodes
 {: #ibp-console-manage-patch}
 
-The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Patch available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. These patches are optional, but recommended.  You cannot patch nodes that have been imported into the console.
+The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Patch available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/services/blockchain?topic=blockchain-release-notes-saas-20), these patches are optional, but recommended.  You cannot patch nodes that have been imported into the console.
 
 Patches are applied to nodes one at a time. While the patch is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure another node of the same type is available to process requests. Installing patches on a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
 {:note}
@@ -158,3 +161,6 @@ If you are using a free {{site.data.keyword.cloud_notm}} Kubernetes Service clus
 5. If your free cluster is listed, click the action menu for the cluster and then click **Delete** to delete the free cluster.
 
 When these actions are complete, you can follow the [original steps](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to create a new Kubernetes cluster and blockchain service instance from the {{site.data.keyword.cloud_notm}} catalog page.
+
+Note that if you delete your Kubernetes cluster, you will still be charged for your {{site.data.keyword.blockchainfull_notm}} Platform service instance until you delete that as well.
+{: important}
