@@ -2,9 +2,10 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
 
-keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing
+lastupdated: "2019-09-23"
+
+keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free
 
 subcollection: blockchain
 
@@ -26,8 +27,6 @@ subcollection: blockchain
 This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
-_This pricing model is for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} only. If you are using Starter Plan or Enterprise Plan and have questions on pricing, see Starter Plan and Enterprise Plan [pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing)._
-
 ## Pricing model
 {: #ibp-saas-pricing-model}
 
@@ -38,12 +37,7 @@ A VPC is a unit of measurement that is used to determine the licensing cost of {
 
 For a total cost estimate, remember that your blockchain network consists of an {{site.data.keyword.cloud_notm}} Kubernetes cluster that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice. Your {{site.data.keyword.cloud_notm}} Kubernetes cluster and the storage that you choose incur separate charges. You will not be charged for the cluster that the Operational Tooling instance, also known as the console, is running on. See the [Architecture reference](/docs/services/blockchain/howto?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture) topic for an illustration. More details on how to calculate charges are described below.
 
-### Are you a developer?
-{: #ibp-saas-pricing-developer}
-
-Developers can get started with our free [extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}. Use this integrated developer environment to write, test, debug, and package smart contracts locally and for {{site.data.keyword.blockchainfull_notm}} Platform deployment, as well as to write client applications. Start from scratch or access tutorials and samples to learn blockchain fundamentals. Then, come back and link an {{site.data.keyword.blockchainfull_notm}} Platform service instance to your Kubernetes cluster so that you can build your blockchain network using the console.
-
-## Benefits of the new pricing model
+### Benefits of the new pricing model
 {: #ibp-saas-pricing-benefits}
 
 - **No membership fees**: Freedom from membership fees means that you can invest directly in your blockchain components.
@@ -52,6 +46,38 @@ Developers can get started with our free [extension for VS Code](https://marketp
 - **Scalability of compute**: You have the option to scale your compute up during peak usage periods or down to a minute fraction of capacity for when the compute is not needed to minimize expense.  
 
 In summary, these features remove the complexity of accounting for membership limitations or purchasing compute ahead of your needs.
+
+### Are you a developer?
+{: #ibp-saas-pricing-developer}
+
+Developers can get started with the free [extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external}. Use this integrated developer environment to write, test, debug, and package smart contracts locally and for {{site.data.keyword.blockchainfull_notm}} Platform deployment, as well as to write client applications. Start from scratch or access tutorials and samples to learn blockchain fundamentals. Then, come back and link an {{site.data.keyword.blockchainfull_notm}} Platform service instance to your Kubernetes cluster so that you can build your blockchain network by using the console.
+
+### Find out how to preview the platform free for 30 days
+{: #ibp-saas-pricing-free}
+
+You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes **free** cluster.
+
+#### Limitations of the free preview
+{: #ibp-saas-pricing-free-limits}
+
+- Performance is limited by throughput, storage, and functionality. Read more about the limitations of [free Kubernetes clusters](/docs/containers?topic=containers-cs_ov#cluster_types){: external} in the {{site.data.keyword.cloud_notm}} Kubernetes Service.
+- {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
+- Only one console can be connected to a free cluster at a time.
+- You cannot migrate any nodes or data from a free cluster to a paid cluster. 
+
+#### How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free
+{: #ibp-saas-pricing-free-howto}
+
+1. Get an [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration?target=%2Fcatalog%2Fservices%2Fblockchain){:external}.
+2. Upgrade your {{site.data.keyword.cloud_notm}} Account to "Pay-Go" by adding in a credit card. You will not be charged.
+3. Launch {{site.data.keyword.blockchainfull_notm}} Platform in the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/services/blockchain-platform){: external}.
+4. Under **Select a pricing plan**, ensure that the **Standard** plan is selected and then click **Create**.
+5. On the **Welcome and pre-requisites** panel that opens, click **I have a Cluster (Skip to Link a cluster)**.
+6. In the **Select an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** drop-down list, select your free cluster. **Note:** If your free cluster is not listed, ensure sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
+7. Click **Deploy to cluster**.
+8. When the platform is ready, you can click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the blockchain console UI and get started. Watch the [video](http://ibm.biz/BlockchainPlatformSeries2){: external} to learn how to Deploy a peer on the {{site.data.keyword.blockchainfull_notm}} Platform,  or try out the getting started tutorial [Build a network](/docs/services/blockchain?topic=blockchain-ibp-console-build-network).  
+
+After 30 days, your Kubernetes cluster is deleted along with all of your blockchain nodes and data.
 
 ## Key elements of cost
 {: #ibp-saas-pricing-elements}
@@ -81,23 +107,24 @@ The following table provides two examples of pricing with [default resource allo
 | **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.27 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) |
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
 | **Total hourly cost** | **$0.82 USD** | **$1.90 USD**| |
-** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.  
+
+** [Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance is limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.  
 
 Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer.
 {:note}
 
-There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster, but you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in your cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all the service instances.  
+There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
 
 **Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options.
 
 ## Default resource allocations
 {: #ibp-saas-pricing-default}
 
-The values in the following table are useful to estimate the hourly cost of your custom network based on CPU, compute, and storage. These minimum recommended values are sufficient for getting started. As you monitor your network usage you may find that your actual resource requirements and costs will vary depending on your use case and your security and availability needs.  
+The values in the following table are useful to estimate the hourly cost of your custom network based on CPU, compute, and storage. These minimum recommended values are sufficient for getting started. As you monitor your network usage, you might find that your actual resource requirements and costs will vary depending on your use case and your security and availability needs.  
 
 | **Component** (all containers) | CPU  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1            | 2.4                   | 200 (includes 100GB for peer and 100GB for CouchDB)|
+| **Peer**                       | 1.1            | 2.4                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1            | 0.2                    | 20                     |
 | **Ordering node**                    | 0.35           | 0.9                    | 100                    |
 
@@ -117,7 +144,7 @@ This charge is visible on the **Invoices** tab of the Usage tile. Click the link
 
 #### Storage usage
 
-If you are using {{site.data.keyword.cloud_notm}} File storage, the costs are assessed monthly, so an estimate of storage costs is not visible until the end of the month. However, the storage that you have you provisioned throughout the month is listed as line items in the Usage tile under **Sales** > **Orders**. Look in the **Items** column for a description of the storage that was dynamically provisioned when you deployed a peer, CA or ordering node.
+If you are using {{site.data.keyword.cloud_notm}} File storage, the costs are assessed monthly, so an estimate of storage costs is not visible until the end of the month. However, the storage that you provisioned throughout the month is listed as line items in the Usage tile under **Sales** > **Orders**. Look in the **Items** column for a description of the storage that was dynamically provisioned when you deployed a peer, CA, or ordering node.
 
 ## Optimizing the cost of your nodes
 {: #ibp-saas-pricing-shutdown}
@@ -127,11 +154,10 @@ One of the key benefits of the {{site.data.keyword.blockchainfull_notm}} Platfor
 - **Switch your nodes to Minimum Utilization State**  
   CPU on individual nodes can be scaled down to 0.001 CPU to completely minimize charges. Taking these actions renders the node non-functional. When the compute is needed later, you can use the reallocation option in the {{site.data.keyword.blockchainfull_notm}} Platform console to scale up to what is required. For more information about how resources can be reallocated, see [Reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
 
-- **Delete unused peer and deploy a new one when needed**  
-  Because the ledger is stored on the ordering node, when you deploy a new peer and join a channel, the peer receives a copy of the distributed ledger. The drawback to this approach is that you need to generate new certificates and join the peer to the channels again.
+- **Delete unused peer and deploy a new one when needed. Because the ledger is stored on the ordering node, when you deploy a new peer and join a channel, the peer receives a copy of the distributed ledger. The drawback to this approach is that you need to generate new certificates and join the peer to the channels again.
 
   It is not recommended to ever delete a CA node because the data on it can never be recovered. Likewise, if you have only a single ordering node, you should never delete it.  
   {:important}
 
-- **Monitor and adjust your resource allocation based on your needs**  
+- **Monitor and adjust your resource allocation based on your needs**.
   When you monitor your resource usage over time, you might decide that you can scale down the resources that are allocated to a node while still ensuring adequate performance. When you follow instructions for [reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources) in the console, the effects on total VPC for the node are updated and can be used to estimate revised monthly costs.
