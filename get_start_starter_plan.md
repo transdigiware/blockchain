@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-08"
+lastupdated: "2019-09-24"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -33,8 +33,6 @@ Starter Plan is now deprecated, therefore no new Starter Plan networks can be cr
 Starter Plan enables you to learn and develop skills with {{site.data.keyword.blockchainfull_notm}} Platform, run sample applications, test your own applications, and simulate a multi-organization scenario. This getting started tutorial will guide you through how to use Starter Plan to start developing and transacting on a blockchain network.
 
 If you are new to {{site.data.keyword.blockchainfull_notm}} Platform and blockchain, you can learn more about blockchain by reviewing the [overview of fundamental components](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview) of networks that are built based on the open-source [Hyperledger Fabric](/docs/services/blockchain/reference?topic=blockchain-hyperledger-fabric#hyperledger-fabric). You can also review the [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.2/blockchain.html){: external}.
-
-**Note**: {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan is a development and testing environment, and is not suitable for production workloads. If you need a production environment, see [About Enterprise Plan](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
 
 ## Overview
 {: #getting-started-with-starter-plan-overview}

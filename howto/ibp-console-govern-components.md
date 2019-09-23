@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-09-24"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -22,10 +22,10 @@ subcollection: blockchain
 # Component governance
 {: #ibp-console-govern-components}
 
-After creating CAs, peers, and ordering nodes, you can use the console to update these components.
+After creating CAs, peers, and ordering nodes, you can use the console to update these components in a variety of ways.
 {:shortdesc}
 
-**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network.
+**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing their components in the blockchain network.
 
 ## How the console interacts with your Kubernetes cluster
 {: #ibp-console-govern-components-iks-console-interaction}
@@ -44,7 +44,7 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1           | 2.4                   | 200 (includes 100GB for peer and 100GB for CouchDB)|
+| **Peer**                       | 1.1           | 2.4                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.9                   | 100                    |
 ** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.  
@@ -114,7 +114,7 @@ As we noted in our section on [How the console interacts with your Kubernetes cl
 | **Peer storage** | When you anticipate installing many smart contracts on this peer and to join it to many channels. Recall that this storage will also be used to store smart contracts from all channels the peer is joined to. Keep in mind that we estimate a "small" transaction to be in the range of 10,000 bytes (10k). As the default storage is 100G, this means as many as 10 million total transactions will fit in peer storage before it will need to be expanded (as a practical matter, the maximum number will be less than this, as transactions can vary in size and the number does not include smart contracts). While 100G might therefore seem like much more storage than is needed, keep in mind that storage is relatively inexpensive, and that the process for increasing it is more difficult (require command line) than increasing CPU or memory. |
 | **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat through the use of [indexes](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
 | **CouchDB (ledger data) storage** | When you expect high throughput on many channels and don't plan to use indexes. However, like the peer storage, the default CouchDB storage is 100G, which is significant. |
-| **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at once.|
+| **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at once. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
 
 ### Ordering nodes
 {: #ibp-console-govern-components-ordering-nodes}
@@ -128,7 +128,7 @@ Similar to the CA, an ordering node has only one associated container that we ca
 #### Sizing an orderer during creation
 {: #ibp-console-govern-components-orderer-sizing-creation}
 
-As we noted in our section on [How the {{site.data.keyword.cloud_notm}} Kubernetes Service interacts with the console](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these orderer containers and adjust them later as it becomes apparent how they are being utilized.
+As we noted in our section on [How the console interacts with your Kubernetes cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these orderer containers and adjust them later as it becomes apparent how they are being utilized.
 
 | Resources | Condition to increase |
 |-----------------|-----------------------|
@@ -161,6 +161,25 @@ The method you will use to increase storage will depend on the storage class you
 
 In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the console (if you have resources available in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster). However, storage must be increased using the {{site.data.keyword.cloud_notm}} CLI. For a tutorial on how to do this, see [Changing the size and IOPS of your existing storage device](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external}. If you are using a cloud provider other than {{site.data.keyword.cloud_notm}}, refer to the documentation of that provider for the process on increasing CPU, memory, and storage.
 
+### Monitoring file storage
+{: #ibp-console-govern-components-monitor-storage}
+
+To view your consumption of file storage, navigate to your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. Click on the menu button in the upper left hand corner. Then click on **Classic infrastructure**, **Storage**, and then **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped by your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
+
+You will see something that looks like this:
+
+```
+PVC {"plugin":"ibm-file-plugin-77497497cc-5qm58","region":"us-south","cluster":"05ccfca248dc4c389978d074524e0a8e","type":"Endurance","ns":"n4c817f","pvc":"n4c817forg1ca-fabric-ca-pvc","pv":"pvc-63074ac8-8b9b-11e9-88db-222bd59fb4bc","storageclass":"default","reclaim":"Delete"}
+```
+
+To see the same information from the command line, login to your cluster and enter this command:
+
+```
+ibmcloud sl file volume-list --column id --column notes
+```
+
+This will allow you to map the output from the pods to the nodes you have deployed.
+
 ## LevelDB vs CouchDB
 {: #ibp-console-govern-components-level-couch}
 
@@ -172,3 +191,65 @@ This support for rich queries is why **CouchDB is the default database** unless 
 
 Because the data is modeled differently in a Couch database than in a Level database, **the peers in a channel must all use the same database type**. If data written for a Level database is rejected by a Couch database (which can happen, as CouchDB keys have certain formatting restrictions as compared to LevelDB keys), a state fork would be created between the two ledgers. Therefore, **take extreme care when joining a channel to know the database type supported by the channel**. It might be necessary to create a new peer. Note that the database type cannot be changed after a peer has been deployed.
 {:important}
+
+## Adding and removing ordering service nodes
+{: #ibp-console-govern-components-add-remove-orderer}
+
+Because ordering service nodes can only belong to a single ordering service, if you create an ordering service node from the main **Nodes** panel, you will not be able to add it to an existing ordering service. If you want to add a node to an existing ordering service, the node must be created specifically for that purpose using the process described below.
+{:important}
+
+Use case:
+
+There are a few reasons why a user might decide to add or delete ordering service nodes. For example, a corrupted node might need to be deleted and replaced with a new node, or a new organization joining a network might choose to contribute a node to the ordering service to share in the management and costs associated with the ordering service. Whatever the reason, the first step is to click on the ordering service the node is being added to in the **Nodes** panel. Note that before you add a node or remove a node from an ordering service, you must complete these steps:
+
+1. Create a CA. This process is identical to the process described in [Creating your ordering service organization CA](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca) from the Build a network tutorial. If you have already deployed your own ordering service, you may use the CA you created as part of that process to create this node.
+2. Use this CA to create an MSP representing your ordering organization, as well as an admin identity for this organization. As with the CA, you may reuse the MSP and identities you created when creating this node. However, you also have the option to create a dedicated CA, MSP, and identities if you want.
+3. If the ordering service was created in a different console, you must export your MSP to the console where the ordering service was created. The administrator of that console must then add the MSP as one of the administrators of the system channel by clicking on the tile for the ordering service and then clicking **Add ordering service administrator**.
+4. Similarly, if the ordering service was created in a different console, you must **import** the JSON representing ordering service into your console. Note that if you imported this JSON before September 18, 2019, you will need to re-import it, as the JSON now contains information necessary to add the node and add it to the consenter set of the system channel.
+
+After these steps have been completed, you can delete a node by clicking on the node and then clicking on the "delete" icon (which resembles a trash can). Note that if the node was not created in your console, you can only remove it from your console. A node can only be deleted from the console where it was created.
+
+To add a node, click the **Add another node** tile. This will open a series of panels similar to the process for creating an ordering service. You will need to:
+
+* **Give the node a display name**. A best practice will be to give the node a display name that matches the pattern used for the other nodes in the ordering service.
+* **Select a CA**. You may reuse the CA you used to create your own ordering service (if any). If you created the ordering service you are adding to, it is recommended to use the same CA. Do not reuse a CA you have used to create a peer.
+* **Enter an enroll ID and secret**. Again, if you created an enroll ID and secret for your existing ordering nodes, you may use the same enroll ID and secret here.
+* **Select an MSP**. If you are adding to an ordering service you created in your console, reuse the MSP you used when creating that ordering service. If the new node is being added to an ordering service created elsewhere, use the MSP you exported to that console.
+* **Enter a TLS enroll ID and secret**. This should be same enroll ID and secret you entered for the node itself.
+* **Allocate resources**. If the original set of ordering nodes was created using a custom allocation, it is a best practice to mimic that allocation when adding new nodes.
+
+After reviewing the **Summary** page, click **Add another node**. This will submit the creation request. To complete the process of creating the node, you need to add it to the consenter set of the system channel. For information about how to do that, proceed to the next section.
+
+### Adding the node to the consenter set
+{: #ibp-console-govern-components-add-remove-orderer-consenter-system-channel}
+
+After the ordering node has been successfully added, you will see a "Pending" tile on the ordering service. This pending state reflects the fact that, while the node creation process has been successful, the node is not yet part of the consenter set of the system channel.
+
+Recall that the "consenter set" refers to the ordering service nodes actively participating in the ordering process on a channel, while the "system channel", which is managed by the ordering service, is the foundation of a network and forms the template for application channels.
+{:tip}
+
+To add the node you created to the system channel, click on the node. You will see a **Add to system channel** button. Click this button. Then, on the panel, click **Add to system channel**. Because your MSP has already been added to the system channel, you have the permission to update the channel to add your node. After this process has completed, the Pending tile should be disappear and your node should now be part of the system channel.
+
+Note that if you want to add this node to any existing application channels, you will have to add them to consenter set of each of those channels. For information about how to do that, see [Adding and removing ordering service consenters](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-consenters).
+
+Now that the ordering node has been added to the consenter set of the system channel, we need to perform one additional step.
+
+### Export the node to the console where the ordering service was created
+{: #ibp-console-govern-components-export-back-to-original-console}
+
+After the node has successfully been created and added to the system channel, export a JSON representing the node back to the console where the ordering service was created.
+
+To do this, click on the **Export** button and send the JSON to the administrator of the console out of band.
+
+### Suggested configurations of ordering nodes
+{: #ibp-console-govern-components-suggested-ordering-node-configurations}
+
+While it's possible to use the console to build a configuration of any number of ordering nodes (no configuration is explicitly restricted), some numbers provide a better balance between cost and performance than others. The reason for this lies in satisfying the needs of high availability (HA) and in understanding the Raft concept of the "quorum", the minimum number of nodes that must be available (out of the total number) for the ordering service to process transactions.
+
+In Raft, a **majority of the total number of nodes** is needed to form a quorum. In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. Similarly, if you have two nodes, you will need both available, since the majority of two is two (for this reason, a configuration of two nodes is discouraged; there is no advantage to a two node configuration). In a similar vein, the majority of three is two, the majority of four is three, the majority of five is three, and so on.
+
+While satisfying the quorum will make sure the ordering service is functioning, production networks also have to think about deployment configurations that are highly available. In other words, configurations in which the loss of a certain number of nodes can be tolerated by the system. Typically, this means surviving two nodes being down: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
+
+This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. If your configuration features four nodes, only one node can be down for any reason before **another** node going down means a quorum has been lost and the ordering service will stop processing transactions.
+
+For this reason, it is considered a best practice to have an odd number of nodes in an ordering service. There is nothing wrong with an even number of nodes, but they add costs without making the ordering service more highly available.

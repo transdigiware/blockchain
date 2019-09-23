@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-09-24"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -60,7 +60,7 @@ Use the **Organizations** tab to generate an MSP definition for your organizatio
 
 - Use the **MSP details** section of the panel to select your organizations MSP ID. This ID is the formal name that other members of the network will use to refer to your organization. **Save your MSP ID.**
 
-- Use the **Root Certificate Authority details** section to select your organization's root CA. This is the CA that you used (or will use) to create all of the node and application identities that belong to your organization. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your root CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a root CA will will also create a root TLS Certificate.
+- Use the **Root Certificate Authority details** section to select your organization's root CA. This is the CA that you used (or will use) to create all of the node and application identities that belong to your organization. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your root CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a root CA will also create a root TLS Certificate.
 
 - You can also use the **Root Certificate Authority details** section to generate one of your organizations admin certificates. Before creating your organization MSP definition, you need to register your org and node admins with your root CA. You then need to complete the following steps in order to use these identities to operate your network:
 
@@ -106,7 +106,7 @@ When you update an MSP organization definition with a new admin cert, the associ
 #### Before you begin
 {: #ibp-console-organizations-new-admins-before}
 
-In order to complete this process, you need to register and enroll the new peer admin identity with the same CA that the the existing peer admin was registered with.
+In order to complete this process, you need to register and enroll the new peer admin identity with the same CA that the existing peer admin was registered with.
 
 1. Follow the steps to [register a new peer admin identity](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 2. Follow the steps to [enroll the new admin identity](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll) which generates the Certificate and private key for the new admin identity.  Be sure to download the generated Certificate and private key PEM files to your file system and add the identity to your console wallet.
@@ -128,7 +128,7 @@ Replace `<certificate.pem>` with the name of the Certificate PEM file that you d
 3. Open the **Organizations** tab.
 4. Locate the MSP tile for the peer and click the **Export** icon.
 5. Open the downloaded MSP JSON file in a text editor.
-6. Edit the `admins` element. Paste the new admin certificate string that you downloaded and copied in the previous section, to the end of the list of comma separated admin certificates.
+6. Edit the `admins` element. Paste the new base64-encoded certificate string, that you generated in the previous section, to the end of the list of comma separated admin certificates.
 7. Save your changes.
 8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
 9. In the side panel, click **Add file** and select the updated MSP JSON file.
@@ -202,7 +202,7 @@ Create a JSON file by using the following format:
 {:codeblock}
 
 - **organization_name**: Specify any name to be used to identify this MSP definition in the console.
-- **organization_id**: Specify an id that is used to represented this MSP internally in the console.
+- **organization_id**: Specify an id that is used to represent this MSP internally in the console.
 - **root_certs**: (Optional) Paste in an array that contains one or more root certificates from the external CA in `base64` format. You must provide either a  CA root certificate or an intermediate CA certificate, you may also provide both.
 - **intermediate_certs**: (Optional) Paste in an array that contains one ore more certificates from the external intermediate CA in `base64` format. You must provide either a  CA root certificate or an intermediate CA certificate, you may also provide both.
 - **admins**: Paste in the signing certificate of the organization admin in `base64` format.

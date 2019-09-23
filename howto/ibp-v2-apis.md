@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-09-24"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -186,11 +186,11 @@ You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} co
   Remember your input and the response, you will need them later.
   {: tip}
 
-  You need to wait for the CA to start. It might take several minutes depending on environment. You can call [`GET /components`](https://test.cloud.ibm.com/apidocs/blockchain?code=try#get-all-components) to check the CA status. You will get repeated errors before you get a `200` status code to go to next step. Note that this API call times out in one minute.
+  You need to wait for the CA to start. It might take several minutes depending on environment. You can call [`GET /components`](/apidocs/blockchain?code=try#get-all-components) to check the CA status. You will get repeated errors before you get a `200` status code to go to next step. Note that this API call times out in one minute.
 
-2. Import an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp).
+2. Import an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-a-membership-service-provide-msp).
 
-3. Import an ordering service by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-a-ordering-service).
+3. Import an ordering service by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-an-ordering-service).
 
 4. Import a peer by calling [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer).
 
@@ -250,7 +250,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   ```
   {:codeblock}
 
-5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v1/components`](https://test.cloud.ibm.com/apidocs/blockchain?code=try#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
+5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v1/components`](/apidocs/blockchain?code=try#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
 
   You need to convert the certificate from base64 into PEM format to use it to communicate with your CA. Insert the base64 encoded string of the TLS certificate into command below. Ensure that you are in your `$HOME/fabric-ca-client` directory.
 
@@ -579,7 +579,7 @@ You need to either encode the special character or surround the url with the sin
 ## Creating an organization MSP definition
 {: #ibp-v2-apis-msp}
 
-You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-an-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates needed to create an organization MSP. Use the following steps to complete the request body of the API call.
+You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-a-membership-service-provide-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates needed to create an organization MSP. Use the following steps to complete the request body of the API call.
 
 1. Input `msp` as the request `type`.
 
@@ -717,13 +717,13 @@ Copy this entire file into a text editor where you can edit it and save it to yo
 ### Retrieve the CA connection information
 {: #ibp-v2-apis-config-connx-info}
 
-First, we need to provide the connection information of your CA on {{site.data.keyword.cloud_notm}} Platform. You can use the console UI or the APIs to get the necessary information about your CA.
+First, we need to provide the connection information of your CA on the {{site.data.keyword.blockchainfull_notm}} Platform. You can use the console UI or the APIs to get the necessary information about your CA.
 
 **If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console:**
 Open the CA in your console and click **Settings**, then the **Export** button to export the CA information to a JSON file. You can use the values from this file to complete your configuration file.
 
 **If your are using the APIs:**
-You can call [`GET /ak/api/v1/components`](https://test.cloud.ibm.com/apidocs/blockchain?code=try#get-all-components) to get the connection information of your CA. If you created the CA using the `Create a Fabric CA` API, you can also find the necessary information in the response body.
+You can call [`GET /ak/api/v1/components`](/apidocs/blockchain?code=try#get-all-components) to get the connection information of your CA. If you created the CA using the `Create a Fabric CA` API, you can also find the necessary information in the response body.
 
 - The `"cahost"` and `"caport"` values are visible in the `ca_url` field in the response body or CA JSON file that you exported.  For example, if your `ca_url` is https://9.30.94.174:30167, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
 - The `"caname"` is the name of the CA that was specified when you deployed the CA. This is the value of the `ca_name` field in the response body or the exported JSON file.

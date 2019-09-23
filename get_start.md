@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-09-24"
 
 keywords: blockchain network, Enterprise Plan, getting started tutorial
 
@@ -14,6 +14,7 @@ subcollection: blockchain
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:important: .important}
 {:pre: .pre}
 {:tip: .tip}
 
@@ -23,7 +24,8 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform Enterprise Plan provides a blockchain network with high security, integrity, scalability, and performance. You can quickly provision a fully functional network and use the Network Monitor, which is a GUI dashboard, to immediately run [chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode) and applications without having to design and configure a network from scratch.
 {:shortdesc}
 
-**Note**: {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan provides a production environment. If you need a development and testing environment, see [About Starter Plan](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+Enterprise Plan has been withdrawn. Therefore, new clients cannot provision Enterprise Plan networks at this time. Existing clients can continue to add new members and create new networks until December 31, 2019. However, no new Enterprise Plan networks can be created after that date. New users can make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}
 
 This tutorial introduces the prerequisites and steps you need to follow to get an Enterprise Plan network that is hosted in {{site.data.keyword.IBM_notm}}'s highly available and secure environment.
 

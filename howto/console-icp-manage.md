@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-09-19"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -30,11 +30,14 @@ After you deploy your console on {{site.data.keyword.cloud}} Private, you can us
 ## Managing users from the console
 {: #console-icp-manage-users}
 
-The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered as the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
+The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
 
-| Role | Capabilities |
+### Role to permission mapping
+{: #console-icp-manage-role-mapping}
+
+| Role | Permissions |
 |--------|----------|
-| Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Add/remove users and change user access policies.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li></ul> |
+| Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components such as CAs, peers, and ordering services, by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Add/remove users and change user access policies.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li></ul> |
 | Writer | As a Writer, you have permissions beyond the Reader role, including: <ul><li>Import components by using the console or APIs.</li><li>Remove imported components by using the console or APIs.</li><li>Register users on a CA.</li><li> Add or remove notifications by using the console or APIs.</li></ul>  |
 | Reader | As a reader, you can perform read-only actions including: <ul><li>View console UI.</li><li>View console log.</li><li>Export components.</li><li>Issue any GET API.</li></ul> | |
 
@@ -56,7 +59,7 @@ After you add new users to the console, the users might not be able to view all 
 ### Modifying a user's role
 {: #console-icp-manage-reset-user-pw}
 
-A user with a manager role can update the roles of other console users and provide them access to more or fewer console capabilities. In the **Users** tab of the console, click the three vertical dots at the end of the specific user row, and then click **Update authenticated user**. Select the new role for the user in the right panel. The user's role will be updated when they log in to the console the next time.
+A user with a manager role can update the roles of other console users and provide them access to more or fewer console permissions. In the **Users** tab of the console, click the three vertical dots at the end of the specific user row, and then click **Update authenticated user**. Select the new role for the user in the right panel. The user's role will be updated when they log in to the console the next time.
 
 ### Deleting a user from the console
 {: #console-icp-manage-icp-remove-user}
@@ -77,11 +80,11 @@ To use the APIs, you will need to gather the following information:
 - A username and password that you can use to access the console. To create an API key, you must have an account with a [manager role](#console-icp-manage-users).
 
 ### Using an API key
-{: #console-icp-manage-create-api-key}
+{: #console-icp-manage-api-key}
 
 Each console provides its own identity and access management. You can use your console username and password to generate an API key and secret that can authorize your API calls.
 
-Each API key is associated with a role that governs which capabilities the user is allowed to perform. The API keys use the same access policy roles as exist for users who login to the console using a username and password. Refer to the table in the [Managing users](#console-icp-manage-users) section for the list of actions each role is allowed to perform. Because only manager roles can create API keys, a console administrator needs to create API keys for reader and writer users. The API keys never expire. As a result, the console administrator should delete API keys that are not being used.
+Each API key is associated with a role that governs the user's permissions. The API keys use the same access policy roles as exist for users who login to the console using a username and password. Refer to the table in the [Managing users](#console-icp-manage-users) section for the list of actions each role is allowed to perform. Because only manager roles can create API keys, a console administrator needs to create API keys for reader and writer users. The API keys never expire. As a result, the console administrator should delete API keys that are not being used.
 
 There are three APIs available to manage your API keys:
 - [Create an API key](#console-icp-manage-create-api-key)
@@ -91,7 +94,7 @@ There are three APIs available to manage your API keys:
 Use the request below to create an API key and secret. You can then use this key and secret to use the other APIs. The API secret is not stored by the console and needs to be saved by the user.
 
 #### Create an API key
-{: #console-icp-manage-create-api-key-api}
+{: #console-icp-manage-create-api-key}
 
 | **Request** |  |
 |-------------|-----------|
@@ -103,7 +106,7 @@ Use the request below to create an API key and secret. You can then use this key
 | Authorization required | manager |
 
 #### Example curl request: Create API key
-{: #console-icp-manage-create-api-key-api-example}
+{: #console-icp-manage-create-api-key-example}
 ```
 curl -X POST \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys \
@@ -143,7 +146,7 @@ curl -X GET \
 
 | **Request** |  |
 |-------------|-----------|
-| Path | DELETE `<API_endpoint>`/ak/api/v1/permissions/keys:`<api_key>` |
+| Path | DELETE `<API_endpoint>`/ak/api/v1/permissions/keys/`<api_key>` |
 | Authorization required| manager |
 
 #### Example curl request: delete API key
@@ -152,7 +155,7 @@ curl -X GET \
 
 ```
 curl -X DELETE \
-  https://9.30.252.107:31212/ak/api/v1/permissions/keys/:<api_key> \
+  https://9.30.252.107:31212/ak/api/v1/permissions/keys/<api_key> \
   -u <api_key>:<api_secret>
 ```
 
@@ -187,7 +190,7 @@ For the APIs that govern the users and settings of your console, and manage the 
 curl -X GET \
   https://9.30.252.107:31212/ak/api/v1/permissions/users \
   -u <api_key>:<api_secret> \
-  -K
+  -k
 ```
 
 #### Edit users
@@ -197,9 +200,9 @@ curl -X GET \
 |-------------|-----------|
 | Path | PUT `<API_endpoint>`/ak/api/v1/permissions/users |
 | **Request body fields** | |
-| <ul><li>`users`</li><li>`roles`</li></ul> | <ul><li>`string` user id </li><li>`["reader", "writer", "manager"]` At least one value is required</li></ul> |
+| <ul><li>`uuids`</li><li>`roles`</li></ul> | <ul><li>`array of strings` user ids </li><li>`["reader", "writer", "manager"]` At least one value is required</li></ul> |
 | **Response body fields** | |
-| <ul><li>`uuids`</li></ul>| <ul><li>`string` user id</li></ul>|
+| <ul><li>`uuids`</li></ul>| <ul><li>`array of strings` user ids </li></ul>|
 | Authorization| manager |
 
 #### Example curl request: edit a user
@@ -209,7 +212,7 @@ curl -X GET \
 curl -X PUT \
   https://9.30.252.107:31212/ak/api/v1/permissions/users \
   -u <api_key>:<api_secret> \
-  -K \
+  -k \
   -H 'Content-Type: application/json' \
   -d '{
   "users": {
@@ -237,7 +240,7 @@ curl -X PUT \
 curl -X POST \
   https://9.30.252.107:31212/ak/api/v1/permissions/users \
   -u <api_key>:<api_secret> \
-  -K \
+  -k \
   -H 'Content-Type: application/json' \
   -d '{
   "users": {
@@ -267,7 +270,7 @@ curl -X POST \
 curl -X DELETE \
   https://9.30.252.107:31212/ak/api/v1/permissions/users \
   -u <api_key>:<api_secret> \
-  -K \
+  -k \
   -H 'Content-Type: application/json' \
   -d '{
   "uuids": [
@@ -281,22 +284,22 @@ curl -X DELETE \
 
 You can view the complete set of APIs that are available in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://test.cloud.ibm.com/apidocs/blockchain).
 
-Because you are using the APIs to communicate with your console on {{site.data.keyword.cloud_notm}} Private, you need to use the authorization provided by {{site.data.keyword.cloud_notm}} with the authentication provided by your console. Replace the `Bearer Auth` in the API reference with  `-u <api_key>:<api_secret>`. You also need to add a `-K` or ``--insecure`` flag to the command, or download the console TLS certificate using your browser. You can not use the **Try it out** tab to test the APIs for networks on {{site.data.keyword.cloud_notm}} Private.
+Because you are using the APIs to communicate with your console on {{site.data.keyword.cloud_notm}} Private, you need to use the authorization provided by {{site.data.keyword.cloud_notm}} with the authentication provided by your console. Replace the `Bearer Auth` in the API reference with  `-u <api_key>:<api_secret>`. You also need to add a `-k` or ``--insecure`` flag to the command, or download the console TLS certificate using your browser. You can not use the **Try it out** tab to test the APIs for networks on {{site.data.keyword.cloud_notm}} Private.
 
 As an example, the API call below will return information about all of your components running on a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 ```
-curl -X POST \
+curl -X GET \
   https://d456fcd8ee0e4ddfb1ad9bf45986e546-optools.bp01.blockchain.cloud.ibm.com/ak/api/v1/components \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer eyJraWQ.....zJPsw
 ```
 The same API call would resemble the request below for a console deployed on {{site.data.keyword.cloud_notm}} Private.
 ```
-curl -X POST \
+curl -X GET \
 https://9.30.252.107:31212/ak/api/v1/components \
   -H 'Content-Type: application/json' \
   -u kO25ME32Nu8TikR_:buYImbg0co8SxneoBWzHueYwrf9Xhg5f \
-  -K
+  -k
 ```
 
 You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or  {{site.data.keyword.cloud_notm}}. For more information, visit [Build a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
@@ -309,7 +312,7 @@ When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you
 ### Viewing your console logs
 {: #console-icp-manage-console-logs}
 
-You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#console-icp-manage-node-logs), which are collected by {{site.data.keyword.cloud_notm}} Private.
+You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/services/blockchain/howto?topic=blockchain-icp-console-manage#console-icp-manage-node-logs), which are collected by {{site.data.keyword.cloud_notm}} Private.
 
 Navigate to the **Settings** tab in the console browser to change the logging settings. The console logs are collected from two separate sources:
 

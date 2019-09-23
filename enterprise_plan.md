@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-09-24"
 
 keywords: blockchain network, Enterprise Plan, production-ready network
 
@@ -14,16 +14,17 @@ subcollection: blockchain
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:important: .important}
 {:pre: .pre}
 
 # About Enterprise Plan
 {: #enterprise-plan-about}
 
-<!--[placeholder] Enterprise Plan is deprecated on May 30. No new Enterprise Plan networks can be created then. Your existing networks are not affected, but you can use them and get IBM's support on them for only another 30 days. You might consider using {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta instead.
-{: note} -->
-
 {{site.data.keyword.blockchainfull}} Platform Enterprise Plan is a production-ready offering for organizations who would like to create or join a blockchain network for real businesses. This plan provides the key infrastructure along with tools and support to easily start a highly secure and production-ready network. Enterprise Plan is upgraded from Hyperledger Fabric V1.0 to V1.1 on May 15, 2018. All networks that are created after May 15, 2018 are at Fabric V1.1 level. However, networks that were created earlier will remain at Fabric V1.0 level.
 {:shortdesc}
+
+Enterprise Plan has been withdrawn. Therefore, new clients cannot provision Enterprise Plan networks at this time. Existing clients can continue to add new members and create new networks until December 31, 2019. However, no new Enterprise Plan networks can be created after that date. New users can make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+{: important}
 
 **Enterprise Plan** is a production environment that offers high levels of security and support. Deploying your network on Enterprise Plan allows you to take advantage of the following features:
 
