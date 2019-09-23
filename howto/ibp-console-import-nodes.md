@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-09-24"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -83,7 +83,7 @@ To import a CA to the {{site.data.keyword.blockchainfull_notm}} Platform console
 ### Before you begin
 {: #ibp-console-import-ca-before-you-begin}
 
-- Ensure that you have already imported the CA's admin identity JSON file into your console wallet, or that you have the CA administrator enroll id and secret that was specified when the CA was originally deployed.
+- Ensure that you have already [imported the CA's admin identity JSON file into your console wallet](/docs/services/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes-admin-identities), or that you have the CA administrator enroll id and secret that was specified when the CA was originally deployed.
 - Ensure that the CA JSON file that was exported from the console where it was created is available.
 
 ### How to import a CA
@@ -143,7 +143,7 @@ Before you can import a peer, you need to gather the following information:
 
 Importing a peer is performed from the **Nodes** tab.
 1. Click **Add Peer**, followed by **Import an existing peer** and then click **Next**.
-2. Select the location where the peer was originally deployed from the **Certificate Authority location** drop-down list.
+2. Select the location where the peer was originally deployed from the **Peer location** drop-down list.
 3. Click **Add file** to upload the peer JSON file that was exported from the console where it was originally deployed.
 4. Set the admin identity for the peer by clicking **Existing identity** and selecting the peer admin identity that you imported into your console wallet.  
 
@@ -152,7 +152,7 @@ After you import the peer into the console, you can install smart contracts on t
 ## Importing an organization MSP definition
 {: #ibp-console-import-msp}
 
-You need to import an organization's MSP definition if the MSP was deployed by using another {{site.data.keyword.blockchainfull_notm}} Platform service instance console and you plan to create or update a channel that uses that MSP defintion. Also, if you plan to create a peer or ordering service that is part of an organization MSP that was deployed in another console, you need to import the MSP and the associated MSP admin identity.  The network operator who created the MSP needs to export the organization MSP definition and the corresponding admin identity to JSON files and share them with you.
+You need to import an organization's MSP definition if the MSP was deployed by using another {{site.data.keyword.blockchainfull_notm}} Platform service instance console and you plan to create or update a channel that uses that MSP definition. Also, if you plan to create a peer or ordering service that is part of an organization MSP that was deployed in another console, you need to import the MSP and the associated MSP admin identity.  The network operator who created the MSP needs to export the organization MSP definition and the corresponding admin identity to JSON files and share them with you.
 
 - If you plan to create a peer or ordering service that is part of the organization, import the associated MSP admin identity into your wallet.
 - Importing the organization MSP definition is performed from the **Organizations** tab.

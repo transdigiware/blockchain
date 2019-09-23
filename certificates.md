@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-26"
+lastupdated: "2019-09-24"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
@@ -217,7 +217,10 @@ You can also use the Fabric CA client to generate certificates and register a ne
 3. Download the TLS certs from {{site.data.keyword.cloud_notm}} depending on the service plan, location, and cluster that you use. You can find your service plan based on the URL of your certificate authority.
   - TLS Cert for Starter Plan
     - US: [us01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert){: external}; [us02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert){: external}; [us03.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us03.blockchain.ibm.com.cert){: external}; [us04.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us04.blockchain.ibm.com.cert){: external}; [us05.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us05.blockchain.ibm.com.cert){: external}; [us06.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us06.blockchain.ibm.com.cert){: external}; [us07.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us07.blockchain.ibm.com.cert){: external}; [us08.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us08.blockchain.ibm.com.cert){: external}
+    [us09.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us09.blockchain.ibm.com.cert){: external}
     - UK: [uk01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk01.blockchain.ibm.com.cert){: external}; [uk02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk02.blockchain.ibm.com.cert){: external}; [uk03.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk03.blockchain.ibm.com.cert){: external}; [uk04.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk04.blockchain.ibm.com.cert){: external}
+    [uk05.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk05.blockchain.ibm.com.cert){: external}
+    [uk06.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/uk06.blockchain.ibm.com.cert){: external}
     - Sydney: [aus01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert){: external}
   - [TLS Cert for Enterprise Plan](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 

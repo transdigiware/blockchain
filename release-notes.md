@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-09-24"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -40,8 +40,7 @@ You now have the option to choose between CouchDB and LevelDB for your Peer data
 
 **Certificate Authority (CA) updates**   
 
-The console UI no longer uses enroll IDs and secrets for management of a CA. After you create a new CA, you are now responsible for generating the admin certificates by using the **Associate identity** button. Existing CAs are not affected. See [Associating the identity of the CA admin](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) for more details.
-
+The console UI no longer stores the admin enroll id and secret that you provide when you create a CA. Therefore, after you create a CA, you are responsible for generating the admin certificates by using the new **Associate identity** and passing in the enroll id and secret. This change improves CA security. See [Associating the identity of the CA admin](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) for more details.
 
 ## 12 August 2019
 {: #08-12-2019}

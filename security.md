@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-09-24"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -238,7 +238,7 @@ Using the results that are returned in this example, the external ports that can
 ### Membership Service Providers (MSPs)
 {: #ibp-security-kubernetes-msp}
 
-Organizations in a blockchain network are represented by [MSP](/docs/services/blockchain?topic=blockchain-glossary#glossary-msp) definitions. You can use the blockchain console to add a new organization to the network by creating a new MSP definition in the **Organizations** tab. If you are the admin of an ordering service, you can use the console to add that organization MSP to a consortium using the **Ordering service** tab. Finally, if you are an administrator of a channel, you can add that organization to an existing channel so the organization can transact on the network using the **Channels** tab (this task might require the signature of other organizations). See the [Build a network tutorial](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1) for detailed steps.
+Organizations in a blockchain network are represented by [MSP](/docs/services/blockchain?topic=blockchain-glossary#glossary-msp) definitions. You can use the blockchain console to add a new organization to the network by creating a new MSP definition in the **Organizations** tab. If you are the admin of an ordering service, you can use the console to add that organization MSP to a consortium using the **Ordering service** tab. Finally, if you are an administrator of a channel, you can add that organization to an existing channel so the organization can transact on the network using the **Channels** tab (this task might require the signature of other organizations). See the topic on [Join the consortium hosted by the ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org) for detailed steps.
 
 ### Storage
 {: #ibp-security-kubernetes-storage}

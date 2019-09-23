@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-09-24"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -30,7 +30,7 @@ After installing smart contracts and deploying your nodes, you can use client ap
 ## Learning resources
 {: #ibp-console-app-learning-resources}
 
-You can learn more about how applications and smart contracts work together in the Commercial Paper sample. Visit the topic on how to [Run the commercial paper sample on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)| where you can learn to deploy and invoke the commercial paper contract.
+You can learn more about how applications and smart contracts work together in the Commercial Paper sample. Visit the topic on how to [Run the commercial paper sample on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper) where you can learn to deploy and invoke the commercial paper contract.
 
 Developing an application might require coordination between two distinct users of your network, The network operator and the application developer:
 - **The network operator** is the administrator who uses the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy the nodes of your organization and installs the smart contracts on your network.

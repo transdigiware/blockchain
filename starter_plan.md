@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-08"
+lastupdated: "2019-09-24"
 
 keywords: blockchain network, Starter Plan, getting started
 
@@ -37,7 +37,7 @@ Starter Plan is now deprecated, therefore no new Starter Plan networks can be cr
 
 
 **Notes:**
-- {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan is a development and testing environment, and is not suitable for production workloads. If you need a production environment, see [About Enterprise Plan](/docs/services/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
+- {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan is a development and testing environment, and is not suitable for production workloads.
 - {{site.data.keyword.blockchainfull_notm}} Platform is a platform service on {{site.data.keyword.cloud_notm}} and all membership offerings follow the [{{site.data.keyword.cloud_notm}} Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} on service level agreements (SLAs). Starter Plan is provisioned in a data center in a single geography. For a list of available geographies, see [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 ## What Starter Plan offers
