@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-24"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -62,6 +62,7 @@ Before you can install a smart contract, ensure that you have the following thin
 - You must either [build a network](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network) or [join a network](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network) by using your {{site.data.keyword.blockchainfull_notm}} Platform console.
 - Because smart contracts are installed onto peers, ensure that you [add peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to your console.  
 - Smart contracts are instantiated on a channel. Therefore, you must [create a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel) or [join a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2) by using your console.
+- The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts written in JavaScript, TypeScript and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. Smart contracts written in Java are not supported on the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Step one: Write a smart contract
 
@@ -154,7 +155,7 @@ To upgrade a smart contract, install the updated code by specifying the same sma
 {:important}
 When a new member that will run the smart contract joins the channel, it is mandatory to update the smart contract by installing a new version on all the peers and instantiating it on the channel with a modified endorsement policy that includes the new member.
 
-- Navigate to the the **Smart contracts** tab on the left.
+- Navigate to the **Smart contracts** tab on the left.
 - Scroll down to the **Instantiated smart contracts** table.
 - In the **Instantiated smart contracts** table, locate the smart contract version and channel that you want to upgrade. It must have the **Upgrade Available** label next to it.
 - Click the **overflow menu** on the right side of the smart contract row and click **Upgrade** to perform the following steps:  
@@ -200,7 +201,6 @@ In order to use private data with {{site.data.keyword.blockchainfull_notm}} Plat
   Instead of using the console to install and instantiate your smart contract with a collection config file, you can also use the Fabric SDK. Those instructions are also available under [How to use private data](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html){: external} in the Node SDK documentation.  
 
   **Note:** A client needs to be an admin of your peer in order to install or instantiate a smart contract using the SDK. Therefore, you need to download the certificates of the peer admin identity from your console wallet and pass the peer admin's signing certificate and private key to directly to the SDK instead of creating an application identity. For an example of how to pass a key pair to the SDK, see [Connecting to your network using low level Fabric SDK APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-low-level).  
-
 
 3. **Configure anchor peers.** Because cross organizational [gossip](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} must be enabled for private data to work, an anchor peer must exist for each organization in the collection definition. Refer to this information for [how to configure anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) on your network.
 
