@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-09-23"
 
 subcollection: blockchain
 
@@ -30,17 +30,6 @@ The following diagram explains the architecture of Kubernetes. For more explanat
 ![Kubernetes architecture diagram](../images/k8s-archi-diagram.svg "{{site.data.keyword.cloud_notm}} Kubernetes Service architecture"){: caption="Figure 1. Kubernetes architecture diagram" caption-side="bottom"}
 
 
-## {{site.data.keyword.cloud_notm}} Kubernetes Service
-{: #k8s-overview-iks}
-
-{{site.data.keyword.cloud_notm}} Kubernetes Service delivers powerful tools by combining Docker containers, the Kubernetes technology, an intuitive user experience, and built-in security and isolation to automate the deployment, operation, scaling, and monitoring of containerized apps in a cluster of compute hosts.
-
-For more information about {{site.data.keyword.cloud_notm}} Kubernetes Service, see the following topics in {{site.data.keyword.cloud_notm}} Kubernetes Service documentation:
-- [{{site.data.keyword.cloud_notm}} Kubernetes Service technology](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
-- [Why {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
-- [Defining your Kubernetes strategy](/docs/containers?topic=containers-strategy#strategy){: external}
-
-
 ## Key Kubernetes objects
 {: #k8s-overview-key-obj}
 
@@ -59,3 +48,13 @@ For more information about {{site.data.keyword.cloud_notm}} Kubernetes Service, 
 - **Pod**
 
   The smallest and simplest Kubernetes object. A Pod represents a set of running containers on your cluster. A Pod is typically set up to run a single primary container. It can also run optional sidecar containers that add supplementary features like logging. Pods are commonly managed by a Deployment. For more information, see the [Kubernetes Pod section](https://kubernetes.io/docs/concepts/workloads/pods/pod/){: external} in the Kubernetes documentation.
+
+## {{site.data.keyword.cloud_notm}} Kubernetes Service
+{: #k8s-overview-iks}
+
+{{site.data.keyword.cloud_notm}} Kubernetes Service delivers powerful tools by combining Docker containers, the Kubernetes technology, an intuitive user experience, and built-in security and isolation to automate the deployment, operation, scaling, and monitoring of containerized apps in a cluster of compute hosts. You can use the {{site.data.keyword.cloud_notm}} Kubernetes Service to deploy clusters using open source Kubernetes and the OpenShift Container Platform.
+
+For more information about {{site.data.keyword.cloud_notm}} Kubernetes Service, see the following topics in {{site.data.keyword.cloud_notm}} Kubernetes Service documentation:
+- [{{site.data.keyword.cloud_notm}} Kubernetes Service technology](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
+- [Why {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
+- [Defining your Kubernetes strategy](/docs/containers?topic=containers-strategy#strategy){: external}
