@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-09-23"
 
 keywords: IBM Blockchain Platform, video series, videos, getting started videos, demo videos
 
