@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-18"
+lastupdated: "2019-10-02"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels
 
