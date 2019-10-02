@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-02"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -21,6 +21,29 @@ subcollection: blockchain
 
 # What's new
 {: #whats-new}
+
+## October 02, 2019
+{: #whats-new-10-02-2019}
+
+### Reminders for Starter Plan users
+{: #whats-new-10-02-2019-reminders}
+
+**Admin certificates for Starter plan instances expire one year from date of service instance creation.**
+- When an admin certificate expires, you are no longer able to perform operations from the UI.  Admin certificates cannot be renewed because Starter Plan has been deprecated. 
+- If you want to continue using Starter Plan after your admin certificate expires, you need to reset your network. Your network is reset back to the original one channel, two peers and one peer per organization. Any new nodes, channels, and smart contracts you have added since your Starter network was originally deployed are lost.
+- If you no longer need to use Starter Plan, now would be a good time to deploy a new instance of the next generation {{site.data.keyword.blockchainfull}} Platform. You can [preview the platform for free](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days.
+
+**There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.** 
+- Check out this [tutorial series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external} to learn how to deploy the blockchain console and build a network.
+- [Create](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free){: external} your next generation {{site.data.keyword.blockchainfull_notm}} Platform instance.
+- See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).{: external}
+- Watch this [video](https://www.youtube.com/watch?v=j3jx8trzpKM&feature=youtu.be){: external} to learn how to use our [developer tools](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} to migrate and test existing smart contracts and build new ones. 
+- Check out our [FAQs](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-v2-faq).   
+
+### The {{site.data.keyword.blockchainfull_notm}} Platform console UI has been updated
+{: #whats-new-10-02-2019-Console}
+
+Review the [release notes](/docs/services/blockchain?topic=blockchain-release-notes-saas-20) to see the latest features available for your network.
 
 ## August 27, 2019
 {: #whats-new-8-27-2019}
@@ -41,7 +64,7 @@ Fabric v1.4 is the first long term support release of Hyperledger Fabric. You ca
 ## June 18, 2019
 {: #whats-new-6-18-2019}
 
-The {{site.data.keyword.blockchainfull}} Platform for Multicloud, which enables the use of the second-generation {{site.data.keyword.blockchainfull_notm}} Platform in your own infrastructure and the Kubernetes cloud provider of your choice, becomes generally available. This release allows the user interface console to be used to deploy and manage blockchain components in your own environment using {{site.data.keyword.cloud_notm}} Private. The {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud uses Hyperledger Fabric v1.4.1 code base and supports deployment on {{site.data.keyword.cloud_notm}} Private v3.2.
+The {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, which enables the use of the second-generation {{site.data.keyword.blockchainfull_notm}} Platform in your own infrastructure and the Kubernetes cloud provider of your choice, becomes generally available. This release allows the user interface console to be used to deploy and manage blockchain components in your own environment using {{site.data.keyword.cloud_notm}} Private. The {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud uses Hyperledger Fabric v1.4.1 code base and supports deployment on {{site.data.keyword.cloud_notm}} Private v3.2.
 
 This {{site.data.keyword.blockchainfull_notm}} Platform release includes the following key features:
 

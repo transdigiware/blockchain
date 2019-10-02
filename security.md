@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-02"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -67,14 +67,14 @@ If you are using a client application to send requests to the console, either vi
 - In {{site.data.keyword.cloud_notm}} use the default port `443`.
 - In {{site.data.keyword.cloud_notm}} Private, use the [Console port](/docs/services/blockchain?topic=blockchain-console-deploy-icp#icp-peer-deploy-quickstart-parms) that was specified when the helm chart was deployed. This external port will be in the range of `31210 - 31220`.
 
-### Key management and generation
+### Key management
 {: #ibp-security-ibp-keys}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are based on the `ECDSA` key type with a strength of `p256`. These keys are stored in the browser and added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is required that customers export these keys and store them locally on their own storage in case they clear their browser cache or switch browsers. Customer are responsible for the storage, backup and disaster recovery of all keys that they export.
+The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are `ECDSA` with Curve `P256`. These keys are stored in the browser and added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is recommended that customers export these keys and import them into their own key management system in case they clear their browser cache or switch browsers. Customer are responsible for the storage, backup and disaster recovery of all keys that they export.
 
 Because these public and private key pairs are essential to how the {{site.data.keyword.blockchainfull_notm}} Platform functions, **key management** is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. Although you can use the {{site.data.keyword.blockchainfull_notm}} Platform console to generate private keys, those keys are not permanently stored by the console or the cloud (public keys, on the other hand, are stored in the browser and added to the member's wallet so that the console can use them to manage blockchain components), making customers ultimately responsible for the storage, backup, and disaster recovery of their keys.
 
-If a private key is lost and cannot be recovered, you will need to generate a new private key by registering and enrolling a new identity with your Certificate Authority. You should also then remove and replace your signCert in any components or organizations where you had used the lost or corrupted identity.
+If a private key is lost and cannot be recovered, you will need to generate a new private key by registering and enrolling a new identity with your Certificate Authority. You should also then remove and replace your signCert in any components or organizations where you had used the lost or corrupted identity. See [Updating an organization MSP definition](/docs/services/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp) for detailed steps.
 
 You also have the option to bring your own certificates from your own non-{{site.data.keyword.blockchainfull_notm}} Platform CA when you create a peer node or ordering service. If you use your own certificates, you will need to manually build the peer or ordering service MSP definition file that includes those certificates and import the file into the console **Organizations** tab. See [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for the steps required.
 
@@ -85,7 +85,7 @@ Whereas Certificate Authorities generate the certificates that represent identit
 
 MSPs also identify the root CA that generated the certificates for the organization and any other roles beyond administrator that are associated with the organization (for example, members of a sub-organizational group), as well as setting the basis for defining access privileges in the context of a network and channel (e.g., channel admins, readers, writers).
 
-MSP folders for organization members have a defined structure that is used by Fabric components. The Fabric CA establishes this structure by creating the following folders inside the MSP definition:
+MSP folders for organization members have a defined structure that is used by Fabric components. For more information about Fabric MSPs and their structure, see the  [Membership](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} and [Membership Service Provider Structure](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#msp-structure){: external} topics in the Hyperledger Fabric documentation. The Fabric CA establishes this structure by creating the following folders inside the MSP definition:
 
 | MSP folder name | Description |
 |-------------------------|-------------|
@@ -98,10 +98,7 @@ MSP folders for organization members have a defined structure that is used by Fa
 | `tls` | Contains the TLS certs that you store for communicating with other network components. |
 {: caption="Table 1. MSP folders" caption-side="top"}
 
-
-For more information about MSPs and their structure, see the  [Membership](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} and [Membership Service Provider Structure](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#msp-structure){: external} topics in the Hyperledger Fabric documentation.
-
-Organization MSPs are stored in browser storage and must be exported to a local file system and secured by the customer.
+Note that organization MSPs are stored in browser storage and must be exported to a local file system and secured by the customer.
 
 ### Access control lists (ACLs)
 {: #ibp-security-ibp-acls}
@@ -265,16 +262,16 @@ When you have data privacy requirements, [Private Data collections](https://hype
 ### GDPR
 {: #ibp-security-kubernetes-gdpr}
 
-In order to be GDPR compliant, do not store PII data on the ledger of any channel.
+In order to be GDPR compliant, it is recommended that you store PII data off chain.
 
 ## Hyperledger Fabric Security
 {: #ibp-security-kubernetes-fabric}
 
 Because {{site.data.keyword.blockchainfull_notm}} Platform is based on Hyperledger Fabric, you can leverage the secure features included in a Fabric network.  
 
-- **TLS v1.2 communications** [TLS](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and between your nodes and your applications. TLS encryption prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other. Therefore, blockchain nodes must complete a TLS handshake with other blockchain components and your client applications.
+- **TLS v1.2 communications** [TLS](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
 
-- **ECDSA authentication:** Fabric uses the cryptographic ECDSA standard to guarantee transaction integrity. With ECDSA, the transaction originator, such as a client application, signs their message using their private key, and the recipient, such as a peer, uses the originator’s public key to verify the authenticity of the message. If a transaction is tampered with on its way to the recipient, the signature verification fails.
+- **Transaction integrity:** Fabric uses the cryptographic ECDSA standard to guarantee transaction integrity. With ECDSA, the transaction originator, such as a client application, signs their message using their private key, and the recipient, such as a peer, uses the originator’s public key to verify the authenticity of the message. If a transaction is tampered with on its way to the recipient, the signature verification fails.
 
 - **Channels:** While Fabric channels are a powerful mechanism for partitioning and isolating data, they also provide the primary foundation for data privacy. Only members of the same channel can access the data of this channel. To ensure channel security, the channel configuration update policy is configured to define the number of channel operators who need to agree on the channel update request before a channel can be updated. Therefore, a clear process must exist for defining the organizations that are allowed to join and update channel.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-02"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -42,7 +42,7 @@ The following diagram illustrates the three elements of the {{site.data.keyword.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform Console (UI)**: This is the console that allows you to create and manage your blockchain components. After you provision a service instance in {{site.data.keyword.cloud_notm}}, you can deploy an instance of the {{site.data.keyword.blockchainfull_notm}} console and link it to your {{site.data.keyword.cloud_notm}} Kubernetes cluster. Then you can use the console to create and manage your blockchain components in your Kubernetes cluster. There is no charge for the console.
 
-- **Hyperledger Fabric Components**: The console is used to create and manage blockchain components that are based on Hyperledger Fabric v1.4.1 Certificate Authority, peer, and ordering service images.  These components are deployed into your kubernetes cluster and storage is provisioned for them using the `default` storage class when they are deployed.
+- **Hyperledger Fabric Components**: The console is used to create and manage blockchain components that are based on Hyperledger Fabric v1.4.3 Certificate Authority, peer, and ordering service images.  These components are deployed into your kubernetes cluster and storage is provisioned for them using the `default` storage class when they are deployed.
 
 - **{{site.data.keyword.IBM_notm}} VS Code extension (Development Tools)**: Download the VS Code extension from the VS Code marketplace in order to get started with developing, packaging, and testing client applications and smart contracts.
 
@@ -51,7 +51,7 @@ The following diagram illustrates the three elements of the {{site.data.keyword.
 
 Before you deploy the console, ensure that you understand the following considerations:
 
-- {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is built with Hyperledger Fabric v1.4.1.
+- {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is built with Hyperledger Fabric v1.4.3.
 - All peers deployed with the console or APIs use CouchDB as their state database.
 - You have the option to link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to a free Kubernetes cluster for evaluation of the offering, however capacity and performance are limited, none of your data can be migrated, and the cluster is deleted after 30 days.
 - You are responsible for the management of health monitoring, security, and logging  of your Kubernetes cluster. See this [information](/docs/containers?topic=containers-responsibilities_iks#your-responsibilities-by-using-ibm-cloud-kubernetes-service){: external} for details on what {{site.data.keyword.cloud_notm}} manages and what you are responsible for.
@@ -59,7 +59,7 @@ Before you deploy the console, ensure that you understand the following consider
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster.
 - {{site.data.keyword.blockchainfull_notm}} Platform is available in select regions. Refer to this topic on [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/services/blockchain/howto?topic=blockchain-ibp-regions-locations) for an updated list.
 - {{site.data.keyword.blockchainfull_notm}} Platform cannot be deployed on OpenShift clusters created using the {{site.data.keyword.IBM_notm}} Kubernetes service.
-- Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, or 1.14. You cannot deploy the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on version 1.15.
+- Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, 1.14, or 1.15.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Virtual Routing and Forwarding (VRF) is not supported. The {{site.data.keyword.blockchainfull_notm}} Platform service is not compatible with accounts that are enabled for automatic global routing between subnet IP blocks. Similarly, Kubernetes clusters that are configured with private VLANs are also not supported.
@@ -82,7 +82,7 @@ Before you begin:
 When you plan to use the service instance in the context of a broader organization-wide solution, it is recommended that the participating organizations use a functional email address to create their network. In this case, access to the network does not depend on any single individual's availability.
 {:tip}
 
-- If you plan to use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, check the Kubernetes version. Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, or 1.14. You cannot deploy the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on version 1.15. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
+- If you plan to use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, check the Kubernetes version. Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, 1.14, or 1.15. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
 
 - If your plan to use a Kubernetes cluster that contains multiple zones, ensure that [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.  This setting allows worker nodes to communicate between zones.
 

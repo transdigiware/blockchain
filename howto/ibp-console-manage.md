@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-10"
+lastupdated: "2019-09-30"
 
-keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration
+keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam
 
 subcollection: blockchain
 
@@ -18,8 +18,6 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
-{:gif: data-image-type='gif'}
-
 
 # Administering your console
 {: #ibp-console-manage-console}
@@ -34,28 +32,23 @@ There are various actions that you can take to manage your console behavior. Thi
 
 Every user that accesses the console must be assigned an access policy with an {{site.data.keyword.cloud}} Identity and Access Management (IAM) user role defined. The policy determines what actions the user can perform within the console. The {{site.data.keyword.blockchainfull}} Platform console is provisioned with the email address of the {{site.data.keyword.cloud_notm}} owner as the console administrator.  By default, this {{site.data.keyword.cloud_notm}} user is given the **Manager** role for the {{site.data.keyword.blockchainfull_notm}} Platform service in IAM. The console administrator can then grant other users access to the console by using the IAM UI. For more information about IAM，see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}.  
 
-When you [use IAM to invite users](/docs/iam?topic=iam-iamuserinv#iamuserinv){: external}, you need to complete the following steps to configure their roles and access to the console:
- 1. From the menu bar, click  **Manage** > **Access (IAM)** and then select **Users**.
- 2. Click **Invite User**.
- 3. Type in the email address of the user or users.
- 4. From the **Services** drop-down list, select **Blockchain Platform**.
- 5. Scroll down to **Select roles**.
- 6. Under **Assign service access roles**, choose a role for the user, which can be **Manager**, **Writer**, and **Reader**.
- 7. Click **Invite users**.
+For instructions on how to add new user see [Inviting users to an account](https://cloud.ibm.com/docs/iam?topic=iam-iamuserinv){: external} with the following additional details:
+
+- Under **Assign users additional access**, click **IAM services**.
+- Under **What type of access to you want to assign?**, type **Blockchain Platform**.
+- Under **Service Instance Name**, select the service instance where you want to add the user.
+- Under **Service access** you can click each pill to see the specific actions associated to each role, similar to the table in the next section.
 
 ### Role to permissions mapping table
 {: #ibp-console-manage-console-role-mapping}
 
 | Role | Permissions |
 |--------|----------|
-| Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components such as CAs, peers, and ordering services, by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li></ul> |
-| Writer | As a Writer, you have permissions beyond the Reader role, including: <ul><li>Import components by using the console or APIs.</li><li>Remove imported components by using the console or APIs.</li><li>Register users on a CA.</li><li> Add or remove notifications by using the console or APIs.</li></ul>  |
-| Reader | As a reader, you can perform read-only actions including: <ul><li>View console UI.</li><li>View console log.</li><li>Export components.</li><li>Issue any GET API.</li></ul> | |
+| Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components such as CAs, peers, and ordering services, by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li><li>Link a blockchain service instance to a Kubernetes cluster.</li></ul> |
+| Writer | As a Writer, you have permissions beyond the Reader role, including: <ul><li>Import components by using the console or APIs.</li><li>Remove imported components by using the console or APIs.</li><li>Register users on a CA.</li><li> Add or remove notifications by using the console or APIs.</li><li>Refresh your connected cluster from the service instance {{site.data.keyword.cloud_notm}} Support tab.</li></ul>  |
+| Reader | As a reader, you can perform read-only actions including: <ul><li>View console UI.</li><li>View console log.</li><li>Export components.</li><li>Issue any GET API.</li><li>View the blockchain console UI.</li></ul> | |
 
  Permissions are cumulative. If you select a **Manager** role, the user will also be able to perform all **Writer** and **Reader** actions, you are not required to additionally check those roles.   Likewise, a user with the `Writer` role will be able to perform all of the actions in the **Reader** role. For console access, you need to only select a role under the **Service Access Roles**, you do not need to select anything under the **Platform Access Roles**. Check the corresponding role under **Assign platform access role** when it is important that the service instance is visible in the invited user's {{site.data.keyword.cloud_notm}} dashboard.
-
-![Add users](../images/AddICPUser.gif){: gif}
-
 
 After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
