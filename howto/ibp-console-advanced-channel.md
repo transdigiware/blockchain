@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-18"
+lastupdated: "2019-10-02"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels
 
@@ -38,7 +38,7 @@ The other organizations have the choice of whether to participate in this channe
 
 Updating a channel is different. It happens **within the console**, and follows the collaborative governance procedures that are fundamental to the way the {{site.data.keyword.blockchainfull_notm}} Platform functions. This collaborative process involves sending the channel configuration update requests to organizations that have an administrative role in the channel. These organizations are also known as channel **operators**.
 
-With the exception of [Anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers), which are updated through the **Channel details** panel inside a channel, you must click on the **Settings** button next to the channel name at the top of the page to initiate a channel configuration update transaction. A panel will appear that looks very similar to the panel you use to create a channel.
+With the exception of [Anchor peers](#ibp-console-govern-channels-anchor-peers) and [Joining a peer to a channel](#ibp-console-govern-channels-join peer), which are updated through the **Channel details** panel inside a channel, you must click on the **Settings** button next to the channel name at the top of the page to initiate a channel configuration update transaction. A panel will appear that looks very similar to the panel you use to create a channel.
 
 ### Channel configuration parameters you can update
 {: #ibp-console-govern-update-channel-available-parameters}
@@ -98,6 +98,13 @@ To configure a peer to be an anchor peer, click the **Channels** tab and open th
  - Scroll down to the Anchor peers table and click **Add anchor peer**.
  - Select at least one peer from each organization in collection definition that you want to serve as the anchor peer for the organization. For redundancy reasons, you can consider selecting more than one peer from each organization in the collection.
 
+#### Join a peer to a channel
+{: #ibp-console-govern-channels-join peer}
+
+The ordering service and the peers known to this console that are joined to this channel are listed in the **Nodes** field at the top of the channel page. It is possible to add peers to this channel by clicking the **Join peer** button. On the panel that opens, you can specify the peers you want to join this channel, as well as whether you want this peer to bootstrap gossip communication between your organization and other organizations by making this peer an anchor peer. If you already have specified an anchor peer for this channel, you do not need to make this peer an anchor peer (only one anchor peer is needed to bootstrap communication between organizations), though it is sensible to make anchor peers HA by making sure you have at least two anchor peers in each channel.
+
+As with the process for joining any peer to any channel, make sure that the [database type](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch) of this peer is compatible with the database type of the channel. Similarly, ensure that the Fabric level of this peer is at the [application and channel capability](#ibp-console-govern-update-channel-available-parameters-advanced) levels of the channel.
+
 ### Signature collection flow
 {: #ibp-console-govern-update-channel-signature-collection}
 
@@ -153,22 +160,6 @@ Like the orderer and channel capabilities, the application capability level can 
 
 If you are using the SDK to create channels, take caution to not submit a configuration update with an invalid application capability. Because application capabilities are not validated by the ordering service, an invalid application capability will not be flagged and the configuration update will be approved. Because the peers cannot process an application capability that does not exist, the peers will crash when attempting to read the configuration block containing the invalid capability. Because the peers will be unable to progress beyond this configuration block, it will not be possible to reverse this configuration block and submit another one to "fix" the problem. A channel in this state would be unrepairable.
 {: important}
-
-### Adding and removing ordering service consenters
-{: #ibp-console-govern-consenters}
-
-Currently it is not possible to form the consenter set of a channel using a subset of the available nodes. All nodes will be select by default. As a result, channel members might decide, to save compute and storage space, to reduce the number of consenters in a channel after the channel has been created. This can be done by selecting the "trash can" icon next to the name of a particular node in the channel configuration update panel.
-
-Note that **you can only add or remove one consenter during a configuration update**. If your consenter set is currently 15 nodes and you wish to reduce the consenter set to 10 nodes, you must perform five separate configuration update transactions.
-{:important}
-
-Because updating the consenter set requires the approval of ordering service admins, be aware this action will require the approval of the ordering service. Depending on the composition of the ordering service, this might require more than one ordering service admins to approve. Also, note that [deleting a node](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-add-remove-orderer) does not remove it as a consenter from any application channels where it is a consenter. You will need to reach out to the other organizations in your consortium to let them know that the consenter sets in their channels must be updated to remove the node.
-
-Because the consenter set of a channel will initially include all available nodes, adding nodes to a consenter set is likely to be less common than deleting one. However, in cases where a node has been added to the system channel, channel members might decide to add this node to the application channels as well.
-
-To add a consenter, select it from the drop down list. Note that the same rule for deleting a node applies to adding one. You will only be able to add one node at a time. Before a node can appear in the drop down list, it must be [created](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-add-remove-orderer) and then [added to the system channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-add-remove-orderer-consenter-system-channel).
-
-If you are attempting to remove a node from a consenter set of an ordering service that was imported before September 18, 2019, you will need to re-import the JSON representing the ordering service. This is because consenter set actions require submitting information that previously was not included in the JSON. Reach out to the user of the console where the ordering service was created and ask them to export the ordering service, then re-import it into your console. The console will then the merge the new information into the definition of the ordering service.
 
 ## Tuning your orderer
 {: #ibp-console-govern-orderer-tuning}
