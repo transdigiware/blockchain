@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-02"
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -20,8 +20,33 @@ subcollection: blockchain
 # Release notes
 {: #release-notes-saas-20}
 
-Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.1.
+Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
+
+## 02 October 2019
+{: #10-02-2019}
+
+**Peer, CA, and ordering node patch 1.4.3-0**
+
+**Zone selection for ordering nodes**
+
+When multiple zones are configured in your Kubernetes cluster, you can now choose which zone to deploy your ordering node to. Spreading nodes across zones is useful for ensuring high availability of your blockchain network.
+
+**Ability to set peer to be an anchor peer when the peer joins the channel**
+
+Users can now choose to designate a peer to be an anchor peer when the peer is being joined to the channel, rather than after the peer has joined the channel. An anchor peer must exist for each organization in order for cross organizational gossip to work. [Anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) are also required for private data and service discovery to work. [Learn how](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-join-peer).
+
+**Ability to add a peer to a channel from the Channels tab**
+
+A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join) for more details.
+
+**Export/Import all**
+
+Allows for the bulk export and import of your blockchain network, including nodes, MSPs and identities, rather than having to export and import these components one at a time. See the topic on [Exporting and importing in bulk](/docs/services/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-bulk-export-import) for more details.
+
+**Hyperledger Fabric v1.4.3**
+
+All new nodes are deployed using Hyperledger Fabric v1.4.3. If you have an existing blockchain network, you should review the topic on [Capabilities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities) to understand how this new Fabric version can impact your network.
 
 ## 21 August 2019
 {: #08-21-2019}
