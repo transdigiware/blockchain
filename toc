@@ -10,13 +10,11 @@ IBM Blockchain Platform
 		index.md
 		howto/ibp-v2-deploy-iks.md
 		get-started-console-icp.md
-		howto/remote_peer_aws.md
 
 	{: .topicgroup}
 	About IBM Blockchain Platform
 		howto/ibp-console.md
 		console-icp-about.md
-		howto/remote_peer.md
 
 	whats_new.md
 
@@ -39,6 +37,7 @@ IBM Blockchain Platform
 		howto/ibp-v2-deploy-iks.md
 		howto/ibp-v2-apis.md
 		howto/ibp-console-manage.md
+		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
 	IBM Blockchain Platform for Multicloud
@@ -60,18 +59,12 @@ IBM Blockchain Platform
 		howto/ibp-console-advanced-channel.md
 		howto/ibp-console-govern-components.md
 		howto/ibp-v2-operations-service.md
-		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
 	Developing smart contracts and applications
 		vscode-extension.md
 		howto/develop_chaincode.md
 		best_practices.md
-
-	{: .topicgroup}
-	IBM Blockchain Platform for Amazon Web Services
-		howto/remote_peer_aws.md
-		howto/remote_peer_operate_aws.md
 
 	{: .topicgroup}
 	Starter and Enterprise Plan

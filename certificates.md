@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-03"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
 
@@ -41,8 +41,6 @@ You can use the {{site.data.keyword.blockchainfull_notm}} Platform Network Monit
   - **Type:** Select the type of identity that you want to register, either peer or client application.
   - **Affiliation:** This will be the affiliation within your organization, such as `org1` for example, that the identity will belong to.
   - **Maximum Enrollments:** You can use this field to limit the number of times your can enroll or generate certificates using this identity. If you leave the field blank, the value defaults to an unlimited number of enrollments.
-
-You can use this panel to register a new peer identity if you are deploying a [remote peer](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about). Alternatively, you can register a client if you are developing an application that can submit transactions to your network.
 
 ### Generating client-side certificates (enrollment)
 {: #managing-certificates-enrollment}
