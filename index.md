@@ -38,9 +38,6 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 
 You can run the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernetes Cluster on {{site.data.keyword.cloud_notm}} or on the OpenShift Container Platform.
 
-If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
-{: note}
-
 | | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} | {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) |
 |----|---|----|
 | Where do you want to deploy the platform?| An {{site.data.keyword.IBM_notm}} Kubernetes Service cluster on {{site.data.keyword.cloud_notm}} | Any x86_64 Red Hat OpenShift Container Platform 3.11 Kubernetes cluster -– private, public or hybrid multicloud |
