@@ -10,13 +10,12 @@ IBM Blockchain Platform
 		index.md
 		howto/ibp-v2-deploy-iks.md
 		get-started-console-icp.md
-		howto/remote_peer_aws.md
+		certified_images.md
 
 	{: .topicgroup}
 	About IBM Blockchain Platform
 		howto/ibp-console.md
 		console-icp-about.md
-		howto/remote_peer.md
 
 	whats_new.md
 
@@ -39,6 +38,7 @@ IBM Blockchain Platform
 		howto/ibp-v2-deploy-iks.md
 		howto/ibp-v2-apis.md
 		howto/ibp-console-manage.md
+		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
 	IBM Blockchain Platform for Multicloud
@@ -60,7 +60,7 @@ IBM Blockchain Platform
 		howto/ibp-console-advanced-channel.md
 		howto/ibp-console-govern-components.md
 		howto/ibp-v2-operations-service.md
-		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-ca.md
 
 	{: .topicgroup}
 	Developing smart contracts and applications
@@ -69,12 +69,9 @@ IBM Blockchain Platform
 		best_practices.md
 
 	{: .topicgroup}
-	IBM Blockchain Platform for Amazon Web Services
-		howto/remote_peer_aws.md
-		howto/remote_peer_operate_aws.md
-
-	{: .topicgroup}
 	Starter and Enterprise Plan
+		enterprise_upgrade.md
+		enterprise_app_upgrade.md
 		get_start_starter_plan.md
 		starter_plan.md
 		get_start.md
@@ -96,10 +93,12 @@ IBM Blockchain Platform
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
+	reference/detailed-pricing.md
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/videos.md
 	reference/ibp_regions.md
+	reference/at-events.md
 	reference/logdna.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
