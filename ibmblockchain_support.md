@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-08-21"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -39,6 +39,11 @@ If your problem cannot be solved by any of the [free digital support resources](
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code extension**
   Submit any issues in the [{{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code extension](https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues){: external}.
+
+- **{{site.data.keyword.blockchainfull_notm}} Platform for AWS**
+  {{site.data.keyword.IBM_notm}} does not provide support for this offering and will not respond to support cases that are opened in {{site.data.keyword.cloud_notm}} and are related to {{site.data.keyword.blockchainfull_notm}} Platform for AWS.
+
+  For issues that are related to AWS, you can use both [community support forums](https://forums.aws.amazon.com/index.jspa){: external} and [AWS premium support](https://aws.amazon.com/premiumsupport/){: external}.
 
 - **Starter Plan and Enterprise Plan on {{site.data.keyword.cloud_notm}}**
   Submit a support case through {{site.data.keyword.cloud_notm}}. For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).

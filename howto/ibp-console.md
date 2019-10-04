@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-10-02"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -26,9 +26,6 @@ The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_
 {:shortdesc}
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is based on Hyperledger Fabric 1.4.3. For more information about Hyperledger Fabric 1.4.3 new features, see [What's new in 1.4](https://hyperledger-fabric.readthedocs.io/en/release-1.4/whatsnew.html){: external}.
-
-If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
-{: note}
 
 ## What the new release offers
 {: #ibp-console-overview-capabilities}

@@ -65,7 +65,7 @@ The sole aspect that must be determined is the size of the peers that the networ
 
 You should use Enterprise Plan for more stable, production, or almost production level deployments. For testing purposes, use [Starter Plan](/docs/services/blockchain?topic=blockchain-starter-plan-about#starter-plan-about), or [install Docker images locally](https://hyperledger-fabric.readthedocs.io/en/release-1.2/build_network.html).
 
-<!--- The Enterprise plan provides the ordering service and CA. The membership fee is $1,000, and a per peer fee of $1,000 that is associated with the network. If you want to have high availability (HA), you must purchase an additional peer to provide the HA capabilities. For example, one organization (associated membership fee of $1,000) of two peers ($1,000 X 2 peers) with HA ($1,000 X 2 HA peers) requires a monthly charge of $5,000.  --->
+
 
 ## Pricing
 {: #enterprise-plan-about-pricing}

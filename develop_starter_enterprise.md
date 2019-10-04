@@ -169,9 +169,9 @@ Run the following command to ping the business network:
    ```
    {:codeblock}
 
-To view the chaincode logs, click **Channels**, and then select your channel. <!-- Click the dropdown arrow to view the logs, or the Actions symbol to view in more detail. --> Click the **Chaincode** tab. Expend the chaincode row and then click the **JSON** or **Logs** button.
+To view the chaincode logs, click **Channels**, and then select your channel.  Click the **Chaincode** tab. Expend the chaincode row and then click the **JSON** or **Logs** button.
 
-<!-- [fN-Yuj](https://i.makeagif.com/media/4-13-2018/fN-Yuj.gif) -->
+
 
 The business network has now been successfully deployed to the Starter Plan instance.
 

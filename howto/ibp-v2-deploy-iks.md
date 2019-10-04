@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-10-02"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -27,9 +27,6 @@ subcollection: blockchain
 {:shortdesc}
 
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
-
-If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
-{: note}
 
 After you link your {{site.data.keyword.blockchainfull_notm}} Platform to your {{site.data.keyword.cloud_notm}} Kubernetes cluster, you can launch the console to create and manage your blockchain components and experience the following important benefits:
 
@@ -256,7 +253,7 @@ To configure this access you must complete the following steps:
    6. Check the **Administrator** and **Manager** roles for this user.
    7. Click **Assign**.
 
-<!-- ![Add IAM user](../images/k8sAccess.gif){: gif}-->
+
 
 For more information about Kubernetes access control, see [how to pick the right access policy and role for your users](/docs/containers?topic=containers-users#access_roles).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-10-02"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 
 **Admin certificates for Starter plan instances expire one year from date of service instance creation.**
 - When an admin certificate expires, you are no longer able to perform operations from the UI.  Admin certificates cannot be renewed because Starter Plan has been deprecated. 
-- If you want to continue using Starter Plan after your admin certificate expires, you need to reset your network. Your network is reset back to the original one channel, two peers and one peer per organization. Any new nodes, channels, and smart contracts you have added since your Starter network was originally deployed need to be recreated in the new network.
+- If you want to continue using Starter Plan after your admin certificate expires, you need to reset your network. Your network is reset back to the original one channel, two peers and one peer per organization. Any new nodes, channels, and smart contracts you have added since your Starter network was originally deployed are lost.
 - If you no longer need to use Starter Plan, now would be a good time to deploy a new instance of the next generation {{site.data.keyword.blockchainfull}} Platform. You can [preview the platform for free](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days.
 
 **There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.** 

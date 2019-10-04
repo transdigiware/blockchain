@@ -34,9 +34,7 @@ The combination of **installation and instantiation** is a powerful feature beca
 
 You must install the chaincode on every peer that will run this chaincode. Complete the following steps to install a chaincode:
 1. In the "Install code" screen of your Network Monitor, select a peer from the drop-down list to install the chaincode onto. Click the **Install Chaincode** button.
-<!--
-  ![Chaincode screen](../images/chaincode_install_overview.png "Chaincode screen")
--->
+
 
 2. In the **Install Chaincode** pop-up panel, enter the name and version of your chaincode. **Note** that the name and version strings will be used in applications to interact with the installed chaincode. Click the **Browse** button and navigate through your local file system to wherever your chaincode source files are stored. Select one or more chaincode source files to install on the peer. Then, select your chaincode language from the **Chaincode Type** dropdown.
 
@@ -52,14 +50,10 @@ After a chaincode is installed onto the file system of every peer that joins a c
 
 You need to have **Operator** or **Writer** authority on the channel to instantiate the chaincode. The chaincode that has the same name and version on different peers needs to be instantiated only once to deploy the chaincode container. Complete the following steps to instantiate a chaincode:
 1. In the "Install code" screen of your Network Monitor, select the peer that your installed the chaincode and locate the chaincode that you want to instantiate from the chaincode table. Then, click the **Instantiate** button under the **Action** header.
-<!--
-  ![Instantiate Chaincode](../images/chaincode_instantiate.png "Instantiate Chaincode")
--->
+
 
 2. In the **Instantiate Chaincode** pop-up panel, set the key value pairs as arguments for chaincode initialization, and select the channel to instantiate on.  Click **Next**.
-<!--
-  ![Instantiate Chaincode panel](../images/chaincode_instantiate_panel.png "Instantiate Chaincode panel")
--->
+
 
 3. Specify your chaincode's [endorsement policy](/docs/services/blockchain?topic=blockchain-glossary#glossary-endorsement-policy). You can learn more about how to set endorsement policies in the [next section](#install-instantiate-chaincode-endorsement-policy).
 
@@ -79,7 +73,7 @@ When you use the Network Monitor to set your endorsement policy, you can either 
 
 * **Use JSON to specify an Advanced Policy:** Use advanced policies to require endorsements from important members or administrators, or to give the endorsements of certain members more weight.
 
-  The easiest way to specify an advanced policy is to start by building a simple policy by using the UI screen. Then, click the **Advanced Policy** button, which autofills a JSON version of the policy with the same members and rules as you set in the simple policy. You can then edit the JSON to write a more advanced version. For more information about writing endorsement policies in JSON, see [Hyperledger Fabric Node SDK documentation](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}. <!--You can also find examples of advanced endorsement policies in the main [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.2/arch-deep-dive.html#example-endorsement-policies){: external}-->
+  The easiest way to specify an advanced policy is to start by building a simple policy by using the UI screen. Then, click the **Advanced Policy** button, which autofills a JSON version of the policy with the same members and rules as you set in the simple policy. You can then edit the JSON to write a more advanced version. For more information about writing endorsement policies in JSON, see [Hyperledger Fabric Node SDK documentation](https://fabric-sdk-node.github.io/global.html#ChaincodeInstantiateUpgradeRequest){: external}. 
 
   ![Advanced endorsement policy](../images/advanced_endorsement.png "Advanced endorsement policy")
 

@@ -114,7 +114,7 @@ The ``swagger_url`` represents the api endpoint that you will use when you creat
 
 If you use Enterprise Plan, you need to complete two steps to create a network with APIs.
 
-1. Create a blockchain service instance on {{site.data.keyword.cloud_notm}} with Enterprise Plan<!-- or Enterprise Plus Plan-->.  Retrieve your service instance ID and token as the basic auth username and password. For more information, see [Retrieving basic auth credential for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
+1. Create a blockchain service instance on {{site.data.keyword.cloud_notm}} with Enterprise Plan.  Retrieve your service instance ID and token as the basic auth username and password. For more information, see [Retrieving basic auth credential for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token).
 
 2. Call the **Create network** API using these service credentials. Issue this API against the api `swagger_url` retrieved from [Checking available network locations](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-check-location). Navigate to the ``swagger_url link`` to use the Swagger UI to issue the Create Network API, or programmatically issue the command using the URL address without ``/api-docs``. For example,
 
@@ -133,7 +133,7 @@ If you use Enterprise Plan, you need to complete two steps to create a network w
 
 ## Inviting new members to a network
 
-After you create a blockchain network, you can invite other members to join your network. You need to specify the ID of the network that you want to invite new members to join. The basic auth credential that is required to invite a member is different than the one that is used in the **Create network** API. <!--In order to get the basic auth information, you need to follow the same steps in "Retrieving basic auth information for API". --> You can get the credential to invite a member with the **Retrieve network credentials** API on the [Swagger UI](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials) or [retrieve basic auth information for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token) from your service instance in {{site.data.keyword.cloud_notm}}.
+After you create a blockchain network, you can invite other members to join your network. You need to specify the ID of the network that you want to invite new members to join. The basic auth credential that is required to invite a member is different than the one that is used in the **Create network** API.  You can get the credential to invite a member with the **Retrieve network credentials** API on the [Swagger UI](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials) or [retrieve basic auth information for API](/docs/services/blockchain/howto?topic=blockchain-swagger-network#swagger-network-retrieve-id-token) from your service instance in {{site.data.keyword.cloud_notm}}.
 
 ```
 /networks/{networkID}/invite
