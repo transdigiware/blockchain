@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-02"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -73,14 +73,13 @@ In this tutorial, we will create one organization. Therefore, we will need to cr
 Your CA issues the certificates and private keys for your organization's admins, client applications, and nodes. These identities are not managed by {{site.data.keyword.IBM_notm}} and the keys are not stored in the console. They are only stored in your browser local storage. Therefore, make sure to export your identities and the MSP of your organization. If you attempt to access the console from a different machine or a different browser, you will need to import these identities and organization definitions.
 {:important}
 
-Perform the following steps from your console:  
+Perform the following steps from your console:
 
 1. Navigate to the **Nodes** tab on the left and click **Add Certificate Authority**. The side panels will allow you to customize the CA that you want to create and the organization that this CA will issue keys for.
 2. In this tutorial, we're creating nodes, so make sure the option to **Create** a Certificate Authority is selected. Then click **Next**.
-3. Use the second side panel to give your CA a **display name**. Our recommended value for this CA is `Org2 CA`.
-4. On the next panel, give your CA admin credentials by specifying a **CA administrator enroll ID** of `admin` and a secret of `adminpw`. Again, these are **recommended values**.
-5. If you are using a paid cluster, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, accept all the defaults and click **Next**. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free cluster, you will see the **Summary** page.
-6. Review the Summary page, then click **Add Certificate Authority**.
+3. Use the side panel to give your CA a **display name**. Our recommended value for this CA is `Org2 CA`. Then give your CA admin credentials by specifying a **CA administrator enroll ID** of `admin` and a secret of `adminpw`.
+4. If you are using a paid cluster, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, accept all the defaults and click **Next**. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free cluster, you will see the **Summary** page.
+5. Review the Summary page, then click **Add certificate authority**.
 
 **Task: Creating the peer organization CA**
 
@@ -245,23 +244,26 @@ In a production scenario, it is recommended to deploy three peers to each channe
 ## Step two: Join the consortium hosted by the ordering service
 {: #ibp-console-join-network-add-org2}
 
-As we noted earlier, a peer organization must be known to the ordering service before it can create or join a channel (this is also known as joining the "consortium", the list of organizations known to the ordering service). This is because channels are, at a technical level, **messaging paths** between peers through the ordering service. Just as a peer can be joined to multiple channels without information passing from one channel to another, so too can an ordering service have multiple channels running through it without exposing data to organizations on other channels.
+Because the channel we are joining, `channel1`, has already been created, it is not strictly necessary for Org2 to become a member of the consortium before being joined to the channel. Instead, it is possible for the MSP representing Org2 to be sent to Org1 out of band using the process described in [Export your organization information](#ibp-console-join-network-add-org2-remote). Org1, the sole administrator of `channel1`, can then perform a channel configuration update to add Org2 to the channel using the process described in [Step three: Add the peer's organization to an existing channel](#ibp-console-join-network-add-channel). After which the JSON representing the ordering service can be exported following the process described in [Export the ordering service](#ibp-console-join-network-export-ordering-service) and imported following the process described in [Import the ordering service from another cluster](#ibp-console-join-network-import-remote-orderer) However, because Org2 cannot create a channel until its MSP is joined to the consortium, we will show that process here.
+{:important}
+
+As we noted earlier, a peer organization must be known to the ordering service before it can create a channel (this is also known as joining the "consortium", the list of organizations known to the ordering service). This is because channels are, at a technical level, **messaging paths** between peers through the ordering service. Just as a peer can be joined to multiple channels without information passing from one channel to another, so too can an ordering service have multiple channels running through it without exposing data to organizations on other channels.
 
 Because only ordering service admins can add peer organizations to the consortium, you need to either:
 
 * **Be** the ordering service admin. In which case you can add the peer organization you created to the consortium directly.
 * **Send** MSP information to the ordering service admin, who will add your organization to their consortium.
 
-In the next step, we will show how to add your peer organization to a consortium hosted by an ordering service in another {{site.data.keyword.blockchainfull_notm}} Platform service instance. The tutorial assumes that you have created the ordering service and can follow every step yourself. If the ordering service was created by another person, ensure that the ordering service admin follows the steps marked with the blue tip box at the top.
+In the next step, we will show how to add your peer organization to a consortium hosted by an ordering service in another {{site.data.keyword.blockchainfull_notm}} Platform service instance. The tutorial assumes that you have created the ordering service and can follow every step yourself. If the ordering service was created in another console, ensure that the ordering service admin follows the steps marked with the blue "tip" box at the top.
 
 If you followed the Build a network tutorial or if your console already includes the ordering service, you can skip ahead to [Add the peer's organization to the ordering service](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2-local). You can then continue with [Step three: Add the peer's organization to an existing channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-channel).
 
 ### Export your organization information
 {: #ibp-console-join-network-add-org2-remote}
 
-You need to send your organization MSP definition to the ordering service admin and be added to the consortium by using the steps below. In order to follow these steps you need to be the admin of the **peer organization**, meaning you have the peer organization admin identity in your Wallet:
+To send your MSP to the console where the ordering service was created:
 
-1. Navigate to the **Organizations** tab. You can see the organizations available for export are listed under **Available organizations**. Click the **download** button inside the organization tile to download the JSON configuration file that represents the MSP of the peer organization.
+1. Navigate to the **Organizations** tab. You can see the organizations available for export are listed under **Available organizations**. Click the **download** button inside the organization tile to download the JSON configuration file that represents the MSP of the peer organization. Note: you must be an admin of the **peer organization**, meaning you have the peer organization admin identity in your Wallet.
 2. Send this file to the ordering service admin in an out of band operation.
 
 ### Import the organization definition
@@ -270,21 +272,21 @@ You need to send your organization MSP definition to the ordering service admin 
 This step needs to be completed by an ordering service admin.
 {:tip}
 
-The ordering service admin needs to import this JSON file to add your organization to their console:
+Once the MSP representing Org2 has been received, an administrator of the ordering service must import the JSON file:
 
 - Navigate to the **Organizations** tab, click the **Import MSP definition** button, and select the JSON file that represents the peer organization MSP definition. You can leave the `I have an administrator identity for the MSP definition` checkbox unchecked as the admin identity is not required here.
 
-### Add the peer's organization to the ordering service
+### Add the peer's organization to the consortium
 {: #ibp-console-join-network-add-org2-local}
 
 This step needs to be completed by an ordering service admin.
 {:tip}
 
-Use these steps to add the peer organization to the consortium hosted by the ordering service. Only ordering service admins can add peer organizations to the consortium. You must have the ordering service organization admin identity in your Wallet to perform this task.
+After the MSP representing Org2 has been imported, it can be added to the consortium. Note that only the organizations listed under **Ordering service administrators** in the **Details** tab of the ordering service can add peer organizations to the consortium.
 
 1. Navigate to the **Nodes** tab.
 2. Scroll down to the ordering service you want to use and click on it to open it.
-3. Under **Consortium Members**, click **Add organization**.
+3. Under **Consortium members**, click **Add organization**.
 4. From the drop-down list, select `Org2 MSP`, as this is the MSP that represents `Org2`.
 5. Click **Add organization**.
 
@@ -296,7 +298,9 @@ If you followed the **Build a network** tutorial or if your console already incl
 This step needs to be completed by the ordering service admin.
 {:tip}
 
-Complete the following steps to **Export** the ordering service before it can be imported by the peer organization:
+Once Org2 has been added to the consortium, it has the requisite **permissions** to create a channel. However, it cannot do so until the console where Org2 was created imports a JSON representing the ordering service (which includes, among other things, the endpoint that must be targeted by a channel creation request).
+
+To **Export** the ordering service:
 
 1. Navigate to the ordering service inside the **Nodes** tab. Click the **Download** arrow beneath the ordering service name to download a JSON configuration file.
 2. Send this file to the peer organization in an out of band operation. The peer organization administrator can then use the configuration file to add the ordering service to the console.
@@ -308,8 +312,8 @@ Complete the following steps to **import** the ordering service into your consol
 
 1. Navigate to the **Nodes** page and click **Add ordering service**.
 2. Click the option to **Import an existing ordering service**.
-3. Select the **Service location** where the ordering service was deployed, and click the **Add file** button to select the JSON that represents the ordering service.
-4. When you are asked to associate an identity, select the peer organization identity. In this tutorial, that would be `Org2 MSP admin`. Click **Add ordering service**.
+3. Then click the **Add file** button to select the JSON that represents the ordering service. If the JSON representing the ordering service was created before October 2nd, 2019, you will be asked to specify a **Service location** for this ordering service.
+4. When you are asked to associate an identity for the ordering service nodes, select the peer organization identity you have locally (note that this "association" step is for administration of the ordering nodes themselves and will not make this identity one of the "ordering service administrators" mentioned in the [Add the peer's organization to the consortium](#ibp-console-join-network-add-org2-local) above. In this tutorial, this local peer organization identity would be `Org2 MSP admin`. Click **Add ordering service**.
 
 When this process is complete, it is possible for `Org2` to create a channel hosted on the `Ordering Service`.
 
@@ -333,7 +337,7 @@ After the admin of the ordering service has joined your peer organization to the
 ## Step Four: Join your peer to the channel
 {: #ibp-console-join-network-join-peer-org2}
 
-We are almost done. Your peer can now be joined to an existing channel. You need to get the `channel name`, out of band, from an organization that's a member of the channel. In the **Build a network** tutorial, we created a channel named `channel1`. If you are not already there, navigate to the **Channels** tab in the left navigation.
+We are almost done. Your peer can now be joined to an existing channel. You need to get the `channel name`, out of band, from an organization that is a member of the channel. In the **Build a network** tutorial, we created a channel named `channel1`. If you are not already there, navigate to the **Channels** tab in the left navigation.
 
 Perform the following steps from your console:
 

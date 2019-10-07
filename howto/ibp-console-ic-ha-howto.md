@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-09-09"
 
 keywords: HA, highly availability, multiregion
 
@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Setting up multiregion High Availability (HA) deployments
+# Setting up multiregion High Availability (HA) deployments for peers
 {: #ibp-console-hadr-mr}
 
 Multiregion HA configuration provides the highest degree of HA coverage that is possible. Deploying peers across multiple geographic regions ensures that if any one region becomes unavailable, the peers in other regions can continue to transact. Note that multiregion HA support for CAs and the ordering service is not currently available.
@@ -28,8 +28,8 @@ Multiregion HA configuration provides the highest degree of HA coverage that is 
 {: #ibp-console-hadr-overview}
 
 When you setup multiregion HA support for peers, you will perform the following tasks:
-- Create multiple service instances in {{site.data.keyword.cloud}} that are each bound to a Kubernetes cluster in a different region.
-- Create your blockchain nodes in different regions.
+- Create multiple blockchain service instances that are each bound to a Kubernetes cluster in a different region.
+- Use the blockchain console or APIs to create your blockchain nodes in the different regions.
 - Use the node export/import functionality to manage the nodes from a single console.
 
 ## Configuration steps
@@ -37,8 +37,8 @@ When you setup multiregion HA support for peers, you will perform the following 
 
 To configure multiregion HA by creating redundant peers for each organization, complete the following steps when you configure your blockchain network:
 
-1. Create three {{site.data.keyword.cloud_notm}} Kubernetes clusters in the regions you prefer. These clusters can be located in any region you want, although for high performance they should be relatively close together. For example, the regions, East Coast US, and West Coast US, and Canada are better than the regions, West Coast US, London, and Tokyo.
-2. Deploy a new {{site.data.keyword.blockchainfull_notm}} Platform instance and link it to the cluster in the first region. Then deploy another {{site.data.keyword.blockchainfull_notm}} Platform instance and link it to the cluster in the second region. Repeat these steps to link a third service instance to the cluster in the third region. When you are finished, you have three separate {{site.data.keyword.blockchainfull_notm}} Platform instances linked to three separate clusters, each in a different region, and three separate consoles.
+1. Create three {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private Kubernetes clusters in the regions you prefer. These clusters can be located in any region you want, although for high performance they should be relatively close together. For example, the regions, East Coast US, and West Coast US, and Canada are better than the regions, West Coast US, London, and Tokyo.
+2. Deploy a new {{site.data.keyword.blockchainfull_notm}} Platform instance. If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, you need to link the service instance to the cluster.  Repeat these steps in a second and third region. When you are finished, you have three separate {{site.data.keyword.blockchainfull_notm}} Platform instances linked to three separate clusters, each in a different region, and three separate consoles.
 
 This tutorial assumes that an ordering service exists with a channel defined that the peers can join.
 {: important}
@@ -59,7 +59,7 @@ Before you can instantiate the smart contract on the channel you need to follow 
 - [Join your peer to the channel](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2).
 - Finally, if you use service discovery, private data, and peer gossip, the ordering service admin needs to [configure anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) on the channel. For HA, it is recommended that you add each redundant peer as an anchor peer. That way if one of the peers is unavailable, gossip between organizations can continue.   
 
-Now that you have joined the peer to the channel, you can [instantiate the smart contract](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2) on the channel.
+Now that you have joined the peer to the channel, you can [instantiate the smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate) on the channel.
 
 ### Step two: Export the metadata and identities from cluster one
 {: #ibp-console-hadr-export-meta1}
@@ -94,7 +94,7 @@ Now that you have joined the peer to the channel, you can [instantiate the smart
 2. Create new peers, by using the CA you that imported from cluster one as the peer's CA and by using the peer organization MSP that you imported from cluster one as the peer organization MSP definition.
 3. In cluster two and three, you can now repeat the steps you ran to join the peers to the same channel as the peer in cluster one. 
 4. After you install the smart contract on these redundant peers, the ledger will automatically sync between all the peers.
-5. Again, if you plan to use use service discovery, private data, and peer gossip, you need to make each redundant peer an anchor peer.  
+5. Again, if you plan to use service discovery, private data, and peer gossip, you need to make each redundant peer an anchor peer.  
 
 Your network is now configured such that a failure in any single region will not affect the peer workload.  
 

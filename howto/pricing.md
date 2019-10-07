@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-09-06"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -20,8 +20,11 @@ subcollection: blockchain
 {: #ibp-pricing}
 
 
-This guide helps you understand pricing for {{site.data.keyword.blockchainfull}} Platform membership plans, and how much you will pay as you develop and grow your blockchain network.  
+This guide helps you understand pricing for {{site.data.keyword.blockchainfull}} Platform Starter and Enterprise plans, and how much you will pay as you develop and grow your blockchain network.
 {:shortdesc}
+
+Starter Plan is now deprecated, therefore no new Starter Plan networks can be created at this time. Make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks). Pricing information for this latest offering is available in the topic [Pricing for IBM Blockchain Platform for IBM Cloud](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing).
+{: important}  
 
 {{site.data.keyword.blockchainfull_notm}} Platform charges monthly membership and peer fees to organizations who build blockchain networks. The fees are different depending on the membership plan that you choose and the network resources that your network uses. The following table shows the pricing overview of {{site.data.keyword.blockchainfull_notm}} Platform.
 

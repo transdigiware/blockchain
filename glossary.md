@@ -59,6 +59,10 @@ The Connection profile is visible in the "Overview" screen of the Network Monito
 {: #glossary-consensus}
 A collaborative process to keep the ledger transactions synchronized across the network. Consensus ensures that ledgers are updated only when the appropriate participants approve transactions, and that ledgers are updated with the same transactions in the same order. There are many different algorithmic ways of achieving consensus.
 
+## Consenter set
+{: #glossary-consenter}
+The ordering service nodes actively participating in the ordering process on a channel. These nodes are also known as "consenters."
+
 ## Console
 {: #glossary-console}
 The name of the user interface in the {{site.data.keyword.blockchainfull_notm}} Platform. The console allows users to view, create, and manage their deployments. Because the public and private keys are only stored locally in the browser the console runs on, users maintain total control over their keys.
@@ -162,6 +166,10 @@ Any organization, individual, application, or device that interact with the bloc
 ## Peer
 {: #glossary-peer}
 A blockchain network resource that provides the services to execute and validate transactions, and maintain ledgers. The peer runs chaincode and is the holder of transaction history and the current state of assets on the network’s channels, that is, the ledger. They are owned and managed by organizations and are joined to channels.
+
+## Quorum
+{: #glossary-quorum}
+In a Raft ordering service, a quorum represents the number of nodes that must be available for transactions to be processed. This number is a majority of the total number of nodes in the consenter set of the channel. In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. Similarly, if you have two nodes, you will need both available, since the majority of two is two (for this reason, a configuration of two nodes is discouraged; there is no advantage to a two node configuration). In a similar vein, the majority of three is two, the majority of four is three, the majority of five is three, and so on.
 
 ## Raft
 {: #glossary-raft}

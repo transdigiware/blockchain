@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-10-03"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
 
@@ -61,11 +61,6 @@ The Stop and Start actions are not available for an Orderer node. In general, th
 You can also check component logs by clicking **View Logs** from the drop-down list under the **Actions** header. The logs expose the calls between the various network resources and are useful for debugging and troubleshooting. For more information on using your network logs, see [Monitoring a blockchain network](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)
 
 To understand the effects of starting and stopping a peer, you can experiment by stopping a peer and attempting to target it with a transaction, and you will see connectivity errors in the logs. When you restart the peer and attempt the transaction again, you will see a successful connection. You can also leave a peer down for an extended period of time as your channels continue to transact. When the peer is brought back up, you will notice a synchronization of the ledger as it receives the blocks that were committed when it was down. After the ledger is fully synchronized, you can perform normal invokes and queries against it.
-
-### Remote Peer Configuration
-{: #ibp-dashboard-peer-connection-information}
-
-If you deploy a peer outside {{site.data.keyword.cloud_notm}}, you need to provide the API endpoint information of your network during configuration. Click the **Remote Peer Configuration** button to retrieve the API endpoint information of the network to configure your peer. The pop-up window provides the API endpoint information of network ID, organization MSP, CA name, CA URL, and CA TLS certificate. You can either click the copy icon at the end of each field to copy the value of that field, or click the **Download** button to save values of all fields in a JSON file. For more information, see [About {{site.data.keyword.blockchainfull_notm}} Platform for Amazon Web Services](/docs/services/blockchain/howto?topic=blockchain-remote-peer-aws-about#remote-peer-aws-about).
 
 ### Connection Profile
 {: #ibp-dashboard-connection-profile}
