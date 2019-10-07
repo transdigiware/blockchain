@@ -18,7 +18,7 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:note: .note}
 {:tip: .tip}
-{:download: .download}_
+{:download: .download}
 
 # Detailed pricing scenarios
 {: #ibp-detailed-pricing}
@@ -38,10 +38,10 @@ When you configure your peers, CAs and ordering service, you might need to adjus
 
 | | Assumptions | Cost to Host | Cost to Join |
 |:-|:-----------------|:-----------------|:-----------------|
-| **Goal:** Larger peers for more robust integration testing. <br><br> You can join the peers to multiple channels to better simulate a real environment or put them all in one account. | <ul><li>2-3 organizations</li><li>CouchDB</li><li>Bronze Storage</li><li>No: HA, Backup, HSM, LogDNA, SysDig, Dedicated VM/HW</li></ul> | Includes: <ul><li>**Single node Raft ordering service**</li><ul><li>0.35GB VPC/0.7GB RAM/100GB Storage</li></ul><li>**2 CAs**</li><ul><li>2 x (.1 VPC/.2GB RAM/20 GB Storage) = <br>.2 VPC/.4GB RAM/40 GB Storage</li></ul><li>**1 Peer:**<ul><li> **Peer container:** .2 VPC/.4GB RAM/25GB Storage</li><li>**Couch container:** .2 VPC/.4GB RAM/25GB Storage</li><li>**Smart contract container:** .5 VPC/1GB RAM/0GB Storage</li><li> **Logging/gRPC Web container:** .2 VPC/.4GB RAM/0GB Storage</li></li></ul> |  Includes: <br>**1 CA**<ul><li> 0.1 VPC/.2GB RAM/20 GB Storage</li> </ul>**1 Peer:**<ul><li> **Peer container:** .2 VPC/.4GB RAM/25GB Storage</li><li> **CouchDB container:** .2 VPC/.4GB RAM/25GB Storage</li><li> **Smart contract container:** .5 VPC/1GB RAM/0GB Storage</li><li>**Logging/gRPC Web container:** .2 VPC/.4GB RAM/0GB Storage</li></li></ul>|
+| **Goal:** Larger peers for more robust integration testing. <br><br> You can join the peers to multiple channels to better simulate a real environment or put them all in one account. | <ul><li>2-3 organizations</li><li>CouchDB</li><li>Bronze Storage</li><li>No: HA, Backup, HSM, LogDNA, SysDig, Dedicated VM/HW</li></ul> | Includes: <br>**Single node Raft ordering service**<ul><li>0.35GB VPC/0.7GB RAM/100GB Storage</li></ul><br>**2 CAs**<ul><li>2 x (.1 VPC/.2GB RAM/20 GB Storage) = <br>.2 VPC/.4GB RAM/40 GB Storage</li></ul><br>**1 Peer**<ul><li> **Peer container:** .2 VPC/.4GB RAM/25GB Storage</li><li>**Couch container:** .2 VPC/.4GB RAM/25GB Storage</li><li>**Smart contract container:** .5 VPC/1GB RAM/0GB Storage</li><li> **Logging/gRPC Web container:** .2 VPC/.4GB RAM/0GB Storage</li></li></ul> |  Includes: <br>**1 CA**<ul><li> 0.1 VPC/.2GB RAM/20 GB Storage</li> </ul>**1 Peer**<ul><li> **Peer container:** .2 VPC/.4GB RAM/25GB Storage</li><li> **CouchDB container:** .2 VPC/.4GB RAM/25GB Storage</li><li> **Smart contract container:** .5 VPC/1GB RAM/0GB Storage</li><li>**Logging/gRPC Web container:** .2 VPC/.4GB RAM/0GB Storage</li></li></ul>|
 | **Total Resources** |  | **VPC:** 1.65<br> **RAM:** 3.3GB<br> **Storage:** 240GB|  **VPC:** 1.2GB<br> **RAM:** 2.4GB<br> **Storage:** 120GB|
 | **Total Cost** <br> (per hour) | |**IBP:** 1.65VPC x .29/hr = **$0.48 USD**  <br> **IKS***:** $0.31 USD <br> **Storage:** $0.05 USD <br><br> **Total:** 0.84 USD/hr <br> <br> ***IKS 4x16 single node cluster  with IP Allocation| **IBP:** 1.2VPC x .29/hr = **$0.35 USD**  <br> **IKS***:** $0.13 USD <br> **Storage:** $0.03 USD <br><br> **Total:** 0.51 USD/hr  <br> <br> ***IKS 2x4 single node cluster with IP allocation|
-| **Total Cost** <br> (per month) | |**IBP:** $346.00 USD  <br> **IKS:** $224.00 USD <br> **Storage:**$36.00 USD <br><br> **Total Base Cost:** $606.00 USD|  **IBP:** $252.00 USD  <br> **IKS:** $94.00 USD <br> **Storage:**$22.00 USD <br><br> **Total Base Cost:** $368.00 USD | |
+| **Total Cost** <br> (per month) | |**IBP:** $346 USD  <br> **IKS:** $224 USD <br> **Storage:**$36 USD <br><br> **Total Base Cost:** $606 USD|  **IBP:** $252 USD  <br> **IKS:** $94 USD <br> **Storage:**$22 USD <br><br> **Total Base Cost:** $368 USD | |
 {: caption="Table 1. Pricing Scenarios" caption-side="top"}
 {: #simpletabtable5}
 {: tab-title="Functional Test/Demo Environment"}
