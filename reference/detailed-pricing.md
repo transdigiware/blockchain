@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-10-07"
 
-keywords: Pricing,
+keywords: Pricing, pricing examples
 
 subcollection: blockchain
 
@@ -23,25 +23,25 @@ subcollection: blockchain
 # Detailed pricing scenarios
 {: #ibp-detailed-pricing}
 
-This topic includes additional detailed pricing and sizing scenarios to help you learn more about the potential costs of various blockchain network configurations.
+This topic includes additional detailed pricing and sizing scenarios to help you learn more about the potential costs of various {{site.data.keyword.blockchainfull} Platform network configurations.
 {: shortdesc}
 
-**Target audience**: This advanced topic is designed for architects and system administrators who are responsible for planning and sizing the cost of a blockchain network on {{site.data.keyword.cloud_notm}}.
+**Target audience**: This advanced topic is designed for architects and system administrators who are responsible for planning and sizing the cost of an {{site.data.keyword.blockchainfull_notm}} Platform network on {{site.data.keyword.cloud_notm}}.
 
-If you want to learn more about the basic elements that factor into the cost a blockchain network, review the  topic on [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing).
+If you want to learn more about the basic elements that factor into the cost a blockchain network, review the  topic on [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing).
 {: note}
-
-
 
 ## Scenario comparisons
 {: #ibp-pricing-details-tabs}
 
+When you configure your peers, CAs and ordering service, you might need to adjust the resource allocations to use the values that are included in the table below.
+
 | | Assumptions | Cost to Host | Cost to Join |
 |:-|:-----------------|:-----------------|:-----------------|
-| **Goal:** Larger peers for more robust integration testing. <br><br> You can join peers to multiple channels to better simulate a real environment or put them all in one account. | <ul><li>2-3 organizations</li><li>CouchDB</li><li>Bronze Storage</li><li>No: HA, Backup, HSM, LogDNA, SysDig, Dedicated VM/HW</li></ul> | Includes: <ul><li>Single node Raft ordering service</li><ul><li>.25GB VPC/.5GB RAM/100GB Storage</li></ul><li>2 CAs</li><ul><li>(.1 VPC/.2GB RAM/20 GB Storage) x2 = <br>.2 VPC/.4GB RAM/40 GB Storage</li></ul><li>1 Peer: <ul><li> Peer container .2 VPC/.4GB RAM/25GB Storage</li><li> Couch container .2 VPC/.4GB RAM/25GB Storage</li><li> Smart contract container .5 VPC/1GB RAM/0GB Storage</li><li> Logging/gRPC Web container .2 VPC/.4GB RAM/0GB Storage</li></li></ul> |  Includes: <br> 1 CA  <ul><li> 1 VPC/.2GB RAM/20 GB Storage</li> </ul>1 Peer: <ul><li> Peer container .2 VPC/.4GB RAM/25GB Storage</li><li> Couch container .2 VPC/.4GB RAM/25GB Storage</li><li> Smart contract container .5 VPC/1GB RAM/0GB Storage</li><li> Logging/gRPC Web container .2 VPC/.4GB RAM/0GB Storage</li></li></ul>|
-| **Total Resources** |  | **VPC:** 1.55GB<br> **RAM:** 3.1GB<br> **Storage:** 280GB|  **VPC:** 1.2GB<br> **RAM:** 2.4GB<br> **Storage:** 120GB|
-| **Total Cost** <br> (per hour) | |**IBP:** 1.55VPC x .29/hr = $0.45 USD  <br> **IKS***:** $0.29 USD <br> **Storage:** $0.06 USD <br><br> **Total:** 0.80 USD/hr <br> <br> ***IKS 4x16 single node cluster | **IBP:** 1.2VPC x .29/hr = $0.35 USD  <br> **IKS***:** $0.10 USD <br> **Storage:** $0.03 USD <br><br> **Total:** 0.47 USD/hr  <br> <br> ***IKS 2x4 single node cluster|
-| **Total Cost** <br> (per month) | |**IBP:** $345.00 USD  <br> **IKS:** $210.00 USD <br> **Storage:**$40.00 USD <br><br> **Total Base Cost:** $595.00 USD|  **IBP:** $255.00 USD  <br> **IKS:** $80.00 USD <br> **Storage:**$17.00 USD <br><br> **Total Base Cost:** $352.00 USD | |
+| **Goal:** Larger peers for more robust integration testing. <br><br> You can join the peers to multiple channels to better simulate a real environment or put them all in one account. | <ul><li>2-3 organizations</li><li>CouchDB</li><li>Bronze Storage</li><li>No: HA, Backup, HSM, LogDNA, SysDig, Dedicated VM/HW</li></ul> | Includes: <ul><li>**Single node Raft ordering service**</li><ul><li>0.35GB VPC/0.7GB RAM/100GB Storage</li></ul><li>**2 CAs**</li><ul><li>2 x (.1 VPC/.2GB RAM/20 GB Storage) = <br>.2 VPC/.4GB RAM/40 GB Storage</li></ul><li>**1 Peer:**<ul><li> **Peer container:** .2 VPC/.4GB RAM/25GB Storage</li><li>**Couch container:** .2 VPC/.4GB RAM/25GB Storage</li><li>**Smart contract container:** .5 VPC/1GB RAM/0GB Storage</li><li> **Logging/gRPC Web container:** .2 VPC/.4GB RAM/0GB Storage</li></li></ul> |  Includes: <br>**1 CA**<ul><li> 0.1 VPC/.2GB RAM/20 GB Storage</li> </ul>**1 Peer:**<ul><li> **Peer container:** .2 VPC/.4GB RAM/25GB Storage</li><li> **CouchDB container:** .2 VPC/.4GB RAM/25GB Storage</li><li> **Smart contract container:** .5 VPC/1GB RAM/0GB Storage</li><li>**Logging/gRPC Web container:** .2 VPC/.4GB RAM/0GB Storage</li></li></ul>|
+| **Total Resources** |  | **VPC:** 1.65<br> **RAM:** 3.3GB<br> **Storage:** 240GB|  **VPC:** 1.2GB<br> **RAM:** 2.4GB<br> **Storage:** 120GB|
+| **Total Cost** <br> (per hour) | |**IBP:** 1.65VPC x .29/hr = **$0.48 USD**  <br> **IKS***:** $0.31 USD <br> **Storage:** $0.05 USD <br><br> **Total:** 0.84 USD/hr <br> <br> ***IKS 4x16 single node cluster  with IP Allocation| **IBP:** 1.2VPC x .29/hr = **$0.35 USD**  <br> **IKS***:** $0.13 USD <br> **Storage:** $0.03 USD <br><br> **Total:** 0.51 USD/hr  <br> <br> ***IKS 2x4 single node cluster with IP allocation|
+| **Total Cost** <br> (per month) | |**IBP:** $346.00 USD  <br> **IKS:** $224.00 USD <br> **Storage:**$36.00 USD <br><br> **Total Base Cost:** $606.00 USD|  **IBP:** $252.00 USD  <br> **IKS:** $94.00 USD <br> **Storage:**$22.00 USD <br><br> **Total Base Cost:** $368.00 USD | |
 {: caption="Table 1. Pricing Scenarios" caption-side="top"}
 {: #simpletabtable5}
 {: tab-title="Functional Test/Demo Environment"}
