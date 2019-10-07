@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-09-23"
+lastupdated: "2019-10-07"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free
 
@@ -124,9 +124,9 @@ The values in the following table are useful to estimate the hourly cost of your
 
 | **Component** (all containers) | CPU  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1            | 2.4                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer**                       | 1.1            | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1            | 0.2                    | 20                     |
-| **Ordering node**                    | 0.35           | 0.9                    | 100                    |
+| **Ordering node**                    | 0.35           | 0.7                    | 100                    |
 
 
 ## Billing
