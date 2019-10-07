@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-07"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -15,11 +15,14 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
-{:javascript: data-hd-programlang="javascript"}
 {:java: data-hd-programlang="java"}
+{:javascript: data-hd-programlang="javascript"}
 {:tip: .tip}
 {:pre: .pre}
 {:external: target="_blank" .external}
+
+Select **Java** or **Node** depending on the Fabric SDK that you use.
+{:note: .note}
 
 # Updating your applications
 {: #enterprise-upgrade-applications}
@@ -92,9 +95,9 @@ You can learn more about how to patch your application by going to the example b
 
 ### Patching a sample application
 
-You can use the following example to learn how to update a Node SDK application to use service discovery. The sample does not include features of production code such as error handling or listening for events and should be used as an example only.
+You can use the following example to learn how to update an application to use service discovery. Because the sample does not include features of production code such as error handling or listening for events, this code should be used as an example only.
 
-The sample code connects to an Enterprise Plan network with a connection profile. The application loads the connection profile from your local file system and uses it to create an instance of the Fabric Client. It then creates a channel object by using a channel that is defined in the connection profile. When the application initializes the channel connection, it connects to all of the peer and ordering nodes that are defined in the connection profile.
+The example below can connect to an Enterprise Plan network by using a connection profile. The sample application loads the connection profile from your local file system and uses it to create an instance of the Fabric Client. The application then creates a channel object by using a channel that is defined in the connection profile. When the application initializes the channel connection, it connects to all of the peer and ordering nodes on the channel in the connection profile.
 
 ```javascript
 const NodesdkClient = require('fabric-client');
@@ -112,7 +115,7 @@ const channel = client.getChannel('mychannel');
 // initialize the channel connection
 await channel.initialize();
 ```
-{: pre}
+{: codeblock}
 {: javascript}
 
 ```java
@@ -128,55 +131,42 @@ Channel channel = client.loadChannelFromConfig("mychannel", conf);
 
 channel.initialize();
 ```
-{: pre}
+{: codeblock}
 {: java}
 
-You can update this sample code to use sample application by replacing the last two lines of code. Edit the line that gets the channel from your connection profile:
+You can update this sample code to use service discovery by replacing the last two lines of code. Edit the line that gets a channel from your connection profile:
 
 ```javascript
 // create a channel instance from the connection profile
 const channel = client.getChannel('mychannel');
 ```
-{: pre}
 {: javascript}
 
 ```java
 Channel channel = client.loadChannelFromConfig("mychannel", conf);
 ```
-{: pre}
 {: java}
 
-Replace it with a line that creates a new channel object by using a name that you provide:
+You can replace it with a line that creates a new channel object by using a name that you provide:
+{: javascript}
 
 ```javascript
 const channel = client.newChannel('mychannel');
 ```
-{: pre}
+{: codeblock}
 {: javascript}
 
-```java
-Channel channel = createChannel(client, conf, "mychannel");
-```
-{: pre}
-{: java}
-
-Edit the line that initializes the channel connection:
+You can then edit the line that initializes the channel connection without service discovery:
+{: javascript}
 
 ```javascript
 // initialize the channel connection
 await channel.initialize();
 ```
-{: pre}
 {: javascript}
 
-```java
-// initialize the channel connection
-channel.initialize();
-```
-{: pre}
-{: java}
-
-Replace this line with the code below:
+Replace this line with the block of the code below:
+{: javascript}
 
 ```javascript
 // get the list of peers in your organization
@@ -187,9 +177,14 @@ const initOptions = {target: orgPeers[0], discover: true, asLocalhost: false};
 // initialize the channel using the required options
 await channel.initialize(initOptions);
 ```
-{: pre}
+{: codeblock}
 {: javascript}
 
+Instead of getting all of the peers and ordering nodes that are defined on the channel, the code above uses the connection profile to get one peer from your organization. When the channel connection is initialized, your peer is passed the channel and service discovery is enabled by setting `discover: true`. The SDK then uses service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger. If you have multiple peers in your organization for high availability, you can edit the code block above to add additional peers to the channel.
+{: javascript}
+
+Replace it with a new method that creates a channel with service discovery enabled.
+{: java}
 
 ```java
 /*
@@ -219,15 +214,31 @@ private static Channel createChannel(HFClient client, NetworkConfig networkConfi
     return channel;
 }
 ```
-{: pre}
+{: codeblock}
 {: java}
 
-Instead of getting all of the peers and ordering nodes on the channel from the connection profile, the code above uses the connection profile to get one peer from your organization. When the channel connection is initialized, your peer is passed the channel and service discovery is enabled by setting `discover: true`. The SDK then uses service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger. If you have multiple peers in your organization for high availability, you can edit the code block above to add additional peers to the channel.
-{: javascript}
-
-Instead of getting all of the peers and ordering nodes on the channel from the connection profile, the code above uses the connection profile to get the list of peers from your organization. When the channel connection is initialized, your peers is passed the channel and service discovery is enabled by setting `discover: true`. The SDK then uses service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger. If you have multiple peers in your organization for high availability, you can edit the code block above to add additional peers to the channel.
+Instead of getting all of the peers and ordering nodes on the channel, the method above uses the connection profile to get the list of peers from your organization. Service discovery is enabled by setting all of the roles for each peer and then adding them to the channel. The peers added to the channel can then receive updates using service discovery.
 {: java}
 
+You can then replace the line that initializes the channel without service discovery:
+{: java}
+
+```java
+channel.initialize();
+```
+{: java}
+
+With a line that creates a channel using the method you just added:
+{: java}
+
+```java
+Channel channel = createChannel(client, conf, "mychannel");
+```
+{: codeblock}
+{: java}
+
+The SDK can then use service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger.
+{: java}
 
 ## Step Four
 {: #enterprise-upgrade-applications-four}
