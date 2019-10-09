@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-10-09"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -36,7 +36,7 @@ Upgrading from Enterprise Plan to {{site.data.keyword.blockchainfull_notm}} Plat
 
 You can use these steps to start by using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 without making large code changes or experiencing application downtime. For more information, review each step below. You need to review these steps before you start using the upgrade tool.
 
-## Step One: Prepare for the breaking changes from Fabric v1.4
+## Step one: Prepare for the breaking changes from Fabric v1.4
 {: #enterprise-upgrade-applications-one}
 
 You might need to update your application before your Enterprise Plan network is upgraded from Fabric v1.1 to Fabric v1.4.3. The peer-based EventHub has been removed in Fabric v1.4.3. If you are still using the old peer-based based service, you must update your applications to use the new channel-based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time. For more information, see [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} in the Node SDK documentation.
@@ -45,7 +45,7 @@ You might need to update your application before your Enterprise Plan network is
 You might need to update your application before your Enterprise Plan network is upgraded from Fabric v1.1 to Fabric v1.4.3. The peer-based EventHub has been removed in Fabric v1.4.3. If you are still using the old peer-based based service, you must update your applications to use the new channel-based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time.
 {: java}
 
-## Step Two: Upgrade your version of the Fabric SDK
+## Step two: Upgrade your version of the Fabric SDK
 {: #enterprise-upgrade-applications-two}
 
 When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of your Fabric SDK. Upgrading the Fabric SDK allows you to update your application to use service discovery and take advantage of other improvements. If you are using Node Fabric SDK, go to the [Node Fabric SDK documentation](https://fabric-sdk-node.github.io/release-1.4/index.html) for more information.
@@ -54,7 +54,7 @@ When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade th
 When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of your Fabric SDK. Upgrading the Fabric SDK allows you to update your application to use service discovery and take advantage of other improvements. If you are using Java Fabric SDK, go to the [Java Fabric SDK documentation](https://fabric-gateway-java.github.io/) for more information.
 {: java}
 
-## Step Three: Update your applications to use service discovery
+## Step three: Update your applications to use service discovery
 {: #enterprise-upgrade-applications-three}
 
 After you upgrade the Fabric SDK, you can update your application to take advantage of the [Service Discovery Feature](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} of Hyperledger Fabric. Using service discovery makes it easier to upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.0. As a result, it is recommended that you update your application before you start using the upgrade tool.
@@ -240,7 +240,7 @@ Channel channel = createChannel(client, conf, "mychannel");
 The SDK can then use service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger.
 {: java}
 
-## Step Four
+## Step four
 {: #enterprise-upgrade-applications-four}
 
 When you have finished updating your application, you can continue submitting transactions to your Enterprise Plan network. An application that uses service discovery can continue to use the connection profile provided by the Enterprise Plan Network Monitor.

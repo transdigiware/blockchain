@@ -21,7 +21,6 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-
 ## Getting started with upgrade tool
 {: #enterprise-upgrade-tool}
 
@@ -32,8 +31,7 @@ The upgrade tool user interface guides you through a series of independent steps
 ## Prerequisites
 {: #enterprise-upgrade-tool-prerequisites}
 
-{{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete. Before you start using the upgrade tool, review the [considerations and limitations](#enterprise-upgrade-tool-considerations) for using the ugprade tool.
-
+{{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4.3 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete. Before you start using the upgrade tool, review the [considerations and limitations](#enterprise-upgrade-tool-considerations) for using the ugprade tool.
 
 ## Considerations and limitations
 {: #enterprise-upgrade-tool-considerations}
@@ -44,7 +42,6 @@ The upgrade tool user interface guides you through a series of independent steps
 - It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/services/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
 - You must create peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that use the same state database (LevelDB or CouchDB) as your peers on Enterprise Plan. You cannot migrate from peers that are running LevelDB to peers that use CouchDB.
 - As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
-
 
 ## Opening the upgrade tool
 

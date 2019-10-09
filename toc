@@ -65,6 +65,7 @@ IBM Blockchain Platform
 		vscode-extension.md
 		howto/develop_chaincode.md
 		best_practices.md
+	
 
 	{: .topicgroup}
 	Starter and Enterprise Plan
