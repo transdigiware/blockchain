@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-09"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -33,6 +33,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues with the Console**
 
+- [Why have my console actions started failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
@@ -65,14 +66,27 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
 
 
-## When I hover over my node, the status is `Status unavailable`, what does this mean?
+## Why have my console actions started failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
+{: #ibp-v2-troubleshooting-chrome-v77}
+{: troubleshoot}
+
+The console has been working successfully, but suddenly, requests have started to fail.
+{: tsSymptoms}
+
+This problem is caused by a bug introduced by the Chrome browser Version 77.0.3865.90 (Official Build) (64-bit) that causes browser sessions to fail.
+{: tsCauses}
+
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can downgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser.
+{: tsResolve}
+
+## When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?
 {: #ibp-v2-troubleshooting-status-unavailable}
 {: troubleshoot}
 
 The node status in the tile for the CA,  peer, or ordering node is grey, meaning the status of the node is not available. Ideally, when you hover over any node, the node status should be `Running`.
 {: tsSymptoms}
 
-This problem can occur if the node is newly created and the deployment process has not completed. If the node is a CA, then it is likely the node is not running.
+This problem can occur if the node is newly created and the deployment process has not completed. If the node is a CA, then it is likely that the node is not running.
 If the node is a peer or ordering node, this condition occurs when the health checker that runs against the peer or ordering nodes cannot contact the node.  The request for status can fail with a timeout error because the node did not respond within a specific time period, the node could be down, or network connectivity is down.
 {: tsCauses}
 
