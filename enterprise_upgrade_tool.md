@@ -21,7 +21,7 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-## Getting started with upgrade tool
+# Getting started with upgrade tool
 {: #enterprise-upgrade-tool}
 
 You can use the upgrade tool to create new components on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your existing network. The new nodes that are created by the tool are joined to the same channels and store the same ledger data as your components on Enterprise Plan.

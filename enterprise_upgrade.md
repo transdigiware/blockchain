@@ -29,7 +29,7 @@ The {{site.data.keyword.blockchainfull}} Platform upgrade tool is not yet availa
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate your Enterprise Plan network to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} (referred to as {{site.data.keyword.blockchainfull_notm}} Platform 2.0). The upgrade tool allows you to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. Your new nodes are joined to your exiting channels and contain the same ledger data as your old network. You can continue to use your Enterprise Plan network throughout the upgrade process, providing you the ability to migrate your applications without any downtime. When your applications are successfully submitting transactions to your nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan.
 
-Review the [Before you begin](#enterprise-upgrade-considerations) before you start by using the upgrade tool. You can then review the [Upgrade overview](#enterprise-upgrade-overview) to learn about the overall flow of upgrade process, and the recommended path for migrating a blockchain consortium to the new platform.
+Review [Before you begin](#enterprise-upgrade-considerations) before you start by using the upgrade tool. You can then review the [Upgrade overview](#enterprise-upgrade-overview) to learn the steps of the upgrade process and the recommended path for migrating a blockchain consortium to the new platform.
 
 ## Before you begin
 {: #enterprise-upgrade-considerations}
@@ -56,7 +56,7 @@ By following these steps, you can migrate your network to the new platform witho
 ## Step one: Have your Enterprise Plan network upgraded to Fabric v1.4
 {: #enterprise-upgrade-overview-one}
 
-If you choose to use the ugprade tool to move to the new platform, {{site.data.keyword.IBM_notm}} will upgrade your Enterprise Plan network from Fabric v1.1 to Fabric v1.4.3. {{site.data.keyword.IBM_notm}} can then migrate your ordering service from Kafka to RAFT consensus. Upgrading to RAFT will allow you to create new ordering nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+If you choose to use the upgrade tool to move to the new platform, {{site.data.keyword.IBM_notm}} will upgrade your Enterprise Plan network from Fabric v1.1 to Fabric v1.4.3. {{site.data.keyword.IBM_notm}} can then migrate your ordering service from Kafka to RAFT consensus. Upgrading to RAFT will allow you to create new ordering nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 
 The upgrade of your network to Fabric 1.4.3 might cause breaking changes that will require updates to your application. For more information, see [Prepare for the breaking changes from Fabric v1.4](/docs/services/blockchain/reference?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-one).
 
