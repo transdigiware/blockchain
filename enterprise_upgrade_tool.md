@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-09"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -21,48 +21,6 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# WIP - Upgrading your Enterprise Plan network
-{: #enterprise-upgrade}
-
-The {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool is not yet available. Enterprise Plan users will able to use {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate their networks to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} starting 15 November 2019.
-{: note}
-
-You can use the {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate your Enterprise Plan network to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} (referred to as {{site.data.keyword.blockchainfull_notm}} Platform 2.0). The upgrade tool allows you to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. Your new nodes are joined to your exiting channels and contain the same ledger data as your old network. You can continue to use your Enterprise Plan network throughout the upgrade process, providing you the ability to migrate your applications without any downtime. When your applications are successfully submitting transactions to your nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan.
-
-Review the [considerations and limitations](#enterprise-upgrade-considerations) before you start by using the upgrade tool. The [Upgrade overview](#enterprise-upgrade-overview) provides information of how to coordinate the upgrade of multiple network members and your applications with the help of the upgrade tool.
-
-When you are ready to upgrade your network, see [Before you begin](#enterprise-upgrade-prerequisites) and [Getting started with the upgrade tool](#enterprise-upgrade-tool).
-
-## Considerations and limitations
-{: #enterprise-upgrade-considerations}
-
-- If possible, Enterprise Plan customers are encouraged to migrate to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 right away. If your network on Enterprise Plan does contain production data that is critical to your applications, you are encouraged to skip the upgrade process and create a new network.
-- You can use the upgrade tool to migrate your network to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. You cannot use the tool to migrate your network to {{site.data.keyword.blockchainfull_notm}} Platform 2.1.0.
-- You can use the upgrade tool to complete every step of the migration process without assistance from {{site.data.keyword.IBM_notm}}. If you encounter any problems while you are upgrading your network, you can open a support ticket. For more information, see [support](#enterprise-upgrade-support).
-- Each organization that has a separate Enterprise Plan membership must use the upgrade tool to migrate their components. The founder of the network cannot upgrade all of the organizations and peers that are joined to your network.
-- Review the [considerations for using {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations) before you upgrade your network. The next generation of the platform has a different user interface and provides you with more control over the nodes of your network. In particular, you are responsible for managing your certificates and private keys, which are not stored on {{site.data.keyword.cloud_notm}}.
-- It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/services/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
-- You must create peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that use the same state database (LevelDB or CouchDB) as your peers on Enterprise Plan. You cannot migrate from peers that are running LevelDB to peers that use CouchDB.
-- As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
-
-## Overview
-{: #enterprise-upgrade}
-
-
-
-
-
-
-## Before you begin
-{: #enterprise-upgrade-prerequisites}
-
-{{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete.
-
-When your Enterprise Plan network is upgraded to Fabric v1.4.3, your applications might be impacted by a breaking change. For more information, see [Migrating your applications](#enterprise-upgrade-applications).
-
-## Updating your applications
-
-See [Updating your applications](/docs/services/blockchain/reference?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications).
 
 ## Getting started with upgrade tool
 {: #enterprise-upgrade-tool}
@@ -71,13 +29,30 @@ You can use the upgrade tool to create new components on the {{site.data.keyword
 
 The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can migrate your network carefully and test the new nodes that are created by tool. Use the following steps to get started and learn more about how the upgrade process works.
 
-### Opening the upgrade tool
+## Prerequisites
+{: #enterprise-upgrade-tool-prerequisites}
+
+{{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete. Before you start using the upgrade tool, review the [considerations and limitations](#enterprise-upgrade-tool-considerations) for using the ugprade tool.
+
+
+## Considerations and limitations
+{: #enterprise-upgrade-tool-considerations}
+
+- You can use the upgrade tool to complete every step of the migration process without assistance from {{site.data.keyword.IBM_notm}}. If you encounter any problems while you are upgrading your network, you can open a support ticket. For more information, see [support](#enterprise-upgrade-support).
+- Each organization that has a separate Enterprise Plan membership must use the upgrade tool to migrate their components. The founder of the network cannot upgrade all of the organizations and peers that are joined to your network.
+- Review the [considerations for using {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations) before you upgrade your network. The next generation of the platform has a different user interface and provides you with more control over the nodes of your network. In particular, you are responsible for managing your certificates and private keys, which are not stored on {{site.data.keyword.cloud_notm}}.
+- It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/services/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
+- You must create peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that use the same state database (LevelDB or CouchDB) as your peers on Enterprise Plan. You cannot migrate from peers that are running LevelDB to peers that use CouchDB.
+- As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/services/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
+
+
+## Opening the upgrade tool
 
 You can find the upgrade tool on your Enterprise Plan Network Monitor. Go to the **Overview** page and click **Upgrade network**. The tool opens in a separate URL of your browser. You can use this URL to return to the tool without using the Network Monitor. You can exit the tool without losing your work as you go through the upgrade process.
 
 If you are not able to see the **Upgrade network** button, your Enterprise Plan network needs to be upgraded to Fabric v1.4 or your ordering service needs to be migrated to RAFT.
 
-### Create an instance of {{site.data.keyword.blockchainfull_notm}} Platform 2.0
+## Create an instance of {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
 You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that contains sufficient resources for your Enterprise Plan network. The **Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.0** displays the CPU and memory that is used by your Enterprise Plan network. Use this information when you select the size of the Kubernetes cluster on {{site.data.keyword.cloud_notm}} that you must create to deploy the next generation of the platform. Deploying the platform is a two-step process:
 
@@ -87,7 +62,7 @@ You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} 
 
 After you review the resources that are required, click **Create {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network**. You can also follow [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
-### Upload connection information
+## Upload connection information
 
 You need to upload the connection information of your Enterprise Plan network and your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 service instance to the upgrade tool.
 
@@ -121,11 +96,11 @@ You need to upload the connection information of your Enterprise Plan network an
     }
     ```
 
-### Create a backup of your Enterprise Plan network
+## Create a backup of your Enterprise Plan network
 
 You can save a snapshot of your Enterprise Plan network as a protection against any problems that might occur during the upgrade process. This data is saved as a precaution, and is not used by the migration tool. The backup will complete after a few minutes.
 
-### Migrating your Certificate Authorities
+## Migrating your Certificate Authorities
 
 The first step of the upgrade is to create a new Certificate Authority (CA) on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The identities that are created by the new CA are recognized as belonging to your organization on Enterprise Plan. You can use the new CA to deploy peer and ordering nodes on the {{site.data.keyword.blockchainfull_notm}} platform 2.0 and join those nodes to the channels created on Enterprise Plan. The application, node, and admin identities that you created on Enterprise Plan are registered with the new Certificate Authority.
 
@@ -135,7 +110,7 @@ For each CA you want to migrate, enter a **Display Name** for the new CA. This n
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to use your CA to register identities and generate certificates. For more information, see [Creating and managing identities](/docs/services/blockchain/reference?topic=blockchain-ibp-console-identities#ibp-console-identities).
 
-### Migrating your Peers
+## Migrating your Peers
 
 After you migrate your Certificate Authorities, you can start migrating your peers. The peers that you create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 are automatically joined to the channels that were created on Enterprise Plan. Because they are joined to the same channels, the new peers can receive ledger data from your existing peers by using intra-organization gossip.
 
@@ -153,9 +128,9 @@ You can then start migrating your Peers. For each Peer you want to migrate, ente
 
 If you created a multizone cluster, you can use this page to deploy your peer to a specific zone and ensure that your peers are deployed in different zones. This ensures that your peers are available if there is a zone failure. While the upgrade tool uses an anti-affinity policy to deploy your peers to worker nodes with free resources, the anti-affinity policy cannot detect if the peers are being deployed to different zones. For more information about how to find the zones of your cluster, see [Creating a node within a specific zone](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
-### Migrating your ordering service
+## Migrating your ordering service
 
-### Migrating your smart contracts
+## Migrating your smart contracts
 
 The Enterprise Plan Network Monitor UI and the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console use different formats to install chaincode on your peers. You can use the tool to migrate the chaincode that you installed on Enterprise plan to {{site.data.keyword.blockchainfull_notm}} Platform 2.0 without having to repackage your chaincode. Chaincode is referred to as smart contracts on on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
 
@@ -171,8 +146,3 @@ The upgrade tool stores the certificates and private keys that it used deploy yo
 
 Ensure that you downloaded your organization administrator identities and stored them in a secure place you click **Complete Upgrade**. You also need to save the enrollID and secret of your Certificate Authority administrator. After you complete this step, only the network administrator with your org admin identity can operate your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 {: important}
-
-## Support
-{: #enterprise-upgrade-support}
-
-If you encounter an issue during the upgrade process, open a support ticket by using the {{site.data.keyword.cloud_notm}} Service Portal. For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
