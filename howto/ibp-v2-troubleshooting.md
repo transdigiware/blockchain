@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-10"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -33,7 +33,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues with the Console**
 
-- [Why have my console actions started failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
+- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
@@ -66,14 +66,14 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
 
 
-## Why have my console actions started failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
+## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
 {: troubleshoot}
 
-The console has been working successfully, but suddenly, requests have started to fail.
+The console has been working successfully, but requests have started to fail.
 {: tsSymptoms}
 
-This problem is caused by a bug introduced by the Chrome browser Version 77.0.3865.90 (Official Build) (64-bit) that causes browser sessions to fail.
+This problem is caused by a bug introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
 {: tsCauses}
 
 To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can downgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser.
