@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019
-
-lastupdated: "2019-10-02"
+lastupdated: "2019-10-10"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -397,7 +396,7 @@ After you have created the MSP, you should be able to see the ordering service o
   | **Identity** | Org1 CA admin | Org1 CA admin identity |
   | **Identity** | Org1 MSP admin | Org1 admin identity |
   | **Identity** | Ordering Service CA admin | Ordering Service CA admin identity |
-  | **Identity** | Ordering Service MSP admin | Ordering Service admin identity |
+  | **Identity** | Ordering Service MSP Admin | Ordering Service admin identity |
 
   *Figure 14. Create the ordering service organization MSP definition*
 
