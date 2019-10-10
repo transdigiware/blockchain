@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-10-10"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -22,21 +22,16 @@ subcollection: blockchain
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-ibp}
 
-{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. The environment can be {{site.data.keyword.cloud_notm}}, on-premises through {{site.data.keyword.cloud_notm}} Private, and third-party clouds, such as Amazon Web Services (AWS). In this tutorial, we'll take you through the general process to set up a basic blockchain network with {{site.data.keyword.blockchainfull_notm}} Platform.
+{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. You can also deploy the platform on your own premises or on third-party clouds by using the OpenShift Container Platform. You need to decide on the environment and offering that you will use.
 {:shortdesc}
 
 Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, read the technical and support information in the [Disclaimer](/docs/services/blockchain?topic=blockchain-disclaimer#disclaimer) section.
 {: important}
 
-## Before you begin
-{: #get-started-ibp-prereqs}
-
-{{site.data.keyword.blockchainfull_notm}} Platform provides different offerings to help all types of users get started on their blockchain journey and move their applications into production. You need to decide on the environment and offering that you will use.
-
-### Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?
+## Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?
 {: #get-started-console-ocp-which-ibp}
 
-You can run the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernetes Cluster on {{site.data.keyword.cloud_notm}} or on the OpenShift Container Platform.
+{{site.data.keyword.blockchainfull_notm}} Platform provides different offerings to help all types of users get started on their blockchain journey and move their applications into production. You can run the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernetes Cluster on {{site.data.keyword.cloud_notm}} or on the OpenShift Container Platform.
 
 | | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} | {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) |
 |----|---|----|
@@ -48,6 +43,7 @@ You can run the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernet
 | Are APIs available for node management? | Yes | Yes|
 | Does the product integrate with the {{site.data.keyword.blockchainfull_notm}} Platform VSCode extension to develop and test my smart contracts?| Yes | Yes|
 | Where can I learn more? | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-overview) | See [About {{site.data.keyword.blockchainfull_notm}} Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-console-ocp-about#console-ocp-about-offers) |
+| How do I get started? |  Go to [Getting started with the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks). | Go to [Getting started with the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp). |
 *Figure 1. {{site.data.keyword.blockchainfull_notm}} Platform offerings*
 
 ### Developer Tools
@@ -59,33 +55,6 @@ You can run the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernet
 
 - [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/services/blockchain?topic=blockchain-console-icp-about#console-icp-about)
   {{site.data.keyword.blockchainfull_notm}} Platform console deployed on an {{site.data.keyword.cloud_notm}} Private cluster using a Kubernetes Helm chart and APIs for provisioning and managing blockchain components.
-
-{: #get-started-ibp-step1}
-
-Ensure that you have the cloud account or PPA license to get an {{site.data.keyword.blockchainfull_notm}} Platform offering.
-
-* **{{site.data.keyword.blockchainfull_notm}} Platform Extension for VS Code**
-
-  This VS Code extension is available for free in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} and can be used to develop, debug, and test smart contracts for eventual deployment into {{site.data.keyword.blockchainfull_notm}}.
-
-* **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
-
-  This offering is available in the [{{site.data.keyword.cloud_notm}} Catalog dashboard](https://cloud.ibm.com/catalog){: external} of {{site.data.keyword.cloud_notm}}.
-
-* **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
-
-  This offering is delivered as a deployable Helm chart through [Passport Advantage Online](https://www.ibm.com/software/passportadvantage/pao_customer.html).
-
-## Step two: Deploy {{site.data.keyword.blockchainfull_notm}} Platform
-{: #get-started-ibp-step2}
-
-* **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**
-
-  Log in to {{site.data.keyword.cloud_notm}} and create a service instance with the offering. Follow the wizard to complete initial configuration for your network. For more information, see [Getting started {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
-
-* **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
-
-  Before you deploy a network, you need to install the Helm chart on an {{site.data.keyword.cloud_notm}} Private cluster. Then, you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform console and use it to deploy and operate blockchain components on your local cluster. For more information, see [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain?topic=blockchain-get-started-console-icp#get-started-console-icp).
 
 ## Next steps
 {: #get-started-ibp-next-steps}
