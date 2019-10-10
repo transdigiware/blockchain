@@ -28,12 +28,15 @@ You can use the upgrade tool to create new components on the {{site.data.keyword
 
 The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can migrate your network carefully and test the new nodes that are created by tool. Use the following steps to get started and learn more about how the upgrade process works.
 
-## Prerequisites
+
+## Before you begin
+
+### Prerequisites
 {: #enterprise-upgrade-tool-prerequisites}
 
-{{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4.3 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete. Before you start using the upgrade tool, review the [considerations and limitations](#enterprise-upgrade-tool-considerations) for using the ugprade tool.
+- {{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4.3 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete.
 
-## Considerations and limitations
+### Considerations and limitations
 {: #enterprise-upgrade-tool-considerations}
 
 - You can use the upgrade tool to complete every step of the migration process without assistance from {{site.data.keyword.IBM_notm}}. If you encounter any problems while you are upgrading your network, you can open a support ticket. For more information, see [support](#enterprise-upgrade-support).
