@@ -383,7 +383,7 @@ Create your ordering service organization MSP definition and specify the admin i
   | **Create Organization** | Ordering Service MSP | osmsp |||
   | **Root CA** | Ordering Service CA ||||
   | **Org Admin Cert** | |  | OSadmin | OSadminpw |
-  | **Identity** | Ordering Service MSP Admin |||||
+  | **Identity** | Ordering Service MSP admin |||||
 
   *Figure 13. Create the ordering service organization MSP definition*
 
