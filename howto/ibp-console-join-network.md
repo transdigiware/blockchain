@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-10-02"
+lastupdated: "2019-10-11"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -104,7 +104,7 @@ Depending on your cluster type, deployment of the CA can take up to ten minutes.
 Once the CA is running, as indicated by the green box in the tile, complete the following steps:
 
 1. Click on the `Org2 CA` tile in the **Nodes** tab. Then click **Associate identity** on the CA overview panel.
-2. On the side panel, select **Enroll an identity**. Then provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org2 CA admin`.
+2. On the side panel, select **Enroll an identity**. Then provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org2 CA Admin`.
 3. Click **Associate identity** to add the identity into your console Wallet and associate the admin identity with your CA.
 
 After setting the CA admin identity, you will be able to see the table of registered users in the CA overview panel.
@@ -113,7 +113,7 @@ After setting the CA admin identity, you will be able to see the table of regist
 
   |  **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Enroll ID** |  Org2 CA admin | admin | adminpw |
+  | **Enroll ID** |  Org2 CA Admin | admin | adminpw |
 
 *Figure 3. Associate the CA admin identity*
 
@@ -123,7 +123,7 @@ You can view the CA admin identity in your console Wallet by clicking on the **W
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org2 CA admin | Org2 CA admin identity |
+  | **Identity** | Org2 CA Admin | Org2 CA admin identity |
 
   *Figure 4. Check your Wallet*
 
@@ -162,7 +162,7 @@ Now that we have created the peer's CA and used it to **register** our organizat
 1. Navigate to the **Organizations** tab in the left navigation and click **Create MSP definition**.
 2. Enter `Org2 MSP` as the organization MSP display name and `org2msp` and as the MSP ID. If you want to specify your own MSP ID in this field, make sure to review the instructions in the tool tip.
 3. Under **Root Certificate Authority details**, specify the CA you used to register the identities in the previous step. If this is your first time through this tutorial, you should only see one: `Org2 CA`.
-4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID and secret for the first user that you created with your CA: `admin` and `adminpw`. However, using this identity would make your organization the same identity as your CA identity, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org2admin`, and enter its associated secret, `org2adminpw`. Then, give this identity a display name, `Org2 MSP admin`. Note: the default display name for this identity is the name of your MSP and the word "admin". If you select a different name for your MSP, that will be reflected in the default.
+4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID and secret for the first user that you created with your CA: `admin` and `adminpw`. However, using this identity would make your organization the same identity as your CA identity, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org2admin`, and enter its associated secret, `org2adminpw`. Then, give this identity a display name, `Org2 MSP Admin`. Note: the default display name for this identity is the name of your MSP and the word "admin". If you select a different name for your MSP, that will be reflected in the default.
 5. Click the **Generate** button to enroll this identity as the admin of your organization and export the identity to the Wallet, where it will be used when creating the peer and creating channels.
 6. Click **Export** to export the admin certificates to your file system. As we said above, this identity is not stored in your cluster or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to administer the peer.
 7. Click **Create MSP definition**.
@@ -174,7 +174,7 @@ Now that we have created the peer's CA and used it to **register** our organizat
   | **Create Organization** | Org2 MSP | org2msp |||
   | **Root CA** | Org2 CA ||||
   | **Org Admin Cert** | |  | org2admin | org2adminpw |
-  | **Identity** | Org2 MSP admin |||||
+  | **Identity** | Org2 MSP Admin |||||
 
   *Figure 6. Create the peer organization MSP definition*  
 
@@ -184,7 +184,7 @@ After you have created the MSP, you should be able to see the peer organization 
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org2 MSP admin | Org2 identity |
+  | **Identity** | Org2 MSP Admin | Org2 identity |
 
   *Figure 7. Check your Wallet*  
 
@@ -221,7 +221,7 @@ Use your console to perform the following steps:
 6. On the next screen, select `Org2 CA`, as this is the CA you used to register the peer identity. Select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer2`, and enter its associated **secret**, `peer2pw`. Then, select `Org2 MSP` from the drop-down list and click **Next**.
 7. The next side panel asks for TLS CA information. When you created the CA, a TLSCA was created alongside it. This CA is used to create certificates for the secure communication layer for nodes. Therefore, select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer2`, and enter the associated **secret**, `peer2pw`. The **TLS CSR hostname** is an option available to advanced users who want to specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
 8. If you are using a paid cluster, on the next panel, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, you can accept all the defaults and click **Next**. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free {{site.data.keyword.cloud_notm}} cluster, you will see the **Associate an identity** panel.
-9. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org2 MSP admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org2 CA` and make that identity the admin of your peer, but this tutorial uses the `Org2 MSP admin` identity.
+9. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org2 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org2 CA` and make that identity the admin of your peer, but this tutorial uses the `Org2 MSP Admin` identity.
 10. Review the summary and click **Add peer**.
 
 **Task: Deploying a peer**
@@ -234,11 +234,11 @@ Use your console to perform the following steps:
   | **Administrator certificate** | org2msp ||||
   | **TLS CA** | Org2 CA ||||
   | **TLS CA ID** | || peer2 | peer2pw |
-  | **Associate identity** | Org2 MSP admin |||||
+  | **Associate identity** | Org2 MSP Admin |||||
 
   *Figure 8. Deploying a peer*  
 
-In a production scenario, it is recommended to deploy three peers to each channel. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org2 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org2secondpeer` and `org2secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org2, choose `Org2 CA`, `Org2 MSP`, and `Org2 MSP admin` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org2 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
+In a production scenario, it is recommended to deploy three peers to each channel. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org2 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org2secondpeer` and `org2secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org2, choose `Org2 CA`, `Org2 MSP`, and `Org2 MSP Admin` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org2 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
 {:tip}
 
 ## Step two: Join the consortium hosted by the ordering service
@@ -313,7 +313,7 @@ Complete the following steps to **import** the ordering service into your consol
 1. Navigate to the **Nodes** page and click **Add ordering service**.
 2. Click the option to **Import an existing ordering service**.
 3. Then click the **Add file** button to select the JSON that represents the ordering service. If the JSON representing the ordering service was created before October 2nd, 2019, you will be asked to specify a **Service location** for this ordering service.
-4. When you are asked to associate an identity for the ordering service nodes, select the peer organization identity you have locally (note that this "association" step is for administration of the ordering nodes themselves and will not make this identity one of the "ordering service administrators" mentioned in the [Add the peer's organization to the consortium](#ibp-console-join-network-add-org2-local) above. In this tutorial, this local peer organization identity would be `Org2 MSP admin`. Click **Add ordering service**.
+4. When you are asked to associate an identity for the ordering service nodes, select the peer organization identity you have locally (note that this "association" step is for administration of the ordering nodes themselves and will not make this identity one of the "ordering service administrators" mentioned in the [Add the peer's organization to the consortium](#ibp-console-join-network-add-org2-local) above. In this tutorial, this local peer organization identity would be `Org2 MSP Admin`. Click **Add ordering service**.
 
 When this process is complete, it is possible for `Org2` to create a channel hosted on the `Ordering Service`.
 
@@ -329,7 +329,7 @@ Now the orderer admin can add the peer organization to the channel:
 3. In the **Organizations** section, open the `Select a channel member` drop-down list and select the peer organization MSP, `Org2 MSP`.
 4. Click **Add** and then assign permissions for that organization. We recommend you make them an `Operator` so they can update the channel.
 5. In the **Channel Updater MSP** drop-down list (under the **Channel updater organization** heading) ensure that `Org1 MSP` is selected.
-6. In the **Identity** drop-down list, ensure that `Org1 MSP admin` is selected.
+6. In the **Identity** drop-down list, ensure that `Org1 MSP Admin` is selected.
 7. When you are ready, click **Send proposal**.
 
 After the admin of the ordering service has joined your peer organization to the channel you can now join your peers to the channels that are hosted by the ordering service.
@@ -385,7 +385,7 @@ Perform the following steps from your console:
 4. Choose the **Organizations** who will be a part of this channel. Since we have two organizations, select and add `Org1 MSP (org1msp)` and then `Org2 MSP (org2msp)`. Make at least both organizations an **Operator**. Note: do not use the `Ordering Service MSP` here.
 5. Choose a **Channel update policy** for the channel. This is the policy that will dictate how many organizations will have to approve updates to the channel configuration. You can select `1 out of 2`. As you add organizations to the channel, you should change this policy to reflect the needs of your use case. A sensible standard is to use a majority of organizations. For example, `3 of 5`.
 6. Specify any **Access control** limitations you want to make. Note: this is an **advanced option**. If you set the access to a resource to a particular organization, it will restrict access to that resource for every organization. For example, if the default access to a particular resource is the `Readers` of all organizations, and that access is changed to the `Admin` of `Org2`, then **only** the admin of Org2 will have access to that resource. Because access to certain resources is fundamental to the smooth operation of a channel, it is highly recommended to make access control decisions carefully. If you decide to limit access to a resource, make sure that the access to that resource is added, as needed, for each organization.
-7. Select the **Channel creator organization**. Since you are operating the tutorial as `Org2`, and have the `Org2 MSP admin` certificates in your console wallet, select `Org2 MSP` from the drop-down list. Likewise, choose `Org2 MSP admin` as the identity creating the channel.
+7. Select the **Channel creator organization**. Since you are operating the tutorial as `Org2`, and have the `Org2 MSP Admin` certificates in your console wallet, select `Org2 MSP` from the drop-down list. Likewise, choose `Org2 MSP Admin` as the identity creating the channel.
 
 When you are ready, click **Create channel**. You are taken back to the Channels tab and you can see a pending tile of the channel that you just created.
 
@@ -399,7 +399,7 @@ When you are ready, click **Create channel**. You are taken back to the Channels
   | **Channel update policy** | 1 out of 2 |
   | **Access control list** | None |
   | **Channel creator organization** | Org2 MSP |
-  | **Identity** | Org2 MSP admin|
+  | **Identity** | Org2 MSP Admin|
 
 *Figure 8. Create a channel*
 
