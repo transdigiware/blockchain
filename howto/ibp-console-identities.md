@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-13"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -20,10 +20,12 @@ subcollection: blockchain
 
 # Creating and managing identities
 {: #ibp-console-identities}
-
 The nodes of the {{site.data.keyword.blockchainfull_notm}} Platform are based on Hyperledger Fabric and builds permissioned blockchain networks. This means that all participants of the blockchain consortium need to have identities that are continuously verified by Public Key Infrastructure. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to create these identities by using your organization's Certificate Authorities (CAs). You need to store these identities in your console wallet so you can use them to operate your network.
+{:shortdesc}
 
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network.
+
+
 
 ## Managing Certificate Authorities
 {: #ibp-console-identities-manage-ca}
@@ -207,3 +209,4 @@ Clicking an identity opens a side panel that displays its certificates and priva
 You need to provide the signing certificate of your organization and node admins [to your organization MSP definition](/docs/services/blockchain/howto?topic=blockchain-ibp-console-organizations#console-organizations-create-msp). The nodes or channels created by the console uses the certificates from the MSP definition to check who is a valid administrator. As a result, the same signing certificate and private key that you used to add an admin cert to the MSP definition needs to be stored inside your console wallet.
 
 When you use the console to create an orderer or peer, you will encounter an **Associate identity** panel. Select an identity in the wallet whose certificate is also inside your organization MSP definition. You will also need to select an admin identity in the **Associate identity** section when you create or edit a channel. This will allow your console to know which identity to use when it communicates with your peers, orderers, and ordering service consortium. The identity that is currently associated with a peer or ordering service is visible on the left side of the node panel, below the name, Node location, and Fabric version.
+
