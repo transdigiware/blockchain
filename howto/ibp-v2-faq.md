@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-10-15"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -124,7 +124,7 @@ The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are
 {: faq}
 
 Your existing Kubernetes cluster works with the {{site.data.keyword.blockchainfull_notm}} Platform if it satisfies the following conditions:
-- It is running Kubernetes version 1.11, 1.12, 1.13, or 1.14.
+- It is running Kubernetes version 1.11, 1.12, 1.13, 1.14 or 1.15.
 - There are enough available resources in the cluster.
 
 ## Do we have access to logging services and what logs are available to me?

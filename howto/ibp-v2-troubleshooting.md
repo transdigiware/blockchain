@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-10-10"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -33,6 +33,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues with the Console**
 
+- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
@@ -55,6 +56,8 @@ This topic describes common issues that can occur when using the {{site.data.key
 **Issues on {{site.data.keyword.cloud_notm}}**
 
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
+- [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
+- [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
 
 **Issues on {{site.data.keyword.cloud_notm}} Private**
 
@@ -63,18 +66,31 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
 
 
-## When I hover over my node, the status is `Status unavailable`, what does this mean?
+## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
+{: #ibp-v2-troubleshooting-chrome-v77}
+{: troubleshoot}
+
+The console has been working successfully, but requests have started to fail.
+{: tsSymptoms}
+
+This problem is caused by a bug introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
+{: tsCauses}
+
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can downgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser.
+{: tsResolve}
+
+## When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?
 {: #ibp-v2-troubleshooting-status-unavailable}
 {: troubleshoot}
 
 The node status in the tile for the CA,  peer, or ordering node is grey, meaning the status of the node is not available. Ideally, when you hover over any node, the node status should be `Running`.
 {: tsSymptoms}
 
-This problem can occur if the node is newly created and the deployment process has not completed. If the node is a CA, then it is likely the node is not running.
+This problem can occur if the node is newly created and the deployment process has not completed. If the node is a CA, then it is likely that the node is not running.
 If the node is a peer or ordering node, this condition occurs when the health checker that runs against the peer or ordering nodes cannot contact the node.  The request for status can fail with a timeout error because the node did not respond within a specific time period, the node could be down, or network connectivity is down.
 {: tsCauses}
 
-If this is a new node, wait a few more minutes for the deployment to complete. If the node is not new,
+If this is a new node, wait a few more minutes for the deployment to complete. You can try reloading the page in your browser to refresh the status. If the node is not new,
 [examine the associated node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors to determine the cause.
 {: tsResolve}
 
@@ -108,13 +124,12 @@ The health checker can now run against the node and report the status of the nod
 {: troubleshoot}
 
 After you create an ordering service in your {{site.data.keyword.cloud_notm}} Private console, the status is `Running`. But when you open the ordering service you see the error:
+{: tsSymptoms}
 
 ```
 Unable to get system channel. If you associated an identity without administrative privilege on the ordering service node,
 you will not be able to view or manage ordering service details.
 ```
-
-{: tsSymptoms}
 
 This condition occurs in the blockchain console running on {{site.data.keyword.cloud_notm}} Private. On non-Chrome browsers you are required to  accept a certificate in order for the console to properly communicate with the node.
 {: tsCauses}
@@ -283,10 +298,11 @@ The peer log includes `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERRO 001 Ca
 {: troubleshoot}
 
 When I invoke a smart contract to submit a transaction, the transaction returns the following endorsement policy failure:
+{: tsSymptoms}
+
 ```
 returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
 ```
-{: tsSymptoms}
 
 If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
 {: tsCauses}
@@ -308,10 +324,11 @@ Follow these instructions to view your smart contract container logs on:
 {: troubleshoot}
 
 Transactions submitted from VS Code fail with an error similar to:
+{: tsSymptoms}
+
 ```
 Error submitting transaction: No endorsement plan available for {"chaincodes":[{"name":"hello-world"}]}
 ```
-{: tsSymptoms}
 
 This error occurs if you are using the Fabric Service Discovery feature but did not configure any anchor peers on your channel.
 {: tsCauses}
@@ -329,6 +346,29 @@ Free Kubernetes clusters are only valid for 30 days.
 {: tsCauses}
 
 It is not possible to migrate from a free cluster to a paid cluster. After 30 days you cannot access the console and all of your nodes and certificates are deleted. See this topic on [Kubernetes cluster expiration](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) for information on what is happening and what you can do.
+{: tsResolve}
+
+## After I deploy a node in the console, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?
+{: #ibp-v2-troubleshooting-unbound-persistent-volume-claim}
+
+I see what looks like an error in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that a pod has unbound immediate persistent volume claims and am worried that my node has failed to deploy.
+{: tsSymptoms}
+
+More time is needed for the node to come up.
+{: tsCauses}
+
+Unbound immediate persistent volume claims are a normal part of the deployment process for any node, reflecting that the persistent volume claim has been made but that the node itself has not yet deployed. Wait a few minutes for the node to deploy.
+{: tsResolve}
+
+## After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?
+{: #ibp-v2-troubleshooting-crash-loop-backoff}
+
+I see an error in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff and am worried that my node has failed to deploy.
+
+This node has failed to deploy.
+{: tsCauses}
+
+The node has failed to deploy. There can be several reasons for this, but you must go to your console, delete the node, and attempt to redeploy it. Make sure you are using the correct MSP, enroll ID, and secret.
 {: tsResolve}
 
 ## Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?
