@@ -67,7 +67,7 @@ You can use one of two ways to update your application:
 - If you have the time to make thorough updates to your application, you can use the new high-level Fabric SDK APIs. The new APIs are built to take advantage service discovery and reduce the number of steps that are required to submit a transaction. For more information, see [Update your application to use the new Fabric SDK programming model](#enterprise-upgrade-applications-new-apis).
 - If you want to make minimal updates to your application before using the upgrade tool, you can add code to use service discovery with the low-level Fabric SDK APIs. For more information, see [Patch your applications to use service discovery with the low-level APIs](#enterprise-upgrade-applications-patch).
 
-If you cannot update your applications to use service discovery, you need to [manually update your application or connection profile](#enterprise-upgrade-applications-new-apis) during the upgrade.
+If you cannot update your applications to use service discovery, you need to [manually update your application or connection profile](#enterprise-upgrade-applications-manual) during the upgrade.
 
 ### Option one: Update your application to use the new Fabric SDK programming model
 {: #enterprise-upgrade-applications-new-apis}
@@ -77,7 +77,7 @@ Starting with Fabric 1.4, you can take advantage of a new, simplified Fabric SDK
 To learn more about the new programming model, see the [Creating applications](/docs/services/blockchain/reference?topic=blockchain-ibp-console-app#ibp-console-app) tutorial or the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. You can get additional help to update your applications to the new programming model by engaging [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
 {: javascript}
 
-To learn more about the new programming model, see the [Creating applications](/docs/services/blockchain/reference?topic=blockchain-ibp-console-app#ibp-console-app) tutorial or the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. For documentation on the new APIs, see the [Hyperledger Fabric Gateway SDK for Java](https://fabric-gateway-java.github.io/). You can get additional help to update your applications to the new programming model by engaging [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
+To learn more about the new programming model, see the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. For documentation on the new APIs, see the [Hyperledger Fabric Gateway SDK for Java](https://fabric-gateway-java.github.io/). You can get additional help to update your applications to the new programming model by engaging [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
 {: java}
 
 ### Option two: Patch your applications to use service discovery with the low-level APIs
@@ -98,6 +98,7 @@ You can learn more about how to patch your application by going to the example b
 You can use the following example to learn how to update an application to use service discovery. Because the sample does not include features of production code such as error handling or listening for events, this code should be used as an example only.
 
 The example below can connect to an Enterprise Plan network by using a connection profile. The sample application loads the connection profile from your local file system and uses it to create an instance of the Fabric Client. The application then creates a channel object by using a channel that is defined in the connection profile. When the application initializes the channel connection, it connects to all of the peer and ordering nodes on the channel in the connection profile.
+{: javascript}
 
 ```javascript
 const NodesdkClient = require('fabric-client');
@@ -118,6 +119,9 @@ await channel.initialize();
 {: codeblock}
 {: javascript}
 
+The example below can connect to an Enterprise Plan network by using a connection profile. The sample application creates an instance of the Fabric Client and then uses the client to parse a connection profile that has been loaded from your local file system. The application then creates a channel instance by using a channel that is defined in the connection profile. When the application initializes the channel connection, it connects to all of the peer and ordering nodes on the channel in the connection profile.
+{: javascript}
+
 ```java
 // Create a client instance
 HFClient client = HFClient.createNewInstance();
@@ -135,17 +139,13 @@ channel.initialize();
 {: java}
 
 You can update this sample code to use service discovery by replacing the last two lines of code. Edit the line that gets a channel from your connection profile:
+{: javascript}
 
 ```javascript
 // create a channel instance from the connection profile
 const channel = client.getChannel('mychannel');
 ```
 {: javascript}
-
-```java
-Channel channel = client.loadChannelFromConfig("mychannel", conf);
-```
-{: java}
 
 You can replace it with a line that creates a new channel object by using a name that you provide:
 {: javascript}
@@ -183,8 +183,24 @@ await channel.initialize(initOptions);
 Instead of getting all of the peers and ordering nodes that are defined on the channel, the code above uses the connection profile to get one peer from your organization. When the channel connection is initialized, your peer is passed the channel and service discovery is enabled by setting `discover: true`. The SDK then uses service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger. If you have multiple peers in your organization for high availability, you can edit the code block above to add additional peers to the channel.
 {: javascript}
 
-Replace it with a new method that creates a channel with service discovery enabled.
+You can update this sample code to use service discovery. Edit the line that gets a channel from your connection profile:
 {: java}
+
+```java
+Channel channel = client.loadChannelFromConfig("mychannel", conf);
+```
+{: java}
+
+You can replace this line with a call to a new method that creates a channel with service discovery enabled. You will add this method to your application in the next step.
+{: java}
+
+```java
+Channel channel = createChannel(client, conf, "mychannel");
+```
+{: codeblock}
+{: java}
+
+You can then add the method that creates a channel instance:
 
 ```java
 /*
@@ -217,22 +233,11 @@ private static Channel createChannel(HFClient client, NetworkConfig networkConfi
 {: codeblock}
 {: java}
 
-Instead of getting all of the peers and ordering nodes on the channel, the method above uses the connection profile to get the list of peers from your organization. Service discovery is enabled by setting all of the roles for each peer and then adding them to the channel. The peers added to the channel can then receive updates using service discovery.
-{: java}
-
-You can then replace the line that initializes the channel without service discovery:
+Instead of getting all of the peers and ordering nodes on the channel, the method above uses the connection profile to get the list of peers from your organization. Service discovery is enabled by setting all of the roles for each peer and then adding them to the channel. The peers added to the channel can then receive updates using service discovery. You can initialize the channel instance using the same line of code that was in the original sample:
 {: java}
 
 ```java
 channel.initialize();
-```
-{: java}
-
-With a line that creates a channel using the method you just added:
-{: java}
-
-```java
-Channel channel = createChannel(client, conf, "mychannel");
 ```
 {: codeblock}
 {: java}
@@ -240,12 +245,15 @@ Channel channel = createChannel(client, conf, "mychannel");
 The SDK can then use service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger.
 {: java}
 
-## Step four
+## Step four: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 {: #enterprise-upgrade-applications-four}
 
 When you have finished updating your application, you can continue submitting transactions to your Enterprise Plan network. An application that uses service discovery can continue to use the connection profile provided by the Enterprise Plan Network Monitor.
 
+After you have updated your application, you can start submitting transactions to the nodes that you create on the new platform. After you have created a peer on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, and used the upgrade tool to install a smart contract on the peer that has been instantiated on a channel, you can download the connection profile using the {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Connect with SDK](/docs/services/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Once you have loaded the new connection profile into your application, you application can use service discovery to submit transactions to the nodes that have been created on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and the nodes that remain on Enterprise Plan.
+
 ## If you cannot update your application
+{: #enterprise-upgrade-applications-manual}
 
 If you cannot update your application to use service discovery before the upgrade process, you need to manually update your application or edit your connection profile while you are using the upgrade tool. For each new peer or orderer node that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you add node endpoint information to your application or connection profile. You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to find the endpoint URL and the TLS certificate for each node.
 
