@@ -48,10 +48,23 @@ You might need to update your application before your Enterprise Plan network is
 ## Step two: Upgrade your version of the Fabric SDK
 {: #enterprise-upgrade-applications-two}
 
-When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of your Fabric SDK. Upgrading the Fabric SDK allows you to update your application to use service discovery and take advantage of other improvements. If you are using Node Fabric SDK, go to the [Node Fabric SDK documentation](https://fabric-sdk-node.github.io/release-1.4/index.html) for more information.
+When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of your Fabric Node SDK. Upgrading the Fabric SDK allows you to update your application to use service discovery and take advantage of other improvements. You can go to the [Node Fabric SDK documentation](https://fabric-sdk-node.github.io/release-1.4/index.html) for more information.
 {: javascript}
 
-When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of your Fabric SDK. Upgrading the Fabric SDK allows you to update your application to use service discovery and take advantage of other improvements. If you are using Java Fabric SDK, go to the [Java Fabric SDK documentation](https://fabric-gateway-java.github.io/) for more information.
+When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4.5 version of your Fabric Java SDK. Upgrading the Fabric SDK allows you to update your application to use service discovery and take advantage of other improvements. Version 1.4.5 is the minimum version required to use the following steps. You can find the Maven definition for version 1.4.5 below:
+{: java}
+
+```
+<dependency>
+   <groupId>org.hyperledger.fabric-sdk-java</groupId>
+   <artifactId>fabric-sdk-java</artifactId>
+   <version>1.4.5</version>
+</dependency>
+```
+{: codeblock}
+{: java}
+
+You can go to the [Java Fabric SDK documentation](https://fabric-gateway-java.github.io/) for more information.
 {: java}
 
 ## Step three: Update your applications to use service discovery
@@ -119,8 +132,8 @@ await channel.initialize();
 {: codeblock}
 {: javascript}
 
-The example below can connect to an Enterprise Plan network by using a connection profile. The sample application creates an instance of the Fabric Client and then uses the client to parse a connection profile that has been loaded from your local file system. The application then creates a channel instance by using a channel that is defined in the connection profile. When the application initializes the channel connection, it connects to all of the peer and ordering nodes on the channel in the connection profile.
-{: javascript}
+The example below can connect to an Enterprise Plan network by using a connection profile. The sample application creates an instance of the Fabric Client and uses the Client to parse a connection profile that has been loaded from your local file system. The application can then create a channel instance from a channel that is defined in the connection profile. When the application initializes the channel connection, it connects to all of the peer and ordering nodes on the channel in the connection profile.
+{: java}
 
 ```java
 // Create a client instance
@@ -183,7 +196,7 @@ await channel.initialize(initOptions);
 Instead of getting all of the peers and ordering nodes that are defined on the channel, the code above uses the connection profile to get one peer from your organization. When the channel connection is initialized, your peer is passed the channel and service discovery is enabled by setting `discover: true`. The SDK then uses service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger. If you have multiple peers in your organization for high availability, you can edit the code block above to add additional peers to the channel.
 {: javascript}
 
-You can update this sample code to use service discovery. Edit the line that gets a channel from your connection profile:
+You can update this code sample to use service discovery. Edit the line that creates channel from one that is defined in your connection profile:
 {: java}
 
 ```java
@@ -200,7 +213,8 @@ Channel channel = createChannel(client, conf, "mychannel");
 {: codeblock}
 {: java}
 
-You can then add the method that creates a channel instance:
+You can then add the method that creates the channel:
+{: java}
 
 ```java
 /*
@@ -248,9 +262,9 @@ The SDK can then use service discovery to receive the list of peers and ordering
 ## Step four: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 {: #enterprise-upgrade-applications-four}
 
-When you have finished updating your application, you can continue submitting transactions to your Enterprise Plan network. An application that uses service discovery can continue to use the connection profile provided by the Enterprise Plan Network Monitor.
+You can continue submitting transactions to your Enterprise Plan network. An application that uses service discovery can continue to use the connection profile provided by the Enterprise Plan Network Monitor.
 
-After you have updated your application, you can start submitting transactions to the nodes that you create on the new platform. After you have created a peer on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, and used the upgrade tool to install a smart contract on the peer that has been instantiated on a channel, you can download the connection profile using the {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Connect with SDK](/docs/services/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Once you have loaded the new connection profile into your application, you application can use service discovery to submit transactions to the nodes that have been created on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and the nodes that remain on Enterprise Plan.
+When you have finished updating your application, you can start submitting transactions to the nodes that you create on the new platform. After you have created a peer on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and used the upgrade tool to install a smart contract on the peer that has been instantiated on a channel, you can download the connection profile using the {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Connect with SDK](/docs/services/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Once you have loaded the new connection profile into your application, you application can use service discovery to submit transactions to the nodes that have been created on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and the nodes that remain on Enterprise Plan.
 
 ## If you cannot update your application
 {: #enterprise-upgrade-applications-manual}
