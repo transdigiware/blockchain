@@ -26,6 +26,8 @@ You can use the {{site.data.keyword.blockchainfull}} Platform console to create 
 
 You can also use the console to manage which organizations are members of your network. The administrator of the ordering service can use the organizations tab to add members to the blockchain [consortium](/docs/services/blockchain?topic=blockchain-glossary#glossary-consortium). Members of the consortium can then use the console to add members to new or existing channels.
 
+![{{site.data.keyword.blockchainfull_notm}} Platform console organizations tab](../images/console_organizations_tab.png "{{site.data.keyword.blockchainfull_notm}} Platform console organizations tab"){: caption="Figure 1. You can use the organizations panel to create, import, and manage organization MSP definitions" caption-side="bottom"}
+
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network.
 
 ## Understanding MSPs
@@ -37,7 +39,7 @@ Each organization in the consortium needs to operate its own Certificate Authori
 
 Before your organization can join a consortium, it needs to create an organization definition known as a **Membership Services Provider (MSP)**. The MSP contains the following information:
 - A certificate signed by your **root Certificate Authority**. This certificate is used to verify the identity of your nodes, channels, and applications.
-- A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization gossip, which is necessary to take advantage of the [**Private data** collections](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
+- A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization gossip, which is necessary to take advantage of the [Private data collections](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
 - The **MSP ID**. The MSP ID is the formal name of your organization within the consortium. You need to remember the MSP ID for your nodes and applications.
 - The **Admin certificates** of your **Organization Admin** identities. These certificates are passed to the Ordering Service and are used to verify which identities in your organization are allowed to create or edit channels. When you use your console to create an ordering node or peer, the admin certificates inside the MSP are deployed within the new node, making your organization admin identities your **Peer or Orderer Admins** as well. You can use these identities to operate your node, such as by installing a smart contract on a peer or joining a peer to a channel, from your console or a client application.
 
@@ -146,7 +148,7 @@ As with all channel updates, this update needs to be performed by a channel oper
 
 1. In the **Organizations** tab locate the existing organization MSP definition that you want to update and click it's tile to open it.
 2. Click **Export** to save the definition to a JSON file on your file system and open file in a text editor.
-3. Edit the `admins` element. Paste the new admin certificate to the end of the list of comma separated admin certificates.  
+3. Edit the `admins` element. Paste the new admin certificate to the end of the list of comma-separated admin certificates.  
 4. Open the MSP definition in the console and click the **Settings** icon.  
 5. Click **Add file** and browse to the updated JSON file.
 6. Click **Update MSP definition**.
@@ -212,7 +214,7 @@ Create a JSON file by using the following format:
 The following additional fields are also available in your MSP definition but are not required:
 - **organizational_unit_identifiers**: A list of Organizational Units (OU) that valid members of this MSP should include in their X.509 certificate. This is an optional configuration parameter that is used when multiple organizations leverage the same root of trust and intermediate CAs, and they have reserved an OU field for their members. An organization is often divided up into multiple organizational units (OUs), each of which has a certain set of responsibilities. For example, the ORG1 organization might have both ORG1-MANUFACTURING and ORG1-DISTRIBUTION OUs to reflect these separate lines of business. When a CA issues X.509 certificates, the OU field in the certificate specifies the line of business to which the identity belongs. See this topic in the Fabric documentation on [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} for more information.  
 - **fabric_node_OUs**: Fabric-specific OUs that enable identity classification. `NodeOUs` contain information on how to distinguish clients, peers and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP will consider an identity valid if it is an identity of a `client`, a `peer` or an `orderer`. An identity should have only one of these special OUs. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation.
-- **revocation_list**: A list of certificates that are no longer valid. For X.509-based identities, these identifiers are pairs of strings known as Subject Key Identifier (SKI) and Authority Access Identifier (AKI), and are checked whenever the X.509 certificate is being used to make sure the certificate has not been revoked. See this topic  in the Fabric documentation for more information about [Certificate Revocation Lists](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
+- **revocation_list**: A list of certificates that are no longer valid. For X.509-based identities, these identifiers are pairs of strings known as Subject Key Identifier (SKI) and Authority Access Identifier (AKI), and are checked whenever the X.509 certificate is being used to make sure that the certificate has not been revoked. See this topic in the Fabric documentation for more information about [Certificate Revocation Lists](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
 
 For example, your JSON file would look similar to:
 
@@ -275,3 +277,4 @@ Over time you may need to update the certificates in an MSP definition that is a
 3. Click on the **Channel details** tab.
 4. Click on the associated channel member's tile that you want to update.
 5. If you have not already imported the updated MSP definition into the console, you can upload the file here. **Note:** This action will not update the associated MSP definition in the Organizations tab. If you have already updated the MSP definition in the Organizations tab of the console, you can select it from the drop-down list.
+
