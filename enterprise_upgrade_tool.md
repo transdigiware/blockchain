@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-17"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -56,7 +56,7 @@ If you are not able to see the **Upgrade network** button, your Enterprise Plan 
 
 You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that contains sufficient resources for your Enterprise Plan network. The **Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.0** displays the CPU and memory that is used by your Enterprise Plan network. Use this information when you select the size of the Kubernetes cluster on {{site.data.keyword.cloud_notm}} that you must create to deploy the next generation of the platform. Deploying the platform is a two-step process:
 
-1. Create a cluster on {{site.data.keyword.cloud_notm}} with the {{site.data.keyword.IBM_notm}} Kubernetes service. The upgrade tool provides an overview of the resources that are used by your Enterprise Plan network. It is recommended that you create a multizone cluster for high availability.
+1. Create a cluster on {{site.data.keyword.cloud_notm}} with the {{site.data.keyword.IBM_notm}} Kubernetes service. The upgrade tool provides an overview of the resources that are used by your Enterprise Plan network. It is recommended that you create a multizone cluster for high availability. If you create a multizone cluster, ensure that [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.
 
 2. After you create a Kubernetes cluster, you can deploy a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform and link it to that cluster.
 
@@ -68,13 +68,13 @@ You need to upload the connection information of your Enterprise Plan network an
 
 - Copy the service credentials from your Enterprise Plan network and paste them to the window named **Enterprise Plan service credentials**.
 
-- Provide the enrollID and Secret of your Certificate Authority on Enterprise Plan. You can find this information in your connection profile:
+- Provide the enrollID and secret of your Certificate Authority on Enterprise Plan. You can find this information in your connection profile:
 
   Open the **Connection Profile** JSON file from the **Overview** screen of your Network Monitor. You can find required information under the `certificateAuthorites` section:
     * Enroll ID: ``enrollId``
     * Enroll Secret: ``enrollSecret``
 
-- Copy the service credentials your new instance of {{site.data.keyword.blockchainfull_notm}} Platform and paste them into the **{{site.data.keyword.blockchainfull_notm}} Platform 2.0 service credentials** window. You can create the service credentials by using the following steps:
+- Copy the service credentials of your new instance of {{site.data.keyword.blockchainfull_notm}} Platform and paste them into the **{{site.data.keyword.blockchainfull_notm}} Platform 2.0 service credentials** window. You can create the service credentials by using the following steps:
 
   1. In your [{{site.data.keyword.cloud_notm}} resource list](https://cloud.ibm.com/resources){: external}, open the blockchain service instance that you created.
   2. Click **Service credentials** from the left navigator.
@@ -106,7 +106,7 @@ The first step of the upgrade is to create a new Certificate Authority (CA) on {
 
 In the page, you can find a list of the Certificate Authorities that you own on Enterprise Plan. If you are a network founder, the operator of the organization that is named peerOrg1 in your connection profile, you can also see the CA used by the ordering service. You must migrate both of these CAs to the new platform.
 
-For each CA you want to migrate, enter a **Display Name** for the new CA. This name is used to identify the CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to create the enrollID and Secret of the CA Admin. **Save these values**. You need to use the EnrollID and Secret to generate the CA admin identity and operate your CA.
+For each CA you want to migrate, enter a **Display Name** for the new CA. This name is used to identify the CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to create the enrollID and Secret of the CA Admin. **Save these values**. You need to use the enrollID and secret to generate the CA admin identity and operate your CA.
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to use your CA to register identities and generate certificates. For more information, see [Creating and managing identities](/docs/services/blockchain/reference?topic=blockchain-ibp-console-identities#ibp-console-identities).
 
@@ -122,7 +122,7 @@ Under **Create an organization admin and MSP**, select the organization CA (inst
 - Generate an administrator certificate and private key with the admin identity.
 - Create an organization MSP definition that contains the administrator signing certificate. You can see the MSP with the console UI by going to the organizations tab.
 
-After you create the administrator identity and the MSP, click the **Export Identity** button to download the administrator private key and certificate. Upload this identity to your console wallet to use console to operate your new nodes. For more information about your organization MSP and your organization administrator, see [Managing organizations](/docs/services/blockchain/reference?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
+After you create the administrator identity and the MSP, click the **Export Identity** button to download the administrator private key and certificate. Upload this identity to your console wallet to use the console to operate your new nodes. For more information about your organization MSP and your organization administrator, see [Managing organizations](/docs/services/blockchain/reference?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
 You can then start migrating your Peers. For each Peer you want to migrate, enter a **Display Name** for the new peer on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the enrollID and Secret for the peer identity. Your peer uses this identity to generate the certificate and keys it needs to operate on the network during deployment.
 
@@ -132,7 +132,7 @@ If you created a multizone cluster, you can use this page to deploy your peer to
 
 ## Migrating your smart contracts
 
-The Enterprise Plan Network Monitor UI and the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console use different formats to install chaincode on your peers. You can use the tool to migrate the chaincode that you installed on Enterprise plan to {{site.data.keyword.blockchainfull_notm}} Platform 2.0 without having to repackage your chaincode. Chaincode is referred to as smart contracts on on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
+The Enterprise Plan Network Monitor UI and the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console use different formats to install chaincode on your peers. You can use the tool to migrate the chaincode that you installed on Enterprise plan to {{site.data.keyword.blockchainfull_notm}} Platform 2.0 without having to repackage your chaincode. Chaincode is referred to as smart contracts on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
 
 You can find a list of chaincode packages that are installed on the peers of your Enterprise Plan network. The chaincode packages are grouped by chaincode version. You can use this page to find the latest version of each smart contract that is installed. **However, you need to have the chaincode on your local file system to use this page**.
 
@@ -142,7 +142,7 @@ If you want to upgrade your smart contract with the console UI, you need to pack
 
 ## Complete upgrade
 
-The upgrade tool stores the certificates and private keys that it used deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **Note** that this action is final. After you complete the upgrade, you can no longer use the tool to interact with your network. You can see an overview of the nodes and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool.
+The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **Note** that this action is final. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the nodes and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool.
 
-Ensure that you downloaded your organization administrator identities and stored them in a secure place you click **Complete Upgrade**. You also need to save the enrollID and secret of your Certificate Authority administrator. After you complete this step, only the network administrator with your org admin identity can operate your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+Ensure that you downloaded your organization administrator identities and stored them in a secure place before you click **Complete Upgrade**. You also need to save the enrollID and secret of your Certificate Authority administrator. After you complete this step, only the network administrator with your org admin identity can operate your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 {: important}
