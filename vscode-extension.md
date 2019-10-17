@@ -260,7 +260,7 @@ After the test file is built, the tests can be run by clicking the **Run Tests**
 ## Step seven: Connect to your {{site.data.keyword.blockchainfull_notm}} Platform network
 {: #develop-vscode-connecting-ibp}
 
-You can also use the extension to connect to your {{site.data.keyword.blockchainfull_notm}} Platform that is running on {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private and invoke any smart contracts that are installed and instantiated by using the {{site.data.keyword.blockchainfull_notm}} Platform console UI.
+You can also use the extension to connect to your {{site.data.keyword.blockchainfull_notm}} Platform network and invoke any smart contracts that are installed and instantiated by using the {{site.data.keyword.blockchainfull_notm}} Platform console UI.
 
 Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is associated with your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Navigate to the **Smart Contracts** tab. Use the **Instantiated Smart Contracts** table on the smart contracts tab to download your [connection profile](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-profile) to your local file system. Then, [create an application identity](/docs/services/blockchain/howto?topic=blockchain-ibp-console-app#ibp-console-app-identities) by using your CA and save the enrollID and secret. Follow the steps below to connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code.
 
@@ -309,3 +309,4 @@ To edit a connection, complete the following steps:
 When you are ready to disconnect from the network, click the **Disconnect** icon in the upper right of the **Fabric Gateways** pane.
 
 To delete a connection, right-click the connection and select **Delete Gateway**.
+
