@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-10"
+lastupdated: "2019-10-17"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -70,7 +70,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 {: #ibp-v2-troubleshooting-chrome-v77}
 {: troubleshoot}
 
-The console has been working successfully, but requests have started to fail.
+The console has been working successfully, but requests have started to fail. For example, after I create an ordering service and open it I see the error: `Unable to get system channel. If you associated an identity without administrative privilege on the ordering service node, you will not be able to view or manage ordering service details.`
 {: tsSymptoms}
 
 This problem is caused by a bug introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
