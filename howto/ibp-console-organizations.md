@@ -55,6 +55,7 @@ You can view all of the MSPs that you have created or imported under **Available
 
 You can click on an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
 
+
 ## Creating an MSP for your organization
 {: #console-organizations-create-msp}
 
