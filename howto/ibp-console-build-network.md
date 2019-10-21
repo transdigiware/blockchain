@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-21"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -31,18 +31,23 @@ If you have not already used the {{site.data.keyword.blockchainfull_notm}} Platf
 
 Whether you deploy components to a paid or free Kubernetes cluster, pay close attention to the resources at your disposal when you choose to deploy nodes and create channels. It is your responsibility to manage your Kubernetes cluster and deploy additional resources if necessary. While components will successfully deploy to an {{site.data.keyword.cloud_notm}} free cluster, the more components you add, the slower your components will run. For more information about component sizings and how the console interacts with your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, see [Allocating resources](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-iks-console-interaction). If you are using {{site.data.keyword.cloud_notm}} Private to deploy onto a different cloud provider, you will have to consult the documentation for that provider to learn how to monitor your resources there.
 
+
+
+
 ## Sample network tutorial series
 {: #ibp-console-build-network-sample-tutorial}
 
-This three-part tutorial series guides you through the process of creating and interconnecting a relatively simple, multi-node Hyperledger Fabric network by using the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy a network into your Kubernetes cluster and install and instantiate a smart contract. Note that while this tutorial will show how this process works with a paid {{site.data.keyword.cloud_notm}} Kubernetes cluster, the same basic flow applies to free clusters, albeit with a few limitations (for example, you cannot size or resize nodes in a free cluster).
+This three-part tutorial series guides you through the process of creating and interconnecting a relatively simple, multi-node Hyperledger Fabric network by using the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy a network into your Kubernetes cluster and install and instantiate a smart contract.
+
+Note that while this tutorial shows how this process works with a paid {{site.data.keyword.cloud_notm}} Kubernetes cluster, the same basic flow applies to free clusters, albeit with a few limitations (for example, you cannot size or resize nodes in a free cluster).
 
 The process for creating and managing components described in these tutorials also applies to deployments on other cloud providers using {{site.data.keyword.cloud_notm}} Private.
 {: important}
 
+
 * **Build a network tutorial** This tutorial guides you through the process of hosting a network by creating two organizations, one for your peer and another for your ordering service, and a channel. Use this tutorial if you want to form a blockchain consortium by creating an ordering service and adding organizations.
 * [Join a network tutorial](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network) guides you through the process of joining an existing network by creating a peer and joining it to an existing channel. Use this tutorial if you either do not intend to host a network by creating an ordering service, or want to learn the process for joining other networks.
 * [Deploy a smart contract on the network](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) shows how to write a smart contract and deploy it on a network.
-
 
 ### The structure of this network
 {: #ibp-console-build-network-structure}
@@ -59,8 +64,8 @@ This configuration is sufficient both for testing applications and smart contrac
   Because we are building a distributed ledger, the peers and ordering service should be part of separate organizations. Therefore, a separate organization is created for the ordering service. Among other things, an ordering service orders the blocks of transactions that are sent to the peers to be written to their ledgers and become the blockchain. We will create the definition of the `Ordering Service` organization.
 * **Three Certificate Authorities (CAs)**: `Org1 CA, Org2 CA, Ordering Service CA`   
   A CA is the node that issues certificates to both the users and the nodes associated with an organization. Because it’s a best practice to deploy one CA per organization, we will deploy three CAs in total: one for each peer organization and one for the ordering service organization. These CAs will also create the definition of each organization, which is encapsulated by a Membership Service Provider (MSP). A TLS CA is automatically deployed together with each organization CA and provides the TLS certificates that are used for communication between nodes. For more information, see [Using your TLS CA](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca).
-* **One ordering service:** `Ordering Service`  
-  While deployments running on a paid cluster have the option to deploy either a one node ordering service or a crash fault tolerant five node ordering service, free clusters only have the option of running a single node. The five node ordering service uses an implementation of the Raft protocol (for more information about Raft, see [The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external} and is the deployment option this tutorial will feature. This ordering service will add peer organizations to its "consortium", which is the list of peer organizations that can create channels.
+* **One ordering service:** `Ordering Service` 
+  While deployments running on a paid cluster have the option to deploy either a single node ordering service or a crash fault tolerant five node ordering service, free clusters only have the option of running a single node. The crash fault tolerant five node ordering service uses an implementation of the Raft protocol (for more information about Raft, see [The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external} . This ordering service will add peer organizations to its "consortium", which is the list of peer organizations that can create channels. Currently, only one ordering service organization per ordering service is supported, regardless of the number of ordering nodes associated with that organization. This ordering service will add peer organizations to its "consortium", which is the list of peer organizations that can create and join channels. If you want to create a channel that has organizations deployed in different clusters, which is how most production networks will be structured, the ordering service admin will need to import a peer organization that has been deployed in another console into their console. This allows the peer organization to join the channel that is hosted on that ordering service.
 * **Two peers:** `Peer Org1` and `Peer Org2`  
   The ledger, `Ledger x` in the illustration above, is maintained by distributed peers. These peers are deployed using [Couch DB](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html){: external}) as the state database in a separate container associated with the peer. This database holds the current value of all "state" (as represented by key-value pairs). For example, saying that `Org1` (a value) is the current owner of a bank asset (the key). The blockchain, the list of transactions, is stored locally on the peer.
 * **One channel**: `channel1`  
@@ -96,8 +101,8 @@ To create the CA that will issue certificates for your first organization, perfo
 1. Navigate to the **Nodes** tab on the left and click **Add Certificate Authority**. The side panels will allow you to customize the CA that you want to create and the organization that this CA will issue keys for.
 2. In this tutorial, we're creating nodes, so make sure the option to **Create** a Certificate Authority is selected. Then click **Next**.
 3. Use the side panel to give your CA a **display name**. Our recommended value for this CA is `Org1 CA`. Then give your CA admin credentials by specifying a **CA administrator enroll ID** of `admin` and a secret of `adminpw`. Again, these are **recommended values**.
-4. If you are using a paid cluster, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, accept all the defaults and click **Next**. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free cluster, you will see the **Summary** page.
-5. Review the Summary page, then click **Add certificate authority**.
+4. If you are using a paid cluster, you  have the opportunity to configure resource allocation for the node. For purposes of this tutorial, accept all the defaults and click **Next**. If you want to learn more about how to allocate resources for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free cluster, you will see the **Summary** page.
+5. Review the Summary page, then click **Add Certificate Authority**.
 
 **Task: Creating the peer organization CA**
 
@@ -109,7 +114,7 @@ To create the CA that will issue certificates for your first organization, perfo
 
 After you deploy the CA, you need to associate an admin identity. This will allow you to operate your CA and use it to create your organization MSP, register users, and your **peer**.
 
-Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use your own external CA instead of creating a new one here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
+Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating a new CA here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
 
 ### Associating the CA admin identity
 {: #ibp-console-build-network-ca-admin}
@@ -122,7 +127,7 @@ Depending on your cluster type, deployment of the CA can take up to ten minutes.
 Once the CA is running, as indicated by the green box in the tile, complete the following steps:
 
 1. Click on the `Org1 CA` tile in the **Nodes** tab. Then click **Associate identity** on the CA overview panel.
-2. On the side panel, select **Enroll an identity**. Then provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org1 CA Admin`.
+2. On the side panel, select **Enroll an identity**. Then provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org1 CA Admin `.
 3. Click **Associate identity** to add the identity into your console Wallet and associate the admin identity with your CA.
 
 After setting the CA admin identity, you will be able to see the table of registered users in the CA overview panel.
@@ -131,7 +136,7 @@ After setting the CA admin identity, you will be able to see the table of regist
 
   |  **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Enroll ID** |  Org1 CA Admin | admin | adminpw |
+  | **Enroll ID** |  Org1 CA Admin  | admin | adminpw |
 
 *Figure 4. Associate the CA admin identity*
 
@@ -141,7 +146,7 @@ You can view the CA admin identity in your console Wallet by clicking on the **W
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin | Org1 CA admin identity |
+  | **Identity** | Org1 CA Admin  | Org1 CA admin identity |
 
 *Figure 5. Check your Wallet*
 
@@ -180,7 +185,7 @@ Now that we have created the peer's CA and used it to **register** identities fo
 1. Navigate to the **Organizations** tab in the left navigation and click **Create MSP definition**.
 2. Enter `Org1 MSP` as the organization MSP display name and `org1msp` and as the MSP ID. If you want to specify your own MSP ID in this field, make sure to review the instructions in the tool tip.
 3. Under **Root Certificate Authority details**, specify the CA you used to register the identities in the previous step. If this is your first time through this tutorial, you should only see one: `Org1 CA`.
-4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID of your CA admin: `admin`. However, using this identity would give your organization the same admin identity as your CA, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org1admin`, and enter its associated secret, `org1adminpw`. Then, give this identity a display name, `Org1 MSP Admin`. Note: the default display name for this identity is the name of your MSP and the word "admin". If you select a different name for your MSP, that will be reflected in the default.
+4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID of your CA admin: `admin`. However, using this identity would give your organization the same admin identity as your CA, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org1admin`, and enter its associated secret, `org1adminpw`. Then, give this identity a display name, `Org1 MSP Admin `. Note: the default display name for this identity is the name of your MSP and the word "Admin". If you select a different name for your MSP, that will be reflected in the default.
 5. Click the **Generate** button to enroll this identity as the admin of your organization and export the identity to the Wallet, where it will be used when creating the peer and creating channels.
 6. Click **Export** to export the admin certificates to your file system. As we said above, this identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to administer the peer.
 7. Click **Create MSP definition**.
@@ -192,7 +197,7 @@ Now that we have created the peer's CA and used it to **register** identities fo
   | **Create Organization** | Org1 MSP | org1msp |||
   | **Root CA** | Org1 CA ||||
   | **Org Admin Cert** | |  | org1admin | org1adminpw |
-  | **Identity** | Org1 MSP Admin |||||
+  | **Identity** | Org1 MSP Admin  |||||
 
   *Figure 7. Create the peer organization MSP definition*
 
@@ -202,8 +207,8 @@ After you have created the MSP, you should be able to see the peer organization 
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin | Org1 admin identity |
-  | **Identity** | Org1 MSP Admin | Org1 admin identity |
+  | **Identity** | Org1 CA Admin  | Org1 admin identity |
+  | **Identity** | Org1 MSP Admin   | Org1 admin identity |
 
   *Figure 8. Check your Wallet*
 
@@ -239,8 +244,8 @@ Use your console to perform the following steps:
 5. Click **Next**.
 6. On the next screen, select `Org1 CA`, as this is the CA you used to register the peer identity. Select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer1`, and enter its associated **secret**, `peer1pw`. Then, select `Org1 MSP` from the drop-down list and click **Next**.
 7. The next side panel asks for TLS CA information. When you created the CA, a TLSCA was created alongside it. This CA is used to create certificates for the secure communication layer for nodes. Therefore, select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer1`, and enter the associated **secret**, `peer1pw`. The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
-8. If you are using a paid cluster, on the next panel, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, you can accept all the defaults and click **Next**. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free {{site.data.keyword.cloud_notm}} cluster, you will see the **Associate an identity** panel.
-9. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org1 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org1 CA` and make that identity the admin of your peer, but this tutorial uses the `Org1 MSP Admin` identity.
+8. If you are using a paid cluster, on   the next panel, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, you can accept all the defaults and click **Next**. If you want to learn more about how to allocate resources for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free {{site.data.keyword.cloud_notm}} cluster, you will see the **Associate an identity** panel.
+9. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org1 MSP Admin  `, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org1 CA` and make that identity the admin of your peer, but this tutorial uses the `Org1 MSP Admin` identity.
 10. Review the summary and click **Add peer**.
 
 **Task: Deploying a peer**
@@ -253,11 +258,11 @@ Use your console to perform the following steps:
   | **Administrator certificate** | org1msp ||||
   | **TLS CA** | Org1 CA ||||
   | **TLS CA ID** | || peer1 | peer1pw |
-  | **Associate identity** | Org1 MSP Admin |||||
+  | **Associate identity** | Org1 MSP Admin   |||||
 
   *Figure 9. Deploying a peer*
 
-In a production scenario, it is recommended that each organization deploy three peers to each channel. These can be the same three peers joined to different channels or different peers. It is up to the organization. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org1 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org1secondpeer` and `org1secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org1, choose `Org1 CA`, `Org1 MSP`, and `Org1 MSP Admin` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org1 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
+In a production scenario, it is recommended that each organization deploy three peers to each channel. These can be the same three peers joined to different channels or different peers. It is up to the organization. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org1 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org1secondpeer` and `org1secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org1, choose `Org1 CA`, `Org1 MSP`, and `Org1 MSP Admin ` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org1 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
 {:tip}
 
 ## Step two: Create the ordering service
@@ -268,12 +273,12 @@ In other distributed blockchains, such as Ethereum and Bitcoin, there is no cent
 The ordering service is a key component in a network because it performs a few essential functions:
 
 - They literally **order** the blocks of transactions that are sent to the peers to be written to their ledgers. This process is called "ordering".
-- They maintain the **ordering system channel**, the place where the **consortium**, the list of peer organizations permitted to create channels, resides.
+- They maintain the **ordering system channel**, the place where the **consortium**, the list of peer organizations permitted to create channels, resides. A consortium is essentially a multi-tenancy vehicle, and a single ordering service by design can host multiple consortia.
 - They **enforce the policies** decided by the consortium or the channel administrators. These policies dictate everything from who gets to read or write to a channel, to who can create or modify a channel. For example, when a network participant asks to modify a channel or consortium policy, the ordering service processes the request to see if the participant has the proper administrative rights for that configuration update, validates it against the existing configuration, generates a new configuration, and relays it to the peers.
 
 For more information about ordering services and the role they play in networks based on Hyperledger Fabric, see [The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html){: external}.
 
-In a paid cluster, you have the option between creating a one node ordering service (sufficient for testing purposes) and a crash fault tolerant ordering service featuring five nodes tied to a single organization. In a free cluster, you will only be able to create a single node ordering service. In this tutorial, we will show the one node ordering service.
+In a paid cluster, you have the option between creating a one node ordering service (sufficient for testing purposes) and a crash fault tolerant ordering service featuring five nodes tied to a single organization. In a free cluster, you will only be able to create a single node ordering service. In this tutorial, we will show the one  node ordering service.
 
 However, just as with the peer, before we can create an ordering service, we need to create a CA to supply the identities and the MSP of our ordering service organization.
 
@@ -288,9 +293,9 @@ The production level ordering service available is a crash fault tolerant (CFT) 
 
 Currently, the only crash fault tolerant configuration of ordering nodes currently available is **five** nodes. While it is possible to create a crash fault tolerant ordering service with as little as three nodes, this configuration incurs risk. If a node goes down, for example during a maintenance cycle, only two nodes would be left. If another node was lost during this cycle **for any reason**, only one node would left. In that state, a one node ordering service when you started with three, you would no longer have a majority of nodes available, also known as a "quorum". Without a quorum, no transactions can be pushed. The channel would cease to function.
 
-With five nodes, you can lose two nodes and still maintain a quorum, meaning that you can undergo a maintenance cycle while maintaining high availability. As a result, paid clusters will only have the choice between one node and five nodes. Production networks should choose the five node option, as a one node ordering service is, by definition, not crash fault tolerant.
+With five nodes, you can lose two nodes and still maintain a quorum, meaning that you can undergo a maintenance cycle while maintaining high availability. As a result, paid clusters  will only have the choice between one node and five nodes. Production networks should choose the five node option, as a one node ordering service is, by definition, not crash fault tolerant.
 
-In this tutorial, we will create a single node ordering service.
+In this tutorial, we will create a one  node ordering service.
 
 ### Creating your ordering service organization CA
 {: #ibp-console-build-network-create-orderer-ca}
@@ -300,8 +305,8 @@ The process for creating a CA for an ordering service is identical to creating i
 1. Navigate to the **Nodes** tab and click **Add Certificate Authority**.
 2. In this tutorial, we're creating nodes, so make sure the option to **Create** a Certificate Authority is selected. Then click **Next**
 3. Give this CA a unique display name, `Ordering Service CA`. You're free to reuse the **CA administrator enroll ID** of `admin` and a secret of `adminpw`. As this is a different CA, this identity is distinct from the CA admin identity for created for the `Org1 CA`, even though the ID and secret are identical.
-4. If you are using a paid cluster, on the next panel, you have the opportunity to configure resource allocation for the CA. For purposes of this tutorial, accept all the defaults and click **Next**. If you want to learn more about how to allocate resources to {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free cluster, you will see the **Summary** page.
-5. Review the Summary page, then click **Add certificate authority**.
+4. If you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the CA. For purposes of this tutorial, accept all the defaults and click **Next**. If you want to learn more about how to allocate resources to {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources). If you are using a free cluster, you will see the **Summary** page.
+5. Review the Summary page, then click **Add Certificate Authority**.
 
 As with the peer, advanced users may already have their own CA and not want to create a new CA using the console. If your existing CA can issue certificates in `X.509` format, you can use your own external CA instead of creating a new one here. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
 
@@ -316,14 +321,14 @@ Depending on your cluster type, deployment of the CA can take up to ten minutes.
 Once the CA is running, as indicated by the green box in the tile, complete the following steps:
 
 1. Click on the `Ordering Service CA` tile in the **Nodes** tab. Then click **Associate identity** on the CA overview panel.
-2. On the side panel, select **Enroll an identity**. Then provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Ordering Service CA Admin`.
+2. On the side panel, select **Enroll an identity**. Then provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Ordering Service CA Admin `.
 3. Click **Associate identity** to add the identity into your console Wallet and associate the admin identity with your CA.
 
 **Task: Associate identity**
 
   |  **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Enroll ID** |  Ordering Service CA Admin | admin | adminpw |
+  | **Enroll ID** |  Ordering Service CA Admin   | admin | adminpw |
 
 *Figure 10. Associate CA admin identity*
 
@@ -333,9 +338,9 @@ You should be able to see the CA admin in your **Wallet**. As we said above, the
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin | Org1 CA admin identity |
-  | **Identity** | Org1 MSP Admin | Org1 admin identity |
-  | **Identity** | Ordering Service CA Admin | Ordering Service CA admin identity |
+  | **Identity** | Org1 CA Admin   | Org1 CA admin identity |
+  | **Identity** | Org1 MSP Admin   | Org1 admin identity |
+  | **Identity** | Ordering Service CA Admin   | Ordering Service CA admin identity |
 
 *Figure 11. Check your Wallet*
 
@@ -347,9 +352,9 @@ As we did with the peer, we need to register two identities with our ordering se
 Once you have associated the CA admin, you can use the CA tile to create these identities by completing the following steps:
 
 1. Click on the `Ordering Service CA` in the **Nodes** tab and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
-2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `OSadmin` and a **secret** of `OSadminpw`. Then set the `Type` for this identity as `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type). You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `OSadmin` and a **secret** of `OSadminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer`  type). You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
 3. For the purpose of this tutorial, we do not need to use **Add Attribute**. If you want to learn more about identity attributes, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
-4. After the organization admin has been registered, repeat this same process for the identity of the ordering service (also using the `Ordering Service CA`). For the ordering service node identities, give an enroll ID of `OS1` and a secret of `OS1pw`. This is a node identity, so select `peer` as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
+4. After the organization admin has been registered, repeat this same process for the identity of the ordering service (also using the `Ordering Service CA`). For the ordering service node identities, give an enroll ID of `OS1` and a secret of `OS1pw`. This is a node identity, so select `peer`  as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
 
 **Task: Create a CA and register users**
 
@@ -361,7 +366,7 @@ Once you have associated the CA admin, you can use the CA tile to create these i
 
 *Figure 12. Create a CA and register users*
 
-For the purpose of this tutorial, we are only creating one node identity. This identity will be used by the one node we will deploy to create the ordering service. While you would not want to do this in a multi-organizational ordering service, it is acceptable given that all of the ordering nodes are owned by the same organization.
+For the purpose of this tutorial, we are only creating one node identity. This identity will be used by the one node that we will deploy to create the ordering service. While you would not want to do this in a multi-organizational ordering service, it is acceptable given that all of the ordering nodes are owned by the same organization.
 
 ### Creating the ordering service organization MSP definition
 {: #ibp-console-build-network-create-orderer-org-msp}
@@ -371,7 +376,7 @@ Create your ordering service organization MSP definition and specify the admin i
 1. Navigate to the **Organizations** tab in the left navigation and click **Create MSP definition**.
 2. Enter `Ordering Service MSP` as the organization MSP display name and `osmsp` and as the MSP ID. If you want to specify your own MSP ID in this field, make sure to review the instructions in the tool tip.
 3. Under **Root Certificate Authority details**, select the `Ordering Service CA` we created.
-4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID of your CA admin identity, `admin`, which for security reasons is not recommended. Instead, select the enroll ID that you created for your organization admin from the drop-down list, `OSadmin`, and enter its associated secret, `OSadminpw`. Then, give this identity a display name, `Ordering Service MSP Admin`. Note: the default display name for this identity is the name of your MSP and the word "admin". If you select a different name for your MSP, that will be reflected in the default.
+4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID of your CA admin identity, `admin`, which for security reasons is not recommended. Instead, select the enroll ID that you created for your organization admin from the drop-down list, `OSadmin`, and enter its associated secret, `OSadminpw`. Then, give this identity a display name, `Ordering Service MSP Admin `. Note: the default display name for this identity is the name of your MSP and the word "admin". If you select a different name for your MSP, that will be reflected in the default.
 5. Click the **Generate** button to enroll this identity as the admin of your organization and export the identity to the Wallet.
 6. Click **Export** to export the admin certificates to your file system. If you change browsers, you will need to import this identity into your console Wallet to be able to administer the ordering service.
 7. Click **Create MSP definition**.
@@ -383,7 +388,7 @@ Create your ordering service organization MSP definition and specify the admin i
   | **Create Organization** | Ordering Service MSP | osmsp |||
   | **Root CA** | Ordering Service CA ||||
   | **Org Admin Cert** | |  | OSadmin | OSadminpw |
-  | **Identity** | Ordering Service MSP Admin |||||
+  | **Identity** | Ordering Service MSP Admin  |||||
 
   *Figure 13. Create the ordering service organization MSP definition*
 
@@ -393,10 +398,10 @@ After you have created the MSP, you should be able to see the ordering service o
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin | Org1 CA admin identity |
-  | **Identity** | Org1 MSP Admin | Org1 admin identity |
-  | **Identity** | Ordering Service CA Admin | Ordering Service CA admin identity |
-  | **Identity** | Ordering Service MSP Admin | Ordering Service admin identity |
+  | **Identity** | Org1 CA Admin   | Org1 CA admin identity |
+  | **Identity** | Org1 MSP Admin   | Org1 admin identity |
+  | **Identity** | Ordering Service CA Admin   | Ordering Service CA admin identity |
+  | **Identity** | Ordering Service MSP Admin   | Ordering Service admin identity |
 
   *Figure 14. Create the ordering service organization MSP definition*
 
@@ -412,11 +417,11 @@ Perform the following steps from your console:
 
 1. On the **Nodes** page, click **Add ordering service**.
 2. Make sure the option to **Create** an ordering service is selected. Then click **Next**.
-3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **one node**. And do not choose to use an external CA. This is an advanced option. For the purpose of this tutorial, do not choose to use an external CA for your ordering service, though if you want more information, see [Using certificates from an external CA](#ibp-console-build-network-third-party-ca). Click **Next**.
+3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **one node** . For the purpose of this tutorial, do not choose the Advanced option to use an external CA for your ordering service, though if you want more information, see [Using certificates from an external CA](#ibp-console-build-network-third-party-ca). Click **Next**.
 4. On the next panel, select `Ordering Service CA` as your CA. Then, select the **enroll ID** for the node identity that you created for your ordering service from the drop-down list, `OS1`, and enter the associated **secret**, `OS1pw`. Then, select your MSP, `Ordering Service MSP` from the drop-down list.
 5. The next side panel asks for TLS CA information. When you created the CA, a TLS CA was created alongside it. This CA is used to create certificates for the secure communication layer for nodes. Therefore, select the **enroll ID** for the ordering service identity that you created from the drop-down list, `OS1`, and enter its associated **secret**, `OS1pw`. The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want specify a custom domain name that can be used to address the ordering service endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
-6. If you are using a paid cluster, on the next panel, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, you can accept all the defaults and click **Next**. The selections you make here are applied to all five ordering nodes. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
-7. The **Associate identity** step allows you to choose an admin for your ordering service. Select `Ordering Service MSP Admin` as before and click **Next**.
+6. If you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the node. For purposes of this tutorial, you can accept all the defaults and click **Next**. The selections you make here are applied to all five ordering nodes. If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
+7. The **Associate identity** step allows you to choose an admin for your ordering service. Select `Ordering Service MSP Admin  ` as before and click **Next**.
 8. Review the Summary page and click **Add ordering service**.
 
 **Task: Create an ordering service**
@@ -429,7 +434,7 @@ Perform the following steps from your console:
   | **Administrator certificate** | Ordering Service MSP ||||
   | **TLS CA** | Ordering Service CA ||||
   | **TLS CA ID** | || OS1 | OS1pw |
-  | **Associate identity** | Ordering Service MSP Admin |||||
+  | **Associate identity** | Ordering Service MSP Admin   |||||
 
   *Figure 15. Create an ordering service*
 
@@ -495,7 +500,7 @@ Perform the following steps from your console:
 5. Choose the **Organizations** who will be a part of this channel. As we have only created one organization, this will be `Org1 MSP (org1msp)`. Make this organization an **Operator**. Note: do not use the `Ordering Service MSP` here.
 6. Choose a **Channel update policy** for the channel. This is the policy that will dictate how many organizations will have to approve updates to the channel configuration. As this tutorial only involves creating a single organization, this policy should be `1 out of 1`. As you add organizations to the channel, you should change this policy to reflect the needs of your use case. A sensible standard is to use a majority of organizations. For example, `3 out of 5`.
 7. Specify any **Access control** limitations you want to make. Note: this is an **advanced option**. If you set the access to a resource to a particular organization, it will restrict access to that resource for every other organization in the channel. For example, if the default access to a particular resource is the `Readers` of all organizations, and that access is changed to the `Admin` of `Org1`, then **only** the admin of Org1 will have access to that resource. Because access to certain resources is fundamental to the smooth operation of a channel, it is highly recommended to make access control decisions carefully. If you decide to limit access to a resource, make sure that the access to that resource is added, as needed, for each organization.
-8. Select the **Channel creator organization**. Because the console allows multiple organizations to be owned by a single user, it is necessary to specify which organization is creating the channel. Because this tutorial is limited to the creation of a single organization, choose `Org1 MSP` (org1msp) from the drop-down list. Likewise, choose `Org1 MSP Admin` as the identity creating the channel.
+8. Select the **Channel creator organization**. Because the console allows multiple organizations to be owned by a single user, it is necessary to specify which organization is creating the channel. Because this tutorial is limited to the creation of a single organization, choose `Org1 MSP` (org1msp) from the drop-down list. Likewise, choose `Org1 MSP Admin ` as the identity creating the channel.
 
 When you are ready, click **Create channel**. You will be taken back to the **Channels** tab and you can see a pending tile of the channel that you just created.
 
@@ -509,7 +514,7 @@ When you are ready, click **Create channel**. You will be taken back to the **Ch
   | **Channel update policy** | 1 out of 1 |
   | **Access control list** | None |
   | **Channel creator organization** | Org1 MSP |
-  | **Wallet identity** | Org1 MSP Admin|
+  | **Wallet identity** | Org1 MSP Admin  |
 
 *Figure 12. Create a channel*
 
@@ -524,8 +529,10 @@ Perform the following steps from your console:
 
 1. Click the pending tile for `channel1` to launch the side panel.
 2. Select which peers you want to join to the channel. For purposes of this tutorial, click the box next to `Peer Org1`.
+
 3. Leave the tab for **Make anchor peer** selected. It is a best practice for each organization to have at least one anchor peer on each channel, as anchor peers bootstrap the inter-organizational communication that enables features like [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} to work. While it is only necessary to have one anchor peer on each channel, it does not hurt to make all peer anchor peers. The only downside will be a short term increase in the stress on your communication layer when new organizations join their peers to the channel, as these peers are designed to contact every anchor peer in every organization to find out about the peers belonging to that organization. Note that you can also make a peer an anchor peer later through the **Channels** tab.
 4. Click **Join channel**.
+
 
 In this tutorial, we are only creating and joining a single peer to the channel. As a result, you don't have to worry about a conflict between the database type used by your peer (which in this tutorial is CouchDB) and any other peers on the channel. However, in a production scenario, a best practice will be to ensure that the peer you are joining to this channel uses the same database type as other peers on the channel. For more information, see [LevelDB vs CouchDB](docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
 {:important}
@@ -563,7 +570,7 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
-Now you have the choice of creating a peer or single-node ordering service node, or, if you have a paid cluster, a five node ordering service.
+Now you have the choice of creating a peer or single-node ordering service node, or ,if you have a paid cluster, a five node ordering service.
 
 ### Option 1: Create a new peer or single-node ordering service using certificates from an external CA
 {: #ibp-console-build-network-create-peer-orderer-third-party-ca-}
@@ -586,7 +593,7 @@ Now that you have gathered all the necessary certificates, you are ready to crea
 ### Option 2: Create a five node ordering service using certificates from an external CA
 {: #ibp-console-build-network-create-five-node}
 
-When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster hosted on another cloud provider using {{site.data.keyword.cloud_notm}} Private, you have the additional option of deploying a five node ordering service that uses the Raft consensus protocol.  Before you deploy a five node ordering service, you need to build a JSON file that contains all of the certificates for the five nodes by using the following instructions:
+When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster hosted on another cloud provider using {{site.data.keyword.cloud_notm}} Private, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol.  Before you deploy a five node ordering service, you need to build a JSON file that contains all of the certificates for the five nodes by using the following instructions:
 
 #### Create the certificates JSON file
 {: #ibp-console-build-network-create-certs-file}
@@ -713,7 +720,7 @@ Now that you have created a JSON file with all of the certificates for the order
 4. Select **I want to use certificates from an external Certificate Authority** and click **Next**.
 5. Click **Add file** to Upload the JSON file that contains all of the certificates.
 6. Select the **Organization MSP** definition that you imported.
-7. Because you are using a paid cluster, on the next panel, you have the opportunity to configure resource allocation for the nodes. The selections you make here are applied to all five ordering nodes.  If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
+7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections you make here are applied to all five ordering nodes.  If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
 8. Review the summary and click **Add ordering service**.
 
 ### What's next
@@ -723,3 +730,4 @@ You have gathered all of your peer or ordering service certificates from your th
 - If you created the peer node, the next step is to [Create the node that orders transactions](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer).
 - If you created the node to join an existing network, the next step is to [Add your organization to list of organizations that can transact](/docs/services/blockchain/howto?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2).
 - If you created an ordering service, the next step is to [Create a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel).
+
