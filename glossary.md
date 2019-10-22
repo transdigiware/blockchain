@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: 2019-10-22
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium
 
@@ -59,9 +59,7 @@ The Connection profile is visible in the "Overview" screen of the Network Monito
 {: #glossary-consensus}
 A collaborative process to keep the ledger transactions synchronized across the network. Consensus ensures that ledgers are updated only when the appropriate participants approve transactions, and that ledgers are updated with the same transactions in the same order. There are many different algorithmic ways of achieving consensus.
 
-## Consenter set
-{: #glossary-consenter}
-The ordering service nodes actively participating in the ordering process on a channel. These nodes are also known as "consenters."
+
 
 ## Console
 {: #glossary-console}
@@ -210,3 +208,4 @@ A user is a participant in a blockchain network that has indirect access to the 
 ## World state
 {: #glossary-world-state}
 See [Current state](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).
+
