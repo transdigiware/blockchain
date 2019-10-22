@@ -24,13 +24,17 @@ subcollection: blockchain
 # Administering your console
 {: #console-icp-manage}
 
+
 After you deploy your console on {{site.data.keyword.cloud}} Private, you can use the console to add or remove console users, as well as access APIs that allow you to operate your network and govern your console. You can also access and customize the logs of your console.
 {:shortdesc}
+
+
+
 
 ## Managing users from the console
 {: #console-icp-manage-users}
 
-The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
+The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis). 
 
 ### Role to permission mapping
 {: #console-icp-manage-role-mapping}
@@ -46,7 +50,11 @@ Permissions are cumulative. If you select a **Manager** role, the user will also
 ### Managing a user's password
 {: #console-icp-manage-user-pw}
 
+
 The password that was stored inside the [password secret](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they login to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
+
+
+
 
 You need to share the default password, or the default password that you reset, with the users so that they can log into the console. They will be required to change the password upon their first login.
 {:note}
@@ -65,6 +73,7 @@ A user with a manager role can update the roles of other console users and provi
 {: #console-icp-manage-icp-remove-user}
 
 If you are a user with a manager role, you can remove a user's access to the console. In the **Users** tab of the console, click the checkbox at the beginning of the specific user row. Then click the **Trash** can icon at the top of the table, next to the **Add new users** button. After removing the user from the table, the user cannot log into the console again.
+
 
 ## Using the {{site.data.keyword.blockchainfull_notm}} APIs
 {: #console-icp-manage-apis}
@@ -304,6 +313,7 @@ https://9.30.252.107:31212/ak/api/v1/components \
 
 You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or  {{site.data.keyword.cloud_notm}}. For more information, visit [Build a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
 
+
 ## Viewing your logs
 {: #icp-console-manage-logs}
 
@@ -326,7 +336,11 @@ You can view only the console logs if you are logged in as a console administrat
 ### Viewing your node logs
 {: #console-icp-manage-node-logs}
 
+
 Component logs can be viewed from the command line by using the [kubectl CLI commands](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_kubectl.html){: external} or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
+
+
+
 
 - Use the `kubectl logs` command to view the container logs inside the pod. Follow the instructions to [Install the kubectl cli](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_kubectl.html){: external} if you have not already done so. If you are unsure of your pod name, run the following command to view your list of pods.
 
@@ -344,25 +358,36 @@ Component logs can be viewed from the command line by using the [kubectl CLI com
 
   Replace `<pod_name>` with the name of your pod from the command output above.  
   Replace `<node>` with `ca`, `peer`, or `orderer` to view the logs for your node.  
-  Replace `<node>` with `fluentd` to view the logs for your smart contracts.
+  Replace `<node>` with `fluentd`  to view the logs for your smart contracts.
+
+  
 
   For more information about the `kubectl logs` command, see [Kubernetes documentation](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: external}.
+
 
 - Alternatively, you can [access the logs](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/troubleshoot/events.html){: external} from your  {{site.data.keyword.cloud_notm}} Private console, which opens the logs in Kibana.
 
   **Note:** When you view your logs in Kibana, you might receive the response `No results found`. This condition can occur if {{site.data.keyword.cloud_notm}} Private uses your worker node IP address as its hostname. To resolve this problem, remove the filter that begins with `node.hostname.keyword` at the top of the panel and the logs will become visible.
+
+
+
 
 ### Viewing your smart contract container logs
 {: #console-icp-manage-container-logs}
 
 If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue. You can run the following command to view the smart contract container logs:
 
+
 ```
 kubectl  logs -f <peer_ped> -c fluentd
 ```
 {:codeblock}
 
+
+
+
 Replace `<peer_pod>` with the name of the peer pod where the chaincode is running. Use the command `kubectl get po` to get the list of running pods.
+
 
 ## Installing patches for your nodes
 {: #console-icp-manage-patch}
@@ -375,3 +400,5 @@ Patches are applied to nodes one at a time. While the patch is being applied, th
 {:note}
 
 To apply a patch to a node, open the node tile and click the **Install patch** button. You cannot patch nodes that you imported to the console.
+
+
