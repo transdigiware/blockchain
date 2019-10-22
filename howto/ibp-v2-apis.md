@@ -126,14 +126,14 @@ Also, you can use the **Try it out** function in the API Reference doc to test y
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-You can import only existing CA, peer, and ordering nodes from other {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} networks.
+You can only import CA, peer, and ordering nodes that have been exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private, or the OpenShift Container Platform.
 
 ## Building a network by using APIs
 {: #ibp-v2-apis-build-with-apis}
 
 You can use APIs to create blockchain components in your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Use the following steps to build a blockchain network by using the {{site.data.keyword.blockchainfull_notm}} APIs.
 
-1. Create a Certificate Authority (CA) by calling [`POST /ak/api/v1/kubernetes/components/ca`](/apidocs/blockchain?code=try#create-a-ca).
+1. Create a Certificate Authority (CA) by calling [`POST /ak/api/v1/kubernetes/components/ca`](/apidocs/blockchain#create-a-ca).
 
   Remember your input and the response, you will need them later.
   {: tip}
@@ -154,15 +154,15 @@ You can use APIs to create blockchain components in your instance of the {{site.
 
 4. [Build the configuration file](#ibp-v2-apis-config) that is required to create an ordering service or peer. You must build a unique configuration file for each ordering service or peer that you want to create. If you are deploying multiple ordering nodes, you need to provide a configuration file for each node that you want to create.
 
-5. Create an ordering service by calling [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain?code=try#create-an-ordering-service).
+5. Create an ordering service by calling [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain#create-an-ordering-service).
 
-6. Create a peer by calling [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain?code=try#create-a-peer).
+6. Create a peer by calling [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain#create-a-peer).
 
 7. If you want to use the console to operate your blockchain components, you must import your administrator identity into your console wallet. Use the wallet tab to import the certificate and private key of your node admin into the console and create an identity. You then need to use the console to associate this identity with the components you created. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
 8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
-The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove) for more information.
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-role-mapping) for more information.
 {: note}
 
 ### Creating a node within a specific zone
@@ -170,29 +170,33 @@ The service credential that is used for API authentication must have the `Manage
 
 If you are using a multizone cluster, you can use the APIs to deploy a blockchain component to a specific zone of {{site.data.keyword.cloud_notm}}. This allows your network to maintain availability in the event of a zone failure. You can use the following steps to deploy a peer or ordering node to a specific zone.
 
+
 1. Find the zones that your worker nodes are located on. Navigate to the overview screen of your multizone cluster on the [{{site.data.keyword.cloud_notm}} Kubernetes service on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. From the cluster overview screen, click **Worker Nodes** to see a table of all the worker nodes in your cluster. You can find the zone that each worker node is located on in the **Zone** column of the table.
 
   You can also find the zones of your worker nodes using the kubectl CLI. Navigate to the **Access** panel and follow the instructions under **Gain access to your cluster** to connect to your cluster using the {{site.data.keyword.cloud_notm}} and kubectl CLI tools. Once you are connected, use the command `kubectl get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `zone` field under the `LABELS` column.
 
-2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain?code=try#create-an-ordering-service) or [Create a peer](/apidocs/blockchain?code=try#create-an-ordering-service) API calls using using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
+
+
+
+2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain#create-an-ordering-service) or [Create a peer](/apidocs/blockchain#create-a-peer) API calls using using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
 
 ## Import a network by using APIs
 {: #ibp-v2-apis-import-with-apis}
 
 You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} components created by using the APIs or the {{site.data.keyword.blockchainfull_notm}} Platform console into another service instance of the {{site.data.keyword.blockchainfull_notm}} Platform.
 
-1. Import a CA by calling [`POST /ak/api/v1/components/ca`](/apidocs/blockchain?code=try#import-a-ca).
+1. Import a CA by calling [`POST /ak/api/v1/components/ca`](/apidocs/blockchain#import-a-ca).
 
   Remember your input and the response, you will need them later.
   {: tip}
 
-  You need to wait for the CA to start. It might take several minutes depending on environment. You can call [`GET /components`](/apidocs/blockchain?code=try#get-all-components) to check the CA status. You will get repeated errors before you get a `200` status code to go to next step. Note that this API call times out in one minute.
+  You need to wait for the CA to start. It might take several minutes depending on environment. You can call [`GET /components`](/apidocs/blockchain#get-all-components) to check the CA status. You will get repeated errors before you get a `200` status code to go to next step. Note that this API call times out in one minute.
 
-2. Import an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-a-membership-service-provide-msp).
+2. Import an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain#import-a-membership-service-provide-msp).
 
-3. Import an ordering service by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain?code=try#import-an-ordering-service).
+3. Import an ordering service by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain#import-an-ordering-service).
 
-4. Import a peer by calling [`POST /ak/api/v1/components/peer`](/apidocs/blockchain?code=try#import-a-peer).
+4. Import a peer by calling [`POST /ak/api/v1/components/peer`](/apidocs/blockchain#import-a-peer).
 
 5. If you plan to use the {{site.data.keyword.blockchainfull_notm}} Platform console to operate your blockchain components, you must import your component administrator identities into your console wallet. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
@@ -250,7 +254,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   ```
   {:codeblock}
 
-5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v1/components`](/apidocs/blockchain?code=try#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
+5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v1/components`](/apidocs/blockchain#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
 
   You need to convert the certificate from base64 into PEM format to use it to communicate with your CA. Insert the base64 encoded string of the TLS certificate into command below. Ensure that you are in your `$HOME/fabric-ca-client` directory.
 
@@ -579,7 +583,7 @@ You need to either encode the special character or surround the url with the sin
 ## Creating an organization MSP definition
 {: #ibp-v2-apis-msp}
 
-You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?code=try#import-a-membership-service-provide-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates needed to create an organization MSP. Use the following steps to complete the request body of the API call.
+You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain#import-a-membership-service-provide-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates needed to create an organization MSP. Use the following steps to complete the request body of the API call.
 
 1. Input `msp` as the request `type`.
 
@@ -677,7 +681,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 ## Creating a configuration file
 {: #ibp-v2-apis-config}
 
-You need to complete a configuration file in order to create a peer or ordering node by using the APIs. This file is provided to the API as the `config` object in the request body of the API call. If you are creating multiple ordering nodes, you need to provide a configuration file for each node that you want to create in an array to the API request. For example, for a five node raft ordering service, you need to create an array of five configuration files. You can provide the same file for each node as long as the enrollID's that you provide have a sufficiently high enrollment limit. You need to deploy a CA to your {{site.data.keyword.cloud_notm}} Platform service instance and follow the steps to register and enroll the required identities before completing the file.
+You need to complete a configuration file in order to create a peer or ordering node by using the APIs. This file is provided to the API as the `config` object in the request body of the API call. If you are creating multiple ordering nodes, you need to provide a configuration file for each node that you want to create in an array to the API request. For example, for a five node raft ordering service, you need to create an array of five configuration files. You can provide the same file for each node as long as the enrollID's that you provide have a sufficiently high enrollment limit. You need to deploy a CA and follow the steps to register and enroll the required identities before completing the file.
 
 The template for the configuration file can be found below:
 ```
@@ -723,7 +727,7 @@ First, we need to provide the connection information of your CA on the {{site.da
 Open the CA in your console and click **Settings**, then the **Export** button to export the CA information to a JSON file. You can use the values from this file to complete your configuration file.
 
 **If your are using the APIs:**
-You can call [`GET /ak/api/v1/components`](/apidocs/blockchain?code=try#get-all-components) to get the connection information of your CA. If you created the CA using the `Create a Fabric CA` API, you can also find the necessary information in the response body.
+You can call [`GET /ak/api/v1/components`](/apidocs/blockchain#get-all-components) to get the connection information of your CA. If you created the CA using the `Create a Fabric CA` API, you can also find the necessary information in the response body.
 
 - The `"cahost"` and `"caport"` values are visible in the `ca_url` field in the response body or CA JSON file that you exported.  For example, if your `ca_url` is https://9.30.94.174:30167, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
 - The `"caname"` is the name of the CA that was specified when you deployed the CA. This is the value of the `ca_name` field in the response body or the exported JSON file.
@@ -869,3 +873,4 @@ If you want to use the {{site.data.keyword.blockchainfull_notm}} Platform consol
 - **Private Key:** Upload your admins private key. If you followed the instructions above, you can find this key in the `$HOME/fabric-ca-client/peer-admin/msp/keystore/` folder.
 
 After you import your admin identity, you can associate this identity with the components that you have created. You can then use the console to operate your network.
+
