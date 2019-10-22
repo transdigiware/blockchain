@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-02"
+lastupdated: 2019-10-22
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -30,18 +30,19 @@ subcollection: blockchain
 
 **Audience:** Tasks in this section are typically performed by **blockchain network operators**.  
 
-Configuration of an {{site.data.keyword.blockchainfull_notm}} Platform network includes deploying the blockchain console and then linking it to either a new or existing customer Kubernetes cluster. The blockchain console can then be used to create blockchain nodes that reside in the customer Kubernetes cluster.  
+Configuration of an {{site.data.keyword.blockchainfull_notm}} Platform network includes deploying the blockchain console and then linking it to either a new or existing customer Kubernetes cluster.   The blockchain console can then be used to create blockchain nodes that reside in the customer Kubernetes cluster.  
 
 Considerations include:
 - [IAM (Identity and Access Management)](#ibp-security-ibp-iam)
 - [Ports](#ibp-security-ibp-ports)
-- [Key generation](#ibp-security-ibp-keys)
+- [Key management](#ibp-security-ibp-keys)
 - [Membership service providers (MSPs)](#ibp-security-ibp-msp)
 - [Access control lists (ACLs)](#ibp-security-ibp-acls)
 - [API authentication](#ibp-security-ibp-apis)
 
 ### IAM (Identity and Access Management)
 {: #ibp-security-ibp-iam}
+
 
 Identity and access management allows the owner of a console to control which users have access to the console and their privileges within it. The process for managing user access depends on whether the console is running in {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private.
 
@@ -59,6 +60,9 @@ Identity and access management for {{site.data.keyword.cloud_notm}} Private is b
 
 Note that for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
 
+
+
+
 ### Ports
 {: #ibp-security-ibp-ports}
 
@@ -67,10 +71,13 @@ If you are using a client application to send requests to the console, either vi
 - In {{site.data.keyword.cloud_notm}} use the default port `443`.
 - In {{site.data.keyword.cloud_notm}} Private, use the [Console port](/docs/services/blockchain?topic=blockchain-console-deploy-icp#icp-peer-deploy-quickstart-parms) that was specified when the helm chart was deployed. This external port will be in the range of `31210 - 31220`.
 
+
+
+
 ### Key management
 {: #ibp-security-ibp-keys}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are `ECDSA` with Curve `P256`. These keys are stored in the browser and added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is recommended that customers export these keys and import them into their own key management system in case they clear their browser cache or switch browsers. Customer are responsible for the storage, backup and disaster recovery of all keys that they export.
+The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are `ECDSA` with Curve `P256`. These keys are stored in the browser when they are added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is recommended that customers export these keys and import them into their own key management system in case they clear their browser cache or switch browsers. Customers are responsible for the storage, backup and disaster recovery of all keys that they export.
 
 Because these public and private key pairs are essential to how the {{site.data.keyword.blockchainfull_notm}} Platform functions, **key management** is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. Although you can use the {{site.data.keyword.blockchainfull_notm}} Platform console to generate private keys, those keys are not permanently stored by the console or the cloud (public keys, on the other hand, are stored in the browser and added to the member's wallet so that the console can use them to manage blockchain components), making customers ultimately responsible for the storage, backup, and disaster recovery of their keys.
 
@@ -81,16 +88,16 @@ You also have the option to bring your own certificates from your own non-{{site
 ### Membership Service Providers (MSPs)
 {: #ibp-security-ibp-msp}
 
-Whereas Certificate Authorities generate the certificates that represent identities, turning these identities into roles in the {{site.data.keyword.blockchainfull_notm}} Platform is done through the creation of Membership Service Providers (MSPs) in the console. These MSPs, which structurally are comprised of folders containing certificates, are used to represent organizations on the network (every organization will have one and only one MSP) and will always contain at least one **admincert** that identifies an administrator of the organization. When an MSP is associated with a peer, for example, it denotes that the peer belongs to that organization. Later on in the flow for creating a peer (or any node), this same administrator identity can be used to serve as the administrator of the peer as well.
+Whereas Certificate Authorities generate the certificates that represent identities, turning these identities into roles in the {{site.data.keyword.blockchainfull_notm}} Platform is done through the creation of Membership Service Providers (MSPs) in the console. These MSPs, which structurally are comprised of folders containing certificates, are used to represent organizations on the network. Every organization will have one and only one MSP and will always contain at least one **admincert** that identifies an administrator of the organization. When an MSP is associated with a peer, for example, it denotes that the peer belongs to that organization. Later on in the flow for creating a peer (or any node), this same administrator identity can be used to serve as the administrator of the peer as well. In order to perform some actions on a node, an administrator role is required. For example, to be able to install a smart contract on a peer, your public key must exist in the 'admincerts' folder of the peer's organization MSP, which therefore makes you an administrator of the peer organization.
 
 MSPs also identify the root CA that generated the certificates for the organization and any other roles beyond administrator that are associated with the organization (for example, members of a sub-organizational group), as well as setting the basis for defining access privileges in the context of a network and channel (e.g., channel admins, readers, writers).
 
-MSP folders for organization members have a defined structure that is used by Fabric components. For more information about Fabric MSPs and their structure, see the  [Membership](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} and [Membership Service Provider Structure](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#msp-structure){: external} topics in the Hyperledger Fabric documentation. The Fabric CA establishes this structure by creating the following folders inside the MSP definition:
+MSP folders for organization members are based on a Fabric defined structure and are used by Fabric components. For more information about Fabric MSPs and their structure, see the  [Membership](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} and [Membership Service Provider Structure](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#msp-structure){: external} topics in the Hyperledger Fabric documentation. The Fabric CA establishes this structure by creating the following folders inside the MSP definition:
 
 | MSP folder name | Description |
 |-------------------------|-------------|
 | `cacerts` | Contains the certificate of the root CA of your network.|
-| `intermediatecerts` | These are the certificates of any intermediate CAs in your chain of trust (leading back to a root CA). Because intermediate CAs are currently not supported by the {{site.data.keyword.blockchainfull_notm}} Platform, this field will be blank.|
+| `intermediatecerts` | These are the certificates of any intermediate CAs in your chain of trust (leading back to a root CA or CAs). Because intermediate CAs are currently not supported by the {{site.data.keyword.blockchainfull_notm}} Platform, this field will be blank.|
 | `keystore` | Contains the private key that was generated alongside your public key. This key is used to generate signatures by creating a cryptographic hash that can be verified using the public key known to other users. This key is never shared, and you are responsible for securing and managing it. If this key becomes compromised, it can be used to impersonate your identity, making it crucial to keep this key safe. |
 | `signCerts`| Contains the public key that was generated alongside your private key. It is also known as a "signing certificate" because it is used to verify signatures generated by other users.|
 | Many Fabric components contain additional information inside their MSP folder. For example, a peer, includes the following folders: ||
@@ -115,6 +122,8 @@ In order to use the blockchain [APIs](https://cloud.ibm.com/apidocs/blockchain){
 - [API Authentication on IBM Cloud {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
 - [API Authentication on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-create-api-key)
 
+
+
 ## Best practices for security on the customer Kuberenetes cluster
 {: #ibp-security-Kubernetes}
 
@@ -125,7 +134,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to dep
 - [Kubernetes cluster security](#ibp-security-Kubernetes-security)
 - [Network security](#ibp-security-Kubernetes-network)
 - [Internet Ports](#ibp-security-Kubernetes-ports)
-- [Container/Operating System (OS)](#ibp-security-Kubernetes-container-os)
+- [Cluster and Operating System (OS)](#ibp-security-Kubernetes-container-os)
 - [Keys and cluster access information](#ibp-security-Kubernetes-keys)
 - [Membership Service Providers (MSPs)](#ibp-security-kubernetes-msp)
 - [Storage](#ibp-security-kubernetes-storage)
@@ -137,14 +146,23 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to dep
 
 The best place to start is to learn about the security features of the underlying Kubernetes infrastructure. The open source documentation provides a review of recommended practices for [securing a Kubernetes cluster](https://Kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/){: external}.
 
+
 If you are using {{site.data.keyword.cloud_notm}}, you can review the topic on [Security for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-security){: external}.
 
 With {{site.data.keyword.cloud_notm}} Private, **Pod Security Policies** provide a way to control the security level of the pods and containers in your cluster. The Pod Security Policy that is applied to the namespace on a cluster is the default security setting for any new pod that is created in that namespace. If you are using {{site.data.keyword.cloud_notm}} Private, review the [Security guide](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/user_management/admin.html){: external} for best practices.
 
+
+
+
 ### Network security
 {: #ibp-security-Kubernetes-network}
 
+
 {{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloud_notm}} Private provide the underlying network, including the networks and routers, over which customers’ VLAN resides. The customer configures their servers and uses gateways and firewalls to route traffic between servers to protect workloads from network threats. Protecting your cloud network by using firewalls and intrusion prevention system devices is imperative for protecting your cloud-based workloads.
+
+
+
+
 
 #### Firewall configuration
 {: #ibp-security-Kubernetes-network-firewall}
@@ -215,12 +233,17 @@ Using the results that are returned in this example, the external ports that can
 | 7443 | 31724 | gRPC web, needed for the operational tools console |
 {: caption="Table 3. Ports on {{site.data.keyword.cloud_notm}} Private" caption-side="top"}
 
-### Cluster and operating system security
+
+### Cluster and Operating System security
 {: #ibp-security-Kubernetes-container-os}
 
-- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}, but you can choose to enable encryption for your etcd data on the local disk of your Kubernetes master by [enabling {{site.data.keyword.keymanagementservicelong_notm}} encryption](/docs/containers?topic=containers-encryption#encryption) for your cluster.
+- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}, but you can choose to enable encryption for your etcd data on the local disk of your Kubernetes master by [Encrypting Data at the datastore layer ](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html){: external} for your cluster.
+
 
 - **Alpine Linux:** The Fabric Docker images use [Alpine Linux](https://alpinelinux.org/){: external}, which is a smaller, lighter, and therefore more secure version of Linux.
+
+
+
 
 ### Keys and cluster access information
 {: #ibp-security-Kubernetes-keys}
@@ -240,10 +263,11 @@ Organizations in a blockchain network are represented by [MSP](/docs/services/bl
 ### Storage
 {: #ibp-security-kubernetes-storage}
 
-When the blockchain console deploys a node, storage is dynamically provisioned for that node from persistent storage. You have the option of encrypting the persistent volume but there may be some performance implications with encryption to consider.  
+When the blockchain console deploys a node, storage is dynamically provisioned from the default storageclass for that node from persistent storage. You have the option of encrypting the persistent volume but there may be some performance implications with encryption to consider.  
 
 Customers are responsible for encrypting their own storage and the encryption must occur before any blockchain components are deployed to the cluster.
 {: important}
+
 
 The default persistent storage type is File storage, also known as Endurance storage. For more information about encryption on all of the {{site.data.keyword.cloud_notm}} storage options:
 - [{{site.data.keyword.cloud_notm}} File storage Provider managed encryption-at-rest](/docs/infrastructure/FileStorage?topic=FileStorage-encryption){: external}
@@ -253,6 +277,9 @@ The default persistent storage type is File storage, also known as Endurance sto
 
 For more information about encryption on {{site.data.keyword.cloud_notm}} Private:
 - [Encrypting volumes that are used by IBM Cloud Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.2/installing/fips_encrypt_volumes.html){: external}
+
+
+
 
 ### Data privacy
 {: #ibp-security-kubernetes-privacy}
@@ -278,3 +305,4 @@ Because {{site.data.keyword.blockchainfull_notm}} Platform is based on Hyperledg
 - **Ledger data:** Implicit in the blockchain permissioned network is the notion that an agreed upon policy of multiple endorsers is required to sign (approve) a transaction before it can be committed to the ledger. Before any information can be added to the ledger, a clear and well established process for defining the ledger information must exist. Data on the ledger is immutable.
 
 - **Smart contracts:** All smart contracts should be reviewed by channel members before they are installed and executed on peers in their organization. Likewise, all updates to smart contract should be reviewed before the updates are applied to a peer. See this topic on [Upgrading a smart contract](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade) for the steps that are required.
+
