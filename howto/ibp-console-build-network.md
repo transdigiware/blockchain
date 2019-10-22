@@ -208,7 +208,7 @@ After you have created the MSP, you should be able to see the peer organization 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
   | **Identity** | Org1 CA Admin  | Org1 admin identity |
-  | **Identity** | Org1 MSP Admin   | Org1 admin identity |
+  | **Identity** | Org1 MSP Admin   | Org1 MSP admin identity |
 
   *Figure 8. Check your Wallet*
 
