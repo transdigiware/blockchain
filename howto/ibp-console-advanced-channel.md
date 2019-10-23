@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: 2019-10-21
+lastupdated: 2019-10-23
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -106,6 +106,8 @@ To configure a peer to be an anchor peer, click the **Channels** tab and open th
 The ordering service and the peers known to this console that are joined to this channel are listed in the **Nodes** field at the top of the channel page. It is possible to add peers to this channel by clicking the **Join peer** button. On the panel that opens, you can specify the peers you want to join this channel, as well as whether you want this peer to bootstrap gossip communication between your organization and other organizations by making this peer an anchor peer. If you already have specified an anchor peer for this channel, you do not need to make this peer an anchor peer (only one anchor peer is needed to bootstrap communication between organizations), though it is sensible to make anchor peers HA by making sure you have at least two anchor peers in each channel.
 
 As with the process for joining any peer to any channel, make sure that the [database type](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch) of this peer is compatible with the database type of the channel. Similarly, ensure that the Fabric level of this peer is at the [application and channel capability](#ibp-console-govern-update-channel-available-parameters-advanced) levels of the channel.
+
+Note that after a peer is removed from a channel, it might still show as being joined to the channel. This is because the ledger information of the channel up to the point the peer was removed is still available on the peer. Removing the peer from the channel means that the peer will receive no new channel updates, including the update that indicates that it is no longer a part of the channel. If you have any other peers joined to the channel, you can check the ledger height of those peers as compared to the peer that was removed to confirm that the removed peer is not receiving new blocks.
 
 ### Signature collection flow
 {: #ibp-console-govern-update-channel-signature-collection}

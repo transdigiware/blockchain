@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-23"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -66,7 +66,7 @@ The **Resource allocation** panel in the console provides default values for the
 
 All of the containers that are associated with a node have **CPU** and **memory**, while certain containers that are associated with the peer, ordering node, and CA also have **storage**. For more information about storage, see [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage). Note that when your Kubernetes cluster is configured to use any of the {{site.data.keyword.cloud_notm}} storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 
-You are responsible for monitoring your CPU, memory and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start, but existing nodes are not affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI. For information about how to increase the CPU, memory, and storage in other cloud providers, consult the documentation of those cloud providers.
+You are responsible for monitoring your CPU, memory and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI. .
 {:note}
 
 Every node has a gRPC web proxy container that bootstraps the communication layer between the console and a node. This container has fixed resource values and is included on the Resource allocation panel to provide an accurate estimate of how much space is required on your Kubernetes cluster in order for the node to deploy. Because the values for this container cannot be changed, we will not discuss the gRPC web proxy in the following sections.
@@ -99,14 +99,14 @@ The peer has five associated containers:
 - **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
 - **Smart contract container**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your smart contract container, which is known as a Docker-in-Docker container.
 - **gRPC proxy container**: Contains the processes that allow the console to communicate with the peer. Under normal circumstances you should not need to change the resource allocations for this container.
-- **Log collector**: Pipes the logs from the smart contract container to the peer container. The CPU and memory allocations are fixed for this container.   
+- **Log collector**: Pipes the logs from the smart contract container to the peer container. The CPU and memory allocations are fixed for this container.
 
 The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container. Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
 
 #### Sizing a peer during creation
 {: #ibp-console-govern-components-peers-sizing-creation}
 
-As we noted in our section on [How the console interacts with your Kubernetes cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
+As we noted in our section on [How the console interacts with your Kubernetes cluster](#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
 
 | Resources | Condition to increase |
 |-----------------|-----------------------|
@@ -128,7 +128,7 @@ Similar to the CA, an ordering node has only one associated container that we ca
 #### Sizing an orderer during creation
 {: #ibp-console-govern-components-orderer-sizing-creation}
 
-As we noted in our section on [How the console interacts with your Kubernetes cluster](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these orderer containers and adjust them later as it becomes apparent how they are being utilized.
+As we noted in our section on [How the console interacts with your Kubernetes cluster](#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these orderer containers and adjust them later as it becomes apparent how they are being utilized.
 
 | Resources | Condition to increase |
 |-----------------|-----------------------|
@@ -144,14 +144,16 @@ Ensuring that your ordering nodes have enough CPU and memory is considered a bes
 After resizing a node, you might see a delay before it takes effect because containers are being rebuilt.
 {:important}
 
-As we said above, if your cloud provider is {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} SysDig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard to monitor your Kubernetes resource usage. If you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
+As we said above, if your cloud provider is {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard to monitor your Kubernetes resource usage. If you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 {:note}
+
+
 
 While it takes less effort to deploy enough resources to your Kubernetes cluster from the start and therefore be able deploy and expand resources without having to increase the resources in your cluster, the bigger the deployment, the more it will cost. Users need to consider their options carefully and recognize the tradeoffs that they are making regardless of the option that they choose.
 
-If your cloud provider is {{site.data.keyword.cloud_notm}} or in a different cloud provider (using {{site.data.keyword.cloud_notm}} Private), you can scale your cluster manually, monitoring your nodes and either adding more nodes or larger nodes. While this process can be labor intensive, it has the advantage of allowing the user to always be certain what is being charged to their cloud account.
+You can scale your cluster manually by monitoring your nodes and either adding more nodes or larger nodes. While this process can be labor intensive, it has the advantage of allowing the user to always be certain what is being charged to their cloud account.
 
-If a user has deployed to {{site.data.keyword.cloud_notm}} using the {{site.data.keyword.cloud_notm}} Kubernetes Service, they also have the ability to use the {{site.data.keyword.cloud_notm}} Kubernetes Service **autoscaler**. The autoscaler will scale your worker nodes up or down in response to your pod spec settings and resource requests. For more information about the {{site.data.keyword.cloud_notm}} Kubernetes Service autoscaler and how to set it up, see [Scaling clusters](/docs/containers?topic=containers-ca#ca){: external} in the {{site.data.keyword.cloud_notm}} documentation. Note that allowing the autoscaler to adjust your resources will result in charges to your {{site.data.keyword.cloud_notm}} Kubernetes Service account that will vary with your usage.
+The {{site.data.keyword.cloud_notm}} Kubernetes Service also gives users the ability to use the {{site.data.keyword.cloud_notm}} Kubernetes Service **autoscaler**. The autoscaler will scale your worker nodes up or down in response to your pod spec settings and resource requests. For more information about the {{site.data.keyword.cloud_notm}} Kubernetes Service autoscaler and how to set it up, see [Scaling clusters](/docs/containers?topic=containers-ca#ca){: external} in the {{site.data.keyword.cloud_notm}} documentation. Note that allowing the autoscaler to adjust your resources will result in charges to your {{site.data.keyword.cloud_notm}} Kubernetes Service account that will vary automatically with your usage.
 
 To scale manually in the console, click the node that you want to adjust on the **Nodes** page and then click the **Usage** tab. You can see a button called **Reallocate**, which will launch a **Resource allocation** tab that is very similar to the one that you saw when you created the node. If you want to lower the amount of available resources, simply provide lower values and click **Reallocate resources** on that tab and the resulting **Summary** page.
 
@@ -159,12 +161,15 @@ If you want to increase the CPU and memory for a node, use the **Resource alloca
 
 The method you will use to increase storage will depend on the storage class you chose for your cluster. Refer to the documentation of your cloud provider to learn about this. In {{site.data.keyword.cloud_notm}}, this topic is called [storage options](/docs/containers?topic=containers-kube_concepts#kube_concepts){: external}. Note that in {{site.data.keyword.cloud_notm}}, if you are about to exhaust the storage on your peer or ordering node, you must deploy a new peer or ordering node with a larger file system and let it sync via your other components on the same channels.
 
-In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the console (if you have resources available in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster). However, storage must be increased using the {{site.data.keyword.cloud_notm}} CLI. For a tutorial on how to do this, see [Changing the size and IOPS of your existing storage device](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external}. If you are using a cloud provider other than {{site.data.keyword.cloud_notm}}, refer to the documentation of that provider for the process on increasing CPU, memory, and storage.
+In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the console if you have resources available in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. However, storage must be increased using the {{site.data.keyword.cloud_notm}} CLI. For a tutorial on how to do this, see [Changing the size and IOPS of your existing storage device](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external}.
+
+
+
 
 ### Monitoring file storage
 {: #ibp-console-govern-components-monitor-storage}
 
-To view your consumption of file storage, navigate to your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. Click on the menu button in the upper left hand corner. Then click on **Classic infrastructure**, **Storage**, and then **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped by your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
+To view your consumption of file storage, navigate to your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. Click on the menu button in the upper left hand corner. Then click on **Classic infrastructure**, **Storage**, and then **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped to your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
 
 You will see something that looks like this:
 
@@ -203,6 +208,7 @@ While satisfying the quorum will make sure the ordering service is functioning, 
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. If your configuration features four nodes, only one node can be down for any reason before **another** node going down means a quorum has been lost and the ordering service will stop processing transactions.
 
-For this reason, it is considered a best practice to have an odd number of nodes in an ordering service. There is nothing wrong with an even number of nodes, but they add costs without making the ordering service more highly available.
+
+
 
 
