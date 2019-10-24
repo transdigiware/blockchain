@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-10-23"
+lastupdated: "2019-10-24"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -120,7 +120,7 @@ After setting the CA admin identity, you will be able to see the table of regist
 
 *Figure 3. Associate the CA admin identity*
 
-You can view the CA admin identity in your console Wallet by clicking on the **Wallet** in the left navigation. Click on the identity to view the certificate and private key of the CA admin. The identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to operate the CA. Click **Export identity** to download the identity and keys.
+You can view the CA admin identity in your console wallet by clicking on the **Wallet** in the left navigation. Click on the identity to view the certificate and private key of the CA admin. The identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to operate the CA. Click **Export identity** to download the identity and keys.
 
 **Task: Check your Wallet**
 
@@ -141,7 +141,7 @@ Each node or application that you want to create needs certificates and private 
 Once you have associated the CA admin, you can use the CA tile to create these identities by completing the following steps:
 
 1. Click on the `Org2 CA` and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
-2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org2admin` and a **secret** of `org2adminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type). The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. For now, select any affiliation from the list (for example, `Org1`). Also, ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org2admin` and a **secret** of `org2adminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type). The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. For now, select any affiliation from the list (for example, `Org2`). Also, ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
 4. For the purpose of this tutorial, we do not need to use **Add Attribute**. If you want to learn more about identity attributes, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 5. After the organization admin has been registered, repeat this same process for the identity of the peer (also using the `Org2 CA`). For the peer identity, give an enroll ID of `peer2` and a secret of `peer2pw`. This is a node identity, so select `peer` as the **Type**. Click the box that says **Use root affiliation** and ignore **Maximum enrollments**. Then, on the next panel, do not assign any **Attributes**, as before.
 
@@ -165,7 +165,7 @@ Now that we have created the peer's CA and used it to **register** our organizat
 1. Navigate to the **Organizations** tab in the left navigation and click **Create MSP definition**.
 2. Enter `Org2 MSP` as the organization MSP display name and `org2msp` and as the MSP ID. If you want to specify your own MSP ID in this field, make sure to review the instructions in the tool tip.
 3. Under **Root Certificate Authority details**, specify the CA you used to register the identities in the previous step. If this is your first time through this tutorial, you should only see one: `Org2 CA`.
-4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID and secret for the first user that you created with your CA: `admin` and `adminpw`. However, using this identity would make your organization the same identity as your CA identity, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org2admin`, and enter its associated secret, `org2adminpw`. Then, give this identity a display name, `Org2 MSP Admin `. Note: the default display name for this identity is the name of your MSP and the word "Admin ". If you select a different name for your MSP, that will be reflected in the default.
+4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID and secret for the first user that you created with your CA: `admin` and `adminpw`. However, using this identity would make your organization the same identity as your CA identity, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org2admin`, and enter its associated secret, `org2adminpw`. Then, give this identity a display name, `Org2 MSP Admin `. Note: the default display name for this identity is the name of your MSP and the word "Admin ".  that will be reflected in the default.
 5. Click the **Generate** button to enroll this identity as the admin of your organization and export the identity to the Wallet, where it will be used when creating the peer and creating channels.
 6. Click **Export** to export the admin certificates to your file system. As we said above, this identity is not stored in your cluster or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to administer the peer.
 7. Click **Create MSP definition**.
@@ -214,7 +214,7 @@ From a resource allocation perspective, it is possible to join the same peers to
 Use your console to perform the following steps:
 
 1. On the **Nodes** page, click **Add peer**.
-2. Make sure the option to **Create** a peer is selected. Then click **Next**.
+2. Make sure the option to **Create a peer** is selected. Then click **Next**.
 3. Give your peer a **Display name** of `Peer Org2`.
 4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
    * [Multizone High Availability](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
@@ -329,9 +329,10 @@ Now the orderer admin can add the peer organization to the channel:
 2. Click the  **Settings** icon to update the channel and add the peer organization to the channel.
 3. In the **Organizations** section, open the `Select a channel member` drop-down list and select the peer organization MSP, `Org2 MSP`.
 4. Click **Add** and then assign permissions for that organization. We recommend you make them an `Operator` so they can update the channel.
-5. In the **Channel Updater MSP** drop-down list (under the **Channel updater organization** heading) ensure that `Org1 MSP` is selected.
-6. In the **Identity** drop-down list, ensure that `Org1 MSP Admin ` is selected.
-7. When you are ready, click **Send proposal**.
+5. Under **Channel update policy**, select `1 out of 2`, meaning only one of the two organizations needs to approve updates to the channel.
+6. In the **Channel Updater MSP** drop-down list (under the **Channel updater organization** heading) ensure that `Org1 MSP` is selected.
+7. In the **Identity** drop-down list, ensure that `Org1 MSP Admin ` is selected.
+8. When you are ready, click **Send proposal**.
 
 After the admin of the ordering service has joined your peer organization to the channel you can now join your peers to the channels that are hosted by the ordering service.
 
