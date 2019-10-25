@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2019
+lastupdated: "10-11-19"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
