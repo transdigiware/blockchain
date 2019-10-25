@@ -17,7 +17,7 @@ subcollection: blockchain
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}
+{:download: .download}_
 
 
 # {{site.data.keyword.blockchainfull_notm}} Platform locations
@@ -36,16 +36,15 @@ If you want to use a free {{site.data.keyword.cloud_notm}} Kubernetes cluster, d
 | Region | {{site.data.keyword.cloud_notm}} locations |
 |--------|--------------------|
 | US South | San Jose, Sao Paulo, Dallas, Houston |
-| US East | Washington D.C. |
+| US East | Toronto  |
 | AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore |
-| AP South | Melbourne |
 | EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |
 
 _Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations_
 
-
 ![{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations"){: caption="Figure 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 
+See this topic on [{{site.data.keyword.cloud_notm}} Kubernetes cluster locations](/docs/containers?topic=containers-regions-and-zones) for more information about available locations and zone support.
 
 Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan and Enterprise Plan support.
 
