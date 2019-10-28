@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-24"
+  years: 2019
+lastupdated: "2019-10-28"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
