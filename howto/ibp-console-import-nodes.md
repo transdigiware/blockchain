@@ -30,11 +30,6 @@ The console includes the option to import nodes that were created in another {{s
 ## Why import a node?
 {: #ibp-console-import-nodes-why}
 
-
-If you imported or exported a node before October 2nd, 2019, it is a best practice to re-export and re-import the nodes. This is because the JSON files that represent nodes now contain information that in certain circumstances is necessary for full functionality.
-{: important}
-
-
 For cases when components have been deployed by one console and need to be operated from other, as well as for cases when certain actions are not possible unless nodes and MSPs and identities are "known" to a console (that is, unless those components have been created in the console or imported into it), the {{site.data.keyword.blockchainfull_notm}} Platform allows nodes, identities, and MSPs to be exported from one console and imported into another.
 
 There are two main reasons to import components:
@@ -218,6 +213,8 @@ For information about how to add your organization to the list of ordering servi
 {: #ibp-console-import-orderer-process}
 
 
+
+Navigate to the **Nodes** tab.
 
 1. If you have not already done so, navigate to the **Organizations** tab and export the MSP of one or more peer organizations. Then, send this MSP, which represents your organization, to an administrator of the ordering service (which in this case is not necessarily an admin of any ordering nodes, but an organization with administrative control over the system channel). This ordering service administrator can make your organization one of the ordering service organizational admins or add your MSP to the consortium, giving your organization the ability to create channels, or both. Note that if your organization has been made one of the ordering service organizational admins, you have the ability to add your own organization to the consortium.
 2. After your MSP has been added as an ordering service administrator or to the consortium (or both), import the JSON representing the ordering service (as with the other nodes, this ordering service must be exported from the console where the ordering service was created). Then, navigate to the **Nodes** panel. Click **Add ordering service**, followed by **Import an existing ordering service**. Then click **Next**.
