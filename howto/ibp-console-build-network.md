@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-23"
+lastupdated: "2019-10-28"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -164,7 +164,7 @@ Each node or application that you want to create needs a certificate and private
 Once you have associated the CA admin, you can use the CA tile to create these identities by completing the following steps:
 
 1. Click on the `Org1 CA` and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
-2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org1admin` and a **secret** of `org1adminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type). You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org1admin` and a **secret** of `org1adminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type). The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
 3. For the purpose of this tutorial, we do not need to use **Add Attribute**. If you want to learn more about identity attributes, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 4. After the organization admin has been registered, repeat this same process for the identity of the peer (also using the `Org1 CA`). For the peer identity, give an enroll ID of `peer1` and a secret of `peer1pw`. This is a node identity, so select `peer` as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
 
@@ -355,7 +355,7 @@ As we did with the peer, we need to register two identities with our ordering se
 Once you have associated the CA admin, you can use the CA tile to create these identities by completing the following steps:
 
 1. Click on the `Ordering Service CA` in the **Nodes** tab and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
-2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `OSadmin` and a **secret** of `OSadminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type) . You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `OSadmin` and a **secret** of `OSadminpw`. Then set the `Type` for this identity as  `client` (admin identities should always be registered as `client`, while node identities should always be registered using the `peer` type) . The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}.  You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
 3. For the purpose of this tutorial, we do not need to use **Add Attribute**. If you want to learn more about identity attributes, see [Registering identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 4. After the organization admin has been registered, repeat this same process for the identity of the ordering service (also using the `Ordering Service CA`). For the ordering service node identities, give an enroll ID of `OS1` and a secret of `OS1pw`. This is a node identity, so select `peer`  as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
 
@@ -452,6 +452,8 @@ Because only ordering service admins can add peer organizations to the consortiu
 
 Watch the following [video](http://ibm.biz/BlockchainPlatformSeries4){: external} to learn about the process to add the organization to the consortium, create the channel, and join your peer to the channel.
 
+
+
 Because you created the ordering service admin using the console, this process is relatively straightforward:
 1. Navigate to the **Nodes** tab.
 2. Scroll down to the ordering service you created and click on it to open it.
@@ -532,9 +534,8 @@ Perform the following steps from your console:
 
 1. Click the pending tile for `channel1` to launch the side panel.
 2. Select which peers you want to join to the channel. For purposes of this tutorial, click the box next to `Peer Org1`.
-
-3. Leave the tab for **Make anchor peer** selected. It is a best practice for each organization to have at least one anchor peer on each channel, as anchor peers bootstrap the inter-organizational communication that enables features like [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} to work. While it is only necessary to have one anchor peer on each channel, it does not hurt to make all peer anchor peers. The only downside will be a short term increase in the stress on your communication layer when new organizations join their peers to the channel, as these peers are designed to contact every anchor peer in every organization to find out about the peers belonging to that organization. Note that you can also make a peer an anchor peer later through the **Channels** tab.
-4. Click **Join channel**.
+4. Leave the tab for **Make anchor peer** selected. It is a best practice for each organization to have at least one anchor peer on each channel, as anchor peers bootstrap the inter-organizational communication that enables features like [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} to work. While it is only necessary to have one anchor peer on each channel, it does not hurt to make all peer anchor peers. The only downside will be a short term increase in the stress on your communication layer when new organizations join their peers to the channel, as these peers are designed to contact every anchor peer in every organization to find out about the peers belonging to that organization. Note that you can also make a peer an anchor peer later through the **Channels** tab.
+5. Click **Join channel**.
 
 
 In this tutorial, we are only creating and joining a single peer to the channel. As a result, you don't have to worry about a conflict between the database type used by your peer (which in this tutorial is CouchDB) and any other peers on the channel. However, in a production scenario, a best practice will be to ensure that the peer you are joining to this channel uses the same database type as other peers on the channel. For more information, see [LevelDB vs CouchDB](docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).

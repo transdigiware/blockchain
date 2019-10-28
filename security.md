@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: 2019-10-22
+lastupdated: "2019-10-28"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 
 **Audience:** Tasks in this section are typically performed by **blockchain network operators**.  
 
-Configuration of an {{site.data.keyword.blockchainfull_notm}} Platform network includes deploying the blockchain console and then linking it to either a new or existing customer Kubernetes cluster.   The blockchain console can then be used to create blockchain nodes that reside in the customer Kubernetes cluster.  
+Configuration of an {{site.data.keyword.blockchainfull_notm}} Platform network includes deploying the blockchain console and then linking it to either a new or existing customer Kubernetes cluster. The blockchain console can then be used to create blockchain nodes that reside in the customer Kubernetes cluster.    
 
 Considerations include:
 - [IAM (Identity and Access Management)](#ibp-security-ibp-iam)
