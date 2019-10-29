@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-28"
+lastupdated: "2019-10-29"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -34,7 +34,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 
 **Issues with the Console**
->
+
 - [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77) 
 
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)

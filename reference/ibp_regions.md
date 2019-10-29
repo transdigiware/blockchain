@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-25"
+lastupdated: "2019-10-29"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -17,7 +17,7 @@ subcollection: blockchain
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}_
+{:download: .download}
 
 
 # {{site.data.keyword.blockchainfull_notm}} Platform locations
