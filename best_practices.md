@@ -2,7 +2,11 @@
 
 copyright:
   years: 2019
+<<<<<<< HEAD
 lastupdated: "2019-10-25"
+=======
+lastupdated: "2019-09-30"
+>>>>>>> publish
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -53,7 +57,7 @@ When you create peer and orderer objects with the SDK before submitting transact
 ```javascript
 var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null});
 ```
-{:codeblock}
+{: pre}
 
 When you manage the connections between your application and your network, you might consider the following recommendations.
 
@@ -71,7 +75,7 @@ When you manage the connections between your application and your network, you m
     }
   );
   ```
-  {:codeblock}
+  {: pre}
 
   You can also find these variables with the recommended settings in the `"peers"` section of your network connection profile. The recommended options are imported into your application automatically if you use the connection profile with the SDK to connect to your network endpoints. You can find more information on how to use a Connection Profile in the [Node SDK documentation](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
@@ -139,7 +143,7 @@ Fabric SDKs set default timeout values in client applications for events in the 
      */
     defaultProperty(TRANSACTION_CLEANUP_UP_TIMEOUT_WAIT_TIME, "600000"); //10 min.
 ```
-{:codeblock}
+{: pre}
 
 However, you might need to change the default timeout values in your own application. For example, when your application invokes a transaction that needs more than 5000 ms, which is the default timeout value for event hub connection to respond, you might get a failing error because the invoke event ends at 5000 ms before the transaction completes. You can set the system property to overwrite the default values from your client application. Because the default values are initialized before you set the system property, the system property might not take effect. Therefore, you need to set the system property for timeout in a static construct in your client application. See the following example on changing timeout value for event hub connection to 15000 ms in Fabric Java SDK. The file path is `src\main\java\org\hyperledger\fabric\sdk\helper\Config.java`.
 
@@ -151,13 +155,13 @@ However, you might need to change the default timeout values in your own applica
      System.setProperty(EVENTHUB_CONNECTION_WAIT_TIME, EVENTHUB_CONNECTION_WAIT_TIME_VALUE);
  }
 ```
-{:codeblock}
+{: pre}
 
 If you are using the Node SDK, you can specify the timeout values directly in the method called. As an example, you can use the following line to increase the timeout value for [instantiating a chaincode](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external} to 5 minutes.
 ```javascript
 channel.sendInstantiateProposal(request, 300000);
 ```
-{:codeblock}
+{: pre}
 
 ## Best practices when using CouchDB
 {: #best-practices-app-couchdb-indices}
@@ -181,3 +185,8 @@ Do not query the entire database for the purpose of aggregation or reporting. If
 You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store by using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
 data to an external database, see the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
 
+<<<<<<< HEAD
+=======
+You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
+data to an external database, visit the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
+>>>>>>> publish
