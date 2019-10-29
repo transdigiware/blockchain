@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019
-
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-29"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -19,7 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
-{:pre: .pre}
+{:pre: .pre}_
 
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
@@ -93,10 +92,10 @@ Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} 
 
 The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume the default CouchDB database is used as the peer database.
 - The **Test network** scenario is suitable for getting started and testing smart contracts.
-- The **Join a production network** scenario includes two peers, which are recommended for high availability, and a Certificate Authority (CA) that is required for organization membership.
+- The **Join a network** scenario includes two peers, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
    - Nodes can always be dialed back to a minimal utilization state (0.001 CPU) when they are not in use to [lower costs](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
-   - Because this scenario is intended for a **production** environment:
+   - Because this scenario could be used for a **production** environment:
      - The default compute resources have been doubled to provide greater capacity.
      - The [Silver](/docs/containers?topic=containers-file_storage#file_silver){: external} storage class is chosen for faster performance.
 
