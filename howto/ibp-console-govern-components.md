@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-28"
+lastupdated: "2019-10-29"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -100,7 +100,7 @@ The **Resource allocation** panel in the console provides default values for the
 
 All of the containers that are associated with a node have **CPU** and **memory**, while certain containers that are associated with the peer, ordering node, and CA also have **storage**. For more information about storage, see [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) Note that when your Kubernetes cluster is configured to use any of the {{site.data.keyword.cloud_notm}} storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 
-You are responsible for monitoring your CPU, memory and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI.
+You are responsible for monitoring your CPU, memory and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI. 
 {:note}
 
 Every node has a gRPC web proxy container that bootstraps the communication layer between the console and a node. This container has fixed resource values and is included on the Resource allocation panel to provide an accurate estimate of how much space is required on your Kubernetes cluster in order for the node to deploy. Because the values for this container cannot be changed, we will not discuss the gRPC web proxy in the following sections.
@@ -161,7 +161,7 @@ Similar to the CA, an ordering node has only one associated container that we ca
 
 * **The ordering node itself**: Encapsulates the internal orderer processes (such as validating transactions) and the blockchain for all of the channels it hosts.
 
-#### Sizing an orderer during creation
+#### Sizing an ordering node during creation
 {: #ibp-console-govern-components-orderer-sizing-creation}
 
 As we noted in our section on [How the console interacts with your Kubernetes cluster](#ibp-console-govern-components-iks-console-interaction), it is recommended to use the defaults for these orderer containers and adjust them later as it becomes apparent how they are being utilized.
@@ -223,3 +223,5 @@ ibmcloud sl file volume-list --column id --column notes
 ```
 
 This will allow you to map the output from the pods to the nodes you have deployed.
+
+

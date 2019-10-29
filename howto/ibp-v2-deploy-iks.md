@@ -91,9 +91,6 @@ When you plan to use the service instance in the context of a broader organizati
 
 - Add **Storage Manage** access in the classic infrastructure list of permissions. At the top of the IBM Cloud UI, navigate to **Manage > Access (IAM)**, then choose **Users**, then click on the link for a specific user. Inside the **Classic infrastructure** tab click on the **Permissions** tab. The **Storage Manage** setting can be found under **Services**.
 
-
-To enable **Storage Manage**, navigate to the **Classic infrastructure** tab inside the **Users** panel for a user. Then click the **Permissions** tab. **Storage Manage** can be found under the **Services** button.
-
 ### Browsers
 {: #ibp-v2-deploy-iks-browsers}
 The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
