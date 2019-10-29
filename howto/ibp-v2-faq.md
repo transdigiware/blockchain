@@ -27,7 +27,6 @@ subcollection: blockchain
 **General**   
 
 - [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](#ibp-v2-faq-v2-IBP-Overview-1-7)
-
 - [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
 - [What database do the peers use for their ledger?](#ibp-v2-faq-v2-IBP-Overview-1-3)
 - [What languages are supported for smart contracts?](#ibp-v2-faq-v2-IBP-Overview-1-4)
@@ -99,7 +98,7 @@ Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyw
 {: #ibp-v2-faq-vscode-tutorials}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials). 
 
 ## If service discovery is on, will an endorsement request be routed to any peer on the network?
 {: #ibp-v2-faq-service-discovery}
@@ -188,3 +187,5 @@ After you understand how many CAs, peers, and ordering nodes are required, you c
 {: faq}
 
 When you delete a helm release from your {{site.data.keyword.cloud_notm}} Private cluster, the associated blockchain components are not deleted. To properly remove a helm release from your cluster, delete all of your components by using the blockchain console or the blockchain APIs first. Then, you can delete the helm chart.
+
+

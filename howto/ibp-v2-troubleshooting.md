@@ -29,19 +29,13 @@ subcollection: blockchain
 General problems may occur when using the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
 {:shortdesc}
 
-This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.
-
-
+This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
-
-- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
-
+- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77) 
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
-
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
-
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
@@ -49,8 +43,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
 
-
-**Issues with your Nodes**
+**Issues with your Nodes**  
 
 - [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 - [Why are my node operations failing after I create my peer or ordering service?](#ibp-console-build-network-troubleshoot-entry1)
@@ -59,19 +52,17 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Why are the transactions I submit from VS Code failing?](#ibp-v2-troubleshooting-anchor-peer)
 
-
-**Issues on {{site.data.keyword.cloud_notm}}**
+**Issues on {{site.data.keyword.cloud_notm}}**  
 
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
 
-**Issues on {{site.data.keyword.cloud_notm}} Private**
+**Issues on {{site.data.keyword.cloud_notm}} Private**  
 
 - [Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?](#ibp-v2-troubleshooting-healthchecks)
 - [Why am I getting the error: `Pod Security Conflict`](#ibp-v2-troubleshooting-podsecurityconflict)
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
-
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
@@ -83,7 +74,7 @@ The console has been working successfully, but requests have started to fail. Fo
 This problem is caused by a bug introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
 {: tsCauses}
 
-To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser.
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
 {: tsResolve}
 
 
@@ -432,3 +423,5 @@ kubectl delete ibppeer --all -n <namespace>
 kubectl delete ibporderer --all -n <namespace>
 ```
 {:codeblock}
+
+
