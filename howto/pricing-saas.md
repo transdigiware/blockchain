@@ -18,7 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
-{:pre: .pre}_
+{:pre: .pre}
 
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
