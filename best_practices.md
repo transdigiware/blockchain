@@ -2,11 +2,7 @@
 
 copyright:
   years: 2019
-<<<<<<< HEAD
 lastupdated: "2019-10-25"
-=======
-lastupdated: "2019-09-30"
->>>>>>> publish
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -185,8 +181,6 @@ Do not query the entire database for the purpose of aggregation or reporting. If
 You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store by using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
 data to an external database, see the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
 
-<<<<<<< HEAD
-=======
 You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
 data to an external database, visit the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
->>>>>>> publish
+
