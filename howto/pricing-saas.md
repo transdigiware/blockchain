@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-10-30"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -91,7 +91,7 @@ Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} 
 {: #ibp-saas-pricing-scenarios}
 
 The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume the default CouchDB database is used as the peer database.
-- The **Test network** scenario is suitable for getting started and testing smart contracts.
+- The **Test network** scenario is suitable for getting started with your first use case with IBM Blockchain and testing smart contracts.
 - The **Join a network** scenario includes two peers, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
    - Nodes can always be dialed back to a minimal utilization state (0.001 CPU) when they are not in use to [lower costs](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
@@ -99,7 +99,7 @@ The following table provides two examples of pricing with [default resource allo
      - The default compute resources have been doubled to provide greater capacity.
      - The [Silver](/docs/containers?topic=containers-file_storage#file_silver){: external} storage class is chosen for faster performance.
 
-| Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Production Network** |
+| Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Network** |
 |-|------------|-----------------------------|
 | **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer (1.1 CPU) <br> - 2 CAs (0.1 CPU x 2) <br> - 1 ordering node (0.35 CPU)| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
 | **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-hr ) |
