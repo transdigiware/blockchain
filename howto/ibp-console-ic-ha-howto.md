@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-10-22"
 
 keywords: HA, highly availability, multiregion
 
@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Setting up multiregion High Availability (HA) deployments
+# Setting up multiregion High Availability (HA) deployments for peers
 {: #ibp-console-hadr-mr}
 
 Multiregion HA configuration provides the highest degree of HA coverage that is possible. Deploying peers across multiple geographic regions ensures that if any one region becomes unavailable, the peers in other regions can continue to transact. Note that multiregion HA support for CAs and the ordering service is not currently available.
@@ -27,18 +27,18 @@ Multiregion HA configuration provides the highest degree of HA coverage that is 
 ## Overview
 {: #ibp-console-hadr-overview}
 
-When you setup multiregion HA support for peers, you will perform the following tasks:
-- Create multiple service instances in {{site.data.keyword.cloud}} that are each bound to a Kubernetes cluster in a different region.
-- Create your blockchain nodes in different regions.
-- Use the node export/import functionality to manage the nodes from a single console.
+To set up multiregion HA support for peers, you need to complete the following tasks:
+- Create multiple blockchain service instances that are each bound to a Kubernetes cluster in a different region.
+- Use the blockchain console or APIs to create your blockchain nodes in the different regions.
+- Use the node export and import actions to manage the nodes from a single console.
 
 ## Configuration steps
 {: #ibp-console-hadr-config}
 
 To configure multiregion HA by creating redundant peers for each organization, complete the following steps when you configure your blockchain network:
 
-1. Create three {{site.data.keyword.cloud_notm}} Kubernetes clusters in the regions you prefer. These clusters can be located in any region you want, although for high performance they should be relatively close together. For example, the regions, East Coast US, and West Coast US, and Canada are better than the regions, West Coast US, London, and Tokyo.
-2. Deploy a new {{site.data.keyword.blockchainfull_notm}} Platform instance and link it to the cluster in the first region. Then deploy another {{site.data.keyword.blockchainfull_notm}} Platform instance and link it to the cluster in the second region. Repeat these steps to link a third service instance to the cluster in the third region. When you are finished, you have three separate {{site.data.keyword.blockchainfull_notm}} Platform instances linked to three separate clusters, each in a different region, and three separate consoles.
+1. Create three {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private  Kubernetes clusters  in the regions you prefer. These clusters can be located in any region you want, although for high performance they should be relatively close together. For example, the regions, East Coast US, and West Coast US, and Canada are better than the regions, West Coast US, London, and Tokyo.
+2. Deploy a new {{site.data.keyword.blockchainfull_notm}} Platform instance on the cluster in one of the regions. If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, you need to link the service instance to the cluster.  Repeat these steps in the second and third regions. When you are finished, you have three separate {{site.data.keyword.blockchainfull_notm}} Platform instances linked to three separate clusters, each in a different region, and three separate consoles.
 
 This tutorial assumes that an ordering service exists with a channel defined that the peers can join.
 {: important}
@@ -52,14 +52,14 @@ This tutorial assumes that an ordering service exists with a channel defined tha
 4. [Create a peer](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-peer-create) in the first cluster.
 5. [Install your smart contract](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install) on your peer.
 
-Before you can instantiate the smart contract on the channel you need to follow these steps to join the peer to the channel on the ordering service:
+Before you can instantiate the smart contract on the channel, you need to follow these steps to join the peer to the channel on the ordering service:
 - [Export the peer's organization definition](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2-remote) and share it with an ordering service admin.
 - The ordering service admin needs to follow the steps to [import the peer's organization](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-import-remote-msp) and add it to the consortium. They will also need to complete the steps in those instructions to export the ordering service to a JSON file.
 - [Import the ordering service JSON file](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-import-remote-orderer) to your console.
 - [Join your peer to the channel](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2).
 - Finally, if you use service discovery, private data, and peer gossip, the ordering service admin needs to [configure anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) on the channel. For HA, it is recommended that you add each redundant peer as an anchor peer. That way if one of the peers is unavailable, gossip between organizations can continue.   
 
-Now that you have joined the peer to the channel, you can [instantiate the smart contract](/docs/services/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2) on the channel.
+Now that the peers are joined to the channel, you can [instantiate the smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate) on the channel.
 
 ### Step two: Export the metadata and identities from cluster one
 {: #ibp-console-hadr-export-meta1}
@@ -68,7 +68,7 @@ Now that you have joined the peer to the channel, you can [instantiate the smart
    - Open the CA in the **Nodes** tab.
    - Click the download icon to generate the CA JSON file from your browser session.
 2. Export the peer's organization MSP definition to a JSON file.
-   - Navigate to the MSP definition in the **Organizations** tab.
+   - Open the MSP definition in the **Organizations** tab.
    - Click the download icon on the tile.
 3. Export the peer's organization admin identity from your wallet.
    - Navigate to the **Wallet** tab.
@@ -90,14 +90,15 @@ Now that you have joined the peer to the channel, you can [instantiate the smart
 ### Step four: Create new peers in cluster two and three and join a channel
 {: #ibp-console-hadr-create-new-peers}
 
-1. In clusters two and three, use the CA to register a new peer user, following the same steps you took when you registered the peer identity in cluster one. You only need to create the peer users, you do not need to re-create the organization admin identity because you will import that in the next step.
-2. Create new peers, by using the CA you that imported from cluster one as the peer's CA and by using the peer organization MSP that you imported from cluster one as the peer organization MSP definition.
-3. In cluster two and three, you can now repeat the steps you ran to join the peers to the same channel as the peer in cluster one. 
+1. In clusters two and three, use the CA to register a new peer user, following the same steps that you took when you registered the peer identity in cluster one. You only need to create the peer users, you do not need to re-create the organization admin identity because you will import that in the next step.
+2. Create new peers, by using the CA you that imported from cluster one as the peer's CA. Use the peer organization MSP that you imported from cluster one as the peer organization MSP definition.
+3. In cluster two and three, you can now repeat the steps that you ran to join the peers to the same channel as the peer in cluster one. 
 4. After you install the smart contract on these redundant peers, the ledger will automatically sync between all the peers.
-5. Again, if you plan to use use service discovery, private data, and peer gossip, you need to make each redundant peer an anchor peer.  
+5. Again, if you plan to use service discovery, private data, and peer gossip, you need to make each redundant peer an anchor peer.  
 
 Your network is now configured such that a failure in any single region will not affect the peer workload.  
 
 To maximize your HA even further, consider the following additional options:
-- Export the peers that you created in clusters two and three and import them into the console in cluster one. Then everything can be managed from a single cluster.
-- However, cluster one can fail. Therefore, to further account for a cluster failure, you can import all your peers into each of the three consoles. Then if the cluster containing any one console fails, everything can still be managed from the consoles in the other two clusters.
+- Export the peers that you created in clusters two and three and import them into the console in cluster one. Then, everything can be managed from a single cluster.
+- However, cluster one can fail. Therefore, to further account for a cluster failure, you can import all your peers into each of the three consoles. Then if a cluster containing any one console fails, everything can still be managed from the consoles in the other two clusters.
+

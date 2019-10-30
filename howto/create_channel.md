@@ -2,13 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-08-21"
+
+keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
 
 subcollection: blockchain
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -17,11 +19,10 @@ subcollection: blockchain
 # Creating or updating a channel
 {: #ibp-create-channel}
 
-
 Channels are an incredibly powerful mechanism for partitioning and isolating data, and they provide the primary foundation for data privacy. Only members of the same channel can access the data of this channel.
 {:shortdesc}
 
-To ensure channel security, the channel update policy is configured to define the number of channel operators who need to agree on the channel creation or update request before a channel is created or updated.
+To ensure channel security, the channel update policy is configured to define the number of channel operators who need to agree on the channel creation or update request before a channel is created or updated. The roles played by the various participants in channel creation, as well as the underlying method used to create the channel configuration, is inherited from the [Hyperledger Fabric process for creating a channel](https://hyperledger-fabric.readthedocs.io/en/release-1.2/configtx.html).
 
 ## Creating a channel
 {: #ibp-create-channel-creating-a-channel}

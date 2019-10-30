@@ -24,7 +24,7 @@ subcollection: blockchain
 
 {:shortdesc}
 
-Before you begin, you need to create a [{{site.data.keyword.blockchain}} Platform service instance](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}} and create or join a Starter Plan <!--or Enterprise Plan -->blockchain network.
+Before you begin, you need to create a [{{site.data.keyword.blockchain}} Platform service instance](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}} and create or join a Starter Plan blockchain network.
 
 
 ## Retrieving network credentials

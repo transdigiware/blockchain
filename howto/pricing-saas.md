@@ -2,10 +2,9 @@
 
 copyright:
   years: 2019
+lastupdated: "2019-10-30"
 
-lastupdated: "2019-09-23"
-
-keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free
+keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
 subcollection: blockchain
 
@@ -24,7 +23,7 @@ subcollection: blockchain
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.1.
+This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.3.
 {:shortdesc}
 
 ## Pricing model
@@ -92,15 +91,15 @@ Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} 
 {: #ibp-saas-pricing-scenarios}
 
 The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume the default CouchDB database is used as the peer database.
-- The **Test network** scenario is suitable for getting started and testing smart contracts.
-- The **Join a production network** scenario includes two peers, which are recommended for high availability, and a Certificate Authority (CA) that is required for organization membership.
+- The **Test network** scenario is suitable for getting started with your first use case with IBM Blockchain and testing smart contracts.
+- The **Join a network** scenario includes two peers, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
    - Nodes can always be dialed back to a minimal utilization state (0.001 CPU) when they are not in use to [lower costs](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
-   - Because this scenario is intended for a **production** environment:
+   - Because this scenario could be used for a **production** environment:
      - The default compute resources have been doubled to provide greater capacity.
      - The [Silver](/docs/containers?topic=containers-file_storage#file_silver){: external} storage class is chosen for faster performance.
 
-| Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Production Network** |
+| Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Network** |
 |-|------------|-----------------------------|
 | **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer (1.1 CPU) <br> - 2 CAs (0.1 CPU x 2) <br> - 1 ordering node (0.35 CPU)| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
 | **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-hr ) |
@@ -115,6 +114,8 @@ Your actual costs will vary depending on additional factors such as transaction 
 
 There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
 
+**Interested in more pricing examples?** See the Reference topic on [Detailed pricing scenarios](/docs/services/blockchain?topic=blockchain-ibp-detailed-pricing) for additional configurations and prices.
+
 **Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options.
 
 ## Default resource allocations
@@ -124,9 +125,9 @@ The values in the following table are useful to estimate the hourly cost of your
 
 | **Component** (all containers) | CPU  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1            | 2.4                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer**                       | 1.1            | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1            | 0.2                    | 20                     |
-| **Ordering node**                    | 0.35           | 0.9                    | 100                    |
+| **Ordering node**                    | 0.35           | 0.7                    | 100                    |
 
 
 ## Billing
@@ -154,10 +155,11 @@ One of the key benefits of the {{site.data.keyword.blockchainfull_notm}} Platfor
 - **Switch your nodes to Minimum Utilization State**  
   CPU on individual nodes can be scaled down to 0.001 CPU to completely minimize charges. Taking these actions renders the node non-functional. When the compute is needed later, you can use the reallocation option in the {{site.data.keyword.blockchainfull_notm}} Platform console to scale up to what is required. For more information about how resources can be reallocated, see [Reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
 
-- **Delete unused peer and deploy a new one when needed. Because the ledger is stored on the ordering node, when you deploy a new peer and join a channel, the peer receives a copy of the distributed ledger. The drawback to this approach is that you need to generate new certificates and join the peer to the channels again.
+- **Delete unused peer and deploy a new one when needed.**
+  Because the ledger is stored on the ordering node, when you deploy a new peer and join a channel, the peer receives a copy of the distributed ledger. The drawback to this approach is that you need to generate new certificates and join the peer to the channels again.  
 
   It is not recommended to ever delete a CA node because the data on it can never be recovered. Likewise, if you have only a single ordering node, you should never delete it.  
   {:important}
 
 - **Monitor and adjust your resource allocation based on your needs**.
-  When you monitor your resource usage over time, you might decide that you can scale down the resources that are allocated to a node while still ensuring adequate performance. When you follow instructions for [reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources) in the console, the effects on total VPC for the node are updated and can be used to estimate revised monthly costs.
+  When you monitor your resource usage over time, you might decide that you can scale down the resources that are allocated to a node while still ensuring adequate performance. When you follow instructions for [reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-reallocate-resources) in the console, the effects on total VPC for the node are updated and can be used to estimate revised monthly costs.  

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-10-29"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -29,11 +29,10 @@ subcollection: blockchain
 General problems may occur when using the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
 {:shortdesc}
 
-This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.
+This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
-
-- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
+- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77) 
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
@@ -44,7 +43,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
 
-**Issues with your Nodes**
+**Issues with your Nodes**  
 
 - [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 - [Why are my node operations failing after I create my peer or ordering service?](#ibp-console-build-network-troubleshoot-entry1)
@@ -53,31 +52,34 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Why are the transactions I submit from VS Code failing?](#ibp-v2-troubleshooting-anchor-peer)
 
-**Issues on {{site.data.keyword.cloud_notm}}**
+**Issues on {{site.data.keyword.cloud_notm}}**  
 
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
 
-**Issues on {{site.data.keyword.cloud_notm}} Private**
+**Issues on {{site.data.keyword.cloud_notm}} Private**  
 
 - [Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?](#ibp-v2-troubleshooting-healthchecks)
 - [Why am I getting the error: `Pod Security Conflict`](#ibp-v2-troubleshooting-podsecurityconflict)
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
 
-
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
 {: troubleshoot}
 
-The console has been working successfully, but requests have started to fail.
+The console has been working successfully, but requests have started to fail. For example, after I create an ordering service and open it I see the error: `Unable to get system channel. If you associated an identity without administrative privilege on the ordering service node, you will not be able to view or manage ordering service details.`
 {: tsSymptoms}
 
 This problem is caused by a bug introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
 {: tsCauses}
 
-To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can downgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser.
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
 {: tsResolve}
+
+
+
+
 
 ## When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?
 {: #ibp-v2-troubleshooting-status-unavailable}
@@ -91,7 +93,7 @@ If the node is a peer or ordering node, this condition occurs when the health ch
 {: tsCauses}
 
 If this is a new node, wait a few more minutes for the deployment to complete. You can try reloading the page in your browser to refresh the status. If the node is not new,
-[examine the associated node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors to determine the cause.
+[examine the associated node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors to determine the cause.
 {: tsResolve}
 
 ## When I hover over my node, the status is `Status undetectable`, what does this mean?
@@ -145,6 +147,7 @@ This problem can also occur when the console has lost contact with your Kubernet
 You can click the **Refresh your linked cluster** button to renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}}. Click **{{site.data.keyword.cloud_notm}} Support** next to the **Launch the {{site.data.keyword.blockchainfull_notm}} Platform**. This will take you to the panel where you can click **Refresh your linked cluster**.
 {: tsResolve}
 
+
 ## Why did my smart contract installation, instantiation or upgrade fail?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
 {: troubleshoot}
@@ -157,7 +160,7 @@ You may receive this error if this version of the smart contract already exists 
 
 - Open your Kubernetes dashboard and ensure the peer status is `Running`.  
 - Open the peer node and ensure the smart contract version does not already exist on the peer and try again with the proper version.
-- If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
+- If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.  
 {: tsResolve}
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
@@ -231,16 +234,17 @@ On the **Update channel** panel, scroll down to the **Channel Updater MSP ID** a
 {: #ibp-v2-troubleshooting-console-401}
 {: troubleshoot}
 
-When I try to login to my console, I am unable to access the console from my browser. If I check the browser logs, I can find the error 401 unauthorized.
+When I try to log in to my console, I am unable to access the console from my browser. If I check the browser logs, I can find the error 401 unauthorized.
 {: tsSymptoms}
 
 Your browser console session times out after **8 hours** of inactivity. If a session becomes inactive, the console will prevent the inactive user from performing any actions.
 {: tsCauses}
 
-If your session has become inactive, you can try simply refreshing your browser. If that does not work, close the browser including **all** tabs and windows. Open the URL again. You will be required to login.
+If your session has become inactive, you can try simply refreshing your browser. If that does not work, close the browser including **all** tabs and windows. Open the URL again. You will be required to log in.
 
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
+
 
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
 {: #ibp-v2-troubleshooting-smart-contract-anchor-peers}
@@ -271,8 +275,12 @@ For example, when you try to operate the node, the action might fail.
 After creating a new peer or ordering service, depending on your cluster storage configuration, it may take a few minutes for the nodes to be ready for operation.
 {: tsCauses}
 
+
 Check your Kubernetes dashboard and ensure the peer or node status is `Running`. Then try your action again. If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
 {: tsResolve}
+
+
+
 
 ## Why does my peer fail to start?
 {: #ibp-console-build-network-troubleshoot-entry2}
@@ -314,10 +322,14 @@ If you have recently joined a channel and installed the smart contract, this err
 You may need to view your smart contract, or chaincode, container logs to debug a smart contract issue.
 {: tsSymptoms}
 
+
+
+
 Follow these instructions to view your smart contract container logs on:
 - [{{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
 - [{{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
 {: tsResolve}
+
 
 ## Why are the transactions I submit from VS Code failing?
 {: #ibp-v2-troubleshooting-anchor-peer}
@@ -334,6 +346,8 @@ This error occurs if you are using the Fabric Service Discovery feature but did 
 {: tsCauses}
 
 Follow step three of the [private data topic](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
+{: tsResolve}
+
 
 ## My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?
 {: #ibp-v2-troubleshooting-cluster-expired}
@@ -409,3 +423,5 @@ kubectl delete ibppeer --all -n <namespace>
 kubectl delete ibporderer --all -n <namespace>
 ```
 {:codeblock}
+
+

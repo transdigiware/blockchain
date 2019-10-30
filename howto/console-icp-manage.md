@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-10-28"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -24,13 +24,17 @@ subcollection: blockchain
 # Administering your console
 {: #console-icp-manage}
 
-After you deploy your console on {{site.data.keyword.cloud}} Private, you can use the console to add or remove console users, as well as access APIs that allow you to operate your network and govern your console. You can also access and customize the logs of your console.
+
+After you deploy your console on {{site.data.keyword.cloud}} Private, you can use the console to add or remove console users and access APIs that allow you to operate your network and govern your console. You can also access and customize the logs of your console.
 {:shortdesc}
+
+
+
 
 ## Managing users from the console
 {: #console-icp-manage-users}
 
-The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
+The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis). 
 
 ### Role to permission mapping
 {: #console-icp-manage-role-mapping}
@@ -46,12 +50,16 @@ Permissions are cumulative. If you select a **Manager** role, the user will also
 ### Managing a user's password
 {: #console-icp-manage-user-pw}
 
-The password that was stored inside the [password secret](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they login to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
 
-You need to share the default password, or the default password that you reset, with the users so that they can log into the console. They will be required to change the password upon their first login.
+The password that was stored inside the [password secret](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they log in to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
+
+
+
+
+You need to share the default password, or the default password that you reset, with the users so that they can log in to the console. They will be required to change the password upon their first login.
 {:note}
 
-Users with the manager role can reset passwords for other users. In the **Users** tab of the console, click the three vertical dots at the end of the row for a specific user, and then click **Reset password**. The console will reset that user's password to the default password, which you can check and confirm in the right panel. Users with any role can change their own password at any time. Click the avatar icon in the upper right corner, and then click **Change password**.
+Users with the manager role can reset passwords for other users. In the **Users** tab of the console, click the three vertical dots at the end of the row for a specific user, and then click **Reset password**. The console resets that user's password to the default password, which you can check and confirm in the right panel. Users with any role can change their own password at any time. Click the avatar icon in the upper right corner, and then click **Change password**.
 
 After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/services/blockchain/howto?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
@@ -64,19 +72,20 @@ A user with a manager role can update the roles of other console users and provi
 ### Deleting a user from the console
 {: #console-icp-manage-icp-remove-user}
 
-If you are a user with a manager role, you can remove a user's access to the console. In the **Users** tab of the console, click the checkbox at the beginning of the specific user row. Then click the **Trash** can icon at the top of the table, next to the **Add new users** button. After removing the user from the table, the user cannot log into the console again.
+If you are a user with a manager role, you can remove a user's access to the console. In the **Users** tab of the console, click the checkbox at the beginning of the specific user row. Then, click the **Trash** can icon at the top of the table, next to the **Add new users** button. After you remove the user from the table, the user cannot log in to the console again.
+
 
 ## Using the {{site.data.keyword.blockchainfull_notm}} APIs
 {: #console-icp-manage-apis}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform exposes RESTful APIs that allow you to import, edit and remove blockchain nodes from your console. You can also use APIs to manage the settings, logging and notifications of your console. Use the instructions below to use the APIs provided by a console deployed on {{site.data.keyword.cloud_notm}} Private.
+The {{site.data.keyword.blockchainfull_notm}} Platform exposes RESTful APIs that allow you to import, edit, and remove blockchain nodes from your console. You can also use APIs to manage the settings, logging, and notifications of your console. Use the instructions below to use the APIs provided by a console deployed on {{site.data.keyword.cloud_notm}} Private.
 
 ### Prerequisites
 {: #console-icp-manage-prereqs}
 
-To use the APIs, you will need to gather the following information:
+To use the APIs, you need to gather the following information:
 
-- The console **API Endpoint**. This is the URL that you use to access the console using your browser. You can find this URL in the **Notes:** section of the Helm release overview screen.
+- The console **API Endpoint**. This is the URL that you use to access the console by using your browser. You can find this URL in the **Notes:** section of the Helm release overview screen.
 - A username and password that you can use to access the console. To create an API key, you must have an account with a [manager role](#console-icp-manage-users).
 
 ### Using an API key
@@ -84,7 +93,7 @@ To use the APIs, you will need to gather the following information:
 
 Each console provides its own identity and access management. You can use your console username and password to generate an API key and secret that can authorize your API calls.
 
-Each API key is associated with a role that governs the user's permissions. The API keys use the same access policy roles as exist for users who login to the console using a username and password. Refer to the table in the [Managing users](#console-icp-manage-users) section for the list of actions each role is allowed to perform. Because only manager roles can create API keys, a console administrator needs to create API keys for reader and writer users. The API keys never expire. As a result, the console administrator should delete API keys that are not being used.
+Each API key is associated with a role that governs the user's permissions. The API keys use the same access policy roles as exist for users who log in to the console by using a username and password. Refer to the table in the [Managing users](#console-icp-manage-users) section for the list of actions each role is allowed to perform. Because only manager roles can create API keys, a console administrator needs to create API keys for reader and writer users. The API keys never expire. As a result, the console administrator should delete API keys that are not being used.
 
 There are three APIs available to manage your API keys:
 - [Create an API key](#console-icp-manage-create-api-key)
@@ -130,7 +139,7 @@ Once you have created an API key and secret, you can use the APIs to view or rem
 |-------------|-----------|
 | Path | GET `<API_endpoint>`/ak/api/v1/permissions/keys |
 | **Response body fields** | |
-| <ul><li>`api_key`</li><li>`roles`</li><li>`ts_created`</li><li>`description`</li></ul>| <ul><li>`string`</li><li>`["<role>"]`</li><li>`number` Unix timestamp in milliseconds</li><li>`string`</li></ul>|
+| <ul><li>`api_key`</li><li>`roles`</li><li>`ts_created`</li><li>`description`</li></ul>| <ul><li>`string`</li><li>`["<role>"]`</li><li>`number` UNIX time stamp in milliseconds</li><li>`string`</li></ul>|
 | Authorization required | reader |
 
 #### Example curl request: view API keys
@@ -163,14 +172,14 @@ curl -X DELETE \
 {: #console-icp-manage-users-apis}
 
 
-You can also use the APIs to list, add, or remove users who can login to the console or access the console APIs. You can also edit the users roles to upgrade a users level of access. The following APIs are available:
+You can also use the APIs to list, add, or remove users who can log in to the console or access the console APIs. You can also edit the users roles to upgrade a users level of access. The following APIs are available:
 
 - [List users](#console-icp-manage-list-users-api)
 - [Edit users](#console-icp-manage-edit-users-api)
 - [Add users](#console-icp-manage-add-users-api)
 - [Remove users](#console-icp-manage-remove-users-api)
 
-For the APIs that govern the users and settings of your console, and manage the nodes of your network, you need to add a `-K` or ``--insecure`` flag to bypass the requirement for a TLS certificate. You can also download the TLS certificate from your console using your browser.
+For the APIs that govern the users and settings of your console, and manage the nodes of your network, you need to add a `-K` or ``--insecure`` flag to bypass the requirement for a TLS certificate. You can also download the TLS certificate from your console by using your browser.
 
 #### List users
 {: #console-icp-manage-list-users-api}
@@ -180,7 +189,7 @@ For the APIs that govern the users and settings of your console, and manage the 
 |-------------|-----------|
 | Path | GET `<API_endpoint>`/ak/api/v1/permissions/users |
 | **Response body fields** | |
-| <ul><li>`uuids`</li><li>`email`</li><li>`roles`</li><li>`created`</li></ul>| <ul><li>`string` user id</li><li>`string` email address</li><li>`["<role>"]`</li><li>`number` Unix timestamp in milliseconds</li></ul>|
+| <ul><li>`uuids`</li><li>`email`</li><li>`roles`</li><li>`created`</li></ul>| <ul><li>`string` user ID</li><li>`string` email address</li><li>`["<role>"]`</li><li>`number` UNIX time stamp in milliseconds</li></ul>|
 | Authorization required | reader |
 
 #### Example curl request: list users
@@ -200,9 +209,9 @@ curl -X GET \
 |-------------|-----------|
 | Path | PUT `<API_endpoint>`/ak/api/v1/permissions/users |
 | **Request body fields** | |
-| <ul><li>`uuids`</li><li>`roles`</li></ul> | <ul><li>`array of strings` user ids </li><li>`["reader", "writer", "manager"]` At least one value is required</li></ul> |
+| <ul><li>`uuids`</li><li>`roles`</li></ul> | <ul><li>`array of strings` user IDs </li><li>`["reader", "writer", "manager"]` At least one value is required</li></ul> |
 | **Response body fields** | |
-| <ul><li>`uuids`</li></ul>| <ul><li>`array of strings` user ids </li></ul>|
+| <ul><li>`uuids`</li></ul>| <ul><li>`array of strings` user IDs </li></ul>|
 | Authorization| manager |
 
 #### Example curl request: edit a user
@@ -258,9 +267,9 @@ curl -X POST \
 |-------------|-----------|
 | Path | DELETE `<API_endpoint>`/ak/api/v1/permissions/users |
 | **Request body fields** | |
-| <ul><li>`users`</li></ul>| <ul><li>`string` user id</li></ul>|
+| <ul><li>`users`</li></ul>| <ul><li>`string` user ID</li></ul>|
 | **Response body fields** | |
-| <ul><li>`uuids`</li></ul>| <ul><li>`string` user id</li></ul>|
+| <ul><li>`uuids`</li></ul>| <ul><li>`string` user ID</li></ul>|
 | Authorization | manager |
 
 #### Example curl request: remove a user
@@ -284,9 +293,9 @@ curl -X DELETE \
 
 You can view the complete set of APIs that are available in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://test.cloud.ibm.com/apidocs/blockchain).
 
-Because you are using the APIs to communicate with your console on {{site.data.keyword.cloud_notm}} Private, you need to use the authorization provided by {{site.data.keyword.cloud_notm}} with the authentication provided by your console. Replace the `Bearer Auth` in the API reference with  `-u <api_key>:<api_secret>`. You also need to add a `-k` or ``--insecure`` flag to the command, or download the console TLS certificate using your browser. You can not use the **Try it out** tab to test the APIs for networks on {{site.data.keyword.cloud_notm}} Private.
+Because you are using the APIs to communicate with your console on {{site.data.keyword.cloud_notm}} Private, you need to use the authorization that is provided by {{site.data.keyword.cloud_notm}} with the authentication that is provided by your console. Replace the `Bearer Auth` in the API reference with  `-u <api_key>:<api_secret>`. You also need to add a `-k` or ``--insecure`` flag to the command, or download the console TLS certificate by using your browser. You cannot use the **Try it out** tab to test the APIs for networks on {{site.data.keyword.cloud_notm}} Private.
 
-As an example, the API call below will return information about all of your components running on a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
+As an example, the API call below returns information about all of your components running on a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 ```
 curl -X GET \
   https://d456fcd8ee0e4ddfb1ad9bf45986e546-optools.bp01.blockchain.cloud.ibm.com/ak/api/v1/components \
@@ -302,7 +311,8 @@ https://9.30.252.107:31212/ak/api/v1/components \
   -k
 ```
 
-You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or  {{site.data.keyword.cloud_notm}}. For more information, visit [Build a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
+You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or {{site.data.keyword.cloud_notm}}. For more information, see [Build a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
+
 
 ## Viewing your logs
 {: #icp-console-manage-logs}
@@ -312,21 +322,25 @@ When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you
 ### Viewing your console logs
 {: #console-icp-manage-console-logs}
 
-You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/services/blockchain/howto?topic=blockchain-icp-console-manage#console-icp-manage-node-logs), which are collected by {{site.data.keyword.cloud_notm}} Private.
+You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](#console-icp-manage-node-logs), which are collected by {{site.data.keyword.cloud_notm}} Private.  
 
 Navigate to the **Settings** tab in the console browser to change the logging settings. The console logs are collected from two separate sources:
 
   * **Client logging:** These logs are collected when commands are sent from your browser to the console.
   * **Server logging:** These logs are collected when the console sends commands to your nodes and from the console deployment. These logs include the Hyperledger Fabric logging output.
 
-Set the amount of collected logs by using the drop-down list under each log type. For example, **Error** and **Warning** collect the least amount of logs, while **Debug** and **All** collect the most.
+Set the number of collected logs by using the drop-down list under each log type. For example, **Error** and **Warning** collect the least amount of logs, while **Debug** and **All** collect the most.
 
 You can view only the console logs if you are logged in as a console administrator. To view the logs from the **Settings** tab, replace the word `settings` in the browser URL with `api/v1/logs`. For example, if your console url is `localhost:3001/settings`, you can view your logs by navigating to `localhost:3001/api/v1/logs`. Client and server logs are collected in separate files. The most recent logs are at the top of the page.
 
 ### Viewing your node logs
 {: #console-icp-manage-node-logs}
 
+
 Component logs can be viewed from the command line by using the [kubectl CLI commands](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_kubectl.html){: external} or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
+
+
+
 
 - Use the `kubectl logs` command to view the container logs inside the pod. Follow the instructions to [Install the kubectl cli](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/manage_cluster/install_kubectl.html){: external} if you have not already done so. If you are unsure of your pod name, run the following command to view your list of pods.
 
@@ -344,34 +358,47 @@ Component logs can be viewed from the command line by using the [kubectl CLI com
 
   Replace `<pod_name>` with the name of your pod from the command output above.  
   Replace `<node>` with `ca`, `peer`, or `orderer` to view the logs for your node.  
-  Replace `<node>` with `fluentd` to view the logs for your smart contracts.
+  Replace `<node>` with `fluentd`  to view the logs for your smart contracts.
+
+  
 
   For more information about the `kubectl logs` command, see [Kubernetes documentation](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: external}.
+
 
 - Alternatively, you can [access the logs](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/troubleshoot/events.html){: external} from your  {{site.data.keyword.cloud_notm}} Private console, which opens the logs in Kibana.
 
   **Note:** When you view your logs in Kibana, you might receive the response `No results found`. This condition can occur if {{site.data.keyword.cloud_notm}} Private uses your worker node IP address as its hostname. To resolve this problem, remove the filter that begins with `node.hostname.keyword` at the top of the panel and the logs will become visible.
+
+
+
 
 ### Viewing your smart contract container logs
 {: #console-icp-manage-container-logs}
 
 If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue. You can run the following command to view the smart contract container logs:
 
+
 ```
 kubectl  logs -f <peer_ped> -c fluentd
 ```
 {:codeblock}
 
+
+
+
 Replace `<peer_pod>` with the name of the peer pod where the chaincode is running. Use the command `kubectl get po` to get the list of running pods.
+
 
 ## Installing patches for your nodes
 {: #console-icp-manage-patch}
 
 The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and orderer nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. You can update your Fabric images when you upgrade the {{site.data.keyword.blockchainfull_notm}} Platform helm chart.
 
-After you upgrade your Helm chart, you will be able to find the **Patch available** text on a node tile if a component update is available. This patch can be installed on a node whenever you are ready. These patches are optional, but recommended. You cannot patch nodes that have been imported into the console.
+After you upgrade your Helm chart, you will be able to find the **Patch available** text on a node tile if a component update is available. This patch can be installed on a node whenever you are ready. These patches are optional, but recommended. You cannot patch nodes that you import into the console.
 
-Patches are applied to nodes one at a time. While the patch is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure another node of the same type is available to process requests. Installing patches on a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
+Patches are applied to nodes one at a time. While the patch is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure that another node of the same type is available to process requests. Installing patches on a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
 {:note}
 
 To apply a patch to a node, open the node tile and click the **Install patch** button. You cannot patch nodes that you imported to the console.
+
+

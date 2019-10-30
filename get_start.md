@@ -80,7 +80,7 @@ If you are an invited network member, click the **Pending Invite ->** button, se
 3. (Optional) In the "Add Peers" screen, choose the quantity of peers that you want to add. Click **Next**. Each member in a network can add up to three peers. This step is optional, and you can add your peers later in the Network Monitor. For more information about peers, see [Add peers](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-peers).
 4. In the "Review Network Summary" screen, verify the network configuration. If you want to make modifications, click the **Previous** button to go back to previous screens. After you complete the resource configuration, click **Done**. You will be notified that you have successfully joined the network. You can then click **Enter Monitor** to open the Network Monitor.
 
-<!-- or click **Create a Channel** to initiate a channel creation request. You can create channels later in the Network Monitor. For more information, see [Channels](v10_dashboard.html#channels).  -->
+
 
 
 ## Configuring network resources and environment

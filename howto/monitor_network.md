@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-24"
 
 keywords: view Logs, IBM Cloud Private, logs of a specific network component, monitor blockchain network
 
@@ -102,7 +102,7 @@ From the Observability dashboard, you can now launch the LogDNA dashboard by cli
 ### View node logs
 {: #monitor-blockchain-network-viewing-logdna}
 
-Viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs with the the {{site.data.keyword.la_full_notm}} service is easy. After you have completed the steps to configure LogDNA to work with your Starter Plan instance, your Starter Plan node logs will start to appear in dashboard.
+Viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs with the {{site.data.keyword.la_full_notm}} service is easy. After you have completed the steps to configure LogDNA to work with your Starter Plan instance, your Starter Plan node logs will start to appear in dashboard.
 You can use the search input box located at the bottom of the LogDNA page to filter the logs by node.
 
 It may take a few seconds for the logs from your nodes to show up in the {{site.data.keyword.la_full_notm}} service.

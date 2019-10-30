@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-10-29"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -20,6 +20,7 @@ subcollection: blockchain
 {:faq: data-hd-content-type='faq'}
 {:pre: .pre}
 
+
 # FAQs
 {: #ibp-v2-faq}
 
@@ -32,6 +33,8 @@ subcollection: blockchain
 - [Do you support using certificates from non-IBM Certificate Authorities (CAs)?](#ibp-v2-faq-v2-external-certs)
 - [I am currently using Hyperledger Fabric v1.4 and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?](#ibp-v2-faq-migrate-raft)
 - [How can I find the examples and tutorials within the VSCode extension](#ibp-v2-faq-vscode-tutorials)
+- [If service discovery is on, will an endorsement request be routed to any peer on the network?](#ibp-v2-faq-service-discovery)
+
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
 
@@ -52,23 +55,26 @@ subcollection: blockchain
 - [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud sizing requirements for my dev, test, and production environments?](#ibp-v2-faq-icp-sizing)
 - [What happens to my blockchain components when I delete my Helm release?](#ibp-v2-faq-icp-delete)
 
+
 ## What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?
 {: #ibp-v2-faq-v2-IBP-Overview-1-7}
 {: faq}
 
 Hyperledger Fabric is a powerful, versatile, pluggable distributed ledger technology capable of addressing a wide variety of use cases across many industries. {{site.data.keyword.blockchainfull_notm}} Platform is built on top of Fabric and includes integrated tools that provide end to end features for developers and network operators to develop, test, operate, monitor, and govern Hyperledger Fabric components by using an intuitive console UI. Quickly deploy an instance and use the streamlined console UI to [build a network](/docs/services/blockchain?topic=blockchain-ibp-console-build-network), easily [install and instantiate smart contracts](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts), [govern your components](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components), and [govern your channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern). Interested in APIs? See the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain){: external}. With the {{site.data.keyword.blockchainfull_notm}} Platform, it is easy to extend a basic network, work with multicloud solutions, and receive {{site.data.keyword.IBM_notm}} worldwide support when needed. Finally, the {{site.data.keyword.blockchainfull_notm}} Platform provides additional security benefits that are essential for running an enterprise-grade production network.
 
+
+
 ## What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-Hyperledger-Fabric-3-1}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud use Hyperledger Fabric v1.4.1
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud use Hyperledger Fabric v1.4.3
 
 ## What database do the peers use for their ledger?
 {: #ibp-v2-faq-v2-IBP-Overview-1-3}
 {: faq}
 
-All peers that are deployed with the {{site.data.keyword.blockchainfull_notm}} Platform use CouchDB as database for the ledger.
+You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-console-govern-components#ibp-console-govern-components-level-couch) to decide what is best for your business needs.
 
 ## What languages are supported for smart contracts?
 {: #ibp-v2-faq-v2-IBP-Overview-1-4}
@@ -86,13 +92,20 @@ Yes, you can bring your own certificates if they are issued by a CA that is X.50
 {: #ibp-v2-faq-migrate-raft}
 {: faq}
 
-Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and Multicloud use Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4 are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network.
+Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and Multicloud use Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4 are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network.
 
 ## How can I find the examples and tutorials within the VSCode extension
 {: #ibp-v2-faq-vscode-tutorials}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials). 
+
+## If service discovery is on, will an endorsement request be routed to any peer on the network?
+{: #ibp-v2-faq-service-discovery}
+{: faq}
+
+Yes, if you have the endorsement policy set to “Any”. However, you do have the opportunity to bind the policy directly to an organization's peers. The service discovery information provided by the peer supplies two pieces of information, `Layouts` and `EndorsersByGroup`. With these two pieces of data the SDK has the ability to send requests to peers in different organizations that meet the endorsement policy requirements. The node.js SDK provides default code that uses the `Layouts` and `EndoresersByGroup`s and sends the requests to the appropriate peers to meet the endorsement policy requirements. This existing logic can be customized to meet the business needs.
+
 
 ## How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-cloud-pricing)
@@ -173,4 +186,6 @@ After you understand how many CAs, peers, and ordering nodes are required, you c
 {: #ibp-v2-faq-icp-delete}
 {: faq}
 
-When you delete a helm release from your {{site.data.keyword.cloud_notm}} Private cluster, the associated blockchain components are not deleted. To properly remove a helm release from your cluster, delete all of your components by using the blockchain console or the blockchain APIs first. Then, you can delete the helm chart.  
+When you delete a helm release from your {{site.data.keyword.cloud_notm}} Private cluster, the associated blockchain components are not deleted. To properly remove a helm release from your cluster, delete all of your components by using the blockchain console or the blockchain APIs first. Then, you can delete the helm chart.
+
+
