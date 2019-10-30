@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-10-30"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -197,7 +197,7 @@ To scale manually in the console, click the node that you want to adjust on the 
 
 If you want to increase the CPU and memory for a node, use the **Resource allocation** tab in the console to increase the values. The white box at the bottom of the page will add up the new values. After clicking **Reallocate resources**, the **Summary** page will translate this value into a **VPC** amount, which is used to calculate your bill. You'll then need to navigate to your Kubernetes cluster to make sure your cluster has sufficient resources for this reallocation. If it does, you can click **Reallocate resources**. If sufficient resources are not available, you will need to increase the size of your cluster.
 
-The method you will use to increase storage will depend on the storage class you chose for your cluster. Refer to the documentation of your cloud provider to learn about this. In {{site.data.keyword.cloud_notm}}, this topic is called [storage options](/docs/containers?topic=containers-kube_concepts#kube_concepts){: external}. Note that in {{site.data.keyword.cloud_notm}}, if you are about to exhaust the storage on your peer or ordering node, you must deploy a new peer or ordering node with a larger file system and let it sync via your other components on the same channels.
+The method you will use to increase storage will depend on the storage class you chose for your cluster.  Refer to the [storage options](/docs/containers?topic=containers-kube_concepts#kube_concepts){: external} topic in the {{site.data.keyword.cloud_notm}} documentation. If you are about to exhaust the storage on your peer or ordering node, you might need to deploy a new peer or ordering node with a larger file system and let it sync via your other components on the same channels.
 
 In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the console if you have resources available in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. However, storage must be increased using the {{site.data.keyword.cloud_notm}} CLI. For a tutorial on how to do this, see [Changing the size and IOPS of your existing storage device](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external}.
 
