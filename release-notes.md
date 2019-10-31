@@ -15,7 +15,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
-{:external: target="_blank" .external}
+{:external: target="_blank" .external}_
 
 # Release notes
 {: #release-notes-saas-20}
