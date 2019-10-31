@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-18"
+lastupdated: "2019-10-31"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -41,6 +41,7 @@ Before proceeding, we recommend that you review the platform-specific guidance f
 
 
 Then you can use this topic for details on blockchain-specific HA guidance along with the recommendations from the platform-specific topic above.
+
 
 ## Overview of potential points of failure in {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-console-ha-points-of-failure-overview}
