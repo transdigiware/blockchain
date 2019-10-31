@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-10-31"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -52,6 +52,7 @@ Additional steps might be required after a node has been imported before some of
 Note that when you import a component, you do not actually import the physical component into your cloud provider. Instead, the console uses the information in the JSON to build a representation of the component that can be operated from the console. Likewise, when you delete an imported node from the console, the node itself, which is still running at the location where it was deployed, is not deleted. It is simply removed from the console where it was imported.
 
 After you import a node into the console, you can also modify its connection information by using the node's **Settings** tab.
+
 
 
 As you will see below, there are two ways to export and import components and identities: in bulk, or one at a time. Each fulfills a different use case and has different considerations and limitations.
