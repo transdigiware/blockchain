@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-22"
+lastupdated: "2019-11-01"
 
 subcollection: blockchain
 
@@ -42,6 +42,14 @@ If you are building a network that will be used in production, you need setup yo
 
 - For recommendations on configuring your cluster, visit [Implement high availability on {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/cloud/garage/practices/manage/high-availability-ibm-cloud-private){: external}.
 - When you are ready to start building your network, visit [high availability considerations for peers](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-peers) and [high availability considerations for ordering services](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-ordering-service).
+- The following table includes the default resource allocations for each node type for consideration when you estimate the size of cluster that is required. When you deploy your nodes, you can adjust the resource allocations according to your needs.
+
+| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
+|--------------------------------|---------------|-----------------------|------------------------|
+| **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **CA**                         | 0.1           | 0.2                   | 20                     |
+| **Ordering node**              | 0.35          | 0.7                   | 100                    |
+
 
 ## Step two: Install the {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-console-icp-step-two-deploy-console}
@@ -62,6 +70,7 @@ The console administrator can login to the console using the email address and p
 {: #get-started-console-icp-build-network}
 
 Once you have deployed the console, you can use it to create, operate and govern {{site.data.keyword.blockchainfull_notm}} components on your local cluster. To get started using the console UI, visit the [Building a network tutorial](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
+
 
 ## Step six: Connect networks across clouds
 {: #get-started-console-icp-import-nodes}

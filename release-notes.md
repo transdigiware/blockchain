@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-02"
+lastupdated: "2019-11-01"
+
 
 keywords: release note, latest changes, Hyperledger Fabric
 
@@ -15,7 +16,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
-{:external: target="_blank" .external}_
+{:external: target="_blank" .external}
 
 # Release notes
 {: #release-notes-saas-20}

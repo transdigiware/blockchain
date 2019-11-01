@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-01"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -131,11 +131,12 @@ While it is simpler to have enough resources deployed to {{site.data.keyword.clo
 
 For a sense of how much storage and compute you will need in your cluster, refer to this chart, which contains the current defaults for the peer, ordering node, and CA:
 
-| **Component** (all containers) | CPU  | Memory (GB) | Storage (GB) |
+| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1            | 2.2                  | 200 (includes 100GB for peer and 100GB for state database)|
-| **CA**                         | 0.1            | 0.2                  | 20                     |
-| **Ordering node**              | 0.35           | 0.7                  | 100                    |
+| **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **CA**                         | 0.1           | 0.2                   | 20                     |
+| **Ordering node**              | 0.35          | 0.7                   | 100                    |
+
 
 If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
