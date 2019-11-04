@@ -37,7 +37,7 @@ If you want to use a free {{site.data.keyword.cloud_notm}} Kubernetes cluster, d
 |--------|--------------------|
 | US South | San Jose, Sao Paulo, Dallas, Houston |
 | US East | Toronto  |
-| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore,  |
+| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore |
 | EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |
 
 _Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations_
