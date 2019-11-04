@@ -114,8 +114,6 @@ Your actual costs will vary depending on additional factors such as transaction 
 
 There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
 
-**Interested in more pricing examples?** See the Reference topic on [Detailed pricing scenarios](/docs/services/blockchain?topic=blockchain-ibp-detailed-pricing) for additional configurations and prices.
-
 **Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options.
 
 ## Default resource allocations
