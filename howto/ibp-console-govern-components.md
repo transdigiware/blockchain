@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-01"
+lastupdated: "2019-11-04"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -133,7 +133,7 @@ As we noted in our section on [How the console interacts with your Kubernetes cl
 ### Peers
 {: #ibp-console-govern-components-peers}
 
-The peer has only associated containers that can be adjusted:
+The peer has only three associated containers that can be adjusted:
 
 - **Peer container**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts installed on the peer.
 - **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
@@ -179,7 +179,7 @@ If an ordering service is overstressed, it might hit timeouts and start dropping
 ## Reallocating resources
 {: #ibp-console-govern-components-reallocate-resources}
 
-Resizing a node requires the containers to be rebuilt, which might cause a delay in the functioning of the node.
+Resizing a node requires the containers to be rebuilt, which can cause a delay in the functioning of the node.
 {:important}
 
 We recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard to monitor your Kubernetes resource usage. If you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
