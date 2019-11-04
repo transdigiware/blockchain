@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-02"
+lastupdated: "2019-11-01"
+
 
 keywords: release note, latest changes, Hyperledger Fabric
 
