@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-11-05"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -38,7 +38,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
-- [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/services/blockchain/howto?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
+- [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/services/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
@@ -93,7 +93,7 @@ If the node is a peer or ordering node, this condition occurs when the health ch
 {: tsCauses}
 
 If this is a new node, wait a few more minutes for the deployment to complete. You can try reloading the page in your browser to refresh the status. If the node is not new,
-[examine the associated node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors to determine the cause.
+[examine the associated node logs](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors to determine the cause.
 {: tsResolve}
 
 ## When I hover over my node, the status is `Status undetectable`, what does this mean?
@@ -160,7 +160,7 @@ You may receive this error if this version of the smart contract already exists 
 
 - Open your Kubernetes dashboard and ensure the peer status is `Running`.  
 - Open the peer node and ensure the smart contract version does not already exist on the peer and try again with the proper version.
-- If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.  
+- If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.  
 {: tsResolve}
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
@@ -260,7 +260,7 @@ error: [Network]: _initializeInternalChannel: no suitable peers available to ini
 This error occurs if you have not configured an anchor peer on your channel. Unless you have manually updated your connection profile, your application needs to use the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature to learn about the peers it needs to submit the transaction to.
 {: tsCauses}
 
-Use the following steps to [configure anchor peers on your channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
+Use the following steps to [configure anchor peers on your channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 {: tsResolve}
 
 ## Why are my node operations failing after I create my peer or ordering service?
@@ -276,7 +276,7 @@ After creating a new peer or ordering service, depending on your cluster storage
 {: tsCauses}
 
 
-Check your Kubernetes dashboard and ensure the peer or node status is `Running`. Then try your action again. If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
+Check your Kubernetes dashboard and ensure the peer or node status is `Running`. Then try your action again. If you are still experiencing problems after the node is up, [check your node logs](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) for errors.  
 {: tsResolve}
 
 
@@ -298,7 +298,7 @@ The peer log includes `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERRO 001 Ca
 
 - Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
 - Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret.
-- Note that before you create the peer or ordering service, you need to create an organization admin id, of type 'client'. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
+- Note that before you create the peer or ordering service, you need to create an organization admin id, of type 'client'. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
 
 ## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?
@@ -312,7 +312,7 @@ When I invoke a smart contract to submit a transaction, the transaction returns 
 returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
 ```
 
-If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
 {: tsCauses}
 
 ## How can I view my smart contract container logs?
@@ -345,7 +345,7 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 This error occurs if you are using the Fabric Service Discovery feature but did not configure any anchor peers on your channel.
 {: tsCauses}
 
-Follow step three of the [private data topic](/docs/services/blockchain/howto?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
+Follow step three of the [private data topic](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
 {: tsResolve}
 
 
@@ -359,7 +359,7 @@ I received an e-mail that my {{site.data.keyword.IBM_notm}} Kubernetes service c
 Free Kubernetes clusters are only valid for 30 days.
 {: tsCauses}
 
-It is not possible to migrate from a free cluster to a paid cluster. After 30 days you cannot access the console and all of your nodes and certificates are deleted. See this topic on [Kubernetes cluster expiration](/docs/services/blockchain/howto?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) for information on what is happening and what you can do.
+It is not possible to migrate from a free cluster to a paid cluster. After 30 days you cannot access the console and all of your nodes and certificates are deleted. See this topic on [Kubernetes cluster expiration](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) for information on what is happening and what you can do.
 {: tsResolve}
 
 ## After I deploy a node in the console, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?

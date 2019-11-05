@@ -63,7 +63,7 @@ You need to have **Operator** or **Writer** authority on the channel to instanti
 
 You can use endorsement policies to specify which set of peers need to validate a new transaction. For example, an endorsement policy can specify that a transaction will be added to the ledger only if a majority of the members on the channel endorse the transaction.
 
-The endorsement policy is set when a chaincode is instantiated on a channel. The organization that instantiates the chaincode can select from among the channel members who have installed the chaincode to become validators, and sets the endorsement policy for all channel members. You can update your endorsement policy by following the steps for [updating your chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc), then specifying a new policy when you reinstantiate your chaincode on the second step.
+The endorsement policy is set when a chaincode is instantiated on a channel. The organization that instantiates the chaincode can select from among the channel members who have installed the chaincode to become validators, and sets the endorsement policy for all channel members. You can update your endorsement policy by following the steps for [updating your chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc), then specifying a new policy when you reinstantiate your chaincode on the second step.
 
 When you use the Network Monitor to set your endorsement policy, you can either use the UI to specify a **Simple Policy**, or use JSON to specify an **Advanced Policy**.
 
@@ -84,7 +84,7 @@ Endorsement policies are not updated automatically when new organizations join t
 
 You can update a chaincode to change the chaincode's programming while maintaining its relationship to the assets on the ledger. Because of the installation and instantiation combination, you need to update the chaincode on all peers that are on the channel with this chaincode. Complete the following steps to update your chaincode.
 
-1. Install a chaincode with the same name as your old chaincode, but with a different version. You can follow the same steps as [Installing a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc). Make sure that you select the same channel as your original chaincode.
+1. Install a chaincode with the same name as your old chaincode, but with a different version. You can follow the same steps as [Installing a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc). Make sure that you select the same channel as your original chaincode.
 
   ![Update Chaincode](../images/upgrade_chaincode.png "Update Chaincode")
 
