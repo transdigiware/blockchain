@@ -39,7 +39,7 @@ Enterprise Plan networks offer the following production-ready features to suppor
 
 Before you migrate from your Starter Plan network to an Enterprise Plan network, you might read the following considerations.
 
-- **Pricing:** The monthly fee for your organization to use an Enterprise Plan network includes $1000 membership fee on a per-instance basis and $1000 peer fee on a per-peer basis. For more information, see [Enterprise Plan pricing](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing-enterprise-plan).
+- **Pricing:** The monthly fee for your organization to use an Enterprise Plan network includes $1000 membership fee on a per-instance basis and $1000 peer fee on a per-peer basis. For more information, see [Enterprise Plan pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-enterprise-plan).
 - **Hyperledger Fabric version:** Enterprise Plan networks run on Hyperledger Fabric v1.1. Starter Plan networks run on Fabric v1.2.
 - **Resources affected:** Chaincode (smart contracts), client applications. Again, be aware of whether your chaincode is leveraging a Fabric v1.2 component or functionality that is not compatible with v1.1 networks.
 - **Time required:** It will take at least half a day to migrate a basic network from Starter Plan to Enterprise Plan.
@@ -77,7 +77,7 @@ You might recreate the configuration of organizations (members), channels, and p
 ### Migrate chaincode
 {: #migrate_starter_to_enterprise_cc}
 
-Chaincode is developed externally in your local environment and is invoked by your client applications. To install and instantiate chaincode, which was tested in your Starter Plan network, onto selected peers on your Enterprise Plan network, follow the instructions in [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc).
+Chaincode is developed externally in your local environment and is invoked by your client applications. To install and instantiate chaincode, which was tested in your Starter Plan network, onto selected peers on your Enterprise Plan network, follow the instructions in [Installing, instantiating, and updating a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc).
 
 ### Update client applications
 {: #migrate_starter_to_enterprise_app}

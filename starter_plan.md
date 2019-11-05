@@ -46,7 +46,7 @@ Starter Plan is now deprecated, therefore no new Starter Plan networks can be cr
 - **_One-click-ready network_**
     Starter Plan provisions you a live blockchain network with a single click. Each network comes with a CA, an orderer, two organizations (with one peer per organization), and a default channel on which to transact and deploy chaincode. {{site.data.keyword.blockchainfull_notm}} Platform handles the creation and configuration of this network (you'll be able to update it after it goes live), letting you focus on development. Starter Plan networks are built on Fabric V1.2, and use CouchDB as the state database.
 - **_Cost efficiency_**
-    The Starter Plan membership option provides many of the same blockchain capabilities as Enterprise Plan membership options, but at a lower cost. For more information, see [Starter Plan pricing](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)
+    The Starter Plan membership option provides many of the same blockchain capabilities as Enterprise Plan membership options, but at a lower cost. For more information, see [Starter Plan pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)
 - **_Multi-organization network simulation_**
     You can use Starter Plan to simulate building a network with multiple organizations. You do not need to actually invite other organizations to your network, but can act as other organizations yourself. This mechanism enables you to learn how a new organization can join the network, how multiple organizations work together in the network, and so on. You can switch between your organizations from the Network Monitor to view and manage the network from different organizations' view.
 
@@ -90,4 +90,4 @@ Starter Plan is an entry point to {{site.data.keyword.blockchainfull_notm}} Plat
 - **Data retention**
     Starter Plan does not guarantee data retention with release upgrades.
 - **Migration considerations**
-    Migrating the data from a Starter Plan network to other membership plans is not currently supported. However, it is possible to migrate `.bna` files, chaincode, and applications that were tested on Starter Plan. For more information, see [Migrating from Starter Plan to Enterprise Plan](/docs/services/blockchain/howto?topic=blockchain-migrate_starter_to_enterprise#migrate_starter_to_enterprise).
+    Migrating the data from a Starter Plan network to other membership plans is not currently supported. However, it is possible to migrate `.bna` files, chaincode, and applications that were tested on Starter Plan. For more information, see [Migrating from Starter Plan to Enterprise Plan](/docs/services/blockchain?topic=blockchain-migrate_starter_to_enterprise#migrate_starter_to_enterprise).

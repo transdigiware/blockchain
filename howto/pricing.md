@@ -35,7 +35,7 @@ Starter Plan is now deprecated, therefore no new Starter Plan networks can be cr
 
 *Figure 1. {{site.data.keyword.blockchainfull_notm}} Platform pricing overview*
 
-The monthly fee is billed daily prorated. For example, a member (associated membership fee of $1,000) of two peers (per peer fee of $1,000 X 2 peers) needs to pay $3,000 every month. If the month has 30 days, the member pays $100 ($3,000/30) every day. For more information about how to pay for your networks, see [Paying mode](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode).
+The monthly fee is billed daily prorated. For example, a member (associated membership fee of $1,000) of two peers (per peer fee of $1,000 X 2 peers) needs to pay $3,000 every month. If the month has 30 days, the member pays $100 ($3,000/30) every day. For more information about how to pay for your networks, see [Paying mode](/docs/services/blockchain?topic=blockchain-paying-mode#paying-mode).
 
 
 ## Network basic components

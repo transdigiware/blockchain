@@ -22,7 +22,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform charges monthly with membership fees and peer fees. Network members can pay their bill with their {{site.data.keyword.cloud_notm}} accounts that contain the space to create the network instance. Alternatively, one network member can cover the bill for other members in the network, or even all members to pay for the entire network. The payer can also transfer the billings back to other members if necessary.
 {:shortdesc}
 
-Depending on the network plan that you choose and the amount of resources that you use, your payments are different. For more information about pricing, see [Pricing](/docs/services/blockchain/howto?topic=blockchain-ibp-pricing#ibp-pricing).
+Depending on the network plan that you choose and the amount of resources that you use, your payments are different. For more information about pricing, see [Pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
 
 Note that when several organizations build a consortium, it is recommended that the participating organizations use a functional email address to create their network. In this case, access to the network does not depend on any individual's availability.
 
@@ -96,7 +96,7 @@ An alternative of adding other members' accounts to the payer's account, other m
   5. Choose **Billing manager** as the **Organization roles**.
   6. Configure other fields accordingly and then click **Invite users**.  
 3. The payer invites other members to the blockchain network in the Network Monitor of the network. For more information about inviting network members, see [Members](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
-4. Each member then receives a notification email that contains an invitation to join the network. The member can then join the network. For more information, see **step 4** under [Paying for other network members](/docs/services/blockchain/howto?topic=blockchain-paying-mode#paying-mode-pay-for-others).
+4. Each member then receives a notification email that contains an invitation to join the network. The member can then join the network. For more information, see **step 4** under [Paying for other network members](/docs/services/blockchain?topic=blockchain-paying-mode#paying-mode-pay-for-others).
 
 ### Known limitation
 {: #paying-mode-let-other-pay-limitation}

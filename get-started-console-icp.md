@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-04"
+lastupdated: "2019-11-05"
 
 subcollection: blockchain
 
@@ -54,25 +54,25 @@ If you are building a network that will be used in production, you need setup yo
 ## Step two: Install the {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-console-icp-step-two-deploy-console}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart that can be downloaded from Passport Advantage (PPA). To learn how to install the Helm chart on your local cluster, visit [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain/howto?topic=blockchain-console-helm-install#console-helm-install).
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart that can be downloaded from Passport Advantage (PPA). To learn how to install the Helm chart on your local cluster, visit [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-helm-install#console-helm-install).
 
 ## Step three: Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #get-started-console-icp-step-three-deploy-console}
 
-After you have installed the Helm chart, you can click the {{site.data.keyword.blockchainfull_notm}} Platform application tile on the Catalog page to install an {{site.data.keyword.blockchainfull_notm}} Platform console on your local cluster. To learn about how to configure the console, as well as the resources that are required by your blockchain components, see [Deploying the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/services/blockchain/howto?topic=blockchain-console-deploy-icp#console-deploy-icp).
+After you have installed the Helm chart, you can click the {{site.data.keyword.blockchainfull_notm}} Platform application tile on the Catalog page to install an {{site.data.keyword.blockchainfull_notm}} Platform console on your local cluster. To learn about how to configure the console, as well as the resources that are required by your blockchain components, see [Deploying the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/services/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp).
 
 ## Step four: Add users to the console as the administrator
 {: #get-started-console-icp-step-four-add-console-admin}
 
-The console administrator can login to the console using the email address and password that was provided during deployment. The password that was provided becomes the default password of the console, and is used by all new users to login to the console for the first time. The administrator can then add new users to the console, allowing others to login and start working with {{site.data.keyword.blockchainfull_notm}} nodes. The administrator can also set a new default password. To learn more, see [Managing users from the console](/docs/services/blockchain/howto?topic=blockchain-console-icp-manage#console-icp-manage-users).
+The console administrator can login to the console using the email address and password that was provided during deployment. The password that was provided becomes the default password of the console, and is used by all new users to login to the console for the first time. The administrator can then add new users to the console, allowing others to login and start working with {{site.data.keyword.blockchainfull_notm}} nodes. The administrator can also set a new default password. To learn more, see [Managing users from the console](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
 
 ## Step five: Use the console to create your components
 {: #get-started-console-icp-build-network}
 
-Once you have deployed the console, you can use it to create, operate and govern {{site.data.keyword.blockchainfull_notm}} components on your local cluster. To get started using the console UI, visit the [Building a network tutorial](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
+Once you have deployed the console, you can use it to create, operate and govern {{site.data.keyword.blockchainfull_notm}} components on your local cluster. To get started using the console UI, visit the [Building a network tutorial](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
 
 
 ## Step six: Connect networks across clouds
 {: #get-started-console-icp-import-nodes}
 
-You can use the console to operate components that are running on other {{site.data.keyword.cloud_notm}} Private clusters or on {{site.data.keyword.cloud_notm}}. First, you will need to export the component information to a JSON file from the console where the component was originally deployed. Then, you can import the node JSON file into the console that is deployed on your local cluster and manage the components across clouds. For more information, see [Importing nodes](/docs/services/blockchain/howto?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes).
+You can use the console to operate components that are running on other {{site.data.keyword.cloud_notm}} Private clusters or on {{site.data.keyword.cloud_notm}}. First, you will need to export the component information to a JSON file from the console where the component was originally deployed. Then, you can import the node JSON file into the console that is deployed on your local cluster and manage the components across clouds. For more information, see [Importing nodes](/docs/services/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes).

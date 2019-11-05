@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-01"
+lastupdated: "2019-11-05"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -35,11 +35,11 @@ When multiple zones are configured in your Kubernetes cluster, you can now choos
 
 **Ability to set peer to be an anchor peer when the peer joins the channel**
 
-Users can now choose to designate a peer to be an anchor peer when the peer is being joined to the channel, rather than after the peer has joined the channel. An anchor peer must exist for each organization in order for cross organizational gossip to work. [Anchor peers](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) are also required for private data and service discovery to work. [Learn how](/docs/services/blockchain/howto?topic=blockchain-ibp-console-build-network#ibp-console-build-network-join-peer).
+Users can now choose to designate a peer to be an anchor peer when the peer is being joined to the channel, rather than after the peer has joined the channel. An anchor peer must exist for each organization in order for cross organizational gossip to work. [Anchor peers](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) are also required for private data and service discovery to work. [Learn how](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-join-peer).
 
 **Ability to add a peer to a channel from the Channels tab**
 
-A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join) for more details.
+A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join) for more details.
 
 **Export/Import all**
 
@@ -47,7 +47,7 @@ Allows for the bulk export and import of your blockchain network, including node
 
 **Hyperledger Fabric v1.4.3**
 
-All new nodes are deployed using Hyperledger Fabric v1.4.3. If you have an existing blockchain network, you should review the topic on [Capabilities](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities) to understand how this new Fabric version can impact your network.
+All new nodes are deployed using Hyperledger Fabric v1.4.3. If you have an existing blockchain network, you should review the topic on [Capabilities](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities) to understand how this new Fabric version can impact your network.
 
 ## 21 August 2019
 {: #08-21-2019}
@@ -62,7 +62,7 @@ If multiple zones are configured in your {{site.data.keyword.cloud_notm}} Kubern
 
 **Peer database support now includes LevelDB**
 
-You now have the option to choose between CouchDB and LevelDB for your Peer database. For more information, see [LevelDB vs CouchDB](/docs/services/blockchain/howto?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
+You now have the option to choose between CouchDB and LevelDB for your Peer database. For more information, see [LevelDB vs CouchDB](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
 
 **Certificate Authority (CA) updates**   
 

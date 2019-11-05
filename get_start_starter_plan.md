@@ -115,26 +115,26 @@ You can find your blockchain service instance in the [{{site.data.keyword.cloud_
 
 Channels are used by sets of organizations to transact without exposing the data to other organizations. You can create a [channel](/docs/services/blockchain?topic=blockchain-glossary#glossary-channel) with select members of your starter plan network, and policies on who can update the channel.
 
-For more information, see [Creating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). If another organization invites you to a channel, you will also find instructions on how to accept the invitation and join your peers to the channel.
+For more information, see [Creating a channel](/docs/services/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). If another organization invites you to a channel, you will also find instructions on how to accept the invitation and join your peers to the channel.
 
 ## Developing Chaincode
 {: #getting-started-with-starter-plan-develop-chaincode}
 
 [chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode), sometimes referred to as smart contracts, is software that allows you to read and update data on the blockchain ledger. Chaincode can turn business logic into an executable program agreed to and verified by all members of the blockchain network.
 
-For more information, see the [developing chaincode](/docs/services/blockchain/howto?topic=blockchain-develop-smart-contracts#develop-smart-contracts) tutorial to learn how to start writing chaincode, as well as fabric features that are accessible through chaincode.
+For more information, see the [developing chaincode](/docs/services/blockchain?topic=blockchain-develop-smart-contracts#develop-smart-contracts) tutorial to learn how to start writing chaincode, as well as fabric features that are accessible through chaincode.
 
 ## Installing and instantiating your chaincode
 {: #getting-started-with-starter-plan-install-instantiate-chaincode}
 After joining channels and developing your business logic, you need to install chaincode on the peers in the network. You can use the Network Monitor to install and instantiate chaincode on the peers of your organization, as well as update the chaincode to facilitate continuous development.
 
-For more information about installing and instantiating your chaincode, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
+For more information about installing and instantiating your chaincode, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 
 ## Monitoring network resources
 {: #getting-started-with-starter-plan-monitoring-resources}
 
-If your application requests a transaction, you can view transaction status information in the Network Monitor. For more information about network monitoring, see [Monitoring a network](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
+If your application requests a transaction, you can view transaction status information in the Network Monitor. For more information about network monitoring, see [Monitoring a network](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
 
 ## Retrieving network credentials and connection profile
@@ -157,7 +157,7 @@ Retrieve your service credentials with the following steps:
 ### Retrieving in the Network Monitor
 {: #getting-started-with-starter-plan-network-creds}
 
-You can find the network credentials on the "APIs" screen in your Network Monitor. For more information about using APIs, see [Interacting with the network using Swagger APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger).
+You can find the network credentials on the "APIs" screen in your Network Monitor. For more information about using APIs, see [Interacting with the network using Swagger APIs](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger).
 
 You can retrieve the connection profile on the "Overview" screen in your Network Monitor. Click the **Connection Profile** button on the "Overview" screen and the connection profile shows in a new page.
 
@@ -166,7 +166,7 @@ You can retrieve the connection profile on the "Overview" screen in your Network
 
 {{site.data.keyword.blockchainfull_notm}} Platform exposes a number of REST APIs in Swagger that you can use to manage the nodes, channels, peers, and members of your network. Your applications can use these APIs to control important network resources without using the Network Monitor.
 
-To learn more, see [Interacting with the network using Swagger APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger)
+To learn more, see [Interacting with the network using Swagger APIs](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger)
 
 ## Resetting a network
 {: #getting-started-with-starter-plan-reset-nw}
@@ -177,7 +177,7 @@ If you want to clean your customized configurations, running chaincode, or deplo
 ## Migrating from Starter Plan to Enterprise Plan
 {: #getting-started-with-starter-plan-migrate}
 
-You can deploy chaincode and applications that you test against a Starter Plan network into an Enterprise Plan network. To deploy a chaincode that you test against a Starter Plan network into Enterprise, follow the instructions in [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc).
+You can deploy chaincode and applications that you test against a Starter Plan network into an Enterprise Plan network. To deploy a chaincode that you test against a Starter Plan network into Enterprise, follow the instructions in [Installing, instantiating, and updating a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc).
 
 Only chaincode and applications can be migrated, data cannot be migrated between Starter and Enterprise Plan networks.
 
@@ -186,4 +186,4 @@ Only chaincode and applications can be migrated, data cannot be migrated between
 
 If you want to delete or leave a network, you can delete the blockchain service instance from your {{site.data.keyword.cloud_notm}} dashboard.
 
-Before you leave a network, ensure that you are not a member of any channels on the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).{:note}
+Before you leave a network, ensure that you are not a member of any channels on the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/services/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).{:note}

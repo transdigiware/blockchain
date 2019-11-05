@@ -58,7 +58,7 @@ The **Actions** header of the table provides buttons to start or stop your resou
 
 The Stop and Start actions are not available for an Orderer node. In general, there is no need to stop and start Peer or CA nodes on a network. The Stop and Start actions are provided in case you needed to restart a peer, for example to bring it up in a clean state.
 
-You can also check component logs by clicking **View Logs** from the drop-down list under the **Actions** header. The logs expose the calls between the various network resources and are useful for debugging and troubleshooting. For more information on using your network logs, see [Monitoring a blockchain network](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)
+You can also check component logs by clicking **View Logs** from the drop-down list under the **Actions** header. The logs expose the calls between the various network resources and are useful for debugging and troubleshooting. For more information on using your network logs, see [Monitoring a blockchain network](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)
 
 To understand the effects of starting and stopping a peer, you can experiment by stopping a peer and attempting to target it with a transaction, and you will see connectivity errors in the logs. When you restart the peer and attempt the transaction again, you will see a successful connection. You can also leave a peer down for an extended period of time as your channels continue to transact. When the peer is brought back up, you will notice a synchronization of the ledger as it receives the blocks that were committed when it was down. After the ledger is fully synchronized, you can perform normal invokes and queries against it.
 
@@ -130,9 +130,9 @@ Consisting of a subset of network members who want to transact privately, channe
 
 ![Channels](images/channels.png "Channels"){: caption="Figure 6. Channels" caption-side="bottom"}
 
-Creating a channel results in the generation of a channel-specific ledger. For more information, see [Creating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel).
+Creating a channel results in the generation of a channel-specific ledger. For more information, see [Creating a channel](/docs/services/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel).
 
-You can also select an existing channel to view more precise details about the channel, membership, and active chaincode. For more information, see [Monitoring a network](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
+You can also select an existing channel to view more precise details about the channel, membership, and active chaincode. For more information, see [Monitoring a network](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
 If you have uploaded a new certificate to the platform by using the ["Certificates" tab](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates) of the "Members" screen, you can use this panel to add the certificate to a channel. Click **Sync Certificate** from the drop-down list under the **Actions** header next to the relevant channel. This allows you to operate the channel from a remote client, including being able to instantiate a chaincode on the channel. For more information, see [Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs) in the [Managing certificates](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) tutorial.
 
@@ -183,7 +183,7 @@ You can learn more about your CA by visiting the [Managing certificates on {{sit
 
 ![APIs](images/API_screen.png "APIs"){: caption="Figure 9. APIs" caption-side="bottom"}
 
-Click the **Swagger UI** link to open the Swagger UI. Note that you need to authorize the Swagger UI with your network credentials (which can be found on this APIs page) before you can run the APIs. For more information, see [Interacting with the network using Swagger APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger).
+Click the **Swagger UI** link to open the Swagger UI. Note that you need to authorize the Swagger UI with your network credentials (which can be found on this APIs page) before you can run the APIs. For more information, see [Interacting with the network using Swagger APIs](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger).
 
 ## Develop Code
 {: #ibp-dashboard-write-code}
@@ -207,12 +207,12 @@ Chaincode, which is also known as "smart contract", is pieces of software that c
 
 ![Install code](images/chaincode_install_overview.png "Install code"){: caption="Figure 11. Install code" caption-side="bottom"}
 
-A chaincode is first installed on a peer's file system and then instantiated on a channel. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
+A chaincode is first installed on a peer's file system and then instantiated on a channel. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 ## Try samples
 {: #ibp-dashboard-samples}
 
-Sample applications help you to get a better understanding of a blockchain network and application development. Follow the **View on GitHub** links to learn how to use the samples and deploy them to {{site.data.keyword.blockchainfull_notm}} Platform. For more information on how to develop and deploy your samples, see [Deploying Sample Applications](/docs/services/blockchain/howto?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
+Sample applications help you to get a better understanding of a blockchain network and application development. Follow the **View on GitHub** links to learn how to use the samples and deploy them to {{site.data.keyword.blockchainfull_notm}} Platform. For more information on how to develop and deploy your samples, see [Deploying Sample Applications](/docs/services/blockchain?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
 
 **Figure 12** shows the "Try samples" screen:
 

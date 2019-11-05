@@ -88,9 +88,9 @@ If you are an invited network member, click the **Pending Invite ->** button, se
 
 1. Enter your Network Monitor after you create or join a {{site.data.keyword.blockchain}} network. The Network Monitor is a GUI dashboard where you can manage and track network status information. For more information, see [Network Monitor](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard).
 2. Add your own peers to the network. If you have already added enough peers, skip this step. Peers run chaincode and they are the endpoint to interact with your applications. Click **Add Peers** in the "Overview" screen, and select the quantity and size of your peers. For more information, see [Overview](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview).
-3. Set up a channel. All members in the same channel are provisioned a channel-specific ledger, which delivers data isolation and confidentiality. For more information about how to create a channel, see [Creating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). If you are a channel member who is invited to join a channel, you will receive an email notification with a link to the wizard that allows you to join the channel.
+3. Set up a channel. All members in the same channel are provisioned a channel-specific ledger, which delivers data isolation and confidentiality. For more information about how to create a channel, see [Creating a channel](/docs/services/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel). If you are a channel member who is invited to join a channel, you will receive an email notification with a link to the wizard that allows you to join the channel.
 4. Join peers to the channel. Only peers that are associated with the channel can access its ledger. For more information, see [Channels](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels).
-5. Install and instantiate chaincode. All channel members need to install the same chaincode with the same name and version on every peer that will run the chaincode. After you install the chaincode, you need to instantiate it on the channel before you can use it. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
+5. Install and instantiate chaincode. All channel members need to install the same chaincode with the same name and version on every peer that will run the chaincode. After you install the chaincode, you need to instantiate it on the channel before you can use it. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 **Note**: To achieve high availability, each organization must purchase at least two peers, and within a channel, each participating member must join at least two peers.
 
@@ -111,7 +111,7 @@ Retrieve your service credentials with the following steps:
 
 ### Retrieving in the Network Monitor
 {: #getting-started-with-enterprise-plan-retrieve-nw}
-You can find the network credentials on the "APIs" screen in your Network Monitor. For more information about using APIs, see [Trying out APIs with Swagger](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger).
+You can find the network credentials on the "APIs" screen in your Network Monitor. For more information about using APIs, see [Trying out APIs with Swagger](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger).
 
 You can retrieve the connection profile on the "Overview" screen in your Network Monitor. Click the **Connection Profile** button on the "Overview" screen and the connection profile shows in a new page.
 
@@ -122,11 +122,11 @@ Applications leverage the SDK APIs to interact with your {{site.data.keyword.blo
 
 ## Monitoring network resources
 {: #getting-started-with-enterprise-plan-monitor-resources}
-After a transaction is triggered from your application, you can view transaction status information in the Network Monitor. For more information about network monitoring, see [Monitoring a network](/docs/services/blockchain/howto?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
+After a transaction is triggered from your application, you can view transaction status information in the Network Monitor. For more information about network monitoring, see [Monitoring a network](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
 ## Leaving a network
 {: #getting-started-with-enterprise-plan-leave-nw}
 If you want to leave a network, delete the blockchain service instance from your {{site.data.keyword.cloud_notm}} dashboard.
 
-Before you leave a network, ensure that you are not a member in any channels of the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
+Before you leave a network, ensure that you are not a member in any channels of the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/services/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 {:note}
