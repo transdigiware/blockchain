@@ -23,18 +23,14 @@ subcollection: blockchain
 The {{site.data.keyword.blockchainfull}} Platform can be deployed across public and private clouds, such as the {{site.data.keyword.cloud_notm}}, your own data center, and third-party public clouds. This multicloud deployment is possible through {{site.data.keyword.cloud_notm}} Private, {{site.data.keyword.IBM_notm}}'s Kubernetes based container orchestration platform. You can use this offering to install the {{site.data.keyword.blockchainfull_notm}} Platform console on a deployment of {{site.data.keyword.cloud_notm}} Private and then use the console to create {{site.data.keyword.blockchainfull_notm}} components on your local cluster. You can also use your console to operate a distributed multicloud network by importing nodes deployed on other {{site.data.keyword.cloud_notm}} Private clusters or on {{site.data.keyword.cloud_notm}}.
 {:shortdesc}
 
-**Target audience**: This topic is designed for system administrators who are responsible for deploying {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Private.
+**Target audience**: This topic is designed for system administrators who are responsible for deploying {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Private.  
 
 If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
-
-
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is a bundled product for {{site.data.keyword.cloud_notm}} Private. For more information about {{site.data.keyword.cloud_notm}} Private, see the documentation for [{{site.data.keyword.cloud_notm}} Private version 3.2.0](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/kc_welcome_containers.html){: external}.
 
 If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
 {: note}
-
-
 
 ## Step one: Set up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} Private
 {: #get-started-console-icp-step-one-set-up-k8s-on-icp}

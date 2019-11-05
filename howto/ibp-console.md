@@ -30,8 +30,6 @@ The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_
 If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
 {: note}
 
-
-
 ## What the new release offers
 {: #ibp-console-overview-capabilities}
 

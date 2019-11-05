@@ -28,8 +28,6 @@ The {{site.data.keyword.blockchainfull}} Platform can be deployed across public 
 If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
 {: note}
 
-
-
 ## What {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private offers
 {: #console-icp-about-offers}
 
