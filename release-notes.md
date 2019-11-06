@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-06"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -23,6 +23,13 @@ subcollection: blockchain
 
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
+
+## 07 November 2019
+{: #11-07-2019}
+
+**Simplified component creation flows**  
+
+Peer, CA and ordering service creation has been streamlined. Now, when you create a node, you have to select a checkbox to configure advanced deployment options.
 
 ## 02 October 2019
 {: #10-02-2019}
