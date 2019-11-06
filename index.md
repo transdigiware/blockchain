@@ -46,6 +46,8 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 | How do I get started? |  Go to [Getting started with the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks). | Go to [Getting started with the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp). |
 *Figure 1. {{site.data.keyword.blockchainfull_notm}} Platform offerings*
 
+
+
 ### Developer Tools
 
 - [**{{site.data.keyword.blockchainfull_notm}} Platform Extension for VS Code**](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode)
