@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-06"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -583,15 +583,16 @@ You can skip to **Option 2** if you want to create a new five node ordering serv
 
 Now that you have gathered all the necessary certificates, you are ready to create a peer or ordering service which uses those certificates. Follow these instructions to create the peer or single-node ordering service with certificates from an external CA.
 
-1. On the **Nodes** tab click **Add peer**  or **Add ordering service**.
-2. After entering a display name for the node, select the option to use an external CA.
-3. Step through the panels and upload the files corresponding to the certificate and private key you gathered.
-4. Ensure you select the peer or ordering service organization MSP definition that you imported into the console from the drop-down list.
-5. On the last step when you are asked to associate an identity with your peer or ordering service, you need to click **New identity**.
-6. Specify any value as the **Display name** for this identity. The display name will be visible in the Wallet after you create the node.
-7. In the **Certificate** field, upload the file that contains  the **Peer or ordering service admin identity certificate**.
-8. In the **Private key** field, upload the file that contains  the **Peer or ordering service admin identity private key**.
-9. Review the information on the Summary page and click **Add peer** or **Add ordering service**.
+1. On the **Nodes** tab click **Add peer** or **Add ordering service**.
+2. Make sure the option to **Create** the peer or ordering service is select. Then click **Next**.
+3. After entering a display name for the node, select the option to use an external CA.
+4. Step through the panels and upload the files corresponding to the certificate and private key you gathered.
+5. Ensure you select the peer or ordering service organization MSP definition that you imported into the console from the drop-down list.
+6. On the last step when you are asked to associate an identity with your peer or ordering service, you need to click **New identity**.
+7. Specify any value as the **Display name** for this identity. The display name will be visible in the Wallet after you create the node.
+8. In the **Certificate** field, upload the file that contains  the **Peer or ordering service admin identity certificate**.
+9. In the **Private key** field, upload the file that contains  the **Peer or ordering service admin identity private key**.
+10. Review the information on the Summary page and click **Add peer** or **Add ordering service**.
 
 ### Option 2: Create a five node ordering service using certificates from an external CA
 {: #ibp-console-build-network-create-five-node}
@@ -718,8 +719,9 @@ Save this definition as a `JSON` file.
 Now that you have created a JSON file with all of the certificates for the ordering nodes, you are ready to create the ordering service.
 
 1. On the **Nodes** tab click **Add ordering service**.
-2. Enter a single **Display name** for the five ordering nodes. The display name that you provide will be the prefix for each ordering node name and a number will be appended to it.
-3. In **Number of ordering nodes**, select **Five ordering nodes**. Then select **External Certificate Authority configuration** and click **Next**.
+2. Make sure the option to **Create** an ordering service is elect. Then click **Next**.
+3. Enter a single **Display name** for the five ordering nodes. The display name that you provide will be the prefix for each ordering node name and a number will be appended to it.
+4. In **Number of ordering nodes**, select **Five ordering nodes**. Then select **External Certificate Authority configuration** and click **Next**.
 5. Click **Add file** to upload the JSON file that contains all of the certificates.
 6. Select the **Organization MSP** definition that you imported.
 7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections you make here are applied to all five ordering nodes.  If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
