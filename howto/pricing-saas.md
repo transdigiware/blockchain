@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-06"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -87,6 +87,9 @@ Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} 
 - **{{site.data.keyword.cloud_notm}} Kubernetes Service** cluster's tiered pricing that is visible in {{site.data.keyword.cloud_notm}} when you provision your paid cluster. This includes the charges for your compute, that is, CPU and memory. {{site.data.keyword.cloud_notm}} Kubernetes Services are priced on a tiered model that is based on the number of hours of usage per month. Therefore, when you examine pricing plans, consider that 24x7 usage is equivalent to 720 hours per month. Refer to the table on the [Kubernetes Service Catalog page](https://cloud.ibm.com/kubernetes/catalog/cluster){: external} for more details on cluster pricing.
 - Choose the **storage** plan that works for your needs. See the [Understanding Kubernetes storage basics](/docs/containers?topic=containers-kube_concepts#kube_concepts) topic to learn more about your storage class options and how much they [cost](https://www.ibm.com/cloud/file-storage/pricing){: external}. The {{site.data.keyword.blockchainfull_notm}} Platform nodes use the default storage class for the cluster. When you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it is preconfigured with [Bronze level File storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass) as the persistent storage plug-in.
 
+When you allocate VPCs (or CPU) to a blockchain node, the node consumes CPUs from your Kubernetes cluster allocation. Therefore the size of the Kubernetes cluster that is required directly depends on the size and quantity of the blockchain nodes that you deploy.
+{: tip}
+
 ## Pricing examples
 {: #ibp-saas-pricing-scenarios}
 
@@ -112,7 +115,7 @@ The following table provides two examples of pricing with [default resource allo
 Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer.
 {:note}
 
-There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
+There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need to ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
 
 **Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options.
 
