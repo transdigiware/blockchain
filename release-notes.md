@@ -24,8 +24,8 @@ subcollection: blockchain
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
 
-## 07 November 2019
-{: #11-07-2019}
+## 06 November 2019
+{: #11-06-2019}
 
 **Simplified component creation flows**  
 
