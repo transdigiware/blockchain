@@ -2,9 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-11-07"
 
-keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes Helm chart, behind a firewall
+keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes, Helm chart, behind a firewall
 
 subcollection: blockchain
 
@@ -25,10 +25,7 @@ subcollection: blockchain
 The {{site.data.keyword.blockchainfull}} Platform can be deployed across public and private clouds, such as the {{site.data.keyword.cloud_notm}}, your own data center, and third-party public clouds. This multicloud deployment is possible through {{site.data.keyword.cloud_notm}} Private, IBM's Kubernetes based container orchestration platform. This release provides a blockchain console user interface that you can use to deploy and manage blockchain components on an {{site.data.keyword.cloud_notm}} Private cluster. The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private uses the Hyperledger Fabric v1.4.1 code base and supports deployment on {{site.data.keyword.cloud_notm}} Private v3.2.0.
 {:shortdesc}
 
-If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
-{: note}
-
-
+If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.1) which can be deployed on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any x86_64 Kubernetes v1.11 or high container platform,  see [Getting started with IBM Blockchain Platform v2.1.1](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
 
 ## What {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private offers
 {: #console-icp-about-offers}
