@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-11-08"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -65,7 +65,7 @@ Before you deploy the console, ensure that you understand the following consider
 - Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, 1.14, or 1.15.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more. Note that when your Kubernetes cluster is configured to use any of the IBM Cloud storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
-- Virtual Routing and Forwarding (VRF) is not supported. The {{site.data.keyword.blockchainfull_notm}} Platform service is not compatible with accounts that are enabled for automatic global routing between subnet IP blocks. Similarly, Kubernetes clusters that are configured with private VLANs are also not supported.
+- Kubernetes clusters that are configured with private VLANs are not supported.
 
 ## Video tutorial
 {: #ibp-v2-deploy-video}
