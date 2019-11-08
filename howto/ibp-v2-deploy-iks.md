@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-06"
+lastupdated: "2019-11-08"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -28,8 +28,9 @@ subcollection: blockchain
 
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
-If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.0) which is deployed on Red Hat OpenShift,  see [Getting started with IBM Blockchain Platform v2.1.0](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp)
-{: note}
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.11 or higher container platform on x86_64, see [Getting started with IBM Blockchain Platform v2.1.1](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
+
+If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the  {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/services/blockchain-rhos?topic=blockchain-rhos-blockchain-images).
 
 After you link your {{site.data.keyword.blockchainfull_notm}} Platform to your {{site.data.keyword.cloud_notm}} Kubernetes cluster, you can launch the console to create and manage your blockchain components and experience the following important benefits:
 
@@ -61,11 +62,10 @@ Before you deploy the console, ensure that you understand the following consider
 - You are also responsible for monitoring the resource usage of your Kubernetes cluster by using the Kubernetes dashboard. If you need to increase storage capacity or performance of your cluster, see this information on how to [modify your existing volume](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster.
 - {{site.data.keyword.blockchainfull_notm}} Platform is available in select regions. Refer to this topic on [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/services/blockchain?topic=blockchain-ibp-regions-locations) for an updated list.
-- {{site.data.keyword.blockchainfull_notm}} Platform cannot be deployed on OpenShift clusters created using the {{site.data.keyword.IBM_notm}} Kubernetes service.
 - Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, 1.14, or 1.15.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more. Note that when your Kubernetes cluster is configured to use any of the IBM Cloud storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
-- Virtual Routing and Forwarding (VRF) is not supported. The {{site.data.keyword.blockchainfull_notm}} Platform service is not compatible with accounts that are enabled for automatic global routing between subnet IP blocks. Similarly, Kubernetes clusters that are configured with private VLANs are also not supported.
+- Kubernetes clusters that are configured with private VLANs are not supported.
 
 ## Video tutorial
 {: #ibp-v2-deploy-video}
@@ -121,9 +121,6 @@ These resources are sufficient for testing and experimentation. The [Build a net
 {: #ibp-v2-deploy-iks-resources-required-paid}
 
 Production level deployments of the {{site.data.keyword.blockchainfull_notm}} Platform will be deployed to a paid cluster of {{site.data.keyword.cloud_notm}} Kubernetes Service. The size and configuration of this cluster will depend on the needs of your particular use case. Bigger deployments will necessarily need to be deployed on bigger clusters. How much bigger your cluster is than your projected deployment is up to you. Having at least some headroom is desirable, as it will allow peers and ordering services to be a part of additional channels and take on higher throughput without having to deploy additional resources into your Kubernetes cluster **before** adjusting the size of your nodes. For more information about how these values are adjusted, see [Reallocating resources](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources).
-
-You need to create a cluster of type Kubernetes to deploy {{site.data.keyword.blockchainfull_notm}} Platform. {{site.data.keyword.blockchainfull_notm}} Platform does not support OpenShift clusters created using the {{site.data.keyword.IBM_notm}} Kubernetes service.
-{:important}
 
 Creating an initial deployment of sufficient size to allow growth is particularly important for users who will choose to not use the [{{site.data.keyword.cloud_notm}} Kubernetes Service autoscaler](/docs/containers?topic=containers-ca#ca){: external}, which can take on some of the burden of deploying additional nodes and pods for the user.
 

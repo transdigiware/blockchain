@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-07"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -365,7 +365,7 @@ Component logs can be viewed from the command line by using the [kubectl CLI com
   For more information about the `kubectl logs` command, see [Kubernetes documentation](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: external}.
 
 
-- Alternatively, you can [access the logs](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/troubleshoot/events.html){: external} from your  {{site.data.keyword.cloud_notm}} Private console, which opens the logs in Kibana.
+- Alternatively, you can [access the logs](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/troubleshoot/events.html){: external} from your {{site.data.keyword.cloud_notm}} Private console, which opens the logs in Kibana.
 
   **Note:** When you view your logs in Kibana, you might receive the response `No results found`. This condition can occur if {{site.data.keyword.cloud_notm}} Private uses your worker node IP address as its hostname. To resolve this problem, remove the filter that begins with `node.hostname.keyword` at the top of the panel and the logs will become visible.
 
