@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-06"
+lastupdated: "2019-11-11"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -102,10 +102,10 @@ The following table provides two examples of pricing with [default resource allo
      - The default compute resources have been doubled to provide greater capacity.
      - The [Silver](/docs/containers?topic=containers-file_storage#file_silver){: external} storage class is chosen for faster performance.
 
-| Pricing options** (1 VPC = 1 CPU)| **Test Network** | **Join a Network** |
+| Pricing options** (1 VPC = 1 CPU = 1 vCPU)| **Test Network** | **Join a Network** |
 |-|------------|-----------------------------|
-| **CPU allocation** |  1.65 CPU <br> Includes: <br> - 1 peer (1.1 CPU) <br> - 2 CAs (0.1 CPU x 2) <br> - 1 ordering node (0.35 CPU)| 4.5 CPU <br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
-| **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 CPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 CPU x $0.29 USD/VPC-hr ) |
+| **CPU allocation** |  1.65 vCPU <br> Includes: <br> - 1 peer (1.1 vCPU) <br> - 2 CAs (0.1 vCPU x 2) <br> - 1 ordering node (0.35 vCPU)| 4.5 vCPU<br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
+| **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 vCPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 vCPUx $0.29 USD/VPC-hr ) |
 | **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.27 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) |
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
 | **Total hourly cost** | **$0.82 USD** | **$1.90 USD**| |

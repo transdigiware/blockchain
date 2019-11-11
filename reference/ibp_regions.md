@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-08"
+lastupdated: "2019-11-11"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -35,9 +35,8 @@ If you want to use a free {{site.data.keyword.cloud_notm}} Kubernetes cluster, d
 
 | Region | {{site.data.keyword.cloud_notm}} locations |
 |--------|--------------------|
-| US South | San Jose, Sao Paulo, Dallas, Houston |
-| US East | Toronto |
-| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore |
+| US South | San Jose, Sao Paulo, Dallas, Houston | |
+| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore| 
 | EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |
 
 _Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations_
