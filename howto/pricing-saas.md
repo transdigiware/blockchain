@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-12"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -134,7 +134,7 @@ The values in the following table are useful to estimate the hourly cost of your
 ## Billing
 {: #ibp-saas-pricing-billing}
 
-Your {{site.data.keyword.blockchainfull_notm}} Platform billing and invoices are based on the CPU and memory allocation for each node.
+Your {{site.data.keyword.blockchainfull_notm}} Platform billing and invoices are based on the CPU and memory allocation for each node. When you are done with your network and want to avoid any further charges, you need to delete your nodes from the console and then delete your blockchain service instance from {{site.data.keyword.cloud_notm}}. Storage that was provisioned for the node is automatically deleted when the node is deleted.
 
 #### IP Allocation charges
 
