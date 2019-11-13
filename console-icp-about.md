@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-11-13"
 
 keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes, Helm chart, behind a firewall
 
@@ -149,4 +149,4 @@ Because all chaincode invocations are signed, Fabric manages the application sec
 
 For more information about how to get support on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, as well as free blockchain developer resources and support forums that you can use to troubleshoot problems, see [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
-If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact Customer support, see the information about [accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](https://www-01.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
+If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact Customer support, see the information about [accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](https://www.ibm.com/support/pages/support-ibm-blockchain-platform-ibm-cloud-private-ibp-icp){: external}.
