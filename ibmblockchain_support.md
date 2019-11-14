@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-11-13"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -33,7 +33,7 @@ If your problem cannot be solved by any of the [free digital support resources](
   Submit a support case through {{site.data.keyword.cloud_notm}}. For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**
-  If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact customer support, see [Accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
+  If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact customer support, see [Accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](https://www.ibm.com/support/pages/support-ibm-blockchain-platform-ibm-cloud-private-ibp-icp){: external}.
 
   For issues that are related to {{site.data.keyword.cloud_notm}} Private, you can take advantage of [both free digital support and paid support from {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/developerworks/community/blogs/fe25b4ef-ea6a-4d86-a629-6f87ccf4649e/entry/Learn_more_about_IBM_Cloud_Private_Support?lang=en_us){: external}.
 

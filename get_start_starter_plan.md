@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-09-24"
+  years: 2017, 2019
+lastupdated: "2019-11-14"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -15,6 +15,7 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{: deprecated .deprecated}
 {:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
@@ -26,7 +27,7 @@ subcollection: blockchain
 {:shortdesc}
 
 Starter Plan is now deprecated, therefore no new Starter Plan networks can be created at this time.** Make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
-{: important}  
+{: deprecated}  
 
 **Your existing networks are not affected and you can continue to use them until June 4, 2020.
 
