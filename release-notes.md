@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-06"
+lastupdated: "2019-11-15"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -23,6 +23,13 @@ subcollection: blockchain
 
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
+
+## 15 November 2019
+{: #11-15-2019}
+
+**Service availability in two new regions**  
+
+The {{site.data.keyword.blockchainfull_notm}} Platform is now available to be provisioned in two new {{site.data.keyword.cloud_notm}} regions: **US East**, and **AP South**. Refer to the [locations](/docs/services/blockchain?topic=blockchain-ibp-regions-locations) information to see the data centers that are available in those regions.
 
 ## 06 November 2019
 {: #11-06-2019}
