@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-15"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -14,6 +14,7 @@ subcollection: blockchain
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
@@ -28,24 +29,31 @@ subcollection: blockchain
 
 Different {{site.data.keyword.blockchainfull_notm}} Platform offerings are available in different {{site.data.keyword.cloud_notm}} locations. You can create blockchain networks in only {{site.data.keyword.cloud_notm}} locations that {{site.data.keyword.blockchainfull_notm}} Platform plans are available.
 
-Table 1 and Figure 1 show the {{site.data.keyword.cloud_notm}} regions and locations that {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} supports.
+## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
+{: #ibp-regions-locations-ibp}
 
-If you want to use a free {{site.data.keyword.cloud_notm}} Kubernetes cluster, do not choose a free cluster in Asia Pacific. Otherwise, your free cluster will be created in Melbourne in AP South instead of AP North. AP South clusters cannot be used to deploy {{site.data.keyword.blockchainfull_notm}} Platform v2.0 now. Choose **US South** or **EU Central** locations if you plan to use a free cluster.
+Table 1 and Figure 1 show the {{site.data.keyword.cloud_notm}} regions and locations that **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}** supports.
+
+While the Kubernetes cluster can be provisioned in any of the supported {{site.data.keyword.cloud_notm}} locations below, the third column shows where the console can be provisioned. All nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto.
 {: note}
 
-| Region | {{site.data.keyword.cloud_notm}} locations |
-|--------|--------------------|
-| US South | San Jose, Sao Paulo, Dallas, Houston | |
-| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore| 
-| EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |
-
-_Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations_
+| Region | {{site.data.keyword.cloud_notm}} locations | {{site.data.keyword.blockchainfull_notm}} Platform console location |
+|--------|--------------------|----|
+| US South | San Jose, Sao Paulo, Dallas, Houston | Dallas |
+| US East | Toronto, Montreal, Washington, D.C. | Washington, D.C. |
+| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore| Tokyo |
+| AP South|  Sydney |  Sydney |
+| EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |  Frankfurt |
+{: caption="Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations"){: caption="Figure 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 
 See this topic on [{{site.data.keyword.cloud_notm}} Kubernetes cluster locations](/docs/containers?topic=containers-regions-and-zones) for more information about available locations and zone support.
 
-Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan and Enterprise Plan support.
+## Starter and Enterprise Plan
+{: #ibp-regions-locations-se}
+
+Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that **{{site.data.keyword.blockchainfull_notm}} Platform Starter Plan and Enterprise Plan** support.
 
 | Location | Starter Plan | Enterprise Plan |
 |--------|----------|----------|
@@ -57,8 +65,6 @@ Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locat
 | Melbourne |  | Y |
 | São Paulo |  | Y |
 | Toronto |  | Y |
-
-_Table 2. Starter Plan and Enterprise Plan locations_
-
+{: caption="Table 2. Starter Plan and Enterprise Plan locations" caption-side="bottom"}
 
 ![Starter Plan and Enterprise Plan locations](../images/ibp_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform locations"){: caption="Figure 2. Starter Plan and Enterprise Plan locations" caption-side="bottom"}
