@@ -30,6 +30,9 @@ Different {{site.data.keyword.blockchainfull_notm}} Platform offerings are avail
 
 Table 1 and Figure 1 show the {{site.data.keyword.cloud_notm}} regions and locations that **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}** supports.
 
+While the Kubernetes cluster can be provisioned in any of the supported {{site.data.keyword.cloud_notm}} locations below, the third column shows where the console can be provisioned. All nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto.
+{: note}
+
 | Region | {{site.data.keyword.cloud_notm}} locations | {{site.data.keyword.blockchainfull_notm}} Platform console location |
 |--------|--------------------|----|
 | US South | San Jose, Sao Paulo, Dallas, Houston | Dallas |
