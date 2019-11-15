@@ -15,7 +15,7 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{: deprecated .deprecated}
+{:deprecated: .deprecated}
 {:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
