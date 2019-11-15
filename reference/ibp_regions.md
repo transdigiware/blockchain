@@ -14,6 +14,7 @@ subcollection: blockchain
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
