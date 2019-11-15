@@ -69,7 +69,7 @@ Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed
 {: #ibp-v2-faq-v2-Hyperledger-Fabric-3-1}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud use Hyperledger Fabric v1.4.3
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud use Hyperledger Fabric v1.4.3.
 
 ## What database do the peers use for their ledger?
 {: #ibp-v2-faq-v2-IBP-Overview-1-3}
