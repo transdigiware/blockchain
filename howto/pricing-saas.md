@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-12"
+lastupdated: "2019-11-18"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -23,7 +23,7 @@ subcollection: blockchain
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.3.
+This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.3".
 {:shortdesc}
 
 ## Pricing model
@@ -116,6 +116,8 @@ Your actual costs will vary depending on additional factors such as transaction 
 {:note}
 
 There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need to ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
+
+**Interested in more pricing examples?** See the Reference topic on [Detailed pricing scenarios](/docs/services/blockchain?topic=blockchain-ibp-detailed-pricing) for additional configurations and prices.
 
 **Ready to get started?** Check out [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-get-started-ibp) to see the options.
 
