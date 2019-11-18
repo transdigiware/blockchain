@@ -89,6 +89,7 @@ IBM Blockchain Platform
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
+	reference/detailed-pricing.md
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/videos.md
