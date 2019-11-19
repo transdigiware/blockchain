@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-19"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -200,4 +200,7 @@ If you are not using Portworx as your storage solution, you can use the followin
    kubectl scale deployment my-deployment --replicas=1
    ```
    {:codeblock}
+
+This example assumes your environment is running with a 1 replica. Currently, replica sets are not supported for CAs, ordering nodes, or peers.
+{: note}
 
