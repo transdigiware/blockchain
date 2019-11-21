@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-08"
+lastupdated: "2019-11-21"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -28,7 +28,7 @@ subcollection: blockchain
 
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
-If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.11 or higher container platform on x86_64, see [Getting started with IBM Blockchain Platform v2.1.1](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.13, 1.14, or 1.15 container platform on x86_64, see [Getting started with IBM Blockchain Platform v2.1.1](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
 
 If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the  {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/services/blockchain-rhos?topic=blockchain-rhos-blockchain-images).
 
@@ -85,7 +85,7 @@ Before you begin:
 When you plan to use the service instance in the context of a broader organization-wide solution, it is recommended that the participating organizations use a functional email address to create their network. In this case, access to the network does not depend on any single individual's availability.
 {:tip}
 
-- If you plan to use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, check the Kubernetes version. Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.11, 1.12, 1.13, 1.14, or 1.15. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
+- If you plan to use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, check the Kubernetes version. Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.13, 1.14, or 1.15. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
 
 - If your plan to use a Kubernetes cluster that contains multiple zones, ensure that [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.  This setting allows worker nodes to communicate between zones.
 
@@ -155,10 +155,10 @@ Use the following steps to create a service instance of {{site.data.keyword.bloc
 
 You can follow the guidance to deploy {{site.data.keyword.blockchainfull_notm}} Platform immediately after you create the service instance.
 
-1. The **Welcome & prerequisites** step. If you already have an existing {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in the **Dallas** region and you want to use it for your blockchain service, select the check box. **If you use an existing cluster, you can skip the next step; but be sure the Kubernetes version 1.11, 1.12, 1.13, or 1.14**. Click **Continue**.
+1. The **Welcome & prerequisites** step. If you already have an existing {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in the **Dallas** region and you want to use it for your blockchain service, select the check box. **If you use an existing cluster, you can skip the next step; but be sure the Kubernetes version 1.13, 1.14, or 1.15**. Click **Continue**.
 2. The **Create cluster** step. If you select the check box in step 1 to use an existing Kubernetes cluster, this step is skipped. Otherwise, click **Create a new cluster**, which launches the {{site.data.keyword.cloud_notm}} Kubernetes dashboard to create a cluster. For more information, see [Getting started with {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-getting-started){: external}. Allow extra time for this process to complete.
   - For information about locations for your cluster, see [Regions](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
-  - Choose **Standard cluster (recommended):**  If you need a longer term option that includes multiple nodes for high availability. For cluster type, select **Kubernetes**. **Choose version 1.11, 1.12, 1.13, or 1.14** To deploy a paid cluster, see [Creating a standard cluster](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}. Note that if you want high availability or disaster recovery that you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.
+  - Choose **Standard cluster (recommended):**  If you need a longer term option that includes multiple nodes for high availability. For cluster type, select **Kubernetes**. **Choose version 1.13, 1.14, or 1.15** To deploy a paid cluster, see [Creating a standard cluster](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}. Note that if you want high availability or disaster recovery that you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.
   - Choose **Free cluster:** If you want to preview the platform for less than 30 days. **Note** that it is not possible to migrate from a free cluster to a paid cluster. The free type of cluster offers limited storage and transaction throughput. For instructions on what to do when your Kubernetes cluster expires, see this topic on [Kubernetes cluster expiration](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
   - For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.  
 
@@ -166,7 +166,7 @@ You can follow the guidance to deploy {{site.data.keyword.blockchainfull_notm}} 
    {:important}  
 
   You need to wait until your cluster is deployed successfully. Then, click the **I Have a Cluster** button.
-3. Your Kubernetes version running in your cluster must be at version 1.11, 1.12, 1.13, or 1.14. Follow these [steps](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) to check your cluster version and upgrade it if necessary. Then come back and proceed with these instructions.
+3. Your Kubernetes version running in your cluster must be at version 1.13, 1.14, or 1.15. Follow these [steps](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) to check your cluster version and upgrade it if necessary. Then come back and proceed with these instructions.
 4. The **Deploy onto cluster** step. Select the Kubernetes cluster that you want to deploy {{site.data.keyword.blockchainfull_notm}} Platform into from the drop-down list and click **Deploy to cluster**.  
 
   If your Kubernetes cluster is not visible in the drop-down list, it could be caused by the following conditions:
@@ -226,12 +226,12 @@ For more information about available {{site.data.keyword.cloud_notm}} services a
 ## Updating the Kubernetes version of your cluster
 {: #ibp-v2-deploy-iks-updating-kubernetes}
 
-If you use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, ensure that the Kubernetes version is at version version 1.11, 1.12, 1.13, or 1.14.
+If you use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, ensure that the Kubernetes version is at version version 1.13, 1.14, 1.15.
 
 You can check the Kubernetes version of your cluster in the [Kubernetes clusters page](https://cloud.ibm.com/kubernetes/clusters){: external} on {{site.data.keyword.cloud_notm}}, which lists all your clusters in a table.
 
 1. Click the overflow menu icon at the end of the row and select **Update version**. This process takes about one hour to complete. If the version is updated successfully, you can see the updated version of your cluster in the **Kubernetes version** column.  
-2. Select a Kubernetes version of 1.11, 1.12, 1.13, or 1.14 from the Kubernetes version drop-down list and click **Update**.
+2. Select a Kubernetes version of 1.13, 1.14, or 1.15 from the Kubernetes version drop-down list and click **Update**.
 3. Click your cluster and go to the **Worker Nodes** tab. Select the check box before the work node that you want to update and click **Update Kubernetes** from the pop-up menu bar. If your cluster contains multiple work nodes, all of them must be updated.
 
   Updates to worker nodes can cause downtime for your apps and services. Your worker node machine is reimaged, and data is deleted if not [stored outside the pod](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-21"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -22,7 +22,7 @@ subcollection: blockchain
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-ibp}
 
-{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. You can also deploy the platform on your own premises or on any Kubernetes v1.11 or higher container platform on x86_64. You need to decide on the environment and offering that you will use.
+{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. You can also deploy the platform on your own premises or on any Kubernetes v1.13, 1.14, 1.15 or higher container platform on x86_64. You need to decide on the environment and offering that you will use.
 {:shortdesc}
 
 Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, read the technical and support information in the [Disclaimer](/docs/services/blockchain?topic=blockchain-disclaimer#disclaimer) section.
