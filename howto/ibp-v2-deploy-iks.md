@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-22"
+lastupdated: "2019-11-26"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -270,7 +270,7 @@ After you deploy your console, you can click the **Launch the {{site.data.keywor
 
 If you don't have the console URL, you can find it from your {{site.data.keyword.cloud_notm}} dashboard.
 
-1. In your browser, open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. You need to log in with you {{site.data.keyword.IBM_notm}} ID.
+1. In your browser, open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. You need to log in with your {{site.data.keyword.IBM_notm}} ID.
 2. Your {{site.data.keyword.blockchainfull_notm}} Platform service instance is visible under the **Services** twistie. Locate the {{site.data.keyword.blockchainfull_notm}} Platform service instance that you deployed and click it.
 3. On the subsequent panel, click **Manage** in the left navigation and then click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform**.
 
