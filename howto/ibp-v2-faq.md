@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-18"
+lastupdated: "2019-11-22"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -130,7 +130,7 @@ Starter Plan was always designed as a "starting" test network platform and expli
 {: #ibp-v2-faq-v2-IBP-Overview-1-8}
 {: faq}
 
-When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service instance, all of the blockchain CAs, peers, and ordering nodes are deleted along with their associated storage. If you have exported any of these nodes to other consoles, make sure to reach out to the administrators of those consoles to let them know that those nodes are no longer functioning, as deleting them in your console does not automatically delete them in theirs.
+When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service instance, all of the blockchain CAs, peers, and ordering nodes are deleted along with their associated storage. If you have exported any of these nodes to other consoles, make sure to reach out to the administrators of those consoles to let them know that those nodes are no longer functioning, because deleting them in your console does not automatically delete them in theirs.
 
 ## What regions are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-v2-IBP-Overview-1-9}

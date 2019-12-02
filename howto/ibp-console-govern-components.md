@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-21"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -38,13 +38,6 @@ This support for rich queries is why **CouchDB is the default database** unless 
 
 Because the data is modeled differently in a Couch database than in a Level database, **the peers in a channel must all use the same database type**. If data written for a Level database is rejected by a Couch database (which can happen, as CouchDB keys have certain formatting restrictions as compared to LevelDB keys), a state fork would be created between the two ledgers. Therefore, **take extreme care when joining a channel to know the database type supported by the channel**. It might be necessary to create a new peer using the appropriate database type and join it to the channel. Note that the database type cannot be changed after a peer has been deployed.
 {:important}
-
-## Using certificates from an external CA
-{: #ibp-console-govern-components-external-CA}
-
-Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}, as long as the CA issues certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format.
-
-For more information about this process, including a look at the certificates you will need, see [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca).
 
 ## Ordering node configurations
 {: #ibp-console-govern-components-suggested-ordering-node-configurations}
@@ -225,5 +218,14 @@ ibmcloud sl file volume-list --column id --column notes
 ```
 
 This will allow you to map the output from the pods to the nodes you have deployed.
+
+
+## Using certificates from an external CA with your peer or ordering service
+{: #ibp-console-govern-third-party-ca}
+
+Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}, as long as the CA issues certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format.
+
+For more information about this process, including a look at the certificates you will need, see [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca).
+
 
 
