@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-26"
+lastupdated: "2019-12-03"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -300,7 +300,10 @@ After you deploy blockchain nodes to your cluster, you should not change the `de
 ## Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-console-mzr}
 
-In regions where it is offered, [multizone support](/docs/containers?topic=containers-regions-and-zones#regions_multizone){: external} is pre-selected by default when you create a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}. Although not required, this capability provides for high availability of your nodes in case any one zone, or data center, goes down. If your cluster includes multizone support, you need to bring your own storage solution. You can choose from several [persistent storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external}.
+In regions where it is offered, [multizone support](/docs/containers?topic=containers-regions-and-zones#regions_multizone){: external} is pre-selected by default when you create a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}. Although not required, this capability provides for high availability of your nodes in case any one zone, or data center, goes down. If your cluster includes multizone support, you need to bring your own storage solution. You can choose from several [persistent storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external}.  
+
+If you are setting up an {{site.data.keyword.blockchainfull_notm}} Platform network in an MZR cluster and want your components to eventually fail over between data centers, you should select Portworx as your storage type. Otherwise, if you use File Storage for your node in your MZR cluster and the zone fails, you will need to provision that component again later. Currently, if a data center (or zone) goes down, the node will _not_ automatically come up in another zone, regardless of the storage type that is used for the node. However, if one of the nodes fail in a single zone, it will automatically failover to another node in the same zone regardless of the storage type that is being used for that node.
+{: note}
 
 After you create the storage class, run the `kubectl patch storageclass` command above to set the storage class of the multizone region to be the `default` storage class.
 
