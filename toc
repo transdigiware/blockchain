@@ -95,6 +95,7 @@ IBM Blockchain Platform
 	reference/videos.md
 	reference/ibp_regions.md
 	reference/logdna.md
+	reference/sysdig.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}

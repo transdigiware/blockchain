@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-18"
+lastupdated: "2019-12-03"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -68,7 +68,7 @@ You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no cha
 {: #ibp-saas-pricing-free-howto}
 
 1. Get an [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration?target=%2Fcatalog%2Fservices%2Fblockchain){:external}.
-2. Upgrade your {{site.data.keyword.cloud_notm}} Account to "Pay-Go" by adding in a credit card. You will not be charged.
+2. Upgrade your {{site.data.keyword.cloud_notm}} Account to "Pay-as-you-go" by adding in a credit card. You will not be charged.
 3. Launch {{site.data.keyword.blockchainfull_notm}} Platform in the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/services/blockchain-platform){: external}.
 4. Under **Select a pricing plan**, ensure that the **Standard** plan is selected and then click **Create**.
 5. On the **Welcome and pre-requisites** panel that opens, click **I have a Cluster (Skip to Link a cluster)**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-12-03"
 
 keywords: view Logs, IBM Cloud Private, logs of a specific network component, monitor blockchain network
 
@@ -92,10 +92,9 @@ If you choose the LogDNA **Lite - Free** Plan, you can view your logs as they pa
 The following steps describe how to configure LogDNA to to work with your Starter Plan instance.
 
 1. After you provision the LogDNA instance, navigate to the [Observability](https://cloud.ibm.com/observe) dashboard in {{site.data.keyword.cloud_notm}} and click **Logging**.
-2. Click **Configure platform service and logs**.
+2. Click **Create Logging instance**.
 3. Select the region where Starter Plan is running.
-4. Select the **{{site.data.keyword.la_full_notm}}** instance.
-5. Click Save.
+4. Click **Create**.
 
 From the Observability dashboard, you can now launch the LogDNA dashboard by clicking **View LogDNA**.
 
