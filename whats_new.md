@@ -22,6 +22,8 @@ subcollection: blockchain
 # What's new
 {: #whats-new}
 
+
+
 ## October 02, 2019
 {: #whats-new-10-02-2019}
 
