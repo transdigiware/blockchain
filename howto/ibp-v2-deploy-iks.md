@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-12-04"
+lastupdated: "2019-12-10"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -25,6 +25,7 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.blockchainfull_notm}} Platform console, a user interface that can simplify and accelerate your journey to deploy and manage blockchain components. This tutorial describes how to get started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and use the console to deploy and manage blockchain components in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster on {{site.data.keyword.cloud_notm}}. For more information about Kubernetes and {{site.data.keyword.cloud_notm}} Kubernetes Service, see [Kubernetes](/docs/services/blockchain/reference?topic=blockchain-k8s-overview "Kubernetes").
 {:shortdesc}
+
 
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
@@ -157,26 +158,31 @@ Use the following steps to create a service instance of {{site.data.keyword.bloc
 
 You can follow the guidance to deploy {{site.data.keyword.blockchainfull_notm}} Platform immediately after you create the service instance.
 
-1. The **Welcome & prerequisites** step. If you already have an existing {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in the **Dallas** region and you want to use it for your blockchain service, select the check box. **If you use an existing cluster, you can skip the next step; but be sure the Kubernetes version 1.13, 1.14, or 1.15**. Click **Continue**.
-2. The **Create cluster** step. If you select the check box in step 1 to use an existing Kubernetes cluster, this step is skipped. Otherwise, click **Create a new cluster**, which launches the {{site.data.keyword.cloud_notm}} Kubernetes dashboard to create a cluster. For more information, see [Getting started with {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-getting-started){: external}. Allow extra time for this process to complete.
-  - For information about locations for your cluster, see [Regions](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
-  - Choose **Standard cluster (recommended):**  If you need a longer term option that includes multiple nodes for high availability. For cluster type, select **Kubernetes**. **Choose version 1.13, 1.14, or 1.15**. To deploy a paid cluster, see [Creating a standard cluster](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}. Note that if you want high availability or disaster recovery that you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.
-  - Choose **Free cluster:** If you want to preview the platform for less than 30 days. **Note** that it is not possible to migrate from a free cluster to a paid cluster. The free type of cluster offers limited storage and transaction throughput. For instructions on what to do when your Kubernetes cluster expires, see this topic on [Kubernetes cluster expiration](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
-  - For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.  
+1. The **Welcome** step. Click **Let's get setup!** to get started with your deployment.
+2. The **Create an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** step. If you don't already have an existing {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in a supported region, create one now by clicking **Create {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** to launch the {{site.data.keyword.cloud_notm}} Kubernetes dashboard.  For more information, see [Getting started with {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-getting-started){: external}. Allow extra time for this process to complete.
 
-   You must return to this tab in your browser after you create the cluster so that you can complete the {{site.data.keyword.blockchainfull_notm}} Platform deployment process.  
+ - For information about locations for your cluster, see [Supported regions](/docs/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).  
+ - Explore the scenarios on the panel to see the different levels of cluster resources that are required depending on your use case.
+ - Choose **Standard cluster (recommended):**  If you need a longer term option that includes multiple nodes for high availability. For cluster type, select **Kubernetes**. **Choose version 1.13, 1.14, or 1.15**. To deploy a paid cluster, see [Creating a standard cluster](/docs/containers?topic=containers-clusters#clusters_ui_standard){: external}. Note that if you want high availability or disaster recovery that you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.
+ - Choose **Free cluster:** If you want to preview the platform for less than 30 days. **Note** that it is not possible to migrate from a free cluster to a paid cluster. The free type of cluster offers limited storage and transaction throughput. For instructions on what to do when your Kubernetes cluster expires, see this topic on [Kubernetes cluster expiration](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
+ - For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.  
+
+   You must return to this tab in your browser after you create the cluster so that you can complete the {{site.data.keyword.blockchainfull_notm}} Platform deployment process.  When the Kubernetes cluster is available return to this panel and click **Next**.
    {:important}  
 
-  You need to wait until your cluster is deployed successfully. Then, click the **I Have a Cluster** button.
-3. Your Kubernetes version running in your cluster must be at version 1.13, 1.14, or 1.15. Follow these [steps](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) to check your cluster version and upgrade it if necessary. Then come back and proceed with these instructions.
-4. The **Deploy onto cluster** step. Select the Kubernetes cluster that you want to deploy {{site.data.keyword.blockchainfull_notm}} Platform into from the drop-down list and click **Deploy to cluster**.  
+  Already have an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in a supported region? Click **Next** to skip ahead to where you can choose your existing cluster.
+
+3. The Kubernetes version that is running in your cluster must be at version 1.13, 1.14, or 1.15. Follow these [steps](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes) to check your cluster version and upgrade it if necessary. Then come back and proceed with these instructions.
+
+4. The **Link an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** step. Select the Kubernetes cluster that you want to link your  {{site.data.keyword.blockchainfull_notm}} Platform console to from the drop-down list and click **Next**.  
 
   If your Kubernetes cluster is not visible in the drop-down list, it could be caused by the following conditions:
   - The cluster creation process can take up to 60 minutes to complete. If you created a cluster, allow some extra time until the state of your cluster becomes **Normal**.
-  - Clusters that are outside the **Dallas** region are not visible and cannot be used.
+  - Clusters that are outside the [supported regions](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-ibp) are not visible and cannot be used.
   - Check to make sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
+  - If you have a multi-zone region (MZR) cluster you need to enable [VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
 
-5. The **Launch console** step. After your {{site.data.keyword.blockchainfull_notm}} Platform has been successfully deployed, click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the {{site.data.keyword.blockchainfull_notm}} Platform console. It might take a few minutes for the button to become enabled while the console is being provisioned.
+5. The **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** step. After your {{site.data.keyword.blockchainfull_notm}} Platform has been successfully deployed, click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the management console. It might take a few minutes for the button to become enabled while the console is being provisioned.
 
 The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster.
 
@@ -248,19 +254,17 @@ You must wait for the update to complete before you can [resume the {{site.data.
 ## How to assign Kubernetes access roles
 {: #ibp-v2-deploy-iks-k8x-access-roles}
 
-The user who links the blockchain service instance to the Kubernetes cluster must have the Administrator and Manager roles in Kubernetes.
+The user who links the blockchain service instance to the Kubernetes cluster must have the `Administrator` and `Manager` roles in Kubernetes.
 To configure this access you must complete the following steps:
    1. In the {{site.data.keyword.cloud_notm}} dashboard, click the **Manage** drop-down list, then **Access (IAM)**.
    2. In the left navigation menu, click **Users** and click the ID of user who will link the service instance to the Kubernetes cluster.
    3. Click **Access Policies**, then **Assign access**.
    4. Click the tile **Assign access to resources**.
-   5. In the **Services** drop-down list, select **Kubernetes Service**.
+   5. In the Services drop-down list, select **Kubernetes Service**.
    6. Check the **Administrator** and **Manager** roles for this user.
    7. Click **Assign**.
 
-
-
-For more information about Kubernetes access control, see [how to pick the right access policy and role for your users](/docs/containers?topic=containers-users#access_roles).
+For more information about Kubernetes access control, see [how to pick the right access policy and role for your users](docs/containers?topic=containers-users#access_roles).
 
 ## Post-install instructions
 {: #ibp-v2-deploy-iks-post-install}
