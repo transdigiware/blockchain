@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-12-10"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -23,6 +23,11 @@ subcollection: blockchain
 
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
+
+## 11 December 2019
+{: #12-11-2019}
+
+**Miscellaneous bug fixes**
 
 ## 15 November 2019
 {: #11-15-2019}
