@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-12-10"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -323,7 +323,6 @@ You also need to import your admin identities into the wallet pane and associate
 8. Select **Provide a JSON identity file from the {{site.data.keyword.blockchainfull_notm}} Platform** and then browse to the admin identity that you exported from your console. If the identity is the administrator of multiple nodes in your network, you can associate the identity with multiple nodes.
 
 When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to install and instantiate smart contracts.
-
 
 ### Adding wallets and users
 {: #develop-vscode-add-a-wallet}

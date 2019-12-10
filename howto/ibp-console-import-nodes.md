@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-21"
+lastupdated: "2019-12-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -53,10 +53,7 @@ Note that when you import a component, you do not actually import the physical c
 
 After you import a node into the console, you can also modify its connection information by using the node's **Settings** tab.
 
-
-
 As you will see below, there are two ways to export and import components and identities: in bulk, or one at a time. Each fulfills a different use case and has different considerations and limitations.
-
 
 ## Limitations
 {: #ibp-console-import-limitations}
@@ -69,7 +66,6 @@ While importing nodes provides the ability to perform many of the actions that c
 - You cannot delete nodes that you imported into the console from the cluster where they were deployed. You can only remove the node from the console it was imported to.
 - If you are importing a node that is deployed on a network deployed locally, you must ensure that the gRPC web proxy port used by the component is externally exposed to the console. For more information, see [Importing nodes from a locally deployed network](#ibp-console-import-icp).
 - When you open the tile of an imported node, the Fabric version is not visible and the **Usage and info** tab is not available, even if you have also imported the admin identity.
-
 
 ## Exporting and importing in bulk
 {: #ibp-console-import-bulk-export-import}
@@ -89,7 +85,6 @@ While exporting and importing components in bulk is highly convenient for some u
 You will also need to associate an admin identity for the CA. This process is similar to the peer and ordering node process except that after you click on the imported CA you will see a separate screen asking you to associate an identity rather than a box on the left.
 
 For cases where bulk data transfers are impractical or inadvisable, you can follow the steps below to export and import components and identities one at a time.
-
 
 ## Gathering certificates or credentials
 {: #ibp-console-import-start-here}
