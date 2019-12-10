@@ -237,7 +237,7 @@ Using the results that are returned in this example, the external ports that can
 ### Cluster and Operating System security
 {: #ibp-security-Kubernetes-container-os}
 
-- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}. If you are using OpenShift, you can choose to enable encryption for your etcd data on the local disk of your Kubernetes master by [Encrypting Data at the datastore layer ](https://docs.openshift.com/container-platform/4.2/admin_guide/encrypting_data.html){: external} for your cluster.
+- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}. 
 
 
 - **Alpine Linux:** The Fabric Docker images use [Alpine Linux](https://alpinelinux.org/){: external}, which is a smaller, lighter, and therefore more secure version of Linux.
