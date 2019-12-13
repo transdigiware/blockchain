@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-26"
+lastupdated: "2019-12-13"
 
-keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam
+keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
 subcollection: blockchain
 
@@ -141,7 +141,7 @@ If you are having trouble connecting to your console after you click `Launch the
 To access this button:
 1. Log in to {{site.data.keyword.cloud_notm}} and  open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. Ensure that you log in with your {{site.data.keyword.IBM_notm}} ID.
 2. Your {{site.data.keyword.blockchainfull_notm}} Platform service instance is visible under the **Services** twistie. Locate and click the {{site.data.keyword.blockchainfull_notm}} Platform service instance that you deployed.
-3. On the Welcome Back panel, click **Console support** then **Refresh your connected cluster**.
+3. On the Welcome Back panel, click **Refresh cluster**. The operation could take a few minutes while it re-establishes connectivity to your Kubernetes cluster and refreshes the management console.
 4. Click **Launch {{site.data.keyword.blockchainfull_notm}} Platform** again.
 
 Your console opens in your browser.
