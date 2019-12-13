@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-20"
+lastupdated: "2019-12-13"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -58,10 +58,12 @@ For even more robust HA coverage, you can stand up multiple clusters in multiple
 
 **Anchor peers** on a channel facilitate cross-organization communication that is required for private data, gossip, and service discovery to work. If only one anchor peer exists on a channel, and that peer becomes unavailable, the organizations are no longer connected and the cross-organization gossip is no longer possible. Therefore, when you create redundant peers for an organization, be sure to add redundant [anchor peers on the channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) as well.
 
+Finally, your peer redundancy strategy needs to take into account your chaincode endorsement policies to ensure that you always have enough peers available to satisfy the endorsement policy requirements. For example, if an endorsement policy requires a specific number of endorsements, your peer HA strategy needs to ensure there are always that number of peers available. Alternatively, if the endorsement policy requires a `MAJORITY` of peers to endorse the transactions, then you need to ensure that a majority of the peers are always available in order for transactions to continue to be processed.
+
 ### Ordering service considerations
 {: #ibp-console-ha-ordering-service}
 
-{{site.data.keyword.blockchainfull_notm}} Platform is built upon Hyperledger Fabric v1.4.3 that includes the Raft ordering service. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft-based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node Raft-based orderer, with no HA, or five orderers in a single region that are automatically configured for HA via Raft.
+{{site.data.keyword.blockchainfull_notm}} Platform  is built upon Hyperledger Fabric v1.4.3  that includes the Raft ordering service. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft-based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node Raft-based orderer, with no HA, or five orderers in a single region that are automatically configured for HA via Raft.
 
 
 

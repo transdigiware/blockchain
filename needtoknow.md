@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-12-13"
 
 
 keywords: IBM Blockchain offerings, Linux Foundation, Hyperledger Fabric, open source, community contribution
@@ -39,7 +39,7 @@ The architecture behind {{site.data.keyword.blockchainfull_notm}} is the Linux F
 ## Open-source statement
 {: #disclaimer-open-source-statement}
 
-{{site.data.keyword.blockchainfull_notm}} offering plans on {{site.data.keyword.cloud_notm}} are built based on the Linux Foundation's Hyperledger Fabric stack. Hyperledger Project members, including {{site.data.keyword.IBM_notm}}, continue to contribute to various subprojects under the Hyperledger umbrella.  All contributions are reviewed, vetted, and tested by the community.
+{{site.data.keyword.blockchainfull_notm}} offerings are built based on the Linux Foundation's Hyperledger Fabric stack. Hyperledger Project members, including {{site.data.keyword.IBM_notm}}, continue to contribute to various subprojects under the Hyperledger umbrella.  All contributions are reviewed, vetted, and tested by the community.
 
 ## Chaincode support statement
 {: #disclaimer-chaincode-support-statement}
