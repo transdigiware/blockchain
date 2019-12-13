@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-13"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -39,7 +39,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 |----|---|----|
 | Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public or hybrid multicloud | An {{site.data.keyword.IBM_notm}} Kubernetes Service cluster on {{site.data.keyword.cloud_notm}} |  
 | What are my deployment options? | <ul><li> Full platform </li> <li> Only {{site.data.keyword.blockchainfull_notm}} images  ** </li> </ul>| <ul><li> Full platform </li> </ul>
-| How is it billed? |Contact us for pricing |[$0.29 USD per allocated CPU hour](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing)  |
+| How is it billed? |Contact us for [pricing]/docs/blockchain-rhos?topic=blockchain-rhos-ibp-rhos-pricing) |[$0.29 USD per allocated CPU hour](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing)  |
 | Can I connect with Peers in other clouds? |  Yes| Yes |
 | Can my data center be on-premises and behind a firewall? | Yes| No |
 | Can I use a console UI to deploy and manage my blockchain components? | Yes | Yes|
