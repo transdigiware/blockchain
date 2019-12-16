@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-12-13"
+lastupdated: "2019-12-16"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -291,7 +291,7 @@ curl -X DELETE \
 
 ### Use the APIs to manage your components
 
-You can view the complete set of APIs that are available in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://test.cloud.ibm.com/apidocs/blockchain).
+You can view the complete set of APIs that are available in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain).
 
 Because you are using the APIs to communicate with your console on {{site.data.keyword.cloud_notm}} Private, you need to use the authorization that is provided by {{site.data.keyword.cloud_notm}} with the authentication that is provided by your console. Replace the `Bearer Auth` in the API reference with  `-u <api_key>:<api_secret>`. You also need to add a `-k` or ``--insecure`` flag to the command, or download the console TLS certificate by using your browser. You cannot use the **Try it out** tab to test the APIs for networks on {{site.data.keyword.cloud_notm}} Private.
 
