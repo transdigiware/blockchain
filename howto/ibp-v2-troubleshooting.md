@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-12-16"
+lastupdated: "2019-12-17"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -65,59 +65,6 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
 
 
-## My deployment fails when I try apply the security and access policies to my namespace
-{: #ibp-v2-troubleshooting-deployment-policies}
-{: troubleshoot}
-
-When I try to deploy the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.2 and apply the Security Context Constraint, clusterRole, or ClusterRoleBinding to my namespace, I encounter one of the following errors.
-
-When I apply the file, I receive a user forbidden error:
-{: tsSymptoms}
-
-```
-securitycontextconstraints.security.openshift.io "e-block2" is forbidden: User cannot get securitycontextconstraints.security.openshift.io at the cluster scope: no RBAC policy matched
-```
-
-This problem occurs when you are not a cluster administrator. You must have a cluster administrator role and apply the security and access policies to your namespace.
-{: tsCauses}
-
-When I try to apply resource file, I receive a parsing error:
-{: tsSymptoms}
-
-```
-error: error parsing ibp-scc.yaml: error converting YAML to JSON: yaml: line 10: mapping values are not allowed in this context
-```
-
-This problem occurs when there is a problem with the indents in your file. Refer to the documentation for the correct format for the security and access files.
-{: tsCauses}
-
-
-## My deployment fails when I try apply the custom resource definition of the console or operator
-{: #ibp-v2-troubleshooting-deployment-cr}
-{: troubleshoot}
-
-When I try to deploy the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.2 and apply the custom resource definition of the operator or the console, I encounter one of the following errors:
-
-When I apply the custom resource file, I receive an image pull or image pull back-off error:
-{: tsSymptoms}
-
-```
-NAME                            READY     STATUS             RESTARTS   AGE
-ibp-operator-769d94ffbc-w52n6   0/1       ImagePullBackOff   0          32s
-```
-
-This problem occurs when your deployment cannot pull the {{site.data.keyword.blockchainfull_notm}} Platform images from the {{site.data.keyword.IBM_notm}} Entitlement registry. This can happen because you provided an incorrect name of your secret to the `imagePullSecrets:` field, or if there was a problem with the url or the key that you provided to the entitlement key secret. This error can also occur if you supplied the wrong image tag to the file.
-{: tsCauses}
-
-When I try to apply the custom resource file, I receive a parsing error:
-{: tsSymptoms}
-
-```
-error: error parsing console.yaml: error converting YAML to JSON: yaml: line 11: mapping values are not allowed in this context
-```
-
-This problem occurs when there is a problem with the indents in your file. Refer to the documentation for the correct format for the custom resource files of the console and operator.
-{: tsCauses}
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}

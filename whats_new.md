@@ -188,7 +188,7 @@ For more information about Hyperledger Fabric v1.4.0, see [Hyperledger Fabric do
 
 *	Smooth integration between smart contract development (VS Code) and network management
 *	Simplified DevOps allows you to move from development to test to production from a single console
-*	Support for writing smart contracts in Javascript, Java, and Go languages
+*	Support for writing smart contracts in JavaScript, Java, and Go languages
 
 **Operate and govern networks with total control**
 
