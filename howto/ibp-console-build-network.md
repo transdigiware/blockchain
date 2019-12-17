@@ -245,7 +245,7 @@ Use your console to perform the following steps:
 3. Give your peer a **Display name** of `Peer Org1`.
 4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
    * [State database selection](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch)
-   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
+   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
    * [External Certificate Authority configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Click **Next**.
@@ -427,7 +427,7 @@ Perform the following steps from your console:
 1. On the **Nodes** page, click **Add ordering service**.
 2. Make sure the option to **Create an ordering service** is selected. Then click **Next**.
 3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **One ordering node** and click **Next**. For the purpose of this tutorial, do not choose any of the **Advanced deployment options**. Click **Next**. For more information about these options, see the links below.
-   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
+   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
    * [External Certificate Authority configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 4. On the next panel,

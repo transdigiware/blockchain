@@ -222,7 +222,7 @@ Use your console to perform the following steps:
 4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
    * [State database selection](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch)
    * [Multizone high availability](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-console-ha#ibp-console-ha-multi-zone)
-   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
+   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
    * [External Certificate Authority configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Click **Next**.
