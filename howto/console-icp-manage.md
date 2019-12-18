@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-12-16"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -34,7 +34,7 @@ After you deploy your console on {{site.data.keyword.cloud}} Private, you can us
 ## Managing users from the console
 {: #console-icp-manage-users}
 
-The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console by using the **Users** tab in the console. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis). 
+The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console from the **Users** tab. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis). 
 
 ### Role to permission mapping
 {: #console-icp-manage-role-mapping}
@@ -291,7 +291,7 @@ curl -X DELETE \
 
 ### Use the APIs to manage your components
 
-You can view the complete set of APIs that are available in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://test.cloud.ibm.com/apidocs/blockchain).
+You can view the complete set of APIs that are available in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain).
 
 Because you are using the APIs to communicate with your console on {{site.data.keyword.cloud_notm}} Private, you need to use the authorization that is provided by {{site.data.keyword.cloud_notm}} with the authentication that is provided by your console. Replace the `Bearer Auth` in the API reference with  `-u <api_key>:<api_secret>`. You also need to add a `-k` or ``--insecure`` flag to the command, or download the console TLS certificate by using your browser. You cannot use the **Try it out** tab to test the APIs for networks on {{site.data.keyword.cloud_notm}} Private.
 

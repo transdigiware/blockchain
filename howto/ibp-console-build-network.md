@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-12-03"
+lastupdated: "2019-12-17"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -101,8 +101,8 @@ To create the CA that will issue certificates for your first organization, perfo
 
 1. Navigate to the **Nodes** tab on the left and click **Add Certificate Authority**. The side panels will allow you to customize the CA that you want to create and the organization that this CA will issue keys for.
 2. In this tutorial, we're creating nodes, so make sure the option to **Create a Certificate Authority** is selected. Then click **Next**.
-3. Use the side panel to give your CA a **display name**. Our recommended value for this CA is `Org1 CA`. Then give your CA admin credentials by specifying a **CA administrator enroll ID** of `admin` and a secret of `adminpw`. Again, these are **recommended values**. 
-4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
+3. Use the side panel to give your CA a **display name**. Our recommended value for this CA is `Org1 CA`. Then give your CA admin credentials by specifying a **CA administrator enroll ID** of `admin` and a secret of `adminpw`. Again, these are **recommended values**.
+4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the link below.
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Review the Summary page, then click **Add Certificate Authority**.
 
@@ -117,7 +117,7 @@ To create the CA that will issue certificates for your first organization, perfo
 After you deploy the CA, you need to associate an admin identity. This will allow you to operate your CA and use it to create your organization MSP, register users, and your **peer**.
 
 
-Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating a new CA here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
+Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating a new CA here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
 
 ### Associating the CA admin identity
 {: #ibp-console-build-network-ca-admin}
@@ -130,7 +130,7 @@ Depending on your cluster type, deployment of the CA can take up to ten minutes.
 Once the CA is running, as indicated by the green box in the tile, complete the following steps:
 
 1. Click the `Org1 CA` tile in the **Nodes** tab. Then click **Associate identity** on the CA overview panel.
-2. On the side panel that opens, provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org1 CA Admin `.
+2. On the side panel that opens, provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org1 CA Admin`.
 3. Click **Associate identity** to add the identity into your console Wallet and associate the admin identity with your CA.
 
 After setting the CA admin identity, you will be able to see the table of registered users in the CA overview panel.
@@ -149,7 +149,7 @@ You can view the CA admin identity in your console Wallet by clicking on the **W
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin  | Org1 CA admin identity |
+  | **Identity** | Org1 CA Admin | Org1 CA admin identity |
 
 *Figure 5. Check your Wallet*
 
@@ -168,6 +168,7 @@ Once you have associated the CA admin, you can use the CA tile to create these i
 
 1. Click the `Org1 CA` tile and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
 2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org1admin` and a **secret** of `org1adminpw`. Then set the `Type` for this identity as `admin`. The affiliation field is for advanced users and is not a part of the tutorial, so the box that says **Use root affiliation** is checked. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+3. This tutorial does not configure attributes on identities, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register) if you want to learn more. Click **Register user**.
 4. After the organization admin has been registered, repeat this same process for the identity of the peer (also using the `Org1 CA`). For the peer identity, give an enroll ID of `peer1` and a secret of `peer1pw`. This is a node identity, so select `peer` as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
 
 Registering these identities with the CA is only the first step in **creating** an identity. You will not be able to use these identities until they have been **enrolled**. For the `org1admin` identity, this will happen during the creation of the MSP, which we will see in the next step. In the case of the peer, it happens during the creation of the peer.
@@ -190,7 +191,7 @@ Now that we have created the peer's CA and used it to **register** identities fo
 1. Navigate to the **Organizations** tab in the left navigation and click **Create MSP definition**.
 2. Enter `Org1 MSP` as the organization MSP display name and `org1msp` and as the MSP ID. If you want to specify your own MSP ID in this field, make sure to review the instructions in the tool tip.
 3. Under **Root Certificate Authority details**, specify the CA you used to register the identities in the previous step. If this is your first time through this tutorial, you should only see one: `Org1 CA`.
-4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID of your CA admin: `admin`. However, using this identity would give your organization the same admin identity as your CA, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org1admin`, and enter its associated secret, `org1adminpw`. Then, give this identity a display name, `Org1 MSP Admin `. Note: the default display name for this identity is the name of your MSP and the word "Admin". If you select a different name for your MSP, that will be reflected in the default.
+4. The **Enroll ID** and **Enroll secret** fields below this will auto populate with the enroll ID of your CA admin: `admin`. However, using this identity would give your organization the same admin identity as your CA, which for security reasons is not recommended. Instead, select the enroll ID you created for your organization admin from the drop-down list, `org1admin`, and enter its associated secret, `org1adminpw`. Then, give this identity a display name, `Org1 MSP Admin`. Note: the default display name for this identity is the name of your MSP and the word "Admin". If you select a different name for your MSP, that will be reflected in the default.
 5. Click the **Generate** button to enroll this identity as the admin of your organization and export the identity to the Wallet, where it will be used when creating the peer and creating channels.
 6. Click **Export** to export the admin certificates to your file system. As we said above, this identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to administer the peer.
 7. Click **Create MSP definition**.
@@ -202,7 +203,7 @@ Now that we have created the peer's CA and used it to **register** identities fo
   | **Create Organization** | Org1 MSP | org1msp |||
   | **Root CA** | Org1 CA ||||
   | **Org Admin Cert** | |  | org1admin | org1adminpw |
-  | **Identity** | Org1 MSP Admin  |||||
+  | **Identity** | Org1 MSP Admin |||||
 
   *Figure 7. Create the peer organization MSP definition*
 
@@ -212,8 +213,8 @@ After you have created the MSP, you should be able to see the peer organization 
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin  | Org1 admin identity |
-  | **Identity** | Org1 MSP Admin   | Org1 MSP admin identity |
+  | **Identity** | Org1 CA Admin | Org1 admin identity |
+  | **Identity** | Org1 MSP Admin | Org1 MSP admin identity |
 
   *Figure 8. Check your Wallet*
 
@@ -244,8 +245,8 @@ Use your console to perform the following steps:
 3. Give your peer a **Display name** of `Peer Org1`.
 4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
    * [State database selection](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch)
-   * [Kubernetes zone selection]((/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
-   * [External Certificate Authority configuration](#ibp-console-build-network-third-party-ca)
+   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
+   * [External Certificate Authority configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Click **Next**.
 6. On the next screen
@@ -254,7 +255,7 @@ Use your console to perform the following steps:
    * Then, select `Org1 MSP` from the drop-down list
    * The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
    * Click **Next**.
-7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org1 MSP Admin  `, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org1 CA` and make that identity the admin of your peer, but this tutorial uses the `Org1 MSP Admin` identity.
+7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org1 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org1 CA` and make that identity the admin of your peer, but this tutorial uses the `Org1 MSP Admin` identity.
 8. Review the summary and click **Add peer**.
 
 **Task: Deploying a peer**
@@ -265,9 +266,7 @@ Use your console to perform the following steps:
   | **CA** | Org1 CA ||||
   | **Peer Identity** | |  | peer1 | peer1pw |
   | **Administrator certificate** | org1msp ||||
-  | **TLS CA** | Org1 CA ||||
-  | **TLS CA ID** | || peer1 | peer1pw |
-  | **Associate identity** | Org1 MSP Admin   |||||
+  | **Associate identity** | Org1 MSP Admin |||||
 
   *Figure 9. Deploying a peer*
 
@@ -314,11 +313,11 @@ The process for creating a CA for an ordering service is identical to creating i
 1. Navigate to the **Nodes** tab and click **Add Certificate Authority**.
 2. In this tutorial, we're creating nodes, so make sure the option to **Create a Certificate Authority** is selected. Then click **Next**
 3. Give this CA a unique display name, `Ordering Service CA`. You're free to reuse the **CA administrator enroll ID** of `admin` and a secret of `adminpw`. As this is a different CA, this identity is distinct from the CA admin identity for created for the `Org1 CA`, even though the ID and secret are identical.
-4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
+4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the link below.
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Review the Summary page, then click **Add Certificate Authority**.
 
-As with the peer, advanced users may already have their own CA and not want to create a new CA using the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating new certificates here. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
+As with the peer, advanced users may already have their own CA and not want to create a new CA using the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating new certificates here. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca).
 
 ### Associating the CA admin identity
 {: #ibp-console-build-network-orderer-ca-admin}
@@ -331,14 +330,14 @@ Depending on your cluster type, deployment of the CA can take up to ten minutes.
 Once the CA is running, as indicated by the green box in the tile, complete the following steps:
 
 1. Click the `Ordering Service CA` tile in the **Nodes** tab. Then click **Associate identity** on the CA overview panel.
-2. On the side panel that opens,  provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Ordering Service CA Admin `.
+2. On the side panel that opens,  provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Ordering Service CA Admin`.
 3. Click **Associate identity** to add the identity into your console Wallet and associate the admin identity with your CA.
 
 **Task: Associate identity**
 
   |  **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Enroll ID** |  Ordering Service CA Admin   | admin | adminpw |
+  | **Enroll ID** |  Ordering Service CA Admin  | admin | adminpw |
 
 *Figure 10. Associate CA admin identity*
 
@@ -348,9 +347,9 @@ You should be able to see the CA admin in your **Wallet**. As we said above, the
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin  | Org1 CA admin identity |
+  | **Identity** | Org1 CA Admin | Org1 CA admin identity |
   | **Identity** | Org1 MSP Admin   | Org1 admin identity |
-  | **Identity** | Ordering Service CA Admin  | Ordering Service CA admin identity |
+  | **Identity** | Ordering Service CA Admin | Ordering Service CA admin identity |
 
 *Figure 11. Check your Wallet*
 
@@ -363,6 +362,7 @@ Once you have associated the CA admin, you can use the CA tile to create these i
 
 1. Click the `Ordering Service CA` tile in the **Nodes** tab and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
 2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `OSadmin` and a **secret** of `OSadminpw`. Then set the `Type` for this identity as `admin`. The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+3. This tutorial does not configure attributes on identities, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register) if you want to learn more. Click **Register user**.
 4. After the organization admin has been registered, repeat this same process for the identity of the ordering service (also using the `Ordering Service CA`). For the ordering service node identities, give an enroll ID of `OS1` and a secret of `OS1pw`. This is a node identity, so select `orderer` as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
 
 **Task: Create a CA and register users**
@@ -407,9 +407,9 @@ After you have created the MSP, you should be able to see the ordering service o
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org1 CA Admin   | Org1 CA admin identity |
+  | **Identity** | Org1 CA Admin  | Org1 CA admin identity |
   | **Identity** | Org1 MSP Admin   | Org1 admin identity |
-  | **Identity** | Ordering Service CA Admin  | Ordering Service CA admin identity |
+  | **Identity** | Ordering Service CA Admin | Ordering Service CA admin identity |
   | **Identity** | Ordering Service MSP Admin   | Ordering Service admin identity |
 
   *Figure 14. Create the ordering service organization MSP definition*
@@ -426,9 +426,9 @@ Perform the following steps from your console:
 
 1. On the **Nodes** page, click **Add ordering service**.
 2. Make sure the option to **Create an ordering service** is selected. Then click **Next**.
-3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **One ordering node** and click **Next**. For the purpose of this tutorial, do not choose any of the **Advanced deployment options**. For more information about these options, see the links below.
-   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
-   * [External Certificate Authority configuration](#ibp-console-build-network-third-party-ca)
+3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **One ordering node** and click **Next**. For the purpose of this tutorial, do not choose any of the **Advanced deployment options**. Click **Next**. For more information about these options, see the links below.
+   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
+   * [External Certificate Authority configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 4. On the next panel,
    * Select `Ordering Service CA` as your CA.
@@ -448,8 +448,6 @@ Perform the following steps from your console:
   | **CA** | Ordering Service CA ||||
   | **Ordering Service Identity** | |  | OS1 | OS1pw |
   | **Administrator certificate** | Ordering Service MSP ||||
-  | **TLS CA** | Ordering Service CA ||||
-  | **TLS CA ID** | || OS1 | OS1pw |
   | **Associate identity** | Ordering Service MSP Admin   |||||
 
   *Figure 15. Create an ordering service*

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-26"
+lastupdated: "2019-12-17"
 
-keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam
+keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
 subcollection: blockchain
 
@@ -26,6 +26,19 @@ There are various actions that you can take to manage your console behavior. Thi
 {:shortdesc}
 
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network.
+
+## Refreshing your console
+{: #ibp-console-refresh}
+
+If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull_notm}} Platform` on the Welcome back panel, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}}.  It can also be used to upgrade to a newer release of the console, if one is available.
+
+To access this button:
+1. Log in to {{site.data.keyword.cloud_notm}} and  open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. Ensure that you log in with your {{site.data.keyword.IBM_notm}} ID.
+2. Your {{site.data.keyword.blockchainfull_notm}} Platform service instance is visible under the **Services** twistie. Locate and click the {{site.data.keyword.blockchainfull_notm}} Platform service instance that you deployed.
+3. On the Welcome Back panel, click **Refresh cluster**. The operation could take a few minutes while it re-establishes connectivity to your Kubernetes cluster and refreshes the management console.
+4. Click **Launch {{site.data.keyword.blockchainfull_notm}} Platform** again.
+
+Your console opens in your browser.
 
 ## Adding and removing users from the console
 {: #ibp-console-manage-console-add-remove}
@@ -131,20 +144,6 @@ If you encounter issues with your smart contract, you can view the smart contrac
 - Switch to the `fluentd` container by selecting it from the drop-down list.  
 
 All of your smart contract logs are visible in this window and can be downloaded using the download icon on the panel.
-
-
-## Refreshing your console
-{: #ibp-console-refresh}
-
-If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull_notm}} Platform` on the Welcome back panel, the **Refresh your connected cluster** button is a useful mechanism to renew the connection between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}}.  It can also be used to upgrade to a newer release of the console, if one is available.
-
-To access this button:
-1. Log in to {{site.data.keyword.cloud_notm}} and  open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. Ensure that you log in with your {{site.data.keyword.IBM_notm}} ID.
-2. Your {{site.data.keyword.blockchainfull_notm}} Platform service instance is visible under the **Services** twistie. Locate and click the {{site.data.keyword.blockchainfull_notm}} Platform service instance that you deployed.
-3. On the Welcome Back panel, click **Console support** then **Refresh your connected cluster**.
-4. Click **Launch {{site.data.keyword.blockchainfull_notm}} Platform** again.
-
-Your console opens in your browser.
 
 ## Installing patches for your nodes
 {: #ibp-console-manage-patch}

@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-11-21"
+lastupdated: "2019-12-17"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -82,7 +82,7 @@ Perform the following steps from your console:
 1. Navigate to the **Nodes** tab on the left and click **Add Certificate Authority**. The side panels will allow you to customize the CA that you want to create and the organization that this CA will issue keys for.
 2. In this tutorial, we're creating nodes, so make sure the option to **Create a Certificate Authority** is selected. Then click **Next**.
 3. Use the side panel to give your CA a **display name**. Our recommended value for this CA is `Org2 CA`. Then give your CA admin credentials by specifying a **CA administrator enroll ID** of `admin` and a secret of `adminpw`.
-4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
+4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the link below.
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Review the Summary page, then click **Add Certificate Authority**.
 
@@ -97,8 +97,7 @@ Perform the following steps from your console:
 After you deploy the CA, you will use it when you create your organization MSP, register users, and to create your entry point to a network, the **peer**.
 
 
-Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own third-party CA instead of creating new certificates here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using a third-party CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
-
+Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own third-party CA instead of creating new certificates here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using a third-party CA with your peer or ordering service](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
 
 ### Associating the CA admin identity
 {: #ibp-console-join-network-ca-admin}
@@ -111,7 +110,7 @@ Depending on your cluster type, deployment of the CA can take up to ten minutes.
 Once the CA is running, as indicated by the green box in the tile, complete the following steps:
 
 1. Click the `Org2 CA` tile in the **Nodes** tab. Then click **Associate identity** on the CA overview panel.
-2. On the side panel that opens, provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org2 CA Admin `.
+2. On the side panel that opens, provide an **Enroll ID** of `admin` and an **Enroll secret** of `adminpw`. For the **Identity display name**, you can use the default value of `Org2 CA Admin`.
 3. Click **Associate identity** to add the identity into your console Wallet and associate the admin identity with your CA.
 
 After setting the CA admin identity, you will be able to see the table of registered users in the CA overview panel.
@@ -130,7 +129,7 @@ You can view the CA admin identity in your console wallet by clicking on the **W
 
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
-  | **Identity** | Org2 CA Admin  | Org2 CA admin identity |
+  | **Identity** | Org2 CA Admin | Org2 CA admin identity |
 
   *Figure 4. Check your Wallet*
 
@@ -145,7 +144,8 @@ Each node or application that you want to create needs certificates and private 
 Once you have associated the CA admin, you can use the CA tile to create these identities by completing the following steps:
 
 1. Click the `Org2 CA` tile and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
-2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org2admin` and a **secret** of `org2adminpw`. Then set the `Type` for this identity as `admin`  The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. For now, select any affiliation from the list (for example, `Org2`). Also, ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org2admin` and a **secret** of `org2adminpw`. Then set the `Type` for this identity as `admin`. The affiliation field is for advanced users and is not a part of the tutorial, so click the box that says **Use root affiliation**. If you want to learn more about how affiliations are used by the Fabric CA, see this topic on [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external}. For now, select any affiliation from the list (for example, `Org2`). Also, ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
+3. This tutorial does not configure attributes on identities, see [Registering identities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register) if you want to learn more. Click **Register user**.
 4. After the organization admin has been registered, repeat this same process for the identity of the peer (also using the `Org2 CA`). For the peer identity, give an enroll ID of `peer2` and a secret of `peer2pw`. This is a node identity, so select `peer` as the **Type**. Click the box that says **Use root affiliation** and ignore **Maximum enrollments**. Then, on the next panel, do not assign any **Attributes**, as before.
 
 Registering these identities with the CA is only the first step in **creating** an identity. You will not be able to use these identities until they have been **enrolled**. For the `org2admin` identity, this will happen during the creation of the MSP, which we will see in the next step. In the case of the peer, it happens during the creation of the peer.
@@ -221,8 +221,9 @@ Use your console to perform the following steps:
 3. Give your peer a **Display name** of `Peer Org2`.
 4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
    * [State database selection](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch)
-   [Kubernetes zone selection]((/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
-   * [External Certificate Authority configuration](#ibp-console-build-network-third-party-ca)
+   * [Multizone high availability](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-console-ha#ibp-console-ha-multi-zone)
+   * [Kubernetes zone selection](/docs/services/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
+   * [External Certificate Authority configuration](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Click **Next**.
 6. On the next screen
@@ -233,19 +234,16 @@ Use your console to perform the following steps:
    * Click **Next**.
 7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org2 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org2 CA` and make that identity the admin of your peer, but this tutorial uses the `Org2 MSP Admin` identity.
 8. Review the summary and click **Add peer**.
-
 **Task: Deploying a peer**
 
-  |  | **Display name** | **MSP ID** | **Enroll ID** | **Secret** |
+
+|  | **Display name** | **MSP ID** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
   | **Create Peer** | Peer Org2 | org2msp |||
   | **CA** | Org2 CA ||||
   | **Peer Identity** | |  | peer2 | peer2pw |
   | **Administrator certificate** | org2msp ||||
-  | **TLS CA** | Org2 CA ||||
-  | **TLS CA ID** | || peer2 | peer2pw |
   | **Associate identity** | Org2 MSP Admin  |||||
-
   *Figure 8. Deploying a peer*  
 
 In a production scenario, it is recommended to deploy three peers to each channel. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org2 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org2secondpeer` and `org2secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org2, choose `Org2 CA`, `Org2 MSP`, and `Org2 MSP Admin ` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org2 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
@@ -320,7 +318,7 @@ Complete the following steps to **import** the ordering service into your consol
 
 1. Navigate to the **Nodes** page and click **Add ordering service**.
 2. Click the option to **Import an existing ordering service**.
-3. Then click the **Add file** button to select the JSON that represents the ordering service. If the JSON representing the ordering service was created before October 2nd, 2019, you will be asked to specify a **Service location** for this ordering service. 
+3. Then click the **Add file** button to select the JSON that represents the ordering service. If the JSON representing the ordering service was created before October 2nd, 2019, you will be asked to specify a **Service location** for this ordering service.
 4. When you are asked to associate an identity for the ordering service nodes, select the peer organization identity you have locally (note that this "association" step is for administration of the ordering nodes themselves and will not make this identity one of the "ordering service administrators" mentioned in the [Add the peer's organization to the consortium](#ibp-console-join-network-add-org2-local) above. In this tutorial, this local peer organization identity would be `Org2 MSP Admin `. Click **Add ordering service**.
 
 When this process is complete, it is possible for `Org2` to create a channel hosted on the `Ordering Service`.
@@ -354,9 +352,7 @@ Perform the following steps from your console:
 2. Select your ordering service named `Ordering Service` and click **Next**.
 3. Enter the name of the channel you want to join, `channel1` and click **Next**.
 4. Select which peers you want to join the channel. For purposes of this tutorial, click `Peer Org2`.
-
 5. Leave the tab for **Make anchor peer** selected. It is a best practice for each organization to have at least one anchor peer on each channel, as anchor peers bootstrap the inter-organizational communication that enables features like [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} to work. While it is only necessary to have one anchor peer on each channel, it does not hurt to make all peer anchor peers. The only downside will be a short term increase in the stress on your communication layer when new organizations join their peers to the channel, as these peers are designed to contact every anchor peer in every organization to find out about the peers belonging to that organization. Note that you can also make a peer an anchor peer later through the **Channels** tab.
-
 6. Click **Join channel**.
 
 If you plan to leverage the Hyperledger Fabric [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} or [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features, you must configure anchor peers in your organizations from the **Channels** tab. For more information about how to configure anchor peers for private data by using the **Channels** tab in console, see [Private data](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).

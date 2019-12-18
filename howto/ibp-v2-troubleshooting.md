@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-21"
+lastupdated: "2019-12-17"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -32,7 +32,7 @@ General problems may occur when using the console to manage nodes, channels, or 
 This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
-- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77) 
+- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
@@ -42,6 +42,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
+- [Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
 
 **Issues with your Nodes**  
 
@@ -51,7 +52,6 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Why are the transactions I submit from VS Code failing with a No endorsement plan available error?](#ibp-v2-troubleshooting-anchor-peer)
-
 **Issues on {{site.data.keyword.cloud_notm}}**  
 
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
@@ -63,6 +63,8 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?](#ibp-v2-troubleshooting-healthchecks)
 - [Why am I getting the error: `Pod Security Conflict`](#ibp-v2-troubleshooting-podsecurityconflict)
 - [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
+
+
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
@@ -76,8 +78,6 @@ This problem can be caused by a [bug](https://bugs.chromium.org/p/chromium/issue
 
 To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
 {: tsResolve}
-
-
 
 
 
@@ -244,6 +244,34 @@ If your session has become inactive, you can try simply refreshing your browser.
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
 
+## Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
+{: #ibp-v2-troubleshooting-console-helm-reset}
+{: troubleshoot}
+
+After attempting to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance, it fails with the error `Cluster linking is taking too long`.
+{: tsSymptoms}
+
+This issue can occur when your cluster is busy processing other requests and does not respond to the linking request in a timely matter.
+{: tsCauses}
+
+To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to setup components on your cluster.
+{: tsResolve}
+
+Run the following command from your IBM Cloud CLI terminal:
+
+```
+bx api cloud.ibm.com
+bx login
+bx cs clusters
+$(bx cs cluster config <cluster_name> --export)
+kubectl get deployments #test that the connection is working
+helm reset
+```
+{: codeblock}
+
+Attempt to link your cluster again. If it continues to fail, you should [Contact Support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
+
+
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
 {: #ibp-v2-troubleshooting-smart-contract-anchor-peers}
 {: troubleshoot}
@@ -346,6 +374,7 @@ This error occurs if you are using the Fabric Service Discovery feature but did 
 
 Follow step three of the [private data topic](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
 {: tsResolve}
+
 
 ## My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?
 {: #ibp-v2-troubleshooting-cluster-expired}

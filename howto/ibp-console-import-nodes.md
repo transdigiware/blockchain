@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-21"
+lastupdated: "2019-12-17"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -53,10 +53,7 @@ Note that when you import a component, you do not actually import the physical c
 
 After you import a node into the console, you can also modify its connection information by using the node's **Settings** tab.
 
-
-
 As you will see below, there are two ways to export and import components and identities: in bulk, or one at a time. Each fulfills a different use case and has different considerations and limitations.
-
 
 ## Limitations
 {: #ibp-console-import-limitations}
@@ -69,7 +66,6 @@ While importing nodes provides the ability to perform many of the actions that c
 - You cannot delete nodes that you imported into the console from the cluster where they were deployed. You can only remove the node from the console it was imported to.
 - If you are importing a node that is deployed on a network deployed locally, you must ensure that the gRPC web proxy port used by the component is externally exposed to the console. For more information, see [Importing nodes from a locally deployed network](#ibp-console-import-icp).
 - When you open the tile of an imported node, the Fabric version is not visible and the **Usage and info** tab is not available, even if you have also imported the admin identity.
-
 
 ## Exporting and importing in bulk
 {: #ibp-console-import-bulk-export-import}
@@ -89,7 +85,6 @@ While exporting and importing components in bulk is highly convenient for some u
 You will also need to associate an admin identity for the CA. This process is similar to the peer and ordering node process except that after you click on the imported CA you will see a separate screen asking you to associate an identity rather than a box on the left.
 
 For cases where bulk data transfers are impractical or inadvisable, you can follow the steps below to export and import components and identities one at a time.
-
 
 ## Gathering certificates or credentials
 {: #ibp-console-import-start-here}
@@ -158,10 +153,8 @@ Importing a peer is performed from the **Nodes** tab.
 2. Click **Add file** to upload the peer JSON file that was exported from the console where it was originally deployed.
 3. Set the admin identity for the peer by clicking **Existing identity** and selecting the peer admin identity that you imported into your wallet.
 
-
 If the peer was exported before October 2nd, 2019, you might have to supply location information specifying where the peer was created. If you see this field, you can choose whether to supply the location or to have the peer re-exported, in which case the console will not ask for this information.
 {: note}
-
 
 After you import the peer into the console, you can install smart contracts on the peer and join the peer to channels in your blockchain.
 
@@ -188,10 +181,8 @@ Navigate to the **Nodes** tab.
 2. Click **Add file** to upload the CA JSON file that was exported from the console where it was originally deployed.
 3. After the CA has been added, click on it in the **Nodes** panel. Then click **Associate identity** and select the CA admin identity from your wallet.
 
-
 If the CA was exported before October 2nd, 2019, you might have to supply location information specifying where the CA was created. If you see this field, you can choose whether to supply the location or to have the CA re-exported, in which case the console will not ask for this information.
 {: note}
-
 
 After you have imported the CA into the console, you can use your CA to create new identities and generate the necessary certificates to operate your components and submit transactions to the network. To learn more, see [Managing certificate authorities](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-manage-ca).
 
@@ -223,17 +214,15 @@ Navigate to the **Nodes** tab.
 3. Click **Add file** to upload the ordering service JSON. Note that regardless of how many nodes are in this ordering service, the JSON representing this ordering service will be one file.
 4. Set the admin identity for the ordering nodes by clicking **Existing identity**. Recall from the [Before you begin section](#ibp-console-import-orderer-before-you-begin) that you can effectively skip this step if you want by selecting any identity in your wallet. However, if you want to have the correct node admin identity exported from the console where it was created and imported into your console and select it in this step, you can choose to do that.
 
-
 If the ordering service was exported before October 2nd, 2019, you might have to supply location information specifying where the ordering service was created. If you see this field, you can choose whether to supply the location or to have the ordering service re-exported, in which case the console will not ask for this information.
 {: note}
-
 
 After you have imported the ordering service into the console, you can add new organization members to the consortium (if your MSP was added as an admin of the ordering service) and select the ordering service when creating new channels (if your organization has been added to the consortium).
 
 ## Importing nodes from a locally deployed network
 {: #ibp-console-import-icp}
 
-You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, {{site.data.keyword.cloud_notm}} Private, and Kubernetes v1.11 or higher container platform on x86_64 into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using white listing, to allow the console outside the cluster to communicate with your nodes.
+You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, {{site.data.keyword.cloud_notm}} Private, and Kubernetes v1.11 - v1.16 container platform on x86_64 into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using white listing, to allow the console outside the cluster to communicate with your nodes.
 
 As an example, you can find the JSON file of a peer below. To communicate with the peer from another console, you need to ensure that the `grpcwp_url` port, port 32403 in this example, is open to external traffic.
 

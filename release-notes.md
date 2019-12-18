@@ -147,7 +147,7 @@ IAM is used to control user access to the console UI as well as restricting the 
 
 **Support for external CA**
 
-When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. See this topic on [Using certificates from an external CA with your peer or orderer](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-third-party-ca) for more information.
+When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on [Using certificates from an external CA with your peer or orderer](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
 
 **Tuning orderer performance**
 
