@@ -199,7 +199,7 @@ Use the quickstart section if you are experimenting or getting started. The All 
 | --------------|-----------------|-------|------- |
 | **Console settings** | **Administration and deployment of your console** | | |
 | `Proxy IP` | IP address of the proxy node of your cluster. | None| Yes |
-| `Console administrator email` | Email used to log into the console. | None | Yes |
+| `Console administrator email` | Email used to log in to the console. | None | Yes |
 | `Console administrator password secret name` | Name of the secret that you [created to store the password](#console-deploy-icp-password-secret) that you will use to login to the console. | None | Yes|
 | **Network settings** | **Network access to your console** | | |
 | `Console hostname` | Enter the same value as the Proxy IP. | None | Yes |

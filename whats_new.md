@@ -37,10 +37,10 @@ subcollection: blockchain
 
 **There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.** 
 - Check out this [tutorial series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external} to learn how to deploy the blockchain console and build a network.
-- [Create](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free){: external} your next generation {{site.data.keyword.blockchainfull_notm}} Platform instance.
+- [Create](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free){: external} your next generation {{site.data.keyword.blockchainfull_notm}} Platform instance.
 - See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks){: external}.
 - Watch this [video](https://www.youtube.com/watch?v=j3jx8trzpKM&feature=youtu.be){: external} to learn how to use our [developer tools](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} to migrate and test existing smart contracts and build new ones. 
-- Check out our [FAQs](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-v2-faq).   
+- Check out our [FAQs](/docs/services/blockchain?topic=blockchain-ibp-v2-faq).   
 
 ### The {{site.data.keyword.blockchainfull_notm}} Platform console UI has been updated
 {: #whats-new-10-02-2019-Console}
