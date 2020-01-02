@@ -417,14 +417,14 @@ $HOME/fabric-ca-client/ca-admin
 Register the component admin identity with the CA by running the following command:
 
 ```
-fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type client --id.secret <password> --tls.certfiles <ca_tls_cert_path>
+fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type admin --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
 Create a new user identity `name` and `secret` for the admin. Make sure to use different values than for the peer or ordering node identity that you registered. The command looks similar to the following example:
 
 ```
-fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
+fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type admin --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
 Make a note of this information. You will use this `name` and `secret` to generate the MSP folder by using the `enroll` command.
@@ -457,12 +457,12 @@ tree
 ├── ca-admin
 │   ├── fabric-ca-client-config.yaml
 │   └── msp
-│       ├── cacerts
-│       │   └── 9-30-250-70-30395-SampleOrgCA.pem
 │       ├── IssuerPublicKey
 │       ├── IssuerRevocationPublicKey
+│       ├── cacerts
+│       │   └── 9-30-250-70-30395-SampleOrgCA.pem
 │       ├── keystore
-│       │   └── 2a97952445b38a6e0a14db134645981b74a3f93992d9ddac54cb4b4e19cdf525_sk
+│       │   └── 425947b767936a8f31780390cbc399cae48663b643e906ceb6944500d57b322c_sk
 │       ├── signcerts
 │       │   └── cert.pem
 │       └── user
@@ -470,31 +470,23 @@ tree
 │   └── tls.pem
 ├── orderer-admin
 │   └── msp
+│       ├── IssuerPublicKey
+│       ├── IssuerRevocationPublicKey
 │       ├── cacerts
 │       │   └── 9-30-250-70-30395-SampleOrgCA.pem
 │       ├── keystore
-│       │   └── dfe06060490bf62e2bd709433fc747ff28cdbb1e040682c5d47a4e8598db4f2e_sk
+│       │   └── 30a12af2359cd96ec02ff5f47ad7793d2fefe3cde2be574bace18b24d36ba015_sk
 │       ├── signcerts
 │       │   └── cert.pem
 │       └── user
-├── peer-admin
-│   └── msp
-│       ├── cacerts
-│       │   └── 9-30-250-70-30395-SampleOrgCA.pem
-│       ├── keystore
-│       │   └── 24f76217c5c7e641ee29b068712181294e427cbee4dbfce230a1a98b53489cbe_sk
-│       ├── signcerts
-│       │   └── cert.pem
-│       └── user
-└── tlsca-admin
-    ├── fabric-ca-client-config.yaml
+└── peer-admin
     └── msp
-        ├── cacerts
-        │   └── 9-30-250-70-30395-tlsca.pem
         ├── IssuerPublicKey
         ├── IssuerRevocationPublicKey
+        ├── cacerts
+        │   └── 9-30-250-70-30395-SampleOrgCA.pem
         ├── keystore
-        │   └── 45a7838b1a91ddfe3d4d22a5a7f2639b868493bcce594af3e3ceb9c07899d117_sk
+        │   └── c9c20a57a3afa70541bee6cec52ea1f654a8b116fcca35e1fbf27e60f1f989ec_sk
         ├── signcerts
         │   └── cert.pem
         └── user
