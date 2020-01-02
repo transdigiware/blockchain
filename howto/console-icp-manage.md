@@ -103,6 +103,8 @@ There are three APIs available to manage your API keys:
 
 Use the request below to create an API key and secret. You can then use this key and secret to use the other APIs. The API secret is not stored by the console and needs to be saved by the user.
 
+For all of APIs provided by the console, you need to add a `-k` or ``--insecure`` flag to bypass the requirement for a TLS certificate. You can also download the TLS certificate from your console by using your browser.
+
 #### Create an API key
 {: #console-icp-manage-create-api-key}
 
@@ -122,6 +124,7 @@ curl -X POST \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys \
   -u user@email.com:password \
   -H 'Content-Type: application/json' \
+  -k \
   -d '{
      "roles": ["writer", "manager"],
      "description": "newkey"
@@ -148,7 +151,8 @@ Once you have created an API key and secret, you can use the APIs to view or rem
 ```
 curl -X GET \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys \
-  -u <api_key>:<api_secret>
+  -u <api_key>:<api_secret> \
+  -k
 ```
 
 #### Delete API keys
@@ -166,7 +170,8 @@ curl -X GET \
 ```
 curl -X DELETE \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys/<api_key> \
-  -u <api_key>:<api_secret>
+  -u <api_key>:<api_secret> \
+  -k
 ```
 
 ### Managing users using the APIs
@@ -179,8 +184,6 @@ You can also use the APIs to list, add, or remove users who can log in to the co
 - [Edit users](#console-icp-manage-edit-users-api)
 - [Add users](#console-icp-manage-add-users-api)
 - [Remove users](#console-icp-manage-remove-users-api)
-
-For the APIs that govern the users and settings of your console, and manage the nodes of your network, you need to add a `-K` or ``--insecure`` flag to bypass the requirement for a TLS certificate. You can also download the TLS certificate from your console by using your browser.
 
 #### List users
 {: #console-icp-manage-list-users-api}
