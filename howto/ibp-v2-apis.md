@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-12"
+  years: 2020
+lastupdated: "2020-01-02"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -148,10 +148,7 @@ You can use APIs to create blockchain components in your instance of the {{site.
   - You also need to [register an organization administrator](#ibp-v2-apis-config-register-admin) and then [generate certificates for the admin](#ibp-v2-apis-config-enroll-admin) inside an MSP folder. You do not have to complete this step if you have already registered your admin identity.
   - [Register the new component with your TLS CA](#ibp-v2-apis-config-register-component-tls).
 
-
-  You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/services/blockchain/?topic=blockchain-ibp-console-identities).
-
-  
+  You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/services/blockchain/?topic=blockchain-ibp-console-identities). 
 
 3. [Create an MSP definition for your organization](#ibp-v2-apis-msp) by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
@@ -240,7 +237,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 2. Set the `PATH` path to the directory where you downloaded the Fabric tool binaries:
 
   ```
-  export PATH=$PATH:<full/path/to/fabric-client/bin>
+  export PATH=$PATH:<full/path/to/fabric-ca-client/bin>
   ```
   {:codeblock}
 
@@ -365,6 +362,7 @@ First, you need to register a component identity with your CA. Your component us
   ```
   fabric-ca-client affiliation list --caname ca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
   ```
+  {:codeblock}
 
   You should see information that is similar to the following example:
   ```
