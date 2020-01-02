@@ -16,6 +16,7 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 {:tip: .tip}
 {:pre: .pre}
 
@@ -89,7 +90,7 @@ The following table contains a list of options to consider as you plan for incre
 {: caption="Table 1. Comparison of deployment scenarios to increase your network HA" caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the deployment scenarios. The column headers identify available options in each scenario to increase your HA."}
 
-  *** The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spread peers and ordering nodes across different worker nodes but cannot guarantee that it will happen due to resource limitations. You can also use the {{site.data.keyword.blockchainfull_notm}} Platform APIs or the blockchain console to deploy peers or ordering nodes to specific zones in order to ensure that they are resilient to a zone failure. For more information see [Multizone HA](#ibp-console-ha-multi-zone).  Multi-zone (MZR) functionality is not available on {{site.data.keyword.cloud_notm}} Private.  
+  *** The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spread peers and ordering nodes across different worker nodes but cannot guarantee that it will happen due to resource limitations. You can also use the {{site.data.keyword.blockchainfull_notm}} Platform APIs or the blockchain console to deploy peers or ordering nodes to specific zones in order to ensure that they are resilient to a zone failure. For more information see [Multizone HA](#ibp-console-ha-multi-zone).  Multi-zone ([MZR](#x9774820){: term}) functionality is not available on {{site.data.keyword.cloud_notm}} Private.  
 
 ** The default configuration for a Standard Kubernetes cluster on {{site.data.keyword.cloud_notm}} is a 4 CPU x 16 GB RAM cluster that includes three zones with three worker nodes each. You can scale up or down, by selecting a smaller or larger configuration, according to your needs. 
 

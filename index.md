@@ -16,6 +16,7 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
+{:term: .term}
 {:pre: .pre}
 {:external: target="_blank" .external}
 
@@ -49,7 +50,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 | Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform v2.1.2](/docs/blockchain-rhos?topic=blockchain-rhos-console-ocp-about#console-ocp-about-offers)  | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
 {: caption="Table 1. Which offering is right for your business?" caption-side="bottom"}
 
-** {{site.data.keyword.blockchainfull_notm}} images - Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.2 includes an entitlement to images for peer, CA, ordering service, and smart contract containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}}  images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information, see [Using the IBM Blockchain images](/docs/blockchain-rhos?topic=blockchain-rhos-blockchain-images).
+** {{site.data.keyword.blockchainfull_notm}} images - Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.2 includes an entitlement to images for peer, [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and smart contract containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}}  images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information, see [Using the IBM Blockchain images](/docs/blockchain-rhos?topic=blockchain-rhos-blockchain-images).
 
 
 ### Developer Tools

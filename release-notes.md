@@ -15,6 +15,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:shortdesc: .shortdesc}
+{:term: .term}
 {:pre: .pre}
 {:external: target="_blank" .external}
 
@@ -103,7 +104,7 @@ This patch contains a security fix for the peer couchDB container.
 
 **Ordering node patch `1.4.1-2`**  
 
-This patch fixes a problem that occurs when ordering nodes restart. The genesis block is updated which prevents the ordering node from communicating with the other nodes in the ordering service. You can apply this patch to all existing ordering nodes in your ordering services by following these [instructions](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) to update each ordering node. All new ordering nodes that you create will automatically include this fix.
+This patch fixes a problem that occurs when ordering nodes restart. The [genesis block](#x9076628){: term} is updated which prevents the ordering node from communicating with the other nodes in the ordering service. You can apply this patch to all existing ordering nodes in your ordering services by following these [instructions](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) to update each ordering node. All new ordering nodes that you create will automatically include this fix.
 
 **Anchor peer removal**  
 
