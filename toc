@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="blockchain" category="app_services,databases" audience="service" arm="339" href="/docs/services/blockchain/index.html" path="services/blockchain"}
+{: .toc subcollection="blockchain" category="app_services,databases" audience="service" arm="339" href="/docs/blockchain/index.html" path="services/blockchain"}
 IBM Blockchain Platform
 
 	{: .navgroup id="learn"}
@@ -96,7 +96,7 @@ IBM Blockchain Platform
 	reference/ibp_regions.md
 	reference/logdna.md
 	reference/sysdig.md
-	[IBM Cloud storage](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
+	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}
 

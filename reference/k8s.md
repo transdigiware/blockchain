@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-09-23"
+  years: 2019, 2020
+lastupdated: "2019-08-30"
 
 subcollection: blockchain
 

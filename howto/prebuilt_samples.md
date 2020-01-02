@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-03-05"
 
 keywords: IBM Blockchain Platform, sample applications, Javascript application, IBM Cloud
@@ -33,4 +33,4 @@ subcollection: blockchain
 
 The sample applications are created by {{site.data.keyword.IBM_notm}} and community partners. Support for samples will be provided through the corresponding GitHub repositories. If you run into a problem, click the **Get help** link next to the publisher name, and open an issue in the GitHub repo to notify the relevant team.
 
-To deploy samples, you need a blockchain network on {{site.data.keyword.cloud_notm}} with either Starter Plan or Enterprise Plan, and configure a channel and peers. For more information, see [Getting started with Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan) and [Getting started with Enterprise Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan).
+To deploy samples, you need a blockchain network on {{site.data.keyword.cloud_notm}} with either Starter Plan or Enterprise Plan, and configure a channel and peers. For more information, see [Getting started with Starter Plan](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan) and [Getting started with Enterprise Plan](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan).

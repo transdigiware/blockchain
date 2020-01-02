@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-05"
+  years: 2017, 2020
+lastupdated: "2020-01-02"
 
 keywords: channel update policy, endorsement policy, Network Monitor, number of channel operators
 
@@ -76,5 +76,5 @@ All channel members will receive email notifications on the channel update reque
 
 When enough channel operators agree on the request, any channel member can click the **Submit Request** button and the channel is updated. All channel members can find the updated channel in the "Channels" screen of the Network Monitor.
 
-Endorsement policies are not updated automatically when new organizations join the channel and install the chaincode. For example, if the policy requires two of five organizations to endorse a transaction, the policy will not be updated to require two out of six organizations when a new organization joins the channel. Instead, the new organization will not be listed on the policy, and they will not be able to endorse transactions. You can add a new organization to an endorsement policy by [updating the relevant chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc). For more information, see [Specifying chaincode endorsement policies](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy).
+Endorsement policies are not updated automatically when new organizations join the channel and install the chaincode. For example, if the policy requires two of five organizations to endorse a transaction, the policy will not be updated to require two out of six organizations when a new organization joins the channel. Instead, the new organization will not be listed on the policy, and they will not be able to endorse transactions. You can add a new organization to an endorsement policy by [updating the relevant chaincode](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc). For more information, see [Specifying chaincode endorsement policies](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy).
 {:important}

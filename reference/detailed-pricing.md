@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-18"
+  years: 2019, 2020
+lastupdated: "2020-01-02"
 
 keywords: Pricing, pricing examples
 
@@ -32,7 +32,7 @@ This topic includes additional detailed pricing and sizing scenarios to help you
 The costs that are provided in this topic are guidelines and do not represent actual costs. They represent a starting point for estimates of costs that would be incurred in environments with a similar configuration. Actual costs can vary by geography.  The prices used are based on actual prices as of October 16, 2019 and it is possible they can change. The performance of your configuration depends on your smart contracts and the queries you are running. To determine your actual costs, it is important that you test the configuration to verify that the performance satisfies your requirements.
 {: important}
 
-If you need to first learn more about the basic elements that factor into the cost a blockchain network, review the topic on [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing).
+If you need to first learn more about the basic elements that factor into the cost a blockchain network, review the topic on [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing).
 {: note}
 
 ## Scenario comparisons

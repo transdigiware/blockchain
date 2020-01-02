@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-17"
+  years: 2019, 2020
+lastupdated: "2020-01-02"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -61,7 +61,7 @@ subcollection: blockchain
 {: #ibp-v2-faq-v2-IBP-Overview-1-7}
 {: faq}
 
-Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed ledger technology capable of addressing a wide variety of use cases across many industries. {{site.data.keyword.blockchainfull_notm}} Platform is built on top of Fabric and includes integrated tools that provide end to end features for developers and network operators to develop, test, operate, monitor, and govern Hyperledger Fabric components by using an intuitive console UI. Quickly deploy an instance and use the streamlined console UI to [build a network](/docs/services/blockchain?topic=blockchain-ibp-console-build-network), easily [install and instantiate smart contracts](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts), [govern your components](/docs/services/blockchain?topic=blockchain-ibp-console-govern-components), and [govern your channel](/docs/services/blockchain?topic=blockchain-ibp-console-govern). Interested in APIs? See the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain){: external}. With the {{site.data.keyword.blockchainfull_notm}} Platform, it is easy to extend a basic network, work with multicloud solutions, and receive {{site.data.keyword.IBM_notm}} worldwide support when needed. Finally, the {{site.data.keyword.blockchainfull_notm}} Platform provides additional security benefits that are essential for running an enterprise-grade production network.
+Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed ledger technology capable of addressing a wide variety of use cases across many industries. {{site.data.keyword.blockchainfull_notm}} Platform is built on top of Fabric and includes integrated tools that provide end to end features for developers and network operators to develop, test, operate, monitor, and govern Hyperledger Fabric components by using an intuitive console UI. Quickly deploy an instance and use the streamlined console UI to [build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network), easily [install and instantiate smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts), [govern your components](/docs/blockchain?topic=blockchain-ibp-console-govern-components), and [govern your channel](/docs/blockchain?topic=blockchain-ibp-console-govern). Interested in APIs? See the [{{site.data.keyword.blockchainfull_notm}} Platform API reference](https://cloud.ibm.com/apidocs/blockchain){: external}. With the {{site.data.keyword.blockchainfull_notm}} Platform, it is easy to extend a basic network, work with multicloud solutions, and receive {{site.data.keyword.IBM_notm}} worldwide support when needed. Finally, the {{site.data.keyword.blockchainfull_notm}} Platform provides additional security benefits that are essential for running an enterprise-grade production network.
 
 
 
@@ -76,7 +76,7 @@ Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed
 {: #ibp-v2-faq-v2-IBP-Overview-1-3}
 {: faq}
 
-You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-console-govern-components#ibp-console-govern-components-level-couch) to decide what is best for your business needs.
+You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/blockchain-rhos?topic=blockchain-rhos-ibp-console-govern-components#ibp-console-govern-components-level-couch) to decide what is best for your business needs.
 
 ## What languages are supported for smart contracts?
 {: #ibp-v2-faq-v2-IBP-Overview-1-4}
@@ -88,19 +88,19 @@ The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts 
 {: #ibp-v2-faq-v2-external-certs}
 {: faq}
 
-Yes, you can bring your own certificates if they are issued by a CA that is X.509 compliant. The CA should sign by using ECDSA and the defaults should be set to use P256 curve. See this topic about [Using certificates from an external CA with your peer or ordering service](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-console-govern-components#ibp-console-govern-third-party-ca).
+Yes, you can bring your own certificates if they are issued by a CA that is X.509 compliant. The CA should sign by using ECDSA and the defaults should be set to use P256 curve. See this topic about [Using certificates from an external CA with your peer or ordering service](/docs/blockchain-rhos?topic=blockchain-rhos-ibp-console-govern-components#ibp-console-govern-third-party-ca).
 
 ## I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?
 {: #ibp-v2-faq-migrate-raft}
 {: faq}
 
-Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/services/blockchain-rhos?topic=blockchain-rhos-ibp-v2-faq#ibp-v2-faq-interoperability).
+Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-rhos?topic=blockchain-rhos-ibp-v2-faq#ibp-v2-faq-interoperability).
 
 ## How can I find the examples and tutorials within the VSCode extension
 {: #ibp-v2-faq-vscode-tutorials}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/services/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
 
 ## If service discovery is on, will an endorsement request be routed to any peer on the network?
 {: #ibp-v2-faq-service-discovery}
@@ -119,7 +119,7 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 {: #ibp-v2-faq-cloud-pricing)
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is priced based on the VPCs that you allocate to your blockchain nodes on the {{site.data.keyword.IBM_notm}} Kubernetes Service. For more information, see [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing).
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is priced based on the VPCs that you allocate to your blockchain nodes on the {{site.data.keyword.IBM_notm}} Kubernetes Service. For more information, see [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing).
 
 ## Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
@@ -137,7 +137,7 @@ When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service in
 {: #ibp-v2-faq-v2-IBP-Overview-1-9}
 {: faq}
 
-The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are listed in [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/services/blockchain?topic=blockchain-ibp-regions-locations). Note that you must create an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster in the same region as the blockchain service to recognize the cluster. Additional regions will be available soon.
+The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are listed in [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations). Note that you must create an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster in the same region as the blockchain service to recognize the cluster. Additional regions will be available soon.
 
 ## Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?
 {: #ibp-v2-faq-v2-Infrastructure-4-2}
@@ -157,13 +157,13 @@ With {{site.data.keyword.blockchainfull_notm}} Platform, you can now directly ac
 {: #ibp-v2-faq-cloud-storage}
 {: faq}
 
-By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Classic file storage. You can find more information on the [{{site.data.keyword.cloud_notm}} File storage page](/docs/containers?topic=containers-file_storage#file_storage){: external}. For a complete list of storage options, see [Persistent storage considerations](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
+By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Classic file storage. You can find more information on the [{{site.data.keyword.cloud_notm}} File storage page](/docs/containers?topic=containers-file_storage#file_storage){: external}. For a complete list of storage options, see [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 
 ## What are the benefits of {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
 {: #ibp-v2-faq-icp-benefits}
 {: faq}
 
-See [What the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud offers](/docs/services/blockchain?topic=blockchain-console-icp-about#what-ibm-blockchain-platform-for-ibm-cloud-private-offers).
+See [What the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud offers](/docs/blockchain?topic=blockchain-console-icp-about#what-ibm-blockchain-platform-for-ibm-cloud-private-offers).
 
 ## Which environments does {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud support?
 {: #ibp-v2-faq-icp-environments}
@@ -175,7 +175,7 @@ See [What the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud 
 {: #ibp-v2-faq-icp-pricing}
 {: faq}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud [licensing](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) is based on the amount of CPU (VPC) made available to the product. For details, [contact IBM](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}.
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud [licensing](/docs/blockchain?topic=blockchain-ibp-software-pricing) is based on the amount of CPU (VPC) made available to the product. For details, [contact IBM](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}.
 
 ## What services do I need to install to use {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
 {: #ibp-v2-faq-icp-services}
@@ -187,7 +187,7 @@ You need to install only {{site.data.keyword.cloud_notm}} Private v3.2.
 {: #ibp-v2-faq-icp-sizing}
 {: faq}
 
-After you understand how many CAs, peers, and ordering nodes are required, you can examine the [default resource allocations table](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources) to get an approximate estimate of the CPUs (VPCs) required for your network.
+After you understand how many CAs, peers, and ordering nodes are required, you can examine the [default resource allocations table](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources) to get an approximate estimate of the CPUs (VPCs) required for your network.
 
 ## What happens to my blockchain components when I delete my Helm release?
 {: #ibp-v2-faq-icp-delete}

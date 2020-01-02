@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2020
 lastupdated: "2019-10-03"
 
 keywords: Network Monitor, peer nodes, resources, channels, smart contract
@@ -32,13 +32,13 @@ Use this tutorial to learn how to use your Network Monitor to operate an Enterpr
 {: #ibp-dashboard-left-navigation}
 
 The Network Monitor exposes the following screens in three sections. You can navigate to each screen from the left navigator in the Network Monitor.
-- The **My network** section contains the "[Overview](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)", "[Members](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)", "[Channels](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)", "[Notifications](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)", "[Certificate Authority](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)", and "[APIs](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)" screens.
-- The **My code** section contains the "[Develop code](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write_code)", "[Install code](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)", and "[Try samples](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)" screens.
-- The "[Get help](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)" screen shows support information as well as release notes for helios and Hyperledger Fabric (the code base the {{site.data.keyword.blockchainfull_notm}} Platform is based on).
+- The **My network** section contains the "[Overview](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)", "[Members](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)", "[Channels](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)", "[Notifications](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)", "[Certificate Authority](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)", and "[APIs](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)" screens.
+- The **My code** section contains the "[Develop code](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write_code)", "[Install code](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)", and "[Try samples](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)" screens.
+- The "[Get help](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)" screen shows support information as well as release notes for helios and Hyperledger Fabric (the code base the {{site.data.keyword.blockchainfull_notm}} Platform is based on).
 
-The name of your blockchain network is at the top of the left navigation pane. You can [change the name of your network](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name) in the Network Monitor.
+The name of your blockchain network is at the top of the left navigation pane. You can [change the name of your network](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name) in the Network Monitor.
 
-You can [check and configure network preferences](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) from the drop-down menu on the upper right of the Network Monitor.
+You can [check and configure network preferences](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) from the drop-down menu on the upper right of the Network Monitor.
 
 This tutorial describes each of the above screens and functions.
 
@@ -58,7 +58,7 @@ The **Actions** header of the table provides buttons to start or stop your resou
 
 The Stop and Start actions are not available for an Orderer node. In general, there is no need to stop and start Peer or CA nodes on a network. The Stop and Start actions are provided in case you needed to restart a peer, for example to bring it up in a clean state.
 
-You can also check component logs by clicking **View Logs** from the drop-down list under the **Actions** header. The logs expose the calls between the various network resources and are useful for debugging and troubleshooting. For more information on using your network logs, see [Monitoring a blockchain network](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)
+You can also check component logs by clicking **View Logs** from the drop-down list under the **Actions** header. The logs expose the calls between the various network resources and are useful for debugging and troubleshooting. For more information on using your network logs, see [Monitoring a blockchain network](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network)
 
 To understand the effects of starting and stopping a peer, you can experiment by stopping a peer and attempting to target it with a transaction, and you will see connectivity errors in the logs. When you restart the peer and attempt the transaction again, you will see a successful connection. You can also leave a peer down for an extended period of time as your channels continue to transact. When the peer is brought back up, you will notice a synchronization of the ledger as it receives the blocks that were committed when it was down. After the ledger is fully synchronized, you can perform normal invokes and queries against it.
 
@@ -70,7 +70,7 @@ You can view the JSON file about low-level network information of each resource 
 ### Add peers
 {: #ibp-dashboard-peers}
 
-Network members deploy [peers](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer) to store their copies of network ledger and to run chaincode to query or update the ledger. If the endorsement policy defines a peer as an endorsing peer, the peer also returns endorsement results to applications.
+Network members deploy [peers](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer) to store their copies of network ledger and to run chaincode to query or update the ledger. If the endorsement policy defines a peer as an endorsing peer, the peer also returns endorsement results to applications.
 
 Click the **Add Peers** button at the upper right to add peer nodes to your network. In the pop-up "Add Peers" panel, select the number and size of peer nodes you want to add. You can add more peers for your organizations based on your own requirements. You might be in different scenarios when you need more peers. For example, you might want multiple peers to join the same channel for redundancy. Each peer processes the channel's transactions and writes to their respective copies of the ledger. If one of the peers fails, the other peer (or multiple other peers) can continue processing transactions and application requests. You can also symmetrically load balance all application requests across the peers, or you could target different peers for different functions. For example, you can use one peer to query the ledger and use another peer to process endorsements for ledger updates.
 
@@ -130,11 +130,11 @@ Consisting of a subset of network members who want to transact privately, channe
 
 ![Channels](images/channels.png "Channels"){: caption="Figure 6. Channels" caption-side="bottom"}
 
-Creating a channel results in the generation of a channel-specific ledger. For more information, see [Creating a channel](/docs/services/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel).
+Creating a channel results in the generation of a channel-specific ledger. For more information, see [Creating a channel](/docs/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel).
 
-You can also select an existing channel to view more precise details about the channel, membership, and active chaincode. For more information, see [Monitoring a network](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
+You can also select an existing channel to view more precise details about the channel, membership, and active chaincode. For more information, see [Monitoring a network](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network).
 
-If you have uploaded a new certificate to the platform by using the ["Certificates" tab](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates) of the "Members" screen, you can use this panel to add the certificate to a channel. Click **Sync Certificate** from the drop-down list under the **Actions** header next to the relevant channel. This allows you to operate the channel from a remote client, including being able to instantiate a chaincode on the channel. For more information, see [Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs) in the [Managing certificates](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) tutorial.
+If you have uploaded a new certificate to the platform by using the ["Certificates" tab](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates) of the "Members" screen, you can use this panel to add the certificate to a channel. Click **Sync Certificate** from the drop-down list under the **Actions** header next to the relevant channel. This allows you to operate the channel from a remote client, including being able to instantiate a chaincode on the channel. For more information, see [Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs) in the [Managing certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates) tutorial.
 
 ## Notifications
 {: #ibp-dashboard-notifications}
@@ -172,7 +172,7 @@ Click the **Add User** button to register a new identity to your organization. I
   - **Affiliation:** This will be the affiliation within your organization, such as `org1` for example, that the identity will belong to.
   - **Maximum Enrollments:** You can use this field to limit the number of times that your can enroll or generate certificates with this identity. If you leave the field blank, the value defaults to an unlimited number of enrollments.
 
-You can learn more about your CA by visiting the [Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) tutorial.
+You can learn more about your CA by visiting the [Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates) tutorial.
 
 ## APIs
 {: #ibp-dashboard-apis}
@@ -183,7 +183,7 @@ You can learn more about your CA by visiting the [Managing certificates on {{sit
 
 ![APIs](images/API_screen.png "APIs"){: caption="Figure 9. APIs" caption-side="bottom"}
 
-Click the **Swagger UI** link to open the Swagger UI. Note that you need to authorize the Swagger UI with your network credentials (which can be found on this APIs page) before you can run the APIs. For more information, see [Interacting with the network using Swagger APIs](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger).
+Click the **Swagger UI** link to open the Swagger UI. Note that you need to authorize the Swagger UI with your network credentials (which can be found on this APIs page) before you can run the APIs. For more information, see [Interacting with the network using Swagger APIs](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger).
 
 ## Develop Code
 {: #ibp-dashboard-write-code}
@@ -196,7 +196,7 @@ Starter Plan and Enterprise Plan provide a development environment with industry
 
 ![Develop code](images/write_code.png "Develop code"){: caption="Figure 10. Develop code" caption-side="bottom"}
 
-For more information about developing and deploying your business networks, see [Deploying business networks on Starter and Enterprise Plan](/docs/services/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network).
+For more information about developing and deploying your business networks, see [Deploying business networks on Starter and Enterprise Plan](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network).
 
 ## Install code
 {: #ibp-dashboard-chaincode}
@@ -207,12 +207,12 @@ Chaincode, which is also known as "smart contract", is pieces of software that c
 
 ![Install code](images/chaincode_install_overview.png "Install code"){: caption="Figure 11. Install code" caption-side="bottom"}
 
-A chaincode is first installed on a peer's file system and then instantiated on a channel. For more information, see [Installing, instantiating, and updating a chaincode](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
+A chaincode is first installed on a peer's file system and then instantiated on a channel. For more information, see [Installing, instantiating, and updating a chaincode](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode).
 
 ## Try samples
 {: #ibp-dashboard-samples}
 
-Sample applications help you to get a better understanding of a blockchain network and application development. Follow the **View on GitHub** links to learn how to use the samples and deploy them to {{site.data.keyword.blockchainfull_notm}} Platform. For more information on how to develop and deploy your samples, see [Deploying Sample Applications](/docs/services/blockchain?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
+Sample applications help you to get a better understanding of a blockchain network and application development. Follow the **View on GitHub** links to learn how to use the samples and deploy them to {{site.data.keyword.blockchainfull_notm}} Platform. For more information on how to develop and deploy your samples, see [Deploying Sample Applications](/docs/blockchain?topic=blockchain-deploying-sample-applications#deploying-sample-applications).
 
 **Figure 12** shows the "Try samples" screen:
 
@@ -230,9 +230,9 @@ The "Get help" screen contains a "Support" tab that provides a list of resources
 ### Blockchain resources and support forums
 {: #ibp-dashboard-support-forums}
 
-Use the resources in the "Support" tab to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Fabric community. For more information about the links on the "Support" tab, see [Resources and support forums](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) in [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
+Use the resources in the "Support" tab to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Fabric community. For more information about the links on the "Support" tab, see [Resources and support forums](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) in [Getting support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
-If you cannot debug your issue or ascertain an answer to your question, submit a support case in the {{site.data.keyword.cloud_notm}} Service Portal. For more information, see [Submitting support cases](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
+If you cannot debug your issue or ascertain an answer to your question, submit a support case in the {{site.data.keyword.cloud_notm}} Service Portal. For more information, see [Submitting support cases](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 ### Fabric release notes
 {: #ibp-dashboard-release-notes}
@@ -274,7 +274,7 @@ The web inactivity timeout is set to **Off** by default. If you turn the web ina
 
 The mutual TLS button is set to **Off** by default. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications will not be able to communicate with your network.
 
-For a Fabric 1.1 Enterprise plan network, each organization has its own mutual TLS certificate authority (CA). The information required to connect to the mutual TLS CA is available in the [Connection profile](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile) accessible from your **Overview** screen in the Network Monitor by clicking the **Connection Profile** button. The connection profile contains the necessary information to connect to the CA and get the certificates you need to connect to your network.
+For a Fabric 1.1 Enterprise plan network, each organization has its own mutual TLS certificate authority (CA). The information required to connect to the mutual TLS CA is available in the [Connection profile](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile) accessible from your **Overview** screen in the Network Monitor by clicking the **Connection Profile** button. The connection profile contains the necessary information to connect to the CA and get the certificates you need to connect to your network.
 
 In the Connection Profile, locate the `certificateAuthorities` section where you will find the following attributes that are necessary to enroll and get the certificates to communicate with your network using Mutual TLS.
 
