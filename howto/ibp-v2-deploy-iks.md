@@ -113,9 +113,9 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 |Kubernetes cluster type | Use case | CPU | RAM | Worker nodes |
 |-----------|------|-----|-----------------------|
 |Standard (Recommended) | Suitable for MVPs | 4 (Shared) | 16 GB (Shared)|multiple|
-|Free** | Suitable for evaluation | 2 | 4 GB | 1 |  
-** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.
+|Free** | Suitable for evaluation | 2 | 4 GB | 1 |
 {: caption="Table 1. Recommended cluster size on {{site.data.keyword.cloud_notm}} Kubernetes Service" caption-side="bottom"}
+** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.
 
 These resources are sufficient for testing and experimentation. The [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network), in which you create two peers, two CAs, and an ordering service, takes up approximately 4.15 CPU, with the five node ordering service taking up 1.75 CPUs of that. Therefore, if you plan to deploy a five node ordering service, you should not deploy a Kubernetes cluster with a 2 CPU single worker node as the ordering service will not fit comfortably with other nodes. We recommend a cluster with nodes of at least 4 CPU. The more worker nodes you add, the easier your cluster will be able to handle your deployments.
 {:note}

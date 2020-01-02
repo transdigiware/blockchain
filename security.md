@@ -103,7 +103,7 @@ MSP folders for organization members are based on a Fabric defined structure and
 | Many Fabric components contain additional information inside their MSP folder. For example, a peer, includes the following folders: ||
 | `admincerts` | Contains the admin certificates for this organization or component. |
 | `tls` | Contains the TLS certs that you store for communicating with other network components. |
-{: caption="Table 1. MSP folders" caption-side="top"}
+{: caption="Table 1. MSP folders" caption-side="bottom"}
 
 Note that organization MSPs are stored in browser storage and must be exported to a local file system and secured by the customer.
 

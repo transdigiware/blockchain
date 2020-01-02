@@ -115,6 +115,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 | **{{site.data.keyword.blockchainfull_notm}} Platform Kubernetes Cluster** | **Description** |
 | ------------------------- |-----------|
 | Operational Tooling | Also known as the `console`, this is your central user interface for operating all of your blockchain components. With this console you can now create CA, peer, and orderer nodes, create channels and install and instantiate smart contracts developed with the Hyperledger Fabric v1.4 VS Code extension. The console is deployed in an {{site.data.keyword.IBM_notm}}-owned cluster. There is no charge for this tooling or the Kubernetes cluster where it runs.|
+{: caption="Table 1.Components that reside in the {{site.data.keyword.blockchainfull_notm}} Platform Kubernetes Cluster" caption-side="bottom"}
 
 
 | **Kubernetes Cluster Service Instance** | **Description** |
@@ -124,6 +125,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 | **Proxy** | The {{site.data.keyword.blockchainfull_notm}} Platform proxy is responsible for routing traffic to the correct peer, CA and orderer nodes by using host header routing. |
 | **Peers, CAs, Orderers** | These are the nodes that are created by deploying the underlying helm charts. Note: These nodes could also be imported from other Kubernetes Cluster Service Instances. Because the keys are never stored by {{site.data.keyword.IBM_notm}}, every peer and orderer node includes a gRPC web proxy that allows the console to communicate with each node by using the keys in the console wallet. |
 | **RBAC** | Role based access control.  The {{site.data.keyword.blockchainfull_notm}} Platform configures [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/){: external} in the cluster which is required to manage blockchain components in the cluster.
+{: caption="Table 2.Components that reside in the customer Kubernetes Cluster" caption-side="bottom"}
 
 ## Getting support
 {: #ibp-console-overview-support}

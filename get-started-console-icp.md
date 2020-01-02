@@ -49,6 +49,7 @@ If you are building a network that will be used in production, you need setup yo
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 
+{: caption="Table 1.Default resource allocations" caption-side="bottom"}
 
 ## Step two: Install the {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-console-icp-step-two-deploy-console}

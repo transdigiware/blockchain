@@ -111,8 +111,7 @@ To create the CA that will issue certificates for your first organization, perfo
   | **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|
   | **Create CA** | Org1 CA  | admin | adminpw |
-
-  *Figure 3. Creating the peer organization CA*
+  {: caption="Table 1. Creating the peer organization CA" caption-side="bottom"}
 
 After you deploy the CA, you need to associate an admin identity. This will allow you to operate your CA and use it to create your organization MSP, register users, and your **peer**.
 
@@ -140,8 +139,8 @@ After setting the CA admin identity, you will be able to see the table of regist
   |  **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
   | **Enroll ID** |  Org1 CA Admin | admin | adminpw |
+  {: caption="Table 2. Associate the CA admin identity" caption-side="bottom"}
 
-*Figure 4. Associate the CA admin identity*
 
 You can view the CA admin identity in your console Wallet by clicking on the **Wallet** in the left navigation. Click the identity to view the certificate and private key of the CA admin.
 
@@ -150,8 +149,7 @@ You can view the CA admin identity in your console Wallet by clicking on the **W
   | **Field** |  **Display name** | **Description** |
   | ------------------------- |-----------|----------|
   | **Identity** | Org1 CA Admin | Org1 CA admin identity |
-
-*Figure 5. Check your Wallet*
+  {: caption="Table 3. Check your Wallet" caption-side="bottom"}
 
 The identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to operate the CA. Click **Export identity** to download the identity and keys.
 {: important}
@@ -180,8 +178,7 @@ Registering these identities with the CA is only the first step in **creating** 
   | ------------------------- |-----------|-----------|-----------|-----------|
   | **Register users** |  Org1 admin | org1admin | org1adminpw |
   | | Peer identity |  peer1 | peer1pw |
-
-  *Figure 6. Using your CA to register users*
+  {: caption="Table 4. Using your CA to register users" caption-side="bottom"}
 
 ### Creating the peer organization MSP definition
 {: #ibp-console-build-network-create-peers-org1}
@@ -204,8 +201,7 @@ Now that we have created the peer's CA and used it to **register** identities fo
   | **Root CA** | Org1 CA ||||
   | **Org Admin Cert** | |  | org1admin | org1adminpw |
   | **Identity** | Org1 MSP Admin |||||
-
-  *Figure 7. Create the peer organization MSP definition*
+  {: caption="Table 5. Create the peer organization MSP definition" caption-side="bottom"}
 
 After you have created the MSP, you should be able to see the peer organization admin in your console **Wallet**.
 
@@ -215,8 +211,8 @@ After you have created the MSP, you should be able to see the peer organization 
   | ------------------------- |-----------|----------|
   | **Identity** | Org1 CA Admin | Org1 admin identity |
   | **Identity** | Org1 MSP Admin | Org1 MSP admin identity |
+  {: caption="Table 6. Check your Wallet" caption-side="bottom"}
 
-  *Figure 8. Check your Wallet*
 
 For more information about MSPs, see [managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
@@ -267,8 +263,8 @@ Use your console to perform the following steps:
   | **Peer Identity** | |  | peer1 | peer1pw |
   | **Administrator certificate** | org1msp ||||
   | **Associate identity** | Org1 MSP Admin |||||
+  {: caption="Table 7. Deploying a peer" caption-side="bottom"}
 
-  *Figure 9. Deploying a peer*
 
 In a production scenario, it is recommended that each organization deploy three peers to each channel. These can be the same three peers joined to different channels or different peers. It is up to the organization. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org1 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org1secondpeer` and `org1secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org1, choose `Org1 CA`, `Org1 MSP`, and `Org1 MSP Admin ` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org1 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
 {:tip}
@@ -338,8 +334,7 @@ Once the CA is running, as indicated by the green box in the tile, complete the 
   |  **Field** | **Display name** | **Enroll ID** | **Secret** |
   | ------------------------- |-----------|-----------|-----------|-----------|
   | **Enroll ID** |  Ordering Service CA Admin  | admin | adminpw |
-
-*Figure 10. Associate CA admin identity*
+  {: caption="Table 8. Associate CA admin identity" caption-side="bottom"}
 
 You should be able to see the CA admin in your **Wallet**. As we said above, the identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your console Wallet to be able to operate the CA. Click the CA admin and then click **Export identity** to download the identity and keys.
 
@@ -350,8 +345,7 @@ You should be able to see the CA admin in your **Wallet**. As we said above, the
   | **Identity** | Org1 CA Admin | Org1 CA admin identity |
   | **Identity** | Org1 MSP Admin   | Org1 admin identity |
   | **Identity** | Ordering Service CA Admin | Ordering Service CA admin identity |
-
-*Figure 11. Check your Wallet*
+  {: caption="Table 9. Check your Wallet" caption-side="bottom"}
 
 ### Using your CA to register ordering service node and ordering service admin identities
 {: #ibp-console-build-network-use-CA-orderer}
@@ -372,8 +366,7 @@ Once you have associated the CA admin, you can use the CA tile to create these i
   | **Create CA** | Ordering Service CA | admin | adminpw |
   | **Register users** | Ordering Service admin | OSadmin | OSadminpw |
   |  | Ordering Service node identity |  OS1 | OS1pw |
-
-*Figure 12. Create a CA and register users*
+  {: caption="Table 10. Create a CA and register users" caption-side="bottom"}
 
 For the purpose of this tutorial, we are only creating one node identity. This identity will be used by the one node that we will deploy to create the ordering service. While you would not want to do this in a multi-organizational ordering service, it is acceptable given that all of the ordering nodes are owned by the same organization.
 
@@ -398,8 +391,7 @@ Create your ordering service organization MSP definition and specify the admin i
   | **Root CA** | Ordering Service CA ||||
   | **Org Admin Cert** | |  | OSadmin | OSadminpw |
   | **Identity** | Ordering Service MSP Admin |||||
-
-  *Figure 13. Create the ordering service organization MSP definition*
+  {: caption="Table 11. Create the ordering service organization MSP definition" caption-side="bottom"}
 
 After you have created the MSP, you should be able to see the ordering service organization admin in your **Wallet**, which can be accessed by clicking on the **Wallet** in the left navigation.
 
@@ -411,8 +403,8 @@ After you have created the MSP, you should be able to see the ordering service o
   | **Identity** | Org1 MSP Admin   | Org1 admin identity |
   | **Identity** | Ordering Service CA Admin | Ordering Service CA admin identity |
   | **Identity** | Ordering Service MSP Admin   | Ordering Service admin identity |
+  {: caption="Table 12. Check your wallet" caption-side="bottom"}
 
-  *Figure 14. Create the ordering service organization MSP definition*
 
 For more information about MSPs, see [managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
@@ -449,8 +441,7 @@ Perform the following steps from your console:
   | **Ordering Service Identity** | |  | OS1 | OS1pw |
   | **Administrator certificate** | Ordering Service MSP ||||
   | **Associate identity** | Ordering Service MSP Admin   |||||
-
-  *Figure 15. Create an ordering service*
+  {: caption="Table 13. Create an ordering service" caption-side="bottom"}
 
 After the ordering service has been created, you are able to see it on the **Nodes** panel.
 
@@ -531,8 +522,7 @@ When you are ready, click **Create channel**. You will be taken back to the **Ch
   | **Access control list** | None |
   | **Channel creator organization** | Org1 MSP |
   | **Wallet identity** | Org1 MSP Admin  |
-
-*Figure 12. Create a channel*
+  {: caption="Table 14. Create a channel" caption-side="bottom"}
 
 The next step is to join a peer to this channel.
 
