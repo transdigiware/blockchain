@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-03"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -17,7 +17,7 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
-{:term .term}
+{:term: .term}
 {:pre: .pre}
 {:gif: data-image-type='gif'}
 
@@ -181,7 +181,7 @@ You can follow the guidance to deploy {{site.data.keyword.blockchainfull_notm}} 
   - The cluster creation process can take up to 60 minutes to complete. If you created a cluster, allow some extra time until the state of your cluster becomes **Normal**.
   - Clusters that are outside the [supported regions](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-ibp) are not visible and cannot be used.
   - Check to make sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
-  - If you have a [multi-zone region (MZR)](#x9774820){: term} cluster you need to enable [VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
+  - If you have a multi-zone region ([MZR](#x9774820){: term}) cluster you need to enable [VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
 
 5. The **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** step. After your {{site.data.keyword.blockchainfull_notm}} Platform has been successfully deployed, click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the management console. It might take a few minutes for the button to become enabled while the console is being provisioned.
 
