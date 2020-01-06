@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-06"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -227,19 +227,18 @@ Use your console to perform the following steps:
    * The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
    * Click **Next**.
 7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org2 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org2 CA` and make that identity the admin of your peer, but this tutorial uses the `Org2 MSP Admin` identity.
-8. Review the summary and click **Add peer**.
+8. Review the summary and click **Add peer**.  
+
 **Task: Deploying a peer**
 
-
 |  | **Display name** | **MSP ID** | **Enroll ID** | **Secret** |
-  | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Create Peer** | Peer Org2 | org2msp |||
-  | **CA** | Org2 CA ||||
-  | **Peer Identity** | |  | peer2 | peer2pw |
-  | **Administrator certificate** | org2msp ||||
-  | **Associate identity** | Org2 MSP Admin  |||||
-  {: caption="Table 7. Deploying a peer" caption-side="bottom"}
-
+| ------------------------- |-----------|-----------|-----------|-----------|
+| **Create Peer** | Peer Org2 | org2msp |||
+| **CA** | Org2 CA ||||
+| **Peer Identity** | |  | peer2 | peer2pw |
+| **Administrator certificate** | org2msp ||||
+| **Associate identity** | Org2 MSP Admin  |||||
+{: caption="Table 7. Deploying a peer" caption-side="bottom"}
 
 In a production scenario, it is recommended to deploy three peers to each channel. This is to allow one peer to go down (for example, during a maintenance cycle) and still maintain highly available peers. To deploy more than one peer for an organization, use the same CA you used to register your first peer identity. In this tutorial, that would be `Org2 CA`. Then, register a new peer identity using a distinct enroll ID and secret. For example, `org2secondpeer` and `org2secondpeerpw`. Then, when creating the peer, give this enroll ID and secret. As this peer is still associated with Org2, choose `Org2 CA`, `Org2 MSP`, and `Org2 MSP Admin ` from the drop-down lists. You may choose to give this new peer a different admin, which can be registered and enrolled with `Org2 CA`, but this optional. This tutorial series will only show the process for creating a single peer for each peer organization.
 {:tip}
