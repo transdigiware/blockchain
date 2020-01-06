@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-10-29"
+  years: 2017, 2020
+lastupdated: "2020-01-02"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -155,7 +155,7 @@ The node that collects transactions from network members, orders the transaction
 
 ## Organization
 {: #glossary-organization}
-See [Member](/docs/services/blockchain?topic=blockchain-glossary#glossary-member).
+See [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member).
 
 ## Participant
 {: #glossary-participant}
@@ -187,7 +187,7 @@ The certificate that any entities, whether organizations or admins, attach to th
 
 ## Smart contracts
 {: #glossary-smart-contracts}
-See [Chaincode](/docs/services/blockchain?topic=blockchain-glossary#glossary-chaincode).
+See [Chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
@@ -207,5 +207,5 @@ A user is a participant in a blockchain network that has indirect access to the 
 
 ## World state
 {: #glossary-world-state}
-See [Current state](/docs/services/blockchain?topic=blockchain-glossary#glossary-current-state).
+See [Current state](/docs/blockchain?topic=blockchain-glossary#glossary-current-state).
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-07-25"
 
 keywords: IBM Cloud Private, data storage CA, cluster ICP, configuration
@@ -57,7 +57,7 @@ echo "vm.max_map_count=262144” | tee -a /etc/sysctl.conf
 ## Resources required
 {: #icp-console-setup-resources}
 
-Ensure that your {{site.data.keyword.cloud_notm}} Private system meets the minimum hardware resource requirements for the console and the components you create. The number of vCPU/CPUs that are required can vary depending on your infrastructure, network design and performance requirements. An approximation of your vCPU/CPU requirements can be made by examining the [default resource allocations table](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) for {{site.data.keyword.cloud_notm}}, although the allocations are slightly different in {{site.data.keyword.cloud_notm}} Private. Your actual resource allocations are visible in your blockchain console when you deploy a node.
+Ensure that your {{site.data.keyword.cloud_notm}} Private system meets the minimum hardware resource requirements for the console and the components you create. The number of vCPU/CPUs that are required can vary depending on your infrastructure, network design and performance requirements. An approximation of your vCPU/CPU requirements can be made by examining the [default resource allocations table](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) for {{site.data.keyword.cloud_notm}}, although the allocations are slightly different in {{site.data.keyword.cloud_notm}} Private. Your actual resource allocations are visible in your blockchain console when you deploy a node.
 
 **Notes:**  
 
@@ -95,7 +95,7 @@ Complete the following steps to install and set up {{site.data.keyword.cloud_not
 
 4. Setup the security and access policies for the target namespace. Instructions are provided in the [next section](#icp-console-setup-psp).
 
-After you install {{site.data.keyword.cloud_notm}} Private and bind a pod security policy to a target namespace, you can continue to [import the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm chart](/docs/services/blockchain?topic=blockchain-console-helm-install#console-helm-install) into your {{site.data.keyword.cloud_notm}} Private cluster.
+After you install {{site.data.keyword.cloud_notm}} Private and bind a pod security policy to a target namespace, you can continue to [import the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Helm chart](/docs/blockchain?topic=blockchain-console-helm-install#console-helm-install) into your {{site.data.keyword.cloud_notm}} Private cluster.
 
 ## PodSecurityPolicy Requirements
 {: #icp-console-setup-psp}

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-07-25"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
@@ -28,7 +28,7 @@ Use the following instructions to deploy the {{site.data.keyword.blockchainfull}
 ## Resources required
 {: #console-deploy-icp-resources-required}
 
-Ensure that your {{site.data.keyword.cloud_notm}} Private system meets the minimum hardware resource requirements for the console and the components you create. The number of vCPU/CPUs that are required can vary depending on your infrastructure, network design and performance requirements. An approximation of your vCPU/CPU requirements can be made by examining the [default resource allocations table](/docs/services/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) for {{site.data.keyword.cloud_notm}}, although the allocations are slightly different in {{site.data.keyword.cloud_notm}} Private. Your actual resource allocations are visible in your blockchain console when you deploy a node.
+Ensure that your {{site.data.keyword.cloud_notm}} Private system meets the minimum hardware resource requirements for the console and the components you create. The number of vCPU/CPUs that are required can vary depending on your infrastructure, network design and performance requirements. An approximation of your vCPU/CPU requirements can be made by examining the [default resource allocations table](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default) for {{site.data.keyword.cloud_notm}}, although the allocations are slightly different in {{site.data.keyword.cloud_notm}} Private. Your actual resource allocations are visible in your blockchain console when you deploy a node.
 
 **Notes:**  
 
@@ -46,17 +46,17 @@ The {{site.data.keyword.blockchainfull_notm}} Helm chart uses dynamic provisioni
 ## Prerequisites for deploying the console
 {: #console-deploy-icp-prerequisites}
 
-1. Before you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform console, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/services/blockchain?topic=blockchain-console-helm-install#console_helm-install).
+1. Before you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform console, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/blockchain?topic=blockchain-console-helm-install#console_helm-install).
 
-2. You should create a new, custom namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment. Your namespace needs to use the [required PodSecurityPolicy](/docs/services/blockchain?topic=blockchain-console-helm-install#console-helm-install-prereqs-pod-security-requirements). If you plan to create multiple blockchain networks, for example to create different environments for development, staging, and production, you should create a unique namespace for each environment. Note that you can only deploy one Helm chart per namespace, so if you want multiple instances of the console to run on the same cluster, be sure to use separate namespaces.
+2. You should create a new, custom namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment. Your namespace needs to use the [required PodSecurityPolicy](/docs/blockchain?topic=blockchain-console-helm-install#console-helm-install-prereqs-pod-security-requirements). If you plan to create multiple blockchain networks, for example to create different environments for development, staging, and production, you should create a unique namespace for each environment. Note that you can only deploy one Helm chart per namespace, so if you want multiple instances of the console to run on the same cluster, be sure to use separate namespaces.
 
 3. Retrieve the value of the cluster Proxy IP address of your CA from the {{site.data.keyword.cloud_notm}} Private console. **Note:** You will need to be a [Cluster administrator](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/user_management/assign_role.html){: external} to access your proxy IP. Log in to the {{site.data.keyword.cloud_notm}} Private cluster. In the left navigation panel, click **Platform** and then **Nodes** to view the nodes that are defined in the cluster. Click the node with the role `proxy` and then copy the value of the `Host IP` from the table. **Important:** Save this value and you will use it when you configure the `Proxy IP` field of the Helm chart.
 
-4. Create an [image security policy](/docs/services/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-image-policy) that allows your deployment to download the required images from your cluster docker registry.
+4. Create an [image security policy](/docs/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-image-policy) that allows your deployment to download the required images from your cluster docker registry.
 
-5. Create a password that you will use to login to the console for the first time and store it inside a secret object in {{site.data.keyword.cloud_notm}} Private. You can find the steps to create the secret in a [following section](/docs/services/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret).
+5. Create a password that you will use to login to the console for the first time and store it inside a secret object in {{site.data.keyword.cloud_notm}} Private. You can find the steps to create the secret in a [following section](/docs/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret).
 
-6. Create an [imagePullSecret](/docs/services/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-imagepullsecret) to store the credentials that your deployment will use to access the docker registry. This step allows you to deploy the console to a non default namespace.
+6. Create an [imagePullSecret](/docs/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-imagepullsecret) to store the credentials that your deployment will use to access the docker registry. This step allows you to deploy the console to a non default namespace.
 
 ## Cluster Image Policy requirements
 {: #console-deploy-icp-image-policy}
@@ -70,7 +70,7 @@ The {{site.data.keyword.blockchainfull_notm}} Helm chart uses dynamic provisioni
   - In **Scope**, select `namespace`.
   - In **Namespace**, select the namespace where you installed your Helm chart.   
 
-3. In the **Policy Details** section, click **Add Registry** and provide the image registry that you specified when you [Installed the Helm chart](/docs/services/blockchain?topic=blockchain-console-helm-install#console-helm-install-importing), followed by `/*`.
+3. In the **Policy Details** section, click **Add Registry** and provide the image registry that you specified when you [Installed the Helm chart](/docs/blockchain?topic=blockchain-console-helm-install#console-helm-install-importing), followed by `/*`.
   - As an example, you can provide the registry of `<cluster_CA_domain>:8500/*`, or `<cluster_CA_domain>:8500/ibp/*` and `<cluster_CA_domain>:8500/op-tools/*`.
 
 You can also add a new cluster image policy by using a YAML file and the kubectl command line tool. You can find an example YAML file below:
@@ -111,7 +111,7 @@ Before you can access your console, you need to create a default password that y
   2. In the first **Value** field, enter the result of `echo -n 'password' | base64` from step 1.
   3. Click **Create** to form a new Secret object.
 
-Provide the name of the secret to the `Console administrator password secret name` field of the configuration page when you deploy your console. You will need to use the value that you encoded in step one to login to the console for the first time. This value will become the default password of the console unless changed by a console administrator. For more information, see [Managing users from the console](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
+Provide the name of the secret to the `Console administrator password secret name` field of the configuration page when you deploy your console. You will need to use the value that you encoded in step one to login to the console for the first time. This value will become the default password of the console unless changed by a console administrator. For more information, see [Managing users from the console](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
 
 ## Creating an imagePullSecret
 {: #console-deploy-icp-imagepullsecret}
@@ -184,7 +184,7 @@ The following tables describe the configuration parameter fields and their defau
 |  Parameter     | Description    | Default  | Required |
 | --------------|-----------------|-------|------- |
 | `Helm release name`| Name to identify your helm release deployment. Begin with a lowercase letter, end with any alphanumeric character, and must contain only hyphens and lowercase alphanumeric characters. | None | Yes |
-| `Target namespace`| Specify the namespace that you created for your console and components. The namespace must include an `ibm-privileged-psp` policy. Otherwise, [bind a PodSecurityPolicy](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-psp) to your namespace. | None | Yes |
+| `Target namespace`| Specify the namespace that you created for your console and components. The namespace must include an `ibm-privileged-psp` policy. Otherwise, [bind a PodSecurityPolicy](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-psp) to your namespace. | None | Yes |
 | `Target Cluster`| Specify the clusters where you would like to deploy the resource. Available clusters are filtered by the selected namespace and Kubernetes version requirements. | None | Yes |
 | `Target namespace policies`| Pre-configured to use your target namespace. The values must include the `ibm-privileged-psp` or `ibm-blockchain-platform-psp` policy. | None | Yes |
 
@@ -309,13 +309,13 @@ You can use your browser to access the console after installation. You can find 
 
 In your browser, you should be able to see the console login screen:
 - For the **User ID**, use the value you provided for the `Console administrator email` field during configuration.
-- For the **Password**, use the value you encoded and stored inside the [password secret](/docs/services/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration. This password will become the default password for the console that all new users use to login to the console. After you login for the first time, you will be asked to provide a new password that you can use to login to the console.
+- For the **Password**, use the value you encoded and stored inside the [password secret](/docs/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration. This password will become the default password for the console that all new users use to login to the console. After you login for the first time, you will be asked to provide a new password that you can use to login to the console.
 
-The administrator that provisioned the helm chart can grant other users access to the console and specify which operations they can preform. For more information, see [Managing users from the console](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
+The administrator that provisioned the helm chart can grant other users access to the console and specify which operations they can preform. For more information, see [Managing users from the console](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
 
 ## Next steps
 {: #console-deploy-icp-next-steps}
 
-After accessing your console, you can view the **nodes** tab of your console UI. You can use this screen to deploy components in your local cluster. Visit the [Building a network tutorial](/docs/services/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to get started using the console. You can also use this tab to operate nodes that have been created on other clouds. For more information, see [Importing nodes](/docs/services/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes).
+After accessing your console, you can view the **nodes** tab of your console UI. You can use this screen to deploy components in your local cluster. Visit the [Building a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to get started using the console. You can also use this tab to operate nodes that have been created on other clouds. For more information, see [Importing nodes](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes).
 
-To learn how to manage the users that can access the console, use the {{site.data.keyword.blockchainfull_notm}} Platform APIs, and view the logs of your console and blockchain components, visit [Administering your console on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage).
+To learn how to manage the users that can access the console, use the {{site.data.keyword.blockchainfull_notm}} Platform APIs, and view the logs of your console and blockchain components, visit [Administering your console on {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage).

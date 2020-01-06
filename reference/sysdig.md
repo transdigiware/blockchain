@@ -2,8 +2,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-03"
+  years: 2019, 2020
+lastupdated: "2020-01-02"
 
 keywords:  sysdig, monitoring, resource consumption
 

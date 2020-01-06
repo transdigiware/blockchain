@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-05-31"
 
 keywords: IBM Cloud accounts, IBM Blockchain Platform, pay your own fees, pay for others
@@ -22,7 +22,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform charges monthly with membership fees and peer fees. Network members can pay their bill with their {{site.data.keyword.cloud_notm}} accounts that contain the space to create the network instance. Alternatively, one network member can cover the bill for other members in the network, or even all members to pay for the entire network. The payer can also transfer the billings back to other members if necessary.
 {:shortdesc}
 
-Depending on the network plan that you choose and the amount of resources that you use, your payments are different. For more information about pricing, see [Pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
+Depending on the network plan that you choose and the amount of resources that you use, your payments are different. For more information about pricing, see [Pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
 
 Note that when several organizations build a consortium, it is recommended that the participating organizations use a functional email address to create their network. In this case, access to the network does not depend on any individual's availability.
 
@@ -62,7 +62,7 @@ One member in the network can cover the fees for one or more other network membe
          - **Space roles**: Developer.
       3. Click **Invite Users**.  
    **Note**: If the payer pays for more than one member, the payer needs to repeat this step to invite other members and assign access for each of them.
-3. The payer creates a blockchain network {{site.data.keyword.blockchainfull_notm}} Platform and invites other members to the blockchain network in the Network Monitor of the network. For more information about inviting network members, see [Members](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
+3. The payer creates a blockchain network {{site.data.keyword.blockchainfull_notm}} Platform and invites other members to the blockchain network in the Network Monitor of the network. For more information about inviting network members, see [Members](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
 4. Each member then receives a notification email that contains an invitation to join the network. The member can complete the following steps to join the network.
    1. Click the "Proceed" button in the notification email, which takes you to the blockchain service page in {{site.data.keyword.cloud_notm}}.
    2. Log in to {{site.data.keyword.cloud_notm}} and ensure that you use correct {{site.data.keyword.cloud_notm}} organization and space, which the payer adds you to.
@@ -73,7 +73,7 @@ One member in the network can cover the fees for one or more other network membe
       2. Verify that the organization and space are the ones that the payer adds you to.
       3. Select the membership plan with which to create your network instance. Your membership plan must be the same as the one that the payer create the network with.
       4. Click **Create**.
-   4. After you create the blockchain service instance, follow the wizard to join the network.  For more information, see [Joining a network](/docs/services/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
+   4. After you create the blockchain service instance, follow the wizard to join the network.  For more information, see [Joining a network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw).
 
 ### Known limitations
 {: #paying-mode-limitation}
@@ -95,8 +95,8 @@ An alternative of adding other members' accounts to the payer's account, other m
   4. Under the **Cloud Foundry access** section, choose your organization that you want to add the payer' account to from the drop-down list.
   5. Choose **Billing manager** as the **Organization roles**.
   6. Configure other fields accordingly and then click **Invite users**.  
-3. The payer invites other members to the blockchain network in the Network Monitor of the network. For more information about inviting network members, see [Members](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
-4. Each member then receives a notification email that contains an invitation to join the network. The member can then join the network. For more information, see **step 4** under [Paying for other network members](/docs/services/blockchain?topic=blockchain-paying-mode#paying-mode-pay-for-others).
+3. The payer invites other members to the blockchain network in the Network Monitor of the network. For more information about inviting network members, see [Members](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members).
+4. Each member then receives a notification email that contains an invitation to join the network. The member can then join the network. For more information, see **step 4** under [Paying for other network members](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-pay-for-others).
 
 ### Known limitation
 {: #paying-mode-let-other-pay-limitation}

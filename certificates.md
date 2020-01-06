@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2020
 lastupdated: "2019-10-03"
 
 keywords: TLS, TLS certificates, client applications, digital certificates, certificate authority, intermediate certificate, client-side certificate, generate certificates, manage certificates
@@ -48,9 +48,9 @@ Before you can connect a third-party client to {{site.data.keyword.blockchainful
 
 If you enroll using the Fabric SDKs, the SDK will generate a private key and signCert. The private key and signCert form a user context that can be used to operate the SDK.
 
-You can also generate certificates from the command line by using the [Fabric CA client](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient). The Fabric CA client returns more complete set of certificates inside a Membership Service Provider (MSP) folder. This folder contains the root certificate that the CA signed, intermediate certificates, a private key, and your signCert. For more information about MSP and what the MSP folder contains, see [Membership Service Providers](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
+You can also generate certificates from the command line by using the [Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient). The Fabric CA client returns more complete set of certificates inside a Membership Service Provider (MSP) folder. This folder contains the root certificate that the CA signed, intermediate certificates, a private key, and your signCert. For more information about MSP and what the MSP folder contains, see [Membership Service Providers](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
-You can generate certificates with only identities that have been registered with your Certificate Authority, by using that identity's name and secret. By default, an **admin** identity is already registered with your CA, and is listed on the "Certificate Authority" screen. You can find the secret of the admin identity in your connection profile by clicking the **Connection Profile** button on the "Overview" screen of your Network Monitor. You can also register a new identity by clicking the [Add User](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel) button on the "Certificate Authority" screen of the Network Monitor, and then generate certificates with the name and secret of the new identity.
+You can generate certificates with only identities that have been registered with your Certificate Authority, by using that identity's name and secret. By default, an **admin** identity is already registered with your CA, and is listed on the "Certificate Authority" screen. You can find the secret of the admin identity in your connection profile by clicking the **Connection Profile** button on the "Overview" screen of your Network Monitor. You can also register a new identity by clicking the [Add User](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel) button on the "Certificate Authority" screen of the Network Monitor, and then generate certificates with the name and secret of the new identity.
 
 **Note:** If you follow the instructions below to generate certificates by using the Fabric CA client, you start by enrolling using the admin identity. You then use those certificates to register a new client identity with your CA. Then, you have the option of enrolling again by using the client identity. Now you can use those certificates to submit transactions to the network.
 
@@ -62,7 +62,7 @@ You can use the Network Monitor to generate certificates using the admin identit
 ### Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform
 {: #managing-certificates-upload-certs}
 
-An application requires only a valid signCert to submit transactions to the network. However, if a client wants to operate the network, by installing chaincode on peers or joining peers to channels, for example, the client needs to be recognized as an administrator. Each component recognizes a set of signCerts that are owned by an admin. If you need to operate your network from a client, you need to upload your signCert and have it added to the list of admin certs. You can do this on the platform by uploading your signCert in the **Certificates** tab of the ["Overview" panel](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) of your Network Monitor. Sync this certificate to your peers by hitting the restart button that comes up after uploading. Afterward, your client will be able to operate the network. You can also upload your signCert using the [Swagger API](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger) to add an admin certificate.
+An application requires only a valid signCert to submit transactions to the network. However, if a client wants to operate the network, by installing chaincode on peers or joining peers to channels, for example, the client needs to be recognized as an administrator. Each component recognizes a set of signCerts that are owned by an admin. If you need to operate your network from a client, you need to upload your signCert and have it added to the list of admin certs. You can do this on the platform by uploading your signCert in the **Certificates** tab of the ["Overview" panel](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) of your Network Monitor. Sync this certificate to your peers by hitting the restart button that comes up after uploading. Afterward, your client will be able to operate the network. You can also upload your signCert using the [Swagger API](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger) to add an admin certificate.
 
 Channels also recognize a set of admin certs from the identities that are allowed to operate the channel, including being able to instantiate a chaincode on the channel. If you use a new signCert with a remote client, you must sync the certificate to the channel before you can instantiate a chaincode. Perform the following steps in the Network Monitor to add the certificate to the channel:
 
@@ -108,7 +108,7 @@ You can find the expiry date in the **Validity** section and follows `Not After:
 
 [Transport Layer Security](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm) (TLS) is embedded in the trust model of Hyperledger Fabric. All components on {{site.data.keyword.blockchainfull_notm}} Platform use TLS to authenticate and communicate with each other. Therefore, you need to attach a TLS certificate issued by the platform to your calls in order to validate and encrypt your communication. The other certificates discussed in this tutorial protect your ability to transact with and manage the network. TLS certs are used to secure your calls to the network.
 
-TLS certificates are issued publicly by the platform and are the same for all your network components. You can download the TLS certificates with the following links, depending on your membership plan and cloud location. You can also find the TLS certificates in your [credentials profile](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile). This certificate can reside anywhere, as long as you can reference it from your application or command line.
+TLS certificates are issued publicly by the platform and are the same for all your network components. You can download the TLS certificates with the following links, depending on your membership plan and cloud location. You can also find the TLS certificates in your [credentials profile](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile). This certificate can reside anywhere, as long as you can reference it from your application or command line.
 
 - TLS Cert for Starter Plan
   - US: [us01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us01.blockchain.ibm.com.cert){: external}; [us02.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/us02.blockchain.ibm.com.cert){: external};
@@ -123,7 +123,7 @@ TLS certificates are issued publicly by the platform and are the same for all yo
   - Sydney: [aus01.blockchain.ibm.com.cert](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/aus01.blockchain.ibm.com.cert){: external}
 - [TLS Cert for Enterprise Plan](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
-All {{site.data.keyword.blockchainfull_notm}} Platform networks use server-side TLS, in which the network needs to authenticate your clients. Enterprise Plan networks can also enable mutual TLS, in which the client and the server authenticate each other, to further secure your applications. Client-side TLS certificates (for mutual TLS) are issued by the client CA and are unique to your network. If you use an Enterprise Plan network, it is recommended that you enable mutual TLS. For more information about mutual TLS, see these [mutual TLS instructions](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-mutual-tls).
+All {{site.data.keyword.blockchainfull_notm}} Platform networks use server-side TLS, in which the network needs to authenticate your clients. Enterprise Plan networks can also enable mutual TLS, in which the client and the server authenticate each other, to further secure your applications. Client-side TLS certificates (for mutual TLS) are issued by the client CA and are unique to your network. If you use an Enterprise Plan network, it is recommended that you enable mutual TLS. For more information about mutual TLS, see these [mutual TLS instructions](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-mutual-tls).
 
 ### Retrieving domain name from TLS certificates
 {: #managing-certificates-retrieve-domain}
@@ -180,7 +180,7 @@ The MSP folders within Fabric have a defined structure. When you enroll using th
 
 You can also build an MSP folder that the Fabric CA client can reference by using the Network Monitor and the Swagger APIs.
 
-- **cacerts** and **intermediatecerts**: You can fetch these certificates with the [Swagger APIs](/docs/services/blockchain?topic=blockchain-ibp-swagger#ibp-swagger) by issuing a Get request to the MSP API.
+- **cacerts** and **intermediatecerts**: You can fetch these certificates with the [Swagger APIs](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger) by issuing a Get request to the MSP API.
 - **signcerts** and **keystore**: You can generate these certificates by clicking the **Generate Certificates** button on the "Certificate Authority" panel. A pop-up window opens with two certificates listed. Copy and store the **Certificate** in signcerts and the **Private key** in keystore. Keep these certificates in a safe place because they are not stored on the platform.
 
 Many Fabric components contain additional information inside their MSP folder. For example, if you operate a remote peer, you might see the following folders:
@@ -193,7 +193,7 @@ For more information about the structure of MSPs, see [Membership](https://hyper
 ## Enrollment and registration by using the Fabric CA client
 {: #managing-certificates-enroll-register-caclient}
 
-You can also use the Fabric CA client to generate certificates and register a new identity with the Certificate Authority. The instructions below generate certificates by using your admin identity, then use those certificates to register a new client. For more information about enrolling by using the Fabric CA client and generating certificates, see [Membership Services Providers](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
+You can also use the Fabric CA client to generate certificates and register a new identity with the Certificate Authority. The instructions below generate certificates by using your admin identity, then use those certificates to register a new client. For more information about enrolling by using the Fabric CA client and generating certificates, see [Membership Services Providers](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
 ### Enrolling by using the Fabric CA client
 {: #managing-certificates-enroll-app-caclient}
@@ -241,7 +241,7 @@ You can also use the Fabric CA client to generate certificates and register a ne
   ./fabric-ca-client enroll -u https://admin:dda0c53f7b@n7413e3b503174a58b112d30f3af55016-org1-ca.us3.blockchain.ibm.com:31011 --caname org1CA --tls.certfiles $HOME/tls/us2.blockchain.ibm.com.cert
   ```
 
-6. Find your admin certificate in `$FABRIC_CA_CLIENT_HOME/msp/signcerts/cert.pem`. You can then upload the admin certificate to your blockchain network from the Network Monitor. For more information about adding certificates, see [the "Certificates" tab of "Member" panel](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) in the Network Monitor.
+6. Find your admin certificate in `$FABRIC_CA_CLIENT_HOME/msp/signcerts/cert.pem`. You can then upload the admin certificate to your blockchain network from the Network Monitor. For more information about adding certificates, see [the "Certificates" tab of "Member" panel](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) in the Network Monitor.
 
   You can also find CA root certificate and admin private key in the following directories:
   * CA root certificate: `$FABRIC_CA_CLIENT_HOME/msp/cacerts/--<ca_name>.pem`

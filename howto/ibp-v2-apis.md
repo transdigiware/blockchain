@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-12"
+  years: 2019, 2020
+lastupdated: "2020-01-02"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -36,7 +36,7 @@ These APIs are compatible with the {{site.data.keyword.blockchainfull_notm}} Pla
 ## Before you begin
 {: #ibp-v2-apis-prereq}
 
-You must have an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}} so that you can issue API calls to interact with the network. If you do not have a service instance yet, follow the [Getting started instructions](/docs/services/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to create one.
+You must have an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}} so that you can issue API calls to interact with the network. If you do not have a service instance yet, follow the [Getting started instructions](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to create one.
 
 ## Authentication
 {: #ibp-v2-apis-authentication}
@@ -148,10 +148,7 @@ You can use APIs to create blockchain components in your instance of the {{site.
   - You also need to [register an organization administrator](#ibp-v2-apis-config-register-admin) and then [generate certificates for the admin](#ibp-v2-apis-config-enroll-admin) inside an MSP folder. You do not have to complete this step if you have already registered your admin identity.
   - [Register the new component with your TLS CA](#ibp-v2-apis-config-register-component-tls).
 
-
-  You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/services/blockchain/?topic=blockchain-ibp-console-identities).
-
-  
+  You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/blockchain/?topic=blockchain-ibp-console-identities). 
 
 3. [Create an MSP definition for your organization](#ibp-v2-apis-msp) by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
 
@@ -166,7 +163,7 @@ You can use APIs to create blockchain components in your instance of the {{site.
 8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 
-The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
 for more information.
 {: note}
 
@@ -211,7 +208,7 @@ You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} co
 6. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 
-The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/services/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
 for more information.
 {: note}
 
@@ -240,7 +237,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 2. Set the `PATH` path to the directory where you downloaded the Fabric tool binaries:
 
   ```
-  export PATH=$PATH:<full/path/to/fabric-client/bin>
+  export PATH=$PATH:<full/path/to/fabric-ca-client/bin>
   ```
   {:codeblock}
 
@@ -317,7 +314,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```
   {:codeblock}
 
-  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see [Membership Service Providers](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
+  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see [Membership Service Providers](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
   If the `enroll` command fails, see the [Troubleshooting topic](#ibp-v2-apis-config-troubleshooting) for possible causes.
 
@@ -365,6 +362,7 @@ First, you need to register a component identity with your CA. Your component us
   ```
   fabric-ca-client affiliation list --caname ca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
   ```
+  {:codeblock}
 
   You should see information that is similar to the following example:
   ```
@@ -419,14 +417,14 @@ $HOME/fabric-ca-client/ca-admin
 Register the component admin identity with the CA by running the following command:
 
 ```
-fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type client --id.secret <password> --tls.certfiles <ca_tls_cert_path>
+fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type admin --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
 Create a new user identity `name` and `secret` for the admin. Make sure to use different values than for the peer or ordering node identity that you registered. The command looks similar to the following example:
 
 ```
-fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type client --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
+fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type admin --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
 Make a note of this information. You will use this `name` and `secret` to generate the MSP folder by using the `enroll` command.
@@ -459,12 +457,12 @@ tree
 ├── ca-admin
 │   ├── fabric-ca-client-config.yaml
 │   └── msp
-│       ├── cacerts
-│       │   └── 9-30-250-70-30395-SampleOrgCA.pem
 │       ├── IssuerPublicKey
 │       ├── IssuerRevocationPublicKey
+│       ├── cacerts
+│       │   └── 9-30-250-70-30395-SampleOrgCA.pem
 │       ├── keystore
-│       │   └── 2a97952445b38a6e0a14db134645981b74a3f93992d9ddac54cb4b4e19cdf525_sk
+│       │   └── 425947b767936a8f31780390cbc399cae48663b643e906ceb6944500d57b322c_sk
 │       ├── signcerts
 │       │   └── cert.pem
 │       └── user
@@ -472,31 +470,23 @@ tree
 │   └── tls.pem
 ├── orderer-admin
 │   └── msp
+│       ├── IssuerPublicKey
+│       ├── IssuerRevocationPublicKey
 │       ├── cacerts
 │       │   └── 9-30-250-70-30395-SampleOrgCA.pem
 │       ├── keystore
-│       │   └── dfe06060490bf62e2bd709433fc747ff28cdbb1e040682c5d47a4e8598db4f2e_sk
+│       │   └── 30a12af2359cd96ec02ff5f47ad7793d2fefe3cde2be574bace18b24d36ba015_sk
 │       ├── signcerts
 │       │   └── cert.pem
 │       └── user
-├── peer-admin
-│   └── msp
-│       ├── cacerts
-│       │   └── 9-30-250-70-30395-SampleOrgCA.pem
-│       ├── keystore
-│       │   └── 24f76217c5c7e641ee29b068712181294e427cbee4dbfce230a1a98b53489cbe_sk
-│       ├── signcerts
-│       │   └── cert.pem
-│       └── user
-└── tlsca-admin
-    ├── fabric-ca-client-config.yaml
+└── peer-admin
     └── msp
-        ├── cacerts
-        │   └── 9-30-250-70-30395-tlsca.pem
         ├── IssuerPublicKey
         ├── IssuerRevocationPublicKey
+        ├── cacerts
+        │   └── 9-30-250-70-30395-SampleOrgCA.pem
         ├── keystore
-        │   └── 45a7838b1a91ddfe3d4d22a5a7f2639b868493bcce594af3e3ceb9c07899d117_sk
+        │   └── c9c20a57a3afa70541bee6cec52ea1f654a8b116fcca35e1fbf27e60f1f989ec_sk
         ├── signcerts
         │   └── cert.pem
         └── user

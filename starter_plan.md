@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2020
 lastupdated: "2019-09-24"
 
 keywords: blockchain network, Starter Plan, getting started
@@ -26,7 +26,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform Starter Plan is an entry level option that enables organizations to simulate multi-organization blockchain networks, quickly develop applications, and work with sample smart contracts and business networks. It also boasts the same UI experience as other membership options, helping to eliminate any learning curve. New Starter Plan networks that are created after October 04, 2018 are built on Hyperledger Fabric V1.2.1. Older Starter Plan networks remain at Fabric V1.1.0 level.
 {:shortdesc}
 
-Starter Plan is now deprecated, therefore no new Starter Plan networks can be created at this time.** Make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/services/blockchain?topic=blockchain-ibp-v2-deploy-iks).
+Starter Plan is now deprecated, therefore no new Starter Plan networks can be created at this time.** Make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks).
 {: deprecated}  
 
 **Your existing networks are not affected and you can continue to use them until June 4, 2020.
@@ -34,12 +34,12 @@ Starter Plan is now deprecated, therefore no new Starter Plan networks can be cr
 
 **Starter Plan** is an environment for those who want to get started developing blockchain networks or start learning about blockchain technology. You can use Starter Plan as a development or test environment that will allow you to start small and scale your network's membership or transaction volume before moving to a production environment.
 
- To deploy a Starter Plan network, sign up now for your [Starter membership](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}}. When you are ready to start developing your network, visit [getting started with Starter Plan](/docs/services/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
+ To deploy a Starter Plan network, sign up now for your [Starter membership](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}}. When you are ready to start developing your network, visit [getting started with Starter Plan](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan).
 
 
 **Notes:**
 - {{site.data.keyword.blockchainfull_notm}} Platform Starter Plan is a development and testing environment, and is not suitable for production workloads.
-- {{site.data.keyword.blockchainfull_notm}} Platform is a platform service on {{site.data.keyword.cloud_notm}} and all membership offerings follow the [{{site.data.keyword.cloud_notm}} Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} on service level agreements (SLAs). Starter Plan is provisioned in a data center in a single geography. For a list of available geographies, see [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/services/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
+- {{site.data.keyword.blockchainfull_notm}} Platform is a platform service on {{site.data.keyword.cloud_notm}} and all membership offerings follow the [{{site.data.keyword.cloud_notm}} Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} on service level agreements (SLAs). Starter Plan is provisioned in a data center in a single geography. For a list of available geographies, see [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 ## What Starter Plan offers
 {: #starter-plan-about-what-starter-plan-offers}
@@ -47,7 +47,7 @@ Starter Plan is now deprecated, therefore no new Starter Plan networks can be cr
 - **_One-click-ready network_**
     Starter Plan provisions you a live blockchain network with a single click. Each network comes with a CA, an orderer, two organizations (with one peer per organization), and a default channel on which to transact and deploy chaincode. {{site.data.keyword.blockchainfull_notm}} Platform handles the creation and configuration of this network (you'll be able to update it after it goes live), letting you focus on development. Starter Plan networks are built on Fabric V1.2, and use CouchDB as the state database.
 - **_Cost efficiency_**
-    The Starter Plan membership option provides many of the same blockchain capabilities as Enterprise Plan membership options, but at a lower cost. For more information, see [Starter Plan pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)
+    The Starter Plan membership option provides many of the same blockchain capabilities as Enterprise Plan membership options, but at a lower cost. For more information, see [Starter Plan pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-starter-pricing)
 - **_Multi-organization network simulation_**
     You can use Starter Plan to simulate building a network with multiple organizations. You do not need to actually invite other organizations to your network, but can act as other organizations yourself. This mechanism enables you to learn how a new organization can join the network, how multiple organizations work together in the network, and so on. You can switch between your organizations from the Network Monitor to view and manage the network from different organizations' view.
 
@@ -75,20 +75,20 @@ Starter Plan is an entry point to {{site.data.keyword.blockchainfull_notm}} Plat
 - **{{site.data.keyword.cloud_notm}} account requirement**
     You must have a paid {{site.data.keyword.cloud_notm}} account, for example, a **Pay-As-You-Go** type. All membership plans that {{site.data.keyword.blockchainfull_notm}} Platform offers require an  {{site.data.keyword.cloud_notm}} paid account. To upgrade your account to a Pay-As-You-Go type, go to **Manage** > **Billing and Usage** > **Billing** in the {{site.data.keyword.cloud_notm}} console, and click **Add Credit Card**.
 - **Differences from Enterprise Plan**
-    - [CA](/docs/services/blockchain?topic=blockchain-glossary#glossary-CA) and ordering service are not fault tolerant because each organization has only one CA and a network has only one [orderer](/docs/services/blockchain?topic=blockchain-glossary#glossary-orderer).
-    - Ordering service uses only [SOLO](/docs/services/blockchain?topic=blockchain-glossary#glossary-solo) [consensus](/docs/services/blockchain?topic=blockchain-glossary#glossary-consensus). A Starter Plan network consists of only one orderer that performs consensus for all peers.
-    - [Hardware Security Module (HSM)](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) is not available to safeguard and manage digital keys for strong authentication and crypto processing.
+    - [CA](/docs/blockchain?topic=blockchain-glossary#glossary-CA) and ordering service are not fault tolerant because each organization has only one CA and a network has only one [orderer](/docs/blockchain?topic=blockchain-glossary#glossary-orderer).
+    - Ordering service uses only [SOLO](/docs/blockchain?topic=blockchain-glossary#glossary-solo) [consensus](/docs/blockchain?topic=blockchain-glossary#glossary-consensus). A Starter Plan network consists of only one orderer that performs consensus for all peers.
+    - [Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-glossary#glossary-hsm) is not available to safeguard and manage digital keys for strong authentication and crypto processing.
 - **Starter Plan versions and upgrade**
     - New Starter Plan networks that are created after October 04, 2018 are built on Hyperledger Fabric V1.2.1. Older Starter Plan networks remain at Fabric V1.1.0 level.
     - New peers that are added to older Starter Plan networks will be built on Fabric v1.2.1. The performance of your network is not affected because of backwards compatibility.
     - You have the option of using more advanced [channel configuration](https://hyperledger-fabric.readthedocs.io/en/release-1.2/config_update.html){: external} settings and [Access Control Lists](https://hyperledger-fabric.readthedocs.io/en/release-1.2/access_control.html){: external} when you create or update a channel.
     - The [Service discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.2/discovery-overview.html){: external} and [private data](https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html){: external} features of Hyperledger Fabric v1.2 are not supported on Starter Plan.
-    - If you [reset](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-reset-network) an older Starter Plan network that is at Fabric V1.1.0, your new network will be at Fabric V1.2 level. If you reset your network, you need to install your chaincode or .bna files on the new network, as well as re-invite members of your old network.
+    - If you [reset](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-reset-network) an older Starter Plan network that is at Fabric V1.1.0, your new network will be at Fabric V1.2 level. If you reset your network, you need to install your chaincode or .bna files on the new network, as well as re-invite members of your old network.
 - **Network resource limitation**
-    Starter Plan assigns 1 CPU and 4 Gi RAM for each peer, and 20 Gi storage for each {{site.data.keyword.cloud_notm}} service instance, including peers. Chaincode containers and ledger blocks are the most resource-intensive network components. Users that have many peers on their network, generate a lot of blocks, or use large chaincode files might experience the effect of resource limitations on performance. You can view your networks usage of storage in the ["Overview" screen of your Network Monitor](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-storage).
+    Starter Plan assigns 1 CPU and 4 Gi RAM for each peer, and 20 Gi storage for each {{site.data.keyword.cloud_notm}} service instance, including peers. Chaincode containers and ledger blocks are the most resource-intensive network components. Users that have many peers on their network, generate a lot of blocks, or use large chaincode files might experience the effect of resource limitations on performance. You can view your networks usage of storage in the ["Overview" screen of your Network Monitor](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-storage).
 - **Maintenance and upgrade**
     Starter Plan maintenance and network updates are performed on a fixed schedule. During the maintenance period, you cannot provision new networks and might notice brief periods of network interruption.
 - **Data retention**
     Starter Plan does not guarantee data retention with release upgrades.
 - **Migration considerations**
-    Migrating the data from a Starter Plan network to other membership plans is not currently supported. However, it is possible to migrate `.bna` files, chaincode, and applications that were tested on Starter Plan. For more information, see [Migrating from Starter Plan to Enterprise Plan](/docs/services/blockchain?topic=blockchain-migrate_starter_to_enterprise#migrate_starter_to_enterprise).
+    Migrating the data from a Starter Plan network to other membership plans is not currently supported. However, it is possible to migrate `.bna` files, chaincode, and applications that were tested on Starter Plan. For more information, see [Migrating from Starter Plan to Enterprise Plan](/docs/blockchain?topic=blockchain-migrate_starter_to_enterprise#migrate_starter_to_enterprise).

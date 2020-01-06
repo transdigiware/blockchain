@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2018
+  years: 2017, 2020
 lastupdated: "2019-03-05"
 
 subcollection: blockchain
@@ -17,4 +17,4 @@ subcollection: blockchain
 # Operate Starter Plan network
 {: #operate-starter-plan-network}
 
-Visit the [Using the Network Monitor](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard) tutorial to learn how to operate your Starter Plan Network.
+Visit the [Using the Network Monitor](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard) tutorial to learn how to operate your Starter Plan Network.

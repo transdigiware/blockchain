@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019
+  years: 2019, 2020
 lastupdated: "2019-06-18"
 
 keywords: pricing model, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost
@@ -25,12 +25,12 @@ subcollection: blockchain
 This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for Multicloud, and how much you will pay when you develop and grow your blockchain network of peers, ordering service, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.1.
 {:shortdesc}
 
-_This pricing model is for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud only. If you are using Starter Plan or Enterprise Plan and have questions on pricing, see Starter Plan and Enterprise Plan [pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing)._
+_This pricing model is for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud only. If you are using Starter Plan or Enterprise Plan and have questions on pricing, see Starter Plan and Enterprise Plan [pricing](/docs/blockchain?topic=blockchain-ibp-pricing)._
 
 ## License
 {: #ibp-software-pricing-license}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud delivers the components needed to run a blockchain network on your own infrastructure and is deployed using {{site.data.keyword.cloud_notm}} Private. You can access Passport Advantage (PPA) and [download the Helm chart](/docs/services/blockchain?topic=blockchain-console-helm-install#console-helm-install-importing). Technical support from {{site.data.keyword.blockchainfull_notm}} is included in the purchase.
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud delivers the components needed to run a blockchain network on your own infrastructure and is deployed using {{site.data.keyword.cloud_notm}} Private. You can access Passport Advantage (PPA) and [download the Helm chart](/docs/blockchain?topic=blockchain-console-helm-install#console-helm-install-importing). Technical support from {{site.data.keyword.blockchainfull_notm}} is included in the purchase.
 
 ## Pricing
 {: #ibp-software-pricing-pricing}

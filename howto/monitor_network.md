@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-12-03"
+  years: 2018, 2020
+lastupdated: "2020-01-06"
 
 keywords: view Logs, IBM Cloud Private, logs of a specific network component, monitor blockchain network
 
@@ -77,9 +77,9 @@ Each component generates logs from different activities. This is because each co
   The ordering service is the common binding component of the blockchain network. All endorsed transaction proposals from the peers, channel updates, or network membership updates are sent to the ordering service for verification. Therefore, the ordering service contains logs from when the network was started. It also contains logs for a transaction that was rejected because it was not properly endorsed by the correct organizations. You can also find logs from when channels are created or updated, or when a channel update fails.
 
 - **Peer logs**  
-  Peer logs contain the results of installing, instantiating, and invoking chaincode. You can search for a chaincodes name and version to find the logs of a certain chaincode. You can also see the logs from a specific chaincode from the [chaincode section of the channel monitor](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc). The messages, which your transaction proposals generate, or any timeout issues with your proposal requests, can be found in your peer logs. The peer logs also contain errors from transactions that were rejected for not meeting the [chaincode's endorsement policy](/docs/services/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy). You can also find the results of channel join requests.
+  Peer logs contain the results of installing, instantiating, and invoking chaincode. You can search for a chaincodes name and version to find the logs of a certain chaincode. You can also see the logs from a specific chaincode from the [chaincode section of the channel monitor](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc). The messages, which your transaction proposals generate, or any timeout issues with your proposal requests, can be found in your peer logs. The peer logs also contain errors from transactions that were rejected for not meeting the [chaincode's endorsement policy](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy). You can also find the results of channel join requests.
 
-Hyperledger Fabric provides different [logging levels](https://hyperledger-fabric.readthedocs.io/en/release-1.2/logging-control.html){: external} based on the severity of the message. The default logging level on {{site.data.keyword.blockchainfull_notm}} Platform is `INFO`. To view additional logs, you can open a [support ticket](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) to set logging level to the more verbose `DEBUG`. Be aware that the `DEBUG` level logs display a large number of gossip messages that you might need to filter. Search for `warning` or `error` in your messages to detect problems from Hyperledger Fabric components. To detect if the component container fails or is killed, search for `panic` or `killed` messages that {{site.data.keyword.cloud_notm}} sent.
+Hyperledger Fabric provides different [logging levels](https://hyperledger-fabric.readthedocs.io/en/release-1.2/logging-control.html){: external} based on the severity of the message. The default logging level on {{site.data.keyword.blockchainfull_notm}} Platform is `INFO`. To view additional logs, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) to set logging level to the more verbose `DEBUG`. Be aware that the `DEBUG` level logs display a large number of gossip messages that you might need to filter. Search for `warning` or `error` in your messages to detect problems from Hyperledger Fabric components. To detect if the component container fails or is killed, search for `panic` or `killed` messages that {{site.data.keyword.cloud_notm}} sent.
 
 ## Viewing logs in Starter Plan
 {: #monitor-blockchain-network-viewing-kibana-logs}
@@ -95,6 +95,7 @@ The following steps describe how to configure LogDNA to to work with your Starte
 2. Click **Create Logging instance**.
 3. Select the region where Starter Plan is running.
 4. Click **Create**.
+5. Click `Configure platform services logs` and select the LogDNA instance that you created.
 
 From the Observability dashboard, you can now launch the LogDNA dashboard by clicking **View LogDNA**.
 
@@ -150,6 +151,6 @@ Expand a chaincode row to get detailed information about the chaincode:
 ## Monitoring chaincode
 {: #monitor-blockchain-network-monitor-chaincode}
 
-Enter Network Monitor and open the "Install Code" screen. If you have running chaincode, you can see the chaincode with chaincode IDs and versions in the table. Choose a peer from the drop-down list and you can see all chaincode for this peer in the table. You can view the logs of the chaincode on the ["Chaincode" tab](/docs/services/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc) of your specific "Channel" screen.
+Enter Network Monitor and open the "Install Code" screen. If you have running chaincode, you can see the chaincode with chaincode IDs and versions in the table. Choose a peer from the drop-down list and you can see all chaincode for this peer in the table. You can view the logs of the chaincode on the ["Chaincode" tab](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc) of your specific "Channel" screen.
 
   ![Chaincode](../images/installed_cc.png "Chaincode")

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-16"
+  years: 2019, 2020
+lastupdated: "2020-01-02"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -34,7 +34,7 @@ After you deploy your console on {{site.data.keyword.cloud}} Private, you can us
 ## Managing users from the console
 {: #console-icp-manage-users}
 
-The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console from the **Users** tab. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/services/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis). 
+The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console is considered the console administrator. The administrator can then add and grant other users access to the console from the **Users** tab. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. By default, the console administrator is given the **Manager** role for the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. Note that the users can also be managed with [APIs](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis). 
 
 ### Role to permission mapping
 {: #console-icp-manage-role-mapping}
@@ -44,6 +44,7 @@ The user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform c
 | Manager | As a Manager, you have permissions beyond the Writer role. You can do everything a Reader and Writer can do as well as: <ul><li>Provision new components such as CAs, peers, and ordering services, by using the console or APIs.</li><li>Delete provisioned components by using the console or APIs.</li><li>Add/remove users and change user access policies.</li><li>Change console logging levels by using the console or APIs.</li><li>Restart the console by using an API.</li></ul> |
 | Writer | As a Writer, you have permissions beyond the Reader role, including: <ul><li>Import components by using the console or APIs.</li><li>Remove imported components by using the console or APIs.</li><li>Register users on a CA.</li><li> Add or remove notifications by using the console or APIs.</li></ul>  |
 | Reader | As a reader, you can perform read-only actions including: <ul><li>View console UI.</li><li>View console log.</li><li>Export components.</li><li>Issue any GET API.</li></ul> | |
+{: caption="Table 1. Role to permissions mapping table" caption-side="bottom"}
 
 Permissions are cumulative. If you select a **Manager** role, the user will also be able to perform all **Writer** and **Reader** actions, and you are not required to additionally check those roles. Likewise, a user with the **Writer** role will be able to perform all of the actions in the **Reader** role.
 
@@ -51,7 +52,7 @@ Permissions are cumulative. If you select a **Manager** role, the user will also
 {: #console-icp-manage-user-pw}
 
 
-The password that was stored inside the [password secret](/docs/services/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they log in to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
+The password that was stored inside the [password secret](/docs/blockchain?topic=blockchain-console-deploy-icp#console-deploy-icp-password-secret) and then passed to the console during configuration becomes the default password for the console. All users need to use this password when they log in to the console for the first time. The console manager can also specify a new default password. In the **Users** tab of the console, click the **Update configuration** link under your authentication service tile name. In the right panel, you can view or update the default password for new users of the console.
 
 
 
@@ -61,7 +62,7 @@ You need to share the default password, or the default password that you reset, 
 
 Users with the manager role can reset passwords for other users. In the **Users** tab of the console, click the three vertical dots at the end of the row for a specific user, and then click **Reset password**. The console resets that user's password to the default password, which you can check and confirm in the right panel. Users with any role can change their own password at any time. Click the avatar icon in the upper right corner, and then click **Change password**.
 
-After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/services/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
+After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 ### Modifying a user's role
@@ -102,6 +103,8 @@ There are three APIs available to manage your API keys:
 
 Use the request below to create an API key and secret. You can then use this key and secret to use the other APIs. The API secret is not stored by the console and needs to be saved by the user.
 
+For all of APIs provided by the console, you need to add a `-k` or ``--insecure`` flag to bypass the requirement for a TLS certificate. You can also download the TLS certificate from your console by using your browser.
+
 #### Create an API key
 {: #console-icp-manage-create-api-key}
 
@@ -121,6 +124,7 @@ curl -X POST \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys \
   -u user@email.com:password \
   -H 'Content-Type: application/json' \
+  -k \
   -d '{
      "roles": ["writer", "manager"],
      "description": "newkey"
@@ -147,7 +151,8 @@ Once you have created an API key and secret, you can use the APIs to view or rem
 ```
 curl -X GET \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys \
-  -u <api_key>:<api_secret>
+  -u <api_key>:<api_secret> \
+  -k
 ```
 
 #### Delete API keys
@@ -165,7 +170,8 @@ curl -X GET \
 ```
 curl -X DELETE \
   https://9.30.252.107:31212/ak/api/v1/permissions/keys/<api_key> \
-  -u <api_key>:<api_secret>
+  -u <api_key>:<api_secret> \
+  -k
 ```
 
 ### Managing users using the APIs
@@ -178,8 +184,6 @@ You can also use the APIs to list, add, or remove users who can log in to the co
 - [Edit users](#console-icp-manage-edit-users-api)
 - [Add users](#console-icp-manage-add-users-api)
 - [Remove users](#console-icp-manage-remove-users-api)
-
-For the APIs that govern the users and settings of your console, and manage the nodes of your network, you need to add a `-K` or ``--insecure`` flag to bypass the requirement for a TLS certificate. You can also download the TLS certificate from your console by using your browser.
 
 #### List users
 {: #console-icp-manage-list-users-api}
@@ -311,7 +315,7 @@ https://9.30.252.107:31212/ak/api/v1/components \
   -k
 ```
 
-You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or {{site.data.keyword.cloud_notm}}. For more information, see [Build a network by using APIs](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/services/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
+You can use the APIs to create nodes on the cluster where your console is deployed, and to import nodes from other clusters or {{site.data.keyword.cloud_notm}}. For more information, see [Build a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis) and [Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis).
 
 
 ## Viewing your logs

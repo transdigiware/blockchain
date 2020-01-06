@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2020
 
 lastupdated: "2019-09-24"
 
@@ -25,10 +25,10 @@ This page describes known issues that you might encounter when you use Starter o
 {:shortdesc}
 
 The following issues are already reported:
-- **Configuring an external CA in not supported yet**. As an alternative, you can generate and upload admin certificates via the Network Monitor. For more information, see the description on the ["Certificates" tab of "Member" screen](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) in the Network Monitor.
+- **Configuring an external CA in not supported yet**. As an alternative, you can generate and upload admin certificates via the Network Monitor. For more information, see the description on the ["Certificates" tab of "Member" screen](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members) in the Network Monitor.
 - In the Network Monitor of a Starter Plan network, when you click **View Logs** on the nodes that are listed on the "Overview" screen, the {{site.data.keyword.cloud}} Logging Kibana interface opens. **By default, Kibana is preconfigured to show logs from the last 30 days of activity**. If there is no activity in the last 30 days, you will see a message that says *No results found*. To view other logs, you can click the timer icon in the upper-right corner under your user name and set a broader time range, such as *Year to date*.
 - Because Starter Plan is not a production environment, **applications might not be able to immediately reach a network resource**.
-  - If this happens, it is recommended as a first step to increase the default timeout values in the Fabric SDK. For more information about setting timeout values, see [Setting timeout values in Fabric SDKs](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk).
+  - If this happens, it is recommended as a first step to increase the default timeout values in the Fabric SDK. For more information about setting timeout values, see [Setting timeout values in Fabric SDKs](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk).
   - You can also retry your request at the application level.
 - **Chaincode containers can sometimes be stopped** by a background network issue and might need to be rebuilt and restarted after a user invokes the chaincode. If this happens it may take your chaincode a few minutes to respond.
 - Because of the resource limitation in Starter Plan network, that is, 1 CPU and 4 Gi RAM for each peer, **you might encounter a `REQUEST_TIMEOUT` error during chaincode instantiation**. If this happens, retry the instantiation step. If the error continues, you can increase the chaincode instantiation timeout. In the connection profile, the chaincode instantiation timeout is set to 300 seconds.
@@ -50,7 +50,7 @@ The following issues are already reported:
     - If you use Node SDK, you can change the timeout setting of the `sendInstantiateProposal(request, timeout)` method. For more information, see [sendInstantiateProposal(request, timeout)](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external}.
     - If you use Java SDK, you can change the timeout setting of the `instantiateProposalRequest.setProposalWaitTime(DEPLOYWAITTIME)` command, which is in the `src/test/java/org/hyperledger/fabric/sdkintegration/End2endIT.java` file.
 
-For support and help with your {{site.data.keyword.blockchainfull_notm}} Platform network on {{site.data.keyword.cloud_notm}}, see [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
+For support and help with your {{site.data.keyword.blockchainfull_notm}} Platform network on {{site.data.keyword.cloud_notm}}, see [Getting support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
 ## Enterprise Plan upgrade
 

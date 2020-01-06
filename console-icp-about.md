@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2019
-lastupdated: "2019-12-17"
+years: 2018, 2020
+lastupdated: "2020-01-02"
 
 keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes, Helm chart, behind a firewall
 
@@ -25,12 +25,12 @@ subcollection: blockchain
 The {{site.data.keyword.blockchainfull}} Platform can be deployed across public and private clouds, such as the {{site.data.keyword.cloud_notm}}, your own data center, and third-party public clouds. This multicloud deployment is possible through {{site.data.keyword.cloud_notm}} Private, IBM's Kubernetes based container orchestration platform. This release provides a blockchain console user interface that you can use to deploy and manage blockchain components on an {{site.data.keyword.cloud_notm}} Private cluster. The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private uses the Hyperledger Fabric v1.4.1 code base and supports deployment on {{site.data.keyword.cloud_notm}} Private v3.2.0.
 {:shortdesc}
 
-If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.2) which can be deployed on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any x86_64 Kubernetes v1.11 or high container platform,  see [Getting started with IBM Blockchain Platform v2.1.2](/docs/services/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
+If you are looking for {{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.2) which can be deployed on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any x86_64 Kubernetes v1.11 or high container platform,  see [Getting started with IBM Blockchain Platform v2.1.2](/docs/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
 
 ## What {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private offers
 {: #console-icp-about-offers}
 
-You can use this offering to install the {{site.data.keyword.blockchainfull_notm}} Platform console on a deployment of {{site.data.keyword.cloud_notm}} Private. You can then use the console to create all of the fundamental components of a Hyperledger Fabric blockchain, a Certificate Authority, an ordering service, and peers, on your local cluster. For more information about the building blocks of Hyperledger Fabric networks, see the [blockchain component overview](/docs/services/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview). You can also use your console to operate a distributed multicloud network by importing nodes deployed on other {{site.data.keyword.cloud_notm}} Private clusters or on {{site.data.keyword.cloud_notm}}.
+You can use this offering to install the {{site.data.keyword.blockchainfull_notm}} Platform console on a deployment of {{site.data.keyword.cloud_notm}} Private. You can then use the console to create all of the fundamental components of a Hyperledger Fabric blockchain, a Certificate Authority, an ordering service, and peers, on your local cluster. For more information about the building blocks of Hyperledger Fabric networks, see the [blockchain component overview](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview). You can also use your console to operate a distributed multicloud network by importing nodes deployed on other {{site.data.keyword.cloud_notm}} Private clusters or on {{site.data.keyword.cloud_notm}}.
 
 This {{site.data.keyword.blockchainfull_notm}} Platform release includes the following key features:
 
@@ -40,7 +40,7 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Kubernetes service integration.** Leverage services such as Grafana and Prometheus for logging and Kibana for monitoring.
 - **Up-to-date Fabric key features**. Leverage the latest features of Hyperledger Fabric v1.4.1:
   - [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - [Private data collections](/docs/services/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
+  - [Private data collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
   - [Service discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, allowing you to dynamically discover and update how your application interacts with your network.
   - [Channel access control lists](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} that allow you additional control the governance of your channels and smart contracts.
 
@@ -55,8 +55,8 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Dynamic signature collection** that allows better control over collaborative governance over channel configurations.
 
 **GROW --- Scalability and flexibility**
-- **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see [How the console interacts with your Kubernetes cluster](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction).
-- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/services/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
+- **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see [How the console interacts with your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-iks-console-interaction).
+- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
 - **Disaster recovery and multizone high availability.** This ability duplicates your Kubernetes deployment across zones, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Run Anywhere**. Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on any environment supported by {{site.data.keyword.cloud_notm}} Private.
 
@@ -97,14 +97,14 @@ The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.c
 ## License
 {: #console-icp-about-license}
 
-See [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/services/blockchain?topic=blockchain-ibp-software-pricing) for more information on licensing and pricing.
+See [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud](/docs/blockchain?topic=blockchain-ibp-software-pricing) for more information on licensing and pricing.
 
 ## Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private
 {: #console-icp-about-install}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart file that can be installed in a local {{site.data.keyword.cloud_notm}} Private cluster. After you install the Helm chart, you can find {{site.data.keyword.blockchainfull_notm}} Platform as an application in the {{site.data.keyword.cloud_notm}} Private Catalog. For instructions on how to install the Helm chart and the necessary prerequisites, see [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-console-helm-install#helm-console-install).
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart file that can be installed in a local {{site.data.keyword.cloud_notm}} Private cluster. After you install the Helm chart, you can find {{site.data.keyword.blockchainfull_notm}} Platform as an application in the {{site.data.keyword.cloud_notm}} Private Catalog. For instructions on how to install the Helm chart and the necessary prerequisites, see [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-helm-install#helm-console-install).
 
-If you are a new user of {{site.data.keyword.cloud_notm}} Private and would like information and tips on installing and deploying {{site.data.keyword.cloud_notm}} Private, see [Setting up {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain?topic=blockchain-icp-console-setup#icp-console-setup).
+If you are a new user of {{site.data.keyword.cloud_notm}} Private and would like information and tips on installing and deploying {{site.data.keyword.cloud_notm}} Private, see [Setting up {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup).
 
 You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall, without having access to the public Internet. The downloaded Helm chart package includes all of the Fabric component Docker images that {{site.data.keyword.blockchainfull_notm}} Platform uses, without pulling them from DockerHub during deployment.
 
@@ -123,12 +123,12 @@ The data in your state database, whether you use LevelDB or CouchDB, is not encr
 ### Data residency
 {: #console-icp-about-security-data-residency}
 
-Data residency requirements can mandate that the processing and storage of all blockchain ledger data remain within the border of a single country (or within some other defined boundary). For more information about how data residency can be accomplished, see [Data residency](/docs/services/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency).
+Data residency requirements can mandate that the processing and storage of all blockchain ledger data remain within the border of a single country (or within some other defined boundary). For more information about how data residency can be accomplished, see [Data residency](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency).
 
 ### Key management
 {: #console-icp-about-security-key-management}
 
-Key management is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. {{site.data.keyword.IBM_notm}} uses physical appliances that are called [Hardware Security Modules](/docs/services/blockchain?topic=blockchain-glossary#glossary-hsm) (HSM) to store the private keys of {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan networks.
+Key management is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. {{site.data.keyword.IBM_notm}} uses physical appliances that are called [Hardware Security Modules](/docs/blockchain?topic=blockchain-glossary#glossary-hsm) (HSM) to store the private keys of {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan networks.
 
 You are responsible for managing your private keys. Although you can use the {{site.data.keyword.blockchainfull_notm}} Platform console UI to generate private keys, those keys are not stored by the console or within {{site.data.keyword.cloud_notm}} Private. It is essential to store your keys securely so that they are not compromised.
 
@@ -147,6 +147,6 @@ Because all chaincode invocations are signed, Fabric manages the application sec
 ## Getting support
 {: #console-icp-about-support}
 
-For more information about how to get support on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, as well as free blockchain developer resources and support forums that you can use to troubleshoot problems, see [Getting support](/docs/services/blockchain?topic=blockchain-blockchain-support#blockchain-support).
+For more information about how to get support on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, as well as free blockchain developer resources and support forums that you can use to troubleshoot problems, see [Getting support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support).
 
 If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact Customer support, see the information about [accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](https://www.ibm.com/support/pages/support-ibm-blockchain-platform-ibm-cloud-private-ibp-icp){: external}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-10-25"
+  years: 2019, 2020
+lastupdated: "2020-01-02"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -35,7 +35,7 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 ### Managing transactions
 {: #best-practices-app-managing-transactions}
 
-Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/services/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
+Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
 
 If a chaincode is not running, the first transaction proposal that is sent to this chaincode starts the chaincode. While the chaincode is starting, all other proposals are rejected with an error that indicates that the chaincode is starting. This is different from transaction invalidation. If any proposal is rejected while the chaincode is starting, application clients need to resend the rejected proposals after the chaincode starts. Application clients can use a message queue to avoid losing transaction proposals.
 
@@ -53,7 +53,7 @@ When you create peer and orderer objects with the SDK before submitting transact
 ```javascript
 var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null});
 ```
-{: pre}
+{:codeblock}
 
 When you manage the connections between your application and your network, you might consider the following recommendations.
 
@@ -71,7 +71,7 @@ When you manage the connections between your application and your network, you m
     }
   );
   ```
-  {: pre}
+  {:codeblock}
 
   You can also find these variables with the recommended settings in the `"peers"` section of your network connection profile. The recommended options are imported into your application automatically if you use the connection profile with the SDK to connect to your network endpoints. You can find more information on how to use a Connection Profile in the [Node SDK documentation](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
 
@@ -86,7 +86,7 @@ As a high availability best practice, it is strongly recommended that you deploy
 ## Enabling mutual TLS
 {: #best-practices-app-mutual-tls}
 
-If you are running Enterprise Plan networks that are at Fabric V1.1 level, you have the option of [enabling mutual TLS](/docs/services/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) for your applications. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications cannot communicate with your network.
+If you are running Enterprise Plan networks that are at Fabric V1.1 level, you have the option of [enabling mutual TLS](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) for your applications. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications cannot communicate with your network.
 
 In the Connection Profile, locate the `certificateAuthorities` section where you can find the following attributes that are necessary to enroll and get the certificates to communicate with your network by using mutual TLS.
 
@@ -139,7 +139,7 @@ Fabric SDKs set default timeout values in client applications for events in the 
      */
     defaultProperty(TRANSACTION_CLEANUP_UP_TIMEOUT_WAIT_TIME, "600000"); //10 min.
 ```
-{: pre}
+{:codeblock}
 
 However, you might need to change the default timeout values in your own application. For example, when your application invokes a transaction that needs more than 5000 ms, which is the default timeout value for event hub connection to respond, you might get a failing error because the invoke event ends at 5000 ms before the transaction completes. You can set the system property to overwrite the default values from your client application. Because the default values are initialized before you set the system property, the system property might not take effect. Therefore, you need to set the system property for timeout in a static construct in your client application. See the following example on changing timeout value for event hub connection to 15000 ms in Fabric Java SDK. The file path is `src\main\java\org\hyperledger\fabric\sdk\helper\Config.java`.
 
@@ -151,13 +151,13 @@ However, you might need to change the default timeout values in your own applica
      System.setProperty(EVENTHUB_CONNECTION_WAIT_TIME, EVENTHUB_CONNECTION_WAIT_TIME_VALUE);
  }
 ```
-{: pre}
+{:codeblock}
 
 If you are using the Node SDK, you can specify the timeout values directly in the method called. As an example, you can use the following line to increase the timeout value for [instantiating a chaincode](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external} to 5 minutes.
 ```javascript
 channel.sendInstantiateProposal(request, 300000);
 ```
-{: pre}
+{:codeblock}
 
 ## Best practices when using CouchDB
 {: #best-practices-app-couchdb-indices}
@@ -180,7 +180,4 @@ Do not query the entire database for the purpose of aggregation or reporting. If
 
 You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store by using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
 data to an external database, see the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
-
-You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-1.4/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
-data to an external database, visit the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
 
