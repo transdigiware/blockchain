@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-06"
 
 keywords: view Logs, IBM Cloud Private, logs of a specific network component, monitor blockchain network
 
@@ -95,6 +95,7 @@ The following steps describe how to configure LogDNA to to work with your Starte
 2. Click **Create Logging instance**.
 3. Select the region where Starter Plan is running.
 4. Click **Create**.
+5. Click `Configure platform services logs` and select the LogDNA instance that you created.
 
 From the Observability dashboard, you can now launch the LogDNA dashboard by clicking **View LogDNA**.
 
