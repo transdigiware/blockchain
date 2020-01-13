@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-06"
+lastupdated: "2020-01-13"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -40,6 +40,7 @@ subcollection: blockchain
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
 
 - [How does pricing work on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-cloud-pricing)
+- [What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](#ibp-v2-faq-free-cluster)
 - [Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-IBP-Overview-1-5)
 - [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](#ibp-v2-faq-v2-IBP-Overview-1-8)
 - [What regions are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-IBP-Overview-1-9)
@@ -121,7 +122,19 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is priced based on the VPCs that you allocate to your blockchain nodes on the {{site.data.keyword.IBM_notm}} Kubernetes Service. For more information, see [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing).
 
-## Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?
+## What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?
+{: #ibp-v2-faq-free-cluster}
+{: faq}
+
+* Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster.
+* Performance will be limited by throughput, storage, and functionality. Read more about the [limitations of free clusters](/docs/containers?topic=containers-cs_ov#cluster_types).
+* {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
+* Only one blockchain console can be connected to a free cluster at a time.
+* You cannot migrate any nodes or data from a free cluster to a paid cluster.
+* The free offering only supports a single node Raft ordering service.    
+* Custom resource allocation is not available on a free cluster.
+
+## Can I upgrade from V1.0 to the new {{site.data.keyword.blockhainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
 {: faq}
 

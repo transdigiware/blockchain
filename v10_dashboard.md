@@ -283,7 +283,7 @@ In the Connection Profile, locate the `certificateAuthorities` section where you
 - `enrollSecret`: Enroll secret to use for getting a certificate
 - `x-tlsCAName`: CA name to use for getting certificate that will allow the application to communicate with Mutual TLS.
 
-For more information about updating your applications to support mutual TLS, see [How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
+For more information about updating your applications to support mutual TLS, see [How to configure mutual TLS](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-mutual-tls.html){: external}.
 
 
 

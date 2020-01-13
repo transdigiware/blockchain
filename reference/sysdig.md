@@ -3,9 +3,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-13"
 
-keywords:  sysdig, monitoring, resource consumption
+keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
 subcollection: blockchain
 

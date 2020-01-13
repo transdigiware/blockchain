@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-13"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -103,7 +103,7 @@ If your nodes are deployed on {{site.data.keyword.cloud_notm}} Private, you  nee
 ## Enrolling by using the SDK
 {: #ibp-console-app-enroll}
 
-Once the network operator provides the enroll ID and secret of the application identity and the network connection profile, an application developer can use the Fabric SDKs or the Fabric CA client to generate client-side certificates. You can use the following steps to enroll an application identity using the [Fabric SDK for Node.js](https://fabric-sdk-node.github.io/){: external}.
+Once the network operator provides the enroll ID and secret of the application identity and the network connection profile, an application developer can use the Fabric SDKs or the Fabric CA client to generate client-side certificates. You can use the following steps to enroll an application identity using the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-1.4/index.html){: external}.
 
 1. Save the connection profile to your local machine and rename it `connection.json`.
 2. Save the following code block as `enrollUser.js` in the same directory as your connection profile:
@@ -173,7 +173,7 @@ The wallets that are used by the Fabric SDKs are different from the wallet in th
 ## Invoking a smart contract by using the SDK
 {: #ibp-console-app-invoke}
 
-After you generate the application signing certificate and private key and store them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was instantiated on. You can use the steps below to invoke a smart contract with the [Fabric SDK for Node.js](https://fabric-sdk-node.github.io/){: external}.
+After you generate the application signing certificate and private key and store them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was instantiated on. You can use the steps below to invoke a smart contract with the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-1.4/index.html){: external}.
 
 
 1. Save the file below on your local machine as `invoke.js`. Save the file in the same directory as `enrollUser.js`
@@ -532,7 +532,7 @@ Go to the `digibank/application` directory. You can follow the directions that a
 
 If you are interested in preserving your existing application code, or by using Fabric SDKs for languages other than Node.js, you can still connect to your network by using lower-level Fabric SDK APIs. Use the console to [download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile). You can then import the endpoints of the peers and ordering nodes of your channel directly from the connection profile, or use the node endpoint information to manually add peer and orderer objects. You will also need to use your CA to [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities), and then use the CA endpoint information enroll on the client side, or generate certificates using your console.
 
-The [Fabric Node SDK](https://fabric-sdk-node.github.io){: external} documentation provides a tutorial on how to [connect to your network using a connection profile](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a signing certificate and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs' [Fabric Client class](https://fabric-sdk-node.github.io/Client.html){: external} using the code below:
+The [Fabric Node SDK](https://hyperledger.github.io/fabric-sdk-node/release-1.4/index.html){: external} documentation provides a tutorial on how to [connect to your network using a connection profile](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html){: external}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a signing certificate and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs' [Fabric Client class](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html){: external} using the code below:
 
 ```javascript
 fabric_client.createUser({
