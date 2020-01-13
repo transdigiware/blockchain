@@ -57,7 +57,7 @@ The process to view logs for Starter Plan nodes has changed. Instead of viewing 
 
 Networks on Enterprise Plan will soon be upgraded to Fabric v1.4.3. The Upgrade allows your network to be migrated to a Raft based ordering service from Kafka.
 
-This upgrade may cause breaking changes in your applications if they still use the peer based EventHub class of the Fabric SDKs. The peer based EventHub has been removed in Fabric v1.4.3. You must update your applications to use the new channel based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time. For more information, see [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} in the Node SDK documentation.
+This upgrade may cause breaking changes in your applications if they still use the peer based EventHub class of the Fabric SDKs. The peer based EventHub has been removed in Fabric v1.4.3. You must update your applications to use the new channel based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time. For more information, see [How to use the channel-based event service](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-channel-events.html){: external} in the Node SDK documentation.
 
 If you are using Hyperledger Composer v0.19.x, upgrading your network to Fabric 1.4.3 will disrupt your application. You need to plan on shutting down your application before upgrading your network. When your upgrade is complete, you can upgrade your application to Composer v0.20.8.
 

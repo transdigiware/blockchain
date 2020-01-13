@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-13"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -39,11 +39,11 @@ Application clients must ensure that their transaction proposals are validated a
 
 If a chaincode is not running, the first transaction proposal that is sent to this chaincode starts the chaincode. While the chaincode is starting, all other proposals are rejected with an error that indicates that the chaincode is starting. This is different from transaction invalidation. If any proposal is rejected while the chaincode is starting, application clients need to resend the rejected proposals after the chaincode starts. Application clients can use a message queue to avoid losing transaction proposals.
 
-You can use a channel-based event service to monitor transactions and build message queues. The [channelEventHub](https://fabric-sdk-node.github.io/ChannelEventHub.html){: external} class can register listeners based on transaction, block, and chaincode events. Channel-based listeners from the channel eventhub can scale to multiple channels and distinguish between traffic on different channels.
+You can use a channel-based event service to monitor transactions and build message queues. The [channelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html){: external} class can register listeners based on transaction, block, and chaincode events. Channel-based listeners from the channel eventhub can scale to multiple channels and distinguish between traffic on different channels.
 
 It is recommended that you use the channelEventHub rather than the old EventHub class. EventHub is single threaded and contains events from all channels that might slow down or even hang listeners across channels. The eventHub class also provides no guarantee that an event will be delivered, and provides no way of retrieving events from a certain point, such as a block number, to track events that were missed.
 
-**Note:** The peer EventHub class will be deprecated in a future release of the Fabric SDK. If you have existing applications that use the peer EventHub class, update your applications to use the channel EventHub class instead. For more information, see [How to use the channel-based event service](https://fabric-sdk-node.github.io/tutorial-channel-events.html){: external} in the Node SDK Documentation.
+**Note:** The peer EventHub class will be deprecated in a future release of the Fabric SDK. If you have existing applications that use the peer EventHub class, update your applications to use the channel EventHub class instead. For more information, see [How to use the channel-based event service](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-channel-events.html){: external} in the Node SDK Documentation.
 
 ### Opening and closing network connections
 {: #best-practices-app-connections}
@@ -58,7 +58,7 @@ var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.pee
 When you manage the connections between your application and your network, you might consider the following recommendations.
 
 - Reuse peer and orderer objects when you interact with your network, instead of opening new connections to submit transactions. Reusing peer and orderer objects can save resources and lead to better performance.  
-- To maintain a persistent connection to your network components, use [gRPC keepalives](https://github.com/grpc/grpc/blob/master/doc/keepalive.md){: external}. Keepalives keep the gRPC connection active and prevent an "unused" connection from being closed. The following example of peer connection adds gRPC options to the [Connection Options](https://fabric-sdk-node.github.io/global.html#ConnectionOpts){: external} object. The gRPC options are set to values that {{site.data.keyword.blockchainfull_notm}} Platform recommends.  
+- To maintain a persistent connection to your network components, use [gRPC keepalives](https://github.com/grpc/grpc/blob/master/doc/keepalive.md){: external}. Keepalives keep the gRPC connection active and prevent an "unused" connection from being closed. The following example of peer connection adds gRPC options to the [Connection Options](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConnectionOpts){: external} object. The gRPC options are set to values that {{site.data.keyword.blockchainfull_notm}} Platform recommends.  
 
   ```javascript
   var peer = fabric_client.newPeer(creds.peers["org1-peer1"].url, { pem: creds.peers["org1-peer1"].tlsCACerts.pem , 'ssl-target-name-override': null},
@@ -73,9 +73,9 @@ When you manage the connections between your application and your network, you m
   ```
   {:codeblock}
 
-  You can also find these variables with the recommended settings in the `"peers"` section of your network connection profile. The recommended options are imported into your application automatically if you use the connection profile with the SDK to connect to your network endpoints. You can find more information on how to use a Connection Profile in the [Node SDK documentation](https://fabric-sdk-node.github.io/tutorial-network-config.html){: external}.
+  You can also find these variables with the recommended settings in the `"peers"` section of your network connection profile. The recommended options are imported into your application automatically if you use the connection profile with the SDK to connect to your network endpoints. You can find more information on how to use a Connection Profile in the [Node SDK documentation](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html){: external}.
 
-- When a connection is no longer needed, use the `peer.close()` and `orderer.close()` commands to free up resources and prevent performance degradation. For more information, see the [peer close](https://fabric-sdk-node.github.io/Peer.html#close__anchor){: external} and [orderer close](https://fabric-sdk-node.github.io/Orderer.html#close__anchor){: external} classes in the Node SDK documentation. If you used a connection profile to add peers and orderers to a channel object, you can close all connections that are assigned to that channel by using a `channel.close()` command.
+- When a connection is no longer needed, use the `peer.close()` and `orderer.close()` commands to free up resources and prevent performance degradation. For more information, see the [peer close](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html#close__anchor){: external} and [orderer close](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html#close__anchor){: external} classes in the Node SDK documentation. If you used a connection profile to add peers and orderers to a channel object, you can close all connections that are assigned to that channel by using a `channel.close()` command.
 
 ### Highly available applications
 {: #best-practices-app-ha-app}
@@ -95,7 +95,7 @@ In the Connection Profile, locate the `certificateAuthorities` section where you
 - `enrollSecret`: Enroll secret to use for getting a certificate
 - `x-tlsCAName`: CA name to use for getting certificate that allows the application to communicate with Mutual TLS.
 
-For more information about updating your applications to support mutual TLS, see [How to configure mutual TLS](https://fabric-sdk-node.github.io/tutorial-mutual-tls.html){: external}.
+For more information about updating your applications to support mutual TLS, see [How to configure mutual TLS](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-mutual-tls.html){: external}.
 
 
 ## (Optional) Setting timeout values in Fabric SDKs
@@ -153,7 +153,7 @@ However, you might need to change the default timeout values in your own applica
 ```
 {:codeblock}
 
-If you are using the Node SDK, you can specify the timeout values directly in the method called. As an example, you can use the following line to increase the timeout value for [instantiating a chaincode](https://fabric-sdk-node.github.io/Channel.html#sendInstantiateProposal){: external} to 5 minutes.
+If you are using the Node SDK, you can specify the timeout values directly in the method called. As an example, you can use the following line to increase the timeout value for [instantiating a chaincode](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendInstantiateProposal){: external} to 5 minutes.
 ```javascript
 channel.sendInstantiateProposal(request, 300000);
 ```
