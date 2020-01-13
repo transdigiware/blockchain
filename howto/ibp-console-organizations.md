@@ -213,12 +213,7 @@ Create a JSON file by using the following format:
 - **admins**: Paste in the signing certificate of the organization admin in `base64` format.
 - **tls_root_certs**: (Optional) Paste in an array that contains one or more root certificates from the TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
 - **tls_intermediate_certs**: (Optional) Paste in an array that contains one or more certificates from the intermediate TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
-- **host_url**: Specify the URL of the blockchain console. This URL is used for signature collection. For example:
-
- ```json
- "host_url": "https://d0db6db7-optools.uss02.blockchain.cloud.ibm.com"
- ```
- {: codeblock}
+- **host_url**: Specify the URL of the blockchain console. This URL is used for signature collection.
 
 The following additional fields are also available in your MSP definition but are not required:
 - **organizational_unit_identifiers**: A list of Organizational Units (OU) that valid members of this MSP should include in their X.509 certificate. This is an optional configuration parameter that is used when multiple organizations leverage the same root of trust and intermediate CAs, and they have reserved an OU field for their members. An organization is often divided up into multiple organizational units (OUs), each of which has a certain set of responsibilities. For example, the ORG1 organization might have both ORG1-MANUFACTURING and ORG1-DISTRIBUTION OUs to reflect these separate lines of business. When a CA issues X.509 certificates, the OU field in the certificate specifies the line of business to which the identity belongs. See this topic in the Fabric documentation on [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} for more information.  
@@ -227,7 +222,7 @@ The following additional fields are also available in your MSP definition but ar
 
 For example, your JSON file would look similar to:
 
-```
+```json
 {
     "name": "Org1 MSP",
     "msp_id": "org1msp",
@@ -240,7 +235,8 @@ For example, your JSON file would look similar to:
     ],
     "tls_root_certs": [
         "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHRENDQWI2Z0F3SUJBZ0lVTzVhWU9WbjNwTkRMZGVLTFlIanRIUEtNTnY4d0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWamd5TURRM01EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdztLS0K"
-    ]
+    ],
+    "host_url": "https://d0db6db7-optools.uss02.blockchain.cloud.ibm.com"
 }
 ```
 {:codeblock}

@@ -29,6 +29,9 @@ subcollection: blockchain
 
 The tutorial provides a set of instructions for getting started with using the {{site.data.keyword.mon_full_notm}} to monitor the resource usage of peer, CA, and ordering service nodes. These instructions include how to configure the {{site.data.keyword.mon_full_notm}} service to monitor your existing {{site.data.keyword.blockchainfull_notm}} Platform service instance and starts with creating an instance of Sysdig in {{site.data.keyword.cloud_notm}}.  Then, you can configure the Sysdig dashboard to monitor your blockchain components. To learn more about the Sysdig service and what it offers, see the [{{site.data.keyword.mon_full_notm}}](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-about){: external} documentation.
 
+Monitoring the resource allocation for your blockchain nodes is a key part of operating a blockchain network. You are responsible for monitoring your resource usage and taking steps to address resource contention. The  {{site.data.keyword.mon_full_notm}} is a useful tool for monitoring your network, but you can use any tool you prefer.
+{: important}
+
 This tutorial uses the Free 30-day Trial version of the service, but more advanced features are available in the **Graduated tier** which you can explore if your requirements merit.
 
 The {{site.data.keyword.mon_full_notm}} service is currently only available in a subset of [regions](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints#endpoints_regions).  It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance.
@@ -105,6 +108,34 @@ At this point you have configured panels to display the percentage of CPU used b
 {: #ibp-sysdig-configure-ca-os}
 
 When you are satisfied with your peer dashboard, you can simply replicate it, using the **Copy Dashboard** menu item on the Options menu. Give the dashboard a new name, for example **Blockchain Operations - CAs** or **Blockchain Operations - Ordering nodes**. Then, edit the scope of the new dashboard to be either `container.name contains ca` or `container.name contains orderer` respectively.
+
+### Configure alerts to monitor resource usage
+{: #ibp-sysdig-configure-alerts}
+
+Now that you have configured monitoring of your peer, CA, and ordering nodes, the final important step is to configure alerts in Sysdig so that a notification is triggered when a specified condition is met. You can trigger an alert notification via email, slack, PagerDuty, Webhooks, OpsGenie, and VictorOps channels.
+First configure the notification channel and let define the alert conditions.
+
+1. Configure the notification by clicking on your user icon followed by **Settings**.
+
+   ![Sysdig settings panel](../images/configure-alert-channel.png){: caption="Figure 2. Sysdig settings panel" caption-side="bottom"}
+
+   When you subsequently click **Notification Channels** > **Add Notification Channel** you are able to select how you want to be notified when an alert is triggered.
+
+   ![Sysdig notifications](../images/configure-sysdig-notification.png){: caption="Figure 3. Sysdig notifications" caption-side="bottom"}
+
+   For more information about configuring notifications, see [Working with notification channels](/docs/Monitoring-with-Sysdig?topic=Sysdig-notifications#notifications).
+
+2. If you return to one of the dashboards that you created, you can click on the action menu in the upper right corner for any panel, CPU %, Memory  and then **Create Alert**.
+
+   ![Sysdig alerts](../images/configure-sysdig-alert.png){: caption="Figure 4. Sysdig alerts" caption-side="bottom"}
+
+   After you configure the alert based on your custom triggers, scroll down to associate the notification channel that you configured above and select your notification preferences. Optionally, you can also enable Sysdig capture which generates a trace file that you can use to analyze what happens in a host during a selected time frame.
+
+   For more information about the various options when configuring alerts in Sysdig see [Working with alerts](https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/pages/205324292/Alerts){: external}.
+
+As a general guideline, the {{site.data.keyword.blockchainfull_notm}} Platform recommends that you configure alerts for when your node CPU, memory and storage usage exceeds 80% so that you can take appropropriate action.
+{: tip}
+
 
 ## Summary
 {: #ibp-sysdig-summary}
