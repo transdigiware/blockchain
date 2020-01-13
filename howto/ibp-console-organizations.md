@@ -216,7 +216,7 @@ Create a JSON file by using the following format:
 - **host_url**: Specify the URL of the blockchain console. This URL is used for signature collection. For example:
 
  ```json
- "host_url": "https://d0db6db7-optools.uss02.blockchain.cloud.ibm.com"`
+ "host_url": "https://d0db6db7-optools.uss02.blockchain.cloud.ibm.com"
  ```
  {: codeblock}
 
