@@ -109,11 +109,11 @@ At this point you have configured panels to display the percentage of CPU used b
 
 When you are satisfied with your peer dashboard, you can simply replicate it, using the **Copy Dashboard** menu item on the Options menu. Give the dashboard a new name, for example **Blockchain Operations - CAs** or **Blockchain Operations - Ordering nodes**. Then, edit the scope of the new dashboard to be either `container.name contains ca` or `container.name contains orderer` respectively.
 
-### Configure alerts to monitor resource usage
+## Step four: Configure alerts to monitor resource usage
 {: #ibp-sysdig-configure-alerts}
 
 Now that you have configured monitoring of your peer, CA, and ordering nodes, the final important step is to configure alerts in Sysdig so that a notification is triggered when a specified condition is met. You can trigger an alert notification via email, slack, PagerDuty, Webhooks, OpsGenie, and VictorOps channels.
-First configure the notification channel and let define the alert conditions.
+First configure the notification channel and then define the alert triggers.
 
 1. Configure the notification by clicking on your user icon followed by **Settings**.
 
@@ -140,6 +140,5 @@ As a general guideline, the {{site.data.keyword.blockchainfull_notm}} Platform r
 ## Summary
 {: #ibp-sysdig-summary}
 
-This tutorial has provided some basic steps for getting started using Sysdig to monitor your blockchain node resource allocation. You now have three dashboards that you can use to monitor the resource allocation of your peer, CA, and ordering nodes in your Kubernetes cluster. With a graduated tier purchase of the  {{site.data.keyword.mon_full_notm}} service, you can edit your charts and add more segmentations to further scope the data.
-
+This tutorial has provided some basic steps for getting started using Sysdig to monitor your blockchain node resource allocation. You now have three dashboards that you can use to monitor the resource allocation of your peer, CA, and ordering nodes in your Kubernetes cluster. With a graduated tier purchase of the  {{site.data.keyword.mon_full_notm}} service, you can edit your charts and add more segmentations to further scope the data. You've also configured alerts for when nodes approach exceeding their allocated resources. Combined, these actions allow you to monitor your blockchain nodes, alerting you when resources are constrained, so that you can take the appropriate action to scale your network.
 
