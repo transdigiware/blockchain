@@ -181,7 +181,7 @@ cat <cert.pem> | base64 $FLAG
 
 Create a JSON file by using the following format:
 
-```
+```json
 {
     "name": "<organization_name>",
     "msp_id": "<organization_id>",
@@ -201,7 +201,7 @@ Create a JSON file by using the following format:
     "tls_intermediate_certs": [
         "<tls_intermediate_certs>"
     ],
-    "host_url": ""
+    "host_url": "<host_url>"
 }
 ```
 {:codeblock}
