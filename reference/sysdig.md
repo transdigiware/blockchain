@@ -133,7 +133,7 @@ First configure the notification channel and then define the alert triggers.
 
    For more information about the various options when configuring alerts in Sysdig see [Working with alerts](https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/pages/205324292/Alerts){: external}.
 
-As a general guideline, the {{site.data.keyword.blockchainfull_notm}} Platform recommends that you configure alerts for when your node CPU, memory and storage usage exceeds 80% so that you can take appropriate action and adjust the alert settings according to your notification preferences.
+As a general guideline, we recommend that you configure alerts for when your node CPU, memory, and storage usage exceeds 80% so that you can take appropriate action. Feel free to adjust the alert settings according to your notification preferences.
 {: tip}
 
 
