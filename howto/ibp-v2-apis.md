@@ -372,7 +372,7 @@ First, you need to register a component identity with your CA. Your component us
 
   Make a note of the second **affiliation** value, for example, `org1.department1`. You need to use this value in the command below.
 
-  If you created the CA using the {{site.data.keyword.blockchainfull_notm}} APIs instead of the console, you CA will be deployed without affiliations, unless you created affiliations using the Fabric CA Client. If your CA does not have affiliations, you can skip this step and leave the `--id.affiliation` off future commands.
+  If you created the CA using the {{site.data.keyword.blockchainfull_notm}} APIs instead of the console, your CA will be deployed without affiliations, unless you created affiliations using the Fabric CA Client. If your CA does not have affiliations, you can skip this step and leave the `--id.affiliation` off future commands.
 
 3. Run the following command to register the ordering node or peer.
 
