@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-01-14"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -115,7 +115,7 @@ When you are satisfied with your peer dashboard, you can simply replicate it, us
 Now that you have configured monitoring of your peer, CA, and ordering nodes, the final important step is to configure alerts in Sysdig so that a notification is triggered when a specified condition is met. You can trigger an alert notification via email, slack, PagerDuty, Webhooks, OpsGenie, and VictorOps channels.
 First configure the notification channel and then define the alert triggers.
 
-1. Configure the notification by clicking on your user icon followed by **Settings**.
+1. Configure your preferred notification channel by clicking on your user icon followed by **Settings**.
 
    ![Sysdig settings panel](../images/configure-alert-channel.png){: caption="Figure 2. Sysdig settings panel" caption-side="bottom"}
 
@@ -125,7 +125,7 @@ First configure the notification channel and then define the alert triggers.
 
    For more information about configuring notifications, see [Working with notification channels](/docs/Monitoring-with-Sysdig?topic=Sysdig-notifications#notifications).
 
-2. If you return to one of the dashboards that you created, you can click on the action menu in the upper right corner for any panel, CPU %, Memory  and then **Create Alert**.
+2. If you return to one of the dashboards that you created, you can click on the action menu in the upper right corner for any panel, and then click **Create Alert** from the drop-down menu.
 
    ![Sysdig alerts](../images/configure-sysdig-alert.png){: caption="Figure 4. Sysdig alerts" caption-side="bottom"}
 
@@ -133,7 +133,7 @@ First configure the notification channel and then define the alert triggers.
 
    For more information about the various options when configuring alerts in Sysdig see [Working with alerts](https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/pages/205324292/Alerts){: external}.
 
-As a general guideline, the {{site.data.keyword.blockchainfull_notm}} Platform recommends that you configure alerts for when your node CPU, memory and storage usage exceeds 80% so that you can take appropropriate action.
+As a general guideline, the {{site.data.keyword.blockchainfull_notm}} Platform recommends that you configure alerts for when your node CPU, memory and storage usage exceeds 80% so that you can take appropriate action and adjust the alert settings according to your notification preferences.
 {: tip}
 
 
