@@ -67,6 +67,12 @@ IBM Blockchain Platform
 		best_practices.md
 
 	{: .topicgroup}
+	Upgrading your Enterprise Plan network
+		enterprise_upgrade.md
+		enterprise_app_upgrade.md
+		enterprise_upgrade_tool.md
+
+	{: .topicgroup}
 	Starter and Enterprise Plan
 		get_start_starter_plan.md
 		starter_plan.md
