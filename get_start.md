@@ -128,5 +128,5 @@ After a transaction is triggered from your application, you can view transaction
 {: #getting-started-with-enterprise-plan-leave-nw}
 If you want to leave a network, delete the blockchain service instance from your {{site.data.keyword.cloud_notm}} dashboard.
 
-Before you leave a network, ensure that you are not a member in any channels of the network. Otherwise, you will get errors when you leave the network. A channel member removal needs to complete the channel update process. For more information about the channel update process, see [Updating a channel](/docs/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
+Before you leave a network, ensure that you are not a member in any channels of the network. Otherwise, you will get errors when you leave the network. A channel member can remove you from the channel using the channel update process. For more information about the channel update process, see [Updating a channel](/docs/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 {:note}
