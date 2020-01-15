@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-15"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -264,7 +264,7 @@ Run the following command from your IBM Cloud CLI terminal:
 bx api cloud.ibm.com
 bx login
 bx cs clusters
-$(bx cs cluster config <cluster_name> --export)
+$(bx cs cluster-config <cluster_name> --export)
 kubectl get deployments #test that the connection is working
 helm reset
 ```
