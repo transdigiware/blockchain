@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-14"
+lastupdated: "2020-01-15"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -27,24 +27,24 @@ Select **Java** or **Node** depending on the Fabric SDK that you use.
 # Updating your applications
 {: #enterprise-upgrade-applications}
 
-The upgrade tool is not yet available. This draft documentation is provided as a preview for customers who are starting the upgrade process. Any important updates to this draft will be published in the [release notes page](/docs/blockchain/reference?topic=blockchain-release-notes-saas-20#release-notes-saas-20) prior to the release of the upgrade tool. Enterprise Plan networks that have been migrated to Fabric 1.4.3 will be able to see the **Upgrade tool** button on the **Overview** page of their Network Monitor when the tool is made available.
+The upgrade tool is not yet available. This draft documentation is provided as a preview for customers who are starting the upgrade process. Any important updates to this draft will be published in the [What's new page](/docs/blockchain/reference?topic=blockchain-whats-new#whats-new) prior to the release of the upgrade tool. Enterprise Plan networks that have been migrated to Fabric 1.4.3 will be able to see the **Upgrade tool** button on the **Overview** page of their Network Monitor when the tool is made available.
 {:note}
 
-Upgrading from Enterprise Plan to {{site.data.keyword.blockchainfull_notm}} Platform 2.0 has important implications for your applications. It is recommended that you update your applications before you start using the upgrade tool. You can use the following steps update your applications:
+Upgrading from Enterprise Plan to {{site.data.keyword.blockchainfull_notm}} Platform 2.0 has important implications for your applications. It is recommended that you update your applications before you start using the upgrade tool. Complete the following steps to update your applications:
 
 1. [Prepare for breaking changes from the upgrade of your Enterprise Plan network to Fabric v1.4](#enterprise-upgrade-applications-one)
 2. [Upgrade your version of Fabric SDK](#enterprise-upgrade-applications-two)
 3. [Update your application to use service discovery](#enterprise-upgrade-applications-three)
 4. [Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-applications-four)
 
-You can use these steps to start using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 without making large code changes or experiencing application downtime. For more information, review each step below. You need to review these steps before you start using the upgrade tool.
+You can use these steps to begin the upgrade process to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 without making large code changes or experiencing application downtime. For more information, review each step below. You need to review these steps before you start using the upgrade tool.
 
 If your network uses an application that was build with Hyperledger Composer, you need to follow a different set of steps to upgrade to the new platform. For more information, see [Upgrading a network that uses Hyperledger Composer](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade#enterprise-upgrade-composer).
 
 ## Step one: Prepare for the breaking changes from Fabric v1.4
 {: #enterprise-upgrade-applications-one}
 
-You might need to update your application before your Enterprise Plan network is upgraded from Fabric v1.1 to Fabric v1.4.3. The peer-based EventHub has been removed in Fabric v1.4.3. If you are still using the old peer-based based service, you must update your applications to use the new channel-based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time. For more information, see [How to use the channel-based event service](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-channel-events.html){: external} in the Node SDK documentation.
+The peer-based EventHub has been removed in Fabric v1.4.3 and replaced with a new channel-based event service. If you are still using the old peer-based based service, you must update your applications to use channel events. Because you can use channel events on Fabric v1.1, you can update your application before your network is migrated. For more information, see [How to use the channel-based event service](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-channel-events.html){: external} in the Node SDK documentation.
 {: javascript}
 
 You might need to update your application before your Enterprise Plan network is upgraded from Fabric v1.1 to Fabric v1.4.3. The peer-based EventHub has been removed in Fabric v1.4.3. If you are still using the old peer-based based service, you must update your applications to use the new channel-based event service. Because you can use channel events on Fabric v1.1, you can migrate your application at any time.
@@ -56,7 +56,7 @@ You might need to update your application before your Enterprise Plan network is
 When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of the Fabric Node SDK. You need to upgrade the SDK version before you can update your application to use service discovery. You can go to the [Node Fabric SDK documentation](https://hyperledger.github.io/fabric-sdk-node/release-1.4/index.html) for more information.
 {: javascript}
 
-When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4.5 version of the Fabric Java SDK. You need to upgrade the SDK version before you can update your application to use service discovery. Version 1.4.5 is the minimum version that is required to use the following steps. You can find the Maven definition for version 1.4.5 below:
+When your Enterprise Plan network is running on Fabric 1.4.3, you must upgrade your application to the 1.4.5 version of the Fabric Java SDK. You need to upgrade the SDK version before you can update your application to use service discovery. Version 1.4.5 is the minimum version that is required to run the sample code provided in this documentation. You can find the Maven definition for version 1.4.5 below:
 {: java}
 
 ```
@@ -69,17 +69,21 @@ When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade th
 {: codeblock}
 {: java}
 
-You can go to the [Java Fabric SDK documentation](https://fabric-gateway-java.github.io/) for more information.
+See the [Java Fabric SDK documentation](https://hyperledger.github.io/fabric-gateway-java/) for more information.
 {: java}
 
 ## Step three: Update your applications to use service discovery
 {: #enterprise-upgrade-applications-three}
 
 After you upgrade the Fabric SDK, you can update your application to take advantage of the [Service Discovery Feature](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} of Hyperledger Fabric. Using service discovery makes it easier to upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.0. As a result, it is recommended that you update your application before you start using the upgrade tool.
+{: javascript}
+
+After you upgrade the Fabric SDK to version 1.4.5, you can update your application to take advantage of the [Service Discovery Feature](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} of Hyperledger Fabric. Configuring service discovery makes it easier to upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.0. As a result, it is recommended that you update your application before you start using the upgrade tool.
+{: java}
 
 Service discovery allows your applications to dynamically find the peer and ordering endpoints of your network. If you do not use service discovery, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.
 
-You can start using service discovery by updating your application code before the upgrade process. After you use the upgrade tool to create nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can download a connection profile from the new platform. Your application will use service discovery to find all of the peers and ordering nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and Enterprise Plan. Because the connection profile provided by the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console assumes that your application uses service discovery, updating your application prepares your application for long-term use of the new platform.
+You can start using service discovery by updating your application code before the upgrade process. After you use the upgrade tool to create nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can download a connection profile from the new platform and import it into your application using the SDK. Your application will use service discovery to find all of the peers and ordering nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and Enterprise Plan. Because the connection profile provided by the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console assumes that your application uses service discovery, updating your application prepares your application for long-term use of the new platform.
 
 You can use one of two ways to update your application:
 - If you have the time to make thorough updates to your application, you can use the high-level SDK APIs provided by the new Fabric programming model. The new APIs are built to take advantage service discovery and reduce the number of steps that are required to submit a transaction. For more information, see [Update your application to use the new Fabric SDK programming model](#enterprise-upgrade-applications-new-apis).
@@ -95,7 +99,7 @@ Starting with Fabric 1.4, you can take advantage of a new, simplified Fabric SDK
 To learn more about the new programming model, see the [Creating applications](/docs/blockchain/reference?topic=blockchain-ibp-console-app#ibp-console-app) tutorial or the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. If you need additional updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
 {: javascript}
 
-To learn more about the new programming model, see the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. For documentation on the new APIs, see the [Hyperledger Fabric Gateway SDK for Java](https://fabric-gateway-java.github.io/). If you need additional updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
+To learn more about the new programming model, see the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. For documentation on the new APIs, see the [Hyperledger Fabric Gateway SDK for Java](https://hyperledger.github.io/fabric-gateway-java/). If you need additional updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
 {: java}
 
 ### Option two: Patch your applications to use service discovery with the low-level APIs
@@ -200,7 +204,7 @@ await channel.initialize(initOptions);
 Instead of getting all of the peers and ordering nodes that are defined on the channel, the code above uses the connection profile to get one peer from your organization. When the channel connection is initialized, your peer is passed the channel and service discovery is enabled by setting `discover: true`. The SDK then uses service discovery to receive the list of peers and ordering nodes on the channel that need to endorse a transaction and commit it to the ledger. If you have multiple peers in your organization for high availability, you can edit the code block above to add additional peers to the channel. You need to call `channel.initialize` inside an asynchronous function because the call returns a promise.
 {: javascript}
 
-You can update this code sample to use service discovery. Edit the line that creates channel from your connection profile:
+You can update this code sample to use service discovery. Edit the line that creates a channel from your connection profile:
 {: java}
 
 ```java
@@ -266,20 +270,20 @@ The SDK can then use service discovery to receive the list of peers and ordering
 ## Step four: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 {: #enterprise-upgrade-applications-four}
 
-When your application is updated to service discovery, you can continue to use your Enterprise Plan connection profile and submit transactions to your Enterprise Plan network. You can then get [started with the upgrade tool](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool) and start creating nodes on the new platform. After all of the organizations in your network have used the upgrade tool to migrate their chaincode to the new platform and upgraded the chaincode on the channel, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to download a new connection profile. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Chaincode is referred to as smart contracts on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console UI.
+After you update your application to take advantage of service discovery, you can get [started with the upgrade tool](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool) and start creating nodes on the new platform. You can continue to use your Enterprise Plan connection profile and submit transactions to your Enterprise Plan network. After all of the organizations in your network have created nodes on the new platform, and you have used the tool to migrate your chaincode, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to download a new connection profile. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Chaincode is referred to as smart contracts on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console UI.
 
-After you load the connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0 into your application, your application can use service discovery to submit transactions to your nodes on the new platform and the nodes that remain on Enterprise Plan.
+After you import the new connection profile, you need to use the Certificate Authority on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to enroll a new identity for your application. Your application can then use service discovery to submit transactions to your nodes on the new platform and the nodes that remain on Enterprise Plan.
 
 ## If you cannot update your application
 {: #enterprise-upgrade-applications-manual}
 
-If you cannot update your application to use service discovery before the upgrade process, you need to manually update your application or edit your connection profile while you are using the upgrade tool. For each new peer or orderer node that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you add the node endpoint information to your application or connection profile.
+If you cannot update your application to use service discovery before the upgrade process, you need to manually update your application or edit your connection profile while you are using the upgrade tool. For each new peer or orderer node that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to add the node endpoint information to your application or connection profile.
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to find the endpoint URL and the TLS certificate for each node:
 1. Log in to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
 2. Click the peer or orderer node in the **Node** tab.
 3. On the peer or orderer page, click the **Settings** icon besides the peer or orderer name.
-4. In the side pane, click **Export** to save the peer or orderer JSON file.
+4. In the side panel, click **Export** to save the peer or orderer JSON file.
 5. You can find the endpoint URL for your application in the `"api_url"` field of the JSON file. You can find the node TLS certificate in the `"pem"` field.
 
 In order to add the certificate to the connection profile, the certificates need to be decoded from base64 into PEM format. You can decode the certs by running the following command on your local system:
