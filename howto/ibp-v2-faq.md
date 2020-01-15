@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-01-14"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:faq: data-hd-content-type='faq'}
+{:support: data-reuse='support'}
 {:pre: .pre}
 
 
@@ -76,12 +77,14 @@ Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed
 ## What database do the peers use for their ledger?
 {: #ibp-v2-faq-v2-IBP-Overview-1-3}
 {: faq}
+{: support}
 
 You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/blockchain-rhos?topic=blockchain-rhos-ibp-console-govern-components#ibp-console-govern-components-level-couch) to decide what is best for your business needs.
 
 ## What languages are supported for smart contracts?
 {: #ibp-v2-faq-v2-IBP-Overview-1-4}
 {: faq}
+{: support}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in  Node.js, Golang, or JavaScript, with future support for Java. The new Hyperledger Fabric programming model currently supports JavaScript, TypeScript, and Java, with future support for Go. If you are interested in preserving your existing application code, or by using Fabric SDKs for *Go*, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
 
@@ -119,6 +122,7 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 ## How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-cloud-pricing)
 {: faq}
+{: support}
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is priced based on the VPCs that you allocate to your blockchain nodes on the {{site.data.keyword.IBM_notm}} Kubernetes Service. For more information, see [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing).
 
@@ -133,6 +137,9 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 * You cannot migrate any nodes or data from a free cluster to a paid cluster.
 * The free offering only supports a single node Raft ordering service.    
 * Custom resource allocation is not available on a free cluster.
+
+
+
 
 ## Can I upgrade from V1.0 to the new {{site.data.keyword.blockhainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
@@ -155,6 +162,7 @@ The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are
 ## Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?
 {: #ibp-v2-faq-v2-Infrastructure-4-2}
 {: faq}
+{: support}
 
 Your existing Kubernetes cluster works with the {{site.data.keyword.blockchainfull_notm}} Platform if it satisfies the following conditions:
 - It is running Kubernetes version 1.13, 1.14, or 1.15.

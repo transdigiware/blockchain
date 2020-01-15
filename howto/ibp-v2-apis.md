@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-14"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -372,6 +372,8 @@ First, you need to register a component identity with your CA. Your component us
 
   Make a note of the second **affiliation** value, for example, `org1.department1`. You need to use this value in the command below.
 
+  If you created the CA using the {{site.data.keyword.blockchainfull_notm}} APIs instead of the console, your CA will be deployed without affiliations, unless you created affiliations using the Fabric CA Client. If your CA does not have affiliations, you can skip this step and leave the `--id.affiliation` off future commands.
+
 3. Run the following command to register the ordering node or peer.
 
   ```
@@ -588,13 +590,11 @@ You need to either encode the special character or surround the url with the sin
 
 You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain#import-a-membership-service-provide-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates that are needed to create an organization MSP. Use the following steps to complete the request body of the API call.
 
-1. Input `msp` as the request `type`.
+1. Select an MSP ID for your organization. The MSP ID is the formal name of your organization within the consortium. The MSP ID used to create the organization MSP needs to be the same that you use to deploy your peers.
 
-2. Select an MSP ID for your organization. The MSP ID is the formal name of your organization within the consortium. The MSP ID used to create the organization MSP needs to be the same that you use to deploy your peers.
+2. Select a display name for your MSP.
 
-3. Select a display name for your MSP.
-
-4. You need to provide the signCert, in base64 format, of your organization administrator that you registered and enrolled by using the Fabric CA client.  
+3. You need to provide the signCert, in base64 format, of your organization administrator that you registered and enrolled by using the Fabric CA client.  
 
   Navigate to the MSP directory that was created when you [generated certificates using your organization administrator](#ibp-v2-apis-config-enroll-admin).
   ```
@@ -639,7 +639,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 
   Provide this string to the `admins` field of the API request.
 
-5. You also need to provide the root certificate of your CA. This certificate was created when you [generated certificates using your CA admin](#ibp-v2-apis-enroll-ca-admin).
+4. You also need to provide the root certificate of your CA. This certificate was created when you [generated certificates using your CA admin](#ibp-v2-apis-enroll-ca-admin).
 
   Navigate to the CA admin MSP directory.
   ```
@@ -660,7 +660,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 
   Provide this string to the `root_certs` field of the API request.
 
-6. You should also provide the root certificate of your TLS CA. The TLS root certificate allows your peers to participate in gossip on a channel.
+5. You should also provide the root certificate of your TLS CA. The TLS root certificate allows your peers to participate in gossip on a channel.
 
   Navigate to the MSP directory that was generated when you [enrolled your TLS CA admin](#ibp-v2-apis-config-register-component-tls).
   ```
