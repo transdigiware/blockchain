@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-15"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -77,7 +77,7 @@ The console has been working successfully, but requests have started to fail. Fo
 This problem can be caused by a [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1006243){: external} introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
 {: tsCauses}
 
-To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser.
 {: tsResolve}
 
 
@@ -264,7 +264,7 @@ Run the following command from your IBM Cloud CLI terminal:
 bx api cloud.ibm.com
 bx login
 bx cs clusters
-$(bx cs cluster config <cluster_name> --export)
+$(bx cs cluster-config <cluster_name> --export)
 kubectl get deployments #test that the connection is working
 helm reset
 ```
@@ -451,5 +451,3 @@ kubectl delete ibppeer --all -n <namespace>
 kubectl delete ibporderer --all -n <namespace>
 ```
 {:codeblock}
-
-
