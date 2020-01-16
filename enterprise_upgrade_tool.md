@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-16"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -49,7 +49,7 @@ The upgrade tool user interface guides you through a series of independent steps
 - As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
 - The ability to use a hardware security module (HSM) to store the private keys of your blockchain nodes is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 - The ability to use CA replica sets to deploy a highly available Certificate Authority is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
-- You need to use the upgrade tool to allocate the resources that will be used by the Certificate Authorities, peers and ordering nodes that you will create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The default CPU and memory allocations provided by the upgrade tool are based on the resources used by your nodes on Enterprise Plan. While you can provide additional CPU and memory to a deployed node, you cannot allocate additional storage to a node after it has been provisioned.
+- You need to use the upgrade tool to allocate the resources that will be used by the Certificate Authorities, peers and ordering nodes that you will create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The default CPU and memory allocations used by the upgrade tool are provided as guidelines based on the resources used by your nodes on Enterprise Plan. When you allocate resources to your nodes, you need to plan for future growth when your network adds additional blocks. You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to allocate additional CPU and memory to nodes after they are deployed. However, you cannot allocate additional storage to a deployed node.
 
 ## Opening the upgrade tool
 
