@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-21"
 
 keywords: Pricing, pricing examples
 
@@ -66,6 +66,9 @@ For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes,
 {: tab-title="Functional Test/Demo"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
+
+
+
 
 | | Assumptions | Cost to Host | Cost to Join |
 |:-|:-----------------|:-----------------|:-----------------|

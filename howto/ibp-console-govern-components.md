@@ -71,10 +71,13 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 3. **Use the console to deploy or resize your node**. If your Kubernetes pod is large enough to accommodate the new size of the node, the reallocation should proceed smoothly. If the worker node that the pod is running on is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
+
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
+
+
 
 
 ** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.  
