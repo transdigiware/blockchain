@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-21"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -291,7 +291,7 @@ cat <cert.pem> | base64 $FLAG
 ```
 {:codeblock}
 
-```
+```json
 [
     {
         "msp": {
