@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-01-23"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -73,7 +73,8 @@ When you are ready, you can click **Create {{site.data.keyword.blockchainfull_no
 
 When you use the upgrade tool to create your peer and orderer nodes on the new platform, you have the ability to select the resources allocated to each node. The upgrade tool provides default values based on the resources used by your nodes on Enterprise Plan and recommended values. You can review the default resources provided for nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for more context. While you can re-allocate the CPU and memory allocated to running nodes, you can only allocate storage when a node is first deployed.
 
-| **Component** (all containers) | CPU | Memory (GB) | Storage (GB) |
+
+| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
