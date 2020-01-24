@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-24"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -271,7 +271,6 @@ Customers are responsible for encrypting their own storage and the encryption mu
 
 The default persistent storage type is File storage, also known as Endurance storage. For more information about encryption on all of the {{site.data.keyword.cloud_notm}} storage options:
 - [{{site.data.keyword.cloud_notm}} File storage Provider managed encryption-at-rest](/docs/infrastructure/FileStorage?topic=FileStorage-encryption){: external}
-- [{{site.data.keyword.cloud_notm}} Block storage Provider managed encryption-at-rest](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption){: external}
 - [Portworx encrypting volumes](https://docs.portworx.com/reference/cli/encrypted-volumes/){: external}
 - [{{site.data.keyword.cloud_notm}} data encryption and key management](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-data#dataencryptionandkeymanagement){: external}
 

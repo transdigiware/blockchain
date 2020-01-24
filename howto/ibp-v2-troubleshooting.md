@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-24"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -21,6 +21,7 @@ subcollection: blockchain
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
+{:support: data-reuse='support'}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Troubleshooting
@@ -151,6 +152,7 @@ You can click the **Refresh your linked cluster** button to renew the communicat
 ## Why did my smart contract installation, instantiation or upgrade fail?
 {: #ibp-console-smart-contracts-troubleshoot-entry1}
 {: troubleshoot}
+{: support}
 
 It is possible you may experience an error when installing, instantiating or upgrading a smart contract. For example, when you try to install a smart contract on a peer, it fails with the error `An error occurred when installing smart contract on peer.`
 {: tsSymptoms}
@@ -179,6 +181,7 @@ In order to view the smart contracts installed on a peer, you need to be a peer 
 ## My channel, smart contracts, and identities have disappeared from the console. How can I get them back?
 {: #ibp-v2-troubleshooting-browser-storage}
 {: troubleshoot}
+{: support}
 
 The identities in your wallet consist of a signing certificate and private key that allow you to manage your blockchain components. However, they are only stored in your browser local storage. You are responsible for securing and managing these identities. We recommend that you export them to your file system after you create them. Whenever you create a new node, you associate an identity from your wallet with the node. This admin identity is what allows you to manage the node. When you switch browsers or change to a browser on a different machine, these identities are no longer in your wallet. Therefore, you are unable to manage the components.
 {: tsSymptoms}
@@ -207,6 +210,7 @@ You can click the **Refresh your linked cluster** button to renew the communicat
 ## Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?
 {: #ibp-v2-troubleshooting-create-msp}
 {: troubleshoot}
+{: support}
 
 When you attempt to create a new organization MSP definition from the Organizations tab, you experience the error `Unable to authenticate with the enroll ID and secret you provided`.
 {: tsSymptoms}
@@ -233,6 +237,7 @@ On the **Update channel** panel, scroll down to the **Channel Updater MSP ID** a
 ## When I log in to my console, why am I getting a 401 Unauthorized error?
 {: #ibp-v2-troubleshooting-console-401}
 {: troubleshoot}
+{: support}
 
 When I try to log in to my console, I am unable to access the console from my browser. If I check the browser logs, I can find the error 401 unauthorized.
 {: tsSymptoms}
@@ -248,6 +253,7 @@ As a best practice, you should have already stored your certificates and identit
 ## Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
 {: #ibp-v2-troubleshooting-console-helm-reset}
 {: troubleshoot}
+{: support}
 
 After attempting to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance, it fails with the error `Cluster linking is taking too long`.
 {: tsSymptoms}
@@ -276,6 +282,7 @@ Attempt to link your cluster again. If it continues to fail, you should [Contact
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
 {: #ibp-v2-troubleshooting-smart-contract-anchor-peers}
 {: troubleshoot}
+{: support}
 
 When I try to invoke a smart contract from the Fabric SDK, the transaction fails and returns the following error:
 {: tsSymptoms}
@@ -392,6 +399,8 @@ It is not possible to migrate from a free cluster to a paid cluster. After 30 da
 
 ## After I deploy a node in the console, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?
 {: #ibp-v2-troubleshooting-unbound-persistent-volume-claim}
+{: troubleshoot}
+{: support}
 
 I see what looks like an error in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that a pod has unbound immediate persistent volume claims and am worried that my node has failed to deploy.
 {: tsSymptoms}
@@ -404,6 +413,7 @@ Unbound immediate persistent volume claims are a normal part of the deployment p
 
 ## After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?
 {: #ibp-v2-troubleshooting-crash-loop-backoff}
+{: troubleshoot}
 
 I see an error in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff and am worried that my node has failed to deploy.
 

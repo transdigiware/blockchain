@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-24"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -130,11 +130,13 @@ While it is simpler to have enough resources deployed to {{site.data.keyword.clo
 
 For a sense of how much storage and compute you will need in your cluster, refer to this chart, which contains the current defaults for the peer, ordering node, and CA:
 
-| **Component** (all containers) | CPU | Memory (GB) | Storage (GB) |
+
+| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
+
 
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
@@ -225,7 +227,7 @@ Consider bookmarking the url of your console so you can come back at a later tim
 - The {{site.data.keyword.blockchainfull_notm}} Platform peers and orderers are automatically configured to expose a /metrics endpoint that Prometheus can use to scrape a wide variety of blockchain metric data. Read more about using [Prometheus in {{site.data.keyword.cloud_notm}}](/docs/cloud-foundry?topic=cloud-foundry-monitoring#prometheus){: external}.
 
 **Storage**  
-- Utilize {{site.data.keyword.cloud_notm}} [File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) and [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-About#getting-started-with-block-storage) when blockchain nodes are provisioned. See this topic on [Persistent storage considerations](#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
+- Utilize {{site.data.keyword.cloud_notm}} [File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) when blockchain nodes are provisioned. See this topic on [Persistent storage considerations](#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
 
 - Set up [Portworx](/docs/containers?topic=containers-portworx#portworx) to manage local persistent storage across your containerized databases, or share data between pods across multiple zones.
 
@@ -291,7 +293,7 @@ Every cluster on the {{site.data.keyword.IBM_notm}} Kubernetes Service comes wit
 
 You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/infrastructure/FileStorage?topic=FileStorage-about#billing).
 
-If you want to use [Performance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-performance), [Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
+If you want to use [Performance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-performance), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
 
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'

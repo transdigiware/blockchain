@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-24"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -16,6 +16,8 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:important: .important}
 {:note: .note}
+{:help: data-hd-content-type='help'}
+{:support: data-reuse='support'}
 {:pre: .pre}
 
 # Creating and managing identities
@@ -232,6 +234,8 @@ When you use the console to create an orderer or peer, you will encounter an **A
 
 ## Viewing the contents of a signing certificate
 {: #ibp-console-identities-sign-cert}
+{: help}
+{: support}
 
 As a network operator, there may be situations when you need to view the contents of a signing certificate, or sign cert, to debug a problem.
 If you have the certificate `PEM` file, you can run the following openSSL command to print out the certificate contents:

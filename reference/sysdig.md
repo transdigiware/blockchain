@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-14"
+lastupdated: "2020-01-24"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -19,10 +19,14 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:note: .note}
 {:tip: .tip}
+{:help: data-hd-content-type='help'}
+{:support: data-reuse='support'}
 {:download: .download}
 
 # {{site.data.keyword.mon_full_notm}}
 {: #ibp-sysdig}
+{: help}
+{: support}
 
 {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.mon_full}} service which is useful for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform peer, orderer, and certificate authority (CA) nodes, and smart contract containers.
 {: shortdesc}

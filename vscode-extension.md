@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-23"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -220,19 +220,6 @@ You can use the **Debug** view to iteratively develop and debug your smart contr
 You need to install some prerequisites depending on which language you are using:
 - If you are developing Go smart contracts, install the [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
 - If you are developing Java smart contracts, install the [Language Support for Java extension](https://marketplace.visualstudio.com/items?itemName=redhat.java) and the [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
-
-If you are debugging a Node (JavaScript or TypeScript) chaincode written with the low-level programming model, you must add the `program` attribute to your launch configuration in launch.json and provide the path to the file that calls `Shim.start`. For example:
-```
-{
-    "type": "fabric:node",
-    "request": "launch",
-    "name": "Debug Smart Contract",
-    "program": "${workspaceFolder}/dist/start.js"
-}
-
-```
-Where `start.js` contains the line `Shim.start(new Chaincode());`.
-{: note}
 
 Use the following steps to debug your smart contract:
 
