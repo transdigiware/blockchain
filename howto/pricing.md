@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2019-09-06"
+lastupdated: "2020-01-24"
 
 keywords: Starter Plan, Enterprise Plan, peer fee, membership fee
 
@@ -28,9 +28,9 @@ This guide helps you understand pricing for {{site.data.keyword.blockchainfull}}
 Starter Plan is now deprecated, therefore no new Starter Plan networks can be created at this time. Make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks). Pricing information for this latest offering is available in the topic [Pricing for IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-ibp-saas-pricing).
 {: deprecated}  
 
-Enterprise Plan has been withdrawn. Therefore, new clients cannot provision Enterprise Plan networks at this time. Existing clients can continue to add new members and create new networks until December 31, 2019. However, no new Enterprise Plan networks can be created after that date. New users can make use of the latest user interface and features available now in the second generation of blockchain technology by visiting IBM Blockchain Platform for IBM Cloud.
+Enterprise Plan has been withdrawn. Therefore, new clients cannot provision Enterprise Plan networks at this time. Existing clients can continue to add new members and create new networks until December 31, 2019. However, no new Enterprise Plan networks can be created after that date. New users can make use of the latest user interface and features available now in the second generation of blockchain technology by visiting [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks).
 {: important}
- 
+
 {{site.data.keyword.blockchainfull_notm}} Platform charges monthly membership and peer fees to organizations who build blockchain networks. The fees are different depending on the membership plan that you choose and the network resources that your network uses. The following table shows the pricing overview of {{site.data.keyword.blockchainfull_notm}} Platform.
 
 | Pricing elements | Starter Plan cost per month | Enterprise Plan cost per month |
