@@ -22,6 +22,8 @@ subcollection: blockchain
 
 # IBM Cloud LogDNA
 {: #ibp-LogDNA}
+{: help}
+{: support}
 
 {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.la_full_notm}} service which is useful for viewing and parsing the logs of your {{site.data.keyword.blockchainfull}} Platform nodes and smart contract containers.
 {: shortdesc}
