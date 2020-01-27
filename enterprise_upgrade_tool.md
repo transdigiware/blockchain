@@ -217,13 +217,13 @@ Your peers need to download the channel blocks from your ordering service and re
 
 The Enterprise Plan Network Monitor and the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console use different methods to install chaincode on your peers. As a result, the chaincode that is instantiated on your channels by the Network Monitor or the Swagger APIs cannot be invoked from peers on the new platform. You can use the upgrade tool to install a new version of the chaincode on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and Enterprise Plan peers that can be used across platforms. After you upgrade the chaincode running on your channels to the version installed by the upgrade tool, you can endorse transactions from either platform, allowing you to use the two networks side by side.
 
-## Step One: Use the migrate chaincode panel in the Upgrade tool
+### Step One: Use the migrate chaincode panel in the Upgrade tool
 
 On the **Migrate chaincode** panel, you can find the name and version of the chaincode that are instantiated on your Enterprise Plan channels. You can use this table to decide which chaincode you want to install on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network. **However, you need to have the chaincode on your local file system to use this panel**.
 
 You can use the **Select Chaincode File** button to upload a chaincode from your local file system. Select the peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that you would like to install the chaincode on and then click **Migrate**. The upgrade tool installs the chaincode with a new version to identify the chaincode that was installed by the upgrade tool. This version is displayed in the upgrade tool UI (the old version with **_V2** appended). If you use an automated build process to package and install your chaincode, the version installed by the upgrade tool may disrupt your normal processes.
 
-All channel members need to complete this step before moving to step two.
+All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to install and instantiate your chaincode.
 {: important}
 
 ### Step Two: Upgrade to the migrated chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
