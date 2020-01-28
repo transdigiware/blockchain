@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -146,7 +146,10 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 * Custom resource allocation is not available on a free cluster.
 
 
+## How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?
+{: #ibp-v2-faq-cloud-invoice}
 
+Actual cost breakdowns are visible from your Invoices in the {{site.data.keyword.cloud_notm}} Dashboard. For detailed steps, see the [Billing](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-billing) section in the Pricing topic.
 
 ## Can I upgrade from V1.0 to the new {{site.data.keyword.blockhainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}

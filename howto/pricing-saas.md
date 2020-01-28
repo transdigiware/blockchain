@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-01-28"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -18,6 +18,8 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:gif: data-image-type='gif'}
+{:help: data-hd-content-type='help'}
+{:support: data-reuse='support'}
 {:pre: .pre}
 
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
@@ -139,20 +141,33 @@ The values in the following table are useful to estimate the hourly cost of your
 
 ## Billing
 {: #ibp-saas-pricing-billing}
+{: help}
+{: support}
 
 Your {{site.data.keyword.blockchainfull_notm}} Platform billing and invoices are based on the CPU and memory allocation for each node. When you are done with your network and want to avoid any further charges, you need to delete your nodes from the console and then delete your blockchain service instance from {{site.data.keyword.cloud_notm}}. Storage that was provisioned for the node is automatically deleted when the node is deleted.
 
+### {{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform charges
+{: #ibp-saas-pricing-iks-ibp}
 
+If {{site.data.keyword.cloud_notm}} has your credit card on file, you will be sent a link to view your invoice. You can also view it from your {{site.data.keyword.cloud_notm}} Dashboard by navigating to **Manage** > **Billing and Usage** > **Invoices**.
+
+1. Click the Download icon next to the invoice you want to view.
+2. You will have the option to download your invoice in "PDF invoice" or "EXCEL invoice" format.
+
+  * **PDF invoice** Select this format when limited detail is required. This format includes the line-item "Platform Services Containers" that includes your {{site.data.keyword.cloud_notm}} Kubernetes and Storage costs (as well as other container costs). The line item "Platform Services Other Services" aggregates your blockchain cost with other service costs.
+
+  * **EXCEL invoice** Select this format when you need more insight into your Kubernetes containers, storage instances, and blockchain cost. Navigate to the Detailed Billing sheet in the downloaded invoice workbook to understand how those specific line items break down, and see details of the specific containers/storage instances you got charged for. The Blockchain Platform cost is visible under the Description line item "Platform Service Plan Feature Usage: Blockchain Platform Standard" . For example, a Detailed Billing tab would look similar to the following:
+
+     ![Detailed invoice](../images/detailed-invoice.png "Detailed invoice"){: caption="Figure 1. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
+
+The pie-chart visible on the Usage tab of the {{site.data.keyword.cloud_notm}} Dashboard will not align with the invoices since it applies to  a different billing period.  
+{: note}
 
 ### IP Allocation charges
 
 When you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, a flat monthly fee is assessed for IP Allocation. This fee is charged by zone, so that if you provision three zones in your cluster, you can multiply this charge by three. The example below shows the charge for a single zone.
 
-
-![IP allocation charges](../images/ip_allocation_charge.png "Kubernetes cluster IP allocation charges"){: caption="Figure 1. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
-
-
-
+![IP allocation charges](../images/ip_allocation_charge.png "Kubernetes cluster IP allocation charges"){: caption="Figure 2. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
 
 This charge is visible on the **Invoices** tab of the Usage tile. Click the link under **Next Recurring Invoice** to see your charges for IP Allocation.
 
