@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-01-27"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -144,21 +144,25 @@ You need to upload the connection information of your Enterprise Plan network an
 
 The first component that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 is a Certificate Authority for your peer and ordering service organization. You will use CAs on the new platform to create the new peer and ordering nodes. Because the identities that are created by new CA are recognized as part of your organization on Enterprise Plan, your new nodes are able to join your existing channels. The application, node, and admin identities that you created on Enterprise Plan are also registered with the new CA.
 
+### Step One: Use the Certificate Authorities panel in the upgrade tool
+
 In the **Upgrade Your Certificate Authorities** panel, you can find the Certificate Authorities of your peer organization on Enterprise Plan. For high availability, each organization has two CAs. You need to upgrade only one CA per organization.
 
 If you are the founder of the network (PeerOrg1), you need to repeat these steps to upgrade one of the ordering organization CAs, in addition to a CA for your peer organization.
 
 For each CA you want to upgrade, enter a **Display Name** for the new CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You will use this name to identify the CA in future steps. You also need to create the enroll ID and enroll secret of the CA Admin. **Save these values**. You can use these values to generate the CA admin identity and operate your CA. After you provide the required information, click **Start** to create the CA. The CA takes about five to ten minutes to start. If the creation of a CA fails, click on the overflow menu next to the CA and then click **Delete Certificate Authority**.
 
+### Step Two: Operate your Certificate Authority on {{site.data.keyword.blockchainfull_notm}} Platform 2.0
+
 After you upgrade the CA, you need to click **Export identity** in the upgrade tool to download the CA admin identity to a JSON file. You then need to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to associate the admin identity with the new CA. Log in to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. Upload the JSON identity to the console wallet by clicking the wallet tab and then **Add identity** > **Upload JSON**. Then, use the nodes tab to view the CA that the tool created. Click the **Associate identity** button to associate the CA admin identity with the CA. For more information, see [Creating and managing identities](/docs/blockchain/reference?topic=blockchain-ibp-console-identities#ibp-console-identities).
 
-## Upgrade the Ordering Service
+## Upgrade the ordering service
 
 If you are the founder of the network, you need to use the tool to create ordering nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The new ordering nodes are part of your existing ordering service and will communicate with your nodes on Enterprise Plan by using Raft consensus. Raft consensus allows your new nodes to receive the ledger and channel data from Enterprise Plan.
 
 After you upgrade the CA of the orderer organization, you can create ordering nodes on the new platform. The first step is to use the CA to create an orderer administrator identity and orderer organization MSP definition. You can use the orderer administrator to operate your ordering nodes by using the console UI, Fabric CLI tools, or the Fabric SDKs.
 
-### Create an ordering organization admin and MSP definition
+### Step One: Create an ordering organization admin and MSP definition
 
 Under **Create an ordering organization admin and MSP definition**, select the ordering service CA that you created on the new platform. Then, provide the enroll ID and secret for your orderer admin. When you click **Create**, the upgrade tool completes the following steps:
 
@@ -168,21 +172,24 @@ Under **Create an ordering organization admin and MSP definition**, select the o
 
 After you create the orderer organization administrator and the MSP definition, click **Export identity** to download the administrator private key and certificate. Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and upload this identity to your console wallet. The upgrade tool imports the orderer organization MSP definition into the organizations tab of your console. For more information about your organization MSP and your organization administrator, see [Managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
-### Create orderers
+### Step Two: Create new ordering nodes
 
 You can use the **Upgrade orderers** panel to create new ordering nodes. For each new ordering node, enter a **Display Name** that will identify the node on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll secret** for the ordering node identity. Your node uses this identity to generate the certificate and keys it needs to operate on the network during deployment. Provide a different enroll ID and secret than the values that you used for the orderer admin. After you provide the required information, click **Start** to create the orderer. You can only create one new ordering node at a time, and need to create five ordering nodes on this panel before you can proceed.
 
 Your ordering nodes store the blockchain portion of the ledger for each channel they support. Each node that you create on the new platform needs to download these blocks and sync with your existing ordering service before you can migrate another ordering node. The time that is required depends on the number of channels in your network and the number of blocks on each channel. You can use the [Node Logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) from your orderers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to see whether they are finished syncing with your ordering nodes on Enterprise Plan. If the creation of an ordering node fails, click on the overflow menu next to each node and then click **Delete Ordering Node**.
 
 If you created a multizone cluster, you can use this panel to deploy an ordering node to a specific zone and ensure that your ordering service is spread across different zones for High Availability. This allows your ordering service to continue to process transactions in the event of a zone failure. While the upgrade tool uses an anti-affinity policy to deploy your ordering nodes to worker nodes with free resources, the anti-affinity policy cannot detect if the ordering nodes are being deployed to different zones. For more information about how to find the zones of your cluster, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+{:note}
 
-When you finish upgrading your ordering service, your ordering service consists of eight nodes, three on Enterprise Plan and five on the platform. The members of your network will be able to submit their transactions to any ordering node to get their transactions included in blocks and added to the ledger. Log in to your Platform 2.0 console and open your ordering service in the nodes tab. Click the **Associate identity** button to associate the orderer admin identity that you exported from the orderer tool. You can then use the console to operate your ordering service.
+### Step Three: Operate your ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
-## Upgrade your Peers
+When you finish upgrading your ordering service, your ordering service consists of eight nodes, three on Enterprise Plan and five on the platform. The members of your network will be able to submit their transactions to any ordering node to get their transactions included in blocks and added to the ledger. Log in to your Platform 2.0 console and open your ordering service in the nodes tab. Click the **Associate identity** button to associate the orderer admin identity that you exported from the orderer tool. You can then use the console to operate your ordering service. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain/reference?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-suggested-ordering-node-configurations).
+
+## Upgrade your peers
 
 After you upgrade your peer organization Certificate Authority, and your ordering service if you are the founder of the network, you can start upgrading your peers. The first step is to use the CA to create a peer administrator identity and an organization MSP definition. You can use the administrator identity to operate your peers by using the console UI, Fabric CLI tools, or the Fabric SDKs. The organization MSP definition allows you to deploy nodes and join or create channels on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. If you are the network founder and the operator of the ordering service, you need to create a new MSP and administrator for peer organization.
 
-### Create a peer organization admin and MSP definition
+### Step One: Create a peer organization admin and MSP definition
 
 Under **Create an organization admin and MSP definition**, select the peer organization CA that you created on the new platform. Then, provide the **Enroll ID** and **Enroll secret** of your organization admin. When you click **Create**, the upgrade tool completes the following steps:
 
@@ -192,29 +199,40 @@ Under **Create an organization admin and MSP definition**, select the peer organ
 
 After you create the administrator identity and the MSP, click **Export identity** to download the administrator private key and certificate. Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and upload this identity to your console wallet. The upgrade tool imports the peer organization MSP definition into the organizations tab of your console. For more information about your organization MSP and your organization administrator, see [Managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
-### Upgrade peers
+### Step Two: Create new peers
 
 You can then use the **Create peers** table to start migrating your peers to the new platform. For each Peer you want to upgrade, enter a **Display Name** for the new peer on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll Secret** for the peer identity. Your peer uses this identity to generate the certificate and keys that are required by the peer during deployment. After you provide the required information, click **Start**. It takes about three to five minutes to create a new peer. If the creation of a peer fails, click on the overflow menu next to each peer and then click **Delete Peer**.
 
 If you created a multizone cluster, you can use this panel to deploy your peer to a specific zone and ensure that your peers are deployed in different zones. This ensures that your peers are available if there is a zone failure. While the upgrade tool uses an anti-affinity policy to deploy your peers to worker nodes with free resources, the anti-affinity policy cannot detect if the peers are being deployed to different zones. For more information about how to find the zones of your cluster, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+{:note}
+
+### Step Three: Operate your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
 Log in to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and open your peer on the nodes tab. You can use the **Associate identity** pane to associate the peer admin identity that you exported from the tool with your peers. You can then use the console to operate your peer by joining it to new channels and installing smart contracts.
 
 Your peers need to download the channel blocks from your ordering service and reconstruct the channel ledger before they can endorse transactions. You might need to wait for your peers to sync with the channel after they start. The time that is needed depends on the number of channels and the number of blocks on the channel. You can use the channel overview panel in the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to check the number of blocks and the peer [Node Logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) to see whether your peers are in sync with your peers on Enterprise Plan.
-{: important}
 
 ## Migrating your smart contracts
 {: #enterprise-upgrade-tool-smart-contracts}
 
 The Enterprise Plan Network Monitor and the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console use different methods to install chaincode on your peers. As a result, the chaincode that is instantiated on your channels by the Network Monitor or the Swagger APIs cannot be invoked from peers on the new platform. You can use the upgrade tool to install a new version of the chaincode on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and Enterprise Plan peers that can be used across platforms. After you upgrade the chaincode running on your channels to the version installed by the upgrade tool, you can endorse transactions from either platform, allowing you to use the two networks side by side.
 
+### Step One: Use the migrate chaincode panel in the Upgrade tool
+
 On the **Migrate chaincode** panel, you can find the name and version of the chaincode that are instantiated on your Enterprise Plan channels. You can use this table to decide which chaincode you want to install on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network. **However, you need to have the chaincode on your local file system to use this panel**.
 
 You can use the **Select Chaincode File** button to upload a chaincode from your local file system. Select the peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that you would like to install the chaincode on and then click **Migrate**. The upgrade tool installs the chaincode with a new version to identify the chaincode that was installed by the upgrade tool. This version is displayed in the upgrade tool UI (the old version with **_V2** appended). If you use an automated build process to package and install your chaincode, the version installed by the upgrade tool may disrupt your normal processes.
 
+All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to install and instantiate your chaincode.
+{: important}
+
+### Step Two: Upgrade to the migrated chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
+
 In order to invoke the chaincode on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 peers, you need to upgrade the chaincode that is instantiated on the channel to the version installed by the upgrade tool. Make sure that all of the members of the channel have used the upgrade tool to migrate the chaincode to the same chaincode version. This may require additional coordination if you frequently upgrade your chaincode using an automated process. When all of the members of your channel are ready, you can upgrade the chaincode by using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
 
 Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and navigate to the smart contracts tab. Scroll down to the **Instantiated smart contracts** table and find the migrated chaincode. Click **Upgrade** from the network menu on the right side of the row. The chaincode takes a few minutes to upgrade. For more information, see [Deploy a smart contract on the network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts). Only one network member needs to use the console to upgrade the chaincode. After you migrate the chaincode you can continue to upgrade your chaincode using the upgrade tool or the Fabric SDKs. However, you can no longer use the Network Monitor or the APIs to upgrade chaincode.
+
+### Step Three: Connect to the smart contract with the SDK
 
 After the chaincode has been upgraded on your channels, you can use the console to download a new connection profile for your application. To download a connection profile, navigate to the **Smart Contracts** tab. Click the overflow menu next to each instantiated smart contract. Click the **Connect with your SDK** button to download the connection profile. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Your application needs to be updated to use service discovery in order to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile to submit a transaction. To use service discovery, you also need to add an anchor peer to your channels. Use the console to add one of your peers on the new platform as an anchor peer to each channel that you joined. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
@@ -224,7 +242,7 @@ If you want to remove a migrated network for any reason, you can remove the node
 
 ## Complete upgrade
 
-The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool.
+The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. If the migration of any node failed, you need to delete that node using the panel that created it before you remove the upgrade tool.
 
 Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. Store the identities in a secure place. After you complete this step, you can operate your network only by using the admin identities that you downloaded.
 {: important}
