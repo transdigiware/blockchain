@@ -43,6 +43,7 @@ subcollection: blockchain
 
 - [How does pricing work on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-cloud-pricing)
 - [What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](#ibp-v2-faq-free-cluster)
+- [How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?](#ibp-v2-faq-cloud-invoice)
 - [Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-IBP-Overview-1-5)
 - [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](#ibp-v2-faq-v2-IBP-Overview-1-8)
 - [What regions are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-IBP-Overview-1-9)
