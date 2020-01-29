@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-01-29"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -226,7 +226,7 @@ You can import nodes that were created through {{site.data.keyword.cloud_notm}},
 
 As an example, you can find the JSON file of a peer below. To communicate with the peer from another console, you need to ensure that the `grpcwp_url` port, port 32403 in this example, is open to external traffic.
 
-```
+```json
 {
     "name": "peer",
     "grpcwp_url": "https://9.30.252.107:32403", \\ensure that port 32403 is externally exposed
