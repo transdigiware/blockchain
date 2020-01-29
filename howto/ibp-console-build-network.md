@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-01-29"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -34,6 +34,8 @@ Whether you deploy components to a paid or free Kubernetes cluster, pay close at
 
 If you are using an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, it is recommended that you provision  at least a 4CPU x 16GB RAM cluster to accommodate the components in this tutorial.
 {: tip}
+
+
 
 
 
