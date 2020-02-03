@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-03"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -127,7 +127,6 @@ There is no limit to the number of service instances that you can provision and 
 {: #ibp-saas-pricing-default}
 
 The values in the following table are useful to estimate the hourly cost of your custom network based on CPU, compute, and storage. These minimum recommended values are sufficient for getting started. As you monitor your network usage, you might find that your actual resource requirements and costs will vary depending on your use case and your security and availability needs.  
-
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|

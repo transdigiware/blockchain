@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-02-03"
 
 subcollection: blockchain
 
@@ -42,7 +42,6 @@ If you are building a network that will be used in production, you need setup yo
 - For recommendations on configuring your cluster, visit [Implement high availability on {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/cloud/garage/practices/manage/high-availability-ibm-cloud-private){: external}.
 - When you are ready to start building your network, visit [high availability considerations for peers](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-peers) and [high availability considerations for ordering services](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-ordering-service).
 - The following table includes the default resource allocations for each node type for consideration when you estimate the size of cluster that is required. When you deploy your nodes, you can adjust the resource allocations according to your needs.
-
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|

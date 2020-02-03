@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-02-03"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -72,7 +72,6 @@ The **Deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platfo
 When you are ready, you can click **Create {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network** to deploy an instance of the new platform. You can also follow [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
 When you use the upgrade tool to create your peer and orderer nodes on the new platform, you have the ability to select the resources allocated to each node. The upgrade tool provides default values based on the resources used by your nodes on Enterprise Plan and recommended values. You can review the default resources provided for nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for more context. While you can re-allocate the CPU and memory allocated to running nodes, you can only allocate storage when a node is first deployed.
-
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|

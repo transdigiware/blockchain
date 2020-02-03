@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-03"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -35,6 +35,7 @@ subcollection: blockchain
 - [I am currently using Hyperledger Fabric v1.4 and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?](#ibp-v2-faq-migrate-raft)
 - [Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](#ibp-v2-faq-multicloud)
 - [How can I find the examples and tutorials within the VSCode extension?](#ibp-v2-faq-vscode-tutorials)
+- [Is there a best practice for monitoring my blockchain resources?](#ibp-v2-faq-mon-res)
 - [If service discovery is on, will an endorsement request be routed to any peer on the network?](#ibp-v2-faq-service-discovery)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
 
@@ -113,6 +114,16 @@ You can not currently deploy blockchain nodes to multiple hosted cloud providers
 {: faq}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+
+## Is there a best practice for monitoring my blockchain resources?
+{: #ibp-v2-faq-mon-res}
+{: faq}
+{: support}
+
+You are responsible for the health monitoring and resource allocation of the blockchain nodes in your Kubernetes cluster. While requests against the nodes are being actively processed, you should be monitoring for spikes in resource consumption to avoid problems.  {{site.data.keyword.IBM_notm}} recommends that you configure Sysdig and setup alerts to track when blockchain nodes are reaching their limits. See the tutorial on [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig) for more details.
+
+You should be aware that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. Therefore, when you are allocating resources to your peer node, it is important to allocate sufficient resources and monitor the peer containers to ensure adequate resources are available to the peer when smart contracts are instantiated on a channel and during transaction processing.
+{: tip}
 
 ## If service discovery is on, will an endorsement request be routed to any peer on the network?
 {: #ibp-v2-faq-service-discovery}
