@@ -24,6 +24,13 @@ subcollection: blockchain
 
 
 
+## 06 February 2020
+{: #whats-new-02-06-2020}
+
+**Service availability in a new region**
+
+The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is now available to be provisioned in one new region: **UK South** (London). Refer to the [locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) information to see the data centers that are available in those regions.
+
 ## October 02, 2019
 {: #whats-new-10-02-2019}
 

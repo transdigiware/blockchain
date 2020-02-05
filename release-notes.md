@@ -50,7 +50,7 @@ The Ingress timeout for the gRPC web proxy has been increased to avoid an error 
 
 **Service availability in two new regions**  
 
-The {{site.data.keyword.blockchainfull_notm}} Platform is now available to be provisioned in two new {{site.data.keyword.cloud_notm}} regions: **US East**, and **AP South**. Refer to the [locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) information to see the data centers that are available in those regions.
+The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is now available to be provisioned in two new {{site.data.keyword.cloud_notm}} regions: **US East**, and **AP South**. Refer to the [locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) information to see the data centers that are available in those regions.
 
 ## 06 November 2019
 {: #11-06-2019}
