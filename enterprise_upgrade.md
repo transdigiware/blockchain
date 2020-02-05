@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-17"
+lastupdated: "2020-02-05"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -92,7 +92,7 @@ After all the members of your channel have migrated their chaincode to the new p
 
 When your applications can add transactions to the ledger by using the nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan. Before you delete your network, you must ensure that the other organizations in your consortium have updated their applications to use service discovery or that they have updated their applications to target the endpoints of your new nodes. If other applications continue to target your peers on Enterprise Plan, their transactions might fail to meet the chaincode endorsement policy. If other applications target your ordering nodes, their transactions might not be committed to the ledger.
 
-Before you delete your network, you should use the Network Monitor to stop each of your peers to confirm that they are not being used to endorse transactions. If no problems are detected after you stop your Enterprise network peers, you can remove the peers by using the Network Monitor. You can then delete your Enterprise Plan network. For more information, see [Leaving a network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-leave-nw).
+Before you delete your network, you should use the Network Monitor to stop each of your peers to confirm that they are not being used to endorse transactions. If no problems are detected after you stop your Enterprise network peers, you can remove the peers by using the Network Monitor. You can then delete your Enterprise Plan network.
 
 ## Upgrading a network that uses Hyperledger Composer
 {: #enterprise-upgrade-composer}

@@ -67,7 +67,9 @@ You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} 
 
 2. After you create a Kubernetes cluster, you can deploy a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform and link it to that cluster.
 
-The **Deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0** panel displays the CPU and memory that is used by your Enterprise Plan network. This information is provided to help you select the size of the Kubernetes cluster on {{site.data.keyword.cloud_notm}} that you must create. You need to select a cluster that has sufficient resources for your current deployment, with some overhead for high availability and network growth. For more information about resource considerations, see [Paid clusters](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required-paid). If you are the network member that is migrating the ordering service, a 4x16 Kubernetes single worker node cluster is the recommended minimum deployment.
+The **Deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0** panel displays the CPU and memory that is used by your Enterprise Plan network. This information is provided to help you select the size of the Kubernetes cluster on {{site.data.keyword.cloud_notm}} that you must create. You need to select a cluster that has sufficient resources for your current deployment, with some overhead for high availability and network growth. A 4x16 Kubernetes three worker node cluster is the recommended minimum deployment. For more information about resource considerations, see [Paid clusters](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required-paid). You can also visit the [detailed pricing scenarios](docs/blockchain/reference?topic=blockchain-ibp-detailed-pricing#ibp-detailed-pricing) to learn more about the potential costs of various network configurations.
+
+The panel also displays the region where your Enterprise Plan network is deployed. Deploying your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 in the same region as your Enterprise Plan network provides the best performance during migration.
 
 When you are ready, you can click **Create {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network** to deploy an instance of the new platform. You can also follow [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
@@ -152,7 +154,7 @@ For each CA you want to upgrade, enter a **Display Name** for the new CA on {{si
 
 ### Step Two: Operate your Certificate Authority on {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
-After you upgrade the CA, you need to click **Export identity** in the upgrade tool to download the CA admin identity to a JSON file. You then need to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to associate the admin identity with the new CA. Log in to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. Upload the JSON identity to the console wallet by clicking the wallet tab and then **Add identity** > **Upload JSON**. Then, use the nodes tab to view the CA that the tool created. Click the **Associate identity** button to associate the CA admin identity with the CA. For more information, see [Creating and managing identities](/docs/blockchain/reference?topic=blockchain-ibp-console-identities#ibp-console-identities).
+After you upgrade the CA, you need to click **Export identity** in the upgrade tool to download the CA admin identity to a JSON file. You then need to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to associate the admin identity with the new CA. Log in to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. Upload the JSON identity to the console wallet by clicking the wallet tab and then **Add identity** > **Upload JSON**. Then, use the nodes tab to view the CA that the tool created. Click the **Associate identity** button to associate the CA admin identity with the CA. For more information about your CA and the identities you will create, see [Creating and managing identities](/docs/blockchain/reference?topic=blockchain-ibp-console-identities#ibp-console-identities).
 
 ## Upgrade the ordering service
 
@@ -162,7 +164,7 @@ After you upgrade the CA of the orderer organization, you can create ordering no
 
 ### Step One: Create an ordering organization admin and MSP definition
 
-Under **Create an ordering organization admin and MSP definition**, select the ordering service CA that you created on the new platform. Then, provide the enroll ID and secret for your orderer admin. When you click **Create**, the upgrade tool completes the following steps:
+Under **Create an ordering organization admin and MSP definition**, select the ordering service CA that you created on the new platform. Then, provide a new enroll ID and secret for your orderer admin. When you click **Create**, the upgrade tool completes the following steps:
 
 - Register a new orderer administrator with your CA by using the enroll ID and secret that you provide.
 - Generate an administrator certificate and private key with the admin identity.
@@ -189,7 +191,7 @@ After you upgrade your peer organization Certificate Authority, and your orderin
 
 ### Step One: Create a peer organization admin and MSP definition
 
-Under **Create an organization admin and MSP definition**, select the peer organization CA that you created on the new platform. Then, provide the **Enroll ID** and **Enroll secret** of your organization admin. When you click **Create**, the upgrade tool completes the following steps:
+Under **Create an organization admin and MSP definition**, select the peer organization CA that you created on the new platform. Then, provide a new **Enroll ID** and **Enroll secret** of your organization admin. When you click **Create**, the upgrade tool completes the following steps:
 
 - Register a new organization administrator with your CA with the enroll ID and secret that you provide.
 - Generate an administrator certificate and private key with the admin identity.
@@ -234,9 +236,9 @@ Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and nav
 
 After the chaincode has been upgraded on your channels, you can use the console to download a new connection profile for your application. To download a connection profile, navigate to the **Smart Contracts** tab. Click the overflow menu next to each instantiated smart contract. Click the **Connect with your SDK** button to download the connection profile. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Your application needs to be updated to use service discovery in order to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile to submit a transaction. To use service discovery, you also need to add an anchor peer to your channels. Use the console to add one of your peers on the new platform as an anchor peer to each channel that you joined. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
-## Reverting an upgrade
+## Removing upgraded nodes
 
-If you want to remove a migrated network for any reason, you can remove the nodes of your network using the **Delete Certificate Authority**, **Delete Ordering Node**, and **Delete Peer** buttons provided on the panel you used to create each node. These buttons will delete the node from the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, remove any accompanying artifacts, and undo the changes to your organization on Enterprise Plan that were required to deploy the node. Because of the changes made to your Enterprise Plan network, you should use the upgrade tool to remove your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 instead of using the {{site.data.keyword.blockchainfull_notm}} Platform console.
+If you want to remove upgraded nodes for any reason, such as a deployment failure, you can remove the nodes of your network using the **Delete Certificate Authority**, **Delete Ordering Node**, and **Delete Peer** buttons provided on the panel you used to create each node. These buttons will delete the node from the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, remove any accompanying artifacts, and undo the changes to your organization on Enterprise Plan that were required to deploy the node. Because of the changes made to your Enterprise Plan network, you should use the upgrade tool to remove your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 instead of using the {{site.data.keyword.blockchainfull_notm}} Platform console.
 
 ## Complete upgrade
 
