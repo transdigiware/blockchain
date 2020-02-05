@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-02-05"
 
 keywords: Pricing, pricing examples
 
@@ -54,11 +54,10 @@ For example, consider the scenario where a group of _organizations_ want to tran
 Storage costs are calculated based on {{site.data.keyword.cloud_notm}} File Storage costs.<br>
 For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes, **1 VPC = 1 CPU = 1 vCPU = 1 Core**.
 
-
 | | Assumptions | Cost to Host | Cost to Join |
 |:-|:-----------------|:-----------------|:-----------------|
-| **Goal:** A simple test or demo environment. Larger peers for more robust integration testing. <br><br> You can join the peers to multiple channels to better simulate a real environment or put them all in one account. <br><br> This network would typically include 2-3 organizations. | Configurations include: <br><br><br><br>CouchDB<br><br>File Storage (Bronze)<br><br>Not included: HA, Backup, [HSM](#x6704988){: term}, LogDNA, SysDig, Dedicated hardware/HW</li></ul> | **Total estimated cost per month: $606 USD** <br><br> Includes: <br><br>**Single node Raft ordering service**<br><br>0.35 vCPU/0.7GB RAM/100GB Storage<br><br>**2 CAs**<br><br>2 x (0.1 vCPU/0.2GB RAM/20 GB Storage)<br><br>**1 Peer** <br> 1.1 vCPU/2.2 GB RAM/100 GB Storage<ul><li> **Peer container:** 0.2 vCPU/0.4GB RAM/50GB Storage</li><li>**Couch container:** 0.2 vCPU/0.4GB RAM/50GB Storage</li><li>**Smart contract container:** 0.5 vCPU/1GB RAM/0GB Storage</li><li> **Logging/gRPC Web container:** 0.2 vCPU/0.4GB RAM/0GB Storage</li></li></ul> | **Total estimated cost per month: $368 USD** <br><br> Includes: <br><br>**1 CA**<br><br> 0.1 vCPU/0.2GB RAM/20 GB Storage<br><br>**1 Peer**<br> 1.1 vCPU/2.2 GB RAM/100 GB Storage<ul><li> **Peer container:** 0.2 vCPU/0.4GB RAM/50GB Storage</li><li> **CouchDB container:** 0.2 vCPU/0.4GB RAM/50GB Storage</li><li> **Smart contract container:** 0.5 vCPU/1GB RAM/0GB Storage</li><li>**Logging/gRPC Web container:** 0.2 vCPU/0.4GB RAM/0GB Storage</li></li></ul>|
-| **Total Resources** |  | **vCPU:** 1.65<br> **RAM:** 3.3GB<br> **Storage:** 240GB|  **vCPU:** 1.2<br> **RAM:** 2.4GB<br> **Storage:** 120GB|
+| **Goal:** A simple test or demo environment. Larger peers for more robust integration testing. <br><br> You can join the peers to multiple channels to better simulate a real environment or put them all in one account. <br><br> This network would typically include 2-3 organizations. | Configurations include: <br><br><br><br>CouchDB<br><br>File Storage (Bronze)<br><br>Not included: HA, Backup, [HSM](#x6704988){: term}, LogDNA, SysDig, Dedicated hardware/HW</li></ul> | **Total estimated cost per month: $606 USD** <br><br> Includes: <br><br>**Single node Raft ordering service**<br><br>0.35 vCPU/0.7GB RAM/100GB Storage<br><br>**2 CAs**<br><br>2 x (0.1 vCPU/0.2GB RAM/20 GB Storage)<br><br>**1 Peer** <br> 1.1 vCPU/2.8 GB RAM/100 GB Storage<ul><li> **Peer container:** 0.2 vCPU/1GB RAM/50GB Storage</li><li>**Couch container:** 0.2 vCPU/0.4GB RAM/50GB Storage</li><li>**Smart contract container:** 0.5 vCPU/1GB RAM/0GB Storage</li><li> **Logging/gRPC Web container:** 0.2 vCPU/0.4GB RAM/0GB Storage</li></li></ul> | **Total estimated cost per month: $368 USD** <br><br> Includes: <br><br>**1 CA**<br><br> 0.1 vCPU/0.2GB RAM/20 GB Storage<br><br>**1 Peer**<br> 1.1 vCPU/2.8 GB RAM/100 GB Storage<ul><li> **Peer container:** 0.2 vCPU/1GB RAM/50GB Storage</li><li> **CouchDB container:** 0.2 vCPU/0.4GB RAM/50GB Storage</li><li> **Smart contract container:** 0.5 vCPU/1GB RAM/0GB Storage</li><li>**Logging/gRPC Web container:** 0.2 vCPU/0.4GB RAM/0GB Storage</li></li></ul>|
+| **Total Resources** |  | **vCPU:** 1.65<br> **RAM:** 3.9GB<br> **Storage:** 240GB|  **vCPU:** 1.2<br> **RAM:** 3.0GB<br> **Storage:** 120GB|
 | **Approximate Total Cost** <br> (per hour) | |**IBP:** 1.65vCPU x .29/hr = $0.48 USD  <br> **IKS***:** **$0.31 USD <br> **Storage:** $0.05 USD** <br><br>** **Total:** 0.84 USD/hr <br> <br> ***IKS 4x16 single node cluster with IP allocation (Shared hardware)| **IBP:** 1.2vCPU x .29/hr = $0.35 USD  <br> **IKS***:** **$0.13 USD <br> **Storage:** $0.03 USD <br><br> **Total:** 0.51 USD/hr  <br> <br> ***IKS 2x4 single node cluster with IP allocation (Shared hardware)|
 | **Approximate Total Cost** <br> (per month) | |**IBP:** $346 USD  <br> **IKS:** $224 USD <br> **Storage:**$36 USD <br><br> **Total Base Cost:** $606 USD|  **IBP:** $252 USD  <br> **IKS:** $94 USD <br> **Storage:**$22 USD <br><br> **Total Base Cost:** $368 USD | |
 {: caption="Table 1. Pricing Scenarios" caption-side="top"}
@@ -66,9 +65,6 @@ For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes,
 {: tab-title="Functional Test/Demo"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
-
-
-
 
 | | Assumptions | Cost to Host | Cost to Join |
 |:-|:-----------------|:-----------------|:-----------------|

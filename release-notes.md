@@ -27,7 +27,18 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 See [Installing patches](docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
 
+## 6 Feburary 2020
+{: #02-06-2020}
 
+**Update default resource allocation**  
+
+The default _memory_ allocation for the peer container has been increased from 0.4GB to 1GB. When deploying a new peer, the peer container will now default to 1GB memory, but you can adjust this value according to your use case. Increasing the memory alleviates some resource contention that could occur during smart contract instantiation.     
+
+Existing peer containers are not impacted.
+
+**Peer and ordering node patch 1.4.3-1**
+
+The Ingress timeout for the gRPC web proxy has been increased to avoid an error during smart contract instantiation. It is recommended that you apply this patch to your existing peer and ordering nodes.
 
 ## 11 December 2019
 {: #12-11-2019}
