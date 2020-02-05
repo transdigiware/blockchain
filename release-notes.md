@@ -152,7 +152,7 @@ Channel governance updates allow policies to be reconfigured. You can also contr
 
 **Ability to size and scale node resources**  
 
-When you deploy a node you now have the ability to specify the amount of CPU, memory, and storage to your containers, where applicable. You can later scale their resources up or down at a later time according to usage patterns. For more information, see [Allocating resources allocation](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
+When you deploy a node you now have the ability to specify the amount of CPU, memory, and storage to your containers, where applicable. You can later scale their resources up or down at a later time according to usage patterns. For more information, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
 
 **Use of {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)**  
 
@@ -163,7 +163,7 @@ IAM is used to control user access to the console UI as well as restricting the 
 
 **Support for external CA**
 
-When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on  [Using certificates from an external CA with your peer or orderer](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
+When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on [Using certificates from an external CA with your peer or orderer](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
 
 **Tuning orderer performance**
 

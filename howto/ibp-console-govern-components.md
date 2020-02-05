@@ -392,7 +392,7 @@ Now that you have created a JSON file with all of the certificates for the order
 4. In **Number of ordering nodes**, select **Five ordering nodes**. Then select **External Certificate Authority configuration** and click **Next**.
 5. Click **Add file** to upload the JSON file that contains all of the certificates.
 6. Select the **Organization MSP** definition that you imported.
-7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections you make here are applied to all five ordering nodes.  If you want to learn more about how to allocate resources to your node, see this topic on [Allocating  resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
+7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections you make here are applied to all five ordering nodes.  If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](#ibp-console-govern-components-allocate-resources).
 8. Review the summary and click **Add ordering service**.
 
 ### What's next
