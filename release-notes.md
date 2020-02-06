@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-02-06"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -25,7 +25,20 @@ subcollection: blockchain
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
 
+See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
 
+## 6 Feburary 2020
+{: #02-06-2020}
+
+**Update default resource allocation**  
+
+The default _memory_ allocation for the peer container has been increased from 0.4GB to 1GB. When deploying a new peer, the peer container will now default to 1GB memory, but you can adjust this value according to your use case. Increasing the memory alleviates some resource contention that could occur during smart contract instantiation.     
+
+Existing peer containers are not impacted.
+
+**Peer and ordering node patch 1.4.3-1**
+
+The Ingress timeout for the gRPC web proxy has been increased to avoid an error during smart contract instantiation. It is recommended that you apply this patch to your existing peer and ordering nodes.
 
 ## 11 December 2019
 {: #12-11-2019}
@@ -37,7 +50,7 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 **Service availability in two new regions**  
 
-The {{site.data.keyword.blockchainfull_notm}} Platform is now available to be provisioned in two new {{site.data.keyword.cloud_notm}} regions: **US East**, and **AP South**. Refer to the [locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) information to see the data centers that are available in those regions.
+The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is now available to be provisioned in two new {{site.data.keyword.cloud_notm}} regions: **US East**, and **AP South**. Refer to the [locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) information to see the data centers that are available in those regions.
 
 ## 06 November 2019
 {: #11-06-2019}
@@ -150,7 +163,7 @@ IAM is used to control user access to the console UI as well as restricting the 
 
 **Support for external CA**
 
-When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on [Using certificates from an external CA with your peer or orderer](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
+When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
 
 **Tuning orderer performance**
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-02-05"
 
 subcollection: blockchain
 
@@ -25,7 +25,7 @@ The {{site.data.keyword.blockchainfull}} Platform can be deployed across public 
 
 **Target audience**: This topic is designed for system administrators who are responsible for deploying {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Private V3.2.0.
 
-If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.11 - v1.16 container platform on x86_64, see [Getting started with IBM Blockchain Platform v2.1.2](/docs/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.14 - v1.16 container platform on x86_64, see [Getting started with IBM Blockchain Platform v2.1.2](/docs/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
 
 If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the  {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-rhos?topic=blockchain-rhos-blockchain-images).
 
@@ -43,13 +43,11 @@ If you are building a network that will be used in production, you need setup yo
 - When you are ready to start building your network, visit [high availability considerations for peers](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-peers) and [high availability considerations for ordering services](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-ordering-service).
 - The following table includes the default resource allocations for each node type for consideration when you estimate the size of cluster that is required. When you deploy your nodes, you can adjust the resource allocations according to your needs.
 
-
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
-
 
 {: caption="Table 1.Default resource allocations" caption-side="bottom"}
 

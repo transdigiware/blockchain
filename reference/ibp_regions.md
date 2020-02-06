@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-15"
+  years: 2017, 2020
+lastupdated: "2020-02-05"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -43,6 +43,7 @@ While the Kubernetes cluster can be provisioned in any of the supported {{site.d
 | US East | Toronto, Montreal, Washington, D.C. | Washington, D.C. |
 | AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore| Tokyo |
 | AP South|  Sydney |  Sydney |
+| UK South| London | London|
 | EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |  Frankfurt |
 {: caption="Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 

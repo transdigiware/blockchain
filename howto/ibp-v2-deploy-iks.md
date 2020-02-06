@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-02-05"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
-If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.11 - v1.16 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform v2.1.2](/docs/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.14 - v1.16 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform v2.1.2](/docs/blockchain-rhos?topic=blockchain-rhos-get-started-console-ocp).
 
 If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the  {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-rhos?topic=blockchain-rhos-blockchain-images).
 
@@ -130,13 +130,11 @@ While it is simpler to have enough resources deployed to {{site.data.keyword.clo
 
 For a sense of how much storage and compute you will need in your cluster, refer to this chart, which contains the current defaults for the peer, ordering node, and CA:
 
-
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1           | 2.2                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
-
 
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 

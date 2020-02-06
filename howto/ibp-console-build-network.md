@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-02-06"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft
 
@@ -34,6 +34,8 @@ Whether you deploy components to a paid or free Kubernetes cluster, pay close at
 
 If you are using an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, it is recommended that you provision  at least a 4CPU x 16GB RAM cluster to accommodate the components in this tutorial.
 {: tip}
+
+
 
 
 
@@ -119,7 +121,7 @@ To create the CA that will issue certificates for your first organization, perfo
 After you deploy the CA, you need to associate an admin identity. This will allow you to operate your CA and use it to create your organization MSP, register users, and your **peer**.
 
 
-Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating a new CA here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
+Advanced users may already have their own CA, and not want to create a new CA in the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating a new CA here. The CA should sign using ECDSA and the defaults should be set to use P256 curve. See this topic on [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
 
 ### Associating the CA admin identity
 {: #ibp-console-build-network-ca-admin}
@@ -316,7 +318,7 @@ The process for creating a CA for an ordering service is identical to creating i
    * [Resource allocation](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
 5. Review the Summary page, then click **Add Certificate Authority**.
 
-As with the peer, advanced users may already have their own CA and not want to create a new CA using the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating new certificates here. See this topic on [Using certificates from an external CA with your peer or ordering service](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca).
+As with the peer, advanced users may already have their own CA and not want to create a new CA using the console. If your existing CA can issue certificates in `X.509` format, you can use certificates from your own external CA instead of creating new certificates here. See this topic on [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca).
 
 ### Associating the CA admin identity
 {: #ibp-console-build-network-orderer-ca-admin}

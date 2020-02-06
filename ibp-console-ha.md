@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-02-06"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -169,14 +169,19 @@ This scenario offers the highest level of HA possible.
 ## Disaster recovery (DR)
 {: #ibp-console-ha-dr}
 
-In all cases, to protect against data corruption, it is recommended that you regularly back up the storage associated with every deployed component. Because the ledger is shared across all the peers and ordering nodes, taking regular backups is critical. For example, if incorrect data is accidentally propagated to a peer's ledger or if data is mistakenly deleted, the incorrect data might spread to the ledgers of some other peers. This would require the restoration of the ledgers of all the peers from an established backup point to ensure synchronicity. You can decide how often to perform the backups based your recovery needs, but a general guideline would be to take daily backups.  
+The most important step for disaster recovery is to configure your environment across multiple regions as documented in the previous section. Multi-region configuration ensures that your environment can handle a datacenter or regional disaster with zero downtime or data loss. However, this does not protect against data corruption or accidental deletion. To do this, you may want to also take periodic backups.
+
+It is recommended that you regularly back up the storage associated with every deployed component. Because the ledger is shared across all the peers and ordering nodes, taking regular backups is critical. For example, if incorrect data is accidentally propagated to a peer's ledger or if data is mistakenly deleted, the incorrect data might spread to the ledgers of some other peers. This would require the restoration of the ledgers of all the peers from an established backup point to ensure synchronicity. You can decide how often to perform the backups based your recovery needs, but a general guideline would be to take daily backups.
+
+All nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a reliable backup.
+{: important}
 
 
 | Storage solution provider | Guidance |
 |----------|---------|
-| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/services/RegistryImages/ibm-backup-restore?topic=RegistryImages-ibmbackup_restore_starter#ibmbackup_restore_starter){: external}. But be aware that without snapshot capability, nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a reliable backup.  |
-| {{site.data.keyword.cloud_notm}} Private storage solution | You can use the backup or restore technology provided by your storage provider. Again, ensure you have [stopped](#ibp-console-ha-stop-nodes) the nodes before taking the backup. |
-| Portworx | A [snapshot capability](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/#prerequisites){: external} is available for taking backups without stopping the nodes. |
+| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/services/RegistryImages/ibm-backup-restore?topic=RegistryImages-ibmbackup_restore_starter#ibmbackup_restore_starter){: external}. |
+| {{site.data.keyword.cloud_notm}} Private storage solution | You can use the backup or restore technology provided by your storage provider.  |
+| Portworx | While a [snapshot capability](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/#prerequisites){: external} is available for taking backups, in order to get a reliable backup, the nodes must be stopped. |
 {: caption="Table 2. Backup recommendations for storage" caption-side="top"}
 
 
@@ -216,5 +221,36 @@ You can find your deployments by running the command:
 
    where `<NAMESPACE>` can be determined by running the command `kubectl get namespace` and choose the namespace value that begins with `n`.
 
+### Node considerations
+{: #ibp-console-ha-dr-node-considerations}
 
+The following node-specific guidance is provided to help plan your disaster recovery strategy.
+
+
+|  Backup  | Restore |
+|:---------|---------|
+| CAs must be stopped and backed up following the instructions provided in this topic. | You can restore a CA without impacting the peers or the ordering nodes ability to process transactions. |
+{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
+{: #simpletabtable5}
+{: tab-title="Certificate Authority (CA)"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+|  Backup  | Transaction processing | Private data considerations |
+|:---------|:-----------------------|:----------------------------|
+| Peers must be stopped and backed up one at a time, following the instructions provided in this topic. It is recommended that you have more than one peer per channel, so they can be stopped and backed up individually. | Transaction processing on the peers will not stop, as long as you have more than one peer per organization.  | If the peers include private data collections, it is recommended that you coordinate the backup of the ordering nodes and all connected peer nodes during the same window (see the Ordering Service tab). |
+{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
+{: #simpletabtable5}
+{: tab-title="Peers"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+|  Backup  | Transaction processing | Restore |
+|:---------|:-----------------------|:--------|
+| To back up the ordering service, all the ordering nodes need to be stopped. You can do this by scaling down the deployments replica sets to 0, but you need to scale down the deployment for all nodes, back each one up, then scale back up all fives nodes. | Since the ordering service is down, transaction processing stops. | **If you are not using private data collections**, you can provision _new_ peers and rejoin the channels. The peers will sync up with the latest data from the  ordering service, then you can reinstall any chaincode. <br>Or, you can restore the peers from a backup older than the ordering nodes. In this case, the peers will only have to catch up from the last backup, which is faster. And you will only need to install any chaincode installed since the last backup. <br><br> **If you are using private data collections**, the peers must be restored to exactly the same block height as the orderers. The best way to ensure this is to backup all peers while the ordering service is also down for backup. |
+{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
+{: #simpletabtable5}
+{: tab-title="Ordering service"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
 

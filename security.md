@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-02-06"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -83,7 +83,7 @@ Because these public and private key pairs are essential to how the {{site.data.
 
 If a private key is lost and cannot be recovered, you will need to generate a new private key by registering and enrolling a new identity with your Certificate Authority. You should also then remove and replace your signCert in any components or organizations where you had used the lost or corrupted identity. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp) for detailed steps.
 
-You also have the option to bring your own certificates from your own non-{{site.data.keyword.blockchainfull_notm}} Platform CA when you create a peer node or ordering service. If you use your own certificates, you will need to manually build the peer or ordering service MSP definition file that includes those certificates and import the file into the console **Organizations** tab. See [Using certificates from an external CA with your peer or ordering service](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for the steps required.
+You also have the option to bring your own certificates from your own non-{{site.data.keyword.blockchainfull_notm}} Platform CA when you create a peer node or ordering service. If you use your own certificates, you will need to manually build the peer or ordering service MSP definition file that includes those certificates and import the file into the console **Organizations** tab. See  [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for the steps required.
 
 ### Membership Service Providers (MSPs)
 {: #ibp-security-ibp-msp}
