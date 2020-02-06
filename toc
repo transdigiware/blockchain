@@ -102,6 +102,7 @@ IBM Blockchain Platform
 	reference/ibp_regions.md
 	reference/logdna.md
 	reference/sysdig.md
+	[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}
