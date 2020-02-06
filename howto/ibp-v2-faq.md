@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-06"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -95,7 +95,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts 
 {: #ibp-v2-faq-v2-external-certs}
 {: faq}
 
-Yes, you can bring your own certificates if they are issued by a CA that is X.509 compliant. The CA should sign by using ECDSA and the defaults should be set to use P256 curve. See this topic about [Using certificates from an external CA with your peer or orderer](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca).
+Yes, you can bring your own certificates if they are issued by a CA that is X.509 compliant. The CA should sign by using ECDSA and the defaults should be set to use P256 curve. See this topic about [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca).
 
 ## I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?
 {: #ibp-v2-faq-migrate-raft}
