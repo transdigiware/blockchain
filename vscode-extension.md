@@ -45,7 +45,7 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
 - If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}.
 - If you are developing Node smart contracts, you need to install [Node v8.x or v10.x and npm v6.x or greater](https://nodejs.org/en/download/){: external}.
-- If you are developing Java smart contracts, you need to install [Java JDK v8](https://adoptopenjdk.net/?variant=openjdk8){: external}. Note that Java smart contracts cannot be deployed using the console. 
+- If you are developing Java smart contracts, you need to install [Java JDK v8](https://adoptopenjdk.net/?variant=openjdk8){: external}. Note that Java smart contracts cannot be deployed using the console.
 
 If you are using Windows, you also must ensure the following:
 
