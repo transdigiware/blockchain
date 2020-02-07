@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-07"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -215,7 +215,7 @@ Use your console to perform the following steps:
 3. Give your peer a **Display name** of `Peer Org2`.
 4. The **Advanced deployment options** can be safely ignored for purposes of this tutorial. For more information about these options, see the links below.
    * [State database selection](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch)
-   * [Multizone high availability](/docs/blockchain-rhos?topic=blockchain-rhos-ibp-console-ha#ibp-console-ha-multi-zone)
+   * [Multizone high availability](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-ha#ibp-console-ha-multi-zone)
    * [Kubernetes zone selection](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Only visible when your cluster is configured for multi-zone support.)
    * [External Certificate Authority configuration](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca)
    * [Resource allocation](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources)
@@ -349,7 +349,7 @@ Perform the following steps from your console:
 5. Leave the tab for **Make anchor peer** selected. It is a best practice for each organization to have at least one anchor peer on each channel, as anchor peers bootstrap the inter-organizational communication that enables features like [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} to work. While it is only necessary to have one anchor peer on each channel, it does not hurt to make all peer anchor peers. The only downside will be a short term increase in the stress on your communication layer when new organizations join their peers to the channel, as these peers are designed to contact every anchor peer in every organization to find out about the peers belonging to that organization. Note that you can also make a peer an anchor peer later through the **Channels** tab.
 6. Click **Join channel**.
 
-If you plan to leverage the Hyperledger Fabric [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} or [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features, you must configure anchor peers in your organizations from the **Channels** tab. For more information about how to configure anchor peers for private data by using the **Channels** tab in console, see [Private data](/docs/blockchain-rhos?topic=blockchain-rhos-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
+If you plan to leverage the Hyperledger Fabric [Private Data](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html){: external} or [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features, you must configure anchor peers in your organizations from the **Channels** tab. For more information about how to configure anchor peers for private data by using the **Channels** tab in console, see [Private data](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data).
 
 In this tutorial, we are only creating and joining a single peer to the channel. As a result, you don't have to worry about a conflict between the database type used by your peer (which in this tutorial is CouchDB) and any other peers on the channel. However, in a production scenario, a best practice will be to ensure that the peer you are joining to this channel uses the same database type as other peers on the channel. For more information, see [LevelDB vs CouchDB](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
 {:important}
