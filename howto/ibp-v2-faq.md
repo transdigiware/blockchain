@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-07"
+lastupdated: "2020-02-10"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -82,7 +82,7 @@ Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed
 {: faq}
 {: support}
 
-You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-govern-components#ibp-console-govern-components-level-couch) to decide what is best for your business needs.
+You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch) to decide what is best for your business needs.
 
 ## What languages are supported for smart contracts?
 {: #ibp-v2-faq-v2-IBP-Overview-1-4}
