@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-11"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -52,6 +52,7 @@ The upgrade tool user interface guides you through a series of independent steps
 - The ability to use a hardware security module (HSM) to store the private keys of your blockchain nodes is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 - The ability to use CA replica sets to deploy a highly available Certificate Authority is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 - You need to use the upgrade tool to allocate the resources that will be used by the Certificate Authorities, peers and ordering nodes that you will create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The default CPU and memory allocations used by the upgrade tool are provided as guidelines based on the resources used by your nodes on Enterprise Plan. When you allocate resources to your nodes, you need to plan for future growth when your network adds additional blocks. You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to allocate additional CPU and memory to nodes after they are deployed. However, you cannot allocate additional storage to a deployed node.
+- The {{site.data.keyword.blockchainfull_notm}} Platform 2.0 exposes RESTful APIs that allow you to manage your blockchain components. The APIs provided by the new platform are different than the Swagger APIs provided by Enterprise Plan, and you will need to update any applications or scripts that use the APIs to manage your network. For more information about the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 APIs, see [Building a network with APIs](/docs/blockchain/reference?topic=blockchain-ibp-v2-apis#ibp-v2-apis) and the [API reference](https://cloud.ibm.com/apidocs/blockchain).
 
 ## Opening the upgrade tool
 
@@ -108,14 +109,6 @@ You need to upload the connection information of your Enterprise Plan network an
     }
   }
   ```
-
-- In the **Enterprise Plan Certificate Authority service credentials** dropdown, provide the enrollID and secret of your Certificate Authority on Enterprise Plan. You can find this information in your connection profile:
-
-  Open the **Connection Profile** JSON file from the **Overview** screen of your Network Monitor. You can find required information under the `certificateAuthorites` section of the connection profile under `"registrar"`:
-    * Enroll ID: ``enrollId``
-    * Enroll secret: ``enrollSecret``
-
-  The Enroll ID and secret for each of the two certificate authorities that belong to your organization are the same.
 
 - Copy the service credentials of your new instance of the {{site.data.keyword.blockchainfull_notm}} Platform and paste them into the **{{site.data.keyword.blockchainfull_notm}} Platform 2.0 service credentials** window. You can create the service credentials by using the following steps:
 
