@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-02-13"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -21,9 +21,6 @@ subcollection: blockchain
 
 # Getting started with the upgrade tool
 {: #enterprise-upgrade-tool}
-
-The upgrade tool is not yet available. This draft documentation is provided as a preview for customers who are starting the upgrade process. Any important updates to this draft will be published in the [What's new page](/docs/blockchain/reference?topic=blockchain-whats-new#whats-new) prior to the release of the upgrade tool. Enterprise Plan networks that have been migrated to Fabric 1.4.3 will be able to see the **Upgrade tool** button on the **Overview** page of their Network Monitor when the tool is made available.
-{:note}
 
 You can use the upgrade tool to create new components on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your existing network. The nodes that are created by the tool are joined to the same channels and store the same ledger data as your peers and ordering nodes on Enterprise Plan.
 

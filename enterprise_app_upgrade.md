@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-02-13"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -27,9 +27,6 @@ Select **Java** or **Node** depending on the Fabric SDK that you use.
 # Updating your applications
 {: #enterprise-upgrade-applications}
 
-The upgrade tool is not yet available. This draft documentation is provided as a preview for customers who are starting the upgrade process. Any important updates to this draft will be published in the [What's new page](/docs/blockchain/reference?topic=blockchain-whats-new#whats-new) prior to the release of the upgrade tool. Enterprise Plan networks that have been migrated to Fabric 1.4.3 will be able to see the **Upgrade tool** button on the **Overview** page of their Network Monitor when the tool is made available.
-{:note}
-
 Upgrading from Enterprise Plan to {{site.data.keyword.blockchainfull_notm}} Platform 2.0 has important implications for your applications. It is recommended that you update your applications before you start using the upgrade tool. Complete the following steps to update your applications:
 
 1. [Prepare for breaking changes from the upgrade of your Enterprise Plan network to Fabric v1.4](#enterprise-upgrade-applications-one)
@@ -53,7 +50,7 @@ You might need to update your application before your Enterprise Plan network is
 ## Step two: Upgrade your version of the Fabric SDK
 {: #enterprise-upgrade-applications-two}
 
-When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade the 1.4 version of the Fabric Node SDK. You need to upgrade the SDK version before you can update your application to use service discovery. You can go to the [Node Fabric SDK documentation](https://hyperledger.github.io/fabric-sdk-node/release-1.4/index.html) for more information.
+When your Enterprise Plan network is running on Fabric 1.4.3, you can upgrade to version 1.4.5 of the Fabric Node SDK. You need to upgrade the SDK version before you can update your application to use service discovery. You can go to the [Node Fabric SDK documentation](https://hyperledger.github.io/fabric-sdk-node/release-1.4/index.html) for more information.
 {: javascript}
 
 When your Enterprise Plan network is running on Fabric 1.4.3, you must upgrade your application to the 1.4.5 version of the Fabric Java SDK. You need to upgrade the SDK version before you can update your application to use service discovery. Version 1.4.5 is the minimum version that is required to run the sample code provided in this documentation. You can find the Maven definition for version 1.4.5 below:
