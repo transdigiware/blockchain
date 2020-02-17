@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-13"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -23,9 +23,6 @@ subcollection: blockchain
 
 # Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #enterprise-upgrade}
-
-The upgrade tool is not yet available. This draft documentation is provided as a preview for customers who are starting the upgrade process. Any important updates to this draft will be published in the [What's new page](/docs/blockchain/reference?topic=blockchain-whats-new#whats-new) prior to the release of the upgrade tool. Enterprise Plan networks that have been migrated to Fabric 1.4.3 will be able to see the **Upgrade tool** button on the **Overview** page of their Network Monitor when the tool is made available.
-{:note}
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate your Enterprise Plan network to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} (referred to as {{site.data.keyword.blockchainfull_notm}} Platform 2.0). The upgrade tool allows you to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. Your new nodes are joined to your exiting channels and contain the same ledger data as your old network. You can continue to use your Enterprise Plan network throughout the upgrade process, providing you the ability to migrate your applications without any downtime. When you can successfully process transactions with your nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan.
 
