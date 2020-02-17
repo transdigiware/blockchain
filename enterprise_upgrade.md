@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-02-17"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -76,6 +76,10 @@ For these reasons, it is recommended that all of the organizations in your netwo
 {: #enterprise-upgrade-overview-three}
 
 After your Enterprise Plan network is upgraded to Fabric v1.4.3 and a RAFT ordering service, you can start using the upgrade tool to create nodes on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. For more information on how to use the tool and how the tool works, see [Getting started with the upgrade tool](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool).
+
+While you are using the upgrade tool, you cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console or APIs to add or remove nodes from your network. If you want to remove upgraded nodes for any reason, such as a deployment failure, you need to remove the nodes using the upgrade tool. Otherwise, your Enterprise Plan network and your network on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 will become out of synch. You can use the console to add or remove nodes from your network when the upgrade is complete.
+{:note}
+
 
 ## Step four: Migrate your chaincode to {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 {: #enterprise-upgrade-overview-four}

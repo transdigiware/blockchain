@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-02-17"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -56,6 +56,9 @@ The upgrade tool user interface guides you through a series of independent steps
 After {{site.data.keyword.IBM_notm}} has completed upgrading your Enterprise Plan network from Fabric v1.1 to v1.4.3, you can find the upgrade tool on your Enterprise Plan Network Monitor. Go to the **Overview** page and click **Upgrade tool**. The tool opens in a separate URL of your browser. You can return to this URL to open the tool without using the Network Monitor. You can exit the tool after each step is complete without losing your work.
 
 If you are not able to see the **Upgrade tool** button, your Enterprise Plan network needs to be upgraded to Fabric v1.4 or your ordering service needs to be migrated to RAFT.
+
+While you are using the upgrade tool, you cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console or APIs to add or remove nodes from your network. If you want to remove upgraded nodes for any reason, such as a deployment failure, you need to remove the nodes using the upgrade tool. Otherwise, your Enterprise Plan network and your network on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 will become out of synch. You can use the console to add or remove nodes from your network when the upgrade is complete.
+{:note}
 
 ## Create an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
@@ -232,7 +235,7 @@ If you want to remove upgraded nodes for any reason, such as a deployment failur
 
 ## Complete upgrade
 
-The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. If the migration of any node failed, you need to delete that node using the panel that created it before you remove the upgrade tool.
+The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. After you have removed the upgrade tool, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to add or remove nodes from your network.
 
 Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. Store the identities in a secure place. After you complete this step, you can operate your network only by using the admin identities that you downloaded.
 {: important}
