@@ -25,13 +25,13 @@ subcollection: blockchain
 ## February 14, 2020
 {: #whats-new-2-14-2019}
 
-Enterprise Plan users can now upgrade their networks to the latest version of the {{site.data.keyword.blockchainfull_notm}} Platform, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. As part of the upgrade process, {{site.data.keyword.IBM_notm}} will upgrade your Enterprise Plan network from Fabric v1.1 to Fabric v1.4.3 and migrate your ordering service from Kafka to RAFT consensus. You can then use the self guided upgrade tool to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. For more information about the upgrade process, see [Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free).
+Enterprise Plan users can now upgrade their networks to the latest version of the {{site.data.keyword.blockchainfull_notm}} Platform, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. As part of the upgrade process, {{site.data.keyword.IBM_notm}} will upgrade your Enterprise Plan network from Fabric v1.1 to Fabric v1.4.3 and migrate your ordering service from Kafka to RAFT consensus. You can then use the self guided upgrade tool to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. For more information about the upgrade process, see [Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade).
 
 If possible, Enterprise Plan customers are encouraged to migrate to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 right away. If you do not need to preserve your ledger data on Enterprise Plan, you are encouraged to skip the upgrade process and create a new network on the {{site.data.keyword.blockchainfull_notm}} for {{site.data.keyword.cloud_notm}}. If you are ready to create a new network, go to [Getting Started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
 Since the Enterprise Upgrade documentation was released as a preview, version 1.4.5 of the Fabric Node SDK has been released. If your application uses the Node SDK, you need to upgrade the SDK to version 1.4.5 before you start using the upgrade tool.
 
-## 06 February 2020
+## February 06, 2020
 {: #whats-new-02-06-2020}
 
 **Service availability in a new region**
