@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-02-18"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -57,7 +57,7 @@ After {{site.data.keyword.IBM_notm}} has completed upgrading your Enterprise Pla
 
 If you are not able to see the **Upgrade tool** button, your Enterprise Plan network needs to be upgraded to Fabric v1.4 or your ordering service needs to be migrated to RAFT.
 
-You cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console or APIs to add or remove nodes from your network until the upgrade is complete. If you want to remove upgraded nodes for any reason, such as a deployment failure, you need to remove the nodes using the upgrade tool. Otherwise, your Enterprise Plan network and your network on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 will become out of synch.
+You cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console or APIs to add or remove nodes from your network until the upgrade is complete. If you want to remove upgraded nodes for any reason, such as a deployment failure, you need to remove the nodes using the upgrade tool. Otherwise, your Enterprise Plan network and your network on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 will become out of sync.
 {:note}
 
 ## Create an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0
