@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-02-18"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -57,6 +57,9 @@ After {{site.data.keyword.IBM_notm}} has completed upgrading your Enterprise Pla
 
 If you are not able to see the **Upgrade tool** button, your Enterprise Plan network needs to be upgraded to Fabric v1.4 or your ordering service needs to be migrated to RAFT.
 
+You cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console or APIs to add or remove nodes from your network until the upgrade is complete. If you want to remove upgraded nodes for any reason, such as a deployment failure, you need to remove the nodes using the upgrade tool. Otherwise, your Enterprise Plan network and your network on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 will become out of sync.
+{:note}
+
 ## Create an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
 You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that contains sufficient resources for your Enterprise Plan network. Deploying the platform is a two-step process:
@@ -65,7 +68,7 @@ You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} 
 
 2. After you create a Kubernetes cluster, you can deploy a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform and link it to that cluster.
 
-The **Deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0** panel displays the CPU and memory that is used by your Enterprise Plan network. This information is provided to help you select the size of the Kubernetes cluster on {{site.data.keyword.cloud_notm}} that you must create. You need to select a cluster that has sufficient resources for your current deployment, with some overhead for high availability and network growth. A 4x16 Kubernetes three worker node cluster is the recommended minimum deployment. For more information about resource considerations, see [Paid clusters](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required-paid). You can also visit the [detailed pricing scenarios](docs/blockchain/reference?topic=blockchain-ibp-detailed-pricing#ibp-detailed-pricing) to learn more about the potential costs of various network configurations.
+The **Deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0** panel displays the CPU and memory that is used by your Enterprise Plan network. This information is provided to help you select the size of the Kubernetes cluster on {{site.data.keyword.cloud_notm}} that you must create. You need to select a cluster that has sufficient resources for your current deployment, with some overhead for high availability and network growth. A 4x16 Kubernetes three worker node cluster is the recommended minimum deployment. For more information about resource considerations, see [Paid clusters](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required-paid). You can also visit the [detailed pricing scenarios](/docs/blockchain/reference?topic=blockchain-ibp-detailed-pricing#ibp-detailed-pricing) to learn more about the potential costs of various network configurations.
 
 The panel also displays the region where your Enterprise Plan network is deployed. Deploying your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 in the same region as your Enterprise Plan network provides the best performance during migration.
 
@@ -232,7 +235,7 @@ If you want to remove upgraded nodes for any reason, such as a deployment failur
 
 ## Complete upgrade
 
-The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. If the migration of any node failed, you need to delete that node using the panel that created it before you remove the upgrade tool.
+The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. After you have removed the upgrade tool, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to add or remove nodes from your network.
 
 Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. Store the identities in a secure place. After you complete this step, you can operate your network only by using the admin identities that you downloaded.
 {: important}
