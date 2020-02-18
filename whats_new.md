@@ -31,7 +31,7 @@ If possible, Enterprise Plan customers are encouraged to migrate to the {{site.d
 
 Since the Enterprise Upgrade documentation was released as a preview, version 1.4.5 of the Fabric Node SDK has been released. If your application uses the Node SDK, you need to upgrade the SDK to version 1.4.5 before you start using the upgrade tool.
 
-## 06 February 2020
+## February 06, 2020
 {: #whats-new-02-06-2020}
 
 **Service availability in a new region**
