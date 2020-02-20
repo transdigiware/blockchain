@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-02-20"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -52,6 +52,9 @@ The migration process involves steps that need to be completed by {{site.data.ke
 All of the members of your blockchain network can use these steps to migrate to the new platform without experiencing network downtime or making extensive changes to their client applications.
 
 If your network uses an application that was built with Hyperledger Composer, you need to follow a different set of steps to upgrade to the new platform. For more information, see [Upgrading a network that uses Hyperledger Composer](#enterprise-upgrade-composer).
+
+After you start the upgrade process for your Enterprise network, you cannot use the {{site.data.keyword.cloud_notm}} Kubernetes Service, or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to manage the new nodes until the entire network migration is successfully completed.
+{: important}
 
 ## Step one: Have your Enterprise Plan network upgraded to Fabric v1.4
 {: #enterprise-upgrade-overview-one}
