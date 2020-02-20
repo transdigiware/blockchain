@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-19"
+lastupdated: "2020-02-20"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -237,7 +237,7 @@ If you want to remove upgraded nodes for any reason, such as a deployment failur
 
 The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. After you have removed the upgrade tool, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to add or remove nodes from your network.
 
-Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. This button provides you with the same identities that you could download on the panels where you created your CA, peer and ordering nodes in one file. Download the file and store the identities in a secure place. If have not already uploaded them to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console, upload each identity to your wallet individually.You cannot upload the identities to the console in one file.
+Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. This button provides you with the same identities that you could download on the panels where you created your CA, peer and ordering nodes in one file. Download the file and store the identities in a secure place. If have not already uploaded your identities to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console, you can use the [Bulk Import feature](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-bulk-export-import) to import the file and your identities into the console.
 {: important}
 
 After you delete the tool, you can start to [Delete your Enterprise Plan network](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-four).
