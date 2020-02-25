@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-25"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -30,7 +30,7 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 ## 6 Feburary 2020
 {: #02-06-2020}
 
-**Update default resource allocation**  
+**Update default resource allocation**
 
 The default _memory_ allocation for the peer container has been increased from 0.4GB to 1GB. When deploying a new peer, the peer container will now default to 1GB memory, but you can adjust this value according to your use case. Increasing the memory alleviates some resource contention that could occur during smart contract instantiation.     
 
