@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-02-25"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
