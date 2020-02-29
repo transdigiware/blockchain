@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-02-29"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -113,8 +113,8 @@ The following table contains a list of options to consider as you plan for incre
 
    **Peers** How many peers are required? In a production scenario, the recommendation is to deploy three peers from the same organization to each channel. This configuration allows one peer to go down (for example, during a maintenance cycle) and still maintain two highly available peers. Therefore, to compensate for a peer failure, and for the most basic level of HA, you can achieve peer redundancy by simply deploying three peers per organization on a channel on your worker node. Note that you need to ensure that you have adequate resources available on your node to support these components.
 
-   **Ordering service** As mentioned above, the HA ordering service is based on Raft, and contains five ordering nodes by default. Because the system can sustain the loss of nodes, including leader nodes, as long as there is a majority of ordering nodes (what’s known as a “quorum”) remaining, Raft is said to be “crash fault tolerant” (CFT). In other words, if you have five nodes in a channel, you can lose two nodes (leaving three remaining nodes). When you deploy an ordering service from the console, choose the five node service for HA.    
-   This scenario uses redundant peers and ordering nodes which protects against component failure, but cannot protect from node failure.   
+   **Ordering service** As mentioned above, the HA ordering service is based on Raft, and contains five ordering nodes by default. Because the system can sustain the loss of nodes, including leader nodes, as long as there is a majority of ordering nodes (what’s known as a “quorum”) remaining, Raft is said to be “crash fault tolerant” (CFT). In other words, if you have five nodes in a channel, you can lose two nodes (leaving three remaining nodes). When you deploy an ordering service from the console, choose the five node service for HA.      
+
    Therefore, it is only suitable for development and testing purposes.
 
 2. **Worker node failure.**  
@@ -125,7 +125,7 @@ The following table contains a list of options to consider as you plan for incre
 
    **Peers** The {{site.data.keyword.blockchainfull_notm}} Platform deployer anti-affinity policy distributes redundant peers, that is peers from the same organization, across the worker nodes in their cluster.
 
-   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes.    This scenario uses redundant peers and ordering nodes across multiple worker nodes in a single cluster or zone, which protects against node failure, but cannot protect from a cluster or zone failure.  Therefore, it is not recommended for Production.
+   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes.   Therefore, it is not recommended for Production.
 
 ### Multizone HA ({{site.data.keyword.cloud_notm}} Kubernetes service only) 
 {: #ibp-console-ha-multi-zone}
@@ -144,9 +144,9 @@ _This scenario only applies to customers using the {{site.data.keyword.cloud_not
 
    You can use the {{site.data.keyword.blockchainfull_notm}} Platform console to specify the zone where a  peer or ordering node is created. When you deploy a peer, or ordering service (or a single ordering node), check the Advanced deployment option that is labelled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
-   If you're deploying a peer or ordering service, you have the option to select the zone from the zones you have available or let your Kubernetes cluster decide for you by leaving the default selected. For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by unselecting the default option to have the zones chosen for you and distributing these nodes into the zones you have available. If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You you can check which zone the other node was deployed to by opening the tile of the node and looking under the **Node location**. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).  This scenario uses redundant peers and ordering nodes across multiple worker nodes and multiple zones, which protects against zone failure, but does not protect from an unlikely entire region failure. This scenario is recommended for a production network.
+   If you're deploying a  peer or ordering service, you have the option to select the zone from the zones you have available or let your Kubernetes cluster decide for you by leaving the default selected. For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by unselecting the default option to have the zones chosen for you and distributing these nodes into the zones you have available. If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You you can check which zone the other node was deployed to by opening the tile of the node and looking under the **Node location**. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).  This scenario uses redundant peers and ordering nodes across multiple worker nodes and multiple zones, which protects against zone failure, but does not protect from an unlikely entire region failure. This scenario is recommended for a production network.
 
-   If you choose to use a multi-zone configuration for peers or ordering nodes you are responsible for configuring the storage for each zone and set the node affinity to zones.
+   If you choose to use a multi-zone configuration for  peers or ordering nodes then you are responsible for configuring the storage for each zone and set the node affinity to zones.
    {: important}
 
 ### Multi-region HA
