@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-03-03"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -107,7 +107,7 @@ Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyw
 {: #ibp-v2-faq-multicloud}
 {: faq}
 
-You can not currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by consoles on other clouds.
+You can not currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by using consoles on other clouds.
 
 ## How can I find the examples and tutorials within the VSCode extension?
 {: #ibp-v2-faq-vscode-tutorials}

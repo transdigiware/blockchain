@@ -198,7 +198,7 @@ You can also use the Fabric CA client to generate certificates and register a ne
 ### Enrolling by using the Fabric CA client
 {: #managing-certificates-enroll-app-caclient}
 
-1. Download the [Fabric CA binaries](https://github.com/hyperledger/fabric-ca/releases/tag/v1.4.4) to your local machine and extract them, extract them, and move them to a folder on such as `$HOME/fabric-ca-platform/`. Change to the directory where you moved your client binaries so that you can reference it directly in your commands.
+1. Download the [Fabric CA binaries](https://github.com/hyperledger/fabric-ca/releases/tag/v1.4.4) to your local machine and extract them, then move them to a folder on such as `$HOME/fabric-ca-platform/`. Change to the directory where you moved your client binaries so that you can reference it directly in your commands.
     ```
     cd $HOME/fabric-ca-platform/
     ```
