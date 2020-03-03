@@ -125,7 +125,7 @@ You can also use the {{site.data.keyword.blockchainfull_notm}} Platform APIs or 
 
    **Peers** The {{site.data.keyword.blockchainfull_notm}} Platform deployer anti-affinity policy distributes redundant peers, that is peers from the same organization, across the worker nodes in their cluster.
 
-   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes.  Therefore, it is not recommended for Production.
+   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes. This scenario uses redundant peers and ordering nodes across multiple worker nodes in a single cluster or zone, which protects against node failure, but cannot protect from a cluster or zone failure. Therefore, it is not recommended for production.
 
 ### Multizone HA ({{site.data.keyword.cloud_notm}} Kubernetes service only) 
 {: #ibp-console-ha-multi-zone}
