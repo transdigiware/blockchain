@@ -101,7 +101,7 @@ Yes, you can bring your own certificates if they are issued by a CA that is X.50
 {: #ibp-v2-faq-migrate-raft}
 {: faq}
 
-Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw?topic=blockchain-sw-ibp-v2-faq#ibp-v2-faq-interoperability).
+Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-v2-faq#ibp-v2-faq-interoperability).
 
 ## Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?
 {: #ibp-v2-faq-multicloud}
