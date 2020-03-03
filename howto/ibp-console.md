@@ -120,7 +120,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 
 | **Kubernetes Cluster Service Instance** | **Description** |
 | ------------------------- |-----------|-----------|-----------|
-| **Tiller** | Part of the [Helm tooling](https://docs.helm.sh/glossary/#tiller){: external}, the Tiller runs inside the Kubernetes cluster to manage the installations of your peer, CA and orderer Helm charts. |
+| **Tiller** | Part of the [Helm tooling](https://docs.helm.sh/glossary/#tiller){: external}, the Tiller runs inside the Kubernetes cluster to manage the installations of your peer, CA and orderer Helm charts. |>
 | **Ingress** | A [Kubernetes object](https://kubernetes.io/docs/concepts/services-networking/ingress/){: external} that allows access to the cluster resources from outside the cluster. |
 | **Proxy** | The {{site.data.keyword.blockchainfull_notm}} Platform proxy is responsible for routing traffic to the correct peer, CA and orderer nodes by using host header routing. |
 | **Peers, CAs, Orderers** | These are the nodes that are created by deploying the underlying helm charts. Note: These nodes could also be imported from other Kubernetes Cluster Service Instances. Because the keys are never stored by {{site.data.keyword.IBM_notm}}, every peer and orderer node includes a gRPC web proxy that allows the console to communicate with each node by using the keys in the console wallet. |
