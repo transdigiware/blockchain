@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-03-03"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -115,8 +115,7 @@ You can also use the {{site.data.keyword.blockchainfull_notm}} Platform APIs or 
    **Peers** How many peers are required? In a production scenario, the recommendation is to deploy three peers from the same organization to each channel. This configuration allows one peer to go down (for example, during a maintenance cycle) and still maintain two highly available peers. Therefore, to compensate for a peer failure, and for the most basic level of HA, you can achieve peer redundancy by simply deploying three peers per organization on a channel on your worker node. Note that you need to ensure that you have adequate resources available on your node to support these components.
 
    **Ordering service** As mentioned above, the HA ordering service is based on Raft, and contains five ordering nodes by default. Because the system can sustain the loss of nodes, including leader nodes, as long as there is a majority of ordering nodes (what’s known as a “quorum”) remaining, Raft is said to be “crash fault tolerant” (CFT). In other words, if you have five nodes in a channel, you can lose two nodes (leaving three remaining nodes). When you deploy an ordering service from the console, choose the five node service for HA.  
-   This scenario uses redundant peers and ordering nodes on a single worker node, which protects against component failure, but cannot protect from node failure.
-
+   This scenario uses redundant peers and ordering nodes on a single worker node, which protects against component failure, but cannot protect from node failure. Therefore, it is only suitable for development and testing purposes.
 
 2. **Worker node failure.**  
 
@@ -126,9 +125,7 @@ You can also use the {{site.data.keyword.blockchainfull_notm}} Platform APIs or 
 
    **Peers** The {{site.data.keyword.blockchainfull_notm}} Platform deployer anti-affinity policy distributes redundant peers, that is peers from the same organization, across the worker nodes in their cluster.
 
-   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes. 
-
-   This scenario uses redundant peers andordering nodes across multiple worker nodes in a single cluster or zone, which protects against node failure, but cannot protect from a cluster or zone failure.  Therefore, it is not recommended for Production.
+   **Ordering service** Whenever you deploy a Raft ordering service, the five ordering nodes are automatically distributed across the worker nodes in your cluster, using the anti-affinity policy and based on resource availability on the nodes.  Therefore, it is not recommended for Production.
 
 ### Multizone HA ({{site.data.keyword.cloud_notm}} Kubernetes service only) 
 {: #ibp-console-ha-multi-zone}
@@ -152,7 +149,7 @@ _This scenario only applies to customers using the {{site.data.keyword.cloud_not
    This scenario uses redundant peers and ordering nodes across multiple worker nodes and multiple zones, which protects against zone failure, but does not protect from an unlikely entire region failure. This scenario is recommended for a production network.
    If you choose to use a multi-zone configuration for peers or ordering nodes, then you are responsible for configuring the storage for each zone and set the node affinity to zones.
    {: important}
-
+   
 ### Multi-region HA
 {: #ibp-console-ha-multi-region}
 
