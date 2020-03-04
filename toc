@@ -24,6 +24,19 @@ IBM Blockchain Platform
 		howto/pricing-software.md
 
 	blockchain_component_overview.md
+
+	{: .topicgroup}
+	Tutorials
+		howto/ibp-console-build-network.md
+		howto/ibp-console-join-network.md
+		howto/ibp-console-smart-contracts.md
+		howto/ibp-console-add-remove-raft.md
+		reference/videos.md
+		reference/k8s.md
+		reference/logdna.md
+		reference/sysdig.md
+		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+
 	security.md
 	ibp-console-ha.md
 	data-residency.md
@@ -97,12 +110,8 @@ IBM Blockchain Platform
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
 	reference/detailed-pricing.md
 	reference/v10_fabric.md
-	reference/k8s.md
 	reference/videos.md
 	reference/ibp_regions.md
-	reference/logdna.md
-	reference/sysdig.md
-	[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}
