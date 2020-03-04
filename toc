@@ -62,9 +62,6 @@ IBM Blockchain Platform
 
 	{: .topicgroup}
 	IBM Blockchain Platform console
-		howto/ibp-console-build-network.md
-		howto/ibp-console-join-network.md
-		howto/ibp-console-smart-contracts.md
 		howto/ibp-console-create-app.md
 		howto/ibp-console-import-nodes.md
 		howto/ibp-console-identities.md
@@ -110,7 +107,6 @@ IBM Blockchain Platform
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
 	reference/detailed-pricing.md
 	reference/v10_fabric.md
-	reference/videos.md
 	reference/ibp_regions.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
