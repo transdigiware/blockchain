@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-03"
+lastupdated: "2020-03-05"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network
 
@@ -187,6 +187,7 @@ Registering these identities with the CA is only the first step in **creating** 
   | | Peer identity |  peer1 | peer1pw | peer |
   {: caption="Table 4. Using your CA to register users" caption-side="bottom"}
 
+
 ### Creating the peer organization MSP definition
 {: #ibp-console-build-network-create-peers-org1}
 
@@ -223,8 +224,9 @@ After you have created the MSP, you should be able to see the peer organization 
   | **Identity** | Org1 MSP Admin | Org1 MSP admin identity |
   {: caption="Table 6. Check your Wallet" caption-side="bottom"}
 
-
 For more information about MSPs, see [managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
+
+
 
 ### Creating a peer
 {: #ibp-console-build-network-peer-create}
@@ -378,6 +380,7 @@ After you have associated the CA admin, you can use the CA tile to create these 
 
 For the purpose of this tutorial, we are only creating one node identity. This identity will be used by the one node that we will deploy to create the ordering service. While you would not want to do this in a multi-organizational ordering service, it is acceptable given that all of the ordering nodes are owned by the same organization.
 
+
 ### Creating the ordering service organization MSP definition
 {: #ibp-console-build-network-create-orderer-org-msp}
 
@@ -418,6 +421,9 @@ After you have created the MSP, you should be able to see the ordering service o
 
 
 For more information about MSPs, see [managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
+
+
+
 
 ### Deploy the ordering nodes
 {: #ibp-console-build-network-create-an-orderer}
