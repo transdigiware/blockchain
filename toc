@@ -30,12 +30,15 @@ IBM Blockchain Platform
 		howto/ibp-console-build-network.md
 		howto/ibp-console-join-network.md
 		howto/ibp-console-smart-contracts.md
+		howto/ibp-console-create-app.md
 		howto/ibp-console-add-remove-raft.md
 		reference/videos.md
-		reference/k8s.md
+		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-ca.md
 		reference/logdna.md
 		reference/sysdig.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+		reference/k8s.md
 
 	security.md
 	ibp-console-ha.md
@@ -62,13 +65,14 @@ IBM Blockchain Platform
 
 	{: .topicgroup}
 	IBM Blockchain Platform console
-		howto/ibp-console-create-app.md
+		howto/ibp-console-advanced-deployment.md
+		howto/ibp-console-advanced-channel.md
 		howto/ibp-console-import-nodes.md
 		howto/ibp-console-identities.md
 		howto/ibp-console-organizations.md
-		howto/ibp-console-advanced-channel.md
 		howto/ibp-console-govern-components.md
 		howto/ibp-v2-operations-service.md
+		howto/ibp-console-ha-ca.md
 
 	{: .topicgroup}
 	Developing smart contracts and applications

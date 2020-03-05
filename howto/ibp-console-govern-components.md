@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-23"
+lastupdated: "2020-03-05"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Component governance
+# Reallocating resources
 {: #ibp-console-govern-components}
 
 After creating CAs, peers, and ordering nodes, you can use the console to update these components in a variety of ways.
