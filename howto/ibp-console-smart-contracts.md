@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-04"
+lastupdated: "2020-03-05"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Deploy a smart contract on the network tutorial
+# Deploy a smart contract on the network
 {: #ibp-console-smart-contracts}
 
 A smart contract is the code, sometimes referred to as chaincode, that applications interact with to read and update data on the blockchain ledger. A smart contract can turn business logic into an executable program that is agreed to and verified by all members of a blockchain network. This tutorial is the third part in the [sample network tutorial series](#ibp-console-smart-contracts-structure) and describes how to deploy smart contracts to start transactions in the blockchain network.
