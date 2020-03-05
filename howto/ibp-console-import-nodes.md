@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-03-05"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -21,6 +21,8 @@ subcollection: blockchain
 
 # Importing nodes
 {: #ibp-console-import-nodes}
+
+
 
 The console includes the option to import nodes that were created in another {{site.data.keyword.blockchainfull}} Platform console.
 {:shortdesc}

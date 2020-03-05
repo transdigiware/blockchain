@@ -22,6 +22,8 @@ subcollection: blockchain
 # Reallocating resources
 {: #ibp-console-govern-components}
 
+
+
 After creating CAs, peers, and ordering nodes, you need to monitor the resource usage by the nodes and potentially reallocate resources.
 {:shortdesc}
 

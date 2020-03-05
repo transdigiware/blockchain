@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-03-05"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -23,6 +23,8 @@ subcollection: blockchain
 
 # Administering your console
 {: #console-icp-manage}
+
+
 
 
 After you deploy your console on {{site.data.keyword.cloud}} Private, you can use the console to add or remove console users and access APIs that allow you to operate your network and govern your console. You can also access and customize the logs of your console.

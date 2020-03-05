@@ -25,6 +25,8 @@ subcollection: blockchain
 # FAQs
 {: #ibp-v2-faq}
 
+
+
 **General**   
 
 - [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](#ibp-v2-faq-v2-IBP-Overview-1-7)
@@ -77,7 +79,7 @@ Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed
 {: faq}
 {: support}
 
-View the Support page by clicking the question mark icon <img src="images/support-link.png" alt="Support link icon" width="30" style="width:30px; border-style: none"/>in the upper right corner of the page. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading.
+View the Support page by clicking the question mark icon <img src="../images/support-link.png" alt="Support link icon" width="30" style="width:30px; border-style: none"/>in the upper right corner of the page. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading.
 
 ## What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-v2-Hyperledger-Fabric-3-1}

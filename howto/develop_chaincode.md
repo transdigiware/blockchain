@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-03-05"
 
 keywords: update data, private data, smart contract, CouchDB indexes, cross chaincode transaction
 
@@ -19,9 +19,10 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-
 # Writing smart contracts
 {: #develop-smart-contracts}
+
+
 
 Chaincode, also referred to as smart contracts, is software that you can use to read and update data on the blockchain ledger. Chaincode can turn business logic into an executable program that is agreed to and verified by all members of the blockchain network. Business logic includes the definition of assets that are traded between parties. It also consists of the terms and conditions that are required for a transaction to be executed. Turning these rules into code on a blockchain allow businesses to streamline business processing and auditing and reduce large amounts of manual processing and paperwork.
 

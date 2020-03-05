@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-05"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -26,6 +26,8 @@ subcollection: blockchain
 
 # Troubleshooting
 {: #ibp-v2-troubleshooting}
+
+
 
 General problems may occur when using the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
 {:shortdesc}
