@@ -72,7 +72,6 @@ IBM Blockchain Platform
 		howto/ibp-console-organizations.md
 		howto/ibp-console-govern-components.md
 		howto/ibp-v2-operations-service.md
-		howto/ibp-console-ha-ca.md
 
 	{: .topicgroup}
 	Developing smart contracts and applications
