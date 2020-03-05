@@ -47,7 +47,7 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
 - If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}.
 - If you are developing Node smart contracts, you need to install [Node v8.x or v10.x and npm v6.x or greater](https://nodejs.org/en/download/){: external}.
-- If you are developing Java smart contracts, you need to install [Java JDK v8](https://adoptopenjdk.net/?variant=openjdk8){: external}. Note that Java smart contracts cannot be deployed using the console.
+- If you are developing Java smart contracts, you need to install [Java JDK v8](https://adoptopenjdk.net/?variant=openjdk8){: external}.
 
 If you are using Windows, you also must ensure the following:
 
@@ -88,7 +88,7 @@ To navigate to the tutorials from within VS Code, open the extensions tab and cl
 You can use the extension to create a new smart contract project in Visual Studio Code. The extension creates a basic smart contract that manages an example asset in the language of your choice. You can use the structure of example as a starting point for developing your own business logic. The extension provides all the dependencies that are required to deploy your smart contract to an instance of Hyperledger Fabric.
 
 1. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
-2. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** You can use the VS Code extension to create and test Java smart contracts locally. However, you cannot deploy Java smart contracts to {{site.data.keyword.blockchainfull_notm}} Platform networks. If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
+2. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** You can use the VS Code extension to create and test Java smart contracts locally. If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
 3. **If you selected JavaScript, TypeScript, or Java**, select an asset to be managed by the example contract. For example, ***bond***.
 4. Create a folder with the name of your project and open it.
 5. Select how to open your new project. The project folder should now open.
