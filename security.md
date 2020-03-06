@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-06"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -82,7 +82,7 @@ If you are using a client application to send requests to the console, either vi
 
 The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are `ECDSA` with Curve `P256`. These keys are stored in the browser when they are added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is recommended that customers export these keys and import them into their own key management system in case they clear their browser cache or switch browsers. Customers are responsible for the storage, backup and disaster recovery of all keys that they export.
 
-Because these public and private key pairs are essential to how the {{site.data.keyword.blockchainfull_notm}} Platform functions, **key management** is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. Although you can use the {{site.data.keyword.blockchainfull_notm}} Platform console to generate private keys, those keys are not permanently stored by the console or the cloud (public keys, on the other hand, are stored in the browser and added to the member's wallet so that the console can use them to manage blockchain components), making customers ultimately responsible for the storage, backup, and disaster recovery of their keys.
+Because these public and private key pairs are essential to how the {{site.data.keyword.blockchainfull_notm}} Platform functions, **key management** is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. Although you use the {{site.data.keyword.blockchainfull_notm}} Platform console to generate the certificates and private keys, they are not _permanently_ stored by the console or the cloud. Public and private keys are temporarily stored in the browser and added to the member's wallet so that the console can use the private key to digitally sign transactions. But when the browser is closed, both the public and private keys are removed from the wallet and the browser, therefore customers are ultimately responsible for exporting the keys and managing their storage, backup, and disaster recovery. Note that when the browser is closed, the exported keys can be re-imported into the browser for continued usage.
 
 If a private key is lost and cannot be recovered, you will need to generate a new private key by registering and enrolling a new identity with your Certificate Authority. You should also then remove and replace your signCert in any components or organizations where you had used the lost or corrupted identity. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp) for detailed steps.
 

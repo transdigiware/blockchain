@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-06"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -47,7 +47,15 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
 - If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}.
 - If you are developing Node smart contracts, you need to install [Node v8.x or v10.x and npm v6.x or greater](https://nodejs.org/en/download/){: external}.
-- If you are developing Java smart contracts, you need to install [Java JDK v8](https://adoptopenjdk.net/?variant=openjdk8){: external}.
+
+Considerations if you are developing Java smart contracts:
+
+- Java 11 is required to execute Java smart contracts.
+- Gradle v4.x and Maven v3.x are used to build Java smart contracts.
+- Custom Gradle versions can be used by using a Gradle wrapper.
+- Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later, as this version is the first version that includes support for Java 11.
+- For an example of a Java smart contract, see the [FabCar Java smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar/java){: external} from Fabric v1.4.
+
 
 If you are using Windows, you also must ensure the following:
 
