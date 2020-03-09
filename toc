@@ -38,6 +38,7 @@ IBM Blockchain Platform
 		reference/logdna.md
 		reference/sysdig.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+		reference/hsm-gemalto.md 
 		reference/k8s.md
 
 	security.md
