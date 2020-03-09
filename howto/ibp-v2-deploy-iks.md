@@ -218,7 +218,7 @@ Consider bookmarking the url of your console so you can come back at a later tim
 **Monitoring**  
 - Use [{{site.data.keyword.cloud_notm}} Activity Tracker with LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started) service to troubleshoot logs in real-time, diagnose issues, and identify problems in your Kubernetes cluster.
 
-- Use [{{site.data.keyword.cloud_notm}} Activity Tracker with SysDig](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-getting-started#getting-started) to monitor the activity and the health of services and applications in the IBM Cloud.
+- Use [{{site.data.keyword.cloud_notm}} Activity Tracker with Sysdig](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-getting-started#getting-started) to monitor the activity and the health of services and applications in the IBM Cloud.
 
 - See this tutorial on how to [Analyze logs and monitor application health with LogDNA and Sysdig](/docs/tutorials?topic=solution-tutorials-application-log-analysis).
 
