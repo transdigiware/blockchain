@@ -45,80 +45,90 @@ When you register other node admin or client application identities with a CA by
 2. [Install the HSM client](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine.
 
 3. Using the HSM client, you can get the server certificate by running the following command:
-```bash
-scp hsm_admin@${HSM_ADDRESS}:server.pem server.pem
-```
-{: codeblock}
-Replace
-- {HSM_ADDRESS} with ...
+
+  ```bash
+  scp hsm_admin@${HSM_ADDRESS}:server.pem server.pem
+  ```
+  {: codeblock}
+
+  Replace
+  - {HSM_ADDRESS} with ...
 
 4. Run the following command to add the HSM server to local client:
-```bash
-vtl addServer -n ${HSM_ADDRESS} -c server.pem
-```
-{: codeblock}
-Replace
-- {HSM_ADDRESS} with ...
+
+  ```bash
+  vtl addServer -n ${HSM_ADDRESS} -c server.pem
+  ```
+  {: codeblock}
+
+  Replace
+  - {HSM_ADDRESS} with ...
 
 5. Create the certificates for client by running the command:
-```bash
-vtl createcert -n ${CLIENT_ADDRESS}
-```
-{: codeblock}
 
-Replace
-- {CLIENT_ADDRESS} with ...
+  ```bash
+  vtl createcert -n ${CLIENT_ADDRESS}
+  ```
+  {: codeblock}
+
+  Replace
+  - {CLIENT_ADDRESS} with ...
 
 6. Copy the client certs to the server by running the command:
-```bash
-scp /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem hsm_admin@${HSM_ADDRESS}:.
-```
-{: codeblock}
 
-Replace
-- {CLIENT_ADDRESS} with ...
-- {HSM_ADDRESS} with ...
+  ```bash
+  scp /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem hsm_admin@${HSM_ADDRESS}:.
+  ```
+  {: codeblock}
+
+  Replace
+  - {CLIENT_ADDRESS} with ...
+  - {HSM_ADDRESS} with ...
 
 
 7. On the HSM server register the client with the command:
-```bash
-# if the client address is IP address run:
-client register -client ${CLIENT_NAME} -ip ${CLIENT_ADDRESS}
 
-# else if the client address is fqdn run:
-client register -client ${CLIENT_NAME} -hostname ${CLIENT_ADDRESS}
-```
-{: codeblock}
+  ```bash
+  # if the client address is IP address run:
+  client register -client ${CLIENT_NAME} -ip ${CLIENT_ADDRESS}
 
-Replace
-- {CLIENT_NAME} with ...
-- {CLIENT_ADDRESS} with ...
-- {HSM_ADDRESS} with ...
+  # else if the client address is fqdn run:
+  client register -client ${CLIENT_NAME} -hostname ${CLIENT_ADDRESS}
+  ```
+  {: codeblock}
+
+  Replace
+  - {CLIENT_NAME} with ...
+  - {CLIENT_ADDRESS} with ...
+  - {HSM_ADDRESS} with ...
 
 8. Restart the ntls service on the HSM server
-```bash
-service restart ntls
-```
-{: codeblock}
+
+  ```bash
+  service restart ntls
+  ```
+  {: codeblock}
 
 
 9. Assign a partition to newly created client on the HSM server by running the following command:
-```bash
-client assignpartition -client ${CLIENT_NAME} -partition ${PARTITION_NAME}
 
-# to check if it worked
-client show -client ${CLIENT_NAME}
-```
-{: codeblock}
+  ```bash
+  client assignpartition -client ${CLIENT_NAME} -partition ${PARTITION_NAME}
+
+  # to check if it worked
+  client show -client ${CLIENT_NAME}
+  ```
+  {: codeblock}
 
 Replace
 - {CLIENT_NAME} with ...
 - {PARTITION_NAME} with ...
 
 10. Verify the client can connect to HSM server by running the command:
-```bash
-vtl verify
-```
+
+  ```bash
+  vtl verify
+  ```
 {: codeblock}
 
 ## What's next
