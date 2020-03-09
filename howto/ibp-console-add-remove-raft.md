@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-09"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 
 
 
-In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover not just the instructions for adding nodes using the same organization that created the ordering service and as a separate ordering organization that is added as an ordering service admin.
+In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover the instructions for adding nodes using the same organization that created the ordering service and well as the steps when using a separate ordering organization that is added as an ordering service admin.
 
 Because ordering service nodes can only belong to a single ordering service, if you create an ordering service node from the main **Nodes** panel, you will not be able to add it to an existing ordering service. If you want to add a node to an existing ordering service, the node must be created specifically for that purpose using the process described below. Also, be aware that **adding nodes to an ordering service does not automatically add them to any existing channel**. That is a separate process that must take place after the node has been added to the ordering service. For more information, see [Adding and removing ordering service consenters](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer-consenters).
 {:important}
@@ -42,10 +42,10 @@ This is why, by default, the console offers two options: one node or five nodes.
 
 For this reason, it is considered a best practice to have an odd number of nodes in an ordering service. There is nothing wrong with an even number of nodes, but they add costs without making the ordering service more highly available.
 
-Because the number of nodes need for a quorum is updated automatically when nodes are added to the consenter set, it is a best practice to make sure that all of the nodes in the consenter set are servicing the channel before attempting to add a new node. This is because the consenter set is updated before the node has finished provisioning. For example, if you have three nodes servicing a channel, you will have a quorum as long as two nodes are up. When attempting to add a new node, the consenter set will index to three nodes being needed (out of four). In a case where only two nodes are up out of three when a new node is added, and the new node fails to provision for any reason, you will only have two nodes available out of the three that are needed.
+Because the number of nodes needed for a quorum is updated automatically when nodes are added to the consenter set, it is a best practice to make sure that all of the nodes in the consenter set are servicing the channel before attempting to add a new node. This is because the consenter set is updated before the node has finished provisioning. For example, if you have three nodes servicing a channel, you will have a quorum as long as two nodes are up. When attempting to add a new node, the consenter set will index to three nodes being needed (out of four). In a case where only two nodes are up out of three when a new node is added, and the new node fails to provision for any reason, you will only have two nodes available out of the three that are needed.
 {:tip}
 
-## Creating and adding a node to the ordering service
+## Overview
 {: #ibp-console-add-remove-orderer-add-orderer}
 
 Adding a node to the ordering service is, at a high level, a three step process.
@@ -90,26 +90,26 @@ After your CA has been created and your identities have been registered, create 
 #### You: export your MSP and import the ordering service
 {: #ibp-console-add-remove-orderer-add-orderer-export-MSP}
 
-Now that you have created your MSP, you need to export it to the console where the ordering service was created. You should have downloaded a copy of your MSP to your local machine when it was created, but if you have not yet done so, download the MSP now. Then send the JSON to the user of the other console.
+Now that you have created your MSP, you need to export it to the console where the ordering service was created. You should have downloaded a copy of your MSP to your local machine when it was created, but if you have not yet done so, download the MSP now. Then send the JSON to the operator of the other console.
 
 Until your organization is an administrator of the ordering service, you cannot add a new node to it.
 
 #### Other console: import the ordering service
 {: #ibp-console-add-remove-orderer-add-orderer-import-ordering-service}
 
-The user of the other console must take your MSP and add it to its console by clicking on the **Organizations** tab and then the **Import MSP definition** tab. This MSP can then be added as an ordering service administrator by clicking on the tile representing the ordering service and then the **Add ordering service administrator** tab.
+The operator of the other console must take your MSP and add it to its console by clicking on the **Organizations** tab and then the **Import MSP definition** tab. This MSP can then be added as an ordering service administrator by clicking on the tile representing the ordering service and then the **Add ordering service administrator** tab.
 
-After the MSP has been added as an ordering service administrator, the user of the console where the ordering service was created must export the ordering service back to your console (the console where the new node is being added from). To export a node, navigate to the node and click on the download button. Then send the JSON file to the user of the other console.
+After the MSP has been added as an ordering service administrator, the operator of the console where the ordering service was created must export the ordering service back to your console (the console where the new node is being added from) so that you can import it. To export a node, navigate to the node and click on the download button. Then send the JSON file to the operator of the other console.
 
 After you have imported the ordering service, you will be able to create the new node for it.
 
 ### Create the node
 {: #ibp-console-add-remove-orderer-add-orderer-create}
 
-While it is not possible to ensure that the ordering service is available (that is, that a quorum of nodes are up and that a leader has been elected) without [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), it is a best practice to minimally ensure the likelihood that a quorum exists by ensure that the pods where the nodes have been deployed are available. This can be done by checking to make sure the relevant pods are active in the Kubernetes dashboard or by issuing `kubectl get pods -n <namespace>` and checking on the pods. If you do not have access to the cluster where all of the ordering nodes were created, contact the administrator of the relevant clusters. **If a quorum of nodes is not available, it will not be possible to add another node to the ordering service**.
+While it is not possible to ensure that the ordering service is available (that is, that a quorum of nodes are up and that a leader has been elected) without [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), it is a best practice to minimally ensure the likelihood that a quorum exists by verifying that the pods where the nodes have been deployed are available. This can be done by checking to make sure the relevant pods are active in the Kubernetes dashboard or by issuing `kubectl get pods -n <namespace>` and checking on the pods. If you do not have access to the cluster where all of the ordering nodes were created, contact the administrator of the relevant clusters. **If a quorum of nodes is not available, it will not be possible to add another node to the ordering service**.
 {:tip}
 
-To add a node, click on the tile representing the node in the **Nodes** panel. Then click on the **Ordering nodes** panel and the **Add another node** tile. This will open a series of panels similar to the process for creating an ordering service. You will need to:
+To add a node, click on the tile representing the ordering service in the **Nodes** panel. Then click on the **Ordering nodes** panel and the **Add another node** tile. This will open a series of panels similar to the process for creating an ordering service. You will need to:
 
 * **Give the node a display name**. A best practice will be to give the node a display name that matches the pattern used for the other nodes in the ordering service. By default, nodes are given the name `<name of ordering service>_1`, `<name of ordering service>_2`, and so on.
 * **Select a CA**. This should be the CA used to create your MSP.
@@ -144,16 +144,16 @@ Recall that the "consenter set" refers to the ordering service nodes actively pa
 
 To add the node you created to the system channel, click on the node. You will see a **Add node to ordering service** button. Click this button. After the node has been added to the ordering service, the node should now be part of the system channel.
 
-Note that **it will take a few minutes for the new node to sync with ordering service in the system channel**. During this time, you may see a message that your ordering service is down. This is normal --- the ordering service must come down while the new node is syncing.
+Note that **it will take a few minutes for the new node to sync with ordering service in the system channel**. During this time, you may see a message that your ordering service is down. This is normal --- the ordering service must come down while the new node is syncing. Any transactions proposed during this time will fail and will have to be resubmitted by the client application.
 
-After the node has successfully been created and added to the system channel, export a JSON representing the node back to the console where the ordering service was created.
+After the node has successfully been created and added to the system channel, export a JSON representing the node so that it can be imported into the console where the ordering service was created.
 
-Note that **if you want to add this node to any existing application channels, you will have to add them to consenter set of each of those channels** separately. For information about how to do that, see [Adding an ordering node to the consenter set](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer-consenters-add) of a channel.
+Note that **if you want to add this node to any existing application channels, you will have to add them to consenter set of each of those channels** separately. For information about how to do that, see [Adding an ordering node to the consenter set](#ibp-console-add-remove-orderer-consenters-add) of a channel.
 
 ### Adding the node to an application channel
 {: #ibp-console-add-remove-orderer-consenters-add}
 
-To add a consenter to an application channel, navigate to the channel and click the edit button. After specifying your org MSP and admin identity, click on the **Ordering service consenters** panel. Then select the node from the drop down list and click **Add**. Note that you will only be able to add one node at a time.
+To add a consenter to an application channel, navigate to the channel and click the Settings button. After specifying your org MSP and admin identity, click on the **Consenter set** tab. Then select the node from the drop down list and click **Add**. Note that you will only be able to add one node at a time.
 
 **It will take a few minutes for the new node to sync with the consenter set of the application channel**. During this time, the ordering service may be down. After the node has been successfully added to the application channel, you will see it in the **Ordering nodes** tab.
 
@@ -163,4 +163,6 @@ To add a consenter to an application channel, navigate to the channel and click 
 If a user wants to delete an ordering node, it must first remove the node from all channels where it is a consenter. This is because the console does not distinguish between a deleted node and an unavailable node, and will keep an ordering node as part of its consenter set until it is removed.
 
 As a result, when you delete a node, a check is performed to see if it is a consenter on any channels. If it is, you will not be able to delete the node until it has been removed as a consenter from all channels. After removing the node as a consenter from all channels, you will be able to delete the node by clicking the trash can icon. Note that this action will have to be taken in the console where the node was created.
+
+As part of this same process, make sure to reach out to the other console operators to let them know that the node has been deleted so they can remove the tile from their consoles.s
 

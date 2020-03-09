@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-09"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -299,7 +299,7 @@ Complete the following steps to **import** the ordering service into your consol
 3. Then click the **Add file** button to select the JSON that represents the ordering service.
 4. Click **Add ordering service**.
 
-## Step Four: Join your peer to the channel
+## Step three: Join your peer to the channel
 {: #ibp-console-join-network-join-peer-org2}
 
 Your peer can now be joined to `channel1`.
@@ -314,13 +314,13 @@ Your peer can now be joined to `channel1`.
 In these tutorials, we create all of our peers using default options, which means that every peer uses CouchDB. As a result, you don't have to worry about a conflict between the database type used by your peer and any other peers on the channel. However, in a production scenario, a best practice will be to ensure that the peer you are joining to this channel uses the same database type as other peers on the channel. For more information, see [LevelDB vs CouchDB](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-level-couch).
 {:important}
 
-## Creating a channel
+## Step four: Creating a channel
 {: #ibp-console-join-network-create-channel}
 
 In this tutorial, we will presume that users will not be attempting to edit any of the advanced options. For information about editing advanced options both before and after a channel has been created, see [Advanced channel deployment and management](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern).
 {:important}
 
-### Step one: Join the consortium hosted by the ordering service
+### Join the consortium hosted by the ordering service
 {: #ibp-console-join-network-add-org2}
 
 A peer organization must be known to the ordering service before it can create a channel (this is also known as joining the "consortium", the list of organizations known to the ordering service). This is because channels are, at a technical level, **messaging paths** between peers through the ordering service. Just as a peer can be joined to multiple channels without information passing from one channel to another, so too can an ordering service have multiple channels running through it without exposing data to organizations on other channels.
