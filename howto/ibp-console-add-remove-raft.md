@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-03-10"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -87,19 +87,19 @@ After your CA has been created and your identities have been registered, create 
   | **Identity** | Ordering Service2 MSP Admin |||||
   {: caption="Table 11. Create the ordering service organization MSP definition" caption-side="bottom"}
 
-#### You: export your MSP and import the ordering service
+#### You: export your MSP
 {: #ibp-console-add-remove-orderer-add-orderer-export-MSP}
 
 Now that you have created your MSP, you need to export it to the console where the ordering service was created. You should have downloaded a copy of your MSP to your local machine when it was created, but if you have not yet done so, download the MSP now. Then send the JSON to the operator of the other console.
 
 Until your organization is an administrator of the ordering service, you cannot add a new node to it.
 
-#### Other console: import the ordering service
+#### Other console: import the MSP and export the ordering service
 {: #ibp-console-add-remove-orderer-add-orderer-import-ordering-service}
 
-The operator of the other console must take your MSP and add it to its console by clicking on the **Organizations** tab and then the **Import MSP definition** tab. This MSP can then be added as an ordering service administrator by clicking on the tile representing the ordering service and then the **Add ordering service administrator** tab.
+The operator of the other console must take your MSP and add it to its console by clicking on the **Organizations** tab and then the **Import MSP definition** tab. This MSP can then be added as an ordering service administrator by clicking on the tile representing the ordering service and then the **Add ordering service administrator** tab and selecting the MSP.
 
-After the MSP has been added as an ordering service administrator, the operator of the console where the ordering service was created must export the ordering service back to your console (the console where the new node is being added from) so that you can import it. To export a node, navigate to the node and click on the download button. Then send the JSON file to the operator of the other console.
+After the MSP has been added as an ordering service administrator, the operator of the console where the ordering service was created must export the ordering service to your console (the console where the new node is being added from) so that you can import it. To export a node, navigate to the node and click on the download button. Then send the JSON file to the operator of the other console.
 
 After you have imported the ordering service, you will be able to create the new node for it.
 
@@ -164,5 +164,5 @@ If a user wants to delete an ordering node, it must first remove the node from a
 
 As a result, when you delete a node, a check is performed to see if it is a consenter on any channels. If it is, you will not be able to delete the node until it has been removed as a consenter from all channels. After removing the node as a consenter from all channels, you will be able to delete the node by clicking the trash can icon. Note that this action will have to be taken in the console where the node was created.
 
-As part of this same process, make sure to reach out to the other console operators to let them know that the node has been deleted so they can remove the tile from their consoles.s
+As part of this same process, make sure to reach out to the other console operators to let them know that the node has been deleted so they can remove the tile from their console.
 
