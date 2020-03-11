@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-10"
+lastupdated: "2020-03-11"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -65,11 +65,11 @@ If an organization other than the organization that created the ordering service
 
 **Task: Create a CA and register users**
 
-  | **Field** | **Description** | **Enroll ID** | **Secret** |
-  | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Create CA** | Ordering Service2 CA | admin | adminpw |
-  | **Register users** | Ordering Service2 admin | OS2admin | OS2adminpw |
-  |  | Ordering Service node identity |  OS2 | OS2pw |
+  | **Field** | **Description** | **Enroll ID** | **Secret** | **Type** |
+  | ------------------------- |-----------|-----------|-----------|-----------|-----------|
+  | **Create CA** | Ordering Service2 CA | admin | adminpw ||
+  | **Register users** | Ordering Service2 admin | OS2admin | OS2adminpw | admin |
+  |  | Ordering Service node identity |  OS2 | OS2pw | orderer |
   {: caption="Table 1. Create a CA and register users" caption-side="bottom"}
 
 If you are using a separate console, it is possible to specify exactly the same values for these fields as was specified in the Build a network tutorial. Only the `mspid` from the fields below must be different than `osmsp`, as two different MSPs cannot have the same ID in the same console (the MSP you create here will be exported to the other console in a future step). However, we have given different values in this tutorial in case users are running this tutorial inside the same console.
@@ -115,7 +115,6 @@ To add a node, click on the tile representing the ordering service in the **Node
 * **Select a CA**. This should be the CA used to create your MSP.
 * **Enter an enroll ID and secret**. Again, if you created an enroll ID and secret for your existing ordering nodes, you may use the same enroll ID and secret here.
 * **Select an MSP**. If you are adding to an ordering service you created in your console, reuse the MSP you used when creating that ordering service. If the new node is being added to an ordering service created elsewhere, use the MSP you exported to that console.
-* **Allocate resources**. If the original set of ordering nodes was created using a custom allocation, it is a best practice to mimic that allocation when adding new nodes.
 * **Associate identity**. You will only have to associate an identity if you are using a different MSP from the MSP that was originally used when creating the ordering service.
 
 **Task: Create an ordering service**
@@ -125,7 +124,7 @@ To add a node, click on the tile representing the ordering service in the **Node
   | **Add another node** | Ordering Service_2 ||||
   | **CA** | Ordering Service2 CA ||||
   | **Ordering Service Identity** | |  | OS2 | OS2pw |
-  | **Organization MSP** | | os2msp |||
+  | **Organization MSP** | Ordering Service2 MSP | os2msp |||
   | **Administrator certificate** | Ordering Service2 MSP ||||
   | **Associate identity** | Ordering Service2 MSP Admin   |||||
   {: caption="Table 2. Create an ordering service" caption-side="bottom"}
