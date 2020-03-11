@@ -49,9 +49,9 @@ Because only the private keys of node identities are secured in the HSM, when yo
 
 - [Part One: Setup the HSM device and HSM client](#ibp-hsm-gemalto-part-one)
 
-  This process involves deploying an **HSM** and configuring a partition as well as deploying an **HSM client** that you will use to configure the device. Throughout these instructions you will run some commands from the HSM server and others from the HSM client. For clarity, we prefix these instructions with **HSM server** or **HSM client**.
+  This process involves deploying an **HSM** and configuring a partition as well as deploying an **HSM client** that you will use to configure the device. Throughout these instructions you will run some commands from the HSM server and others from the HSM client. For clarity, we prefix these steps with either **HSM server** or **HSM client**.
 
-- [Part Two: Configure communications between the HSM server and client](#ibp-hsm-gemalto-part-two})
+- [Part Two: Configure communications between the HSM server and client](#ibp-hsm-gemalto-part-two)
 
   Communications between the HSM and client require a **Network Trust Link (NTL)** -- an encrypted, secure communications channel between the HSM and client. NTL uses digital certificates that the client and HSM server can use to verify each other's identity. You will run a command to get the HSM server certificate that allows the client to communicate with the HSM server. Likewise, you will generate a certificate and private key for the client and then copy them to the HSM server.
 
@@ -78,7 +78,7 @@ These instructions require that [Docker](https://docs.docker.com/install/){: ext
 
 1. Provision the HSM and configure it with at least one partition. For example, you can follow instructions for [Provisioning {{site.data.keyword.cloud_notm}} HSM](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-provisioning-ibm-cloud-hsm){: external}.
 
-   Be sure to record the `Pin` for the partition. You will need it later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `{HSM_ADDRESS}`.
+   Be sure to record the `PIN` for the partition. You will need it later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `{HSM_ADDRESS}`.
    {: important}
 
 2. [Install the HSM client](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `{CLIENT_ADDRESS}`.
@@ -260,70 +260,70 @@ Next we build a Docker image that contains the HSM client that will run on your 
   - You should be aware that this Docker file automatically accepts the Gemalto client license.
   - Note that the `64` folder inside the Docker file is required for installing the HSM client.
 
-   ```
-    ########## Build the pkcs11 proxy ##########
-    FROM registry.access.redhat.com/ubi8/ubi-minimal as builder
-    ARG ARCH=amd64
+  ```
+  ########## Build the pkcs11 proxy ##########
+  FROM registry.access.redhat.com/ubi8/ubi-minimal as builder
+  ARG ARCH=amd64
 
-    ARG VERSION=2032875
+  ARG VERSION=2032875
 
-    RUN microdnf install -y \
-    	git \
-    	make \
-    	cmake \
-    	openssl-devel \
-    	gcc;
+  RUN microdnf install -y \
+  	git \
+  	make \
+  	cmake \
+  	openssl-devel \
+  	gcc;
 
-    RUN if [ "${ARCH}" == "amd64" ]; then ARCH="x86_64"; fi && \
-    	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-2.4.2-2.fc30.${ARCH}.rpm && \
-    	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-devel-2.4.2-2.fc30.${ARCH}.rpm
+  RUN if [ "${ARCH}" == "amd64" ]; then ARCH="x86_64"; fi && \
+  	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-2.4.2-2.fc30.${ARCH}.rpm && \
+  	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-devel-2.4.2-2.fc30.${ARCH}.rpm
 
 
-    RUN git clone https://github.com/SUNET/pkcs11-proxy && \
-    	cd pkcs11-proxy && \
-    	git checkout ${VERSION} && \
-    	cmake . && \
-    	make && \
-    	make install
+  RUN git clone https://github.com/SUNET/pkcs11-proxy && \
+  	cd pkcs11-proxy && \
+  	git checkout ${VERSION} && \
+  	cmake . && \
+  	make && \
+  	make install
 
-    ########## FINAL image - Build luna client ##########
+  ########## FINAL image - Build luna client ##########
 
-    FROM registry.access.redhat.com/ubi8/ubi-minimal
+  FROM registry.access.redhat.com/ubi8/ubi-minimal
 
-    ## This directory contains the installation files for gemalto/luna client
-    COPY 64 64
+  ## This directory contains the installation files for gemalto/luna client
+  COPY 64 64
 
-    RUN microdnf install -y \
-    	gcc \
-    	gcc-c++ \
-    	openssh-clients \
-    	bind-utils \
-    	iputils \
-    	&& cd 64 && \
-    	# NOTE we are accepting the license for installing gemalto client here
-    	# please take a look at the license before moving forward
-    	echo "y" | ./install.sh -p sa
+  RUN microdnf install -y \
+  	gcc \
+  	gcc-c++ \
+  	openssh-clients \
+  	bind-utils \
+  	iputils \
+  	&& cd 64 && \
+  	# NOTE we are accepting the license for installing gemalto client here
+  	# please take a look at the license before moving forward
+  	echo "y" | ./install.sh -p sa
 
-    COPY --from=builder /usr/local/bin/pkcs11-daemon /usr/local/bin/pkcs11-daemon
-    COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0.1 /usr/local/lib/libpkcs11-proxy.so.0.1
-    COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11-proxy.so.0
-    COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
+  COPY --from=builder /usr/local/bin/pkcs11-daemon /usr/local/bin/pkcs11-daemon
+  COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0.1 /usr/local/lib/libpkcs11-proxy.so.0.1
+  COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11-proxy.so.0
+  COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
 
-    WORKDIR /
+  WORKDIR /
 
-    COPY docker-entrypoint.sh docker-entrypoint.sh
-    RUN chmod +x docker-entrypoint.sh
+  COPY docker-entrypoint.sh docker-entrypoint.sh
+  RUN chmod +x docker-entrypoint.sh
 
-    ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
-    # ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
-    ENV PATH="$PATH:/usr/safenet/lunaclient/bin"
-    ENV LIBRARY_LOCATION=/usr/safenet/lunaclient/lib/libCryptoki2_64.so
+  ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
+  # ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
+  ENV PATH="$PATH:/usr/safenet/lunaclient/bin"
+  ENV LIBRARY_LOCATION=/usr/safenet/lunaclient/lib/libCryptoki2_64.so
 
-    EXPOSE 2345
+  EXPOSE 2345
 
-    ENTRYPOINT [ "sh", "-c", "./docker-entrypoint.sh" ]
-    ```
-    {: codeblock}
+  ENTRYPOINT [ "sh", "-c", "./docker-entrypoint.sh" ]
+  ```
+  {: codeblock}
 
 3. **HSM client** Now, run the following command to build the Docker image:
 
@@ -495,7 +495,7 @@ After the local test in the previous step is successful, you are ready to deploy
   NAME            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
   pkcs11-proxy1   ClusterIP   172.21.191.187   <none>        2345/TCP   5d3h
   ```
-  
+
   Combine the value of the **CLUSTER-IP** address above `172.21.191.187` and **PORT** `2345` to build the PCKS #11 proxy address that is required by console in the form `tcp://172.21.191.187:2345`.
 
   Save the value of the PCKS #11 proxy address for later when you configure a blockchain node to use HSM as it represents the **HSM proxy endpoint**.
@@ -504,9 +504,9 @@ After the local test in the previous step is successful, you are ready to deploy
 ## What's next
 {: #ibp-hsm-gemalto-next-steps}
 
-- After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM, you are ready to create a PKCS #11 proxy that allows the blockchain nodes to communicate with the HSM. See [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) to learn more about the process.  
+- After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM, you are ready to create a PKCS #11 proxy that allows the blockchain nodes to communicate with the HSM. See [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) to learn more about the process.  
 
-- Finally, when you create a CA, peer, or ordering node, you can select the [HSM Advanced deployment option](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  
+- Finally, when you create a CA, peer, or ordering node, you can select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  
 
 ### Using multiple partitions
 {: #ibp-hsm-gemalto-multiple-partitions}
