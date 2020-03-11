@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-03"
+lastupdated: "2020-03-11"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -31,7 +31,7 @@ This guide helps you understand the pricing model for {{site.data.keyword.blockc
 ## Pricing model
 {: #ibp-saas-pricing-model}
 
-{{site.data.keyword.blockchainfull_notm}} Platform introduces a new hourly pricing model that is based on virtual processor core (VPC) usages. This simplified model is based on the amount of CPU (or VPC) that your {{site.data.keyword.blockchainfull_notm}} Platform nodes consume on an hourly basis, at a flat rate of **$0.29 USD/VPC-hour**.
+{{site.data.keyword.blockchainfull_notm}} Platform introduces a new hourly pricing model that is based on virtual processor core (VPC) allocation. This simplified model is based on the amount of CPU (or VPC) that your {{site.data.keyword.blockchainfull_notm}} Platform nodes are allocated on an hourly basis, at a flat rate of **$0.29 USD/VPC-hour**.
 
 A VPC is a unit of measurement that is used to determine the licensing cost of {{site.data.keyword.IBM_notm}} products. It is based on the number of virtual cores (vCPUs) that are available to the product. A vCPU is a virtual core that is assigned to a virtual machine or a physical processor core. For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes, **1 VPC = 1 CPU = 1 vCPU = 1 Core**.
 {:note}
@@ -83,11 +83,14 @@ After 30 days, your Kubernetes cluster is deleted along with all of your blockch
 ## Key elements of cost
 {: #ibp-saas-pricing-elements}
 
-Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} Kubernetes cluster that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice, each of the following elements forms your total cost:
+Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} Kubernetes cluster that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice, each of the following elements forms your total cost.
 
-- **{{site.data.keyword.blockchainfull_notm}} Platform** flat rate of $0.29 USD/VPC-hour. This fee represents the charge for your blockchain components in your Kubernetes cluster.
-- **{{site.data.keyword.cloud_notm}} Kubernetes Service** cluster's tiered pricing that is visible in {{site.data.keyword.cloud_notm}} when you provision your paid cluster. This includes the charges for your compute, that is, CPU and memory. {{site.data.keyword.cloud_notm}} Kubernetes Services are priced on a tiered model that is based on the number of hours of usage per month. Therefore, when you examine pricing plans, consider that 24x7 usage is equivalent to 720 hours per month. Refer to the table on the [Kubernetes Service Catalog page](https://cloud.ibm.com/kubernetes/catalog/cluster){: external} for more details on cluster pricing.
-- Choose the **storage** plan that works for your needs. See the [Understanding Kubernetes storage basics](/docs/containers?topic=containers-kube_concepts#kube_concepts) topic to learn more about your storage class options and how much they [cost](https://www.ibm.com/cloud/file-storage/pricing){: external}. The {{site.data.keyword.blockchainfull_notm}} Platform nodes use the default storage class for the cluster. When you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it is preconfigured with [Bronze level File storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass) as the persistent storage plug-in.
+![Elements of pricing](../images/elements-of-pricing.svg "Elements of pricing"){: caption="Figure 1. Elements of pricing" caption-side="bottom"}
+
+- **{{site.data.keyword.blockchainfull_notm}} Platform:** Based on a flat rate of $0.29 USD/VPC-hour. This fee represents the charge for your blockchain component VPC allocation in your Kubernetes cluster.
+- **{{site.data.keyword.cloud_notm}} Kubernetes Service:** Uses a tiered pricing model that is visible in {{site.data.keyword.cloud_notm}} when you provision your paid cluster. This includes the charges for your compute, that is, CPU and memory. {{site.data.keyword.cloud_notm}} Kubernetes Services are priced on a tiered model that is based on the number of hours of usage per month. Therefore, when you examine pricing plans, consider that 24x7 usage is equivalent to 720 hours per month. Refer to the table on the [Kubernetes Service Catalog page](https://cloud.ibm.com/kubernetes/catalog/cluster){: external} for more details on cluster pricing.
+- **Storage:** Choose the storage plan that works for your needs. See [Understanding Kubernetes storage basics](/docs/containers?topic=containers-kube_concepts#kube_concepts) to learn more about your storage class options and how much they [cost](https://www.ibm.com/cloud/file-storage/pricing){: external}. The {{site.data.keyword.blockchainfull_notm}} Platform nodes use the default storage class for the cluster. When you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it is preconfigured with [Bronze level File storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass) as the persistent storage plug-in.
+- **Advanced features:** Options that are available for Production networks for increased security, disaster recovery, and health monitoring of the nodes. Costs vary depending on the options you choose.
 
 When you allocate VPCs (or CPU) to a blockchain node, the node consumes CPUs from your Kubernetes cluster allocation. Therefore the size of the Kubernetes cluster that is required directly depends on the size and quantity of the blockchain nodes that you deploy.
 {: tip}
@@ -156,7 +159,7 @@ If {{site.data.keyword.cloud_notm}} has your credit card on file, you will be se
 
   * **EXCEL invoice** Select this format when you need more insight into your Kubernetes containers, storage instances, and blockchain cost. Navigate to the Detailed Billing sheet in the downloaded invoice workbook to understand how those specific line items break down, and see details of the specific containers/storage instances you got charged for. The Blockchain Platform cost is visible under the Description line item "Platform Service Plan Feature Usage: Blockchain Platform Standard" . For example, a Detailed Billing tab would look similar to the following:
 
-     ![Detailed invoice](../images/detailed-invoice.png "Detailed invoice"){: caption="Figure 1. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
+     ![Detailed invoice](../images/detailed-invoice.png "Detailed invoice"){: caption="Figure 2. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
 
 The pie-chart visible on the Usage tab of the {{site.data.keyword.cloud_notm}} Dashboard will not align with the invoices since it applies to  a different billing period.  
 {: note}
@@ -165,7 +168,7 @@ The pie-chart visible on the Usage tab of the {{site.data.keyword.cloud_notm}} D
 
 When you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, a flat monthly fee is assessed for IP Allocation. This fee is charged by zone, so that if you provision three zones in your cluster, you can multiply this charge by three. The example below shows the charge for a single zone.
 
-![IP allocation charges](../images/ip_allocation_charge.png "Kubernetes cluster IP allocation charges"){: caption="Figure 2. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
+![IP allocation charges](../images/ip_allocation_charge.png "Kubernetes cluster IP allocation charges"){: caption="Figure 3. Kubernetes cluster IP Allocation charges" caption-side="bottom"}
 
 This charge is visible on the **Invoices** tab of the Usage tile. Click the link under **Next Recurring Invoice** to see your charges for IP Allocation.
 

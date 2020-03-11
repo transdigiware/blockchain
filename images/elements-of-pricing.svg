@@ -1,0 +1,43 @@
+<svg width="1200" height="663" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#C9DEFF" d="M0 164h288v499H0zm608 0h288v499H608zm-304 0h288v499H304zm608 0h288v499H912z"/>
+    <path fill="#021873" d="M0 60h288v104H0z"/>
+    <path fill="#0D6FFF" d="M608 60h288v104H608z"/>
+    <path fill="#054BDA" d="M304 60h288v104H304z"/>
+    <path fill="#6BA4FF" d="M912 60h288v104H912z"/>
+    <text font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="24" font-weight="500" fill="#F3F3F3">
+      <tspan x="16" y="101">IBM Blockchain </tspan> <tspan x="16" y="137">Platform Cost</tspan>
+    </text>
+    <text font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="22" font-weight="400" fill="#000">
+      <tspan x="16" y="205">Standard plan</tspan> <tspan x="16" y="264" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-weight="bold">$0.29 USD/VPC-Hr</tspan> <tspan x="16" y="323">Based on number of VPC </tspan> <tspan x="16" y="362">hours your instance uses </tspan> <tspan x="16" y="421">1 VPC = 1 CPU</tspan>
+    </text>
+    <text font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="22" font-weight="400" fill="#000">
+      <tspan x="624" y="205">Multiple options and tiers </tspan> <tspan x="624" y="244">determine cost</tspan> <tspan x="624" y="303" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-weight="bold">Options: </tspan> <tspan x="711.67" y="303"> File (default), </tspan> <tspan x="624" y="342">Block, Object</tspan> <tspan x="624" y="401" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-weight="bold">Tiers: </tspan> <tspan x="682.74" y="401"> Based on </tspan> <tspan x="624" y="444">IOPS/GB</tspan> <tspan x="624" y="487">(read-write performance)</tspan>
+    </text>
+    <text font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="22" font-weight="400" fill="#000">
+      <tspan x="320" y="205">Multiple plans and tiers </tspan> <tspan x="320" y="244">determine cost</tspan> <tspan x="320" y="303" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-weight="bold">Plans: </tspan> <tspan x="385.076" y="303"> choose compute </tspan> <tspan x="320" y="342">configuration based on </tspan> <tspan x="320" y="381">various cluster sizes</tspan> <tspan x="320" y="440" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-weight="bold">Tiers: </tspan> <tspan x="378.74" y="440"> the more hours </tspan> <tspan x="320" y="479">you use, the less you pay. </tspan> <tspan x="320" y="518">per hour</tspan> <tspan x="320" y="576" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-weight="bold">Machine type: </tspan> <tspan x="465.156" y="576"> Shared, </tspan> <tspan x="320" y="615">Dedicated, Bare Metal</tspan>
+    </text>
+    <text font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="22" font-weight="500" fill="#000">
+      <tspan x="928" y="205">Multi-Zone Region </tspan> <tspan x="928" y="258">HA and DR</tspan> <tspan x="928" y="311">Backup and Restore</tspan> <tspan x="928" y="364">HSM</tspan> <tspan x="928" y="417">Sysdig</tspan> <tspan x="928" y="470">LogDNA</tspan>
+    </text>
+    <text font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="24" font-weight="500" fill="#F3F3F3">
+      <tspan x="320" y="101">IBM Cloud Kubernetes </tspan> <tspan x="320" y="137">Service Cost</tspan>
+    </text>
+    <text font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="24" font-weight="500" fill="#F3F3F3">
+      <tspan x="624" y="101">Storage Cost</tspan>
+    </text>
+    <text font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="24" font-weight="500" fill="#F3F3F3">
+      <tspan x="928" y="101">Advanced Features</tspan> <tspan x="928" y="137">(Costs vary)</tspan>
+    </text>
+    <path fill="#D5D9E0" d="M0 0h288v48H0zm912 0h288v48H912zM304 0h592v48H304z"/>
+    <text font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="20" font-weight="400" fill="#000">
+      <tspan x="88.74" y="29.5">Blockchain</tspan>
+    </text>
+    <text font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="20" font-weight="400" fill="#000">
+      <tspan x="961.24" y="29.5">Production add-ons</tspan>
+    </text>
+    <text font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="20" font-weight="400" fill="#000">
+      <tspan x="534.51" y="29.5">Infastructure</tspan>
+    </text>
+  </g>
+</svg>
