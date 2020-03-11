@@ -24,7 +24,7 @@ subcollection: blockchain
 
 
 
-In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover the instructions for adding nodes using the same organization that created the ordering service and well as the steps when using a separate ordering organization that is added as an ordering service admin.
+In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover the instructions for adding nodes using the same organization that created the ordering service as well as the steps when using a separate ordering organization that is added as an ordering service admin.
 
 Because ordering service nodes can only belong to a single ordering service, if you create an ordering service node from the main **Nodes** panel, you will not be able to add it to an existing ordering service. If you want to add a node to an existing ordering service, the node must be created specifically for that purpose using the process described below. Also, be aware that **adding nodes to an ordering service does not automatically add them to any existing channel**. That is a separate process that must take place after the node has been added to the ordering service. For more information, see [Adding and removing ordering service consenters](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer-consenters).
 {:important}

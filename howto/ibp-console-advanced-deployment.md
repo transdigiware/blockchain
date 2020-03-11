@@ -40,12 +40,12 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 | **Hardware Security Module (HSM)** | Configure a node to generate and store the node identity private key in an HSM for increased security. |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. |
 | **Certificate Authority Database and replication** |  Customize the type of database (SqlLite or PostgreSQL) that will be used for storing CA data and configure replication for high availability. |![Checkmark icon](../../icons/checkmark-icon.svg) |  |  | Must be configured when the CA is deployed. You cannot switch databases after the CA is deployed. |
 | **Peer state database** | Select whether you want the peer to use LevelDB or CouchDB for ledger data. | | ![Checkmark icon](../../icons/checkmark-icon.svg) | | Must be configured when the peer is deployed. You cannot change databases after the peer is deployed. |
-| **Kubernetes zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | Must be configured when the nodes is deployed. You cannot change zones for a node after the node is deployed. |
+| **Kubernetes zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
 | **Override node configuration** | Specify additional node configurations that are not available in the console panels. | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Overrides can only be configured when a node is deployed. |
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Table 1. Advanced deployment options" caption-side="bottom"}
-{: summary="This table has row and column headers. The row headers include deployment option that are available. The column headers identify the deployment options. To understand the deployment options for a node, navigate to the node column, and find the for the deployment option you are interested in."}
+{: summary="This table has row and column headers. The row headers include deployment options that are available. The column headers identify the deployment options. To understand the deployment options for a node, navigate to the node column, and find the deployment option you are interested in."}
 
 ## Before you start  
 {: #ibp-console-adv-deployment-before}
@@ -310,7 +310,7 @@ After you click **Create a CA** on the nodes tab and step through the CA configu
 
 Alternatively, if you do check any of the advanced options when you configure the CA, those settings are included in the `JSON` on the Summary panel and can be additionally customized.
 
-Any edits you make to the `JSON` will override what was specified in the console.  For example, if you selected to use a SQLite database in the console, but then provided connection information to a MySQL database in the in the `JSON`, then the MySQL database settings would be used when the CA is deployed. The settings that are visible in the `JSON` on the **Summary page** are what is used used when the CA is deployed.
+Any edits you make to the `JSON` will override what was specified in the console.  For example, if you selected to use a SQLite database in the console, but then provided connection information to a MySQL database in the `JSON`, then the MySQL database settings would be used when the CA is deployed. The settings that are visible in the `JSON` on the **Summary page** are what is used when the CA is deployed.
 
 Here is an example of the `JSON` when no advanced options are configured in the console:
 ```json
@@ -398,7 +398,7 @@ When you deploy a peer, the following advanced deployment options are available:
 
 During the creation of a peer, it is possible to choose between two state database options: **LevelDB** and **CouchDB**. Recall that the state database keeps the latest value of all of the keys (assets) stored on the blockchain. For example, if a car has been owned by Varad and then Joe, the value of the key representing the ownership of the car would be "Joe".
 
-Because it can be useful to perform rich queries against the state database (for example, searching for every red car with an automatic transmission owned by Joe), users will often choose a Couch database, which stores data as JSON objects. LevelDB, on the other hand, only stores information as key-value pairs, and can therefore not be queried in this way. Users must keep track of block numbers and query the blocks directly (or within a range of block numbers), and parse the information. However, LevelDB is also faster than CouchDB, though it does not support database indexing (which helps performance).
+Because it can be useful to perform rich queries against the state database (for example, searching for every red car with an automatic transmission owned by Joe), users will often choose a Couch database, which stores data as JSON objects. LevelDB, on the other hand, only stores information as key-value pairs, and therefore cannot be queried in this way. Users must keep track of block numbers and query the blocks directly (or within a range of block numbers), and parse the information. However, LevelDB is also faster than CouchDB, though it does not support database indexing (which helps performance).
 
 This support for rich queries is why **CouchDB is the default database** unless a user selects the **State database selection** box during the process of adding a peer selects **LevelDB** on the subsequent tab.
 
@@ -410,7 +410,7 @@ Because the data is modeled differently in a Couch database than in a Level data
 
 If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labelled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
-If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You you can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
 ### Sizing a peer during creation
 {: #ibp-console-adv-deployment-peers-sizing-creation}
@@ -997,7 +997,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is bas
 #### Building the proxy image
 {: #ibp-console-adv-deployment-pkcs11-proxy-build-img}
 
-The first step is to build a Docker image for the PKCS #11 proxy and add the HSM specific library to the image. The following example shows the process for adding the `SoftHSM` drivers to the image. (`Softhsm` is a software version of HSM that can be used for HSM simulation and testing, but you need to replace it with the library from your HSM provider.)
+The first step is to build a Docker image for the PKCS #11 proxy and add the HSM-specific library to the image. The following example shows the process for adding the `SoftHSM` drivers to the image. (`Softhsm` is a software version of HSM that can be used for HSM simulation and testing, but you need to replace it with the library from your HSM provider.)
 
 If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a docker registry that you can access from behind your firewall.
 {: note}
@@ -1092,7 +1092,7 @@ Run the following command to build the image:
 docker build -t pkcs11-proxy:v1 -f Dockerfile .
 ```
 {: codeblock}
-After the image is built, the next step is to push the image to your docker registry (for example, dockerhub). This command will look similar to:
+After the image is built, the next step is to push the image to your docker registry (for example, Docker Hub). This command will look similar to:
 
 ```
 docker login -u <DOCKER_HUB_ID> -p <DOCKER_HUB_PWD>
@@ -1107,7 +1107,7 @@ docker push <DOCKER_HUB_ID>/pkcs11-proxy:v1
 #### Deploying the proxy to your cluster
 {: #ibp-console-adv-deployment-pkcs11-proxy-deploy}
 
-In order to use HSM with any blockchain node, you need to configure a PKCS #11 proxy that enables communications between the HSM and your blockchain nodes. The following steps guide you through the process of building an image for the proxy, deploying it, and configuring the communciations with your blockchain node.
+In order to use HSM with any blockchain node, you need to configure a PKCS #11 proxy that enables communications between the HSM and your blockchain nodes. The following steps guide you through the process of building an image for the proxy, deploying it, and configuring the communications with your blockchain node.
 
 ##### **Step one:**  Create a new namespace
 {: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s1}
@@ -1192,7 +1192,7 @@ kubectl describe pod pkcs11-proxy -n hsm
 ```
 {: codeblock}
 
-If the pod starts successfully you will some something similar to:
+If the pod starts successfully you will see something similar to:
 
 ```
 Type    Reason     Age   From                  Message
@@ -1279,5 +1279,5 @@ Lastly, on the CA **Summary** panel, you can override the default HSM configurat
 Because the HSM implementation currently only supports HSMs that implement the PKCS #11 standard, you cannot modify the `bccsp.default`  that is set to `PKCS11`.
 {: note}
 
-When the node is deployed, a private key for the provided node enroll id and secret is generated by the HSM and stored securely in the appliance.
+When the node is deployed, a private key for the specified node enroll id and secret is generated by the HSM and stored securely in the appliance.
 
