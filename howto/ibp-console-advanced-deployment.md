@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-03-11"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -964,7 +964,7 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 * The use of an HSM introduces overhead in transaction processing, therefore you can expect a performance hit when using an HSM to manage the private keys for your nodes.
 
 Configuring a node to use HSM is a three-part process:
-1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
+1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform.
 2. **Set up a PKCS #11 proxy**. The proxy enables the node to communicate with the HSM. [See Setting up a PKCS #11 proxy for HSM](#ibp-console-adv-deployment-pkcs11-proxy) for your HSM.
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
@@ -992,10 +992,12 @@ The first step is to build a Docker image for the PKCS #11 proxy and add the HSM
 If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a docker registry that you can access from behind your firewall.
 {: note}
 
-Starting under `### YOUR HSM LIBRARY BUILD GOES HERE ###`, edit the code for your HSM,  and save it to a file named `Dockerfile`.
+Starting under `### YOUR HSM LIBRARY BUILD GOES HERE ###`, edit the code for your HSM, and save it to a file named `Dockerfile`. If you are not using `softhsm` to try out the process, you should remove the section that starts with the label `### EXAMPLE CONFIGURATION FOR SOFTHSM ###` and ends with `### EXAMPLE CONFIGURATION FOR SOFTHSM ENDS HERE###`.
+
 
 ```
-### Dockerfile ###
+
+########## Build the pkcs11 proxy ##########
 FROM registry.access.redhat.com/ubi8/ubi-minimal as builder
 ARG ARCH=amd64
 
@@ -1020,24 +1022,10 @@ RUN git clone https://github.com/SUNET/pkcs11-proxy && \
 	make && \
 	make install
 
+########## FINAL image - Build softhsm client ##########
+
 FROM registry.access.redhat.com/ubi8/ubi-minimal
 ARG ARCH=amd64
-
-ARG IBP_VER
-ARG BUILD_ID
-ARG BUILD_DATE
-
-LABEL name="IBM Blockchain Platform pkcs11 proxy base" \
-	io.k8s.display-name="IBM Blockchain Platform pkcs11 proxy base" \
-	summary="The base image for pkcs11 proxy for IBM Blockchain Platform." \
-	description="This image contains pkcs11 proxy with softhsm driver for the IBM Blockchain Platform and Red Hat UBI 8 as the base OS." \
-	io.k8s.description="This image contains pkcs11 proxy with softhsm driver for the IBM Blockchain Platform and Red Hat UBI 8 as the base OS." \
-	vendor="IBM" \
-	maintainer="IBM" \
-	version=$IBP_VER \
-	release=$BUILD_ID \
-	ibp.build-date=$BUILD_DATE \
-	io.openshift.tags="blockchain"
 
 RUN microdnf install -y \
 	shadow-utils \
@@ -1054,7 +1042,9 @@ COPY --from=builder /usr/local/bin/pkcs11-daemon /usr/local/bin/pkcs11-daemon
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0.1 /usr/local/lib/libpkcs11-proxy.so.0.1
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11-proxy.so.0
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
-ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
+
+ENV PKCS11_DAEMON_SOCKET="tls://0.0.0.0:2345"
+#ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
 EXPOSE 2345
 
 ### YOUR HSM LIBRARY BUILD GOES HERE ###
@@ -1064,9 +1054,10 @@ ENV LIBRARY_LOCATION="/usr/lib64/softhsm/libsofthsm.so"
 ### YOUR HSM LIBRARY BUILD ENDS HERE ###
 
 ### EXAMPLE CONFIGURATION FOR SOFTHSM ###
+
 ENV SLOT 0
-ENV LABEL root
-ENV PIN 1234
+ENV LABEL test
+ENV PIN 5678
 ENV SO_PIN 5678
 ENV ARCH x86_64
 ENV DEBUG_OUTPUT 1
@@ -1074,9 +1065,14 @@ ENV DEBUG_OUTPUT 1
 RUN microdnf update && \
     microdnf install -y shadow-utils && \
     rpm -ivh https://kojipkgs.fedoraproject.org/packages/softhsm/2.5.0/4.fc30/${ARCH}/softhsm-2.5.0-4.fc30.${ARCH}.rpm
-
+RUN mkdir -p /var/lib/softhsm/tokens/
 RUN softhsm2-util --slot ${SLOT} --init-token --label ${LABEL} --pin ${PIN} --so-pin ${SO_PIN}
+
 ### EXAMPLE CONFIGURATION FOR SOFTHSM ENDS HERE###
+
+### ###
+
+CMD ["sh", "-c", "pkcs11-proxy $LIBRARY_LOCATION -"]
 ```
 {: codeblock}
 
