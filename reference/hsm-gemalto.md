@@ -278,7 +278,6 @@ Next we build a Docker image that contains the HSM client that will run on your 
   	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-2.4.2-2.fc30.${ARCH}.rpm && \
   	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-devel-2.4.2-2.fc30.${ARCH}.rpm
 
-
   RUN git clone https://github.com/SUNET/pkcs11-proxy && \
   	cd pkcs11-proxy && \
   	git checkout ${VERSION} && \
