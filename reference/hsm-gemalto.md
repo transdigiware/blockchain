@@ -394,7 +394,10 @@ spec:
 {: codeblock}
 
 Replace
-`${LABEL}` with
+`${LABEL}` with any value you want to use to represent this proxy. You need to use the same value in the `service.yaml` and the `deployment.yaml` in the next step.
+
+If you are setting up multiple partitions and proxies, the value of the ${LABEL} and `metadata.name` parameters need to be unique across proxies.
+{: note}
 
 2. **HSM client** Copy and paste the following text to a file named `deployment.yaml`:
 
@@ -456,10 +459,13 @@ spec:
 {: codeblock}
 
 Replace
-- `${LABEL}` with
+- `${LABEL}` with same value you specified in the `service.yaml`.
 - `<Docker-image>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
 - `{HSM_ADDRESS}` with the IP address of the HSM.
 - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
+
+**Reminder:** If you are setting up multiple partitions and proxies, the value of ${LABEL} and `metadata.name` parameters need to be unique across proxies.
+{: note}
 
 3. **HSM client** Now, run the following commands using the Kubernetes CLI from your HSM client:
 
