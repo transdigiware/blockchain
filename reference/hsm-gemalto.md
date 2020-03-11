@@ -18,6 +18,7 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:note: .note}
 {:term: .term}
+{:important: .important}
 {:tip: .tip}
 {:download: .download}
 
@@ -77,13 +78,13 @@ These instructions require that [Docker](https://docs.docker.com/install/){: ext
 
 1. Provision the HSM and configure it with at least one partition. For example, you can follow instructions for [Provisioning {{site.data.keyword.cloud_notm}} HSM](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-provisioning-ibm-cloud-hsm){: external}.
 
-Be sure to record the `Pin` for the partition. You will need it later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `{HSM_ADDRESS}`.
-{: important}
+   Be sure to record the `Pin` for the partition. You will need it later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `{HSM_ADDRESS}`.
+   {: important}
 
 2. [Install the HSM client](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `{CLIENT_ADDRESS}`.
 
-The client runs on AIX, Linux, Oracle Solaris, or Microsoft Windows, but is not supported on MacOS.
-{: tip}
+  The client runs on AIX, Linux, Oracle Solaris, or Microsoft Windows, but is not supported on MacOS.
+  {: tip}
 
 #### Part Two: Configure communications between the HSM server and client
 {: #ibp-hsm-gemalto-part-two}
@@ -256,8 +257,8 @@ Next we build a Docker image that contains the HSM client that will run on your 
 
 2. **HSM client** Next, save the following text as a Docker file on your client. (The command in the subsequent step refers to this Docker file with the name of `test`.)
 
-- You should be aware that this Docker file automatically accepts the Gemalto client license.
-- Note that the `64` folder inside the Docker file is required for installing the HSM client.
+  - You should be aware that this Docker file automatically accepts the Gemalto client license.
+  - Note that the `64` folder inside the Docker file is required for installing the HSM client.
 
    ```
     ########## Build the pkcs11 proxy ##########
@@ -373,124 +374,132 @@ After the local test in the previous step is successful, you are ready to deploy
 
 1. **HSM client**  Copy and paste the following text to a file named `service.yaml`:
 
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: pkcs11-proxy
-  namespace: hsm
-  labels:
-    app: ${LABEL}
-spec:
-  ports:
-  - name: http
-    port: 2345
-    protocol: TCP
-    targetPort: 2345
-  selector:
-    app: ${LABEL}
-  type: ClusterIP
-```
-{: codeblock}
+  ```
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: pkcs11-proxy
+    namespace: hsm
+    labels:
+      app: ${LABEL}
+  spec:
+    ports:
+    - name: http
+      port: 2345
+      protocol: TCP
+      targetPort: 2345
+    selector:
+      app: ${LABEL}
+    type: ClusterIP
+  ```
+  {: codeblock}
 
-Replace
-`${LABEL}` with any value you want to use to represent this proxy. You need to use the same value in the `service.yaml` and the `deployment.yaml` in the next step.
+  Replace
+  `${LABEL}` with any value you want to use to represent this proxy. You need to use the same value in the `service.yaml` and the `deployment.yaml` in the next step.
 
-If you are setting up multiple partitions and proxies, the value of the ${LABEL} and `metadata.name` parameters need to be unique across proxies.
-{: note}
+  If you are setting up multiple partitions and proxies, the value of the ${LABEL} and `metadata.name` parameters need to be unique across proxies.
+  {: note}
 
 2. **HSM client** Copy and paste the following text to a file named `deployment.yaml`:
 
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: pkcs11-proxy
-  labels:
-    app: ${LABEL}
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+  ```
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: pkcs11-proxy
+    labels:
       app: ${LABEL}
-  template:
-    metadata:
-      labels:
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
         app: ${LABEL}
-    spec:
-      imagePullSecrets:
-      - name: <>
-      containers:
-      - name: proxy
-        image: <Docker-image>
-        imagePullPolicy: Always
-        resources:
-          requests:
-            cpu: "0.2"
-            memory: "400Mi"
-          limits:
-            cpu: "0.2"
-            memory: "400Mi"
-        env:
-          - name: LICENSE
-            value: accept
-          - name: HSM_ADDRESS
-            value: ${HSM_ADDRESS}
-          - name: CLIENT_ADDRESS
-            value: ${CLIENT_ADDRESS}
-        volumeMounts:
+    template:
+      metadata:
+        labels:
+          app: ${LABEL}
+      spec:
+        imagePullSecrets:
+        - name: <>
+        containers:
+        - name: proxy
+          image: <Docker-image>
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: "400Mi"
+            limits:
+              cpu: "0.2"
+              memory: "400Mi"
+          env:
+            - name: LICENSE
+              value: accept
+            - name: HSM_ADDRESS
+              value: ${HSM_ADDRESS}
+            - name: CLIENT_ADDRESS
+              value: ${CLIENT_ADDRESS}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /configs
+        volumes:
         - name: config-volume
-          mountPath: /configs
-      volumes:
-      - name: config-volume
-        configMap:
-          name: gemalto-config
-        # readinessProbe:
-        #   tcpSocket:
-        #     port: 2345
-        #   initialDelaySeconds: 5
-        #   periodSeconds: 10
-        # livenessProbe:
-        #   tcpSocket:
-        #     port: 2345
-        #   initialDelaySeconds: 15
-        #   periodSeconds: 20
-```
-{: codeblock}
+          configMap:
+            name: gemalto-config
+          # readinessProbe:
+          #   tcpSocket:
+          #     port: 2345
+          #   initialDelaySeconds: 5
+          #   periodSeconds: 10
+          # livenessProbe:
+          #   tcpSocket:
+          #     port: 2345
+          #   initialDelaySeconds: 15
+          #   periodSeconds: 20
+  ```
+  {: codeblock}
 
-Replace
-- `${LABEL}` with same value you specified in the `service.yaml`.
-- `<Docker-image>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
-- `{HSM_ADDRESS}` with the IP address of the HSM.
-- `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
+  Replace
+  - `${LABEL}` with same value you specified in the `service.yaml`.
+  - `<Docker-image>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
+  - `{HSM_ADDRESS}` with the IP address of the HSM.
+  - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
 
-**Reminder:** If you are setting up multiple partitions and proxies, the value of ${LABEL} and `metadata.name` parameters need to be unique across proxies.
-{: note}
+  **Reminder:** If you are setting up multiple partitions and proxies, the value of ${LABEL} and `metadata.name` parameters need to be unique across proxies.
+  {: note}
 
 3. **HSM client** Now, run the following commands using the Kubernetes CLI from your HSM client:
 
-```
-# Create configmap on cluster
-kubectl create cm gemalto-config --from-file=configs/server.pem --from-file=configs/cert.pem --from-file=configs/key.pem
+  ```
+  # Create configmap on cluster
+  kubectl create cm gemalto-config --from-file=configs/server.pem --from-file=configs/cert.pem --from-file=configs/key.pem
 
-# Create service on cluster
-kubectl create -f service.yaml
+  # Create service on cluster
+  kubectl create -f service.yaml
 
-# Create deployment on cluster
-kubectl create -f deployment.yaml
-```
-{: codeblock}
+  # Create deployment on cluster
+  kubectl create -f deployment.yaml
+  ```
+  {: codeblock}
 
 4. **HSM client** In order to use the HSM, the {{site.data.keyword.blockchainfull_notm}} Platform needs the address of the PCKS #11 proxy. The combination of the **cluster-ip address** of the PCKS #11 proxy and the associated port form the PCKS #11 proxy address that is required by console when you configure a node to use the HSM.  Again, run the following command using the Kubernetes CLI from your HSM client:
 
-$ kubectl get service -n hsm
-NAME            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
-pkcs11-proxy1   ClusterIP   172.21.191.187   <none>        2345/TCP   5d3h
+  ```
+  $ kubectl get service -n hsm
+  ```
+  {: codeblock}
 
-Combine the value of the **CLUSTER-IP** address above `172.21.191.187` and **PORT** `2345` to build the PCKS #11 proxy address that is required by console in the form `tcp://172.21.191.187:2345`.
+  The output of this command looks similar to:
 
-Save the value of the PCKS #11 proxy address for later when you configure a blockchain node to use HSM as it represents the **HSM proxy endpoint**.
-{: important}
+  ```
+  NAME            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+  pkcs11-proxy1   ClusterIP   172.21.191.187   <none>        2345/TCP   5d3h
+  ```
+  
+  Combine the value of the **CLUSTER-IP** address above `172.21.191.187` and **PORT** `2345` to build the PCKS #11 proxy address that is required by console in the form `tcp://172.21.191.187:2345`.
+
+  Save the value of the PCKS #11 proxy address for later when you configure a blockchain node to use HSM as it represents the **HSM proxy endpoint**.
+  {: important}
 
 ## What's next
 {: #ibp-hsm-gemalto-next-steps}
