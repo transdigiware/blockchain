@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-12"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -225,7 +225,23 @@ From the **Wallet** tab, click a tile to view, update, or remove an identity fro
 
 Clicking an identity opens a side panel that displays its certificates and private keys in base64 format. Click **Export** to download the identity's certificates to your local file system. Click **Update** to change the identity name in the wallet or paste a new set of keys into the panel. Click **Remove** when you no longer need to use this identity and want to delete its keys.
 
+## Storing identities in a Hardware Security Module (HSM)
+{: #ibp-console-identities-hsm}
+In a production environment you have the option to generate and store private keys in an HSM. An HSM is a hardware appliance that performs cryptographic operations and provides the capability to ensure that the private keys never leave the HSM. The HSM then allows your peers to sign and endorse transactions without exposing their private keys. Fabric supports HSM devices that implement the [PKCS11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}. PKCS11 is a cryptographic standard for secure operations, generation, and storage of keys.
 
+There are three ways you can use an HSM with the {{site.data.keyword.blockchainfull_notm}} Platform:
+1. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto).
+2. Configure your own HSM.
+3. For test purposes only, configure open source [SoftHSM](https://github.com/opendnssec/SoftHSMv2){: external}. You can use SoftHSM for cryptographic operations of your peer, ordering node or CA inside an HSM slot.
+
+After you have configured an HSM, you need to configure a HSM proxy that allows the blockchain node to communicate with the HSM. Then when you configure a blockchain node, you will need to provide three pieces of information:
+* **Proxy endpoint:** ClusterIP address that is generated for the HSM when the HSM proxy is configured.
+* **Label:** Corresponds to the HSM Partition.
+* **PIN:** The PIN associated with the HSM slot.
+
+After HSM is configured for a node, the HSM becomes the cryptographic service provider for the node.  When the HSM is subsequently used to generate and store a node's private key, and the node identity is exported or stored in the wallet, the private key is not visible.
+
+For more information about how to deploy the HSM proxy and use HSM with a CA, peer, or ordering node see [Setting up a PKCS11 proxy for HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) and [Configuring a node to use HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
 
 ## Associating identities
 {: #ibp-console-identities-associate-admin}
