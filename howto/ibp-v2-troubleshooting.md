@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-12"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -45,7 +45,6 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
-- [Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
 
 **Issues with your Nodes**  
 
@@ -251,35 +250,6 @@ If your session has become inactive, you can try simply refreshing your browser.
 
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
-
-## Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
-{: #ibp-v2-troubleshooting-console-helm-reset}
-{: troubleshoot}
-{: support}
-
-After attempting to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance, it fails with the error `Cluster linking is taking too long`.
-{: tsSymptoms}
-
-This issue can occur when your cluster is busy processing other requests and does not respond to the linking request in a timely matter.
-{: tsCauses}
-
-To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to setup components on your cluster.
-{: tsResolve}
-
-Run the following command from your IBM Cloud CLI terminal:
-
-```
-bx api cloud.ibm.com
-bx login
-bx cs clusters
-$(bx cs cluster-config <cluster_name> --export)
-kubectl get deployments #test that the connection is working
-helm reset
-```
-{: codeblock}
-
-Attempt to link your cluster again. If it continues to fail, you should [Contact Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
-
 
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
 {: #ibp-v2-troubleshooting-smart-contract-anchor-peers}

@@ -79,7 +79,7 @@ This offering is intended for experienced Fabric users who want to build and man
 |----|----|
 | Kubernetes | {{site.data.keyword.cloud_notm}} Kubernetes service v1.14-v1.16 |
 | Infrastructure type | Classic |
-| Hardware Security Module [(HSM)](#x6704988) | [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <br><br> Any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} |
+| Hardware Security Module [(HSM)](#x6704988){: term} | [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <br><br> Any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} |
 | VLAN | [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external}  must be enabled for multi-zone clusters <br><br> Private VLANs are not supported because a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. Private Ingress is not supported.   |
 | Storage | File <br><br> Object <br><br>  Block |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
