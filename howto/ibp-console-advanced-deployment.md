@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-03-12"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -94,6 +94,7 @@ Every node has a gRPC web proxy container that bootstraps the communication laye
 {: #ibp-console-adv-deployment-CA}
 
 When you deploy a CA, the following advanced deployment options are available:
+* [Database and replica sets](#ibp-console-adv-deployment-CA-replica-sets) - Configure a CA for zero down time.
 * [Resource allocation](#ibp-console-adv-deployment-CA-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the CA to use an HSM to generate and store private keys.
 * [CA configuration override](#ibp-console-adv-deployment-ca-customization) - Choose this option when you want to override CA configuration. settings.
