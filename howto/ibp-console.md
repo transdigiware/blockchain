@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-03-12"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -109,8 +109,8 @@ For more information about how to use the console to start deploying nodes and b
 ## Architecture reference
 {: #ibp-console-overview-architecture}
 
-The following illustration shows the components of your blockchain network and how they interact.
-![Sample network structure](../images/IBP_V2_Architecture.svg "Archtecture reference"){: caption="Figure 1. Architecture reference" caption-side="bottom"}
+The following illustration shows the components of your blockchain network and how they interact.<
+![Sample network structure](../images/IBP_V2_Architecture-v213.svg "Archtecture reference"){: caption="Figure 1. Architecture reference" caption-side="bottom"}
 
 Notice how a single instance of the console, also known as Operational Tooling, is created for each {{site.data.keyword.blockchainfull_notm}} Platform Service Instance. When a peer, orderer or CA node is deployed by using the console, it is deployed into the **Kubernetes Cluster Service Instance**.
 
