@@ -381,7 +381,133 @@ cat <CERT_FILE> | base64 $FLAG
 
 Paste the resulting string into the CA JSON override.
 
+#### Modifying CA settings after deployment
+{: #ibp-console-adv-deployment-ca-modify-json}
 
+After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the CA settings.
+
+The ability to update a CA configuration is not available for CAs that have been imported into the console.
+{: note}
+
+```json
+{
+  "cors": {
+    "enabled": false,
+    "origins": [
+      "*"
+    ]
+  },
+  "debug": false,
+  "crlsizelimit": 512000,
+  "tls": {
+    "certfile": null,
+    "keyfile": null,
+    "clientauth": {
+      "type": "noclientcert",
+      "certfiles": null
+    }
+  },
+  "crl": {
+    "expiry": "24h"
+  },
+  "db": {
+    "type": "sqlite3",
+    "datasource": "fabric-ca-server.db",
+    "tls": {
+      "enabled": false,
+      "certfiles": null,
+      "client": {
+        "certfile": null,
+        "keyfile": null
+      }
+    }
+  },
+  "ldap": {
+    "enabled": false,
+    "url": "ldap://<>:<>@<host>:<port>/<base>",
+    "tls": {
+      "certfiles": null,
+      "client": {
+        "certfile": null,
+        "keyfile": null
+      }
+    },
+    "attribute": {
+      "names": [
+        "uid",
+        "member"
+      ],
+      "converters": [
+        {
+          "name": null,
+          "value": null
+        }
+      ],
+      "maps": {
+        "groups": [
+          {
+            "name": null,
+            "value": null
+          }
+        ]
+      }
+    }
+  },
+  "affiliations": null,
+  "csr": {
+    "cn": "ca",
+    "keyrequest": {
+      "algo": "ecdsa",
+      "size": 256
+    },
+    "names": [
+      {
+        "C": "US",
+        "ST": "North Carolina",
+        "L": null,
+        "O": "Hyperledger",
+        "OU": "Fabric"
+      }
+    ],
+    "hosts": [
+      "<<<MYHOST>>>",
+      "localhost"
+    ],
+    "ca": {
+      "expiry": "131400h",
+      "pathlength": "<<<PATHLENGTH>>>"
+    }
+  },
+  "idemix": {
+    "rhpoolsize": 1000,
+    "nonceexpiration": "15s",
+    "noncesweepinterval": "15m"
+  },
+  "bccsp": {
+    "default": "SW",
+    "sw": {
+      "hash": "SHA2",
+      "security": 256,
+      "filekeystore": null
+    }
+  },
+  "cfg": {
+    "identities": {
+      "passwordattempts": 10
+    }
+  },
+  "metrics": {
+    "provider": "prometheus",
+    "statsd": {
+      "network": "udp",
+      "address": "127.0.0.1:8125",
+      "writeInterval": "10s",
+      "prefix": "server"
+    }
+  }
+}
+```
+{: codeblock}
 
 ## Peer deployment
 {: #ibp-console-adv-deployment-peer}
@@ -606,8 +732,126 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 ```
 {: codeblock}
 
+#### Modifying peer settings after deployment
+{: #ibp-console-adv-deployment-peer-modify-json}
 
+After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the peer settings.  Don't worry if the current configuration box is blank, that simply indicates none of the default peer configurations settings were overridden when the peer was deployed. But a subset of the fields can still be overridden by pasting a JSON with the overrides into the `Configurations updates` box.
 
+The ability to update override settings for a peer configuration is not available for peers that have been imported into the console.
+{: note}
+
+The following subset of fields can be overridden after a peer is deployed:
+
+```json
+{
+  "peer": {
+    "id": "jdoe",
+    "networkId": "dev",
+    "keepalive": {
+      "minInterval": "60s",
+      "client": {
+        "interval": "60s",
+        "timeout": "20s"
+      },
+      "deliveryClient": {
+        "interval": "60s",
+        "timeout": "20s"
+      }
+    },
+    "gossip": {
+      "useLeaderElection": true,
+      "orgLeader": false,
+      "membershipTrackerInterval": "5s",
+      "maxBlockCountToStore": 100,
+      "maxPropagationBurstLatency": "10ms",
+      "maxPropagationBurstSize": 10,
+      "propagateIterations": 1,
+      "propagatePeerNum": 3,
+      "pullInterval": "4s",
+      "pullPeerNum": 3,
+      "requestStateInfoInterval": "4s",
+      "publishStateInfoInterval": "4s",
+      "stateInfoRetentionInterval": null,
+      "publishCertPeriod": "10s",
+      "skipBlockVerification": false,
+      "dialTimeout": "3s",
+      "connTimeout": "2s",
+      "recvBuffSize": 20,
+      "sendBuffSize": 200,
+      "digestWaitTime": "1s",
+      "requestWaitTime": "1500ms",
+      "responseWaitTime": "2s",
+      "aliveTimeInterval": "5s",
+      "aliveExpirationTimeout": "25s",
+      "reconnectInterval": "25s",
+      "election": {
+        "startupGracePeriod": "15s",
+        "membershipSampleInterval": "1s",
+        "leaderAliveThreshold": "10s",
+        "leaderElectionDuration": "5s"
+      },
+      "pvtData": {
+        "pullRetryThreshold": "60s",
+        "transientstoreMaxBlockRetention": 1000,
+        "pushAckTimeout": "3s",
+        "btlPullMargin": 10,
+        "reconcileBatchSize": 10,
+        "reconcileSleepInterval": "1m",
+        "reconciliationEnabled": true,
+        "skipPullingInvalidTransactionsDuringCommit": false
+      },
+      "state": {
+        "enabled": true,
+        "checkInterval": "10s",
+        "responseTimeout": "3s",
+        "batchSize": 10,
+        "blockBufferSize": 100,
+        "maxRetries": 3
+      }
+    },
+    "authentication": {
+      "timewindow": "15m"
+    },
+    "client": {
+      "connTimeout": "3s"
+    },
+    "deliveryclient": {
+      "reconnectTotalTimeThreshold": "3600s",
+      "connTimeout": "3s",
+      "reConnectBackoffThreshold": "3600s",
+      "addressOverrides": null
+    },
+    "adminService": null,
+    "validatorPoolSize": null,
+    "discovery": {
+      "enabled": true,
+      "authCacheEnabled": true,
+      "authCacheMaxSize": 1000,
+      "authCachePurgeRetentionRatio": 0.75,
+      "orgMembersAllowedAccess": false
+    }
+  },
+  "chaincode": {
+    "startuptimeout": "300s",
+    "executetimeout": "30s",
+    "logging": {
+      "level": "info",
+      "shim": "warning",
+      "format": "%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
+    }
+  },
+  "metrics": {
+    "provider": "disabled",
+    "statsd": {
+      "network": "udp",
+      "address": "127.0.0.1:8125",
+      "writeInterval": "10s",
+      "prefix": null
+    }
+  }
+}
+```
+{: codeblock}
 
 ## Ordering node deployment
 {: #ibp-console-adv-deployment-on}
@@ -627,7 +871,7 @@ In Raft, a **majority of the total number of nodes** must be available is needed
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. Users who know that they will be deploying a production solution should therefore choose the five node option.
 
-
+However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-raft).
 
 ### Kubernetes zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
@@ -652,7 +896,7 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **Ordering node container CPU and memory** | When you anticipate a high transaction throughput right away. |
 | **Ordering node storage** | When you anticipate that this ordering node will be part of an ordering service on many channels. Recall that the ordering service keeps a copy of the blockchain for every channel they host. The default storage of an ordering node is 100G, same as the container for the peer itself. |
 
-If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five, a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4 CPU Kubernetes single worker node cluster is minimally recommended to allow enough CPU for the Raft cluster.
+If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five, a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4 CPU Kubernetes single worker node cluster is minimally recommended to allow enough CPU for the ordering service cluster and any other nodes you deploy.
 
 If an ordering service is overstressed, it might hit timeouts and start dropping transactions, requiring transactions to be resubmitted. This causes much greater harm to a network than a single peer struggling to keep up. In a Raft ordering service configuration, an overstressed leader node might stop sending heartbeat messages, triggering a leader election, and a temporary cessation of transaction ordering. Likewise, a follower node might miss messages and attempt to trigger a leader election where none is needed.
 {:important}
@@ -736,8 +980,42 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 ```
 {: codeblock}
 
+#### Modifying ordering node settings after deployment
+{: #ibp-console-adv-deployment-orderer-modify-json}
 
+After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.
 
+The ability to update an ordering node configuration is not available for ordering nodes that have been imported into the console.
+{: note}
+
+```json
+{
+  "General": {
+    "Keepalive": {
+      "ServerMinInterval": "60s",
+      "ServerInterval": "7200s",
+      "ServerTimeout": "20s"
+    },
+    "Authentication": {
+      "TimeWindow": "15m"
+    }
+  },
+  "Debug": {
+    "BroadcastTraceDir": null,
+    "DeliverTraceDir": null
+  },
+  "Metrics": {
+    "Provider": "disabled",
+    "Statsd": {
+      "Network": "udp",
+      "Address": "127.0.0.1:8125",
+      "WriteInterval": "30s",
+      "Prefix": null
+    }
+  }
+}
+```
+{: codeblock}
 
 ## Using certificates from an external CA with your peer or ordering service
 {: #ibp-console-adv-deployment-third-party-ca}
