@@ -57,7 +57,7 @@ Because only the private keys of node identities are secured in the HSM, when yo
 
 - [Part Three: Register the client with the HSM server](#ibp-hsm-gemalto-part-three)
 
-  After the secure communications are configured, you can register the client with the HSM server which will then assign the HSM partition to the client.
+  After the secure communications are configured, you can register the client with the HSM server and then assign the HSM partition to the client.
 
 - [Part Four: Build a Docker image that contains the HSM client](#ibp-hsm-gemalto-part-four)
 
@@ -91,7 +91,7 @@ These instructions require that [Docker](https://docs.docker.com/install/){: ext
 
 In this section you will get the HSM server certificate and create the HSM client certificate-key pair in order for them to be exchanged.
 
-1. **HSM client** Run the following command using the HSM client to get the server certificate. This certificate enables the client to communicate with the server.
+1. **HSM client:** Run the following command using the HSM client to get the server certificate. This certificate enables the client to communicate with the server.
 
   ```bash
   scp hsm_admin@${HSM_ADDRESS}:server.pem server.pem
@@ -101,7 +101,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   Replace
   - `{HSM_ADDRESS}` with the IP address of the HSM.
 
-2. **HSM client** Now, add the HSM server to the client configuration by running the following command:
+2. **HSM client:** Now, add the HSM server to the client configuration by running the following command:
 
   ```bash
   vtl addServer -n ${HSM_ADDRESS} -c server.pem
@@ -111,7 +111,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   Replace
   - `{HSM_ADDRESS}` with the IP address of the HSM.
 
-3. **HSM client** Create the certificate and private key for the client by running the command:
+3. **HSM client:** Create the certificate and private key for the client by running the command:
 
   ```bash
   vtl createcert -n ${CLIENT_ADDRESS}
@@ -127,7 +127,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   Certificate created and written to: /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem
   ```
 
-4. **HSM client** Copy the client certificate and private key to the HSM server by running the command:
+4. **HSM client:** Copy the client certificate and private key to the HSM server by running the command:
 
   ```bash
   scp /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem hsm_admin@${HSM_ADDRESS}:.
@@ -141,7 +141,7 @@ In this section you will get the HSM server certificate and create the HSM clien
 ### Part Three: Register the client with the HSM server
 {: #ibp-hsm-gemalto-part-three}
 
-1. **HSM server** SSH into the HSM as the admin the HSM server and register the client by running **one** of the following commands.
+1. **HSM server:** SSH into the HSM as the admin the HSM server and register the client by running **one** of the following commands.
 
   If the `{CLIENT_ADDRESS}` is the IP address of the client:
 
@@ -160,9 +160,8 @@ In this section you will get the HSM server certificate and create the HSM clien
   Replace
   - `{CLIENT_NAME}` with the name of the client. This value can be anything meaningful to you.
   - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
-  - `{HSM_ADDRESS}` with the IP address of the HSM.
 
-2. **HSM server** Because network address translation (NAT) exists between the client and the HSM, we need to disable client source IP address validation by the Network Trust Link Server (NTLS) upon Network Trust Link Agent (NTLA) client connection.  Disable ip check on the HSM server and then restart the NTLS service on the HSM server by running the following commands:
+2. **HSM server:** Because network address translation (NAT) exists between the client and the HSM, we need to disable client source IP address validation by the Network Trust Link Server (NTLS) upon Network Trust Link Agent (NTLA) client connection.  Disable ip check on the HSM server and then restart the NTLS service on the HSM server by running the following commands:
 
   ```bash
   ntls ipcheck disable
@@ -170,7 +169,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   ```
   {: codeblock}
 
-3. **HSM server** Assign a partition to the newly created client on the HSM server by running the following command:
+3. **HSM server:** Assign a partition to the newly created client on the HSM server by running the following command:
 
   ```bash
   client assignpartition -client ${CLIENT_NAME} -partition ${PARTITION_NAME}
@@ -200,7 +199,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   Command Result : 0 (Success)
   ```
 
-4. **HSM client** Verify the client can connect to HSM server by running the command:
+4. **HSM client:** Verify the client can connect to HSM server by running the command:
 
   ```bash
   vtl verify
@@ -216,7 +215,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   0	    500752010 	      partition1
   ```
 
-5. **HSM client**  Create a `configs` folder on the client and then copy the `server.pem` certificate from [Part two](#ibp-hsm-gemalto-part-two), step 1 and the `${CLIENT_ADDRESS}Key.pem` and `${CLIENT_ADDRESS}.pem` files from [Part two](#ibp-hsm-gemalto-part-two), step 3 into the folder:
+5. **HSM client:**  Create a `configs` folder on the client and then copy the `server.pem` certificate from [Part two](#ibp-hsm-gemalto-part-two), step 1 and the `${CLIENT_ADDRESS}Key.pem` and `${CLIENT_ADDRESS}.pem` files from [Part two](#ibp-hsm-gemalto-part-two), step 3 into the folder:
 
    - Copy `server.pem` to `configs/server.pem`  
    - Copy `/usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem` to `configs/key.pem`  
@@ -227,7 +226,7 @@ In this section you will get the HSM server certificate and create the HSM clien
 
 Next we build a Docker image that contains the HSM client that will run on your Kubernetes cluster. But before you can build the image, two files are required on the client: the `docker-entrypoint.sh` and the Docker image file.
 
-1. **HSM client** First, copy and save the following text to a file named `docker-entrypoint.sh`. You do not need to make any changes to this file.
+1. **HSM client:** First, copy and save the following text to a file named `docker-entrypoint.sh`. You do not need to make any changes to this file.
 
   ```bash
   #!/bin/bash -ex
@@ -255,7 +254,7 @@ Next we build a Docker image that contains the HSM client that will run on your 
   ```
   {: codeblock}
 
-2. **HSM client** Next, save the following text as a Docker file on your client. (The command in the subsequent step refers to this Docker file with the name of `test`.)
+2. **HSM client:** Next, save the following text as a Docker file on your client. (The command in the subsequent step refers to this Docker file with the name of `test`.)
 
   - You should be aware that this Docker file automatically accepts the Gemalto client license.
   - Note that the `64` folder inside the Docker file is required for installing the HSM client.
@@ -324,14 +323,14 @@ Next we build a Docker image that contains the HSM client that will run on your 
   ```
   {: codeblock}
 
-3. **HSM client** Now, run the following command to build the Docker image:
+3. **HSM client:** Now, run the following command to build the Docker image:
 
    ```
    docker build -t test -f Dockerfile .
    ```
    {: codeblock}
 
-4. **HSM client** Before you deploy the Docker image to your Kubernetes cluster, it is recommended that you first try to run the image locally. Run the following command to verify that the image was built successfully:
+4. **HSM client:** Before you deploy the Docker image to your Kubernetes cluster, it is recommended that you first try to run the image locally. Run the following command to verify that the image was built successfully:
 
    ```
    docker run -it -e HSM_ADDRESS=${HSM_ADDRESS} -e CLIENT_ADDRESS=${CLIENT_ADDRESS} -v configs/:/configs test
@@ -371,7 +370,7 @@ Next we build a Docker image that contains the HSM client that will run on your 
 
 After the local test in the previous step is successful, you are ready to deploy the Docker image to your Kubernetes cluster. In order to deploy the image, you need to create the `service.yaml` and `deployment.yaml` files.
 
-1. **HSM client**  Copy and paste the following text to a file named `service.yaml`:
+1. **HSM client:**  Copy and paste the following text to a file named `service.yaml`:
 
   ```
   apiVersion: v1
@@ -396,10 +395,10 @@ After the local test in the previous step is successful, you are ready to deploy
   Replace
   `${LABEL}` with any value you want to use to represent this proxy. You need to use the same value in the `service.yaml` and the `deployment.yaml` in the next step.
 
-  If you are setting up multiple partitions and proxies, the value of the ${LABEL} and `metadata.name` parameters need to be unique across proxies.
+  If you are setting up multiple partitions and proxies, the value of the `${LABEL}` and `metadata.name` parameters need to be unique across proxies.
   {: note}
 
-2. **HSM client** Copy and paste the following text to a file named `deployment.yaml`:
+2. **HSM client:** Copy and paste the following text to a file named `deployment.yaml`:
 
   ```
   apiVersion: apps/v1
@@ -467,7 +466,7 @@ After the local test in the previous step is successful, you are ready to deploy
   **Reminder:** If you are setting up multiple partitions and proxies, the value of ${LABEL} and `metadata.name` parameters need to be unique across proxies.
   {: note}
 
-3. **HSM client** Now, run the following commands using the Kubernetes CLI from your HSM client:
+3. **HSM client:** Now, run the following commands using the Kubernetes CLI from your HSM client:
 
   ```
   # Create configmap on cluster
@@ -481,7 +480,7 @@ After the local test in the previous step is successful, you are ready to deploy
   ```
   {: codeblock}
 
-4. **HSM client** In order to use the HSM, the {{site.data.keyword.blockchainfull_notm}} Platform needs the address of the PCKS #11 proxy. The combination of the **cluster-ip address** of the PCKS #11 proxy and the associated port form the PCKS #11 proxy address that is required by console when you configure a node to use the HSM.  Again, run the following command using the Kubernetes CLI from your HSM client:
+4. **HSM client:** In order to use the HSM, the {{site.data.keyword.blockchainfull_notm}} Platform needs the address of the PCKS #11 proxy. The combination of the **cluster-ip address** of the PCKS #11 proxy and the associated port form the PCKS #11 proxy address that is required by console when you configure a node to use the HSM.  Again, run the following command using the Kubernetes CLI from your HSM client:
 
   ```
   $ kubectl get service -n hsm
