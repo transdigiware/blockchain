@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-03-12"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -30,7 +30,7 @@ subcollection: blockchain
 
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
-If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.14 - v1.16 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution (OKD), {{site.data.keyword.cloud_notm}} Private V3.2.1 or Kubernetes, see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
 
 If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the  {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-sw-213?topic=blockchain-sw-213-blockchain-images).
 
@@ -264,7 +264,7 @@ To configure this access you must complete the following steps:
    6. Check the **Administrator** and **Manager** roles for this user.
    7. Click **Assign**.
 
-For more information about Kubernetes access control, see [how to pick the right access policy and role for your users](docs/containers?topic=containers-users#access_roles).
+For more information about Kubernetes access control, see [how to pick the right access policy and role for your users](/docs/containers?topic=containers-users#access_roles).
 
 ## Post-install instructions
 {: #ibp-v2-deploy-iks-post-install}

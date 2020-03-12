@@ -18,7 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:term: .term}
 {:tip: .tip}
-{:pre: .pre}
+{:pre: .pre}_
 
 # About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-console-overview}
@@ -72,6 +72,18 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 
 This offering is intended for experienced Fabric users who want to build and manage their own networks.
 
+## Supported {{site.data.keyword.cloud_notm}} configuration
+{: #ibp-console-overview-supported-cfg}
+
+| | |
+|----|----|
+| Kubernetes | {{site.data.keyword.cloud_notm}} Kubernetes service v1.14-v1.16 |
+| Infrastructure type | Classic |
+| Hardware Security Module [(HSM)](#x6704988) | [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <br><br> Any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} |
+| VLAN | [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external}  must be enabled for multi-zone clusters <br><br> Private VLANs are not supported because a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. Private Ingress is not supported.   |
+| Storage | File <br><br> Object <br><br>  Block |
+{: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
+
 ## Considerations
 {: #ibp-console-overview-considerations}
 
@@ -83,7 +95,7 @@ Before you deploy the console, ensure that you understand the following consider
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster or in the console. They are only kept in the local storage of your browser. If you switch browsers, you will have to import your created identities into that browser.
 - {{site.data.keyword.blockchainfull_notm}} Platform is available in select regions. Refer to this topic on [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) for an updated list.
 - {{site.data.keyword.blockchainfull_notm}} Platform cannot be deployed on OpenShift clusters created using the {{site.data.keyword.IBM_notm}} Kubernetes service.
-- Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.13, 1.14, or 1.15.
+- Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.14-1.16.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster.  Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster. If you choose a paid Kubernetes cluster instead of the limited free cluster, you will incur charges for the Kubernetes service to your {{site.data.keyword.cloud_notm}} account.
@@ -117,7 +129,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 | **{{site.data.keyword.blockchainfull_notm}} Platform Kubernetes Cluster** | **Description** |
 | ------------------------- |-----------|
 | Operational Tooling | Also known as the `console`, this is your central user interface for operating all of your blockchain components. With this console you can now create CA, peer, and orderer nodes, create channels and install and instantiate smart contracts developed with the Hyperledger Fabric v1.4 VS Code extension. The console is deployed in an {{site.data.keyword.IBM_notm}}-owned cluster. There is no charge for this tooling or the Kubernetes cluster where it runs.|
-{: caption="Table 1.Components that reside in the {{site.data.keyword.blockchainfull_notm}} Platform Kubernetes Cluster" caption-side="bottom"}
+{: caption="Table 2.Components that reside in the {{site.data.keyword.blockchainfull_notm}} Platform Kubernetes Cluster" caption-side="bottom"}
 
 
 | **Kubernetes Cluster Service Instance** | **Description** |
@@ -127,7 +139,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 | **Proxy** | The {{site.data.keyword.blockchainfull_notm}} Platform proxy is responsible for routing traffic to the correct peer, CA and orderer nodes by using host header routing. |
 | **Peers, CAs, Orderers** | These are the nodes that are created by deploying the underlying helm charts. Note: These nodes could also be imported from other Kubernetes Cluster Service Instances. Because the keys are never stored by {{site.data.keyword.IBM_notm}}, every peer and orderer node includes a gRPC web proxy that allows the console to communicate with each node by using the keys in the console wallet. |
 | **RBAC** | Role based access control.  The {{site.data.keyword.blockchainfull_notm}} Platform configures [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/){: external} in the cluster which is required to manage blockchain components in the cluster.
-{: caption="Table 2.Components that reside in the customer Kubernetes Cluster" caption-side="bottom"}
+{: caption="Table 3.Components that reside in the customer Kubernetes Cluster" caption-side="bottom"}
 
 ## Getting support
 {: #ibp-console-overview-support}

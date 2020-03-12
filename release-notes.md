@@ -53,7 +53,7 @@ Ansible playbooks are available for single and multi-organization configurations
 
 **Ability to override default CA, peer, ordering node configuration**  
 
-Hyperledger Fabric includes many configuration options for a CA, peer, or ordering node. A subset of those options for the [CA](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization), [peer](docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-peer-create-json) and [ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-orderer-create-json) can now be overridden by using the console or the [APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom).
+Hyperledger Fabric includes many configuration options for a CA, peer, or ordering node. A subset of those options for the [CA](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization), [peer](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-peer-create-json) and [ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-orderer-create-json) can now be overridden by using the console or the [APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom).
 
 **Full Java smart contract development support**
 

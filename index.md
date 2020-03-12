@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-03-12"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -23,7 +23,7 @@ subcollection: blockchain
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-ibp}
 
-{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. You can also deploy the platform on your own premises or on any Kubernetes v1.14 - v1.16 container platform on x86_64 hardware. You need to decide on the environment and offering that you will use.
+{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. Clients can build, operate, and grow their blockchain networks with an offering that can be used from development through production.
 {:shortdesc}
 
 Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, read the technical and support information in the [Disclaimer](/docs/blockchain?topic=blockchain-disclaimer#disclaimer) section.
@@ -32,13 +32,11 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 ## Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?
 {: #get-started-console-ocp-which-ibp}
 
-{{site.data.keyword.blockchainfull_notm}} Platform provides different offerings to help all types of users get started on their blockchain journey and move their applications into production. You can run the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernetes Cluster on {{site.data.keyword.cloud_notm}} or on your Kubernetes v1.14 - v1.16 container platform on x86_64.
-
 {{site.data.keyword.blockchainfull_notm}} Platform provides different offerings that allow you to deploy your network in the environment of your choice. You need to decide if you want to deploy the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 or if you want to use the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 | |{{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.3) | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} |
 |----|---|----|
-| Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public or hybrid multicloud | An {{site.data.keyword.IBM_notm}} Kubernetes Service cluster on {{site.data.keyword.cloud_notm}} |  
+| Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public or hybrid multicloud <br><br> See [Supported Platforms](/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about#console-ocp-about-prerequisites) | An {{site.data.keyword.IBM_notm}} Kubernetes Service cluster on {{site.data.keyword.cloud_notm}} <br><br> See [Supported configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg) |  
 | What are my deployment options? | <ul><li> Full platform </li> <li> Only {{site.data.keyword.blockchainfull_notm}} images  ** </li> </ul>| <ul><li> Full platform </li> </ul>
 | How is it billed? |Contact us for [pricing](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-sw-pricing) |[$0.29 USD per allocated CPU hour](/docs/blockchain?topic=blockchain-ibp-saas-pricing)  |
 | Can I connect with Peers in other clouds? |  Yes| Yes |
