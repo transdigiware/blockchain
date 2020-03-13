@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-13"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -77,11 +77,11 @@ This offering is intended for experienced Fabric users who want to build and man
 
 | | |
 |----|----|
-| Kubernetes | {{site.data.keyword.cloud_notm}} Kubernetes service v1.14-v1.16 |
-| Infrastructure type | Classic |
-| Hardware Security Module [(HSM)](#x6704988){: term} | [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <br><br> Any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} |
-| VLAN | [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external}  must be enabled for multi-zone clusters <br><br> Private VLANs are not supported because a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. Private Ingress is not supported.   |
-| Storage | File <br><br> Object <br><br>  Block |
+| Kubernetes | {{site.data.keyword.cloud_notm}} Kubernetes service v1.14 - v1.16 |
+| Infrastructure type | Classic only <br><br> For OpenShift see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp){: external}|
+| Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
+| VLAN | [VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external}  must be enabled for multi-zone clusters <br><br> A cluster with only private VLANs is not supported because a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. Private Ingress is not supported. A cluster with private and public VLANs configured is supported.  |
+| Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
 
 ## Considerations
