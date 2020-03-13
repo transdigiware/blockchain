@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-13"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -293,7 +293,7 @@ Your console opens in your browser.
 
 Every cluster on the {{site.data.keyword.IBM_notm}} Kubernetes Service comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}. If you make no changes, the `default` storage class is the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} backed by [Endurance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers).
 
-You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#persistent_storage_overview){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/infrastructure/FileStorage?topic=FileStorage-about#billing).
+You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/infrastructure/FileStorage?topic=FileStorage-about#billing).
 
 If you want to use [Performance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-performance), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
 
