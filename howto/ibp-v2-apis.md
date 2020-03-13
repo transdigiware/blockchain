@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-13"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -186,6 +186,209 @@ If you are using a multizone cluster, you can use the APIs to deploy a blockchai
 2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain#create-an-ordering-service) or [Create a peer](/apidocs/blockchain#create-a-peer) API calls by using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
 
 
+## Creating a node with a custom configuration
+{: #ibp-v2-apis-custom}
+
+If you are using the {{site.data.keyword.blockchainfull_notm}} APIs to deploy a CA, peer, or ordering node, you have the option of customizing the node configuration by using a configuration override JSON string. The nodes that are deployed by the {{site.data.keyword.blockchainfull_notm}} Console and APIs are configured with the default Fabric values that are provided in the  `fabric-ca-server-config.yaml`, `orderer.yaml`, and `core.yaml` files. You can customize your node settings by providing a configuration override JSON to the APIs that create or update your nodes. You can use the configuration override to deploy a High Availability CA or use a Hardware Security Module (HSM) while using the {{site.data.keyword.blockchainfull_notm}} APIs. For more information about the configuration override, High Availability CAs, or HSMs, see [Advanced deployment options](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment).
+
+### Example: Creating a custom Certificate Authority
+
+If you are using the [Create a CA](/apidocs/blockchain#create-a-ca) API to deploy a Certificate Authority, you need to use the configuration override JSON string to set the CA admin enrollID and secret. For example, if you wanted to create a CA with an administrator enrollID and secret of `admin` and `adminpw`, you would issue the following command. You can use the command to create multiple admins. The API would create a CA that uses the default values for all other fields.
+```
+curl -X POST "https://{API-Endpoint}/ak/api/v2/kubernetes/components/fabric-ca" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {IAM-Token}" \
+-d "{
+      \"display_name\": \"My CA\",
+      \"config_override\":{
+        \"ca\":{
+          \"registry\":{
+            \"maxenrollments\": -1,
+            \"identities\": [{
+              \"name\": \"admin\",
+              \"pass\": \"password\",
+              \"type\": \"client\",
+              \"affiliation\": \"\",
+              \"attrs\":{
+                      \"hf.Registrar.Roles\": \"*\",
+                      \"hf.Registrar.DelegateRoles\": \"*\",
+                      \"hf.Revoker\": true,
+                      \"hf.IntermediateCA\": true,
+                      \"hf.GenCRL\": true,
+                      \"hf.Registrar.Attributes\": \"*\",
+                      \"hf.AffiliationMgr\": true
+              }
+            }]
+          }
+        }
+      }
+    }"
+```
+
+You use also the `"configoverride"` to create or update a CA with custom settings for your organization. This provides you with more control over the identities and certificates that are created by your CA. For example, you would use the following command to set your organization name and location.
+```
+curl -X POST \
+  https://<API endpoint>/ak/api/v2/kubernetes/components/fabric-ca \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <IAM_token>' \
+  -d "{
+    "display_name": "Sample CA",
+    "configoverride": {
+      "ca": {
+        "registry": {
+            "maxenrollments": -1,
+            "identities": [
+              {
+                "name": "admin",
+                "pass": "adminpw",
+                "type": "admin",
+                "affiliation": "",
+                "attrs": {
+                  "hf.Registrar.Roles": "*",
+                  "hf.Registrar.DelegateRoles": "*",
+                  "hf.Revoker": true,
+                  "hf.IntermediateCA": true,
+                  "hf.GenCRL": true,
+                  "hf.Registrar.Attributes": "*",
+                  "hf.AffiliationMgr": true
+                }
+              }
+            }
+          },
+          "csr": {
+            "names": [
+              {
+                "C": "US",
+                "ST": "New York",
+                "L": null,
+                "O": "Big business",
+                "OU": "Big department"
+              }
+              ],
+            }
+        }
+  }"
+```
+
+For more information about deploying a customized CA, and which fields you can customize after a CA is created, see [Customizing a CA configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization).
+
+### Create a high availability CA
+
+You can use configuration override to deploy a CA with replica sets that share the same database, ensuring that the data is consistent between replicas. This configuration ensures that the CA will be available in the event of a Kubernetes worker node failure. To deploy an HA CA, you need to deploy a PostgreSQL database on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to use the information about your database to create a connection file that will be used by your CA. For more information, see [Building a high availability Certificate Authority](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca#ibp-console-build-ha-ca).
+
+To use the APIs to deploy an HA CA, you need to provide the database connection file to the `"db"` section of the config override JSON string. For example, the API request below will a CA with two replicas that connect to a database located on {{site.data.keyword.cloud_notm}}.
+```
+curl -X POST \
+  https://<API endpoint>/ak/api/v2/kubernetes/components/fabric-ca \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <IAM_token>' \
+  -d '{
+    "display_name": "Sample CA",
+    "replicas": 2,
+    "configoverride": {
+      "ca": {  
+        "db": {
+          "datasource": "host=test.databases.appdomain.cloud port=31941 user=ibm_cloud password=password dbname=ibmclouddb sslmode=verify-full",
+        "tls": {
+          "certfiles": [
+            "<base64 encoded pem>"
+                      ],
+          "enabled": true
+                },
+        "type": "postgres"
+            }
+        },
+      "tlsca": {
+        "db": {
+          "datasource": "host=test.databases.appdomain.cloud port=31941 user=ibm_cloud password=password dbname=ibmclouddb sslmode=verify-full",
+        "tls": {
+          "certfiles": [
+                    "<base64 encoded pem>"
+                      ],
+        "enabled": true
+                },
+        "type": "postgres"
+              }
+        "registry": {
+            "maxenrollments": -1,
+            "identities": [
+              {
+                "name": "admin",
+                "pass": "adminpw",
+                "type": "admin",
+                "affiliation": "",
+                "attrs": {
+                  "hf.Registrar.Roles": "*",
+                  "hf.Registrar.DelegateRoles": "*",
+                  "hf.Revoker": true,
+                  "hf.IntermediateCA": true,
+                  "hf.GenCRL": true,
+                  "hf.Registrar.Attributes": "*",
+                  "hf.AffiliationMgr": true
+                }
+              }
+            }
+    }    
+  }
+}'
+```
+
+### Deploy a node that uses an HSM
+
+{{site.data.keyword.blockchainfull_notm}} Platform allows you to deploy CA, peer, or orderer nodes that use an HSM to store their private key. To use an HSM with your blockchain network, you need to first set up an HSM on {{site.data.keyword.cloud_notm}} or in your own environment. You then need to set up a PKCS #11 proxy that allows your nodes to communicate with your HSM. You can then create a node with the private key that is stored in an HSM slot by providing the HSM endpoint along with the slot key and pin before the node is deployed. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm).
+
+If you are using the APIs to deploy a node, you need to provide the HSM endpoint to the HSM field of the API call. You also need to use the config override to provide the label and pin of the HSM slot that you will use and select `"PKCS11"` as the default crypto service provider. As an example The following API call deploys a peer node with an HSM.
+```
+curl -X POST "https://{API-Endpoint}/ak/api/v2/kubernetes/components/fabric-peer" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {IAM-Token}" \
+-d "{
+      \"display_name\": \"My Peer\",
+      \"msp_id\": \"org2\",
+      \"config\": {
+        \"enrollment\": {
+          \"component\": {
+            \"cahost\": \"n3a3ec3-myca.ibp.us-south.containers.appdomain.cloud\",
+            \"caport\": \"7054\",
+            \"caname\": \"ca\",
+            \"catls\": {
+              \"cacert\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo\"
+            },
+            \"enrollid\": \"admin\",
+            \"enrollsecret\": \"password\",
+            \"admincerts\": [
+              \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkFkbWluIGNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=\"
+            ]
+          },
+          \"tls\": {
+            \"cahost\": \"n3a3ec3-myca.ibp.us-south.containers.appdomain.cloud\",
+            \"caport\": \"7054\",
+            \"caname\": \"tlsca\",
+            \"catls\": {
+              \"cacert\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo\"
+            },
+            \"enrollid\": \"admin\",
+            \"enrollsecret\": \"password\",
+            \"admincerts\": [
+              \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkFkbWluIGNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=\"
+            ]
+          }
+        }
+      },
+      \"hsm\": {
+            \"pkcs11endpoint\": \"tcp://example.com:666\",
+      },
+      \"config_override\": {
+        \"bccsp\": {
+          \"default\": \"PKCS11\",
+          \"pkcs11\": {
+              \"label\": \"blockchain\",
+              "pin": \"91927001\"
+            }
+          }
+        }
+    }"
+```
 
 ## Import a network by using APIs
 {: #ibp-v2-apis-import-with-apis}
