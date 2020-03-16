@@ -365,120 +365,88 @@ The ability to update a CA configuration is not available for CAs that have been
 
 ```json
 {
-  "cors": {
-    "enabled": false,
-    "origins": [
-      "*"
-    ]
-  },
-  "debug": false,
-  "crlsizelimit": 512000,
-  "tls": {
-    "certfile": null,
-    "keyfile": null,
-    "clientauth": {
-      "type": "noclientcert",
-      "certfiles": null
-    }
-  },
-  "crl": {
-    "expiry": "24h"
-  },
-  "db": {
-    "type": "sqlite3",
-    "datasource": "fabric-ca-server.db",
-    "tls": {
-      "enabled": false,
-      "certfiles": null,
-      "client": {
-        "certfile": null,
-        "keyfile": null
-      }
-    }
-  },
-  "ldap": {
-    "enabled": false,
-    "url": "ldap://<>:<>@<host>:<port>/<base>",
-    "tls": {
-      "certfiles": null,
-      "client": {
-        "certfile": null,
-        "keyfile": null
-      }
-    },
-    "attribute": {
-      "names": [
-        "uid",
-        "member"
-      ],
-      "converters": [
-        {
-          "name": null,
-          "value": null
-        }
-      ],
-      "maps": {
-        "groups": [
-          {
-            "name": null,
-            "value": null
-          }
-        ]
-      }
-    }
-  },
-  "affiliations": null,
-  "csr": {
-    "cn": "ca",
-    "keyrequest": {
-      "algo": "ecdsa",
-      "size": 256
-    },
-    "names": [
-      {
-        "C": "US",
-        "ST": "North Carolina",
-        "L": null,
-        "O": "Hyperledger",
-        "OU": "Fabric"
-      }
-    ],
-    "hosts": [
-      "<<<MYHOST>>>",
-      "localhost"
-    ],
-    "ca": {
-      "expiry": "131400h",
-      "pathlength": "<<<PATHLENGTH>>>"
-    }
-  },
-  "idemix": {
-    "rhpoolsize": 1000,
-    "nonceexpiration": "15s",
-    "noncesweepinterval": "15m"
-  },
-  "bccsp": {
-    "default": "SW",
-    "sw": {
-      "hash": "SHA2",
-      "security": 256,
-      "filekeystore": null
-    }
-  },
-  "cfg": {
-    "identities": {
-      "passwordattempts": 10
-    }
-  },
-  "metrics": {
-    "provider": "prometheus",
-    "statsd": {
-      "network": "udp",
-      "address": "127.0.0.1:8125",
-      "writeInterval": "10s",
-      "prefix": "server"
-    }
-  }
+	"cors": {
+		"enabled": false,
+		"origins": [
+			"*"
+		]
+	},
+	"debug": false,
+	"crlsizelimit": 512000,
+	"tls": {
+		"certfile": null,
+		"keyfile": null,
+		"clientauth": {
+			"type": "noclientcert",
+			"certfiles": null
+		}
+	},
+	"crl": {
+		"expiry": "24h"
+	},
+	"db": {
+		"type": "sqlite3",
+		"datasource": "fabric-ca-server.db",
+		"tls": {
+			"enabled": false,
+			"certfiles": null,
+			"client": {
+				"certfile": null,
+				"keyfile": null
+			}
+		}
+	},
+	"csr": {
+		"cn": "ca",
+		"keyrequest": {
+			"algo": "ecdsa",
+			"size": 256
+		},
+		"names": [
+			{
+				"C": "US",
+				"ST": "North Carolina",
+				"L": null,
+				"O": "Hyperledger",
+				"OU": "Fabric"
+			}
+		],
+		"hosts": [
+			"<<<MYHOST>>>",
+			"localhost"
+		],
+		"ca": {
+			"expiry": "131400h",
+			"pathlength": "<<<PATHLENGTH>>>"
+		}
+	},
+	"idemix": {
+		"rhpoolsize": 1000,
+		"nonceexpiration": "15s",
+		"noncesweepinterval": "15m"
+	},
+	"bccsp": {
+		"default": "SW",
+		"sw": {
+			"hash": "SHA2",
+			"security": 256,
+			"filekeystore": null
+		}
+	},
+	"cfg": {
+		"identities": {
+			"passwordattempts": 10
+		}
+	},
+	"metrics": {
+		"provider": "prometheus",
+		"statsd": {
+			"network": "udp",
+			"address": "127.0.0.1:8125",
+			"writeInterval": "10s",
+			"prefix": "server"
+		}
+	}
 }
 ```
 {: codeblock}
@@ -554,131 +522,131 @@ A common use case would be to override some of the default timeouts, or peer pri
 
 ```json
 {
-  "peer": {
-    "id": "jdoe",
-    "networkId": "dev",
-    "keepalive": {
-      "minInterval": "60s",
-      "client": {
-        "interval": "60s",
-        "timeout": "20s"
-      },
-      "deliveryClient": {
-        "interval": "60s",
-        "timeout": "20s"
-      }
-    },
-    "gossip": {
-      "useLeaderElection": true,
-      "orgLeader": false,
-      "membershipTrackerInterval": "5s",
-      "maxBlockCountToStore": 100,
-      "maxPropagationBurstLatency": "10ms",
-      "maxPropagationBurstSize": 10,
-      "propagateIterations": 1,
-      "propagatePeerNum": 3,
-      "pullInterval": "4s",
-      "pullPeerNum": 3,
-      "requestStateInfoInterval": "4s",
-      "publishStateInfoInterval": "4s",
-      "stateInfoRetentionInterval": null,
-      "publishCertPeriod": "10s",
-      "skipBlockVerification": false,
-      "dialTimeout": "3s",
-      "connTimeout": "2s",
-      "recvBuffSize": 20,
-      "sendBuffSize": 200,
-      "digestWaitTime": "1s",
-      "requestWaitTime": "1500ms",
-      "responseWaitTime": "2s",
-      "aliveTimeInterval": "5s",
-      "aliveExpirationTimeout": "25s",
-      "reconnectInterval": "25s",
-      "election": {
-        "startupGracePeriod": "15s",
-        "membershipSampleInterval": "1s",
-        "leaderAliveThreshold": "10s",
-        "leaderElectionDuration": "5s"
-      },
-      "pvtData": {
-        "pullRetryThreshold": "60s",
-        "transientstoreMaxBlockRetention": 1000,
-        "pushAckTimeout": "3s",
-        "btlPullMargin": 10,
-        "reconcileBatchSize": 10,
-        "reconcileSleepInterval": "1m",
-        "reconciliationEnabled": true,
-        "skipPullingInvalidTransactionsDuringCommit": false
-      },
-      "state": {
-        "enabled": true,
-        "checkInterval": "10s",
-        "responseTimeout": "3s",
-        "batchSize": 10,
-        "blockBufferSize": 100,
-        "maxRetries": 3
-      }
-    },
-    "authentication": {
-      "timewindow": "15m"
-    },
-    "BCCSP": {
-      "Default": "SW",
-      "SW": {
-        "Hash": "SHA2",
-        "Security": 256,
-        "FileKeyStore": {
-          "KeyStore": null
-        }
-      },
-      "PKCS11": {
-        "Library": null,
-        "Label": null,
-        "Pin": null,
-        "Hash": null,
-        "Security": null,
-        "FileKeyStore": {
-          "KeyStore": null
-        }
-      }
-    },
-    "client": {
-      "connTimeout": "3s"
-    },
-    "deliveryclient": {
-      "reconnectTotalTimeThreshold": "3600s",
-      "connTimeout": "3s",
-      "reConnectBackoffThreshold": "3600s",
-      "addressOverrides": null
-    },
-    "adminService": null,
-    "validatorPoolSize": null,
-    "discovery": {
-      "enabled": true,
-      "authCacheEnabled": true,
-      "authCacheMaxSize": 1000,
-      "authCachePurgeRetentionRatio": 0.75,
-      "orgMembersAllowedAccess": false
-    }
-  },
-  "chaincode": {
-    "startuptimeout": "300s",
-    "executetimeout": "30s",
-    "logging": {
-      "level": "info",
-      "shim": "warning",
-      "format": "%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
-    }
-  },
-  "metrics": {
-    "provider": "disabled",
-    "statsd": {
-      "network": "udp",
-      "address": "127.0.0.1:8125",
-      "writeInterval": "10s",
-      "prefix": null
-    }
-  }
+	"peer": {
+		"id": "jdoe",
+		"networkId": "dev",
+		"keepalive": {
+			"minInterval": "60s",
+			"client": {
+				"interval": "60s",
+				"timeout": "20s"
+			},
+			"deliveryClient": {
+				"interval": "60s",
+				"timeout": "20s"
+			}
+		},
+		"gossip": {
+			"useLeaderElection": true,
+			"orgLeader": false,
+			"membershipTrackerInterval": "5s",
+			"maxBlockCountToStore": 100,
+			"maxPropagationBurstLatency": "10ms",
+			"maxPropagationBurstSize": 10,
+			"propagateIterations": 1,
+			"propagatePeerNum": 3,
+			"pullInterval": "4s",
+			"pullPeerNum": 3,
+			"requestStateInfoInterval": "4s",
+			"publishStateInfoInterval": "4s",
+			"stateInfoRetentionInterval": null,
+			"publishCertPeriod": "10s",
+			"skipBlockVerification": false,
+			"dialTimeout": "3s",
+			"connTimeout": "2s",
+			"recvBuffSize": 20,
+			"sendBuffSize": 200,
+			"digestWaitTime": "1s",
+			"requestWaitTime": "1500ms",
+			"responseWaitTime": "2s",
+			"aliveTimeInterval": "5s",
+			"aliveExpirationTimeout": "25s",
+			"reconnectInterval": "25s",
+			"election": {
+				"startupGracePeriod": "15s",
+				"membershipSampleInterval": "1s",
+				"leaderAliveThreshold": "10s",
+				"leaderElectionDuration": "5s"
+			},
+			"pvtData": {
+				"pullRetryThreshold": "60s",
+				"transientstoreMaxBlockRetention": 1000,
+				"pushAckTimeout": "3s",
+				"btlPullMargin": 10,
+				"reconcileBatchSize": 10,
+				"reconcileSleepInterval": "1m",
+				"reconciliationEnabled": true,
+				"skipPullingInvalidTransactionsDuringCommit": false
+			},
+			"state": {
+				"enabled": true,
+				"checkInterval": "10s",
+				"responseTimeout": "3s",
+				"batchSize": 10,
+				"blockBufferSize": 100,
+				"maxRetries": 3
+			}
+		},
+		"authentication": {
+			"timewindow": "15m"
+		},
+		"BCCSP": {
+			"Default": "SW",
+			"SW": {
+				"Hash": "SHA2",
+				"Security": 256,
+				"FileKeyStore": {
+					"KeyStore": null
+				}
+			},
+			"PKCS11": {
+				"Library": null,
+				"Label": null,
+				"Pin": null,
+				"Hash": null,
+				"Security": null,
+				"FileKeyStore": {
+					"KeyStore": null
+				}
+			}
+		},
+		"client": {
+			"connTimeout": "3s"
+		},
+		"deliveryclient": {
+			"reconnectTotalTimeThreshold": "3600s",
+			"connTimeout": "3s",
+			"reConnectBackoffThreshold": "3600s",
+			"addressOverrides": null
+		},
+		"adminService": null,
+		"validatorPoolSize": null,
+		"discovery": {
+			"enabled": true,
+			"authCacheEnabled": true,
+			"authCacheMaxSize": 1000,
+			"authCachePurgeRetentionRatio": 0.75,
+			"orgMembersAllowedAccess": false
+		}
+	},
+	"chaincode": {
+		"startuptimeout": "300s",
+		"executetimeout": "30s",
+		"logging": {
+			"level": "info",
+			"shim": "warning",
+			"format": "%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
+		}
+	},
+	"metrics": {
+		"provider": "disabled",
+		"statsd": {
+			"network": "udp",
+			"address": "127.0.0.1:8125",
+			"writeInterval": "10s",
+			"prefix": null
+		}
+	}
 }
 ```        
 {: codeblock}
@@ -718,111 +686,111 @@ The following subset of fields can be overridden after a peer is deployed:
 
 ```json
 {
-  "peer": {
-    "id": "jdoe",
-    "networkId": "dev",
-    "keepalive": {
-      "minInterval": "60s",
-      "client": {
-        "interval": "60s",
-        "timeout": "20s"
-      },
-      "deliveryClient": {
-        "interval": "60s",
-        "timeout": "20s"
-      }
-    },
-    "gossip": {
-      "useLeaderElection": true,
-      "orgLeader": false,
-      "membershipTrackerInterval": "5s",
-      "maxBlockCountToStore": 100,
-      "maxPropagationBurstLatency": "10ms",
-      "maxPropagationBurstSize": 10,
-      "propagateIterations": 1,
-      "propagatePeerNum": 3,
-      "pullInterval": "4s",
-      "pullPeerNum": 3,
-      "requestStateInfoInterval": "4s",
-      "publishStateInfoInterval": "4s",
-      "stateInfoRetentionInterval": null,
-      "publishCertPeriod": "10s",
-      "skipBlockVerification": false,
-      "dialTimeout": "3s",
-      "connTimeout": "2s",
-      "recvBuffSize": 20,
-      "sendBuffSize": 200,
-      "digestWaitTime": "1s",
-      "requestWaitTime": "1500ms",
-      "responseWaitTime": "2s",
-      "aliveTimeInterval": "5s",
-      "aliveExpirationTimeout": "25s",
-      "reconnectInterval": "25s",
-      "election": {
-        "startupGracePeriod": "15s",
-        "membershipSampleInterval": "1s",
-        "leaderAliveThreshold": "10s",
-        "leaderElectionDuration": "5s"
-      },
-      "pvtData": {
-        "pullRetryThreshold": "60s",
-        "transientstoreMaxBlockRetention": 1000,
-        "pushAckTimeout": "3s",
-        "btlPullMargin": 10,
-        "reconcileBatchSize": 10,
-        "reconcileSleepInterval": "1m",
-        "reconciliationEnabled": true,
-        "skipPullingInvalidTransactionsDuringCommit": false
-      },
-      "state": {
-        "enabled": true,
-        "checkInterval": "10s",
-        "responseTimeout": "3s",
-        "batchSize": 10,
-        "blockBufferSize": 100,
-        "maxRetries": 3
-      }
-    },
-    "authentication": {
-      "timewindow": "15m"
-    },
-    "client": {
-      "connTimeout": "3s"
-    },
-    "deliveryclient": {
-      "reconnectTotalTimeThreshold": "3600s",
-      "connTimeout": "3s",
-      "reConnectBackoffThreshold": "3600s",
-      "addressOverrides": null
-    },
-    "adminService": null,
-    "validatorPoolSize": null,
-    "discovery": {
-      "enabled": true,
-      "authCacheEnabled": true,
-      "authCacheMaxSize": 1000,
-      "authCachePurgeRetentionRatio": 0.75,
-      "orgMembersAllowedAccess": false
-    }
-  },
-  "chaincode": {
-    "startuptimeout": "300s",
-    "executetimeout": "30s",
-    "logging": {
-      "level": "info",
-      "shim": "warning",
-      "format": "%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
-    }
-  },
-  "metrics": {
-    "provider": "disabled",
-    "statsd": {
-      "network": "udp",
-      "address": "127.0.0.1:8125",
-      "writeInterval": "10s",
-      "prefix": null
-    }
-  }
+	"peer": {
+		"id": "jdoe",
+		"networkId": "dev",
+		"keepalive": {
+			"minInterval": "60s",
+			"client": {
+				"interval": "60s",
+				"timeout": "20s"
+			},
+			"deliveryClient": {
+				"interval": "60s",
+				"timeout": "20s"
+			}
+		},
+		"gossip": {
+			"useLeaderElection": true,
+			"orgLeader": false,
+			"membershipTrackerInterval": "5s",
+			"maxBlockCountToStore": 100,
+			"maxPropagationBurstLatency": "10ms",
+			"maxPropagationBurstSize": 10,
+			"propagateIterations": 1,
+			"propagatePeerNum": 3,
+			"pullInterval": "4s",
+			"pullPeerNum": 3,
+			"requestStateInfoInterval": "4s",
+			"publishStateInfoInterval": "4s",
+			"stateInfoRetentionInterval": null,
+			"publishCertPeriod": "10s",
+			"skipBlockVerification": false,
+			"dialTimeout": "3s",
+			"connTimeout": "2s",
+			"recvBuffSize": 20,
+			"sendBuffSize": 200,
+			"digestWaitTime": "1s",
+			"requestWaitTime": "1500ms",
+			"responseWaitTime": "2s",
+			"aliveTimeInterval": "5s",
+			"aliveExpirationTimeout": "25s",
+			"reconnectInterval": "25s",
+			"election": {
+				"startupGracePeriod": "15s",
+				"membershipSampleInterval": "1s",
+				"leaderAliveThreshold": "10s",
+				"leaderElectionDuration": "5s"
+			},
+			"pvtData": {
+				"pullRetryThreshold": "60s",
+				"transientstoreMaxBlockRetention": 1000,
+				"pushAckTimeout": "3s",
+				"btlPullMargin": 10,
+				"reconcileBatchSize": 10,
+				"reconcileSleepInterval": "1m",
+				"reconciliationEnabled": true,
+				"skipPullingInvalidTransactionsDuringCommit": false
+			},
+			"state": {
+				"enabled": true,
+				"checkInterval": "10s",
+				"responseTimeout": "3s",
+				"batchSize": 10,
+				"blockBufferSize": 100,
+				"maxRetries": 3
+			}
+		},
+		"authentication": {
+			"timewindow": "15m"
+		},
+		"client": {
+			"connTimeout": "3s"
+		},
+		"deliveryclient": {
+			"reconnectTotalTimeThreshold": "3600s",
+			"connTimeout": "3s",
+			"reConnectBackoffThreshold": "3600s",
+			"addressOverrides": null
+		},
+		"adminService": null,
+		"validatorPoolSize": null,
+		"discovery": {
+			"enabled": true,
+			"authCacheEnabled": true,
+			"authCacheMaxSize": 1000,
+			"authCachePurgeRetentionRatio": 0.75,
+			"orgMembersAllowedAccess": false
+		}
+	},
+	"chaincode": {
+		"startuptimeout": "300s",
+		"executetimeout": "30s",
+		"logging": {
+			"level": "info",
+			"shim": "warning",
+			"format": "%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
+		}
+	},
+	"metrics": {
+		"provider": "disabled",
+		"statsd": {
+			"network": "udp",
+			"address": "127.0.0.1:8125",
+			"writeInterval": "10s",
+			"prefix": null
+		}
+	}
 }
 ```
 {: codeblock}
@@ -892,39 +860,39 @@ The need to customize the ordering node configuration is less common than the pe
 
 ```json
 {
-  "General": {
-    "Keepalive": {
-      "ServerMinInterval": "60s",
-      "ServerInterval": "7200s",
-      "ServerTimeout": "20s"
-    },
-    "BCCSP": {
-      "Default": "SW",
-      "SW": {
-        "Hash": "SHA2",
-        "Security": 256,
-        "FileKeyStore": {
-          "KeyStore": null
-        }
-      }
-    },
-    "Authentication": {
-      "TimeWindow": "15m"
-    }
-  },
-  "Debug": {
-    "BroadcastTraceDir": null,
-    "DeliverTraceDir": null
-  },
-  "Metrics": {
-    "Provider": "disabled",
-    "Statsd": {
-      "Network": "udp",
-      "Address": "127.0.0.1:8125",
-      "WriteInterval": "30s",
-      "Prefix": null
-    }
-  }
+	"General": {
+		"Keepalive": {
+			"ServerMinInterval": "60s",
+			"ServerInterval": "7200s",
+			"ServerTimeout": "20s"
+		},
+		"BCCSP": {
+			"Default": "SW",
+			"SW": {
+				"Hash": "SHA2",
+				"Security": 256,
+				"FileKeyStore": {
+					"KeyStore": null
+				}
+			}
+		},
+		"Authentication": {
+			"TimeWindow": "15m"
+		}
+	},
+	"Debug": {
+		"BroadcastTraceDir": null,
+		"DeliverTraceDir": null
+	},
+	"Metrics": {
+		"Provider": "disabled",
+		"Statsd": {
+			"Network": "udp",
+			"Address": "127.0.0.1:8125",
+			"WriteInterval": "30s",
+			"Prefix": null
+		}
+	}
 }
 ```        
 {: codeblock}
@@ -964,29 +932,29 @@ The ability to update an ordering node configuration is not available for orderi
 
 ```json
 {
-  "General": {
-    "Keepalive": {
-      "ServerMinInterval": "60s",
-      "ServerInterval": "7200s",
-      "ServerTimeout": "20s"
-    },
-    "Authentication": {
-      "TimeWindow": "15m"
-    }
-  },
-  "Debug": {
-    "BroadcastTraceDir": null,
-    "DeliverTraceDir": null
-  },
-  "Metrics": {
-    "Provider": "disabled",
-    "Statsd": {
-      "Network": "udp",
-      "Address": "127.0.0.1:8125",
-      "WriteInterval": "30s",
-      "Prefix": null
-    }
-  }
+	"General": {
+		"Keepalive": {
+			"ServerMinInterval": "60s",
+			"ServerInterval": "7200s",
+			"ServerTimeout": "20s"
+		},
+		"Authentication": {
+			"TimeWindow": "15m"
+		}
+	},
+	"Debug": {
+		"BroadcastTraceDir": null,
+		"DeliverTraceDir": null
+	},
+	"Metrics": {
+		"Provider": "disabled",
+		"Statsd": {
+			"Network": "udp",
+			"Address": "127.0.0.1:8125",
+			"WriteInterval": "30s",
+			"Prefix": null
+		}
+	}
 }
 ```
 {: codeblock}
