@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-03-09"
+lastupdated: "2020-03-16"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -149,7 +149,7 @@ Once you have associated the CA admin, you can use the CA tile to create these i
 3. This tutorial does not configure attributes on identities, see [Registering identities](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register) if you want to learn more. Click **Register user**.
 4. After the organization admin has been registered, repeat this same process for the identity of the peer (also using the `Org2 CA`). For the peer identity, give an enroll ID of `peer2` and a secret of `peer2pw`. This is a node identity, so select `peer` as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
 
-Registering these identities with the CA is only the first step in **creating** an identity. You will not be able to use these identities until they have been **enrolled**. For the `org2admin` identity, this will happen during the creation of the MSP, which we will see in the next step. In the case of the peer, it happens during the creation of the peer.
+Registering these identities with the CA is only the first step in **creating** an identity. You will not be able to use these identities until they have been **enrolled**. For the `org2admin` identity, this will happen during the creation of the MSP, which we will see in the next step. In the case of the peer2 identity, it happens during the creation of the peer.
 {:note}
 
 **Task: Register users**
@@ -171,12 +171,13 @@ Now that we have created the peer's CA and used it to **register** our organizat
 3. On the **Root Certificate Authority details** panel, specify the CA you used to register the identities for this organization. If this is your first time through this tutorial, you should only see one: `Org2 CA`. The CA root certificate and TLS CA root certificate are displayed. Click **Next**.
 4. On the **Admin certificates panel**, select the enroll ID you created for your organization admin from the drop-down list, `org2admin`, and enter its associated secret, `org2adminpw`. Then, give this identity a display name, `Org2 MSP Admin`. Note: the default display name for this identity is the name of your MSP and the word "Admin". If you select a different name for your MSP, that will be reflected in the default.
 5. Click the **Generate** button to enroll this identity as the admin of your organization and export the identity to the Wallet, where it will be used when creating the peer and creating channels.
-6. Click **Export** to export the admin certificates to your file system. As we said above, this identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to administer the peer. Click **Next**.
+6. Click **Export** to export the admin certificates to your file system. As we said above, this identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to administer the peer. Click **Next**.  
+  Exporting your organization admin identity is important because you are responsible for managing and securing these certificates. If you switch browsers, you will need to import this admin identity otherwise you will not be able to operate Org2.
+  {:important}
 7. On the **Review MSP information** panel, make sure you have entered the correct information. When you are satisfied, click **Create MSP definition**.
 8. After the MSP has been created, click on the tile representing it. Then **download** the MSP to your local filesystem. You will need to send this MSP to all of the organizations the channels you join.
 
-Exporting your organization admin identity is important because you are responsible for managing and securing these certificates. If you switch browsers, you will need to import this admin identity otherwise you will not be able to operate Org2.
-{:important}
+
 
 **Task: Create the peer organization MSP definition**
 
@@ -258,7 +259,7 @@ In the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-
 2. Send this file to Org1 in an out of band operation.
 
 Then Org1 must complete the following steps in its own console:
-1. If the `Org2 MSP` was created by using a different console and sent out of band, it needs to be imported into the console where the ordering service resides. If the `Org2 MSP` is created in the same console where the ordering service resides, you can skip this step. Click the **Organizations** tab then **Import MSP definition**. Click **Ad file** and browse to the `Org2 MSP` json file that was sent out of band. Click **Import MSP definition**. The administrator identity for the MSP definition is not required.
+1. If the `Org2 MSP` was created by using a different console and sent out of band, it needs to be imported into the console where the ordering service resides. If the `Org2 MSP` is created in the same console where the ordering service resides, you can skip this step: Click the **Organizations** tab then **Import MSP definition**. Click **Add file** and browse to the `Org2 MSP` json file that was sent out of band. Click **Import MSP definition**. The administrator identity for the MSP definition is not required.
 2. Navigate to the **Channels** tab, click `channel1`.
 3. Click the  **Settings** icon to update the channel and add the peer organization to the channel.
 4. In the **Channel updater MSP** drop-down list (under the **Organization updating channel** heading), select `Org1 MSP`. In the **Identity** drop-down list, ensure that `Org1 MSP Admin` is selected.
