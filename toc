@@ -77,7 +77,6 @@ IBM Blockchain Platform
 	{: .topicgroup}
 	Developing smart contracts and applications
 		vscode-extension.md
-		howto/develop_chaincode.md
 		best_practices.md
 
 	{: .topicgroup}
