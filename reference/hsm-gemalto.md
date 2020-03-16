@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-16"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -72,6 +72,10 @@ These instructions require that [Docker](https://docs.docker.com/install/){: ext
  If you are using the {{site.data.keyword.cloud_notm}} Kubernetes service and  {{site.data.keyword.cloud_notm}} HSM, both services need to be deployed from the same  {{site.data.keyword.cloud_notm}} account and on the same VLAN. If they are not on the same VLAN, then VLAN spanning must be enabled.
 {: important}
 
+
+When the entire HSM configuration is complete, it will resemble the following diagram:
+
+![HSM with single partitions](../images/hsm_1proxy.svg "HSM with single partitions"){: caption="Figure 1. An example configuration of an HSM with a single partition. " caption-side="bottom"}
 
 ### Part One: Set up the HSM device and HSM client
 {: #ibp-hsm-gemalto-part-one}
@@ -510,4 +514,6 @@ After the local test in the previous step is successful, you are ready to deploy
 {: #ibp-hsm-gemalto-multiple-partitions}
 
 It is possible that you have the requirement for different nodes to use different HSM partitions. In that case you would need to repeat all of the steps in this topic for each additional partition. Likewise, you would need to configure a unique PCKS #11 proxy for each partition. The following illustration shows how the PCKS #11 proxy and the HSM client communicate with different HSM partitions.
+
+![HSM with multiple partitions](../images/hsm_3proxy.svg "HSM with multiple partitions"){: caption="Figure 2. An example configuration with one HSM and three partitions. " caption-side="bottom"}
 
