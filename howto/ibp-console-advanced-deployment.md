@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-16"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -101,7 +101,7 @@ When you deploy a CA, the following advanced deployment options are available:
 * [Database and replica sets](#ibp-console-adv-deployment-CA-replica-sets) - Configure a CA for zero down time.
 * [Resource allocation](#ibp-console-adv-deployment-CA-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the CA to use an HSM to generate and store private keys.
-* [CA configuration override](#ibp-console-adv-deployment-ca-customization) - Choose this option when you want to override CA configuration. settings.
+* [CA configuration override](#ibp-console-adv-deployment-ca-customization) - Choose this option when you want to override CA configuration settings.
 
 ### Database and replica sets
 {: #ibp-console-adv-deployment-CA-replica-sets}
@@ -148,162 +148,132 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 
 ```json
 {
-  "cors": {
-    "enabled": false,
-    "origins": [
-      "*"
-    ]
-  },
-  "debug": false,
-  "crlsizelimit": 512000,
-  "tls": {
-    "certfile": null,
-    "keyfile": null,
-    "clientauth": {
-      "type": "noclientcert",
-      "certfiles": null
-    }
-  },
-  "ca": {
-    "keyfile": null,
-    "certfile": null,
-    "chainfile": null
-  },
-  "crl": {
-    "expiry": "24h"
-  },
-  "registry": {
-    "maxenrollments": -1,
-    "identities": [
-      {
-        "name": "<<<adminUserName>>>",
-        "pass": "<<<adminPassword>>>",
-        "type": "client",
-        "attrs": {
-          "hf.Registrar.Roles": "*",
-          "hf.Registrar.DelegateRoles": "*",
-          "hf.Revoker": true,
-          "hf.IntermediateCA": true,
-          "hf.GenCRL": true,
-          "hf.Registrar.Attributes": "*",
-          "hf.AffiliationMgr": true
-        }
-      }
-    ]
-  },
-  "db": {
-    "type": "sqlite3",
-    "datasource": "fabric-ca-server.db",
-    "tls": {
-      "enabled": false,
-      "certfiles": null,
-      "client": {
-        "certfile": null,
-        "keyfile": null
-      }
-    }
-  },
-  "ldap": {
-    "enabled": false,
-    "url": "ldap://<>:<>@<host>:<port>/<base>",
-    "tls": {
-      "certfiles": null,
-      "client": {
-        "certfile": null,
-        "keyfile": null
-      }
-    },
-    "attribute": {
-      "names": [
-        "uid",
-        "member"
-      ],
-      "converters": [
-        {
-          "name": null,
-          "value": null
-        }
-      ],
-      "maps": {
-        "groups": [
-          {
-            "name": null,
-            "value": null
-          }
-        ]
-      }
-    }
-  },
-  "affiliations": null,
-  "csr": {
-    "cn": "ca",
-    "keyrequest": {
-      "algo": "ecdsa",
-      "size": 256
-    },
-    "names": [
-      {
-        "C": "US",
-        "ST": "North Carolina",
-        "L": null,
-        "O": "Hyperledger",
-        "OU": "Fabric"
-      }
-    ],
-    "hosts": [
-      "<<<MYHOST>>>",
-      "localhost"
-    ],
-    "ca": {
-      "expiry": "131400h",
-      "pathlength": "<<<PATHLENGTH>>>"
-    }
-  },
-  "idemix": {
-    "rhpoolsize": 1000,
-    "nonceexpiration": "15s",
-    "noncesweepinterval": "15m"
-  },
-  "bccsp": {
-    "default": "SW",
-    "sw": {
-      "hash": "SHA2",
-      "security": 256,
-      "filekeystore": null
-    }
-  },
-  "intermediate": {
-    "parentserver": {
-      "url": null,
-      "caname": null
-    },
-    "enrollment": {
-      "hosts": null,
-      "profile": null,
-      "label": null
-    },
-    "tls": {
-      "certfiles": null,
-      "client": {
-        "certfile": null,
-        "keyfile": null
-      }
-    }
-  },
-  "cfg": {
-    "identities": {
-      "passwordattempts": 10
-    }
-  },
-  "metrics": {
-    "provider": "prometheus",
-    "statsd": {
-      "network": "udp",
-      "address": "127.0.0.1:8125",
-      "writeInterval": "10s",
-      "prefix": "server"
-    }
-  }
+	"cors": {
+		"enabled": false,
+		"origins": [
+			"*"
+		]
+	},
+	"debug": false,
+	"crlsizelimit": 512000,
+	"tls": {
+		"certfile": null,
+		"keyfile": null,
+		"clientauth": {
+			"type": "noclientcert",
+			"certfiles": null
+		}
+	},
+	"ca": {
+		"keyfile": null,
+		"certfile": null,
+		"chainfile": null
+	},
+	"crl": {
+		"expiry": "24h"
+	},
+	"registry": {
+		"maxenrollments": -1,
+		"identities": [
+			{
+				"name": "<<<adminUserName>>>",
+				"pass": "<<<adminPassword>>>",
+				"type": "client",
+				"affiliation": "",
+				"attrs": {
+					"hf.Registrar.Roles": "*",
+					"hf.Registrar.DelegateRoles": "*",
+					"hf.Revoker": true,
+					"hf.IntermediateCA": true,
+					"hf.GenCRL": true,
+					"hf.Registrar.Attributes": "*",
+					"hf.AffiliationMgr": true
+				}
+			}
+		]
+	},
+	"db": {
+		"type": "sqlite3",
+		"datasource": "fabric-ca-server.db",
+		"tls": {
+			"enabled": false,
+			"certfiles": null,
+			"client": {
+				"certfile": null,
+				"keyfile": null
+			}
+		}
+	},
+	"affiliations": null,
+	"csr": {
+		"cn": "ca",
+		"keyrequest": {
+			"algo": "ecdsa",
+			"size": 256
+		},
+		"names": [
+			{
+				"C": "US",
+				"ST": "North Carolina",
+				"L": null,
+				"O": "Hyperledger",
+				"OU": "Fabric"
+			}
+		],
+		"hosts": [
+			"<<<MYHOST>>>",
+			"localhost"
+		],
+		"ca": {
+			"expiry": "131400h",
+			"pathlength": "<<<PATHLENGTH>>>"
+		}
+	},
+	"idemix": {
+		"rhpoolsize": 1000,
+		"nonceexpiration": "15s",
+		"noncesweepinterval": "15m"
+	},
+	"bccsp": {
+		"default": "SW",
+		"sw": {
+			"hash": "SHA2",
+			"security": 256,
+			"filekeystore": null
+		}
+	},
+	"intermediate": {
+		"parentserver": {
+			"url": null,
+			"caname": null
+		},
+		"enrollment": {
+			"hosts": null,
+			"profile": null,
+			"label": null
+		},
+		"tls": {
+			"certfiles": null,
+			"client": {
+				"certfile": null,
+				"keyfile": null
+			}
+		}
+	},
+	"cfg": {
+		"identities": {
+			"passwordattempts": 10
+		}
+	},
+	"metrics": {
+		"provider": "prometheus",
+		"statsd": {
+			"network": "udp",
+			"address": "127.0.0.1:8125",
+			"writeInterval": "10s",
+			"prefix": "server"
+		}
+	}
 }
 ```        
 {: codeblock}
@@ -580,7 +550,7 @@ The ability to override the peer configuration is available only in paid cluster
 #### Why would I want to override a peer configuration?
 {: #ibp-console-adv-deployment-peer-customization-why}
 
-A common use case would be to override some of the default timeouts, or peer private data settings. Additionally you can customize the gossip configuration. These are just a few suggestions of customizations you might want to make, but the full list of available overrides is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a peer is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample peer configuration  file](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/core.yaml){: external} options.
+A common use case would be to override some of the default timeouts, or peer private data settings. Additionally you can customize the gossip configuration. These are just a few suggestions of customizations you might want to make, but the full list of available overrides is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a peer is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample peer configuration file](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/core.yaml){: external} options.
 
 ```json
 {
@@ -882,7 +852,7 @@ However, if a user wants to start with a single node or add more nodes to a five
 
 If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labelled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
-For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by unselecting the default option to have the zones chosen for you and distributing these nodes into the zones you have available.  You you can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by unselecting the default option to have the zones chosen for you and distributing these nodes into the zones you have available.  You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
 ### Sizing an ordering node during creation
 {: #ibp-console-adv-deployment-orderer-sizing-creation}
@@ -1088,7 +1058,7 @@ Now that you have gathered all the necessary certificates, you are ready to crea
 5. Ensure you select the peer or ordering service organization MSP definition that you imported into the console from the drop-down list.
 6. On the last step when you are asked to associate an identity with your peer or ordering service, you need to click **New identity**.
 7. Specify any value as the **Display name** for this identity. The display name will be visible in the Wallet after you create the node.
-8. In the **Certificate** field, upload the file that contains  the **Peer or ordering service admin identity certificate**.
+8. In the **Certificate** field, upload the file that contains the **Peer or ordering service admin identity certificate**.
 9. In the **Private key** field, upload the file that contains  the **Peer or ordering service admin identity private key**.
 10. Review the information on the Summary page and click **Add peer** or **Add ordering service**.
 
@@ -1275,7 +1245,7 @@ Before attempting these instructions you should already have a [DockerHub login]
 #### Why is a proxy required?
 {: #ibp-console-adv-deployment-pkcs11-proxy-why}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is based on Hyperledger Fabric which supports devices that use the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}. Therefore, after deploying an HSM, you need to configure a PKCS11 proxy to setup the communications between the appliance and the nodes on the network. One PKCS11 proxy is required per HSM slot. When a user is enrolled, their private key is generated by the HSM and stored in the slot. A slot can store multiple keys in it, although the exact number varies by HSM provider. Organizations can share a slot, but it is more likely that each organization would want their own HSM.
+The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is based on Hyperledger Fabric which supports devices that use the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}. Therefore, after deploying an HSM, you need to configure a PKCS11 proxy to set up the communications between the appliance and the nodes on the network. One PKCS11 proxy is required per HSM slot. When a user is enrolled, their private key is generated by the HSM and stored in the slot. A slot can store multiple keys in it, although the exact number varies by HSM provider. Organizations can share a slot, but it is more likely that each organization would want their own HSM.
 
 #### Building the proxy image
 {: #ibp-console-adv-deployment-pkcs11-proxy-build-img}
@@ -1492,7 +1462,7 @@ Type    Reason     Age   From                  Message
 ##### **Step four:** Configure communication between the proxy and the blockchain components
 {: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s4}
 
-After verifying that the pod is running, we to configure communications between the proxy and the  blockchain components by using the Kubernetes service. The `ClusterIP` service is used to ensure that the proxy is not exposed to outside the cluster. If required, you can add networking rules for all members who can access the proxy. Copy the `yaml` below and save it to a file named `service.yaml`.
+After verifying that the pod is running, we to configure communications between the proxy and the blockchain components by using the Kubernetes service. The `ClusterIP` service is used to ensure that the proxy is not exposed to outside the cluster. If required, you can add networking rules for all members who can access the proxy. Copy the `yaml` below and save it to a file named `service.yaml`.
 
 ```yaml
 apiVersion: v1
@@ -1539,7 +1509,7 @@ NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELEC
 pkcs11-proxy   ClusterIP   172.21.106.217   <none>        2345/TCP   16s   app=pkcs11
 ```
 
-Save the value of the  `CLUSTER-IP` address  and `PORT` because they will be used to form the `HSM proxy endpoint` in the next step.
+Save the value of the  `CLUSTER-IP` address and `PORT` because they will be used to form the `HSM proxy endpoint` in the next step.
 
 ### Configuring a CA, peer, or ordering node to use the HSM
 {: #ibp-console-adv-deployment-cfg-hsm-node}
