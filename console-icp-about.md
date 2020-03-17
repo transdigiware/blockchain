@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-03-17"
 
 keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes, Helm chart, behind a firewall
 
@@ -21,6 +21,9 @@ subcollection: blockchain
 
 # About {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud
 {: #console-icp-about}
+
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud is no longer available for sale. To deploy the {{site.data.keyword.blockchainfull_notm}} Platform using the OpenShift Container Platform, {{site.data.keyword.cloud_notm}} Private, or open source Kubernetes, visit [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
+{:important}
 
 The {{site.data.keyword.blockchainfull}} Platform can be deployed across public and private clouds, such as the {{site.data.keyword.cloud_notm}}, your own data center, and third-party public clouds. This multicloud deployment is possible through {{site.data.keyword.cloud_notm}} Private, IBM's Kubernetes based container orchestration platform. This release provides a blockchain console user interface that you can use to deploy and manage blockchain components on an {{site.data.keyword.cloud_notm}} Private cluster. The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private uses the Hyperledger Fabric v1.4.1 code base and supports deployment on {{site.data.keyword.cloud_notm}} Private v3.2.0.
 {:shortdesc}

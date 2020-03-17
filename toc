@@ -2,27 +2,16 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="blockchain" category="app_services,databases" audience="service" href="/docs/blockchain/index.html" path="blockchain"}
-IBM Blockchain Platform
+IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="learn"}
 	{: .topicgroup}
 	Getting started
 		index.md
 		howto/ibp-v2-deploy-iks.md
-		get-started-console-icp.md
 
-	{: .topicgroup}
-	About IBM Blockchain Platform
-		howto/ibp-console.md
-		console-icp-about.md
-
+	howto/ibp-console.md
 	whats_new.md
-
-	{: .topicgroup}
-	Pricing
-		howto/pricing-saas.md
-		howto/pricing-software.md
-
 	blockchain_component_overview.md
 
 	{: .topicgroup}
@@ -41,6 +30,11 @@ IBM Blockchain Platform
 		reference/hsm-gemalto.md
 		reference/k8s.md
 
+	{: .topicgroup}
+	Pricing
+		howto/pricing-saas.md
+		howto/pricing-software.md
+
 	security.md
 	ibp-console-ha.md
 	data-residency.md
@@ -57,14 +51,6 @@ IBM Blockchain Platform
 		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
-	IBM Blockchain Platform for Multicloud
-		get-started-console-icp.md
-		ICP_console_setup.md
-		howto/console-helm-install.md
-		howto/console-deploy-icp.md
-		howto/console-icp-manage.md
-
-	{: .topicgroup}
 	IBM Blockchain Platform console
 		howto/ibp-console-advanced-deployment.md
 		howto/ibp-console-advanced-channel.md
@@ -78,6 +64,15 @@ IBM Blockchain Platform
 	Developing smart contracts and applications
 		vscode-extension.md
 		best_practices.md
+
+	{: .topicgroup}
+	IBM Blockchain Platform for Multicloud
+		console-icp-about.md
+		get-started-console-icp.md
+		ICP_console_setup.md
+		howto/console-helm-install.md
+		howto/console-deploy-icp.md
+		howto/console-icp-manage.md
 
 	{: .topicgroup}
 	Upgrading your Enterprise Plan network
