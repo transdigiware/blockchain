@@ -231,7 +231,7 @@ Use your console to perform the following steps:
    * Select `Org2 CA`, as this is the CA you used to register the peer identity.
    * Select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer2`, and enter its associated **secret**, `peer2pw`.
    * Then, select `Org2 MSP` from the drop-down list
-   * The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
+   * The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want to specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
    * Click **Next**.
 7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org2 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org2 CA` and make that identity the admin of your peer, but this tutorial uses the `Org2 MSP Admin` identity.
 8. Review the summary and click **Add peer**.  The **Edit configuration JSON** button allows you to override configuration settings for the peer. For this tutorial, the default settings are sufficient. See [Customizing a peer configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-peer-create-json) to learn more about the options that are available.
@@ -266,7 +266,7 @@ Then Org1 must complete the following steps in its own console:
 5. In the **Organizations** section, open the `Select a channel member` drop-down list and select the peer organization MSP, `Org2 MSP`.
 6. Click **Add** and then assign permissions for that organization. We recommend you make them an `Operator` so that Org2 can operate the channel (this will allow them to sign channel updates, for example).
 7. Under **Channel update policy**, select `2 out of 2`, meaning both of the organizations need to approve updates to the channel.
-8. At this point no futher changes are required on the channel. Click the **Review channel information** tab to proceed.
+8. At this point no further changes are required on the channel. Click the **Review channel information** tab to proceed.
 9. On the **Review channel information** panel, you can see that there are now two organization members on the channel, `org1msp` and `org2msp`. In addition the channel update policy has been changed to `2 out of 2` organizations have to approve channel updates. When you are ready, click **Update channel** to submit your changes.
 
 Org1 must also export its own MSP, `Org1 MSP`, and send it to Org2 in an out of band operation. **All members of a channel should have the MSPs of the other channel members**.
@@ -285,7 +285,7 @@ If the ordering service and its MSP are not yet present on the file system of ei
 1. Navigate to the ordering service inside the **Nodes** tab. Click the **Export** button beneath the ordering service name to download a JSON configuration file.
 2. Send this file to Org2 in an out of band operation. The peer organization administrator can then use the configuration file to add the ordering service to the console.
 
-The rest of the steps in this tutorial need to be performed from the console where the `Org2 MSP` was created.
+The rest of the steps in this section need to be performed from the console where the `Org2 MSP` was created.
 {:tip}
 
 ### Import the ordering service
@@ -306,7 +306,7 @@ Complete the following steps to **import** the ordering service into your consol
 
 Your peer can now be joined to `channel1`.
 
-1. If you are not already there, navigate to the **Channels** tab in the left navigation.
+1. If you are not already there, navigate to the **Channels** tab in the left navigation. <issue-3619>There will not be any channel tiles visible yet. </issue-3619>
 2. Click the **Join channel** button to launch the side panels.
 3. Select `Ordering Service` and click **Next**.
 4. Enter `channel1` and click **Next**.
@@ -381,7 +381,7 @@ Perform the following steps from your console:
 
 1. Navigate to the **Channels** tab.
 2. Click **Create channel**. The create channel panel will open. From here, you will perform all of the steps to create your channel.
-3. On the **Prerequisites** screen, you can decide whether or not you want to specify any **Advanced channel configuration** options. See [Advanced options](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-available-parameters-advanced) to learn more. For the purposes of this tutorial, we'll assume you don't want to specify any advanced channel configuration options, so click **Next**.
+3. On the **Prerequisites** panel, you can decide whether or not you want to specify any **Advanced channel configuration** options. See [Advanced options](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-available-parameters-advanced) to learn more. For the purposes of this tutorial, we'll assume you don't want to specify any advanced channel configuration options, so click **Next**.
 4. On the **Channel details** page, give you channel a name and specify the ordering service the channel will be hosted on. In this tutorial, our channel is called `channel2` while the ordering service is called `Ordering Service`.
 5. On the **Organizations** page, select the organizations who will be part of this channel. Since we have two organizations, select and add `Org1 MSP (org1msp)` and then `Org2 MSP (org2msp)`. After clicking **Add**, you can assign an organization a role on the channel. Because each channel must have at least one operator, make both organizations **Operator**.
 6. Next, choose a **Channel update policy** for the channel. This is the policy that will dictate how many organizations will have to approve updates to the channel configuration. As this channel includes two organizations, this policy should be `2 out of 2`, meaning both organizations have to approve updates to the channel. As you add organizations to the channel, you should change this policy to reflect the needs of your use case. A sensible standard is to use a majority of organizations. For example, `3 out of 5`.
