@@ -335,7 +335,7 @@ If the ordering service admin does not already have your MSP, export it to them 
 This step needs to be completed by an ordering service admin.
 {:tip}
 
-Once the MSP representing Org2 has been received, an administrator of the ordering service must import the JSON file by navigated to the **Organizations** tab, clicking the **Import MSP definition** button, and selecting the JSON file that represents the `Org2 MSP` peer organization MSP definition. You can leave the `I have an administrator identity for the MSP definition` checkbox unchecked because the admin identity is not required here.
+Once the MSP representing Org2 has been received, an administrator of the ordering service must import the JSON file by navigating to the **Organizations** tab, clicking the **Import MSP definition** button, and selecting the JSON file that represents the `Org2 MSP` peer organization MSP definition. You can leave the `I have an administrator identity for the MSP definition` checkbox unchecked because the admin identity is not required here.
 
 ### Add Org2 MSP to the ordering service consortium
 {: #ibp-console-join-network-add-org2-local}
