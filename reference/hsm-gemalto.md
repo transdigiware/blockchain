@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-17"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -77,6 +77,8 @@ When the entire HSM configuration is complete, it will resemble the following di
 
 ![HSM with single partitions](../images/hsm_1proxy.svg "HSM with single partitions"){: caption="Figure 1. An example configuration of an HSM with a single partition. " caption-side="bottom"}
 
+When a CA, peer, or ordering node is configured with HSM, you provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. The combination of the PKCS #11 proxy and the HSM client allows the node to store and retrieve the node private key from the HSM.
+
 ### Part One: Set up the HSM device and HSM client
 {: #ibp-hsm-gemalto-part-one}
 
@@ -125,7 +127,7 @@ In this section you will get the HSM server certificate and create the HSM clien
   Replace
   - `{CLIENT_ADDRESS}` with the IP address or fully qualified host name of the client.
 
-  The name of the generated certificates include the `{CLIENT_ADDRESS}`. The output of this command looks similar to:
+  The name of the generated certificates includes the `{CLIENT_ADDRESS}`. The output of this command looks similar to:
   ```
   Private Key created and written to: /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem
   Certificate created and written to: /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem
@@ -516,4 +518,6 @@ After the local test in the previous step is successful, you are ready to deploy
 It is possible that you have the requirement for different nodes to use different HSM partitions. In that case you would need to repeat all of the steps in this topic for each additional partition. Likewise, you would need to configure a unique PCKS #11 proxy for each partition. The following illustration shows how the PCKS #11 proxy and the HSM client communicate with different HSM partitions.
 
 ![HSM with multiple partitions](../images/hsm_3proxy.svg "HSM with multiple partitions"){: caption="Figure 2. An example configuration with one HSM and three partitions. " caption-side="bottom"}
+
+This figure shows how different nodes can be configured to use different HSM partitions by creating separate PKCS #11 proxies for each partition. Similar to Figure 1, when each node is deployed, the HSM configuration specifies the endpoint URL of the PKCS #11 proxy that it will use to connect to the partition that was associated with the HSM client.
 
