@@ -267,7 +267,7 @@ Then Org1 must complete the following steps in its own console:
 6. Click **Add** and then assign permissions for that organization. We recommend you make them an `Operator` so that Org2 can operate the channel (this will allow them to sign channel updates, for example).
 7. Under **Channel update policy**, select `2 out of 2`, meaning both of the organizations need to approve updates to the channel.
 8. At this point no futher changes are required on the channel. Click the **Review channel information** tab to proceed.
-9. On the Review channel information panel, you can see that there are now two organization members on the channel, `org1msp` and `org2msp`. In addition the channel update policy has been changed to `2 out of 2` organizations have to approve channel updates. Click **Update channel** to submit your changes.
+9. On the **Review channel information** panel, you can see that there are now two organization members on the channel, `org1msp` and `org2msp`. In addition the channel update policy has been changed to `2 out of 2` organizations have to approve channel updates. When you are ready, click **Update channel** to submit your changes.
 
 Org1 must also export its own MSP, `Org1 MSP`, and send it to Org2 in an out of band operation. **All members of a channel should have the MSPs of the other channel members**.
 {:important}
