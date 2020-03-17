@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-17"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -125,7 +125,7 @@ After setting the CA admin identity, you will be able to see the table of regist
   | **Enroll ID** |  Org2 CA Admin  | admin | adminpw |
   {: caption="Table 2. Associate the CA admin identity" caption-side="bottom"}
 
-You can view the CA admin identity in your console wallet by clicking on the **Wallet** in the left navigation. Click the identity to view the certificate and private key of the CA admin. The identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to operate the CA. Click **Export identity** to download the identity and keys.
+You can view the CA admin identity in your console wallet by clicking on the **Wallet** in the left navigation. Click the identity to view the certificate and private key of the CA admin. The identity is not stored in your console or managed by {{site.data.keyword.IBM_notm}}. It is only stored in local browser storage. If you change browsers, you will need to import this identity into your Wallet to be able to operate the CA. Click **Export identity** to download the certificate and private key.
 
 **Task: Check your Wallet**
 
@@ -137,14 +137,14 @@ You can view the CA admin identity in your console wallet by clicking on the **W
 ### Using your CA to register identities
 {: #ibp-console-join-network-use-CA-org2}
 
-Each node or application that you want to create needs certificates and private keys to participate in the blockchain network. You also need to create admin identities for these nodes and applications so that you can manage them from the console. We will create one CA and use it to create two identities:
+Each node or application that you want to create needs certificates and private keys to participate in the blockchain network. You also need to create admin identities for these nodes so that you can manage them from the console. We will create one CA and use it to create two identities:
 
 * **An organization admin**: This identity allows you to operate nodes using the platform console.
 * **A peer identity**: This is the identity of the peer itself. Whenever a peer performs an action (for example, endorsing a transaction) it will sign using its certificate.
 
 Once you have associated the CA admin, you can use the CA tile to create these identities by completing the following steps:
 
-1. Click the `Org2 CA` tile and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register User** button.
+1. Click the `Org2 CA` tile and ensure the `admin` identity that you created for the CA is visible in the table. Then click the **Register user** button.
 2. First we'll register the organization admin, which we can do by giving an **Enroll ID** of `org2admin` and a **secret** of `org2adminpw`. Then set the `Type` for this identity as `admin`. You can ignore the **Maximum enrollments** field. If you want to learn more about enrollments, see [Registering identities](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register). Click **Next**.
 3. This tutorial does not configure attributes on identities, see [Registering identities](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register) if you want to learn more. Click **Register user**.
 4. After the organization admin has been registered, repeat this same process for the identity of the peer (also using the `Org2 CA`). For the peer identity, give an enroll ID of `peer2` and a secret of `peer2pw`. This is a node identity, so select `peer` as the **Type**. You can ignore the **Maximum enrollments** field and, on the next panel, do not assign any **Attributes**, as before.
@@ -164,7 +164,7 @@ Registering these identities with the CA is only the first step in **creating** 
 ### Creating the peer organization MSP
 {: #ibp-console-join-network-create-peers-org2}
 
-Now that we have created the peer's CA and used it to **register** our organization identities, we need to create a formal definition of the peer's organization, which is known as the Membership Services Provider (MSP) definition. Many peers can belong to an organization. **You do not need to create a new organization every time you create a peer.** Because this is the first time that we go through the tutorial, we will create the MSP ID for this organization. During the process of creating the MSP, we are going to generate certificates for the `org2admin` identity and add them to our Wallet.
+Now that we have created the peer's CA and used it to **register** our organization identities, we need to create a formal definition of the peer's organization, which is known as the Membership Services Provider (MSP) definition. Many peers can belong to an organization. **You do not need to create a new organization every time you create a peer.** Because this is the first time that we go through the tutorial, we will create the MSP definition for this organization. During the process of creating the MSP, we are going to generate certificates for the `org2admin` identity and add them to our Wallet.
 
 1. Navigate to the **Organizations** tab in the left navigation and click **Create MSP definition**.
 2. On the first panel, enter `Org2 MSP` as the organization MSP display name and `org2msp` and as the MSP ID. If you plan to specify an MSP other than `org2msp`, make sure to review the guidelines for MSP names in the tooltip. Click **Next**.
@@ -227,7 +227,7 @@ Use your console to perform the following steps:
    * [Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
    * [Resource allocation](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources)
 5. Click **Next**.
-6. On the next screen
+6.  On the **Enter peer information** page
    * Select `Org2 CA`, as this is the CA you used to register the peer identity.
    * Select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer2`, and enter its associated **secret**, `peer2pw`.
    * Then, select `Org2 MSP` from the drop-down list
