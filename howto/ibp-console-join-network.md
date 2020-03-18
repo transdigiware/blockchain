@@ -265,9 +265,9 @@ Then Org1 must complete the following steps in its own console:
 4. In the **Channel updater MSP** drop-down list (under the **Organization updating channel** heading), select `Org1 MSP`. In the **Identity** drop-down list, ensure that `Org1 MSP Admin` is selected.
 5. In the **Organizations** section, open the `Select a channel member` drop-down list and select the peer organization MSP, `Org2 MSP`.
 6. Click **Add** and then assign permissions for that organization. We recommend you make them an `Operator` so that Org2 can operate the channel (this will allow them to sign channel updates, for example).
-7. Under **Channel update policy**, select `2 out of 2`, meaning both of the organizations need to approve updates to the channel.
-8. At this point no further changes are required on the channel. Click the **Review channel information** tab to proceed.
-9. On the **Review channel information** panel, you can see that there are now two organization members on the channel, `org1msp` and `org2msp`. In addition the channel update policy has been changed to `2 out of 2` organizations have to approve channel updates. When you are ready, click **Update channel** to submit your changes.
+7. Under **Update policy**, select `2 out of 2`, meaning both of the organizations need to approve updates to the channel.
+
+At this point no further changes are required on the channel. In the left navigation, click **Review channel information**. On the **Review channel information** panel, you can see that there are now two organization members on the channel, `org1msp` and `org2msp`. In addition the channel update policy has been changed to `2 out of 2`. When you are ready, click **Update channel** to submit your changes.
 
 Org1 must also export its own MSP, `Org1 MSP`, and send it to Org2 in an out of band operation. **All members of a channel should have the MSPs of the other channel members**.
 {:important}
@@ -347,7 +347,7 @@ If the ordering service admin does not already have your MSP, export it and send
 This step needs to be completed by an ordering service admin.
 {:tip}
 
-Once the MSP representing Org2 has been received, an administrator of the ordering service must import the JSON file by navigated to the **Organizations** tab, clicking the **Import MSP definition** button, and selecting the JSON file that represents the `Org2 MSP` peer organization MSP definition. You can leave the `I have an administrator identity for the MSP definition` checkbox unchecked because the admin identity is not required here.
+Once the MSP representing Org2 has been received, an administrator of the ordering service must import the JSON file by navigated to the **Organizations** tab, clicking the **Import MSP definition** button, and selecting the JSON file that represents the `Org2 MSP` peer organization MSP definition.
 
 ### Add Org2 MSP to the ordering service consortium
 {: #ibp-console-join-network-add-org2-local}
@@ -384,8 +384,8 @@ Perform the following steps from your console:
 3. On the **Prerequisites** panel, you can decide whether or not you want to specify any **Advanced channel configuration** options. See [Advanced options](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-available-parameters-advanced) to learn more. For the purposes of this tutorial, we'll assume you don't want to specify any advanced channel configuration options, so click **Next**.
 4. On the **Channel details** page, give you channel a name and specify the ordering service the channel will be hosted on. In this tutorial, our channel is called `channel2` while the ordering service is called `Ordering Service`.
 5. On the **Organizations** page, select the organizations who will be part of this channel. Since we have two organizations, select and add `Org1 MSP (org1msp)` and then `Org2 MSP (org2msp)`. After clicking **Add**, you can assign an organization a role on the channel. Because each channel must have at least one operator, make both organizations **Operator**.
-6. Next, choose a **Channel update policy** for the channel. This is the policy that will dictate how many organizations will have to approve updates to the channel configuration. As this channel includes two organizations, this policy should be `2 out of 2`, meaning both organizations have to approve updates to the channel. As you add organizations to the channel, you should change this policy to reflect the needs of your use case. A sensible standard is to use a majority of organizations. For example, `3 out of 5`.
-7. On the next page, select the **Channel creator organization**. Because the console allows multiple organizations to be owned by a single user, it is necessary to specify which organization is creating the channel. Because this tutorial is limited to the creation of a single organization, choose `Org2 MSP (org2msp)` from the drop-down list. Likewise, choose `Org2 MSP Admin` as the identity submitting the channel creation request.
+6. Next, choose a **Update policy** for the channel. This is the policy that will dictate how many organizations will have to approve updates to the channel configuration. As this channel includes two organizations, this policy should be `2 out of 2`, meaning both organizations have to approve updates to the channel. As you add organizations to the channel, you should change this policy to reflect the needs of your use case. A sensible standard is to use a majority of organizations. For example, `3 out of 5`.
+7. On the next page, select the **Organization creating channel**. Because the console allows multiple organizations to be owned by a single user, it is necessary to specify which organization is creating the channel. Because this tutorial is limited to the creation of a single organization, choose `Org2 MSP (org2msp)` from the drop-down list. Likewise, choose `Org2 MSP Admin` as the identity submitting the channel creation request.
 8. On the **Review channel information** page, make sure you have entered the correct values in the correct fields. If a required field is missing, you will see an error notification relating to the field or value that must be corrected.
 
 When you are ready, click **Create channel**. You will be taken back to the **Channels** tab and you can see a pending tile of the channel that you just created.
