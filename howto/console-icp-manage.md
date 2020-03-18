@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-18"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -395,16 +395,20 @@ kubectl  logs -f <peer_ped> -c fluentd
 Replace `<peer_pod>` with the name of the peer pod where the chaincode is running. Use the command `kubectl get po` to get the list of running pods.
 
 
+
+
 ## Installing patches for your nodes
 {: #console-icp-manage-patch}
 
 The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and orderer nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. You can update your Fabric images when you upgrade the {{site.data.keyword.blockchainfull_notm}} Platform helm chart.
 
-After you upgrade your Helm chart, you will be able to find the **Patch available** text on a node tile if a component update is available. This patch can be installed on a node whenever you are ready. These patches are optional, but recommended. You cannot patch nodes that you import into the console.
+After you upgrade your Helm chart, you will see the **Patch available** text on a node tile if a component update is available. This patch can be installed on a node whenever you are ready. These patches are optional, but recommended.
 
 Patches are applied to nodes one at a time. While the patch is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure that another node of the same type is available to process requests. Installing patches on a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
 {:note}
 
-To apply a patch to a node, open the node tile and click the **Install patch** button. You cannot patch nodes that you imported to the console.
+To apply a patch to a node, open the node tile and click the **Install patch** button.
+You cannot patch nodes that you imported to the console.
+{: important}
 
 

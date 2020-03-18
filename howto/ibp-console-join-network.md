@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-18"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -285,7 +285,7 @@ If the ordering service and its MSP are not yet present on the file system of ei
 1. Navigate to the ordering service inside the **Nodes** tab. Click the **Export** button beneath the ordering service name to download a JSON configuration file.
 2. Send this file to Org2 in an out of band operation. The peer organization administrator can then use the configuration file to add the ordering service to the console.
 
-The rest of the steps in this section need to be performed from the console where the `Org2 MSP` was created.
+The rest of the actions in this section and **Step three** need to be performed from the console where the `Org2 MSP` was created.
 {:tip}
 
 ### Import the ordering service
@@ -320,7 +320,7 @@ In these tutorials, we create all of our peers using default options, which mean
 {: #ibp-console-join-network-create-channel}
 
 In this tutorial, we will presume that users will not be attempting to edit any of the advanced options. For information about editing advanced options both before and after a channel has been created, see [Advanced channel deployment and management](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern).
-{:important}
+{: note}
 
 ### Join the consortium hosted by the ordering service
 {: #ibp-console-join-network-add-org2}

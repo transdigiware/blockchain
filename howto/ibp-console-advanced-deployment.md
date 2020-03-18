@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-18"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -144,139 +144,65 @@ The ability to override the CA configuration is available only in paid clusters.
 #### Why would I want to override a CA configuration?
 {: #ibp-console-adv-deployment-ca-customization-why}
 
-You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case. For example, you may want to register additional users with the CA, or create custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a CA is deployed from the console. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
+You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case. When you create a CA, you can specify your own settings for all of the `csr` and `registry` fields. For example, you may want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
 
 ```json
 {
-	"cors": {
-		"enabled": false,
-		"origins": [
-			"*"
-		]
-	},
-	"debug": false,
-	"crlsizelimit": 512000,
-	"tls": {
-		"certfile": null,
-		"keyfile": null,
-		"clientauth": {
-			"type": "noclientcert",
-			"certfiles": null
-		}
-	},
 	"ca": {
-		"keyfile": null,
-		"certfile": null,
-		"chainfile": null
-	},
-	"crl": {
-		"expiry": "24h"
-	},
-	"registry": {
-		"maxenrollments": -1,
-		"identities": [
-			{
-				"name": "<<<adminUserName>>>",
-				"pass": "<<<adminPassword>>>",
-				"type": "client",
-				"affiliation": "",
-				"attrs": {
-					"hf.Registrar.Roles": "*",
-					"hf.Registrar.DelegateRoles": "*",
-					"hf.Revoker": true,
-					"hf.IntermediateCA": true,
-					"hf.GenCRL": true,
-					"hf.Registrar.Attributes": "*",
-					"hf.AffiliationMgr": true
-				}
-			}
-		]
-	},
-	"db": {
-		"type": "sqlite3",
-		"datasource": "fabric-ca-server.db",
-		"tls": {
-			"enabled": false,
-			"certfiles": null,
-			"client": {
-				"certfile": null,
-				"keyfile": null
-			}
-		}
-	},
-	"affiliations": null,
-	"csr": {
-		"cn": "ca",
+	  "csr": {
+		"cn": "<CA_NAME>",
 		"keyrequest": {
-			"algo": "ecdsa",
-			"size": 256
+		  "algo": "ecdsa",
+		  "size": 256
 		},
 		"names": [
-			{
-				"C": "US",
-				"ST": "North Carolina",
-				"L": null,
-				"O": "Hyperledger",
-				"OU": "Fabric"
-			}
+		  {
+			"C": "US",
+			"ST": "North Carolina",
+			"L": "Location",
+			"O": "Hyperledger",
+			"OU": "Fabric"
+		  }
 		],
 		"hosts": [
-			"<<<MYHOST>>>",
-			"localhost"
+		  "<HOSTNAME>"
 		],
 		"ca": {
-			"expiry": "131400h",
-			"pathlength": "<<<PATHLENGTH>>>"
+		  "expiry": "131400h",
+		  "pathlength": 1024
 		}
-	},
-	"idemix": {
-		"rhpoolsize": 1000,
-		"nonceexpiration": "15s",
-		"noncesweepinterval": "15m"
-	},
-	"bccsp": {
-		"default": "SW",
-		"sw": {
-			"hash": "SHA2",
-			"security": 256,
-			"filekeystore": null
-		}
-	},
-	"intermediate": {
-		"parentserver": {
-			"url": null,
-			"caname": null
-		},
-		"enrollment": {
-			"hosts": null,
-			"profile": null,
-			"label": null
-		},
-		"tls": {
-			"certfiles": null,
-			"client": {
-				"certfile": null,
-				"keyfile": null
+	  },
+	  "debug": false,
+	  "registry": {
+		"maxenrollments": -1,
+		"identities": [
+		  {
+			"name": "<ADMIN_ID>",
+			"pass": "<ADMIN_PWD>",
+			"type": "client",
+			"attrs": {
+			  "hf.Registrar.Roles": "*",
+			  "hf.Registrar.DelegateRoles": "*",
+			  "hf.Revoker": true,
+			  "hf.IntermediateCA": true,
+			  "hf.GenCRL": true,
+			  "hf.Registrar.Attributes": "*",
+			  "hf.AffiliationMgr": true
 			}
-		}
-	},
-	"cfg": {
-		"identities": {
-			"passwordattempts": 10
-		}
-	},
-	"metrics": {
-		"provider": "prometheus",
-		"statsd": {
-			"network": "udp",
-			"address": "127.0.0.1:8125",
-			"writeInterval": "10s",
-			"prefix": "server"
-		}
+		  }
+		]
+	  }
 	}
 }
 ```        
 {: codeblock}
+
+For convenience, default values are provided for most of the fields above. But in addition to customizing any of those values, you need to ensure that you replace the values of the following fields with the custom settings for your CA configuration:
+- `<CA_NAME>`
+- `<HOSTNAME>`
+- `<ADMIN_ID>`
+- `<ADMIN_PWD>`
+{: important}
 
 #### Providing your own customizations when you create a CA
 {: #ibp-console-adv-deployment-ca-create-json}
@@ -285,7 +211,7 @@ After you click **Create a CA** on the nodes tab and step through the CA configu
 
 Alternatively, if you do check any of the advanced options when you configure the CA, those settings are included in the `JSON` on the Summary panel and can be additionally customized.
 
-Any edits you make to the `JSON` will override what was specified in the console.  For example, if you selected to use a SQLite database in the console, but then provided connection information to a MySQL database in the `JSON`, then the MySQL database settings would be used when the CA is deployed. The settings that are visible in the `JSON` on the **Summary page** are what is used when the CA is deployed.
+Any edits you make to the `JSON` will override what was specified in the console.  For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the JSON file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that are used when the CA is deployed.
 
 Here is an example of the `JSON` when no advanced options are configured in the console:
 ```json
@@ -316,7 +242,7 @@ Here is an example of the `JSON` when no advanced options are configured in the 
 ```
 {: codeblock}
 
-You can insert additional fields or modify the generated `JSON` that is based on your selections in the console. You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a CA and override the `csr names` and specify a different port for the `statsd address` you would paste in the following `JSON`:
+You can insert additional fields or modify the generated `JSON` that is based on your selections in the console. You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a CA and only override the `csr names` values, you would paste in the following `JSON`:
 
 ```json
 {
@@ -325,35 +251,15 @@ You can insert additional fields or modify the generated `JSON` that is based on
       {
         "C": "UK",
         "ST": "Wales",
-        "L": null,
+        "L": "Location",
         "O": "BigCo",
         "OU": "Sales"
       }
     ]
-  },  
-   "metrics": {
-      "statsd": {
-        "address": "127.0.0.1:9443"
-      }
-    }  
+  }
 }  
 ```
 {: codeblock}
-
-#### Considerations when including certificates
-{: #ibp-console-adv-deployment-ca-certificates}
-
-Unlike in the Fabric CA configuration file, where specification of a `certfile` includes a file path and certificate name, here you need to base64 encode the certificate file (or a concatenated chain of certificates) and then paste the resulting string into the CA JSON override. To convert a certificate file into base64 format, run the following command:
-
-```
-export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
-cat <CERT_FILE> | base64 $FLAG
-```
-{: codeblock}
-
-- Replace `<CERT_FILE>` with the name of the file that you need to encode.
-
-Paste the resulting string into the CA JSON override.
 
 #### Modifying CA settings after deployment
 {: #ibp-console-adv-deployment-ca-modify-json}
@@ -362,6 +268,8 @@ After a CA is deployed, a subset of the fields can be updated as well. Click the
 
 The ability to update a CA configuration is not available for CAs that have been imported into the console.
 {: note}
+
+The following fields can be updated:
 
 ```json
 {
@@ -406,7 +314,7 @@ The ability to update a CA configuration is not available for CAs that have been
 			{
 				"C": "US",
 				"ST": "North Carolina",
-				"L": null,
+				"L": "Location",
 				"O": "Hyperledger",
 				"OU": "Fabric"
 			}
@@ -450,6 +358,21 @@ The ability to update a CA configuration is not available for CAs that have been
 }
 ```
 {: codeblock}
+
+#### Considerations when including certificates
+{: #ibp-console-adv-deployment-ca-certificates}
+
+Unlike in the Fabric CA configuration file, where specification of a `certfile` includes a file path and certificate name, in this case you need to base64 encode the certificate file (or a concatenated chain of certificates) and then paste the resulting string into the CA JSON override. To convert a certificate file into base64 format, run the following command:
+
+```
+export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
+cat <CERT_FILE> | base64 $FLAG
+```
+{: codeblock}
+
+- Replace `<CERT_FILE>` with the name of the file that you need to encode.
+
+Paste the resulting string into the CA JSON override.
 
 ## Peer deployment
 {: #ibp-console-adv-deployment-peer}
