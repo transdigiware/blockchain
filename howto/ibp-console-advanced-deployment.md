@@ -150,7 +150,7 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 {
 	"ca": {
 	  "csr": {
-		"cn": "<CA_NAME>",
+		"cn": "<COMMONNAME>",
 		"keyrequest": {
 		  "algo": "ecdsa",
 		  "size": 256
@@ -198,7 +198,7 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 {: codeblock}
 
 For convenience, default values are provided for most of the fields above. But in addition to customizing any of those values, you need to ensure that you replace the values of the following fields with the custom settings for your CA configuration:
-- `<CA_NAME>`
+- `<COMMONNAME>`
 - `<HOSTNAME>`
 - `<ADMIN_ID>`
 - `<ADMIN_PWD>`
