@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-18"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -54,6 +54,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Why are the transactions I submit from VS Code failing with a No endorsement plan available error?](#ibp-v2-troubleshooting-anchor-peer)
+- [Why are the transactions I submit from VS Code failing with an endorsement failure?](#ibp-v2-troubleshooting-endorsement)
 
 **Issues on {{site.data.keyword.cloud_notm}}**  
 
@@ -355,6 +356,22 @@ This error occurs if you are using the Fabric Service Discovery feature but did 
 Follow step three of the [private data topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
 {: tsResolve}
 
+## Why are the transactions I submit from VS Code failing with an endorsement failure?
+{: #ibp-v2-troubleshooting-endorsement}
+{: troubleshoot}
+
+My smart contract endorsement proposals from my peer are failing from my client application with the endorsement error `error: [Channel.js]: Channel:<channel_name> received discovery error:failed constructing descriptor for chaincodes:<name:"chaincode-name">` or `[ERROR] Error submitting transaction: No endorsement plan available for {"chaincodes":[{"name":"MyAssetContract"}]}`
+{: tsSymptoms}
+
+Also in the endorsing peer logs I can see the error:
+```
+UTC [discovery] chaincodeQuery -> ERRO 23c Failed constructing descriptor for chaincode chaincodes:<name:"chaincode-name">,: cannot satisfy any principal combination
+```
+This error occurs when the peer's enroll id type does not match the smart contract endorsement policy that was configured when the smart contract was instantiated on the channel.
+{: tsCauses}
+
+The only way to resolve this error is to delete the peer and create a new one with an enroll id that has the correct type `peer`. You can use the enroll id and secret from an existing user of type `peer` from the peer's CA or register a new user with type `peer`. Follow the instructions in the [Build a network tutorial](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to create a new peer identity with the correct type and peer.
+{: tsResolve}
 
 ## My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?
 {: #ibp-v2-troubleshooting-cluster-expired}
