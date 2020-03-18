@@ -298,7 +298,7 @@ Check your Kubernetes dashboard and ensure the peer or node status is `Running`.
 It is possible to experience this error under a variety of conditions.
 
 The peer log includes:
-
+{: tsSymptoms}
 ```
 [main] InitCmd -> ERRO 001 Cannot run peer because cannot init crypto, folder “/certs/msp” does not exist`
 ```
@@ -307,7 +307,6 @@ or the ordering node contain:
 ```
 Failed to initialize local MSP: admin 0 is invalid [The identity does not contain OU [CLIENT], MSP: [orderermsp],The identity does not contain OU [ADMIN], MSP: [orderermsp]]
 ```
-{: tsSymptoms}
 
 - This error can occur under the following conditions:
   - When you created the peer or ordering service organization MSP definition, you specified an enroll ID and secret that corresponds to an identity of type `peer` and not `client` or `admin`. It must be of type `client` or `admin`.
@@ -315,10 +314,11 @@ Failed to initialize local MSP: admin 0 is invalid [The identity does not contai
   - When you created the peer or ordering service, you specified the enroll ID and secret of an identity that is not type 'peer' or 'orderer'.
   - When you created the peer or ordering service, you associated an identity that does not have the `admin` role.
 
+{: tsResolve}
 - Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
 - Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret of a user that has the `peer` or `orderer` role and associate an identity that has a role of `admin` with the node.
 - Note that before you create the peer or ordering service, you need to register an organization admin user, with a type `admin`. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
-{: tsResolve}
+
 
 ## How can I view my smart contract container logs?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}

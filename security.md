@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-18"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -47,12 +47,12 @@ Considerations include:
 {: #ibp-security-ibp-iam}
 
 
-Identity and access management allows the owner of a console to control which users have access to the console and their privileges within it. The process for managing user access depends on whether the console is running in {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private.
+Identity and access management allows the owner of a console to control which users can access the console and their privileges within it. The process for managing user access depends on whether the console is running in {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private.
 
 ####  IAM on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-security-ibp-iam-saas}
 
-Identity and access management on {{site.data.keyword.cloud_notm}} is controlled by using the `IAM` service. Every user that accesses the blockchain console must have an IBMid account and be assigned an access policy in the IAM service. This policy determines what actions the user can perform within the console. Blockchain-specific permissions (for example, which users can create components) are based on the IAM roles which are mapped to blockchain permissions in this [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping).
+Identity and access management on {{site.data.keyword.cloud_notm}} is controlled by using the `IAM` service. Every user that accesses the blockchain console must have an IBMid account and be assigned an access policy in the IAM service. This policy determines what actions the user can perform within the console. Blockchain-specific permissions (for example, which users can create components) are based on the IAM roles that are mapped to blockchain permissions in this [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping).
 
 When the {{site.data.keyword.blockchainfull_notm}} Platform console is provisioned, the email address of the {{site.data.keyword.cloud_notm}} account owner is set as the console administrator, known in IAM as the **Manager** role. All new access requests will be sent to this user. This console administrator can then grant other IBMid users access to the console by using the IAM UI. For more information about IAM on {{site.data.keyword.cloud_notm}}, see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}. For the steps required to add new users, see [Adding and removing users from the console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
 
@@ -72,7 +72,7 @@ Note that for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud,
 If you are using a client application to send requests to the console, either via the blockchain APIs or the Fabric SDKs, the associated `HTTPS` console port needs to be exposed in your firewall.  
 
 - In {{site.data.keyword.cloud_notm}} use the default port `443`.
-- In {{site.data.keyword.cloud_notm}} Private, use the [Console port](/docs/blockchain?topic=blockchain-console-deploy-icp#icp-peer-deploy-quickstart-parms) that was specified when the helm chart was deployed. This external port will be in the range of `31210 - 31220`.
+- In {{site.data.keyword.cloud_notm}} Private, use the [Console port](/docs/blockchain?topic=blockchain-console-deploy-icp#icp-peer-deploy-quickstart-parms) that was specified when the helm chart was deployed. This external port is in the range of `31210 - 31220`.
 
 
 
@@ -80,15 +80,15 @@ If you are using a client application to send requests to the console, either vi
 ### Key management
 {: #ibp-security-ibp-keys}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are `ECDSA` with Curve `P256`. These keys are stored in the browser when they are added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is recommended that customers export these keys and import them into their own key management system in case they clear their browser cache or switch browsers. Customers are responsible for the storage, backup and disaster recovery of all keys that they export.
+The {{site.data.keyword.blockchainfull_notm}} Platform network is based on trusted identities. Customers use the Certificate Authorities (CAs) in the console to generate the identities and associated certificates that are required by all members to transact on the network. The generated public and private keys are `ECDSA` with Curve `P256`. These keys are stored in the browser when they are added to the member's blockchain wallet so that the console can use them to manage blockchain components. However, it is recommended that customers export these keys and import them into their own key management system in case they clear their browser cache or switch browsers. Customers are responsible for the storage, backup, and disaster recovery of all keys that they export.
 
 Because these public and private key pairs are essential to how the {{site.data.keyword.blockchainfull_notm}} Platform functions, **key management** is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. Although you use the {{site.data.keyword.blockchainfull_notm}} Platform console to generate the certificates and private keys, they are not _permanently_ stored by the browser or the cloud database. Public and private keys are temporarily stored in the browser and added to the member's wallet so that the console can use the private key to digitally sign transactions. Customers are ultimately responsible for exporting the keys and managing their storage, backup, and disaster recovery.
 
 If a private key is lost and cannot be recovered, you will need to generate a new private key by registering and enrolling a new identity with your Certificate Authority. You should also then remove and replace your signCert in any components or organizations where you had used the lost or corrupted identity. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp) for detailed steps.
 
-In order to secure private keys in a production environment, the {{site.data.keyword.blockchainfull_notm}} Platform includes the option to configure a [Hardware Security Module](#x6704988){: term} (HSM) to generate and store the private keys for a node. An HSM is an optional hardware appliance that performs cryptographic operations and ensures that the cryptographic keys never leave the HSM. You are responsible for configuring an HSM device that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}.  PKCS #11 is a cryptographic standard for secure operations, generation, and storage of keys. You will also need to configure a PKCS #11 proxy to communicate with your HSM. The platform supports ECDSA Sign and Verify cryptographic controls and EC Key generation. When an HSM is implemented for a node, the private key for the node is not stored in the browser wallet. Rather, the private key is accessed from the HSM. When you register other node admin or client application identities with a CA by using the console, their private keys are not stored inside the HSM because they will need the private key to transact on the network. For instructions on how to use HSM with the {{site.data.keyword.blockchainfull_notm}} Platform, see [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm).
+In order to secure private keys in a production environment, the {{site.data.keyword.blockchainfull_notm}} Platform includes the option to configure a [Hardware Security Module](#x6704988){: term} (HSM) to generate and store the private keys for a node. An HSM is an optional hardware appliance that performs cryptographic operations and ensures that the cryptographic keys never leave the HSM. You are responsible for configuring an HSM device that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}.  PKCS #11 is a cryptographic standard for secure operations, generation, and storage of keys. You will also need to configure a PKCS #11 proxy to communicate with your HSM. The platform supports ECDSA Sign and Verify cryptographic controls and EC Key generation. When an HSM is implemented for a node, the private key for the node is not stored in the browser wallet. Rather, the private key is accessed from the HSM via the proxy. When you register other node admin or client application identities with a CA by using the console, their private keys are not stored inside the HSM because they need the private key to transact on the network. For instructions on how to use HSM with the {{site.data.keyword.blockchainfull_notm}} Platform, see [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm).
 
-You also have the option to bring your own certificates from your own non-{{site.data.keyword.blockchainfull_notm}} Platform CA when you create a peer node or ordering service. If you use your own certificates, you will need to manually build the peer or ordering service MSP definition file that includes those certificates and import the file into the console **Organizations** tab. See  [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-third-party-ca) for the steps required.
+You also have the option to bring your own certificates from your own non-{{site.data.keyword.blockchainfull_notm}} Platform CA when you create a peer node or ordering service. If you use your own certificates, you will need to manually build the peer or ordering service MSP definition file that includes those certificates and import the file into the console **Organizations** tab. See [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-third-party-ca) for the steps required.
 
 ### Membership Service Providers (MSPs)
 {: #ibp-security-ibp-msp}
@@ -228,12 +228,12 @@ Using the results that are returned in this example, the external ports that can
 |  7054 | 30421| CA NodePort |
 | **Ordering service ports** |||
 | 7050 | 32434 | Ordering node |
-| 8443 | 32216 |Ordering node Healthcheck (https://xxx.xxx.xxx.xxx:32216/healthz)
+| 8443 | 32216 |Ordering node Health check (https://xxx.xxx.xxx.xxx:32216/healthz)
 | 8080 | 32220 | gRPC web proxy debug, required by the operational tools console |
 | 7443 | 32284 | gRPC web, needed for the operational tools console |
 | **Peer ports**|||
 | 7051 | 32013| Peer |
-| 9443 | 30296| Peer Operational Healthcheck (https://xxx.xxx.xxx.xxx:30787/healthz) |
+| 9443 | 30296| Peer Operational Health check (https://xxx.xxx.xxx.xxx:30787/healthz) |
 | 8080 | 30817 | gRPC web proxy debug, required by the operational tools console |
 | 7443 | 31724 | gRPC web, needed for the operational tools console |
 {: caption="Table 3. Ports on {{site.data.keyword.cloud_notm}} Private" caption-side="top"}
@@ -242,13 +242,10 @@ Using the results that are returned in this example, the external ports that can
 ### Cluster and Operating System security
 {: #ibp-security-Kubernetes-container-os}
 
-- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in etcd is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}. 
+- **Sensitive data:** Cluster configuration data is stored in the `etcd` component of your Kubernetes master. Data in `etcd` is stored on the local disk of the Kubernetes master and is backed up to {{site.data.keyword.cos_full_notm}}. Data is encrypted during transit to {{site.data.keyword.cos_full_notm}}. 
 
 
-- **Alpine Linux:** The Fabric Docker images use [Alpine Linux](https://alpinelinux.org/){: external}, which is a smaller, lighter, and therefore more secure version of Linux.
-
-
-
+- **UBI Linux:** The Fabric Docker images use [Red Hat UBI images](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/building_running_and_managing_containers/index#how_are_ubi_images_different/){: external}, which is a smaller, lighter, and more secure version of Linux.
 
 ### Keys and cluster access information
 {: #ibp-security-Kubernetes-keys}
@@ -256,7 +253,7 @@ Using the results that are returned in this example, the external ports that can
 
 | Type | Description |Storage | Access |
 |------|-------------|--------|--------|
-| **Internal IBM Service Keys** | Generated upon deployment of a component and used to access **nodes**, such as a CA, peer, or ordering service. | These keys are temporarily stored in a Kubernetes secret when code needs to access the component. The secret is deleted once the code has completed its task. | Access is from code via the Kubernetes secret. When the component is deleted, the key is also deleted. Developers of the service and support team members do not have have access to these keys. |
+| **Internal IBM Service Keys** | Generated upon deployment of a component and used to access **nodes**, such as a CA, peer, or ordering service. | These keys are temporarily stored in a Kubernetes secret when code needs to access the component. The secret is deleted once the code has completed its task. | Access is from code via the Kubernetes secret. When the component is deleted, the key is also deleted. Developers of the service and support team members do not have access to these keys. |
 |**Customer Kubernetes cluster access information**| In order for the service components to access and manage the components that are deployed into this cluster, the service components generate a Kubernetes secret for **cluster** access. Each Kubernetes secret is tied to that specific customer cluster. | After generation, these secrets never leave the IBM Kubernetes cluster where the service components are running and are deleted whenever a customer deletes the associated cluster. | Accessed only by the service component code and only in response to customer requests to deploy or manage components via the blockchain console. Developers of the service do not have access to the information in the secrets. |
 {: caption="Table 4. Types of keys and information used to access the customer Kubernetes cluster" caption-side="top"}
 
@@ -300,13 +297,13 @@ Because {{site.data.keyword.blockchainfull_notm}} Platform is based on Hyperledg
 
 - **TLS v1.2 communications** [TLS](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm){: external} is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
 
-- **Transaction integrity:** Fabric uses the cryptographic ECDSA standard to guarantee transaction integrity. With ECDSA, the transaction originator, such as a client application, signs their message using their private key, and the recipient, such as a peer, uses the originator’s public key to verify the authenticity of the message. If a transaction is tampered with on its way to the recipient, the signature verification fails.
+- **Transaction integrity:** Fabric uses the cryptographic ECDSA standard to guarantee transaction integrity. With ECDSA, the transaction originator, such as a client application, signs their message by using their private key, and the recipient, such as a peer, uses the originator’s public key to verify the authenticity of the message. If a transaction is tampered with on its way to the recipient, the signature verification fails.
 
 - **Channels:** While Fabric channels are a powerful mechanism for partitioning and isolating data, they also provide the primary foundation for data privacy. Only members of the same channel can access the data of this channel. To ensure channel security, the channel configuration update policy is configured to define the number of channel operators who need to agree on the channel update request before a channel can be updated. Therefore, a clear process must exist for defining the organizations that are allowed to join and update channel.
 
-- **Ledger data:** Implicit in the blockchain permissioned network is the notion that an agreed upon policy of multiple endorsers is required to sign (approve) a transaction before it can be committed to the ledger. Before any information can be added to the ledger, a clear and well established process for defining the ledger information must exist. Data on the ledger is immutable.
+- **Ledger data:** Implicit in the blockchain permissioned network is the notion that an agreed upon policy of multiple endorsers is required to sign (approve) a transaction before it can be committed to the ledger. Before any information can be added to the ledger, a clear and well-established process for defining the ledger information must exist. Data on the ledger is immutable.
 
 - **Smart contracts:** All smart contracts should be reviewed by channel members before they are installed and executed on peers in their organization. Likewise, all updates to smart contract should be reviewed before the updates are applied to a peer. See this topic on [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade) for the steps that are required.
 
-- **HSM integration:** After you have configured an HSM for your environment, you have the option of configuring your nodes to use the HSM to generate and store private keys. See [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) for more information.
+- **HSM integration:** After you have configured an HSM for your environment, you have the option of configuring your nodes to use the HSM to generate and store private keys. See [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) for more information.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-03-18"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -48,7 +48,7 @@ You can think of a blockchain network as a series of managed interactions betwee
 
 In Hyperledger Fabric, as well as the {{site.data.keyword.blockchainfull_notm}} Platform, this component is the Certificate Authority (CA), which creates identities in the form of x509 certificates as well defining of an organization through the creation of a Membership Services Provider (MSP), which defines the permissions of identities at a component and channel level. These identities can include attributes about them, for example, by linking them to a particular organization or organizational unit (OU).
 
-An organization MSP, for example, has an MSP subfolder called **admins**. Any user whose certificate is inside that admin folder is an admin of the organization. Because this MSP defines the organization, it is listed in the configuration on every channel of which the organization is a member. As a result, whenever an admin of the organization tries to perform an action, the signing certificate of the admin (which is attached to all of its interactions) is checked against the certificates listed in the MSP. Does the certificate match the one listed in the channel configuration? If it does, the other organizations will validate it and the action can be performed. If not, the request to do the action is rejected.
+An organization MSP, for example, has an MSP subfolder called **admins**. Any user whose certificate is inside that admin folder is an admin of the organization. Because this MSP defines the organization, it is listed in the configuration on every channel of which the organization is a member. As a result, whenever an admin of the organization tries to perform an action, the signing certificate of the admin (which is attached to all of its interactions) is checked against the certificates listed in the MSP. Does the certificate match the one listed in the channel configuration? If it does, the other organizations will validate it and the action can be performed. If not, the request to execute the transaction is rejected.
 
 {{site.data.keyword.blockchainfull_notm}} Platform CAs are based on the [Hyperledger Fabric CA](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/){: external}, though it is possible to use another CA if it uses a PKI based on x.509 certificates. Because non-Fabric CAs are not configured to create properly formatted MSPs, users who want to use this kind of CA must create the MSP for themselves.
 
@@ -74,9 +74,9 @@ For more information about the ordering service, see [The Ordering Service](http
 
 A channel is a mechanism that provides a private layer of communication, allowing subsets of network members to create a separate ledger for their transactions. Channels are not just **private** in the sense that network members who are not a part of the channel are unable see the transactions, they are also **secret** in the sense that unless a network member is a part of the channel, they will not even know that the channel exists.
 
-Multiple channels can be created between members, thus supporting one of the [many mechanisms to implement privacy](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external}. As discussed in the section on [peers](#blockchain-component-overview-peer), data in a blockchain network is stored on peers in a ledger. Each channel has a separate ledger that hold the transactions (which include configuration transactions) for that channel.
+Multiple channels can be created between members, thus supporting one of the [many mechanisms to implement privacy](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external}. As discussed in the section on [peers](#blockchain-component-overview-peer), data in a blockchain network is stored on peers in a ledger. Each channel has a separate ledger that holds the transactions (which include configuration transactions) for that channel.
 
-The {{site.data.keyword.blockchainfull_notm}} Platform allows channels to be easily created and managed. Channel configuration updates allow the members of a channel to edit channel parameters to fit their use case. For example, more members can be added to a channel, or the capabilities of a channel can be changed. Because changes to a channel must be approved by channel members, the {{site.data.keyword.blockchainfull_notm}} Platform has a mechanism for the collection of necessary signatures.
+The {{site.data.keyword.blockchainfull_notm}} Platform allows channels to be easily created and managed. Channel configuration updates allow the members of a channel to edit channel parameters to fit their use case. For example, more members can be added to a channel, or the capabilities of a channel can be changed. Because changes to a channel must be approved by channel members, the {{site.data.keyword.blockchainfull_notm}} Platform provides a mechanism for the collection of necessary signatures.
 
 For more information about channels and how to use them, see the [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/channels.html){: external}.
 
@@ -96,7 +96,7 @@ For more information about smart contracts, see [Smart contracts](https://hyperl
 
 Client applications in a Fabric-based network like {{site.data.keyword.blockchainfull_notm}} Platform leverage underlying infrastructures such as APIs, SDKs, and smart contracts to allow client interactions (invokes and queries) at a higher level of abstraction.
 
-For a look at how applications interact with a network based on Fabric, check out the [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} topic in the Hyperledger Fabric documentation. You can also go to the [creating applications](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app) topic to learn how to connect your applications to {{site.data.keyword.blockchainfull_notm}} Platform.
+For a look at how applications interact with a network based on Fabric, check out the [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} topic in the Hyperledger Fabric documentation. You can also view the [creating applications](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app) topic to learn how to connect your applications to {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## An example network
 {: #blockchain-component-overview-example-network}
