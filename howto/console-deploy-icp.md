@@ -22,6 +22,9 @@ subcollection: blockchain
 # Deploying the {{site.data.keyword.blockchainfull_notm}} console
 {: #console-deploy-icp}
 
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud has been withdrawn from sale. To deploy the {{site.data.keyword.blockchainfull_notm}} Platform using the OpenShift Container Platform, {{site.data.keyword.cloud_notm}} Private, or open source Kubernetes, visit [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
+{:important}
+
 Use the following instructions to deploy the {{site.data.keyword.blockchainfull}} Platform console on your local {{site.data.keyword.cloud_notm}} Private cluster after you have installed the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart.
 {:shortdesc}
 

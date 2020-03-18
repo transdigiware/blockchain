@@ -21,6 +21,9 @@ subcollection: blockchain
 # Setting up {{site.data.keyword.cloud_notm}} Private
 {: #icp-console-setup}
 
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud has been withdrawn from sale. To deploy the {{site.data.keyword.blockchainfull_notm}} Platform using the OpenShift Container Platform, {{site.data.keyword.cloud_notm}} Private, or open source Kubernetes, visit [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
+{:important}
+
 Before you deploy {{site.data.keyword.blockchainfull}} Platform components and build blockchain network on {{site.data.keyword.cloud_notm}} Private, you need to set up {{site.data.keyword.cloud_notm}} Private in your own environment.
 {:shortdesc}
 
