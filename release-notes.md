@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-19"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -34,6 +34,12 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 **CA, peer and ordering node patch 1.4.6-1**
 
 
+{{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, therefore, the new features described in this list may not yet be available in your console.
+Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
+{: note}
+
+
+
 
 **Hyperledger Fabric v1.4.6**
 
@@ -46,10 +52,6 @@ Full cryptographic HSM support is now available for HSMs that implement the PKCS
 **Support for adding and removing ordering nodes from an existing ordering service**  
 
 Previously, an ordering service could only contain one or five ordering nodes and they all were contributed from the same organization. Now, the ordering service can be deployed across multiple organizations in a blockchain network, enabling individual organizations to add and remove individual ordering nodes as required. Multi-organizational transaction ordering improves the decentralized nature of a blockchain network.  Learn more about the process in the new [Adding and removing Raft ordering service nodes tutorial](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-add-remove-orderer).
-
-**Ansible support for simplified network configuration and management**
-
-Ansible playbooks are available for single and multi-organization configurations and automate the creation and management of peer, orderer, and certificate authority network elements. Ansible support is delivered through the [Ansible Galaxy](https://galaxy.ansible.com/home){: external} website, the official hub for sharing Ansible content.
 
 **Ability to override default CA, peer, ordering node configuration**  
 
