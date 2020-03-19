@@ -148,8 +148,152 @@ The ability to override the CA configuration is available only in paid clusters.
 #### Why would I want to override a CA configuration?
 {: #ibp-console-adv-deployment-ca-customization-why}
 
-You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case. When you create a CA, you can specify your own settings for all of the `csr` and `registry` fields. For example, you might want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden by editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
+You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case.  For example, you might want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden by editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
 
+```json
+{
+	"ca": {
+		"cors": {
+			"enabled": false,
+			"origins": [
+				"*"
+			]
+		},
+		"debug": false,
+		"crlsizelimit": 512000,
+		"tls": {
+			"certfile": null,
+			"keyfile": null,
+			"clientauth": {
+				"type": "noclientcert",
+				"certfiles": null
+			}
+		},
+		"ca": {
+			"keyfile": null,
+			"certfile": null,
+			"chainfile": null
+		},
+		"crl": {
+			"expiry": "24h"
+		},
+		"registry": {
+			"maxenrollments": -1,
+			"identities": [
+				{
+					"name": "<<<adminUserName>>>",
+					"pass": "<<<adminPassword>>>",
+					"type": "client",
+					"affiliation": "",
+					"attrs": {
+						"hf.Registrar.Roles": "*",
+						"hf.Registrar.DelegateRoles": "*",
+						"hf.Revoker": true,
+						"hf.IntermediateCA": true,
+						"hf.GenCRL": true,
+						"hf.Registrar.Attributes": "*",
+						"hf.AffiliationMgr": true
+					}
+				}
+			]
+		},
+		"db": {
+			"type": "sqlite3",
+			"datasource": "fabric-ca-server.db",
+			"tls": {
+				"enabled": false,
+				"certfiles": null,
+				"client": {
+					"certfile": null,
+					"keyfile": null
+				}
+			}
+		},
+		"affiliations": null,
+		"csr": {
+			"cn": "ca",
+			"keyrequest": {
+				"algo": "ecdsa",
+				"size": 256
+			},
+			"names": [
+				{
+					"C": "US",
+					"ST": "North Carolina",
+					"L": null,
+					"O": "Hyperledger",
+					"OU": "Fabric"
+				}
+			],
+			"hosts": [
+				"<<<MYHOST>>>",
+				"localhost"
+			],
+			"ca": {
+				"expiry": "131400h",
+				"pathlength": "<<<PATHLENGTH>>>"
+			}
+		},
+		"idemix": {
+			"rhpoolsize": 1000,
+			"nonceexpiration": "15s",
+			"noncesweepinterval": "15m"
+		},
+		"bccsp": {
+			"default": "SW",
+			"sw": {
+				"hash": "SHA2",
+				"security": 256,
+				"filekeystore": null
+			}
+		},
+		"intermediate": {
+			"parentserver": {
+				"url": null,
+				"caname": null
+			},
+			"enrollment": {
+				"hosts": null,
+				"profile": null,
+				"label": null
+			},
+			"tls": {
+				"certfiles": null,
+				"client": {
+					"certfile": null,
+					"keyfile": null
+				}
+			}
+		},
+		"cfg": {
+			"identities": {
+				"passwordattempts": 10
+			}
+		},
+		"metrics": {
+			"provider": "prometheus",
+			"statsd": {
+				"network": "udp",
+				"address": "127.0.0.1:8125",
+				"writeInterval": "10s",
+				"prefix": "server"
+			}
+		}
+	}
+}
+```        
+{: codeblock}
+
+#### Providing your own customizations when you create a CA
+{: #ibp-console-adv-deployment-ca-create-json}
+
+After you click **Create a CA** on the nodes tab and step through the CA configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then those advanced configuration settings are not included in the `JSON`, but you can insert them yourself, using the elements provided in `JSON` above.
+
+Alternatively, if you do check any of the advanced options when you configure the CA, those settings are included in the `JSON` on the Summary panel and can be additionally customized.
+
+Any edits that you make to the `JSON` overrides what was specified in the console. For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the`JSON` file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that are used when the CA is deployed.
+
+Here is an example of the minimum required `JSON` parameters for any override when a CA is deployed.
 ```json
 {
 	"ca": {
@@ -198,175 +342,73 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 	  }
 	}
 }
-```        
-{: codeblock}
-
-For convenience, default values are provided for most of the fields above. But in addition to customizing any of those values, you need to ensure that you replace the values of the following fields with the custom settings for your CA configuration:
-- `<COMMONNAME>`
-- `<HOSTNAME>`
-- `<ADMIN_ID>`
-- `<ADMIN_PWD>`
-{: important}
-
-#### Providing your own customizations when you create a CA
-{: #ibp-console-adv-deployment-ca-create-json}
-
-After you click **Create a CA** on the nodes tab and step through the CA configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then those advanced configuration settings are not included in the `JSON`, but you can insert them yourself, using the elements provided in `JSON` above.
-
-Alternatively, if you do check any of the advanced options when you configure the CA, those settings are included in the `JSON` on the Summary panel and can be additionally customized.
-
-Any edits that you make to the `JSON` overrides what was specified in the console. For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the JSON file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that is used when the CA is deployed.
-
-Here is an example of the `JSON` when no advanced options are configured in the console:
-```json
-{
-    "ca": {
-        "debug": false,
-        "registry": {
-            "identities": [
-                {
-                    "name": "admin",
-                    "pass": "adminpw",
-                    "type": "client",
-                    "maxenrollments": -1,
-                    "attrs": {
-                        "hf.Registrar.Roles": "*",
-                        "hf.Registrar.DelegateRoles": "*",
-                        "hf.Revoker": "true",
-                        "hf.IntermediateCA": "true",
-                        "hf.GenCRL": "true",
-                        "hf.Registrar.Attributes": "*",
-                        "hf.AffiliationMgr": "true"
-                    }
-                }
-            ]
-        }
-    }
-}
 ```
 {: codeblock}
 
-You can insert additional fields or modify the generated `JSON` that is based on your selections in the console. You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a CA and override only the `csr names` values, you would paste in the following `JSON`:
+You can insert additional fields or modify the `JSON` that is visible in the **Configuration JSON** box. For example, if you want to deploy a CA and override only the `csr names` values, you can edit the values in the `JSON`. But if you wanted to change the value of the `passwordattempts` field you would insert it into the `JSON` as follows:
 
 ```json
 {
-  "csr": {
-    "names": [
-      {
-        "C": "UK",
-        "ST": "Wales",
-        "L": "Location",
-        "O": "BigCo",
-        "OU": "Sales"
-      }
-    ]
-  }
-}  
-```
-{: codeblock}
-
-#### Modifying CA settings after deployment
-{: #ibp-console-adv-deployment-ca-modify-json}
-
-After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the CA settings.
-
-The ability to update a CA configuration is not available for CAs that have been imported into the console.
-{: note}
-
-The following fields can be updated:
-
-```json
-{
-	"cors": {
-		"enabled": false,
-		"origins": [
-			"*"
-		]
-	},
-	"debug": false,
-	"crlsizelimit": 512000,
-	"tls": {
-		"certfile": null,
-		"keyfile": null,
-		"clientauth": {
-			"type": "noclientcert",
-			"certfiles": null
-		}
-	},
-	"crl": {
-		"expiry": "24h"
-	},
-	"db": {
-		"type": "sqlite3",
-		"datasource": "fabric-ca-server.db",
-		"tls": {
-			"enabled": false,
-			"certfiles": null,
-			"client": {
-				"certfile": null,
-				"keyfile": null
-			}
-		}
-	},
-	"csr": {
-		"cn": "ca",
+	"ca": {
+	  "csr": {
+		"cn": "<COMMONNAME>",
 		"keyrequest": {
-			"algo": "ecdsa",
-			"size": 256
+		  "algo": "ecdsa",
+		  "size": 256
 		},
 		"names": [
-			{
-				"C": "US",
-				"ST": "North Carolina",
-				"L": "Location",
-				"O": "Hyperledger",
-				"OU": "Fabric"
-			}
+		  {
+			"C": "US",
+			"ST": "North Carolina",
+			"L": "Location",
+			"O": "Hyperledger",
+			"OU": "Fabric"
+		  }
 		],
 		"hosts": [
-			"<<<MYHOST>>>",
-			"localhost"
+		  "<HOSTNAME>"
 		],
 		"ca": {
-			"expiry": "131400h",
-			"pathlength": "<<<PATHLENGTH>>>"
+		  "expiry": "131400h",
+		  "pathlength": 1024
 		}
-	},
-	"idemix": {
-		"rhpoolsize": 1000,
-		"nonceexpiration": "15s",
-		"noncesweepinterval": "15m"
-	},
-	"bccsp": {
-		"default": "SW",
-		"sw": {
-			"hash": "SHA2",
-			"security": 256,
-			"filekeystore": null
-		}
-	},
-	"cfg": {
-		"identities": {
-			"passwordattempts": 10
-		}
-	},
-	"metrics": {
-		"provider": "prometheus",
-		"statsd": {
-			"network": "udp",
-			"address": "127.0.0.1:8125",
-			"writeInterval": "10s",
-			"prefix": "server"
+	  },
+	  "debug": false,
+	  "registry": {
+		"maxenrollments": -1,
+		"identities": [
+		  {
+			"name": "<ADMIN_ID>",
+			"pass": "<ADMIN_PWD>",
+			"type": "client",
+			"attrs": {
+			  "hf.Registrar.Roles": "*",
+			  "hf.Registrar.DelegateRoles": "*",
+			  "hf.Revoker": true,
+			  "hf.IntermediateCA": true,
+			  "hf.GenCRL": true,
+			  "hf.Registrar.Attributes": "*",
+			  "hf.AffiliationMgr": true
+			}
+		  }
+		]
+		},
+		"cfg": {
+			"identities": {
+				"passwordattempts": 3
+			}
 		}
 	}
 }
 ```
 {: codeblock}
 
+This snippet is provided only as an example of what the modified `JSON` would resemble. **Do not copy and edit this snippet**, as it does not contain the custom values for your configuration. Rather, edit the `JSON` from your console **Configuration JSON** box because it includes the settings for your node.
+
 #### Considerations when including certificates
 {: #ibp-console-adv-deployment-ca-certificates}
 
-Unlike in the Fabric CA configuration file, where specification of a `certfile` includes a file path and certificate name, in this case you need to base64 encode the certificate file (or a concatenated chain of certificates) and then paste the resulting string into the CA JSON override. To convert a certificate file into base64 format, run the following command:
+Unlike in the Fabric CA configuration file, where specification of a `certfile` includes a file path and certificate name, in this case you need to base64 encode the certificate file (or a concatenated chain of certificates) and then paste the resulting string into the CA `JSON` override. To convert a certificate file into base64 format, run the following command:
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -376,7 +418,122 @@ cat <CERT_FILE> | base64 $FLAG
 
 - Replace `<CERT_FILE>` with the name of the file that you need to encode.
 
-Paste the resulting string into the CA JSON override.
+Paste the resulting string into the CA `JSON` override.
+
+#### Modifying CA settings after deployment
+{: #ibp-console-adv-deployment-ca-modify-json}
+
+After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the CA settings. The `JSON` in the **Current configuration** box contains the current settings for the CA. **Not all of these values can be overridden.**
+
+Only the following fields can be updated:
+
+```json
+{
+	"ca":{
+		"cors": {
+			"enabled": false,
+			"origins": [
+				"*"
+			]
+		},
+		"debug": false,
+		"crlsizelimit": 512000,
+		"tls": {
+			"certfile": null,
+			"keyfile": null,
+			"clientauth": {
+				"type": "noclientcert",
+				"certfiles": null
+			}
+		},
+		"crl": {
+			"expiry": "24h"
+		},
+		"db": {
+			"type": "sqlite3",
+			"datasource": "fabric-ca-server.db",
+			"tls": {
+				"enabled": false,
+				"certfiles": null,
+				"client": {
+					"certfile": null,
+					"keyfile": null
+				}
+			}
+		},
+		"csr": {
+			"cn": "ca",
+			"keyrequest": {
+				"algo": "ecdsa",
+				"size": 256
+			},
+			"names": [
+				{
+					"C": "US",
+					"ST": "North Carolina",
+					"L": "Location",
+					"O": "Hyperledger",
+					"OU": "Fabric"
+				}
+			],
+			"hosts": [
+				"<<<MYHOST>>>",
+				"localhost"
+			],
+			"ca": {
+				"expiry": "131400h",
+				"pathlength": "<<<PATHLENGTH>>>"
+			}
+		},
+		"idemix": {
+			"rhpoolsize": 1000,
+			"nonceexpiration": "15s",
+			"noncesweepinterval": "15m"
+		},
+		"bccsp": {
+			"default": "SW",
+			"sw": {
+				"hash": "SHA2",
+				"security": 256,
+				"filekeystore": null
+			}
+		},
+		"cfg": {
+			"identities": {
+				"passwordattempts": 10
+			}
+		},
+		"metrics": {
+			"provider": "prometheus",
+			"statsd": {
+				"network": "udp",
+				"address": "127.0.0.1:8125",
+				"writeInterval": "10s",
+				"prefix": "server"
+			}
+		}
+	}
+}
+```
+{: codeblock}
+
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only needed to update the value for the `passwordattempts` field you would paste in this `JSON`:
+
+```json
+{
+	"ca": {
+		"cfg": {
+			"identities": {
+				"passwordattempts": 3
+			}
+		}
+	}
+}
+```
+{: codeblock}
+
+The ability to update a CA configuration is not available for CAs that have been imported into the console.
+{: note}
 
 ## Peer deployment
 {: #ibp-console-adv-deployment-peer}
@@ -394,7 +551,7 @@ When you deploy a peer, the following advanced deployment options are available:
 
 During the creation of a peer, it is possible to choose between two state database options: **LevelDB** and **CouchDB**. Recall that the state database keeps the latest value of all of the keys (assets) stored on the blockchain. For example, if a car has been owned by Varad and then Joe, the value of the key that represents the ownership of the car would be "Joe".
 
-Because it can be useful to perform rich queries against the state database (for example, searching for every red car with an automatic transmission that is owned by Joe), users will often choose a Couch database, which stores data as JSON objects. LevelDB, on the other hand, only stores information as key-value pairs, and therefore cannot be queried in this way. Users must keep track of block numbers and query the blocks directly (or within a range of block numbers), and parse the information. However, LevelDB is also faster than CouchDB, though it does not support database indexing (which helps performance).
+Because it can be useful to perform rich queries against the state database (for example, searching for every red car with an automatic transmission that is owned by Joe), users will often choose a Couch database, which stores data as `JSON` objects. LevelDB, on the other hand, only stores information as key-value pairs, and therefore cannot be queried in this way. Users must keep track of block numbers and query the blocks directly (or within a range of block numbers), and parse the information. However, LevelDB is also faster than CouchDB, though it does not support database indexing (which helps performance).
 
 This support for rich queries is why **CouchDB is the default database** unless a user selects the **State database selection** box during the process of adding a peer selects **LevelDB** on the subsequent tab.
 
@@ -583,33 +740,32 @@ A common use case would be to override some of the default timeouts, or peer pri
 
 After you click **Create a peer** on the nodes tab and step through the peer configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can still insert your own customizations.
 
-Alternatively, if you do check any of the advanced options when you configure the peer, those settings are included in the `JSON` on the Summary panel and can be additionally customized with other fields as needed. Any edits that you make will override what was specified in the console. For example, if you selected to use a LevelDB as the state database, but then overrode the setting to use CouchDB as the state database in the `JSON`, then the CouchDB database settings would be used when the peer is deployed. The override settings that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the peer is deployed.
+Alternatively, if you do check any of the advanced options when you configure the peer, those settings are included in the `JSON` on the Summary panel and can be additionally customized with other fields as needed. Any edits that you make will override what was specified in the console. For example, if you selected to use a LevelDB as the state database, but then overrode the setting to use CouchDB as the state database in the `JSON`, then the CouchDB database settings would be used when the peer is deployed. The override settings that are visible in the `JSON` on the **Summary page** are what is used when the peer is deployed.
 
-You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a peer and override the `chaincode startup timeout` and specify a different port for the `statsd address`, you would paste in the following `JSON`:
+You don't need to include the entire set of available parameters in the `JSON`, only the advanced deployment options that you selected in the console along with the parameters that you want to override. For example, if you want to deploy a peer and override the `chaincode startup timeout` and specify a different port for the `statsd address`, you would paste in the following `JSON`:
 
 ```json
 {
-  "chaincode": {
-    "startuptimeout": "600s"
-    },
-   "metrics": {
-      "statsd": {
-        "address": "127.0.0.1:9443"
-      }
-    }  
-}  
+  "peer": {
+    "chaincode": {
+      "startuptimeout": "600s"
+    }
+  },
+  "metrics": {
+    "statsd": {
+      "address": "127.0.0.1:9443"
+    }
+  }
+}
 ```
 {: codeblock}
 
 #### Modifying peer settings after deployment
 {: #ibp-console-adv-deployment-peer-modify-json}
 
-After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the peer settings. Don't worry if the current configuration box is blank, that simply indicates none of the default peer configurations settings were overridden when the peer was deployed. But a subset of the fields can still be overridden by pasting a JSON with the overrides into the `Configurations updates` box.
+After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to open the panel where you can override the peer settings. The `JSON` in the **Current configuration** box contains the current settings for the peer. **Not all of these values can be overridden after the peer is deployed.**  A subset of these parameters can be overridden by pasting a `JSON` with the overrides into the `Configurations updates` box. Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration updates** box.
 
-The ability to update override settings for a peer configuration is not available for peers that have been imported into the console.
-{: note}
-
-The following subset of fields can be overridden after a peer is deployed:
+The following subset of parameters can be overridden after a peer is deployed:
 
 ```json
 {
@@ -722,6 +878,20 @@ The following subset of fields can be overridden after a peer is deployed:
 ```
 {: codeblock}
 
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only need to update the value for the `executetimeout` field you would paste this `JSON` into the **Configuration updates** box:
+
+```json
+{
+	"chaincode": {
+		"executetimeout": "30s"
+	}
+}
+```
+{: codeblock}
+
+The ability to update override settings for a peer configuration is not available for peers that have been imported into the console.
+{: note}
+
 ## Ordering node deployment
 {: #ibp-console-adv-deployment-on}
 
@@ -775,7 +945,7 @@ For more details on the resource allocation panel in the console see [Allocating
 ### Customizing an ordering service configuration
 {: #ibp-console-adv-deployment-orderer-create-json}
 
-In addition to the ordering node settings that are provided in the console when you provision an ordering node, you have the extra option to override some of the settings. If you are familiar with Hyperledger Fabric, these settings are configured in the `orderer.yaml` file when an ordering node is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings so many of these fields are not exposed by the console. You can find the orderer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
+In addition to the ordering node settings that are provided in the console when you provision an ordering node, you have the option to override some of the default settings. If you are familiar with Hyperledger Fabric, these settings are configured in the `orderer.yaml` file when an ordering node is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings so many of these fields are not exposed by the console. You can find the orderer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
 The ability to override the ordering service configuration is available only in paid clusters.
 {: note} 
@@ -829,9 +999,9 @@ The need to customize the ordering node configuration is less common than the pe
 
 After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
 
-Alternatively, if you do check any of the advanced options when you configure the ordering service, those settings are included in the `JSON` on the Summary panel. Any edits that you make to the JSON overrides what was specified in the console. You can insert additional fields or modify the generated `JSON`. The overrides that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the ordering node is deployed. If you are deploying multiple ordering nodes, then the customizations are applied to each ordering node.
+Alternatively, if you do check any of the advanced options when you configure the ordering service, those settings are included in the `JSON` on the Summary panel. Any edits that you make to the`JSON` override what was specified in the console. You can insert additional fields or modify the generated `JSON`. The overrides that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the ordering node is deployed. **If you are deploying multiple ordering nodes, then the overrides are applied to each ordering node.**
 
-You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy an ordering node and override the `ServerTimeout` and specify a different port for the `statsd address` you would paste in the following `JSON`:
+You don't need to include the entire set of available parameters in the `JSON`, only any advanced deployment options that you selected in the console along with the parameters that you want to override. For example, if did not select any advanced options in the console and you want to deploy the ordering nodes with your own value for the  `ServerTimeout` and the `statsd address` port, you would paste the following `JSON` into the **Configuration updates** box:
 
 ```json
 {
@@ -842,7 +1012,7 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 	},
 	"metrics": {
 		"statsd": {
-			"address": "127.0.0.1:9443"
+			"address": "127.0.0.1:9446"
 		}
 	}
 }
@@ -852,10 +1022,9 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 #### Modifying ordering node settings after deployment
 {: #ibp-console-adv-deployment-orderer-modify-json}
 
-After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.
+After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.  The `JSON` in the **Current configuration** box contains the current settings for the ordering node. **Not all of these values can be overridden after deployment.** Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration updates** box.
 
-The ability to update an ordering node configuration is not available for ordering nodes that have been imported into the console.
-{: note}
+The following list of parameters can be updated:
 
 ```json
 {
@@ -885,6 +1054,22 @@ The ability to update an ordering node configuration is not available for orderi
 }
 ```
 {: codeblock}
+
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only needed to update the value for the `ServerTimeout` field you would paste this `JSON` into the **Configuration updates** box:
+
+```json
+{
+	"General": {
+		"Keepalive": {
+			"ServerTimeout": "20s"
+		}
+	}
+}
+```
+{: codeblock}
+
+The ability to update an ordering node configuration is not available for ordering nodes that have been imported into the console.
+{: note}
 
 ## Using certificates from an external CA with your peer or ordering service
 {: #ibp-console-adv-deployment-third-party-ca}
@@ -960,12 +1145,12 @@ Now that you have gathered all the necessary certificates, you are ready to crea
 ### Option 2: Create a five node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-create-five-node}
 
-When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster that is hosted on another cloud provider by using {{site.data.keyword.cloud_notm}} Private, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol. Before you deploy a five node ordering service, you need to build a JSON file that contains all of the certificates for the five nodes by using the following instructions:
+When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster that is hosted on another cloud provider by using {{site.data.keyword.cloud_notm}} Private, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol. Before you deploy a five node ordering service, you need to build a `JSON` file that contains all of the certificates for the five nodes by using the following instructions:
 
 #### Create the certificates JSON file
 {: #ibp-console-adv-deployment-create-certs-file}
 
-The required certificates JSON file contains an array of five `msp` entries, where each array element contains the certificates for one of the ordering nodes. You must specify unique certificates for each node. Do not reuse certificates across the different ordering nodes. The certificates in the `component` section represent the certificates for the node itself, while the `tls` section includes the certificates issued by the TLS CA.  
+The required certificates `JSON` file contains an array of five `msp` entries, where each array element contains the certificates for one of the ordering nodes. You must specify unique certificates for each node. Do not reuse certificates across the different ordering nodes. The certificates in the `component` section represent the certificates for the node itself, while the `tls` section includes the certificates issued by the TLS CA.  
 
 - **keystore**: The private key for this node
 - **signcerts**: The public key (also known as a signing certificate or enrollment certificate) assigned by the CA for this node.
@@ -1074,18 +1259,18 @@ cat <cert.pem> | base64 $FLAG
 ```
 {:codeblock}
 
-Save this definition as a `JSON` file.
+Save this definition as a ``JSON`` file.
 
 #### Create the ordering service and use the certificates from the external CA for each ordering node
 {: #ibp-console-adv-deployment-create-five-node-os}
 
-After you create the JSON file with all of the certificates for the ordering nodes, you are ready to create the ordering service.
+After you create the `JSON` file with all of the certificates for the ordering nodes, you are ready to create the ordering service.
 
 1. On the **Nodes** tab, click **Add ordering service**.
 2. Make sure the option to **Create** an ordering service is selected. Then click **Next**.
 3. Enter a single **Display name** for the five ordering nodes. The display name that you provide will be the prefix for each ordering node name and a number will be appended to it.
 4. In **Number of ordering nodes**, select **Five ordering nodes**. Then select **External Certificate Authority configuration** and click **Next**.
-5. Click **Add file** to upload the JSON file that contains all of the certificates.
+5. Click **Add file** to upload the `JSON` file that contains all of the certificates.
 6. Select the **Organization MSP** definition that you imported.
 7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections that you make here are applied to all five ordering nodes. If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](#ibp-console-adv-deployment-allocate-resources).
 8. Review the summary and click **Add ordering service**.
