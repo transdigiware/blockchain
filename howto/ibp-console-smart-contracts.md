@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-19"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -94,7 +94,6 @@ You can return to the **Smart contracts** tab later to install the smart contrac
 {:tip}
 
 **This console cannot be used to install Hyperledger Composer `.bna` files.**
-
 
 
 ## Step three: Instantiate a smart contract
