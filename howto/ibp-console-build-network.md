@@ -24,7 +24,8 @@ subcollection: blockchain
 
 
 
-Some of the functionality described on this page may not yet be available in your console. {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform  consoles to the latest v2.1.3 functionality. Unsure what version you are currently using? Click the the question mark icon <img src="../images/support-link.png" alt="Support link icon" width="30" style="width:30px; border-style: none"/> in the upper right corner of the console to see if you have the latest features. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Your console will be migrated shortly.
+Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
+Unsure what version you are currently using? Click the the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Your console will be migrated shortly.
 {: note}
 
 
