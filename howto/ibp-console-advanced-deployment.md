@@ -24,7 +24,7 @@ subcollection: blockchain
 
 
 
-When you deploy a node from the console, there are a variety of advanced deployment options available for each node type. This topic provides more details about each of those options.
+When you deploy a node from the console, there are various advanced deployment options available for each node type. This topic provides more details about each of those options.
 {:shortdesc}
 
 **Target audience:** This topic is designed for advanced network operators who are familiar with Hyperledger Fabric and are responsible for creating, monitoring, and managing their components in the blockchain network.
@@ -32,16 +32,16 @@ When you deploy a node from the console, there are a variety of advanced deploym
 ## What types of advanced deployment options are available?
 {: #ibp-console-adv-deployment-options}
 
-The Build a network tutorial is useful for learning how to set up a basic network by using the console. But each use case will have their own customizations that are required for a production network. When you are ready to explore additional configuration settings, this topic describes the optional customizations that are available and the considerations they require. The following table describes the types of customizations you can consider for each node type:
+The Build a network tutorial is useful for learning how to set up a basic network by using the {{site.data.keyword.blockchainfull_notm}} Platform console. But each use case will have their own customizations that are required for a production network. When you are ready to explore additional configuration settings, this topic describes the optional customizations that are available and the considerations they require. The following table describes the types of customizations you can consider for each node type:
 
 |  | Description | CA | Peer | Ordering node | When to perform |
 |-----|-----|-----|-----|----|----|
-| **Resource allocations** | Customize the allocated resources (CPU, memory, storage) for your node.| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | CPU and memory can be adjusted during and after deployment. Storage is harder to update after deployment. A best practice is to monitor the storage on your nodes and before they become full, stand up a new larger capacity node to replace the node with exhausted storage. |
-| **Hardware Security Module (HSM)** | Configure a node to generate and store the node identity private key in an HSM for increased security. |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. |
-| **Certificate Authority Database and replication** |  Customize the type of database (SqlLite or PostgreSQL) that will be used for storing CA data and configure replication for high availability. |![Checkmark icon](../../icons/checkmark-icon.svg) |  |  | Must be configured when the CA is deployed. You cannot switch databases after the CA is deployed. |
-| **Peer state database** | Select whether you want the peer to use LevelDB or CouchDB for ledger data. | | ![Checkmark icon](../../icons/checkmark-icon.svg) | | Must be configured when the peer is deployed. You cannot change databases after the peer is deployed. |
-| **Kubernetes zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
-| **Override node configuration** | Specify additional node configurations that are not available in the console panels. | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Overrides can only be configured when a node is deployed. |
+| **Resource allocations** | Customize the allocated resources (CPU, memory, storage) for your node.| ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | CPU and memory can be adjusted during and after deployment. Storage is harder to update after deployment. A best practice is to monitor the storage on your nodes and before they become full, stand up a new larger capacity node to replace the node with exhausted storage. |
+| **Hardware Security Module (HSM)** | Configure a node to generate and store the node identity private key in an HSM for increased security. |![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. |
+| **Certificate Authority Database and replication** |  Customize the type of database (SqlLite or PostgreSQL) that will be used for storing CA data and configure replication for high availability. |![Check mark icon](../../icons/checkmark-icon.svg) |  |  | Must be configured when the CA is deployed. You cannot switch databases after the CA is deployed. |
+| **Peer state database** | Select whether you want the peer to use LevelDB or CouchDB for ledger data. | | ![Check mark icon](../../icons/checkmark-icon.svg) | | All peers on a channel must use the same state database. You cannot change databases after the peer is deployed. |
+| **Kubernetes zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Check mark icon](../../icons/checkmark-icon.svg)  | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
+| **Override node configuration** | Specify additional node configurations that are not available in the console panels. | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | Overrides can be configured when a node is deployed or updated. |
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Table 1. Advanced deployment options" caption-side="bottom"}
@@ -58,8 +58,8 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 
 Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform console and your Kubernetes cluster do not communicate directly about the resources that are available, the process for deploying components by using the console must follow this pattern:
 
-1. **Size the deployment that you want to make**. The **Resource allocation** panels for the CA, peer, and ordering node in the console offer default CPU, memory, and storage allocations for each node. You may need to adjust these values according to your use case. If you are unsure, start with default allocations and adjust them as you understand your needs. Similarly, the **Resource reallocation** panel displays the existing resource allocations. For a sense of how much storage and compute you will need in your cluster, refer to the chart after step 3 which contains the current defaults for the peer, orderer, and CA:
-2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you will need to increase the size of your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. For more information about how to increase the size of a cluster, see [Scaling clusters](/docs/containers?topic=containers-ca#ca){: external}. If you have enough space in your cluster, you can continue with step 3.
+1. **Size the deployment that you want to make**. The **Resource allocation** panels for the CA, peer, and ordering node in the console offer default CPU, memory, and storage allocations for each node. You may need to adjust these values according to your use case. If you are unsure, start with default allocations and adjust them as you understand your needs. Similarly, the **Resource reallocation** panel displays the existing resource allocations. For a sense of how much storage and compute you will need in your cluster, refer to the chart after step 3 that contains the current defaults for the peer, orderer, and CA:
+2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. For more information about how to increase the size of a cluster, see [Scaling clusters](/docs/containers?topic=containers-ca#ca){: external}. If you have enough space in your cluster, you can continue with step 3.
 3. **Use the console to deploy or resize your node**. If your Kubernetes pod is large enough to accommodate the new size of the node, the reallocation should proceed smoothly. If the worker node that the pod is running on is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 
 
@@ -75,21 +75,21 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
 ** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.
 
-While users of a free cluster **must use default sizes** for the containers associated with their nodes, users of paid clusters can set these values while the node is being created by clicking on the **Resource allocation** box during the creation of their nodes. If this box is not checked, the default resource allocations, which can be seen below, will be used.
+While users of a free cluster **must use default sizes** for the containers associated with their nodes, users of paid clusters can set these values while the node is being created by clicking the **Resource allocation** box during the creation of their nodes. If this box is not checked, the default resource allocations, which can be seen below, will be used.
 
 For cases when a user wants to minimize charges without stopping or deleting a node, it is possible to scale the node down to a minimum of 0.001 CPU (1 milliCPU). Note that the node will not be functional when using this amount of CPU.
 
 While the figures in this topic endeavor to be precise, be aware that there are times when a node may not deploy even when it appears that you have enough space in your cluster. Make sure to reference your Kubernetes dashboard to see when components deploy and for error messages when they don't. In cases where a component doesn't deploy for a lack of resources, even if there seems to be enough space in the cluster, you will likely have to deploy additional cluster resources for the component to deploy.
 {:tip}
 
-The **Resource allocation** panel in the console provides default values for the various fields that are involved in creating a node. These values are chosen because they represent a good way to get started. However, every use case is different. While this topic will provide guidance for ways to think about these values, it ultimately falls to the user to monitor their nodes and find sizings that work for them. Therefore, barring situations in which users are certain that they will need values different from the defaults, a practical strategy is to use these defaults at first and adjust them later. For an overview of performance and scale of Hyperledger Fabric, which the {{site.data.keyword.blockchainfull_notm}} Platform is based on, see [Answering your questions on Hyperledger Fabric performance and scale](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/){: external}.
+The **Resource allocation** panel in the console provides default values for the various fields that are involved in creating a node. These values are chosen because they represent a good way to get started. However, every use case is different. While this topic provides guidance for ways to think about these values, it ultimately falls to the user to monitor their nodes and find sizings that work for them. Therefore, barring situations in which users are certain that they need values different from the defaults, a practical strategy is to use these defaults at first and adjust them later. For an overview of performance and scale of Hyperledger Fabric, which the {{site.data.keyword.blockchainfull_notm}} Platform is based on, see [Answering your questions on Hyperledger Fabric performance and scale](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/){: external}.
 
-After you have deployed the node, you need to **monitor the resource consumption of the node**. Configure a monitoring tool such as  [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to observe the nodes and ensure adequate resources are available to the node containers when processing transactions.
+After you have deployed the node, you need to **monitor the resource consumption of the node**. Configure a monitoring tool such as [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to observe the nodes and ensure that adequate resources are available to the node containers when processing transactions.
 {: important}
 
 All of the containers that are associated with a node have **CPU** and **memory**, while certain containers that are associated with the peer, ordering node, and CA also have **storage**. For more information about storage, see [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) Note that when your Kubernetes cluster is configured to use any of the {{site.data.keyword.cloud_notm}} storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 
-You are responsible for monitoring your CPU, memory and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI. 
+You are responsible for monitoring your CPU, memory, and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI. 
 {:note}
 
 Every node has a gRPC web proxy container that bootstraps the communication layer between the console and a node. This container has fixed resource values and is included on the Resource allocation panel to provide an accurate estimate of how much space is required on your Kubernetes cluster in order for the node to deploy. Because the values for this container cannot be changed, we will not discuss the gRPC web proxy in the following sections.
@@ -98,7 +98,7 @@ Every node has a gRPC web proxy container that bootstraps the communication laye
 {: #ibp-console-adv-deployment-CA}
 
 When you deploy a CA, the following advanced deployment options are available:
-* [Database and replica sets](#ibp-console-adv-deployment-CA-replica-sets) - Configure a CA for zero down time.
+* [Database and replica sets](#ibp-console-adv-deployment-CA-replica-sets) - Configure a CA for zero downtime.
 * [Resource allocation](#ibp-console-adv-deployment-CA-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the CA to use an HSM to generate and store private keys.
 * [CA configuration override](#ibp-console-adv-deployment-ca-customization) - Choose this option when you want to override CA configuration settings.
@@ -136,7 +136,7 @@ For information about creating highly available CAs through the use of replica s
 ### Customizing a CA configuration
 {: #ibp-console-adv-deployment-ca-customization}
 
-In addition to the CA settings that are provided in the console when you provision a CA, you have the  option to override some of the settings. If you are familiar with the Hyperledger Fabric CA server, these settings are configured in the [`fabric-ca-server-config.yaml`]((https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html) file when a CA is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you with default settings, therefore many of these fields are not exposed by the console.  But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a CA is deployed.
+In addition to the CA settings that are provided in the console when you provision a CA, you have the option to override some of the settings. If you are familiar with the Hyperledger Fabric CA server, these settings are configured in the [`fabric-ca-server-config.yaml`]((https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html) file when a CA is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you with default settings. Therefore, many of these fields are not exposed by the console. But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a CA is deployed.
 
 The ability to override the CA configuration is available only in paid clusters.
 {: note} 
@@ -144,7 +144,7 @@ The ability to override the CA configuration is available only in paid clusters.
 #### Why would I want to override a CA configuration?
 {: #ibp-console-adv-deployment-ca-customization-why}
 
-You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case. When you create a CA, you can specify your own settings for all of the `csr` and `registry` fields. For example, you may want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
+You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case. When you create a CA, you can specify your own settings for all of the `csr` and `registry` fields. For example, you might want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden by editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
 
 ```json
 {
@@ -211,7 +211,7 @@ After you click **Create a CA** on the nodes tab and step through the CA configu
 
 Alternatively, if you do check any of the advanced options when you configure the CA, those settings are included in the `JSON` on the Summary panel and can be additionally customized.
 
-Any edits you make to the `JSON` will override what was specified in the console.  For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the JSON file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that are used when the CA is deployed.
+Any edits that you make to the `JSON` overrides what was specified in the console. For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the JSON file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that is used when the CA is deployed.
 
 Here is an example of the `JSON` when no advanced options are configured in the console:
 ```json
@@ -242,7 +242,7 @@ Here is an example of the `JSON` when no advanced options are configured in the 
 ```
 {: codeblock}
 
-You can insert additional fields or modify the generated `JSON` that is based on your selections in the console. You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a CA and only override the `csr names` values, you would paste in the following `JSON`:
+You can insert additional fields or modify the generated `JSON` that is based on your selections in the console. You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a CA and override only the `csr names` values, you would paste in the following `JSON`:
 
 ```json
 {
@@ -388,19 +388,19 @@ When you deploy a peer, the following advanced deployment options are available:
 ### State database
 {: #ibp-console-adv-deployment-level-couch}
 
-During the creation of a peer, it is possible to choose between two state database options: **LevelDB** and **CouchDB**. Recall that the state database keeps the latest value of all of the keys (assets) stored on the blockchain. For example, if a car has been owned by Varad and then Joe, the value of the key representing the ownership of the car would be "Joe".
+During the creation of a peer, it is possible to choose between two state database options: **LevelDB** and **CouchDB**. Recall that the state database keeps the latest value of all of the keys (assets) stored on the blockchain. For example, if a car has been owned by Varad and then Joe, the value of the key that represents the ownership of the car would be "Joe".
 
-Because it can be useful to perform rich queries against the state database (for example, searching for every red car with an automatic transmission owned by Joe), users will often choose a Couch database, which stores data as JSON objects. LevelDB, on the other hand, only stores information as key-value pairs, and therefore cannot be queried in this way. Users must keep track of block numbers and query the blocks directly (or within a range of block numbers), and parse the information. However, LevelDB is also faster than CouchDB, though it does not support database indexing (which helps performance).
+Because it can be useful to perform rich queries against the state database (for example, searching for every red car with an automatic transmission that is owned by Joe), users will often choose a Couch database, which stores data as JSON objects. LevelDB, on the other hand, only stores information as key-value pairs, and therefore cannot be queried in this way. Users must keep track of block numbers and query the blocks directly (or within a range of block numbers), and parse the information. However, LevelDB is also faster than CouchDB, though it does not support database indexing (which helps performance).
 
 This support for rich queries is why **CouchDB is the default database** unless a user selects the **State database selection** box during the process of adding a peer selects **LevelDB** on the subsequent tab.
 
-Because the data is modeled differently in a Couch database than in a Level database, **the peers in a channel must all use the same database type**. If data written for a Level database is rejected by a Couch database (which can happen, as CouchDB keys have certain formatting restrictions as compared to LevelDB keys), a state fork would be created between the two ledgers. Therefore, **take extreme care when joining a channel to know the database type supported by the channel**. It might be necessary to create a new peer using the appropriate database type and join it to the channel. Note that the database type cannot be changed after a peer has been deployed.
+Because the data is modeled differently in a Couch database than in a Level database, **the peers in a channel must all use the same database type**. If data written for a Level database is rejected by a Couch database (which can happen, as CouchDB keys have certain formatting restrictions as compared to LevelDB keys), a state fork would be created between the two ledgers. Therefore, **take extreme care when joining a channel to know the database type supported by the channel**. It might be necessary to create a new peer that uses the appropriate database type and join it to the channel. Note that the database type cannot be changed after a peer has been deployed.
 {:important}
 
 ### Kubernetes zone selection
 {: #ibp-console-adv-deployment-peer-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labelled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
 If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
@@ -409,7 +409,7 @@ If you are deploying a redundant node (that is, another peer when you already ha
 
 The peer has five containers that can be adjusted:
 
-- **Peer container**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts installed on the peer.
+- **Peer container**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts that are installed on the peer.
 - **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
 - **Smart contract container**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your smart contract container, which is known as a Docker-in-Docker container.
 
@@ -420,12 +420,12 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | Resources | Condition to increase |
 |-----------------|-----------------------|
 | **Peer container CPU and memory** | When you anticipate a high transaction throughput right away. |
-| **Peer storage** | When you anticipate installing many smart contracts on this peer and to join it to many channels. Recall that this storage will also be used to store smart contracts from all channels the peer is joined to. Keep in mind that we estimate a "small" transaction to be in the range of 10,000 bytes (10k). As the default storage is 100G, this means as many as 10 million total transactions will fit in peer storage before it will need to be expanded (as a practical matter, the maximum number will be less than this, as transactions can vary in size and the number does not include smart contracts). While 100G might therefore seem like much more storage than is needed, keep in mind that storage is relatively inexpensive, and that the process for increasing it is more difficult (require command line) than increasing CPU or memory. |
-| **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat through the use of [indexes](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
+| **Peer storage** | When you anticipate installing many smart contracts on this peer and to join it to many channels. Recall that this storage will also be used to store smart contracts from all channels the peer is joined to. Keep in mind that we estimate a "small" transaction to be in the range of 10,000 bytes (10k). As the default storage is 100G, this means that as many as 10 million total transactions will fit in peer storage before it will need to be expanded (as a practical matter, the maximum number will be less than this, as transactions can vary in size and the number does not include smart contracts). While 100G might therefore seem like much more storage than is needed, keep in mind that storage is relatively inexpensive, and that the process for increasing it is more difficult (require command line) than increasing CPU or memory. |
+| **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat by using [indexes](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
 | **CouchDB (ledger data) storage** | When you expect high throughput on many channels and don't plan to use indexes. However, like the peer storage, the default CouchDB storage is 100G, which is significant. |
-| **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at once. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
+| **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default memory allocation for the peer container is sufficient for most use cases. However, when you instantiate a smart contract, you should actively monitor the resource consumption of the peer containers using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure adequate resources are available.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default memory allocation for the peer container is sufficient for most use cases. However, when you instantiate a smart contract, you should actively monitor the resource consumption of the peer containers by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
 {: important}
 
 For more details on the resource allocation panel in the console see [Allocating resource](#ibp-console-adv-deployment-allocate-resources).
@@ -433,7 +433,7 @@ For more details on the resource allocation panel in the console see [Allocating
 ### Customizing a peer configuration
 {: #ibp-console-adv-deployment-peer-create-json}
 
-In addition to the peer settings that are provided in the console when you provision a peer, you have the extra option to override some of the peer settings. If you are familiar with Hyperledger Fabric, these settings are configured in the peer configuration `core.yaml` file when a peer is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings and many of these fields are not exposed by the console.  But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a peer is deployed.
+In addition to the peer settings that are provided in the console when you provision a peer, you have the extra option to override some of the peer settings. If you are familiar with Hyperledger Fabric, these settings are configured in the peer configuration `core.yaml` file when a peer is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings and many of these fields are not exposed by the console. But the console also includes a panel where you can provide a `JSON` to override a set of these parameters before a peer is deployed. You can find the peer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
 The ability to override the peer configuration is available only in paid clusters.
 {: note} 
@@ -579,7 +579,7 @@ A common use case would be to override some of the default timeouts, or peer pri
 
 After you click **Create a peer** on the nodes tab and step through the peer configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can still insert your own customizations.
 
-Alternatively, if you do check any of the advanced options when you configure the peer, those settings are included in the `JSON` on the Summary panel and can be additionally customized with other fields as needed. Any edits that you make will override what was specified in the console.  For example, if you selected to use a LevelDB as the state database, but then overrode the setting to use CouchDB as the state database in the `JSON`, then the CouchDB database settings would be used when the peer is deployed. The override settings that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the peer is deployed.
+Alternatively, if you do check any of the advanced options when you configure the peer, those settings are included in the `JSON` on the Summary panel and can be additionally customized with other fields as needed. Any edits that you make will override what was specified in the console. For example, if you selected to use a LevelDB as the state database, but then overrode the setting to use CouchDB as the state database in the `JSON`, then the CouchDB database settings would be used when the peer is deployed. The override settings that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the peer is deployed.
 
 You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy a peer and override the `chaincode startup timeout` and specify a different port for the `statsd address`, you would paste in the following `JSON`:
 
@@ -600,7 +600,7 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 #### Modifying peer settings after deployment
 {: #ibp-console-adv-deployment-peer-modify-json}
 
-After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the peer settings.  Don't worry if the current configuration box is blank, that simply indicates none of the default peer configurations settings were overridden when the peer was deployed. But a subset of the fields can still be overridden by pasting a JSON with the overrides into the `Configurations updates` box.
+After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the peer settings. Don't worry if the current configuration box is blank, that simply indicates none of the default peer configurations settings were overridden when the peer was deployed. But a subset of the fields can still be overridden by pasting a JSON with the overrides into the `Configurations updates` box.
 
 The ability to update override settings for a peer configuration is not available for peers that have been imported into the console.
 {: note}
@@ -732,7 +732,7 @@ When you deploy an ordering node, the following advanced deployment options are 
 ### Number of ordering nodes
 {: #ibp-console-adv-deployment-suggested-ordering-node-configurations}
 
-In Raft, a **majority of the total number of nodes** must be available is needed to for the ordering service to function (this is known as achieving a "quorum" of nodes). In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. While satisfying the quorum will make sure the ordering service is functioning, production networks also have to think about deployment configurations that are highly available (in other words, configurations in which the loss of a certain number of nodes can be tolerated by the system). Typically, this means tolerating the loss of two nodes: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
+In Raft, a **majority of the total number of nodes** must be available is needed to for the ordering service to function (this is known as achieving a "quorum" of nodes). In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. While satisfying the quorum makes sure that the ordering service is functioning, production networks also have to think about deployment configurations that are highly available (in other words, configurations in which the loss of a certain number of nodes can be tolerated by the system). Typically, this means tolerating the loss of two nodes: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. Users who know that they will be deploying a production solution should therefore choose the five node option.
 
@@ -741,9 +741,9 @@ However, if a user wants to start with a single node or add more nodes to a five
 ### Kubernetes zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labelled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
-For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by unselecting the default option to have the zones chosen for you and distributing these nodes into the zones you have available.  You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by clearing the default option to have the zones that are chosen for you and distributing these nodes into the zones you have available. You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
 ### Sizing an ordering node during creation
 {: #ibp-console-adv-deployment-orderer-sizing-creation}
@@ -761,7 +761,7 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **Ordering node container CPU and memory** | When you anticipate a high transaction throughput right away. |
 | **Ordering node storage** | When you anticipate that this ordering node will be part of an ordering service on many channels. Recall that the ordering service keeps a copy of the blockchain for every channel they host. The default storage of an ordering node is 100G, same as the container for the peer itself. |
 
-If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five, a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4 CPU Kubernetes single worker node cluster is minimally recommended to allow enough CPU for the ordering service cluster and any other nodes you deploy.
+If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five, a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4 CPU Kubernetes single worker node cluster is the minimum recommended to allow enough CPU for the ordering service cluster and any other nodes you deploy.
 
 If an ordering service is overstressed, it might hit timeouts and start dropping transactions, requiring transactions to be resubmitted. This causes much greater harm to a network than a single peer struggling to keep up. In a Raft ordering service configuration, an overstressed leader node might stop sending heartbeat messages, triggering a leader election, and a temporary cessation of transaction ordering. Likewise, a follower node might miss messages and attempt to trigger a leader election where none is needed.
 {:important}
@@ -771,7 +771,7 @@ For more details on the resource allocation panel in the console see [Allocating
 ### Customizing an ordering service configuration
 {: #ibp-console-adv-deployment-orderer-create-json}
 
-In addition to the ordering node settings that are provided in the console when you provision an ordering node, you have the extra option to override some of the settings. If you are familiar with Hyperledger Fabric, these settings are configured in the `orderer.yaml` file when an ordering node is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings so many of these fields are not exposed by the console.  But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before an ordering node is deployed.
+In addition to the ordering node settings that are provided in the console when you provision an ordering node, you have the extra option to override some of the settings. If you are familiar with Hyperledger Fabric, these settings are configured in the `orderer.yaml` file when an ordering node is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings so many of these fields are not exposed by the console. You can find the orderer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
 The ability to override the ordering service configuration is available only in paid clusters.
 {: note} 
@@ -779,7 +779,7 @@ The ability to override the ordering service configuration is available only in 
 #### Why would I want to override an ordering service configuration?
 {: #ibp-console-adv-deployment-orderer-customization-why}
 
-The need to customize the ordering node configuration is less common than the peer or CA.  A common use case could be to override default timeouts or the default HSM settings. This list contains all of fields that can be overridden via editing the `JSON` when an ordering node is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample orderer configuration file](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/orderer.yaml){: external} options.
+The need to customize the ordering node configuration is less common than the peer or CA. A common use case could be to override default timeouts or the default HSM settings. This list contains all of fields that can be overridden by editing the `JSON` when an ordering node is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample orderer configuration file](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/orderer.yaml){: external} options.
 
 ```json
 {
@@ -823,9 +823,9 @@ The need to customize the ordering node configuration is less common than the pe
 #### Providing your own customizations when you create an ordering service
 {: #ibp-console-adv-deployment-orderer-create-json}
 
-After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`.  Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
+After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
 
-Alternatively, if you do check any of the advanced options when you configure the ordering service, those settings are included in the `JSON` on the Summary panel. Any edits that you make to the JSON will override what was specified in the console. You can insert additional fields or modify the generated `JSON`. The overrides that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the ordering node is deployed. If you are deploying multiple ordering nodes, then the customizations are applied to each ordering node.
+Alternatively, if you do check any of the advanced options when you configure the ordering service, those settings are included in the `JSON` on the Summary panel. Any edits that you make to the JSON overrides what was specified in the console. You can insert additional fields or modify the generated `JSON`. The overrides that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the ordering node is deployed. If you are deploying multiple ordering nodes, then the customizations are applied to each ordering node.
 
 You don't need to include the entire set of available parameters in the `JSON`, only the parameters you want to override. For example, if you want to deploy an ordering node and override the `ServerTimeout` and specify a different port for the `statsd address` you would paste in the following `JSON`:
 
@@ -895,14 +895,14 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 1. You need to gather the following certificate information and save it to individual files that can be uploaded to the console.   
 **Note:** The certificates inside the files can be in either `PEM` format or `base64 encoded` format.
  * **Peer or ordering service identity certificate** This is the signing certificate from your external CA that the peer or ordering service will use.
- * **Peer or ordering service identity private key**  This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
- * **Peer or ordering service organization MSP definition** You must manually generate this file using instructions provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
+ * **Peer or ordering service identity private key** This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
+ * **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
  * **TLS CA certificate** This is the public signing certificate created by your external TLS CA that will be used by this peer or ordering service.
   * **TLS CA private key** This is the private key corresponding to the signed certificate from your TLS CA that will be used by this peer or ordering service for secure communications with other members on the network.
- * **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
+ * **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.
  * **Intermediate TLS certificate**: (Optional) This is the TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
  * **Peer or ordering service admin identity certificate** This is the signing certificate from your external CA that the admin identity of this peer or ordering service will use. This certificate is also known as your peer or ordering service admin identity key.
- * **Peer or ordering service admin identity private key**  This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
+ * **Peer or ordering service admin identity private key** This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
 
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
@@ -937,31 +937,31 @@ Now, you can import the `.PEM` file into the console.
 ### Option 1: Create a new peer or single-node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-third-party-ca-create-peer-orderer}
 
-You can skip to **Option 2** if you want to create a new five node ordering service. The following instructions are only for creating a peer or single-node ordering service using certificates from your external CA.
+You can skip to **Option 2** if you want to create a new five node ordering service. The following instructions are only for creating a peer or single-node ordering service with certificates from your external CA.
 {:note}
 
-Now that you have gathered all the necessary certificates, you are ready to create a peer or ordering service which uses those certificates. Follow these instructions to create the peer or single-node ordering service with certificates from an external CA.
+Now that you have gathered all the necessary certificates, you are ready to create a peer or ordering service that uses those certificates. Follow these instructions to create the peer or single-node ordering service with certificates from an external CA.
 
-1. On the **Nodes** tab click **Add peer** or **Add ordering service**.
+1. On the **Nodes** tab, click **Add peer** or **Add ordering service**.
 2. Make sure the option to **Create** the peer or ordering service is selected. Then click **Next**.
-3. After entering a display name for the node, select the option to use an external CA.
+3. After you enter a display name for the node, select the option to use an external CA.
 4. Step through the panels and upload the files corresponding to the certificate and private key you gathered.
 5. Ensure you select the peer or ordering service organization MSP definition that you imported into the console from the drop-down list.
 6. On the last step when you are asked to associate an identity with your peer or ordering service, you need to click **New identity**.
 7. Specify any value as the **Display name** for this identity. The display name will be visible in the Wallet after you create the node.
 8. In the **Certificate** field, upload the file that contains the **Peer or ordering service admin identity certificate**.
-9. In the **Private key** field, upload the file that contains  the **Peer or ordering service admin identity private key**.
+9. In the **Private key** field, upload the file that contains the **Peer or ordering service admin identity private key**.
 10. Review the information on the Summary page and click **Add peer** or **Add ordering service**.
 
 ### Option 2: Create a five node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-create-five-node}
 
-When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster hosted on another cloud provider using {{site.data.keyword.cloud_notm}} Private, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol.  Before you deploy a five node ordering service, you need to build a JSON file that contains all of the certificates for the five nodes by using the following instructions:
+When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster that is hosted on another cloud provider by using {{site.data.keyword.cloud_notm}} Private, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol. Before you deploy a five node ordering service, you need to build a JSON file that contains all of the certificates for the five nodes by using the following instructions:
 
 #### Create the certificates JSON file
 {: #ibp-console-adv-deployment-create-certs-file}
 
-The required certificates JSON file contains an array of five `msp` entries, where each array element contains the certificates for one of the ordering nodes.  You must specify unique certificates for each node, do not reuse certificates across the different ordering nodes. The certificates in the `component` section represent the certificates for the node itself, while the `tls` section includes the certificates issued by the TLS CA.  
+The required certificates JSON file contains an array of five `msp` entries, where each array element contains the certificates for one of the ordering nodes. You must specify unique certificates for each node. Do not reuse certificates across the different ordering nodes. The certificates in the `component` section represent the certificates for the node itself, while the `tls` section includes the certificates issued by the TLS CA.  
 
 - **keystore**: The private key for this node
 - **signcerts**: The public key (also known as a signing certificate or enrollment certificate) assigned by the CA for this node.
@@ -969,7 +969,7 @@ The required certificates JSON file contains an array of five `msp` entries, whe
 - **admincerts**: The certificate of the admin users of the node. This might also be the admin of the organization.
 - **intermediatecerts**: If your network includes multi-level CAs, paste in the certificate of the intermediate CA. If you did not use an intermediate certificate, you can leave this field blank.
 
-Using the certificates you gathered above, paste in the corresponding certificate in the fields below, in base64 format.
+Using the certificates that you gathered above, paste in the corresponding certificate in the fields below, in base64 format.
 
 You can convert the contents of your certificate file, `<cert.pem>` from `PEM` format into a base64 string by running the following command on your local machine:
 
@@ -1075,15 +1075,15 @@ Save this definition as a `JSON` file.
 #### Create the ordering service and use the certificates from the external CA for each ordering node
 {: #ibp-console-adv-deployment-create-five-node-os}
 
-Now that you have created a JSON file with all of the certificates for the ordering nodes, you are ready to create the ordering service.
+After you create the JSON file with all of the certificates for the ordering nodes, you are ready to create the ordering service.
 
-1. On the **Nodes** tab click **Add ordering service**.
+1. On the **Nodes** tab, click **Add ordering service**.
 2. Make sure the option to **Create** an ordering service is selected. Then click **Next**.
 3. Enter a single **Display name** for the five ordering nodes. The display name that you provide will be the prefix for each ordering node name and a number will be appended to it.
 4. In **Number of ordering nodes**, select **Five ordering nodes**. Then select **External Certificate Authority configuration** and click **Next**.
 5. Click **Add file** to upload the JSON file that contains all of the certificates.
 6. Select the **Organization MSP** definition that you imported.
-7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections you make here are applied to all five ordering nodes.  If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](#ibp-console-adv-deployment-allocate-resources).
+7. Because you are using a paid cluster, on  the next panel, you have the opportunity to configure resource allocation for the nodes. The selections that you make here are applied to all five ordering nodes. If you want to learn more about how to allocate resources to your node, see this topic on [Allocating resources](#ibp-console-adv-deployment-allocate-resources).
 8. Review the summary and click **Add ordering service**.
 
 #### What's next
@@ -1422,5 +1422,5 @@ Lastly, on the CA **Summary** panel, you can override the default HSM configurat
 Because the HSM implementation currently only supports HSMs that implement the PKCS #11 standard, you cannot modify the `bccsp.default`  that is set to `PKCS11`.
 {: note}
 
-When the node is deployed, a private key for the specified node enroll id and secret is generated by the HSM and stored securely in the appliance.
+When the node is deployed, a private key for the specified node enroll ID and secret is generated by the HSM and stored securely in the appliance.
 
