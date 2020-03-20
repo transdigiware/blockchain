@@ -508,7 +508,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   If you are deploying to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](https://cloud.ibm.com/docs/containers?topic=containers-registry){: external}.
 
-3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, run the following commands using the Kubernetes CLI from your HSM client:
+5. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, run the following commands using the Kubernetes CLI from your HSM client:
 
   ```
   # Create configmap on cluster
@@ -522,7 +522,7 @@ After the local test in the previous step is successful, you are ready to deploy
   ```
   {: codeblock}
 
-4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> In order to use the HSM, the {{site.data.keyword.blockchainfull_notm}} Platform needs the address of the PCKS #11 proxy. The combination of the **cluster-ip address** of the PCKS #11 proxy and the associated port form the PCKS #11 proxy address that is required by console when you configure a node to use the HSM.  Again, run the following command using the Kubernetes CLI from your HSM client:
+6. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> In order to use the HSM, the {{site.data.keyword.blockchainfull_notm}} Platform needs the address of the PCKS #11 proxy. The combination of the **cluster-ip address** of the PCKS #11 proxy and the associated port form the PCKS #11 proxy address that is required by console when you configure a node to use the HSM.  Again, run the following command using the Kubernetes CLI from your HSM client:
 
   ```
   $ kubectl get service -n hsm
