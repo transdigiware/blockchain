@@ -33,7 +33,7 @@ IBM Blockchain Platform for IBM Cloud
 	{: .topicgroup}
 	Pricing
 		howto/pricing-saas.md
-		howto/pricing-software.md
+		reference/detailed-pricing.md
 
 	security.md
 	ibp-console-ha.md
@@ -73,6 +73,7 @@ IBM Blockchain Platform for IBM Cloud
 		howto/console-helm-install.md
 		howto/console-deploy-icp.md
 		howto/console-icp-manage.md
+		howto/pricing-software.md
 
 	{: .topicgroup}
 	Upgrading your Enterprise Plan network
@@ -103,7 +104,6 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
-	reference/detailed-pricing.md
 	reference/v10_fabric.md
 	reference/ibp_regions.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
