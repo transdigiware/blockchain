@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-20"
+lastupdated: "2020-03-20"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -47,7 +47,8 @@ The migration process involves steps that need to be completed by {{site.data.ke
 2. **Done by all network members:** [Update your applications to use service discovery](#enterprise-upgrade-overview-two)
 3. **Done by all network members:** [Use the upgrade tool to create new nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-overview-three)
 4. **Done by all network members:** [Migrate your chaincode to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-overview-four)
-5. **Done by all network members:** [Delete your Enterprise Plan network](#enterprise-upgrade-overview-five)
+5. **Done by all network members:** [Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-applications-five)
+6. **Done by all network members:** [Delete your Enterprise Plan network](#enterprise-upgrade-overview-six)
 
 All of the members of your blockchain network can use these steps to migrate to the new platform without experiencing network downtime or making extensive changes to their client applications.
 
@@ -91,8 +92,18 @@ After all of the organizations in your network have used the upgrade tool to cre
 
 After all the members of your channel have migrated their chaincode to the new platform using the upgrade tool, you can upgrade the chaincode on the channel using the {{site.data.keyword.blockchainfull_notm}} Platform console. After you upgrade the chaincode on your channels, you can start submitting transactions to your new nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. If any channel members have not used the upgrade tool to install the new chaincode version on their peers, they will no longer be able to endorse transactions after the upgrade. For more information, see [Migrating your smart contracts](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-smart-contracts).  
 
-## Step five: Delete your Enterprise Plan network
-{: #enterprise-upgrade-overview-five}
+
+## Step five: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0
+{: #enterprise-upgrade-applications-four}
+
+After you use the upgrade tool to migrate your chaincode, you can start using your applications to submit transactions to your new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. If you have updated your applications to use service discovery, you can download a new connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and import it into your application. If you cannot update your applications, follow the instructions for [updating your applications manually](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-manual).
+
+The {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile can be downloaded from the channels panel next to each chaincode that was instantiated on the channel. You can use the connection profile for all of your channels if you joined the same peers to each channel. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Chaincode is referred to as smart contracts on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console UI.
+
+After you import the new connection profile, you need to use the Certificate Authority on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to enroll a new identity for your application. Your application can then use service discovery to submit transactions to your nodes on the new platform and the nodes that remain on Enterprise Plan.
+
+## Step six: Delete your Enterprise Plan network
+{: #enterprise-upgrade-overview-six}
 
 When your applications can add transactions to the ledger by using the nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan. Before you delete your network, you must ensure that the other organizations in your consortium have updated their applications to use service discovery or that they have updated their applications to target the endpoints of your new nodes. If other applications continue to target your peers on Enterprise Plan, their transactions might fail to meet the chaincode endorsement policy. If other applications target your ordering nodes, their transactions might not be committed to the ledger.
 
