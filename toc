@@ -28,7 +28,6 @@ IBM Blockchain Platform for IBM Cloud
 		reference/sysdig.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 		reference/hsm-gemalto.md
-		reference/k8s.md
 
 	{: .topicgroup}
 	Pricing
@@ -105,6 +104,7 @@ IBM Blockchain Platform for IBM Cloud
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
 	reference/v10_fabric.md
+	reference/k8s.md
 	reference/ibp_regions.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
