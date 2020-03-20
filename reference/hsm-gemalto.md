@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-20"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -64,7 +64,7 @@ Because only the private keys of node identities are secured in the HSM, when yo
 
   After the secure communications are configured, you can register the client with the HSM server and then assign the HSM partition to the client.
 
-- [Part Four: Build a Docker image that contains the HSM client](#ibp-hsm-gemalto-part-four)
+- [Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy](#ibp-hsm-gemalto-part-four)
 
   You need to customize a set of `.yaml` files that are provided in these instructions in order to build the Docker image.
 
@@ -232,7 +232,7 @@ In this section you will get the HSM server certificate and create the HSM clien
    - Copy `/usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem` to `configs/key.pem`  
    - Copy `/usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem` to `configs/cert.pem`  
 
-### Part Four: Build a Docker image that contains the HSM client
+### Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy
 {: #ibp-hsm-gemalto-part-four}
 
 Next we build a Docker image that contains the HSM client that will run on your Kubernetes cluster. But before you can build the image, two files are required on the client: the `docker-entrypoint.sh` and the Docker image file.
@@ -477,6 +477,10 @@ After the local test in the previous step is successful, you are ready to deploy
   **Reminder:** If you are setting up multiple partitions and proxies, the value of ${LABEL} and `metadata.name` parameters need to be unique across proxies.
   {: note}
 
+  When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. For example, in the previous code snippet you could replace <Docker-image> with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io:`.
+
+  If you are deploying to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](https://cloud.ibm.com/docs/containers?topic=containers-registry){: external}.
+
 3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, run the following commands using the Kubernetes CLI from your HSM client:
 
   ```
@@ -513,9 +517,7 @@ After the local test in the previous step is successful, you are ready to deploy
 ### What's next
 {: #ibp-hsm-gemalto-next-steps}
 
-- After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM, you are ready to create a PKCS #11 proxy that allows the blockchain nodes to communicate with the HSM. See [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) to learn more about the process.  
-
-- Finally, when you create a CA, peer, or ordering node, you can select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  
+After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the PKCS #11 proxy you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  
 
 ## Using multiple partitions
 {: #ibp-hsm-gemalto-multiple-partitions}

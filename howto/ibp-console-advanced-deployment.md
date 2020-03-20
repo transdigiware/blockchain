@@ -1085,13 +1085,13 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 **Note:** The certificates inside the files can be in either `PEM` format or `base64 encoded` format.
  * **Peer or ordering service identity certificate** This is the signing certificate from your external CA that the peer or ordering service will use.
  * **Peer or ordering service identity private key** This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
- * **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
  * **TLS CA certificate** This is the public signing certificate created by your external TLS CA that will be used by this peer or ordering service.
   * **TLS CA private key** This is the private key corresponding to the signed certificate from your TLS CA that will be used by this peer or ordering service for secure communications with other members on the network.
  * **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.
  * **Intermediate TLS certificate**: (Optional) This is the TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
  * **Peer or ordering service admin identity certificate** This is the signing certificate from your external CA that the admin identity of this peer or ordering service will use. This certificate is also known as your peer or ordering service admin identity key.
  * **Peer or ordering service admin identity private key** This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
+ * **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
 
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
@@ -1307,7 +1307,9 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 * The use of an HSM introduces overhead in transaction processing, therefore you can expect a performance hit when using an HSM to manage the private keys for your nodes.
 
 Configuring a node to use HSM is a three-part process:
-1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform.
+1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
+	-  If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform including the PKCS #11 proxy. After that is completed you can skip to Part 3 **Configure the node to use HSM**.
+	- If you want to try out SoftHSMm or learn more about the PCKS #11 proxy, continue to Part 2 **Set up a PKCS #11 proxy**.
 2. **Set up a PKCS #11 proxy**. The proxy enables the node to communicate with the HSM. [See Setting up a PKCS #11 proxy for HSM](#ibp-console-adv-deployment-pkcs11-proxy) for your HSM.
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
@@ -1332,8 +1334,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is bas
 
 The first step is to build a Docker image for the PKCS #11 proxy and add the HSM-specific library to the image.
 
-- The following example shows the process for adding the `SoftHSM` drivers to the image. (`Softhsm` is a software version of HSM that can be used for HSM simulation and testing, but you need to replace it with the library from your HSM provider.)
-- If you are using Cloud HSM, refer to this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for configuring it to work with the {{site.data.keyword.blockchainfull_notm}} Platform. -->
+- The following example shows the process for adding the `SoftHSM` drivers to the image. (`SoftHSM` is a software version of HSM that can be used for HSM simulation and testing, but if you are using your own HSM, you need to replace it with the library from your HSM provider.)  If you are using {{site.data.keyword.cloud_notm}} HSM, the proxy instructions are included in the [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto).
 
 If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a docker registry that you can access from behind your firewall.
 {: note}
