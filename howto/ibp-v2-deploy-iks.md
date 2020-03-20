@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-20"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -68,10 +68,7 @@ Before you deploy the console, ensure that you understand the following consider
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Kubernetes clusters that are configured with private VLANs are not supported.
 
-## Video tutorial
-{: #ibp-v2-deploy-video}
 
-Watch the following [video series]( http://ibm.biz/BlockchainPlatformSeries) to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform console and how you can get started to deploy {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Before you begin
 {: #ibp-v2-deploy-iks-prereq}

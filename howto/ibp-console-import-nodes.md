@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-20"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -35,7 +35,7 @@ The console includes the option to import nodes that were created in another {{s
 
 For cases when components have been deployed by one console and need to be operated from other, as well as for cases when certain actions are not possible unless nodes and MSPs and identities are "known" to a console (that is, unless those components have been created in the console or imported into it), the {{site.data.keyword.blockchainfull_notm}} Platform allows nodes, identities, and MSPs to be exported from one console and imported into another.
 
-While it is not longer necessary to associate an admin identity when importing a node, there are cases where you will want to import the admin identity associated with a node or MSP.
+While it is no longer necessary to associate an admin identity when importing a node, there are cases where you will want to import the admin identity associated with a node or MSP.
 
 There are two main reasons to import components:
 
@@ -57,6 +57,7 @@ While importing nodes provides the ability to perform many of the actions that c
 - All nodes to be imported must have been deployed by using the {{site.data.keyword.blockchainfull_notm}} Platform console or [{{site.data.keyword.blockchainfull_notm}} APIs](https://cloud.ibm.com/apidocs/blockchain){: external}.
 - You cannot patch nodes that have been imported into the console.
 - You cannot delete nodes that you imported into the console from the cluster where they were deployed. You can only remove the node from the console it was imported to.
+- You cannot override the settings of an imported node by using the **Edit configuration** button to update the `JSON`.
 - If you are importing a node that is deployed on a network deployed locally, you must ensure that the gRPC web proxy port used by the component is externally exposed to the console. For more information, see [Importing nodes from a locally deployed network](#ibp-console-import-icp).
 - When you open the tile of an imported node, the Fabric version is not visible and the **Usage and info** tab is not available, even if you have also imported the admin identity.
 

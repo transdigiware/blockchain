@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-20"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -76,7 +76,7 @@ You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no cha
 5. On the **Welcome and pre-requisites** panel that opens, click **I have a Cluster (Skip to Link a cluster)**.
 6. In the **Select an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** drop-down list, select your free cluster. **Note:** If your free cluster is not listed, ensure sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
 7. Click **Deploy to cluster**.
-8. When the platform is ready, you can click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the blockchain console UI and get started. Watch the [video](http://ibm.biz/BlockchainPlatformSeries2){: external} to learn how to Deploy a peer on the {{site.data.keyword.blockchainfull_notm}} Platform,  or try out the getting started tutorial [Build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network).  
+8. When the platform is ready, you can click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the blockchain console UI and get started. 
 
 After 30 days, your Kubernetes cluster is deleted along with all of your blockchain nodes and data.
 
