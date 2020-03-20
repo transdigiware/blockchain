@@ -47,7 +47,7 @@ The migration process involves steps that need to be completed by {{site.data.ke
 2. **Done by all network members:** [Update your applications to use service discovery](#enterprise-upgrade-overview-two)
 3. **Done by all network members:** [Use the upgrade tool to create new nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-overview-three)
 4. **Done by all network members:** [Migrate your chaincode to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-overview-four)
-5. **Done by all network members:** [Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-applications-five)
+5. **Done by all network members:** [Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0](#enterprise-upgrade-overview-five)
 6. **Done by all network members:** [Delete your Enterprise Plan network](#enterprise-upgrade-overview-six)
 
 All of the members of your blockchain network can use these steps to migrate to the new platform without experiencing network downtime or making extensive changes to their client applications.
@@ -84,7 +84,6 @@ After your Enterprise Plan network is upgraded to Fabric v1.4.3 and a RAFT order
 You cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console or APIs to add or remove nodes from your network until the upgrade is complete. If you want to remove upgraded nodes for any reason, such as a deployment failure, you need to remove the nodes using the upgrade tool. Otherwise, your Enterprise Plan network and your network on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 will become out of synch.
 {:note}
 
-
 ## Step four: Migrate your chaincode to {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 {: #enterprise-upgrade-overview-four}
 
@@ -94,7 +93,7 @@ After all the members of your channel have migrated their chaincode to the new p
 
 
 ## Step five: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0
-{: #enterprise-upgrade-applications-four}
+{: #enterprise-upgrade-overview-five}
 
 After you use the upgrade tool to migrate your chaincode, you can start using your applications to submit transactions to your new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. If you have updated your applications to use service discovery, you can download a new connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and import it into your application. If you cannot update your applications, follow the instructions for [updating your applications manually](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-manual).
 
