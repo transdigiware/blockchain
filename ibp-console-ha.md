@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-03-20"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -156,7 +156,7 @@ _This scenario only applies to customers using the {{site.data.keyword.cloud_not
 
    A single zone is sufficient for a development and test environment if you can tolerate an zone outage. Therefore, to leverage the HA benefits of multiple zones,  when you provision your cluster, ensure that multiple zones are selected. Two zones are better than one, but three are recommended for HA to increase the likelihood that the two additional zones can absorb the workload of any single zone failure.  When redundant peers from the same organization and channel, and ordering nodes, are spread across multiple zones, a failure in any one zone should not affect the ability of the network to process transactions because the workload will shift to the blockchain nodes in the other zones.
 
-   You can use the {{site.data.keyword.blockchainfull_notm}} Platform console to specify the zone where a CA, peer, or ordering node is created. When you deploy a CA, peer, or ordering service (or a single ordering node), check the Advanced deployment option that is labelled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+   You can use the {{site.data.keyword.blockchainfull_notm}} Platform console to specify the zone where a CA, peer, or ordering node is created. When you deploy a CA, peer, or ordering service (or a single ordering node), check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
    The CA zone selection is only available when the default database type SQLite is used.
    {: note}

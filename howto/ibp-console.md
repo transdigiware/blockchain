@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-20"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -100,7 +100,6 @@ Before you deploy the console, ensure that you understand the following consider
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster or in the console. They are only kept in the local storage of your browser. If you switch browsers, you will have to import your created identities into that browser.
 - {{site.data.keyword.blockchainfull_notm}} Platform is available in select regions. Refer to this topic on [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) for an updated list.
 - {{site.data.keyword.blockchainfull_notm}} Platform cannot be deployed on OpenShift clusters created using the {{site.data.keyword.IBM_notm}} Kubernetes service.
-- Your {{site.data.keyword.cloud_notm}} Kubernetes cluster must be version 1.14-1.16.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster.  Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster. If you choose a paid Kubernetes cluster instead of the limited free cluster, you will incur charges for the Kubernetes service to your {{site.data.keyword.cloud_notm}} account.
@@ -126,7 +125,7 @@ For more information about how to use the console to start deploying nodes and b
 ## Architecture reference
 {: #ibp-console-overview-architecture}
 
-The following illustration shows the components of your blockchain network and how they interact.<
+The following illustration shows the components of your blockchain network and how they interact.
 ![Sample network structure](../images/IBP_V2_Architecture-v213.svg "Architecture reference"){: caption="Figure 1. Architecture reference" caption-side="bottom"}
 
 Notice how a single instance of the console, also known as Operational Tooling, is created for each {{site.data.keyword.blockchainfull_notm}} Platform Service Instance. When a peer, orderer or CA node is deployed by using the console, it is deployed into the **Kubernetes Cluster Service Instance**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-20"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -302,7 +302,7 @@ The peer log includes:
 ```
 [main] InitCmd -> ERRO 001 Cannot run peer because cannot init crypto, folder “/certs/msp” does not exist`
 ```
-or the ordering node contain:
+or the ordering node log contains:
 
 ```
 Failed to initialize local MSP: admin 0 is invalid [The identity does not contain OU [CLIENT], MSP: [orderermsp],The identity does not contain OU [ADMIN], MSP: [orderermsp]]
@@ -354,7 +354,7 @@ or
 This problem happens when the PKCS #11 proxy that is associated with the HSM is unreachable to due a network problem or if the proxy restarts after the node has connected to it.
 {: tsCauses}
 
-To re-establish communications between the node and the proxy, restart the failing node by deleting the pod. A new pod will be created and the connection with the PKCS #11 proxy is restored. Use the following steps to restart the failing node:
+To re-establish communications between the node and the proxy, restart the failing node by deleting the pod associated with the node. A new pod will be created and the connection with the PKCS #11 proxy is restored. Use the following steps to restart the failing node:
 {: tsResolve}
 - List the pods: `kubectl get pods -n <NAMESPACE>`
 - Delete the pod: `kubectl delete pod -n <NAMESPACE> <PODNAME>`  

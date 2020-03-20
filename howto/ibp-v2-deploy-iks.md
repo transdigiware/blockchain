@@ -63,7 +63,7 @@ Before you deploy the console, ensure that you understand the following consider
 - You are also responsible for monitoring the resource usage of your Kubernetes cluster by using the Kubernetes dashboard. If you need to increase storage capacity or performance of your cluster, see this information on how to [modify your existing volume](/docs/containers?topic=containers-file_storage#change_storage_configuration){: external}.
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster.
 - {{site.data.keyword.blockchainfull_notm}} Platform is available in select regions. Refer to this topic on [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) for an updated list.
-- {{site.data.keyword.blockchainfull_notm}} Platform is compatible with all [supported version](/docs/containers?topic=containers-cs_versions#version_types){: external} of  {{site.data.keyword.cloud_notm}} Kubernetes service.
+- {{site.data.keyword.blockchainfull_notm}} Platform is compatible with all [supported versions](/docs/containers?topic=containers-cs_versions#version_types){: external} of  {{site.data.keyword.cloud_notm}} Kubernetes service.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more. Note that when your Kubernetes cluster is configured to use any of the IBM Cloud storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Kubernetes clusters that are configured with private VLANs are not supported.
@@ -96,7 +96,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 - Chrome Version 80.0.3987.122 (Official Build) (64-bit)
 - Firefox (non-ESR): Version 69.0.1
 - Safari Version 13.0.3 (15608.3.10.1.4)
-- Edge: v44.17763.1.0
 
 ### Resources required
 {: #ibp-v2-deploy-iks-resources-required}
