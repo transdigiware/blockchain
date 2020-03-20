@@ -1460,7 +1460,8 @@ kubectl create ns hsm
 ##### **Step two:** Create a Kubernetes secret
 {: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s2}
 
-Create an image pull secret for pulling the image from my.repo.docker.hub. The command might look something like
+Create an image pull secret for pulling the image from my.repo.docker.hub. The command might look something like:
+
 ```
 kubectl create secret docker-registry docker-pull-secret --docker-username=<DOCKER_HUB_ID> --docker-password=<DOCKER_HUB_PWD> --docker-email=<EMAIL> --docker-server=<<DOCKER_HUB_ID>:pkcs11-proxy:v1
 ```

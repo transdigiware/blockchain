@@ -324,7 +324,6 @@ Next we build a Docker image that contains the HSM client that will run on your 
   RUN chmod +x docker-entrypoint.sh
 
   ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
-  # ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
   ENV PATH="$PATH:/usr/safenet/lunaclient/bin"
   ENV LIBRARY_LOCATION=/usr/safenet/lunaclient/lib/libCryptoki2_64.so
 
@@ -379,9 +378,35 @@ Next we build a Docker image that contains the HSM client that will run on your 
 ### Part Five: Deploy the Docker image onto your Kubernetes cluster
 {: #ibp-hsm-gemalto-part-five}  
 
-After the local test in the previous step is successful, you are ready to deploy the Docker image to your Kubernetes cluster. In order to deploy the image, you need to create the `service.yaml` and `deployment.yaml` files.
+After the local test in the previous step is successful, you are ready to deploy the Docker image to your Kubernetes cluster. In order to deploy the image, you need to create the `hsm` namespace, a Kubernetes secret, as well as the `service.yaml` and `deployment.yaml` files.
+1. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Create a namespace for HSM on your Kubernetes cluster:
 
-1. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>  Copy and paste the following text to a file named `service.yaml`:
+  ```
+  kubectl create ns hsm
+  ```
+  {: codeblock}
+
+  
+
+2. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Create a Kubernetes secret in the `hsm` namespace
+  Create an image pull secret named `docker-pull-secret` for pulling the image from DockerHub which allows you to deploy containers to Kubernetes namespaces other than `default`. You will use the name of this secret in the `deployment.yaml` file in a subsequent step.
+
+  ```
+  kubectl create secret docker-registry docker-pull-secret --docker-username=<DOCKER_HUB_ID> --docker-password=<DOCKER_HUB_PWD> --docker-email=<EMAIL> --docker-server=<<DOCKER_HUB_ID>:pkcs11-proxy:v1 -n hsm
+  ```
+  {: codeblock}
+
+  - Replace `<DOCKER_HUB_ID>` with the docker user name.
+  - Replace `<DOCKER_HUB_PWD>` with the docker password.
+  - Replace `<EMAIL>` with your DockerHub email address.
+
+  For example:
+  ```
+  kubectl create secret docker-registry docker-pull-secret --docker-username=dockeruser --docker-password=dockerpwd --docker-email=dockeruser@example.com --docker-server=dockeruser/pkcs11-proxy:v1 -n hsm
+  ```
+  {: codeblock}
+
+3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>  Copy and paste the following text to a file named `service.yaml`:
 
   ```
   apiVersion: v1
@@ -409,13 +434,14 @@ After the local test in the previous step is successful, you are ready to deploy
   If you are setting up multiple partitions and proxies, the value of the `${LABEL}` and `metadata.name` parameters need to be unique across proxies.
   {: note}
 
-2. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Copy and paste the following text to a file named `deployment.yaml`:
+4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Copy and paste the following text to a file named `deployment.yaml`:
 
   ```
   apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: pkcs11-proxy
+    namespace: hsm
     labels:
       app: ${LABEL}
   spec:
@@ -429,10 +455,10 @@ After the local test in the previous step is successful, you are ready to deploy
           app: ${LABEL}
       spec:
         imagePullSecrets:
-        - name: <>
+        - name: <DOCKER-PULL-SECRET>
         containers:
         - name: proxy
-          image: <Docker-image>
+          image: <DOCKER-IMAGE>
           imagePullPolicy: Always
           resources:
             requests:
@@ -470,7 +496,8 @@ After the local test in the previous step is successful, you are ready to deploy
 
   Replace
   - `${LABEL}` with same value you specified in the `service.yaml`.
-  - `<Docker-image>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
+  - `<DOCKER-IMAGE>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
+  - `<DOCKER-PULL-SECRET>` the name of the Kubernetes secret you created in the previous step.
   - `{HSM_ADDRESS}` with the IP address of the HSM.
   - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
 
@@ -485,7 +512,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   ```
   # Create configmap on cluster
-  kubectl create cm gemalto-config --from-file=configs/server.pem --from-file=configs/cert.pem --from-file=configs/key.pem
+  kubectl create cm -n hsm gemalto-config --from-file=configs/server.pem --from-file=configs/cert.pem --from-file=configs/key.pem
 
   # Create service on cluster
   kubectl create -f service.yaml
