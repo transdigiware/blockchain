@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-20"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1333,7 +1333,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is bas
 The first step is to build a Docker image for the PKCS #11 proxy and add the HSM-specific library to the image.
 
 - The following example shows the process for adding the `SoftHSM` drivers to the image. (`Softhsm` is a software version of HSM that can be used for HSM simulation and testing, but you need to replace it with the library from your HSM provider.)
-- If you are using Cloud HSM, refer to this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for configuring it to work with the {{site.data.keyword.blockchainfull}} Platform.
+- If you are using Cloud HSM, refer to this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for configuring it to work with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a docker registry that you can access from behind your firewall.
 {: note}
