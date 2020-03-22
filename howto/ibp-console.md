@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-03-22"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -82,7 +82,7 @@ This offering is intended for experienced Fabric users who want to build and man
 
 | | |
 |----|----|
-| Kubernetes | All [supported versions](/docs/containers?topic=containers-cs_versions#version_types){: external} of {{site.data.keyword.cloud_notm}} Kubernetes service |
+| Kubernetes | v1.14-v1.17 |
 | Infrastructure type | <ul><li>Classic only <li>For OpenShift see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp){: external}</ul>|
 | Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Support any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
 | VLAN | <ul><li>[VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported,  a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |

@@ -246,16 +246,16 @@ Next we build a Docker image that contains the HSM client that will run on your 
   # HSM_ADDRESS - address where the HSM server is running
 
   # add the server
-  vtl addServer -n <HSM_ADDRESS> -c /configs/server.pem
+  vtl addServer -n ${HSM_ADDRESS} -c /configs/server.pem
 
   # create fake certs for client for lunaclient to register the addresses
   # in the config
-  vtl createcert -n <CLIENT_ADDRESS>
+  vtl createcert -n ${CLIENT_ADDRESS}
 
   # copy the certs mounted to the location where the client looks
   # for them
-  cp /configs/cert.pem /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>.pem
-  cp /configs/key.pem /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>Key.pem
+  cp /configs/cert.pem /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem
+  cp /configs/key.pem /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem
 
   # finally verify that the connection worked
   vtl verify
@@ -499,8 +499,8 @@ After the local test in the previous step is successful, you are ready to deploy
   - `<HSM_ADDRESS>` with the IP address of the HSM.
   - `<CLIENT_ADDRESS>` with either the IP address or fully qualified host name of the client.
 
-  **Reminder:** If you are setting up multiple partitions and proxies, the value of <LABEL> and `metadata.name` parameters need to be unique across proxies.
-  : note}
+  If you are setting up multiple partitions and proxies, the value of <LABEL> and `metadata.name` parameters need to be unique across proxies.
+  {: tip}
 
   When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. For example, in the previous code snippet you could replace <Docker-image> with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io:`.
 
