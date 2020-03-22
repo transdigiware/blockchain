@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-22"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -23,7 +23,7 @@ subcollection: blockchain
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform
 {: #get-started-ibp}
 
-{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}. Clients can build, operate, and grow their blockchain networks with an offering that can be used from development through production.
+{{site.data.keyword.blockchainfull}} Platform provides a managed and full stack blockchain-as-a-service (BaaS) offering that allows you to deploy blockchain components in environments of your choice. Clients can build, operate, and grow their blockchain networks with an offering that can be used from development through production.
 {:shortdesc}
 
 Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, read the technical and support information in the [Disclaimer](/docs/blockchain?topic=blockchain-disclaimer#disclaimer) section.
@@ -62,7 +62,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 ### {{site.data.keyword.blockchainfull_notm}} images
 {: #get-started-ibp-images}
 
-- Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 includes an entitlement to images for [peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer), [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and [smart contract](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts) containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}}  images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information,
+- Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 includes an entitlement to images for [peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer), [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and [smart contract](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts) containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}} images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information,
 
 ## Next steps
 {: #get-started-ibp-next-steps}

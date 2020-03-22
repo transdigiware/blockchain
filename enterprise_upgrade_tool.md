@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-22"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -32,7 +32,7 @@ The upgrade tool user interface guides you through a series of independent steps
 ### Prerequisites
 {: #enterprise-upgrade-tool-prerequisites}
 
-- {{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4.6 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete.
+- {{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric 1.4.3 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete.
 
 ### Considerations and limitations
 {: #enterprise-upgrade-tool-considerations}
