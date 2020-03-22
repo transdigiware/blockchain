@@ -89,10 +89,10 @@ The steps in this topic focus specifically on the creation of the HSM and the HS
 
 1. Provision the HSM and configure it with at least one partition. For example, you can follow instructions for [Provisioning {{site.data.keyword.cloud_notm}} HSM](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-provisioning-ibm-cloud-hsm){: external}.
 
-   Be sure to record the `Label` and `PIN` for the partition. You will need to provide these values later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `{HSM_ADDRESS}`.
+   Be sure to record the `Label` and `PIN` for the partition. You will need to provide these values later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `<HSM_ADDRESS>`.
    {: important}
 
-2. [Install the HSM client](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `{CLIENT_ADDRESS}`.
+2. [Install the HSM client](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `<CLIENT_ADDRESS>`.
 
   The client runs on AIX, Linux, Oracle Solaris, or Microsoft Windows, but is not supported on MacOS.
   {: tip}
@@ -105,72 +105,72 @@ In this section you will get the HSM server certificate and create the HSM clien
 1. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Run the following command using the HSM client to get the server certificate. This certificate enables the client to communicate with the server.
 
   ```bash
-  scp hsm_admin@${HSM_ADDRESS}:server.pem server.pem
+  scp hsm_admin@<HSM_ADDRESS>:server.pem server.pem
   ```
   {: codeblock}
 
   Replace
-  - `{HSM_ADDRESS}` with the IP address of the HSM.
+  - `<HSM_ADDRESS>` with the IP address of the HSM.
 
 2. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, add the HSM server to the client configuration by running the following command:
 
   ```bash
-  vtl addServer -n ${HSM_ADDRESS} -c server.pem
+  vtl addServer -n <HSM_ADDRESS> -c server.pem
   ```
   {: codeblock}
 
   Replace
-  - `{HSM_ADDRESS}` with the IP address of the HSM.
+  - `<HSM_ADDRESS>` with the IP address of the HSM.
 
 3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Create the certificate and private key for the client by running the command:
 
   ```bash
-  vtl createcert -n ${CLIENT_ADDRESS}
+  vtl createcert -n <CLIENT_ADDRESS>
   ```
   {: codeblock}
 
   Replace
-  - `{CLIENT_ADDRESS}` with the IP address or fully qualified host name of the client.
+  - `<CLIENT_ADDRESS>` with the IP address or fully qualified host name of the client.
 
-  The name of the generated certificates includes the `{CLIENT_ADDRESS}`. The output of this command looks similar to:
+  The name of the generated certificates includes the `<CLIENT_ADDRESS>`. The output of this command looks similar to:
   ```
-  Private Key created and written to: /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem
-  Certificate created and written to: /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem
+  Private Key created and written to: /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>Key.pem
+  Certificate created and written to: /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>.pem
   ```
 
 4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Copy the client certificate and private key to the HSM server by running the command:
 
   ```bash
-  scp /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem hsm_admin@${HSM_ADDRESS}:.
+  scp /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>.pem hsm_admin@<HSM_ADDRESS>:.
   ```
   {: codeblock}
 
   Replace
-  - `{CLIENT_ADDRESS}` with the IP address or fully qualified host name of the client.
-  - `{HSM_ADDRESS}` with the IP address of the HSM.
+  - `<CLIENT_ADDRESS>` with the IP address or fully qualified host name of the client.
+  - `<HSM_ADDRESS>` with the IP address of the HSM.
 
 ### Part Three: Register the client with the HSM server
 {: #ibp-hsm-gemalto-part-three}
 
 1. <img src="../images/icon-hsm-2.png" alt="HSM server" width="30" style="width:30px; border-style: none"/> SSH into the HSM as the admin the HSM server and register the client by running **one** of the following commands.
 
-  If the `{CLIENT_ADDRESS}` is the IP address of the client:
+  If the `<CLIENT_ADDRESS>` is the IP address of the client:
 
   ```bash
-  client register -client ${CLIENT_NAME} -ip ${CLIENT_ADDRESS}
+  client register -client ${CLIENT_NAME} -ip <CLIENT_ADDRESS>
   ```
   {: codeblock}
 
-  If the `{CLIENT_ADDRESS}` is the fully qualified host name of the client:
+  If the `<CLIENT_ADDRESS>` is the fully qualified host name of the client:
 
   ```bash
-  client register -client ${CLIENT_NAME} -hostname ${CLIENT_ADDRESS}
+  client register -client ${CLIENT_NAME} -hostname <CLIENT_ADDRESS>
   ```
   {: codeblock}
 
   Replace
   - `{CLIENT_NAME}` with the name of the client. This value can be anything meaningful to you.
-  - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
+  - `<CLIENT_ADDRESS>` with either the IP address or fully qualified host name of the client.
 
 2. <img src="../images/icon-hsm-2.png" alt="HSM server" width="30" style="width:30px; border-style: none"/> Because network address translation (NAT) exists between the client and the HSM, we need to disable client source IP address validation by the Network Trust Link Server (NTLS) upon Network Trust Link Agent (NTLA) client connection.  Disable ip check on the HSM server and then restart the NTLS service on the HSM server by running the following commands:
 
@@ -226,11 +226,11 @@ In this section you will get the HSM server certificate and create the HSM clien
   0	    500752010 	      partition1
   ```
 
-5. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>  Create a `configs` folder on the client and then copy the `server.pem` certificate from [Part two](#ibp-hsm-gemalto-part-two), step 1 and the `${CLIENT_ADDRESS}Key.pem` and `${CLIENT_ADDRESS}.pem` files from [Part two](#ibp-hsm-gemalto-part-two), step 3 into the folder:
+5. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>  Create a `configs` folder on the client and then copy the `server.pem` certificate from [Part two](#ibp-hsm-gemalto-part-two), step 1 and the `<CLIENT_ADDRESS>Key.pem` and `<CLIENT_ADDRESS>.pem` files from [Part two](#ibp-hsm-gemalto-part-two), step 3 into the folder:
 
    - Copy `server.pem` to `configs/server.pem`  
-   - Copy `/usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem` to `configs/key.pem`  
-   - Copy `/usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem` to `configs/cert.pem`  
+   - Copy `/usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>Key.pem` to `configs/key.pem`  
+   - Copy `/usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>.pem` to `configs/cert.pem`  
 
 ### Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy
 {: #ibp-hsm-gemalto-part-four}
@@ -246,16 +246,16 @@ Next we build a Docker image that contains the HSM client that will run on your 
   # HSM_ADDRESS - address where the HSM server is running
 
   # add the server
-  vtl addServer -n ${HSM_ADDRESS} -c /configs/server.pem
+  vtl addServer -n <HSM_ADDRESS> -c /configs/server.pem
 
   # create fake certs for client for lunaclient to register the addresses
   # in the config
-  vtl createcert -n ${CLIENT_ADDRESS}
+  vtl createcert -n <CLIENT_ADDRESS>
 
   # copy the certs mounted to the location where the client looks
   # for them
-  cp /configs/cert.pem /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}.pem
-  cp /configs/key.pem /usr/safenet/lunaclient/cert/client/${CLIENT_ADDRESS}Key.pem
+  cp /configs/cert.pem /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>.pem
+  cp /configs/key.pem /usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>Key.pem
 
   # finally verify that the connection worked
   vtl verify
@@ -343,17 +343,17 @@ Next we build a Docker image that contains the HSM client that will run on your 
 4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Before you deploy the Docker image to your Kubernetes cluster, it is recommended that you first try to run the image locally. Run the following command to verify that the image was built successfully:
 
    ```
-   docker run -it -e HSM_ADDRESS=${HSM_ADDRESS} -e CLIENT_ADDRESS=${CLIENT_ADDRESS} -v configs/:/configs test
+   docker run -it -e HSM_ADDRESS=<HSM_ADDRESS> -e CLIENT_ADDRESS=<CLIENT_ADDRESS> -v configs/:/configs test
    ```
    {: codeblock}
 
    Replace
-   - `{HSM_ADDRESS}` with the IP address of the HSM.
-   - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
+   - `<HSM_ADDRESS>` with the IP address of the HSM.
+   - `<CLIENT_ADDRESS>` with either the IP address or fully qualified host name of the client.
 
   The output of this command looks similar to:
   ```
-  $ docker run -it -e HSM_ADDRESS=${HSM_ADDRESS} -e CLIENT_ADDRESS=${CLIENT_ADDRESS} -v ${PWD}/configs/:/configs test
+  $ docker run -it -e HSM_ADDRESS=<HSM_ADDRESS> -e CLIENT_ADDRESS=<CLIENT_ADDRESS> -v ${PWD}/configs/:/configs test
   + vtl addServer -n 10.208.66.177 -c /configs/server.pem
 
   New server 10.208.66.177 successfully added to server list.
@@ -413,7 +413,7 @@ After the local test in the previous step is successful, you are ready to deploy
     name: pkcs11-proxy
     namespace: hsm
     labels:
-      app: ${LABEL}
+      app: <LABEL>
   spec:
     ports:
     - name: http
@@ -421,15 +421,15 @@ After the local test in the previous step is successful, you are ready to deploy
       protocol: TCP
       targetPort: 2345
     selector:
-      app: ${LABEL}
+      app: <LABEL>
     type: ClusterIP
   ```
   {: codeblock}
 
   Replace
-  `${LABEL}` with any value you want to use to represent this proxy. You need to use the same value in the `service.yaml` and the `deployment.yaml` in the next step.
+  `<LABEL>` with any value you want to use to represent this proxy. You need to use the same value in the `service.yaml` and the `deployment.yaml` in the next step.
 
-  If you are setting up multiple partitions and proxies, the value of the `${LABEL}` and `metadata.name` parameters need to be unique across proxies.
+  If you are setting up multiple partitions and proxies, the value of the `<LABEL>` and `metadata.name` parameters need to be unique across proxies.
   {: note}
 
 4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Copy and paste the following text to a file named `deployment.yaml`:
@@ -441,16 +441,16 @@ After the local test in the previous step is successful, you are ready to deploy
     name: pkcs11-proxy
     namespace: hsm
     labels:
-      app: ${LABEL}
+      app: <LABEL>
   spec:
     replicas: 1
     selector:
       matchLabels:
-        app: ${LABEL}
+        app: <LABEL>
     template:
       metadata:
         labels:
-          app: ${LABEL}
+          app: <LABEL>
       spec:
         imagePullSecrets:
         - name: <DOCKER-PULL-SECRET>
@@ -469,9 +469,9 @@ After the local test in the previous step is successful, you are ready to deploy
             - name: LICENSE
               value: accept
             - name: HSM_ADDRESS
-              value: ${HSM_ADDRESS}
+              value: <HSM_ADDRESS>
             - name: CLIENT_ADDRESS
-              value: ${CLIENT_ADDRESS}
+              value: <CLIENT_ADDRESS>
           volumeMounts:
           - name: config-volume
             mountPath: /configs
@@ -493,14 +493,14 @@ After the local test in the previous step is successful, you are ready to deploy
   {: codeblock}
 
   Replace
-  - `${LABEL}` with same value you specified in the `service.yaml`.
+  - `<LABEL>` with same value you specified in the `service.yaml`.
   - `<DOCKER-IMAGE>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
   - `<DOCKER-PULL-SECRET>` the name of the Kubernetes secret you created in the previous step.
-  - `{HSM_ADDRESS}` with the IP address of the HSM.
-  - `{CLIENT_ADDRESS}` with either the IP address or fully qualified host name of the client.
+  - `<HSM_ADDRESS>` with the IP address of the HSM.
+  - `<CLIENT_ADDRESS>` with either the IP address or fully qualified host name of the client.
 
-  **Reminder:** If you are setting up multiple partitions and proxies, the value of ${LABEL} and `metadata.name` parameters need to be unique across proxies.
-  {: note}
+  **Reminder:** If you are setting up multiple partitions and proxies, the value of <LABEL> and `metadata.name` parameters need to be unique across proxies.
+  : note}
 
   When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. For example, in the previous code snippet you could replace <Docker-image> with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io:`.
 
