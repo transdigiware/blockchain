@@ -386,7 +386,7 @@ After the local test in the previous step is successful, you are ready to deploy
   ```
   {: codeblock}
 
-2. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Create a Kubernetes secret in the `hsm` namespace
+2. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Create a Kubernetes secret in the `hsm` namespace:  
   Create an image pull secret named `docker-pull-secret` for pulling the image from DockerHub which allows you to deploy containers to Kubernetes namespaces other than `default`. You will use the name of this secret in the `deployment.yaml` file in a subsequent step.
 
   ```
@@ -494,7 +494,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   Replace
   - `<LABEL>` with same value you specified in the `service.yaml`.
-  - `<DOCKER-IMAGE>` with Docker image that you created in [Part four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
+  - `<DOCKER-IMAGE>` with Docker image that you created in [Part Four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
   - `<DOCKER-PULL-SECRET>` the name of the Kubernetes secret you created in the previous step.
   - `<HSM_ADDRESS>` with the IP address of the HSM.
   - `<CLIENT_ADDRESS>` with either the IP address or fully qualified host name of the client.
