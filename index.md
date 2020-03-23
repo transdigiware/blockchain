@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-22"
+lastupdated: "2020-03-23"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -62,7 +62,8 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 ### {{site.data.keyword.blockchainfull_notm}} images
 {: #get-started-ibp-images}
 
-- Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 includes an entitlement to images for [peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer), [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and [smart contract](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts) containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}} images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information,
+- Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 includes an entitlement to images for [peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer), [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and [smart contract](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts) containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}} images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information, see [{{site.data.keyword.blockchainfull_notm}} images for Hyperledger Fabric](/docs/blockchain-sw-213?topic=blockchain-sw-213-blockchain-images#blockchain-images).
+
 
 ## Next steps
 {: #get-started-ibp-next-steps}
