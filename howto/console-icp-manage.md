@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-23"
 
 keywords: IBM Cloud Private, IBM Blockchain Platform, administrate, add user, remove user, password, APIs, authentication, view logs
 
@@ -112,7 +112,7 @@ For all of APIs provided by the console, you need to add a `-k` or ``--insecure`
 
 | **Request** |  |
 |-------------|-----------|
-| PATH | POST `<API_endpoint>`/ak/api/v1/permissions/keys |
+| PATH | POST `<API_endpoint>`/ak/api/v2/permissions/keys |
 | **Request body fields** | |
 | <ul><li>`roles`</li><li>`description`</li></ul>| <ul><li>`["reader", "writer", "manager"]` At least one value is required </li><li>`string` optional</li></ul>|
 | **Response body fields** | |
@@ -123,7 +123,7 @@ For all of APIs provided by the console, you need to add a `-k` or ``--insecure`
 {: #console-icp-manage-create-api-key-example}
 ```
 curl -X POST \
-  https://9.30.252.107:31212/ak/api/v1/permissions/keys \
+  https://9.30.252.107:31212/ak/api/v2/permissions/keys \
   -u user@email.com:password \
   -H 'Content-Type: application/json' \
   -k \
@@ -143,7 +143,7 @@ Once you have created an API key and secret, you can use the APIs to view or rem
 
 | **Request** |  |
 |-------------|-----------|
-| Path | GET `<API_endpoint>`/ak/api/v1/permissions/keys |
+| Path | GET `<API_endpoint>`/ak/api/v2/permissions/keys |
 | **Response body fields** | |
 | <ul><li>`api_key`</li><li>`roles`</li><li>`ts_created`</li><li>`description`</li></ul>| <ul><li>`string`</li><li>`["<role>"]`</li><li>`number` UNIX time stamp in milliseconds</li><li>`string`</li></ul>|
 | Authorization required | reader |
@@ -152,7 +152,7 @@ Once you have created an API key and secret, you can use the APIs to view or rem
 {: #console-icp-manage-view-api-key-example}
 ```
 curl -X GET \
-  https://9.30.252.107:31212/ak/api/v1/permissions/keys \
+  https://9.30.252.107:31212/ak/api/v2/permissions/keys \
   -u <api_key>:<api_secret> \
   -k
 ```
@@ -162,7 +162,7 @@ curl -X GET \
 
 | **Request** |  |
 |-------------|-----------|
-| Path | DELETE `<API_endpoint>`/ak/api/v1/permissions/keys/`<api_key>` |
+| Path | DELETE `<API_endpoint>`/ak/api/v2/permissions/keys/`<api_key>` |
 | Authorization required| manager |
 
 #### Example curl request: delete API key
@@ -171,7 +171,7 @@ curl -X GET \
 
 ```
 curl -X DELETE \
-  https://9.30.252.107:31212/ak/api/v1/permissions/keys/<api_key> \
+  https://9.30.252.107:31212/ak/api/v2/permissions/keys/<api_key> \
   -u <api_key>:<api_secret> \
   -k
 ```
@@ -193,7 +193,7 @@ You can also use the APIs to list, add, or remove users who can log in to the co
 
 | **Request** |  |
 |-------------|-----------|
-| Path | GET `<API_endpoint>`/ak/api/v1/permissions/users |
+| Path | GET `<API_endpoint>`/ak/api/v2/permissions/users |
 | **Response body fields** | |
 | <ul><li>`uuids`</li><li>`email`</li><li>`roles`</li><li>`created`</li></ul>| <ul><li>`string` user ID</li><li>`string` email address</li><li>`["<role>"]`</li><li>`number` UNIX time stamp in milliseconds</li></ul>|
 | Authorization required | reader |
@@ -203,7 +203,7 @@ You can also use the APIs to list, add, or remove users who can log in to the co
 
 ```
 curl -X GET \
-  https://9.30.252.107:31212/ak/api/v1/permissions/users \
+  https://9.30.252.107:31212/ak/api/v2/permissions/users \
   -u <api_key>:<api_secret> \
   -k
 ```
@@ -213,7 +213,7 @@ curl -X GET \
 
 | **Request** |  |
 |-------------|-----------|
-| Path | PUT `<API_endpoint>`/ak/api/v1/permissions/users |
+| Path | PUT `<API_endpoint>`/ak/api/v2/permissions/users |
 | **Request body fields** | |
 | <ul><li>`uuids`</li><li>`roles`</li></ul> | <ul><li>`array of strings` user IDs </li><li>`["reader", "writer", "manager"]` At least one value is required</li></ul> |
 | **Response body fields** | |
@@ -225,7 +225,7 @@ curl -X GET \
 
 ```
 curl -X PUT \
-  https://9.30.252.107:31212/ak/api/v1/permissions/users \
+  https://9.30.252.107:31212/ak/api/v2/permissions/users \
   -u <api_key>:<api_secret> \
   -k \
   -H 'Content-Type: application/json' \
@@ -243,7 +243,7 @@ curl -X PUT \
 
 | **Request** |  |
 |-------------|-----------|
-| Path | POST `<API_endpoint>`/ak/api/v1/permissions/users |
+| Path | POST `<API_endpoint>`/ak/api/v2/permissions/users |
 | **Request body fields** | |
 | <ul><li>`roles`</li><li>`description`</li></ul>| <ul><li>`["reader", "writer", "manager"]` At least one value is required </li><li>`string` optional</li></ul>|
 | Authorization | manager |
@@ -253,7 +253,7 @@ curl -X PUT \
 
 ```
 curl -X POST \
-  https://9.30.252.107:31212/ak/api/v1/permissions/users \
+  https://9.30.252.107:31212/ak/api/v2/permissions/users \
   -u <api_key>:<api_secret> \
   -k \
   -H 'Content-Type: application/json' \
@@ -271,7 +271,7 @@ curl -X POST \
 
 | **Request** |  |
 |-------------|-----------|
-| Path | DELETE `<API_endpoint>`/ak/api/v1/permissions/users |
+| Path | DELETE `<API_endpoint>`/ak/api/v2/permissions/users |
 | **Request body fields** | |
 | <ul><li>`users`</li></ul>| <ul><li>`string` user ID</li></ul>|
 | **Response body fields** | |
@@ -283,7 +283,7 @@ curl -X POST \
 
 ```
 curl -X DELETE \
-  https://9.30.252.107:31212/ak/api/v1/permissions/users \
+  https://9.30.252.107:31212/ak/api/v2/permissions/users \
   -u <api_key>:<api_secret> \
   -k \
   -H 'Content-Type: application/json' \
@@ -304,14 +304,14 @@ Because you are using the APIs to communicate with your console on {{site.data.k
 As an example, the API call below returns information about all of your components running on a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 ```
 curl -X GET \
-  https://d456fcd8ee0e4ddfb1ad9bf45986e546-optools.bp01.blockchain.cloud.ibm.com/ak/api/v1/components \
+  https://d456fcd8ee0e4ddfb1ad9bf45986e546-optools.bp01.blockchain.cloud.ibm.com/ak/api/v2/components \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer eyJraWQ.....zJPsw
 ```
 The same API call would resemble the request below for a console deployed on {{site.data.keyword.cloud_notm}} Private.
 ```
 curl -X GET \
-https://9.30.252.107:31212/ak/api/v1/components \
+https://9.30.252.107:31212/ak/api/v2/components \
   -H 'Content-Type: application/json' \
   -u kO25ME32Nu8TikR_:buYImbg0co8SxneoBWzHueYwrf9Xhg5f \
   -k
@@ -337,7 +337,7 @@ Navigate to the **Settings** tab in the console browser to change the logging se
 
 Set the number of collected logs by using the drop-down list under each log type. For example, **Error** and **Warning** collect the least amount of logs, while **Debug** and **All** collect the most.
 
-You can view only the console logs if you are logged in as a console administrator. To view the logs from the **Settings** tab, replace the word `settings` in the browser URL with `api/v1/logs`. For example, if your console url is `localhost:3001/settings`, you can view your logs by navigating to `localhost:3001/api/v1/logs`. Client and server logs are collected in separate files. The most recent logs are at the top of the page.
+You can view only the console logs if you are logged in as a console administrator. To view the logs from the **Settings** tab, replace the word `settings` in the browser URL with `api/v2/logs`. For example, if your console url is `localhost:3001/settings`, you can view your logs by navigating to `localhost:3001/api/v2/logs`. Client and server logs are collected in separate files. The most recent logs are at the top of the page.
 
 ### Viewing your node logs
 {: #console-icp-manage-node-logs}
