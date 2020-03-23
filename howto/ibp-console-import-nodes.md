@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-03-23"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -23,6 +23,9 @@ subcollection: blockchain
 {: #ibp-console-import-nodes}
 
 
+Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
+Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
+{: note}
 
 
 The console includes the option to import nodes that were created in another {{site.data.keyword.blockchainfull}} Platform console.

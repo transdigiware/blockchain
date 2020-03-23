@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-23"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -245,7 +245,7 @@ After you have configured an HSM, you need to configure a HSM proxy that allows 
 
 After HSM is configured for a node, the HSM becomes the cryptographic service provider for the node.  When the HSM is subsequently used to generate and store a node's private key, and the node identity is exported or stored in the wallet, the private key is not visible.
 
-For more information about how to deploy the HSM proxy and use HSM with a CA, peer, or ordering node see [Setting up a PKCS11 proxy for HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) and [Configuring a node to use HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
+For more information about how to deploy the HSM proxy and use HSM with a CA, peer, or ordering node, see [Configuring a node to use HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
 
 ## Associating identities
 {: #ibp-console-identities-associate-admin}
