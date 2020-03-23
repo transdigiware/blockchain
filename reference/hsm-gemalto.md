@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-22"
+lastupdated: "2020-03-23"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -406,7 +406,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
 3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>  Copy and paste the following text to a file named `service.yaml`:
 
-  ```
+  ```yaml
   apiVersion: v1
   kind: Service
   metadata:
@@ -434,7 +434,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
 4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Copy and paste the following text to a file named `deployment.yaml`:
 
-  ```
+  ```yaml
   apiVersion: apps/v1
   kind: Deployment
   metadata:
