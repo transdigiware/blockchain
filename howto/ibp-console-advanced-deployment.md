@@ -1437,8 +1437,8 @@ docker push <DOCKER_HUB_ID>/pkcs11-proxy:v1
 ```
 {: codeblock}
 
-- Replace `<DOCKER_HUB_ID>` with your DockerHub id.
-- Replace `<DOCKER_HUB_PWD>` with your DockerHub password.
+- Replace `<DOCKER_HUB_ID>` with your Docker Hub id.
+- Replace `<DOCKER_HUB_PWD>` with your Docker Hub password.
 
 #### Deploying the proxy to your cluster
 {: #ibp-console-adv-deployment-pkcs11-proxy-deploy}
@@ -1467,9 +1467,9 @@ kubectl create secret docker-registry docker-pull-secret --docker-username=<DOCK
 ```
 {: codeblock}
 
-- Replace `<DOCKER_HUB_ID>` with the docker user name.
-- Replace `<DOCKER_HUB_PWD>` with the docker password.
-- Replace `<EMAIL>` with your DockerHub email address.
+- Replace `<DOCKER_HUB_ID>` with the Docker user name.
+- Replace `<DOCKER_HUB_PWD>` with the Docker password.
+- Replace `<EMAIL>` with your Docker Hub email address.
 
 For example:
 ```
