@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-03-23"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -122,7 +122,7 @@ The CA has only one associated container that we can adjust:
 
 * **CA container**: Encapsulates the internal CA processes, such as registering and enrolling nodes and users, as well as storing a copy of every certificate it issues.
 
-As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-iks-console-interaction), it is recommended to use the defaults for the CA container and adjust them later when it becomes apparent how they are being utilized by your use case.
+As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-before), it is recommended to use the defaults for the CA container and adjust them later when it becomes apparent how they are being utilized by your use case.
 
 | Resources | Condition to increase |
 |-----------------|-----------------------|
@@ -576,7 +576,7 @@ The peer has five containers that can be adjusted:
 
 The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container. Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
 
-As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-iks-console-interaction), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
+As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-before), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
 
 | Resources | Condition to increase |
 |-----------------|-----------------------|
@@ -928,7 +928,7 @@ Similar to the CA, an ordering node has only one associated container that we ca
 
 * **Ordering node container**: Encapsulates the internal orderer processes (such as validating transactions) and the blockchain for all of the channels it hosts.
 
-As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-iks-console-interaction), it is recommended to use the defaults for the ordering node container and adjust them later as it becomes apparent how they are being utilized.
+As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-before), it is recommended to use the defaults for the ordering node container and adjust them later as it becomes apparent how they are being utilized.
 
 | Resources | Condition to increase |
 |-----------------|-----------------------|

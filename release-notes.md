@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-22"
+lastupdated: "2020-03-23"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -20,7 +20,7 @@ subcollection: blockchain
 {:external: target="_blank" .external}
 
 # Release notes
-{: #release-notes-saas-20}
+{: #release-notes-saas-20}_
 
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
 {:shortdesc}
@@ -124,7 +124,7 @@ Users can now choose to designate a peer to be an anchor peer when the peer is b
 
 **Ability to add a peer to a channel from the Channels tab**
 
-A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join) for more details.
+A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join-peer) for more details.
 
 **Export/Import all**
 
@@ -217,4 +217,4 @@ When you add a peer or orderer node, you have the option to use certificates fro
 
 **Tuning orderer performance**
 
-New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-orderer-tuning) for instructions on how to configure the parameters.
+New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
