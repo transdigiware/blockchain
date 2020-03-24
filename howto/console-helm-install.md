@@ -22,6 +22,9 @@ subcollection: blockchain
 # Installing the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart
 {: #console-helm-install}
 
+{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud has been withdrawn from sale. To deploy the {{site.data.keyword.blockchainfull_notm}} Platform using the OpenShift Container Platform, {{site.data.keyword.cloud_notm}} Private, or open source Kubernetes, visit [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
+{:important}
+
 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart that can be installed on a local {{site.data.keyword.cloud_notm}} Private cluster. After you install the Helm chart, you can find {{site.data.keyword.blockchainfull_notm}} Platform as an application in the {{site.data.keyword.cloud_notm}} Private Catalog.
 
 The Helm chart must be purchased through [Passport Advantage Online](https://www.ibm.com/software/passportadvantage/pao_customer.html){: external}. Upon your purchase, technical support for {{site.data.keyword.blockchainfull_notm}} Platform is included.

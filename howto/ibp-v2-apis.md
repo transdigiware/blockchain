@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-03-23"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,14 +126,14 @@ Also, you can use the **Try it out** function in the API Reference doc to test y
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-You can only import CA, peer, and ordering nodes that have been exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private, OpenShift Container Platform, Red Hat Open Kubernetes Distrubution, or any Kubernetes v1.14 - v1.16 higher container platform on x86_64.
+You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.14 - v1.16 higher container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform 4.2 and {{site.data.keyword.cloud_notm}} Private v3.2.1.
 
 ## Building a network by using APIs
 {: #ibp-v2-apis-build-with-apis}
 
 You can use APIs to create blockchain components in your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Use the following steps to build a blockchain network by using the {{site.data.keyword.blockchainfull_notm}} APIs.
 
-1. Create a Certificate Authority (CA) by calling [`POST /ak/api/v1/kubernetes/components/ca`](/apidocs/blockchain#create-a-ca).
+1. Create a Certificate Authority (CA) by calling [`POST /ak/api/v2/kubernetes/components/ca`](/apidocs/blockchain#create-a-ca).
 
   Remember your input and the response, you will need them later.
   {: tip}
@@ -150,20 +150,20 @@ You can use APIs to create blockchain components in your instance of the {{site.
 
   You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/blockchain/?topic=blockchain-ibp-console-identities). 
 
-3. [Create an MSP definition for your organization](#ibp-v2-apis-msp) by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain?#import-a-membership-service-provide-msp).
+3. [Create an MSP definition for your organization](#ibp-v2-apis-msp) by calling [`POST /ak/api/v2/components/msp`](/apidocs/blockchain?#import-an-msp).
 
 4. [Build the configuration file](#ibp-v2-apis-config) that is required to create an ordering service or peer. You must build a unique configuration file for each ordering service or peer that you want to create. If you are deploying multiple ordering nodes, you need to provide a configuration file for each node that you want to create.
 
-5. Create an ordering service by calling [`POST /ak/api/v1/kubernetes/components/orderer`](/apidocs/blockchain#create-an-ordering-service).
+5. Create an ordering service by calling [`POST /ak/api/v2/kubernetes/components/orderer`](/apidocs/blockchain#create-an-ordering-service).
 
-6. Create a peer by calling [`POST /ak/api/v1/kubernetes/components/peer`](/apidocs/blockchain#create-a-peer).
+6. Create a peer by calling [`POST /ak/api/v2/kubernetes/components/peer`](/apidocs/blockchain#create-a-peer).
 
 7. If you want to use the console to operate your blockchain components, you must import your administrator identity into your console wallet. Use the wallet tab to import the certificate and private key of your node admin into the console and create an identity. You then need to use the console to associate this identity with the components you created. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
 8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 
-The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
 for more information.
 {: note}
 
@@ -176,48 +176,251 @@ for more information.
 If you are using a multizone cluster, you can use the APIs to deploy a blockchain component to a specific zone of {{site.data.keyword.cloud_notm}}. This allows your network to maintain availability in the event of a zone failure. You can use the following steps to deploy a peer or ordering node to a specific zone.
 
 
-1. Find the zones that your worker nodes are located on. Navigate to the overview screen of your multizone cluster on the [{{site.data.keyword.cloud_notm}} Kubernetes service on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. From the cluster overview screen, click **Worker Nodes** to see a table of all the worker nodes in your cluster. You can find the zone that each worker node is located on in the **Zone** column of the table.
+1. Find the zones that your worker nodes are located. Navigate to the overview screen of your multizone cluster on the [{{site.data.keyword.cloud_notm}} Kubernetes service on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. From the cluster overview screen, click **Worker Nodes** to see a table of all the worker nodes in your cluster. You can find the zone where each worker node is located in the **Zone** column of the table.
 
-  You can also find the zones of your worker nodes by using the kubectl CLI. Navigate to the **Access** panel and follow the instructions under **Gain access to your cluster** to connect to your cluster by using the {{site.data.keyword.cloud_notm}} and kubectl CLI tools. Once you are connected, use the command `kubectl get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `zone` field under the `LABELS` column.
-
-
+  You can also find the zones of your worker nodes by using the kubectl CLI. Navigate to the **Access** panel and follow the instructions under **Gain access to your cluster** to connect to your cluster by using the {{site.data.keyword.cloud_notm}} and kubectl CLI tools. When you are connected, use the command `kubectl get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `zone` field under the `LABELS` column.
 
 
-2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain#create-an-ordering-service) or [Create a peer](/apidocs/blockchain#create-a-peer) API calls using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
 
 
+2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain#create-an-ordering-service) or [Create a peer](/apidocs/blockchain#create-a-peer) API calls by using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
+
+
+## Creating a node with a custom configuration
+{: #ibp-v2-apis-custom}
+
+If you are using the {{site.data.keyword.blockchainfull_notm}} APIs to deploy a CA, peer, or ordering node, you have the option of customizing the node configuration by using a configuration override JSON string. The nodes that are deployed by the {{site.data.keyword.blockchainfull_notm}} Console and APIs are configured with the default Fabric values that are provided in the  `fabric-ca-server-config.yaml`, `orderer.yaml`, and `core.yaml` files. You can customize your node settings by providing a configuration override JSON to the APIs that create or update your nodes. You can use the configuration override to deploy a High Availability CA or use a Hardware Security Module (HSM) while using the {{site.data.keyword.blockchainfull_notm}} APIs. For more information about the configuration override, High Availability CAs, or HSMs, see [Advanced deployment options](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment).
+
+### Example: Creating a custom Certificate Authority
+
+If you are using the [Create a CA](/apidocs/blockchain#create-a-ca) API to deploy a Certificate Authority, you need to use the configuration override JSON string to set the CA admin enrollID and secret. For example, if you wanted to create a CA with an administrator enrollID and secret of `admin` and `adminpw`, you would issue the following command. You can use the command to create multiple admins. The API would create a CA that uses the default values for all other fields.
+```
+curl -X POST "https://{API-Endpoint}/ak/api/v2/kubernetes/components/fabric-ca" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {IAM-Token}" \
+-d "{
+      \"display_name\": \"My CA\",
+      \"config_override\":{
+        \"ca\":{
+          \"registry\":{
+            \"maxenrollments\": -1,
+            \"identities\": [{
+              \"name\": \"admin\",
+              \"pass\": \"password\",
+              \"type\": \"client\",
+              \"affiliation\": \"\",
+              \"attrs\":{
+                      \"hf.Registrar.Roles\": \"*\",
+                      \"hf.Registrar.DelegateRoles\": \"*\",
+                      \"hf.Revoker\": true,
+                      \"hf.IntermediateCA\": true,
+                      \"hf.GenCRL\": true,
+                      \"hf.Registrar.Attributes\": \"*\",
+                      \"hf.AffiliationMgr\": true
+              }
+            }]
+          }
+        }
+      }
+    }"
+```
+
+You use also the `"configoverride"` to create or update a CA with custom settings for your organization. This provides you with more control over the identities and certificates that are created by your CA. For example, you would use the following command to set your organization name and location.
+```
+curl -X POST \
+  https://<API endpoint>/ak/api/v2/kubernetes/components/fabric-ca \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <IAM_token>' \
+  -d "{
+    "display_name": "Sample CA",
+    "configoverride": {
+      "ca": {
+        "registry": {
+            "maxenrollments": -1,
+            "identities": [
+              {
+                "name": "admin",
+                "pass": "adminpw",
+                "type": "admin",
+                "affiliation": "",
+                "attrs": {
+                  "hf.Registrar.Roles": "*",
+                  "hf.Registrar.DelegateRoles": "*",
+                  "hf.Revoker": true,
+                  "hf.IntermediateCA": true,
+                  "hf.GenCRL": true,
+                  "hf.Registrar.Attributes": "*",
+                  "hf.AffiliationMgr": true
+                }
+              }
+            }
+          },
+          "csr": {
+            "names": [
+              {
+                "C": "US",
+                "ST": "New York",
+                "L": null,
+                "O": "Big business",
+                "OU": "Big department"
+              }
+              ],
+            }
+        }
+  }"
+```
+
+For more information about deploying a customized CA, and which fields you can customize after a CA is created, see [Customizing a CA configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization).
+
+### Create a high availability CA
+
+You can use configuration override to deploy a CA with replica sets that share the same database, ensuring that the data is consistent between replicas. This configuration ensures that the CA will be available in the event of a Kubernetes worker node failure. To deploy an HA CA, you need to deploy a PostgreSQL database on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to use the information about your database to create a connection file that will be used by your CA. For more information, see [Building a high availability Certificate Authority](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca#ibp-console-build-ha-ca).
+
+To use the APIs to deploy an HA CA, you need to provide the database connection file to the `"db"` section of the config override JSON string. For example, the API request below will a CA with two replicas that connect to a database located on {{site.data.keyword.cloud_notm}}.
+```
+curl -X POST \
+  https://<API endpoint>/ak/api/v2/kubernetes/components/fabric-ca \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <IAM_token>' \
+  -d '{
+    "display_name": "Sample CA",
+    "replicas": 2,
+    "configoverride": {
+      "ca": {  
+        "db": {
+          "datasource": "host=test.databases.appdomain.cloud port=31941 user=ibm_cloud password=password dbname=ibmclouddb sslmode=verify-full",
+        "tls": {
+          "certfiles": [
+            "<base64 encoded pem>"
+                      ],
+          "enabled": true
+                },
+        "type": "postgres"
+            }
+        },
+      "tlsca": {
+        "db": {
+          "datasource": "host=test.databases.appdomain.cloud port=31941 user=ibm_cloud password=password dbname=ibmclouddb sslmode=verify-full",
+        "tls": {
+          "certfiles": [
+                    "<base64 encoded pem>"
+                      ],
+        "enabled": true
+                },
+        "type": "postgres"
+              }
+        "registry": {
+            "maxenrollments": -1,
+            "identities": [
+              {
+                "name": "admin",
+                "pass": "adminpw",
+                "type": "admin",
+                "affiliation": "",
+                "attrs": {
+                  "hf.Registrar.Roles": "*",
+                  "hf.Registrar.DelegateRoles": "*",
+                  "hf.Revoker": true,
+                  "hf.IntermediateCA": true,
+                  "hf.GenCRL": true,
+                  "hf.Registrar.Attributes": "*",
+                  "hf.AffiliationMgr": true
+                }
+              }
+            }
+    }    
+  }
+}'
+```
+
+### Deploy a node that uses an HSM
+
+{{site.data.keyword.blockchainfull_notm}} Platform allows you to deploy CA, peer, or orderer nodes that use an HSM to store their private key. To use an HSM with your blockchain network, you need to first set up an HSM on {{site.data.keyword.cloud_notm}} or in your own environment. You then need to set up a PKCS #11 proxy that allows your nodes to communicate with your HSM. You can then create a node with the private key that is stored in an HSM slot by providing the HSM endpoint along with the slot key and pin before the node is deployed. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm).
+
+If you are using the APIs to deploy a node, you need to provide the HSM endpoint to the HSM field of the API call. You also need to use the config override to provide the label and pin of the HSM slot that you will use and select `"PKCS11"` as the default crypto service provider. As an example The following API call deploys a peer node with an HSM.
+```
+curl -X POST "https://{API-Endpoint}/ak/api/v2/kubernetes/components/fabric-peer" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {IAM-Token}" \
+-d "{
+      \"display_name\": \"My Peer\",
+      \"msp_id\": \"org2\",
+      \"config\": {
+        \"enrollment\": {
+          \"component\": {
+            \"cahost\": \"n3a3ec3-myca.ibp.us-south.containers.appdomain.cloud\",
+            \"caport\": \"7054\",
+            \"caname\": \"ca\",
+            \"catls\": {
+              \"cacert\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo\"
+            },
+            \"enrollid\": \"admin\",
+            \"enrollsecret\": \"password\",
+            \"admincerts\": [
+              \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkFkbWluIGNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=\"
+            ]
+          },
+          \"tls\": {
+            \"cahost\": \"n3a3ec3-myca.ibp.us-south.containers.appdomain.cloud\",
+            \"caport\": \"7054\",
+            \"caname\": \"tlsca\",
+            \"catls\": {
+              \"cacert\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo\"
+            },
+            \"enrollid\": \"admin\",
+            \"enrollsecret\": \"password\",
+            \"admincerts\": [
+              \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCkFkbWluIGNlcnQgZGF0YSB3b3VsZCBiZSBoZXJlIGlmIHRoaXMgd2FzIHJlYWwKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=\"
+            ]
+          }
+        }
+      },
+      \"hsm\": {
+            \"pkcs11endpoint\": \"tcp://example.com:666\",
+      },
+      \"config_override\": {
+        \"bccsp\": {
+          \"default\": \"PKCS11\",
+          \"pkcs11\": {
+              \"label\": \"blockchain\",
+              "pin": \"91927001\"
+            }
+          }
+        }
+    }"
+```
 
 ## Import a network by using APIs
 {: #ibp-v2-apis-import-with-apis}
 
-You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} components created by using the APIs or the {{site.data.keyword.blockchainfull_notm}} Platform console into another service instance of the {{site.data.keyword.blockchainfull_notm}} Platform.
+You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} components that are created by using the APIs or the {{site.data.keyword.blockchainfull_notm}} Platform console into another service instance of the {{site.data.keyword.blockchainfull_notm}} Platform.
 
-1. Import a CA by calling [`POST /ak/api/v1/components/ca`](/apidocs/blockchain#import-a-ca).
+1. Import a CA by calling [`POST /ak/api/v2/components/ca`](/apidocs/blockchain#import-a-ca).
 
   Remember your input and the response, you will need them later.
   {: tip}
 
   You need to wait for the CA to start. It might take several minutes depending on environment. You can call [`GET /components`](/apidocs/blockchain#get-all-components) to check the CA status. You will get repeated errors before you get a `200` status code to go to next step. Note that this API call times out in one minute.
 
-2. Import an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain#import-a-membership-service-provide-msp).
+2. Import an organization MSP definition by calling [`POST /ak/api/v2/components/msp`](/apidocs/blockchain#import-an-msp).
 
-3. Import an ordering service by calling [`POST /ak/api/v1/components/orderer`](/apidocs/blockchain#import-an-ordering-service).
+3. Import an ordering service by calling [`POST /ak/api/v2/components/orderer`](/apidocs/blockchain#import-an-ordering-service).
 
-4. Import a peer by calling [`POST /ak/api/v1/components/peer`](/apidocs/blockchain#import-a-peer).
+4. Import a peer by calling [`POST /ak/api/v2/components/peer`](/apidocs/blockchain#import-a-peer).
 
 5. If you plan to use the {{site.data.keyword.blockchainfull_notm}} Platform console to operate your blockchain components, you must import your component administrator identities into your console wallet. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
 6. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 
-The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table in this topic on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
 for more information.
 {: note}
 
 
 
 
-## Operating your CA using the Fabric CA client
+## Operating your CA with the Fabric CA client
 {: #ibp-v2-apis-config-fabric-ca-client}
 
 You can use the Fabric CA client to operate your CAs. Run the following Fabric CA client commands to register your component and administrator identities and generate the necessary certificates.
@@ -266,7 +469,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   ```
   {:codeblock}
 
-5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v1/components`](/apidocs/blockchain#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
+5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
 
   You need to convert the certificate from base64 into PEM format to use it to communicate with your CA. Insert the base64 encoded string of the TLS certificate into command below. Ensure that you are in your `$HOME/fabric-ca-client` directory.
 
@@ -298,7 +501,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```
   {:codeblock}
 
-  The `<enroll_id>`and `<enroll_password>` in the command are the `enroll_id` and `enroll_secret` you specified when you created the CA. Use the **Certificate Authority Endpoint URL** from your {{site.data.keyword.blockchainfull_notm}} Platform console or the `"ca_url"` returned by your API call as the value for `<ca_url_with_port>`. Leave off the `http://` at the beginning. The `<ca_name>` is the  **CA Name** from your console, or the `"ca_name"` returned by the APIs.
+  The `<enroll_id>`and `<enroll_password>` in the command are the `enroll_id` and `enroll_secret` you specified when you created the CA. Use the **Certificate Authority Endpoint URL** from your {{site.data.keyword.blockchainfull_notm}} Platform console or the `"ca_url"` returned by your API call as the value for `<ca_url_with_port>`. Leave off the `http://` at the beginning. The `<ca_name>` is the **CA Name** from your console, or the `"ca_name"` returned by the APIs.
 
   The `<ca_tls_cert_path>` is the full path your CA TLS cert.
 
@@ -309,7 +512,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```  
   {:codeblock}
 
-**Tip:** If the value of the enrollment url, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the url with the single quotes. For example, `!` becomes `%21`, or the command looks like:
+**Tip:** If the value of the enrollment url, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the url with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
 
   ```
   ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname ca
@@ -374,7 +577,7 @@ First, you need to register a component identity with your CA. Your component us
 
   Make a note of the second **affiliation** value, for example, `org1.department1`. You need to use this value in the command below.
 
-  If you created the CA using the {{site.data.keyword.blockchainfull_notm}} APIs instead of the console, your CA will be deployed without affiliations, unless you created affiliations using the Fabric CA Client. If your CA does not have affiliations, you can skip this step and leave the `--id.affiliation` off future commands.
+  If you created the CA with the {{site.data.keyword.blockchainfull_notm}} APIs instead of the console, your CA is deployed without affiliations, unless you created affiliations by using the Fabric CA Client. If your CA does not have affiliations, you can skip this step and leave the `--id.affiliation` off future commands.
 
 3. Run the following command to register the ordering node or peer.
 
@@ -392,7 +595,7 @@ First, you need to register a component identity with your CA. Your component us
   You need to save the `"enrollid"` and `"enrollsecret"` from the command above for when you create your configuration file.
   {: important}
 
-  You can register an identity only once. If you experience a problem, try a command with a new user name and password. As a security measure, use each identity, and the accompanying enrollID and secret, to deploy only one peer. While you can use one **admin** identity for several components (this is our recommended deployment strategy), do not reuse peer IDs and passwords.
+  You can register an identity only once. If you experience a problem, try a command with a new username and password. As a security measure, use each identity, and the accompanying enrollID and secret, to deploy only one peer. While you can use one **admin** identity for several components (this is the recommended deployment strategy), do not reuse peer IDs and passwords.
 
   When the command completes successfully, you should see information that is similar to the following example:
 
@@ -406,7 +609,7 @@ First, you need to register a component identity with your CA. Your component us
 ### Registering your organization administrator
 {: #ibp-v2-apis-config-register-admin}
 
-You also need to create an admin identity that you can use to operate your network. You will use this identity to operate specific components, such as by installing a smart contract on your peer. You can also use this identity as an administrator of your organization and use it to create and edit channels.  
+You also need to create an admin identity that you can use to operate your network. You use this identity to operate specific components, such as by installing a smart contract on your peer. You can also use this identity as an administrator of your organization and use it to create and edit channels.  
 
 You need to register this new identity with your CA, and use it to generate an MSP folder. You can make this identity an organization administrator by adding its signCert to your organization MSP. You also need to add the signCert to your configuration file so that it can be made the admin cert of the ordering node or peer during deployment. You need to create only one admin identity for your organization. As a result, you need to complete these steps only once. You can use the signCert that you generated to deploy many peers or ordering nodes.
 
@@ -524,14 +727,14 @@ A real call might look similar to the following example:
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
 
-After you have enrolled, you have the necessary certificates to register your component with the TLS CA. Run the following command to register the ordering node or peer:
+After you enroll, you have the necessary certificates to register your component with the TLS CA. Run the following command to register the ordering node or peer:
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
 {:codeblock}
 
-This command is similar to the one that you used to register the component identity with the CA, except that you need to use the TLS CA name. If you are deploying an ordering node instead of a peer, set `--id.type` to `orderer` instead of `peer`. You must provide this identity a different user name and password than the one that you used against your default CA. A real register might look similar to the command below:
+This command is similar to the one that you used to register the component identity with the CA, except that you need to use the TLS CA name. If you are deploying an ordering node instead of a peer, set `--id.type` to `orderer` instead of `peer`. You must provide this identity a different username and password than the one that you used against your default CA. A real register might look similar to the command below:
 
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
@@ -590,7 +793,7 @@ You need to either encode the special character or surround the url with the sin
 ## Creating an organization MSP definition
 {: #ibp-v2-apis-msp}
 
-You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v1/components/msp`](/apidocs/blockchain#import-a-membership-service-provide-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates that are needed to create an organization MSP. Use the following steps to complete the request body of the API call.
+You can use the APIs to create an organization MSP definition by calling [`POST /ak/api/v2/components/msp`](/apidocs/blockchain#import-an-msp). This MSP contains certificates that define your organization in a blockchain consortium, as well as the admin certificates that you can use to operate your network. If you followed the step above, you have already generated the certificates that are needed to create an organization MSP. Use the following steps to complete the request body of the API call.
 
 1. Select an MSP ID for your organization. The MSP ID is the formal name of your organization within the consortium. The MSP ID used to create the organization MSP needs to be the same that you use to deploy your peers.
 
@@ -598,7 +801,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 
 3. You need to provide the signCert, in base64 format, of your organization administrator that you registered and enrolled by using the Fabric CA client.  
 
-  Navigate to the MSP directory that was created when you [generated certificates using your organization administrator](#ibp-v2-apis-config-enroll-admin).
+  Navigate to the MSP directory that was created when you [generated certificates by using your organization administrator](#ibp-v2-apis-config-enroll-admin).
   ```
   cd $HOME/fabric-ca-client/peer-admin/msp
   ```
@@ -633,7 +836,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   {:codeblock}
 
-  This command prints out a string that is similar to the following example:
+  This command prints a string that is similar to the following example:
 
   ```
   LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lYR2sxNXRRY3hxa1RpTG9Nd0NnWUlLb1pJemowRUF3SXcKYURFTTlEKaFhTTzRTWjJ2ZHBPL1NQZWtSRUNJQ3hjUmZVSWlkWHFYWGswUGN1OHF2aCtWSkhGeHBLUnQ3dStHZDMzalNSLwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
@@ -641,7 +844,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 
   Provide this string to the `admins` field of the API request.
 
-4. You also need to provide the root certificate of your CA. This certificate was created when you [generated certificates using your CA admin](#ibp-v2-apis-enroll-ca-admin).
+4. You also need to provide the root certificate of your CA. This certificate was created when you [generated certificates by using your CA admin](#ibp-v2-apis-enroll-ca-admin).
 
   Navigate to the CA admin MSP directory.
   ```
@@ -654,7 +857,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   {:codeblock}
 
-  This will print the root cert as a base64 encoded sting.
+  This prints the root cert as a base64 encoded sting.
 
   ```
   LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNGekNDQWIyZ0F3SUJBZ0lVQmZnZzcvVnIrL25OVEFNQlQ4UUtHL00wQU8wd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEU1TURVd016RXpNamt3TUZvWERUTTBNRFF5T1RFek1qa3dNRm93YURFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1Sa3dGd1lEVlFRREV4Qm1ZV0p5YVdNdFkyRXRjMlZ5CmRtVnlNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVXMUtvN2lWeVE2VWkwdDVqbU5KaWVuSUwKR3pNM1BDWHlhL2VSQ0NWMmFQb0dTZ1lrVUg2UWN5RjAzbFlMZFU4Y0drNTQ0alViVC9KT1lYeVgzTWc4bHFORgpNRU13RGdZRFZSMFBBUUgvQkFRREFnRUdNQklHQTFVZEV3RUIvd1FJTUFZQkFmOENBUUV3SFFZRFZSME9CQllFCkZDK2lJR0NSb2Zvb3FsVkZoU3dOMmk2MXNJaVBNQW9HQ0NxR1NNNDlCQU1DQTBnQU1FVUNJUURTYW9RL1E0QzkKbFl1VGNhVXVHb3d6YmhUZHBuN2F3S2lHN1Nvd2lSQXVld0lnUWlyM3RNR3IvYWo2aU5lRXJFN2NyOVowQ0gvTwp3QnNQcWd4RVR3MjVqZUU9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
@@ -675,7 +878,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   {:codeblock}
 
-  This prints out the TLS CA root cert as a base64 encoded sting.
+  The command prints the TLS CA root cert as a base64 encoded sting.
 
   ```
   LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHRENDQWI2Z0F3SUJBZ0lVWUVQWnprNXV2b3dobEtacG5JMXplODdIQUlnd0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWURWUVFERXdWMGJITmpZVEFlCkZ3MHhPVEExTURNeE16STVNREJhRncwek5EQTBNamt4TXpJNU1EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4RHpBTgpCZ05WQkFzVEJrWmhZbkpwWXpFT01Bd0dBMVVFQXhNRmRHeHpZMkV3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPClBRTUJCd05DQUFRdSs2UnZWd2w5T2dDVlAraEVxbjVxdExRVG9LWkw4a1lic0pOeU1JbERoc3hlNWx6cW1zQkoKbTk2eUR2TVV6OSsxL2pzb1M4M1JqMVAwc3M2TnJNb3FvMXd3V2pBT0JnTlZIUThCQWY4RUJBTUNBUVl3RWdZRApWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVVnUEc4anJEK1BxVjdoelc3WDlsbTFrMS91WjR3CkZRWURWUjBSQkE0d0RJY0VxVGJESW9jRUNwbnBkVEFLQmdncWhrak9QUVFEQWdOSUFEQkZBaUVBenk3cHJZaVMKQmlDVWdYeWRkY09WMm9mZmtqaEI0N091QXFjQWNqZS9SWkVDSUdKZFgzZ1ErTDRIN3duY1RoZkwrenU1ejV1UApGUWhXTmlNS3hQWEYrZnYwCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
@@ -686,7 +889,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 ## Creating a configuration file
 {: #ibp-v2-apis-config}
 
-You need to complete a configuration file in order to create a peer or ordering node by using the APIs. This file is provided to the API as the `config` object in the request body of the API call. If you are creating multiple ordering nodes, you need to provide a configuration file for each node that you want to create in an array to the API request. For example, for a five node raft ordering service, you need to create an array of five configuration files. You can provide the same file for each node as long as the enrollID's that you provide have a sufficiently high enrollment limit. You need to deploy a CA and follow the steps to register and enroll the required identities before completing the file.
+You need to complete a configuration file in order to create a peer or ordering node by using the APIs. This file is provided to the API as the `config` object in the request body of the API call. If you are creating multiple ordering nodes, you need to provide a configuration file for each node that you want to create in an array to the API request. For example, for a five node raft ordering service, you need to create an array of five configuration files. You can provide the same file for each node as long as the enrollID's that you provide have a sufficiently high enrollment limit. You need to deploy a CA and follow the steps to register and enroll the required identities before you complete the file.
 
 The template for the configuration file can be found below:
 ```
@@ -732,7 +935,7 @@ First, we need to provide the connection information of your CA on the {{site.da
 Open the CA in your console and click **Settings**, then the **Export** button to export the CA information to a JSON file. You can use the values from this file to complete your configuration file.
 
 **If your are using the APIs:**
-You can call [`GET /ak/api/v1/components`](/apidocs/blockchain#get-all-components) to get the connection information of your CA. If you created the CA using the `Create a Fabric CA` API, you can also find the necessary information in the response body.
+You can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-components) to get the connection information of your CA. If you created the CA with the `Create a Fabric CA` API, you can also find the necessary information in the response body.
 
 - The `"cahost"` and `"caport"` values are visible in the `ca_url` field in the response body or CA JSON file that you exported.  For example, if your `ca_url` is https://9.30.94.174:30167, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
 - The `"caname"` is the name of the CA that was specified when you deployed the CA. This is the value of the `ca_name` field in the response body or the exported JSON file.
@@ -805,7 +1008,7 @@ cat $HOME/fabric-ca-client/peer-admin/msp/signcerts/cert.pem | base64 $FLAG
 ```
 {:codeblock}
 
-This command prints out a string that is similar to the following example:
+This command prints a string that is similar to the following example:
 
 ```
 LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lYR2sxNXRRY3hxa1RpTG9Nd0NnWUlLb1pJemowRUF3SXcKYURFTTlEKaFhTTzRTWjJ2ZHBPL1NQZWtSRUNJQ3hjUmZVSWlkWHFYWGswUGN1OHF2aCtWSkhGeHBLUnQ3dStHZDMzalNSLwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
@@ -815,7 +1018,7 @@ Copy this string to the `"admincerts"` field under the component section in the 
 
 ### CSR (Certificate Signing Request) hosts
 
-You have the option of providing a custom domain to your component using the `"csr"` section of the components file.
+You have the option of providing a custom domain to your component by using the `"csr"` section of the components file.
 
 ```
 "csr": {
@@ -867,7 +1070,7 @@ After you completed all the steps above, your updated configuration file might l
 ```
 {:codeblock}
 
-You can leave the other fields blank. After completing this file, you can pass this file as the `config` field to the request body of the `Create an ordering service` or `Create a peer` API.
+You can leave the other fields blank. After you complete this file, you can pass this file as the `config` field to the request body of the `Create an ordering service` or `Create a peer` API.
 
 ### Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #ibp-v2-apis-admin-console}
@@ -877,5 +1080,5 @@ If you want to use the {{site.data.keyword.blockchainfull_notm}} Platform consol
 - **Certificate:** Upload your admin's signing certificate. If you followed the instructions above, you can find this key in the `$HOME/fabric-ca-client/peer-admin/msp/signcerts/` folder.
 - **Private Key:** Upload your admins private key. If you followed the instructions above, you can find this key in the `$HOME/fabric-ca-client/peer-admin/msp/keystore/` folder.
 
-After you import your admin identity, you can associate this identity with the components that you have created. You can then use the console to operate your network.
+After you import your admin identity, you can associate this identity with the components that you create. You can then use the console to operate your network.
 

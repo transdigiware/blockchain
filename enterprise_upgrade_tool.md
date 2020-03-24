@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-20"
+lastupdated: "2020-03-22"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -32,7 +32,7 @@ The upgrade tool user interface guides you through a series of independent steps
 ### Prerequisites
 {: #enterprise-upgrade-tool-prerequisites}
 
-- {{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric v1.4.3 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete.
+- {{site.data.keyword.IBM_notm}} needs to upgrade your Enterprise Plan network to Fabric 1.4.3 and migrate your ordering service from Kafka to RAFT consensus before you can start using the upgrade tool. The upgrade tool will appear on your Network Monitor after those upgrades are complete.
 
 ### Considerations and limitations
 {: #enterprise-upgrade-tool-considerations}
@@ -43,7 +43,7 @@ The upgrade tool user interface guides you through a series of independent steps
 - Review the [considerations for using {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations) before you upgrade your network. The next generation of the platform has a different user interface and provides you with more control over the nodes of your network. In particular, you are responsible for managing your certificates and private keys, which are not stored on {{site.data.keyword.cloud_notm}}.
 - It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
 - You need to deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 on a paid cluster of the {{site.data.keyword.IBM_notm}} Kubernetes service. For more information, see the [resource recommendations for paid clusters](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required-paid).
-- After migration, the founder of the Enterprise Plan network (PeerOrg1) will manage the ordering service on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for all organizations on the network. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain/reference?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-suggested-ordering-node-configurations).
+- After migration, the founder of the Enterprise Plan network (PeerOrg1) will manage the ordering service on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for all organizations on the network. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-suggested-ordering-node-configurations).
 - You must create peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that use the same state database (LevelDB or CouchDB) as your peers on Enterprise Plan. You cannot upgrade from peers that are running LevelDB to peers that use CouchDB.
 - As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
 - The ability to use a hardware security module (HSM) to store the private keys of your blockchain nodes is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
@@ -76,11 +76,15 @@ When you are ready, you can click **Create {{site.data.keyword.blockchainfull_no
 
 When you use the upgrade tool to create your peer and orderer nodes on the new platform, you have the ability to select the resources allocated to each node. The upgrade tool provides default values based on the resources used by your nodes on Enterprise Plan and recommended values. You can review the default resources provided for nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for more context. While you can re-allocate the CPU and memory allocated to running nodes, you can only allocate storage when a node is first deployed.
 
+
+
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
+
+
 
 {: caption="Table 1. Default resources for nodes on IBM Blockchain Platform 2.0" caption-side="bottom"}
 
@@ -176,7 +180,7 @@ If you created a multizone cluster, you can use this panel to deploy an ordering
 
 ### Step Three: Operate your ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
-When you finish upgrading your ordering service, your ordering service consists of eight nodes, three on Enterprise Plan and five on the platform. The members of your network will be able to submit their transactions to any ordering node to get their transactions included in blocks and added to the ledger. Log in to your Platform 2.0 console and open your ordering service in the nodes tab. Click the **Associate identity** button to associate the orderer admin identity that you exported from the orderer tool. You can then use the console to operate your ordering service. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain/reference?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-suggested-ordering-node-configurations).
+When you finish upgrading your ordering service, your ordering service consists of eight nodes, three on Enterprise Plan and five on the platform. The members of your network will be able to submit their transactions to any ordering node to get their transactions included in blocks and added to the ledger. Log in to your Platform 2.0 console and open your ordering service in the nodes tab. Click the **Associate identity** button to associate the orderer admin identity that you exported from the orderer tool. You can then use the console to operate your ordering service. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-suggested-ordering-node-configurations).
 
 ## Upgrade your peers
 
@@ -214,7 +218,7 @@ The Enterprise Plan Network Monitor and the {{site.data.keyword.blockchainfull_n
 
 On the **Migrate chaincode** panel, you can find the name and version of the chaincode that are instantiated on your Enterprise Plan channels. You can use this table to decide which chaincode you want to install on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network. **However, you need to have the chaincode on your local file system to use this panel**.
 
-You can use the **Select Chaincode File** button to upload a chaincode from your local file system. Select the peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that you would like to install the chaincode on and then click **Migrate**. The upgrade tool installs the chaincode with a new version to identify the chaincode that was installed by the upgrade tool. This version is displayed in the upgrade tool UI (the old version with **_V2** appended). If you use an automated build process to package and install your chaincode, the version installed by the upgrade tool may disrupt your normal processes.
+You can use the **Select Chaincode File** button to upload a chaincode from your local file system. If your chaincode consists of multiple files, contains CouchDB indexes, or uses external dependencies, you can upload your chaincode using a .zip file. Select the peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that you would like to install the chaincode on and then click **Migrate**. The upgrade tool installs the chaincode with a new version to identify the chaincode that was installed by the upgrade tool. This version is displayed in the upgrade tool UI (the old version with **_V2** appended). If you use an automated build process to package and install your chaincode, the version installed by the upgrade tool may disrupt your normal processes.
 
 All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to install and instantiate your chaincode.
 {: important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-20"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -27,6 +27,8 @@ subcollection: blockchain
 # Troubleshooting
 {: #ibp-v2-troubleshooting}
 
+
+
 General problems may occur when using the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
 {:shortdesc}
 
@@ -43,16 +45,17 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
-- [Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
 
 **Issues with your Nodes**  
 
 - [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 - [Why are my node operations failing after I create my peer or ordering service?](#ibp-console-build-network-troubleshoot-entry1)
-- [Why does my peer fail to start?](#ibp-console-build-network-troubleshoot-entry2)
-- [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
+- [Why does my peer or ordering node fail to start?](#ibp-console-build-network-troubleshoot-entry2)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
+- [Why is my CA, peer, or ordering node that is configured to use HSM not working?](#ibp-v2-troubleshooting-hsm-proxy)
+- [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 - [Why are the transactions I submit from VS Code failing with a No endorsement plan available error?](#ibp-v2-troubleshooting-anchor-peer)
+- [Why are the transactions I submit from VS Code failing with an endorsement failure?](#ibp-v2-troubleshooting-endorsement)
 
 **Issues on {{site.data.keyword.cloud_notm}}**  
 
@@ -250,35 +253,6 @@ If your session has become inactive, you can try simply refreshing your browser.
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
 
-## Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
-{: #ibp-v2-troubleshooting-console-helm-reset}
-{: troubleshoot}
-{: support}
-
-After attempting to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance, it fails with the error `Cluster linking is taking too long`.
-{: tsSymptoms}
-
-This issue can occur when your cluster is busy processing other requests and does not respond to the linking request in a timely matter.
-{: tsCauses}
-
-To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to setup components on your cluster.
-{: tsResolve}
-
-Run the following command from your IBM Cloud CLI terminal:
-
-```
-bx api cloud.ibm.com
-bx login
-bx cs clusters
-$(bx cs cluster-config <cluster_name> --export)
-kubectl get deployments #test that the connection is working
-helm reset
-```
-{: codeblock}
-
-Attempt to link your cluster again. If it continues to fail, you should [Contact Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
-
-
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
 {: #ibp-v2-troubleshooting-smart-contract-anchor-peers}
 {: troubleshoot}
@@ -317,38 +291,34 @@ Check your Kubernetes dashboard and ensure the peer or node status is `Running`.
 
 
 
-## Why does my peer fail to start?
+## Why does my peer or ordering node fail to start?
 {: #ibp-console-build-network-troubleshoot-entry2}
 {: troubleshoot}
 
 It is possible to experience this error under a variety of conditions.
 
-The peer log includes `2019-02-06 19:43:24.159 UTC [main] InitCmd -> ERRO 001 Cannot run peer because cannot init crypto, folder “/certs/msp” does not exist`
+The peer log includes:
 {: tsSymptoms}
+```
+[main] InitCmd -> ERRO 001 Cannot run peer because cannot init crypto, folder “/certs/msp” does not exist`
+```
+or the ordering node log contains:
+
+```
+Failed to initialize local MSP: admin 0 is invalid [The identity does not contain OU [CLIENT], MSP: [orderermsp],The identity does not contain OU [ADMIN], MSP: [orderermsp]]
+```
 
 - This error can occur under the following conditions:
   - When you created the peer or ordering service organization MSP definition, you specified an enroll ID and secret that corresponds to an identity of type `peer` and not `client` or `admin`. It must be of type `client` or `admin`.
   - When you created the peer or ordering service organization MSP definition, you specified an enroll ID and secret that does not match the enroll ID or secret of the corresponding organization admin identity.
-  - When you created the peer or ordering service, you specified the enroll ID and secret of an identity that is not type 'peer'.
+  - When you created the peer or ordering service, you specified the enroll ID and secret of an identity that is not type 'peer' or 'orderer'.
+  - When you created the peer or ordering service, you associated an identity that does not have the `admin` role.
 
-- Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
-- Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret.
-- Note that before you create the peer or ordering service, you need to create an organization admin id, of type 'client'. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 {: tsResolve}
+- Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
+- Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret of a user that has the `peer` or `orderer` role and associate an identity that has a role of `admin` with the node.
+- Note that before you create the peer or ordering service, you need to register an organization admin user, with a type `admin`. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 
-## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?
-{: #ibp-v2-troubleshooting-endorsement-sig-failure}
-{: troubleshoot}
-
-When I invoke a smart contract to submit a transaction, the transaction returns the following endorsement policy failure:
-{: tsSymptoms}
-
-```
-returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
-```
-
-If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
-{: tsCauses}
 
 ## How can I view my smart contract container logs?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
@@ -365,6 +335,49 @@ Follow these instructions to view your smart contract container logs on:
 - [{{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
 {: tsResolve}
 
+
+## Why is my CA, peer, or ordering node that is configured to use HSM not working?
+{: #ibp-v2-troubleshooting-hsm-proxy}
+{: troubleshoot}
+
+This problem can happen when you try to deploy a CA, peer, or ordering node that is configured with HSM and the deployment fails. Or it can surface when a node that is configured for HSM stops working. The node, client, or SDK logs contain the following error:
+{: tsSymptoms}
+```
+{"code":1000,"message":"Private key not found [pkcs11: 0x30: CKR_DEVICE_ERROR]"}"
+```
+or
+```
+{"code":1000,"message":"Private key not found [pkcs11: 0xB3: CKR_SESSION_HANDLE_INVALID]"}"
+```
+
+
+This problem happens when the PKCS #11 proxy that is associated with the HSM is unreachable to due a network problem or if the proxy restarts after the node has connected to it.
+{: tsCauses}
+
+To re-establish communications between the node and the proxy, restart the failing node by deleting the pod associated with the node. A new pod will be created and the connection with the PKCS #11 proxy is restored. Use the following steps to restart the failing node:
+{: tsResolve}
+- List the pods: `kubectl get pods -n <NAMESPACE>`
+- Delete the pod: `kubectl delete pod -n <NAMESPACE> <PODNAME>`  
+
+Replace:
+- `<NAMESPACE>` with the namespace where the associated pods are deployed.
+To find the namespace, open any CA node in your console and click the Settings icon. View the value of the Certificate Authority endpoint URL. For example: https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054.
+The namespace is the first part of the url beginning with the letter n and followed by a random string of six alphanumeric characters. So in this example, the value of the namespace is `n2734d0`.
+- `<PODNAME>` with the **Name** of the failing pod that is visible in the list of pods returned by the previous command.
+
+## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?
+{: #ibp-v2-troubleshooting-endorsement-sig-failure}
+{: troubleshoot}
+
+When I invoke a smart contract to submit a transaction, the transaction returns the following endorsement policy failure:
+{: tsSymptoms}
+
+```
+returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
+```
+
+If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+{: tsCauses}
 
 ## Why are the transactions I submit from VS Code failing with a No endorsement plan available error?
 {: #ibp-v2-troubleshooting-anchor-peer}
@@ -383,6 +396,23 @@ This error occurs if you are using the Fabric Service Discovery feature but did 
 Follow step three of the [private data topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
 {: tsResolve}
 
+## Why are the transactions I submit from VS Code failing with an endorsement failure?
+{: #ibp-v2-troubleshooting-endorsement}
+{: troubleshoot}
+
+My smart contract endorsement proposals from my peer are failing from my client application with the endorsement error `error: [Channel.js]: Channel:<channel_name> received discovery error:failed constructing descriptor for chaincodes:<name:"chaincode-name">` or `[ERROR] Error submitting transaction: No endorsement plan available for {"chaincodes":[{"name":"MyAssetContract"}]}`
+{: tsSymptoms}
+
+Also in the endorsing peer logs I can see the error:
+```
+UTC [discovery] chaincodeQuery -> ERRO 23c Failed constructing descriptor for chaincode chaincodes:<name:"chaincode-name">,: cannot satisfy any principal combination
+```
+
+This error occurs when the peer's enroll id type does not match the smart contract endorsement policy that was configured when the smart contract was instantiated on the channel.
+{: tsCauses}
+
+The only way to resolve this error is to delete the peer and create a new one with an enroll id that has the correct type `peer`. You can use the enroll id and secret from an existing user of type `peer` from the peer's CA or register a new user with type `peer`. Follow the instructions in the [Build a network tutorial](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to create a new peer identity with the correct type and peer.
+{: tsResolve}
 
 ## My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?
 {: #ibp-v2-troubleshooting-cluster-expired}

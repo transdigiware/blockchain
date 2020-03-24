@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-19"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -19,8 +19,14 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Deploy a smart contract on the network tutorial
+# Deploy a smart contract on the network
 {: #ibp-console-smart-contracts}
+
+
+Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
+Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
+{: note}
+
 
 A smart contract is the code, sometimes referred to as chaincode, that applications interact with to read and update data on the blockchain ledger. A smart contract can turn business logic into an executable program that is agreed to and verified by all members of a blockchain network. This tutorial is the third part in the [sample network tutorial series](#ibp-console-smart-contracts-structure) and describes how to deploy smart contracts to start transactions in the blockchain network.
 {:shortdesc}
@@ -49,6 +55,7 @@ After a smart contract is installed on the peers, a single network member instan
 
 In this tutorial, we go through the steps to use the {{site.data.keyword.blockchainfull_notm}} Platform console to manage the deployment of smart contracts on your network:
 
+- [Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package).
 - [Install smart contracts on your peers](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install).
 - [Instantiate them on channels](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate).
 - [Specify endorsement policies](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse).
@@ -62,20 +69,20 @@ Before you can install a smart contract, ensure that you have the following thin
 - You must either [build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) or [join a network](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) by using your {{site.data.keyword.blockchainfull_notm}} Platform console.
 - Because smart contracts are installed onto peers, ensure that you [add peers](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to your console.  
 - Smart contracts are instantiated on a channel. Therefore, you must [create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel) or [join a channel](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2) by using your console.
-- The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts written in JavaScript, TypeScript, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. Smart contracts that are written in Java are not supported on the {{site.data.keyword.blockchainfull_notm}} Platform.
+- The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
 
-## Step one: Write a smart contract
+## Step one: Write and package your smart contract
+{: #ibp-console-smart-contracts-write-package}
 
 The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* of smart contracts rather than development. If you are interested in developing smart contracts, you can get started using tutorials provided by the Hyperledger Fabric community and tooling provided by {{site.data.keyword.IBM_notm}}.
 
 - To learn how smart contracts can be used to conduct transactions among multiple parties, see the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation.
-- When you are ready to start building smart contracts, you can use the [{{site.data.keyword.blockchainfull_notm}} Visual Studio code extension](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} to start building your own smart contract project. You can also use that extension to [connect directly to your network from Visual Studio Code](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-vscode) and explore the inline tutorials.
+- When you are ready to start building smart contracts, you can use the [{{site.data.keyword.blockchainfull_notm}} Visual Studio code extension](/docs/blockchain?topic=blockchain-develop-vscode) to start building your own smart contract project. You can also use that extension to [connect directly to your network from Visual Studio Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp) and explore the inline tutorials.
 - For a quick tutorial on developing smart contracts, see [Develop a smart contract with the IBM Blockchain Platform VS Code extension](https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/){: external}.
 - For a more in-depth end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}.
 - To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}.
-- When you are ready to install, the smart contract must be packaged into [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external} so that it can be installed onto the peers. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external} to build the package.
 
-
+When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external} so that it can be installed onto the peers. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external} to build the package.
 
 ## Step two: Install a smart contract
 {: #ibp-console-smart-contracts-install}
@@ -91,7 +98,6 @@ You can return to the **Smart contracts** tab later to install the smart contrac
 {:tip}
 
 **This console cannot be used to install Hyperledger Composer `.bna` files.**
-
 
 
 ## Step three: Instantiate a smart contract
@@ -135,7 +141,41 @@ Click the **Advanced** button if you want to specify a policy in JSON format. Yo
 
 Endorsement policies are not updated automatically when new organizations join the channel and install a chaincode. For example, if the endorsement policy requires two of five organizations to endorse a transaction, the policy will not be updated to require two out of six organizations when a new organization joins the channel. Instead, the new organization will not be listed on the policy, and they will not be able to endorse transactions. You can add another organization to an endorsement policy by upgrading the relevant chaincode and updating the policy.
 
+### What does the user type have to do with the smart contract endorsement policy?
+{: #ibp-console-smart-contracts-endorse-user-type}
 
+It's worth clicking the **Advanced** button to review the endorsement policy that will be used for the smart contract. Every organization that you select from the **Members** drop-down list on this panel will be included in the endorsement policy (represented by the role `mspId` parameter in the policy). The value of the role `name` parameter indicates the type of identity that is required to endorse transactions and can be any of  `client`, `peer`, `orderer`, `admin`, or `member`.  If it is set to `member`, then any of the other four roles will satisfy the criteria.
+
+When a `peer` role is specified, you should ensure that any peers that will be submitting endorsement transactions were registered with the correct type. In the following endorsement policy example, peers who are members of `org1msp` can endorse transactions if their enroll id was registered with the type of `client`, `peer`, `orderer`, or `admin`. However, for peers who are members of `org2msp`, their enroll id must have been registered with a type of `peer` to be able to endorse transactions.
+
+```json
+{
+    "identities": [
+        {
+            "role": {
+                "name": "member",
+                "mspId": "org1msp"
+            }
+        },
+        {
+            "role": {
+                "name": "peer",
+                "mspId": "org2msp"
+            }
+        }
+    ],
+    "policy": {
+        "1-of-2": [
+            {
+                "signed-by": 0
+            }
+        ]
+    }
+}
+```  
+{: codeblock}
+
+Unsure which `type` was selected when a peer identity was registered? From the console, you can open the CA where the peer identity was registered and view the list of registered users and their associated type.
 
 ## Upgrading a smart contract
 {: #ibp-console-smart-contracts-upgrade}

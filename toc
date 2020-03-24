@@ -2,28 +2,38 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="blockchain" category="app_services,databases" audience="service" href="/docs/blockchain/index.html" path="blockchain"}
-IBM Blockchain Platform
+IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="learn"}
 	{: .topicgroup}
-	Getting started tutorials
+	Getting started
 		index.md
 		howto/ibp-v2-deploy-iks.md
-		get-started-console-icp.md
+
+	howto/ibp-console.md
+	whats_new.md
+	blockchain_component_overview.md
 
 	{: .topicgroup}
-	About IBM Blockchain Platform
-		howto/ibp-console.md
-		console-icp-about.md
-
-	whats_new.md
+	Tutorials
+		howto/ibp-console-build-network.md
+		howto/ibp-console-join-network.md
+		howto/ibp-console-smart-contracts.md
+		howto/ibp-console-create-app.md
+		howto/ibp-console-add-remove-raft.md
+		reference/videos.md
+		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-ca.md
+		reference/logdna.md
+		reference/sysdig.md
+		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+		reference/hsm-gemalto.md
 
 	{: .topicgroup}
 	Pricing
 		howto/pricing-saas.md
-		howto/pricing-software.md
+		reference/detailed-pricing.md
 
-	blockchain_component_overview.md
 	security.md
 	ibp-console-ha.md
 	data-residency.md
@@ -40,31 +50,29 @@ IBM Blockchain Platform
 		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
-	IBM Blockchain Platform for Multicloud
-		get-started-console-icp.md
-		ICP_console_setup.md
-		howto/console-helm-install.md
-		howto/console-deploy-icp.md
-		howto/console-icp-manage.md
-
-	{: .topicgroup}
 	IBM Blockchain Platform console
-		howto/ibp-console-build-network.md
-		howto/ibp-console-join-network.md
-		howto/ibp-console-smart-contracts.md
-		howto/ibp-console-create-app.md
+		howto/ibp-console-advanced-deployment.md
+		howto/ibp-console-advanced-channel.md
 		howto/ibp-console-import-nodes.md
 		howto/ibp-console-identities.md
 		howto/ibp-console-organizations.md
-		howto/ibp-console-advanced-channel.md
 		howto/ibp-console-govern-components.md
 		howto/ibp-v2-operations-service.md
 
 	{: .topicgroup}
 	Developing smart contracts and applications
 		vscode-extension.md
-		howto/develop_chaincode.md
 		best_practices.md
+
+	{: .topicgroup}
+	IBM Blockchain Platform for Multicloud
+		console-icp-about.md
+		get-started-console-icp.md
+		ICP_console_setup.md
+		howto/console-helm-install.md
+		howto/console-deploy-icp.md
+		howto/console-icp-manage.md
+		howto/pricing-software.md
 
 	{: .topicgroup}
 	Upgrading your Enterprise Plan network
@@ -95,14 +103,9 @@ IBM Blockchain Platform
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
-	reference/detailed-pricing.md
 	reference/v10_fabric.md
 	reference/k8s.md
-	reference/videos.md
 	reference/ibp_regions.md
-	reference/logdna.md
-	reference/sysdig.md
-	[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}

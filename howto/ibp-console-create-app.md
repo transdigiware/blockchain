@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-03-18"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -22,6 +22,8 @@ subcollection: blockchain
 
 # Creating applications
 {: #ibp-console-app}
+
+
 
 After you install smart contracts and deploy your nodes, you can use client applications to transact with other members of your network. Applications can invoke the business logic that is contained in smart contracts to create, transfer, or update assets on the blockchain ledger. Use this tutorial to learn how to use client applications to interact with networks that you manage from {{site.data.keyword.blockchainfull}} Platform console.
 {:shortdesc}
@@ -57,7 +59,7 @@ The application developer can use two programming models to interact with the ne
 
 **High-Level Fabric SDK APIs**
 
-Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is only supported for applications that are written in **Node.js**. If you want to take advantage of the new model, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
+Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is only supported for applications that are written in **Node.js** and **Java**. If you want to take advantage of the new model, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
 
 - [Generate certificates for your application](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll) by using the SDK.
 - [Invoke a smart contract from the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke).
@@ -94,7 +96,7 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 
 In order to take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
-Navigate to the **Smart contracts** tab in your platform console. Next to each instantiated smart contract, navigate to the overflow menu. Click the button named **Connect with SDK**. This opens a side panel that allows you to build and download your connection profile. First, you need to select the CA of your organization that you used to register your application identity. You will also need to select your organization MSP definition. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
+Navigate to the **Smart contracts** tab in your platform console. Next to each instantiated smart contract, navigate to the overflow menu. Click the button named **Connect with SDK**. This opens a side panel that allows you to build and download your connection profile. First, you will also need to select your organization MSP definition.  You will then need to select the CA of your organization that you used to register your application identity. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
 
 If your nodes are deployed on {{site.data.keyword.cloud_notm}} Private, you  need to ensure that the ports used by the Certificate Authorities, Peers, and Orderers in the connection profile are externally exposed to your client applications.
 {: note}
@@ -267,11 +269,11 @@ git clone https://github.com/hyperledger/fabric-samples.git
 ```
 {:codeblock}
 
-After you download the Fabric Samples, run the following commands to ensure that you are using the version of the samples compatible with Fabric v1.4.3.
+After you download the Fabric Samples, run the following commands to ensure that you are using the version of the samples compatible with Fabric v1.4.6.
 
 ```
 cd fabric-samples
-git checkout v1.4.3
+git checkout v1.4.6
 ```
 {:codeblock}
 
@@ -285,7 +287,7 @@ cd $HOME/fabric-samples/commercial-paper
 The tutorial contains two sample organizations, **magnetocorp** and **digibank**. Each organization has its own sample application code, stored in two separate folders under the `organization` directory.
 
 ```
-cd organization && ls
+ls organization
 digibank	magnetocorp
 ```
 {:codeblock}
@@ -295,7 +297,7 @@ In the course of the tutorial, you will first use the magnetocorp application co
 Navigate to the application code inside the magnetocorp directory.
 
 ```
-cd magnetocorp/application
+cd organization/magnetocorp/application
 ```
 {:codeblock}
 
@@ -310,7 +312,7 @@ npm install
 
 You can find the commercial paper smart contract inside the `contract` folder of the `digibank` and `magnetocorp` directory. You need to install this smart contract on all the peers of the organizations that use the tutorial. You then need to instantiate the commercial paper contract on a channel. The smart contract needs to be packaged in [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external} to be installed by using the console.
 
-You can use the [{{site.data.keyword.blockchainfull_notm}} VS code extension](/docs/blockchain?topic=blockchain-develop-vscode) to package the smart contract. After you install the extension, use Visual Studio Code to open the `contracts` folder in your workspace. Open the _{{site.data.keyword.blockchainfull_notm}} Platform_ tab. In the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane, go to the smart contract packages section and click **Package a Smart Contract Project**. The VS code extension uses the files in the `contracts` folder to create a new package named `papernet-js@.0.0.1.cds`. Right-click this package to export it to your local file system. You can then use your console to [install the smart contracts on your peers](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install) and then [instantiate the smart contract on a channel](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate).
+You can use the [{{site.data.keyword.blockchainfull_notm}} VS code extension](/docs/blockchain?topic=blockchain-develop-vscode) to package the smart contract. After you install the extension, use Visual Studio Code to open the `contracts` folder in your workspace. Open the _{{site.data.keyword.blockchainfull_notm}} Platform_ tab. In the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane, go to the smart contract packages section and click **Package Open Project**. The VS code extension uses the files in the `contracts` folder to create a new package named `papernet-js@.0.0.1.cds`. Right-click this package to export it to your local file system. You can then use your console to [install the smart contracts on your peers](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install) and then [instantiate the smart contract on a channel](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate).
 
 ### Step three: Generate certificates for your wallet
 
@@ -320,14 +322,14 @@ The original sample uses the `addToWallet.js` file to create a file system walle
 
 Choose the CA of the organization you want to use to operate the tutorial as magnetocorp. For example, you can use Org1 if you have completed the Build a network tutorial. Use the CA to [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities). **Save** the enroll ID and secret.
 
-Use your console to [download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile). Save the connection profile to your local file system and rename it `connection.json`. Then, use following command to move the connection profile to a directory where it will be referenced by future commands.
+Use your console to [download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile). Save the connection profile to your local file system and rename it `connection.json`. Then, issue the following command from the `magnetocorp/application` directory to move the connection profile to a directory where it will be referenced by future commands.
 
   ```
-  mv $HOME/<path_to_creds>/connection.json /gateway/connection.json
+  mv $HOME/<path_to_creds>/connection.json ../gateway/connection.json
   ```
   {:codeblock}
 
-Go to the ``/magnetocorp/application`` directory and save the following code block as `enrollUser.js`.
+Save the following code block as `enrollUser.js` in the ``/magnetocorp/application`` directory:
 
   ```javascript
   'use strict';
@@ -432,6 +434,10 @@ const { FileSystemWallet, Gateway } = require('fabric-network')
 ```
 {:codeblock}
 
+You will need to import the path class to build the gateway from the connection profile you downloaded from your console. **Add** the following line to the file to import the path class:
+```javascript
+const path = require('path');
+```
 The `Gateway` class is used to construct a gateway that you will used to submit your transaction.
 
 ```javascript
@@ -486,7 +492,7 @@ const network = await gateway.getNetwork('mychannel');
 Following a line of code that prints a message to your console, you can find a line that provides the gateway the smart contract name. **Edit** the line below to change the name `papercontract` to the name of the contract you installed.
 
 ```javascript
-const contract = await network.getContract('papercontract-js', 'org.papernet.commercialpaper');
+const contract = await network.getContract('papercontract', 'org.papernet.commercialpaper');
 ```
 {:codeblock}
 
@@ -523,7 +529,7 @@ Issue program complete.
 
 ### Step six: Operate the sample as digibank
 
-After you create the commercial paper by operating as magnetocorp, you can buy and redeem the commercial paper by operating the tutorial as digibank. You can use the digibank application code by using the same organization as magnetocorp, or use the CA, peers, and connection profile of a different organization. If you competed the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network), this is a good opportunity operate the tutorial as Org2.
+After you create the commercial paper by operating as magnetocorp, you can buy and redeem the commercial paper by operating the tutorial as digibank. You can use the digibank application code by using the same organization as magnetocorp, or use the CA, peers, and connection profile of a different organization. If you competed the [Join a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network), this is a good opportunity operate the tutorial as Org2.
 
 Go to the `digibank/application` directory. You can follow the directions that are provided in **Step three** to create to generate the certificates and wallet that will sign the transaction as digibank. You can then use the `buy.js` file to purchase the commercial paper from magnetocorp, and then use `redeem.js` to redeem the paper. You can follow **Step four** and **Step five** to edit those files so that they point to the correct connection profile, channel and smart contract.
 

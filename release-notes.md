@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-26"
+lastupdated: "2020-03-23"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -27,7 +27,55 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
 
+## 24 March 2020
+{: #03-24-2020}
 
+
+
+
+
+{{site.data.keyword.IBM_notm}} is in the process of migrating existing {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, therefore, the new features described in this list may not yet be available in your console. Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Existing customers will receive a Cloud notification with more details about when their console will be migrated.
+{: note}
+
+
+
+
+**Hyperledger Fabric v1.4.6**
+
+All new nodes are deployed using Hyperledger Fabric v1.4.6. If you have an existing blockchain network, you should review the topic on [Capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities) to understand how this new Fabric version can impact your network.
+
+**Hardware Security Module (HSM) support for node identities**   
+
+Full cryptographic HSM support is now available for HSMs that implement the PKCS #11 standard. Using an HSM provides on-demand encryption, key management, and key storage. When you deploy a CA, peer, or ordering node, you now have the option to store the private key for the node identity in an HSM. See [Configuring a node to use a HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) for more details.
+
+**Support for adding and removing ordering nodes from an existing ordering service**  
+
+Previously, an ordering service could only contain one or five ordering nodes and they all were contributed from the same organization. Now, the ordering service can be deployed across multiple organizations in a blockchain network, enabling individual organizations to add and remove individual ordering nodes as required. Multi-organizational transaction ordering improves the decentralized nature of a blockchain network.  Learn more about the process in the new [Adding and removing Raft ordering service nodes tutorial](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-add-remove-orderer).
+
+**Ability to override default CA, peer, ordering node configuration**  
+
+Hyperledger Fabric includes many configuration options for a CA, peer, or ordering node. A subset of those options for the [CA](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization), [peer](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-peer-create-json) and [ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-orderer-create-json) can now be overridden by using the console or the [APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom).
+
+**Full Java smart contract development support**
+
+In addition to smart contracts written in JavaScript, TypeScript, and Go programming languages, it is now possible to install and instantiate Java smart contracts from the console. Moreover, Java can be freely mixed and matched with other application and smart contract programming languages, including JavaScript, TypeScript, and Go. This heterogeneous programming language support enables an organization to capitalize on the full range of its development skills.
+
+In order to use Java chaincode, developers should be aware that:
+
+- Java 11 is required to execute Java smart contracts.
+- Gradle v4.x and Maven v3.x are used to build Java smart contracts.
+- Custom Gradle versions can be used by using a Gradle wrapper.
+- Java smart contracts require the fabric-chaincode-shim at v1.4.6 or later, as this version is the first version that includes support for Java 11.
+- For an example of a Java smart contract, see the [FabCar Java smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar/java){: external} from Fabric v1.4.
+
+**v2 APIs available**
+
+New {{site.data.keyword.blockchainfull_notm}} Platform console APIs using the route `/v2/` are now available. Use of the earlier `/v1/` APIs continues to be supported. See [{{site.data.keyword.blockchainfull_notm}} Platform APIs](https://cloud.ibm.com/apidocs/blockchain) for more information.
+
+
+**High Availability Certificate Authority**
+
+When a CA is deployed, replica sets can be configured to ensure High Availability of the node. Note that CA replica sets require a PostgreSQL database. Learn more in the [Building a high availability Certificate Authority (CA)](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca) tutorial.
 
 ## 6 Feburary 2020
 {: #02-06-2020}
@@ -76,7 +124,7 @@ Users can now choose to designate a peer to be an anchor peer when the peer is b
 
 **Ability to add a peer to a channel from the Channels tab**
 
-A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join) for more details.
+A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join-peer) for more details.
 
 **Export/Import all**
 
@@ -99,7 +147,7 @@ If multiple zones are configured in your {{site.data.keyword.cloud_notm}} Kubern
 
 **Peer database support now includes LevelDB**
 
-You now have the option to choose between CouchDB and LevelDB for your Peer database. For more information, see [LevelDB vs CouchDB](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-level-couch).
+You now have the option to choose between CouchDB and LevelDB for your Peer database. For more information, see [LevelDB vs CouchDB](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-level-couch).
 
 **Certificate Authority (CA) updates**   
 
@@ -154,7 +202,7 @@ Channel governance updates allow policies to be reconfigured. You can also contr
 
 **Ability to size and scale node resources**  
 
-When you deploy a node you now have the ability to specify the amount of CPU, memory, and storage to your containers, where applicable. You can later scale their resources up or down at a later time according to usage patterns. For more information, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-allocate-resources).
+When you deploy a node you now have the ability to specify the amount of CPU, memory, and storage to your containers, where applicable. You can later scale their resources up or down at a later time according to usage patterns. For more information, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
 
 **Use of {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)**  
 
@@ -165,8 +213,8 @@ IAM is used to control user access to the console UI as well as restricting the 
 
 **Support for external CA**
 
-When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-third-party-ca) for more information.
+When you add a peer or orderer node, you have the option to use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}.  See this topic on [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-third-party-ca) for more information.
 
 **Tuning orderer performance**
 
-New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-orderer-tuning) for instructions on how to configure the parameters.
+New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.

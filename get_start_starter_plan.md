@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-03-23"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -63,7 +63,7 @@ After you form your consortium, you need to write the chaincode, also known as s
 - [Monitoring network resources](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-monitoring-resources)
 - [Retrieving network credentials and connection profile](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-retrieving-network-credentials)
 - [Managing your network by using Swagger APIs](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-swagger)
-- [Resetting a network](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-resetting-network)
+- [Resetting a network](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-reset-nw)
 - [Migrating from Starter Plan to Enterprise Plan](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-migrate)
 - [Deleting or leaving a network](/docs/blockchain?topic=blockchain-getting-started-with-starter-plan#getting-started-with-starter-plan-delete-network)
 
