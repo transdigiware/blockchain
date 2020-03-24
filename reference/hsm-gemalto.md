@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-24"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -502,7 +502,7 @@ After the local test in the previous step is successful, you are ready to deploy
   If you are setting up multiple partitions and proxies, the value of <LABEL> and `metadata.name` parameters need to be unique across proxies.
   {: tip}
 
-  When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. For example, in the previous code snippet you could replace <Docker-image> with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io:`.
+  When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. You could replace `<DOCKER-IMAGE>` with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io`.
 
   If you are deploying to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](https://cloud.ibm.com/docs/containers?topic=containers-registry){: external}.
 

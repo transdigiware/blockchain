@@ -1081,15 +1081,15 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 
 1. You need to gather the following certificate information and save it to individual files that can be uploaded to the console.   
 **Note:** The certificates inside the files can be in either `PEM` format or `base64 encoded` format.
- * **Peer or ordering service identity certificate** This is the signing certificate from your external CA that the peer or ordering service will use.
- * **Peer or ordering service identity private key** This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
- * **TLS CA certificate** This is the public signing certificate created by your external TLS CA that will be used by this peer or ordering service.
-  * **TLS CA private key** This is the private key corresponding to the signed certificate from your TLS CA that will be used by this peer or ordering service for secure communications with other members on the network.
- * **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.
- * **Intermediate TLS certificate**: (Optional) This is the TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
- * **Peer or ordering service admin identity certificate** This is the signing certificate from your external CA that the admin identity of this peer or ordering service will use. This certificate is also known as your peer or ordering service admin identity key.
- * **Peer or ordering service admin identity private key** This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
- * **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
+	* **Peer or ordering service identity certificate** This is the signing certificate from your external CA that the peer or ordering service will use.
+	* **Peer or ordering service identity private key** This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
+	* **TLS CA certificate** This is the public signing certificate created by your external TLS CA that will be used by this peer or ordering service. The certificate needs to contain the x.509 Subject alternative name (SAN) for the peer or ordering nodes. If you are using the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html) to enroll the identity, you specify the SAN by passing the `--csr.hosts` parameter on the `enroll` command. If the host name is not yet known, you can specify a wild card with the domain name, for example: `--csr.hosts '*.ibpv2-cluster.us-south.containers.appdomain.cloud,127.0.0.1'`.
+	* **TLS CA private key** This is the private key corresponding to the signed certificate from your TLS CA that will be used by this peer or ordering service for secure communications with other members on the network.
+	* **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.
+	* **Intermediate TLS certificate**: (Optional) This is the TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
+	* **Peer or ordering service admin identity certificate** This is the signing certificate from your external CA that the admin identity of this peer or ordering service will use. This certificate is also known as your peer or ordering service admin identity key.
+	* **Peer or ordering service admin identity private key** This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
+	* **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
 
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
@@ -1171,15 +1171,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1188,15 +1188,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1205,15 +1205,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1222,15 +1222,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1239,15 +1239,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
