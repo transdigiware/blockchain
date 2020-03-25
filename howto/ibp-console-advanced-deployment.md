@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-03-25"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -910,7 +910,8 @@ In Raft, a **majority of the total number of nodes** must be available is needed
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. Users who know that they will be deploying a production solution should therefore choose the five node option.
 
-However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-raft).
+However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
+
 
 ### Kubernetes zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
