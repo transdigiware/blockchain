@@ -72,7 +72,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Connect to other Fabric networks**: Join {{site.data.keyword.blockchainfull_notm}} Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the {{site.data.keyword.blockchainfull_notm}} Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI.
 
 
-
+Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/03/the-latest-in-multicloud-support-distributed-consensus-security-and-more/){: external} on taking the next step towards multicloud support and distributed consensus.
 
 
 This offering is intended for experienced Fabric users who want to build and manage their own networks.
