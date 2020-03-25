@@ -74,7 +74,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 
 Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/03/the-latest-in-multicloud-support-distributed-consensus-security-and-more/){: external} on taking the next step towards multicloud support and distributed consensus.
 
-
 This offering is intended for experienced Fabric users who want to build and manage their own networks.
 
 ## Supported {{site.data.keyword.cloud_notm}} configuration
@@ -82,7 +81,7 @@ This offering is intended for experienced Fabric users who want to build and man
 
 | | |
 |----|----|
-| Kubernetes | v1.14-v1.17 |
+| Kubernetes | <ul><li>v1.14-v1.17</ul> |
 | Infrastructure type | <ul><li>Classic only <li>For OpenShift see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp){: external}</ul>|
 | Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Support any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
 | VLAN | <ul><li>[VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported,  a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |
