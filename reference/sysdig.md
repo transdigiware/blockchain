@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-03-26"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -135,7 +135,7 @@ First configure the notification channel and then define the alert triggers.
 
    After you configure the alert based on your custom triggers, scroll down to associate the notification channel that you configured above and select your notification preferences. Optionally, you can also enable Sysdig capture which generates a trace file that you can use to analyze what happens in a host during a selected time frame.
 
-   For more information about the various options when configuring alerts in Sysdig see [Working with alerts](https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/pages/205324292/Alerts){: external}.
+   For more information about the various options when configuring alerts in Sysdig. see [Sysdig alerts](https://docs.sysdig.com/en/alerts.html){: external}.
 
 As a general guideline, we recommend that you configure alerts for when your node CPU, memory, and storage usage exceeds 80% so that you can take appropriate action. Feel free to adjust the alert settings according to your notification preferences.
 {: tip}
