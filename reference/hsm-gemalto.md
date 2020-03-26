@@ -403,7 +403,7 @@ After the local test in the previous step is successful, you are ready to deploy
   kubectl create secret docker-registry docker-pull-secret --docker-username=dockeruser --docker-password=dockerpwd --docker-email=dockeruser@example.com --docker-server=dockeruser/pkcs11-proxy:v1 -n hsm
   ```
   {: codeblock}
-  These instructions are obviously for the Docker registry. If you are using the {{site.data.keyword.IBM}} Container Registry, then you'll need to set up your own image pull secret in your cluster (doing so will allow you to deploy containers to k8s namespaces other than default). This also implies you'll need to define a corresponding image pull secret entry in the deployment yaml file. See the following links for further details:
+  These instructions are obviously for the Docker registry. If you are using the {{site.data.keyword.IBM}} Container Registry, then you'll need to set up your own image pull secret in your cluster (doing so will allow you to deploy containers to Kubernetes namespaces other than default). This also implies that you'll need to define a corresponding image pull secret entry in the deployment YAML file. See the following links for further details:
 
     - [Using an image pull secret to access images in other IBM Cloud accounts or external private registries from non-default Kubernetes namespaces](https://cloud.ibm.com/docs/containers?topic=containers-registry#other)
     - [Copying an existing image pull secret](https://cloud.ibm.com/docs/containers?topic=containers-registry#copy_imagePullSecret)
