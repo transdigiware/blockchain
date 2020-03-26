@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-03-26"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -50,7 +50,7 @@ Full cryptographic HSM support is now available for HSMs that implement the PKCS
 
 **Support for adding and removing ordering nodes from an existing ordering service**  
 
-Previously, an ordering service could only contain one or five ordering nodes and they all were contributed from the same organization. Now, the ordering service can be deployed across multiple organizations in a blockchain network, enabling individual organizations to add and remove individual ordering nodes as required. Multi-organizational transaction ordering improves the decentralized nature of a blockchain network.  Learn more about the process in the new [Adding and removing Raft ordering service nodes tutorial](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-add-remove-orderer).
+Previously, an ordering service could only contain one or five ordering nodes and they all were contributed from the same organization. Now, the ordering service can be deployed across multiple organizations in a blockchain network, enabling individual organizations to add and remove individual ordering nodes as required. Multi-organizational transaction ordering improves the decentralized nature of a blockchain network.  Learn more about the process in the new [Adding and removing Raft ordering service nodes tutorial](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
 
 **Ability to override default CA, peer, ordering node configuration**  
 
