@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-03-26"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1388,7 +1388,7 @@ COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0.1 /usr/local/lib/libpkcs
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11-proxy.so.0
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
 
-ENV PKCS11_DAEMON_SOCKET="tls://0.0.0.0:2345"
+ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
 #ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
 EXPOSE 2345
 
