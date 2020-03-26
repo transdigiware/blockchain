@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-25"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -210,7 +210,7 @@ All nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a rel
 
 When you need to restore a backup, the backups would need to be restored on every component across your network.
 
-If you are using CA replica sets and your PostgreSQL database resides in {{site.data.keyword.cloud_notm}}, backups are included in the service. See the topic on [Managing Backups](/docs/services/databases-for-postgresql?topic=cloud-databases-dashboard-backups){: external} for more information. Otherwise, you need to work with your third-party PostgreSQL database provider to manage the database backups according to your DR needs.
+If you are using CA replica sets and your PostgreSQL database resides in {{site.data.keyword.cloud_notm}}, backups are included in the service. See the topic on [Managing Backups](/docs/databases-for-postgresql?topic=cloud-databases-dashboard-backups){: external} for more information. Otherwise, you need to work with your third-party PostgreSQL database provider to manage the database backups according to your DR needs.
 
 ### Stopping nodes to prepare for a backup
 {: #ibp-console-ha-stop-nodes}

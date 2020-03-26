@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-25"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -137,7 +137,7 @@ The namespace is the first part of the url beginning with the letter `n` and fol
 4. On the left navigation, click **Pods** to view the list of node pods that you have deployed.
 5. Click on a pod. Then click **Logs** on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
 
-By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that allows you to easily parse the logs in real time. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
+By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that allows you to easily parse the logs in real time. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}

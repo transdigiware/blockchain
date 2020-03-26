@@ -36,7 +36,7 @@ This tutorial describes how to configure {{site.data.keyword.la_full_notm}} serv
 ## Step one: Configure cluster-level logging
 {: #ibp-LogDNA-kubernetes}
 
-You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-kube){: external} tutorial.
+You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-kube){: external} tutorial.
 
 ## Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes
 {: #ibp-LogDNA-ibp}

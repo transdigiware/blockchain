@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-24"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -183,7 +183,7 @@ Create a JSON file by using the following format:
 
 ```json
 {
-    "name": "<organization_name>",
+    "display_name": "<organization_name>",
     "msp_id": "<organization_id>",
     "type": "msp",
     "admins": [
@@ -195,6 +195,25 @@ Create a JSON file by using the following format:
     "tls_root_certs": [
         "<tls_root_certs>"
     ],
+    "fabric_node_ous": {
+        "enable": true,
+        "admin_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "admin"
+        },
+        "client_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "client"
+        },
+        "orderer_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "orderer"
+        },
+        "peer_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "peer"
+        }
+    },
     "host_url": "<url>",
     "external": false
 }
@@ -206,36 +225,14 @@ Create a JSON file by using the following format:
 - **root_certs**: Paste in an array that contains one or more root certificates from the external CA in `base64` format. You must provide either a CA root certificate or an intermediate CA certificate. You can also provide both.
 - **admins**: Paste in the signing certificate of the organization admin in `base64` format.
 - **tls_root_certs**: Paste in an array that contains one or more root certificates from the TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
+- **ou_root_cert**:
 - **host_url**: Specify the URL of the blockchain console where this MSP will collect signatures.
+- **fabric_node_OUs**: Fabric-specific OUs that enable identity classification. `NodeOUs` contain information for how to distinguish clients, peers, and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP considers an identity valid only if it is an identity of type `client`, a `peer`, an `admin`, or an `orderer`. An identity should have only one of these special OUs, which are assigned to an identity when it is registered with the CA. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation. Or learn more about using  [Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external} in Fabric.
 
 The following additional fields are also available in your MSP definition but are not required:
 - **intermediate_certs**: (if an intermediate CA was used) Paste in an array that contains one or more certificates from the external intermediate CA in `base64` format. You must provide either a CA root certificate or an intermediate CA certificate, you can also provide both.
 - **tls_intermediate_certs**: (if an intermediate TLS CA was used) Paste in an array that contains one or more certificates from the intermediate TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
 - **organizational_unit_identifiers**: A list of Organizational Units (OU) that valid members of this MSP should include in their X.509 certificate. This is an optional configuration parameter that is used when multiple organizations leverage the same root of trust and intermediate CAs, and they have reserved an OU field for their members. An organization is often divided up into multiple organizational units (OUs), each of which has a certain set of responsibilities. For example, the ORG1 organization might have both ORG1-MANUFACTURING and ORG1-DISTRIBUTION OUs to reflect these separate lines of business. When a CA issues X.509 certificates, the OU field in the certificate specifies the line of business to which the identity belongs. See this topic in the Fabric documentation on [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} for more information.
-- **fabric_node_OUs**: Fabric-specific OUs that enable identity classification. `NodeOUs` contain information on how to distinguish clients, peers, and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP considers an identity valid if it is an identity of a `client`, a `peer`, an `admin`, or an `orderer`. An identity should have only one of these special OUs, which are assigned to an identity when it is registered with the CA. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation.
-  * Node OUs in an MSP follow this pattern:
-    ```json
-    "fabric_node_ous": {
-        "admin_ou_identifier": {
-            "certificate": "<ou_root_cert>",
-            "organizational_unit_identifier": "admin"
-        },
-        "client_ou_identifier": {
-            "certificate": "<ou_root_cert>",
-            "organizational_unit_identifier": "client"
-        },
-        "enable": true,
-        "orderer_ou_identifier": {
-            "certificate": "<ou_root_cert>",
-            "organizational_unit_identifier": "orderer"
-        },
-        "peer_ou_identifier": {
-            "certificate": "<ou_root_cert>",
-            "organizational_unit_identifier": "peer"
-        }
-      }
-    ```
-
 - **revocation_list**: A list of certificates that are no longer valid. For X.509-based identities, these identifiers are pairs of strings known as Subject Key Identifier (SKI) and Authority Key Identifier (AKI), and are checked whenever the X.509 certificate is being used to make sure that the certificate has not been revoked. See this topic in the Fabric documentation for more information about [Certificate Revocation Lists](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
 
 For example, your JSON file would look similar to:

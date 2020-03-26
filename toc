@@ -21,7 +21,6 @@ IBM Blockchain Platform for IBM Cloud
 		howto/ibp-console-smart-contracts.md
 		howto/ibp-console-create-app.md
 		howto/ibp-console-add-remove-raft.md
-		reference/videos.md
 		howto/ibp-console-ic-ha-howto.md
 		howto/ibp-console-ha-ca.md
 		reference/logdna.md

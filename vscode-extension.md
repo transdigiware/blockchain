@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-22"
+lastupdated: "2020-03-24"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -42,7 +42,7 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 {: #develop-vscode-prerequisites}
 
 - Windows 10, Linux, or Mac OS are currently the supported operating systems.
-- [VS Code version 1.38](https://code.visualstudio.com/){: external}.
+- [VS Code version 1.38 or greater](https://code.visualstudio.com/){: external}.
 - [Docker version v17.06.2-ce or greater](https://www.docker.com/get-started){: external}.
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
 - If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-26"
 
 keywords: blockchain network, Starter Plan, getting started tutorial
 
@@ -122,8 +122,6 @@ For more information, see [Creating a channel](/docs/blockchain?topic=blockchain
 {: #getting-started-with-starter-plan-develop-chaincode}
 
 [chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode), sometimes referred to as smart contracts, is software that allows you to read and update data on the blockchain ledger. Chaincode can turn business logic into an executable program agreed to and verified by all members of the blockchain network.
-
-For more information, see the [developing chaincode](/docs/blockchain?topic=blockchain-develop-smart-contracts#develop-smart-contracts) tutorial to learn how to start writing chaincode, as well as fabric features that are accessible through chaincode.
 
 ## Installing and instantiating your chaincode
 {: #getting-started-with-starter-plan-install-instantiate-chaincode}

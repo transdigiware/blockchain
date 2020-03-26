@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-26"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -236,7 +236,7 @@ In a production environment you have the option to generate and store private ke
 There are three ways you can use an HSM with the {{site.data.keyword.blockchainfull_notm}} Platform:
 1. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto).
 2. Configure your own HSM.
-3. For test purposes only, configure open source [SoftHSM](https://github.com/opendnssec/SoftHSMv2){: external}. You can use SoftHSM for cryptographic operations of your peer, ordering node or CA inside an HSM slot.
+3. For test purposes only, configure open source [SoftHSM](https://github.com/opendnssec/SoftHSMv2){: external}. You can use SoftHSM for cryptographic operations of your peer, ordering node or CA inside an HSM partition.
 
 After you have configured an HSM, you need to configure a HSM proxy that allows the blockchain node to communicate with the HSM. Then when you configure a blockchain node, you will need to provide three pieces of information:
 * **Proxy endpoint:** ClusterIP address that is generated for the HSM when the HSM proxy is configured.

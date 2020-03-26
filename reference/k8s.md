@@ -55,6 +55,6 @@ The following diagram explains the architecture of Kubernetes. For more explanat
 {{site.data.keyword.cloud_notm}} Kubernetes Service delivers powerful tools by combining Docker containers, the Kubernetes technology, an intuitive user experience, and built-in security and isolation to automate the deployment, operation, scaling, and monitoring of containerized apps in a cluster of compute hosts. You can use the {{site.data.keyword.cloud_notm}} Kubernetes Service to deploy clusters using open source Kubernetes and the OpenShift Container Platform.
 
 For more information about {{site.data.keyword.cloud_notm}} Kubernetes Service, see the following topics in {{site.data.keyword.cloud_notm}} Kubernetes Service documentation:
-- [{{site.data.keyword.cloud_notm}} Kubernetes Service technology](/docs/containers?topic=containers-ibm-cloud-kubernetes-service-technology#ibm-cloud-kubernetes-service-technology){: external}
+- [Understanding the IBM Cloud Kubernetes Service](/docs/containers?topic=containers-overview#service-concepts){: external}
 - [Why {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
 - [Defining your Kubernetes strategy](/docs/containers?topic=containers-strategy#strategy){: external}

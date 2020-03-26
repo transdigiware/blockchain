@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-03-26"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -140,7 +140,7 @@ For information about creating highly available CAs through the use of replica s
 ### Customizing a CA configuration
 {: #ibp-console-adv-deployment-ca-customization}
 
-In addition to the CA settings that are provided in the console when you provision a CA, you have the option to override some of the settings. If you are familiar with the Hyperledger Fabric CA server, these settings are configured in the [`fabric-ca-server-config.yaml`]((https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html) file when a CA is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you with default settings. Therefore, many of these fields are not exposed by the console. But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a CA is deployed.
+In addition to the CA settings that are provided in the console when you provision a CA, you have the option to override some of the settings. If you are familiar with the Hyperledger Fabric CA server, these settings are configured in the [`fabric-ca-server-config.yaml`](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html) file when a CA is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you with default settings. Therefore, many of these fields are not exposed by the console. But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a CA is deployed.
 
 The ability to override the CA configuration is available only in paid clusters.
 {: note} 
@@ -910,7 +910,8 @@ In Raft, a **majority of the total number of nodes** must be available is needed
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. Users who know that they will be deploying a production solution should therefore choose the five node option.
 
-However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-raft).
+However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
+
 
 ### Kubernetes zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
@@ -1081,15 +1082,15 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 
 1. You need to gather the following certificate information and save it to individual files that can be uploaded to the console.   
 **Note:** The certificates inside the files can be in either `PEM` format or `base64 encoded` format.
- * **Peer or ordering service identity certificate** This is the signing certificate from your external CA that the peer or ordering service will use.
- * **Peer or ordering service identity private key** This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
- * **TLS CA certificate** This is the public signing certificate created by your external TLS CA that will be used by this peer or ordering service.
-  * **TLS CA private key** This is the private key corresponding to the signed certificate from your TLS CA that will be used by this peer or ordering service for secure communications with other members on the network.
- * **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.
- * **Intermediate TLS certificate**: (Optional) This is the TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
- * **Peer or ordering service admin identity certificate** This is the signing certificate from your external CA that the admin identity of this peer or ordering service will use. This certificate is also known as your peer or ordering service admin identity key.
- * **Peer or ordering service admin identity private key** This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
- * **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
+	* **Peer or ordering service identity certificate** This is the signing certificate from your external CA that the peer or ordering service will use.
+	* **Peer or ordering service identity private key** This is your private key corresponding to the signed certificate from your third-party CA that this peer or ordering service will use.
+	* **TLS CA certificate** This is the public signing certificate created by your external TLS CA that will be used by this peer or ordering service. The certificate needs to contain the x.509 Subject alternative name (SAN) for the peer or ordering nodes. If you are using the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html) to enroll the identity, you specify the SAN by passing the `--csr.hosts` parameter on the `enroll` command. If the host name is not yet known, you can specify a wild card with the domain name, for example: `--csr.hosts '*.ibpv2-cluster.us-south.containers.appdomain.cloud,127.0.0.1'`.
+	* **TLS CA private key** This is the private key corresponding to the signed certificate from your TLS CA that will be used by this peer or ordering service for secure communications with other members on the network.
+	* **TLS CA root certificate** (Optional) This is the root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.
+	* **Intermediate TLS certificate**: (Optional) This is the TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.
+	* **Peer or ordering service admin identity certificate** This is the signing certificate from your external CA that the admin identity of this peer or ordering service will use. This certificate is also known as your peer or ordering service admin identity key.
+	* **Peer or ordering service admin identity private key** This is the private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service will use.
+	* **Peer or ordering service organization MSP definition** You must manually generate this file by using instructions that are provided in [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp).
 
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
@@ -1171,15 +1172,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1188,15 +1189,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1205,15 +1206,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1222,15 +1223,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1239,15 +1240,15 @@ cat <cert.pem> | base64 $FLAG
     {
         "msp": {
             "component": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "admincerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             },
             "tls": {
-                "keystore": [“<cert>“],
-                "signcerts": [“<cert>“],
+                "keystore": “<cert>“,
+                "signcerts": “<cert>“,
                 "cacerts": [“<cert>“],
                 "intermediatecerts": [“<cert>“]
             }
@@ -1307,7 +1308,8 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
 	-  If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform including the PKCS #11 proxy. After that is completed you can skip to Part 3 **Configure the node to use HSM**.
-	- If you want to try out SoftHSMm or learn more about the PCKS #11 proxy, continue to Part 2 **Set up a PKCS #11 proxy**.
+	
+	- If you want to try out SoftHSM or learn more about the PCKS #11 proxy, continue to Part 2 **Set up a PKCS #11 proxy**.
 2. **Set up a PKCS #11 proxy**. The proxy enables the node to communicate with the HSM. [See Setting up a PKCS #11 proxy for HSM](#ibp-console-adv-deployment-pkcs11-proxy) for your HSM.
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
@@ -1325,7 +1327,7 @@ Before attempting these instructions you should already have a [DockerHub login]
 #### Why is a proxy required?
 {: #ibp-console-adv-deployment-pkcs11-proxy-why}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is based on Hyperledger Fabric which supports devices that use the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}. Therefore, after deploying an HSM, you need to configure a PKCS11 proxy to set up the communications between the appliance and the nodes on the network. One PKCS11 proxy is required per HSM slot. When a user is enrolled, their private key is generated by the HSM and stored in the slot. A slot can store multiple keys in it, although the exact number varies by HSM provider. Organizations can share a slot, but it is more likely that each organization would want their own HSM.
+The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is based on Hyperledger Fabric which supports devices that use the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}. Therefore, after deploying an HSM, you need to configure a PKCS11 proxy to set up the communications between the appliance and the nodes on the network. One PKCS11 proxy is required per HSM partition. When a user is enrolled, their private key is generated by the HSM and stored in the partition. A partition can store multiple keys in it, although the exact number varies by HSM provider. Organizations can share a slot or partition, but it is more likely that each organization would want their own HSM.
 
 #### Building the proxy image
 {: #ibp-console-adv-deployment-pkcs11-proxy-build-img}
@@ -1387,7 +1389,7 @@ COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0.1 /usr/local/lib/libpkcs
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11-proxy.so.0
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
 
-ENV PKCS11_DAEMON_SOCKET="tls://0.0.0.0:2345"
+ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
 #ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
 EXPOSE 2345
 

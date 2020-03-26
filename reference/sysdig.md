@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-03-26"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -31,14 +31,14 @@ subcollection: blockchain
 {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.mon_full}} service which is useful for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform peer, orderer, and certificate authority (CA) nodes, and smart contract containers.
 {: shortdesc}
 
-The tutorial provides a set of instructions for getting started with using the {{site.data.keyword.mon_full_notm}} to monitor the resource usage of peer, CA, and ordering service nodes. These instructions include how to configure the {{site.data.keyword.mon_full_notm}} service to monitor your existing {{site.data.keyword.blockchainfull_notm}} Platform service instance and starts with creating an instance of Sysdig in {{site.data.keyword.cloud_notm}}.  Then, you can configure the Sysdig dashboard to monitor your blockchain components. To learn more about the Sysdig service and what it offers, see the [{{site.data.keyword.mon_full_notm}}](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-about){: external} documentation.
+The tutorial provides a set of instructions for getting started with using the {{site.data.keyword.mon_full_notm}} to monitor the resource usage of peer, CA, and ordering service nodes. These instructions include how to configure the {{site.data.keyword.mon_full_notm}} service to monitor your existing {{site.data.keyword.blockchainfull_notm}} Platform service instance and starts with creating an instance of Sysdig in {{site.data.keyword.cloud_notm}}.  Then, you can configure the Sysdig dashboard to monitor your blockchain components. To learn more about the Sysdig service and what it offers, see the [{{site.data.keyword.mon_full_notm}}](/docs/Monitoring-with-Sysdig?topic=Sysdig-about){: external} documentation.
 
 Monitoring the resource allocation for your blockchain nodes is a key part of operating a blockchain network. You are responsible for monitoring your resource usage and taking steps to address resource contention. The  {{site.data.keyword.mon_full_notm}} is a useful tool for monitoring your network, but you can use any tool you prefer.
 {: important}
 
 This tutorial uses the Free 30-day Trial version of the service, but more advanced features are available in the **Graduated tier** which you can explore if your requirements merit.
 
-The {{site.data.keyword.mon_full_notm}} service is currently only available in a subset of [regions](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-endpoints#endpoints_regions).  It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance.
+The {{site.data.keyword.mon_full_notm}} service is currently only available in a subset of [regions](/docs/Monitoring-with-Sysdig?topic=Sysdig-endpoints#endpoints_regions).  It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance.
 {: note}
 
 ## Before you begin
@@ -50,7 +50,7 @@ You should already have an {{site.data.keyword.blockchainfull_notm}} Platform se
 ## Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service
 {: #ibp-sysdig-provision}
 
-Deploy an instance of the {{site.data.keyword.mon_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Sysdig Getting started tutorial](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-getting-started){: external} tutorial.
+Deploy an instance of the {{site.data.keyword.mon_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Sysdig Getting started tutorial](/docs/Monitoring-with-Sysdig?topic=Sysdig-getting-started){: external} tutorial.
 
 After you provision the Sysdig service, if you click **Edit sources** in the **Monitoring** tab, a curl command is provided to easily configure monitoring of your Kubernetes cluster. Simply login to your Kubernetes cluster from the CLI and run the curl command to configure the Sysdig service for your cluster. In **Step two** below, your Sysdig instance should be ready to go. If the curl command fails, ensure that your kubectl version is 1.14 or higher.
 {: tip}
@@ -135,7 +135,7 @@ First configure the notification channel and then define the alert triggers.
 
    After you configure the alert based on your custom triggers, scroll down to associate the notification channel that you configured above and select your notification preferences. Optionally, you can also enable Sysdig capture which generates a trace file that you can use to analyze what happens in a host during a selected time frame.
 
-   For more information about the various options when configuring alerts in Sysdig see [Working with alerts](https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/pages/205324292/Alerts){: external}.
+   For more information about the various options when configuring alerts in Sysdig. see [Sysdig alerts](https://docs.sysdig.com/en/alerts.html){: external}.
 
 As a general guideline, we recommend that you configure alerts for when your node CPU, memory, and storage usage exceeds 80% so that you can take appropriate action. Feel free to adjust the alert settings according to your notification preferences.
 {: tip}

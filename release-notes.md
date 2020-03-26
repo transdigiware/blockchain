@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-26"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -50,7 +50,7 @@ Full cryptographic HSM support is now available for HSMs that implement the PKCS
 
 **Support for adding and removing ordering nodes from an existing ordering service**  
 
-Previously, an ordering service could only contain one or five ordering nodes and they all were contributed from the same organization. Now, the ordering service can be deployed across multiple organizations in a blockchain network, enabling individual organizations to add and remove individual ordering nodes as required. Multi-organizational transaction ordering improves the decentralized nature of a blockchain network.  Learn more about the process in the new [Adding and removing Raft ordering service nodes tutorial](/docs/blockchain-sw?topic=blockchain-sw-ibp-console-add-remove-orderer).
+Previously, an ordering service could only contain one or five ordering nodes and they all were contributed from the same organization. Now, the ordering service can be deployed across multiple organizations in a blockchain network, enabling individual organizations to add and remove individual ordering nodes as required. Multi-organizational transaction ordering improves the decentralized nature of a blockchain network.  Learn more about the process in the new [Adding and removing Raft ordering service nodes tutorial](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer).
 
 **Ability to override default CA, peer, ordering node configuration**  
 
@@ -124,7 +124,7 @@ Users can now choose to designate a peer to be an anchor peer when the peer is b
 
 **Ability to add a peer to a channel from the Channels tab**
 
-A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join-peer) for more details.
+A peer can now be joined to a channel directly from the Channels tab. See [Join a peer to a channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-join-peer) for more details.
 
 **Export/Import all**
 
@@ -217,4 +217,4 @@ When you add a peer or orderer node, you have the option to use certificates fro
 
 **Tuning orderer performance**
 
-New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/services/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
+New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.

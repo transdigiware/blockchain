@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-25"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -72,8 +72,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Connect to other Fabric networks**: Join {{site.data.keyword.blockchainfull_notm}} Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the {{site.data.keyword.blockchainfull_notm}} Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI.
 
 
-
-
+Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/03/the-latest-in-multicloud-support-distributed-consensus-security-and-more/){: external} on taking the next step towards multicloud support and distributed consensus.
 
 This offering is intended for experienced Fabric users who want to build and manage their own networks.
 
@@ -82,7 +81,7 @@ This offering is intended for experienced Fabric users who want to build and man
 
 | | |
 |----|----|
-| Kubernetes | v1.14-v1.17 |
+| Kubernetes | <ul><li>v1.14-v1.17</ul> |
 | Infrastructure type | <ul><li>Classic only <li>For OpenShift see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp){: external}</ul>|
 | Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Support any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
 | VLAN | <ul><li>[VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported,  a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |
@@ -154,12 +153,12 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 ![{{site.data.keyword.blockchainfull_notm}} Platform integrations](../images/integrations-updated.png "{{site.data.keyword.cloud_notm}} Integrations"){: caption="Figure 2.{{site.data.keyword.cloud_notm}} Integrations" caption-side="bottom"}  
 
 **Access control**  
-- Securely authenticate users and control access to all cloud resources using [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-iam).
+- Securely authenticate users and control access to all cloud resources using [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-iam).
 
 **Monitoring**  
-- Use [{{site.data.keyword.cloud_notm}} Activity Tracker with LogDNA](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started) service to troubleshoot logs in real-time, diagnose issues, and identify problems in your Kubernetes cluster.
+- Use [{{site.data.keyword.cloud_notm}} Activity Tracker with LogDNA](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started) service to troubleshoot logs in real-time, diagnose issues, and identify problems in your Kubernetes cluster.
 
-- Use [{{site.data.keyword.cloud_notm}} Activity Tracker with Sysdig](/docs/services/Monitoring-with-Sysdig?topic=Sysdig-getting-started#getting-started) to monitor the activity and the health of services and applications in the IBM Cloud.
+- Use [{{site.data.keyword.cloud_notm}} Activity Tracker with Sysdig](/docs/Monitoring-with-Sysdig?topic=Sysdig-getting-started#getting-started) to monitor the activity and the health of services and applications in the IBM Cloud.
 
 - See this tutorial on how to [Analyze logs and monitor application health with LogDNA and Sysdig](/docs/tutorials?topic=solution-tutorials-application-log-analysis).
 
