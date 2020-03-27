@@ -49,7 +49,7 @@ The {{site.data.keyword.blockchainfull_notm}} Helm chart uses dynamic provisioni
 ## Prerequisites for deploying the console
 {: #console-deploy-icp-prerequisites}
 
-1. Before you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform console, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/blockchain?topic=blockchain-console-helm-install#console_helm-install).
+1. Before you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform console, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/blockchain?topic=blockchain-console-helm-install).
 
 2. You should create a new, custom namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment. Your namespace needs to use the [required PodSecurityPolicy](/docs/blockchain?topic=blockchain-console-helm-install#console-helm-install-prereqs-pod-security-requirements). If you plan to create multiple blockchain networks, for example to create different environments for development, staging, and production, you should create a unique namespace for each environment. Note that you can only deploy one Helm chart per namespace, so if you want multiple instances of the console to run on the same cluster, be sure to use separate namespaces.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-27"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -105,7 +105,8 @@ The following table provides two examples of pricing with [default resource allo
    - Nodes can always be dialed back to a minimal utilization state (0.001 CPU) when they are not in use to [lower costs](/docs/blockchain?topic=blockchain-ibp-console-govern-components).
    - Because this scenario could be used for a **production** environment:
      - The default compute resources have been doubled to provide greater capacity.
-     - The [Silver](/docs/containers?topic=containers-file_storage#file_silver){: external} storage class is chosen for faster performance.
+     - The [Silver](/docs/containers?topic=containers-file_storage#file_storageclass_reference){: external} storage class is chosen for faster performance.
+
 
 | Pricing options** (1 VPC = 1 CPU = 1 vCPU)| **Test Network** | **Join a Network** |
 |-|------------|-----------------------------|

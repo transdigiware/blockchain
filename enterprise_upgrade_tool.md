@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-22"
+lastupdated: "2020-03-27"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -64,7 +64,8 @@ You cannot use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 consol
 
 You need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that contains sufficient resources for your Enterprise Plan network. Deploying the platform is a two-step process:
 
-1. You must create a cluster on {{site.data.keyword.cloud_notm}} with the {{site.data.keyword.IBM_notm}} Kubernetes service. It is recommended that you create a multizone cluster for high availability. If you create a multizone cluster, ensure that [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.
+1. You must create a cluster on {{site.data.keyword.cloud_notm}} with the {{site.data.keyword.IBM_notm}} Kubernetes service. It is recommended that you create a multizone cluster for high availability. If you create a multizone cluster, ensure that [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in
+your account.
 
 2. After you create a Kubernetes cluster, you can deploy a service instance of the {{site.data.keyword.blockchainfull_notm}} Platform and link it to that cluster.
 

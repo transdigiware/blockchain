@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-03-27"
 
 keywords: IBM Blockchain Platform, IBM Cloud Private, system requirements, Kubernetes, Helm chart, behind a firewall
 
@@ -107,7 +107,7 @@ See [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for Multiclo
 ## Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private
 {: #console-icp-about-install}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart file that can be installed in a local {{site.data.keyword.cloud_notm}} Private cluster. After you install the Helm chart, you can find {{site.data.keyword.blockchainfull_notm}} Platform as an application in the {{site.data.keyword.cloud_notm}} Private Catalog. For instructions on how to install the Helm chart and the necessary prerequisites, see [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-helm-install#helm-console-install).
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private is delivered as a Helm chart file that can be installed in a local {{site.data.keyword.cloud_notm}} Private cluster. After you install the Helm chart, you can find {{site.data.keyword.blockchainfull_notm}} Platform as an application in the {{site.data.keyword.cloud_notm}} Private Catalog. For instructions on how to install the Helm chart and the necessary prerequisites, see [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-helm-install).
 
 If you are a new user of {{site.data.keyword.cloud_notm}} Private and would like information and tips on installing and deploying {{site.data.keyword.cloud_notm}} Private, see [Setting up {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup).
 
