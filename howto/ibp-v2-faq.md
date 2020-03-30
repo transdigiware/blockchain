@@ -55,6 +55,7 @@ subcollection: blockchain
 - [Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?](#ibp-v2-faq-v2-Infrastructure-4-2)
 - [Do we have access to logging services and what logs are available to me?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
 - [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](#ibp-v2-faq-cloud-storage)
+- [Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](#ibp-v2-faq-cloud-mzr-storage)
 
 
 
@@ -211,6 +212,12 @@ With {{site.data.keyword.blockchainfull_notm}} Platform, you can now directly ac
 {: faq}
 
 By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Classic file storage. You can find more information on the [{{site.data.keyword.cloud_notm}} File storage page](/docs/containers?topic=containers-file_storage#file_storage){: external}. For a complete list of storage options, see [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
+
+## Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?
+{: #ibp-v2-faq-cloud-mzr-storage}
+{: faq}
+
+No. When the {{site.data.keyword.blockchainfull_notm}} Platform is configured with a multizone cluster in {{site.data.keyword.cloud_notm}} Kubernetes service, you can choose which zone a particular component (peer or ordering node) is deployed to, or you can let the console decide.  Then, when the node is subsequently deployed, Kubernetes "pins" the associated pod to the chosen zone. Pinning means that Kubernetes will not provision the pod in another zone in the event of a whole zone failure. And because the pods are pinned to specific zones, there is no need to access the same storage from another zone. Therefore, MZR storage is not required for {{site.data.keyword.blockchainfull_notm}} Platform nodes.
 
 
 
