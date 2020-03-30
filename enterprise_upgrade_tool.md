@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-03-30"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -48,7 +48,7 @@ The upgrade tool user interface guides you through a series of independent steps
 - As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
 - The ability to use a hardware security module (HSM) to store the private keys of your blockchain nodes is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 - The ability to use CA replica sets to deploy a highly available Certificate Authority is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
-- You need to use the upgrade tool to allocate the resources that will be used by the Certificate Authorities, peers and ordering nodes that you will create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The default CPU and memory allocations used by the upgrade tool are provided as guidelines based on the resources used by your nodes on Enterprise Plan. When you allocate resources to your nodes, you need to plan for future growth when your network adds additional blocks. You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to allocate additional CPU and memory to nodes after they are deployed. However, you cannot allocate additional storage to a deployed node.
+- You need to use the upgrade tool to allocate the resources that will be used by the Certificate Authorities, peers and ordering nodes that you will create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The default CPU and memory allocations used by the upgrade tool are provided as guidelines based on the resources used by your nodes on Enterprise Plan. When you allocate resources to your nodes, you need to plan for future growth when your network adds additional blocks. You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to allocate additional CPU and memory to nodes after they are deployed.
 - The {{site.data.keyword.blockchainfull_notm}} Platform 2.0 exposes RESTful APIs that allow you to manage your blockchain components. The APIs provided by the new platform are different than the Swagger APIs provided by Enterprise Plan, and you will need to update any applications or scripts that use the APIs to manage your network. For more information about the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 APIs, see [Building a network with APIs](/docs/blockchain/reference?topic=blockchain-ibp-v2-apis#ibp-v2-apis) and the [API reference](https://cloud.ibm.com/apidocs/blockchain).
 
 ## Opening the upgrade tool
@@ -75,7 +75,7 @@ The panel also displays the region where your Enterprise Plan network is deploye
 
 When you are ready, you can click **Create {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network** to deploy an instance of the new platform. You can also follow [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
-When you use the upgrade tool to create your peer and orderer nodes on the new platform, you have the ability to select the resources allocated to each node. The upgrade tool provides default values based on the resources used by your nodes on Enterprise Plan and recommended values. You can review the default resources provided for nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for more context. While you can re-allocate the CPU and memory allocated to running nodes, you can only allocate storage when a node is first deployed.
+When you use the upgrade tool to create your peer and orderer nodes on the new platform, you have the ability to select the resources allocated to each node. The upgrade tool provides default values based on the resources used by your nodes on Enterprise Plan and recommended values. You can review the default resources provided for nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for more context.
 
 
 
