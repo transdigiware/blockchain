@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-30"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -56,14 +56,7 @@ subcollection: blockchain
 - [Do we have access to logging services and what logs are available to me?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
 - [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](#ibp-v2-faq-cloud-storage)
 
-**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**    
 
-- [What are the benefits of {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?](#ibp-v2-faq-icp-benefits)
-- [Which environments does {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud support?](#ibp-v2-faq-icp-environments)
-- [What is the pricing model for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?](#ibp-v2-faq-icp-pricing)
-- [What services do I need to install to use {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?](#ibp-v2-faq-icp-services)
-- [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud sizing requirements for my dev, test, and production environments?](#ibp-v2-faq-icp-sizing)
-- [What happens to my blockchain components when I delete my Helm release?](#ibp-v2-faq-icp-delete)
 
 
 ## What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?
@@ -108,11 +101,11 @@ The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts 
 
 Yes, you can bring your own certificates if they are issued by a CA that is X.509 compliant. The CA should sign by using ECDSA and the defaults should be set to use P256 curve. See this topic about [Using certificates from an external CA with your peer or ordering node](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-third-party-ca).
 
-## I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?
+## I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?
 {: #ibp-v2-faq-migrate-raft}
 {: faq}
 
-Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-v2-faq#ibp-v2-faq-interoperability).
+Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}  uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-v2-faq#ibp-v2-faq-interoperability).
 
 ## Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?
 {: #ibp-v2-faq-multicloud}
@@ -219,40 +212,6 @@ With {{site.data.keyword.blockchainfull_notm}} Platform, you can now directly ac
 
 By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Classic file storage. You can find more information on the [{{site.data.keyword.cloud_notm}} File storage page](/docs/containers?topic=containers-file_storage#file_storage){: external}. For a complete list of storage options, see [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 
-## What are the benefits of {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
-{: #ibp-v2-faq-icp-benefits}
-{: faq}
 
-See [What the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud offers](/docs/blockchain?topic=blockchain-console-icp-about#what-ibm-blockchain-platform-for-ibm-cloud-private-offers).
-
-## Which environments does {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud support?
-{: #ibp-v2-faq-icp-environments}
-{: faq}
-
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud supports all environments that {{site.data.keyword.cloud_notm}} Private v3.2 supports. See [Supported operating systems and platforms](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/supported_system_config/supported_os.html){: external} for more information.
-
-## What is the pricing model for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
-{: #ibp-v2-faq-icp-pricing}
-{: faq}
-
-{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud [licensing](/docs/blockchain?topic=blockchain-ibp-software-pricing) is based on the amount of CPU (VPC) made available to the product. For details, [contact IBM](https://www.ibm.com/account/reg/us-en/signup?formid=urx-37672){: external}.
-
-## What services do I need to install to use {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud?
-{: #ibp-v2-faq-icp-services}
-{: faq}
-
-You need to install only {{site.data.keyword.cloud_notm}} Private v3.2.
-
-## How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud sizing requirements for my dev, test, and production environments?
-{: #ibp-v2-faq-icp-sizing}
-{: faq}
-
-After you understand how many CAs, peers, and ordering nodes are required, you can examine the [default resource allocations table](/docs/blockchain?topic=blockchain-icp-console-setup#icp-console-setup-resources) to get an approximate estimate of the CPUs (VPCs) required for your network.
-
-## What happens to my blockchain components when I delete my Helm release?
-{: #ibp-v2-faq-icp-delete}
-{: faq}
-
-When you delete a helm release from your {{site.data.keyword.cloud_notm}} Private cluster, the associated blockchain components are not deleted. To properly remove a helm release from your cluster, delete all of your components by using the blockchain console or the blockchain APIs first. Then, you can delete the helm chart.
 
 
