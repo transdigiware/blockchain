@@ -165,7 +165,7 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 * {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
 * Only one blockchain console can be connected to a free cluster at a time.
 * You cannot migrate any nodes or data from a free cluster to a paid cluster.
-* The free offering only supports a single node Raft ordering service.   
+* The free offering only supports a single node Raft ordering service, and additional ordering nodes cannot be added to the ordering service. 
 * You cannot configure a node to use a Hardware Security Module (HSM) on a free  cluster.
 * The option to override node configuration during deployment (on the Summary page) is not available on a free cluster.
 * CAs are restricted to using the SQLite database.
