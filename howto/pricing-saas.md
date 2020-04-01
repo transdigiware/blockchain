@@ -64,10 +64,17 @@ The free preview is temporarily unavailable. The capability should be restored b
 #### Limitations of the free preview
 {: #ibp-saas-pricing-free-limits}
 
-- Performance is limited by throughput, storage, and functionality. Read more about the limitations of [free Kubernetes clusters](/docs/containers?topic=containers-cs_ov#cluster_types){: external} in the {{site.data.keyword.cloud_notm}} Kubernetes Service.
-- {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
-- Only one console can be connected to a free cluster at a time.
-- You cannot migrate any nodes or data from a free cluster to a paid cluster. 
+* Performance will be limited by throughput, storage, and functionality. Read more about the [limitations of free clusters](/docs/containers?topic=containers-cs_ov#cluster_types).
+* {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
+* Only one blockchain console can be connected to a free cluster at a time.
+* You cannot migrate any nodes or data from a free cluster to a paid cluster.
+* The free offering only supports a single node Raft ordering service.   
+* You cannot configure a node to use a Hardware Security Module (HSM) on a free  cluster.
+* The option to override node configuration during deployment (on the Summary page) is not available on a free cluster.
+* CAs are restricted to using the SQLite database.
+* You cannot specify which zone a node is deployed to because a free cluster only contains a single zone.
+* Custom resource allocation is not available on a free cluster.
+
 
 #### How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free
 {: #ibp-saas-pricing-free-howto}

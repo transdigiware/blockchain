@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-30"
+lastupdated: "2020-04-01"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -165,9 +165,14 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 * {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
 * Only one blockchain console can be connected to a free cluster at a time.
 * You cannot migrate any nodes or data from a free cluster to a paid cluster.
-* The free offering only supports a single node Raft ordering service.    
+* The free offering only supports a single node Raft ordering service.   
+* You cannot configure a node to use a Hardware Security Module (HSM) on a free  cluster.
+* The option to override node configuration during deployment (on the Summary page) is not available on a free cluster.
+* CAs are restricted to using the SQLite database.
+* You cannot specify which zone a node is deployed to because a free cluster only contains a single zone.
 * Custom resource allocation is not available on a free cluster.
 
+* See [Find out how to preview the platform free for 30 days](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for more information on how to get started.
 
 ## How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?
 {: #ibp-v2-faq-cloud-invoice}
