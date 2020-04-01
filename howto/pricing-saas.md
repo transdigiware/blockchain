@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-01"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -58,13 +58,23 @@ Developers can get started with the free [extension for VS Code](https://marketp
 
 You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes **free** cluster.
 
+As we roll out updates across the regions, the free preview is temporarily unavailable. The capability should be restored by April 8, 2020. We regret any inconvenience this may cause.
+{: important}
+
 #### Limitations of the free preview
 {: #ibp-saas-pricing-free-limits}
 
-- Performance is limited by throughput, storage, and functionality. Read more about the limitations of [free Kubernetes clusters](/docs/containers?topic=containers-cs_ov#cluster_types){: external} in the {{site.data.keyword.cloud_notm}} Kubernetes Service.
-- {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
-- Only one console can be connected to a free cluster at a time.
-- You cannot migrate any nodes or data from a free cluster to a paid cluster. 
+* Performance will be limited by throughput, storage, and functionality. Read more about the [limitations of free clusters](/docs/containers?topic=containers-cs_ov#cluster_types).
+* {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
+* Only one blockchain console can be connected to a free cluster at a time.
+* You cannot migrate any nodes or data from a free cluster to a paid cluster.
+* The free offering only supports a single node Raft ordering service, and additional ordering nodes cannot be added to the ordering service. 
+* You cannot configure a node to use a Hardware Security Module (HSM) on a free  cluster.
+* The option to override node configuration during deployment (on the Summary page) is not available on a free cluster.
+* CAs are restricted to using the SQLite database.
+* You cannot specify which zone a node is deployed to because a free cluster only contains a single zone.
+* Custom resource allocation is not available on a free cluster.
+
 
 #### How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free
 {: #ibp-saas-pricing-free-howto}
