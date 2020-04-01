@@ -171,8 +171,9 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 * CAs are restricted to using the SQLite database.
 * You cannot specify which zone a node is deployed to because a free cluster only contains a single zone.
 * Custom resource allocation is not available on a free cluster.
+  
 
-* See [Find out how to preview the platform free for 30 days](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for more information on how to get started.
+See [Find out how to preview the platform free for 30 days](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for more information on how to get started.
 
 ## How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?
 {: #ibp-v2-faq-cloud-invoice}
