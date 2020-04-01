@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-01"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -57,6 +57,9 @@ Developers can get started with the free [extension for VS Code](https://marketp
 {: #ibp-saas-pricing-free}
 
 You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes **free** cluster.
+
+The free preview is temporarily unavailable. The capability should be restored by April 8, 2020. We regret any inconvenience this may cause as we roll out updates across the regions.
+{: important}
 
 #### Limitations of the free preview
 {: #ibp-saas-pricing-free-limits}
