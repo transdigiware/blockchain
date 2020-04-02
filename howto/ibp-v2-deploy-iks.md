@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-02"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -85,7 +85,7 @@ When you plan to use the service instance in the context of a broader organizati
 
 - If you plan to use an existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, ensure it running Kubernetes v1.14-v1.17. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
 
-- If your plan to use a Kubernetes cluster that contains multiple zones, ensure that [`VLAN spanning`](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.  This setting allows worker nodes to communicate between zones.
+- If your plan to use a Kubernetes cluster that contains multiple zones, ensure that [`VLAN spanning`](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.  This setting allows worker nodes to communicate between zones.
 
 - Add **Storage Manage** access in the classic infrastructure list of permissions. At the top of the IBM Cloud UI, navigate to **Manage > Access (IAM)**, then choose **Users**, then click on the link for a specific user. Inside the **Classic infrastructure** tab click on the **Permissions** tab. The **Storage Manage** setting can be found under **Services**.
 
@@ -180,7 +180,7 @@ You can follow the guidance to deploy {{site.data.keyword.blockchainfull_notm}} 
   - The cluster creation process can take up to 60 minutes to complete. If you created a cluster, allow some extra time until the state of your cluster becomes **Normal**.
   - Clusters that are outside the [supported regions](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-ibp) are not visible and cannot be used.
   - Check to make sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
-  - If you have a multi-zone region ([MZR](#x9774820){: term}) cluster you need to enable [VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
+  - If you have a multi-zone region ([MZR](#x9774820){: term}) cluster you need to enable [VLAN spanning](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
 
 5. The **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** step. After your {{site.data.keyword.blockchainfull_notm}} Platform has been successfully deployed, click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the management console. It might take a few minutes for the button to become enabled while the console is being provisioned.
 
@@ -259,13 +259,13 @@ Your console opens in your browser.
 ## Persistent storage considerations
 {: #ibp-console-storage}
 
-{{site.data.keyword.blockchainfull_notm}} Platform requires persistent storage for each CA, peer, and ordering node. When you deploy a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it uses a pre-configured storage class that is backed by [{{site.data.keyword.cloud_notm}} File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-getting-started). You have the option to upgrade your storage class, change your backing storage, or use third-party services.
+{{site.data.keyword.blockchainfull_notm}} Platform requires persistent storage for each CA, peer, and ordering node. When you deploy a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it uses a pre-configured storage class that is backed by [{{site.data.keyword.cloud_notm}} File Storage](/docs/FileStorage?topic=FileStorage-getting-started). You have the option to upgrade your storage class, change your backing storage, or use third-party services.
 
-Every cluster on the {{site.data.keyword.IBM_notm}} Kubernetes Service comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}. If you make no changes, the `default` storage class is the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} backed by [Endurance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers).
+Every cluster on the {{site.data.keyword.IBM_notm}} Kubernetes Service comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}. If you make no changes, the `default` storage class is the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers).
 
-You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/infrastructure/FileStorage?topic=FileStorage-about#billing).
+You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
 
-If you want to use [Performance File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#provisioning-with-performance), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
+If you want to use [Performance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-performance), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
 
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'

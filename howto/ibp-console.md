@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-02"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters
 
@@ -84,7 +84,7 @@ This offering is intended for experienced Fabric users who want to build and man
 | Kubernetes | <ul><li>v1.14-v1.17</ul> |
 | Infrastructure type | <ul><li>Classic only <li>For OpenShift see [Getting started with IBM Blockchain Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp){: external}</ul>|
 | Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Support any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
-| VLAN | <ul><li>[VLAN spanning](/docs/infrastructure/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported,  a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |
+| VLAN | <ul><li>[VLAN spanning](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported,  a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |
 | Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
 
@@ -165,7 +165,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 - The {{site.data.keyword.blockchainfull_notm}} Platform peers and orderers are automatically configured to expose a /metrics endpoint that Prometheus can use to scrape a wide variety of blockchain metric data. Read more about using [Prometheus in {{site.data.keyword.cloud_notm}}](/docs/cloud-foundry?topic=cloud-foundry-monitoring#prometheus){: external}.
 
 **Storage**  
-- Utilize {{site.data.keyword.cloud_notm}} [File Storage](/docs/infrastructure/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) when blockchain nodes are provisioned. See this topic on [Persistent storage considerations](#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
+- Utilize {{site.data.keyword.cloud_notm}} [File Storage](/docs/FileStorage?topic=FileStorage-about#getting-started-with-file-storage) when blockchain nodes are provisioned. See this topic on [Persistent storage considerations](#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
 
 - Set up [Portworx](/docs/containers?topic=containers-portworx#portworx) to manage local persistent storage across your containerized databases, or share data between pods across multiple zones.
 
