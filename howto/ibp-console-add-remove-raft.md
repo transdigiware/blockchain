@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-04-03"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -166,7 +166,7 @@ To add a consenter to an application channel, navigate to the channel and click 
 
 Because you are editing a part of the channel configuration that is governed by ordering service organization admins, you will be asked to send the channel configuration update to an ordering service organization admin to be signed. **This organization can be any of the organizations that is an admin of the ordering service**, not just the organization that owns one of the consenters that is already in the channel.
 
-After the ordering service organization the channel update was sent to has signed, the organization that initiated the channel update must sign and submit the channel configuration update.
+After the ordering service organization the channel update was sent to has signed, the organization that initiated the channel update will get a notification that it must sign and submit the channel configuration update. This notification, like all notifications, will be located in the upper right of the screen behind the **Notifications** icon, which resembles a bell.
 
 **It will take a few minutes for the new node to sync with the consenter set of the application channel**. The time involved depends on a number of factors, including the number of blocks in a channel. During this time, the ordering service may be down. After the node has been successfully added to the application channel, you will see it in the **Ordering nodes** tab.
 
