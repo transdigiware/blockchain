@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-04-02"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -87,12 +87,12 @@ The steps in this topic focus specifically on the creation of the HSM and the HS
 ### Part One: Set up the HSM device and HSM client
 {: #ibp-hsm-gemalto-part-one}
 
-1. Provision the HSM and configure it with at least one partition. For example, you can follow instructions for [Provisioning {{site.data.keyword.cloud_notm}} HSM](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-provisioning-ibm-cloud-hsm){: external}.
+1. Provision the HSM and configure it with at least one partition. For example, you can follow instructions for [Provisioning {{site.data.keyword.cloud_notm}} HSM](/docs/hardware-security-modules?topic=hardware-security-modules-provisioning-ibm-cloud-hsm){: external}.
 
    Be sure to record the `Label` and `PIN` for the partition. You will need to provide these values later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `<HSM_ADDRESS>`.
    {: important}
 
-2. [Install the HSM client](/docs/infrastructure/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `<CLIENT_ADDRESS>`.
+2. [Install the HSM client](/docs/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `<CLIENT_ADDRESS>`.
 
   The client runs on AIX, Linux, Oracle Solaris, or Microsoft Windows, but is not supported on MacOS.
   {: tip}
