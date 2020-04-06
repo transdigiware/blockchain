@@ -24,7 +24,7 @@ subcollection: blockchain
 
 You can use the upgrade tool to create new components on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your existing network. The nodes that are created by the tool are joined to the same channels and store the same ledger data as your peers and ordering nodes on Enterprise Plan.
 
-The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can upgrade your network carefully and test your new nodes as they are created and sync with your existing network. Use the following steps to get started and learn more about how the upgrade process works.
+The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can upgrade your network carefully and test your new nodes as they are created and sync with your existing network. Use the following steps to get started and learn more about how the upgrade process works._
 
 
 ## Before you begin
@@ -179,6 +179,15 @@ If you created a multizone cluster, you can use this panel to deploy an ordering
 
 When you finish upgrading your ordering service, your ordering service consists of eight nodes, three on Enterprise Plan and five on the platform. The members of your network will be able to submit their transactions to any ordering node to get their transactions included in blocks and added to the ledger. Log in to your Platform 2.0 console and open your ordering service in the nodes tab. Click the **Associate identity** button to associate the orderer admin identity that you exported from the orderer tool. You can then use the console to operate your ordering service. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-suggested-ordering-node-configurations).
 
+### Step Four: Export your ordering service from the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
+
+After the ordering service has been stood up on the new platform, you need to export the ordering service from your {{site.data.keyword.blockchainfull_notm}} 2.0 console and send the node JSON file to the other members of your network. The other network members can then import the ordering service into their own console. Importing the ordering service provides other organizations the ability to create new channels, join new channels with their peers, and instantiate chaincode using the {{site.data.keyword.blockchainfull_notm}} 2.0 console.
+
+To export your ordering node, log in to the {{site.data.keyword.blockchainfull_notm}} 2.0 console and navigate to the **nodes**
+tab. Click the **Export** button to download the ordering service JSON file into your browser. Send this file to the other peer organizations in your network out of band.
+
+For more information about why nodes need to be exported and imported between consoles, see [Importing nodes, MSPs, and identities](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes).
+
 ## Upgrade your peers
 
 After you upgrade your peer organization Certificate Authority, and your ordering service if you are the founder of the network, you can start upgrading your peers. The first step is to use the CA to create a peer administrator identity and an organization MSP definition. You can use the administrator identity to operate your peers by using the console UI, Fabric CLI tools, or the Fabric SDKs. The organization MSP definition allows you to deploy nodes and join or create channels on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. If you are the network founder and the operator of the ordering service, you need to create a new MSP and administrator for peer organization.
@@ -223,6 +232,8 @@ All channel members need to complete this step using the upgrade tool before you
 ### Step Two: Upgrade to the migrated chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
 
 In order to invoke the chaincode on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 peers, you need to upgrade the chaincode that is instantiated on the channel to the version installed by the upgrade tool. Make sure that all of the members of the channel have used the upgrade tool to migrate the chaincode to the same chaincode version. This may require additional coordination if you frequently upgrade your chaincode using an automated process. When all of the members of your channel are ready, you can upgrade the chaincode by using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
+
+In order to upgrade the chaincode, you need to import the ordering service JSON file into your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. The organization that migrated the ordering service, PeerOrg1, needs to send you this file in an out of band operation. For more information, see [How to import an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-orderer-process). You can skip this step if the chaincode upgrade is done by the organization that migrated the ordering service.
 
 Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and navigate to the smart contracts tab. Scroll down to the **Instantiated smart contracts** table and find the migrated chaincode. Click **Upgrade** from the network menu on the right side of the row. The chaincode takes a few minutes to upgrade. For more information, see [Deploy a smart contract on the network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts). Only one network member needs to use the console to upgrade the chaincode. After you migrate the chaincode you can continue to upgrade your chaincode using the upgrade tool or the Fabric SDKs. However, you can no longer use the Network Monitor or the APIs to upgrade chaincode.
 
