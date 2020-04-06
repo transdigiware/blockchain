@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-06"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -66,15 +66,12 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. For more information about how to increase the size of a cluster, see [Scaling clusters](/docs/containers?topic=containers-ca#ca){: external}. If you have enough space in your cluster, you can continue with step 3.
 3. **Use the console to deploy or resize your node**. If your Kubernetes pod is large enough to accommodate the new size of the node, the reallocation should proceed smoothly. If the worker node that the pod is running on is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 
-
-
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
-
-
+| **Operator**                   | 0.1           | 0.2                   | 0                      |
 
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
 ** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.
