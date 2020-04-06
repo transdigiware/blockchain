@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-04-06"
 
 subcollection: blockchain
 
@@ -46,15 +46,12 @@ If you are building a network that will be used in production, you need setup yo
 - When you are ready to start building your network, visit [high availability considerations for peers](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-peers) and [high availability considerations for ordering services](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-ordering-service).
 - The following table includes the default resource allocations for each node type for consideration when you estimate the size of cluster that is required. When you deploy your nodes, you can adjust the resource allocations according to your needs.
 
-
-
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
-
-
+| **Operator**                   | 0.1           | 0.2                   | 0                      |
 
 {: caption="Table 1.Default resource allocations" caption-side="bottom"}
 

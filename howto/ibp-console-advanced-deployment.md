@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-06"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -66,15 +66,12 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster. For more information about how to increase the size of a cluster, see [Scaling clusters](/docs/containers?topic=containers-ca#ca){: external}. If you have enough space in your cluster, you can continue with step 3.
 3. **Use the console to deploy or resize your node**. If your Kubernetes pod is large enough to accommodate the new size of the node, the reallocation should proceed smoothly. If the worker node that the pod is running on is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 
-
-
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
 | **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
-
-
+| **Operator**                   | 0.1           | 0.2                   | 0                      |
 
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
 ** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.
@@ -1304,6 +1301,7 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 * If multiple partitions are configured, a PKCS #11 proxy must be created for each partition.
 * An HSM is not configured for an ordering service. Rather it is configured at the ordering node level inside the ordering service. Consider the case when different organizations contribute ordering nodes to an ordering service, it is possible that some organizations may want to use an HSM for the private key for their ordering node, while other organizations may not have that requirement. But all of the ordering nodes can still function together in the ordering service nonetheless.
 * The use of an HSM introduces overhead in transaction processing, therefore you can expect a performance hit when using an HSM to manage the private keys for your nodes.
+* An HSM can be configured for a node only when the node is initially deployed. You cannot add HSM capability to existing nodes.
 
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
