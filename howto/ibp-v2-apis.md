@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-04-07"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -120,8 +120,6 @@ curl -X <API method> \
 {: codeblock}
 
 Example curl commands are provided for each API in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference doc](/apidocs/blockchain){: external}.
-
-Also, you can use the **Try it out** function in the API Reference doc to test your API calls before you add them to your applications. You need to be logged in to {{site.data.keyword.cloud_notm}} in order to use the **Try it out** function. You can select any service instance from the drop-down list. All API requests are sent to the network specified in the API endpoint.
 
 ## Limitations
 {: #ibp-v2-apis-limitations}
