@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-07"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 
 You can use the upgrade tool to create new components on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your existing network. The nodes that are created by the tool are joined to the same channels and store the same ledger data as your peers and ordering nodes on Enterprise Plan.
 
-The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can upgrade your network carefully and test your new nodes as they are created and sync with your existing network. Use the following steps to get started and learn more about how the upgrade process works._
+The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can upgrade your network carefully and test your new nodes as they are created and sync with your existing network. Use the following steps to get started and learn more about how the upgrade process works.
 
 
 ## Before you begin
@@ -46,7 +46,7 @@ The upgrade tool user interface guides you through a series of independent steps
 - After migration, the founder of the Enterprise Plan network (PeerOrg1) will manage the ordering service on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for all organizations on the network. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-suggested-ordering-node-configurations).
 - You must create peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that use the same state database (LevelDB or CouchDB) as your peers on Enterprise Plan. You cannot upgrade from peers that are running LevelDB to peers that use CouchDB.
 - As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
-- The ability to use a hardware security module (HSM) to store the private keys of your blockchain nodes is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
+- {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} does use Hardware Security Modules (HSMs) to store the private keys of your blockchain nodes by default, as was done on Enterprise Plan. However, you can can configure nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to use HSMs. For more information, see [Configuring a node to use an HSM](docs/services/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm).
 - The ability to use CA replica sets to deploy a highly available Certificate Authority is not yet available on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 - You need to use the upgrade tool to allocate the resources that will be used by the Certificate Authorities, peers and ordering nodes that you will create on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The default CPU and memory allocations used by the upgrade tool are provided as guidelines based on the resources used by your nodes on Enterprise Plan. When you allocate resources to your nodes, you need to plan for future growth when your network adds additional blocks. You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to allocate additional CPU and memory to nodes after they are deployed.
 - The {{site.data.keyword.blockchainfull_notm}} Platform 2.0 exposes RESTful APIs that allow you to manage your blockchain components. The APIs provided by the new platform are different than the Swagger APIs provided by Enterprise Plan, and you will need to update any applications or scripts that use the APIs to manage your network. For more information about the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 APIs, see [Building a network with APIs](/docs/blockchain/reference?topic=blockchain-ibp-v2-apis#ibp-v2-apis) and the [API reference](https://cloud.ibm.com/apidocs/blockchain).
@@ -181,10 +181,9 @@ When you finish upgrading your ordering service, your ordering service consists 
 
 ### Step Four: Export your ordering service from the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
 
-After the ordering service has been stood up on the new platform, you need to export the ordering service from your {{site.data.keyword.blockchainfull_notm}} 2.0 console and send the node JSON file to the other members of your network. The other network members can then import the ordering service into their own console. Importing the ordering service provides other organizations the ability to create new channels, join new channels with their peers, and instantiate chaincode using the {{site.data.keyword.blockchainfull_notm}} 2.0 console.
+After the ordering service has been stood up on the new platform, you need to export the ordering service from your {{site.data.keyword.blockchainfull_notm}} 2.0 console and send the ordering service JSON file to the other members of your network. The other peer organizations can then use the JSON file to import the ordering service into their own console. Importing the ordering service provides other organizations the ability to create new channels, join new channels with their peers, and instantiate chaincode using the {{site.data.keyword.blockchainfull_notm}} 2.0 console.
 
-To export your ordering node, log in to the {{site.data.keyword.blockchainfull_notm}} 2.0 console and navigate to the **nodes**
-tab. Click the **Export** button to download the ordering service JSON file into your browser. Send this file to the other peer organizations in your network out of band.
+To export your ordering service, log in to the {{site.data.keyword.blockchainfull_notm}} 2.0 console and navigate to the **nodes** tab. Click the **Export** button to download the ordering service JSON file into your browser. Send this file to the other peer organizations in your network out of band.
 
 For more information about why nodes need to be exported and imported between consoles, see [Importing nodes, MSPs, and identities](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes).
 
@@ -233,7 +232,7 @@ All channel members need to complete this step using the upgrade tool before you
 
 In order to invoke the chaincode on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 peers, you need to upgrade the chaincode that is instantiated on the channel to the version installed by the upgrade tool. Make sure that all of the members of the channel have used the upgrade tool to migrate the chaincode to the same chaincode version. This may require additional coordination if you frequently upgrade your chaincode using an automated process. When all of the members of your channel are ready, you can upgrade the chaincode by using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
 
-In order to upgrade the chaincode, you need to import the ordering service JSON file into your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. The organization that migrated the ordering service, PeerOrg1, needs to send you this file in an out of band operation. For more information, see [How to import an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-orderer-process). You can skip this step if the chaincode upgrade is done by the organization that migrated the ordering service.
+In order to upgrade the chaincode, you need to import the ordering service JSON file into your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. The organization that migrated the ordering service, PeerOrg1, needs to send you this file in an out of band operation. For more information, see [How to import an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-orderer-process). You can skip this step if you are upgrading the chaincode as the organization that migrated the ordering service.
 
 Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and navigate to the smart contracts tab. Scroll down to the **Instantiated smart contracts** table and find the migrated chaincode. Click **Upgrade** from the network menu on the right side of the row. The chaincode takes a few minutes to upgrade. For more information, see [Deploy a smart contract on the network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts). Only one network member needs to use the console to upgrade the chaincode. After you migrate the chaincode you can continue to upgrade your chaincode using the upgrade tool or the Fabric SDKs. However, you can no longer use the Network Monitor or the APIs to upgrade chaincode.
 
