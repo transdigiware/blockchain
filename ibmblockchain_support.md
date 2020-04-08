@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-04-07"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -56,7 +56,9 @@ If your problem cannot be solved by any of the [free digital support resources](
 
   You can also post questions or check if your question has been answered in [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-fabric){: external}.
 
-**Hyperledger Composer resources**  
+**Developer resources**  
+  [IBM Developer](https://developer.ibm.com/technologies/blockchain/) provides tutorials, code patterns, and videos for blockchain developers. Application developers can use the [Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns) to learn about common patterns and best practices for building applications that communicate with blockchain networks.
+
   Because {{site.data.keyword.IBM_notm}} does not provide support for using Hyperledger Composer for production implementation, you are encouraged to engage with [Hyperledger Composer community](https://chat.hyperledger.org/channel/composer){: external} and [Stack Overflow](https://stackoverflow.com/questions/tagged/hyperledger-composer){: external} when you work on demos and proofs of concept.
 
 ## Submitting support cases
