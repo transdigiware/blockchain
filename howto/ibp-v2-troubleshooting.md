@@ -393,38 +393,6 @@ Replace:
 To find the namespace, open any CA node in your console and click the Settings icon. View the value of the Certificate Authority endpoint URL. For example: https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054.
 The namespace is the first part of the url beginning with the letter n and followed by a random string of six alphanumeric characters. So in this example, the value of the namespace is `n2734d0`.
 - `<PODNAME>` with the **Name** of the failing pod that is visible in the list of pods returned by the previous command.
-
-## My CA failed to upgrade, how can I fix it?
-{: #ibp-v2-troubleshooting-ca-upgrade-fails}
-{: troubleshoot}
-
-After upgrading from {{site.data.keyword.blockchainfull_notm}} Platform v2.1.2 to v2.1.3, when I try to update my CA by clicking **Update version**, it fails with the error `ECONNRESET`. The CA logs include an error similar to the following text:
-```
-"error":"CA instance 'org1ca' encountered error: Code: 23 - failed to migrate ca: no matches for kind \"IBPCA\" in version \"ibp.com/v212\
-```
-{: tsSymptoms}
-
-To resolve this problem, you need to restart the Operator pod in your cluster.
-{: tsResolve}
-  - Run the following command to get the name of the pod that corresponds to the console:
-
-    ```
-    kubectl get po | grep ibp-operator
-    ```
-    {: codeblock}
-
-    The output would look similar to:
-
-    ```
-    ibp-operator-5794799cff-pbm2h   1/1     Running   0          21d
-  ```
-
-  - In the following command, replace `<OPERATOR-POD>` with the name of the operator pod from the previous command, for example `ibp-operator-5794799cff-pbm2h`.
-    ```
-    kubectl delete po <CONSOLE-POD>
-    ```
-    {: codeblock}
-    
 ## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?
 {: #ibp-v2-troubleshooting-endorsement-sig-failure}
 {: troubleshoot}
