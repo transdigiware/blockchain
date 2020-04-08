@@ -87,6 +87,6 @@ As you monitor your pods and notice that more storage is needed, you can increas
 - [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
 - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 
-Between the ability to resize storage and the ability to add new ordering nodes, users have more flexibility in allocating storage to their network after it is deployed.
+Users can allocate more storage to their running network by resizing the existing storage PVCs or by deploying nodes with new PVCs.
 
 
