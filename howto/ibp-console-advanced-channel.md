@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-09"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -71,7 +71,9 @@ If the signature of an ordering service org admin is required, you will not see 
 
 * **Ordering service consenters**. The ordering service nodes on a particular channel are known in a Raft consensus mechanism as a "consenter set". It is possible to add or remove particular nodes from this consenter set both during the creation of a channel and through a channel update (for example, to add newly created nodes to the consenter set). To select nodes to add to the consenter set, open the drop down list, click on a node, and click **Add**. For information about updating the consenter set, see the [Adding and removing ordering service consenters](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer-consenter-system-channel). If you modify the consenter set, you also have the ability to change size of the ordering service Snapshot. For more information about Snapshots, see [Snapshots](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#snapshots){: external} in the Fabric documentation.
 
-* **Ordering service organization**. If changes to the configuration are made that require the signature of an ordering service org admin (for example, to the block cutting parameters, orderer capability, or consenter set), this panel will allow you to submit the change to the relevant ordering service admin organization. The console where this MSP was created will see a signature notification. After the ordering service organization signs the channel creation request, it is sent back to the organization that created the channel to be submitted.
+* **Ordering service administrator** (only available when updating a channel). This section shows the ordering service administrator organizations for this channel. If an ordering service organization was added as an administrator of the system after this application channel was created, it can be added here. If an ordering service organization is not an administrator of the ordering service of an application channel, it will not be able to administer the channel (for example, to add a consenter belonging to it to the channel). Note: if your console is at a build before `2.1.3-93`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
+
+* **Ordering service signature**. If changes to the configuration are made that require the signature of an ordering service org admin (for example, to the block cutting parameters, orderer capability, or consenter set), this panel will allow you to submit the change to the relevant ordering service admin organization. The console where this MSP was created will see a signature notification. After the ordering service organization signs the channel creation request, it is sent back to the organization that created the channel to be submitted.
 
 * **Access control lists**. To specify a finer grained control over resources, you can restrict access to a resource to an organization and a role within that organization. For example, setting access to the resource `ChaincodeExists` to `Application/Admins` would mean that only the admin of an application would be able to access the `ChaincodeExists` resource. For more information about Access Control, see [Access Control Lists (ACLs)](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} in the Fabric documentation.
 
@@ -88,17 +90,6 @@ The other organizations have the choice of whether to participate in this channe
 Updating a channel is different. Rather than an organization acting alone, channel updates follow the collaborative governance procedures that are fundamental to the way the {{site.data.keyword.blockchainfull_notm}} Platform functions. This collaborative process involves sending the channel configuration update requests to operator organizations that have an administrative role in the channel.
 
 Because selecting [Anchor peers](#ibp-console-govern-channels-anchor-peers) and [Joining a peer to a channel](#ibp-console-govern-channels-join-peer) are actions that only require the signature of the organization performing the action, they are updated through the **Channel details** panel inside a channel. To update other parameters, you must click on the **Settings** button next to the channel name at the top of the page and initiate a channel configuration update transaction. A panel will appear that looks very similar to the panel you use to create a channel.
-
-### Channel configuration parameters you can update
-{: #ibp-console-govern-update-channel-available-parameters}
-
-It's possible to change many, but not all, of the configuration parameters of a channel after the channel has been created. The **Channel name**, for example, cannot be edited, nor can the ordering service where the channel is hosted.
-
-First thing you will see is the **Organization updating channel** panel. Here you will specify the organization (MSP) and admin identity that will be submitting this channel configuration update. From here, you can navigate down to the parameter you want to change, which includes all of the same parameters you specified when creating the channel other than the **channel** capabilities, which are only available when updating a channel.
-
-If you are attempting to change any parameter that requires the signature of ordering service admins (for example, the **Block cutting parameters** or **ordering service consenters**) and are one of the ordering service admins on this channel, you will see a field for the ordering service organization. Select the MSP of the relevant ordering service organization from the drop-down list. If you are not an admin of the ordering service organization, you can still make a request to change these fields, but the request will need to be signed by an ordering service admin.
-
-When you are done making your updates, the **Review channel information** panel will allow you to review your changes and then submit them.
 
 ### Signature collection flow
 {: #ibp-console-govern-update-channel-signature-collection}
@@ -122,6 +113,20 @@ If a channel configuration update request has been made, you have the ability to
 You are not required to sign a channel configuration update, however note that there is no way to sign **against** a channel update. If you do not approve of a channel configuration update, you can simply close the panel and reach out to other channel operators out of band to voice your concerns. However, if enough operators in the channel approve of the update to satisfy the channel update policy, the new configuration will take effect.
 {:note}
 
+### Channel configuration parameters you can update
+{: #ibp-console-govern-update-channel-available-parameters}
+
+It's possible to change many, but not all, of the configuration parameters of a channel after the channel has been created. The **Channel name**, for example, cannot be edited, nor can the ordering service where the channel is hosted.
+
+First thing you will see is the **Organization updating channel** panel. Here you will specify the organization (MSP) and admin identity that will be submitting this channel configuration update. From here, you can navigate down to the parameter you want to change, which includes all of the same parameters you specified when creating the channel other than the **channel** capabilities and the **ordering service administrator**, which are only available when updating a channel.
+
+If your console is at a build before `2.1.3-93`, you will not see the **ordering service administrator** option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
+{: tip}
+
+If you are attempting to change any parameter that requires the signature of ordering service admins (for example, the **Block cutting parameters** or **ordering service consenters**) and are one of the ordering service admins on this channel, you will see a field for the ordering service organization. Select the MSP of the relevant ordering service organization from the drop-down list. If you are not an admin of the ordering service organization, you can still make a request to change these fields, but the request will need to be signed by an ordering service admin.
+
+When you are done making your updates, the **Review channel information** panel will allow you to review your changes and then submit them.
+
 #### Anchor peers
 {: #ibp-console-govern-channels-anchor-peers}
 
@@ -143,7 +148,7 @@ As with the process for joining any peer to any channel, make sure that the [dat
 
 Note that after a peer is removed from a channel, it might still show as being joined to the channel. This is because the ledger information of the channel up to the point the peer was removed is still available on the peer. Removing the peer from the channel means that the peer will receive no new channel updates, including the update that indicates that it is no longer a part of the channel. If you have any other peers joined to the channel, you can check the ledger height of those peers as compared to the peer that was removed to confirm that the removed peer is not receiving new blocks.
 
-### Capabilities
+#### Capabilities
 {: #ibp-console-govern-capabilities}
 
 As noted in the [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external} topic in the Fabric documentation, there are three levels of capabilities: for the **orderer**, **application**, and **channel**.
