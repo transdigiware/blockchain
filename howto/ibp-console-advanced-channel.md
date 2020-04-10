@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-09"
+lastupdated: "2020-04-10"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -71,7 +71,7 @@ If the signature of an ordering service org admin is required, you will not see 
 
 * **Ordering service consenters**. The ordering service nodes on a particular channel are known in a Raft consensus mechanism as a "consenter set". It is possible to add or remove particular nodes from this consenter set both during the creation of a channel and through a channel update (for example, to add newly created nodes to the consenter set). To select nodes to add to the consenter set, open the drop down list, click on a node, and click **Add**. For information about updating the consenter set, see the [Adding and removing ordering service consenters](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer-consenter-system-channel). If you modify the consenter set, you also have the ability to change size of the ordering service Snapshot. For more information about Snapshots, see [Snapshots](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#snapshots){: external} in the Fabric documentation.
 
-* **Ordering service administrator** (only available when updating a channel). This section shows the ordering service administrator organizations for this channel. If an ordering service organization was added as an administrator of the system after this application channel was created, it can be added here. If an ordering service organization is not an administrator of the ordering service of an application channel, it will not be able to administer the channel (for example, to add a consenter belonging to it to the channel). Note: if your console is at a build before `2.1.3-93`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
+* **Ordering service administrator** (only available when updating a channel). This section shows the ordering service administrator organizations for this channel. By default, all ordering organizations that are administrators are added to an application channel at channel creation time. If an ordering service organization was added as an administrator of the system channel after this application channel was created, it must be added here before any nodes belonging to it can be added as application channel consenters. Note: if your console is at a build before `2.1.3-93`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
 
 * **Ordering service signature**. If changes to the configuration are made that require the signature of an ordering service org admin (for example, to the block cutting parameters, orderer capability, or consenter set), this panel will allow you to submit the change to the relevant ordering service admin organization. The console where this MSP was created will see a signature notification. After the ordering service organization signs the channel creation request, it is sent back to the organization that created the channel to be submitted.
 
