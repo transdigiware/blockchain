@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-12"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -393,6 +393,7 @@ Replace:
 To find the namespace, open any CA node in your console and click the Settings icon. View the value of the Certificate Authority endpoint URL. For example: https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054.
 The namespace is the first part of the url beginning with the letter n and followed by a random string of six alphanumeric characters. So in this example, the value of the namespace is `n2734d0`.
 - `<PODNAME>` with the **Name** of the failing pod that is visible in the list of pods returned by the previous command.
+   
 ## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?
 {: #ibp-v2-troubleshooting-endorsement-sig-failure}
 {: troubleshoot}

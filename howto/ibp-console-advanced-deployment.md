@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-04-12"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -144,7 +144,7 @@ For information about creating highly available CAs through the use of replica s
 
 In addition to the CA settings that are provided in the console when you provision a CA, you have the option to override some of the settings. If you are familiar with the Hyperledger Fabric CA server, these settings are configured in the [`fabric-ca-server-config.yaml`](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html) file when a CA is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you with default settings. Therefore, many of these fields are not exposed by the console. But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a CA is deployed.
 
-The ability to override the CA configuration is available only in paid clusters.
+The ability to override the CA configuration by using the console or APIs is available only in paid clusters.
 {: note} 
 
 #### Why would I want to override a CA configuration?
@@ -598,7 +598,7 @@ For more details on the resource allocation panel in the console see [Allocating
 
 In addition to the peer settings that are provided in the console when you provision a peer, you have the extra option to override some of the peer settings. If you are familiar with Hyperledger Fabric, these settings are configured in the peer configuration `core.yaml` file when a peer is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings and many of these fields are not exposed by the console. But the console also includes a panel where you can provide a `JSON` to override a set of these parameters before a peer is deployed. You can find the peer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
-The ability to override the peer configuration is available only in paid clusters.
+The ability to override the peer configuration by using the console or APIs is available only in paid clusters.
 {: note} 
 
 #### Why would I want to override a peer configuration?
@@ -950,7 +950,7 @@ For more details on the resource allocation panel in the console see [Allocating
 
 In addition to the ordering node settings that are provided in the console when you provision an ordering node, you have the option to override some of the default settings. If you are familiar with Hyperledger Fabric, these settings are configured in the `orderer.yaml` file when an ordering node is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings so many of these fields are not exposed by the console. You can find the orderer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
-The ability to override the ordering service configuration is available only in paid clusters.
+The ability to override the ordering service configuration by using the console or APIs is available only in paid clusters.
 {: note} 
 
 #### Why would I want to override an ordering service configuration?
