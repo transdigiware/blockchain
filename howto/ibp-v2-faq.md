@@ -41,6 +41,7 @@ subcollection: blockchain
 - [Is there a best practice for monitoring my blockchain resources?](#ibp-v2-faq-mon-res)
 - [If service discovery is on, will an endorsement request be routed to any peer on the network?](#ibp-v2-faq-service-discovery)
 - [What is the recommended way to manage private keys?](#ibp-v2-faq-hsm)
+- [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
 
 
@@ -142,6 +143,14 @@ Yes, if you have the endorsement policy set to “ANY”. However, you do have t
 {: faq}
 
 Because private keys are not stored by the platform, users are responsible for downloading and securing their private key. Therefore, when a higher level of security is required for private keys, an HSM is recommended. An HSM is a hardware appliance that performs cryptographic operations and provides the capability to ensure that the cryptographic keys never leave the HSM. Hyperledger Fabric supports HSM devices that implement the PKCS #11 standard. PKCS #11 is a cryptographic standard for secure operations, generation, and storage of keys. See [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to learn more.
+
+## Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?
+{: #ibp-v2-faq-hippa}
+{: faq}
+
+Because HIPAA readiness is only relevant when platform components process Personal Health Information (PHI) or Personally Identifiable Information (PII), the {{site.data.keyword.blockchainfull_notm}} Platform does not need to be HIPAA ready. Customers should not store PHI/PII on the ledger since it is immutable and therefore cannot be deleted. Instead, the recommendation is to store all PHI/PII off ledger in another database and simply reference it from the ledger.
+
+The {{site.data.keyword.blockchainfull_notm}} platform gives customers total control over their deployments, certificates, and private keys. The console simplifies and accelerates the process of deploying components into an {{site.data.keyword.cloud_notm}} Kubernetes service cluster that is managed and controlled by the customer. As a reminder, because the customer owns the storage that is mounted to the containers, {{site.data.keyword.IBM_notm}} does not have access to or control over any of the data that the customer chooses to store in their ledger.
 
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}
