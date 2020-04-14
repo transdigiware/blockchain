@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-04-14"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
 
@@ -35,10 +35,7 @@ High availability is a core discipline in an IT infrastructure to keep your apps
 You can achieve high availability on different levels in your IT infrastructure and within different layers of your cluster. The level of availability that is right for you depends on several factors, such as your business requirements, the Service Level Agreements that you have with your organizations, and the cost of redundancy.
 
 
-Before proceeding, we recommend that you review the platform-specific guidance for HA:
-
-- If you are using {{site.data.keyword.cloud_notm}}, you can read more about how HA works with Kubernetes in {{site.data.keyword.cloud_notm}} in this topic on [High availability for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ha){: external}.
-- If you are using {{site.data.keyword.cloud_notm}} Private, review the content about [Implementing HA on {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/cloud/garage/practices/manage/high-availability-ibm-cloud-private){: external}.  
+Before proceeding, we recommend that you learn more about HA on Kubernetes by reviewing [High availability for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ha){: external}.
 
 
 
