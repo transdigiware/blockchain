@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-09"
+lastupdated: "2020-04-15"
 
 keywords: IBM Blockchain Platform offerings, IBM Cloud Private, VS code extension, IBM Cloud
 
@@ -54,7 +54,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 - [**{{site.data.keyword.blockchainfull_notm}} Platform Extension for VS Code**](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode)
   Developers can start with a free IDE that provides an explorer and commands accessible from the command palette for developing smart contracts quickly.
 
-### {{site.data.keyword.blockchainfull_notm}} on {{site.data.keyword.cloud_notm}} Private
+### {{site.data.keyword.blockchainfull_notm}} on {{site.data.keyword.cloud_notm}} Private v3.2.0
 
 - [**{{site.data.keyword.blockchainfull_notm}} Platform for Multicloud**](/docs/blockchain-multicloud?topic=blockchain-multicloud-console-icp-about)
   {{site.data.keyword.blockchainfull_notm}} Platform console deployed on an {{site.data.keyword.cloud_notm}} Private cluster using a Kubernetes Helm chart and APIs for provisioning and managing blockchain components.
