@@ -519,7 +519,7 @@ Only the following fields can be updated:
 ```
 {: codeblock}
 
-Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only needed to update the value for the `passwordattempts` field you would paste in this `JSON`:
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only needed to update the value for the `passwordattempts` field you would paste in this `JSON`:
 
 ```json
 {
@@ -880,7 +880,7 @@ The following subset of parameters can be overridden after a peer is deployed:
 ```
 {: codeblock}
 
-Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only need to update the value for the `executetimeout` field you would paste this `JSON` into the **Configuration updates** box:
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only need to update the value for the `executetimeout` field you would paste this `JSON` into the **Configuration JSON** box:
 
 ```json
 {
@@ -1000,11 +1000,11 @@ The need to customize the ordering node configuration is less common than the pe
 #### Providing your own customizations when you create an ordering service
 {: #ibp-console-adv-deployment-orderer-create-json}
 
-After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
+After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration JSON** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
 
 Alternatively, if you do check any of the advanced options when you configure the ordering service, those settings are included in the `JSON` on the Summary panel. Any edits that you make to the`JSON` override what was specified in the console. You can insert additional fields or modify the generated `JSON`. The overrides that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the ordering node is deployed. **If you are deploying multiple ordering nodes, then the overrides are applied to each ordering node.**
 
-You don't need to include the entire set of available parameters in the `JSON`, only any advanced deployment options that you selected in the console along with the parameters that you want to override. For example, if did not select any advanced options in the console and you want to deploy the ordering nodes with your own value for the  `ServerTimeout` and the `statsd address` port, you would paste the following `JSON` into the **Configuration updates** box:
+You don't need to include the entire set of available parameters in the `JSON`, only any advanced deployment options that you selected in the console along with the parameters that you want to override. For example, if did not select any advanced options in the console and you want to deploy the ordering nodes with your own value for the  `ServerTimeout` and the `statsd address` port, you would paste the following `JSON` into the **Configuration JSON** box:
 
 ```json
 {
@@ -1025,7 +1025,7 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 #### Modifying ordering node settings after deployment
 {: #ibp-console-adv-deployment-orderer-modify-json}
 
-After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.  The `JSON` in the **Current configuration** box contains the current settings for the ordering node. **Not all of these values can be overridden after deployment.** Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration updates** box.
+After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.  The `JSON` in the **Current configuration** box contains the current settings for the ordering node. **Not all of these values can be overridden after deployment.** Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration JSON** box.
 
 The following list of parameters can be updated:
 
@@ -1058,7 +1058,7 @@ The following list of parameters can be updated:
 ```
 {: codeblock}
 
-Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only needed to update the value for the `ServerTimeout` field you would paste this `JSON` into the **Configuration updates** box:
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only needed to update the value for the `ServerTimeout` field you would paste this `JSON` into the **Configuration JSON** box:
 
 ```json
 {
