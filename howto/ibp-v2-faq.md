@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-14"
+lastupdated: "2020-04-16"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -114,7 +114,7 @@ Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyw
 {: #ibp-v2-faq-multicloud}
 {: faq}
 
-You can not currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by using consoles on other clouds.
+You cannot currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by using consoles on other clouds.
 
 ## How can I find the examples and tutorials within the VSCode extension?
 {: #ibp-v2-faq-vscode-tutorials}
@@ -148,7 +148,7 @@ Because private keys are not stored by the platform, users are responsible for d
 {: #ibp-v2-faq-hippa}
 {: faq}
 
-Because HIPAA readiness is only relevant when platform components process Personal Health Information (PHI) or Personally Identifiable Information (PII), the {{site.data.keyword.blockchainfull_notm}} Platform does not need to be HIPAA ready. Customers should not store PHI/PII on the ledger since it is immutable and therefore cannot be deleted. Instead, the recommendation is to store all PHI/PII off ledger in another database and simply reference it from the ledger.
+Because HIPAA readiness is only relevant when platform components process Personal Health Information (PHI) or Personally Identifiable Information (PII), the {{site.data.keyword.blockchainfull_notm}} Platform does not need to be HIPAA ready. Customers should not store PHI or PII on the ledger since it is immutable and therefore cannot be deleted. Instead, the recommendation is to store all PHI or PII off ledger in another database and simply reference it from the ledger.
 
 The {{site.data.keyword.blockchainfull_notm}} platform gives customers total control over their deployments, certificates, and private keys. The console simplifies and accelerates the process of deploying components into an {{site.data.keyword.cloud_notm}} Kubernetes service cluster that is managed and controlled by the customer. As a reminder, because the customer owns the storage that is mounted to the containers, {{site.data.keyword.IBM_notm}} does not have access to or control over any of the data that the customer chooses to store in their ledger.
 

@@ -265,7 +265,7 @@ After attempting to link my {{site.data.keyword.cloud_notm}} Kubernetes Service 
 This issue can occur when your cluster is busy processing other requests and does not respond to the linking request in a timely matter.
 {: tsCauses}
 
-To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to setup components on your cluster.
+To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to set up components on your cluster.
 {: tsResolve}
 Run the following command from your IBM Cloud CLI terminal:
 
@@ -379,7 +379,7 @@ or
 ```
 
 
-This problem happens when the PKCS #11 proxy that is associated with the HSM is unreachable to due a network problem or if the proxy restarts after the node has connected to it.
+This problem happens when the PKCS #11 proxy that is associated with the HSM is unreachable due to a network problem or if the proxy restarts after the node has connected to it.
 {: tsCauses}
 
 To re-establish communications between the node and the proxy, restart the failing node by deleting the pod associated with the node. A new pod will be created and the connection with the PKCS #11 proxy is restored. Use the following steps to restart the failing node:
