@@ -165,7 +165,7 @@ Because this tutorial presumes that a user is adding a node to a channel that wa
 
 To add the organization to an application channel, navigate to the channel and click the **Settings** button. First, specify which peer organization and which peer organization admin is making the update request. If the application channel was created before the ordering organization was added to the system channel, click **Ordering service administrator** and add `Ordering Service2 MSP` as an administrator.
 
-If your console is at a build before `2.1.3-100`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
+If your console is at a build before `2.1.3.99`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
 {: important}
 
 After the organization has been added, we can add the consenter.
