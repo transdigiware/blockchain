@@ -425,7 +425,7 @@ Paste the resulting string into the CA `JSON` override.
 #### Modifying CA settings after deployment
 {: #ibp-console-adv-deployment-ca-modify-json}
 
-After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the CA settings. The `JSON` in the **Current configuration** box contains the current settings for the CA. **Not all of these values can be overridden.**
+After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON (Advanced)** to override the CA settings. The `JSON` in the **Current configuration** box contains the current settings for the CA. **Not all of these values can be overridden.**
 
 Only the following fields can be updated:
 
@@ -765,7 +765,7 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 #### Modifying peer settings after deployment
 {: #ibp-console-adv-deployment-peer-modify-json}
 
-After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to open the panel where you can override the peer settings. The `JSON` in the **Current configuration** box contains the current settings for the peer. **Not all of these values can be overridden after the peer is deployed.**  A subset of these parameters can be overridden by pasting a `JSON` with the overrides into the `Configurations updates` box. Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration updates** box.
+After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON (Advanced)** to open the panel where you can override the peer settings. The `JSON` in the **Current configuration** box contains the current settings for the peer. **Not all of these values can be overridden after the peer is deployed.**  A subset of these parameters can be overridden by pasting a `JSON` with the overrides into the **Configuration JSON** box. Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration JSON** box.
 
 The following subset of parameters can be overridden after a peer is deployed:
 
@@ -1608,7 +1608,7 @@ Before attempting these steps you should have:
 
 Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
-When you deploy a new node from the console, ensure that you select the advanced deployment option `Hardware security module (HSM) configuration`. Then, on the **HSM configuration** panel enter the following values:
+When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. Then, on the **HSM configuration** panel enter the following values:
 
 - **HSM proxy endpoint** - Enter the url for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
