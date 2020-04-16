@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-15"
+lastupdated: "2020-04-16"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -908,11 +908,11 @@ When you deploy an ordering node, the following advanced deployment options are 
 ### Number of ordering nodes
 {: #ibp-console-adv-deployment-suggested-ordering-node-configurations}
 
-In Raft, a **majority of the total number of nodes** must be available is needed to for the ordering service to function (this is known as achieving a "quorum" of nodes). In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. While satisfying the quorum makes sure that the ordering service is functioning, production networks also have to think about deployment configurations that are highly available (in other words, configurations in which the loss of a certain number of nodes can be tolerated by the system). Typically, this means tolerating the loss of two nodes: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
+In Raft, a **majority of the total number of nodes** must be available for the ordering service to function (this is known as achieving a "quorum" of nodes). In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. While satisfying the quorum makes sure that the ordering service is functioning, production networks also have to think about deployment configurations that are highly available (in other words, configurations in which the loss of a certain number of nodes can be tolerated by the system). Typically, this means tolerating the loss of two nodes: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. Users who know that they will be deploying a production solution should therefore choose the five node option.
 
-However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
+However many nodes a user chooses to deploy, they have the ability to add more nodes to their ordering service. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
 
 
 ### Kubernetes zone selection

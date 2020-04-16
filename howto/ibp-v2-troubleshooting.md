@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-14"
+lastupdated: "2020-04-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -130,7 +130,7 @@ The health checker can now run against the node and report the status of the nod
 {: #ibp-troubleshoot-ordering-service}
 {: troubleshoot}
 
-After you create an ordering service in your {{site.data.keyword.cloud_notm}} Private console, the status is `Running`. But when you open the ordering service you see the error:
+After you create an ordering service in {{site.data.keyword.cloud_notm}} Private, the status is `Running`. But when you open the ordering service you see the error:
 {: tsSymptoms}
 
 ```
@@ -149,7 +149,7 @@ There are multiple ways to resolve this problem:
 This problem can also occur when the console has lost contact with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. This can happen if your console has not recently communicated with your cluster, or if you have made changes to your cluster that have overridden the settings used by the {{site.data.keyword.blockchainfull_notm}} platform.
 {: tsCauses}
 
-You can click the **Refresh your linked cluster** button to renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}}. Click **{{site.data.keyword.cloud_notm}} Support** next to the **Launch the {{site.data.keyword.blockchainfull_notm}} Platform**. This will take you to the panel where you can click **Refresh your linked cluster**.
+You can renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}} by clicking on the service instance of your console in your **Resource list** and clicking the **Refresh cluster** button. When the link between your cluster and your console has been refreshed, click the **Launch the IBM Blockchain Platform** button.
 {: tsResolve}
 
 
@@ -182,18 +182,18 @@ This issue can occur when another user or application installs the smart contrac
 In order to view the smart contracts installed on a peer, you need to be a peer admin. Ensure that the peer admin identity exists in your browser wallet. If it does not, you need to import it into your console wallet.
 {: tsResolve}
 
-## My channel, smart contracts, and identities have disappeared from the console. How can I get them back?
+## My nodes, channels, smart contracts, and identities have disappeared from the console. How can I get them back?
 {: #ibp-v2-troubleshooting-browser-storage}
 {: troubleshoot}
 {: support}
 
-The identities in your wallet consist of a signing certificate and private key that allow you to manage your blockchain components. However, they are only stored in your browser local storage. You are responsible for securing and managing these identities. We recommend that you export them to your file system after you create them. Whenever you create a new node, you associate an identity from your wallet with the node. This admin identity is what allows you to manage the node. When you switch browsers or change to a browser on a different machine, these identities are no longer in your wallet. Therefore, you are unable to manage the components.
+Nodes, identities, channels, or smart contracts (or some combination of these) that I successfully deployed into the console are no longer available.
 {: tsSymptoms}
 
 One of the features of {{site.data.keyword.blockchainfull_notm}} Platform is that you are now responsible for securing and managing your certificates. Therefore, they are only persisted in the browser local storage to allow you to manage the component. If you are using a private browser window and then switch to another browser or non-private browser window, the identities that you created will be gone from your wallet in the new browser session. Therefore, it is required that you export the identities from the wallet in your private browser session to your file system. You can then import them into your non-private browser session if they are needed. Otherwise, there is no way to recover them.
 {: tsCauses}
 
-- Anytime when you create a new organization MSP definition, you generate keys for an identity that is allowed to administer the organization. Therefore, during that process you must click the **Generate** and then **Export** buttons to store the generated identity in your wallet and then save it to your file system as a JSON file.
+- Whenever you create a new organization MSP definition, you generate keys for an identity that is allowed to administer the organization. Therefore, during that process you must click the **Generate** and then **Export** buttons to store the generated identity in your wallet and then save it to your file system as a JSON file.
 - To resolve this problem in your browser, you need to import those identities and associate them with the corresponding node:
   - In the browser where you are experiencing the problem, click the **Wallet** tab followed by **Add identity** to import the JSON file into your wallet.
   - Click **Upload JSON** and browse to the JSON file you exported using the **Add files** button.
@@ -208,7 +208,7 @@ One of the features of {{site.data.keyword.blockchainfull_notm}} Platform is tha
 This problem can also occur when the console has lost contact with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. This can happen if your console has not recently communicated with your cluster, or if you have made changes to your cluster that have overridden the settings used by the {{site.data.keyword.blockchainfull_notm}} platform.
 {: tsCauses}
 
-You can click the **Refresh your linked cluster** button to renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}}. Click **{{site.data.keyword.cloud_notm}} Support** next to the **Launch the {{site.data.keyword.blockchainfull_notm}} Platform**. This will take you to the panel where you can click **Refresh your linked cluster**.
+You can renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}} by clicking on the service instance of your console in your **Resource list** and clicking the **Refresh cluster** button. When the link between your cluster and your console has been refreshed, click the **Launch the IBM Blockchain Platform** button.
 {: tsResolve}
 
 ## Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?
