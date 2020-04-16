@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-16"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -21,7 +21,6 @@ subcollection: blockchain
 
 # Advanced deployment options
 {: #ibp-console-adv-deployment}
-
 
 Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
 Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
@@ -90,7 +89,10 @@ After you have deployed the node, you need to **monitor the resource consumption
 
 All of the containers that are associated with a node have **CPU** and **memory**, while certain containers that are associated with the peer, ordering node, and CA also have **storage**. For more information about storage, see [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) Note that when your Kubernetes cluster is configured to use any of the {{site.data.keyword.cloud_notm}} storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 
-You are responsible for monitoring your CPU, memory, and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. However, after a node has been created, storage can be changed later only by using the {{site.data.keyword.cloud_notm}} CLI. 
+You are responsible for monitoring your CPU, memory, and storage consumption in your cluster. If you do happen to request more resources for a blockchain node than are available, the node will not start. However, existing nodes will not be affected. If you are using {{site.data.keyword.cloud_notm}} as your cloud provider, CPU and memory can be changed by using the console and {{site.data.keyword.cloud_notm}} Kubernetes Service dashboard. To expand available storage capacity, refer to the follow links for more information:
+- [IBM file storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
+- [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
+- [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 {:note}
 
 Every node has a gRPC web proxy container that bootstraps the communication layer between the console and a node. This container has fixed resource values and is included on the Resource allocation panel to provide an accurate estimate of how much space is required on your Kubernetes cluster in order for the node to deploy. Because the values for this container cannot be changed, we will not discuss the gRPC web proxy in the following sections.
@@ -139,7 +141,7 @@ For information about creating highly available CAs through the use of replica s
 
 In addition to the CA settings that are provided in the console when you provision a CA, you have the option to override some of the settings. If you are familiar with the Hyperledger Fabric CA server, these settings are configured in the [`fabric-ca-server-config.yaml`](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html) file when a CA is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you with default settings. Therefore, many of these fields are not exposed by the console. But the console also includes a panel where you can edit a `JSON` to override a set of these parameters before a CA is deployed.
 
-The ability to override the CA configuration is available only in paid clusters.
+The ability to override the CA configuration by using the console or APIs is available only in paid clusters.
 {: note} 
 
 #### Why would I want to override a CA configuration?
@@ -420,7 +422,7 @@ Paste the resulting string into the CA `JSON` override.
 #### Modifying CA settings after deployment
 {: #ibp-console-adv-deployment-ca-modify-json}
 
-After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to override the CA settings. The `JSON` in the **Current configuration** box contains the current settings for the CA. **Not all of these values can be overridden.**
+After a CA is deployed, a subset of the fields can be updated as well. Click the CA tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON (Advanced)** to override the CA settings. The `JSON` in the **Current configuration** box contains the current settings for the CA. **Not all of these values can be overridden.**
 
 Only the following fields can be updated:
 
@@ -514,7 +516,7 @@ Only the following fields can be updated:
 ```
 {: codeblock}
 
-Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only needed to update the value for the `passwordattempts` field you would paste in this `JSON`:
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only needed to update the value for the `passwordattempts` field you would paste in this `JSON`:
 
 ```json
 {
@@ -593,7 +595,7 @@ For more details on the resource allocation panel in the console see [Allocating
 
 In addition to the peer settings that are provided in the console when you provision a peer, you have the extra option to override some of the peer settings. If you are familiar with Hyperledger Fabric, these settings are configured in the peer configuration `core.yaml` file when a peer is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings and many of these fields are not exposed by the console. But the console also includes a panel where you can provide a `JSON` to override a set of these parameters before a peer is deployed. You can find the peer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
-The ability to override the peer configuration is available only in paid clusters.
+The ability to override the peer configuration by using the console or APIs is available only in paid clusters.
 {: note} 
 
 #### Why would I want to override a peer configuration?
@@ -760,7 +762,7 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 #### Modifying peer settings after deployment
 {: #ibp-console-adv-deployment-peer-modify-json}
 
-After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON** to open the panel where you can override the peer settings. The `JSON` in the **Current configuration** box contains the current settings for the peer. **Not all of these values can be overridden after the peer is deployed.**  A subset of these parameters can be overridden by pasting a `JSON` with the overrides into the `Configurations updates` box. Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration updates** box.
+After a peer is deployed, a subset of the fields can be updated as well. Click the peer tile in the console and then the **Settings** icon to open a side panel. Click **Edit configuration JSON (Advanced)** to open the panel where you can override the peer settings. The `JSON` in the **Current configuration** box contains the current settings for the peer. **Not all of these values can be overridden after the peer is deployed.**  A subset of these parameters can be overridden by pasting a `JSON` with the overrides into the **Configuration JSON** box. Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration JSON** box.
 
 The following subset of parameters can be overridden after a peer is deployed:
 
@@ -875,7 +877,7 @@ The following subset of parameters can be overridden after a peer is deployed:
 ```
 {: codeblock}
 
-Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only need to update the value for the `executetimeout` field you would paste this `JSON` into the **Configuration updates** box:
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only need to update the value for the `executetimeout` field you would paste this `JSON` into the **Configuration JSON** box:
 
 ```json
 {
@@ -903,11 +905,11 @@ When you deploy an ordering node, the following advanced deployment options are 
 ### Number of ordering nodes
 {: #ibp-console-adv-deployment-suggested-ordering-node-configurations}
 
-In Raft, a **majority of the total number of nodes** must be available is needed to for the ordering service to function (this is known as achieving a "quorum" of nodes). In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. While satisfying the quorum makes sure that the ordering service is functioning, production networks also have to think about deployment configurations that are highly available (in other words, configurations in which the loss of a certain number of nodes can be tolerated by the system). Typically, this means tolerating the loss of two nodes: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
+In Raft, a **majority of the total number of nodes** must be available for the ordering service to function (this is known as achieving a "quorum" of nodes). In other words, if you have one node, you need that node available to have a quorum, because the majority of one is one. While satisfying the quorum makes sure that the ordering service is functioning, production networks also have to think about deployment configurations that are highly available (in other words, configurations in which the loss of a certain number of nodes can be tolerated by the system). Typically, this means tolerating the loss of two nodes: one node going down during a normal maintenance cycle, and another going down for any other reason (such as a power outage or error).
 
 This is why, by default, the console offers two options: one node or five nodes. Recall that the majority of five is three. This means that in a five node configuration, the loss of two nodes can be tolerated. Users who know that they will be deploying a production solution should therefore choose the five node option.
 
-However, if a user wants to start with a single node or add more nodes to a five node cluster, they have the ability to do that. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
+However many nodes a user chooses to deploy, they have the ability to add more nodes to their ordering service. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
 
 
 ### Kubernetes zone selection
@@ -945,7 +947,7 @@ For more details on the resource allocation panel in the console see [Allocating
 
 In addition to the ordering node settings that are provided in the console when you provision an ordering node, you have the option to override some of the default settings. If you are familiar with Hyperledger Fabric, these settings are configured in the `orderer.yaml` file when an ordering node is deployed. The {{site.data.keyword.blockchainfull_notm}} Platform console configures these fields for you using default settings so many of these fields are not exposed by the console. You can find the orderer configuration `JSON` and an example of how to use the configuration override to customize your deployment in the sections below.
 
-The ability to override the ordering service configuration is available only in paid clusters.
+The ability to override the ordering service configuration by using the console or APIs is available only in paid clusters.
 {: note} 
 
 #### Why would I want to override an ordering service configuration?
@@ -995,11 +997,11 @@ The need to customize the ordering node configuration is less common than the pe
 #### Providing your own customizations when you create an ordering service
 {: #ibp-console-adv-deployment-orderer-create-json}
 
-After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
+After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration JSON** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
 
 Alternatively, if you do check any of the advanced options when you configure the ordering service, those settings are included in the `JSON` on the Summary panel. Any edits that you make to the`JSON` override what was specified in the console. You can insert additional fields or modify the generated `JSON`. The overrides that are visible in the `JSON` on the **Summary page** are what is used to override the default settings when the ordering node is deployed. **If you are deploying multiple ordering nodes, then the overrides are applied to each ordering node.**
 
-You don't need to include the entire set of available parameters in the `JSON`, only any advanced deployment options that you selected in the console along with the parameters that you want to override. For example, if did not select any advanced options in the console and you want to deploy the ordering nodes with your own value for the  `ServerTimeout` and the `statsd address` port, you would paste the following `JSON` into the **Configuration updates** box:
+You don't need to include the entire set of available parameters in the `JSON`, only any advanced deployment options that you selected in the console along with the parameters that you want to override. For example, if did not select any advanced options in the console and you want to deploy the ordering nodes with your own value for the  `ServerTimeout` and the `statsd address` port, you would paste the following `JSON` into the **Configuration JSON** box:
 
 ```json
 {
@@ -1020,7 +1022,7 @@ You don't need to include the entire set of available parameters in the `JSON`, 
 #### Modifying ordering node settings after deployment
 {: #ibp-console-adv-deployment-orderer-modify-json}
 
-After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.  The `JSON` in the **Current configuration** box contains the current settings for the ordering node. **Not all of these values can be overridden after deployment.** Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration updates** box.
+After an ordering node is deployed, a subset of the fields can be updated as well. Click the ordering service tile in the console and select the ordering node, then click the **Settings** icon to open a side panel where you can modify the `JSON`.  The `JSON` in the **Current configuration** box contains the current settings for the ordering node. **Not all of these values can be overridden after deployment.** Again, you don't need to include the entire set of parameters from the **Current configuration** `JSON`, only paste the parameters you want to override into the **Configuration JSON** box.
 
 The following list of parameters can be updated:
 
@@ -1053,7 +1055,7 @@ The following list of parameters can be updated:
 ```
 {: codeblock}
 
-Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration updates** box. For example, if you only needed to update the value for the `ServerTimeout` field you would paste this `JSON` into the **Configuration updates** box:
+Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only needed to update the value for the `ServerTimeout` field you would paste this `JSON` into the **Configuration JSON** box:
 
 ```json
 {
@@ -1301,7 +1303,7 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 * If multiple partitions are configured, a PKCS #11 proxy must be created for each partition.
 * An HSM is not configured for an ordering service. Rather it is configured at the ordering node level inside the ordering service. Consider the case when different organizations contribute ordering nodes to an ordering service, it is possible that some organizations may want to use an HSM for the private key for their ordering node, while other organizations may not have that requirement. But all of the ordering nodes can still function together in the ordering service nonetheless.
 * The use of an HSM introduces overhead in transaction processing, therefore you can expect a performance hit when using an HSM to manage the private keys for your nodes.
-* An HSM can be configured for a node only when the node is initially deployed. You cannot add HSM capability to existing nodes.
+* An HSM can be configured for a node only when the node is initially deployed. You cannot add HSM capability to existing nodes at this time.
 
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
@@ -1316,7 +1318,7 @@ Configuring a node to use HSM is a three-part process:
 
 An HSM is a hardware appliance that provides cryptographic processing services. In the context of a blockchain network, an HSM is used to generate and store private keys inside a tamper-resistent device. After you deploy the HSM, you need to also deploy a PKCS #11 proxy that allows the blockchain node to communicate with the HSM.  These instructions describe how to build the proxy image, how to deploy it to your cluster, and how to configure it.
 
-The HSM and the proxy can reside anywhere, but a best practice would be for the proxy to be running on the same cluster as your blockchain network so that you do not have expose any ports outside your cluster.
+The HSM and the proxy can reside anywhere, but, assuming your cluster has access to the same private network where your HSM is found, a best practice would be for the proxy to be running on the same cluster as your blockchain network.
 {: tip}
 
 Before attempting these instructions you should already have a [DockerHub login](https://hub.docker.com/signup/){: external}.
@@ -1603,15 +1605,15 @@ Before attempting these steps you should have:
 
 Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
-When you deploy a new node from the console, ensure that you select the advanced deployment option `Hardware security module (HSM) configuration`. Then, on the **HSM configuration** panel enter the following values:
+When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. Then, on the **HSM configuration** panel enter the following values:
 
 - **HSM proxy endpoint** - Enter the url for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
 - **HSM PIN** - Enter the PIN for the HSM slot.
 
-Lastly, on the CA **Summary** panel, you can override the default HSM configuration, for example if you want to customize which crypto library implementation to use. Click **Edit configuration** on the **Summary** panel to view the `JSON`. Scroll down to the `BCCSP (Blockchain Crypto Service Provider) section` where you can modify the crypto library settings.
+Lastly, on the CA **Summary** panel, you can override the default HSM configuration, for example if you want to customize which crypto library implementation to use. Click **Edit configuration** on the **Summary** panel to view the `JSON`. Scroll down to the `BCCSP (Blockchain Crypto Service Provider) section` where you can modify the crypto library settings. For example, if you are using AWS HSM, you also need to include additional parameters in the BCCSP section of the configuration for your node. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/hsm.html#example) for details.
 
-Because the HSM implementation currently only supports HSMs that implement the PKCS #11 standard, you cannot modify the `bccsp.default`  that is set to `PKCS11`.
+Because the HSM implementation currently only supports HSMs that implement the PKCS #11 standard, you cannot modify the `bccsp.default` that is set to `PKCS11`.
 {: note}
 
 When the node is deployed, a private key for the specified node enroll ID and secret is generated by the HSM and stored securely in the appliance.

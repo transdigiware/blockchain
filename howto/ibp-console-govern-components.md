@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-04-08"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -77,5 +77,16 @@ ibmcloud sl file volume-list --column id --column notes
 ```
 
 This will allow you to map the output from the pods to the nodes you have deployed.
+
+### Adding storage
+{: #ibp-console-govern-components-add-storage}
+
+As you monitor your pods and notice that more storage is needed, you can increase storage when additional storage is available. The following links provide more information about how to increase storage after your network is deployed.
+
+- [IBM file storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
+- [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
+- [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
+
+Users can allocate more storage to their running network by resizing the existing storage PVCs or by deploying nodes with new PVCs.
 
 

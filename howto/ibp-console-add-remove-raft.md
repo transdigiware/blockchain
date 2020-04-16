@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-03"
+lastupdated: "2020-04-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -22,7 +22,6 @@ subcollection: blockchain
 # Adding and removing ordering service nodes
 {: #ibp-console-add-remove-orderer}
 
-
 Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
 Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
 {: note}
@@ -30,7 +29,7 @@ Unsure what version you are currently using? Click the question mark icon in the
 
 In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover the instructions for adding nodes using the same organization that created the ordering service as well as the steps when using a separate ordering organization that is added as an ordering service admin.
 
-Because ordering nodes can only belong to a single ordering service, if you create an ordering service node from the main **Nodes** panel, you will not be able to add it to an existing ordering service. If you want to add a node to an existing ordering service, the node must be created specifically for that purpose using the process described below. Also, be aware that **adding nodes to an ordering service does not automatically add them to any existing channel**. That is a separate process that must take place after the node has been added to the ordering service. For more information, see [Adding and removing ordering service consenters](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer#ibp-console-add-remove-orderer-consenters-add).
+Because ordering nodes can only belong to a single ordering service, if you create an ordering service node from the main **Nodes** panel, you will not be able to add it to an existing ordering service. If you want to add a node to an existing ordering service, the node must be created specifically for that purpose using the process described below. Also, be aware that **adding nodes to an ordering service does not automatically add them to any existing channel**. That is a separate process that must take place after the node has been added to the ordering service. For more information, see [Adding and removing ordering service consenters](#ibp-console-add-remove-orderer-consenters-add).
 {:important}
 
 ## Number of ordering nodes
@@ -137,7 +136,7 @@ After reviewing the **Summary** page, click **Add another node**. This will subm
 
 To complete the process of adding the node, you need to add it to the consenter set of the system channel. For information about how to do that, proceed to the next section.
 
-### Adding the node to the ordering system channel
+### Adding the node to the orderer system channel
 {: #ibp-console-add-remove-orderer-consenter-system-channel}
 
 After the ordering node has been successfully added, a new tile with the name of the node will appear on the **Ordering nodes** page. It will say it "Requires attention". This state reflects the fact that, while the node creation process has been successful, the node is not yet part of the consenter set of the system channel. The node must be added to the system channel before it can be added to any of the application channels.
@@ -159,14 +158,26 @@ To do this:
 
 Note that **if you want to add this node to any existing application channels, you will have to add them to consenter set of each of those channels separately**. For information about how to do that, see [Adding an ordering node to the consenter set](#ibp-console-add-remove-orderer-consenters-add) of a channel.
 
-### Adding the node to an application channel
+### Adding the `Ordering Service2 MSP` to the application channel
+{: #ibp-console-add-remove-orderer-consenters-org-add}
+
+Because this tutorial presumes that a user is adding a node to a channel that was created as part of the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network), the channel this node is being added to, `channel1`, does not yet have the newly created ordering service organization, `Ordering Service2 MSP`, as one of the administrators of the channel. Before the node can be added, the organization must be added.
+
+To add the organization to an application channel, navigate to the channel and click the **Settings** button. First, specify which peer organization and which peer organization admin is making the update request. If the application channel was created before the ordering organization was added to the system channel, click **Ordering service administrator** and add `Ordering Service2 MSP` as an administrator.
+
+If your console is at a build before `2.1.3.99`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
+{: important}
+
+After the organization has been added, we can add the consenter.
+
+### Adding the node to the application channel
 {: #ibp-console-add-remove-orderer-consenters-add}
 
-To add a consenter to an application channel, navigate to the channel and click the Settings button. After specifying your org MSP and admin identity, click on the **Consenter set** tab. Then select the node from the drop down list and click **Add**. Note that you will only be able to add one node at a time.
+After adding the organization, click on the **Consenter set** tab, select the node from the drop down list, and click **Add**. Note that you will only be able to add one node at a time.
 
-Because you are editing a part of the channel configuration that is governed by ordering service organization admins, you will be asked to send the channel configuration update to an ordering service organization admin to be signed. **This organization can be any of the organizations that is an admin of the ordering service**, not just the organization that owns one of the consenters that is already in the channel.
+Because you are editing a part of the channel configuration that is governed by ordering service organization admins, you will be asked to send the channel configuration update to an ordering service organization admin to be signed. **This organization can be any of the organizations that is an admin of the ordering service**, not just one of the organizations that owns one of the consenters that is already in the channel. In this tutorial, that means selecting `Ordering Service MSP`. We cannot select `Ordering Service2 MSP` here because it is being added as part of this channel configuration update.
 
-After the ordering service organization the channel update was sent to has signed, the organization that initiated the channel update will get a notification that it must sign and submit the channel configuration update. This notification, like all notifications, will be located in the upper right of the screen behind the **Notifications** icon, which resembles a bell.
+After the ordering service organization the channel update was sent to has signed it, the organization that initiated the channel update will get a notification that it must sign and submit the channel configuration update. This notification, like all notifications, will be located in the upper right of the screen behind the **Notifications** icon, which resembles a bell. For more information about how signature collections work, see [Signature collection flow](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection).
 
 **It will take a few minutes for the new node to sync with the consenter set of the application channel**. The time involved depends on a number of factors, including the number of blocks in a channel. During this time, the ordering service may be down. After the node has been successfully added to the application channel, you will see it in the **Ordering nodes** tab.
 

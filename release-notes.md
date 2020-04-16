@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-04-15"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -22,10 +22,22 @@ subcollection: blockchain
 # Release notes
 {: #release-notes-saas-20}
 
-Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.3.
+Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.6.
 {:shortdesc}
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
+
+## 16 April 2020
+{: #04-16-2020}
+
+**CA, peer, and ordering node patch 1.4.6-1**  
+
+### Support for AWS HSM
+{: #04-16-2020-AWS-HSM}
+
+If you plan to use AWS HSM, you must include the `immutable` and `AltId` parameters in your BCCSP configuration. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/hsm.html#example) for details.
+
+**Miscellaneous bug fixes**
 
 ## 24 March 2020
 {: #03-24-2020}

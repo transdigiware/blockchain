@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-01"
+lastupdated: "2020-04-16"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -41,6 +41,7 @@ subcollection: blockchain
 - [Is there a best practice for monitoring my blockchain resources?](#ibp-v2-faq-mon-res)
 - [If service discovery is on, will an endorsement request be routed to any peer on the network?](#ibp-v2-faq-service-discovery)
 - [What is the recommended way to manage private keys?](#ibp-v2-faq-hsm)
+- [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
 
 
@@ -53,6 +54,7 @@ subcollection: blockchain
 - [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](#ibp-v2-faq-v2-IBP-Overview-1-8)
 - [What regions are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-IBP-Overview-1-9)
 - [Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?](#ibp-v2-faq-v2-Infrastructure-4-2)
+- [Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?](#ibp-v2-faq-customer-logs)
 - [Do we have access to logging services and what logs are available to me?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
 - [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](#ibp-v2-faq-cloud-storage)
 - [Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](#ibp-v2-faq-cloud-mzr-storage)
@@ -112,7 +114,7 @@ Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyw
 {: #ibp-v2-faq-multicloud}
 {: faq}
 
-You can not currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by using consoles on other clouds.
+You cannot currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by using consoles on other clouds.
 
 ## How can I find the examples and tutorials within the VSCode extension?
 {: #ibp-v2-faq-vscode-tutorials}
@@ -142,6 +144,14 @@ Yes, if you have the endorsement policy set to “ANY”. However, you do have t
 
 Because private keys are not stored by the platform, users are responsible for downloading and securing their private key. Therefore, when a higher level of security is required for private keys, an HSM is recommended. An HSM is a hardware appliance that performs cryptographic operations and provides the capability to ensure that the cryptographic keys never leave the HSM. Hyperledger Fabric supports HSM devices that implement the PKCS #11 standard. PKCS #11 is a cryptographic standard for secure operations, generation, and storage of keys. See [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to learn more.
 
+## Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?
+{: #ibp-v2-faq-hippa}
+{: faq}
+
+Because HIPAA readiness is only relevant when platform components process Personal Health Information (PHI) or Personally Identifiable Information (PII), the {{site.data.keyword.blockchainfull_notm}} Platform does not need to be HIPAA ready. Customers should not store PHI or PII on the ledger since it is immutable and therefore cannot be deleted. Instead, the recommendation is to store all PHI or PII off ledger in another database and simply reference it from the ledger.
+
+The {{site.data.keyword.blockchainfull_notm}} platform gives customers total control over their deployments, certificates, and private keys. The console simplifies and accelerates the process of deploying components into an {{site.data.keyword.cloud_notm}} Kubernetes service cluster that is managed and controlled by the customer. As a reminder, because the customer owns the storage that is mounted to the containers, {{site.data.keyword.IBM_notm}} does not have access to or control over any of the data that the customer chooses to store in their ledger.
+
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}
 {: faq}
@@ -165,12 +175,15 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 * {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days.
 * Only one blockchain console can be connected to a free cluster at a time.
 * You cannot migrate any nodes or data from a free cluster to a paid cluster.
-* The free offering only supports a single node Raft ordering service, and additional ordering nodes cannot be added to the ordering service. 
-* You cannot configure a node to use a Hardware Security Module (HSM) on a free  cluster.
-* The option to override node configuration during deployment (on the Summary page) is not available on a free cluster.
-* CAs are restricted to using the SQLite database.
-* You cannot specify which zone a node is deployed to because a free cluster only contains a single zone.
-* Custom resource allocation is not available on a free cluster.
+
+The following capabilities are only available on a paid cluster:
+
+- Customizing resource allocation for a node during or after deployment.
+- Using a Hardware Security Module (HSM) to secure the private key for a node.
+- Configuring a Certificate Authority (CA) for high availability by using a PostgreSQL database and replica sets.
+- Selecting a specific Kubernetes zone when deploying a node.
+- Overriding node configuration during or after deployment by using the console or APIs.
+- Adding or removing ordering nodes to an ordering service. The free offering only supports a single node Raft ordering service.
   
 
 See [Find out how to preview the platform free for 30 days](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for more information on how to get started.
@@ -206,6 +219,12 @@ The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are
 Your existing Kubernetes cluster works with the {{site.data.keyword.blockchainfull_notm}} Platform if it satisfies the following conditions:
 - It is running Kubernetes version 1.13, 1.14, or 1.15.
 - There are enough available resources in the cluster.
+
+## Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?
+{: #ibp-v2-faq-customer-logs}
+{: faq}
+
+The logs are stored in the customer's Kubernetes cluster. {{site.data.keyword.IBM_notm}} does not have access to the logs and it is up to the customer to manage all of their log data including retention management.
 
 ## Do we have access to logging services and what logs are available to me?
 {: #ibp-v2-faq-v2-Logging-and-Monitoring-11-6}

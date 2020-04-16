@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-20"
+lastupdated: "2020-04-16"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -26,7 +26,7 @@ subcollection: blockchain
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate your Enterprise Plan network to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} (referred to as {{site.data.keyword.blockchainfull_notm}} Platform 2.0). The upgrade tool allows you to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. Your new nodes are joined to your exiting channels and contain the same ledger data as your old network. You can continue to use your Enterprise Plan network throughout the upgrade process, providing you the ability to migrate your applications without any downtime. When you can successfully process transactions with your nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan.
 
-Before you start using the upgrade tool, review [Before you begin](#enterprise-upgrade-considerations). You can then review the [Upgrade overview](#enterprise-upgrade-overview) to learn about the recommended steps for migrating a blockchain consortium to the new platform.
+Before you start using the upgrade tool, review Before you begin](#enterprise-upgrade-considerations). You can then review the [Upgrade overview](#enterprise-upgrade-overview) to learn about the recommended steps for migrating a blockchain consortium to the new platform.
 
 ## Before you begin
 {: #enterprise-upgrade-considerations}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-04-12"
 
 keywords: HA, highly availability, multiregion
 
@@ -95,7 +95,7 @@ Now that the peers are joined to the channel, you can [instantiate the smart con
 1. In clusters two and three, use the CA to register a new peer user, following the same steps that you took when you registered the peer identity in cluster one. You only need to create the peer users, you do not need to re-create the organization admin identity because you will import that in the next step.
 2. Create new peers, by using the CA you that imported from cluster one as the peer's CA. Use the peer organization MSP that you imported from cluster one as the peer organization MSP definition.
 3. In cluster two and three, you can now repeat the steps that you ran to join the peers to the same channel as the peer in cluster one. 
-4. After you install the smart contract on these redundant peers, the ledger will automatically sync between all the peers.
+4. After you install the smart contract on these redundant peers, they are able to transact and query the ledger.
 5. Again, if you plan to use service discovery, private data, and peer gossip, you need to make each redundant peer an anchor peer.  
 
 Your network is now configured such that a failure in any single region will not affect the peer workload.  
