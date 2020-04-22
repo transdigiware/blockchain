@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-22"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -134,6 +134,8 @@ You need to upload the connection information of your Enterprise Plan network an
     }
     ```
 
+
+
 ## Upgrade Your Certificate Authorities
 
 The first component that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 is a Certificate Authority for your peer and ordering service organization. You will use CAs on the new platform to create the new peer and ordering nodes. Because the identities that are created by new CA are recognized as part of your organization on Enterprise Plan, your new nodes are able to join your existing channels. The application, node, and admin identities that you created on Enterprise Plan are also registered with the new CA.
@@ -144,7 +146,9 @@ In the **Upgrade Your Certificate Authorities** panel, you can find the Certific
 
 If you are the founder of the network (PeerOrg1), you need to repeat these steps to upgrade one of the ordering organization CAs, in addition to a CA for your peer organization.
 
-For each CA you want to upgrade, enter a **Display Name** for the new CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You will use this name to identify the CA in future steps. You also need to create the enroll ID and enroll secret of the CA Admin. **Save these values**. You can use these values to generate the CA admin identity and operate your CA. After you provide the required information, click **Start** to create the CA. The CA takes about five to ten minutes to start. If the creation of a CA fails, click on the overflow menu next to the CA and then click **Delete Certificate Authority**.
+For each CA you want to upgrade, enter a **Display Name** for the new CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You will use this name to identify the CA in future steps. You also need to create the enroll ID and enroll secret of the CA Admin. **Save these values**. You can use these values to generate the CA admin identity and operate your CA. 
+
+After you provide the required information, click **Start** to create the CA. If the creation of a CA fails, click on the overflow menu next to the CA and then click **Delete Certificate Authority**.
 
 ### Step Two: Operate your Certificate Authority on {{site.data.keyword.blockchainfull_notm}} Platform 2.0
 
@@ -168,7 +172,7 @@ After you create the orderer organization administrator and the MSP definition, 
 
 ### Step Two: Create new ordering nodes
 
-You can use the **Upgrade orderers** panel to create new ordering nodes. For each new ordering node, enter a **Display Name** that will identify the node on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll secret** for the ordering node identity. Your node uses this identity to generate the certificate and keys it needs to operate on the network during deployment. Provide a different enroll ID and secret than the values that you used for the orderer admin. After you provide the required information, click **Start** to create the orderer. You can only create one new ordering node at a time, and need to create five ordering nodes on this panel before you can proceed.
+You can use the **Upgrade orderers** panel to create new ordering nodes. For each new ordering node, enter a **Display Name** that will identify the node on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll secret** for the ordering node identity. Your node uses this identity to generate the certificate and keys it needs to operate on the network during deployment. Provide a different enroll ID and secret than the values that you used for the orderer admin.  After you provide the required information, click **Start** to create the orderer. You can only create one new ordering node at a time, and need to create five ordering nodes on this panel before you can proceed.
 
 Your ordering nodes store the blockchain portion of the ledger for each channel they support. Each node that you create on the new platform needs to download these blocks and sync with your existing ordering service before you can migrate another ordering node. The time that is required depends on the number of channels in your network and the number of blocks on each channel. You can use the [Node Logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) from your orderers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to see whether they are finished syncing with your ordering nodes on Enterprise Plan. If the creation of an ordering node fails, click on the overflow menu next to each node and then click **Delete Ordering Node**.
 
@@ -203,7 +207,7 @@ After you create the administrator identity and the MSP, click **Export identity
 
 ### Step Two: Create new peers
 
-You can then use the **Create peers** table to start migrating your peers to the new platform. For each Peer you want to upgrade, enter a **Display Name** for the new peer on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll Secret** for the peer identity. Your peer uses this identity to generate the certificate and keys that are required by the peer during deployment. After you provide the required information, click **Start**. It takes about three to five minutes to create a new peer. If the creation of a peer fails, click on the overflow menu next to each peer and then click **Delete Peer**.
+You can then use the **Create peers** table to start migrating your peers to the new platform. For each Peer you want to upgrade, enter a **Display Name** for the new peer on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll Secret** for the peer identity. Your peer uses this identity to generate the certificate and keys that are required by the peer during deployment.  After you provide the required information, click **Start**. If the creation of a peer fails, click on the overflow menu next to each peer and then click **Delete Peer**.
 
 If you created a multizone cluster, you can use this panel to deploy your peer to a specific zone and ensure that your peers are deployed in different zones. This ensures that your peers are available if there is a zone failure. While the upgrade tool uses an anti-affinity policy to deploy your peers to worker nodes with free resources, the anti-affinity policy cannot detect if the peers are being deployed to different zones. For more information about how to find the zones of your cluster, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 {:note}
