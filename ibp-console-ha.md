@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-04-22"
 
-keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure
+keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
 subcollection: blockchain
 
