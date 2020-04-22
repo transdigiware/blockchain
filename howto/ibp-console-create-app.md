@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-04-22"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -98,8 +98,6 @@ In order to take advantage of the [Service Discovery](https://hyperledger-fabric
 
 Navigate to the **Smart contracts** tab in your platform console. Next to each instantiated smart contract, navigate to the overflow menu. Click the button named **Connect with SDK**. This opens a side panel that allows you to build and download your connection profile. First, you will also need to select your organization MSP definition.  You will then need to select the CA of your organization that you used to register your application identity. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
 
-If your nodes are deployed on {{site.data.keyword.cloud_notm}} Private, you  need to ensure that the ports used by the Certificate Authorities, Peers, and Orderers in the connection profile are externally exposed to your client applications.
-{: note}
 
 
 ## Enrolling by using the SDK

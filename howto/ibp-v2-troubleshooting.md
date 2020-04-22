@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-22"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -63,12 +63,6 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
-
-**Issues on {{site.data.keyword.cloud_notm}} Private**  
-
-- [Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?](#ibp-v2-troubleshooting-healthchecks)
-- [Why am I getting the error: `Pod Security Conflict`](#ibp-v2-troubleshooting-podsecurityconflict)
-- [How do I manually remove nodes running on my cluster?](#ibp-v2-troubleshooting-manually-remove)
 
 
 
@@ -480,44 +474,5 @@ This node has failed to deploy.
 
 The node has failed to deploy. There can be several reasons for this, but you must go to your console, delete the node, and attempt to redeploy it. Make sure you are using the correct MSP, enroll ID, and secret.
 {: tsResolve}
-
-## Why are the nodes I deployed on {{site.data.keyword.cloud_notm}} Private not processing transactions and are failing health checks?
-{: #ibp-v2-troubleshooting-healthchecks}
-{: troubleshoot}
-
-My console states that my peers and ordering nodes are still running. However, my transactions are failing. When I run a liveliness or readiness check on the node pods, the check states that the pods are unhealthy.
-{: tsSymptoms}
-
-If you have deployed, removed, and upgraded nodes on your cluster many times, perhaps as a result of testing, docker may fail as a result of a known issue with {{site.data.keyword.cloud_notm}} Private. For more information, see this issue in the [{{site.data.keyword.cloud_notm}} Private documentation](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/getting_started/known_issues.html#25626){: external}.
-{: tsCauses}
-
-To address this issue, remove the failed pods and deploy your nodes again. You can also restart the Docker service on the cluster.
-
-## Why am I getting the error: `Pod Security Conflict`
-{: #ibp-v2-troubleshooting-podsecurityconflict}
-{: troubleshoot}
-
-When deploying the {{site.data.keyword.blockchainfull_notm}} Platform console using Helm chart configuration field, you will provide the target namespace to the `namespace` field and encounter following error: `Pod Security Conflict this chart requires a namespace with a ibm-privileged-psp pod security policy.`
-{: tsSymptoms}
-
-This error does not stop you from deploying the console and can be safely ignored.
-{: tsResolve}
-
-## How do I manually remove nodes running on my cluster?
-{: #ibp-v2-troubleshooting-manually-remove}
-{: troubleshoot}
-
-You can delete a node from your {{site.data.keyword.cloud_notm}} Private cluster using the {{site.data.keyword.blockchainfull_notm}} Platform console. If you try to manually remove a node deployment and the accompanying secrets and persistent volumes, the {{site.data.keyword.blockchainfull_notm}} Platform deployer will automatically restart the node. Nodes that were manually removed or had failed may restart when you deploy an {{site.data.keyword.blockchainfull_notm}} Platform console to a cluster with previous deployments.
-{: tsSymptoms}
-
-If you cannot use the {{site.data.keyword.blockchainfull_notm}} Platform console or APIs to remove your nodes, you can manually remove nodes from your cluster using the kubectl CLI:
-{: tsResolve}
-
-```
-kubectl delete ibpca --all -n <namespace>
-kubectl delete ibppeer --all -n <namespace>
-kubectl delete ibporderer --all -n <namespace>
-```
-{:codeblock}
 
 

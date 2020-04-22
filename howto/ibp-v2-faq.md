@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-22"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -243,7 +243,5 @@ By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.ke
 {: faq}
 
 No. When the {{site.data.keyword.blockchainfull_notm}} Platform is configured with a multizone cluster in {{site.data.keyword.cloud_notm}} Kubernetes service, you can choose which zone a particular component (peer or ordering node) is deployed to, or you can let the console decide.  Then, when the node is subsequently deployed, Kubernetes "pins" the associated pod to the chosen zone. Pinning means that Kubernetes will not provision the pod in another zone in the event of a whole zone failure. And because the pods are pinned to specific zones, there is no need to access the same storage from another zone. Therefore, MZR storage is not required for {{site.data.keyword.blockchainfull_notm}} Platform nodes.
-
-
 
 

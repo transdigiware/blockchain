@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-22"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -51,21 +51,9 @@ Considerations include:
 {: #ibp-security-ibp-iam}
 
 
-Identity and access management allows the owner of a console to control which users can access the console and their privileges within it. The process for managing user access depends on whether the console is running in {{site.data.keyword.cloud_notm}} or {{site.data.keyword.cloud_notm}} Private.
-
-####  IAM on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
-{: #ibp-security-ibp-iam-saas}
-
-Identity and access management on {{site.data.keyword.cloud_notm}} is controlled by using the `IAM` service. Every user that accesses the blockchain console must have an IBMid account and be assigned an access policy in the IAM service. This policy determines what actions the user can perform within the console. Blockchain-specific permissions (for example, which users can create components) are based on the IAM roles that are mapped to blockchain permissions in this [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping).
+Identity and access management allows the owner of a console to control which users can access the console and their privileges within it. Identity and access management on {{site.data.keyword.cloud_notm}} is controlled by using the `IAM` service. Every user that accesses the blockchain console must have an IBMid account and be assigned an access policy in the IAM service. This policy determines what actions the user can perform within the console. Blockchain-specific permissions (for example, which users can create components) are based on the IAM roles that are mapped to blockchain permissions in this [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping).
 
 When the {{site.data.keyword.blockchainfull_notm}} Platform console is provisioned, the email address of the {{site.data.keyword.cloud_notm}} account owner is set as the console administrator, known in IAM as the **Manager** role. All new access requests will be sent to this user. This console administrator can then grant other IBMid users access to the console by using the IAM UI. For more information about IAM on {{site.data.keyword.cloud_notm}}, see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}. For the steps required to add new users, see [Adding and removing users from the console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove).
-
-#### IAM on {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud
-{: #ibp-security-ibp-iam-icp}
-
-Identity and access management for {{site.data.keyword.cloud_notm}} Private is built into the blockchain console and includes local console authentication and role management. As with the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}, the user who provisions the {{site.data.keyword.blockchainfull_notm}} Platform console in {{site.data.keyword.cloud_notm}} Private is designated as the console administrator, also known as the **Manager**. This administrator can then add and grant other users access to the console by using the **Users** tab. It is also possible to change the console administrator. Every user that accesses the console must be assigned an access policy with a user role defined. The policy determines what actions the user can perform within the console. Other users can be assigned with **Manager**, **Writer**, or **Reader** roles when a console manager adds them to the console. The definition of each role is provided in the [Role to permissions mapping table](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-role-mapping). For the steps required to add new users, see [Managing users from the console](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users).
-
-Note that for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud, users can also be managed with [APIs](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-users-apis).
 
 
 
@@ -73,10 +61,8 @@ Note that for {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud,
 ### Ports
 {: #ibp-security-ibp-ports}
 
-If you are using a client application to send requests to the console, either via the blockchain APIs or the Fabric SDKs, the associated `HTTPS` console port needs to be exposed in your firewall.  
 
-- In {{site.data.keyword.cloud_notm}} use the default port `443`.
-- In {{site.data.keyword.cloud_notm}} Private, use the [Console port](/docs/blockchain?topic=blockchain-console-deploy-icp#icp-peer-deploy-quickstart-parms) that was specified when the helm chart was deployed. This external port is in the range of `31210 - 31220`.
+If you are using a client application to send requests to the console, either via the blockchain APIs or the Fabric SDKs, the associated `HTTPS` console port needs to be exposed in your firewall. In {{site.data.keyword.cloud_notm}} use the default port `443`.
 
 
 
@@ -126,12 +112,7 @@ You can use the blockchain console to select which ACLs to apply to resources on
 ### API authentication
 {: #ibp-security-ibp-apis}
 
-In order to use the blockchain [APIs](https://cloud.ibm.com/apidocs/blockchain){: external} to create and manage network components, your application needs to be able to authenticate and connect to your network. The process to authenticate depends on the cloud where your network is provisioned:
-
-- [API Authentication on IBM Cloud {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
-- [API Authentication on {{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-create-api-key)
-
-
+In order to use the blockchain [APIs](https://cloud.ibm.com/apidocs/blockchain){: external} to create and manage network components, your application needs to be able to authenticate and connect to your network. See this topic on [API Authentication on IBM Cloud {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication) 
 
 ## Best practices for security on the customer Kubernetes cluster
 {: #ibp-security-Kubernetes}
@@ -159,15 +140,13 @@ The best place to start is to learn about the security features of the underlyin
 If you are using {{site.data.keyword.cloud_notm}}, you can review the topic on [Security for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-security){: external}.
 
 
-With {{site.data.keyword.cloud_notm}} Private, **Pod Security Policies** provide a way to control the security level of the pods and containers in your cluster. The Pod Security Policy that is applied to the namespace on a cluster is the default security setting for any new pod that is created in that namespace. If you are using {{site.data.keyword.cloud_notm}} Private, review the [Security guide](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/user_management/admin.html){: external} for best practices.
-
 
 
 ### Network security
 {: #ibp-security-Kubernetes-network}
 
 
-{{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloud_notm}} Private provide the underlying network, including the networks and routers, over which customers’ VLAN resides. The customer configures their servers and uses gateways and firewalls to route traffic between servers to protect workloads from network threats. Protecting your cloud network by using firewalls and intrusion prevention system devices is imperative for protecting your cloud-based workloads.
+{{site.data.keyword.cloud_notm}} provides the underlying network, including the networks and routers, over which customers’ VLAN resides. The customer configures their servers and uses gateways and firewalls to route traffic between servers to protect workloads from network threats. Protecting your cloud network by using firewalls and intrusion prevention system devices is imperative for protecting your cloud-based workloads.
 
 
 
@@ -176,15 +155,12 @@ With {{site.data.keyword.cloud_notm}} Private, **Pod Security Policies** provide
 #### Firewall configuration
 {: #ibp-security-Kubernetes-network-firewall}
 
-If your configuration includes a network firewall, there are ports that need to be exposed to allow network traffic through. The following section describes how to find the ports that can be exposed and what they are for. If you are using {{site.data.keyword.cloud_notm}} Private, you need to ensure that the ports in the 'External port' column are exposed at your firewall all the way through to your cluster.
+If your configuration includes a network firewall, there are ports that need to be exposed to allow network traffic through. The following section describes how to find the ports that can be exposed and what they are for.
 
 ### Internet Ports
 {: #ibp-security-Kubernetes-ports}
 
 {{site.data.keyword.blockchainfull_notm}} Platform exposes certain ports associated with each node type that are used by client applications, for example, when sending transactions to peers or the ordering service. If you have configured a firewall, you will need to expose these ports in your network for the transactions to reach their destination and for the nodes to be able to respond to the requests. {{site.data.keyword.blockchainfull_notm}} Platform supports the `HTTPS` IP Security protocol.
-
-#### {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} ports
-{: #ibp-security-Kubernetes-ports-ic}
 
 | Port | Number | Description |
 |----------|---------|-------|
@@ -200,47 +176,6 @@ If your configuration includes a network firewall, there are ports that need to 
 | Orderer Operations | 8443 | This port is used to get to the health check endpoint and to the metrics endpoint of the Orderer.|
 | gRPC Web proxy | 7443 | This port is used by the UI to communicate with the orderer via gRPC web APIs.|
 {: caption="Table 2. Ports on {{site.data.keyword.cloud_notm}}" caption-side="top"}
-
-#### {{site.data.keyword.blockchainfull_notm}} Platform for Multicloud ports
-{: #ibp-security-Kubernetes-ports-icp}
-
-This section describes the external ports you can expose in your firewall to allow network traffic.  
-
-You can use a `kubectl` command to identify the external ports on your cluster that need to be exposed. Log in from a terminal window by using the `cloudctl cli` so that you can issue a `kubectl` command and then grep for the NodePort as in the following example. Your output will differ based on the number of {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority (CA), peer, and ordering nodes you have, as well as the ephemeral ports that have been assigned in your environment. The internal ports are static, but the mapping to the external port changes based on your environment.  Note that in the example below, you need to replace `<namespace>` with the value of the namespace you used when you deployed your blockchain network.
-
-```
-kubectl get services --namespace=<namespace> | grep NodePort
-```
-{: codeblock}
-
-And the results:
-
-```
-optools               NodePort    10.0.65.197    3000:31210/TCP
-ibpca-service         NodePort    172.21.68.26   7054:30421/TCP
-ibporderer-service    NodePort    172.21.32.19   7050:32434/TCP,8443:32216/TCP,8080:32220/TCP,7443:32284/TCP
-ibppeer-service       NodePort    172.21.78.16   7051:32013/TCP,9443:30296/TCP,8080:30817/TCP,7443:31724/TCP
-```
-
-Using the results that are returned in this example, the external ports that can be exposed are:
-
-| Internal Port |External port| Description |
-|----------|---------|-------|
-| **Console ports** |||
-| 3000 | 31210| {{site.data.keyword.blockchainfull_notm}} Platform operational console, part of the console URL.|
-| **CA ports**|||
-|  7054 | 30421| CA NodePort |
-| **Ordering service ports** |||
-| 7050 | 32434 | Ordering node |
-| 8443 | 32216 |Ordering node Health check (https://xxx.xxx.xxx.xxx:32216/healthz)
-| 8080 | 32220 | gRPC web proxy debug, required by the operational tools console |
-| 7443 | 32284 | gRPC web, needed for the operational tools console |
-| **Peer ports**|||
-| 7051 | 32013| Peer |
-| 9443 | 30296| Peer Operational Health check (https://xxx.xxx.xxx.xxx:30787/healthz) |
-| 8080 | 30817 | gRPC web proxy debug, required by the operational tools console |
-| 7443 | 31724 | gRPC web, needed for the operational tools console |
-{: caption="Table 3. Ports on {{site.data.keyword.cloud_notm}} Private" caption-side="top"}
 
 
 ### Cluster and Operating System security
@@ -281,8 +216,7 @@ The default persistent storage type is File storage, also known as Endurance sto
 - [{{site.data.keyword.cloud_notm}} data encryption and key management](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-data#dataencryptionandkeymanagement){: external}
 
 
-- For more information about encryption on {{site.data.keyword.cloud_notm}} Private:
-[Encrypting volumes that are used by IBM Cloud Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.2/installing/fips_encrypt_volumes.html){: external} 
+
 
 ### Data privacy
 {: #ibp-security-kubernetes-privacy}
