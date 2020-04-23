@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-22"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -73,7 +73,7 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
-** These values can vary slightly if you are using {{site.data.keyword.cloud_notm}} Private. Actual VPC allocations are visible in the blockchain console when a node is deployed.
+** Actual VPC allocations are visible in the blockchain console when a node is deployed.
 
 While users of a free cluster **must use default sizes** for the containers associated with their nodes, users of paid clusters can set these values while the node is being created by clicking the **Resource allocation** box during the creation of their nodes. If this box is not checked, the default resource allocations, which can be seen below, will be used.
 
@@ -1143,7 +1143,7 @@ Now that you have gathered all the necessary certificates, you are ready to crea
 ### Option 2: Create a five node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-create-five-node}
 
-When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster or are using a cluster that is hosted on another cloud provider by using {{site.data.keyword.cloud_notm}} Private, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol. Before you deploy a five node ordering service, you need to build a `JSON` file that contains all of the certificates for the five nodes by using the following instructions:
+When you have a paid {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, you  have the additional option of deploying a five node ordering service that uses the Raft consensus protocol. Before you deploy a five node ordering service, you need to build a `JSON` file that contains all of the certificates for the five nodes by using the following instructions:
 
 #### Create the certificates JSON file
 {: #ibp-console-adv-deployment-create-certs-file}

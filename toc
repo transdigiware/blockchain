@@ -65,16 +65,6 @@ IBM Blockchain Platform for IBM Cloud
 		best_practices.md
 
 	{: .topicgroup}
-	IBM Blockchain Platform for Multicloud
-		console-icp-about.md
-		get-started-console-icp.md
-		ICP_console_setup.md
-		howto/console-helm-install.md
-		howto/console-deploy-icp.md
-		howto/console-icp-manage.md
-		howto/pricing-software.md
-
-	{: .topicgroup}
 	Upgrading your Enterprise Plan network
 		enterprise_upgrade.md
 		enterprise_app_upgrade.md

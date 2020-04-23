@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-19"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 # Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #enterprise-upgrade}
 
-You can use the {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate your Enterprise Plan network to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} (referred to as {{site.data.keyword.blockchainfull_notm}} Platform 2.0). The upgrade tool allows you to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. Your new nodes are joined to your exiting channels and contain the same ledger data as your old network. You can continue to use your Enterprise Plan network throughout the upgrade process, providing you the ability to migrate your applications without any downtime. When you can successfully process transactions with your nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan.
+You can use the {{site.data.keyword.blockchainfull_notm}} Platform upgrade tool to migrate your Enterprise Plan network to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} (referred to as {{site.data.keyword.blockchainfull_notm}} Platform 2.0). The upgrade tool allows you to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. Your new nodes are joined to your existing channels and contain the same ledger data as your old network. You can continue to use your Enterprise Plan network throughout the upgrade process, providing you the ability to migrate your applications without any downtime. When you can successfully process transactions with your nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan.
 
 Before you start using the upgrade tool, review Before you begin](#enterprise-upgrade-considerations). You can then review the [Upgrade overview](#enterprise-upgrade-overview) to learn about the recommended steps for migrating a blockchain consortium to the new platform.
 
@@ -104,7 +104,7 @@ After you import the new connection profile, you need to use the Certificate Aut
 ## Step six: Delete your Enterprise Plan network
 {: #enterprise-upgrade-overview-six}
 
-When your applications can add transactions to the ledger by using the nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan. Before you delete your network, you must ensure that the other organizations in your consortium have updated their applications to use service discovery or that they have updated their applications to target the endpoints of your new nodes. If other applications continue to target your peers on Enterprise Plan, their transactions might fail to meet the chaincode endorsement policy. If other applications target your ordering nodes, their transactions might not be committed to the ledger.
+When your applications can add transactions to the ledger by using the nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can safely delete your network on Enterprise Plan. Before you delete your network, you must ensure that the other organizations in your consortium have updated their applications to use service discovery or that they have updated their applications to target the endpoints of your new nodes. If other applications continue to target your peers on Enterprise Plan, their transactions might fail to meet the chaincode endorsement policy and might not be committed to the ledger.
 
 Before you delete your network, you should use the Network Monitor to stop each of your peers to confirm that they are not being used to endorse transactions. If no problems are detected after you stop your Enterprise network peers, you can remove the peers by using the Network Monitor. You can then delete your Enterprise Plan network.
 

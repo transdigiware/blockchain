@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-04-23"
 
-keywords: IBM Blockchain Platform, IBM Cloud Private, Data residency, world state
+keywords: IBM Blockchain Platform, Data residency, world state
 
 subcollection: blockchain
 

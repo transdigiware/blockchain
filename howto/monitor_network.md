@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-06"
+lastupdated: "2020-04-23"
 
-keywords: view Logs, IBM Cloud Private, logs of a specific network component, monitor blockchain network
+keywords: view Logs, logs of a specific network component, monitor blockchain network
 
 subcollection: blockchain
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-22"
 
-keywords: key features, build, operate, grow, architecture, multizone clusters
+keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
 subcollection: blockchain
 
@@ -170,6 +170,16 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 - Set up [Portworx](/docs/containers?topic=containers-portworx#portworx) to manage local persistent storage across your containerized databases, or share data between pods across multiple zones.
 
 For more information about available {{site.data.keyword.cloud_notm}} services and other third-party integrations, see this list of [Supported {{site.data.keyword.cloud_notm}} and third-party integrations](/docs/containers?topic=containers-supported_integrations#supported_integrations){: external}.
+
+## Compliance
+{: #ibp-console-overview-compliance}
+
+The {{site.data.keyword.blockchainfull_notm}} Platform has been certified on:
+- ISO/IEC 27001
+- ISO/IEC 27017
+- ISO/IEC 27018
+
+For more information, refer to the [IBM Cloud Global compliance program](https://www.ibm.com/cloud/compliance/globalView) and view the full [listing](https://www.ibm.com/downloads/cas/OELMNOND) of IBM Cloud services certified with ISO 27001, 27017, and 27018.
 
 ## Getting support
 {: #ibp-console-overview-support}
