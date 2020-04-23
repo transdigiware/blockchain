@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-04-23"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1605,13 +1605,17 @@ Before attempting these steps you should have:
 
 Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
-When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. Then, on the **HSM configuration** panel enter the following values:
+When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**.
+
+![Configuring a node to use HSM](../images/hsm-cfg.png "Configuring a node to use HSM"){: caption="Figure 1. Configuring a node to use HSM" caption-side="bottom"}
+
+On the **HSM configuration** panel enter the following values:
 
 - **HSM proxy endpoint** - Enter the url for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
 - **HSM PIN** - Enter the PIN for the HSM slot.
 
-Lastly, on the CA **Summary** panel, you can override the default HSM configuration, for example if you want to customize which crypto library implementation to use. Click **Edit configuration** on the **Summary** panel to view the `JSON`. Scroll down to the `BCCSP (Blockchain Crypto Service Provider) section` where you can modify the crypto library settings. For example, if you are using AWS HSM, you also need to include additional parameters in the BCCSP section of the configuration for your node. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/hsm.html#example) for details.
+Lastly, on the CA **Summary** panel, you can override the default HSM configuration, for example if you want to customize which crypto library implementation to use. Click **Edit configuration JSON (Advanced)** on the **Summary** panel to view the `JSON`. Scroll down to the `BCCSP (Blockchain Crypto Service Provider) section` where you can modify the crypto library settings. For example, if you are using AWS HSM, you also need to include additional parameters in the BCCSP section of the configuration for your node. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/hsm.html#example) for details.
 
 Because the HSM implementation currently only supports HSMs that implement the PKCS #11 standard, you cannot modify the `bccsp.default` that is set to `PKCS11`.
 {: note}

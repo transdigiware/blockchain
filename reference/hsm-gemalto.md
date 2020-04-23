@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-04-23"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -549,14 +549,12 @@ After the local test in the previous step is successful, you are ready to deploy
 ### What's next
 {: #ibp-hsm-gemalto-next-steps}
 
-After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the PKCS #11 proxy you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  
+After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the PKCS #11 proxy you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  You will need to provide the **HSM proxy endpoint**, and the **Label** and **PIN** for the partition.
+
+![Configuring a node to use HSM](../images/hsm-cfg.png "Configuring a node to use HSM"){: caption="Figure 2. Configuring a node to use HSM" caption-side="bottom"}
 
 ## Using multiple partitions
 {: #ibp-hsm-gemalto-multiple-partitions}
 
-It is possible that you have the requirement for different nodes to use different HSM partitions. In that case you would need to repeat all of the steps in this topic for each additional partition. Likewise, you would need to configure a unique PCKS #11 proxy for each partition. The following illustration shows how the PCKS #11 proxy and the HSM client communicate with different HSM partitions.
-
-![HSM with multiple partitions](../images/hsm_3proxy.svg "HSM with multiple partitions"){: caption="Figure 2. An example configuration with one HSM and three partitions. " caption-side="bottom"}
-
-This figure shows how different nodes can be configured to use different HSM partitions by creating separate PKCS #11 proxies for each partition. Similar to Figure 1, when each node is deployed, the HSM configuration specifies the endpoint URL of the PKCS #11 proxy that it will use to connect to the partition that was associated with the HSM client.
+It is possible that you have the requirement for different nodes to use different HSM partitions. In that case, each partition has its own label and PIN. When you deploy your blockchain node you can designate which partition the private key is stored in by specifying the label and PIN combination that correspond to the desired partition.
 
