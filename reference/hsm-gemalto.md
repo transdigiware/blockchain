@@ -556,5 +556,5 @@ After you have used these instructions to configure your {{site.data.keyword.clo
 ## Using multiple partitions
 {: #ibp-hsm-gemalto-multiple-partitions}
 
-It is possible that you have the requirement for different nodes to use different HSM partitions. In that case, each partition has its own label and PIN. When you deploy your blockchain node you can designate which partition the private key is stored in by specifying the label and PIN combination that correspond to the desired partition.
+If your HSM has multiple partitions, only one PKCS #11 proxy is required to communicate with the HSM.
 
