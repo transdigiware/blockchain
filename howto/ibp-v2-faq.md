@@ -119,7 +119,7 @@ You cannot currently deploy blockchain nodes to multiple hosted cloud providers.
 {: #ibp-v2-faq-vscode-tutorials}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).>
 
 ## Is there a best practice for monitoring my blockchain resources?
 {: #ibp-v2-faq-mon-res}
