@@ -15,19 +15,25 @@ IBM Blockchain Platform for IBM Cloud
 	blockchain_component_overview.md
 
 	{: .topicgroup}
-	Tutorials
+	Getting started tutorials
 		howto/ibp-console-build-network.md
 		howto/ibp-console-join-network.md
 		howto/ibp-console-smart-contracts.md
 		howto/ibp-console-create-app.md
-		howto/ibp-console-add-remove-raft.md
 		reference/videos.md
+
+	{: .topicgroup}
+	Advanced tutorials
+		howto/ibp-console-add-remove-raft.md
 		howto/ibp-console-ic-ha-howto.md
 		howto/ibp-console-ha-ca.md
+		reference/hsm-gemalto.md
+
+	{: .topicgroup}
+	Monitoring tutorials
 		reference/logdna.md
 		reference/sysdig.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
-		reference/hsm-gemalto.md
 
 	{: .topicgroup}
 	Pricing
