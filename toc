@@ -35,7 +35,7 @@ IBM Blockchain Platform for IBM Cloud
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
-		howto/ibp-v2-deploy-iks.md
+	howto/ibp-v2-deploy-iks.md
 
 	{: .topicgroup}
 	IBM Blockchain Platform console
