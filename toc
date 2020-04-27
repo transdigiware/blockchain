@@ -28,7 +28,13 @@ IBM Blockchain Platform for IBM Cloud
 		reference/detailed-pricing.md
 
 	security.md
-	ibp-console-ha.md
+
+	{: .topicgroup}
+	High availability
+		ibp-console-ha.md
+		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-ca.md
+
 	data-residency.md
 	howto/ibp-v2-faq.md
 	needtoknow.md
@@ -56,8 +62,6 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .topicgroup}
 	Advanced tutorials
-		howto/ibp-console-ic-ha-howto.md
-		howto/ibp-console-ha-ca.md
 		reference/hsm-gemalto.md
 
 	{: .topicgroup}
@@ -66,7 +70,7 @@ IBM Blockchain Platform for IBM Cloud
 		reference/sysdig.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 
-		howto/ibp-v2-apis.md
+	howto/ibp-v2-apis.md
 
 
 	{: .topicgroup}
