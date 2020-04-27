@@ -23,19 +23,6 @@ IBM Blockchain Platform for IBM Cloud
 		reference/videos.md
 
 	{: .topicgroup}
-	Advanced tutorials
-		howto/ibp-console-add-remove-raft.md
-		howto/ibp-console-ic-ha-howto.md
-		howto/ibp-console-ha-ca.md
-		reference/hsm-gemalto.md
-
-	{: .topicgroup}
-	Monitoring tutorials
-		reference/logdna.md
-		reference/sysdig.md
-		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
-
-	{: .topicgroup}
 	Pricing
 		howto/pricing-saas.md
 		reference/detailed-pricing.md
@@ -48,17 +35,14 @@ IBM Blockchain Platform for IBM Cloud
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
-	{: .topicgroup}
-	IBM Blockchain Platform for IBM Cloud
 		howto/ibp-v2-deploy-iks.md
-		howto/ibp-v2-apis.md
-		howto/ibp-console-manage.md
-		howto/ibp-console-ic-ha-howto.md
 
 	{: .topicgroup}
 	IBM Blockchain Platform console
+		howto/ibp-console-manage.md
 		howto/ibp-console-advanced-deployment.md
 		howto/ibp-console-advanced-channel.md
+		howto/ibp-console-add-remove-raft.md
 		howto/ibp-console-import-nodes.md
 		howto/ibp-console-identities.md
 		howto/ibp-console-organizations.md
@@ -69,6 +53,21 @@ IBM Blockchain Platform for IBM Cloud
 	Developing smart contracts and applications
 		vscode-extension.md
 		best_practices.md
+
+	{: .topicgroup}
+	Advanced tutorials
+		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-ca.md
+		reference/hsm-gemalto.md
+
+	{: .topicgroup}
+	Monitoring your network
+		reference/logdna.md
+		reference/sysdig.md
+		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+
+		howto/ibp-v2-apis.md
+
 
 	{: .topicgroup}
 	Upgrading your Enterprise Plan network
