@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-04-28"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -133,7 +133,26 @@ You need to upload the connection information of your Enterprise Plan network an
     }
     ```
 
+- **Optional:** If you want to use a Hardware Security Module (HSM) to store the private keys of your blockchain nodes, you can use the **HSM configuration** field to provide the connection information of your HSM. If you plan on using an HSM, you need to set up your own HSM on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to complete the [steps to deploy a PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) that your nodes will use to communicate with the HSM. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm). You can return to this page after you have deployed the proxy.
 
+  You need to provide the endpoint of your PKCS #11 proxy, as well as the label and pin of your HSM slot, to the **HSM configuration** field. For example, the following JSON provides the connection information for two slots in the same HSM:
+  ```json
+  {
+          "name": "IBM Cloud HSM Slot 1",
+          "endpoint": "tcp://donotdeletehsm-pkcs11-proxy.openshifttesting-0defdaa0c51bd4a2dcb024eab4bf04a1-0001.us-south.containers.appdomain.cloud:32416",
+          "label": "IBP1",
+          "pin": "71811222"
+  },
+  {
+          "name": "IBM Cloud HSM Slot 2",
+          "endpoint": "tcp://donotdeletehsm-pkcs11-proxy.openshifttesting-0defdaa0c51bd4a2dcb024eab4bf04a1-0001.us-south.containers.appdomain.cloud:32416",
+          "label": "IBP2",
+          "pin": "91927701"
+  }
+  ```
+  {:codeblock}
+
+  You can also provide the endpoint information for more than one HSM for high availability. You need to provide a name for each HSM or HSM slot. You will use this name to select the slot or HSM that you will use to deploy a node. The upgrade tool will provide the HSM information to your new nodes.
 
 ## Upgrade Your Certificate Authorities
 
@@ -145,7 +164,9 @@ In the **Upgrade Your Certificate Authorities** panel, you can find the Certific
 
 If you are the founder of the network (PeerOrg1), you need to repeat these steps to upgrade one of the ordering organization CAs, in addition to a CA for your peer organization.
 
-For each CA you want to upgrade, enter a **Display Name** for the new CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You will use this name to identify the CA in future steps. You also need to create the enroll ID and enroll secret of the CA Admin. **Save these values**. You can use these values to generate the CA admin identity and operate your CA. 
+For each CA you want to upgrade, enter a **Display Name** for the new CA on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You will use this name to identify the CA in future steps. You also need to create the enroll ID and enroll secret of the CA Admin. **Save these values**. You can use these values to generate the CA admin identity and operate your CA. If you want to use an HSM to store the signing key of your CA, use the **HSM** dropdown to select the name of the HSM or HSM slot that you [provided in the connection information pane](#enterprise-upgrade-tool-connection-info).
+
+You can deploy a Highly Available CA by selecting PostgreSQL as the CA database and deploying replica sets. The replica sets will share the same database, ensuring that data is consistent between replicas. This configuration ensures that the CA will be available in the event of a Kubernetes worker node failure. To deploy an HA CA, you need to deploy a PostgreSQL database on {{site.data.keyword.cloud_notm}} or in the environment of your choice. In the upgrade tool, use the **Database** dropdown to select PostgreSQL as your CA database. Then select the number of CA replica sets that the tool will deploy. You need to use the information about your database to create a [connection file](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca#ibp-console-build-ha-ca-connx) and provide it to the tool using the **Add file** button. For more information, see [Building a high availability Certificate Authority](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca).
 
 After you provide the required information, click **Start** to create the CA. If the creation of a CA fails, click on the overflow menu next to the CA and then click **Delete Certificate Authority**.
 
@@ -171,7 +192,7 @@ After you create the orderer organization administrator and the MSP definition, 
 
 ### Step Two: Create new ordering nodes
 
-You can use the **Upgrade orderers** panel to create new ordering nodes. For each new ordering node, enter a **Display Name** that will identify the node on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll secret** for the ordering node identity. Your node uses this identity to generate the certificate and keys it needs to operate on the network during deployment. Provide a different enroll ID and secret than the values that you used for the orderer admin.  After you provide the required information, click **Start** to create the orderer. You can only create one new ordering node at a time, and need to create five ordering nodes on this panel before you can proceed.
+You can use the **Upgrade orderers** panel to create new ordering nodes. For each new ordering node, enter a **Display Name** that will identify the node on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll secret** for the ordering node identity. Your node uses this identity to generate the certificate and keys it needs to operate on the network during deployment. Provide a different enroll ID and secret than the values that you used for the orderer admin. If you want to use an HSM to store the key certificate of your ordering node, use the **HSM** dropdown to select the name of the HSM or HSM slot that you [provided in the connection information pane](#enterprise-upgrade-tool-connection-info). After you provide the required information, click **Start** to create the orderer. You can only create one new ordering node at a time, and need to create five ordering nodes on this panel before you can proceed.
 
 Your ordering nodes store the blockchain portion of the ledger for each channel they support. Each node that you create on the new platform needs to download these blocks and sync with your existing ordering service before you can migrate another ordering node. The time that is required depends on the number of channels in your network and the number of blocks on each channel. You can use the [Node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs) from your orderers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to see whether they are finished syncing with your ordering nodes on Enterprise Plan. If the creation of an ordering node fails, click on the overflow menu next to each node and then click **Delete Ordering Node**.
 
@@ -206,7 +227,7 @@ After you create the administrator identity and the MSP, click **Export identity
 
 ### Step Two: Create new peers
 
-You can then use the **Create peers** table to start migrating your peers to the new platform. For each Peer you want to upgrade, enter a **Display Name** for the new peer on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll Secret** for the peer identity. Your peer uses this identity to generate the certificate and keys that are required by the peer during deployment.  After you provide the required information, click **Start**. If the creation of a peer fails, click on the overflow menu next to each peer and then click **Delete Peer**.
+You can then use the **Create peers** table to start migrating your peers to the new platform. For each Peer you want to upgrade, enter a **Display Name** for the new peer on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You also need to provide the **Enroll ID** and **Enroll Secret** for the peer identity. Your peer uses this identity to generate the certificate and keys that are required by the peer during deployment. If you want to use an HSM to store the key certificate of your peer, use the **HSM** dropdown to select the name of the HSM or HSM slot that you [provided in the connection information pane](#enterprise-upgrade-tool-connection-info). After you provide the required information, click **Start**. If the creation of a peer fails, click on the overflow menu next to each peer and then click **Delete Peer**.
 
 If you created a multizone cluster, you can use this panel to deploy your peer to a specific zone and ensure that your peers are deployed in different zones. This ensures that your peers are available if there is a zone failure. While the upgrade tool uses an anti-affinity policy to deploy your peers to worker nodes with free resources, the anti-affinity policy cannot detect if the peers are being deployed to different zones. For more information about how to find the zones of your cluster, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 {:note}
