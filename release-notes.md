@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-15"
+lastupdated: "2020-04-28"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -26,6 +26,10 @@ Use these release notes that are grouped by date to learn about the latest chang
 {:shortdesc}
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
+
+
+
+
 
 ## 16 April 2020
 {: #04-16-2020}
