@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-04-27"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -42,6 +42,7 @@ subcollection: blockchain
 - [If service discovery is on, will an endorsement request be routed to any peer on the network?](#ibp-v2-faq-service-discovery)
 - [What is the recommended way to manage private keys?](#ibp-v2-faq-hsm)
 - [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
+- [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-ports)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
 
 
@@ -58,8 +59,6 @@ subcollection: blockchain
 - [Do we have access to logging services and what logs are available to me?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
 - [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](#ibp-v2-faq-cloud-storage)
 - [Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](#ibp-v2-faq-cloud-mzr-storage)
-
-
 
 
 ## What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?
@@ -120,7 +119,7 @@ You cannot currently deploy blockchain nodes to multiple hosted cloud providers.
 {: #ibp-v2-faq-vscode-tutorials}
 {: faq}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).>
 
 ## Is there a best practice for monitoring my blockchain resources?
 {: #ibp-v2-faq-mon-res}
@@ -151,6 +150,12 @@ Because private keys are not stored by the platform, users are responsible for d
 Because HIPAA readiness is only relevant when platform components process Personal Health Information (PHI) or Personally Identifiable Information (PII), the {{site.data.keyword.blockchainfull_notm}} Platform does not need to be HIPAA ready. Customers should not store PHI or PII on the ledger since it is immutable and therefore cannot be deleted. Instead, the recommendation is to store all PHI or PII off ledger in another database and simply reference it from the ledger.
 
 The {{site.data.keyword.blockchainfull_notm}} platform gives customers total control over their deployments, certificates, and private keys. The console simplifies and accelerates the process of deploying components into an {{site.data.keyword.cloud_notm}} Kubernetes service cluster that is managed and controlled by the customer. As a reminder, because the customer owns the storage that is mounted to the containers, {{site.data.keyword.IBM_notm}} does not have access to or control over any of the data that the customer chooses to store in their ledger.
+
+## What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?
+{: #ibp-v2-ports}
+{: faq}
+
+See the port information in the Security topic that addresses this for the [console](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-ports) and the [customer Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-ports). 
 
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}
@@ -197,7 +202,7 @@ Actual cost breakdowns are visible from your Invoices in the {{site.data.keyword
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
 {: faq}
 
-Starter Plan was always designed as a "starting" test network platform and explicitly was not for production. As a result, you cannot upgrade from Starter Plan to the new {{site.data.keyword.blockchainfull_notm}} Platform. Enterprise Plan customers will be able to upgrade to the new {{site.data.keyword.blockchainfull_notm}} Platform in the future. You will receive an email to the account owner from the {{site.data.keyword.blockchainfull_notm}} Platform team to assist.
+Starter Plan was always designed as a "starting" test network platform and explicitly was not for production. As a result, you cannot upgrade from Starter Plan to the new {{site.data.keyword.blockchainfull_notm}} Platform. Enterprise Plan customers are now able to upgrade their networks to {{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}}. See [Upgrading to the IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-enterprise-upgrade) for more information.
 
 ## What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?
 {: #ibp-v2-faq-v2-IBP-Overview-1-8}

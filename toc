@@ -15,19 +15,12 @@ IBM Blockchain Platform for IBM Cloud
 	blockchain_component_overview.md
 
 	{: .topicgroup}
-	Tutorials
+	Getting started tutorials
 		howto/ibp-console-build-network.md
 		howto/ibp-console-join-network.md
 		howto/ibp-console-smart-contracts.md
 		howto/ibp-console-create-app.md
-		howto/ibp-console-add-remove-raft.md
 		reference/videos.md
-		howto/ibp-console-ic-ha-howto.md
-		howto/ibp-console-ha-ca.md
-		reference/logdna.md
-		reference/sysdig.md
-		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
-		reference/hsm-gemalto.md
 
 	{: .topicgroup}
 	Pricing
@@ -35,7 +28,13 @@ IBM Blockchain Platform for IBM Cloud
 		reference/detailed-pricing.md
 
 	security.md
-	ibp-console-ha.md
+
+	{: .topicgroup}
+	High availability
+		ibp-console-ha.md
+		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-ca.md
+
 	data-residency.md
 	howto/ibp-v2-faq.md
 	needtoknow.md
@@ -43,16 +42,11 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="howto"}
 	{: .topicgroup}
-	IBM Blockchain Platform for IBM Cloud
-		howto/ibp-v2-deploy-iks.md
-		howto/ibp-v2-apis.md
-		howto/ibp-console-manage.md
-		howto/ibp-console-ic-ha-howto.md
-
-	{: .topicgroup}
 	IBM Blockchain Platform console
+		howto/ibp-console-manage.md
 		howto/ibp-console-advanced-deployment.md
 		howto/ibp-console-advanced-channel.md
+		howto/ibp-console-add-remove-raft.md
 		howto/ibp-console-import-nodes.md
 		howto/ibp-console-identities.md
 		howto/ibp-console-organizations.md
@@ -63,6 +57,19 @@ IBM Blockchain Platform for IBM Cloud
 	Developing smart contracts and applications
 		vscode-extension.md
 		best_practices.md
+
+	{: .topicgroup}
+	Advanced tutorials
+		reference/hsm-gemalto.md
+
+	{: .topicgroup}
+	Monitoring your network
+		reference/logdna.md
+		reference/sysdig.md
+		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+
+	howto/ibp-v2-apis.md
+
 
 	{: .topicgroup}
 	Upgrading your Enterprise Plan network
