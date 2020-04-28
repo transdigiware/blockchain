@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-04-28"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -87,7 +87,9 @@ echo <base64_string> | base64 --decode $FLAG > <key>.pem
 ## Downloading your connection profile
 {: #ibp-console-app-profile}
 
-Applications are able to submit transactions only to the smart contracts that have been instantiated on channels. As a result, the information you need to connect to interact with a smart contract can be found in the list of instantiated smart contracts in your console. This means you must have already installed and instantiated your smart contract.
+Applications are able to submit transactions only to the smart contracts that have been instantiated on channels. As a result, the information you need to connect to interact with a smart contract can be found in the list of instantiated smart contracts in your console. This means you must have already installed and instantiated your smart contract on a channel.
+
+
 
 The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
 {: note}
@@ -96,7 +98,9 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 
 In order to take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
-Navigate to the **Smart contracts** tab in your platform console. Next to each instantiated smart contract, navigate to the overflow menu. Click the button named **Connect with SDK**. This opens a side panel that allows you to build and download your connection profile. First, you will also need to select your organization MSP definition.  You will then need to select the CA of your organization that you used to register your application identity. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
+Navigate to the **Smart contracts** tab in your console. Next to each instantiated smart contract, navigate to the overflow menu. Click the button named **Connect with SDK**. This opens a side panel that allows you to build and download your connection profile. First, you will also need to select your organization MSP definition.  You will then need to select the CA of your organization that you used to register your application identity. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
+
+
 
 
 
@@ -156,7 +160,7 @@ Once the network operator provides the enroll ID and secret of the application i
     {:codeblock}
 
 3. Edit `enrollUser.js` to replace the following values:
-  - Replace  ``<CA_Name>`` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
+  - Replace  ``<CA_Name>`` with the name of your organizations CA. You can find your CA name in the "organizations"  section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
   - Replace ``<app_enroll_id>`` with the application enroll ID provided by your network operator.
   - Replace ``<app_enroll_secret>`` with the application enroll secret provided by your network operator.
   - Replace ``<msp_id>`` with the MSP ID of your organization. You can find your MSP ID under the "organizations" section of your connection profile.
@@ -400,7 +404,7 @@ console.log('Successfully enrolled client "user1" and imported it into the walle
 {:codeblock}
 
 **Edit** `enrollUser.js` to replace the following values:
-- Replace  `<CA_Name>` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
+- Replace  `<CA_Name>` with the name of your organization's CA. You can find your CA name in the "organizations"  section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
 - Replace `<app_enroll_id>` with the application enroll ID provided by your network operator.
 - Replace `<app_enroll_secret>` with the application enroll secret provided by your network operator.
 - Replace `<msp_id>` with the MSP ID of your organization. You can find this MSP ID under the "organizations" section of your connection profile.
