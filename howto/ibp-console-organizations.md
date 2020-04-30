@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-04-30"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -81,8 +81,6 @@ Because your admin certs are passed to your nodes and channels by using the MSP 
 - On the **Review MSP information** panel, review the information you specified for this MSP.
 
 After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. You will use the MSP definition when you deploy your nodes, are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where your organization has to sign.
-
-
 
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}
