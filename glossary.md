@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-05-01"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -75,7 +75,7 @@ The group of non-orderer organizations listed on the orderer system channel. The
 
 ## CouchDB
 {: #glossary-couchdb}
-A document store that allows rich queries of data which is used for the state database in {{site.data.keyword.blockchainfull_notm}} Platform and Starter Plan networks. CouchDB is also an option for Enterprise Plan networks, along with LevelDB.
+A document store that can be used as the state database of your peers. Using CouchDB allows you to use rich queries and deploy indexes with your chaincode.
 
 ## Current state
 {: #glossary-current-state}
@@ -127,7 +127,7 @@ Comprised of a literal "chain of blocks" that store the immutable, sequenced rec
 
 ## LevelDB
 {: #glossary-leveldb}
-A key-value store that is an option for the state database for Enterprise Plan networks, along with CouchDB. LevelDB stores the current state as key-value pairs, and does not support the use of indexes or rich queries.
+A key-value store that can be used as an option for the state database for your peers. LevelDB stores the current state as key-value pairs, and does not support the use of indexes or rich queries.
 
 ## Member
 {: #glossary-member}
@@ -195,11 +195,11 @@ See [Chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode).
 
 ## Solo
 {: #glossary-solo}
-A consensus plugin implementation for Hyperledger Fabric that results in a single ordering service node in the blockchain network. The Starter Plan network uses the Solo implementation. A Solo implementation is not intended for a production network. The alternatives to Solo are Raft and Kafka clusters.
+A consensus plugin implementation for Hyperledger Fabric that results in a single ordering service node in the blockchain network. The Starter Plan network uses the Solo implementation. A Solo implementation is not intended for a production network.
 
 ## State database
 {: #glossary-state-database}
-Current state data is stored in a database on the peers for efficient reads and queries from chaincode. Starter Plan networks use CouchDB as the state database. Enterprise Plan Networks can use either LevelDB or CouchDB.
+Current state data is stored in a database on the peers for efficient reads and queries from chaincode. You can select to use either LevelDB or CouchDB as the state database of your peers.
 
 ## Transaction
 {: #glossary-transaction}
