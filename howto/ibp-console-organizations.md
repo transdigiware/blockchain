@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-05-04"
 
-keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
+keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
 subcollection: blockchain
 
