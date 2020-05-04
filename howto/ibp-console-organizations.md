@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-05-04"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 
 
 
-You can use the {{site.data.keyword.blockchainfull}} Platform console to create a formal organization definition known as a Membership Services Provider (MSP). Your organization's MSP definition allows other members of the blockchain consortium to verify the identity of your nodes and applications. Your MSP definition also contains your organization's admin certificates.
+You can use the {{site.data.keyword.blockchainfull}} Platform console to create a formal organization definition that is known as a Membership Services Provider (MSP). Your organization's MSP definition allows other members of the blockchain consortium to verify the identity of your nodes and applications. Your MSP definition also contains your organization's admin certificates.
 
 You can also use the console to manage which organizations are members of your channel. The administrator of the ordering service can use the organizations tab to add members to the blockchain [consortium](/docs/blockchain?topic=blockchain-glossary#glossary-consortium). Members of the channel can then use the console to add members to new or existing channels.
 
@@ -37,13 +37,13 @@ You can also use the console to manage which organizations are members of your c
 
 The {{site.data.keyword.blockchainfull_notm}} Platform is based on Hyperledger Fabric and builds permissioned blockchain networks. Participants need to be known to the network before they can submit transactions and interact with the assets on the ledger. Fabric recognizes identity through a group of invited organizations at the channel level. Organizations in the consortium are able to issue valid credentials to their members and let them become participants in the network. The participants can then operate blockchain nodes and submit transactions from client applications.
 
-Each organization in a network needs to operate a Certificate Authority to create all of the identities for the admins and nodes belonging to your organization. These public-private keys pairs are issued by the CA and used by the members of your organization to sign and verify their actions. When an organization joins a channel, the public key of the CA associated with that organization allows other organizations to verify that your peers and applications are valid participants. For more information about membership in Hyperledger Fabric, see the [Membership concept topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} in the Fabric documentation.
+Each organization in a network needs to operate a Certificate Authority to create all of the identities for the admins and nodes that belong to your organization. These public-private keys pairs are issued by the CA and used by the members of your organization to sign and verify their actions. When an organization joins a channel, the public key of the CA associated with that organization allows other organizations to verify that your peers and applications are valid participants. For more information about membership in Hyperledger Fabric, see the [Membership concept topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} in the Fabric documentation.
 
-Before your organization can join a consortium, it needs to create an organization definition known as a **Membership Services Provider (MSP)**. The MSP contains the following information:
+Before your organization can join a consortium, it needs to create an organization definition that is known as a **Membership Services Provider (MSP)**. The MSP contains the following information:
 - A certificate signed by your **root Certificate Authority**. This certificate is used to verify the identity of your nodes, channels, and applications.
 - A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization gossip, which is necessary to take advantage of the [Private data collections](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
 - The **MSP ID**. The MSP ID is the formal name of your organization. You need to remember the MSP ID for your applications or when using the SDK to submit transactions.
-- The **MSP display name**. This is an informal name given to your organization which is used to identity your MSP in the console.
+- The **MSP display name**. This is an informal name that is given to your organization, which is used to identity your MSP in the console.
 - The **Admin certificates** of your **Organization Admin** identities. These certificates are passed to the ordering service and are used to verify which identities in your organization are allowed to create or edit channels. When you use your console to create an ordering node or peer, the admin certificates inside the MSP are deployed within the new node, making your organization admin identities your **peer or orderer admins** as well. You can use these identities to operate your node, such as by installing a smart contract on a peer or joining a peer to a channel, from your console or a client application.
 
 ## Managing MSPs in the console
@@ -52,17 +52,17 @@ Before your organization can join a consortium, it needs to create an organizati
 Navigate to the **Organizations** tab. You can use this tab to [create an MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) by using a Certificate Authority that exists in your console. You can also use this tab to [import an MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) that was created by another organization.
 
 You can view all of the MSPs that you have created or imported under **Available organizations**. You can use the MSP definitions in the organizations tab for important functions within your console:
-- If you are creating peer or orderer nodes, the MSP of your organization is used to identify the organization the node belongs to.
-- MSPs are used by organizations to verify the signatures of actions by other organizations. For this reason you should export your MSP to every organization in the channel and likewise import the MSP of every organization.
+- If you are creating peer or ordering nodes, the MSP of your organization is used to identify the organization that the node belongs to.
+- MSPs are used by organizations to verify the signatures of actions by other organizations. For this reason, you should export your MSP to every organization in the channel and likewise import the MSP of every organization.
 - If your organization is one of the admins of the ordering service, you can [add new organizations to the consortium](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - If you are a member of the channel, you can import the MSPs of other organization into your console and then add the members to new or existing channels.
 
-You can click on an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
+You can click an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
 
 ## Creating an MSP for your organization
 {: #console-organizations-create-msp}
 
-Use the **Organizations** tab to generate an MSP definition for your organization. When you click **Create MSP definition**, a panel will open in which you'll enter all the necessary information for your MSP.
+Use the **Organizations** tab to generate an MSP definition for your organization. When you click **Create MSP definition**, a panel will open in which you will enter all the necessary information for your MSP.
 
 - The **MSP definition details** tab is where you will give your MSP a display name and an MSP ID. Use the tooltip to learn about the restrictions for the MSP ID.
 
@@ -301,7 +301,7 @@ After an organization is added to the consortium, the organization can use the o
 
 After your organization is added to a consortium, you can create a channel by using the following steps:
 
-1. Import the ordering service that hosts the consortium into your console. You do not need to be an administrator of the ordering service; but you need to provide the orderer node name and endpoint information in your console.
+1. Import the ordering service that hosts the consortium into your console. You do not need to be an administrator of the ordering service; but you need to provide the ordering node name and endpoint information in your console.
 2. Import the MSPs of organizations that you want to add to the new channel into your console in the **Organizations** tab. **Note** that organizations need to be added to the consortium before they can be added to a channel.
 3. Navigate to the **Channels** tab and click **Create channel**. This opens a side panel that allows you to specify the channel name, membership, and channel policies. You can add any organizations that have been added to the consortium to the new channel.
 
