@@ -318,5 +318,26 @@ Over time you might need to update the certificates in an MSP definition that is
 4. Click the associated channel member's tile that you want to update.
 5. If you have not already imported the updated MSP definition into the console, you can upload the file here. **Note:** This action will not update the associated MSP definition in the Organizations tab. If you have already updated the MSP definition in the Organizations tab of the console, you can select it from the drop-down list.
 
+## Removing an organization
+{: #console-organizations-remove}
 
+If you want to stop using an instance of the {{site.data.keyword.blockchainfull_notm}} Platform, you need to remove your organization from the blockchain network before you delete your service instance. This ensures that the removed organization is not affecting the governance of the network after you leave. You can remove your organization by using the following steps:
+
+1. **Remove your organization from channels that you joined**. You need to [update the endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) of the smart contracts that are instantiated on the channel to remove your organization from the policy. If you do not update the endorsement policy, your organization might be required to endorse transactions after you have left the channel, causing transactions to fail.
+
+  You can then update to the channel to remove your organization from the list of channel members. Navigate to the **Channels** tab and click the **Settings** icon. You can use the **Organizations** section to remove your organization from the channel. The channel **update policy** is updated to remove your organization automatically. When you are ready, click **Update channel** to submit a channel update request. The request starts the [process for collecting the signatures](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection) that are required to update the channel, depending on your update policy.
+
+  After you remove your organization from the channel, you can delete your peers on the {{site.data.keyword.blockchainfull_notm}} Platform. If transactions can be successfully submitted to the network after you remove your peers, your organization is no longer required to endorse transactions.
+
+2. **Have your organization removed from the consortium hosted by the ordering service.** After you are removed from the consortium, your organization can no longer be added to new channels. This action needs to be completed by an ordering service administrator.
+
+  Navigate to the **Nodes** tab and click the ordering service of your network. On the ordering service panel, find the organization to be removed in the list of **Consortium members**. Click the **Delete** button in the corner of the organization MSP definition tile.
+
+3. **Delete your ordering nodes.** If you operate ordering nodes that are part of a multi-node ordering service, you need to remove your ordering nodes from the network before you remove your ordering organization. Your ordering nodes need to be removed from the consenter set of each channel before they are removed from the ordering service.
+
+  Navigate to the **Channels** tab and click the **Settings** icon to update the channel. You can use the **Consenter Set** section to remove your ordering node from the channel. When you are ready, click **Update channel** to submit the channel update request. The update request starts the [process for collecting the signatures](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection) that are required to update the channel, depending on the channel update policy. After you have you removed your ordering nodes, you can use the **Ordering service administrators** section to remove your organization from the set of orderer administrators.
+
+  After you remove your ordering nodes from the consenter set of each channel, you can remove your nodes from the ordering service. Navigate to the **Nodes** tab and click the ordering service of your network. On the top of the ordering service panel, click the **Ordering nodes** tab. Click your ordering node and then click **Delete**. Because Raft consensus requires that a majority of ordering nodes are up to maintain a quorum, you need to remove one ordering node at a time. After you have deleted your ordering nodes, you can remove your organization from the set of ordering service administrators. Find your organization MSP definition on the list of **Orderer administrators** and click the **Delete** icon in the corner of the organization definition tile.
+
+After you complete these steps, your organization will no longer affect the governance of the network. You can safely delete your [service instance of the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-delete-service-instance).
 
