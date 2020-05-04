@@ -41,7 +41,6 @@ Operating your network on the {{site.data.keyword.blockchainfull_notm}} Platform
 * Enterprise networks are backed up off-site once every 24 hours. If a disaster happens, these networks can be restored to the same site or to an alternate site.
 
 **Notes:**
-- Enterprise Plan provides a production environment. If you need a development and testing environment, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
 - {{site.data.keyword.blockchainfull_notm}} Platform is a platform service on {{site.data.keyword.cloud_notm}} and all membership offerings follow the [{{site.data.keyword.cloud_notm}} Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm){: external} on service level agreements (SLAs). Enterprise Plan networks are provisioned in a data center in a single geography. For a list of available geographies, see  [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 For members who are going to initiate the network, {{site.data.keyword.IBM_notm}} provides a graphical user interface to guide the network initiator through key steps to set up and provision the network. This includes inviting other members and setting the governance rules. For more information, see [Govern the Enterprise Plan network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan). After the network is deployed, an interactive graphical user interface, the Network Monitor, is available to monitor health and activity of the network; manage key network activities that include new deployments, members addition or removal, chaincode lifecycle, and channel management; and seek technical support. For more information, see [Using the Network Monitor](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard).
@@ -63,7 +62,7 @@ Besides the core blockchain components, the Enterprise Membership option provide
 
 The sole aspect that must be determined is the size of the peers that the network requires. This decision is based on the number of channels that are required, plus the workload per channel, memory usage, and disk space (storage).
 
-You should use Enterprise Plan for more stable, production, or almost production level deployments. For testing purposes, use [Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about), or [install Docker images locally](https://hyperledger-fabric.readthedocs.io/en/release-1.2/build_network.html).
+You should use Enterprise Plan for more stable, production, or almost production level deployments.
 
 
 
