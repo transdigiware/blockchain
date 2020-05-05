@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-05-05"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -272,9 +272,13 @@ If you want to remove upgraded nodes for any reason, such as a deployment failur
 
 ## Complete upgrade
 
-The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys, by clicking **Complete Upgrade**. **This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. After you have removed the upgrade tool, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to add or remove nodes from your network.
+The upgrade tool stores the certificates and private keys that it used to deploy your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 network on your cluster inside Kubernetes secrets. When you finish upgrading your Enterprise Plan network, you can delete all of the data that was created by the upgrade tool, including the certificates and keys.
 
-Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. This button provides you with the same identities that you could download on the panels where you created your CA, peer and ordering nodes in one file. Download the file and store the identities in a secure place. If you have not already uploaded your identities to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console, you can use the [Bulk Import feature](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-bulk-export-import) to import the file and your identities into the console.
+**This action is final**. After you complete the upgrade, you can no longer use the tool to interact with your networks on Enterprise Plan or the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You first need to use the **Export all identities** link to download your administrator identities from the upgrade tool. This button provides you with the same identities that you could download on the panels where you created your CA, peer and ordering nodes in one file. Download the file and store the identities in a secure place. If you have not already uploaded your identities to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console, you can use the [Bulk Import feature](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-bulk-export-import) to import the file and your identities into the console. After you have used the 2.0 console to associate your identities with your blockchain nodes and can operate all of your nodes from the console, you can safely delete the tool. Otherwise, you may lose the administrator identities required to operate your network.
+
+You can see an overview of the CAs, peers, and chaincode that you migrated to the new platform to help you decide whether you still need to use the tool. After you have removed the upgrade tool, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to add or remove nodes from your network. When you are ready, you can remove the tool by clicking **Complete Upgrade**.
+
+Ensure that you click the **Export all identities** link provided by the upgrade tool to download your administrator identities before you click **Complete Upgrade**. Otherwise, you may lose the administrator identities required to operate your network.
 {: important}
 
 After you delete the tool, you can start to [Delete your Enterprise Plan network](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-four).
