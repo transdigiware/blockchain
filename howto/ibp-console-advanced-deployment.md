@@ -1117,6 +1117,7 @@ Now that you have gathered all the necessary certificates, you are ready to crea
  - In the **Name** field, enter an identity name that is used for your reference only.
  - In the **Certificate** field, upload a file that contains the admin identity's signing certificate (in base64 or PEM format).
  - In the **Private Key** field, upload a file that contains the admin identity's private key (in base64 or PEM format).  
+
 	After you upload the certificate and private key of the identity to the console, you can use the console associate the identity with the peer or ordering node.
 
 ### Option 2: Create a five node ordering service using certificates from an external CA
@@ -1255,6 +1256,7 @@ After you create the `JSON` file with all of the certificates for the ordering n
   - In the **Name** field, enter an identity name that is used for your reference only.
   - In the **Certificate** field, upload a file that contains the admin identity's signing certificate (in base64 or PEM format).
   - In the **Private Key** field, upload a file that contains the admin identity's private key (in base64 or PEM format).  
+
 	After you upload the certificate and private key of the identity to the console, you can use the console associate the identity with your ordering node.
 
 #### What's next
