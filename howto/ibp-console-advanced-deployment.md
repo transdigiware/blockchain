@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-05"
+lastupdated: "2020-05-06"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1074,7 +1074,7 @@ The ability to update an ordering node configuration is not available for orderi
 ## Using certificates from an external CA with your peer or ordering service
 {: #ibp-console-adv-deployment-third-party-ca}
 
-Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}, as long as the CA issues certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format.
+Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. To use an external CA, the CA needs to issue certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format. You need to generate your private keys using the PKCS #8 standard.
 
 ### Before you begin
 {: #ibp-console-adv-deployment-third-party-ca-prereq}
@@ -1094,32 +1094,6 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
 Now you have the choice of creating a peer or single-node ordering service node, or ,if you have a paid cluster, a five node ordering service.
-
-#### Consideration when using an external CA to generate certificates
-{: #ibp-console-govern-third-party-openssl}
-
-If the generated ECDSA 256 SHA-2 certificate contains the string `EC` in the `BEGIN PRIVATE KEY` and `END PRIVATE KEY` header and footer, the certificate cannot be imported into the console. The `EC` string causes the error.
-
-For example:
-```
------BEGIN EC PRIVATE KEY-----
-MHcCAQEEINLMBxWNS+KfENOAZDbvwJxib+1FXaWIa9xuvyJjQNoAoGCCqGSM49
-AwEHoUQDQgAEB49vPZw7Chp7xMLOg0n/L5D235rFhH+tu8CIGdj4Rwg3d6B1CW
-NGggmidf1wrdYcHphq1LrT2ft4RkwR0w==
------END EC PRIVATE KEY-----
-```
-
-Removing `EC` from the header and footer resolves the problem:
-
-```
------BEGIN PRIVATE KEY-----
-MHcCAQEEINLMBxWNS+KfENOAZDbvwJxib+1FXaWIa9xuvyJjQNoAoGCCqGSM49
-AwEHoUQDQgAEB49vPZw7Chp7xMLOg0n/L5D235rFhH+tu8CIGdj4Rwg3d6B1CW
-NGggmidf1wrdYcHphq1LrT2ft4RkwR0w==
------END PRIVATE KEY-----
-```
-
-Now, you can import the `.PEM` file into the console.
 
 ### Option 1: Create a new peer or single-node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-third-party-ca-create-peer-orderer}
@@ -1142,9 +1116,8 @@ Now that you have gathered all the necessary certificates, you are ready to crea
 11. After you have created the peer or ordering node, you can upload the orderer admin identity to the {{site.data.keyword.blockchainfull_notm}} console. On the **Wallet** tab, click **Add identity**:
  - In the **Name** field, enter an identity name that is used for your reference only.
  - In the **Certificate** field, upload a file that contains the admin identity's signing certificate (in base64 or PEM format).
- - In the **Private Key** field, upload a file that contains the admin identity's private key (in base64 or PEM format).
-
- 	After you upload the certificate and private key of the identity to the console, you can use the console associate the identity with the peer or ordering node.
+ - In the **Private Key** field, upload a file that contains the admin identity's private key (in base64 or PEM format).  
+	After you upload the certificate and private key of the identity to the console, you can use the console associate the identity with the peer or ordering node.
 
 ### Option 2: Create a five node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-create-five-node}
@@ -1281,8 +1254,7 @@ After you create the `JSON` file with all of the certificates for the ordering n
 9. After you have created the ordering service, you can upload the orderer admin identity to the {{site.data.keyword.blockchainfull_notm}} console. On the **Wallet** tab, click **Add identity**:
   - In the **Name** field, enter an identity name that is used for your reference only.
   - In the **Certificate** field, upload a file that contains the admin identity's signing certificate (in base64 or PEM format).
-  - In the **Private Key** field, upload a file that contains the admin identity's private key (in base64 or PEM format).
-
+  - In the **Private Key** field, upload a file that contains the admin identity's private key (in base64 or PEM format).  
 	After you upload the certificate and private key of the identity to the console, you can use the console associate the identity with your ordering node.
 
 #### What's next
