@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-05-07"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1094,6 +1094,32 @@ Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certifica
 2. Import the generated peer or ordering service organization MSP definition file into the console, by clicking the **Organizations** tab followed by **Import MSP definition**.
 
 Now you have the choice of creating a peer or single-node ordering service node, or ,if you have a paid cluster, a five node ordering service.
+
+#### Consideration when using an external CA to generate certificates
+{: #ibp-console-govern-third-party-openssl}
+
+If the generated ECDSA 256 SHA-2 certificate contains the string `EC` in the `BEGIN PRIVATE KEY` and `END PRIVATE KEY` header and footer, the certificate cannot be imported into the console. The `EC` string causes the error.
+
+For example:
+```
+-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEINLMBxWNS+KfENOAZDbvwJxib+1FXaWIa9xuvyJjQNoAoGCCqGSM49
+AwEHoUQDQgAEB49vPZw7Chp7xMLOg0n/L5D235rFhH+tu8CIGdj4Rwg3d6B1CW
+NGggmidf1wrdYcHphq1LrT2ft4RkwR0w==
+-----END EC PRIVATE KEY-----
+```
+
+Removing `EC` from the header and footer resolves the problem:
+
+```
+-----BEGIN PRIVATE KEY-----
+MHcCAQEEINLMBxWNS+KfENOAZDbvwJxib+1FXaWIa9xuvyJjQNoAoGCCqGSM49
+AwEHoUQDQgAEB49vPZw7Chp7xMLOg0n/L5D235rFhH+tu8CIGdj4Rwg3d6B1CW
+NGggmidf1wrdYcHphq1LrT2ft4RkwR0w==
+-----END PRIVATE KEY-----
+```
+
+Now, you can import the `.PEM` file into the console.
 
 ### Option 1: Create a new peer or single-node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-third-party-ca-create-peer-orderer}
