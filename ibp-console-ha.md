@@ -40,7 +40,7 @@ Before proceeding, we recommend that you learn more about HA on Kubernetes by re
 
 
 
-Then you can use this topic for details on blockchain-specific HA guidance along with the recommendations from the platform-specific topic above.
+Then, you can use this topic for details on blockchain-specific HA guidance along with the recommendations from the platform-specific topic above.
 
 ## Overview of potential points of failure in {{site.data.keyword.blockchainfull_notm}} Platform
 {: #ibp-console-ha-points-of-failure-overview}
@@ -58,7 +58,7 @@ For even more robust HA coverage, you can stand up multiple clusters in multiple
 
 **Anchor peers** on a channel facilitate cross-organization communication that is required for private data, gossip, and service discovery to work. If only one anchor peer exists on a channel, and that peer becomes unavailable, the organizations are no longer connected and the cross-organization gossip is no longer possible. Therefore, when you create redundant peers for an organization, be sure to add redundant [anchor peers on the channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) as well.
 
-Finally, your peer redundancy strategy needs to take into account your chaincode endorsement policies to ensure that you always have enough peers available to satisfy the endorsement policy requirements. For example, if an endorsement policy requires a specific number of endorsements, your peer HA strategy needs to ensure there are always that number of peers available. Alternatively, if the endorsement policy requires a `MAJORITY` of peers to endorse the transactions, then you need to ensure that a majority of the peers are always available in order for transactions to continue to be processed.
+Finally, your peer redundancy strategy needs to take into account your chaincode endorsement policies to ensure that you always have enough peers available to satisfy the endorsement policy requirements. For example, if an endorsement policy requires a specific number of endorsements, your peer HA strategy needs to ensure that there are always that number of peers available. Alternatively, if the endorsement policy requires a `MAJORITY` of peers to endorse the transactions, then you need to ensure that a majority of the peers are always available in order for transactions to continue to be processed.
 
 ### Ordering service considerations
 {: #ibp-console-ha-ordering-service}
@@ -274,6 +274,6 @@ The following node-specific guidance is provided to help plan your disaster reco
 ### Recovery objectives
 {: #ibp-console-ha-dr-rec-obj}
 
-Customers are responsible for back up and recovery of their clusters. Because the components in the {{site.data.keyword.IBM_notm}} cluster ([operational tooling instance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)) (i.e. the "console") are continuously replicated, their **Recovery Point Objective (RPO)** is less than one hour. The **Recovery Time Objective (RTO)** for components in the {{site.data.keyword.IBM_notm}} cluster is 24 hours.
+Customers are responsible for back up and recovery of their clusters. Because the components in the {{site.data.keyword.IBM_notm}} cluster ([operational tooling instance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)) (that is, the "console") are continuously replicated, their **Recovery Point Objective (RPO)** is less than one hour. The **Recovery Time Objective (RTO)** for components in the {{site.data.keyword.IBM_notm}} cluster is 24 hours.
 
 
