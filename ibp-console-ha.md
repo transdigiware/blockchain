@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-05-12"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -270,4 +270,10 @@ The following node-specific guidance is provided to help plan your disaster reco
 {: tab-title="Ordering service"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
+
+### Recovery objectives
+{: #ibp-console-ha-dr-rec-obj}
+
+Customers are responsible for back up and recovery of their clusters. Because the components in the {{site.data.keyword.IBM_notm}} cluster ([operational tooling instance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)) (i.e. the "console") are continuously replicated, their **Recovery Point Objective (RPO)** is less than one hour. The **Recovery Time Objective (RTO)** for components in the {{site.data.keyword.IBM_notm}} cluster is 24 hours.
+
 
