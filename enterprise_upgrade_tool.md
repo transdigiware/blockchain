@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-05"
+lastupdated: "2020-05-14"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -26,6 +26,7 @@ You can use the upgrade tool to create new components on the {{site.data.keyword
 
 The upgrade tool user interface guides you through a series of independent steps. Although you need to follow the steps in order, you do not need to complete the upgrade process in a single session. You can upgrade your network carefully and test your new nodes as they are created and sync with your existing network. Use the following steps to get started and learn more about how the upgrade process works.
 
+Each organization that is a member of an enterprise network will get one instance of the upgrade tool. For example, if you have a staging network and a production network with two members each, then your blockchain network will use four instances of the upgrade tool.
 
 ## Before you begin
 
