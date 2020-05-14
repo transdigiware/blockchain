@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-05-08"
 
 keywords: HA, highly availability, multiregion
 
@@ -81,13 +81,14 @@ Now that the peers are joined to the channel, you can [instantiate the smart con
 {: #ibp-console-hadr-import-meta23}
 
 1. In clusters two and three, [import the CA JSON file](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-ca) that you exported from cluster one.  
-2. After you upload the JSON file, you need to enter the CA administrator enroll ID and secret that you used when you deployed the CA on cluster one.
+2. If you will need to use the CA to register other identities, you need to open the imported CA and associate the CA administrator enroll ID and secret that you used when you deployed the CA on cluster one.
 3. Import the peer organization MSP definition JSON file that you exported from cluster one.
    - In the **Organizations** tab click **Import MSP definition**.
    - Click **Add file** to upload the JSON file.
    - Click **I have an administrator identity for the MSP definition** checkbox to allow you to use this MSP definition when you create new peers in other zones.
    - Click **Import MSP definition**.
 4. Import the organization admin identity JSON file that you exported from cluster one into the console wallet on clusters two and three.
+5. In clusters two and three, [import the ordering service JSON file](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-import-remote-orderer) to your console.
 
 ### Step four: Create new peers in cluster two and three and join a channel
 {: #ibp-console-hadr-create-new-peers}

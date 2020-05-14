@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-05-04"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -276,7 +276,7 @@ After you import the new connection profile, you need to use the Certificate Aut
 ## If you cannot update your application
 {: #enterprise-upgrade-applications-manual}
 
-If you cannot update your application to use service discovery before the upgrade process, you need to manually update your application or edit your connection profile while you are using the upgrade tool. For each new peer or orderer node that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to add the node endpoint information to your application or connection profile.
+If you cannot update your application to use service discovery before the upgrade process, you need to manually update your application or edit your Enterprise Plan connection profile while you are using the upgrade tool. For each new peer or orderer node that you create on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to add the node endpoint information to your application or connection profile. You can find a template for the connection profile used by Enterprise Plan in YAML format in the [How to use a common connection profile](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html) tutorial.
 
 You can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to find the endpoint URL and the TLS certificate for each node:
 1. Log in to your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.

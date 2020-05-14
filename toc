@@ -100,6 +100,7 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
+
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/ibp_regions.md

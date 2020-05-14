@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-05-04"
 
-keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel
+keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
 subcollection: blockchain
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 
 
 
-You can use the {{site.data.keyword.blockchainfull}} Platform console to create a formal organization definition known as a Membership Services Provider (MSP). Your organization's MSP definition allows other members of the blockchain consortium to verify the identity of your nodes and applications. Your MSP definition also contains your organization's admin certificates.
+You can use the {{site.data.keyword.blockchainfull}} Platform console to create a formal organization definition that is known as a Membership Services Provider (MSP). Your organization's MSP definition allows other members of the blockchain consortium to verify the identity of your nodes and applications. Your MSP definition also contains your organization's admin certificates.
 
 You can also use the console to manage which organizations are members of your channel. The administrator of the ordering service can use the organizations tab to add members to the blockchain [consortium](/docs/blockchain?topic=blockchain-glossary#glossary-consortium). Members of the channel can then use the console to add members to new or existing channels.
 
@@ -37,13 +37,13 @@ You can also use the console to manage which organizations are members of your c
 
 The {{site.data.keyword.blockchainfull_notm}} Platform is based on Hyperledger Fabric and builds permissioned blockchain networks. Participants need to be known to the network before they can submit transactions and interact with the assets on the ledger. Fabric recognizes identity through a group of invited organizations at the channel level. Organizations in the consortium are able to issue valid credentials to their members and let them become participants in the network. The participants can then operate blockchain nodes and submit transactions from client applications.
 
-Each organization in a network needs to operate a Certificate Authority to create all of the identities for the admins and nodes belonging to your organization. These public-private keys pairs are issued by the CA and used by the members of your organization to sign and verify their actions. When an organization joins a channel, the public key of the CA associated with that organization allows other organizations to verify that your peers and applications are valid participants. For more information about membership in Hyperledger Fabric, see the [Membership concept topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} in the Fabric documentation.
+Each organization in a network needs to operate a Certificate Authority to create all of the identities for the admins and nodes that belong to your organization. These public-private keys pairs are issued by the CA and used by the members of your organization to sign and verify their actions. When an organization joins a channel, the public key of the CA associated with that organization allows other organizations to verify that your peers and applications are valid participants. For more information about membership in Hyperledger Fabric, see the [Membership concept topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html){: external} in the Fabric documentation.
 
-Before your organization can join a consortium, it needs to create an organization definition known as a **Membership Services Provider (MSP)**. The MSP contains the following information:
+Before your organization can join a consortium, it needs to create an organization definition that is known as a **Membership Services Provider (MSP)**. The MSP contains the following information:
 - A certificate signed by your **root Certificate Authority**. This certificate is used to verify the identity of your nodes, channels, and applications.
 - A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization gossip, which is necessary to take advantage of the [Private data collections](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
 - The **MSP ID**. The MSP ID is the formal name of your organization. You need to remember the MSP ID for your applications or when using the SDK to submit transactions.
-- The **MSP display name**. This is an informal name given to your organization which is used to identity your MSP in the console.
+- The **MSP display name**. This is an informal name that is given to your organization, which is used to identity your MSP in the console.
 - The **Admin certificates** of your **Organization Admin** identities. These certificates are passed to the ordering service and are used to verify which identities in your organization are allowed to create or edit channels. When you use your console to create an ordering node or peer, the admin certificates inside the MSP are deployed within the new node, making your organization admin identities your **peer or orderer admins** as well. You can use these identities to operate your node, such as by installing a smart contract on a peer or joining a peer to a channel, from your console or a client application.
 
 ## Managing MSPs in the console
@@ -52,26 +52,26 @@ Before your organization can join a consortium, it needs to create an organizati
 Navigate to the **Organizations** tab. You can use this tab to [create an MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) by using a Certificate Authority that exists in your console. You can also use this tab to [import an MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) that was created by another organization.
 
 You can view all of the MSPs that you have created or imported under **Available organizations**. You can use the MSP definitions in the organizations tab for important functions within your console:
-- If you are creating peer or orderer nodes, the MSP of your organization is used to identify the organization the node belongs to.
-- MSPs are used by organizations to verify the signatures of actions by other organizations. For this reason you should export your MSP to every organization in the channel and likewise import the MSP of every organization.
+- If you are creating peer or ordering nodes, the MSP of your organization is used to identify the organization that the node belongs to.
+- MSPs are used by organizations to verify the signatures of actions by other organizations. For this reason, you should export your MSP to every organization in the channel and likewise import the MSP of every organization.
 - If your organization is one of the admins of the ordering service, you can [add new organizations to the consortium](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - If you are a member of the channel, you can import the MSPs of other organization into your console and then add the members to new or existing channels.
 
-You can click on an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
+You can click an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
 
 ## Creating an MSP for your organization
 {: #console-organizations-create-msp}
 
-Use the **Organizations** tab to generate an MSP definition for your organization. When you click **Create MSP definition**, a panel will open in which you'll enter all the necessary information for your MSP.
+Use the **Organizations** tab to generate an MSP definition for your organization. When you click **Create MSP definition**, a panel will open in which you will enter all the necessary information for your MSP.
 
 - The **MSP definition details** tab is where you will give your MSP a display name and an MSP ID. Use the tooltip to learn about the restrictions for the MSP ID.
 
-- The **Root Certificate Authority details** tab is where the CA for your organization is specified. This is the CA that you will use to register all of the identities associated for your organization. Before creating an MSP, you must at a minimum register the admin of the MSP. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a CA will also display the root TLS certificate of your TLS CA, which was deployed alongside your CA.
+- The **Root Certificate Authority details** tab is where the CA for your organization is specified. This is the CA that you will use to register all of the identities associated for your organization. Before creating an MSP, you must register the admin of the MSP. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a CA will also display the root TLS certificate of your TLS CA, which was deployed alongside your CA.
 
-- You can also use the **Admin certificates** tab to generate the identity of your organization admin. If you already have an admin identity you want to make your organization admin, click **Existing identity** and select the identity from the drop down list. If you want to use the panel to generate a new admin identity, you need to register your organization admin with your CA. You then need to complete the following steps in order to use these identities to operate your network:
+- You can also use the **Admin certificates** tab to generate the identity of your organization admin. If you already have an admin identity you want to make your organization admin, click **Existing identity** and select the identity from the drop-down list. If you want to use the panel to generate a new admin identity, you need to register your organization admin with your CA. You then need to complete the following steps in order to use these identities to operate your network:
 
   1. Enter the **Enroll ID** and **Enroll secret** of an admin identity that is registered with your CA. After you enter the enroll ID and enroll secret, choose a **Display name**. This name will be used for the identity in the console.
-  2. Click **Generate**. This generates a certificate and private key and automatically add the keys to your Wallet. You can then find your admin identity in your Wallet by using the name that you selected on this panel. These keys are only stored in your browser local storage. Therefore, if you change browsers, they will not be in your Wallet. This is why your should click **Export** to export this identity to your local file system. If you switch browsers, you will need to import the identity from your file system into the Wallet of your new browser.
+  2. Click **Generate**. This generates a certificate and private key and automatically add the keys to your Wallet. You can then find your admin identity in your Wallet by using the name that you selected on this panel. These keys are only stored in your browser local storage. Therefore, if you change browsers, they will not be in your Wallet. This is why you should click **Export** to export this identity to your local file system. If you switch browsers, you will need to import the identity from your file system into the Wallet of your new browser.
   3. Then, click **Export** to download the key pair to your file system and secure them.
 
 - The **Administrators certificate** section of the side panel contains the signing certificates keys of your admins. The certificate that you generated by clicking **Generate** in the section above can be found in the first row of the field. If you want to use multiple admin identities to operate your network, you can paste additional certificates into **admin certificate** fields.
@@ -81,8 +81,6 @@ Because your admin certs are passed to your nodes and channels by using the MSP 
 - On the **Review MSP information** panel, review the information you specified for this MSP.
 
 After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. You will use the MSP definition when you deploy your nodes, are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where your organization has to sign.
-
-
 
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}
@@ -159,7 +157,7 @@ First, perform the same steps as above for [Updating the organization MSP defini
 1. Open the channel to be updated in the console.
 2. Click **Channel details** and scroll down to **Channel members**.
 3. Click the channel member that you want to update.
-4. With the **Existing MSP ID tab** selected browse to the updated MSP.
+4. With the **Existing MSP ID** tab selected browse to the updated MSP.
 5. Click **Update MSP definition**.
 
 ## Manually building an MSP JSON file
@@ -294,7 +292,7 @@ After an administrator creates an MSP definition, they can use the Organizations
 
 The consortium of organizations is hosted by the ordering service.
 
-If you are the administrator of the ordering service, you can use the console to add an organization to the consortium. Navigate to the **Nodes** tab and click on the ordering node. On the ordering node panel, under **Consortium members**, click **Add organization**. This opens a side panel that allows you to select from the list of available MSP definitions that you have [imported into your organizations tab](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). You can also use the **Upload JSON** option to import the MSP definition file created by another org directly.
+If you are the administrator of the ordering service, you can use the console to add an organization to the consortium. Navigate to the **Nodes** tab and click on the ordering service. On the ordering service panel, under **Consortium members**, click **Add organization**. This opens a side panel that allows you to select from the list of available MSP definitions that you have [imported into your organizations tab](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). You can also use the **Upload JSON** option to import the MSP definition file created by another org directly.
 
 ## Creating and editing a channel
 {: #console-organizations-create-channel}
@@ -303,7 +301,7 @@ After an organization is added to the consortium, the organization can use the o
 
 After your organization is added to a consortium, you can create a channel by using the following steps:
 
-1. Import the ordering node that hosts the consortium into your console. You do not need to be an administrator of the ordering node; but you need to provide the orderer node name and endpoint information in your console.
+1. Import the ordering service that hosts the consortium into your console. You do not need to be an administrator of the ordering service; but you need to provide the ordering node name and endpoint information in your console.
 2. Import the MSPs of organizations that you want to add to the new channel into your console in the **Organizations** tab. **Note** that organizations need to be added to the consortium before they can be added to a channel.
 3. Navigate to the **Channels** tab and click **Create channel**. This opens a side panel that allows you to specify the channel name, membership, and channel policies. You can add any organizations that have been added to the consortium to the new channel.
 
@@ -319,4 +317,27 @@ Over time you might need to update the certificates in an MSP definition that is
 3. Click the **Channel details** tab.
 4. Click the associated channel member's tile that you want to update.
 5. If you have not already imported the updated MSP definition into the console, you can upload the file here. **Note:** This action will not update the associated MSP definition in the Organizations tab. If you have already updated the MSP definition in the Organizations tab of the console, you can select it from the drop-down list.
+
+## Removing an organization
+{: #console-organizations-remove}
+
+If you want to stop using an instance of the {{site.data.keyword.blockchainfull_notm}} Platform, you need to remove your organization from the blockchain network before you delete your service instance. This ensures that the removed organization is not affecting the governance of the network after you leave. You can remove your organization by using the following steps:
+
+1. **Remove your organization from channels that you joined**. You need to [update the endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) of the smart contracts that are instantiated on the channel to remove your organization from the policy. If you do not update the endorsement policy, your organization might be required to endorse transactions after you have left the channel, causing transactions to fail.
+
+  You can then update to the channel to remove your organization from the list of channel members. Navigate to the **Channels** tab and click the **Settings** icon. You can use the **Organizations** section to remove your organization from the channel. The channel **update policy** is updated to remove your organization automatically. When you are ready, click **Update channel** to submit a channel update request. The request starts the [process for collecting the signatures](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection) that are required to update the channel, depending on your update policy.
+
+  After you remove your organization from the channel, you can delete your peers on the {{site.data.keyword.blockchainfull_notm}} Platform. If transactions can be successfully submitted to the network after you remove your peers, your organization is no longer required to endorse transactions.
+
+2. **Have your organization removed from the consortium hosted by the ordering service.** After you are removed from the consortium, your organization can no longer be added to new channels. This action needs to be completed by an ordering service administrator.
+
+  Navigate to the **Nodes** tab and click the ordering service of your network. On the ordering service panel, find the organization to be removed in the list of **Consortium members**. Click the **Delete** button in the corner of the organization MSP definition tile.
+
+3. **Delete your ordering nodes.** If you operate ordering nodes that are part of a multi-node ordering service, you need to remove your ordering nodes from the network before you remove your ordering organization. Your ordering nodes need to be removed from the consenter set of each channel before they are removed from the ordering service.
+
+  Navigate to the **Channels** tab and click the **Settings** icon to update the channel. You can use the **Consenter Set** section to remove your ordering node from the channel. When you are ready, click **Update channel** to submit the channel update request. The update request starts the [process for collecting the signatures](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection) that are required to update the channel, depending on the channel update policy. After you have you removed your ordering nodes, you can use the **Ordering service administrators** section to remove your organization from the set of orderer administrators.
+
+  After you remove your ordering nodes from the consenter set of each channel, you can remove your nodes from the ordering service. Navigate to the **Nodes** tab and click the ordering service of your network. On the top of the ordering service panel, click the **Ordering nodes** tab. Click your ordering node and then click **Delete**. Because Raft consensus requires that a majority of ordering nodes are up to maintain a quorum, you need to remove one ordering node at a time. After you have deleted your ordering nodes, you can remove your organization from the set of ordering service administrators. Find your organization MSP definition on the list of **Orderer administrators** and click the **Delete** icon in the corner of the organization definition tile.
+
+After you complete these steps, your organization will no longer affect the governance of the network. You can safely delete your [service instance of the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-delete-service-instance).
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2020
 lastupdated: "2019-06-18"
 
 keywords: Hyperledger Fabric, confidential channels, Membership Service Provider, Linux Foundation, SDKs, modular architecture, permissioned network
@@ -58,11 +58,11 @@ In other distributed blockchains, such as Ethereum and Bitcoin, there is no cent
 
 Orderers are key components in a network because they perform a few essential functions:
 
-- They literally **order** the blocks of transactions that are sent to the peers to be written to their ledgers, and this process is called "ordering". If these transactions were instead bundled and ordered at the peers themselves, it would increase the possibility of one peer writing a transaction to its ledger where another peer did not, creating a state fork.
-- They maintain the **orderer system channel**, the place where the **consortium**, the list of peer organizations permitted to create channels, resides.
-- They perform important identity validation checks. For example, if an organization tries to create a channel when it is not a member of the orderer's consortium, the request will be denied. Orderers also validate against behaviors in transaction channels, such as the permissions for changing a channel configuration.
+- It literally **orders** the blocks of transactions that are sent to the peers to be written to their ledgers, and this process is called "ordering". If these transactions were instead bundled and ordered at the peers themselves, it would increase the possibility of one peer writing a transaction to its ledger where another peer did not, creating a state fork.
+- It maintains the **orderer system channel**, the place where the **consortium**, the list of peer organizations permitted to create channels, resides.
+- It performs important identity validation checks. For example, if an organization tries to create a channel when it is not a member of the orderer's consortium, the request will be denied. Orderers also validate against behaviors in transaction channels, such as the permissions for changing a channel configuration.
 
-Hyperledger Fabric currently supports both a SOLO (one ordering node) and Kafka-based ordering service implementations. For more information about Hyperledger Fabric ordering service, see [Bringing up a Kafka-based Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/kafka.html){: external} in [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}.
+Hyperledger Fabric currently uses an implementation of the Raft protocol for its ordering service. For more information about the ordering service, see [The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html){: external}.
 
 ## The Fabric SDKs
 {: #hyperledger-fabric-fabric-sdks}

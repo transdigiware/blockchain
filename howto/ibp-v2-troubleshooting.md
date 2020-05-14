@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-05-12"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -340,7 +340,6 @@ Failed to initialize local MSP: admin 0 is invalid [The identity does not contai
 - Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
 - Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret of a user that has the `peer` or `orderer` role and associate an identity that has a role of `admin` with the node.
 - Note that before you create the peer or ordering service, you need to register an organization admin user, with a type `admin`. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
-
 
 ## How can I view my smart contract container logs?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}

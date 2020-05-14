@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-04-29"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -160,7 +160,7 @@ Once the network operator provides the enroll ID and secret of the application i
     {:codeblock}
 
 3. Edit `enrollUser.js` to replace the following values:
-  - Replace  ``<CA_Name>`` with the name of your organizations CA. You can find your CA name in the "organizations"  section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
+  - Replace  ``<CA_Name>`` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
   - Replace ``<app_enroll_id>`` with the application enroll ID provided by your network operator.
   - Replace ``<app_enroll_secret>`` with the application enroll secret provided by your network operator.
   - Replace ``<msp_id>`` with the MSP ID of your organization. You can find your MSP ID under the "organizations" section of your connection profile.
@@ -404,7 +404,7 @@ console.log('Successfully enrolled client "user1" and imported it into the walle
 {:codeblock}
 
 **Edit** `enrollUser.js` to replace the following values:
-- Replace  `<CA_Name>` with the name of your organization's CA. You can find your CA name in the "organizations"  section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
+- Replace  `<CA_Name>` with the name of your organization's CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
 - Replace `<app_enroll_id>` with the application enroll ID provided by your network operator.
 - Replace `<app_enroll_secret>` with the application enroll secret provided by your network operator.
 - Replace `<msp_id>` with the MSP ID of your organization. You can find this MSP ID under the "organizations" section of your connection profile.

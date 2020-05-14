@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-08"
+lastupdated: "2020-05-04"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -304,7 +304,10 @@ After you create the storage class, run the `kubectl patch storageclass` command
 ## Deleting a service instance
 {: #ibp-v2-deploy-iks-delete-service-instance}
 
-When you no longer need your service instance it can be deleted from your Kubernetes cluster to free up resources. You can use the {{site.data.keyword.cloud_notm}} dashboard to delete your {{site.data.keyword.blockchainfull_notm}} Platform service instance.
+When you no longer need your service instance it can be deleted from your Kubernetes cluster to free up resources.  You can use the {{site.data.keyword.cloud_notm}} dashboard to delete your {{site.data.keyword.blockchainfull_notm}} Platform service instance.
+
+If the service instance contains organizations that are participating in an active network, you should remove the organization from the network before you delete the service instance. See [Removing an organization](/docs/services/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-remove) for more details.
+{: important}
 
 1. In your browser, open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. You need to log in with you {{site.data.keyword.IBM_notm}} ID.
 2. Under the **Services** twistie, locate the service instance you want to delete and click **Delete** on the Actions menu.
