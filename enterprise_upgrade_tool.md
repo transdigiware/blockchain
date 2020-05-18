@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-15"
+lastupdated: "2020-05-18"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -44,6 +44,7 @@ Each organization that is a member of an enterprise network will get one instanc
 - Review the [considerations for using {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations) before you upgrade your network. The next generation of the platform has a different user interface and provides you with more control over the nodes of your network. In particular, you are responsible for managing your certificates and private keys, which are not stored on {{site.data.keyword.cloud_notm}}.
 - It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
 - You need to deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 on a paid cluster of the {{site.data.keyword.IBM_notm}} Kubernetes service. For more information, see the [resource recommendations for paid clusters](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required-paid).
+- You cannot deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to an OpenShift Container Platform cluster that was deployed using the {{site.data.keyword.IBM_notm}} Kubernetes service when upgrading from Enterprise Plan.
 - After migration, the founder of the Enterprise Plan network (PeerOrg1) will manage the ordering service on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 for all organizations on the network. For more information about operating an ordering service on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, see [creating an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer) and [ordering node configurations](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-suggested-ordering-node-configurations).
 - You must create peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that use the same state database (LevelDB or CouchDB) as your peers on Enterprise Plan. You cannot upgrade from peers that are running LevelDB to peers that use CouchDB.
 - As part of having more control of your network on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to take steps to ensure high availability and disaster recovery. For more information, review [High Availability on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-console-ha#ibp-console-ha).
