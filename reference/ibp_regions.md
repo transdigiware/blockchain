@@ -32,19 +32,19 @@ Different {{site.data.keyword.blockchainfull_notm}} Platform offerings are avail
 ## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-regions-locations-ibp}
 
-Table 1 and Figure 1 show the {{site.data.keyword.cloud_notm}} regions and locations that can deploy the **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**.
+Table 1 and Figure 1 show the Kubernetes cluster on {{site.data.keyword.cloud_notm}} locations that you can use to deploy the **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**.
 
-While you can use any location in the third column to deploy your console, all nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto.
+While you can use any location to deploy your console, all nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto.
 {: note}
 
-| Region | Kubernetes cluster on {{site.data.keyword.cloud_notm}} locations | {{site.data.keyword.blockchainfull_notm}} Platform console locations |
-|--------|--------------------|----|
-| US South | San Jose, Sao Paulo, Dallas, Houston | Dallas |
-| US East | Toronto, Montreal, Washington, D.C. | Washington, D.C. |
-| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore| Tokyo |
-| AP South|  Sydney |  Sydney |
-| UK South| London | London|
-| EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |  Frankfurt |
+| {{site.data.keyword.cloud_notm}} Region | Kubernetes cluster on {{site.data.keyword.cloud_notm}} locations |
+|--------|--------------------|
+| US South | San Jose, Sao Paulo, Dallas, Houston |
+| US East | Toronto, Montreal, Washington, D.C. |
+| AP North | Tokyo, Chennai, Hong Kong, Seoul, Singapore |
+| AP South|  Sydney |
+| UK South| London |
+| EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |
 {: caption="Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 
 
