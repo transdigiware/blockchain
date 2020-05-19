@@ -257,7 +257,7 @@ You can use the **Select Chaincode File** button to upload a chaincode from your
 All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to install and instantiate your chaincode.
 {: important}
 
-If you encounter a problem migrating your chaincode to your peers {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to follow the steps in this [troubleshooting topic](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#bp-v2-troubleshooting-upgrade-tool) to retry the migration.
+If you encounter a problem migrating your chaincode to your peers {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to follow the steps in this [troubleshooting topic](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-upgrade-tool) to retry the chaincode migration.
 
 ### Step Two: Upgrade to the migrated chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
 

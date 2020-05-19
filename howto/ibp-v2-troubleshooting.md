@@ -66,7 +66,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues with upgrading your Enterprise Plan network**  
 
-- [There was a problem with my chaincode, and the chaincode migration failed](#ibp-v2-troubleshooting-upgrade-tool)
+- [I need to use the upgrade tool to retry a chaincode migration](#ibp-v2-troubleshooting-upgrade-tool)
 
 
 
@@ -479,18 +479,22 @@ The node has failed to deploy. There can be several reasons for this, but you mu
 {: tsResolve}
 
 
-## There was a problem with my chaincode, and the chaincode migration failed
+## I need to use the upgrade tool to retry a chaincode migration
 {: #ibp-v2-troubleshooting-upgrade-tool}
 {: troubleshoot}
 
-When I try to use the upgrade tool to migrate my chaincode to the new platform, the chaincode cannot be installed on my new peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 due to a problem in the chaincode. You can use the following steps to retry the chaincode migration:
+When I used the **Migrate chaincode** panel to migrate a chaincode to peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, the installation failed due to a problem with the chaincode source code. How do can I re-attempt the chaincode migration?
+{: tsCauses}
 
-1. Update your chaincode to fix the problem that caused the migration failure.
+You can use the following steps to use the upgrade tool to retry a failed chaincode migration:
+{: tsResolve}
 
-2. Install the updated chaincode with a different **name** and **version** to your Enterprise Plan network.
+1. Update your chaincode source code to resolve the problem that caused the migration failure.
 
-3. After you have installed the updated chaincode, you can refresh the migration tool to view the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincde on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+2. Install the updated chaincode on your Enterprise Plan network with a different **name** and **version**.
 
-If you cannot change the chaincode name and version, you need to use the upgrade tool to delete the upgraded peer on the new platform, use the upgrade tool to create a new peer, and then use the tool to install a fixed version of your chaincode on the new peer.
+3. After you have installed the updated chaincode, you can refresh the migration tool to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+
+If you cannot change the chaincode name and version, you need to use the upgrade tool to delete the upgraded peer on the new platform and then use the tool to create a new peer. After you have fixed the chaincode source code and installed it on your Enterprise Plan network, you can use the tool to install a fixed version of your chaincode on the new peer.
 
 
