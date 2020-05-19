@@ -268,6 +268,8 @@ Every cluster on the {{site.data.keyword.IBM_notm}} Kubernetes Service comes wit
 
 You can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in the {{site.data.keyword.IBM_notm}} Kubernetes Service use {{site.data.keyword.cloud_notm}} File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
 
+
+
 If you want to use [Performance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-performance), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to [add a storage class](/docs/containers?topic=containers-kube_concepts#storageclasses){: external} for your solution. You can then make the custom storage class the `default` storage class by running the following command:
 
 ```

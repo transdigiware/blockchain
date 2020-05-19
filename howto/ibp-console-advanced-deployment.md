@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-07"
+lastupdated: "2020-05-19"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -564,6 +564,8 @@ If your Kubernetes cluster is configured across multiple zones, when you deploy 
 
 If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
+<staging floating-zone>If you are using an {{site.data.keyword.cloud_notm}} Kubernetes service, and **multizone-capable storage** is configured for your cluster, if a zone failure occurs, the nodes can come up in another zone, with their associated storage intact. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. And when you deploy a peer, select the advanced deployment option labeled **Kubernetes zone selection** and then select **Across all zones**. To learn more about multizone-capable storage, see the [Comparison of persistent storage options for multizone clusters](/docs/containers?topic=containers-storage_planning#persistent_storage_overview).</staging floating-storage>
+
 ### Sizing a peer during creation
 {: #ibp-console-adv-deployment-peers-sizing-creation}
 
@@ -896,7 +898,8 @@ The ability to update override settings for a peer configuration is not availabl
 
 When you deploy an ordering node, the following advanced deployment options are available:
 * [Number of ordering nodes](#ibp-console-adv-deployment-suggested-ordering-node-configurations) - Decide how many ordering nodes are needed.
-* [Kubernetes zone selection](#ibp-console-adv-deployment-on-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
+* [Kubernetes zone selection
+](#ibp-console-adv-deployment-on-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
 * [External Certificate Authority configuration](#ibp-console-adv-deployment-third-party-ca) - Use certificates from a third-party CA.
 * [Resource allocation](#ibp-console-adv-deployment-orderer-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the ordering node to use an HSM to generate and store private keys.
@@ -911,13 +914,14 @@ This is why, by default, the console offers two options: one node or five nodes.
 
 However many nodes a user chooses to deploy, they have the ability to add more nodes to their ordering service. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
 
-
 ### Kubernetes zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
 
 If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
 For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by clearing the default option to have the zones that are chosen for you and distributing these nodes into the zones you have available. You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
+
+<staging floating-zone>If you are using an {{site.data.keyword.cloud_notm}} Kubernetes service, and **multizone-capable storage** is configured for your cluster, if a zone failure occurs, the nodes can come up in another zone, with their associated storage intact. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. And when you deploy an ordering service or an ordering node, select the advanced deployment option labeled **Kubernetes zone selection** and then select **Across all zones**. To learn more about multizone-capable storage, see the [Comparison of persistent storage options for multizone clusters](/docs/containers?topic=containers-storage_planning#persistent_storage_overview).</staging floating-storage>
 
 ### Sizing an ordering node during creation
 {: #ibp-console-adv-deployment-orderer-sizing-creation}
