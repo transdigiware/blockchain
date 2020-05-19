@@ -1102,28 +1102,17 @@ Now you have the choice of creating a peer or single-node ordering service node,
 #### Consideration when using an external CA to generate certificates
 {: #ibp-console-govern-third-party-openssl}
 
-If the generated ECDSA 256 SHA-2 certificate contains the string `EC` in the `BEGIN PRIVATE KEY` and `END PRIVATE KEY` header and footer, the certificate cannot be imported into the console. The `EC` string causes the error.
-
-For example:
+If the generated private key is in PKCS #1 format, before it can be used by the console, it needs to be converted to PKCS #8 format by running the following openssl command:
 ```
------BEGIN EC PRIVATE KEY-----
-MHcCAQEEINLMBxWNS+KfENOAZDbvwJxib+1FXaWIa9xuvyJjQNoAoGCCqGSM49
-AwEHoUQDQgAEB49vPZw7Chp7xMLOg0n/L5D235rFhH+tu8CIGdj4Rwg3d6B1CW
-NGggmidf1wrdYcHphq1LrT2ft4RkwR0w==
------END EC PRIVATE KEY-----
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in identity.1.pem -out identity.8.pem
 ```
+{: codeblock}
 
-Removing `EC` from the header and footer resolves the problem:
+Replace:
+- `identity.1.pem` with the name of the PKCS #1 private key `.PEM` file.
+- `identity.8.pem` with the name that you want to give your PKCS #8 private key `.PEM` file.
 
-```
------BEGIN PRIVATE KEY-----
-MHcCAQEEINLMBxWNS+KfENOAZDbvwJxib+1FXaWIa9xuvyJjQNoAoGCCqGSM49
-AwEHoUQDQgAEB49vPZw7Chp7xMLOg0n/L5D235rFhH+tu8CIGdj4Rwg3d6B1CW
-NGggmidf1wrdYcHphq1LrT2ft4RkwR0w==
------END PRIVATE KEY-----
-```
-
-Now, you can import the `.PEM` file into the console.
+Now, the private key can be used by the console. If you plan to include it in an [organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp) file, it needs to be encoded in base64 format.
 
 ### Option 1: Create a new peer or single-node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-third-party-ca-create-peer-orderer}
