@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-05-19"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -26,6 +26,23 @@ Use these release notes that are grouped by date to learn about the latest chang
 {:shortdesc}
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
+
+## 20 May 2020
+{: #05-20-2020}
+
+**CA, peer, and ordering node patch 1.4.6-2**
+
+Miscellaneous bug fixes and security patches.
+
+### Support for Intermediate Certificate Authorities (CAs)
+{: #05-20-2020-ICA}
+
+You now have the option to configure an intermediate CA using the console or APIs to override the default CA settings. See the tutorial on [Creating an intermediate Certificate Authority](/docs/blockchain?topic=blockchain-ibp-ica) to learn more.
+
+### Updated connection profile
+{: #05-20-2020-connx-profile}
+
+The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations) to learn how.
 
 
 

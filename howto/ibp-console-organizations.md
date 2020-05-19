@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-04"
+lastupdated: "2020-05-19"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -81,6 +81,131 @@ Because your admin certs are passed to your nodes and channels by using the MSP 
 - On the **Review MSP information** panel, review the information you specified for this MSP.
 
 After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. You will use the MSP definition when you deploy your nodes, are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where your organization has to sign.
+
+## Downloading a connection profile
+{: #ibp-console-organizations-connx-profile}
+
+After you create an organization MSP definition and create peers with that organization MSP definition, you can download a connection profile that can be used by a client application to connect to your network via one or more gateway peers. The gateway peers are the peers that are specified in the connection profile, and they are used to perform service discovery to find all of the endorsing peers in the network that will endorse transactions.
+
+Click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile.
+
+  ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
+
+If the client application will be used to register and enroll users with the organization CA, you should include the Certificate authority in the connection profile definition.
+
+Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer.  Therefore, it is recommended that you select more than one peer for redundancy, to accommodate for peer downtime during a maintenance cycle for example. In addition to peers created by using the console or APIs, peers that have been imported into the console are eligible to be selected as well.
+
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely caused by the peer being currently unavailable.
+
+You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
+
+The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+{: note}
+
+The generated connection profile only supports Fabric CAs. If you manually built your organization MSP using certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
+
+
+### Including a certificate authority in a connection profile
+{: #ibp-console-organizations-connx-profile-ca}
+
+If you plan to use a client application to register and enroll users with the organization CA, then you need to include the associated CA in the connection profile.
+
+If the CA that is associated with the MSP resides in a different console, when you attempt to download the connection profile you see a warning message and the ``"certificateAuthorities:"`` section of the generated connection profile is empty.
+
+![Create connection profile warning panel](../images/create-connx-profile2.png "Create connection profile panel"){: caption="Figure 3. You can use the organizations panel to create, import, and manage organization MSP definitions" caption-side="bottom"}
+
+The generated connection profile without the CA information resembles:
+
+```json
+{
+  "name": "org1profile",
+  "description": "Network on IBP v2",
+  "version": "1.0.0",
+  "client": {
+      "organization": "org1"
+  },
+  "organizations": {
+      "org1": {
+          "mspid": "org1",
+          "certificateAuthorities": [
+              "xyz-ca.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443"
+          ],
+          "peers": [
+              "va0414-ba-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443",
+              "va0414-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443"
+          ]
+      }
+  },
+  "peers": {
+      "xyz-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443": {
+          "url": "grpcs://xyz-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----nnnnnn-----END CERTIFICATE-----\n"
+          },
+          "grpcOptions": {
+              "ssl-target-name-override": "xyz-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud"
+          }
+      },
+      "va0414-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443": {
+          "url": "grpcs://va0414-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----nnnnnn-----END CERTIFICATE-----\n"
+          },
+          "grpcOptions": {
+              "ssl-target-name-override": "va0414-peer.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud"
+          }
+      }
+  },
+  "certificateAuthorities": {}
+}
+```
+
+But if the `"certificateAuthorities"` section is empty and client application needs to register and enroll identities with the CA from the connection profile, then you must manually add the CA information to the generated connection profile. To get the CA connection information, simply export the CA, from the console where it resides, to a JSON file:
+
+  1. From the nodes panel, open the CA.
+  2. Click the **Export** icon to download the CA configuration to a JSON file.
+
+    ![Export CA](../images/ca-export.png "Export your CA"){: caption="Figure 4. Click the export icon to download the CA configuration to a JSON file." caption-side="bottom"}
+
+    The downloaded _CA JSON file_ resembles:
+
+    ```
+    {
+        "display_name": "brian ca",
+        "api_url": "https://xyz-ca.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443",
+        "operations_url": "https://xyzca-operations.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443",
+        "type": "fabric-ca",
+        "ca_name": "ca",
+        "tlsca_name": "tlsca",
+        "tls_cert": "LS0tLS1...bE1UQm1OVGd",
+        "name": "brian ca",
+        "pem": "LS0tLS1...bE1UQm1OVGd",
+        "ca_url": "https://xyz-ca.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443"
+    }
+    ```
+
+  3. Open the _generated connection profile_ that you downloaded and edit the `"certificateAuthorities":` section:
+
+    ```
+    "certificateAuthorities": {
+        "<CA_HOST_PORT>": {
+            "url": "<API_URL>",
+            "caName": "<CA_NAME>",
+            "tlsCACerts": {
+                "pem": "<TLS_CERT>"
+            }
+        }
+    }
+    ```
+
+    Replace:
+
+    - `<CA_HOST_PORT>` with the value of the `"certificateAuthorities":` from the `"organizations":` section of the generated connection profile. For example, `xyz-ca.openshift-ibpv2-test-1-0001.us-south.containers.appdomain.cloud:443`.
+    - `<API_URL>` with the value of the `"api_url"` from the downloaded JSON file.
+    - `<CA_NAME>` with the value of the `"ca_name"` from the downloaded JSON file.
+    - `<TLS_CERT>` with the value of the `"tls_cert"` from the downloaded JSON file.
+
+If the organization MSP was manually created by using certificates from an external CA, then there is no reason to add the CA to the connection profile. You cannot register and enroll users with an external CA from a client application.
 
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}

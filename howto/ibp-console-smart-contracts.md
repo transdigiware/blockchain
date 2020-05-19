@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-05-19"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -129,8 +129,24 @@ After a smart contract has been instantiated on a channel, you can use a client 
 ### Connect with SDK
 {: #ibp-console-smart-contracts-connect-to-SDK-panel}
 
-The **Smart Contracts** tab contains the information that you need to connect to an instantiated smart contract from a client app. Next to each instantiated smart contract, navigate to the overflow menu. Click the **Connect with your SDK** button. This opens a side panel that provides the information that you need to connect to this smart contract: the contract name, the channel name, and your connection profile. For more information, see [Creating applications](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app).
+After you create an organization MSP definition, you can download a connection profile that can be used by a client application to connect to your network via one or more gateway peers. The gateway peers are the peers that are specified in the connection profile, and they are used to perform service discovery to find all of the endorsing peers in the network that will endorse transactions.
 
+Click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile.
+
+  ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
+
+If the client application will be used to register and enroll users with the organization CA, you should include the Certificate authority in the connection profile definition.
+
+Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer.  Therefore, it is recommended that you select more than one peer for redundancy, to accommodate for peer downtime during a maintenance cycle for example. In addition to peers created by using the console or APIs, peers that have been imported into the console are eligible to be selected as well.
+
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely caused by the peer being currently unavailable.
+
+You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
+
+The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+{: note}
+
+The generated connection profile only supports Fabric CAs. If you manually built your organization MSP using certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
 
 
 ## Specifying an endorsement policy
