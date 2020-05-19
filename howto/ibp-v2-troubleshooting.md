@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-12"
+lastupdated: "2020-05-19"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -63,6 +63,10 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
+
+**Issues with upgrading your Enterprise Plan network**  
+
+- [There was a problem with my chaincode, and the chaincode migration failed](#ibp-v2-troubleshooting-upgrade-tool)
 
 
 
@@ -473,5 +477,20 @@ This node has failed to deploy.
 
 The node has failed to deploy. There can be several reasons for this, but you must go to your console, delete the node, and attempt to redeploy it. Make sure you are using the correct MSP, enroll ID, and secret.
 {: tsResolve}
+
+
+## There was a problem with my chaincode, and the chaincode migration failed
+{: #ibp-v2-troubleshooting-upgrade-tool}
+{: troubleshoot}
+
+When I try to use the upgrade tool to migrate my chaincode to the new platform, the chaincode cannot be installed on my new peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0 due to a problem in the chaincode. You can use the following steps to retry the chaincode migration:
+
+1. Update your chaincode to fix the problem that caused the migration failure.
+
+2. Install the updated chaincode with a different **name** and **version** to your Enterprise Plan network.
+
+3. After you have installed the updated chaincode, you can refresh the migration tool to view the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincde on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+
+If you cannot change the chaincode name and version, you need to use the upgrade tool to delete the upgraded peer on the new platform, use the upgrade tool to create a new peer, and then use the tool to install a fixed version of your chaincode on the new peer.
 
 
