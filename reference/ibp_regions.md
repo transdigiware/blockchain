@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-05-19"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -32,12 +32,12 @@ Different {{site.data.keyword.blockchainfull_notm}} Platform offerings are avail
 ## {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-regions-locations-ibp}
 
-Table 1 and Figure 1 show the {{site.data.keyword.cloud_notm}} regions and locations that **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}** supports.
+Table 1 and Figure 1 show the {{site.data.keyword.cloud_notm}} regions and locations that can deploy the **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**.
 
-While the Kubernetes cluster can be provisioned in any of the supported {{site.data.keyword.cloud_notm}} locations below, the third column shows where the console can be provisioned. All nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto.
+While you can use any location in the third column to deploy your console, all nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto.
 {: note}
 
-| Region | {{site.data.keyword.cloud_notm}} locations | {{site.data.keyword.blockchainfull_notm}} Platform console location |
+| Region | Kubernetes cluster on {{site.data.keyword.cloud_notm}} locations | {{site.data.keyword.blockchainfull_notm}} Platform console locations |
 |--------|--------------------|----|
 | US South | San Jose, Sao Paulo, Dallas, Houston | Dallas |
 | US East | Toronto, Montreal, Washington, D.C. | Washington, D.C. |
@@ -46,6 +46,7 @@ While the Kubernetes cluster can be provisioned in any of the supported {{site.d
 | UK South| London | London|
 | EU Central | Frankfurt, Amsterdam, Milan, Oslo, Paris |  Frankfurt |
 {: caption="Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
+
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations"){: caption="Figure 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 

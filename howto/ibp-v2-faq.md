@@ -221,7 +221,7 @@ When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service in
 {: #ibp-v2-faq-v2-IBP-Overview-1-9}
 {: faq}
 
-The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are listed in [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations). Note that you must create an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster in the same region as the blockchain service to recognize the cluster. Additional regions will be available soon.
+The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are listed in [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations).
 
 ## Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?
 {: #ibp-v2-faq-v2-Infrastructure-4-2}

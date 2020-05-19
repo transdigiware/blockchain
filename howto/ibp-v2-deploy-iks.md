@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-04"
+lastupdated: "2020-05-19"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -162,7 +162,7 @@ Use the following steps to create a service instance of {{site.data.keyword.bloc
 You can follow the guidance to deploy {{site.data.keyword.blockchainfull_notm}} Platform immediately after you create the service instance.
 
 1. The **Welcome** step. Click **Let's get setup!** to get started with your deployment.
-2. The **Create an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** step. If you don't already have an existing {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in a supported region, create one now by clicking **Create {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** to launch the {{site.data.keyword.cloud_notm}} Kubernetes dashboard.  For more information, see [Getting started with {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-getting-started){: external}. Allow extra time for this process to complete.
+2. The **Create an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** step. If you don't already have an existing {{site.data.keyword.IBM_notm}} Kubernetes Service cluster in a supported region, create one now by clicking **Create {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** to launch the {{site.data.keyword.cloud_notm}} Kubernetes dashboard. For more information, see [Getting started with {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-getting-started){: external}. Allow extra time for this process to complete.
 
  - For information about locations for your cluster, see [Supported regions](/docs/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).  
  - Explore the scenarios on the panel to see the different levels of cluster resources that are required depending on your use case.
