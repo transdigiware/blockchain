@@ -82,7 +82,7 @@ This offering is intended for experienced Fabric users who want to build and man
 | | |
 |----|----|
 | Kubernetes | <ul><li>v1.14-v1.17</ul> |
-| Orchestration Service| <ul><li>Kubernetes</li><li>Red Hat OpenShift</li></ul> |
+| Orchestration Service| <ul><li>Kubernetes</li><li>Red Hat OpenShift 3.11, 4.3</li></ul> |
 | Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Support any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
 | VLAN | <ul><li>[VLAN spanning](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported, a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |
 | Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
