@@ -99,9 +99,10 @@ When you plan to use the service instance in the context of a broader organizati
 {: #ibp-v2-deploy-iks-browsers}
 The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
-- Chrome Version 80.0.3987.122 (Official Build) (64-bit)
+- Chrome Version 81.0.4044.122 (Official Build) (64-bit)
 - Firefox (non-ESR): Version 69.0.1
 - Safari Version 13.0.3 (15608.3.10.1.4)
+
 
 ### Resources required
 {: #ibp-v2-deploy-iks-resources-required}
