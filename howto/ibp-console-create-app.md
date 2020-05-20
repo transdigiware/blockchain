@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-29"
+lastupdated: "2020-05-19"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -41,7 +41,7 @@ Developing an application might require coordination between two distinct users 
 
 If you are the **network operator**, you need to complete the following steps before the application developer can interact with your network:
 1. Use your organization CA to [register an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities).
-2. [Download the connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) from the smart contracts panel.
+2. [Download the connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) from the organizations panel.
 3. Send the application developer the following objects and information:
   - The enroll ID and secret of the application identity.
   - The connection profile.
@@ -87,9 +87,7 @@ echo <base64_string> | base64 --decode $FLAG > <key>.pem
 ## Downloading your connection profile
 {: #ibp-console-app-profile}
 
-Applications are able to submit transactions only to the smart contracts that have been instantiated on channels. As a result, the information you need to connect to interact with a smart contract can be found in the list of instantiated smart contracts in your console. This means you must have already installed and instantiated your smart contract on a channel.
-
-
+A client application connects to a network via one or more gateway peers. The gateway peers are the peers that are specified in the **connection profile**, and they are used to perform **service discovery** to find all of the endorsing peers in the network that will endorse transactions. Service discovery ensures that the request is sent to a peer that is currently available to process requests.
 
 The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
 {: note}
@@ -98,8 +96,22 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 
 In order to take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
-Navigate to the **Smart contracts** tab in your console. Next to each instantiated smart contract, navigate to the overflow menu. Click the button named **Connect with SDK**. This opens a side panel that allows you to build and download your connection profile. First, you will also need to select your organization MSP definition.  You will then need to select the CA of your organization that you used to register your application identity. You will then be able to download the connection profile that you can use to generate certificates and invoke the smart contract.
+Click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile.
 
+  ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
+
+If the client application will be used to register and enroll users with the organization CA, you should include the Certificate authority in the connection profile definition.
+
+Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer.  Therefore, it is recommended that you select more than one peer for redundancy, to accommodate for peer downtime during a maintenance cycle for example. In addition to peers created by using the console or APIs, peers that have been imported into the console are eligible to be selected as well.
+
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely caused by the peer being currently unavailable.
+
+You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
+
+The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+{: note}
+
+The generated connection profile only supports Fabric CAs. If you manually built your organization MSP using certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
 
 
 

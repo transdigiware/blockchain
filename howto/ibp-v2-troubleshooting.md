@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-12"
+lastupdated: "2020-05-20"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -52,6 +52,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 - [Why are my node operations failing after I create my peer or ordering service?](#ibp-console-build-network-troubleshoot-entry1)
 - [Why does my peer or ordering node fail to start?](#ibp-console-build-network-troubleshoot-entry2)
+- [What is the proper way to clean up a failed node deployment?](#ibp-v2-troubleshooting-cleanup)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Why is my CA, peer, or ordering node that is configured to use HSM not working?](#ibp-v2-troubleshooting-hsm-proxy)
 - [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
@@ -63,6 +64,10 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 - [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
+
+**Issues with upgrading your Enterprise Plan network**  
+
+- [How can I retry a chaincode migration?](#ibp-v2-troubleshooting-upgrade-tool)
 
 
 
@@ -341,6 +346,16 @@ Failed to initialize local MSP: admin 0 is invalid [The identity does not contai
 - Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret of a user that has the `peer` or `orderer` role and associate an identity that has a role of `admin` with the node.
 - Note that before you create the peer or ordering service, you need to register an organization admin user, with a type `admin`. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
 
+## What is the proper way to clean up a failed node deployment?
+{: #ibp-v2-troubleshooting-cleanup}
+{: troubleshoot}
+
+Sometimes a node can fail to deploy, for example, due to lack of resources in your Kubernetes cluster. After you understand the cause of the node deployment failure, you need to cleanup the failed node in your cluster.
+{: tsSymptoms}
+
+Do not attempt to use Kubernetes commands to remove the node. Instead, it is extremely important that you use the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs to remove the failed node to ensure that the associated metadata and storage are also cleaned up.
+{: tsResolve}
+
 ## How can I view my smart contract container logs?
 {: #ibp-console-smart-contracts-troubleshoot-entry2}
 {: troubleshoot}
@@ -473,5 +488,24 @@ This node has failed to deploy.
 
 The node has failed to deploy. There can be several reasons for this, but you must go to your console, delete the node, and attempt to redeploy it. Make sure you are using the correct MSP, enroll ID, and secret.
 {: tsResolve}
+
+
+## How can I retry a chaincode migration?
+{: #ibp-v2-troubleshooting-upgrade-tool}
+{: troubleshoot}
+
+When I used the **Migrate chaincode** panel to migrate a chaincode to peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, the installation failed due to a problem with the chaincode source code. How can I re-attempt the chaincode migration?
+{: tsCauses}
+
+Complete the following steps with the upgrade tool to retry a failed chaincode migration:
+{: tsResolve}
+
+1. Fix your chaincode source code to resolve the problem that caused the migration failure.
+
+2. Install the updated chaincode on your Enterprise Plan network with a different **name** and **version**.
+
+3. After you have installed the updated chaincode, you can refresh the migration tool in your browser to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+
+If you cannot change the chaincode name and version, you need to use the upgrade tool to delete the upgraded peer on the new platform and then use the tool to create a new peer. After you have fixed the chaincode source code and installed it on your Enterprise Plan network, you can use the tool to install a fixed version of your chaincode on the new peer.
 
 

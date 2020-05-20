@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-09"
+lastupdated: "2020-05-19"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -48,7 +48,7 @@ In order to use the APIs to access your blockchain network that you create with 
 
 You need a basic authentication credential to ensure that you have access to your {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
 
-1. In your [{{site.data.keyword.cloud_notm}} resource list](https://cloud.ibm.com/resources){: external}, open the blockchain service instance that you created.
+1. In your [{{site.data.keyword.cloud_notm}} resource list](https://cloud.ibm.com/resources){: external}, under **Services**, open the blockchain service instance that you created.
 2. Click **Service credentials** from the left navigator.
 3. Click the **New Credential** button on the **Service credentials** page to create a new credential.
   1. Give the credential a name, for example, *UseAPIs*.
