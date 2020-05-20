@@ -67,7 +67,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues with upgrading your Enterprise Plan network**  
 
-- [I need to use the upgrade tool to retry a chaincode migration](#ibp-v2-troubleshooting-upgrade-tool)
+- [How can I retry a chaincode migration?](#ibp-v2-troubleshooting-upgrade-tool)
 
 
 
@@ -490,17 +490,17 @@ The node has failed to deploy. There can be several reasons for this, but you mu
 {: tsResolve}
 
 
-## I need to use the upgrade tool to retry a chaincode migration
+## How can I retry a chaincode migration?
 {: #ibp-v2-troubleshooting-upgrade-tool}
 {: troubleshoot}
 
-When I used the **Migrate chaincode** panel to migrate a chaincode to peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, the installation failed due to a problem with the chaincode source code. How do can I re-attempt the chaincode migration?
+When I used the **Migrate chaincode** panel to migrate a chaincode to peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0, the installation failed due to a problem with the chaincode source code. How can I re-attempt the chaincode migration?
 {: tsCauses}
 
-You can use the following steps to use the upgrade tool to retry a failed chaincode migration:
+Complete the following steps with the upgrade tool to retry a failed chaincode migration:
 {: tsResolve}
 
-1. Update your chaincode source code to resolve the problem that caused the migration failure.
+1. Fix your chaincode source code to resolve the problem that caused the migration failure.
 
 2. Install the updated chaincode on your Enterprise Plan network with a different **name** and **version**.
 
