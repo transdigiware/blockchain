@@ -504,7 +504,7 @@ You can use the following steps to use the upgrade tool to retry a failed chainc
 
 2. Install the updated chaincode on your Enterprise Plan network with a different **name** and **version**.
 
-3. After you have installed the updated chaincode, you can refresh the migration tool to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
+3. After you have installed the updated chaincode, you can refresh the migration tool in your browser to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 
 If you cannot change the chaincode name and version, you need to use the upgrade tool to delete the upgraded peer on the new platform and then use the tool to create a new peer. After you have fixed the chaincode source code and installed it on your Enterprise Plan network, you can use the tool to install a fixed version of your chaincode on the new peer.
 
