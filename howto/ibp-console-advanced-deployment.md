@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-20"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1102,7 +1102,7 @@ Now you have the choice of creating a peer or single-node ordering service node,
 #### Consideration when using an external CA to generate certificates
 {: #ibp-console-govern-third-party-openssl}
 
-If the generated private key is in PKCS #1 format, before it can be used by the console, it needs to be converted to PKCS #8 format by running the following openssl command:
+If a generated private key is in PKCS #1 format, before it can be used by the console, it needs to be converted to PKCS #8 format by running the following openssl command:
 ```
 openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in identity.1.pem -out identity.8.pem
 ```
@@ -1112,7 +1112,7 @@ Replace:
 - `identity.1.pem` with the name of the PKCS #1 private key `.PEM` file.
 - `identity.8.pem` with the name that you want to give your PKCS #8 private key `.PEM` file.
 
-Now, the private key can be used by the console. If you plan to include it in an [organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp) file, it needs to be encoded in base64 format.
+Now the private key can be used by the console. If you plan to include it in an [organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp) file, it needs to be encoded in base64 format.
 
 ### Option 1: Create a new peer or single-node ordering service using certificates from an external CA
 {: #ibp-console-adv-deployment-third-party-ca-create-peer-orderer}
