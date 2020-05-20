@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-20"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -51,11 +51,14 @@ subcollection: blockchain
 
 - [How does pricing work on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-cloud-pricing)
 - [What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](#ibp-v2-faq-free-cluster)
+- [What versions of Red Hat OpenShift are supported?](#ibp-v2-faq-ocp-versions)
+- [Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-ocp-trial)
+- [Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-ocp-migrate)
 - [How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?](#ibp-v2-faq-cloud-invoice)
 - [Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-IBP-Overview-1-5)
 - [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](#ibp-v2-faq-v2-IBP-Overview-1-8)
 - [What regions are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-IBP-Overview-1-9)
-- [Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?](#ibp-v2-faq-v2-Infrastructure-4-2)
+- [Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-Infrastructure-4-2)
 - [Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?](#ibp-v2-faq-customer-logs)
 - [Do we have access to logging services and what logs are available to me?](#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)  
 - [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](#ibp-v2-faq-cloud-storage)
@@ -156,7 +159,7 @@ Because private keys are not stored by the platform, users are responsible for d
 
 Because HIPAA readiness is only relevant when platform components process Personal Health Information (PHI) or Personally Identifiable Information (PII), the {{site.data.keyword.blockchainfull_notm}} Platform does not need to be HIPAA ready. Customers should not store PHI or PII on the ledger since it is immutable and therefore cannot be deleted. Instead, the recommendation is to store all PHI or PII off ledger in another database and simply reference it from the ledger.
 
-The {{site.data.keyword.blockchainfull_notm}} platform gives customers total control over their deployments, certificates, and private keys. The console simplifies and accelerates the process of deploying components into an {{site.data.keyword.cloud_notm}} Kubernetes service cluster that is managed and controlled by the customer. As a reminder, because the customer owns the storage that is mounted to the containers, {{site.data.keyword.IBM_notm}} does not have access to or control over any of the data that the customer chooses to store in their ledger.
+The {{site.data.keyword.blockchainfull_notm}} platform gives customers total control over their deployments, certificates, and private keys. The console simplifies and accelerates the process of deploying components into a Kubernetes cluster on {{site.data.keyword.cloud_notm}} that is managed and controlled by the customer. As a reminder, because the customer owns the storage that is mounted to the containers, {{site.data.keyword.IBM_notm}} does not have access to or control over any of the data that the customer chooses to store in their ledger.
 
 ## What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-ports}
@@ -200,6 +203,25 @@ The following capabilities are only available on a paid cluster:
 
 See [Find out how to preview the platform free for 30 days](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for more information on how to get started.
 
+## What versions of Red Hat OpenShift are supported?
+{: #ibp-v2-faq-ocp-versions}
+{: faq}
+
+Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} supports linking to Red Hat OpenShift Container Platform 3.11 and 4.3 clusters.
+
+## Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?
+{: #ibp-v2-faq-ocp-trial}
+{: faq}
+
+Currently a free trial option is not available. We are looking into enabling this as an option for customers in future releases.
+
+## Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?
+{: #ibp-v2-faq-ocp-migrate}
+{: faq}
+
+No. There is currently no way to migrate existing components to a new Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}.
+
+
 ## How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?
 {: #ibp-v2-faq-cloud-invoice}
 
@@ -221,9 +243,9 @@ When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service in
 {: #ibp-v2-faq-v2-IBP-Overview-1-9}
 {: faq}
 
-The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are listed in [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations).
+The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are listed in [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations). Note that you must create a Kubernetes cluster on {{site.data.keyword.cloud_notm}} in the same region as the blockchain service to recognize the cluster. Additional regions will be available soon.
 
-## Can I use my existing {{site.data.keyword.cloud_notm}} Kubernetes Service cluster?
+## Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-v2-Infrastructure-4-2}
 {: faq}
 {: support}

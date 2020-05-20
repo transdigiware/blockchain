@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-05-20"
 
 keywords: Pricing, pricing examples
 
@@ -30,7 +30,7 @@ This topic includes additional detailed pricing and sizing scenarios to help you
 
 **Target audience**: This advanced topic is designed for architects and system administrators who are responsible for planning and sizing the cost of an {{site.data.keyword.blockchainfull_notm}} Platform network on {{site.data.keyword.cloud_notm}}.
 
-The costs that are provided in this topic are guidelines and do not represent actual costs. They represent a starting point for estimates of costs that would be incurred in environments with a similar configuration. Actual costs can vary by geography.  The prices used are based on actual prices as of October 16, 2019 and it is possible they can change. The performance of your configuration depends on your smart contracts and the queries you are running. To determine your actual costs, it is important that you test the configuration to verify that the performance satisfies your requirements.
+The costs that are provided in this topic are based on the usage of **{{site.data.keyword.cloud_notm}} Kubernetes service clusters**. The costs are guidelines and do not represent actual costs. They represent a starting point for estimates of costs that would be incurred in environments with a similar configuration. Actual costs can vary by geography.  The prices used are based on actual prices as of October 16, 2019 and it is possible they can change. The performance of your configuration depends on your smart contracts and the queries you are running. To determine your actual costs, it is important that you test the configuration to verify that the performance satisfies your requirements.
 {: important}
 
 If you need to first learn more about the basic elements that factor into the cost a blockchain network, review the topic on [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing).

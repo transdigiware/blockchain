@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-12"
+lastupdated: "2020-05-20"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -36,7 +36,7 @@ This guide helps you understand the pricing model for {{site.data.keyword.blockc
 A VPC is a unit of measurement that is used to determine the licensing cost of {{site.data.keyword.IBM_notm}} products. It is based on the number of virtual cores (vCPUs) that are available to the product. A vCPU is a virtual core that is assigned to a virtual machine or a physical processor core. For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes, **1 VPC = 1 CPU = 1 vCPU = 1 Core**.
 {:note}
 
-For a total cost estimate, remember that your blockchain network consists of an {{site.data.keyword.cloud_notm}} Kubernetes cluster that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice. Your {{site.data.keyword.cloud_notm}} Kubernetes cluster and the storage that you choose incur separate charges. You will not be charged for the cluster that the Operational Tooling instance, also known as the console, is running on. See the [Architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture) topic for an illustration. More details on how to calculate charges are described below.
+For a total cost estimate, remember that your blockchain network consists of an Kubernetes cluster on {{site.data.keyword.cloud_notm}} that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice. Your Kubernetes cluster on {{site.data.keyword.cloud_notm}} and the storage that you choose incur separate charges. You will not be charged for the cluster that the Operational Tooling instance, also known as the console, is running on. See the [Architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture) topic for an illustration. More details on how to calculate charges are described below.
 
 ### Benefits of the new pricing model
 {: #ibp-saas-pricing-benefits}
@@ -93,12 +93,12 @@ After 30 days, your Kubernetes cluster is deleted along with all of your blockch
 ## Key elements of cost
 {: #ibp-saas-pricing-elements}
 
-Because your blockchain network consists of an {{site.data.keyword.cloud_notm}} Kubernetes cluster that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice, each of the following elements forms your total cost.
+Because your blockchain network consists of an Kubernetes cluster on {{site.data.keyword.cloud_notm}} that contains {{site.data.keyword.blockchainfull_notm}} Platform components and uses storage of your choice, each of the following elements forms your total cost.
 
 ![Elements of pricing](../images/elements-of-pricing.svg "Elements of pricing"){: caption="Figure 1. Elements of pricing" caption-side="bottom"}
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform:** Based on a flat rate of $0.29 USD/VPC-hour. This fee represents the charge for your blockchain component VPC allocation in your Kubernetes cluster.
-- **{{site.data.keyword.cloud_notm}} Kubernetes Service:** Uses a tiered pricing model that is visible in {{site.data.keyword.cloud_notm}} when you provision your paid cluster. This includes the charges for your compute, that is, CPU and memory. {{site.data.keyword.cloud_notm}} Kubernetes Services are priced on a tiered model that is based on the number of hours of usage per month. Therefore, when you examine pricing plans, consider that 24x7 usage is equivalent to 720 hours per month. Refer to the table on the [Kubernetes Service Catalog page](https://cloud.ibm.com/kubernetes/catalog/cluster){: external} for more details on cluster pricing.
+- **{{site.data.keyword.cloud_notm}} Kubernetes Service:** While you can link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to either an {{site.data.keyword.cloud_notm}} Kubernetes service cluster or an OpenShift cluster, this pricing model is based on the usage of an {{site.data.keyword.cloud_notm}} Kubernetes service cluster. The {{site.data.keyword.cloud_notm}} Kubernetes service uses a tiered pricing model that is visible in {{site.data.keyword.cloud_notm}} when you provision your paid cluster. This includes the charges for your compute, that is, CPU and memory. {{site.data.keyword.cloud_notm}} Kubernetes Services are priced on a tiered model that is based on the number of hours of usage per month. Therefore, when you examine pricing plans, consider that 24x7 usage is equivalent to 720 hours per month. Refer to the table on the [Kubernetes Service Catalog page](https://cloud.ibm.com/kubernetes/catalog/cluster){: external} for more details on cluster pricing. Customers who are interested in pricing OpenShift clusters can review [Red Hat OpenShift on {{site.data.keyword.cloud_notm}} Pricing](https://www.ibm.com/cloud/openshift/pricing).
 - **Storage:** Choose the storage plan that works for your needs. See [Understanding Kubernetes storage basics](/docs/containers?topic=containers-kube_concepts#kube_concepts) to learn more about your storage class options and how much they [cost](https://www.ibm.com/cloud/file-storage/pricing){: external}. The {{site.data.keyword.blockchainfull_notm}} Platform nodes use the default storage class for the cluster. When you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it is preconfigured with [Bronze level File storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass) as the persistent storage plug-in.
 - **Advanced features:** Options that are available for Production networks for increased security, disaster recovery, and health monitoring of the nodes. Costs vary depending on the options you choose.
 
@@ -108,7 +108,7 @@ When you allocate VPCs (or CPU) to a blockchain node, the node consumes CPUs fro
 ## Pricing examples
 {: #ibp-saas-pricing-scenarios}
 
-The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume the default CouchDB database is used as the peer database.
+The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume an {{site.data.keyword.cloud_notm}} Kubernetes service cluster and the default CouchDB database is used as the peer database.
 - The **Test network** scenario is suitable for getting started with your first use case with IBM Blockchain and testing smart contracts.
 - The **Join a network** scenario includes two peers, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
@@ -122,7 +122,7 @@ The following table provides two examples of pricing with [default resource allo
 |-|------------|-----------------------------|
 | **CPU allocation** |  1.65 vCPU <br> Includes: <br> - 1 peer (1.1 vCPU) <br> - 2 CAs (0.1 vCPU x 2) <br> - 1 ordering node (0.35 vCPU)| 4.5 vCPU<br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
 | **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 vCPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 vCPUx $0.29 USD/VPC-hr ) |
-| **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**    | $0.27 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) |
+| **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**   | $0.27 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) |
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
 | **Total hourly cost** | **$0.82 USD** | **$1.90 USD**| |
 {: caption="Table 1. Pricing examples for a test network and joining a network" caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-05-20"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -112,7 +112,7 @@ You can use the blockchain console to select which ACLs to apply to resources on
 ### API authentication
 {: #ibp-security-ibp-apis}
 
-In order to use the blockchain [APIs](https://cloud.ibm.com/apidocs/blockchain){: external} to create and manage network components, your application needs to be able to authenticate and connect to your network. See this topic on [API Authentication on IBM Cloud {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication) 
+In order to use the blockchain [APIs](https://cloud.ibm.com/apidocs/blockchain){: external} to create and manage network components, your application needs to be able to authenticate and connect to your network. See this topic on [API Authentication on {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication) 
 
 ## Best practices for security on the customer Kubernetes cluster
 {: #ibp-security-Kubernetes}
@@ -137,7 +137,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to dep
 The best place to start is to learn about the security features of the underlying Kubernetes infrastructure. The open source documentation provides a review of recommended practices for [securing a Kubernetes cluster](https://Kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/){: external}.
 
 
-If you are using {{site.data.keyword.cloud_notm}}, you can review the topic on [Security for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-security){: external}.
+If you are using {{site.data.keyword.cloud_notm}}, you can review the topic on Security for the [{{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-security){: external} or [Red Hat OpenShift on {{site.data.keyword.cloud_notm}}](/docs/openshift?topic=openshift-security).
 
 
 
@@ -161,6 +161,10 @@ If your configuration includes a network firewall, there are ports that need to 
 {: #ibp-security-Kubernetes-ports}
 
 {{site.data.keyword.blockchainfull_notm}} Platform exposes certain ports associated with each node type that are used by client applications, for example, when sending transactions to peers or the ordering service. If you have configured a firewall, you will need to expose these ports in your network for the transactions to reach their destination and for the nodes to be able to respond to the requests. {{site.data.keyword.blockchainfull_notm}} Platform supports the `HTTPS` IP Security protocol.
+
+If your {{site.data.keyword.blockchainfull_notm}} Platform instance is linked to an **OpenShift** cluster in {{site.data.keyword.cloud_notm}}, port `443` needs to be exposed.  
+
+If your {{site.data.keyword.blockchainfull_notm}} Platform instance is linked to an **{{site.data.keyword.cloud_notm}} Kubernetes service** cluster, use the following table to identify the ports that need to be exposed:
 
 | Port | Number | Description |
 |----------|---------|-------|

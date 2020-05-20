@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-20"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -77,7 +77,7 @@ Because only the private keys of node identities are secured in the HSM, when yo
 
 These instructions require that [Docker](https://docs.docker.com/install/){: external} is installed on the machine where the HSM client is running and that you are familiar with the process for building Docker images. They also presume you are comfortable with using the Kubernetes CLI to administer your Kubernetes cluster.
 
- If you are using the {{site.data.keyword.cloud_notm}} Kubernetes service and  {{site.data.keyword.cloud_notm}} HSM, both services need to be deployed from the same  {{site.data.keyword.cloud_notm}} account and on the same VLAN. If they are not on the same VLAN, then VLAN spanning must be enabled.
+ If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloud_notm}} HSM, both services need to be deployed from the same {{site.data.keyword.cloud_notm}} account and on the same VLAN. If they are not on the same VLAN, then VLAN spanning must be enabled.
 {: important}
 
 
@@ -511,7 +511,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. You could replace `<DOCKER-IMAGE>` with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io`.
 
-  If you are deploying to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](https://cloud.ibm.com/docs/containers?topic=containers-registry){: external}.
+  If you are deploying to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](https://cloud.ibm.com/docs/containers?topic=containers-registry){: external}.
 
 5. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, run the following commands using the Kubernetes CLI from your HSM client:
 

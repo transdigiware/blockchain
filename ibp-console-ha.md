@@ -35,7 +35,7 @@ High availability is a core discipline in an IT infrastructure to keep your apps
 You can achieve high availability on different levels in your IT infrastructure and within different layers of your cluster. The level of availability that is right for you depends on several factors, such as your business requirements, the Service Level Agreements that you have with your organizations, and the cost of redundancy.
 
 
-Before proceeding, we recommend that you learn more about HA on Kubernetes by reviewing [High availability for {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-ha){: external}.
+Before proceeding, we recommend that you learn more about HA on Kubernetes by reviewing High availability for the [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-ha){: external} or [OpenShift clusters](/docs/openshift?topic=openshift-ha){: external}.
 
 
 
@@ -138,10 +138,10 @@ The following table contains a list of options to consider as you plan for incre
 
    This scenario uses redundant peers, ordering nodes, and CA replica sets, across multiple worker nodes in a single cluster or zone, which protects against node failure, but cannot protect from a cluster or zone failure. Therefore, it is not recommended for production.
 
-### Multizone HA ({{site.data.keyword.cloud_notm}} Kubernetes service only) 
+### Multizone HA (Kubernetes cluster on {{site.data.keyword.cloud_notm}} only) 
 {: #ibp-console-ha-multi-zone}
 
-_This scenario only applies to customers using the {{site.data.keyword.cloud_notm}} Kubernetes Service._
+_This scenario only applies to customers using a Kubernetes cluster on {{site.data.keyword.cloud_notm}}._
 
 ![Blockchain HA single zone options](images/HA_Diagram_2.svg "Blockchain HA options"){: caption="Figure 2. Blockchain HA single zone options" caption-side="bottom"}
 
@@ -200,7 +200,7 @@ All nodes must be [stopped](#ibp-console-ha-stop-nodes) in order to ensure a rel
 
 | Storage solution provider | Guidance |
 |----------|---------|
-| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-utilities#ibmcloud-backup-restore){: external}. |
+| {{site.data.keyword.cloud_notm}} storage solution | You can leverage the [capability provided by {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-utilities#ibmcloud-backup-restore){: external} or [OpenShift](/docs/openshift?topic=openshift-utilities#ibmcloud-backup-restore){: external}. |
 | Portworx | While a [snapshot capability](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/ibm/#prerequisites){: external} is available for taking backups, in order to get a reliable backup, the nodes must be stopped. |
 {: caption="Table 2. Backup recommendations for storage" caption-side="top"}
 

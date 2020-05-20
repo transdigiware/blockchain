@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-20"
 
 keywords: IBM Blockchain Platform offerings, VS code extension, IBM Cloud
 
@@ -36,7 +36,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 
 | |{{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.3) | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} |
 |----|---|----|
-| Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public or hybrid multicloud <br><br> See [Supported Platforms](/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about#console-ocp-about-prerequisites) | An {{site.data.keyword.IBM_notm}} Kubernetes Service cluster on {{site.data.keyword.cloud_notm}} <br><br> See [Supported configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg) |  
+| Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public or hybrid multicloud <br><br> See [Supported Platforms](/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about#console-ocp-about-prerequisites) | A Kubernetes cluster on {{site.data.keyword.cloud_notm}} <br><br> See [Supported configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg) |  
 | What are my deployment options? | <ul><li> Full platform </li> <li> [Only {{site.data.keyword.blockchainfull_notm}} images](#get-started-ibp-images) </li> </ul>| <ul><li> Full platform </li> </ul>
 | How is it billed? |Contact us for [pricing](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-sw-pricing) |[$0.29 USD per allocated CPU hour](/docs/blockchain?topic=blockchain-ibp-saas-pricing)  |
 | Can I connect with Peers in other clouds? |  Yes| Yes |

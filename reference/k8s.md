@@ -20,15 +20,14 @@ subcollection: blockchain
 # Kubernetes
 {: #k8s-overview}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform allows you to provision blockchain components into your {{site.data.keyword.cloud_notm}} Kubernetes cluster. Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+The {{site.data.keyword.blockchainfull_notm}} Platform allows you to provision blockchain components into your Kubernetes cluster. Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
 {:shortdesc}
 
 Kubernetes provides a container-centric management environment. It orchestrates computing, networking, and storage infrastructure on behalf of user workloads. This provides much of the simplicity of Platform as a Service (PaaS) with the flexibility of Infrastructure as a Service (IaaS), and enables portability across infrastructure providers.
 
 The following diagram explains the architecture of Kubernetes. For more explanation about nodes, containers, and pod, see the [Key Kubernetes objects](#k8s-overview-key-obj) section below.
 
-![Kubernetes architecture diagram](../images/k8s-archi-diagram.svg "{{site.data.keyword.cloud_notm}} Kubernetes Service architecture"){: caption="Figure 1. Kubernetes architecture diagram" caption-side="bottom"}
-
+![Kubernetes architecture diagram](../images/k8s-archi-diagram.svg "Kubernetes architecture diagram"){: caption="Figure 1. Kubernetes architecture diagram" caption-side="bottom"}
 
 ## Key Kubernetes objects
 {: #k8s-overview-key-obj}
@@ -49,6 +48,7 @@ The following diagram explains the architecture of Kubernetes. For more explanat
 
   The smallest and simplest Kubernetes object. A Pod represents a set of running containers on your cluster. A Pod is typically set up to run a single primary container. It can also run optional sidecar containers that add supplementary features like logging. Pods are commonly managed by a Deployment. For more information, see the [Kubernetes Pod section](https://kubernetes.io/docs/concepts/workloads/pods/pod/){: external} in the Kubernetes documentation.
 
+
 ## {{site.data.keyword.cloud_notm}} Kubernetes Service
 {: #k8s-overview-iks}
 
@@ -58,3 +58,4 @@ For more information about {{site.data.keyword.cloud_notm}} Kubernetes Service, 
 - [Understanding the IBM Cloud Kubernetes Service](/docs/containers?topic=containers-overview#service-concepts){: external}
 - [Why {{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/containers?topic=containers-cs_ov#cs_ov){: external}
 - [Defining your Kubernetes strategy](/docs/containers?topic=containers-strategy#strategy){: external}
+

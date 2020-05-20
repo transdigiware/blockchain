@@ -181,7 +181,7 @@ With this patch, you now have the ability to upload additional admin identities 
 
 **Select peer zone** ({{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} only)  
 
-If multiple zones are configured in your {{site.data.keyword.cloud_notm}} Kubernetes cluster, you can now use the console UI to select the zone where the peer is deployed. This capability is important if you are configuring [multizone HA for peers](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone).
+If multiple zones are configured in your Kubernetes cluster on {{site.data.keyword.cloud_notm}}, you can now use the console UI to select the zone where the peer is deployed. This capability is important if you are configuring [multizone HA for peers](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone).
 
 **Peer database support now includes LevelDB**
 
