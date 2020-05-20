@@ -175,7 +175,7 @@ Yes. The Raft ordering service nodes are configured to use TLS communication. TL
 
 
 ## How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?
-{: #ibp-v2-faq-cloud-pricing)
+{: #ibp-v2-faq-cloud-pricing}
 {: faq}
 {: support}
 

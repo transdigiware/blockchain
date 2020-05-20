@@ -35,7 +35,7 @@ High availability is a core discipline in an IT infrastructure to keep your apps
 You can achieve high availability on different levels in your IT infrastructure and within different layers of your cluster. The level of availability that is right for you depends on several factors, such as your business requirements, the Service Level Agreements that you have with your organizations, and the cost of redundancy.
 
 
-Before proceeding, we recommend that you learn more about HA on Kubernetes by reviewing High availability for the [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-ha){: external} or [OpenShift clusters](/docs/openshift?topic=openshift-ha){: external}.
+Before proceeding, we recommend that you learn more about HA on Kubernetes by reviewing High availability for the [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-ha){: external} or [OpenShift cluster](/docs/openshift?topic=openshift-ha){: external}.
 
 
 

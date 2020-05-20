@@ -166,7 +166,7 @@ The {{site.data.keyword.IBM_notm}} Kubernetes service offers a free cluster that
 
 For instructions on what to do when your Kubernetes cluster expires, see this topic on [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
 
-## Create a {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}
+## Create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks-create-service-instance}
 
 Once you have a Kubernetes cluster on {{site.data.keyword.cloud_notm}} deployed, you're ready to deploy to create a service instance of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
@@ -185,7 +185,7 @@ Creating a {{site.data.keyword.blockchainfull_notm}} Platform service instance i
 4. You can leave the resource group and tags fields unchanged.
 5. Click **Create** to provision the service instance.
 
-## Step two: Link the instance to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}
+### Step two: Link the instance to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks-steps}
 
 After you click **Create** to create your service instance, you'll be taken to the panel where you can link your service instance to your cluster.
@@ -209,7 +209,7 @@ The following illustration shows how the {{site.data.keyword.blockchainfull_notm
 - **App containers**: Containers are created inside the pods for each node that is deployed.
 - **Persistent Storage**: Storage for each node is dynamically provisioned from the Kubernetes cluster `default` storage class every time a node is deployed.
 
-It might take a few minutes for console to finish being linked to your cluster. When the linking process has finished, you'll see a button saying **Launch the IBM Blockchain Platform console**. If you click this link, you will be taken to the console.
+It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, you'll see a button saying **Launch the IBM Blockchain Platform console**. If you click this link, you will be taken to the console.
 
 ## (Optional) Add additional users to the console
 {: #ibp-v2-deploy-iks-add-users}
@@ -227,9 +227,7 @@ Consider bookmarking the url of your console so you can come back at a later tim
 ## Updating the Kubernetes version of your cluster
 {: #ibp-v2-deploy-iks-updating-kubernetes}
 
-If you use an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}, ensure that it is running Kubernetes v1.14-v1.17.
-
-For information about updating an OpenShift cluster, see [Updating clusters](https://docs.openshift.com/container-platform/4.3/updating/updating-cluster-between-minor.html){: external}.
+If you use an existing {{site.data.keyword.cloud_notm}} Kubernetes service cluster, ensure that it is running Kubernetes v1.14-v1.17.
 
 You can check the Kubernetes version of your cluster in the [Kubernetes clusters page](https://cloud.ibm.com/kubernetes/clusters){: external} on {{site.data.keyword.cloud_notm}}, which lists all your clusters in a table.
 
