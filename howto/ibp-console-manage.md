@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-05-20"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -32,7 +32,7 @@ There are various actions that you can take to manage your console behavior. Thi
 ## Refreshing your console
 {: #ibp-console-refresh}
 
-If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull_notm}} Platform` on the Welcome back panel, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}}.  It can also be used to upgrade to a newer release of the console, if one is available.
+If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull_notm}} Platform` on the Welcome back panel, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. It can also be used to upgrade to a newer release of the console, if one is available.
 
 To access this button:
 1. Log in to {{site.data.keyword.cloud_notm}} and  open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. Ensure that you log in with your {{site.data.keyword.IBM_notm}} ID.
@@ -111,7 +111,7 @@ When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you
 ### Viewing your console logs
 {: #ibp-console-manage-console-logs}
 
-You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), which are collected by the {{site.data.keyword.cloud_notm}} Kubernetes Service.
+You can easily access the console logs if you need to debug problems that you encounter when you use the console or operate your nodes. You can also set the logging level to increase or decrease the amount of logs that the console collects. The console logs are collected separately from the [node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), which are collected by Kubernetes.
 
 Navigate to the **Settings** tab in the console browser to change the logging settings. The console logs are collected from two separate sources:
 
@@ -125,7 +125,10 @@ You can view only the console logs if you are logged in as a console administrat
 ### Viewing your node logs
 {: #ibp-console-manage-console-node-logs}
 
-The logs of your peers, ordering nodes, and Certificate Authorities are collected by the {{site.data.keyword.IBM_notm}} Kubernetes Service. Use the steps below to view the logs of your nodes from the cluster where you deployed your {{site.data.keyword.blockchainfull_notm}} Platform network.
+The logs of your peers, ordering nodes, and Certificate Authorities (CAs) are collected by the {{site.data.keyword.IBM_notm}} Kubernetes Service or Red Hat OpenShift. Use the steps below to view the logs of your nodes from the cluster where you deployed your {{site.data.keyword.blockchainfull_notm}} Platform network based on the type of cluster you are using.
+
+#### Viewing nodes logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
+{: #ibp-console-manage-console-node-logs-iks}
 
 To more easily locate your node logs, it is recommended to filter on the namespace that was used when the nodes were deployed. To find the namespace, open any CA node in your console and click the **Settings** icon. View the value of the **Certificate Authority endpoint URL**. For example: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
@@ -137,18 +140,52 @@ The namespace is the first part of the url beginning with the letter `n` and fol
 4. On the left navigation, click **Pods** to view the list of node pods that you have deployed.
 5. Click on a pod. Then click **Logs** on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
 
-By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see [Logging and monitoring for the {{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that allows you to easily parse the logs in real time. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
+#### Viewing nodes logs on a Red Hat OpenShift 3.11 cluster
+{: #ibp-console-manage-console-node-logs-ocp311}
+
+When you need to see the logs for a specific node:
+
+1. From your OpenShift web console, switch to the **Application console** view and select your project.
+2. Click **Applications** > **Pods**. You can see your blockchain nodes listed.
+3. Click the node that you need to see the logs for and then click the **Logs** tab.
+
+#### Viewing nodes logs on a Red Hat OpenShift 4.3 cluster
+{: #ibp-console-manage-console-node-logs-ocp43}
+
+See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-viewing.html#cluster-logging-viewing-logs-console_cluster-logging-viewing){: external}.
 
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
 If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue:
 
-- Open your Kubernetes dashboard, filter on your [namespace](#ibp-console-manage-console-node-logs), and click the peer pod where the smart contract is running.
-- Click the `Logs` link from your dashboard. By default it points to peer container.
-- Switch to the `fluentd` container by selecting it from the drop-down list.  
+#### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
+{: #ibp-console-manage-console-container-logs-iks}
+
+1. Open your Kubernetes dashboard, filter on your [namespace](#ibp-console-manage-console-node-logs), and click the peer pod where the smart contract is running.
+2. Click the `Logs` link from your dashboard. By default it points to peer container.
+3. Switch to the `dind` container by selecting it from the drop-down list.  
 
 All of your smart contract logs are visible in this window and can be downloaded using the download icon on the panel.
+
+#### Viewing smart contract logs on a Red Hat OpenShift 3.11 cluster
+{: #ibp-console-manage-console-container-logs-ocp311}
+
+1. From your OpenShift web console, switch to the **Application console** view and select your project.
+2. Click **Applications** > **Pods**. You can see your blockchain nodes listed.
+3. Click the node that you need to see the logs for and then click the **Logs** tab.
+4. Because the smart contracts are deployed to the `dind` container in the peer pod, select the `dind` container from the drop-down list.
+
+#### Viewing smart contract logs on a Red Hat OpenShift 4.3 cluster
+{: #ibp-console-manage-console-container-logs-ocp43}
+
+See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-viewing.html#cluster-logging-viewing-logs-console_cluster-logging-viewing){: external}. Access the logs for the peer pod where the smart contract is running and select the `dind` container.
+
+### Using LogDNA to view the node logs
+{: #ibp-console-manage-console-logdna}
+
+By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see Logging and monitoring cluster health for the [{{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external} or [OpenShift](/docs/openshift?topic=openshift-health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that
+allows you to easily parse the logs in real time. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Installing patches for your nodes
 {: #ibp-console-manage-patch}
@@ -163,7 +200,7 @@ To apply a patch to a node, open the node tile and click the **Install patch** b
 ## Kubernetes cluster expiration
 {: #ibp-console-manage-console-cluster-expiration}
 
-If you are using a free {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, it will expire after 30 days. When this happens, you can no longer access your console. All of the associated nodes and certificates are deleted as well. You can have only one free cluster at a time. Therefore, before you can create another blockchain service instance, you need to ensure that the expired cluster and its associated service instance have been deleted from {{site.data.keyword.cloud_notm}}. To confirm if they have already been deleted or to manually delete these resources, follow these steps:
+If you are using a free {{site.data.keyword.cloud_notm}} Kubernetes service cluster, it will expire after 30 days. When this happens, you can no longer access your console. All of the associated nodes and certificates are deleted as well. You can have only one free cluster at a time. Therefore, before you can create another blockchain service instance, you need to ensure that the expired cluster and its associated service instance have been deleted from {{site.data.keyword.cloud_notm}}. To confirm if they have already been deleted or to manually delete these resources, follow these steps:
 
 1. In your {{site.data.keyword.cloud_notm}} dashboard, click the hamburger menu and open the **Resource List**.
 2. Scroll to the **Services** twistie and expand it to view your service instance.

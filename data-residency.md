@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-05-20"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -108,7 +108,7 @@ Creating a channel with all of the components in one country ensures that all of
 {: #console-icp-about-data-residency-considerations}
 
 
-When you create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}, you need to link the service instance to your {{site.data.keyword.cloud_notm}} Kubernetes cluster. No ledger data is ever transmitted to the blockchain service instance that is running in {{site.data.keyword.cloud_notm}}.
+When you create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}, you need to link the service instance to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. No ledger data is ever transmitted to the blockchain service instance that is running in {{site.data.keyword.cloud_notm}}.
 
 
 When you use your console to view the channel details, ledger data is visible in your browser. The ledger data is transmitted directly from the Kubernetes cluster to your browser.

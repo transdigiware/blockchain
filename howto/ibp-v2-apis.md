@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-20"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -174,7 +174,7 @@ for more information.
 If you are using a multizone cluster, you can use the APIs to deploy a blockchain component to a specific zone of {{site.data.keyword.cloud_notm}}. This allows your network to maintain availability in the event of a zone failure. You can use the following steps to deploy a peer or ordering node to a specific zone.
 
 
-1. Find the zones that your worker nodes are located. Navigate to the overview screen of your multizone cluster on the [{{site.data.keyword.cloud_notm}} Kubernetes service on {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/kubernetes/clusters){: external}. From the cluster overview screen, click **Worker Nodes** to see a table of all the worker nodes in your cluster. You can find the zone where each worker node is located in the **Zone** column of the table.
+1. Find the zones that your worker nodes are located. Navigate to the [Kubernetes service](https://cloud.ibm.com/kubernetes/clusters){: external} or [OpenShift](https://cloud.ibm.com/kubernetes/clusters?platformType=openshift){: external} cluster overview screen of your multizone cluster on {{site.data.keyword.cloud_notm}}. From the cluster overview screen, select your cluster and click **Worker Nodes** to see a table of all the worker nodes in your cluster. You can find the zone where each worker node is located in the **Zone** column of the table.
 
   You can also find the zones of your worker nodes by using the kubectl CLI. Navigate to the **Access** panel and follow the instructions under **Gain access to your cluster** to connect to your cluster by using the {{site.data.keyword.cloud_notm}} and kubectl CLI tools. When you are connected, use the command `kubectl get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `zone` field under the `LABELS` column.
 
@@ -274,7 +274,7 @@ For more information about deploying a customized CA, and which fields you can c
 
 You can use configuration override to deploy a CA with replica sets that share the same database, ensuring that the data is consistent between replicas. This configuration ensures that the CA will be available in the event of a Kubernetes worker node failure. To deploy an HA CA, you need to deploy a PostgreSQL database on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to use the information about your database to create a connection file that will be used by your CA. For more information, see [Building a high availability Certificate Authority](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca#ibp-console-build-ha-ca).
 
-To use the APIs to deploy an HA CA, you need to provide the database connection file to the `"db"` section of the config override JSON string. For example, the API request below will a CA with two replicas that connect to a database located on {{site.data.keyword.cloud_notm}}.
+To use the APIs to deploy an HA CA, you need to provide the database connection file to the `"db"` section of the config override JSON string. For example, the API request below will deploy a CA with two replicas that connect to a database located on {{site.data.keyword.cloud_notm}}.
 ```
 curl -X POST \
   https://<API endpoint>/ak/api/v2/kubernetes/components/fabric-ca \

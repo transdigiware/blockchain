@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2019-10-03"
+lastupdated: "2020-05-20"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -22,6 +22,13 @@ subcollection: blockchain
 # What's new
 {: #whats-new}
 
+## May 20, 2020
+{: #whats-new-05-20-2020}
+
+In addition to being able to link your {{site.data.keyword.blockchainfull}} Platform instance to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, you can now also link your platform service instance to a Red Hat OpenShift cluster that is running in {{site.data.keyword.cloud_notm}}. The process is identical, the only difference is that when you link a cluster, you can now select your OpenShift cluster from the list of available clusters. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks) to review the deployment process.
+
+If you are an Enterprise customer who is migrating to the {{site.data.keyword.blockchainfull_notm}} Platform, you must link your blockchain service instance to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster. OpenShift clusters are not supported for Enterprise migration.
+{: note}
 
 ## March 24, 2020
 {: #whats-new-03-24-2020}

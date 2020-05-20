@@ -45,7 +45,7 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
-- [Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
+- [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
 
 **Issues with your Nodes**  
 
@@ -61,9 +61,9 @@ This topic describes common issues that can occur when using the {{site.data.key
 
 **Issues on {{site.data.keyword.cloud_notm}}**  
 
-- [My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
-- [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
-- [After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
+- [My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?](#ibp-v2-troubleshooting-cluster-expired)
+- [After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
+- [After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
 
 **Issues with upgrading your Enterprise Plan network**  
 
@@ -253,12 +253,12 @@ If your session has become inactive, you can try simply refreshing your browser.
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
 
-## Why am I getting a `Cluster linking is taking too long` error when I try to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
+## Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
 {: #ibp-v2-troubleshooting-console-helm-reset}
 {: troubleshoot}
 {: support}
 
-After attempting to link my {{site.data.keyword.cloud_notm}} Kubernetes Service cluster to my {{site.data.keyword.blockchainfull_notm}} Platform service instance, it fails with the error `Cluster linking is taking too long`.
+After attempting to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance, it fails with the error `Cluster linking is taking too long`.
 {: tsSymptoms}
 
 This issue can occur when your cluster is busy processing other requests and does not respond to the linking request in a timely matter.
@@ -450,7 +450,7 @@ This error occurs when the peer's enroll id type does not match the smart contra
 The only way to resolve this error is to delete the peer and create a new one with an enroll id that has the correct type `peer`. You can use the enroll id and secret from an existing user of type `peer` from the peer's CA or register a new user with type `peer`. Follow the instructions in the [Build a network tutorial](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to create a new peer identity with the correct type and peer.
 {: tsResolve}
 
-## My {{site.data.keyword.cloud_notm}} Kubernetes cluster expired. What does this mean?
+## My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?
 {: #ibp-v2-troubleshooting-cluster-expired}
 {: troubleshoot}
 
@@ -463,12 +463,12 @@ Free Kubernetes clusters are only valid for 30 days.
 It is not possible to migrate from a free cluster to a paid cluster. After 30 days you cannot access the console and all of your nodes and certificates are deleted. See this topic on [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration) for information on what is happening and what you can do.
 {: tsResolve}
 
-## After I deploy a node in the console, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has unbound immediate persistent volume claims. Is this an error?
+## After I deploy a node in the console, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has unbound immediate persistent volume claims. Is this an error?
 {: #ibp-v2-troubleshooting-unbound-persistent-volume-claim}
 {: troubleshoot}
 {: support}
 
-I see what looks like an error in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that a pod has unbound immediate persistent volume claims and am worried that my node has failed to deploy.
+I see what looks like an error in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that a pod has unbound immediate persistent volume claims and am worried that my node has failed to deploy.
 {: tsSymptoms}
 
 More time is needed for the node to come up.
@@ -477,11 +477,11 @@ More time is needed for the node to come up.
 Unbound immediate persistent volume claims are a normal part of the deployment process for any node, reflecting that the persistent volume claim has been made but that the node itself has not yet deployed. Wait a few minutes for the node to deploy.
 {: tsResolve}
 
-## After I deploy a node, I'm seeing a message in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff. Is this an error?
+## After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?
 {: #ibp-v2-troubleshooting-crash-loop-backoff}
 {: troubleshoot}
 
-I see an error in my {{site.data.keyword.cloud_notm}} Kubernetes cluster reporting that the pod has hit a crash loop backoff and am worried that my node has failed to deploy.
+I see an error in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff and am worried that my node has failed to deploy.
 
 This node has failed to deploy.
 {: tsCauses}

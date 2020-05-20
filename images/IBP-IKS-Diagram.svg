@@ -146,7 +146,7 @@
             <tspan x="1251.05361" y="77">Infrastructure resources</tspan>
         </text>
         <text id="IBM-Cloud-Kubernetes" font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="37.07" font-weight="500" fill="#FFFFFF">
-            <tspan x="1402.04529" y="177">IBM Cloud Kubernetes Service</tspan>
+            <tspan x="1402.04529" y="177">Kubernetes cluster on IBM Cloud</tspan>
         </text>
         <text id="Your-compute-and-mem" font-family="IBMPlexSans, IBM Plex Sans" font-size="28.07" font-weight="normal" fill="#FFFFFF">
             <tspan x="1402" y="222">Your compute and memory that you allocate to your</tspan>
