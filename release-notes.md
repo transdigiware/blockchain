@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-20"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -42,7 +42,7 @@ You now have the option to configure an intermediate CA using the console or API
 ### Updated connection profile
 {: #05-20-2020-connx-profile}
 
-The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations) to learn how.
+The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) to learn how.
 
 
 
