@@ -257,8 +257,6 @@ You can use the **Select Chaincode File** button to upload a chaincode from your
 All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to install and instantiate your chaincode.
 {: important}
 
-If you encounter a problem migrating your chaincode to your peers {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you need to follow the steps in this [troubleshooting topic](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-upgrade-tool) to retry the chaincode migration.
-
 ### Step Two: Upgrade to the migrated chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
 
 In order to invoke the chaincode on your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 peers, you need to upgrade the chaincode that is instantiated on the channel to the version installed by the upgrade tool. Make sure that all of the members of the channel have used the upgrade tool to migrate the chaincode to the same chaincode version. This may require additional coordination if you frequently upgrade your chaincode using an automated process. When all of the members of your channel are ready, you can upgrade the chaincode by using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console.
@@ -266,6 +264,8 @@ In order to invoke the chaincode on your {{site.data.keyword.blockchainfull_notm
 In order to upgrade the chaincode, you need to import the ordering service JSON file into your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. The organization that migrated the ordering service, PeerOrg1, needs to send you this file in an out of band operation. For more information, see [How to import an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-orderer-process). You can skip this step if you are upgrading the chaincode as the organization that migrated the ordering service.
 
 Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and navigate to the smart contracts tab. Scroll down to the **Instantiated smart contracts** table and find the migrated chaincode. Click **Upgrade** from the network menu on the right side of the row. The chaincode takes a few minutes to upgrade. For more information, see [Deploy a smart contract on the network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts). Only one network member needs to use the console to upgrade the chaincode. After you migrate the chaincode you can continue to upgrade your chaincode using the upgrade tool or the Fabric SDKs. However, you can no longer use the Network Monitor or the APIs to upgrade chaincode.
+
+If you encounter an error starting the chaincode container when you upgrade your chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform console, you need to follow the steps in this [troubleshooting topic](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-upgrade-tool) to retry the chaincode migration.
 
 ### Step Three: Connect to the smart contract with the SDK
 
