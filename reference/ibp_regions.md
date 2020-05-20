@@ -38,7 +38,8 @@ To deploy the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data
 
   ![Kubernetes cluster on {{site.data.keyword.cloud_notm}} locations](../images/ibp_v2_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform {{site.data.keyword.cloud_notm}} locations"){: caption="Figure 1. Kubernetes cluster on {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 
-2. After you deploy a cluster on {{site.data.keyword.cloud_notm}}, you need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform. The {{site.data.keyword.blockchainfull_notm}} Platform operational tooling can be deployed in each of the regions in the table below:  
+2. After you deploy a cluster on {{site.data.keyword.cloud_notm}}, you need to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform. The {{site.data.keyword.blockchainfull_notm}} Platform operational tooling can be deployed in each of the regions in the table below:
+
 | Geography | Country | {{site.data.keyword.blockchainfull_notm}} Platform operational tools region |
 |-----|-----|-----|
 | Asia Pacific | Australia | Sydney |
