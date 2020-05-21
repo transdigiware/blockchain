@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-05-21"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
@@ -202,7 +202,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform has been certified on:
 - ISO/IEC 27017
 - ISO/IEC 27018
 
-For more information, refer to the [{{site.data.keyword.cloud_notm}} Global compliance program](https://www.ibm.com/cloud/compliance/globalView) and view the full [listing](https://www.ibm.com/downloads/cas/OELMNOND) of {{site.data.keyword.cloud_notm}} services certified with ISO 27001, 27017, and 27018.
+For more information, refer to the [{{site.data.keyword.cloud_notm}} Global compliance program](https://www.ibm.com/cloud/compliance) and view the full [listing](https://www.ibm.com/downloads/cas/OELMNOND) of {{site.data.keyword.cloud_notm}} services certified with ISO 27001, 27017, and 27018.
 
 ## Getting support
 {: #ibp-console-overview-support}
