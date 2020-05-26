@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-05-21"
 
 keywords: IBM Blockchain Platform, video series, videos, getting started videos, demo videos
 
@@ -19,6 +19,8 @@ subcollection: blockchain
 {:tip: .tip}
 {:note: .note}
 {:download: .download}
+
+
 
 # {{site.data.keyword.blockchainfull_notm}} Platform getting started videos
 {: #ibp-videos}

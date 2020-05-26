@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-05-26"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -59,13 +59,13 @@ For more information about how certificate authorities are used to establish ide
 
 Many distributed blockchains, such as Ethereum and Bitcoin, feature systems in which any node can participate in the process where transactions are ordered and bundled into blocks. Because of this fact, these systems rely on probabilistic consensus algorithms that eventually guarantee ledger consistency to a high degree of probability, but are still vulnerable to divergent ledgers (also known as a ledger “fork”), where different participants in the network have a different view of the accepted order of transactions.
 
-Hyperledger Fabric works differently. It features a kind of a node that relies on deterministic consensus algorithms that is called an orderer, also known as an “ordering node”, that does this transaction ordering. The collection of ordering nodes form the "ordering service".
+Hyperledger Fabric works differently. It features a kind of a node that relies on deterministic consensus algorithms that is called an “ordering node” or an "orderer", that does this transaction ordering. The collection of ordering nodes form the "ordering service".
 
 In addition to promoting finality, separating the endorsement of smart contract execution (which happens at the peers) from ordering gives Fabric advantages in performance and scalability, eliminating bottlenecks that can occur when execution and ordering are performed by the same nodes.
 
 The ordering service performs one other key function: it maintains what is known as the "system channel", a default channel that hosts the "consortium", the list of organizations that can create and join application channels. Because some aspects of the configuration of application channels are inherited by default from the system channel (certain capability levels, for example), it is the job of ordering service admins to establish these defaults. Note however that the ordering service organization can add additional administrating organizations to the system channel.
 
-The {{site.data.keyword.blockchainfull_notm}} Platform uses an implementation of the Raft protocol, in which a leader node is dynamically elected among the ordering nodes in a channel (this collection of nodes is known as the “consenter set”), and that leader replicates messages to the follower nodes. Because the system can sustain the loss of nodes, including leader nodes, as long as there is a majority of ordering nodes (what’s known as a “quorum”) remaining, Raft is said to be “crash fault tolerant” (CFT). In the {{site.data.keyword.blockchainfull_notm}} Platform, users have the ability to select a single node ordering service or a five node ordering service.
+The {{site.data.keyword.blockchainfull_notm}} Platform uses an implementation of the Raft protocol, in which a leader node is dynamically elected among the ordering nodes in a channel (this collection of nodes is known as the “consenter set”), and that leader replicates messages to the follower nodes. Because the system can sustain the loss of nodes, including leader nodes, as long as there is a majority of ordering nodes (what’s known as a “quorum”) remaining, Raft is said to be “crash fault tolerant” (CFT). In the {{site.data.keyword.blockchainfull_notm}} Platform, users have the ability to select a single node ordering service or a five node ordering service, though it is possible to add or remove nodes from an ordering service and from channels later on. Similarly, it is possible for either one organization or multiple organizations to manage the ordering service and contribute nodes.
 
 For more information about the ordering service, see [The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html){: external}.
 
