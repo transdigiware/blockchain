@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-21"
+lastupdated: "2020-05-26"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -287,11 +287,6 @@ Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} com
 {: #ibp-console-storage-provision}
 
 If you are linking to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}, review the topic on [Planning highly available persistent storage](/docs/openshift?topic=openshift-storage){: external}. If you are linking to an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, you can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. In both cases, you need to provision persistent storage. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in your Kubernetes cluster on {{site.data.keyword.cloud_notm}} use file storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
-
-### Multizone-capable storage
-{: #ibp-console-storage-multizone}
-
-
 
 ### Configuring a custom storage class
 {: #ibp-console-storage-custom}

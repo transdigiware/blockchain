@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-05-26"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -27,6 +27,8 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
 
+
+
 ## 20 May 2020
 {: #05-20-2020}
 
@@ -48,7 +50,6 @@ You now have the option to configure an intermediate CA using the console or API
 {: #05-20-2020-connx-profile}
 
 The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) to learn how.
-
 
 
 
