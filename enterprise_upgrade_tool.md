@@ -86,7 +86,6 @@ When you use the upgrade tool to create your peer and orderer nodes on the new p
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
-| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 
 {: caption="Table 1. Default resources for nodes on IBM Blockchain Platform 2.0" caption-side="bottom"}
 

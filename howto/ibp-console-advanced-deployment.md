@@ -71,7 +71,6 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
-| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
 ** Actual VPC allocations are visible in the blockchain console when a node is deployed.
