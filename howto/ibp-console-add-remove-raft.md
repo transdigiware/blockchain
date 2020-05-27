@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-17"
+lastupdated: "2020-05-27"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -189,4 +189,11 @@ If a user wants to delete an ordering node, it must first remove the node from a
 As a result, when you delete a node, a check is performed to see if it is a consenter on any channels. If it is, you will not be able to delete the node until it has been removed as a consenter from all channels. After removing the node as a consenter from all channels, you will be able to delete the node by clicking the trash can icon. Note that this action will have to be taken in the console where the node was created.
 
 As part of this same process, make sure to reach out to the other console operators to let them know that the node has been deleted so they can remove the tile from their console.
+
+
+Note: if you remove all of the ordering nodes that originally formed the consenter set of a channel, you might have to create a mapping from the old ordering nodes to the new nodes by editing the configuration of any new peers you attempt to join to the channel. For more information, see [Mapping to existing ordering nodes](/docs/blockchain?topic=blockchain-orderer-mapping).
+{: important}
+
+
+
 
