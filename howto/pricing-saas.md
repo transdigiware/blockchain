@@ -144,9 +144,11 @@ The values in the following table are useful to estimate the hourly cost of your
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer **                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|| **CA**                         | 0.1           | 0.2                   | 20                     |
+| **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
+| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
