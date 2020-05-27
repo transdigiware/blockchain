@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-05-27"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
