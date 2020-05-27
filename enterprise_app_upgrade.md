@@ -78,9 +78,6 @@ After you upgrade the Fabric SDK, you can update your application to take advant
 After you upgrade the Fabric SDK to version 1.4.5, you can update your application to take advantage of the [Service Discovery Feature](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} of Hyperledger Fabric. Configuring service discovery makes it easier to upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.0. As a result, it is recommended that you update your application before you start using the upgrade tool.
 {: java}
 
-To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor) in the Node SDK documentation for more information.
-{: tip}
-
 Service discovery allows your applications to dynamically find the peer and ordering endpoints of your network. If you do not use service discovery, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.
 
 You can start using service discovery by updating your application code before the upgrade process. After you use the upgrade tool to create nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0, you can download a connection profile from the new platform and import it into your application using the SDK. Your application will use service discovery to find all of the peers and ordering nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 and Enterprise Plan. Because the connection profile provided by the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console assumes that your application uses service discovery, updating your application prepares your application for long-term use of the new platform.
@@ -90,6 +87,9 @@ You can use one of two ways to update your application:
 - If you want to make minimal updates to your application before using the upgrade tool, you can use the low-level Fabric SDK APIs to use service discovery. For more information, see [Patch your applications to use service discovery with the low-level APIs](#enterprise-upgrade-applications-patch).
 
 If you cannot update your applications to use service discovery, you need to [manually update your application or connection profile](#enterprise-upgrade-applications-manual) during the upgrade.
+
+To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor) in the Node SDK documentation for more information.
+{: tip}
 
 ### Option one: Update your application to use the new Fabric SDK programming model
 {: #enterprise-upgrade-applications-new-apis}
