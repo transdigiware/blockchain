@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-28"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -30,10 +30,59 @@ The {{site.data.keyword.blockchainfull}} Platform Visual Studio (VS) Code extens
 
 
 
+
+
+
+
+
+
 The {{site.data.keyword.blockchainfull_notm}} Platform extension works seamlessly with any instance of the {{site.data.keyword.blockchainfull_notm}} Platform that uses Hyperledger Fabric versions 1.4 and later. This tutorial is oriented toward users of the high-level Fabric smart contract programming model. If you are using low level smart contract APIs, you can find additional instructions in the [{{site.data.keyword.blockchainfull_notm}} Platform extension documentation](https://github.com/IBM-Blockchain/blockchain-vscode-extension/blob/master/README.md). You can also debug smart contracts by running a local Fabric peer in devmode. For more information, see the [Chaincode for developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html) tutorial in the Fabric documentation.
 {: note}
 
-## Step one: Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension for free
+## Before you begin
+{: #develop-vscode-before}
+
+
+<img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f1b2" src="../images/rh-crw.png" width="750" alt="Red Hat code ready workspaces." style="width:750px;" />
+<map name="home_map1" id="home_map1">
+<area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw" alt="Deploy a code ready workspace" title="Deploy a code ready workspace" shape="rect" coords="10,5,342,469" />
+
+<img usemap="#home_map2" border="0" class="image" id="image_ztx_crb_f1b2" src="../images/visual-studio.png" width="750" alt="VSCode in Visual Studio Marketplace." style="width:750px;" />
+<map name="home_map2" id="home_map2">
+<area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-install" alt="VSCode in Visual Studio Marketplace." title="VSCode in Visual Studio Marketplace." shape="rect" coords="565,149,943,719" />
+
+
+<img usemap="#home_map3" border="0" class="image" src="../images/rh-crw.png" alt="Deploy a code ready workspace."/>
+<map name="#home_map3">
+    <area target="" alt="Deploy a code ready workspace" title="Deploy a code ready workspace" href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw" coords="5,3,171,262" shape="rect">
+</map>
+
+<table summary="The table shows two options for using vsCode. Rows are to be read from the left to right, with icons representing each option in column one and the description in column two.">
+<caption>Deployment options</caption>
+  <thead>
+  <th colspan=2>Deployment options</th>
+  </thead>
+  <tbody>
+    <tr>
+    <td align="center"><img src="../images/rh-crw.png" alt="Icon of Red Hat Code Ready workspaces"/><br>Red Hat Code Ready Workspaces</td>
+    <td><ul>
+    <li>[Red Hat Code Ready workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw)</li>
+    </li>
+    </ul></td>
+     </tr>
+     <tr>
+     <td align="center"><img src="../images/visual-studio.png" alt="Icon of VSCode in Visual Studio Marketplace"/><br>VSCode in Visual Studio Marketplace</td>
+     <td><ul>
+    <li>[Deploy VSCode locally from Visual Studio Marketplace](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-install)</li>
+     </ul></td>
+      </tr>
+  </tbody>
+</table>
+
+## Install Red Hat Code Ready workspace
+{: #develop-vscode-crw}
+
+## Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension for free
 {: #develop-vscode-install}
 
 Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension, you must complete the prerequisites.
