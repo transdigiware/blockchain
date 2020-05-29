@@ -82,7 +82,7 @@ After the installation, you can use the {{site.data.keyword.blockchainfull_notm}
 
 The extension also adds new commands to the Visual Studio Code command palette. You can use the command palette to complete many of the operations that are explained in details in this guide.
 
-### Guided tutorials in VS
+### Guided tutorials in VS Code
 {: #develop-vscode-guided-tutorials}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. The tutorials provide step-by-step instructions on how to develop and test your smart contract project, as well has how to deploy the smart contract to a network on {{site.data.keyword.cloud_notm}}. You also can find sample smart contracts that are available for you to download.
