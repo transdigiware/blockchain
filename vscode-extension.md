@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-28"
+lastupdated: "2020-05-29"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -34,7 +34,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform extension works seamlessl
 {: note}
 
 
-## Step One: Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension for free
+## Step one: Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension for free
 {: #develop-vscode-install}
 
 Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension on your local system, you must complete the prerequisites.
@@ -82,7 +82,7 @@ After the installation, you can use the {{site.data.keyword.blockchainfull_notm}
 
 The extension also adds new commands to the Visual Studio Code command palette. You can use the command palette to complete many of the operations that are explained in details in this guide.
 
-### Guided tutorials in VS Code
+### Guided tutorials in VS
 {: #develop-vscode-guided-tutorials}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. The tutorials provide step-by-step instructions on how to develop and test your smart contract project, as well has how to deploy the smart contract to a network on {{site.data.keyword.cloud_notm}}. You also can find sample smart contracts that are available for you to download.
