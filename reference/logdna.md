@@ -28,9 +28,6 @@ subcollection: blockchain
 {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.la_full_notm}} service which is useful for viewing and parsing the logs of your {{site.data.keyword.blockchainfull}} Platform nodes and smart contract containers.
 {: shortdesc}
 
-If you are using Starter Plan, refer to these [instructions](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs) for how to use {{site.data.keyword.la_full_notm}} to view your Starter Plan peer, Certificate Authority, and ordering node logs.
-{: note}
-
 This tutorial describes how to configure {{site.data.keyword.la_full_notm}} service to work with your {{site.data.keyword.blockchainfull_notm}} Platform service instance. First, you need to configure cluster-level logging for you Kubernetes cluster. Then, you can access the LogDNA dashboard from the **Logging** tab of the **Observability** dashboard in {{site.data.keyword.cloud_notm}}.
 
 ## Step one: Configure cluster-level logging

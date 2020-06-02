@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2019-06-18"
 
-keywords: business network, Starter Plan, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
+keywords: business network, Enterprise Plan, developer environment, certificate authority card, admin business network card, BNA, business network archive
 
 subcollection: blockchain
 
