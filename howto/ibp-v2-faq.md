@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-02"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -231,7 +231,7 @@ Actual cost breakdowns are visible from your Invoices in the {{site.data.keyword
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
 {: faq}
 
-Starter Plan was always designed as a "starting" test network platform and explicitly was not for production. As a result, you cannot upgrade from Starter Plan to the new {{site.data.keyword.blockchainfull_notm}} Platform. Enterprise Plan customers are now able to upgrade their networks to {{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}}. See [Upgrading to the IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-enterprise-upgrade) for more information.
+Enterprise Plan customers are now able to upgrade their networks to {{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}}. See [Upgrading to the IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-enterprise-upgrade) for more information.
 
 ## What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?
 {: #ibp-v2-faq-v2-IBP-Overview-1-8}

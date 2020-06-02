@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-06-02"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -42,7 +42,6 @@ If you are operating the upgrade tool on behalf of multiple organizations, you n
 {: #enterprise-upgrade-tool-considerations}
 
 - You can use the upgrade tool to complete every step of the migration process without assistance from {{site.data.keyword.IBM_notm}}. If you encounter any problems while you are upgrading your network, you can open a support ticket. For more information, see [support](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade#enterprise-upgrade-support).
-- Migration is not supported for Starter Plan networks.
 - Each organization that has a separate Enterprise Plan membership must use the upgrade tool to create nodes on {{site.data.keyword.blockchainfull_notm}} Platform 2.0. The founder of the network cannot upgrade all of the organizations and peers that are joined to your network.
 - Review the [considerations for using {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations) before you upgrade your network. The next generation of the platform has a different user interface and provides you with more control over the nodes of your network. In particular, you are responsible for managing your certificates and private keys, which are not stored on {{site.data.keyword.cloud_notm}}.
 - It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
