@@ -80,9 +80,7 @@ IBM Blockchain Platform for IBM Cloud
 		orderer_mapping.md
 
 	{: .topicgroup}
-	Starter and Enterprise Plan
-		get_start_starter_plan.md
-		starter_plan.md
+	Enterprise Plan
 		get_start.md
 		enterprise_plan.md
 		v10_dashboard.md
@@ -94,7 +92,6 @@ IBM Blockchain Platform for IBM Cloud
 		howto/create_join_network_with_apis.md
 		howto/monitor_network.md
 		certificates.md
-		howto/migrate_sp_ep.md
 		howto/pricing.md
 		howto/paying_mode.md
 		knownissues.md
