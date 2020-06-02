@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-22"
+lastupdated: "2020-06-01"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
@@ -70,6 +70,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information, see  [Pricing](/docs/blockchain?topic=blockchain-ibp-saas-pricing).
 - **Disaster recovery and multi-region high availability (HA).** This option duplicates your Kubernetes deployment across zones and  regions, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Connect to other Fabric networks**: Join {{site.data.keyword.blockchainfull_notm}} Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the {{site.data.keyword.blockchainfull_notm}} Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI.
+
+
 
 
 Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/03/the-latest-in-multicloud-support-distributed-consensus-security-and-more/){: external} on taking the next step towards multicloud support and distributed consensus.
@@ -199,12 +201,7 @@ For more information about available {{site.data.keyword.cloud_notm}} services a
 ## Compliance
 {: #ibp-console-overview-compliance}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform has been certified on:
-- ISO/IEC 27001
-- ISO/IEC 27017
-- ISO/IEC 27018
-
-For more information, refer to the [{{site.data.keyword.cloud_notm}} Global compliance program](https://www.ibm.com/cloud/compliance) and view the full [listing](https://www.ibm.com/downloads/cas/OELMNOND) of {{site.data.keyword.cloud_notm}} services certified with ISO 27001, 27017, and 27018.
+For a list of the current security certifications that {{site.data.keyword.blockchainfull_notm}}  Platform adheres to, see the [Software Compatibility Reports]( https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=58A3B7D0BEE911E5BA010CF56D8211B6){: external}.
 
 ## Getting support
 {: #ibp-console-overview-support}

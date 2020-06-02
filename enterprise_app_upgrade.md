@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-27"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -87,6 +87,9 @@ You can use one of two ways to update your application:
 - If you want to make minimal updates to your application before using the upgrade tool, you can use the low-level Fabric SDK APIs to use service discovery. For more information, see [Patch your applications to use service discovery with the low-level APIs](#enterprise-upgrade-applications-patch).
 
 If you cannot update your applications to use service discovery, you need to [manually update your application or connection profile](#enterprise-upgrade-applications-manual) during the upgrade.
+
+To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor) in the Node SDK documentation for more information.
+{: tip}
 
 ### Option one: Update your application to use the new Fabric SDK programming model
 {: #enterprise-upgrade-applications-new-apis}

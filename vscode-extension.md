@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-06-02"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -30,13 +30,14 @@ The {{site.data.keyword.blockchainfull}} Platform Visual Studio (VS) Code extens
 
 
 
-The {{site.data.keyword.blockchainfull_notm}} Platform extension works seamlessly with any instance of the {{site.data.keyword.blockchainfull_notm}} Platform that uses Hyperledger Fabric versions 1.4 and later. This tutorial is oriented toward users of the high-level Fabric smart contract programming model. If you are using low level smart contract APIs, you can find additional instructions in the [{{site.data.keyword.blockchainfull_notm}} Platform extension documentation](https://github.com/IBM-Blockchain/blockchain-vscode-extension/blob/master/README.md). You can also debug smart contracts by running a local Fabric peer in devmode. For more information, see the [Chaincode for developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html) tutorial in the Fabric documentation.
+The {{site.data.keyword.blockchainfull_notm}} Platform extension works seamlessly with any instance of the {{site.data.keyword.blockchainfull_notm}} Platform that uses Hyperledger Fabric versions 1.4 and later. This tutorial is oriented toward users of the high-level Fabric smart contract programming model. If you are using low-level smart contract APIs, you can find additional instructions in the [{{site.data.keyword.blockchainfull_notm}} Platform extension documentation](https://github.com/IBM-Blockchain/blockchain-vscode-extension/blob/master/README.md). You can also debug smart contracts by running a local Fabric peer in devmode. For more information, see the [Chaincode for developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html) tutorial in the Fabric documentation.
 {: note}
+
 
 ## Step one: Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension for free
 {: #develop-vscode-install}
 
-Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension, you must complete the prerequisites.
+Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension on your local system, you must complete the prerequisites.
 
 ### Prerequisites
 {: #develop-vscode-prerequisites}
@@ -77,6 +78,7 @@ If you are using Windows, you also must ensure the following:
 
 After the installation, you can use the {{site.data.keyword.blockchainfull_notm}} icon on the left side of VS Code to open the {{site.data.keyword.blockchainfull_notm}} Platform panel.
 
+
 ![{{site.data.keyword.blockchainfull_notm}} icon](images/vscode-blockchain.png "{{site.data.keyword.blockchainfull_notm}} icon"){: caption="Figure 2. {{site.data.keyword.blockchainfull_notm}} icon in VS Code" caption-side="bottom"}
 
 The extension also adds new commands to the Visual Studio Code command palette. You can use the command palette to complete many of the operations that are explained in details in this guide.
@@ -88,16 +90,17 @@ The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided
 
 To navigate to the tutorials from within VS Code, open the extensions tab and click the {{site.data.keyword.blockchainfull_notm}} Platform extension under **Enabled**. Then, click the {{site.data.keyword.blockchainfull_notm}} Platform icon at the upper right corner to view the extension homepage. On the homepage, you can find a link to the tutorials gallery and the sample smart contracts.
 
+
 ![{{site.data.keyword.blockchainfull_notm}} icon](images/vscode-tutorials.png "{{site.data.keyword.blockchainfull_notm}} icon"){: caption="Figure 3. Click on the {{site.data.keyword.blockchainfull_notm}} icon in the upper right corner to navigate to the tutorials and sample code" caption-side="bottom"}
 
 ## Step two: Create a smart contract project
 {: #develop-vscode-creating-a-project}
 
-You can use the extension to create a new smart contract project in Visual Studio Code. The extension creates a basic smart contract that manages an example asset in the language of your choice. You can use the structure of example as a starting point for developing your own business logic. The extension provides all the dependencies that are required to deploy your smart contract to an instance of Hyperledger Fabric.
+You can use the extension to create a new smart contract project in Visual Studio Code. The extension creates a basic smart contract that manages an example asset in the language of your choice. You can use the structure of the example as a starting point for developing your own business logic. The extension provides all the dependencies that are required to deploy your smart contract to an instance of Hyperledger Fabric.
 
 1. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
-2. Select the smart contract type to generate. The **Default Contract** example is recommended for first time users and demonstrates how to perform create, read, update and delete operations to the public ledger that's shared by all network members.
-The **Private Data Contract** example demonstrates how to perform create, read, update, delete and verify operations to a collection, private to a single network member.
+2. Select the smart contract type to generate. The **Default Contract** example is recommended for first-time users and demonstrates how to perform create, read, update and delete operations to the public ledger that's shared by all network members.
+The **Private Data Contract** example demonstrates how to perform create, read, update, delete and verify operations to a collection, that is private to a single network member.
 3. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** You can use the VS Code extension to create and test Java smart contracts locally. If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
 4. **If you selected JavaScript, TypeScript, or Java**, select an asset to be managed by the example contract. For example, ***bond***.
 5. Create a folder with the name of your project and open it.
@@ -151,6 +154,8 @@ You can also click **Delete Package** to remove the smart contract package from 
 {: #develop-vscode-deploy}
 
 You can use the VS Code to deploy your smart contract to a preconfigured Hyperledger Fabric network that the extension creates on your local machine. You can then install, instantiate, and test your smart contract before you deploy it to a live network.
+
+
 
 ### Deploying a preconfigured Hyperledger Fabric network
 {: #develop-vscode-connecting-and-disconnecting}
