@@ -147,7 +147,7 @@ Visible from the "APIs" screen of the Network Monitor. Credentials include your 
 
 ## Network Monitor
 {: #glossary-network-monitor}
-The GUI dashboard the {{site.data.keyword.blockchainfull_notm}} Platform for Starter and Enterprise networks, which allows users to view and manage the blockchain network.
+The GUI dashboard the {{site.data.keyword.blockchainfull_notm}} Platform for Enterprise networks, which allows users to view and manage the blockchain network.
 
 ## Node
 {: #glossary-node}

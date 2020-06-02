@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.IBM}} does not provide support for networks that use Hyperledger Composer in production, including the Composer CLI, JavaScript APIs, REST server, and Web Playground.
 {:note}
 
-Business networks can be developed and deployed to Starter and Enterprise Plan networks by using the {{site.data.keyword.blockchainfull_notm}} Platform developer environment and Hyperledger Composer developer toolset. By using the developer environment, you can quickly model and test blockchain business networks and deploy them to an Enterprise Plan network of the {{site.data.keyword.blockchainfull_notm}} Platform.
+Business networks can be developed and deployed to Enterprise Plan networks by using the {{site.data.keyword.blockchainfull_notm}} Platform developer environment and Hyperledger Composer developer toolset. By using the developer environment, you can quickly model and test blockchain business networks and deploy them to an Enterprise Plan network of the {{site.data.keyword.blockchainfull_notm}} Platform.
 {:shortdesc}
 
 {{site.data.keyword.blockchainfull_notm}} Platform's developer tools help you create a **Business Network Definition** that can then be packaged up into a business network archive (`.bna`). The developer environment allows you to deploy `.bna` files to a local or cloud {{site.data.keyword.blockchain}} for development and sharing.
