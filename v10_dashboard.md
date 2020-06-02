@@ -26,7 +26,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform brings a Network Monitor to provide an overview of your blockchain environment, including network resources, members, joined channels, transaction performance data, and deployed chaincode. The Network Monitor also offers you the entry point to run Swagger APIs, develop a network with {{site.data.keyword.blockchainfull_notm}} Platform, and try sample applications.
 {:shortdesc}
 
-Use this tutorial to learn how to use your Network Monitor to operate an Enterprise Plan or Starter Plan network. Although most screen shots in the tutorial are for Enterprise Plan, the instructions are also valid for Starter Plan. When certain features are only accessible for one plan, the relevant section is labeled with **for Starter Plan networks** or **for Enterprise Plan networks**.
+Use this tutorial to learn how to use your Network Monitor to operate an Enterprise Plan network.
 
 ## Left navigation pane
 {: #ibp-dashboard-left-navigation}
@@ -74,19 +74,6 @@ Network members deploy [peers](/docs/blockchain?topic=blockchain-blockchain-comp
 
 Click the **Add Peers** button at the upper right to add peer nodes to your network. In the pop-up "Add Peers" panel, select the number and size of peer nodes you want to add. You can add more peers for your organizations based on your own requirements. You might be in different scenarios when you need more peers. For example, you might want multiple peers to join the same channel for redundancy. Each peer processes the channel's transactions and writes to their respective copies of the ledger. If one of the peers fails, the other peer (or multiple other peers) can continue processing transactions and application requests. You can also symmetrically load balance all application requests across the peers, or you could target different peers for different functions. For example, you can use one peer to query the ledger and use another peer to process endorsements for ledger updates.
 
-**Starter Plan** creates one peer for each of the two organizations formed when the network is started by default.
-
-### Storage (for Starter Plan networks)
-{: #ibp-dashboard-storage}
-
-**Figure 2** shows the "Storage" tab that displays your network's storage consumption.
-
-![Storage tab in Overview screen](images/monitor_storage_starter.png "Storage"){: caption="Figure 2. Storage" caption-side="bottom"}
-
-The "Resources" diagram displays the storage space that peers and certificate authorities use. All the organizations that you create or invite to your network are included in this pool. The organizations that consume resources are listed on the screen in the second bullet.
-
-The ordering service consumes storage from a separate resource pool. Your ordering service might consume more resources when members of the network create new channels and generate new blocks of transactions.
-
 ## Members
 {: #ibp-dashboard-members}
 
@@ -100,16 +87,6 @@ The "Members" screen contains two tabs to display network member information in 
 ![Members tab in Members screen](images/monitor_members.png "Network members"){: caption="Figure 3. Network members" caption-side="bottom"}
 
 You can invite other members in the "Members" tab to add to those that are initially invited when you create the network. To invite a member to your network, enter the institution name and operator's email address and click **Add Member**. A network can have a total of 15 members (including the network initiator). To remove a member from your network, click the "remove" symbol at the end of the member row.
-
-### Add members to Starter Plan networks
-
-**Figure 4** shows the "Add member" window.
-
-![Add member](images/invite_member_starter.png "Add member"){: caption="Figure 4. Add member" caption-side="bottom"}
-
-When you click **Add Member** you will be presented with two options:
-- **Invite a member**. You can invite other organizations to become members of your network. The invited organizations can then join and collaborate with you in the network.
-- **Create member**. You can also create a member by using your own email address. You would have control of it just as you have of the two organizations that you receive with Starter Plan by default.
 
 
 ### Certificates
@@ -190,13 +167,13 @@ Click the **Swagger UI** link to open the Swagger UI. Note that you need to auth
 
 {{site.data.keyword.IBM_notm}} does not provide support for networks that use Hyperledger Composer in production, including the Composer CLI, JavaScript APIs, REST server, and Web Playground.{:note}
 
-Starter Plan and Enterprise Plan provide a development environment with industry standard tools and technologies. After you develop a network, you can deploy it to your network.
+Enterprise Plan provides a development environment with industry standard tools and technologies. After you develop a network, you can deploy it to your network.
 
 **Figure 10** shows the "Develop code" screen:
 
 ![Develop code](images/write_code.png "Develop code"){: caption="Figure 10. Develop code" caption-side="bottom"}
 
-For more information about developing and deploying your business networks, see [Deploying business networks on Starter and Enterprise Plan](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network).
+For more information about developing and deploying your business networks, see [Deploying business networks on Enterprise Plan](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network).
 
 ## Install code
 {: #ibp-dashboard-chaincode}
@@ -294,36 +271,6 @@ For more information about updating your applications to support mutual TLS, see
 ## Update network name
 {: #ibp-dashboard-network-name}
 
-When you create an instance of Starter Plan or Enterprise Plan, {{site.data.keyword.blockchainfull_notm}} Platform assigns a name to your network. However, you can update this network name at anytime in your Network Monitor.
+When you create an instance of Enterprise Plan, {{site.data.keyword.blockchainfull_notm}} Platform assigns a name to your network. However, you can update this network name at anytime in your Network Monitor.
 
 On the top of the left navigator in the Network Monitor, click the network name and the field becomes editable. Type the new network name that you want to use and press the **Enter** key. Your network name will be updated in a few seconds.
-
-**Figure 18** shows the steps to update the Starter Plan network name from the assigned name to "Starter Plan Network".
-
-![Update network name](images/update_network_name_ep.gif "Update network name"){: caption="Figure 18. Update network name" caption-side="bottom"}{: gif}
-
-
-## Switch between networks (for Starter Plan networks)
-{: #ibp-dashboard-switch-network}
-
-If you create more than one network with Starter Plan, you can switch between your networks in the Network Monitor.
-
-On the top of the left navigator in the Network Monitor, click the arrow icon beside your network name. Select and click the network name of which you want to switch to from the drop-down list. Your web browser will refresh and open the Network Monitor of the network that you switch to.
-
-**Figure 19** shows the steps to switch to another Starter Plan network.
-
-![Switch network](images/switch_network.gif "Switch network"){: caption="Figure 19. Switch network" caption-side="bottom"}{: gif}
-
-
-## Reset network (for Starter Plan networks)
-{: #ibp-dashboard-reset-network}
-
-Starter Plan networks offer the capability to edit your network configuration without deleting and re-creating a network. Your network is reset back to the initial network configuration, which includes two organizations, one peer per each organization, and a default channel. This is useful, for example, when you are running rounds of tests on the blockchain network and need to start over from a clean network.
-
-**Caution**: After you reset the network, the API endpoints of your peers, orderer, and CA are changed. You need to adjust API endpoint information in your applications.
-
-Click the upper right corner and opens the drop-down menu. Click the **Reset Network** button in the menu. If you are ready to reset your network, click **OK** to continue. Your Network Monitor will be refreshed to reflect your new settings.
-
-**Figure 20** shows the "Reset network" function:
-
-![Reset network](images/reset_network.png "Reset Network"){: caption="Figure 20. Reset network" caption-side="bottom"}

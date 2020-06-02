@@ -55,13 +55,13 @@ You can link an instance of the {{site.data.keyword.blockchainfull_notm}} Platfo
 
 Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that **Enterprise Plan** supports.
 
-| Location | Enterprise Plan |
-|--------|----------|----------|
-| Dallas | Y |
-| London | Y |
-| Tokyo | Y |
-| Frankfurt | Y |
-| Melbourne | Y |
-| São Paulo | Y |
-| Toronto | Y |
+| Geography | Location |
+|--------|----------|
+| North America | Dallas |
+| Europe | London |
+| Asia Pacific | Tokyo |
+| Europe | Frankfurt |
+| Asia Pacific | Melbourne |
+| South America | São Paulo |
+| North America | Toronto |
 {: caption="Table 2. Enterprise Plan locations" caption-side="bottom"}
