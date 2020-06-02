@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-02"
+lastupdated: "2020-06-02"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -27,7 +27,7 @@ subcollection: blockchain
 ## Retrieving basic auth credential for API
 {: #swagger-network-retrieve-id-token}
 
-Before you begin, you need to create an [{{site.data.keyword.blockchainfull_notm}} Platform service instance](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} with Starter Plan or Enterprise Plan in {{site.data.keyword.cloud_notm}}.
+Before you begin, you need to create an [{{site.data.keyword.blockchainfull_notm}} Platform service instance](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} with Enterprise Plan in {{site.data.keyword.cloud_notm}}.
 
 To use Swagger APIs to create or join a network, you need a basic authentication credential to ensure that you have access to the service instance in {{site.data.keyword.cloud_notm}}.
 
@@ -109,8 +109,6 @@ The ``swagger_url`` represents the api endpoint that you will use when you creat
 
 
 ## Creating a network
-
-**Note**: If you use Starter Plan, you don't need to create a network with APIs because a default network is provided when you create the blockchain service instance in {{site.data.keyword.cloud_notm}}.
 
 If you use Enterprise Plan, you need to complete two steps to create a network with APIs.
 
