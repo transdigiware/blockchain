@@ -204,7 +204,7 @@ If none of the ordering nodes that were consenters on the channel are still up, 
 
 In these cases, it is necessary to edit the configuration of the peer itself with a code snippet provided by the console. This code snippet will point the peer to one of the ordering nodes servicing the channel and allow the ledger of the channel to be pulled from that node.
 
-## Editing the peer configuration
+### Editing the peer configuration
 {: #ibp-console-add-remove-orderer-mapping-code-snippet}
 
 If your channel is in the state described above, in which none of the original ordering nodes are still servicing the channel, when attempting to join a peer to the channel the **Join a peer to the channel** screen will show a message similar to the following advising you that the configuration of the peer must include an "orderer override":
