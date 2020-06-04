@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-04"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -85,7 +85,7 @@ View the Support page by clicking the question mark icon <img src="../images/sup
 {: faq}
 
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Hyperledger Fabric v1.4.6.
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Hyperledger Fabric v1.4.7 and v2.x.
 
 ## What database do the peers use for their ledger?
 {: #ibp-v2-faq-v2-IBP-Overview-1-3}

@@ -31,7 +31,7 @@ Unsure what version you are currently using? Click the question mark icon in the
 The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} is the next generation of {{site.data.keyword.blockchainfull_notm}} Platform offerings, which gives you total control over your deployments, certificates, and private keys. It includes the new {{site.data.keyword.blockchainfull_notm}} Platform console, a user interface that can simplify and accelerate the process of deploying components into a Kubernetes cluster on {{site.data.keyword.cloud_notm}} managed and controlled by you. For more information about deploying an Kubernetes cluster on {{site.data.keyword.cloud_notm}}, see [Kubernetes](/docs/blockchain/reference?topic=blockchain-k8s-overview).
 {:shortdesc}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is based on Hyperledger Fabric v1.4.6. For more information about Hyperledger Fabric v1.4.6 new features, see [What's new in 1.4](https://hyperledger-fabric.readthedocs.io/en/release-1.4/whatsnew.html){: external}.
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is based on Hyperledger Fabric v1.4.7 and v2.x. For more information about Hyperledger Fabric v1.4.7 and v2.x new features, see [What's new in 1.4](https://hyperledger-fabric.readthedocs.io/en/release-1.4/whatsnew.html){: external}.
 
 If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, {{site.data.keyword.cloud_notm}} Private V3.2.1 or any Kubernetes v1.14 - v1.16 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform 2.5](/docs/blockchain-sw-213?topic=blockchain-sw-213-get-started-console-ocp).
 
@@ -49,7 +49,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 **BUILD ---- Integrated developer experience**
 - **Easily code** your smart contracts in Node.js, Golang, Java, or JavaScript, write client applications using the new {{site.data.keyword.blockchainfull_notm}} VS Code extension, leverage **SDK integration** with the console, and learn from our rich tutorials and samples.
 - **Simplified DevOps** allows you to move from development to test to production in a single environment by scaling up your Kubernetes resources to add more components.
-- **Up-to-date Fabric key features**. Leverage the latest features of Hyperledger Fabric v1.4.6:
+- **Up-to-date Fabric key features**. Leverage the latest features of Hyperledger Fabric v1.4.7 and v2.x:
   - [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
   - [Private data collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
   - [Fabric Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}
