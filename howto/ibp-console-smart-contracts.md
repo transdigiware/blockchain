@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-02"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -36,20 +36,20 @@ A smart contract is the code, sometimes referred to as chaincode, that applicati
 ## Sample network tutorial series
 {: #ibp-console-smart-contracts-structure}
 
-You are currently on the third part of our three-part tutorial series. This tutorial guides you through the process of
-using the console to deploy a smart contract onto a channel in your {{site.data.keyword.blockchainfull_notm}} Platform network.
+You are currently on the third part of our three-part tutorial series. This tutorial guides you through the process of using the console to deploy a smart contract onto a channel in your {{site.data.keyword.blockchainfull_notm}} Platform network.
 
 * [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) guides you through the process of hosting a network by creating an orderer and peer.
 * [Join a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) guides you through the process of joining an existing network by creating a peer and joining it to a channel.
 * **Deploy a smart contract on the network** (Current tutorial) Provides information on how to write a smart contract and deploy it on your network.
 
-You can use the steps in these tutorials to build a network with multiple organizations in one cluster for the purposes of development and testing. Use the **Build a network** tutorial if you want to form a blockchain consortium by creating an orderer node and adding organizations. Use the **Join a network** tutorial to connect a peer to the network. Following the tutorials with different consortium  members helps you create a truly **distributed** blockchain network.  
+You can use the steps in these tutorials to build a network with multiple organizations in one cluster for the purposes of development and testing. Use the **Build a network** tutorial if you want to form a blockchain consortium by creating an orderer node and adding organizations. Use the **Join a network** tutorial to connect a peer to the network. Following the tutorials with different consortium  members helps you create a truly **distributed** blockchain network.
 
-This final tutorial is meant to show how to create and package a smart contract, how to install the smart contract on a peer, and how to instantiate the smart contract on a channel.  
+This final tutorial is meant to show how to create and package a smart contract, how to install the smart contract on a peer, and how to instantiate the smart contract on a channel.
 
 Smart contracts are installed on peers and then instantiated on channels. **All members that want to submit transactions or read data by using a smart contract need to install the contract on their peer.** A smart contract is defined by its name and version. Therefore, both the name and version of the installed contract need to be consistent across all peers on the channel that plan to run the smart contract.
 
-After a smart contract is installed on the peers, a single network member instantiates the contract on the channel. The network member needs to have joined the channel in order to perform this action. Instantiation updates the ledger with the initial data that is used by the smart contract, and then starts smart contract containers on peers joined to the channel that have the contract installed. The peers can then use the running containers to transact.  
+After a smart contract is installed on the peers, a single network member instantiates the contract on the channel. The network member needs to have joined the channel in order to perform this action. Instantiation updates the ledger with the initial data that is used by the smart contract, and then starts smart contract containers on peers  joined to the channel that have the contract installed. The peers can then use the smart contract.
+
 - **Only one network member needs to instantiate a smart contract.**
 - **If a peer with a smart contract installed joins a channel where the same smart contract version has already been instantiated, the smart contract container starts automatically.**  
 
@@ -119,7 +119,7 @@ You can view all of the smart contracts that are instantiated on a channel by cl
 
 Be aware that if you use a free Kubernetes cluster on {{site.data.keyword.cloud_notm}}, instantiation can take significantly longer than in a paid cluster.Depending on the number of peers you have deployed in your cluster, instantiation can take several minutes.
 
-The combination of **installation and instantiation** is a powerful feature because it allows for a peer to use a single smart contract across many channels. Peers can want to join multiple channels that use the same smart contract, but with different sets of network members able to access the data. A peer can install the smart contract once, and then use the same smart contract container on any channel where it has been instantiated. This lightweight approach saves compute and storage space, and helps you scale your network.
+The combination of **installation and instantiation** is a powerful feature because it allows for a peer to use a single smart contract across many channels. Peers may want to join multiple channels that use the same smart contract, but with different sets of network members able to access the data. A peer can install the smart contract once and use it on any channel where it has been instantiated. This lightweight approach saves compute and storage space, and helps you scale your network.
 
 ## Step four: Send transactions by using your client applications
 {: #ibp-console-smart-contracts-connect-to-SDK}
@@ -228,7 +228,10 @@ When a new member that will run the smart contract joins the channel, it is mand
  If the smart contract was previously instantiated with a collection configuration file, you **must** again upload the previous version or a new version of the collection configuration file during this step.  
  5. (Optional) Modify the smart contract initialization argument values if the parameters have changed. If you are unsure about it, check with your smart contract developer. If they have not changed, you can leave this field blank.
 
+
 After you upgrade the smart contract, you will change the version of the contract that is instantiated on the channel, and change the smart contract container for all the peers that have installed the new version. If you are using private data collections, be sure you have configured anchor peers on the channel.
+
+
 
 ### Considerations when you upgrade smart contracts
 {: #ibp-console-smart-contracts-upgrade-considerations}

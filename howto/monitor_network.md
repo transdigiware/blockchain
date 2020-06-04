@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-06-02"
 
 keywords: view Logs, logs of a specific network component, monitor blockchain network
 
@@ -63,10 +63,7 @@ The following figure shows a **HEAD** request with a 200 response in Chrome Post
 ## Using your network logs
 {: #monitor-blockchain-network-using-logs}
 
-Starting August 27, 2019, the process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service directly to view the logs of your CA, peers and ordering nodes.
-{: note}
-
-In the "Overview" screen of your Network Monitor, click **View Logs** from the drop-down list under the **Actions** header to open each network component's logs in the {{site.data.keyword.la_full_notm}} dashboard. If you are using an Enterprise Plan network, you can view component logs in a text file format. If you are using a Starter Plan network, the component logs are visible in the [{{site.data.keyword.la_full_notm}} service](https://cloud.ibm.com/catalog/services/log-analysis){: external}
+In the "Overview" screen of your Network Monitor, click **View Logs** from the drop-down list under the **Actions** header to open each network component's logs in the {{site.data.keyword.la_full_notm}} dashboard. If you are using an Enterprise Plan network, you can view component logs in a text file format.
 
 Each component generates logs from different activities. This is because each component plays different roles within the Hyperledger Fabric [network architecture](https://hyperledger-fabric.readthedocs.io/en/release-1.2/network/network.html){: external} and [transaction flows](https://hyperledger-fabric.readthedocs.io/en/release-1.2/txflow.html){: external}.
 
@@ -80,37 +77,6 @@ Each component generates logs from different activities. This is because each co
   Peer logs contain the results of installing, instantiating, and invoking chaincode. You can search for a chaincodes name and version to find the logs of a certain chaincode. You can also see the logs from a specific chaincode from the [chaincode section of the channel monitor](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc). The messages, which your transaction proposals generate, or any timeout issues with your proposal requests, can be found in your peer logs. The peer logs also contain errors from transactions that were rejected for not meeting the [chaincode's endorsement policy](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy). You can also find the results of channel join requests.
 
 Hyperledger Fabric provides different [logging levels](https://hyperledger-fabric.readthedocs.io/en/release-1.2/logging-control.html){: external} based on the severity of the message. The default logging level on {{site.data.keyword.blockchainfull_notm}} Platform is `INFO`. To view additional logs, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) to set logging level to the more verbose `DEBUG`. Be aware that the `DEBUG` level logs display a large number of gossip messages that you might need to filter. Search for `warning` or `error` in your messages to detect problems from Hyperledger Fabric components. To detect if the component container fails or is killed, search for `panic` or `killed` messages that {{site.data.keyword.cloud_notm}} sent.
-
-## Viewing logs in Starter Plan
-{: #monitor-blockchain-network-viewing-kibana-logs}
-
-The logs of your Starter Plan network are visible in the [{{site.data.keyword.la_full_notm}} service](https://cloud.ibm.com/observe/logging/){: external}.  You can provision an instance of {{site.data.keyword.la_full_notm}} in {{site.data.keyword.cloud_notm}}, by clicking **Create logging instance** from the [Observability dashboard](https://cloud.ibm.com/observe/logging/){: external}). Choose the pricing plan according to your business needs.
-
-If you choose the LogDNA **Lite - Free** Plan, you can view your logs as they pass through the system, similar to a Unix `tail` command, but this plan does not support the ability to filter the logs by blockchain node.
-{: note}
-
-The following steps describe how to configure LogDNA to to work with your Starter Plan instance.
-
-1. After you provision the LogDNA instance, navigate to the [Observability](https://cloud.ibm.com/observe) dashboard in {{site.data.keyword.cloud_notm}} and click **Logging**.
-2. Click **Create Logging instance**.
-3. Select the region where Starter Plan is running.
-4. Click **Create**.
-5. Click `Configure platform services logs` and select the LogDNA instance that you created.
-
-From the Observability dashboard, you can now launch the LogDNA dashboard by clicking **View LogDNA**.
-
-### View node logs
-{: #monitor-blockchain-network-viewing-logdna}
-
-Viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs with the {{site.data.keyword.la_full_notm}} service is easy. After you have completed the steps to configure LogDNA to work with your Starter Plan instance, your Starter Plan node logs will start to appear in dashboard.
-You can use the search input box located at the bottom of the LogDNA page to filter the logs by node.
-
-It may take a few seconds for the logs from your nodes to show up in the {{site.data.keyword.la_full_notm}} service.
-{: note}
-
-You can view your peer, Certificate Authority (CA), or ordering node logs in the {{site.data.keyword.la_full_notm}} dashboard.  Filter the logs for a specific node by entering the node name in the search bar at the bottom of the panel. If you need to view your chaincode logs on a peer, simply type the chaincode name in the search bar.
-
-![Filtering on peer](../images/starter-logdna.png "Filtering logs by node"){: caption="Figure 1.Filtering logs by peer" caption-side="bottom"}  
 
 ## Monitoring channels
 {: #monitor-blockchain-network-monitor-channnels}

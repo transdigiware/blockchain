@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-06-02"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -147,7 +147,7 @@ Visible from the "APIs" screen of the Network Monitor. Credentials include your 
 
 ## Network Monitor
 {: #glossary-network-monitor}
-The GUI dashboard the {{site.data.keyword.blockchainfull_notm}} Platform for Starter and Enterprise networks, which allows users to view and manage the blockchain network.
+The GUI dashboard the {{site.data.keyword.blockchainfull_notm}} Platform for Enterprise networks, which allows users to view and manage the blockchain network.
 
 ## Node
 {: #glossary-node}
@@ -192,10 +192,6 @@ The certificate that any entities, whether organizations or admins, attach to th
 ## Smart contracts
 {: #glossary-smart-contracts}
 See [Chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode).
-
-## Solo
-{: #glossary-solo}
-A consensus plugin implementation for Hyperledger Fabric that results in a single ordering service node in the blockchain network. The Starter Plan network uses the Solo implementation. A Solo implementation is not intended for a production network.
 
 ## State database
 {: #glossary-state-database}

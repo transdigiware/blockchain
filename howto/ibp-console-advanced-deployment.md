@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-06-02"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -575,7 +575,7 @@ The peer has five containers that can be adjusted:
 - **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
 - **Smart contract container**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your peer pod, which is known as a Docker-in-Docker container.
 
-The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container.  Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
+The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container. Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
 
 As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-before), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
 
@@ -587,8 +587,10 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **CouchDB (ledger data) storage** | When you expect high throughput on many channels and don't plan to use indexes. However, like the peer storage, the default CouchDB storage is 100G, which is significant. |
 | **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default memory allocation for the peer container is sufficient for most use cases. However, when you instantiate a smart contract, you should actively monitor the resource consumption of the peer containers by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default memory allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resource consumption of the peer containers by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
 {: important}
+
+
 
 For more details on the resource allocation panel in the console see [Allocating resource](#ibp-console-adv-deployment-allocate-resources).
 
@@ -926,7 +928,7 @@ For a five node ordering service, these nodes will be distributed into multiple 
 ### Sizing an ordering node during creation
 {: #ibp-console-adv-deployment-orderer-sizing-creation}
 
-Because ordering nodes neither maintain the State DB nor host smart contracts, they require fewer containers than peers do. But they do host the blockchain (the transaction history) because the blockchain is where the channel configuration is stored, and the ordering service must know the latest channel configuration to perform its role.
+Because ordering nodes do not maintain a copy of the state DB, they require fewer containers than peers do. However, they do host the blockchain (the transaction history) because the blockchain is where the channel configuration is stored, and the ordering service must know the latest channel configuration to perform its role.
 
 Similar to the CA, an ordering node has only one associated container that we can adjust (if you are deploying a five-node ordering service, you will have five separate ordering node containers, as well as five separate gRPC containers):
 

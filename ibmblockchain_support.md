@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-06-02"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -25,7 +25,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform provides several avenues for troubleshooting problems and getting support, which depend on the {{site.data.keyword.blockchainfull_notm}} Platform offerings that you use.
 {:shortdesc}
 
-For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is recommended to firstly use [free digital support resources](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Hyperledger Fabric Community. If you use a Starter or Enterprise plan network, you can navigate to the "Support" screen in your Network Monitor, which contains links to these resources.
+For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is recommended to firstly use [free digital support resources](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources) to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Hyperledger Fabric Community. If you use an Enterprise plan network, you can navigate to the "Support" screen in your Network Monitor, which contains links to these resources.
 
 If your problem cannot be solved by any of the [free digital support resources](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources), consider the following approaches to get support for the offerings that you use.
 
@@ -35,7 +35,7 @@ If your problem cannot be solved by any of the [free digital support resources](
 - **{{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code extension**
   Submit any issues in the [{{site.data.keyword.blockchainfull_notm}} Platform Visual Studio Code extension](https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues){: external}.
 
-- **Starter Plan and Enterprise Plan on {{site.data.keyword.cloud_notm}}**
+- **Enterprise Plan on {{site.data.keyword.cloud_notm}}**
   Submit a support case through {{site.data.keyword.cloud_notm}}. For more information, see [Submitting support cases](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
 ## Resources and support forums

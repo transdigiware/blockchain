@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-02"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -50,21 +50,18 @@ To deploy the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data
 
 You can link an instance of the {{site.data.keyword.blockchainfull_notm}} Platform operational tooling to a cluster that is deployed at any location. However, all nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto. For more information about the relationship between the operational tools and your cluster, see the [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture).
 
-## Starter and Enterprise Plan
+## Enterprise Plan
 {: #ibp-regions-locations-se}
 
-Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that **{{site.data.keyword.blockchainfull_notm}} Platform Starter Plan and Enterprise Plan** support.
+Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that **Enterprise Plan** supports.
 
-| Location | Starter Plan | Enterprise Plan |
-|--------|----------|----------|
-| Dallas | Y | Y |
-| London | Y | Y |
-| Tokyo |  | Y |
-| Frankfurt |  | Y |
-| Sydney | Y |  |
-| Melbourne |  | Y |
-| São Paulo |  | Y |
-| Toronto |  | Y |
-{: caption="Table 2. Starter Plan and Enterprise Plan locations" caption-side="bottom"}
-
-![Starter Plan and Enterprise Plan locations](../images/ibp_regions.png "{{site.data.keyword.blockchainfull_notm}} Platform locations"){: caption="Figure 2. Starter Plan and Enterprise Plan locations" caption-side="bottom"}
+| Geography | Location |
+|--------|----------|
+| North America | Dallas |
+| Europe | London |
+| Asia Pacific | Tokyo |
+| Europe | Frankfurt |
+| Asia Pacific | Melbourne |
+| South America | São Paulo |
+| North America | Toronto |
+{: caption="Table 2. Enterprise Plan locations" caption-side="bottom"}

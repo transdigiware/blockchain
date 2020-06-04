@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-06-02"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -35,7 +35,7 @@ If possible, Enterprise Plan customers are encouraged to migrate to the {{site.d
 
 It is helpful to become familiar with the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console before you start the upgrade process. See [Getting Started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks) to learn how to deploy an instance of {{site.data.keyword.blockchainfull_notm}} Platform 2.0. You can then use the [Build a network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to use the console to operate your new network.
 
-You can only use the upgrade tool to migrate your network to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. You cannot use the tool to migrate your network to {{site.data.keyword.blockchainfull_notm}} Platform v2.1. Migration is not supported for Starter Plan networks.
+You can only use the upgrade tool to migrate your network to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. You cannot use the tool to migrate your network to {{site.data.keyword.blockchainfull_notm}} Platform v2.1.
 {:important}
 
 ## Upgrade Overview

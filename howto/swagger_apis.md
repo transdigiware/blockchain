@@ -24,7 +24,7 @@ subcollection: blockchain
 
 {:shortdesc}
 
-Before you begin, you need to create a [{{site.data.keyword.blockchain}} Platform service instance](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}} and create or join a Starter Plan blockchain network.
+Before you begin, you need to create a [{{site.data.keyword.blockchain}} Platform service instance](https://cloud.ibm.com/catalog/services/ibm-blockchain-5-prod){: external} on {{site.data.keyword.cloud_notm}}.
 
 
 ## Retrieving network credentials
@@ -34,13 +34,6 @@ Enter the Network Monitor of your Blockchain network and open the "APIs" screen 
 
 **Figure 1** shows the "APIs" screen:
 ![APIs screen](../images/API_screen_starter.png "APIs screen"){: caption="Figure 1. APIs" caption-side="bottom"}
-
-If you are using the Starter Plan, it is possible to switch between organizations in the Network Monitor. With the Starter Plan, two organizations are configured by default. Switching between organizations can be useful to try out the REST APIs from the perspective of each organization. To get the credentials for another organization in your network, click your username in the upper-right corner of the Network Monitor console. In the menu that opens, click the drop-down arrow next to the Organization to view all Organizations. Select the organization that you would like to switch to and view the associated network credentials.
-
-**Figure 2** shows how to Switch between organizations:
-
-![Switching between organizations](../images/switch_orgs_starter.gif "Switching between organizations"){: caption="Figure 2. Switching between organizations" caption-side="bottom"}{: gif}
-
 
 ## Authorizing Swagger APIs
 {: #ibp-swagger-authorizing-swagger}
@@ -53,7 +46,7 @@ Using Basic Auth authentication, any credentials that you specify in the Authori
 
 **Figure 3** shows the process to authorize Swagger APIs:
 
-![Authorize APIs](../images/swaggerUIAuthorize.gif "Authorize APIs"){: caption="Figure 3. Authorize APIs" caption-side="bottom"}{: gif}
+![Authorize APIs](../images/swaggerUIAuthorize.gif "Authorize APIs"){: caption="Figure 2. Authorize APIs" caption-side="bottom"}{: gif}
 
 
 ## Trying out APIs
@@ -61,21 +54,21 @@ Using Basic Auth authentication, any credentials that you specify in the Authori
 
 Click the REST API you want to run and click the **Try it out** button.
 
-**Figure 4** shows the "Try it out" button in the "Swagger UI":
+**Figure 3** shows the "Try it out" button in the "Swagger UI":
 
-![Try it out button in Swagger UI](../images/swaggerUITryItOut.png "Try it out button in Swagger UI"){: caption="Figure 4. *Try it out* button in the *Swagger UI* caption-side="bottom"}
+![Try it out button in Swagger UI](../images/swaggerUITryItOut.png "Try it out button in Swagger UI"){: caption="Figure 3. *Try it out* button in the *Swagger UI* caption-side="bottom"}
 
 After you click the **Try it out** button, you can enter required parameters to use the API. You can find `networkID` in your network credentials and find other parameters in your Network Monitor. After you enter the parameters, click t**Execute** to run the REST API call against your network.
 
-**Figure 5** shows parameters in the "Swagger UI":
+**Figure 4** shows parameters in the "Swagger UI":
 
-![Parameters in Swagger UI](../images/swaggerUIParams.png "Parameters in Swagger UI"){: caption="Figure 5. Entering parameters" caption-side="bottom"}  
+![Parameters in Swagger UI](../images/swaggerUIParams.png "Parameters in Swagger UI"){: caption="Figure 4. Entering parameters" caption-side="bottom"}  
 
 After you click **Execute**, you can see the response of the API call against your network. You can also see a CURL command that can call the API directly from your command line.
 
-**Figure 6** shows the API response body, URL, and CURL command:
+**Figure 5** shows the API response body, URL, and CURL command:
 
-![API response in Swagger UI](../images/swaggerUICurlResponse.png "API response in Swagger UI"){: caption="Figure 6. API response" caption-side="bottom"}    
+![API response in Swagger UI](../images/swaggerUICurlResponse.png "API response in Swagger UI"){: caption="Figure 5. API response" caption-side="bottom"}    
 
 ## Disabling API access
 {: #ibp-swagger-turn-off}

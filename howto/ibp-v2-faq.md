@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-03"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -111,7 +111,7 @@ Yes, you can bring your own certificates if they are issued by a CA that is X.50
 {: #ibp-v2-faq-migrate-raft}
 {: faq}
 
-Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}  uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-v2-faq#ibp-v2-faq-interoperability).
+Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}  uses Raft consensus. All of the applications and smart contracts that you are using on Fabric 1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-faq#ibp-v2-faq-interoperability).
 
 ## Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?
 {: #ibp-v2-faq-multicloud}
@@ -231,7 +231,7 @@ Actual cost breakdowns are visible from your Invoices in the {{site.data.keyword
 {: #ibp-v2-faq-v2-IBP-Overview-1-5}
 {: faq}
 
-Starter Plan was always designed as a "starting" test network platform and explicitly was not for production. As a result, you cannot upgrade from Starter Plan to the new {{site.data.keyword.blockchainfull_notm}} Platform. Enterprise Plan customers are now able to upgrade their networks to {{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}}. See [Upgrading to the IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-enterprise-upgrade) for more information.
+Enterprise Plan customers are now able to upgrade their networks to {{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}}. See [Upgrading to the IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-enterprise-upgrade) for more information.
 
 ## What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?
 {: #ibp-v2-faq-v2-IBP-Overview-1-8}
