@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-04"
 
 keywords: Enterprise Plan, peer fee, membership fee
 
@@ -65,7 +65,7 @@ Enterprise Plan has two pricing elements:
 
 {{site.data.keyword.blockchainfull_notm}} Platform doesn't provide default configuration for an Enterprise Plan network. You can choose the configuration that you would like to start with. When you are ready to use Enterprise Plan, you should have a good understanding of what your network configuration should be. As a high availability best practice, we strongly recommend a minimum of two peers per organization to ensure that your organization does not experience a network outage.
 
-If you are in an Enterprise Plan network with the other network member, and each of you add two peers for your organization, each of your bill is reflected in Figure 7.
+If you are in an Enterprise Plan network with the other network member, and each of you add two peers for your organization, each of your bill is reflected in Figure 2.
 
 | Pricing components | Cost per month |
 |-----|----------------|
@@ -83,7 +83,7 @@ If you are in an Enterprise Plan network with the other network member, and each
 #### Additional peers
 {: #ibp-pricing-enterprise-additional-peers}
 
-Continue with the example above, if you add another two peers to your organization. You bill increases by $2000 per month. Your bill is reflected in Figure 8:
+Continue with the example above, if you add another two peers to your organization. You bill increases by $2000 per month. Your bill is reflected in Figure 3:
 
 | Pricing components | Cost per month |
 |-----|----------------|
@@ -115,4 +115,4 @@ Enterprise Plan also does not restrict the number to network instances that you 
 
 *Figure 4. Charge of two Enterprise Plan networks both with basic network configuration*
 
-If the other member uses only one Enterprise Plan network and keeps the same network configuration, the member’s bill looks the same as before, which is reflected in Figure 7.
+If the other member uses only one Enterprise Plan network and keeps the same network configuration, the member’s bill looks the same as before, which is reflected in Figure 4.
