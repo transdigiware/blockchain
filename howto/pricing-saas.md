@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-06-04"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -108,7 +108,7 @@ When you allocate VPCs (or CPU) to a blockchain node, the node consumes CPUs fro
 ## Pricing examples
 {: #ibp-saas-pricing-scenarios}
 
-The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume an {{site.data.keyword.cloud_notm}} Kubernetes service cluster and the default CouchDB database is used as the peer database.
+The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume an {{site.data.keyword.cloud_notm}} Kubernetes service cluster and the default CouchDB database is used as the peer database. 
 - The **Test network** scenario is suitable for getting started with your first use case with IBM Blockchain and testing smart contracts.
 - The **Join a network** scenario includes two peers, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
@@ -126,6 +126,8 @@ The following table provides two examples of pricing with [default resource allo
 | **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
 | **Total hourly cost** | **$0.82 USD** | **$1.90 USD**| |
 {: caption="Table 1. Pricing examples for a test network and joining a network" caption-side="bottom"}
+
+
 ** [Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance is limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.  
 
 Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer.
