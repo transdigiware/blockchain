@@ -32,9 +32,9 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 ## Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?
 {: #get-started-console-ocp-which-ibp}
 
-{{site.data.keyword.blockchainfull_notm}} Platform provides different offerings that allow you to deploy your network in the environment of your choice. You need to decide if you want to deploy the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 or if you want to use the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.blockchainfull_notm}} Platform provides different offerings that allow you to deploy your network in the environment of your choice. You need to decide if you want to deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5 or if you want to use the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
-| |{{site.data.keyword.blockchainfull_notm}} Platform for anywhere (v2.1.3) | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} |
+| |{{site.data.keyword.blockchainfull_notm}} Platform for anywhere (2.5) | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} |
 |----|---|----|
 | Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public or hybrid multicloud <br><br> See [Supported Platforms](/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about#console-ocp-about-prerequisites) | A Kubernetes cluster on {{site.data.keyword.cloud_notm}} <br><br> See [Supported configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg) |  
 | What are my deployment options? | <ul><li> Full platform </li> <li> [Only {{site.data.keyword.blockchainfull_notm}} images](#get-started-ibp-images) </li> </ul>| <ul><li> Full platform </li> </ul>
@@ -45,7 +45,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 | Are APIs available for node management? | Yes | Yes|
 | Does the product integrate with the {{site.data.keyword.blockchainfull_notm}} Platform VSCode extension to develop and test my smart contracts?| Yes | Yes|
 | I am an experienced Fabric customer. Are peer, CA, orderer, and smart contract images available and supported? | Yes | No |
-| Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about#console-ocp-about-offers)  | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
+| Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform 2.5](/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about#console-ocp-about-offers)  | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
 {: caption="Table 1. Which offering is right for your business?" caption-side="bottom"}
 
 
@@ -57,7 +57,8 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 ### {{site.data.keyword.blockchainfull_notm}} images
 {: #get-started-ibp-images}
 
-- Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 includes an entitlement to images for [peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer), [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and [smart contract](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts) containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}} images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information, see [{{site.data.keyword.blockchainfull_notm}} images for Hyperledger Fabric](/docs/blockchain-sw-213?topic=blockchain-sw-213-blockchain-images#blockchain-images).
+- Your purchase of {{site.data.keyword.blockchainfull_notm}} Platform 2.5 includes an entitlement to images for [peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer), [Certificate Authority](#x2016383){: term}, [ordering service](#x9826021){: term}, and [smart contract](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts) containers that are signed by IBM. The images are based on the open source Hyperledger Fabric code base and contain a number of enhancements for stability and serviceability. The images are bundled with support from IBM. The {{site.data.keyword.blockchainfull_notm}} images do not include the {{site.data.keyword.blockchainfull_notm}} management console or operator. This offering is intended for experienced Fabric users with existing Fabric deployments. For more information, see [{{site.data.keyword.blockchainfull_notm}} images for Hyperledger  Fabric](/docs/blockchain-sw-213?topic=blockchain-sw-213-blockchain-images#blockchain-images).
+
 
 
 ## Next steps
