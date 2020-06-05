@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
-{:pre: .pre}_
+{:pre: .pre}
 
 # Administering your console
 {: #ibp-console-manage-console}

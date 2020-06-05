@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-04"
+lastupdated: "2020-06-05"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -55,11 +55,15 @@ If you are the **application developer**, use the information that is provided b
 The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network only by using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
 {: note}
 
+
+
 The application developer can use two programming models to interact with the network:
 
 **High-Level Fabric SDK APIs**
 
-Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is only supported for applications that are written in **Node.js** and **Java**. If you want to take advantage of the new model, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
+Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is only supported for applications that are written in **Node.js** and **Java**.
+
+If you want to take advantage of the High-Level Fabric SDK APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
 
 - [Generate certificates for your application](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll) by using the SDK.
 - [Invoke a smart contract from the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke).
