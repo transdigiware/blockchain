@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-05"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
-{:pre: .pre}
+{:pre: .pre}_
 
 # Administering your console
 {: #ibp-console-manage-console}
@@ -157,7 +157,8 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
-If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue:
+If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue.  
+
 
 #### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
 {: #ibp-console-manage-console-container-logs-iks}
@@ -169,12 +170,14 @@ If you encounter issues with your smart contract, you can view the smart contrac
 All of your smart contract logs are visible in this window and can be downloaded using the download icon on the panel.
 
 #### Viewing smart contract logs on a Red Hat OpenShift 3.11 cluster
+
 {: #ibp-console-manage-console-container-logs-ocp311}
 
 1. From your OpenShift web console, switch to the **Application console** view and select your project.
 2. Click **Applications** > **Pods**. You can see your blockchain nodes listed.
 3. Click the node that you need to see the logs for and then click the **Logs** tab.
 4. Because the smart contracts are deployed to the `dind` container in the peer pod, select the `dind` container from the drop-down list.
+
 
 #### Viewing smart contract logs on a Red Hat OpenShift 4.3 cluster
 {: #ibp-console-manage-console-container-logs-ocp43}
