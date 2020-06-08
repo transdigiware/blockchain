@@ -98,7 +98,10 @@ In this case, `nf85a2apeerorg1-5765d88c85-jglk2` represents the name of the peer
 {: #ibp-LogDNA-ibp-smart-contract}
 
 The process to view the logs for a smart contract is similar to how you view your node logs.
-But additional strings are included the search input box.
+
+#### <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image  
+{: #ibp-LogDNA-ibp-smart-contract-14}
+Additional strings are required in the search input box.
 - As above, you include the pod name, but it should be the pod name of a peer where the smart contract is running.
 - Smart contracts run in a `dind` container in Kubernetes but the logs are forwarded to `chaincode-logs` container which is of type `fluentd`. Therefore, to filter the logs to only include the smart contract events you need to include `app:fluentd` in the search input box.
 - Finally, you can append the name and optionally the version of the smart contract, `marbles 1.0.0`.
@@ -112,3 +115,46 @@ pod:n4c817fpeer1org1-55885d5666-zq55t app:fluentd marbles 1.0.0
 
 ![Filtering on smart contract](../images/logDNAsc.png "Filtering logs by smart contract"){: caption="Figure 2.Filtering logs by smart contract" caption-side="bottom"}
 
+#### <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image  
+{: #ibp-LogDNA-ibp-smart-contract-2x}
+
+In order to filter on the smart contract logs, you need to provide the name of the pod where the smart contract is running.
+
+**Find your cluster namespace**  
+
+If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://n2734d0-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `n2734d0`.
+
+**Find the smart contract pod**  
+
+Next, use kubectl commands to get a list of all of the chaincode pods running in your cluster:
+
+```
+kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
+```
+{:codeblock}
+Replacing `<NAMESPACE>` with the name of your cluster namespace.
+
+You should see results similar to:
+```
+NAME                                                       READY   STATUS            RESTARTS   AGE   LABELS
+chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4   1/1     Running   0          14s   chaincode-id=myjavacc-1.1,peer-id=org1peer1
+NAME                                                       READY   STATUS    RESTARTS   AGE   LABELS
+chaincode-execution-f3cc736f-94ef-454d-8da3-362a50c653d9   1/1     Running   0          4m    chaincode-id=mynodecc-1.1,peer-id=org1peer1
+```
+Your smart contract name and version is visible next to the `chaincode-id`.  
+
+Then in LogDNA, to view the logs for the `myjavacc` version 1.1 smart contract, in the search bar simply filter on:
+```
+pod:<SMART_CONTACT_POD>
+```
+{: codeblock}
+
+For example:
+```
+pod:chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4
+```
+
+## Summary
+{: #ibp-LogDNA-summary}
+
+Congratulations. In this tutorial you learned how easy it is to use LogDNA to view the logs for your blockchain nodes and smart contracts. To learn more about monitoring your network, check out the tutorial on using [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig) with your blockchain network.

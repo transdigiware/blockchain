@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-05"
+lastupdated: "2020-06-08"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -130,7 +130,7 @@ The logs of your peers, ordering nodes, and Certificate Authorities (CAs) are co
 #### Viewing nodes logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
 {: #ibp-console-manage-console-node-logs-iks}
 
-To more easily locate your node logs, it is recommended to filter on the namespace that was used when the nodes were deployed. To find the namespace, open any CA node in your console and click the **Settings** icon. View the value of the **Certificate Authority endpoint URL**. For example: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+To more easily locate your node logs, it is recommended to filter on the namespace that was used when the nodes were deployed. To find the namespace, open any CA node in your console and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://n2734d0-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `n2734d0`.
 
@@ -157,7 +157,7 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
-If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue.  
+If you encounter issues with your smart contract, you can view the smart contract, or chaincode, logs to debug an issue.  
 
 
 #### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
