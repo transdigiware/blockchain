@@ -157,7 +157,9 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
-If you encounter issues with your smart contract, you can view the smart contract, or chaincode, logs to debug an issue.  
+If you encounter issues with your smart contract, you can view the smart contract, or chaincode, logs to debug an issue.  The process to view the logs depends on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
+
+  ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 1.How to find peer fabric version" caption-side="bottom"}
 
 
 #### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster

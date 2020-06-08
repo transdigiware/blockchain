@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-08"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -85,7 +85,7 @@ to a CA admin that has the ability to register new users before you attempt this
 
 Clicking **Register user** opens a series of side panels:
 1. On the first side panel, enter the **Enroll ID** and **Enroll Secret** of the new identity. **Save these values**, as they are not stored by the console.
-2. Select the identity **Type**. The drop-down list contains the list of types that the CA supports. If you are registering an identity that will serve as an admin of a node, select type `admin`. If you are registering a peer identity select `peer` and likewise for an ordering node identity select `orderer`. When you need to register an identity for a client application select the type `client`. 
+2. Select the identity **Type**. The drop-down list contains the list of types that the CA supports. If you are registering an identity that will serve as an admin of a node, select type `admin`. If you are registering a peer identity select `peer` and likewise for an ordering node identity select `orderer`. When you need to register an identity for a client application select the type `client`.
 3. If affiliations are defined for this CA, you can associate an affiliation with the user. Otherwise, the affiliations drop-down list is not shown. Check the **Use root affiliation** checkbox for the user if you want them to have the root affiliation and be able to see all other users registered with this CA. When you uncheck **Use root affiliation**, you can select a specific affiliation from the list to associate with this user.
 4. Enter the **Maximum Enrollments** allowed for this identity. If not specified, the value defaults to unlimited enrollments.
 5. On the last side panel, add the **Attributes** of the identity you are creating.
@@ -104,10 +104,11 @@ On the second side panel, click the **Add Attribute** button. Provide an **attri
 
 You can generate the signing certificate and private key for each identity that is registered with your CA. If you registered additional admin identities with your CA, you can generate the certificate and key for the admin identity and then include the certificate when you [create your organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp).
 
-Before you enroll an identity, you need to [Associating the identity of the CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) to be able to operate the CA. If the identity is not set, you will not be able to view the **Registered Users** table on the CA panel. In the Registered Users table, click **Enroll identity** on the user's overflow menu to generate the certificate and key for any user registered with the CA.
+Before you enroll an identity, you need to [Associate the identity of the CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) to be able to operate the CA. If the identity is not set, you will not be able to view the **Registered Users** table on the CA panel. In the Registered users table, navigate to the action menu ![three dots icon](../images/actions.png) for the user and click **Enroll identity**  to generate the certificate and key for any user registered with the CA.
 
 - Under the **Certificate Authorities** dropdown, select **Root Certificate Authority**.
 - Enter the user's **Enroll secret**.
+- (Optional) Enter the `Subject Alternative Names` in the **CSR Hostname** field. Here you can specify the host names or custom domain name where the certificate is valid. You can specify a comma separated list of hosts as well as include a wildcard in the domain. For example, `'host1, host2, *.example.com`.
 - On the next step, the generated keys are displayed.
   - The signing certificate is displayed in the **Certificate** field. This certificate is also referred to as your enrollment certificate, signing certificate, or signCert.
   - You can find the corresponding private key in the **Private Key** field. Again, you need to export the private key to your local system for use with a client application created with the VS Code extension.
