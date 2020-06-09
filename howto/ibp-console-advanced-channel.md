@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-09"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -166,7 +166,7 @@ To ensure that you will always be able to see and propose updates to the latest 
 #### Capabilities in the system channel
 {: #ibp-console-govern-capabilities-system-channel}
 
-Because the ordering service is involved in the validation of the orderer and channel capabilities, these capability levels exist in the system channel maintained by the ordering service. By default, any channel that is created on this ordering service inherits these capability levels. Because only the orderer capability (and not the channel capability) is apparent when creating a channel, it is important to communicate the **channel** capability level to consortium members so they can ensure that the level of their peers is at the Fabric binary version of the capability level or higher.
+Because the ordering service is involved in the validation of the orderer and channel capabilities, these capability levels exist in the system channel maintained by the ordering service. By default, any channel that is created on this ordering service inherits these capability levels. Because only the orderer capability (and not the channel capability) is apparent when creating a channel, it is important to communicate the **channel** capability level to consortium members so they can ensure that the level of their peers is at the Fabric version of the capability level or higher.
 
 In order to edit the orderer or channel capabilities in the system channel, you must be an ordering service admin (your MSP can be added as an ordering service admin through the tile representing the ordering service on the **Nodes** tab). Note that capability versions can only advance. **You cannot go back to a previous capability or downgrade from a default capability level to a lower version**.
 

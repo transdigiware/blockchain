@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-09"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network
 
@@ -507,9 +507,6 @@ After the channel has been created, subsequent organizations do not have to join
 For more information about channels and how to use them, see the [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/channels.html){: external}.
 
 Watch Video 3 above to learn about the process to create channel and join your peer to the channel.
-
-
-
 
 ### Creating a channel: `channel1`
 {: #ibp-console-build-network-create-channel1}
