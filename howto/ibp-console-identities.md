@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-08"
+lastupdated: "2020-06-09"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -24,9 +24,6 @@ subcollection: blockchain
 {: #ibp-console-identities}
 
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 The nodes of the {{site.data.keyword.blockchainfull_notm}} Platform are based on Hyperledger Fabric and builds permissioned blockchain networks. This means that all participants of the blockchain consortium need to have identities that are continuously verified by Public Key Infrastructure. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to create these identities by using your organization's Certificate Authorities (CAs). You need to store these identities in your console wallet so you can use them to operate your network.

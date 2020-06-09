@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-09"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -23,9 +23,6 @@ subcollection: blockchain
 {: #ibp-console-smart-contracts}
 
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 A smart contract is the code, sometimes referred to as chaincode, that applications interact with to read and update data on the blockchain ledger. A smart contract can turn business logic into an executable program that is agreed to and verified by all members of a blockchain network. This tutorial is the third part in the [sample network tutorial series](#ibp-console-smart-contracts-structure) and describes how to deploy smart contracts to start transactions in the blockchain network.
