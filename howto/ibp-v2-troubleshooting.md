@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-09"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -129,7 +129,7 @@ The health checker can now run against the node and report the status of the nod
 {: #ibp-troubleshoot-ordering-service}
 {: troubleshoot}
 
-After you create an ordering service in {{site.data.keyword.cloud_notm}} Private, the status is `Running`. But when you open the ordering service you see the error:
+After you create an ordering service, the status is `Running`. But when you open the ordering service you see the error:
 {: tsSymptoms}
 
 ```
@@ -137,15 +137,7 @@ Unable to get system channel. If you associated an identity without administrati
 you will not be able to view or manage ordering service details.
 ```
 
-This condition occurs in the blockchain console running on {{site.data.keyword.cloud_notm}} Private. On non-Chrome browsers you are required to accept a certificate in order for the console to properly communicate with the node.
-{: tsCauses}
-
-There are multiple ways to resolve this problem:
-1. In your Helm release notes, where your console browser URL is provided, there is also a note to go to a URL and accept the certificate. Browse to that URL and accept the certificate. Now open your ordering service. The error should no longer occur.
-2. If you can use a Chrome browser, open your blockchain console in Chrome and open your ordering service. The error does not occur. Note that you will need export your identities from your console wallet on your non-Chrome browser and then import them into the wallet on the Chrome browser for everything to continue working.
-{: tsResolve}
-
-This problem can also occur when the console has lost contact with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. This can happen if your console has not recently communicated with your cluster, or if you have made changes to your cluster that have overridden the settings used by the {{site.data.keyword.blockchainfull_notm}} platform.
+This problem can occur when the console has lost contact with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. This can happen if your console has not recently communicated with your cluster, or if you have made changes to your cluster that have overridden the settings used by the {{site.data.keyword.blockchainfull_notm}} platform.
 {: tsCauses}
 
 You can renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}} by clicking on the service instance of your console in your **Resource list** and clicking the **Refresh cluster** button. When the link between your cluster and your console has been refreshed, click the **Launch the IBM Blockchain Platform** button.
@@ -366,9 +358,7 @@ You may need to view your smart contract, or chaincode, container logs to debug 
 
 
 
-Follow these instructions to view your smart contract container logs on:
-- [{{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
-- [{{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
+Follow these instructions to view your smart contract container logs on [{{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
 {: tsResolve}
 
 
