@@ -226,20 +226,20 @@ If you need to add a new admin certificate to an existing organization MSP defin
 - Add the certificate of an additional member of the peer's organization who can list and install a smart contract on a peer. See this section for [instructions](#ibp-console-organizations-new-admins).
 - Add the certificate of an additional member of the channel's operator organization who can instantiate a smart contract on an **existing** channel and can submit and approve updates to the channel. See this section for [instructions](#ibp-console-organizations-new-admins-existing-channel).
 
-### Adding a new peer admin certificate
+### Adding a new peer or orderer admin certificate
 {: #ibp-console-organizations-new-admins}
 
-Because peer administrators can change over time, you will need to update your peer admin certificates. You can add new peer administrators by updating the peer's organization MSP definition to include the admin certificates of additional admin identities. Recall that a peer admin identity is required to install a smart contract on a peer and list the smart contracts that are already installed on the peer.
+Because peer and orderer administrators can change over time, or because admin certificates expire every year, you will need to update your MSP admin certificates. You can add new peer or orderer administrators by updating their associated organization MSP definition to include the admin certificates of additional admin identities or new certificates to replace expired ones. Recall that a peer admin identity is required to install a smart contract on a peer and list the smart contracts that are already installed on the peer. When the certificate expires, the peer admin will no longer be able to install smart contracts on the peer.
 
-When you update an MSP organization definition with a new admin cert, the associated peer nodes are also updated with the modified MSP definition. This update process includes an automatic restart of the associated peer nodes which means they will be unavailable for a brief period of time while they restart. If client applications are sending transactions to the peers during this period, the transactions might need to be resubmitted. Note that imported peer nodes, or peers that were not created by using your console, will not be updated.
+When you update an MSP organization definition with a new admin cert, the associated peer or orderer nodes are also updated with the modified MSP definition. This update process includes an automatic restart of the associated nodes which means they will be unavailable for a brief period of time while they restart. If client applications are sending transactions to the nodes during this period, the transactions might need to be resubmitted. Note that imported peer or ordering nodes, or nodes that were not created by using your console, will not be updated.
 {: important}
 
 #### Before you begin
 {: #ibp-console-organizations-new-admins-before}
 
-In order to complete this process, you need to register and enroll the new peer admin identity with the same CA that the existing peer admin was registered with.
+In order to complete this process, you need to generate new certificates for the admin identity. If you already have the certificates because you re-enrolled an existing admin identity after its certificate expired, you can skip this section. Otherwise, you need to register and enroll the new peer or orderer admin identity with the same CA that the existing peer admin was registered with.
 
-1. Follow the steps to [register a new peer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
+1. Follow the steps to [register a new peer or orderer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 2. Follow the steps to [enroll the new admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll) which generates the Certificate and private key for the new admin identity. Be sure to download the generated certificate and private key PEM files to your file system and add the identity to your Wallet.
 3. If the certificate was not created by the console, for example if the Fabric CA client or Fabric SDK was used to generate the certificate, then you need to convert the certificate string from PEM format to base64 format by running the following command:
 
@@ -254,7 +254,7 @@ Replace `<certificate.pem>` with the name of the certificate PEM file that you d
 #### Updating the organization MSP definition
 {: #ibp-console-organizations-new-admins-steps}
 
-To update an MSP, perform the following steps:
+If the organization MSP was not created with **NodeOUs** enabled, then you also need to update the associated organization MSP definition with the new public admin certificate. When **NodeOUs** are enabled, the admin role is inserted directly into the certificate itself and the MSP does not need to be updated. To find out whether the MSP definition was created with **NodeOUs** enabled, open the MSP definition in the Organizations tab and examine the setting of the **NodeOUs** field. When the **NodeOUs** configuration is not enabled, you need to perform the following additional steps:
 
 1. Open the **Nodes** tab in your console.
 2. Find the node that requires the admin certificate update. The MSP name is listed on the tile. Make a note of the MSP name.
@@ -277,7 +277,7 @@ If you need to add a new organization as a channel admin, see this topic on [Upd
 
 As with all channel updates, this update needs to be performed by a channel operator and the change will follow the channel update approval process according to the policy that was configured when the channel was created.
 
-First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then:
+First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then, if the organization MSP was not created with **NodeOUs** enabled, you also need to update the associated channels that include the organization definition with the new public admin certificate. When **NodeOUs** are enabled, the admin role is inserted directly into the certificate itself and the channel does not need to be updated. To find out whether the MSP definition was created with **NodeOUs** enabled, open the MSP definition in the Organizations tab and examine the setting of the **NodeOUs** field. When the **NodeOUs** configuration is not enabled, you need to perform the following steps:
 
 1. Open the channel to be updated in the console.
 2. Click **Channel details** and scroll down to **Channel members**.
