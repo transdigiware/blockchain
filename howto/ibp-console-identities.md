@@ -105,7 +105,7 @@ Before you enroll an identity, you need to [Associate the identity of the CA adm
 
 - Under the **Certificate Authorities** dropdown, select **Root Certificate Authority**.
 - Enter the user's **Enroll secret**.
-- (Optional) Enter the `Subject Alternative Names` in the **CSR Hostname** field. Here you can specify the host names or custom domain name where the certificate is valid. You can specify a comma separated list of hosts as well as include a wildcard in the domain. For example, `'host1, host2, *.example.com`.
+- (Optional) In the **CSR Hostname** field, enter the `Subject Alternative Names (SAN)` to embed in the generated certificate. Specify the host names or custom domain name where the certificate is valid. You can specify a comma separated list of hosts as well as include a wildcard in the domain. For example, `'host1, host2, *.example.com`. If you leave it blank, the SAN inside the generated certificate is empty.
 - On the next step, the generated keys are displayed.
   - The signing certificate is displayed in the **Certificate** field. This certificate is also referred to as your enrollment certificate, signing certificate, or signCert.
   - You can find the corresponding private key in the **Private Key** field. Again, you need to export the private key to your local system for use with a client application created with the VS Code extension.
@@ -128,7 +128,6 @@ You can use each identity in the Registered Users table to generate TLS certific
 Each peer or orderer node that you deploy needs to generate a public TLS certificate. When you create peer or orderer nodes, you can use the same enroll ID and secret that you used to generate the peer or orderer identity as the TLS enroll ID and secret because the TLS CA uses the same user repository as the organization CA. The node then uses this identity to generate its TLS certificate during deployment. This certificate is required by any application that needs to communicate with the orderer or peer. You can find the TLS certificate of a node by navigating to the node overview panel and clicking Settings. You can also find the TLS Certs of your peers and orderers in the connection profile that can be downloaded [from the organization MSP tile on the organizations tab](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile).
 
 When creating a peer or orderer with your console, you can also use the TLS CA to specify an additional domain name for each node. Enter the new domain name in the **TLS CSR hostname** field when deploying your orderer or peer. This hostname will be added to the list of common names in the TLS certificate issued to your node.
-
 
 ## Certificate expiration
 {: #ibp-console-identities-expiration}
