@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-06-09"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -241,7 +241,7 @@ In order to complete this process, you need to register and enroll the new peer 
 
 1. Follow the steps to [register a new peer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 2. Follow the steps to [enroll the new admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll) which generates the Certificate and private key for the new admin identity. Be sure to download the generated certificate and private key PEM files to your file system and add the identity to your Wallet.
-3. You need to convert the certificate string from PEM format to base64 format by running the following command:
+3. If the certificate was not created by the console, for example if the Fabric CA client or Fabric SDK was used to generate the certificate, then you need to convert the certificate string from PEM format to base64 format by running the following command:
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)

@@ -212,7 +212,7 @@ You can also add an identity by uploading a JSON file in the format below. You c
 ```
 {:codeblock}
 
-If you enrolled an identity by using the Fabric CA client or the Fabric SDKs, your keys need to be converted from PEM format into base64 format. You can convert certificates into base64 format by running the following command on your local machine:
+If you did not enroll an identity from the console, but instead by using the Fabric CA client or the Fabric SDKs, your keys need to be converted from PEM format into base64 format. You can convert certificates into base64 format by running the following command on your local machine:
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 cat $HOME/<path-to-certificate>/cert.pem | base64 $FLAG
