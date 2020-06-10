@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-09"
+lastupdated: "2020-06-10"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -47,7 +47,7 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 {: caption="Table 1. Advanced deployment options" caption-side="bottom"}
 {: summary="This table has row and column headers. The row headers include deployment options that are available. The column headers identify the deployment options. To understand the deployment options for a node, navigate to the node column, and find the deployment option you are interested in."}
 
-## Before you start  
+## Before you start
 {: #ibp-console-adv-deployment-before}
 
 **Before** attempting to deploy a node, it is the network operator's responsibility to monitor the cluster CPU, memory, and storage usage, and ensure that adequate resources are available in the cluster for the node.
