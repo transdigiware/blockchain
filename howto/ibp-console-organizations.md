@@ -260,6 +260,8 @@ Because this Fabric capability was not yet available when the {{site.data.keywor
 
 To determine if your MSP organization is enabled for `Node OUs`, open the MSP in the **Organizations** tab and examine the `Node OUs` setting.
 
+![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 4. Node OU configuration for MSP" caption-side="bottom"}
+
 #### Updating the organization MSP definition
 {: #ibp-console-organizations-new-admins-steps}
 
