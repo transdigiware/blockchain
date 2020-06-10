@@ -116,11 +116,10 @@ When the project opens, you can find the new smart contract in the explorer wind
 ## Step three: Package a smart contract
 {: #packaging-a-smart-contract}
 
+If you have previously packaged a smart contract to use with a v1.4.x peer, note that you will have to repackage the smart contract if you want to use the 2.x format. This repackaging will create a `.tgz` file instead of the `.cds` file used by v1.4.x versions of Fabric. To repackage the smart contract, open the original project where the smart contract was created and click **Package Open Project** using the v2.x version of Fabric. Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external} to repackage the smart contract using the correct file format. Note that if the smart contract was written in Golang (go), you will have to vendor the shim. for more information, see [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor).
+{: important}
 
-
-You need to package a smart contract in `.cds` format before you can install it on your {{site.data.keyword.blockchainfull_notm}} Platform network or the preconfigured Hyperledger Fabric network. Complete the following steps to package your smart contract:
-
-
+You need to package a smart contract in either `.cds` or `.tgz` format (the former is used by v1.4.x versions of Fabric while the latter is used by v2.x versions) before you can install it on your {{site.data.keyword.blockchainfull_notm}} Platform network or the preconfigured Hyperledger Fabric network. Complete the following steps to package your smart contract:
 
 1. Open your smart contract project in VS Code by clicking **File** and then click **Open ...**. You can also click **Open Workspace** if you saved your project as a workspace. Ensure that you have the smart contract project open in the file viewer.
 2. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab.
