@@ -102,12 +102,26 @@ In these cases, it will be necessary to use the Kubernetes dashboard or delete t
 
 Note that because smart contracts are deployed into their own pods and not directly into the peer container, they will not be deleted when a peer is deleted. They will have to be deleted either using the UI of your cluster or by issuing kubectl commands.
 
-If you are deleting a smart contract, you will first have to figure out the name of your smart contract pod.
+
 
 
 If you don't already know it, you need to find your Kubernetes cluster namespace. From the console, open any CA node and click the **Info and Usage** icon. View the value of the API URL. For example: https://nf85a2a-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.
 
-Next, get a list of all of the smart contract pods running in your cluster:
+
+If you want to delete all of your smart contract pods, you can issue this command:
+
+
+```
+kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl delete po {} -n <NAMESPACE>
+```
+
+
+
+
+If you want to delete a single smart contract pod, you will first have to figure out the name of your smart contract pod.
+
+
+First, get a list of all of the smart contract pods running in your cluster:
 
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
@@ -130,15 +144,10 @@ Your smart contract name and version is visible next to the chaincode-id.
 
 
 
-To delete a pod, first issue the kubectl command to list the pods:
+To delete a single pod, issue this command, substituting the <POD_NAME> for the name of your pod, for example the smart contract pod `chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4`, as well as your <NAMESPACE>:
 
 ```
-kubectl get pods -n <NAMESPACE>
-```
-{:codeblock}
-
-```
-kubectl delete pod -n <NAMESPACE> <PODNAME>
+kubectl delete pod <POD_NAME> -n <NAMESPACE>
 ```
 {:codeblock}
 
@@ -165,7 +174,7 @@ kubectl delete ibporderer --all
 ```
 {:codeblock}
 
-You may also choose to only delete all peers within a namespace, for example, by only issuing `kubectl delete ibppeer --all`.
+You may also choose to only delete all of a single type of node within a namespace, for example, by only issuing `kubectl delete ibppeer --all`.
 {: tip}
 
 
