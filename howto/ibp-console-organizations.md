@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-09"
+lastupdated: "2020-06-10"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -251,10 +251,19 @@ cat <certificate.pem> | base64 $FLAG
 
 Replace `<certificate.pem>` with the name of the certificate PEM file that you downloaded.
 
+#### Node OUs
+{: #ibp-console-organizations-nodeous}
+
+Recall that when you register a user with the CA, you have the option to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} when it was upgraded to include Fabric v1.4.3 that contains support for **Node organizational units (Node OUs)** in MSPs and channels. This new capability means that when the MSP admin identity is **enrolled** during MSP creation, the generated signed certificate includes the `admin` type as an OU inside the certificate.  This feature eliminates the need to include the signed certificate of the admin identity in the `admincerts` folder of the MSP and streamlines MSP. You can learn more about the benefits of `Node OUs` in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.
+
+Because this Fabric capability was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities enrolled before this capability was added to the platform do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if `Node OUs` are not enabled for the MSP organization, additional steps are required after the certificate renewal to update the MSP and any channels that the organization is part of. The detailed steps are included later in this section.
+
+To determine if your MSP organization is enabled for `Node OUs`, open the MSP in the **Organizations** tab and examine the `Node OUs` setting.
+
 #### Updating the organization MSP definition
 {: #ibp-console-organizations-new-admins-steps}
 
-If the organization MSP was not created with **NodeOUs** enabled, then you also need to update the associated organization MSP definition with the new public admin certificate. When **NodeOUs** are enabled, the admin role is inserted directly into the certificate itself and the MSP does not need to be updated. To find out whether the MSP definition was created with **NodeOUs** enabled, open the MSP definition in the Organizations tab and examine the setting of the **NodeOUs** field. When the **NodeOUs** configuration is not enabled, you need to perform the following additional steps:
+If the organization MSP was not created with [Node OUs](#ibp-console-organizations-nodeous) enabled, then you also need to update the associated organization MSP definition with the new public admin certificate. When `Node OUs` are enabled, the admin role is inserted directly into the certificate itself and the MSP does not need to be updated.  When the `Node OUs` configuration is not enabled, you need to perform the following additional steps:
 
 1. Open the **Nodes** tab in your console.
 2. Find the node that requires the admin certificate update. The MSP name is listed on the tile. Make a note of the MSP name.
@@ -270,14 +279,14 @@ If the organization MSP was not created with **NodeOUs** enabled, then you also 
 ### Adding a new channel admin certificate
 {: #ibp-console-organizations-new-admins-existing-channel}
 
-Follow these instructions when you need to add a new admin certificate of another member from the same organization who can instantiate a smart contract on an existing channel and can submit and approve channel updates. This task requires you to download and edit the existing MSP definition and add the new admin certificate and then update the MSP for the channel member.
+Follow these instructions when you need to insert a new admin certificate for one that expired or add a new admin certificate of another member from the same organization who can instantiate a smart contract on an existing channel and can submit and approve channel updates. This task requires you to download and edit the existing MSP definition and add the new admin certificate and then update the MSP for the channel member.
 
 If you need to add a new organization as a channel admin, see this topic on [Updating a channel configuration](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel).
 {: note}
 
 As with all channel updates, this update needs to be performed by a channel operator and the change will follow the channel update approval process according to the policy that was configured when the channel was created.
 
-First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then, if the organization MSP was not created with **NodeOUs** enabled, you also need to update the associated channels that include the organization definition with the new public admin certificate. When **NodeOUs** are enabled, the admin role is inserted directly into the certificate itself and the channel does not need to be updated. To find out whether the MSP definition was created with **NodeOUs** enabled, open the MSP definition in the Organizations tab and examine the setting of the **NodeOUs** field. When the **NodeOUs** configuration is not enabled, you need to perform the following steps:
+First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then, if the organization MSP was not created with [Node OUs](#ibp-console-organizations-nodeous) enabled, you also need to update the associated channels that include the organization definition with the new public admin certificate. When `Node OUs` are enabled, the admin role is inserted directly into the certificate itself and the channel does not need to be updated. When the `Node OUs` configuration is not enabled, you need to perform the following steps:
 
 1. Open the channel to be updated in the console.
 2. Click **Channel details** and scroll down to **Channel members**.
