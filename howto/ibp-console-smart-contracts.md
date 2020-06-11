@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-10"
+lastupdated: "2020-06-11"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -82,12 +82,12 @@ The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* o
 If you already have smart contracts that were written in Golang (go) installed on peers using the 1.4.x version of Fabric, be aware that they cannot be installed on a v2.x peer until you have vendored the "shim", the external dependencies that allow smart contracts to run. You will not need to do this vendoring on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package. However, they are necessary for smart contracts written in go for 1.4.x peers. For information on how to do this, proceed to the next section before repackaging your smart contract.
 {: important}
 
-When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged either into `.cds` format (if using a v1.4.x peer) or `.tgz` format (if using a v2.x peer). For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}. For v2.x commands, see [2.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external}.
+When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}. For v2.x commands, see [2.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external}.
 
 ### Vendoring smart contracts
 {: #ibp-console-smart-contracts-write-package-vendor}
 
-To vendor the shim, navigate to your smart contract source folder. Then initialize the go module by issuing:
+To vendor the go shim, navigate to your smart contract source folder. Then initialize the go module by issuing:
 
 ```
 go mod init
@@ -109,7 +109,7 @@ go mod vendor
 ```
 {: codeblock}
 
-After you have completed these steps, you can repackage your smart contract using the `.tgz` format as described in [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract).
+After you have completed these steps, you can repackage your smart contract using the process described in [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract).
 
 ## Step two: Install a smart contract
 {: #ibp-console-smart-contracts-install}
