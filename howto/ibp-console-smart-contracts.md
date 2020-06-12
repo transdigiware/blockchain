@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-11"
+lastupdated: "2020-06-12"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -79,7 +79,7 @@ The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* o
 - For a more in-depth end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}.
 - To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}.
 
-If you already have smart contracts that were written in Golang (go) installed on peers using the 1.4.x version of Fabric, be aware that they cannot be installed on a v2.x peer until you have vendored the "shim", the external dependencies that allow smart contracts to run. You will not need to do this vendoring on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package. However, they are necessary for smart contracts written in go for 1.4.x peers. For information on how to do this, proceed to the next section before repackaging your smart contract.
+If you already have smart contracts that were written in Golang (go) installed on peers using the 1.4.x version of Fabric, be aware that they cannot be installed on a v2.x peer until you have vendored the "shim", the external dependencies that allow smart contracts to run. You will not need to do this vendoring or repackaging on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package. However, they are necessary for smart contracts written in go for 1.4.x peers. For information on how to do this, proceed to the next section before repackaging your smart contract.
 {: important}
 
 When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}. For v2.x commands, see [2.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external}.
