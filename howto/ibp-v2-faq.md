@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-04"
+lastupdated: "2020-06-12"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -33,18 +33,26 @@ subcollection: blockchain
 - [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](#ibp-v2-faq-version)
 - [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
 - [What database do the peers use for their ledger?](#ibp-v2-faq-v2-IBP-Overview-1-3)
-- [What languages are supported for smart contracts?](#ibp-v2-faq-v2-IBP-Overview-1-4)
 - [Do you support using certificates from non-IBM Certificate Authorities (CAs)?](#ibp-v2-faq-v2-external-certs)
 - [I am currently using Hyperledger Fabric v1.4 and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?](#ibp-v2-faq-migrate-raft)
 - [Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](#ibp-v2-faq-multicloud)
-- [How can I find the examples and tutorials within the VSCode extension?](#ibp-v2-faq-vscode-tutorials)
-- [Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](#ibp-v2-faq-mon-client-app)
 - [Is there a best practice for monitoring my blockchain resources?](#ibp-v2-faq-mon-res)
 - [If service discovery is on, will an endorsement request be routed to any peer on the network?](#ibp-v2-faq-service-discovery)
 - [What is the recommended way to manage private keys?](#ibp-v2-faq-hsm)
 - [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
 - [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-ports)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
+
+**For developers**
+
+- [What languages are supported for smart contracts?](#ibp-v2-faq-v2-IBP-Overview-1-4)
+- [What version of the IBM Blockchain Platform works with the Ansible collection?](#ibp-v2-faq-ansible-version)
+- [How do I get support for running the IBM Blockchain Platform Ansible playbook?](#ibp-v2-faq-ansible-support)
+- [Do I need OpenShift to run CodeReady Workspace?](#ibp-v2-faq-codeready-openshift)
+- [How often do updates get rolled out for the CodeReady Workspace extension?](#ibp-v2-faq-codeready-updates)
+- [How can I test out my smart contracts?](#ibp-v2-faq-test-smart-contracts)
+- [How can I find the examples and tutorials within the VSCode extension?](#ibp-v2-faq-vscode-tutorials)
+- [Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](#ibp-v2-faq-mon-client-app)
 
 
 **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}**  
@@ -94,13 +102,6 @@ View the Support page by clicking the question mark icon <img src="../images/sup
 
 You have the choice of either CouchDB or LevelDB when you configure your peer database. Because data is modeled differently in a Couch database than in a Level database, the peers in a channel must all use the same database type. See [LevelDB versus CouchDB](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-level-couch) to decide what is best for your business needs.
 
-## What languages are supported for smart contracts?
-{: #ibp-v2-faq-v2-IBP-Overview-1-4}
-{: faq}
-{: support}
-
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in  Node.js, Golang, or JavaScript, and Java. The new Hyperledger Fabric programming model currently supports JavaScript, TypeScript, Java, and Go. If you are interested in preserving your existing application code, or by using Fabric SDKs for *Go*, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
-
 ## Do you support using certificates from non-IBM Certificate Authorities?
 {: #ibp-v2-faq-v2-external-certs}
 {: faq}
@@ -118,18 +119,6 @@ Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyw
 {: faq}
 
 You cannot currently deploy blockchain nodes to multiple hosted cloud providers. However, you can use your console to operate a distributed multicloud network by importing nodes deployed by using consoles on other clouds.
-
-## How can I find the examples and tutorials within the VSCode extension?
-{: #ibp-v2-faq-vscode-tutorials}
-{: faq}
-
-The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
-
-## Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?
-{: #ibp-v2-faq-mon-client-app}
-{: faq}
-
-The {{site.data.keyword.blockchainfull_notm}} Platform console does not monitor the health of blockchain client applications, but {{site.data.keyword.cloud_notm}} does offer tooling such as [{{site.data.keyword.la_full_notm}}](/catalog/services/ibm-log-analysis-with-logdna){: external} and [{{site.data.keyword.mon_full_notm}}](/catalog/services/ibm-cloud-monitoring-with-sysdig){: external} that can be used for their health monitoring.
 
 ## Is there a best practice for monitoring my blockchain resources?
 {: #ibp-v2-faq-mon-res}
@@ -172,6 +161,55 @@ See the port information in the Security topic that addresses this for the [cons
 {: faq}
 
 Yes. The Raft ordering service nodes are configured to use TLS communication. TLS is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and as well as between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
+
+## What languages are supported for smart contracts?
+{: #ibp-v2-faq-v2-IBP-Overview-1-4}
+{: faq}
+{: support}
+
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in  Node.js, Golang, or JavaScript, and Java. The new Hyperledger Fabric programming model currently supports JavaScript, TypeScript, Java, and Go. If you are interested in preserving your existing application code, or by using Fabric SDKs for *Go*, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
+
+## What version of the {{site.data.keyword.blockchainfull_notm}} Platform works with the Ansible collection?
+{: #ibp-v2-faq-ansible-version}
+{: faq}
+
+Both versions 2.1.3 and 2.5 of the {{site.data.keyword.blockchainfull_notm}} Platform can be used with the Ansible collection to deploy a Hyperledger Fabric network.
+
+## How do I get support for running the {{site.data.keyword.blockchainfull_notm}}  Platform Ansible playbook?
+{: #ibp-v2-faq-ansible-support}
+{: faq}
+
+Ansible is an open source technology and this product is not officially supported by {{site.data.keyword.IBM_notm}}. For support related to the usage of the {{site.data.keyword.blockchainfull_notm}}  Platform and Ansible playbooks please use the [GitHub repository](https://github.com/IBM-Blockchain/ansible-role-blockchain-platform-manager/issues){: external}.
+
+## Do I need OpenShift to run CodeReady Workspace?
+{: #ibp-v2-faq-codeready-openshift}
+{: faq}
+
+Yes, OpenShift is a prerequisite to running CodeReady as you will have to deploy your workspace into an OpenShift cluster.
+
+## How often do updates get rolled out for the CodeReady Workspace extension?
+{: #ibp-v2-faq-codeready-updates}
+{: faq}
+
+Updates are scheduled to coincide with the VS Code extension and should be available every two weeks.
+
+## How can I test out my smart contracts?
+{: #ibp-v2-faq-test-smart-contracts}
+{: faq}
+
+Currently this can be achieved by connecting to a Fabric network running outside of the CodeReady Workspaces extension. In our next release we plan to introduce a simple way to deploy a Fabric network from within the extension.
+
+## How can I find the examples and tutorials within the VSCode extension?
+{: #ibp-v2-faq-vscode-tutorials}
+{: faq}
+
+The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided tutorials within VS Code to help you get started. You can find these tutorials on the extension home page when the extension is first installed. However, you can return to the tutorials and the home page by going to the extensions tab. For more information, see [Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials).
+
+## Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?
+{: #ibp-v2-faq-mon-client-app}
+{: faq}
+
+The {{site.data.keyword.blockchainfull_notm}} Platform console does not monitor the health of blockchain client applications, but {{site.data.keyword.cloud_notm}} does offer tooling such as [{{site.data.keyword.la_full_notm}}](/catalog/services/ibm-log-analysis-with-logdna){: external} and [{{site.data.keyword.mon_full_notm}}](/catalog/services/ibm-cloud-monitoring-with-sysdig){: external} that can be used for their health monitoring.
 
 
 ## How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?
