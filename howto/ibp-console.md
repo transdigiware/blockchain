@@ -43,7 +43,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 
 **BUILD ---- Integrated developer experience**
 - **Deploy easily**. Use Ansible Playbooks to deploy networks quicker than ever before.
-- **Easily code** your smart contracts in Node.js, Golang, Java, or JavaScript. Use the {{site.data.keyword.blockchainfull}} Platform Developer Tools to easily develop smart contracts locally or CodeReady Workspaces to develop them in the cloud. Leverage **SDK integration** with the console, and learn from our rich tutorials and samples.
+- **Easily code** your smart contracts in Node.js, Golang, Java, or JavaScript. Use the {{site.data.keyword.blockchainfull}} Platform Developer Tools to easily develop smart contracts locally or use Red Hat CodeReady Workspaces to develop them in the cloud. Leverage **SDK integration** with the console, and learn from our rich tutorials and samples.
 - **Simplified DevOps** allows you to move from development to test to production in a single environment by scaling up your Kubernetes resources to add more components.
 - **Up-to-date Fabric key features**. Choose which version of Hyperledger Fabric you want to use when deploying peers or ordering nodes. Leverage the latest features of Hyperledger Fabric v1.4.7 and v2.x:
   - [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
