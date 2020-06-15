@@ -237,7 +237,7 @@ When you update an MSP organization definition with a new admin cert, the associ
 #### Before you begin
 {: #ibp-console-organizations-new-admins-before}
 
-In order to complete this process, you need to generate new certificates for the admin identity. If you already have the certificates because you re-enrolled an existing admin identity after its certificate expired, you can skip this section. Otherwise, you need to register and enroll the new peer or orderer admin identity with the same CA that the existing peer admin was registered with.
+In order to complete this process, you need to generate new certificates for the admin identity. If you already have the certificates because you re-enrolled an existing admin identity after its certificate expired, you can skip this section. Otherwise, you need to register and enroll the new peer or orderer admin identity with the same CA that the existing peer or orderer admin was registered with.
 
 1. Follow the steps to [register a new peer or orderer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
 2. Follow the steps to [enroll the new admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll), which generates the Certificate and private key for the new admin identity. Be sure to download the generated certificate and private key PEM files to your file system and add the identity to your Wallet.
