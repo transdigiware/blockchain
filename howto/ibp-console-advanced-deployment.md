@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-11"
+lastupdated: "2020-06-15"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -568,17 +568,17 @@ If you are deploying a redundant node (that is, another peer when you already ha
 ### Sizing a peer during creation
 {: #ibp-console-adv-deployment-peers-sizing-creation}
 
-The peer has five containers that can be adjusted:
+The peer pod has four containers that can be adjusted:
 
 - **Peer container**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts that are installed on the peer.
 - **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
 - **Smart contract container**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your peer pod, which is known as a Docker-in-Docker container.
+- **Smart contract launcher container**: Used to launch a separate pod for each smart contract, eliminating the need for a Docker-in-Docker container in the peer pod. Note that the smart contract launcher container is not where smart contracts actually run, and is therefore given a smaller default resource than the "smart contracts" container that used to be deployed along with a node. It only exists to help create the pods where smart contracts run. You must make your own allowances in your deployment for the containers for smart contracts, as the pods spun up by the smart contract launcher are not bound by strict resource limitations. The pod will use as many resources as it needs depending on the size of a smart contract and the processing load it encounters. For more information, see [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/){: external}.
 
+Note that when you install a smart contract on a peer, a separate pod will be created for that smart contract when it is enabled on the channel (it will take a few moments for the pod to be created and for the smart contract to build). This is true for each smart contract you install on each peer, even if the smart contract is the same. So if you have three peers on a channel, and install a smart contract on each one, you will have three smart contract pods running. However, if your peers are on more than one channel using the **exact same** smart contract, you will still only have three pods running. These smart contract pods will not be deleted if you delete the peer. You must delete them **separately**.
+{:important}
 
-
-The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container. Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
-
-
+The peer also includes a gRPC web proxy container, you cannot adjust the compute for this container.
 
 As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-before), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
 
@@ -589,11 +589,10 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat by using [indexes](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
 | **CouchDB (ledger data) storage** | When you expect high throughput on many channels and don't plan to use indexes. However, like the peer storage, the default CouchDB storage is 100G, which is significant. |
 | **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
+| **Smart contract launcher container CPU and memory** | Because the smart contract launcher container streams logs from smart contracts back to a peer, the more smart contracts are running the greater the load on the smart contract launcher. |
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default memory allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resource consumption of the peer containers by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default storage allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resources consumed by the pod that contains the smart contract in your cluster by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
 {: important}
-
-
 
 For more details on the resource allocation panel in the console see [Allocating resource](#ibp-console-adv-deployment-allocate-resources).
 

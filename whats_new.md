@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-05"
+lastupdated: "2020-06-15"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -77,8 +77,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.c
 - If you want to continue using Starter Plan after your admin certificate expires, you need to reset your network. Your network is reset back to the original one channel, two peers and one peer per organization. Any new nodes, channels, and smart contracts you have added since your Starter network was originally deployed need to be recreated in the new network.
 - If you no longer need to use Starter Plan, now would be a good time to deploy a new instance of the next generation {{site.data.keyword.blockchainfull}} Platform. You can [preview the platform for free](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days.
 
-**There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.** 
-- Check out this [tutorial series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external} to learn how to deploy the blockchain console and build a network.
+**There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.**
 - [Create](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free){: external} your next generation {{site.data.keyword.blockchainfull_notm}} Platform instance.
 - See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks){: external}.
 - Watch this [video](https://www.youtube.com/watch?v=j3jx8trzpKM&feature=youtu.be){: external} to learn how to use our [developer tools](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} to migrate and test existing smart contracts and build new ones. 
