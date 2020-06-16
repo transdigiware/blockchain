@@ -42,7 +42,7 @@ Leveraging the Fabric v2 **external chaincode launcher** capability, when you de
 
 If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
 
-**Peer and ordering node patch 1.4.7-1**
+**Peer and ordering node patch 1.4.7-0**
 
 Miscellaneous bug fixes and security patches.
 
