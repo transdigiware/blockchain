@@ -161,7 +161,7 @@ Considerations if you are developing Java smart contracts:
 - Java 11 is required to execute Java smart contracts.
 - Gradle v4.x and Maven v3.x are used to build Java smart contracts.
 - Custom Gradle versions can be used by using a Gradle wrapper.
-- Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later, as this version is the first version that includes support for Java 11.
+- Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later (if deploying on a peer using a Fabric 1.4.x image; peer using a Fabric 2.x image do not require a shim), as this version is the first version that includes support for Java 11.
 - For an example of a Java smart contract, see the [FabCar Java smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar/java){: external} from Fabric v1.4.
 
 
@@ -241,7 +241,9 @@ If you want to control which files in the project are packaged, you can create a
 /build/
 ```
 
-If the smart contract was originally written in Golang (go) and installed on a peer using a 1.4.x version of Fabric, you will have to vendor the shim and repackage it to install it on a peer using a 2.x version of Fabric. To repackage the smart contract, open the original project where the smart contract was created and click **Package Open Project** using the v2.x version of Fabric. Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external} to repackage the smart contract using the correct file format. For more information, see [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor).
+Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package.
+
+To repackage the smart contract, open the original project where the smart contract was created and click **Package Open Project** using the v2.x version of Fabric. Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external} to repackage the smart contract using the correct file format. For more information, see [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor).
 {: important}
 
 ### Exporting, importing, and deleting a smart contract package

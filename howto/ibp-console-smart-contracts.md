@@ -79,7 +79,7 @@ The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* o
 - For a more in-depth end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}.
 - To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}.
 
-If you already have smart contracts that were written in Golang (go) installed on peers using the 1.4.x version of Fabric, be aware that they cannot be installed on a v2.x peer until you have vendored the "shim", the external dependencies that allow smart contracts to run. You will not need to do this vendoring or repackaging on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package. However, they are necessary for smart contracts written in go for 1.4.x peers. For information on how to do this, proceed to the next section before repackaging your smart contract.
+Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package.
 {: important}
 
 When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}. For v2.x commands, see [2.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external}.
@@ -87,7 +87,7 @@ When you are ready to deploy your smart contract to the {{site.data.keyword.bloc
 ### Vendoring smart contracts
 {: #ibp-console-smart-contracts-write-package-vendor}
 
-To vendor the go shim, navigate to your smart contract source folder. Then initialize the go module by issuing:
+To vendor the shim for a go smart contract, navigate to your smart contract source folder. Then initialize the go module by issuing:
 
 ```
 go mod init

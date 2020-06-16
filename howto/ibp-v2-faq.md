@@ -285,7 +285,7 @@ Enterprise Plan customers are now able to upgrade their networks to {{site.data.
 {: #ibp-v2-faq-v2-IBP-Overview-1-8}
 {: faq}
 
-When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service instance, all of the blockchain CAs, peers, smart contract pods, and ordering nodes are deleted along with their associated storage. If you have exported any of these nodes to other consoles, make sure to reach out to the administrators of those consoles to let them know that those nodes are no longer functioning, because deleting them in your console does not automatically delete them in theirs.
+When you delete an {{site.data.keyword.blockchainfull_notm}} Platform service instance, all of the blockchain CAs, peers, smart contract pods (if using peers deployed with a Fabric 2.x image; smart contracts deployed on peers using a Fabric 1.4.x image are located inside the peer container), and ordering nodes are deleted along with their associated storage. If you have exported any nodes to other consoles, make sure to reach out to the administrators of those consoles to let them know that those nodes are no longer functioning, because deleting them in your console does not automatically delete them in theirs.
 
 ## What regions are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-v2-IBP-Overview-1-9}
