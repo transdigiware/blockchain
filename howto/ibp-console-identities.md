@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-16"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -149,19 +149,19 @@ While the platform automatically renews the certificates for peer and ordering n
 
 Before a certificate expires, you must re-enroll the identity with the associated CA to generate a new certificate and public key. If the certificates were generated with the console, you can use the following instructions:
 1. Open the CA tile.
-2. Locate the enroll ID for the identity in the table and click **Enroll identity** off of the action menu.
+2. Locate the enroll ID for the identity in the table and click **Enroll identity** from the action menu.
 3. Provide the enroll ID and secret that was specified when the identity was initially created.
-5. Because the certificate and private key are never stored by the console, you must download them and store them securely.
-6. It is also recommended that you add the new identity to your console wallet. You will need to either delete the existing wallet identity or give this one a different name.
-7. If this is an MSP **admin** identity, and the associated MSP definition was not created with `Node OUs` enabled, then you also need to update the associated organization MSP definition with the new admin signed certificate. When `Node OUs` are enabled for an MSP, the admin role is inserted directly into the certificate itself and therefore the MSP does not need to be updated. To find out whether the MSP definition was created with `Node OUs` enabled, open the associated MSP definition in the Organizations tab and examine the setting of the `Node OUs` field. When the `Node OUs` configuration is not enabled, you need to perform the following additional steps:
+4. Because the certificate and private key are never stored by the console, you must download them and store them securely.
+5. It is also recommended that you add the new identity to your console wallet. You will need to either delete the existing wallet identity or give this one a different name.
+6. If this is an MSP **admin** identity, and the associated MSP definition was not created with `Node OUs` enabled, then you also need to update the associated organization MSP definition with the new admin signed certificate. When `Node OUs` are enabled for an MSP, the admin role is inserted directly into the certificate itself and therefore the MSP does not need to be updated. To find out whether the MSP definition was created with `Node OUs` enabled, open the associated MSP definition in the Organizations tab and examine the setting of the `Node OUs` field. When the `Node OUs` configuration is not enabled, you need to perform the following additional steps:
   ![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 2. Node OU configuration for MSP" caption-side="bottom"}
   - Add the new certs to the organization MSP definition. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-steps){: external} for more instructions.
   - Update any channels that this MSP organization is part of. Refer to the topic on
   [Adding a new channel admin certificate](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-existing-channel) for details.
 
-If the certificates were generated from an external CA, Fabric CA client, or Fabric SDKs, then they need to be renewed where they were generated. You can then use the updated certificates when you follow instructions in Step 7 above.
+If the certificates were generated from an external CA, Fabric CA client, or Fabric SDKs, then they need to be renewed where they were generated. You can then use the updated certificates when you follow instructions in Step 6 above.
 
-If you have hit the enrollment limit for a user, simply use the console to register and enroll a new user and then use the generated certificates in Step 7 as normal.
+If you have hit the enrollment limit for a user, simply use the console to register and enroll a new user and then use the generated certificates in Step 6 as normal.
 {: tip}
 
 ## Using the command line to view certificate expiration
