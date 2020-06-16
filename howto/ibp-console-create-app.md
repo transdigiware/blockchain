@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-16"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -107,11 +107,11 @@ Click the **Organization MSP** tile for the organization that your client applic
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
 
-If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate authority in the connection profile definition.
+If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate Authority in the connection profile definition.
 
 Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer. Therefore, to accommodate for peer downtime during a maintenance cycle for example, it is recommended that you select more than one peer for redundancy. In addition to peers created by using the console or APIs, imported peers that have been imported into the console are eligible to be selected as well.
 
-The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer is currently unavailable.
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer joined to it is currently unavailable.
 
 You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-16"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -80,7 +80,7 @@ Because your admin certs are passed to your nodes and channels by using the MSP 
 
 - On the **Review MSP information** panel, review the information that you specified for this MSP.
 
-After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. You select the MSP definition when you deploy your nodes, are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where your organization has to sign.
+After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. Because an MSP is the representation of an organization in the network, you select the MSP definition when you deploy your nodes (identifying the organization the node belongs to), are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where you have to specify the organization that is performing the action.
 
 ## Downloading a connection profile
 {: #ibp-console-organizations-connx-profile}
@@ -91,11 +91,11 @@ Click the **Organization MSP** tile for the organization that your client applic
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
 
-If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate authority in the connection profile definition.
+If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate Authority in the connection profile definition.
 
 Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer. Therefore, to accommodate for peer downtime during a maintenance cycle for example, it is recommended that you select more than one peer for redundancy. In addition to peers created by using the console or APIs, imported peers that have been imported into the console are eligible to be selected as well.
 
-The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer is currently unavailable.
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer joined to it is currently unavailable.
 
 You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
 
@@ -256,7 +256,7 @@ Replace `<certificate.pem>` with the name of the certificate PEM file that you d
 
 Recall that when you register a user with the CA, you need to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} when it was upgraded to include Fabric v1.4.3 that contains support for **Node organizational units (Node OUs)** in MSPs and channels. This new capability means that when the MSP admin identity is **enrolled** during MSP creation, the generated signed certificate includes the `admin` type as an OU inside the certificate. This feature eliminates the need to include the signed certificate of the admin identity in the `admincerts` folder of the MSP and streamlines MSP. You can learn more about the benefits of `Node OUs` in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.
 
-Because this Fabric capability was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before this capability was added to the platform do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if `Node OUs` are not enabled for the MSP organization, additional steps are required after the certificate renewal to update the MSP and any channels that the organization is part of. The detailed steps are included later in this section.
+Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OUs were added to the platform do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if `Node OUs` are not enabled for the MSP organization, additional steps are required after the certificate renewal to update the MSP and any channels that the organization is part of. The detailed steps are included later in this section.
 
 To determine whether your MSP organization is enabled for `Node OUs`, open the MSP in the **Organizations** tab and examine the `Node OUs` setting.
 

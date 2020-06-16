@@ -67,7 +67,7 @@ This same process can be used to view the logs of ordering nodes, peers and CAs.
 
 ![Filtering on node](../images/logDNAPod.png "Filtering logs by node"){: caption="Figure 1.Filtering logs by node" caption-side="bottom"}  
 
-If you are not getting any results, you might need to filter on your namespace for the blockchain nodes to be visible in the Kubernetes dashboard. To find the namespace, open any certificate authority tile in your blockchain console and click the **Info and usage** tab. View the value of the **API URL**. For example: `https://nf85a2a-znorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+If you are not getting any results, you might need to filter on your namespace for the blockchain nodes to be visible in the Kubernetes dashboard. To find the namespace, open any Certificate Authority tile in your blockchain console and click the **Info and usage** tab. View the value of the **API URL**. For example: `https://nf85a2a-znorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.  Then run the kubectl command:
 ```

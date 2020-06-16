@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-12"
+lastupdated: "2020-06-16"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -170,7 +170,7 @@ Use the following steps to deploy the preconfigured network:
 1. Ensure that Docker is running on your machine.
 2. Open the **{{site.data.keyword.blockchainfull_notm}} Platform** tab in VS Code.
 3. In the **Fabric Environments** pane, click **1 Org Local Fabric**. If Docker is running, the local Hyperledger Fabric instance should be downloaded and started.
-4. Click **1 Org Local Fabric - Org1** in the **Fabric Gateways** pane to connect to the local network. Select the **org1Admin** identity to connect with. You can create a new identity by right-clicking the certificate authority node in the **Fabric Environments** pane. This new identity can then be added to a wallet and be associated with **1 Org Local Fabric** connection.
+4. Click **1 Org Local Fabric - Org1** in the **Fabric Gateways** pane to connect to the local network. Select the **org1Admin** identity to connect with. You can create a new identity by right-clicking the Certificate Authority node in the **Fabric Environments** pane. This new identity can then be added to a wallet and be associated with **1 Org Local Fabric** connection.
 
 The VS Code extension creates a basic Fabric network that includes one orderer, one peer, and one certificate authority. The peer is joined to a channel named `mychannel`. You can find the list of nodes, organizations, and channels that belong to the network in the **Fabric Environments** pane. Above these nodes, you can find the list of smart contracts that are installed on your peers and instantiated on your channels.
 

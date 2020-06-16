@@ -108,7 +108,7 @@ In the Connection Profile document under **certificateAuthorities** is an attrib
     ```
     {:codeblock}
 
-3. After the card has been imported, it can be used to acquire the certificates from the certificate authority using the following command:
+3. After the card has been imported, it can be used to acquire the certificates from the Certificate Authority using the following command:
 
     ```
     composer identity request --card ca --path ./credentials -u admin -s PA55W0RD12

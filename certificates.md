@@ -201,7 +201,7 @@ You can also use the Fabric CA client to generate certificates and register a ne
     ```
     {:codeblock}
 
-3. Download the TLS certs from {{site.data.keyword.cloud_notm}} depending on the service plan, location, and cluster that you use. You can find your service plan based on the URL of your certificate authority.
+3. Download the TLS certs from {{site.data.keyword.cloud_notm}} depending on the service plan, location, and cluster that you use. You can find your service plan based on the URL of your Certificate Authority.
   - [TLS Cert for Enterprise Plan](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
   Save the contents to a folder, for example ``$HOME/tls``. This step allows the data flowing to be encrypted on the wire.
