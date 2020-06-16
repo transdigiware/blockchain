@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-16"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -161,8 +161,59 @@ If you encounter issues with your smart contract, you can view the smart contrac
 
   ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 1.How to find peer fabric version" caption-side="bottom"}
 
+#### <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image
+{: #ibp-console-manage-console-container-logs-2x}
 
-#### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
+If your peer is based on the Hyperleder Fabric v2.x image, you can run the following set of kubectl commands to view the smart contract logs.
+
+**Find your cluster namespace**  
+
+If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://nf85a2a-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.
+
+**Find the smart contract pod**  
+
+Next, get a list of all of the chaincode pods running in your cluster:
+
+```
+kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
+```
+{:codeblock}
+Replacing `<NAMESPACE>` with the name of your cluster namespace.
+
+You should see results similar to:
+```
+NAME                                                       READY   STATUS            RESTARTS   AGE   LABELS
+chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4   1/1     Running   0          14s   chaincode-id=javacc-1.1,peer-id=org1peer1
+NAME                                                       READY   STATUS    RESTARTS   AGE   LABELS
+chaincode-execution-f3cc736f-94ef-454d-8da3-362a50c653d9   1/1     Running   0          4m    chaincode-id=nodecc-1.1,peer-id=org1peer1
+```
+Your smart contract name and version is visible next to the `chaincode-id`.  
+
+**View the logs**  
+
+Then, to view the logs for a specific smart contract pod, run the command:
+```
+kubectl  logs -f <SMART_CONTRACT_POD> -n <NAMESPACE>
+```
+{:codeblock}
+
+Replace
+- `<SMART_CONTRACT_POD>` with the name of the pod where the chaincode is running.
+- `<NAMESPACE>` with the name of your cluster namespace.
+
+For example:
+```
+kubectl  logs -f chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4 -n nf85a2a
+
+```
+{:codeblock}
+
+#### <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image
+{: #ibp-console-manage-console-container-logs-14}
+
+Use these instructions when the peer is based on a Fabric v1.4 image.
+
+##### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
 {: #ibp-console-manage-console-container-logs-iks}
 
 1. Open your Kubernetes dashboard, filter on your [namespace](#ibp-console-manage-console-node-logs), and click the peer pod where the smart contract is running.

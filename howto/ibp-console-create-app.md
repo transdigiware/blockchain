@@ -52,16 +52,17 @@ If you are the **application developer**, use the information that is provided b
 1. Generate a certificate and private key by using the enroll ID and secret of the application identity, along with CA endpoint information inside your connection profile.
 2. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
 
-The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network only by using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network by using the Node.js (JavaScript and TypeScript), Java, and Go Fabric SDKs.
 {: note}
-
-
 
 The application developer can use two programming models to interact with the network:
 
 **High-Level Fabric SDK APIs**
 
-Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is only supported for applications that are written in **Node.js** and **Java**.
+Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is supported for applications that are written in **Node.js**, **Java**, and **Go**.
+
+Client applications can leverage the capabilities of the Go SDK, but currently only the high-level programming model in the [gateway package](https://godoc.org/github.com/hyperledger/fabric-sdk-go/pkg/gateway) is supported. Direct usage of the rest of the Go SDK is not yet supported.
+{: note}
 
 If you want to take advantage of the High-Level Fabric SDK APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
 

@@ -182,7 +182,6 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 					"name": "<<<adminUserName>>>",
 					"pass": "<<<adminPassword>>>",
 					"type": "client",
-					"affiliation": "",
 					"attrs": {
 						"hf.Registrar.Roles": "*",
 						"hf.Registrar.DelegateRoles": "*",
@@ -207,7 +206,9 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 				}
 			}
 		},
-		"affiliations": null,
+		"affiliations": {
+      	"ibp": []
+    	},
 		"csr": {
 			"cn": "ca",
 			"keyrequest": {
@@ -292,6 +293,7 @@ Alternatively, if you do check any of the advanced options when you configure th
 Any edits that you make to the `JSON` overrides what was specified in the console. For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the`JSON` file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that are used when the CA is deployed.
 
 Here is an example of the minimum required `JSON` parameters for any override when a CA is deployed.
+
 ```json
 {
 	"ca": {
@@ -337,7 +339,10 @@ Here is an example of the minimum required `JSON` parameters for any override wh
 			}
 		  }
 		]
-	  }
+	  },
+		"affiliations": {
+			"ibp": []
+    	},
 	}
 }
 ```
@@ -391,6 +396,9 @@ You can insert additional fields or modify the `JSON` that is visible in the **C
 		  }
 		]
 		},
+		"affiliations": {
+			"ibp": []
+    },
 		"cfg": {
 			"identities": {
 				"passwordattempts": 3

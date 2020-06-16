@@ -161,7 +161,10 @@ The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spre
    **Other CA considerations**:
    If you have multiple zones configured for your Kubernetes cluster, when you create a new CA with a PostgreSQL database and replica sets, an anti-affinity policy ensures that the CA replica sets are automatically configured across the zones. Replica sets are represented as shaded CA boxes in the diagram above. Adequate resources must exist in the other zones in order for the anti-affinity policy to be used.  
 
-   
+   #### Multizone-capable storage:
+   {: #ibp-console-ha-multi-zone-storage}
+
+   Before you deploy any nodes, you have the additional option to configure your Kubernetes cluster to use [multizone-capable storage](/docs/containers?topic=containers-storage_planning#persistent_storage_overview) as your persistent storage.  Without multizone-capable storage, if an entire zone goes down, any blockchain nodes in that zone cannot automatically come up in another zone because their associated persistent storage is unavailable in the failed zone. When multizone-capable storage is configured, if a zone failure occurs, peers and ordering nodes can come up in another zone, with their associated storage intact, ensuring high-availability. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. To learn more about multizone-capable storage, see the Comparison of persistent storage options for multizone clusters on [OpenShift](/docs/openshift?topic=openshift-storage_planning#persistent_storage_overview) or [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-storage_planning#persistent_storage_overview). When you deploy a peer, ordering service, or ordering node, select the advanced deployment option labeled **Deployment zone selection** and then select **Across all zones**.
 
    This scenario uses redundant peers, ordering nodes, and CAs across multiple worker nodes and multiple zones, which protect against zone failure, but does not protect from an unlikely entire region failure.
 
