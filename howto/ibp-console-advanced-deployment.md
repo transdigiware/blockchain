@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-16"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -40,7 +40,7 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 | **Hardware Security Module (HSM)** | Configure a node to generate and store the node identity private key in an HSM for increased security. |![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. |
 | **Certificate Authority Database and replication** |  Customize the type of database (SqlLite or PostgreSQL) that will be used for storing CA data and configure replication for high availability. |![Check mark icon](../../icons/checkmark-icon.svg) |  |  | Must be configured when the CA is deployed. You cannot switch databases after the CA is deployed. |
 | **Peer state database** | Select whether you want the peer to use LevelDB or CouchDB for ledger data. | | ![Check mark icon](../../icons/checkmark-icon.svg) | | All peers on a channel must use the same state database. You cannot change databases after the peer is deployed. |
-| **Kubernetes zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Check mark icon](../../icons/checkmark-icon.svg)  | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
+| **Deployment zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Check mark icon](../../icons/checkmark-icon.svg)  | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
 | **Override node configuration** | Specify additional node configurations that are not available in the console panels. | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | Overrides can be configured when a node is deployed or updated. |
 {: row-headers}
 {: class="comparison-table"}
@@ -538,7 +538,7 @@ The ability to update a CA configuration is not available for CAs that have been
 
 When you deploy a peer, the following advanced deployment options are available:
 * [State database](#ibp-console-adv-deployment-level-couch) - Choose the database for your peers where ledger transactions are stored.
-* [Kubernetes zone selection](#ibp-console-adv-deployment-peer-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
+* [Deployment zone selection](#ibp-console-adv-deployment-peer-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
 * [External Certificate Authority configuration](#ibp-console-adv-deployment-third-party-ca) - Use certificates from a third-party CA.
 * [Resource allocation](#ibp-console-adv-deployment-peers-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the peer to use an HSM to generate and store private keys.
@@ -556,14 +556,14 @@ This support for rich queries is why **CouchDB is the default database** unless 
 Because the data is modeled differently in a Couch database than in a Level database, **the peers in a channel must all use the same database type**. If data written for a Level database is rejected by a Couch database (which can happen, as CouchDB keys have certain formatting restrictions as compared to LevelDB keys), a state fork would be created between the two ledgers. Therefore, **take extreme care when joining a channel to know the database type supported by the channel**. It might be necessary to create a new peer that uses the appropriate database type and join it to the channel. Note that the database type cannot be changed after a peer has been deployed.
 {:important}
 
-### Kubernetes zone selection
+### Deployment zone selection
 {: #ibp-console-adv-deployment-peer-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
 If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
-
+If **multizone-capable storage** is configured for your Kubernetes cluster, when a zone failure occurs, the nodes can come up in another zone with their associated storage intact, ensuring high availability of the node. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. And when you deploy a peer, select the advanced deployment option labeled **Deployment zone selection** and then select **Across all zones**. To learn more about multizone-capable storage, see the Comparison of persistent storage options for multizone clusters on [OpenShift](/docs/openshift?topic=openshift-storage_planning#persistent_storage_overview) or [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-storage_planning#persistent_storage_overview).
 
 ### Sizing a peer during creation
 {: #ibp-console-adv-deployment-peers-sizing-creation}
@@ -902,7 +902,7 @@ The ability to update override settings for a peer configuration is not availabl
 
 When you deploy an ordering node, the following advanced deployment options are available:
 * [Number of ordering nodes](#ibp-console-adv-deployment-suggested-ordering-node-configurations) - Decide how many ordering nodes are needed.
-* [Kubernetes zone selection
+* [Deployment zone selection
 ](#ibp-console-adv-deployment-on-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
 * [External Certificate Authority configuration](#ibp-console-adv-deployment-third-party-ca) - Use certificates from a third-party CA.
 * [Resource allocation](#ibp-console-adv-deployment-orderer-sizing-creation) - Configure the CPU, memory, and storage for the node.
@@ -918,14 +918,14 @@ This is why, by default, the console offers two options: one node or five nodes.
 
 However many nodes a user chooses to deploy, they have the ability to add more nodes to their ordering service. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
 
-### Kubernetes zone selection
+### Deployment zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
 
 For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by clearing the default option to have the zones that are chosen for you and distributing these nodes into the zones you have available. You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
-
+If **multizone-capable storage** is configured for your Kubernetes cluster when a zone failure occurs, the nodes can come up in another zone, with their associated storage intact, ensuring high availability of the node. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. And when you deploy an ordering service or an ordering node, select the advanced deployment option labeled **Deployment zone selection** and then select **Across all zones**. To learn more about multizone-capable storage, see the Comparison of persistent storage options for multizone clusters on  [OpenShift](/docs/openshift?topic=openshift-storage_planning#persistent_storage_overview) or [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-storage_planning#persistent_storage_overview).
 
 ### Sizing an ordering node during creation
 {: #ibp-console-adv-deployment-orderer-sizing-creation}
