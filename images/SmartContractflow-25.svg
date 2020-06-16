@@ -50,6 +50,5 @@
 	<path id="Line-Copy-5" class="st8" d="M576,84l9,4.5l-9,4.5v-4h-35.5v-1H576V84z"/>
 	<path id="Line-2" class="st9" d="M355,114v6h4l-4.5,9l-4.5-9h4v-6H355z"/>
 	<path id="Line-3" class="st10" d="M213.4,130l4.5,9h-4v49H354v-10h1v11H212.9v-50h-4L213.4,130z"/>
-	<text transform="matrix(1 0 0 1 14.6709 33.7034)"><tspan x="0" y="0" class="st4 st11">Typical </tspan><tspan x="54.6" y="0" class="st12 st11">smart contract</tspan><tspan x="164.2" y="0" class="st4 st11">development workflow with IBM Blockchain Platform</tspan></text>
 </g>
 </svg>
