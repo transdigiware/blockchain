@@ -81,7 +81,7 @@ Both development environments include the same rich functionality of the {{site.
 ## Install Developer Tooling into Red Hat CodeReady Workspaces
 {: #develop-vscode-crw}
 
-The following set of steps can be used to install the CodeReady Workspaces and configure it with the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling on OpenShift 4.3 cluster.
+The following set of steps can be used to install the CodeReady Workspaces and configure it with the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling on an OpenShift 4.3 cluster.
   - If you are using OpenShift 3.11, refer to these instructions for [Installing CodeReady Workspaces using CLI management tool](https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.1/html/installation_guide/installing-codeready-workspaces-on-ocp-4#installing-codeready-workspaces-using-cli-management-tool){: external}.
   - If you prefer to install the tooling on your local system, see [Install IBM Blockchain Platform VS Code extension](#develop-vscode-install).
 
