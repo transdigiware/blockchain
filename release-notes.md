@@ -52,7 +52,30 @@ Leveraging the Fabric v2 **external chaincode launcher** capability, when you de
 If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
 
 
-{[pg-release-notes-05-20-20.md]}
+## 20 May 2020
+{: #05-20-2020}
+
+**CA, peer, and ordering node patch 1.4.6-2**
+
+Miscellaneous bug fixes and security patches.
+
+
+{{site.data.keyword.IBM_notm}} is in the process of migrating existing {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, therefore, the new features described in this list may not yet be available in your console. Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Existing customers will receive a Cloud notification with more details about when their console will be migrated.
+{: note}
+
+
+### Support for Intermediate Certificate Authorities (CAs)
+{: #05-20-2020-ICA}
+
+You now have the option to configure an intermediate CA using the console or APIs to override the default CA settings. See the tutorial on [Creating an intermediate Certificate Authority](/docs/blockchain?topic=blockchain-ibp-ica) to learn more.
+
+### Updated connection profile
+{: #05-20-2020-connx-profile}
+
+The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) to learn how.
+
+
+
 
 ## 16 April 2020
 {: #04-16-2020}
