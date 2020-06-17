@@ -102,7 +102,6 @@ Every node has a gRPC web proxy container that bootstraps the communication laye
 When you deploy a CA, the following advanced deployment options are available:
 * [Database and replica sets](#ibp-console-adv-deployment-CA-replica-sets) - Configure a CA for zero downtime.
 * [Deployment zone selection](#ibp-console-adv-deployment-ca-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
-{: #ibp-console-adv-deployment-peer-k8s-zone}]
 * [Resource allocation](#ibp-console-adv-deployment-CA-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the CA to use an HSM to generate and store private keys.
 * [CA configuration override](#ibp-console-adv-deployment-ca-customization) - Choose this option when you want to override CA configuration settings.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -31,9 +31,9 @@ Customers can use Ansible playbooks to automate the setup and tear down of {{sit
 
 **Target audience:** This topic is designed for system administrators or operators who are responsible for creating or removing components in an {{site.data.keyword.blockchainfull_notm}} Platform network and are new to Ansible playbooks.
 
-In this tutorial, we gather the connection information to your console and demonstrate how to use that information configure the playbooks. The playbooks group together and automate common network deployment tasks so that you can bypass manually configuring your network from the console. We teach you how to run an individual playbook and then how to run them sequentially from a script.  In just a few minutes you can deploy an entire set of blockchain components that are ready to process transactions on your {{site.data.keyword.blockchainfull_notm}} Platform network.
+In this tutorial, we gather the connection information to your console and demonstrate how to use that information configure the playbooks. The playbooks group and automate common network deployment tasks so that you can bypass manually configuring your network from the console. We teach you how to run an individual playbook and then how to run them sequentially from a script.  In just a few minutes, you can deploy an entire set of blockchain components that are ready to process transactions on your {{site.data.keyword.blockchainfull_notm}} Platform network.
 
-The Ansible scripts can be used to build the following network that includes two organizations (Org1 and Org2) that each contain one peer and an ordering service with a channel joined by both peers. It's a simple process to customize the playbooks with your own component or organization names. They can also be used to install and instantiate smart contracts on the channel. And as you become more proficient, you can use the playbooks to build additional organizations, peers, ordering services, and channels according to your use case.
+The Ansible scripts can be used to build the following network that includes two organizations (Org1 and Org2) that each contains one peer and an ordering service with a channel joined by both peers. It's a simple process to customize the playbooks with your own component or organization names. They can also be used to install and instantiate smart contracts on the channel. And as you become more proficient, you can use the playbooks to build additional organizations, peers, ordering services, and channels according to your use case.
 
 ![Ansible network](../images/ansible.svg "Network components created by the Ansible playbooks"){: caption="Figure 1. Network components created by the Ansible playbooks" caption-side="bottom"}
 
@@ -52,7 +52,7 @@ After you deploy an {{site.data.keyword.blockchainfull_notm}} Platform service i
 
 When your cluster is running in {{site.data.keyword.cloud_notm}}, you need to create **service credentials** for the {{site.data.keyword.blockchainfull_notm}} Platform service instance. The Ansible playbooks use the {{site.data.keyword.blockchainfull_notm}} Platform REST APIs to interact with the console. The REST APIs use the **API key** (api_key) and **API endpoint** (api_endpoint) to authenticate with the server and retrieve a Cloud Identity and Access Management (IAM) access token. The values of the `api_endpoint` and `api_key` for the console can be found in the generated **service credentials**.  
 
-Follow instructions on [retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials){: external} in {{site.data.keyword.cloud_notm}} to gather these values now that will be used with the playbooks below.
+Follow instructions on [retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials){: external} in {{site.data.keyword.cloud_notm}} to gather these values now that are used with the playbooks later in this topic.
 
 
 ## Step two: Clone the Ansible collection

@@ -168,11 +168,15 @@ Before a certificate expires, you must enroll a new certificate for the identity
   - Update any channels that this MSP organization is part of. Refer to the topic on
   [Adding a new channel admin certificate](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-existing-channel) for details.
 
-If the certificates were generated from an external CA, Fabric CA client, or Fabric SDKs, then they need to be renewed where they were generated. You can then use the updated certificates when you follow instructions in Step 6 above.
+If the certificates were generated from the Fabric CA client or Fabric SDKs, then they need to be renewed where they were generated. You can then use the updated certificates when you follow instructions in step six above.
 
-If you have hit the enrollment limit for a user, simply use the console to register and enroll a new user and then use the generated certificates in Step 6 as normal.
+If you have hit the enrollment limit for a user, simply use the console to register and enroll a new user and then use the generated certificates in step six as normal.
 {: tip}
 
+### Expired certificates
+{: #ibp-console-identities-expired-certs}
+
+When certificates expire, it is possible that peer, orderer, and channel operations will fail but it is still possible to update the certificates. You need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.
 
 
 

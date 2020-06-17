@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -37,7 +37,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform extension works seamlessl
 ## Before you begin
 {: #develop-vscode-before}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools can be installed as a **VS Code extension** on your local system, or if you have a Red Hat OpenShift cluster, it can be deployed into a **Red Hat CodeReady Workspaces 2.1 or higher**. Both options use the exact same tooling but the Red Hat CodeReady Workspaces provide a developer workspace server and cloud IDE. The option you choose largely depends on whether you prefer to develop locally or collaborate with a development team in a cloud-integrated development environment (IDE).
+The {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools can be installed as a **VS Code extension** on your local system, or if you have a Red Hat OpenShift cluster, it can be deployed into a **Red Hat CodeReady Workspaces 2.1 or higher**. Both options use the exact same tooling but the Red Hat CodeReady Workspaces provide a developer workspace server and cloud IDE. The option that you choose largely depends on whether you prefer to develop locally or collaborate with a development team in a cloud-integrated development environment (IDE).
 
 ### What are the benefits of CodeReady Workspaces?
 {: #develop-vscode-crw-why}
@@ -45,16 +45,16 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools can be in
 If you are an existing Red Hat OpenShift customer, CodeReady Workspaces are available at no cost with an OpenShift subscription and can be accessed by joining the [Red Hat developer](https://developers.redhat.com/register/) program. Built on the open **Eclipse Che** project, Red Hat CodeReady Workspaces use Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and preconfigured development environment. The user experience is as fast and familiar as the IDE on their laptop.
 
 **Browser interface**  
-The CodeReady Workspaces use the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools to build a repeatable workspace, designed for development teams to collaborate on smart contract or client applications. Instead of the tooling running on your local machine, it runs in an OpenShift cluster and is accessible through a web browser. It includes the same benefits of running the tooling locally including access to tutorials and samples, as well as the syntax highlighting and code completion that you expect from the IDE.
+The CodeReady Workspaces use the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools to build a repeatable workspace, that is designed for development teams to collaborate on smart contract or client applications. Instead of the tooling running on your local machine, it runs in an OpenShift cluster and is accessible through a web browser. It includes the same benefits of running the tooling locally including access to tutorials and samples, as well as the syntax highlighting and code completion that you expect from the IDE.
 
 **Collaboration**  
 Teams of developers can work in the same shareable preconfigured environment. Onboarding new developers is streamlined as they avoid spending time configuring a local development environment and can get started quickly.
 
 **Restricted teams**  
-This option is particularly beneficial to customers who operate in highly regulated spaces and cannot download tooling locally, allowing them to maintain a secure development environment.
+This option is beneficial to customers who operate in highly regulated spaces and cannot download tooling locally, allowing them to maintain a secure development environment.
 
 **Familiar development experience**  
-The workspace uses the open source **Eclipse Theia IDE**, that serves as the editor component of the CodeReady Workspaces, and includes all of the popular packages, tools, and utilities similar to VS Code and supports VS Code extensions. The workspace is also preconfigured with the prerequisite tooling required by the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling and can be customized for your development team, such as version control so that you can import projects from **GitHub**.
+The workspace uses the open source **Eclipse Theia IDE** that serves as the editor component of the CodeReady Workspaces, and includes all of the popular packages, tools, and utilities similar to VS Code and supports VS Code extensions. The workspace is also preconfigured with the prerequisite tooling that is required by the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling and can be customized for your development team, such as version control so that you can import projects from **GitHub**.
 
 
 
@@ -86,12 +86,12 @@ The following set of steps can be used to install the CodeReady Workspaces and c
   - If you prefer to install the tooling on your local system, see [Install IBM Blockchain Platform VS Code extension](#develop-vscode-install).
 
 1. Log in as the administrator of your OpenShift 4.3 cluster.
-2. In the left navigation bar click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
+2. In the left navigation bar, click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
 3. Search for **CodeReady Workspaces** and then click **Install**.
 4. When the operator is successfully installed, it is visible from the **Installed Operators** tab and the status is `Succeeded`.
 5. From the table of Installed Operators, click **Red Hat CodeReady Workspaces** > **CodeReady Workspaces cluster**.
 6. Red Hat CodeReady Workspaces are based on the open **Eclipse Che** project that uses Kubernetes and containers to provide any member of a development or IT team with a consistent, secure, and zero-configuration development environment. Click **Create CheCluster**.
-7. It will take several minutes for the CheCluster creation to complete. When it is ready, there are two URLs visible in the CheCluster Details **Overview** tab:
+7. It takes several minutes for the CheCluster creation to complete. When it is ready, there are two URLs visible in the CheCluster Details **Overview** tab:
   - **CodeReady Workspaces URL** - used to access the workspace.
   - **Red Hat SSO Admin Console URL** - used to manage the users that are allowed to interact with the workspace.  
 
@@ -126,7 +126,7 @@ The following set of steps can be used to install the CodeReady Workspaces and c
 
   This file can be further customized according to your developer environment needs, for example to check out Hyperledger Fabric samples from GitHub. Learn more about Devfiles in the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.1/html/end-user_guide/workspaces-overview_crw#what-is-a-devfile_making-a-workspace-portable-using-a-devfile){: external}.
 
-9. Click the **YAML** tile, and paste the edited sample into the `YAML` box. Then click **Create & Open**. It takes several minutes for the workspace to load. After it loads successfully, click the blockchain icon to launch the Developer Tooling.
+9. Click the **YAML** tile, and paste the edited sample into the `YAML` box. Then,  click **Create & Open**. It takes several minutes for the workspace to load. After it loads successfully, click the blockchain icon to launch the Developer Tooling.
 
   ![CodeReady Workspaces UI](images/crw.png "CodeReady Workspaces UI"){: caption="Figure 2. CodeReady Workspaces UI" caption-side="bottom"}  
 
@@ -207,7 +207,7 @@ You can use the extension to create a new smart contract project in Visual Studi
 
 1. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
 2. Select the smart contract type to generate. The **Default Contract** example is recommended for first-time users and demonstrates how to perform create, read, update and delete operations to the public ledger that's shared by all network members.
-The **Private Data Contract** example demonstrates how to perform create, read, update, delete and verify operations to a collection, that is private to a single network member.
+The **Private Data Contract** example demonstrates how to perform create, read, update, delete, and verify operations to a collection, that is private to a single network member.
 3. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** You can use the VS Code extension to create and test Java smart contracts locally. If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
 4. **If you selected JavaScript, TypeScript, or Java**, select an asset to be managed by the example contract. For example, ***bond***.
 5. Create a folder with the name of your project and open it.
