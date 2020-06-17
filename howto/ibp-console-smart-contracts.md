@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -144,7 +144,8 @@ Use your console to perform these steps:
 
 You can view all of the smart contracts that are instantiated on a channel by clicking the channel icon in the left navigation, selecting a channel from the table, and then clicking the **Channel details** tab.
 
-Be aware that if you use a free Kubernetes cluster on {{site.data.keyword.cloud_notm}}, instantiation can take significantly longer than in a paid cluster.Depending on the number of peers you have deployed in your cluster, instantiation can take several minutes.
+Be aware that if you use a free Kubernetes cluster on {{site.data.keyword.cloud_notm}}, instantiation can take significantly longer than in a paid cluster.Depending on the number of peers you have deployed in your cluster, the type of smart contract you are instantiating, and the platform you are running on, instantiation can take several minutes. If the instantiation fails with a timeout error, wait 5 minutes and then retry it again.
+{: tip}
 
 The combination of **installation and instantiation** is a powerful feature because it allows for a peer to use a single smart contract across many channels. Peers may want to join multiple channels that use the same smart contract, but with different sets of network members able to access the data. A peer can install the smart contract once and use it on any channel where it has been instantiated. This lightweight approach saves compute and storage space, and helps you scale your network.
 
