@@ -178,8 +178,6 @@ If you have hit the enrollment limit for a user, simply use the console to regis
 
 When certificates expire, it is possible that peer, orderer, and channel operations will fail but it is still possible to update the certificates. You need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.
 
-
-
 ## Using the command line to view certificate expiration
 {: #ibp-console-identities-cli-expiration}
 
