@@ -278,10 +278,13 @@ Attempt to link your cluster again. If it continues to fail, you should [Contact
 ## Why am I getting an error “all SubConns are in TransientFailure” on the console?
 {: #ibp-console-transientfailure}
 {: troubleshoot}
+
 The following error appears on the console: "All SubConns are in TransientFailutre."
 {: tsSymptoms}
+
 An Out of Memory (OOM) situation can cause this error.
 {: tsCauses}
+
 To resolve, resize the peers and CouchDB containers to add more memory, such as 2000 MB memory each. After resizing the memory, delete the peer pods so they will be re-created. Then try the scenario again.
 {: tsResolve}
 
@@ -456,18 +459,26 @@ The only way to resolve this error is to delete the peer and create a new one wi
 ## How do I delete a peer pod?
 {: #ibp-troubleshooting-delete-peer}
 {: troubleshoot}
+
 You are looking for the commands to delete a peer.
 {: tsSymptoms}
-Use the following CLI command to identify and then delete and restart the failing node:
+
+Use the following CLI command to identify and then delete and restart the failing peer:
 {: tsResolve}
+
 * List the pods: `kubectl get pods --all-namespaces`
-* Delete the pod: `kubectl delete pod -n <NAMESPACE> <PODNAME>`
+* Delete the pod: `kubectl delete pod -n <NAMESPACE> <PODNAME>`  
+
+Replace `<NAMESPACE>` with the name of your Kubernetes namespace or your OpenShift project.
+
 ## How can I recover a contract after a failed upgrade of the smart contract container?
 {: #ibp-troubleshooting-contract-fail}
 {: troubleshoot}
+
 All contracts were lost after the procedure to upgrade the smart contract container crashed.
 {: tsSymptoms}
-Delete all the peer pods. This deletion triggers the peer to be created again and restarts the proxy.
+
+[Delete all the peer pods](#ibp-troubleshooting-delete-peer). This deletion triggers the peer to be created again and restarts the proxy.
 {: tsResolve}
 
 
