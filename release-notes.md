@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -30,21 +30,24 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 ## 18 June 2020
 {: #06-18-2020}
 
-**Fabric peer and ordering node images**
-
-The platform introduces the capability to deploy new peer and ordering nodes based on either Hyperledger Fabric v1.4 or v2.x. Deploying peer and ordering nodes with the latest Fabric images is recommended to ensure that you have access to current Fabric fixes and features. It is not currently possible to migrate existing nodes to Fabric v2 images.
-
-**Elimination of Docker daemon dependency**
-
-Leveraging the Fabric v2 **external chaincode launcher** capability, when you deploy a peer based on the Fabric v2.1.1 image, smart contracts are deployed into their own pod rather than inside a container on the peer pod.
-
-**Multizone-capable storage**
-
-If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
-
 **Peer and ordering node patch 1.4.7-0**
 
 Miscellaneous bug fixes and security patches.
+
+### Fabric peer and ordering node images
+{: #06-18-2020-images}
+
+The platform introduces the capability to deploy new peer and ordering nodes based on either Hyperledger Fabric v1.4 or v2.x. Deploying peer and ordering nodes with the latest Fabric images is recommended to ensure that you have access to current Fabric fixes and features. It is not currently possible to migrate existing nodes to Fabric v2 images.
+
+### Elimination of Docker daemon dependency
+{: #06-18-2020-docker}
+
+Leveraging the Fabric v2 **external chaincode launcher** capability, when you deploy a peer based on the Fabric v2.1.1 image, smart contracts are deployed into their own pod rather than inside a container on the peer pod.
+
+### Multizone-capable storage
+{: #06-18-2020-Multizone}
+
+If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
 
 
 ## 20 May 2020

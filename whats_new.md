@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -57,21 +57,7 @@ If you are an Enterprise customer who is migrating to the {{site.data.keyword.bl
 ## March 24, 2020
 {: #whats-new-03-24-2020}
 
-
-
-The following enhancements are included in this latest release: 
-- Support for Hyperledger Fabric v1.4.6
-- Hardware Security Module (HSM) support for node identities
-- Support for adding and removing ordering nodes from an existing ordering service
-- Ability to override default CA, peer, ordering node configuration
-- Full Java smart contract development support
-
-
-
-See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020) for more details on the new features that are included in this release.
-
-We've streamlined the documentation. If you are an existing customer, you might notice that a new `Tutorials` section was added in the table of contents under `Learn`. We've aggregated all of the tutorials in a single location under the Tutorials heading to make them easier to find.
-
+{[pg-whats-new-213.md]}
 
 
 ## February 14, 2020

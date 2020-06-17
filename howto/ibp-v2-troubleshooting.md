@@ -163,6 +163,8 @@ You may receive this error if this version of the smart contract already exists 
 - If you are still experiencing problems after the node is up, [check your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.
 {: tsResolve}
 
+
+
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}
 {: troubleshoot}
