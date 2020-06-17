@@ -303,7 +303,7 @@ This release also debuts some improvements to the documentation table of content
 ## October 4, 2018
 {: #whats-new-10-04-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform upgrades Starter Plan from Hyperledger Fabric v1.1.0 to v1.2.1. For more information, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform upgrades Starter Plan from Hyperledger Fabric v1.1.0 to v1.2.1.
 
 **Important:** Fabric v1.2.1 is currently not compatible with the Remote Peer beta, which uses a v1.1.0 peer. Starter Plan networks, which are created before October 4, 2018 and are based on Fabric v1.1.0, are not impacted and can still be used with the Remote Peer beta. {{site.data.keyword.blockchainfull_notm}} Platform will update the Remote Peer beta to use the v1.2.1 peer, which will be compatible with new Starter networks, which are at Fabric v1.2.1 level, and Enterprise networks, which are at Fabric v1.1.0 level. Until the Remote Peer beta is updated to Fabric v1.2.1, do not attempt to deploy a v1.1.0 remote peer with a new v1.2.1 Starter network.
 
@@ -315,7 +315,7 @@ This release also debuts some improvements to the documentation table of content
 ## June 15, 2018
 {: #whats-new-6-15-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan GA. For more information, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan GA.
 
 ## May 15, 2018
 {: #whats-new-5-15-2018}
@@ -325,7 +325,7 @@ This release also debuts some improvements to the documentation table of content
 ## March, 18, 2018
 {: #whats-new-3-18-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan Beta. Starter Plan offers you a development and testing environment to learn and practice in an {{site.data.keyword.blockchainfull_notm}} Platform network. For more information, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan Beta. Starter Plan offers you a development and testing environment to learn and practice in an {{site.data.keyword.blockchainfull_notm}} Platform network.
 
 ## August 11, 2017
 {: #whats-new-8-11-2017}
