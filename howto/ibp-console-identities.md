@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -161,8 +161,8 @@ Before a certificate expires, you must enroll a new certificate for the identity
 2. Locate the enroll ID for the identity in the table and click **Enroll identity** from the action menu.
 3. Provide the enroll ID and secret that was specified when the identity was initially created.
 4. Because the certificate and private key are never stored by the console, you must download them and store them securely.
-5. It is also recommended that you add the new identity to your console wallet. You will need to either delete the existing wallet identity or give this one a different name.
-6. If this is an MSP **admin** identity, and the associated MSP definition was not created with `Node OUs` enabled, then you also need to update the associated organization MSP definition with the new admin signed certificate. When `Node OUs` are enabled for an MSP, the admin role is inserted directly into the certificate itself and therefore the MSP does not need to be updated. To find out whether the MSP definition was created with `Node OUs` enabled, open the associated MSP definition in the Organizations tab and examine the setting of the `Node OUs` field. When the `Node OUs` configuration is not enabled, you need to perform the following additional steps:
+5. It is also recommended that you add the new identity to your console wallet. Because wallet identities cannot be replaced, you will need to either delete the existing wallet identity or give this one a different name.
+6. If this is an MSP **admin** identity, and the associated MSP was not created with the `Node OU` configuration enabled, then you also need to update the MSP with the new admin signed certificate. When an organization MSP is created and the Node OU configuration is enabled, the admin role is inserted directly into the generated admin certificate and therefore the MSP does not need to be updated. To find out whether the MSP was created with Node OU enabled, open the MSP in the Organizations tab and examine the setting of the **Node OU** field. When the Node OU configuration is not enabled, you need to perform the following additional steps:
   ![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 2. Node OU configuration for MSP" caption-side="bottom"}
   - Add the new certs to the organization MSP definition. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-steps){: external} for more instructions.
   - Update any channels that this MSP organization is part of. Refer to the topic on

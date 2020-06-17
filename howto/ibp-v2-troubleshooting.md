@@ -45,7 +45,9 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
-- [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
+
+- [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
+
 - [Why am I getting an error “all SubConns are in TransientFailure” on the console?](#ibp-console-transientfailure)
 
 **Issues with your Nodes**  
@@ -250,7 +252,7 @@ If your session has become inactive, you can try simply refreshing your browser.
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
 
-## Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
+## Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
 {: #ibp-v2-troubleshooting-console-helm-reset}
 {: troubleshoot}
 {: support}
@@ -263,7 +265,7 @@ This issue can occur when your cluster is busy processing other requests and doe
 
 To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to set up components on your cluster.
 {: tsResolve}
-Run the following command from your IBM Cloud CLI terminal:
+Run the following command from your {{site.data.keyword.cloud_notm}} CLI terminal:
 
 ```
 bx api cloud.ibm.com
@@ -287,7 +289,7 @@ The following error appears on the console: "All SubConns are in TransientFailut
 An Out of Memory (OOM) situation can cause this error.
 {: tsCauses}
 
-To resolve, resize the peers and CouchDB containers to add more memory, such as 2000 MB memory each. After resizing the memory, delete the peer pods so they will be re-created. Then try the scenario again.
+To resolve this problem, you need to resize the peers and CouchDB containers to add more memory, such as 2000 MB memory each. After resizing the memory, [delete the peer pods](#ibp-troubleshooting-delete-peer) so they will be re-created. Then try the scenario again. See [Considerations when reallocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources) for more information.
 {: tsResolve}
 
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
