@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-06-17"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -115,7 +115,7 @@ Because redundancy is the key to ensuring that when a node goes down another nod
 ### Deployment zone selection
 {: #ibp-console-adv-deployment-ca-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy a CA you have the option of selecting which zone the CA is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy a CA you have the option of selecting which zone the CA is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that is currently configured for your Kubernetes cluster.
 
 ### Sizing a CA during creation
 {: #ibp-console-adv-deployment-CA-sizing-creation}
@@ -573,7 +573,7 @@ Because the data is modeled differently in a Couch database than in a Level data
 ### Deployment zone selection
 {: #ibp-console-adv-deployment-peer-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that is currently configured for your Kubernetes cluster.
 
 If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
@@ -935,7 +935,7 @@ However many nodes a user chooses to deploy, they have the ability to add more n
 ### Deployment zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that is currently configured for your Kubernetes cluster.
 
 For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by clearing the default option to have the zones that are chosen for you and distributing these nodes into the zones you have available. You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
