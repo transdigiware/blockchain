@@ -2,7 +2,6 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="blockchain" category="blockchain" audience="service" href="/docs/blockchain/index.html" product-page="https://www.ibm.com/cloud/blockchain-platform" console-page="/developer/blockchain/dashboard" path="blockchain"}
-
 IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="learn"}
