@@ -115,7 +115,7 @@ Review the [release notes](/docs/blockchain?topic=blockchain-release-notes-saas-
 ## August 27, 2019
 {: #whats-new-8-27-2019}
 
-The process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes. See these instructions on [Viewing logs in Starter Plan](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs) to learn about the new process.
+The process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes.
 
 ## August 7, 2019
 {: #whats-new-8-7-2019}
