@@ -88,7 +88,7 @@ Next, we will segment the data in the panels by peer containers.
 Now the data on the dashboard is filtered to only show data from the peers in your cluster. Let's drill in a little deeper to see the resource usage by peer container.
 
 1. Click the **CPU %** chart and then click the pencil **Edit Panel** icon. In this panel you can tailor the graph type and even change the metric. But we just want to see the data broken out by peer container, assuming you have more than one peer in your cluster.
-2. In the **Segment by** drop down list, select the `kubernetes.deployment.label.app` which is the segmentation choice that causes the chart data to be broken down by each peer container in your cluster. Click **Save**.
+2. In the **Segment by** drop down list, select the `kubernetes.deployment.label.name` which is the segmentation choice that causes the chart data to be broken down by each peer container in your cluster. Click **Save**.
 3. Repeat this process for the **Memory Usage %** panel. Now you can monitor the CPU and Memory used by each peer container.
 
 At this point you can edit the panels and play with the different chart types to see different representations of the data.
@@ -101,7 +101,7 @@ Storage usage is also interesting to monitor but is not part of the default dash
 1. Click the `+` sign above the **Edit Scope** button in the top right corner.
 2. Give this new panel a title, **Disk space used %**.
 3. Select `fs.used.percent` from the **Metrics** drop-down list.
-4. In the **Segment by** drop down list, select `kubernetes.deployment.label.app` and click **Save**.
+4. In the **Segment by** drop down list, select `kubernetes.deployment.label.name` and click **Save**.
 5. Hover your mouse over the data in the generated graph and a pop-up window is displayed that shows the average disk space percentage used by each peer container.
 
 At this point you have configured panels to display the percentage of CPU used by each peer container, the percentage of memory used by each peer container, and the percentage of disk space used by each peer container. You can drag the panels up and down on the dashboard, and delete any panels that are not interesting to you.
