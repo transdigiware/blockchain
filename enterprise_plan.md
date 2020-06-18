@@ -49,7 +49,7 @@ Sign up now for your [{{site.data.keyword.blockchainfull_notm}} membership](http
 
 The {{site.data.keyword.blockchainfull_notm}} Platform is built with key Hyperledger Fabric components that include a Certificate Authority (CA) and at least 1 peer (max of 6).  Enterprise Plan also provides a crash fault tolerant (CFT) Kafka ordering service for the network members.
 
-The Fabric CA is the certificate authority that is provided with the Enterprise plan. Two intermediate CAs are provided per member, which grant membership to the network. By using the CA, the member can also provide membership certificates to users of the network.
+The Fabric CA is the Certificate Authority that is provided with the Enterprise plan. Two intermediate CAs are provided per member, which grant membership to the network. By using the CA, the member can also provide membership certificates to users of the network.
 
 It’s important to understand that for a transaction to be appended to the ledger, there are three phases that are involved:
 1. Transaction Simulation and Endorsement (peer)

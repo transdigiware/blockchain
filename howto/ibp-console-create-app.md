@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-06-16"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -52,14 +52,19 @@ If you are the **application developer**, use the information that is provided b
 1. Generate a certificate and private key by using the enroll ID and secret of the application identity, along with CA endpoint information inside your connection profile.
 2. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
 
-The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network only by using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network by using the Node.js (JavaScript and TypeScript), Java, and Go Fabric SDKs.
 {: note}
 
 The application developer can use two programming models to interact with the network:
 
 **High-Level Fabric SDK APIs**
 
-Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is only supported for applications that are written in **Node.js** and **Java**. If you want to take advantage of the new model, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
+Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is supported for applications that are written in **Node.js**, **Java**, and **Go**.
+
+Client applications can leverage the capabilities of the Go SDK, but currently only the high-level programming model in the [gateway package](https://godoc.org/github.com/hyperledger/fabric-sdk-go/pkg/gateway) is supported. Direct usage of the rest of the Go SDK is not yet supported.
+{: note}
+
+If you want to take advantage of the High-Level Fabric SDK APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
 
 - [Generate certificates for your application](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll) by using the SDK.
 - [Invoke a smart contract from the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke).
@@ -99,22 +104,22 @@ In order to take advantage of the [Service Discovery](https://hyperledger-fabric
 To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor) in the Node SDK documentation for more information.
 {: tip}
 
-Click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile.
+Click the **Organization MSP** tile for the organization that your client application interacts with. Click **Create connection profile** to open a side panel where you can build and download your connection profile.
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
 
-If the client application will be used to register and enroll users with the organization CA, you should include the Certificate authority in the connection profile definition.
+If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate Authority in the connection profile definition.
 
-Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer.  Therefore, it is recommended that you select more than one peer for redundancy, to accommodate for peer downtime during a maintenance cycle for example. In addition to peers created by using the console or APIs, peers that have been imported into the console are eligible to be selected as well.
+Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer. Therefore, to accommodate for peer downtime during a maintenance cycle for example, it is recommended that you select more than one peer for redundancy. In addition to peers created by using the console or APIs, imported peers that have been imported into the console are eligible to be selected as well.
 
-The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely caused by the peer being currently unavailable.
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer joined to it is currently unavailable.
 
 You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
 
-The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network by using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
 {: note}
 
-The generated connection profile only supports Fabric CAs. If you manually built your organization MSP using certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
+The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
 
 
 
@@ -286,7 +291,7 @@ git clone https://github.com/hyperledger/fabric-samples.git
 ```
 {:codeblock}
 
-After you download the Fabric Samples, run the following commands to ensure that you are using the version of the samples compatible with Fabric v1.4.6.
+After you download the Fabric Samples, run the following commands to ensure that you are using the version of the samples compatible with Fabric v1.4.7 and v2.x.
 
 ```
 cd fabric-samples

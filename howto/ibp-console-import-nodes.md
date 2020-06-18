@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-10"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -23,9 +23,6 @@ subcollection: blockchain
 {: #ibp-console-import-nodes}
 
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 The console includes the option to import nodes that were created in another {{site.data.keyword.blockchainfull}} Platform console.
@@ -221,7 +218,7 @@ After you have imported the ordering service into the console, you can add new o
 ## Importing nodes from a locally deployed network
 {: #ibp-console-import-icp}
 
-You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, {{site.data.keyword.cloud_notm}} Private, and Kubernetes v1.14 - v1.16 environnments into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using white listing, to allow the console outside the cluster to communicate with your nodes.
+You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, and Kubernetes v1.15 - v1.18 environnments into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using white listing, to allow the console outside the cluster to communicate with your nodes.
 
 As an example, you can find the JSON file of a peer below. To communicate with the peer from another console, you need to ensure that the `grpcwp_url` port, port 32403 in this example, is open to external traffic.
 

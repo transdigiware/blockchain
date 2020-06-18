@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-18"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -22,9 +22,6 @@ subcollection: blockchain
 # Adding and removing ordering service nodes
 {: #ibp-console-add-remove-orderer}
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover the instructions for adding nodes using the same organization that created the ordering service as well as the steps when using a separate ordering organization that is added as an ordering service admin.
@@ -57,7 +54,7 @@ Adding a node to the ordering service is, at a high level, a three step process.
 2. Add the node to the ordering system channel. While this might seem logically similar to creating the node, it involves a different step. For more information, see [Adding the node to the ordering system channel](#ibp-console-add-remove-orderer-consenter-system-channel).
 3. [Add the node to any application channels](#ibp-console-add-remove-orderer-consenters-add) where you want it to become a consenter.
 
-If you have already created an ordering service, you can reuse the CA, MSP, node identity, and admin identity you created as part of that process when creating the new node and can skip down to the [Create the node](#ibp-console-add-remove-orderer-add-orderer-create) section below. If you are creating the node using either a separate console and separate organization (or both), proceed to [Create the node using a separate org and console](#ibp-console-add-remove-orderer-add-orderer-create).
+If you have already created an ordering service, you can reuse the CA, MSP, node identity, and admin identity you created as part of that process when creating the new node and can skip down to the [Create the node](#ibp-console-add-remove-orderer-add-orderer-create-node) section below. If you are creating the node using either a separate console and separate organization (or both), proceed to [Create the node using a separate org and console](#ibp-console-add-remove-orderer-add-orderer-create).
 
 ### Create the node using a separate org and console
 {: #ibp-console-add-remove-orderer-add-orderer-create}
@@ -107,7 +104,7 @@ After the MSP has been added as an ordering service administrator, the operator 
 After you have imported the ordering service, you will be able to create the new node for it.
 
 ### Create the node
-{: #ibp-console-add-remove-orderer-add-orderer-create}
+{: #ibp-console-add-remove-orderer-add-orderer-create-node}
 
 While it is not possible to ensure that the ordering service is available (that is, that a quorum of nodes are up and that a leader has been elected) without [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), it is a best practice to minimally ensure the likelihood that a quorum exists by verifying that the pods where the nodes have been deployed are available. This can be done by checking to make sure the relevant pods are active in the Kubernetes dashboard or by issuing `kubectl get pods -n <namespace>` and checking on the pods. If you do not have access to the cluster where all of the ordering nodes were created, contact the administrator of the relevant clusters. **If a quorum of nodes is not available, it will not be possible to add another node to the ordering service**.
 {:tip}

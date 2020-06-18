@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -130,7 +130,7 @@ The logs of your peers, ordering nodes, and Certificate Authorities (CAs) are co
 #### Viewing nodes logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
 {: #ibp-console-manage-console-node-logs-iks}
 
-To more easily locate your node logs, it is recommended to filter on the namespace that was used when the nodes were deployed. To find the namespace, open any CA node in your console and click the **Settings** icon. View the value of the **Certificate Authority endpoint URL**. For example: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
+To more easily locate your node logs, it is recommended to filter on the namespace that was used when the nodes were deployed. To find the namespace, open any CA node in your console and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://n2734d0-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
 The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `n2734d0`.
 
@@ -157,9 +157,63 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
-If you encounter issues with your smart contract, you can view the smart contract, or chaincode, container logs to debug an issue:
+If you encounter issues with your smart contract, you can view the smart contract, or chaincode, logs to debug an issue.  The process to view the logs depends on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
 
-#### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
+  ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 1.How to find peer fabric version" caption-side="bottom"}
+
+#### <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image
+{: #ibp-console-manage-console-container-logs-2x}
+
+If your peer is based on the Hyperleder Fabric v2.x image, you can run the following set of kubectl commands to view the smart contract logs.
+
+**Find your cluster namespace**  
+
+If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://nf85a2a-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.
+
+**Find the smart contract pod**  
+
+Next, get a list of all of the chaincode pods running in your cluster:
+
+```
+kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
+```
+{:codeblock}
+Replacing `<NAMESPACE>` with the name of your cluster namespace.
+
+You should see results similar to:
+```
+NAME                                                       READY   STATUS            RESTARTS   AGE   LABELS
+chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4   1/1     Running   0          14s   chaincode-id=javacc-1.1,peer-id=org1peer1
+NAME                                                       READY   STATUS    RESTARTS   AGE   LABELS
+chaincode-execution-f3cc736f-94ef-454d-8da3-362a50c653d9   1/1     Running   0          4m    chaincode-id=nodecc-1.1,peer-id=org1peer1
+```
+Your smart contract name and version is visible next to the `chaincode-id`.  
+
+**View the logs**  
+
+Then, to view the logs for a specific smart contract pod, run the command:
+```
+kubectl  logs -f <SMART_CONTRACT_POD> -n <NAMESPACE>
+```
+{:codeblock}
+
+Replace
+- `<SMART_CONTRACT_POD>` with the name of the pod where the chaincode is running.
+- `<NAMESPACE>` with the name of your cluster namespace.
+
+For example:
+```
+kubectl  logs -f chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4 -n nf85a2a
+
+```
+{:codeblock}
+
+#### <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image
+{: #ibp-console-manage-console-container-logs-14}
+
+Use these instructions when the peer is based on a Fabric v1.4 image.
+
+##### Viewing smart contract logs on an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster
 {: #ibp-console-manage-console-container-logs-iks}
 
 1. Open your Kubernetes dashboard, filter on your [namespace](#ibp-console-manage-console-node-logs), and click the peer pod where the smart contract is running.
@@ -168,7 +222,7 @@ If you encounter issues with your smart contract, you can view the smart contrac
 
 All of your smart contract logs are visible in this window and can be downloaded using the download icon on the panel.
 
-#### Viewing smart contract logs on a Red Hat OpenShift 3.11 cluster
+##### Viewing smart contract logs on a Red Hat OpenShift 3.11 cluster
 {: #ibp-console-manage-console-container-logs-ocp311}
 
 1. From your OpenShift web console, switch to the **Application console** view and select your project.
@@ -176,7 +230,7 @@ All of your smart contract logs are visible in this window and can be downloaded
 3. Click the node that you need to see the logs for and then click the **Logs** tab.
 4. Because the smart contracts are deployed to the `dind` container in the peer pod, select the `dind` container from the drop-down list.
 
-#### Viewing smart contract logs on a Red Hat OpenShift 4.3 cluster
+##### Viewing smart contract logs on a Red Hat OpenShift 4.3 cluster
 {: #ibp-console-manage-console-container-logs-ocp43}
 
 See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-viewing.html#cluster-logging-viewing-logs-console_cluster-logging-viewing){: external}. Access the logs for the peer pod where the smart contract is running and select the `dind` container.
@@ -184,7 +238,7 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Using LogDNA to view the node logs
 {: #ibp-console-manage-console-logdna}
 
-By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see Logging and monitoring cluster health for the [{{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external} or [OpenShift](/docs/openshift?topic=openshift-health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-kube#kube){: external} service that
+By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see Logging and monitoring cluster health for the [{{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external} or [OpenShift](/docs/openshift?topic=openshift-health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-kube#kube#kube){: external} service that
 allows you to easily parse the logs in real time. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Installing patches for your nodes

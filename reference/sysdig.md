@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-06-18"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -31,14 +31,14 @@ subcollection: blockchain
 {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.mon_full}} service which is useful for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform peer, orderer, and certificate authority (CA) nodes, and smart contract containers.
 {: shortdesc}
 
-The tutorial provides a set of instructions for getting started with using the {{site.data.keyword.mon_full_notm}} to monitor the resource usage of peer, CA, and ordering service nodes. These instructions include how to configure the {{site.data.keyword.mon_full_notm}} service to monitor your existing {{site.data.keyword.blockchainfull_notm}} Platform service instance and starts with creating an instance of Sysdig in {{site.data.keyword.cloud_notm}}.  Then, you can configure the Sysdig dashboard to monitor your blockchain components. To learn more about the Sysdig service and what it offers, see the [{{site.data.keyword.mon_full_notm}}](/docs/Monitoring-with-Sysdig?topic=Sysdig-about){: external} documentation.
+The tutorial provides a set of instructions for getting started with using the {{site.data.keyword.mon_full_notm}} to monitor the resource usage of peer, CA, and ordering service nodes. These instructions include how to configure the {{site.data.keyword.mon_full_notm}} service to monitor your existing {{site.data.keyword.blockchainfull_notm}} Platform service instance and starts with creating an instance of Sysdig in {{site.data.keyword.cloud_notm}}.  Then, you can configure the Sysdig dashboard to monitor your blockchain components. To learn more about the Sysdig service and what it offers, see the [{{site.data.keyword.mon_full_notm}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){: external} documentation.
 
 Monitoring the resource allocation for your blockchain nodes is a key part of operating a blockchain network. You are responsible for monitoring your resource usage and taking steps to address resource contention. The  {{site.data.keyword.mon_full_notm}} is a useful tool for monitoring your network, but you can use any tool you prefer.
 {: important}
 
 This tutorial uses the Free 30-day Trial version of the service, but more advanced features are available in the **Graduated tier** which you can explore if your requirements merit.
 
-The {{site.data.keyword.mon_full_notm}} service is currently only available in a subset of [regions](/docs/Monitoring-with-Sysdig?topic=Sysdig-endpoints#endpoints_regions).  It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance.
+The {{site.data.keyword.mon_full_notm}} service is currently only available in a subset of [regions](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-endpoints#endpoints_regions).  It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance.
 {: note}
 
 ## Before you begin
@@ -50,7 +50,7 @@ You should already have an {{site.data.keyword.blockchainfull_notm}} Platform se
 ## Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service
 {: #ibp-sysdig-provision}
 
-Deploy an instance of the {{site.data.keyword.mon_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Sysdig Getting started tutorial](/docs/Monitoring-with-Sysdig?topic=Sysdig-getting-started){: external} tutorial.
+Deploy an instance of the {{site.data.keyword.mon_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Sysdig Getting started tutorial](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){: external} tutorial.
 
 After you provision the Sysdig service, if you click **Edit sources** in the **Monitoring** tab, a curl command is provided to easily configure monitoring of your Kubernetes cluster. Simply login to your Kubernetes cluster from the CLI and run the curl command to configure the Sysdig service for your cluster. In **Step two** below, your Sysdig instance should be ready to go. If the curl command fails, ensure that your kubectl version is 1.14 or higher.
 {: tip}
@@ -88,7 +88,7 @@ Next, we will segment the data in the panels by peer containers.
 Now the data on the dashboard is filtered to only show data from the peers in your cluster. Let's drill in a little deeper to see the resource usage by peer container.
 
 1. Click the **CPU %** chart and then click the pencil **Edit Panel** icon. In this panel you can tailor the graph type and even change the metric. But we just want to see the data broken out by peer container, assuming you have more than one peer in your cluster.
-2. In the **Segment by** drop down list, select the `kubernetes.deployment.label.name` which is the segmentation choice that causes the chart data to be broken down by each peer container in your cluster. Click **Save**.
+2. In the **Segment by** drop down list, select the `kubernetes.deployment.label.app` which is the segmentation choice that causes the chart data to be broken down by each peer container in your cluster. Click **Save**.
 3. Repeat this process for the **Memory Usage %** panel. Now you can monitor the CPU and Memory used by each peer container.
 
 At this point you can edit the panels and play with the different chart types to see different representations of the data.
@@ -101,7 +101,7 @@ Storage usage is also interesting to monitor but is not part of the default dash
 1. Click the `+` sign above the **Edit Scope** button in the top right corner.
 2. Give this new panel a title, **Disk space used %**.
 3. Select `fs.used.percent` from the **Metrics** drop-down list.
-4. In the **Segment by** drop down list, select `kubernetes.deployment.label.name` and click **Save**.
+4. In the **Segment by** drop down list, select `kubernetes.deployment.label.app` and click **Save**.
 5. Hover your mouse over the data in the generated graph and a pop-up window is displayed that shows the average disk space percentage used by each peer container.
 
 At this point you have configured panels to display the percentage of CPU used by each peer container, the percentage of memory used by each peer container, and the percentage of disk space used by each peer container. You can drag the panels up and down on the dashboard, and delete any panels that are not interesting to you.
@@ -127,7 +127,7 @@ First configure the notification channel and then define the alert triggers.
 
    ![Sysdig notifications](../images/configure-sysdig-notification.png){: caption="Figure 3. Sysdig notifications" caption-side="bottom"}
 
-   For more information about configuring notifications, see [Working with notification channels](/docs/Monitoring-with-Sysdig?topic=Sysdig-notifications#notifications).
+   For more information about configuring notifications, see [Working with notification channels](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-notifications#notifications).
 
 2. If you return to one of the dashboards that you created, you can click on the action menu in the upper right corner for any panel, and then click **Create Alert** from the drop-down menu.
 

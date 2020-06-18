@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-18"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -22,10 +22,34 @@ subcollection: blockchain
 # What's new
 {: #whats-new}
 
+## June 18, 2020
+{: #whats-new-06-18-2020}
+
+
+
+{{site.data.keyword.blockchainfull_notm}} Platform  provides tighter integration with Red Hat solutions, including additional deployment options on Red Hat OpenShift 4.3 and support for Red Hat CodeReady Workspaces. This latest release  also makes available a set of Ansible Content Collections to help accelerate the deployment of blockchain solutions.
+
+**IBM Blockchain Platform Ansible Playbooks**  
+
+The {{site.data.keyword.blockchainfull_notm}} Platform  improvements are designed to enable enterprises to launch production blockchain networks faster. This release helps organizations accelerate deployment through support of Ansible, an open source tool that automates provisioning, configuration management, and application deployment. **Ansible Content Collections** are packages of modules, plug-ins, and other Ansible content that automate these processes. The platform has published a set of Ansible Content Collections to help organizations deploy blockchain components and networks with greater speed. See [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible) to learn more.
+
+**Red Hat CodeReady Workspaces**  
+
+The platform expands its developer tool ecosystem with **Red Hat CodeReady Workspaces**, that help organizations speed up and simplify the setup of blockchain development environments. Red Hat CodeReady Workspaces provide a preconfigured and shared runtime environment that enables cloud-native blockchain development to be performed across teams. Red Hat CodeReady Workspaces offer strong security and adhere to enterprise-grade compliance for cloud-native development. Read about the [benefits of CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-why) to learn more.
+
+**Hyperledger Fabric 2.0 images**
+
+This release also includes improved usability and security with **Hyperledger Fabric v2** by introducing the capability to deploy new peer and ordering nodes based on either Hyperledger Fabric v1.4.7 or v2.1.1. While all of the new Fabric v2 capabilities are not yet available on the platform, when you deploy a peer based on the Fabric v2.1.1 image, smart contracts are deployed into their own pod rather than inside a container on the peer pod, eliminating the dependency on the Docker daemon. Deploying peer and ordering nodes with the Fabric v2.x images is recommended to ensure that going forward you have access to the latest Fabric fixes and features. It is not currently possible to migrate existing nodes to Fabric 2.1.1 images.  Rest assured though that nodes running Fabric v1.4.7 and v2.1.1 are compatible with each other.
+
+
+
+See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020) for more details on the new features that are included in this release.
+
+
 ## May 20, 2020
 {: #whats-new-05-20-2020}
 
-In addition to being able to link your {{site.data.keyword.blockchainfull}} Platform instance to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, you can now also link your platform service instance to a Red Hat OpenShift cluster that is running in {{site.data.keyword.cloud_notm}}. The process is identical, the only difference is that when you link a cluster, you can now select your OpenShift cluster from the list of available clusters. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks) to review the deployment process.
+In addition to being able to link your {{site.data.keyword.blockchainfull_notm}} Platform instance to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster, you can now also link your platform service instance to a Red Hat OpenShift cluster that is running in {{site.data.keyword.cloud_notm}}. The process is identical, the only difference is that when you link a cluster, you can now select your OpenShift cluster from the list of available clusters. See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks) to review the deployment process.
 
 If you are an Enterprise customer who is migrating to the {{site.data.keyword.blockchainfull_notm}} Platform, you must link your blockchain service instance to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster. OpenShift clusters are not supported for Enterprise migration.
 {: note}
@@ -77,8 +101,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.c
 - If you want to continue using Starter Plan after your admin certificate expires, you need to reset your network. Your network is reset back to the original one channel, two peers and one peer per organization. Any new nodes, channels, and smart contracts you have added since your Starter network was originally deployed need to be recreated in the new network.
 - If you no longer need to use Starter Plan, now would be a good time to deploy a new instance of the next generation {{site.data.keyword.blockchainfull}} Platform. You can [preview the platform for free](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days.
 
-**There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.** 
-- Check out this [tutorial series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external} to learn how to deploy the blockchain console and build a network.
+**There is no migration from Starter Plan to the next generation {{site.data.keyword.blockchainfull_notm}}, but your chaincode can be reused.**
 - [Create](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free){: external} your next generation {{site.data.keyword.blockchainfull_notm}} Platform instance.
 - See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks){: external}.
 - Watch this [video](https://www.youtube.com/watch?v=j3jx8trzpKM&feature=youtu.be){: external} to learn how to use our [developer tools](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} to migrate and test existing smart contracts and build new ones. 
@@ -92,7 +115,7 @@ Review the [release notes](/docs/blockchain?topic=blockchain-release-notes-saas-
 ## August 27, 2019
 {: #whats-new-8-27-2019}
 
-The process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes. See these instructions on [Viewing logs in Starter Plan](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-viewing-kibana-logs) to learn about the new process.
+The process to view logs for Starter Plan nodes has changed. Instead of viewing Starter logs by using the {{site.data.keyword.cloud_notm}} Log Analysis service and Kibana, you can now use the {{site.data.keyword.la_full_notm}} service in {{site.data.keyword.cloud_notm}} to view the logs of your CA, peers and ordering nodes.
 
 ## August 7, 2019
 {: #whats-new-8-7-2019}
@@ -280,7 +303,7 @@ This release also debuts some improvements to the documentation table of content
 ## October 4, 2018
 {: #whats-new-10-04-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform upgrades Starter Plan from Hyperledger Fabric v1.1.0 to v1.2.1. For more information, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform upgrades Starter Plan from Hyperledger Fabric v1.1.0 to v1.2.1.
 
 **Important:** Fabric v1.2.1 is currently not compatible with the Remote Peer beta, which uses a v1.1.0 peer. Starter Plan networks, which are created before October 4, 2018 and are based on Fabric v1.1.0, are not impacted and can still be used with the Remote Peer beta. {{site.data.keyword.blockchainfull_notm}} Platform will update the Remote Peer beta to use the v1.2.1 peer, which will be compatible with new Starter networks, which are at Fabric v1.2.1 level, and Enterprise networks, which are at Fabric v1.1.0 level. Until the Remote Peer beta is updated to Fabric v1.2.1, do not attempt to deploy a v1.1.0 remote peer with a new v1.2.1 Starter network.
 
@@ -292,7 +315,7 @@ This release also debuts some improvements to the documentation table of content
 ## June 15, 2018
 {: #whats-new-6-15-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan GA. For more information, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan GA.
 
 ## May 15, 2018
 {: #whats-new-5-15-2018}
@@ -302,7 +325,7 @@ This release also debuts some improvements to the documentation table of content
 ## March, 18, 2018
 {: #whats-new-3-18-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan Beta. Starter Plan offers you a development and testing environment to learn and practice in an {{site.data.keyword.blockchainfull_notm}} Platform network. For more information, see [About Starter Plan](/docs/blockchain?topic=blockchain-starter-plan-about#starter-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform releases Starter Plan Beta. Starter Plan offers you a development and testing environment to learn and practice in an {{site.data.keyword.blockchainfull_notm}} Platform network.
 
 ## August 11, 2017
 {: #whats-new-8-11-2017}

@@ -187,7 +187,7 @@ You can also use the Fabric CA client to generate certificates and register a ne
 ### Enrolling by using the Fabric CA client
 {: #managing-certificates-enroll-app-caclient}
 
-1. Download the [Fabric CA binaries](https://github.com/hyperledger/fabric-ca/releases/tag/v1.4.4) to your local machine and extract them, then move them to a folder on such as `$HOME/fabric-ca-platform/`. Change to the directory where you moved your client binaries so that you can reference it directly in your commands.
+1. Download the [Fabric CA images](https://github.com/hyperledger/fabric-ca/releases/tag/v1.4.4) to your local machine and extract them, then move them to a folder on such as `$HOME/fabric-ca-platform/`. Change to the directory where you moved your client images so that you can reference it directly in your commands.
     ```
     cd $HOME/fabric-ca-platform/
     ```
@@ -201,7 +201,7 @@ You can also use the Fabric CA client to generate certificates and register a ne
     ```
     {:codeblock}
 
-3. Download the TLS certs from {{site.data.keyword.cloud_notm}} depending on the service plan, location, and cluster that you use. You can find your service plan based on the URL of your certificate authority.
+3. Download the TLS certs from {{site.data.keyword.cloud_notm}} depending on the service plan, location, and cluster that you use. You can find your service plan based on the URL of your Certificate Authority.
   - [TLS Cert for Enterprise Plan](https://public-certs.us-south.ibm-blockchain-5-prod.cloud.ibm.com/3.secure.blockchain.ibm.com.rootcert){: external}
 
   Save the contents to a folder, for example ``$HOME/tls``. This step allows the data flowing to be encrypted on the wire.

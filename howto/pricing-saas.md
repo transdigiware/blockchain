@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-06-16"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -25,7 +25,7 @@ subcollection: blockchain
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.6.
+This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.7 and v2.x.
 {:shortdesc}
 
 ## Pricing model
@@ -86,7 +86,7 @@ The following capabilities are only available on a paid cluster:
 5. On the **Welcome and pre-requisites** panel that opens, click **I have a Cluster (Skip to Link a cluster)**.
 6. In the **Select an {{site.data.keyword.IBM_notm}} Kubernetes Service cluster** drop-down list, select your free cluster. **Note:** If your free cluster is not listed, ensure sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
 7. Click **Deploy to cluster**.
-8. When the platform is ready, you can click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the blockchain console UI and get started. Watch the [video](http://ibm.biz/BlockchainPlatformSeries2){: external} to learn how to Deploy a peer on the {{site.data.keyword.blockchainfull_notm}} Platform,  or try out the getting started tutorial [Build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network).
+8. When the platform is ready, you can click **Launch the {{site.data.keyword.blockchainfull_notm}} Platform** to open the blockchain console UI and get started.
 
 After 30 days, your Kubernetes cluster is deleted along with all of your blockchain nodes and data.
 
@@ -108,7 +108,7 @@ When you allocate VPCs (or CPU) to a blockchain node, the node consumes CPUs fro
 ## Pricing examples
 {: #ibp-saas-pricing-scenarios}
 
-The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume an {{site.data.keyword.cloud_notm}} Kubernetes service cluster and the default CouchDB database is used as the peer database.
+The following table provides two examples of pricing with [default resource allocations]( #ibp-saas-pricing-default) unless otherwise noted. Both examples assume an {{site.data.keyword.cloud_notm}} Kubernetes service cluster and the default CouchDB database is used as the peer database. It also assumes peers are deployed with Fabric v2.x images instead of Fabric v1.4 images.
 - The **Test network** scenario is suitable for getting started with your first use case with IBM Blockchain and testing smart contracts.
 - The **Join a network** scenario includes two peers, and a Certificate Authority (CA) that is required for organization membership.
    - These peers can join a production {{site.data.keyword.blockchainfull_notm}} Platform network that is hosted elsewhere.
@@ -117,18 +117,17 @@ The following table provides two examples of pricing with [default resource allo
      - The default compute resources have been doubled to provide greater capacity.
      - The [Silver](/docs/containers?topic=containers-file_storage#file_storageclass_reference){: external} storage class is chosen for faster performance.
 
-
 | Pricing options** (1 VPC = 1 CPU = 1 vCPU)| **Test Network** | **Join a Network** |
 |-|------------|-----------------------------|
-| **CPU allocation** |  1.65 vCPU <br> Includes: <br> - 1 peer (1.1 vCPU) <br> - 2 CAs (0.1 vCPU x 2) <br> - 1 ordering node (0.35 vCPU)| 4.5 vCPU<br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 1.1 x 2)** <br>- 1 CA (0.1) <br>  |
-| **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.48 USD <br> (1.65 vCPU x $0.29 USD/VPC-hr) | $1.31 USD <br> (4.5 vCPUx $0.29 USD/VPC-hr ) |
-| **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**   | $0.27 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) | $0.46 USD <br> (Compute: 8 x 32 lowest tier; 1 worker node; 1 zone) <br> (IP Allocation: $16 USD/month) |
-| **Hourly cost: Storage** | $0.07 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.13 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
-| **Total hourly cost** | **$0.82 USD** | **$1.90 USD**| |
+| **CPU allocation** |  1.25 vCPU <br> Includes: <br> - 1 peer (0.7 vCPU) <br> - 2 CAs (0.1 vCPU x 2) <br> - 1 ordering node (0.35 vCPU)| 2.9 vCPU<br> Includes: <br> - 2 peers (for HA) <br> **(2x default compute = 2 x 0.7 x 2)** <br>- 1 CA (0.1) <br>  |
+| **Hourly cost: {{site.data.keyword.blockchainfull_notm}} Platform** | $0.46 USD <br> (1.25 vCPU x $0.29 USD/VPC-hr) | $0.81 USD <br> (2.9 vCPUx $0.29 USD/VPC-hr ) |
+| **Hourly cost: {{site.data.keyword.cloud_notm}} Kubernetes cluster**   | $0.29 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone) | $0.29 USD <br> (Compute: 4 x 16 lowest tier; 1 worker node; 1 zone)  |
+| **Hourly cost: Storage** | $0.06 USD <br> 340GB  <br> [Bronze](https://www.ibm.com/cloud/file-storage/pricing){: external} <br>  2 IOPS/GB | $0.09 USD <br> 420GB <br> [Silver](https://www.ibm.com/cloud/file-storage/pricing){: external} <br> 4 IOPS/GB  |
+| **Total hourly cost** | **$0.71 USD** | **$1.19 USD**| |
 {: caption="Table 1. Pricing examples for a test network and joining a network" caption-side="bottom"}
 ** [Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance is limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.  
 
-Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer.
+Your actual costs will vary depending on additional factors such as transaction rate, the number of channels you require, the payload size on the transactions, and the maximum number of concurrent transactions. The pricing examples above are based on an {{site.data.keyword.cloud_notm}} Kubernetes single-zone cluster only.  If you chose a multi-zone cluster, there are extra fees for the additional zones and the required multi-zone load balancer. {{site.data.keyword.cloud_notm}} IP allocation charges are not included and considered negligible.
 {:note}
 
 There is no limit to the number of service instances that you can provision and associate to a single Kubernetes cluster. But you need to ensure that adequate resources are available by monitoring the CPU, memory, and storage usage to avoid disruption of service. The {{site.data.keyword.blockchainfull_notm}} Platform nodes do not have to be in their own cluster. You can have other {{site.data.keyword.cloud_notm}} services running in the same cluster that your blockchain components are running in, but again you need to ensure that you have adequate compute and storage to address all the requirements of all service instances.  
@@ -144,10 +143,12 @@ The values in the following table are useful to estimate the hourly cost of your
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
+| **Console**                    | 1.2           | 2.4                   | 10                     |
 
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 

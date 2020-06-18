@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-17"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -23,9 +23,6 @@ subcollection: blockchain
 {: #ibp-console-smart-contracts}
 
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 A smart contract is the code, sometimes referred to as chaincode, that applications interact with to read and update data on the blockchain ledger. A smart contract can turn business logic into an executable program that is agreed to and verified by all members of a blockchain network. This tutorial is the third part in the [sample network tutorial series](#ibp-console-smart-contracts-structure) and describes how to deploy smart contracts to start transactions in the blockchain network.
@@ -48,7 +45,7 @@ This final tutorial is meant to show how to create and package a smart contract,
 
 Smart contracts are installed on peers and then instantiated on channels. **All members that want to submit transactions or read data by using a smart contract need to install the contract on their peer.** A smart contract is defined by its name and version. Therefore, both the name and version of the installed contract need to be consistent across all peers on the channel that plan to run the smart contract.
 
-After a smart contract is installed on the peers, a single network member instantiates the contract on the channel. The network member needs to have joined the channel in order to perform this action. Instantiation updates the ledger with the initial data that is used by the smart contract, and then starts smart contract containers on peers  joined to the channel that have the contract installed. The peers can then use the smart contract.
+After a smart contract is installed on the peers, a single network member instantiates the contract on the channel. The network member needs to have joined the channel in order to perform this action. Instantiation updates the ledger with the initial data that is used by the smart contract, and then starts smart contract pods. The peers can then use the smart contract.
 
 - **Only one network member needs to instantiate a smart contract.**
 - **If a peer with a smart contract installed joins a channel where the same smart contract version has already been instantiated, the smart contract container starts automatically.**  
@@ -82,7 +79,37 @@ The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* o
 - For a more in-depth end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-1.4/tutorial/commercial_paper.html){: external}.
 - To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}.
 
-When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external} so that it can be installed onto the peers. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external} to build the package.
+Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package.
+{: important}
+
+When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}. For v2.x commands, see [2.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external}.
+
+### Vendoring smart contracts
+{: #ibp-console-smart-contracts-write-package-vendor}
+
+To vendor the shim for a go smart contract, navigate to your smart contract source folder. Then initialize the go module by issuing:
+
+```
+go mod init
+```
+{: codeblock}
+
+Then add the following to your `go.mod` file:
+
+```
+require github.com/hyperledger/fabric v1.4.7
+```
+{: codeblock}
+
+You can then get the necessary dependencies to install the go smart contract on a 2.x peer by issuing:
+
+```
+go mod tidy
+go mod vendor
+```
+{: codeblock}
+
+After you have completed these steps, you can repackage your smart contract using the process described in [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract).
 
 ## Step two: Install a smart contract
 {: #ibp-console-smart-contracts-install}
@@ -117,7 +144,8 @@ Use your console to perform these steps:
 
 You can view all of the smart contracts that are instantiated on a channel by clicking the channel icon in the left navigation, selecting a channel from the table, and then clicking the **Channel details** tab.
 
-Be aware that if you use a free Kubernetes cluster on {{site.data.keyword.cloud_notm}}, instantiation can take significantly longer than in a paid cluster.Depending on the number of peers you have deployed in your cluster, instantiation can take several minutes.
+Be aware that if you use a free Kubernetes cluster on {{site.data.keyword.cloud_notm}}, instantiation can take significantly longer than in a paid cluster.Depending on the number of peers you have deployed in your cluster, the type of smart contract you are instantiating, and the platform you are running on, instantiation can take several minutes. If the instantiation fails with a timeout error, wait 5 minutes and then retry it again.
+{: tip}
 
 The combination of **installation and instantiation** is a powerful feature because it allows for a peer to use a single smart contract across many channels. Peers may want to join multiple channels that use the same smart contract, but with different sets of network members able to access the data. A peer can install the smart contract once and use it on any channel where it has been instantiated. This lightweight approach saves compute and storage space, and helps you scale your network.
 
@@ -131,22 +159,22 @@ After a smart contract has been instantiated on a channel, you can use a client 
 
 After you create an organization MSP definition, you can download a connection profile that can be used by a client application to connect to your network via one or more gateway peers. The gateway peers are the peers that are specified in the connection profile, and they are used to perform service discovery to find all of the endorsing peers in the network that will endorse transactions.
 
-Click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile.
+Click the **Organization MSP** tile for the organization that your client application interacts with. Click **Create connection profile** to open a side panel where you can build and download your connection profile.
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
 
-If the client application will be used to register and enroll users with the organization CA, you should include the Certificate authority in the connection profile definition.
+If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate Authority in the connection profile definition.
 
-Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer.  Therefore, it is recommended that you select more than one peer for redundancy, to accommodate for peer downtime during a maintenance cycle for example. In addition to peers created by using the console or APIs, peers that have been imported into the console are eligible to be selected as well.
+Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer. Therefore, to accommodate for peer downtime during a maintenance cycle for example, it is recommended that you select more than one peer for redundancy. In addition to peers created by using the console or APIs, imported peers that have been imported into the console are eligible to be selected as well.
 
-The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely caused by the peer being currently unavailable.
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer joined to it is currently unavailable.
 
 You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
 
-The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network by using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
 {: note}
 
-The generated connection profile only supports Fabric CAs. If you manually built your organization MSP using certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
+The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
 
 
 ## Specifying an endorsement policy
@@ -224,14 +252,11 @@ When a new member that will run the smart contract joins the channel, it is mand
  1. Select the smart contract version that you want to upgrade on the channel from the drop-down list.
  2. Update the endorsement policy by adding or removing channel members. You can also click **Advanced** to paste in a new JSON formatted string, which modifies the existing policy.
  3. On the Select peer panel you need to select a peer that can approve the proposal to upgrade the smart contract. Therefore, you need to select a peer from the drop-down list that is from an organization that was a member of the channel before the smart contract was last instantiated on the channel.
- 4. If you want to associate a private data collection configuration file with the smart contract you can upload the JSON file. Or if you want to update an existing collection configuration, you can upload the JSON file.   
- If the smart contract was previously instantiated with a collection configuration file, you **must** again upload the previous version or a new version of the collection configuration file during this step.  
+ 4. If you want to associate a private data collection configuration file with the smart contract you can upload the JSON file. Or if you want to update an existing collection configuration, you can upload the JSON file.
+ If the smart contract was previously instantiated with a collection configuration file, you **must** again upload the previous version or a new version of the collection configuration file during this step.
  5. (Optional) Modify the smart contract initialization argument values if the parameters have changed. If you are unsure about it, check with your smart contract developer. If they have not changed, you can leave this field blank.
 
-
-After you upgrade the smart contract, you will change the version of the contract that is instantiated on the channel, and change the smart contract container for all the peers that have installed the new version. If you are using private data collections, be sure you have configured anchor peers on the channel.
-
-
+After you upgrade the smart contract, you will change the version of the contract that is instantiated on the channel. If you are using private data collections, be sure you have configured anchor peers on the channel.
 
 ### Considerations when you upgrade smart contracts
 {: #ibp-console-smart-contracts-upgrade-considerations}

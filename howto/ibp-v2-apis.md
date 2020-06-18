@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-18"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -124,7 +124,7 @@ Example curl commands are provided for each API in the [{{site.data.keyword.bloc
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.14 - v1.16 higher container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform 4.2 and {{site.data.keyword.cloud_notm}} Private v3.2.1.
+You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.15 - v1.18 container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform 4.2.
 
 ## Building a network by using APIs
 {: #ibp-v2-apis-build-with-apis}
@@ -935,7 +935,7 @@ Open the CA in your console and click **Settings**, then the **Export** button t
 **If your are using the APIs:**
 You can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-components) to get the connection information of your CA. If you created the CA with the `Create a Fabric CA` API, you can also find the necessary information in the response body.
 
-- The `"cahost"` and `"caport"` values are visible in the `ca_url` field in the response body or CA JSON file that you exported.  For example, if your `ca_url` is https://9.30.94.174:30167, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
+- The `"cahost"` and `"caport"` values are visible in the `ca_url` field in the response body or CA JSON file that you exported.  For example, if your `ca_url` is `https://9.30.94.174:30167`, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
 - The `"caname"` is the name of the CA that was specified when you deployed the CA. This is the value of the `ca_name` field in the response body or the exported JSON file.
 - The `"cacert"` is the base64-encoded TLS certificate of your CA. This is the value of the `pem` field in the response body or the exported JSON file.
 

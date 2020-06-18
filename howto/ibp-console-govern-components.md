@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -19,7 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Reallocating resources
+# Managing deployed components
 {: #ibp-console-govern-components}
 
 
@@ -28,6 +28,7 @@ After creating CAs, peers, and ordering nodes, you need to monitor the resources
 {:shortdesc}
 
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing their components in the blockchain network.
+
 ## Considerations when reallocating resources
 {: #ibp-console-govern-components-reallocate-resources}
 
@@ -57,6 +58,9 @@ In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the c
 
 
 
+
+Note that you do not need to adjust the CPU, memory, or storage for your smart contract pods. These pods will automatically use as many resources as they need to function efficiently. In cases where your smart contracts are struggling because of insufficient resources, you will have to address this at the cluster level.
+{: tip}
 
 
 ### Monitoring file storage
@@ -88,5 +92,97 @@ As you monitor your pods and notice that more storage is needed, you can increas
 - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 
 Users can allocate more storage to their running network by resizing the existing storage PVCs or by deploying nodes with new PVCs.
+
+
+## Deleting components
+{: #ibp-console-govern-components-delete}
+
+The best practice for deleting components is to delete them using the console. This will also delete all of the artifacts associated with a node including your ledger data in persistent storage and the keys that are stored as secrets. Deleting a peer will not, however, delete any smart contract pods associated with it. These must be deleted separately. Deleting a component is usually achieved by logging onto the console where a component was created or installed, clicking on the component and finding the related **trash can** icon. You will typically be prompted to type the name of the component and to confirm your decision. You can also delete nodes by using the {{site.data.keyword.blockchainfull_notm}} Platform APIs.
+
+However, there are cases in which this type of deletion will not be successful. For example, occasionally when a node fails to deploy it will not be possible to delete it using the console. The same can be true if the console loses connection with the cluster for some reason.
+
+In these cases, it will be necessary to use the Kubernetes dashboard or delete the node or relevant pods manually. If you attempt to delete pods that contain deployments such as peers, CAs, or ordering nodes, the pod will automatically restart and not be permanently deleted. 
+
+Because smart contracts installed on a 2.x peer are deployed into their own pods and not directly into the peer container, they will not be deleted when a peer is deleted. They will have to be deleted either using the UI of your cluster or by issuing kubectl commands. Smart contracts installed on a v1.4.x peer will be deleted when the peer is deleted.
+{: important}
+
+
+
+
+Because deployments are organized in Kubernetes by their "namespace", you need to know your Kubernetes cluster namespace before you can delete components using the kubectl CLI. From the console, open any CA node and click the **Info and Usage** icon. View the value of the API URL. For example: https://nf85a2a-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.
+
+
+If you want to delete all of your smart contract pods, you can issue this command:
+
+
+```
+kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl delete po {} -n <NAMESPACE>
+```
+{:codeblock}
+
+
+
+
+If you want to delete a single smart contract pod, you will first have to figure out the name of your smart contract pod.
+
+
+First, get a list of all of the smart contract pods running in your cluster:
+
+```
+kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
+```
+{:codeblock}
+
+Replacing `<NAMESPACE>` with the name of your cluster namespace.
+
+You should see results similar to:
+
+```
+NAME                                                       READY   STATUS    RESTARTS   AGE   LABELS
+chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4   1/1     Running   0          14s   chaincode-id=javacc-1.1,peer-id=org1peer1
+NAME                                                       READY   STATUS    RESTARTS   AGE   LABELS
+chaincode-execution-f3cc736f-94ef-454d-8da3-362a50c653d9   1/1     Running   0          4m    chaincode-id=nodecc-1.1,peer-id=org1peer1
+```
+
+Your smart contract name and version is visible next to the chaincode-id.
+
+
+
+
+
+To delete a single pod, issue this command, substituting the `<POD_NAME>` for the name of your pod, for example the smart contract pod `chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4`, as well as your `<NAMESPACE>`:
+
+```
+kubectl delete pod <POD_NAME> -n <NAMESPACE>
+```
+{:codeblock}
+
+
+
+
+
+You can also use kubectl commands to delete all of the nodes in your cluster by issuing commands to delete each type of node. First, set the namespace where the nodes you want to delete are located:
+
+```
+kubectl config set-context --current --namespace=<NAMESPACE>
+```
+{:codeblock}
+
+
+
+
+Then run the following commands to delete all of your blockchain nodes:
+
+```
+kubectl delete ibpca --all
+kubectl delete ibppeer --all
+kubectl delete ibporderer --all
+```
+{:codeblock}
+
+You may also choose to only delete all of a single type of node within a namespace, for example, by only issuing `kubectl delete ibppeer --all`.
+
+Note that if you delete your entire namespace, your smart contract pods will also be deleted. Your smart contract pods will also be deleted, along with your nodes, if you delete your service instance using the Kubernetes dashboard in {{site.data.keyword.cloud_notm}}.
+{: tip}
 
 

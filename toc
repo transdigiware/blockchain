@@ -1,7 +1,8 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="blockchain" category="blockchain" audience="service" href="/docs/blockchain/index.html" path="blockchain"}
+{: .toc subcollection="blockchain" category="blockchain" audience="service" href="/docs/blockchain/index.html" product-page="https://www.ibm.com/cloud/blockchain-platform" console-page="/developer/blockchain/dashboard" path="blockchain"}
+
 IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="learn"}
@@ -20,7 +21,6 @@ IBM Blockchain Platform for IBM Cloud
 		howto/ibp-console-join-network.md
 		howto/ibp-console-smart-contracts.md
 		howto/ibp-console-create-app.md
-		reference/videos.md
 
 	{: .topicgroup}
 	Pricing
@@ -100,6 +100,12 @@ IBM Blockchain Platform for IBM Cloud
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
 
+	{: .topicgroup}
+	Using Ansible Playbooks
+		howto/ansible.md
+		howto/ansible-build-network.md
+
+	[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/ibp_regions.md

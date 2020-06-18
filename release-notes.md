@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-18"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -22,11 +22,36 @@ subcollection: blockchain
 # Release notes
 {: #release-notes-saas-20}
 
-Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.6.
+Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.7 and v2.x.
 {:shortdesc}
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
 
+## 18 June 2020
+{: #06-18-2020}
+
+**Peer and ordering node patch 1.4.7-0**
+
+**{{site.data.keyword.IBM_notm}} considers this a critical patch that you should apply at your nearest opportunity.** Not applying this patch risks being susceptible to a data integrity issue if you experience a CouchDB or underlying storage crash on your peer. This patch updates the CouchDB `delayed_commits` configuration property to false. The prior setting could cause the peer's CouchDB database to be in an inconsistent state in the event of a CouchDB or underlying storage system crash. The new setting ensures that a peer will recover from crashes in a consistent state. As always, it is recommended to utilize an endorsement policy that requires multiple peers to endorse a transaction, to avoid an inconsistency from a single peer from impacting the overall blockchain network state.  
+
+**To be certain that your peers have no database corruption**, you should reprovision your peers.
+
+Miscellaneous bug fixes and security patches.  
+
+### Fabric peer and ordering node images
+{: #06-18-2020-images}
+
+The platform introduces the capability to deploy new peer and ordering nodes based on either Hyperledger Fabric v1.4 or v2.x. Deploying peer and ordering nodes with the latest Fabric images is recommended to ensure that you have access to current Fabric fixes and features. It is not currently possible to migrate existing nodes to Fabric v2 images.
+
+### Elimination of Docker daemon dependency
+{: #06-18-2020-docker}
+
+Leveraging the Fabric v2 **external chaincode launcher** capability, when you deploy a peer based on the Fabric v2.1.1 image, smart contracts are deployed into their own pod rather than inside a container on the peer pod.
+
+### Multizone-capable storage
+{: #06-18-2020-Multizone}
+
+If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
 
 
 ## 20 May 2020
@@ -35,10 +60,6 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 **CA, peer, and ordering node patch 1.4.6-2**
 
 Miscellaneous bug fixes and security patches.
-
-
-{{site.data.keyword.IBM_notm}} is in the process of migrating existing {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, therefore, the new features described in this list may not yet be available in your console. Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Existing customers will receive a Cloud notification with more details about when their console will be migrated.
-{: note}
 
 
 ### Support for Intermediate Certificate Authorities (CAs)

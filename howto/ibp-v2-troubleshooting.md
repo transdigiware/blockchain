@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-17"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -45,7 +45,8 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
-- [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
+- [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
+- [Why am I getting an error “all SubConns are in TransientFailure” on the console?](#ibp-console-transientfailure)
 
 **Issues with your Nodes**  
 
@@ -58,6 +59,8 @@ This topic describes common issues that can occur when using the {{site.data.key
 - [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](#ibp-v2-troubleshooting-endorsement-sig-failure)
 - [Why are the transactions I submit from VS Code failing with a No endorsement plan available error?](#ibp-v2-troubleshooting-anchor-peer)
 - [Why are the transactions I submit from VS Code failing with an endorsement failure?](#ibp-v2-troubleshooting-endorsement)
+- [How do I delete a peer pod?](#ibp-troubleshooting-delete-peer)
+- [How can I recover a contract after a failed upgrade of the smart contract container?](#ibp-troubleshooting-contract-fail)
 
 **Issues on {{site.data.keyword.cloud_notm}}**  
 
@@ -129,7 +132,7 @@ The health checker can now run against the node and report the status of the nod
 {: #ibp-troubleshoot-ordering-service}
 {: troubleshoot}
 
-After you create an ordering service in {{site.data.keyword.cloud_notm}} Private, the status is `Running`. But when you open the ordering service you see the error:
+After you create an ordering service, the status is `Running`. But when you open the ordering service you see the error:
 {: tsSymptoms}
 
 ```
@@ -137,15 +140,7 @@ Unable to get system channel. If you associated an identity without administrati
 you will not be able to view or manage ordering service details.
 ```
 
-This condition occurs in the blockchain console running on {{site.data.keyword.cloud_notm}} Private. On non-Chrome browsers you are required to accept a certificate in order for the console to properly communicate with the node.
-{: tsCauses}
-
-There are multiple ways to resolve this problem:
-1. In your Helm release notes, where your console browser URL is provided, there is also a note to go to a URL and accept the certificate. Browse to that URL and accept the certificate. Now open your ordering service. The error should no longer occur.
-2. If you can use a Chrome browser, open your blockchain console in Chrome and open your ordering service. The error does not occur. Note that you will need export your identities from your console wallet on your non-Chrome browser and then import them into the wallet on the Chrome browser for everything to continue working.
-{: tsResolve}
-
-This problem can also occur when the console has lost contact with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. This can happen if your console has not recently communicated with your cluster, or if you have made changes to your cluster that have overridden the settings used by the {{site.data.keyword.blockchainfull_notm}} platform.
+This problem can occur when the console has lost contact with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. This can happen if your console has not recently communicated with your cluster, or if you have made changes to your cluster that have overridden the settings used by the {{site.data.keyword.blockchainfull_notm}} platform.
 {: tsCauses}
 
 You can renew the communication between your console and the {{site.data.keyword.IBM_notm}} Kubernetes service cluster on {{site.data.keyword.cloud_notm}} by clicking on the service instance of your console in your **Resource list** and clicking the **Refresh cluster** button. When the link between your cluster and your console has been refreshed, click the **Launch the IBM Blockchain Platform** button.
@@ -167,6 +162,8 @@ You may receive this error if this version of the smart contract already exists 
 - Open the peer node and ensure the smart contract version does not already exist on the peer and try again with the proper version.
 - If you are still experiencing problems after the node is up, [check your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.
 {: tsResolve}
+
+
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}
@@ -253,7 +250,7 @@ If your session has become inactive, you can try simply refreshing your browser.
 As a best practice, you should have already stored your certificates and identities on your file system. If you happen to be using an incognito window, all the certificates are deleted from the browser local storage when you close the browser. After you log in again you will need to re-import your identities and certificates.
 {: note}
 
-## Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster on {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
+## Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?
 {: #ibp-v2-troubleshooting-console-helm-reset}
 {: troubleshoot}
 {: support}
@@ -266,7 +263,7 @@ This issue can occur when your cluster is busy processing other requests and doe
 
 To resolve this problem you can run the `helm reset` command to delete the tiller and then try to link your cluster again. The tiller is the helm mechanism that the blockchain deployer uses to set up components on your cluster.
 {: tsResolve}
-Run the following command from your IBM Cloud CLI terminal:
+Run the following command from your {{site.data.keyword.cloud_notm}} CLI terminal:
 
 ```
 bx api cloud.ibm.com
@@ -279,6 +276,19 @@ helm reset
 {: codeblock}
 
 Attempt to link your cluster again. If it continues to fail, you should [Contact Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
+
+## Why am I getting an error “all SubConns are in TransientFailure” on the console?
+{: #ibp-console-transientfailure}
+{: troubleshoot}
+
+The following error appears on the console: "All SubConns are in TransientFailutre."
+{: tsSymptoms}
+
+An Out of Memory (OOM) situation can cause this error.
+{: tsCauses}
+
+To resolve this problem, you need to resize the peers and CouchDB containers to add more memory, such as 2000 MB memory each. After resizing the memory, [delete the peer pods](#ibp-troubleshooting-delete-peer) so they will be re-created. Then try the scenario again. See [Considerations when reallocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources) for more information.
+{: tsResolve}
 
 ## Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?
 {: #ibp-v2-troubleshooting-smart-contract-anchor-peers}
@@ -366,9 +376,7 @@ You may need to view your smart contract, or chaincode, container logs to debug 
 
 
 
-Follow these instructions to view your smart contract container logs on:
-- [{{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
-- [{{site.data.keyword.cloud_notm}} Private](/docs/blockchain?topic=blockchain-console-icp-manage#console-icp-manage-container-logs).
+Follow these instructions to view your smart contract container logs on [{{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs).
 {: tsResolve}
 
 
@@ -449,6 +457,32 @@ This error occurs when the peer's enroll id type does not match the smart contra
 
 The only way to resolve this error is to delete the peer and create a new one with an enroll id that has the correct type `peer`. You can use the enroll id and secret from an existing user of type `peer` from the peer's CA or register a new user with type `peer`. Follow the instructions in the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to create a new peer identity with the correct type and peer.
 {: tsResolve}
+
+## How do I delete a peer pod?
+{: #ibp-troubleshooting-delete-peer}
+{: troubleshoot}
+
+You are looking for the commands to delete a peer.
+{: tsSymptoms}
+
+Use the following CLI command to identify and then delete and restart the failing peer:
+{: tsResolve}
+
+* List the pods: `kubectl get pods --all-namespaces`
+* Delete the pod: `kubectl delete pod -n <NAMESPACE> <PODNAME>`  
+
+Replace `<NAMESPACE>` with the name of your Kubernetes namespace or your OpenShift project.
+
+## How can I recover a contract after a failed upgrade of the smart contract container?
+{: #ibp-troubleshooting-contract-fail}
+{: troubleshoot}
+
+All contracts were lost after the procedure to upgrade the smart contract container crashed.
+{: tsSymptoms}
+
+[Delete all the peer pods](#ibp-troubleshooting-delete-peer). This deletion triggers the peer to be created again and restarts the proxy.
+{: tsResolve}
+
 
 ## My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?
 {: #ibp-v2-troubleshooting-cluster-expired}

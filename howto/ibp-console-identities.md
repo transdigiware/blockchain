@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-17"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -24,9 +24,6 @@ subcollection: blockchain
 {: #ibp-console-identities}
 
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 The nodes of the {{site.data.keyword.blockchainfull_notm}} Platform are based on Hyperledger Fabric and builds permissioned blockchain networks. This means that all participants of the blockchain consortium need to have identities that are continuously verified by Public Key Infrastructure. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to create these identities by using your organization's Certificate Authorities (CAs). You need to store these identities in your console wallet so you can use them to operate your network.
@@ -76,7 +73,7 @@ You need to enter the following information when you register a new identity wit
 
 - **Enroll ID** and **Enroll Secret**: This identity has an ID and secret, which is analogous to a username and password, that you specify during the deployment of your CA. You can use this admin ID and secret to create certificates with this identity by using this console or the Fabric CA client.
 - **Type**: When the CA was deployed, the administrator specified the types of identities issued by the CA. Common examples of identity types include peer, orderer, admin, and client (applications). Select the identity type for this user from the list of available types.
-- **Affiliation**: (Optional) Advanced users only. This field is only visible if affiliations are defined for your CA. An affiliation is the part of an organization that you want to associate with this user. For example, this could be a department or unit that operates an application or a peer. It is possible to restrict a particular CA admin to be able to register only users within their own department within an organization by setting their affiliation. CA affiliations are defined by using the Fabric CA [Affiliation Command](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command){: external}.
+- **Affiliation**: (Optional) Advanced users only. This field is only visible if affiliations are defined for your CA. An affiliation is the part of an organization that you want to associate with this user. For example, this could be a department or unit that operates an application or a peer. It is possible to restrict a particular CA admin to be able to register only users within their own department within an organization by setting their affiliation. CA affiliations are defined by using the Fabric CA [Affiliation Command](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html#affiliation-command){: external}. The default affiliation that is available when you uncheck the **Use root affiliation** checkbox is `ibp`.
 - **Maximum Enrollments**: Optionally, enter the number of times that you can enroll or generate certificates by using this identity. Specifying a limited number of enrollments helps protect the security of your nodes and applications. It defaults to unlimited enrollments.
 - **Attributes**: Optionally, you can specify any [attribute-based access control](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#attribute-based-access-control){: external} attributes for the user. For example, you can use this section to [create another CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) with authority to register and enroll new identities. You can see a full list of available Fabric CA attributes in the [Registering a new identity](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} section of the Fabric CA users guide.
 
@@ -85,8 +82,8 @@ to a CA admin that has the ability to register new users before you attempt this
 
 Clicking **Register user** opens a series of side panels:
 1. On the first side panel, enter the **Enroll ID** and **Enroll Secret** of the new identity. **Save these values**, as they are not stored by the console.
-2. Select the identity **Type**. The drop-down list contains the list of types that the CA supports. If you are registering an identity that will serve as an admin of a node, select type `admin`. If you are registering a peer identity select `peer` and likewise for an ordering node identity select `orderer`. When you need to register an identity for a client application select the type `client`. 
-3. If affiliations are defined for this CA, you can associate an affiliation with the user. Otherwise, the affiliations drop-down list is not shown. Check the **Use root affiliation** checkbox for the user if you want them to have the root affiliation and be able to see all other users registered with this CA. When you uncheck **Use root affiliation**, you can select a specific affiliation from the list to associate with this user.
+2. Select the identity **Type**. The drop-down list contains the list of types that the CA supports. If you are registering an identity that will serve as an admin of a node, select type `admin`. If you are registering a peer identity select `peer` and likewise for an ordering node identity select `orderer`. When you need to register an identity for a client application select the type `client`.
+3. You can associate an affiliation with the user. Check the **Use root affiliation** checkbox for the user if you want them to have the root affiliation and be able to see all other users registered with this CA. When you uncheck **Use root affiliation**, you can select a specific affiliation from the list to associate with this user. The platform includes the default affiliation `ibp`.
 4. Enter the **Maximum Enrollments** allowed for this identity. If not specified, the value defaults to unlimited enrollments.
 5. On the last side panel, add the **Attributes** of the identity you are creating.
 
@@ -102,12 +99,13 @@ On the second side panel, click the **Add Attribute** button. Provide an **attri
 ## Enrolling an identity
 {: #ibp-console-identities-enroll}
 
-You can generate the signing certificate and private key for each identity that is registered with your CA. If you registered additional admin identities with your CA, you can generate the certificate and key for the admin identity and then include the certificate when you [create your organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp).
+You can generate the signing certificate and private key for each user that is registered with your CA. If you registered additional admin identities with your CA, you can generate the certificate and key for the admin identity and then include the certificate when you [create your organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp).
 
-Before you enroll an identity, you need to [Associating the identity of the CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) to be able to operate the CA. If the identity is not set, you will not be able to view the **Registered Users** table on the CA panel. In the Registered Users table, click **Enroll identity** on the user's overflow menu to generate the certificate and key for any user registered with the CA.
+Before you enroll an identity, you need to [Associate the identity of the CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) to be able to operate the CA. If the identity is not set, you will not be able to view the **Registered Users** table on the CA panel. In the Registered users table, navigate to the action menu ![three dots icon](../images/actions.png) for the user and click **Enroll identity**  to generate the certificate and key for any user registered with the CA.
 
 - Under the **Certificate Authorities** dropdown, select **Root Certificate Authority**.
 - Enter the user's **Enroll secret**.
+- (Optional) In the **CSR Hostname** field, enter the `Subject Alternative Names (SAN)` to embed in the generated certificate. Specify the host names or custom domain name where the certificate is valid. You can specify a comma separated list of hosts as well as include a wildcard in the domain. For example, `'host1, host2, *.example.com`. If you leave this field blank, the SAN inside the generated certificate is empty.
 - On the next step, the generated keys are displayed.
   - The signing certificate is displayed in the **Certificate** field. This certificate is also referred to as your enrollment certificate, signing certificate, or signCert.
   - You can find the corresponding private key in the **Private Key** field. Again, you need to export the private key to your local system for use with a client application created with the VS Code extension.
@@ -116,7 +114,6 @@ Before you enroll an identity, you need to [Associating the identity of the CA a
 - Click **Add identity to wallet** to add these certificates to the console wallet. You can then find the name and keys of this identity in a new tile in your [wallet tab](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet)
 
 You can also use the Fabric CA client or Fabric SDKs to enroll the identities you create in the console. The console provides you with all of the information that need to compete these steps. Ensure that you have saved the **Enroll ID** and **Enroll secret** that you specified during registration.
-
 
 ## Using your TLS CA
 {: #ibp-console-identities-tlsca}
@@ -131,27 +128,60 @@ Each peer or orderer node that you deploy needs to generate a public TLS certifi
 
 When creating a peer or orderer with your console, you can also use the TLS CA to specify an additional domain name for each node. Enter the new domain name in the **TLS CSR hostname** field when deploying your orderer or peer. This hostname will be added to the list of common names in the TLS certificate issued to your node.
 
-
 ## Certificate expiration
 {: #ibp-console-identities-expiration}
 
-Certificates generated by using {{site.data.keyword.blockchainfull_notm}} Platform CAs will expire after one year. The expiration period is the same for certificates that are generated by using the Fabric SDKs, the Fabric CA client, or by using the console. If the certificates expire, your applications can no longer interact with your network and you need to re-enroll to generate new certificates. If you have hit the enrollment limit of a user, you can register a new user and then enroll.
+By default, certificates generated by {{site.data.keyword.blockchainfull_notm}} Platform CAs expire after one year. TLS certificates, on the other hand, expire after 10 years. The default expiration period is the same for certificates that are generated by using the Fabric SDKs, the Fabric CA client, or by using the console. When certificates expire, nodes can no longer process transactions and your applications can no longer interact with your network. You need to enroll a new certificate for the identity, a process referred to as "certificate renewal".
 
-Because users are responsible for managing their own certificate expiration, you can monitor the exact date of expiry for each identity from the console Wallet. Click an identity tile to view the expiration date of the certificate and private key.
+### Automatic certificate renewal
+{: #ibp-console-identities-cert-renewal}
 
-![Certificate expiration](../images/cert-expiration.png "Identity certificate expiration"){: caption="Figure 1. Identity cert expiration" caption-side="bottom"}
+Because the console automatically enrolls identities for peer or ordering nodes when the nodes are deployed, the {{site.data.keyword.blockchainfull_notm}} Platform also **automatically renews the certificates** for the peer and ordering nodes. TLS certificates for the peer are also automatically renewed. **Exactly thirty days before the certificates are due to expire, the platform automatically attempts to contact the CA and renew the certificates.** After the certificates are automatically renewed, there is no further action that needs to be taken.  
 
-Before a certificate expires, you must re-enroll the identity with the associated CA to generate a new certificate and public key.
+If the CA is offline, unreachable, or the renewal fails,  the certificates cannot be automatically renewed. The peer or ordering node will display a Warning message indicating that certificate expiration is approaching and you need to manually update it. In that case, you can follow the instructions in the [next section](#ibp-console-identities-manual-cert-renewal) to manually update these certificates.
+
+If the certificates were generated by using an external (third-party) CA, you need to [contact Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) to update your certificates for you.
+{: important}
+
+### Manual certificate renewal
+{: #ibp-console-identities-manual-cert-renewal}
+
+While the platform automatically renews the certificates for peer and ordering nodes if the associated CA is available, customers are responsible for managing certificate expiration and renewal of the following certificates:
+
+- MSP admin certificates
+- All certificates they generate by enrolling with the CA (for example client application certificates)
+- Orderer TLS certificates
+
+If the admin certificates have been stored or imported into the console wallet, you can monitor the exact date of expiry for each identity. Click an admin identity tile to view the expiration date of the certificate and private key.
+
+![Admin Certificate expiration](../images/cert-expiration.png "Admin Identity certificate expiration"){: caption="Figure 1. Admin identity certificate expiration" caption-side="bottom"}
+
+Before a certificate expires, you must enroll a new certificate for the identity by using the associated CA to generate a new certificate and public key. If the certificates were generated with the console, you can use the following instructions:
 1. Open the CA tile.
-2. Ensure that the identity that is currently associated with the CA is the identity that you want to generate a new certificate and private key for by clicking **Associated identity for root CA**:
-![Associated identity](../images/AssocIdentity.png "Associated identity"){: caption="Figure 2. Associated identity for root CA." caption-side="bottom"}
-3. Select the correct identity from your wallet and click **Associate identity**.
-4. Now you can click  **Re-enroll identity** to generate a new enrollment certificate and private key.
-5. Because the certificate and private key are never stored by the console, you must download them and store them securely.
-6. Add the new identity to your console wallet.
-7. If this is an admin identity, you also need to update the associated organization MSP definition with the new public certificate. See this topic on [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp) for more instructions.
+2. Locate the enroll ID for the identity in the table and click **Enroll identity** from the action menu.
+3. Provide the enroll ID and secret that was specified when the identity was initially created.
+4. Because the certificate and private key are never stored by the console, you must download them and store them securely.
+5. It is also recommended that you add the new identity to your console wallet. Because wallet identities cannot be replaced, you will need to either delete the existing wallet identity or give this one a different name.
+6. If this is an MSP **admin** identity, and the associated MSP was not created with the `Node OU` configuration enabled, then you also need to update the MSP with the new admin signed certificate. When an organization MSP is created and the Node OU configuration is enabled, the admin role is inserted directly into the generated admin certificate and therefore the MSP does not need to be updated. To find out whether the MSP was created with Node OU enabled, open the MSP in the Organizations tab and examine the setting of the **Node OU** field. When the Node OU configuration is not enabled, you need to perform the following additional steps:
+  ![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 2. Node OU configuration for MSP" caption-side="bottom"}
+  - Add the new certs to the organization MSP definition. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-steps){: external} for more instructions.
+  - Update any channels that this MSP organization is part of. Refer to the topic on
+  [Adding a new channel admin certificate](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-existing-channel) for details.
 
-You can also use the command line to check your certificates expiration date. First, you need to convert certificates that are in base64 into PEM format by running the following command on your local machine:
+If the certificates were generated from the Fabric CA client or Fabric SDKs, then they need to be renewed where they were generated. You can then use the updated certificates when you follow instructions in step six above.
+
+If you have hit the enrollment limit for a user, simply use the console to register and enroll a new user and then use the generated certificates in step six as normal.
+{: tip}
+
+### Expired certificates
+{: #ibp-console-identities-expired-certs}
+
+When certificates expire, it is possible that peer, orderer, and channel operations will fail but it is still possible to update the certificates. You need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.
+
+## Using the command line to view certificate expiration
+{: #ibp-console-identities-cli-expiration}
+
+You can also use the command line to check your certificates expiration date. If your certificate was not generated by the console, for example it was generated by using the Fabric CA client or Fabric SDKs, you need to convert certificates that are in base64 into PEM format by running the following command on your local machine:
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -215,7 +245,7 @@ You can also add an identity by uploading a JSON file in the format below. You c
 ```
 {:codeblock}
 
-If you enrolled an identity by using the Fabric CA client or the Fabric SDKs, your keys need to be converted from PEM format into base64 format. You can convert certificates into base64 format by running the following command on your local machine:
+If you did not enroll an identity from the console, but instead by using the Fabric CA client or the Fabric SDKs, your keys need to be converted from PEM format into base64 format. You can convert certificates into base64 format by running the following command on your local machine:
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 cat $HOME/<path-to-certificate>/cert.pem | base64 $FLAG

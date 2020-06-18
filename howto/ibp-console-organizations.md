@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-06-17"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -51,58 +51,58 @@ Before your organization can join a consortium, it needs to create an organizati
 
 Navigate to the **Organizations** tab. You can use this tab to [create an MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp) by using a Certificate Authority that exists in your console. You can also use this tab to [import an MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp) that was created by another organization.
 
-You can view all of the MSPs that you have created or imported under **Available organizations**. You can use the MSP definitions in the organizations tab for important functions within your console:
+You can view all of the MSPs that you created or imported under **Available organizations**. You can use the MSP definitions in the organizations tab for important functions within your console:
 - If you are creating peer or ordering nodes, the MSP of your organization is used to identify the organization that the node belongs to.
 - MSPs are used by organizations to verify the signatures of actions by other organizations. For this reason, you should export your MSP to every organization in the channel and likewise import the MSP of every organization.
 - If your organization is one of the admins of the ordering service, you can [add new organizations to the consortium](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium).
 - If you are a member of the channel, you can import the MSPs of other organization into your console and then add the members to new or existing channels.
 
-You can click an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, this panel allows you to keep track of which nodes are managed by which organization administrator.
+You can click an MSP definition in the organizations tab to view all of the nodes in the console that belong to each organization. Because each node was deployed with the administrator certificate from the MSP definition inside, you can use this panel to know which nodes are managed by which organization administrator.
 
 ## Creating an MSP for your organization
 {: #console-organizations-create-msp}
 
 Use the **Organizations** tab to generate an MSP definition for your organization. When you click **Create MSP definition**, a panel will open in which you will enter all the necessary information for your MSP.
 
-- The **MSP definition details** tab is where you will give your MSP a display name and an MSP ID. Use the tooltip to learn about the restrictions for the MSP ID.
+- The **MSP definition details** tab is where you provide a display name and an MSP ID for the MSP. Use the tooltip to learn about the restrictions for the MSP ID.
 
-- The **Root Certificate Authority details** tab is where the CA for your organization is specified. This is the CA that you will use to register all of the identities associated for your organization. Before creating an MSP, you must register the admin of the MSP. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a CA will also display the root TLS certificate of your TLS CA, which was deployed alongside your CA.
+- The **Root Certificate Authority details** tab is where the CA for your organization is specified. This is the CA that you use to register all of the identities associated for your organization. Before creating an MSP, you must register the admin of the MSP. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a CA will also display the root TLS certificate of your TLS CA, which was deployed alongside your CA.
 
 - You can also use the **Admin certificates** tab to generate the identity of your organization admin. If you already have an admin identity you want to make your organization admin, click **Existing identity** and select the identity from the drop-down list. If you want to use the panel to generate a new admin identity, you need to register your organization admin with your CA. You then need to complete the following steps in order to use these identities to operate your network:
 
-  1. Enter the **Enroll ID** and **Enroll secret** of an admin identity that is registered with your CA. After you enter the enroll ID and enroll secret, choose a **Display name**. This name will be used for the identity in the console.
+  1. Enter the **Enroll ID** and **Enroll secret** of an admin identity that is registered with your CA. After you enter the enroll ID and enroll secret, choose a **Display name**. This name is used to represent the identity in the console.
   2. Click **Generate**. This generates a certificate and private key and automatically add the keys to your Wallet. You can then find your admin identity in your Wallet by using the name that you selected on this panel. These keys are only stored in your browser local storage. Therefore, if you change browsers, they will not be in your Wallet. This is why you should click **Export** to export this identity to your local file system. If you switch browsers, you will need to import the identity from your file system into the Wallet of your new browser.
   3. Then, click **Export** to download the key pair to your file system and secure them.
 
 - The **Administrators certificate** section of the side panel contains the signing certificates keys of your admins. The certificate that you generated by clicking **Generate** in the section above can be found in the first row of the field. If you want to use multiple admin identities to operate your network, you can paste additional certificates into **admin certificate** fields.
 
-Because your admin certs are passed to your nodes and channels by using the MSP definition, you need to ensure that each of your node and organization admin certificates are stored in the MSP. When you use the console to create an orderer, peer, or channel, you need to **Associate** one of the identities you exported in your Wallet with the admin certificates that were provided to the MSP definition. When you encounter an **Associate identity** section or panel, select an identity that you generated and saved to the Wallet when creating the MSP definition.
+Because your admin certs are passed to your nodes and channels by using the MSP definition, you need to ensure that each of your node and organization admin certificates is stored in the MSP. When you use the console to create an orderer, peer, or channel, you need to **Associate** one of the identities you exported in your Wallet with the admin certificates that were provided to the MSP definition. When you encounter an **Associate identity** section or panel, select an identity that you generated and saved to the Wallet when creating the MSP definition.
 
-- On the **Review MSP information** panel, review the information you specified for this MSP.
+- On the **Review MSP information** panel, review the information that you specified for this MSP.
 
-After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. You will use the MSP definition when you deploy your nodes, are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where your organization has to sign.
+After you have selected your CA, MSP ID, and either specified or created an admin, click **Create MSP definition**. It should now be listed as an organization in the Organizations tab. Because an MSP is the representation of an organization in the network, you select the MSP definition when you deploy your nodes (identifying the organization the node belongs to), are joined to the consortium (by an ordering service admin), create a channel, join a channel, edit a channel, or perform any action where you have to specify the organization that is performing the action.
 
 ## Downloading a connection profile
 {: #ibp-console-organizations-connx-profile}
 
 After you create an organization MSP definition and create peers with that organization MSP definition, you can download a connection profile that can be used by a client application to connect to your network via one or more gateway peers. The gateway peers are the peers that are specified in the connection profile, and they are used to perform service discovery to find all of the endorsing peers in the network that will endorse transactions.
 
-Click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile.
+Click the **Organization MSP** tile for the organization that your client application interacts with. Click **Create connection profile** to open a side panel where you can build and download your connection profile.
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
 
-If the client application will be used to register and enroll users with the organization CA, you should include the Certificate authority in the connection profile definition.
+If you plan to use the client application to register and enroll users with the organization CA, you need to include the Certificate Authority in the connection profile definition.
 
-Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer.  Therefore, it is recommended that you select more than one peer for redundancy, to accommodate for peer downtime during a maintenance cycle for example. In addition to peers created by using the console or APIs, peers that have been imported into the console are eligible to be selected as well.
+Select the peers to include in the connection profile definition. When a peer is not available to process requests from a client application, service discovery ensures that the request is automatically sent to a different peer. Therefore, to accommodate for peer downtime during a maintenance cycle for example, it is recommended that you select more than one peer for redundancy. In addition to peers created by using the console or APIs, imported peers that have been imported into the console are eligible to be selected as well.
 
-The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely caused by the peer being currently unavailable.
+The list of channels that the selected peers have joined is also provided for your information. If a channel is missing from the list, it is likely because the peer joined to it is currently unavailable.
 
 You can then download the connection profile to your local file system and use it with your client application to generate certificates and invoke smart contracts.
 
-The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
+The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network by using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
 {: note}
 
-The generated connection profile only supports Fabric CAs. If you manually built your organization MSP using certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
+The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information "certificate authorities": section.
 
 
 ### Including a certificate authority in a connection profile
@@ -184,7 +184,7 @@ But if the `"certificateAuthorities"` section is empty and client application ne
     }
     ```
 
-  3. Open the _generated connection profile_ that you downloaded and edit the `"certificateAuthorities":` section:
+  3. Open the _generated connection profile_ that you downloaded. Edit the `"certificateAuthorities":` section:
 
     ```
     "certificateAuthorities": {
@@ -192,7 +192,7 @@ But if the `"certificateAuthorities"` section is empty and client application ne
             "url": "<API_URL>",
             "caName": "<CA_NAME>",
             "tlsCACerts": {
-                "pem": "<TLS_CERT>"
+                "pem": ["<TLS_CERT>"]
             }
         }
     }
@@ -226,22 +226,22 @@ If you need to add a new admin certificate to an existing organization MSP defin
 - Add the certificate of an additional member of the peer's organization who can list and install a smart contract on a peer. See this section for [instructions](#ibp-console-organizations-new-admins).
 - Add the certificate of an additional member of the channel's operator organization who can instantiate a smart contract on an **existing** channel and can submit and approve updates to the channel. See this section for [instructions](#ibp-console-organizations-new-admins-existing-channel).
 
-### Adding a new peer admin certificate
+### Adding a new peer or orderer admin certificate
 {: #ibp-console-organizations-new-admins}
 
-Because peer administrators can change over time, you will need to update your peer admin certificates. You can add new peer administrators by updating the peer's organization MSP definition to include the admin certificates of additional admin identities. Recall that a peer admin identity is required to install a smart contract on a peer and list the smart contracts that are already installed on the peer.
+Because peer and orderer administrators can change over time, or because admin certificates expire every year, you will need to update your MSP admin certificates. You can add new peer or orderer administrators by updating their associated organization MSP definition to include the admin certificates of additional admin identities or new certificates to replace expired ones. Recall that a peer admin identity is required to install a smart contract on a peer and list the smart contracts that are already installed on the peer. When the certificate expires, the peer admin will no longer be able to install smart contracts on the peer.
 
-When you update an MSP organization definition with a new admin cert, the associated peer nodes are also updated with the modified MSP definition. This update process includes an automatic restart of the associated peer nodes which means they will be unavailable for a brief period of time while they restart. If client applications are sending transactions to the peers during this period, the transactions might need to be resubmitted. Note that imported peer nodes, or peers that were not created by using your console, will not be updated.
+When you update an MSP organization definition with a new admin cert, the associated peer or orderer nodes are also updated with the modified MSP definition. This update process includes an automatic restart of the associated nodes, which means they are unavailable for a brief period of time while they restart. If client applications are sending transactions to the nodes during this period, the transactions might need to be resubmitted. Note that imported peer or ordering nodes, or nodes that were not created by using your console, are not updated.
 {: important}
 
 #### Before you begin
 {: #ibp-console-organizations-new-admins-before}
 
-In order to complete this process, you need to register and enroll the new peer admin identity with the same CA that the existing peer admin was registered with.
+In order to complete this process, you need to generate new certificates for the admin identity. If you already have the certificates because you re-enrolled an existing admin identity after its certificate expired, you can skip this section. Otherwise, you need to register and enroll the new peer or orderer admin identity with the same CA that the existing peer or orderer admin was registered with.
 
-1. Follow the steps to [register a new peer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
-2. Follow the steps to [enroll the new admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll) which generates the Certificate and private key for the new admin identity. Be sure to download the generated certificate and private key PEM files to your file system and add the identity to your Wallet.
-3. You need to convert the certificate string from PEM format to base64 format by running the following command:
+1. Follow the steps to [register a new peer or orderer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
+2. Follow the steps to [enroll the new admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll), which generates the Certificate and private key for the new admin identity. Be sure to download the generated certificate and private key PEM files to your file system and add the identity to your Wallet.
+3. If the certificate was not created by the console, for example if the Fabric CA client or Fabric SDK was used to generate the certificate, then you need to convert the certificate string from PEM format to base64 format by running the following command:
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -251,10 +251,21 @@ cat <certificate.pem> | base64 $FLAG
 
 Replace `<certificate.pem>` with the name of the certificate PEM file that you downloaded.
 
+#### Node Organizational Unit (OU) support
+{: #ibp-console-organizations-nodeous}
+
+Recall that when you register a user with the CA, you need to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} Platform when  Fabric v1.4.3 was included and contains support for **Node OUs** in MSPs and channels. This new capability means that when the MSP admin identity is **enrolled** during MSP creation, the generated signed certificate includes the `admin` type as an OU inside the certificate instead of including the signed certificate of the admin identity in the `admincerts` folder of the MSP. You can learn more about the benefits of Node OUs in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.
+
+Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OU support was added to the platform in December 2019,  do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if the Node OU configuration was not enabled when the MSP organization was created, additional steps are required after certificate renewal to update the MSP and any channels that the organization is part of. The detailed steps are included later in this section.
+
+To determine whether your MSP organization is enabled with the Node OU configuration, open the MSP in the **Organizations** tab and examine the **Node OU** setting.
+
+![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 4. Node OU configuration for MSP" caption-side="bottom"}
+
 #### Updating the organization MSP definition
 {: #ibp-console-organizations-new-admins-steps}
 
-To update an MSP, perform the following steps:
+If the organization MSP was not created with [Node OU](#ibp-console-organizations-nodeous) support enabled, then you also need to update the associated organization MSP definition with the new public admin certificate. When an organization MSP is created and Node OU configuration is enabled, the admin role is inserted directly into the generated admin certificate and therefore the MSP does not need to be updated.  When the Node OU configuration is not enabled, you need to perform the following additional steps:
 
 1. Open the **Nodes** tab in your console.
 2. Find the node that requires the admin certificate update. The MSP name is listed on the tile. Make a note of the MSP name.
@@ -270,19 +281,19 @@ To update an MSP, perform the following steps:
 ### Adding a new channel admin certificate
 {: #ibp-console-organizations-new-admins-existing-channel}
 
-Follow these instructions when you need to add a new admin certificate of another member from the same organization who can instantiate a smart contract on an existing channel and can submit and approve channel updates. This task requires you to download and edit the existing MSP definition and add the new admin certificate and then update the MSP for the channel member.
+Follow these instructions when you need to insert a new admin certificate for one that expired or add a new admin certificate of another member from the same organization who can instantiate a smart contract on an existing channel and can submit and approve channel updates. This task requires you to download and edit the existing MSP definition and add the new admin certificate and then update the MSP for the channel member.
 
 If you need to add a new organization as a channel admin, see this topic on [Updating a channel configuration](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel).
 {: note}
 
 As with all channel updates, this update needs to be performed by a channel operator and the change will follow the channel update approval process according to the policy that was configured when the channel was created.
 
-First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then:
+First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then, if the organization MSP was not created with the [Node OU](#ibp-console-organizations-nodeous) configuration enabled, you also need to update the associated channels that include the organization definition with the new public admin certificate. When the `Node OU` configuration is enabled, the admin role is inserted directly into the generated certificate and the channel MSP does not need to be updated. When the `Node OU` configuration is not enabled on the MSP, you need to perform the following steps:
 
 1. Open the channel to be updated in the console.
 2. Click **Channel details** and scroll down to **Channel members**.
 3. Click the channel member that you want to update.
-4. With the **Existing MSP ID** tab selected browse to the updated MSP.
+4. With the **Existing MSP ID** tab selected, browse to the updated MSP.
 5. Click **Update MSP definition**.
 
 ## Manually building an MSP JSON file
@@ -352,13 +363,13 @@ Create a JSON file by using the following format:
 - **tls_root_certs**: Paste in an array that contains one or more root certificates from the TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
 - **ou_root_cert**:
 - **host_url**: Specify the URL of the blockchain console where this MSP will collect signatures.
-- **fabric_node_OUs**: Fabric-specific OUs that enable identity classification. `NodeOUs` contain information for how to distinguish clients, peers, and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP considers an identity valid only if it is an identity of type `client`, a `peer`, an `admin`, or an `orderer`. An identity should have only one of these special OUs, which are assigned to an identity when it is registered with the CA. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation. Or learn more about using  [Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external} in Fabric.
+- **fabric_node_OUs**: Fabric-specific OUs that enable identity classification. `NodeOUs` contain information for how to distinguish clients, peers, and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP considers an identity valid only if it is an identity of type `client`, a `peer`, an `admin`, or an `orderer`. An identity should have only one of these special OUs, which are assigned to an identity when it is registered with the CA. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation. Or learn more about using [Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external} in Fabric.
 
 The following additional fields are also available in your MSP definition but are not required:
 - **intermediate_certs**: (if an intermediate CA was used) Paste in an array that contains one or more certificates from the external intermediate CA in `base64` format. You must provide either a CA root certificate or an intermediate CA certificate, you can also provide both.
 - **tls_intermediate_certs**: (if an intermediate TLS CA was used) Paste in an array that contains one or more certificates from the intermediate TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
 - **organizational_unit_identifiers**: A list of Organizational Units (OU) that valid members of this MSP should include in their X.509 certificate. This is an optional configuration parameter that is used when multiple organizations leverage the same root of trust and intermediate CAs, and they have reserved an OU field for their members. An organization is often divided up into multiple organizational units (OUs), each of which has a certain set of responsibilities. For example, the ORG1 organization might have both ORG1-MANUFACTURING and ORG1-DISTRIBUTION OUs to reflect these separate lines of business. When a CA issues X.509 certificates, the OU field in the certificate specifies the line of business to which the identity belongs. See this topic in the Fabric documentation on [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} for more information.
-- **revocation_list**: A list of certificates that are no longer valid. For X.509-based identities, these identifiers are pairs of strings known as Subject Key Identifier (SKI) and Authority Key Identifier (AKI), and are checked whenever the X.509 certificate is being used to make sure that the certificate has not been revoked. See this topic in the Fabric documentation for more information about [Certificate Revocation Lists](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
+- **revocation_list**: A list of certificates that are no longer valid. For X.509-based identities, these identifiers are pairs of strings that are known as Subject Key Identifier (SKI) and Authority Key Identifier (AKI), and are checked whenever the X.509 certificate is being used to make sure that the certificate has not been revoked. See this topic in the Fabric documentation for more information about [Certificate Revocation Lists](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
 
 For example, your JSON file would look similar to:
 
@@ -417,7 +428,7 @@ After an administrator creates an MSP definition, they can use the Organizations
 
 The consortium of organizations is hosted by the ordering service.
 
-If you are the administrator of the ordering service, you can use the console to add an organization to the consortium. Navigate to the **Nodes** tab and click on the ordering service. On the ordering service panel, under **Consortium members**, click **Add organization**. This opens a side panel that allows you to select from the list of available MSP definitions that you have [imported into your organizations tab](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). You can also use the **Upload JSON** option to import the MSP definition file created by another org directly.
+If you are the administrator of the ordering service, you can use the console to add an organization to the consortium. Navigate to the **Nodes** tab and click the ordering service. On the ordering service panel, under **Consortium members**, click **Add organization**. A side panel opens where you can select from the list of available MSP definitions that you [imported into your organizations tab](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp). You can also use the **Upload JSON** option to import the MSP definition file created by another org directly.
 
 ## Creating and editing a channel
 {: #console-organizations-create-channel}
@@ -428,7 +439,7 @@ After your organization is added to a consortium, you can create a channel by us
 
 1. Import the ordering service that hosts the consortium into your console. You do not need to be an administrator of the ordering service; but you need to provide the ordering node name and endpoint information in your console.
 2. Import the MSPs of organizations that you want to add to the new channel into your console in the **Organizations** tab. **Note** that organizations need to be added to the consortium before they can be added to a channel.
-3. Navigate to the **Channels** tab and click **Create channel**. This opens a side panel that allows you to specify the channel name, membership, and channel policies. You can add any organizations that have been added to the consortium to the new channel.
+3. Navigate to the **Channels** tab and click **Create channel**. This opens a side panel that allows you to specify the channel name, membership, and channel policies. You can add any organizations that were added to the consortium to the new channel.
 
 For more information about these steps, see [creating a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1) in the **Build a network** tutorial.
 
@@ -462,7 +473,7 @@ If you want to stop using an instance of the {{site.data.keyword.blockchainfull_
 
   Navigate to the **Channels** tab and click the **Settings** icon to update the channel. You can use the **Consenter Set** section to remove your ordering node from the channel. When you are ready, click **Update channel** to submit the channel update request. The update request starts the [process for collecting the signatures](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection) that are required to update the channel, depending on the channel update policy. After you have you removed your ordering nodes, you can use the **Ordering service administrators** section to remove your organization from the set of orderer administrators.
 
-  After you remove your ordering nodes from the consenter set of each channel, you can remove your nodes from the ordering service. Navigate to the **Nodes** tab and click the ordering service of your network. On the top of the ordering service panel, click the **Ordering nodes** tab. Click your ordering node and then click **Delete**. Because Raft consensus requires that a majority of ordering nodes are up to maintain a quorum, you need to remove one ordering node at a time. After you have deleted your ordering nodes, you can remove your organization from the set of ordering service administrators. Find your organization MSP definition on the list of **Orderer administrators** and click the **Delete** icon in the corner of the organization definition tile.
+  After you remove your ordering nodes from the consenter set of each channel, you can remove your nodes from the ordering service. Navigate to the **Nodes** tab and click the ordering service of your network. On the **Ordering service** panel, click the **Ordering nodes** tab. Click your ordering node and then click **Delete**. Because Raft consensus requires that a majority of ordering nodes are up to maintain a quorum, you need to remove one ordering node at a time. After you have deleted your ordering nodes, you can remove your organization from the set of ordering service administrators. Find your organization MSP definition on the list of **Orderer administrators** and click the **Delete** icon in the corner of the organization definition tile.
 
 After you complete these steps, your organization will no longer affect the governance of the network. You can safely delete your [service instance of the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-delete-service-instance).
 

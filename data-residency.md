@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-06-18"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -52,7 +52,7 @@ If you are using {{site.data.keyword.blockchainfull_notm}} Platform for {{site.d
 ## A use case for data residency
 {: #console-icp-about-data-residency-use-case}
 
-We can use an example consortium to illustrate how data is distributed on the {{site.data.keyword.blockchainfull_notm}} Platform, and explore how members could achieve data residency. The figure below contains a consortium with one ordering service and four organizations. Each organization has one peer node. Two organizations, Org A and Org B, and the ordering service are located in the United States. The other two organizations, Org C and Org D, are located in Germany. All four organizations are members of and have joined their peers to channel X.
+We can use an example consortium to illustrate how data is distributed on the {{site.data.keyword.blockchainfull_notm}} Platform, and explore how members could achieve data residency. The following figure contains a consortium with one ordering service and four organizations. Each organization has one peer node. Two organizations, Org A and Org B, and the ordering service are located in the United States. The other two organizations, Org C and Org D, are located in Germany. All four organizations are members of and have joined their peers to channel X.
 
 ![An example consortium](images/data_res_use_case.svg "An example consortium"){: caption="Figure 1. An example blockchain consortium with one ordering service and four organizations. The four organizations are all members of one channel, Channel X. " caption-side="bottom"}
 
@@ -65,7 +65,7 @@ If two organizations in the consortium create a second channel, Channel Y, a sec
 
 In **Figure 2**, Org B and Org D have joined channel Y. The peers of Org B and Org D now store a copy of ledger Y, in addition to ledger X. Because the same ordering service was used to create channel X and channel Y, the ordering service now has a copy of the blockchain portion of both channel ledgers. In both **Figure 1** and **Figure 2**, data being created by applications in Germany is stored in the United States, which is undesirable if data residency is required.
 
-We can use the example above to explore the options that organizations can use to achieve data residency. Assume that a regulation in Germany requires some of the data that is created by Org C and Org D to remain within the country. The organizations in Germany can use all three options to prevent data from being stored in the United States.
+We can use the previous example to explore the options that organizations can use to achieve data residency. Assume that a regulation in Germany requires some of the data that is created by Org C and Org D to remain within the country. The organizations in Germany can use all three options to prevent data from being stored in the United States.
 
 ## Option one: Private data collections on a shared channel
 {: #console-icp-about-data-residency-use-case-private-data}

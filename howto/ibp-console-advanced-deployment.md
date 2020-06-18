@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-17"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -22,9 +22,6 @@ subcollection: blockchain
 # Advanced deployment options
 {: #ibp-console-adv-deployment}
 
-Because {{site.data.keyword.IBM_notm}} is in the process of migrating all of the {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, some of the functionality described on this page may not yet be available in your console.
-Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. You will receive a Cloud notification with more details about when your console will be migrated.
-{: note}
 
 
 When you deploy a node from the console, there are various advanced deployment options available for each node type. This topic provides more details about each of those options.
@@ -43,14 +40,14 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 | **Hardware Security Module (HSM)** | Configure a node to generate and store the node identity private key in an HSM for increased security. |![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. |
 | **Certificate Authority Database and replication** |  Customize the type of database (SqlLite or PostgreSQL) that will be used for storing CA data and configure replication for high availability. |![Check mark icon](../../icons/checkmark-icon.svg) |  |  | Must be configured when the CA is deployed. You cannot switch databases after the CA is deployed. |
 | **Peer state database** | Select whether you want the peer to use LevelDB or CouchDB for ledger data. | | ![Check mark icon](../../icons/checkmark-icon.svg) | | All peers on a channel must use the same state database. You cannot change databases after the peer is deployed. |
-| **Kubernetes zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | | ![Check mark icon](../../icons/checkmark-icon.svg)  | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
+| **Deployment zone selection** |  When your Kubernetes cluster is configured across multiple zones, you can choose the zone where you want the node to be deployed. | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg)  | ![Check mark icon](../../icons/checkmark-icon.svg) | Must be configured when the node is deployed. You cannot change zones for a node after the node is deployed. |
 | **Override node configuration** | Specify additional node configurations that are not available in the console panels. | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | Overrides can be configured when a node is deployed or updated. |
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Table 1. Advanced deployment options" caption-side="bottom"}
 {: summary="This table has row and column headers. The row headers include deployment options that are available. The column headers identify the deployment options. To understand the deployment options for a node, navigate to the node column, and find the deployment option you are interested in."}
 
-## Before you start  
+## Before you begin
 {: #ibp-console-adv-deployment-before}
 
 **Before** attempting to deploy a node, it is the network operator's responsibility to monitor the cluster CPU, memory, and storage usage, and ensure that adequate resources are available in the cluster for the node.
@@ -67,10 +64,12 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
 |--------------------------------|---------------|-----------------------|------------------------|
-| **Peer**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
+| **Console**                    | 1.2           | 2.4                   | 10                     |
 
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
 ** Actual VPC allocations are visible in the blockchain console when a node is deployed.
@@ -102,6 +101,7 @@ Every node has a gRPC web proxy container that bootstraps the communication laye
 
 When you deploy a CA, the following advanced deployment options are available:
 * [Database and replica sets](#ibp-console-adv-deployment-CA-replica-sets) - Configure a CA for zero downtime.
+* [Deployment zone selection](#ibp-console-adv-deployment-ca-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
 * [Resource allocation](#ibp-console-adv-deployment-CA-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the CA to use an HSM to generate and store private keys.
 * [CA configuration override](#ibp-console-adv-deployment-ca-customization) - Choose this option when you want to override CA configuration settings.
@@ -111,6 +111,10 @@ When you deploy a CA, the following advanced deployment options are available:
 
 Because redundancy is the key to ensuring that when a node goes down another node is able to continue to process requests, you have the option to configure replica sets for CA nodes. For a complete understanding of what replica sets are and how they can be configured for a CA, see this topic on [Building a high availability Certificate Authority (CA)](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca).
 
+### Deployment zone selection
+{: #ibp-console-adv-deployment-ca-k8s-zone}
+
+If your Kubernetes cluster is configured across multiple zones, when you deploy a CA you have the option of selecting which zone the CA is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that is currently configured for your Kubernetes cluster.
 
 ### Sizing a CA during creation
 {: #ibp-console-adv-deployment-CA-sizing-creation}
@@ -183,7 +187,6 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 					"name": "<<<adminUserName>>>",
 					"pass": "<<<adminPassword>>>",
 					"type": "client",
-					"affiliation": "",
 					"attrs": {
 						"hf.Registrar.Roles": "*",
 						"hf.Registrar.DelegateRoles": "*",
@@ -208,7 +211,9 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 				}
 			}
 		},
-		"affiliations": null,
+		"affiliations": {
+      	"ibp": []
+    	},
 		"csr": {
 			"cn": "ca",
 			"keyrequest": {
@@ -293,6 +298,7 @@ Alternatively, if you do check any of the advanced options when you configure th
 Any edits that you make to the `JSON` overrides what was specified in the console. For example, if you specified a `Maximum enrollments` value of `10` in the console, but then provided the `maxenrollments` value of `-1` in the `JSON`, then the value in the`JSON` file is used when the CA is deployed. It is the settings that are visible in the `JSON` on the **Summary page** that are used when the CA is deployed.
 
 Here is an example of the minimum required `JSON` parameters for any override when a CA is deployed.
+
 ```json
 {
 	"ca": {
@@ -338,7 +344,10 @@ Here is an example of the minimum required `JSON` parameters for any override wh
 			}
 		  }
 		]
-	  }
+	  },
+		"affiliations": {
+			"ibp": []
+    	},
 	}
 }
 ```
@@ -392,6 +401,9 @@ You can insert additional fields or modify the `JSON` that is visible in the **C
 		  }
 		]
 		},
+		"affiliations": {
+			"ibp": []
+    },
 		"cfg": {
 			"identities": {
 				"passwordattempts": 3
@@ -539,7 +551,7 @@ The ability to update a CA configuration is not available for CAs that have been
 
 When you deploy a peer, the following advanced deployment options are available:
 * [State database](#ibp-console-adv-deployment-level-couch) - Choose the database for your peers where ledger transactions are stored.
-* [Kubernetes zone selection](#ibp-console-adv-deployment-peer-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
+* [Deployment zone selection](#ibp-console-adv-deployment-peer-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
 * [External Certificate Authority configuration](#ibp-console-adv-deployment-third-party-ca) - Use certificates from a third-party CA.
 * [Resource allocation](#ibp-console-adv-deployment-peers-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the peer to use an HSM to generate and store private keys.
@@ -557,25 +569,29 @@ This support for rich queries is why **CouchDB is the default database** unless 
 Because the data is modeled differently in a Couch database than in a Level database, **the peers in a channel must all use the same database type**. If data written for a Level database is rejected by a Couch database (which can happen, as CouchDB keys have certain formatting restrictions as compared to LevelDB keys), a state fork would be created between the two ledgers. Therefore, **take extreme care when joining a channel to know the database type supported by the channel**. It might be necessary to create a new peer that uses the appropriate database type and join it to the channel. Note that the database type cannot be changed after a peer has been deployed.
 {:important}
 
-### Kubernetes zone selection
+### Deployment zone selection
 {: #ibp-console-adv-deployment-peer-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy a peer you have the option of selecting which zone the peer is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that is currently configured for your Kubernetes cluster.
 
 If you are deploying a redundant node (that is, another peer when you already have one), it is a best practice to deploy this node into a different zone. You can determine the zone that the other node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy a peer or orderer to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
-
+If **multizone-capable storage** is configured for your Kubernetes cluster, when a zone failure occurs, the nodes can come up in another zone with their associated storage intact, ensuring high availability of the node. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. And when you deploy a peer, select the advanced deployment option labeled **Deployment zone selection** and then select **Across all zones**. To learn more about multizone-capable storage, see the Comparison of persistent storage options for multizone clusters on [OpenShift](/docs/openshift?topic=openshift-storage_planning#persistent_storage_overview) or [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-storage_planning#persistent_storage_overview).
 
 ### Sizing a peer during creation
 {: #ibp-console-adv-deployment-peers-sizing-creation}
 
-The peer has five containers that can be adjusted:
+The peer pod has four containers that can be adjusted:
 
 - **Peer container**: Encapsulates the internal peer processes (such as validating transactions) and the blockchain (in other words, the transaction history) for all of the channels it belongs to. Note that the storage of the peer also includes the smart contracts that are installed on the peer.
 - **CouchDB container**: Where the state databases of the peer are stored. Recall that each channel has a distinct state database.
 - **Smart contract container**: Recall that during a transaction, the relevant smart contract is "invoked" (in other words, run). Note that all smart contracts that you install on the peer will run in a separate container inside your peer pod, which is known as a Docker-in-Docker container.
+- **Smart contract launcher container**: Used to launch a separate pod for each smart contract, eliminating the need for a Docker-in-Docker container in the peer pod. Note that the smart contract launcher container is not where smart contracts actually run, and is therefore given a smaller default resource than the "smart contracts" container that used to be deployed along with a peer. It only exists to help create the pods where smart contracts run. You must make your own allowances in your deployment for the containers for smart contracts, as the pods spun up by the smart contract launcher are not bound by strict resource limitations. The pod will use as many resources as it needs depending on the size of a smart contract and the processing load it encounters. For more information, see [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/){: external}.
 
-The peer also includes a container for the **Log Collector** that pipes the logs from the smart contract container to the peer container. Similar to the gRPC web proxy container, you cannot adjust the compute for this container.
+Note that a separate pod will be created for each smart contract that is installed on each peer, even if you have multiple peers on the same channel that have all installed the same smart contract. So if you have three peers on a channel, and install a smart contract on each one, you will have three smart contract pods running. However, if these three peers are on more than one channel using the **exact same** smart contract, you will still only have three pods running. These smart contract pods will not be deleted if you delete the peer. You must delete them **separately**.
+{:important}
+
+The peer also includes a gRPC web proxy container, you cannot adjust the compute for this container.
 
 As we noted in our section on [Considerations before you deploy a node](#ibp-console-adv-deployment-before), it is recommended to use the defaults for these peer containers and adjust them later when it becomes apparent how they are being utilized by your use case.
 
@@ -586,11 +602,10 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat by using [indexes](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
 | **CouchDB (ledger data) storage** | When you expect high throughput on many channels and don't plan to use indexes. However, like the peer storage, the default CouchDB storage is 100G, which is significant. |
 | **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
+| **Smart contract launcher container CPU and memory** | Because the smart contract launcher container streams logs from smart contracts back to a peer, the more smart contracts are running the greater the load on the smart contract launcher. |
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default memory allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resource consumption of the peer containers by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default storage allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resources consumed by the pod that contains the smart contract in your cluster by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
 {: important}
-
-
 
 For more details on the resource allocation panel in the console see [Allocating resource](#ibp-console-adv-deployment-allocate-resources).
 
@@ -900,7 +915,7 @@ The ability to update override settings for a peer configuration is not availabl
 
 When you deploy an ordering node, the following advanced deployment options are available:
 * [Number of ordering nodes](#ibp-console-adv-deployment-suggested-ordering-node-configurations) - Decide how many ordering nodes are needed.
-* [Kubernetes zone selection
+* [Deployment zone selection
 ](#ibp-console-adv-deployment-on-k8s-zone) - In a multi-zone cluster, select the zone where the node is deployed.
 * [External Certificate Authority configuration](#ibp-console-adv-deployment-third-party-ca) - Use certificates from a third-party CA.
 * [Resource allocation](#ibp-console-adv-deployment-orderer-sizing-creation) - Configure the CPU, memory, and storage for the node.
@@ -916,14 +931,14 @@ This is why, by default, the console offers two options: one node or five nodes.
 
 However many nodes a user chooses to deploy, they have the ability to add more nodes to their ordering service. For more information, see [Adding and removing ordering service nodes](/docs/blockchain?topic=blockchain-ibp-console-add-remove-orderer).
 
-### Kubernetes zone selection
+### Deployment zone selection
 {: #ibp-console-adv-deployment-on-k8s-zone}
 
-If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Kubernetes zone selection** to see the list of zones that are currently configured for your Kubernetes cluster.
+If your Kubernetes cluster is configured across multiple zones, when you deploy an ordering node you have the option of selecting which zone the node is deployed to. Check the Advanced deployment option that is labeled **Deployment zone selection** to see the list of zones that is currently configured for your Kubernetes cluster.
 
 For a five node ordering service, these nodes will be distributed into multiple zones by default, depending on the relative space available in each zone. You also have the ability to distribute a five node ordering service yourself by clearing the default option to have the zones that are chosen for you and distributing these nodes into the zones you have available. You can check which zone a node was deployed to by opening the tile of the node and looking under the Node location. Alternatively, you can use the APIs to deploy an ordering node to a specific zone. For more information on how to do this with the APIs, see [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone).
 
-
+If **multizone-capable storage** is configured for your Kubernetes cluster when a zone failure occurs, the nodes can come up in another zone, with their associated storage intact, ensuring high availability of the node. In order to leverage this capability with the {{site.data.keyword.blockchainfull_notm}} Platform, you need to configure your cluster to use **SDS (Portworx)** storage. And when you deploy an ordering service or an ordering node, select the advanced deployment option labeled **Deployment zone selection** and then select **Across all zones**. To learn more about multizone-capable storage, see the Comparison of persistent storage options for multizone clusters on  [OpenShift](/docs/openshift?topic=openshift-storage_planning#persistent_storage_overview) or [{{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-storage_planning#persistent_storage_overview).
 
 ### Sizing an ordering node during creation
 {: #ibp-console-adv-deployment-orderer-sizing-creation}
