@@ -8,11 +8,11 @@ IBM Blockchain Platform for IBM Cloud
 	{: .topicgroup}
 	Getting started
 		index.md
-		[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 		howto/ibp-v2-deploy-iks.md
 
 	howto/ibp-console.md
 	whats_new.md
+	[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 	blockchain_component_overview.md
 
 	{: .topicgroup}
