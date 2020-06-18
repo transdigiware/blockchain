@@ -12,7 +12,6 @@ IBM Blockchain Platform for IBM Cloud
 
 	howto/ibp-console.md
 	whats_new.md
-	[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 	blockchain_component_overview.md
 
 	{: .topicgroup}
@@ -105,6 +104,7 @@ IBM Blockchain Platform for IBM Cloud
 		howto/ansible.md
 		howto/ansible-build-network.md
 
+	[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/ibp_regions.md

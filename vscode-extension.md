@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-18"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -86,7 +86,7 @@ The following set of steps can be used to install the CodeReady Workspaces and c
   - If you prefer to install the tooling on your local system, see [Install IBM Blockchain Platform VS Code extension](#develop-vscode-install).
 
 1. Log in as the administrator of your OpenShift 4.3 cluster.
-2. In the left navigation bar, click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
+2. In the navigation bar, click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
 3. Search for **CodeReady Workspaces** and then click **Install**.
 4. When the operator is successfully installed, it is visible from the **Installed Operators** tab and the status is `Succeeded`.
 5. From the table of Installed Operators, click **Red Hat CodeReady Workspaces** > **CodeReady Workspaces cluster**.
@@ -371,7 +371,7 @@ Use the following steps to debug your smart contract:
 4. Select **Debug Smart Contract configuration** from the drop-down list in the upper left.
 5. Clicking the **play** button. The extension will automatically package, install, and instantiate or upgrade the smart contract on the local network.
 
-  If you want to debug the instantiate function in your smart contract, edit the launch configuration by using the example below.
+  If you want to debug the instantiate function in your smart contract, edit the launch configuration by using the following example:
   ```
     "env": {
         "CORE_CHAINCODE_ID_NAME": <name>:<version>
@@ -408,7 +408,7 @@ You can also use the extension to interact with your network on the {{site.data.
 
 You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were installed and instantiated on your network.
 
-Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is associated with your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to [build and download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) to your local file system. Then, [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities) by using your CA and save the enrollID and secret. Follow the steps below to connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code.
+Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is associated with your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to [build and download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) to your local file system. Then, [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities) by using your CA and save the enrollID and secret. Use the following steps to connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code.
 
 1. Open the **{{site.data.keyword.blockchainfull_notm}} Platform** tab.
 2. Hover your mouse over the **Fabric Gateways** pane and click **+**.
@@ -431,7 +431,7 @@ You can also import the {{site.data.keyword.blockchainfull_notm}} Platform netwo
 
 You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to export all of the nodes of your console in bulk.
 
-1. Navigate to the **Settings** tab in the left navigation. You can see a section that is called **Bulk data management** with two buttons below it. The **Export** button opens a panel on the right.  
+1. Navigate to the **Settings** tab in the left navigation. You can see a section that is called **Bulk data management** that contains two buttons. The **Export** button opens a panel on the right.  
 2. Keep the boxes that represent peers, CAs, and ordering services checked. Check the box to export your identities. You can leave the box that represents MSPs unchecked.
 3. Click **Export** to download the nodes and identities to your local file system in .zip file. Extract the file when the download is complete.
 
@@ -459,7 +459,7 @@ When you have associated an admin identity with your peers, CA, and an ordering 
 ### Adding wallets and users
 {: #develop-vscode-add-a-wallet}
 
-Use the steps below to create a new wallet by using a certificate and private key:
+Use the following steps to create a new wallet by using a certificate and private key:
 
 1. Hover your mouse over the **Fabric Wallets** pane and click **+**.
 2. Choose to **Create a new wallet and add an identity** from the options. Provide a name for your wallet and your identity.
