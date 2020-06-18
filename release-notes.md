@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-18"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -60,10 +60,6 @@ If your Kubernetes cluster is configured to use multizone-capable storage, new p
 **CA, peer, and ordering node patch 1.4.6-2**
 
 Miscellaneous bug fixes and security patches.
-
-
-{{site.data.keyword.IBM_notm}} is in the process of migrating existing {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, therefore, the new features described in this list may not yet be available in your console. Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Existing customers will receive a Cloud notification with more details about when their console will be migrated.
-{: note}
 
 
 ### Support for Intermediate Certificate Authorities (CAs)
