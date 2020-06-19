@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-19"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -117,7 +117,7 @@ After you have completed these steps, you can repackage your smart contract usin
 Use your console to perform these steps:
 
 1. Click the **Smart contracts** tab to install one or more smart contracts.
-2. Click **Install smart contract** to upload the smart contract package file in [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}. _The smart contract package file must be less than 4MB in size._ You can use the {{site.data.keyword.blockchainfull_notm}} Visual Studio Code extension to [create a smart contract package](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). When you install the package from the **Smart contracts** tab, you can select one or more peer nodes to install the smart contracts on.
+2. Click **Install smart contract** to upload the smart contract package file in [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}. _The smart contract package file must be less than 25MB in size._ You can use the {{site.data.keyword.blockchainfull_notm}} Visual Studio Code extension to [create a smart contract package](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). When you install the package from the **Smart contracts** tab, you can select one or more peer nodes to install the smart contracts on.
 
 If only one peer exists in the console, the smart contract will be installed on it. You are not prompted to select a peer to install the smart contract on. You can navigate to the nodes tab and click a peer that is managed by your console to view the list of smart contracts installed on an individual peer.
 
