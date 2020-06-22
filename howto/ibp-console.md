@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-06-22"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
@@ -71,7 +71,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Connect to other Fabric networks**: Join {{site.data.keyword.blockchainfull_notm}} Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the {{site.data.keyword.blockchainfull_notm}} Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI.
 
 
-Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/06/ibm-blockchain-platform-2-5-a-new-era-of-multi-party-systems){: external} on how blockchain is creating the new era of multi-party systems.
+Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/06/ibm-blockchain-platform-2-5-a-new-era-of-multi-party-systems/){: external} on how blockchain is creating the new era of multi-party systems.
 
 This offering is intended for experienced Fabric users who want to build and manage their own networks.
 
