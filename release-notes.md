@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-06-22"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -38,7 +38,7 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 
 Miscellaneous bug fixes and security patches. 
 
-If you are running **OpenShift Container Platform 3.11** in {{site.data.keyword.cloud_notm}}, it is recommended that you upgrade your cluster to 4.3 now in order to fully take advantage of the new features. After you upgrade your cluster, follow instructions to [refresh your console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh) to experience the latest functionality in your console.
+If you are running **OpenShift Container Platform 3.11** in {{site.data.keyword.cloud_notm}}, it is recommended that you [upgrade your cluster to 4.3](https://docs.openshift.com/container-platform/4.3/migration/migrating_3_4/planning-migration-3-to-4.html){: external} now in order to fully take advantage of the new features. After you upgrade your cluster, follow instructions to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh) to experience the latest functionality in this release.
 {: important}
 
 
