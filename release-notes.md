@@ -60,7 +60,7 @@ If your Kubernetes cluster is configured to use multizone-capable storage, new p
 ### Kubernetes version upgrade
 {: #06-18-2020-k8s}
 
-{{site.data.keyword.blockchainfull_notm}} Platform supports **Kubernetes v1.15 - v1.18**. If your existing Kubernetes cluster is running v1.14 or lower, you need to upgrade your cluster before you can update your existing blockchain components to this latest release.
+{{site.data.keyword.blockchainfull_notm}} Platform requires **Kubernetes v1.15 - v1.18**. If your existing Kubernetes cluster is running v1.14 or lower, you need to upgrade your cluster before you can update your existing blockchain components to this latest release.
 
 
 ## 20 May 2020
