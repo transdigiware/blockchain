@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-24"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -557,6 +557,9 @@ When you deploy a peer, the following advanced deployment options are available:
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the peer to use an HSM to generate and store private keys.
 * [Peer configuration override](#ibp-console-adv-deployment-peer-create-json) - Choose this option when you want to override peer configuration.
 
+You also have the ability to choose the version of Fabric that will be used to deploy your peer. It is recommended to always choose the latest version, as this version will have the latest fixes and improvements. However, note that you might have to re-vendor your smart contract if it was written in Golang. For more information, see [Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package). Also, it is currently not possible to enable any v2.0 [Fabric capabilities](https://hyperledger-fabric.readthedocs.io/en/release-2.0/capabilities_concept.html){: external}.
+{: important}
+
 ### State database
 {: #ibp-console-adv-deployment-level-couch}
 
@@ -921,6 +924,9 @@ When you deploy an ordering node, the following advanced deployment options are 
 * [Resource allocation](#ibp-console-adv-deployment-orderer-sizing-creation) - Configure the CPU, memory, and storage for the node.
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the ordering node to use an HSM to generate and store private keys.
 * [Orderer configuration override](#ibp-console-adv-deployment-orderer-create-json) - Choose this option when you want to override ordering node configuration.
+
+You also have the ability to choose the version of Fabric that will be used to deploy your ordering nodes. It is recommended to always choose the latest version, as this version will have the latest fixes and improvements. Note that it is currently not possible to enable any v2.0 [Fabric capabilities](https://hyperledger-fabric.readthedocs.io/en/release-2.0/capabilities_concept.html){: external}.
+{: important}
 
 ### Number of ordering nodes
 {: #ibp-console-adv-deployment-suggested-ordering-node-configurations}
