@@ -62,6 +62,11 @@ IBM Blockchain Platform for IBM Cloud
 		howto/ibp-console-int-ca.md
 		reference/hsm-gemalto.md
 
+		{: .topicgroup}
+		Using Ansible Playbooks
+			howto/ansible.md
+			howto/ansible-build-network.md
+
 	{: .topicgroup}
 	Monitoring your network
 		reference/logdna.md
@@ -99,10 +104,6 @@ IBM Blockchain Platform for IBM Cloud
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
 
-	{: .topicgroup}
-	Using Ansible Playbooks
-		howto/ansible.md
-		howto/ansible-build-network.md
 
 	[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 	reference/v10_fabric.md
