@@ -198,15 +198,24 @@ If you already have a cluster, you can link your service instance to it by click
 - Check to make sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
 - If you have a multi-zone region ([MZR](#x9774820){: term}) cluster you need to enable [VLAN spanning](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
 
-If your cluster is available, select it and click **Next**.
+If your cluster is available, select it and click **Next**. It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, click **Launch the IBM Blockchain Platform console** to open the console.
 
 
+
+### Blockchain component deployment
+{: #ibp-v2-deploy-components}}
+
+You are now ready to start exploring the console.
+
+Before using the console, ensure you are not running the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
+{: tip}
 
 <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster assuming Hyperledger Fabric v2.x images are used by the peer.
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-20.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 2: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
 
-- **Pod**: When each Certificate Authority, peer, or ordering service is deployed, a new Pod is created in a worker node in your cluster. Every time you deploy a smart contract, a new pod is launched for the smart contract.
+
+- **Pod**: When each Certificate Authority, peer, ordering service, or smart contract is deployed, a new Pod is created in a worker node in your cluster. Every time you deploy a smart contract, a new pod is launched for the smart contract.
 - **App containers**: Containers are created inside the pods for each node that is deployed.
 - **Persistent Storage**: Storage for each node is dynamically provisioned from the Kubernetes cluster `default` storage class every time a node is deployed.
 
@@ -214,12 +223,10 @@ If your cluster is available, select it and click **Next**.
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-14.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 3: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
 
+
 - **Pod**: When each Certificate Authority, peer, or ordering service is deployed, a new Pod is created in a worker node in your cluster.
 - **App containers**: Containers are created inside the pods for each node that is deployed.
 - **Persistent Storage**: Storage for each node is dynamically provisioned from the Kubernetes cluster `default` storage class every time a node is deployed.
-
-It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, you'll see a button saying **Launch the IBM Blockchain Platform console**. If you click this link, you will be taken to the console.
-
 
 
 ## (Optional) Add additional users to the console
