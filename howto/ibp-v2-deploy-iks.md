@@ -203,7 +203,7 @@ If your cluster is available, select it and click **Next**. It might take a few 
 
 
 ### Blockchain component deployment
-{: #ibp-v2-deploy-components}}
+{: #ibp-v2-deploy-components}
 
 You are now ready to start exploring the console.
 
