@@ -208,8 +208,7 @@ If your cluster is available, select it and click **Next**. It might take a few 
 
 You are now ready to start exploring the console.
 
-Before using the console, ensure you are not running the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
-{: tip}
+
 
 <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster assuming Hyperledger Fabric v2.x images are used by the peer.
 

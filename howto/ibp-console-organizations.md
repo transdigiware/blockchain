@@ -15,6 +15,7 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
+{:term: .term}
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
@@ -41,7 +42,7 @@ Each organization in a network needs to operate a Certificate Authority to creat
 
 Before your organization can join a consortium, it needs to create an organization definition that is known as a **Membership Services Provider (MSP)**. The MSP contains the following information:
 - A certificate signed by your **root Certificate Authority**. This certificate is used to verify the identity of your nodes, channels, and applications.
-- A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization gossip, which is necessary to take advantage of the [Private data collections](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
+- A certificate signed by your **TLS CA**. A root TLS certificate allows your peers to participate in cross organization [gossip](#x9829550){: term}, which is necessary to take advantage of the [Private data collections](https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html#what-is-a-private-data-collection){: external} and [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} features of Hyperledger Fabric.
 - The **MSP ID**. The MSP ID is the formal name of your organization. You need to remember the MSP ID for your applications or when using the SDK to submit transactions.
 - The **MSP display name**. This is an informal name that is given to your organization, which is used to identity your MSP in the console.
 - The **Admin certificates** of your **Organization Admin** identities. These certificates are passed to the ordering service and are used to verify which identities in your organization are allowed to create or edit channels. When you use your console to create an ordering node or peer, the admin certificates inside the MSP are deployed within the new node, making your organization admin identities your **peer or orderer admins** as well. You can use these identities to operate your node, such as by installing a smart contract on a peer or joining a peer to a channel, from your console or a client application.

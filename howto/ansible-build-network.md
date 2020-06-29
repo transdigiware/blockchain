@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-29"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:screen: .screen}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 {:tip: .tip}
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}

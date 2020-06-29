@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-29"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -56,20 +56,20 @@ HA for peers means always having redundant peers, that is at least two peers ava
 
 For even more robust HA coverage, you can stand up multiple clusters in multiple regions and deploy peers in all of them. However, if high performance is desired, care must be taken when distributing peers to ensure the latency and bandwidth between them is sufficient to achieve your performance targets.
 
-**Anchor peers** on a channel facilitate cross-organization communication that is required for private data, gossip, and service discovery to work. If only one anchor peer exists on a channel, and that peer becomes unavailable, the organizations are no longer connected and the cross-organization gossip is no longer possible. Therefore, when you create redundant peers for an organization, be sure to add redundant [anchor peers on the channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) as well.
+**Anchor peers** on a channel facilitate cross-organization communication that is required for private data, [gossip](#x9829550){: term}, and service discovery to work. If only one anchor peer exists on a channel, and that peer becomes unavailable, the organizations are no longer connected and the cross-organization gossip is no longer possible. Therefore, when you create redundant peers for an organization, be sure to add redundant [anchor peers on the channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) as well.
 
-Finally, your peer redundancy strategy needs to take into account your chaincode endorsement policies to ensure that you always have enough peers available to satisfy the endorsement policy requirements. For example, if an endorsement policy requires a specific number of endorsements, your peer HA strategy needs to ensure that there are always that number of peers available. Alternatively, if the endorsement policy requires a `MAJORITY` of peers to endorse the transactions, then you need to ensure that a majority of the peers are always available in order for transactions to continue to be processed.
+Finally, your peer redundancy strategy needs to take into account your chaincode endorsement policies to ensure that you always have enough peers available to satisfy the [endorsement policy](#x8911635){: term} requirements. For example, if an endorsement policy requires a specific number of endorsements, your peer HA strategy needs to ensure that there are always that number of peers available. Alternatively, if the endorsement policy requires a `MAJORITY` of peers to endorse the transactions, then you need to ensure that a majority of the peers are always available in order for transactions to continue to be processed.
 
 ### Ordering service considerations
 {: #ibp-console-ha-ordering-service}
 
-{{site.data.keyword.blockchainfull_notm}} Platform  is built upon Hyperledger Fabric v1.4.7 and v2.x  that includes the Raft ordering service. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft-based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node Raft-based orderer, with no HA, or five orderers in a single region that are automatically configured for HA via Raft.
+{{site.data.keyword.blockchainfull_notm}} Platform  is built upon Hyperledger Fabric v1.4.7 and v2.x  that includes the Raft [ordering service](#x9826021){: term}. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft-based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node Raft-based orderer, with no HA, or five orderers in a single region that are automatically configured for HA via Raft.
 
 
 ### Certificate Authority (CA) considerations
 {: #ibp-console-ha-ca}
 
-Because CA nodes process user registration and enrollment requests for your blockchain network, they are typically not high-throughput nodes. However, if HA is important for your CA strategy, it is possible to configure your nodes for maximum availability. Kubernetes includes built in HA by immediately restarting the pod if the CA becomes unavailable.  However, if you cannot tolerate any downtime for your CA, you have the option to configure `replica sets` for your CA. A replica set is a Kubernetes mechanism that is used to guarantee the availability of the pod. The use of replica sets ensures that multiple replicas of the pod are running at all times. If one of the CA replicas becomes unavailable, Kubernetes immediately switches to another CA replica, therefore there is no downtime waiting for a CA to restart.
+Because [CA](#x2016383){: term} nodes process user registration and enrollment requests for your blockchain network, they are typically not high-throughput nodes. However, if HA is important for your CA strategy, it is possible to configure your nodes for maximum availability. Kubernetes includes built in HA by immediately restarting the pod if the CA becomes unavailable.  However, if you cannot tolerate any downtime for your CA, you have the option to configure `replica sets` for your CA. A replica set is a Kubernetes mechanism that is used to guarantee the availability of the pod. The use of replica sets ensures that multiple replicas of the pod are running at all times. If one of the CA replicas becomes unavailable, Kubernetes immediately switches to another CA replica, therefore there is no downtime waiting for a CA to restart.
 
 ## HA Checklist
 {: #ibp-console-ha-checklist}
