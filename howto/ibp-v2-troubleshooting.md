@@ -53,7 +53,6 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 - [Why are my node operations failing after I create my peer or ordering service?](#ibp-console-build-network-troubleshoot-entry1)
 - [Why does my peer or ordering node fail to start?](#ibp-console-build-network-troubleshoot-entry2)
-- [Why does my blockchain node fail to restart?](#ibp-v2-troubleshooting-restart)
 - [What is the proper way to clean up a failed node deployment?](#ibp-v2-troubleshooting-cleanup)
 - [How can I view my smart contract container logs?](#ibp-console-smart-contracts-troubleshoot-entry2)
 - [Why is my CA, peer, or ordering node that is configured to use HSM not working?](#ibp-v2-troubleshooting-hsm-proxy)
@@ -356,26 +355,6 @@ Failed to initialize local MSP: admin 0 is invalid [The identity does not contai
 - Open your peer or ordering service CA node and view the registered identities listed in the **Registered Users** table.
 - Delete the peer or ordering service and recreate it, being careful to specify the correct enroll ID and secret of a user that has the `peer` or `orderer` role and associate an identity that has a role of `admin` with the node.
 - Note that before you create the peer or ordering service, you need to register an organization admin user, with a type `admin`. Be sure to specify that same id as the enroll ID when you create the organization MSP definition. See these instructions for [registering peer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1) and these instructions for [registering orderer identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-orderer).
-
-## Why does my blockchain node fail to restart?
-{: #ibp-v2-troubleshooting-restart}
-{: troubleshoot}
-
-When you change the resources allocated to a CA, peer, or ordering node, or if you update the admin certificates for a node, the pod has to restart in order for the changes to take effect. Or when a worker node is updated for maintenance and needs to restart, the associated blockchain pod also need to be restarted. Sometimes, due to conditions on your Kubernetes cluster, the pod restart can fail.
-{: tsSymptoms}
-
-{: tsCauses}
-A component can fail to restart to for a variety of reasons:
-- If another application in a cluster with constrained resources is in a pending state, and is prioritized higher than the blockchain component, the blockchain pod cannot restart because the resources are consumed by the pending application.
-- If the blockchain component needs to restart, but is on a worker node that has been "cordoned", meaning no new components can be brought to that node, it cannot restart. A blockchain pod becomes unschedulable when the Kubernetes scheduler is unable to find a node that can accommodate the resource requirements of the pod.
-- If there is a timeout between the kubelet, the node agent that runs on each node, and the Kubernetes master node, a pod restart can fail.
-- The pod restart itself can time out when its worker node restarts and takes too long to mount the persistent volume claim (PVC).
-
-{: tsResolve}
-To enable the blockchain pod to restart successfully, you need to address the underlying cluster issues:
-- Ensure there are adequate resources available on worker nodes in the cluster. If not, deploy a new worker node with increased resources.
-- After you resolve the cluster issues, delete the failing blockchain pod. When Kubernetes restarts the pod, it will attempt to move the pod workload to another node with sufficient resources.
-- If the timeout between a kubelet and the master node cannot be resolved, open a support ticket with your cluster provider.
 
 ## What is the proper way to clean up a failed node deployment?
 {: #ibp-v2-troubleshooting-cleanup}
