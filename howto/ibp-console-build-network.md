@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-06-30"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network
 
@@ -15,6 +15,7 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:note: .note}
+{:term: .term}
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
@@ -34,7 +35,7 @@ subcollection: blockchain
 
 If you have not already used the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy components to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, see [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks). Note that the console itself does not reside in your cluster. It is a tool that you can use to deploy components into your cluster.
 
-Whether you deploy components to a paid or free Kubernetes cluster, pay close attention to the amount of available resources in your cluster when you choose to deploy nodes and create channels. It is your responsibility to manage your Kubernetes cluster and deploy additional resources when necessary. While components will successfully deploy to an {{site.data.keyword.cloud_notm}} free cluster, the more components you add, the slower your components will run. For more information about component sizings and how the console interacts with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
+Whether you deploy components to a paid or free Kubernetes cluster, pay close attention to the amount of available resources in your cluster when you choose to deploy nodes and create [channels](#x2016483){: term}. It is your responsibility to manage your Kubernetes cluster and deploy additional resources when necessary. While components will successfully deploy to an {{site.data.keyword.cloud_notm}} free cluster, the more components you add, the slower your components will run. For more information about component sizings and how the console interacts with your Kubernetes cluster on {{site.data.keyword.cloud_notm}}, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
 
 If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, it is recommended that you provision at least a 4CPU x 16GB RAM cluster to accommodate the components in this tutorial.
 {: tip}
@@ -266,7 +267,7 @@ Use your console to perform the following steps:
    * Select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer1`, and enter its associated **secret**, `peer1pw`.
    * Then, select `Org1 MSP` from the drop-down list
    * The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want to specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
-   * In the **Fabric version** drop-down list, the best practice is to select the **highest available version**, as it will contain the latest bug fixes. It might also be necessary to select the highest version in order to have access to the latest features. Note that if you select any version higher than v2.0, no smart contract container will be deployed along with your peer. Instead, each smart contract will be deployed into its own pod when it is instantiated on the channel or invoked for the first time. Peer nodes running Fabric v1.4.7 and v2.1.1 are compatible with each other.
+   * In the **Fabric version** drop-down list, the best practice is to select the **highest available version**, as it will contain the latest bug fixes. It might also be necessary to select the highest version in order to have access to the latest features. Note that if you select any version higher than v2.0, no smart contract container will be deployed along with your peer. Instead, each smart contract will be deployed into its own pod when it is instantiated on the channel or invoked for the first time. With the exception of smart contracts that run Go chaincode, peer nodes running Fabric v1.4.7 and v2.1.1 are compatible with each other. See this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package) on vendoring the shim for more information on what is required.
    * Click **Next**.
 7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org1 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org1 CA` and make that identity the admin of your peer, but this tutorial uses the `Org1 MSP Admin` identity.
 8. Review the summary and click **Add peer**. The **Edit configuration JSON** button allows you to override configuration settings for the peer. For this tutorial, the default settings are sufficient. See [Customizing a peer configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-peer-create-json) to learn more about the options that are available.

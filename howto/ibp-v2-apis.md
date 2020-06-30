@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-06-30"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -17,6 +17,7 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 {:tip: .tip}
 {:faq: data-hd-content-type='faq'}
 {:pre: .pre}
@@ -68,7 +69,7 @@ You need a basic authentication credential to ensure that you have access to you
   }
   ```
 
-In the service credential, you can find the **API key** (`apikey`) and **API endpoint** (`api_endpoint`) that you need to retrieve a {{site.data.keyword.iamshort}} (IAM) access token.
+In the service credential, you can find the [API key](#x8051010){: term} (`apikey`) and **API endpoint** (`api_endpoint`) that you need to retrieve a {{site.data.keyword.iamshort}} (IAM) access token.
 
 ### Retrieving an access token
 {: #ibp-v2-apis-retrieve-token}
@@ -863,7 +864,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
 
   Provide this string to the `root_certs` field of the API request.
 
-5. You should also provide the root certificate of your TLS CA. The TLS root certificate allows your peers to participate in gossip on a channel.
+5. You should also provide the root certificate of your TLS CA. The TLS root certificate allows your peers to participate in [gossip](#x9829550){: term} on a channel.
 
   Navigate to the MSP directory that was generated when you [enrolled your TLS CA admin](#ibp-v2-apis-config-register-component-tls).
   ```

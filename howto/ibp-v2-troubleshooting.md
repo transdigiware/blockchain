@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-06-30"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -29,10 +29,10 @@ subcollection: blockchain
 
 
 
-General problems may occur when using the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
+General problems can occur when you use the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
 {:shortdesc}
 
-This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.  
+This topic describes common issues that can occur when you use the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
 - [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
@@ -84,7 +84,7 @@ The console has been working successfully, but requests have started to fail. Fo
 This problem can be caused by a [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1006243){: external} introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
 {: tsCauses}
 
-To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will  persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
 {: tsResolve}
 
 
@@ -360,7 +360,7 @@ Failed to initialize local MSP: admin 0 is invalid [The identity does not contai
 {: #ibp-v2-troubleshooting-cleanup}
 {: troubleshoot}
 
-Sometimes a node can fail to deploy, for example, due to lack of resources in your Kubernetes cluster. After you understand the cause of the node deployment failure, you need to cleanup the failed node in your cluster.
+Sometimes a node can fail to deploy, for example, due to lack of resources in your Kubernetes cluster. After you understand the cause of the node deployment failure, you need to clean up the failed node in your cluster.
 {: tsSymptoms}
 
 Do not attempt to use Kubernetes commands to remove the node. Instead, it is extremely important that you use the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs to remove the failed node to ensure that the associated metadata and storage are also cleaned up.

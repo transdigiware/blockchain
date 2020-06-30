@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-23"
+lastupdated: "2020-06-29"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -14,6 +14,7 @@ subcollection: blockchain
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:note: .note}
+{:term: .term}
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
@@ -326,7 +327,7 @@ Next, you can instantiate the smart contract on a channel:
 3. (Optional) Enter the name of the instantiate function in your smart contract. If you used the default smart contract template, no instantiate function is used.
 4. (Optional) Enter any arguments that your instantiate function requires.
 5. (Optional) Browse to your collection configuration file if your smart contract uses private data, such as the **Private Data Contract** example.
-6. (Optional) Select **Default** or alternatively, **Custom** to browse for a custom smart contract endorsement policy.
+6. (Optional) Select **Default** or alternatively, **Custom** to browse for a custom smart contract [endorsement policy](#x8911635){: term}.
 
 If you changed your smart contract code and then repackaged it, you can upgrade the instantiated smart contract to deploy a newer version to the network:
 
