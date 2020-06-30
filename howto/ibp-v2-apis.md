@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-29"
+lastupdated: "2020-06-30"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -69,7 +69,7 @@ You need a basic authentication credential to ensure that you have access to you
   }
   ```
 
-In the service credential, you can find the [**API key**](#x8051010){: term} (`apikey`) and **API endpoint** (`api_endpoint`) that you need to retrieve a {{site.data.keyword.iamshort}} (IAM) access token.
+In the service credential, you can find the [API key](#x8051010){: term} (`apikey`) and **API endpoint** (`api_endpoint`) that you need to retrieve a {{site.data.keyword.iamshort}} (IAM) access token.
 
 ### Retrieving an access token
 {: #ibp-v2-apis-retrieve-token}
