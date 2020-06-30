@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-29"
+lastupdated: "2020-06-30"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
@@ -88,7 +88,7 @@ This offering is intended for experienced Fabric users who want to build and man
 | Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
 
-[Virtual Private Clouds](#x4585403){: term} (VPC) are currently not supported.
+[Virtual Private Cloud](#x4585403){: term} (VPC) infrastructure is currently not supported.
 {: note}
 
 ## Considerations
