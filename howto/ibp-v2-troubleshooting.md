@@ -29,10 +29,10 @@ subcollection: blockchain
 
 
 
-General problems may occur when using the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
+General problems can occur when you use the console to manage nodes, channels, or smart contracts. In many cases, you can recover from these problems by following a few easy steps.
 {:shortdesc}
 
-This topic describes common issues that can occur when using the {{site.data.keyword.blockchainfull_notm}} Platform console.  
+This topic describes common issues that can occur when you use the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
 - [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
@@ -85,7 +85,7 @@ The console has been working successfully, but requests have started to fail. Fo
 This problem can be caused by a [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1006243){: external} introduced by the Chrome browser `Version 77.0.3865.90 (Official Build) (64-bit)` that causes actions from the browser to fail.
 {: tsCauses}
 
-To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
+To resolve this problem, open the console in a new browser tab in Chrome. Any identities that you saved in your console wallet will  persist in the new browser tab. To avoid this problem you can upgrade your Chrome browser version. Ensure you have downloaded all of your wallet identities to your local machine before closing your browser. 
 {: tsResolve}
 
 
@@ -361,10 +361,10 @@ Failed to initialize local MSP: admin 0 is invalid [The identity does not contai
 {: #ibp-v2-troubleshooting-restart}
 {: troubleshoot}
 
-When you change the resources allocated to a CA, peer, or ordering node, or if you update the admin certificates for a node, the pod has to restart in order for the changes to take effect. Or when a worker node is updated for maintenance and needs to restart, the associated blockchain pods also need to be restarted. Sometimes, due to conditions on your Kubernetes cluster, the pod restart can fail.
-{: tsCauses}
-
+When you change the resources allocated to a CA, peer, or ordering node, or if you update the admin certificates for a node, the pod has to restart in order for the changes to take effect. Or when a worker node is updated for maintenance and needs to restart, the associated blockchain pod also need to be restarted. Sometimes, due to conditions on your Kubernetes cluster, the pod restart can fail.
 {: tsSymptoms}
+
+{: tsCauses}
 A component can fail to restart to for a variety of reasons:
 - If another application in a cluster with constrained resources is in a pending state, and is prioritized higher than the blockchain component, the blockchain pod cannot restart because the resources are consumed by the pending application.
 - If the blockchain component needs to restart, but is on a worker node that has been "cordoned", meaning no new components can be brought to that node, it cannot restart. A blockchain pod becomes unschedulable when the Kubernetes scheduler is unable to find a node that can accommodate the resource requirements of the pod.
@@ -372,16 +372,16 @@ A component can fail to restart to for a variety of reasons:
 - The pod restart itself can time out when its worker node restarts and takes too long to mount the persistent volume claim (PVC).
 
 {: tsResolve}
-To enable the blockchain pod to restart, you need to address the underlying cluster issues:
-- Ensure there are adequate resources available on worker nodes in the cluster for the pod to restart. If not, deploy a new worker node with increased resources.
-- Delete the failing blockchain pod. When Kubernetes restarts the pod, it will attempt to move the pod workload to another node with sufficient resources.
+To enable the blockchain pod to restart successfully, you need to address the underlying cluster issues:
+- Ensure there are adequate resources available on worker nodes in the cluster. If not, deploy a new worker node with increased resources.
+- After you resolve the cluster issues, delete the failing blockchain pod. When Kubernetes restarts the pod, it will attempt to move the pod workload to another node with sufficient resources.
 - If the timeout between a kubelet and the master node cannot be resolved, open a support ticket with your cluster provider.
 
 ## What is the proper way to clean up a failed node deployment?
 {: #ibp-v2-troubleshooting-cleanup}
 {: troubleshoot}
 
-Sometimes a node can fail to deploy, for example, due to lack of resources in your Kubernetes cluster. After you understand the cause of the node deployment failure, you need to cleanup the failed node in your cluster.
+Sometimes a node can fail to deploy, for example, due to lack of resources in your Kubernetes cluster. After you understand the cause of the node deployment failure, you need to clean up the failed node in your cluster.
 {: tsSymptoms}
 
 Do not attempt to use Kubernetes commands to remove the node. Instead, it is extremely important that you use the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs to remove the failed node to ensure that the associated metadata and storage are also cleaned up.
