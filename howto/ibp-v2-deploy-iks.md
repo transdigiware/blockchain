@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-30"
+lastupdated: "2020-07-01"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -72,6 +72,10 @@ Before you deploy the console, ensure that you understand the following consider
 - Kubernetes clusters that are configured with private VLANs are not supported.
 - Only the Kubernetes cluster "Classic" infrastructure is supported. [Virtual Private Clouds](#x4585403){: term} (VPC) are currently not supported.  
 
+## Video tutorial
+{: #ibp-v2-deploy-video}
+
+Watch the following [video series]( http://ibm.biz/BlockchainPlatformSeries) to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform console and how you can get started to deploy {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Before you begin
 {: #ibp-v2-deploy-iks-prereq}
