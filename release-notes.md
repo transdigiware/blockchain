@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-23"
+lastupdated: "2020-07-01"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -26,6 +26,8 @@ Use these release notes that are grouped by date to learn about the latest chang
 {:shortdesc}
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
+
+  
 
 ## 18 June 2020
 {: #06-18-2020}
@@ -61,7 +63,7 @@ If your Kubernetes cluster is configured to use multizone-capable storage, new p
 {: #06-18-2020-k8s}
 
 {{site.data.keyword.blockchainfull_notm}} Platform requires **Kubernetes v1.15 - v1.18**. If your existing Kubernetes cluster is running v1.14 or lower, you need to upgrade your cluster before you can update your existing blockchain components to this latest release.
-
+  
 
 ## 20 May 2020
 {: #05-20-2020}
@@ -82,7 +84,7 @@ You now have the option to configure an intermediate CA using the console or API
 The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) to learn how.
 
 
-
+  
 
 ## 16 April 2020
 {: #04-16-2020}

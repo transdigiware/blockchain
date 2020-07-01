@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-29"
+lastupdated: "2020-07-01"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -167,7 +167,7 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 Considerations if you are developing Java smart contracts:
 
 - Java 11 is required to execute Java smart contracts.
-- Gradle v4.x and Maven v3.x are used to build Java smart contracts.
+- Gradle v4.x is used to build Java smart contracts.
 - Custom Gradle versions can be used by using a Gradle wrapper.
 - Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later (if deploying on a peer using a Fabric 1.4.x image; peer using a Fabric 2.x image do not require a shim), as this version is the first version that includes support for Java 11.
 - For an example of a Java smart contract, see the [FabCar Java smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar/java){: external} from Fabric v1.4.
