@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-30"
+lastupdated: "2020-07-01"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network
 
@@ -101,7 +101,7 @@ For each organization that you want to create with the console, you should deplo
 
 In this tutorial, we create two organizations, one which will own a peer and another which will own an ordering service. Each organization needs a CA to issue its certificates, therefore we need to create **two CAs**. For the purpose of this tutorial, **we will create only one CA at a time**.
 
-
+Watch the following [video](http://ibm.biz/BlockchainPlatformSeries2){: external} to learn about the process to create the peer's organization and the peer.
 
 ### Creating your peer organization's CA
 {: #ibp-console-build-network-create-CA-org1CA}
@@ -304,7 +304,7 @@ In a paid cluster, you have the option between creating a one node ordering serv
 
 However, just as with the peer, before we can create an ordering service, we need to create a CA to supply the identities and the MSP of our ordering service organization.
 
-
+Watch the following [video](http://ibm.biz/BlockchainPlatformSeries3){: external} to learn about the process to create the ordering service's organization and the ordering service.
 
 ### Ordering in the console
 {: #ibp-console-build-network-ordering-console}
@@ -476,7 +476,7 @@ As we noted earlier, a peer organization must be known to the ordering service b
 
 Because only ordering service admins can add peer organizations to the consortium, you will either need to **be** the ordering service admin or **send** MSP information to the ordering service admin.
 
-
+Watch the following [video](http://ibm.biz/BlockchainPlatformSeries4){: external} to learn about the process to add the organization to the consortium, create the channel, and join your peer to the channel.
 
 
 
@@ -506,7 +506,7 @@ After the channel has been created, subsequent organizations do not have to join
 
 For more information about channels and how to use them, see the [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/channels.html){: external}.
 
-
+Watch [Video 3](http://ibm.biz/BlockchainPlatformSeries4) above to learn about the process to create channel and join your peer to the channel.
 
 ### Creating a channel: `channel1`
 {: #ibp-console-build-network-create-channel1}
