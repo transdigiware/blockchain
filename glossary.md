@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-07-02"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -160,6 +160,10 @@ The node that collects transactions from network members, orders the transaction
 ## Organization
 {: #glossary-organization}
 See [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member).
+
+## Out of band
+{: #glossary-out-of-band}
+An expression used to refer to sharing network artifacts outside of the console UI, for example by email or some other file transfer mechanism. After submitting a smart contract proposal, the originator can share the smart contract package and package id with other channel members in an out of band operation by emailing this information to them.
 
 ## Participant
 {: #glossary-participant}
