@@ -101,11 +101,11 @@ For each organization that you want to create with the console, you should deplo
 
 In this tutorial, we create two organizations, one which will own a peer and another which will own an ordering service. Each organization needs a CA to issue its certificates, therefore we need to create **two CAs**. For the purpose of this tutorial, **we will create only one CA at a time**.
 
+Watch the following video to learn about the process to create the peer's organization and the peer:
+
 <iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/PAC0PPPFxLE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PAC0PPPFxLE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Watch the following [video](http://ibm.biz/BlockchainPlatformSeries2){: external} to learn about the process to create the peer's organization and the peer.
+For more video tutorials in this series (which will show you how to create an ordering service and a channel), see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}.
 
 ### Creating your peer organization's CA
 {: #ibp-console-build-network-create-CA-org1CA}
