@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-07-06"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -88,7 +88,7 @@ When you are ready to deploy your smart contract to the {{site.data.keyword.bloc
 ### Vendoring smart contracts
 {: #ibp-console-smart-contracts-write-package-vendor}
 
-To vendor the shim for a go smart contract, navigate to your smart contract source folder. Then initialize the go module by issuing:
+To vendor the shim for a Go smart contract, navigate to your smart contract source folder. Then initialize the Go module by issuing:
 
 ```
 go mod init
