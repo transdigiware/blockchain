@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-02"
+lastupdated: "2020-07-06"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -119,7 +119,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 |Standard (Recommended) | Suitable for MVPs | 4 (Shared) | 16 GB (Shared)|multiple|
 |Free** | Suitable for evaluation | 2 | 4 GB | 1 |
 {: caption="Table 1. Recommended cluster size on Kubernetes cluster on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
-** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster.
+** Preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your Kubernetes cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster. Also note that when components are deployed to a free cluster, the resource allocation for the nodes is sized smaller than a paid cluster.
 
 These resources are sufficient for testing and experimentation. The [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network), in which you create two peers, two CAs, and a single node ordering service, takes up approximately 1.95 CPU. A five node ordering service requires 1.75 CPU by itself. Therefore, if you plan to deploy a five node ordering service, you should not deploy a Kubernetes cluster with a 2 CPU single worker node as the ordering service will not fit comfortably with other nodes. We recommend a cluster with nodes of at least 4 CPU. The more worker nodes you add, the easier your cluster will be able to handle your deployments.
 {:note}
@@ -207,74 +207,18 @@ If you already have a cluster, you can link your service instance to it by click
 If your cluster is available, select it and click **Next**. It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, click **Launch the IBM Blockchain Platform console** to open the console.
 
 
-## Create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}
-{: #ibp-v2-deploy-iks-create-service-instance}
-
-Creating a {{site.data.keyword.blockchainfull_notm}} Platform service instance is a two step process.
-
-- [Create and name the {{site.data.keyword.blockchainfull_notm}} Platform service instance](#ibp-v2-deploy-iks-create-service-instance-create).
-- [Link the instance to a Kubernetes cluster in {{site.data.keyword.cloud_notm}}](#ibp-v2-deploy-iks-steps).
-
-### Step one: Create the instance
-{: #ibp-v2-deploy-iks-create-service-instance-create}
-
-1. Navigate to the [blockchain overview](https://cloud.ibm.com/blockchain/overview) page in {{site.data.keyword.cloud_notm}} and click **Create**.
-2. The **Create** tab opens with the **Standard** plan selected. On this page, we recommend that you rename the service **Name** for your instance to something meaningful to you so that you can recognize it easily in the future. Scroll down to the bottom of the page and click **Next**.  
-
-  ![{{site.data.keyword.blockchainfull_notm}} Platform installation](../images/iks-deployment.png "Installing the {{site.data.keyword.blockchainfull_notm}} Platform"){: caption="Figure 2: Installing the {{site.data.keyword.blockchainfull_notm}} Platform." caption-side="bottom"}
-
-### Step two: Link the instance to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}
-{: #ibp-v2-deploy-iks-steps}
-
-After you click **Next** on the **Create** tab, a new panel is displayed where you can link your blockchain service instance to an **{{site.data.keyword.IBM_notm}} Kubernetes service** cluster or a Red Hat **OpenShift** cluster. To understand the size of the Kubernetes cluster that is required, click **Explore cluster requirements**. The options provide an estimate of the resources that are required, whether you want to deploy a test network, create or join a production network, or access the free trial. If you have an existing cluster that meets the blockchain requirements of your business, you can simply link to it. If not, you have the opportunity to deploy a new cluster.  
-
-    ![Kubernetes cluster deployment target](../images/iks-deployment2.png "Kubernetes cluster deployment target"){: caption="Figure 3: Kubernetes cluster deployment target." caption-side="bottom"}
-
-#### Create a new Kubernetes cluster on {{site.data.keyword.cloud_notm}}
-{: #ibp-v2-deploy-create-new-cluster}
-
-If you don't already have a Kubernetes cluster in {{site.data.keyword.cloud_notm}} that meets your resource requirements, you can create a new one now.  To learn more about the types of Kubernetes clusters that you can deploy see:
-- [Getting started with {{site.data.keyword.cloud_notm}} Kubernetes service](/docs/containers?topic=containers-getting-started){: external} or
-- [About the OpenShift Kubernetes Engine](https://docs.openshift.com/container-platform/4.3/welcome/oke_about.html){: external}.  
-
-Already have a cluster you want to use? Skip ahead to [Link to an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}](#ibp-v2-deploy-link-existing-cluster).
-
-As both {{site.data.keyword.IBM_notm}} Kubernetes Service clusters and OpenShift clusters are based on Kubernetes, you will find that many of the underlying decisions about hardware and storage types will be the same regardless of which cluster provider you choose. Note that the **Kubernetes version of the cluster you deploy must be between v1.15 - v1.18** to be compatible with the {{site.data.keyword.blockchainfull_notm}} Platform.
-
-1. On the **Deployment target** pane, if you are not already there, go ahead and click the **Create new cluster** tab.
-2. The first thing you need to do is **Select a plan** type. Select **Free** if you want to explore the free trial by using a {{site.data.keyword.cloud_notm}} Kubernetes service cluster and click **Create**. Only one Free cluster is permitted per account. You can skip ahead to step seven and wait for the service to be provisioned and the link to the free cluster.
-3. Otherwise, select the **Standard** plan where you can choose between an **{{site.data.keyword.cloud_notm}} Kubernetes** or **OpenShift** cluster as your orchestration service.
-4. Because the {{site.data.keyword.blockchainfull_notm}} Platform currently only supports **Classic** infrastructure it is preselected for you.
-5. Based on the business needs of your blockchain network and [high availability](/docs/blockchain?topic=blockchain-ibp-console-ha) considerations, you have the additional options to configure the size of your cluster, the allocated resources, the cluster location, the zone configuration, and the number of worker nodes.
-6. After configuring your cluster, on the Summary pane you can accept the license terms and click **Create**.
-7. While your cluster is being deployed, you can watch a video to familiarize yourself with the award-winning console. Or, if you are a developer, click the link to download and install the VS Code extension that includes tutorials on how to write and package  a smart contract. After the service is installed and successfully linked to your new cluster, you can click the **Launch console** button to get started.
-
-The next step is to learn more about how components are provisioned in the cluster. See [Blockchain component deployment](#ibp-v2-deploy-components) to continue.
-
-#### Link to an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}
-{: #ibp-v2-deploy-link-existing-cluster}
-
-If you already have an existing cluster with enough resources for your blockchain network, you can link it to your blockchain service now. Your available clusters are listed on the **Deployment target panel** on the **My clusters** tab.
-
-1. Select the cluster from the list of available clusters.
-2. In the **Summary** pane, agree to the licensing terms.
-3. Click **Create**.
-
-While the blockchain service is being installed and linked to your cluster, you can watch a video to familiarize yourself with the award-winning console. Or, if you are a developer, click the link to download and install the VS Code extension to learn more about writing smart contracts. After the cluster is successfully deployed, you can click the **Launch console** button to get started.
-
 
 ### Blockchain component deployment
 {: #ibp-v2-deploy-components}
 
 You are now ready to start exploring the console.
 
-Before using the console, ensure you are not running the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
-{: tip}
+
 
 <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster assuming Hyperledger Fabric v2.x images are used by the peer.
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-20.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 2: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
-![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-20.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 4: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
+
 
 - **Pod**: When each Certificate Authority, peer, ordering service, or smart contract is deployed, a new Pod is created in a worker node in your cluster. Every time you deploy a smart contract, a new pod is launched for the smart contract.
 - **App containers**: Containers are created inside the pods for each node that is deployed.
@@ -283,7 +227,7 @@ Before using the console, ensure you are not running the ESR version of Firefox.
 <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster assuming Hyperledger Fabric v1.4 images are used by the peer.
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-14.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 3: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
-![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-14.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 5: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
+
 
 - **Pod**: When each Certificate Authority, peer, or ordering service is deployed, a new Pod is created in a worker node in your cluster.
 - **App containers**: Containers are created inside the pods for each node that is deployed.
