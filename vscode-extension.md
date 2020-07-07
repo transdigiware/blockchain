@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-07-07"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -436,19 +436,38 @@ After you connect to the {{site.data.keyword.blockchainfull_notm}} Platform from
 
 You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to install and instantiate smart contracts on your network.
 
-You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to export all of the nodes of your console in bulk.
+You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to use the extension to automatically discover the console and import the nodes.
 
 1. Navigate to the **Settings** tab in the left navigation. You can see a section that is called **Bulk data management** that contains two buttons. The **Export** button opens a panel on the right.  
-2. Keep the boxes that represent peers, CAs, and ordering services checked. Check the box to export your identities. You can leave the box that represents MSPs unchecked.
-3. Click **Export** to download the nodes and identities to your local file system in .zip file. Extract the file when the download is complete.
+2. Check the box to export your identities. You can uncheck the other options.
+3. Click **Export** to download the identities to your local file system in .zip file. Extract the file when the download is complete.
 
 You can then import the nodes of your network into the extension.
 
+
+#### Importing from IBM Cloud
+
 1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
-2. Select **Add any other Fabric network**.
-2. Enter a name for your network.
-3. Browse to the nodes that you exported from your console and select a node to import. After you have imported a node, click **Add more (JSON) node definitions** to import another node.
-4. When you have imported the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **Done adding nodes**.
+2. Select **Add an IBM Blockchain Platform environment**.
+3. Select **Yes** when asked whether to connect to a IBM Blockchain Platform service instance on IBM Cloud.
+4. Select **Log in with username and password** or another method.
+5. Enter your IBM Cloud username (email address).
+6. Enter your IBM Cloud password.
+7. The extension will now try to discover any IBM Blockchain Platform service instances - if you have multiple, select the instance to import.
+8. Enter a name for your environment.
+9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
+
+#### Importing from elsewhere
+
+1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
+2. Select **Add an IBM Blockchain Platform environment**.
+3. Select **No** when asked whether to connect to a IBM Blockchain Platform service instance on IBM Cloud.
+4. Enter the URL of the IBM Blockchain Platform Console software instance.
+5. Enter the **API Key** or **User ID** of the console instance.
+6. Enter the **API Secret** or **Password** of the console instance.
+7. Select **Proceed without certificate verification**, or **Cancel** if you're planning to add the CA certificates to the operating systems trusted CA certificate store.
+8. Enter a name for your environment.
+9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
 
 You also need to import your admin identities into the wallet pane and associate them with your nodes. You need to associate an admin identity with your peers, CA, and an ordering node before you can connect with your network.
 
