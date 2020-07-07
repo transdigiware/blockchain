@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-07-07"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
@@ -162,7 +162,7 @@ Notice how a single instance of the console, also known as Operational Tooling, 
 {: caption="Table 4. Components that reside in the {{site.data.keyword.blockchainfull_notm}} Platform Kubernetes Cluster" caption-side="bottom"}
 
 
-| **Kubernetes cluster on {{site.data.keyword.cloud_notm}} instance** | **Description** |
+| **OpenShift cluster** | **Description** |
 | ------------------------- |-----------|-----------|-----------|
 | **Operator** | A Kubernetes operator that is used to deploy the console. |
 | **Routes** | An OpenShift route is a way to expose a service by giving it an externally-reachable hostname. |

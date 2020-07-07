@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-07-07"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -41,6 +41,7 @@ You are currently on the third part of our three-part tutorial series. This tuto
 * **Deploy a smart contract on the network** (Current tutorial) Provides information on how to write a smart contract and deploy it on your network.
 
 You can use the steps in these tutorials to build a network with multiple organizations in one cluster for the purposes of development and testing. Use the **Build a network** tutorial if you want to form a blockchain consortium by creating an orderer node and adding organizations. Use the **Join a network** tutorial to connect a peer to the network. Following the tutorials with different consortium members helps you create a truly **distributed** blockchain network.
+
 
 This final tutorial is meant to show how to create and package a smart contract, how to install the smart contract on a peer, and how to instantiate the smart contract on a channel.
 

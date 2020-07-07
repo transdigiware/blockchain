@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-07-07"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -215,10 +215,32 @@ If you see the location field, you can choose whether to supply the location or 
 
 After you have imported the ordering service into the console, you can add new organization members to the consortium (if your MSP was added as an admin of the ordering service) and select the ordering service when creating new channels (if your organization has been added to the consortium).
 
+## Importing an MSP
+{: #ibp-console-import-msp}
+
+Because it is necessary that all of the members of a channel have the MSPs of all of the other members of a channel to allow for the validation of signatures, you need to share your MSPs across organizations. For example, when a channel update request is submitted, a notification is sent to each channel member using the endpoint address contained in the MSP. Therefore, each organization member should export and share their MSP with the other channel members. An each member should then import the MSP into their console. Use the following instructions to complete these actions.
+
+**To export your MSP:**  
+
+ 1. Navigate to the **Organizations** tab and click your organization MSP tile.
+ 2. In the tile that opens, click the **Export** icon.
+
+   ![Export MSP button](../images/export-msp.png "Export MSP button"){: caption="Figure 1. Export MSP button" caption-side="bottom"}
+ 3. A JSON file is generated and downloaded to your local system.
+ 4. Share this file with the other organization admins of your channel.
+
+**To import an MSP from another organization:**  
+
+ 1. Navigate to the **Organizations** tab and click **Import MSP**.
+ 2. Browse to the MSP JSON file and click **Add file**.
+ 3. Click **Import MSP**.
+
+ Repeat these steps for each organization that is included in your channel.
+
 ## Importing nodes from a locally deployed network
 {: #ibp-console-import-icp}
 
-You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, and Kubernetes v1.15 - v1.18 environnments into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using an allowlist, to allow the console outside the cluster to communicate with your nodes.
+You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, and Kubernetes v1.15 - v1.18 environments into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using an allowlist, to allow the console outside the cluster to communicate with your nodes.
 
 As an example, you can find the JSON file of a peer below. To communicate with the peer from another console, you need to ensure that the `grpcwp_url` port, port 32403 in this example, is open to external traffic.
 

@@ -18,10 +18,9 @@ IBM Blockchain Platform for IBM Cloud
 	Getting started tutorials
 		howto/ibp-console-build-network.md
 		howto/ibp-console-join-network.md
-		howto/ibp-console-smart-contracts.md
+
 		howto/ibp-console-create-app.md
 		reference/videos.md
-		howto/ibp-console-smart-contracts.md
 		howto/ibp-console-create-app.md
 		reference/videos.md
 

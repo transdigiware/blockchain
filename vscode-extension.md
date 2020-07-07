@@ -20,7 +20,7 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# Developing smart contracts with IBM Blockchain Platform Developer Tools
+# Developing smart contracts with {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools
 {: #develop-vscode}
 
 
@@ -90,7 +90,7 @@ Both development environments include the same rich functionality of the {{site.
 
 The following set of steps can be used to install the CodeReady Workspaces and configure it with the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling on an OpenShift 4.3 cluster.
 
-  - If you prefer to install the tooling on your local system, see [Install IBM Blockchain Platform VS Code extension](#develop-vscode-install).
+  - If you prefer to install the tooling on your local system, see [Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension](#develop-vscode-install).
 
 1. Log in as the administrator of your OpenShift 4.3 cluster.
 2. In the navigation bar, click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
@@ -412,6 +412,7 @@ After the test file is built, the tests can be run by clicking the **Run Tests**
 You can also use the extension to interact with your network on the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ### Invoke a smart contract that has been instantiated on your channels
+{: #develop-vscode-connecting-ibp-invoke}
 
 You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were installed and instantiated on your network.
 
@@ -433,6 +434,7 @@ After you connect to the {{site.data.keyword.blockchainfull_notm}} Platform from
 
 
 ### Install and instantiate a smart contract from VS Code
+{: #develop-vscode-connecting-ibp-install-instantiate}
 
 You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to install and instantiate smart contracts on your network.
 
@@ -444,30 +446,34 @@ You can export nodes from your console and then import them from another console
 
 You can then import the nodes of your network into the extension.
 
-
-#### Importing from IBM Cloud
+#### Importing from {{site.data.keyword.cloud_notm}}
+{: #develop-vscode-connecting-ibp-ibmcloud}
 
 1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
-2. Select **Add an IBM Blockchain Platform environment**.
-3. Select **Yes** when asked whether to connect to a IBM Blockchain Platform service instance on IBM Cloud.
+2. Select **Add an {{site.data.keyword.blockchainfull_notm}} Platform environment**.
+3. Select **Yes** when asked whether to connect to a {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
 4. Select **Log in with username and password** or another method.
-5. Enter your IBM Cloud username (email address).
-6. Enter your IBM Cloud password.
-7. The extension will now try to discover any IBM Blockchain Platform service instances - if you have multiple, select the instance to import.
+5. Enter your {{site.data.keyword.cloud_notm}} username (email address).
+6. Enter your {{site.data.keyword.cloud_notm}} password.
+7. The extension will now try to discover any {{site.data.keyword.blockchainfull_notm}} Platform service instances - if you have multiple, select the instance to import.
 8. Enter a name for your environment.
 9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
 
-#### Importing from elsewhere
+#### Importing from a Kubernetes cluster not in {{site.data.keyword.cloud_notm}}
+{: #develop-vscode-connecting-ibp-k8s}
 
 1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
-2. Select **Add an IBM Blockchain Platform environment**.
-3. Select **No** when asked whether to connect to a IBM Blockchain Platform service instance on IBM Cloud.
-4. Enter the URL of the IBM Blockchain Platform Console software instance.
-5. Enter the **API Key** or **User ID** of the console instance.
-6. Enter the **API Secret** or **Password** of the console instance.
+2. Select **Add an {{site.data.keyword.blockchainfull_notm}} Platform environment**.
+3. Select **No** when asked whether to connect to a {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
+4. Enter the URL of the {{site.data.keyword.blockchainfull_notm}} Platform Console software instance.
+5. Enter the **User ID** for the console instance.
+6. Enter the **Password** for the console instance.
 7. Select **Proceed without certificate verification**, or **Cancel** if you're planning to add the CA certificates to the operating systems trusted CA certificate store.
 8. Enter a name for your environment.
 9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
+
+In steps 5 and 6, you can alternatively enter an API key and secret that you generate using the [{{site.data.keyword.blockchainfull_notm}} Platform REST APIs](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-apis#console-icp-manage-create-api-key).
+{: tip}
 
 You also need to import your admin identities into the wallet pane and associate them with your nodes. You need to associate an admin identity with your peers, CA, and an ordering node before you can connect with your network.
 
