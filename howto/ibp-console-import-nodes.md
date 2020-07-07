@@ -122,7 +122,24 @@ Because MSPs define an organization, they are used when creating channels, creat
 
 To act as an administrator for an organization, you must have an identity in your Wallet listed in the MSP as an admin of the organization. This means either importing the identity listed in the MSP or by following the process listed in [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp). This MSP can then be exported to the console where the added identity was created, making the exported identity able to act as an admin of the organization.
 
-The exports and imports of MSPs are performed in the **Organizations** tab. To export an MSP, click on it, then click on the Export button. To import an MSP, click **Import MSP definition**. If you have a certificate of the MSP admin in your Wallet, check the checkbox `I have an administrator identity for the MSP definition`. If you do not check this box and subsequently try to create a peer or ordering service, this organization MSP definition will not be listed in the MSP drop-down list, even if you have an admin certificate in your Wallet.
+The exports and imports of MSPs are performed in the **Organizations** tab.
+
+**To export your MSP:**  
+
+ 1. Navigate to the **Organizations** tab and click your organization MSP tile.
+ 2. In the tile that opens, click the **Export** icon.
+
+   ![Export MSP button](../images/export-msp.png "Export MSP button"){: caption="Figure 1. Export MSP button" caption-side="bottom"}
+ 3. A JSON file is generated and downloaded to your local system.
+ 4. Share this file with the other organization admins of your channel.
+
+**To import an MSP from another organization:**  
+
+ 1. Navigate to the **Organizations** tab and click **Import MSP**.
+ 2. Browse to the MSP JSON file and click **Add file**.
+ 3. Click **Import MSP**.
+
+ Repeat these steps for each organization that is included in your channel.
 
 ## Importing a peer
 {: #ibp-console-import-peer}
@@ -214,28 +231,6 @@ If you see the location field, you can choose whether to supply the location or 
 {: note}
 
 After you have imported the ordering service into the console, you can add new organization members to the consortium (if your MSP was added as an admin of the ordering service) and select the ordering service when creating new channels (if your organization has been added to the consortium).
-
-## Importing an MSP
-{: #ibp-console-import-msp}
-
-Because it is necessary that all of the members of a channel have the MSPs of all of the other members of a channel to allow for the validation of signatures, you need to share your MSPs across organizations. For example, when a channel update request is submitted, a notification is sent to each channel member using the endpoint address contained in the MSP. Therefore, each organization member should export and share their MSP with the other channel members. An each member should then import the MSP into their console. Use the following instructions to complete these actions.
-
-**To export your MSP:**  
-
- 1. Navigate to the **Organizations** tab and click your organization MSP tile.
- 2. In the tile that opens, click the **Export** icon.
-
-   ![Export MSP button](../images/export-msp.png "Export MSP button"){: caption="Figure 1. Export MSP button" caption-side="bottom"}
- 3. A JSON file is generated and downloaded to your local system.
- 4. Share this file with the other organization admins of your channel.
-
-**To import an MSP from another organization:**  
-
- 1. Navigate to the **Organizations** tab and click **Import MSP**.
- 2. Browse to the MSP JSON file and click **Add file**.
- 3. Click **Import MSP**.
-
- Repeat these steps for each organization that is included in your channel.
 
 ## Importing nodes from a locally deployed network
 {: #ibp-console-import-icp}

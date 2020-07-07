@@ -20,7 +20,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Deploy a smart contract on the network
+# Deploy a smart contract
 {: #ibp-console-smart-contracts}
 
 
