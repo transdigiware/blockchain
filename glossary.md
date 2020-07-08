@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-02"
+lastupdated: "2020-07-08"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -161,9 +161,7 @@ The node that collects transactions from network members, orders the transaction
 {: #glossary-organization}
 See [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member).
 
-## Out of band
-{: #glossary-out-of-band}
-An expression used to refer to sharing network artifacts outside of the console UI, for example by email or some other file transfer mechanism. After submitting a smart contract proposal, the originator can share the smart contract package and package id with other channel members in an out of band operation by emailing this information to them.
+
 
 ## Participant
 {: #glossary-participant}
@@ -188,6 +186,10 @@ Service credentials are in JSON format and contain the API endpoint information 
 ## SDK
 {: #glossary-sdk}
 The Hyperledger Fabric supports two Software Development Kits (SDKs). A Node SDK and Java SDK.  The Node SDK can be installed via NPM and the Java SDK via Maven.  The SDKs have their own git repositories, that is, [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} and  [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}, with documentation for the available APIs. The Hyperledger Fabric Client SDKs enable interaction between your client application and your blockchain network.
+
+## Shim
+{: #glossary-shim}
+When referring to smart contracts or chaincode, the shim represents a set of Hyperledger Fabric chaincode APIs that a smart contract can use to access state variables, transaction context, and call other smart contracts.
 
 ## SignCert
 {: #glossary-sign-cert}
