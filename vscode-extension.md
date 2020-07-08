@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-07"
+lastupdated: "2020-07-08"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -316,13 +316,13 @@ You can deploy any packages in the **Smart Contracts** pane to a running preconf
 
 First, you need to install the smart contract on a peer:
 
-1. In the **Fabric Environments** pane, click **Install Smart Contract**.
+1. In the **Fabric Environments** pane, right-click **Installed** and the **Install Smart Contract** window opens.
 2. Select the peer(s) that you want to install the smart contract on.
 3. Select the smart contract package that you want to install, and click **Install**.
 
 Next, you can instantiate the smart contract on a channel:
 
-1. In the **Fabric Environments** pane, click **Instantiate Smart Contract**.
+1. In the **Fabric Environments** pane, right-click **Instantiated** and the **Instantiate Smart Contract** window opens.
 2. Select the installed smart contract to instantiate.
 3. (Optional) Enter the name of the instantiate function in your smart contract. If you used the default smart contract template, no instantiate function is used.
 4. (Optional) Enter any arguments that your instantiate function requires.
