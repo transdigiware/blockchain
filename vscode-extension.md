@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-08"
+lastupdated: "2020-07-09"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -224,6 +224,8 @@ When the project opens, you can find the new smart contract in the explorer wind
 - The source code of the smart contract. If you selected to create a JavaScript or TypeScript contract, the extension builds a basic smart contract by using the `fabric-contract-api` with a series of functions that manage your example asset. For example, if you selected ***bond***, you can find the functions of `createBond`, `updateBond`, `readBond`, `bondExists`, and `deleteBond`.
 - A test file.
 - The accompanying smart contract dependencies.
+
+
 
 ## Step three: Package a smart contract
 {: #packaging-a-smart-contract}
