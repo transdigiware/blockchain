@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-08"
+lastupdated: "2020-07-09"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -24,6 +24,8 @@ subcollection: blockchain
 
 This topic defines {{site.data.keyword.blockchainfull}} Platform-specific terms that appear in this documentation. For a deeper understanding of terms, and for a glossary of terms that relate to Hyperledger Fabric concepts, refer to the [Hyperledger Fabric glossary](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
 {:shortdesc}
+
+
 
 ## Asset
 {: #glossary-asset}
@@ -52,6 +54,8 @@ Consisting of a subset of network members who want to transact privately. Channe
 ## Client
 {: #glossary-client}
 The client represents the entity that acts on behalf of a user. It must connect to a peer for communicating with the blockchain. The client might connect to any peer of its choice. Clients create and thus invoke transactions. The client submits an actual transaction invocation to the endorsers, and broadcasts transaction proposals to the ordering service.
+
+
 
 ## Connection profile
 {: #glossary-connection-profile}
@@ -129,6 +133,8 @@ Comprised of a literal "chain of blocks" that store the immutable, sequenced rec
 {: #glossary-leveldb}
 A key-value store that can be used as an option for the state database for your peers. LevelDB stores the current state as key-value pairs, and does not support the use of indexes or rich queries.
 
+
+
 ## Member
 {: #glossary-member}
 Also known as "organizations", members in a blockchain network, similar to the members of any group, form the structure of the network. A member can be as large as a multi-national corporation or as small as an individual. Members are enrolled into the network with a certificate that grants them permissions to use the network as either a service provider (for example, issuing certificates, validating/ordering transactions) or as a consumer. The former provides foundational blockchain services that include transaction validation, transaction ordering, and certificate management services. Consumer members use the network to invoke transactions against the distributed ledger. Members can have multiple Peers.
@@ -159,7 +165,7 @@ The node that collects transactions from network members, orders the transaction
 
 ## Organization
 {: #glossary-organization}
-See [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member).
+See [Member](#glossary-member).
 
 
 
@@ -170,6 +176,8 @@ Any organization, individual, application, or device that interact with the bloc
 ## Peer
 {: #glossary-peer}
 A blockchain network resource that provides the services to execute and validate transactions, and maintain ledgers. The peer runs chaincode and is the holder of transaction history and the current state of assets on the network’s channels, that is, the ledger. They are owned and managed by organizations and are joined to channels.
+
+
 
 ## Quorum
 {: #glossary-quorum}
@@ -197,7 +205,9 @@ The certificate that any entities, whether organizations or admins, attach to th
 
 ## Smart contracts
 {: #glossary-smart-contracts}
-See [Chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode).
+See [Chaincode](#glossary-chaincode).
+
+
 
 ## State database
 {: #glossary-state-database}
@@ -207,11 +217,13 @@ Current state data is stored in a database on the peers for efficient reads and 
 {: #glossary-transaction}
 The mechanism that participants on the blockchain network use to interact with assets. A transaction either creates new chaincode or invokes an operation in an existing chaincode.
 
+
+
 ## User
 {: #glossary-user}
 A user is a participant in a blockchain network that has indirect access to the ledger through a trust relationship to an existing member.
 
 ## World state
 {: #glossary-world-state}
-See [Current state](/docs/blockchain?topic=blockchain-glossary#glossary-current-state).
+See [Current state](#glossary-current-state).
 
