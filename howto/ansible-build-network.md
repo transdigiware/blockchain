@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-30"
+lastupdated: "2020-07-10"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -132,7 +132,8 @@ These instructions assume you have configured [Docker](/docs/blockchain-sw-25?to
   {: codeblock}
 
   While the command is running, you see output from each task. You can safely ignore the following warning:
-  ```[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'`.
+  ```
+  [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'`.
   ```
 
   When the playbook is finished, in the `PLAY RECAP` section, you see output similar to:
