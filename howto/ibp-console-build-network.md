@@ -104,7 +104,11 @@ In this tutorial, we create two organizations, one which will own a peer and ano
 
 Watch the following video to learn about the process to create the peer's organization and the peer:
 
+<p>
+  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
 <iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/PAC0PPPFxLE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+</div>
+</p>
 
 ### Video transcript
 {: #transcript-peer-video}
