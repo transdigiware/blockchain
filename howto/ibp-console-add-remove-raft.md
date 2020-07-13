@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-07-13"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -56,12 +56,17 @@ Adding a node to the ordering service is, at a high level, a three step process.
 
 If you have already created an ordering service, you can reuse the CA, MSP, node identity, and admin identity you created as part of that process when creating the new node and can skip down to the [Create the node](#ibp-console-add-remove-orderer-add-orderer-create-node) section below. If you are creating the node using either a separate console and separate organization (or both), proceed to [Create the node using a separate org and console](#ibp-console-add-remove-orderer-add-orderer-create).
 
-### Create the node using a separate org and console
+### Create the CA and organization for the new node
 {: #ibp-console-add-remove-orderer-add-orderer-create}
 
-If an organization other than the organization that created the ordering service wishes to create a new node, they will need to complete several steps. For the purpose of this tutorial, assume a user has followed the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network) in their console and has created a peer, ordering service, and an application channel. **As a separate user with a separate console, you wish to add a node to that ordering service, which is called `Ordering Service`**.
+If an organization other than the organization that created the ordering service wishes to create a new node, they will need to complete several steps. For the purpose of this tutorial, it is assumed that a user has followed the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network) in their console and has created a peer, ordering service, and an application channel. Subsequent to this, **a separate user, with a separate console, wishes to add a node to that ordering service, which is called `Ordering Service`**.
 
-1. Create a CA and an MSP. **Unless you already created some of the nodes for this ordering service, do not reuse an existing CA and MSP**. This process is identical to the process described in [Creating your ordering service organization CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca) from the Build a network tutorial. However, use the following values:
+As part of describing the process for creating a new node from a separate console, we will refer to "Console 1" and "Console 2". Console 1 is the originating console; it's where the ordering service was originally created. Console 2 is where a user is attempting to create a new node for this ordering service using a different organization in a different console.
+{: important}
+
+**Unless you have already created new nodes for this ordering service, do not reuse an existing CA and MSP**.
+
+The process of creating a CA, registering identities, and creating an MSP is identical to the process described in [Creating your ordering service organization CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca) from the Build a network tutorial. However, use the following values:
 
 **Task: Create a CA and register users**
 
@@ -87,21 +92,39 @@ After your CA has been created and your identities have been registered, create 
   | **Identity** | Ordering Service2 MSP Admin |||||
   {: caption="Table 11. Create the ordering service organization MSP definition" caption-side="bottom"}
 
-#### You: export your MSP
+#### Console 2: export the `Ordering Service2 MSP`
 {: #ibp-console-add-remove-orderer-add-orderer-export-MSP}
 
-Now that you have created your MSP, you need to export it to the console where the ordering service was created. You should have downloaded a copy of your MSP to your local machine when it was created, but if you have not yet done so, download the MSP now. Then send the JSON to the operator of the other console.
+Now that you have created the `Ordering Service2 MSP`, you need to export it to other members of the network (in this tutorial, that means exporting it to the operator of Console 1). You should have downloaded a copy of your MSP to your local machine during the creation process, but if you have not yet done so, download the MSP now. Then send the JSON to the operator of the other console out of band.
 
 Until your organization is an administrator of the ordering service, you cannot add a new node to it.
 
-#### Other console: import the MSP and export the ordering service
-{: #ibp-console-add-remove-orderer-add-orderer-import-ordering-service}
+![Export the MSP from Console 2](../images/addremove_exportmsp_console2.png "Export the MSP from Console 2"){: caption="Figure 1. Export the MSP from Console 2" caption-side="bottom"}
 
-The operator of the other console must take your MSP and add it to its console by clicking on the **Organizations** tab and then the **Import MSP definition** tab. This MSP can then be added as an ordering service administrator by clicking on the tile representing the ordering service and then the **Add ordering service administrator** tab and selecting the MSP.
+#### Console 1: import `Ordering Service2 MSP` and export `Ordering Service`
+{: #ibp-console-add-remove-orderer-add-orderer-export-ordering-service-console1}
 
-After the MSP has been added as an ordering service administrator, the operator of the console where the ordering service was created must export the ordering service to your console (the console where the new node is being added from) so that you can import it. To export a node, navigate to the node and click on the download button. Then send the JSON file to the operator of the other console.
+The operator of Console 1 must take the `Ordering Service 2 MSP` and add it to its console by clicking on the **Organizations** tab and then the **Import MSP definition** tab.
 
-After you have imported the ordering service, you will be able to create the new node for it.
+![Import the MSP into Console 1](../images/addremove_importmsp_console1.png "Import the MSP into Console 1"){: caption="Figure 1. Import the MSP into Console 1" caption-side="bottom"}
+
+This MSP can then be added as an ordering service administrator by clicking on the tile representing the ordering service and then the **Add ordering service administrator** tab and selecting `Ordering Service 2 MSP` from the drop-down list.
+
+![Make Ordering Service2 MSP an admin](../images/addremove_addadmin.png "Make Ordering Service2 MSP an admin"){: caption="Figure 1. Make Ordering Service2 MSP an admin" caption-side="bottom"}
+
+While it is also possible to upload a JSON representing the MSP by clicking the **Upload JSON** tab, be aware that if you do this, the MSP will not appear in the **Organizations** tab and will therefore not be selectable later (for example, when updating an application channel to add the MSP as an ordering service administrator). For this reason, the best practice is to import the MSP through the **Organizations** tab first.
+{: tip}
+
+After the MSP has been added as an ordering service administrator, the operator of Console 1 must export the ordering service to Console 2. To export a node, navigate to the node and click on the "download" button (the button looks the same as it does in the above image showing the download of `Ordering Service2 MSP`). Then send the JSON file representing the ordering service to the operator of Console 2.
+
+#### Console 2: import `Ordering Service`
+{: #ibp-console-add-remove-orderer-add-orderer-import-ordering-service-console2}
+
+After the operator of Console 2 has the JSON representing `Ordering Service` on its file system, they must click **Add ordering service** on the **Nodes** panel. Then, they must click **Import an existing ordering service** and click **Next**. On the following panel, they can click **Add file** and select the ordering service. Note that importing and associating an admin identity for this ordering service is an optional step. You can create a new node either way.
+
+After Console 2 has imported the `Ordering Service`, they will be able to create the new node.
+
+![Import the ordering service](../images/addremove_import_orderingservice.png "Import the ordering service"){: caption="Figure 1. Import the ordering service" caption-side="bottom"}
 
 ### Create the node
 {: #ibp-console-add-remove-orderer-add-orderer-create-node}
@@ -109,7 +132,11 @@ After you have imported the ordering service, you will be able to create the new
 While it is not possible to ensure that the ordering service is available (that is, that a quorum of nodes are up and that a leader has been elected) without [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs), it is a best practice to minimally ensure the likelihood that a quorum exists by verifying that the pods where the nodes have been deployed are available. This can be done by checking to make sure the relevant pods are active in the Kubernetes dashboard or by issuing `kubectl get pods -n <namespace>` and checking on the pods. If you do not have access to the cluster where all of the ordering nodes were created, contact the administrator of the relevant clusters. **If a quorum of nodes is not available, it will not be possible to add another node to the ordering service**.
 {:tip}
 
-To add a node, click on the tile representing the ordering service in the **Nodes** panel. Then click on the **Ordering nodes** panel and the **Add another node** tile. This will open a series of panels similar to the process for creating an ordering service. You will need to:
+To add a node, click on the tile representing the ordering service in the **Nodes** panel. Then click on the **Ordering nodes** panel and the **Add another node** tile. Then click **Create an ordering node**. This will open a series of panels similar to the process for creating an ordering service.
+
+![Add another node](../images/addremove_addnode.png "Add another node"){: caption="Figure 1. Add another node" caption-side="bottom"}
+
+You will need to:
 
 * **Give the node a display name**. A best practice will be to give the node a display name that matches the pattern used for the other nodes in the ordering service. By default, nodes are given the name `<name of ordering service>_1`, `<name of ordering service>_2`, and so on.
 * **Select a CA**. This should be the CA used to create your MSP.
@@ -133,48 +160,77 @@ After reviewing the **Summary** page, click **Add another node**. This will subm
 
 To complete the process of adding the node, you need to add it to the consenter set of the system channel. For information about how to do that, proceed to the next section.
 
-### Adding the node to the orderer system channel
+#### Add the `Ordering Service_2` node to the orderer system channel
 {: #ibp-console-add-remove-orderer-consenter-system-channel}
+
+This step must be completed in the console that created the new node. If you followed the steps for creating a node from a different console, this would be Console 2.
+{: important}
 
 After the ordering node has been successfully added, a new tile with the name of the node will appear on the **Ordering nodes** page. It will say it "Requires attention". This state reflects the fact that, while the node creation process has been successful, the node is not yet part of the consenter set of the system channel. The node must be added to the system channel before it can be added to any of the application channels.
 
-Recall that the "consenter set" refers to the ordering service nodes actively participating in the ordering process on a channel, while the "system channel", which is managed by the ordering service, is the foundation of a network and forms the template for application channels.
+Recall that the "consenter set" refers to the ordering service nodes actively participating in the ordering process on a channel, while the "system channel", which is managed by the ordering service, forms the template for application channels.
 {:tip}
 
 To add the node you created to the system channel, click on the node. You will see a **Add node to ordering service** button. Click this button. After the node has been added to the ordering service, the node should now be part of the system channel.
 
 Note that **it will take a few minutes for the new node to sync with ordering service in the system channel**. During this time, you may see a message that your ordering service is down. This is normal --- the ordering service must come down while the new node is syncing. Any transactions proposed during this time will fail and will have to be resubmitted by the client application.
 
-After the node has successfully been created and added to the system channel, export a JSON representing the node so that it can be imported into the console where the ordering service was created.
+If you created this new node and added it to the system channel from a different console (Console 2), you must then export it to the console that originated the ordering service (Console 1). If the new node was added in Console 1, you can skip down to [Adding the node to the application channel](#ibp-console-add-remove-orderer-consenters-add).
 
-To do this:
+### Console 2: export the `Ordering Service_2` node
+{: #ibp-console-add-remove-orderer-export-console2}
 
-1. Navigate to the **Nodes** panel and click **Add ordering service**.
-2. Even though you are importing a node and not an ordering service, click **Import an existing ordering service** and **Next**. Because the JSON representing the node contains a field indicating the cluster ID of the ordering service the node belongs to, the node will be added to the correct ordering service automatically.
-3. Click **Add file** and select the JSON representing the node.
+After the `Ordering Service_2` node has successfully been created and added to the system channel, Console 2 must export a JSON representing the node to every channel member (in this tutorial, this means exporting it to Console 1). This will allow all channel members to have an accurate record of the nodes in the ordering service (which will allow the node to be selected from drop down lists, for example when adding consenters to channels).
 
-Note that **if you want to add this node to any existing application channels, you will have to add them to consenter set of each of those channels separately**. For information about how to do that, see [Adding an ordering node to the consenter set](#ibp-console-add-remove-orderer-consenters-add) of a channel.
+To do this, click on the node and then on the "download" button. This will download a JSON representing the node to your filesystem. This JSON can then be sent to other network members out of band.
 
-### Adding the `Ordering Service2 MSP` to the application channel
+Once the node has been exported to the consoles of other channel members, those members will be able to add the node as a consenter to existing channels (where desired), and be able to accurately monitor the health of the ordering service.
+
+Note that adding a new node to the system channel does not automatically add the node to any application channels. **If you want to add this node to any existing application channels, you will have to add them to the consenter set of each of those channels separately**. For information about how to do that, see [Adding an ordering node to the consenter set](#ibp-console-add-remove-orderer-update-channel1) of a channel.
+
+### Console 1: add the `Ordering Service_2` node to your console
+{: #ibp-console-add-remove-orderer-import-console2}
+
+This step should be completed by every channel member.
+{: important}
+
+To do this, click on the tile representing the ordering service, which in this tutorial is called `Ordering Service.` Then click on the **Ordering nodes** tab and then the **Add another node** tab.
+
+Then click **Import an existing node**. After clicking **Add file**, find the JSON representing the `Ordering Service_2` node that was sent to you by the operator of Console 2. After you have added the `Ordering Service_2` node, you should see it on the **Ordering nodes** page.
+
+![Add the Ordering Service_2 node to your console](../images/addremove_addnode_console1.png "Add the Ordering Service_2 node to your console"){: caption="Figure 1. Add the Ordering Service_2 node to your console" caption-side="bottom"}
+
+### Update `channel1` to add the `Ordering Service2 MSP` and the `Ordering Service_2` node
+{: #ibp-console-add-remove-orderer-update-channel1}
+
+This step can be completed by any channel member.
+{: important}
+
+Because this tutorial presumes that a user is adding a node to a channel that was created as part of the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network), the channel the `Ordering Service_2` node is being added to, `channel1`, does not yet have the newly created ordering service organization, `Ordering Service2 MSP`, as one of the administrators of the channel. While a new ordering node can be added to a channel even if the organization that owns the node is not an administrator of the ordering service, it is a best practice to add the organization that owns the node when you add the node.
+
+Because you are editing a part of the channel configuration that is governed by ordering service organization admins, you will be asked to send the channel configuration update to an ordering service organization admin to be signed as part of the configuration update process. **This organization can be any of the organizations that is an admin of the ordering service**, not just one of the organizations that owns one of the consenters that is already in the channel. In this tutorial, that means selecting `Ordering Service MSP`. Do not select `Ordering Service2 MSP` here as it is being added as part of this channel configuration update.
+
+![Update the channel to add the new MSP and node](../images/addremove_channel_edit.png "Update the channel to add the new MSP and node"){: caption="Figure 1. Update the channel to add the new MSP and node" caption-side="bottom"}
+
+### Add `Ordering Service2 MSP` to `channel1`
 {: #ibp-console-add-remove-orderer-consenters-org-add}
 
-Because this tutorial presumes that a user is adding a node to a channel that was created as part of the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network), the channel this node is being added to, `channel1`, does not yet have the newly created ordering service organization, `Ordering Service2 MSP`, as one of the administrators of the channel. Before the node can be added, the organization must be added.
-
-To add the organization to an application channel, navigate to the channel and click the **Settings** button. First, specify which peer organization and which peer organization admin is making the update request. If the application channel was created before the ordering organization was added to the system channel, click **Ordering service administrator** and add `Ordering Service2 MSP` as an administrator.
+To add an ordering service organization to an application channel, navigate to the channel and click the **Settings** button. First, specify which peer organization and which peer organization admin is making the update request. If the application channel was created before the ordering organization was added to the system channel, click **Ordering service administrator** and add `Ordering Service2 MSP` as an administrator.
 
 If your console is at a build before `2.1.3-104`, you will not see this option. To see the version of your build, click on the support icon in the upper right hand corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
 {: important}
 
 After the organization has been added, we can add the consenter.
 
-### Adding the node to the application channel
+It is possible to add a node to the consenter and add the MSP of the organization that owns the node as part of the same channel configuration update.
+{: tip}
+
+### Add the node to the application channel
 {: #ibp-console-add-remove-orderer-consenters-add}
 
-After adding the organization, click on the **Consenter set** tab, select the node from the drop down list, and click **Add**. Note that you will only be able to add one node at a time.
+After adding the organization, click on the **Consenter set** tab, select the `Ordering Service_2` node from the drop down list, and click **Add**. Note that you will only be able to add one node to a channel at a time.
 
-Because you are editing a part of the channel configuration that is governed by ordering service organization admins, you will be asked to send the channel configuration update to an ordering service organization admin to be signed. **This organization can be any of the organizations that is an admin of the ordering service**, not just one of the organizations that owns one of the consenters that is already in the channel. In this tutorial, that means selecting `Ordering Service MSP`. We cannot select `Ordering Service2 MSP` here because it is being added as part of this channel configuration update.
-
-After the ordering service organization the channel update was sent to has signed it, the organization that initiated the channel update will get a notification that it must sign and submit the channel configuration update. This notification, like all notifications, will be located in the upper right of the screen behind the **Notifications** icon, which resembles a bell. For more information about how signature collections work, see [Signature collection flow](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection).
+After the `Ordering Service MSP` has signed the channel configuration update, the organization that initiated the channel update will get a notification that it must sign and submit the channel configuration update. This notification, like all notifications, will be located in the upper right of the screen behind the **Notifications** icon, which resembles a bell. For more information about how signature collections work, see [Signature collection flow](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-signature-collection).
 
 **It will take a few minutes for the new node to sync with the consenter set of the application channel**. The time involved depends on a number of factors, including the number of blocks in a channel. During this time, the ordering service may be down. After the node has been successfully added to the application channel, you will see it in the **Ordering nodes** tab.
 
