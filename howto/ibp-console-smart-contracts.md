@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-07"
+lastupdated: "2020-07-13"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -20,7 +20,8 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 
-# Deploy a smart contract
+# Deploy a smart contract on the network
+
 {: #ibp-console-smart-contracts}
 
 

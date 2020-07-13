@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-07-13"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -27,7 +27,15 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes.
 
-  
+## 14 July 2020
+{: #07-14-2020}
+
+**CA, Peer, and ordering node patch 1.4.7-1, 2.1.1-1**  
+
+Miscellaneous bug fixes and security patches.
+
+
+
 
 ## 18 June 2020
 {: #06-18-2020}
