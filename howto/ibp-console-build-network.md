@@ -106,8 +106,6 @@ Watch the following video to learn about the process to create the peer's organi
 
 <iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/PAC0PPPFxLE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
-For more video tutorials in this series (which will show you how to create an ordering service and a channel), see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}.
-
 ### Video transcript
 {: #transcript-peer-video}
 {: script}
@@ -145,6 +143,8 @@ On the next panel, review the summary to make sure these values are what you exp
 
 We created a CA. We created an identity for the peer and for the admin. Then we created the definition of org1 and used all of that information to create the peer. And now that we have a peer we have everything we need to join a channel or join a network. If you want to host a channel, check out our next video, which will show you how to create an ordering service. So thank you for watching this video, and happy block chaining. 
 
+
+For more video tutorials in this series (which will show you how to create an ordering service and a channel), see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}.
 
 ### Creating your peer organization's CA
 {: #ibp-console-build-network-create-CA-org1CA}
