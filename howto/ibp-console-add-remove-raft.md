@@ -22,8 +22,6 @@ subcollection: blockchain
 # Adding and removing ordering service nodes
 {: #ibp-console-add-remove-orderer}
 
-
-
 In this tutorial, we'll talk about the process for creating ordering nodes to add to an existing ordering service and to existing channels. This will cover the instructions for adding nodes using the same organization that created the ordering service as well as the steps when using a separate ordering organization that is added as an ordering service admin.
 
 Because ordering nodes can only belong to a single ordering service, if you create an ordering service node from the main **Nodes** panel, you will not be able to add it to an existing ordering service. If you want to add a node to an existing ordering service, the node must be created specifically for that purpose using the process described below. Also, be aware that **adding nodes to an ordering service does not automatically add them to any existing channel**. That is a separate process that must take place after the node has been added to the ordering service. For more information, see [Adding and removing ordering service consenters](#ibp-console-add-remove-orderer-consenters-add).
@@ -209,8 +207,6 @@ This step can be completed by any channel member.
 Because this tutorial presumes that a user is adding a node to a channel that was created as part of the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network), the channel the `Ordering Service_2` node is being added to, `channel1`, does not yet have the newly created ordering service organization, `Ordering Service2 MSP`, as one of the administrators of the channel. While a new ordering node can be added to a channel even if the organization that owns the node is not an administrator of the ordering service, it is a best practice to add the organization that owns the node when you add the node.
 
 Because you are editing a part of the channel configuration that is governed by ordering service organization admins, you will be asked to send the channel configuration update to an ordering service organization admin to be signed as part of the configuration update process. **This organization can be any of the organizations that is an admin of the ordering service**, not just one of the organizations that owns one of the consenters that is already in the channel. In this tutorial, that means selecting `Ordering Service MSP`. Do not select `Ordering Service2 MSP` here as it is being added as part of this channel configuration update.
-
-![Update the channel to add the new MSP and node](../images/addremove_channel_edit.png "Update the channel to add the new MSP and node"){: caption="Figure 1. Update the channel to add the new MSP and node" caption-side="bottom"}
 
 ### Add `Ordering Service2 MSP` to `channel1`
 {: #ibp-console-add-remove-orderer-consenters-org-add}
