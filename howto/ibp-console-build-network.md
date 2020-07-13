@@ -558,7 +558,7 @@ Watch the following video to learn how to add a peer organization to the consort
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/lapmfN_tucg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/VVjHSSW7PLg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 </div>
 </p>
 
