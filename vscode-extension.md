@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-07-09"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -20,12 +20,12 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# Developing smart contracts with IBM Blockchain Platform Developer Tools
+# Developing smart contracts with {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools
 {: #develop-vscode}
 
 
 
-The {{site.data.keyword.blockchainfull}} Platform Developer Tools provide an environment within Visual Studio Code or Red Hat CodeReady Workspaces for developing, packaging, and testing smart contracts. You can use the tools to create your smart contract project and get started developing your business logic. You can then use it to test your smart contract either on your local machine by using a preconfigured instance of Hyperledger Fabric, or by connecting to an {{site.data.keyword.blockchainfull_notm}} Platform network, before you deploy the smart contract to the {{site.data.keyword.blockchainfull_notm}} Platform. This tutorial describes how to install and use the Developer Tools.  
+The {{site.data.keyword.blockchainfull}} Platform Developer Tools provide an environment within Visual Studio Code or Red Hat CodeReady Workspaces for developing, packaging, and testing smart contracts. You can use the tools to create your smart contract project and get started developing your business logic. You can then use the tools to test your smart contract either on your local machine by using a preconfigured instance of Hyperledger Fabric, or by connecting to an {{site.data.keyword.blockchainfull_notm}} Platform network, before you deploy the smart contract to the {{site.data.keyword.blockchainfull_notm}} Platform. This tutorial describes how to install and use the Developer Tools.  
 
 <img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f1b2" src="images/SmartContractflow-25.png" width="750" alt="Click a box to get more details on the process." style="width:750px;" />
 <map name="home_map1" id="home_map1">
@@ -90,7 +90,7 @@ Both development environments include the same rich functionality of the {{site.
 
 The following set of steps can be used to install the CodeReady Workspaces and configure it with the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling on an OpenShift 4.3 cluster.
 
-  - If you prefer to install the tooling on your local system, see [Install IBM Blockchain Platform VS Code extension](#develop-vscode-install).
+  - If you prefer to install the tooling on your local system, see [Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension](#develop-vscode-install).
 
 1. Log in as the administrator of your OpenShift 4.3 cluster.
 2. In the navigation bar, click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
@@ -225,6 +225,8 @@ When the project opens, you can find the new smart contract in the explorer wind
 - A test file.
 - The accompanying smart contract dependencies.
 
+
+
 ## Step three: Package a smart contract
 {: #packaging-a-smart-contract}
 
@@ -249,7 +251,7 @@ If you want to control which files in the project are packaged, you can create a
 /build/
 ```
 
-Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package.
+Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (Go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package.
 
 To repackage the smart contract, open the original project where the smart contract was created and click **Package Open Project** using the v2.x version of Fabric. Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external} to repackage the smart contract using the correct file format. For more information, see [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor).
 {: important}
@@ -316,13 +318,13 @@ You can deploy any packages in the **Smart Contracts** pane to a running preconf
 
 First, you need to install the smart contract on a peer:
 
-1. In the **Fabric Environments** pane, click **Install Smart Contract**.
+1. In the **Fabric Environments** pane, right-click **Installed** and the **Install Smart Contract** window opens.
 2. Select the peer(s) that you want to install the smart contract on.
 3. Select the smart contract package that you want to install, and click **Install**.
 
 Next, you can instantiate the smart contract on a channel:
 
-1. In the **Fabric Environments** pane, click **Instantiate Smart Contract**.
+1. In the **Fabric Environments** pane, right-click **Instantiated** and the **Instantiate Smart Contract** window opens.
 2. Select the installed smart contract to instantiate.
 3. (Optional) Enter the name of the instantiate function in your smart contract. If you used the default smart contract template, no instantiate function is used.
 4. (Optional) Enter any arguments that your instantiate function requires.
@@ -412,6 +414,7 @@ After the test file is built, the tests can be run by clicking the **Run Tests**
 You can also use the extension to interact with your network on the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ### Invoke a smart contract that has been instantiated on your channels
+{: #develop-vscode-connecting-ibp-invoke}
 
 You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were installed and instantiated on your network.
 
@@ -433,22 +436,46 @@ After you connect to the {{site.data.keyword.blockchainfull_notm}} Platform from
 
 
 ### Install and instantiate a smart contract from VS Code
+{: #develop-vscode-connecting-ibp-install-instantiate}
 
 You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to install and instantiate smart contracts on your network.
 
-You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to export all of the nodes of your console in bulk.
+You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to use the extension to automatically discover the console and import the nodes.
 
 1. Navigate to the **Settings** tab in the left navigation. You can see a section that is called **Bulk data management** that contains two buttons. The **Export** button opens a panel on the right.  
-2. Keep the boxes that represent peers, CAs, and ordering services checked. Check the box to export your identities. You can leave the box that represents MSPs unchecked.
-3. Click **Export** to download the nodes and identities to your local file system in .zip file. Extract the file when the download is complete.
+2. Check the box to export your identities. You can uncheck the other options.
+3. Click **Export** to download the identities to your local file system in .zip file. Extract the file when the download is complete.
 
 You can then import the nodes of your network into the extension.
 
+#### Importing from {{site.data.keyword.cloud_notm}}
+{: #develop-vscode-connecting-ibp-ibmcloud}
+
 1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
-2. Select **Add any other Fabric network**.
-2. Enter a name for your network.
-3. Browse to the nodes that you exported from your console and select a node to import. After you have imported a node, click **Add more (JSON) node definitions** to import another node.
-4. When you have imported the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **Done adding nodes**.
+2. Select **Add an {{site.data.keyword.blockchainfull_notm}} Platform environment**.
+3. Select **Yes** when asked whether to connect to a {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
+4. Select **Log in with username and password** or another method.
+5. Enter your {{site.data.keyword.cloud_notm}} username (email address).
+6. Enter your {{site.data.keyword.cloud_notm}} password.
+7. The extension will now try to discover any {{site.data.keyword.blockchainfull_notm}} Platform service instances - if you have multiple, select the instance to import.
+8. Enter a name for your environment.
+9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
+
+#### Importing from a Kubernetes cluster not in {{site.data.keyword.cloud_notm}}
+{: #develop-vscode-connecting-ibp-k8s}
+
+1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
+2. Select **Add an {{site.data.keyword.blockchainfull_notm}} Platform environment**.
+3. Select **No** when asked whether to connect to a {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
+4. Enter the URL of the {{site.data.keyword.blockchainfull_notm}} Platform Console software instance.
+5. Enter the **User ID** for the console instance.
+6. Enter the **Password** for the console instance.
+7. Select **Proceed without certificate verification**, or **Cancel** if you're planning to add the CA certificates to the operating systems trusted CA certificate store.
+8. Enter a name for your environment.
+9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
+
+In steps 5 and 6, you can alternatively enter an API key and secret that you generate using the [{{site.data.keyword.blockchainfull_notm}} Platform REST APIs](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-apis#console-icp-manage-create-api-key).
+{: tip}
 
 You also need to import your admin identities into the wallet pane and associate them with your nodes. You need to associate an admin identity with your peers, CA, and an ordering node before you can connect with your network.
 

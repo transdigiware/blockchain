@@ -9,6 +9,8 @@
     "ibp-v2-faq-version": [
         "What version of IBP am I running",
         "What version of IBM Blockchain Platform am I running",
+        "find my version of IBM blockchain platform",
+        "which version is my blockchain",
         "What is my Blockchain version",
         "What version is Blockchain",
         "What version is IBP"
@@ -29,6 +31,9 @@
     ],
     "ibp-v2-faq-v2-IBP-Overview-1-4": [
         "what languages are used for a smart contract",
+        "langauges work for smart contracts",
+        "languages I can use with smart contract",
+        "langauges work with a  smart contract",
         "can I use golang for my smart contract ",
         "can I use node.js for my smart contract in blockchain",
         "can I use Javascript for my smart contract",
@@ -125,6 +130,9 @@
     "ibp-v2-faq-free-cluster": [
         "Can I use Blockchain for free",
         "Can I use IBP for free",
+        "a free trial of IBM Blockchain", 
+        "Blockchain free trial",
+        "free trial for Blockchain Platform",
         "Can I use IBM Blockchain Platform for free",
         "limitation of using free Blockchain",
         "limitation of using free IBP",
@@ -176,6 +184,10 @@
         "Blockchain regions available",
         "locations supported for blockchain",
         "IBM Blockchain Platform regions available",
+        "regions are there for IBM Blockchain",
+        "regions available for IBP",
+        "available region for blockchain",
+        "location that is availoable for blockchain",
         "IBP regions available",
         "location availability for IBP",
         "regions  available for Blockchain Platform "
@@ -199,6 +211,9 @@
     "ibp-v2-faq-v2-Logging-and-Monitoring-11-6": [
         "access to logging services in blockchain",
         "get access to logging information in blockchain",
+        "logging options are there for blockchain",
+        "log access for blockchain",
+        "monitoring options available in blockchain",
         "directly access to peer, CA, and ordering node logs in blockchain",
         "how to access logs in blockchain console",
         "logging services logs peer, CA, and ordering node logs Kubernetes IBP"
@@ -283,6 +298,8 @@
         "IBM Blockchain 401 error when I login",
         "Can't login to IBP, unauthorized error",
         "blockchain 401 unathorized error",
+        "IBP console 401 error",
+        "getting 401 error in blockchain console", 
         "401 error when logging into BC console"
     ],
     "ibp-v2-troubleshooting-console-helm-reset": [
@@ -297,11 +314,17 @@
         "error: no suitable peers available to initialize from in blockchain",
         "IBP no suitable peers available to initialize from error",
         "Blockchain no suitable peers error",
+        "fix no suitable peers avalible to initialize from error in Blockchain",
+        "no suitable peers available to initialize from error given in IBP",
         "can't invoke smart contract because there are no suitable peers"
     ],
     "ibp-console-build-network-troubleshoot-entry1": [
         "node operations failing after I create my peer or ordering service",
         "blockchain nodes failing after creating peer",
+        "smart contract update failed",
+        "smart contract update failing",
+        "unable to update smart contract",
+        "failing operations after a smart contract update",
         "IBP node operations failing after creating ordering service",
         "created peer and node operations don't work anymore in blockchain",
         "After creating an ordering service, blockchain node operations fail"
@@ -340,18 +363,21 @@
     ],
     "ibp-v2-troubleshooting-anchor-peer": [
         "transactions I submit from VS Code failing with a No endorsement plan available error?",
-        "Blockchain transactions from VSCode failing \"no endorsement plan available\"",
+        "Blockchain transactions from VSCode failing no endorsement plan available",
+        "No endorsement plan available with VS Code fail in blockchain",
         "No endorsement plan available error in blockchain",
-        "blockchain error No endorsement plan available ",
+        "blockchain error No endorsement plan available",
         "IBP transactions from VSCode failing from endorsement plan error",
         "VS Code blockchain transactions returning no endorsement plan available"
     ],
     "ibp-v2-troubleshooting-endorsement": [
         "transactions I submit from VS Code failing with an endorsement failure",
-        "No endorsement plan available error in blockchain",
-        "Blockchain error No endorsement plan available ",
+        "ERRO 23c Failed constructing descriptor for chaincode",
+        "smart contract endorsement proposals from my peer are failing",
+        "smart contract endorsement proposals failing",
+        "VS Code failing with an endorsement failure in blockchain",
         "VSCode Blockchain transactions failing from endorsement error",
-        "VS code IBP endorsement error on transactions "
+        "VS code IBP endorsement failure on transactions"
     ],
     "ibp-v2-troubleshooting-cluster-expired": [
         "In Blockchain My IBM Cloud Kubernetes cluster expired",
@@ -391,6 +417,9 @@
         "delete or restart the peer pods in blockchain",
         "blockchain delete the peer pods",
         "blockchain how to restart peer pods",
+        "restart a peer pod in Blockchain",
+        "restarting peer pods in blockchain",
+        "restart my peer pod for IBP",
         "deleting peer pods in IBP",
         "IBP restart peer pods button",
         "IBP where to delete peer pods"

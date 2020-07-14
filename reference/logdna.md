@@ -33,7 +33,7 @@ This tutorial describes how to configure {{site.data.keyword.la_full_notm}} serv
 ## Step one: Configure cluster-level logging
 {: #ibp-LogDNA-kubernetes}
 
-You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-kube){: external} tutorial. If you are using an OpenShift cluster on {{site.data.keyword.cloud_notm}}, when you are ready to you need to configure the LogDNA agent, you can refer to these [instructions](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_agent_os_cluster){: external}. 
+You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-kube){: external} tutorial. If you are using an OpenShift cluster on {{site.data.keyword.cloud_notm}}, when you are ready to you need to configure the LogDNA agent, you can refer to these [instructions](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_agent_os_cluster){: external}.
 
 ## Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes
 {: #ibp-LogDNA-ibp}
@@ -85,7 +85,7 @@ ibp-operator-6558fdc54f-c5zmn   1/1     Running   0          65m
 org1ca-74b8f49fb6-z8gvx         1/1     Running   0          60m
 peerorg1-5765d88c85-jglk2       4/4     Running   0          25m
 
-In the LogDNA search box, prepend the name of the pod with the text `pod:` and the `namespace`. The resulting search string in the logDNA dashboard would then be:
+In the LogDNA search box, prepend the name of the pod with the text `pod:` and the value of the `namespace`. The resulting search string in the logDNA dashboard would then be:
 
 ```
 pod:nf85a2apeerorg1-5765d88c85-jglk2

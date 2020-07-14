@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-07-06"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -39,7 +39,7 @@ The platform expands its developer tool ecosystem with **Red Hat CodeReady Works
 
 **Hyperledger Fabric 2.0 images**
 
-This release also includes improved usability and security with **Hyperledger Fabric v2** by introducing the capability to deploy new peer and ordering nodes based on either Hyperledger Fabric v1.4.7 or v2.1.1. While all of the new Fabric v2 capabilities are not yet available on the platform, when you deploy a peer based on the Fabric v2.1.1 image, smart contracts are deployed into their own pod rather than inside a container on the peer pod, eliminating the dependency on the Docker daemon. Deploying peer and ordering nodes with the Fabric v2.x images is recommended to ensure that going forward you have access to the latest Fabric fixes and features. It is not currently possible to migrate existing nodes to Fabric 2.1.1 images.  Rest assured though that nodes running Fabric v1.4.7 and v2.1.1 are compatible with each other. **Customers running OpenShift Container Platform 3.11 in {{site.data.keyword.cloud_notm}} should upgrade their clusters to 4.3 now to fully take advantage of these new features.** 
+This release also includes improved usability and security by using **Hyperledger Fabric v2** and introduces the capability to deploy new peer and ordering nodes based on either Hyperledger Fabric v1.4.7 or v2.1.1. While all of the new Fabric v2 capabilities are not yet available on the platform, when you deploy a peer based on the Fabric v2.1.1 image, smart contracts are deployed into their own pod rather than inside a container on the peer pod, eliminating the dependency on the Docker daemon. Deploying peer and ordering nodes with the Fabric v2.x images is recommended to ensure that going forward you have access to the latest Fabric fixes and features. It is not currently possible to migrate existing nodes to Fabric 2.1.1 images.  Rest assured though that nodes running Fabric v1.4.7 and v2.1.1 are compatible with each other. **Customers running OpenShift Container Platform 3.11 in {{site.data.keyword.cloud_notm}} should upgrade their clusters to 4.3 now to fully take advantage of these new features.** 
 
 
 
