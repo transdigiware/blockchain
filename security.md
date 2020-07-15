@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-07-15"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -152,7 +152,7 @@ If you are using {{site.data.keyword.cloud_notm}}, you can review the topic on S
 #### Firewall configuration
 {: #ibp-security-Kubernetes-network-firewall}
 
-If your configuration includes a network firewall, there are ports that need to be exposed to allow network traffic through. The following section describes how to find the ports that can be exposed and what they are for.
+Kubernetes clusters should be secured by a firewall to protect the network from unauthorized access from internet traffic. By default {{site.data.keyword.cloud_notm}} Kubernetes service clusters are preconfigured with a Calico network plug-in that secures the public network interface of every worker node in the cluster. By configuring Kubernetes and Calico network policies you can easily control the inbound and outbound network traffic. For more information, see [Controlling traffic with network policies](/docs/containers?topic=containers-network_policies). In addition, you can also configure Edge worker nodes on your {{site.data.keyword.cloud_notm}} Kubernetes service clusters to restrict the worker nodes that are exposed to the public internet. See [Restricting network traffic to edge worker nodes](/docs/containers?topic=containers-edge) to learn more.  If your configuration includes a network firewall, there are ports that need to be exposed to allow network traffic through. The following section describes how to find the ports that can be exposed and what they are for.
 
 ### Internet Ports
 {: #ibp-security-Kubernetes-ports}
