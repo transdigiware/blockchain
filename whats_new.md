@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-07-20"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -21,6 +21,9 @@ subcollection: blockchain
 
 # What's new
 {: #whats-new}
+
+
+
 
 ## June 18, 2020
 {: #whats-new-06-18-2020}
