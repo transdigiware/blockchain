@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-07-21"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -20,6 +20,119 @@ subcollection: blockchain
 {:term: .term}
 {:pre: .pre}
 {:gif: data-image-type='gif'}
+
+<staging-rhm><style>
+<!--
+    #tutorials { /* hide the page header */
+        display: none !important;
+    }
+    .allCategories {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    .categoryBox {
+        flex-grow: 1 !important;
+        width: calc(33% - 20px) !important;
+        text-decoration: none !important;
+        margin: 0 10px 20px 0 !important;
+        padding: 16px !important;
+        border: 1px #dfe6eb solid !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important;
+        text-align: center !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+    }
+    .solutionBoxContainer {}
+    .solutionBoxContainer a {
+        text-decoration: none !important;
+        border: none !important;
+    }
+    .solutionBox {
+        display: inline-block !important;
+        width: 100% !important;
+        margin: 0 10px 20px 0 !important;
+        padding: 16px !important;
+        background-color: #f4f4f4 !important;
+    }
+    @media screen and (min-width: 960px) {
+        .solutionBox {
+        width: calc(50% - 3%) !important;
+        }
+        .solutionBox.solutionBoxFeatured {
+        width: calc(50% - 3%) !important;
+        }
+        .solutionBoxContent {
+        height: 350px !important;
+        }
+    }
+    @media screen and (min-width: 1298px) {
+        .solutionBox {
+        width: calc(33% - 2%) !important;
+        }
+        .solutionBoxContent {
+        min-height: 350px !important;
+        }
+    }
+    .solutionBox:hover {
+        border: 1px rgb(136, 151, 162)solid !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important;
+    }
+    .solutionBoxContent {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .solutionBoxTitle {
+        margin: 0rem !important;
+        margin-bottom: 5px !important;
+        font-size: 14px !important;
+        font-weight: 900 !important;
+        line-height: 16px !important;
+        height: 37px !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-box-align: inherit !important;
+    }
+    .solutionBoxDescription {
+        flex-grow: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .descriptionContainer {
+    }
+    .descriptionContainer p {
+        margin: 0 !important;
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0 !important;
+        max-height: 70px !important;
+    }
+    .architectureDiagramContainer {
+        flex-grow: 1 !important;
+        min-width: calc(33% - 2%) !important;
+        padding: 0 16px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        background-color: #f4f4f4;
+    }
+    .architectureDiagram {
+        max-height: 175px !important;
+        padding: 5px !important;
+        margin: 0 auto !important;
+    }
+-->
+</style>
+</staging-rhm>
 
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks}
@@ -149,6 +262,38 @@ For a sense of how much storage and compute you will need in your cluster, refer
 If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
 
+<staging-rhm>
+## Choose your deployment process
+{: #ibp-v2-deploy-iks-deploy-process}
+
+From your {{site.data.keyword.cloud_notm}} account, you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform service from either the {{site.data.keyword.cloud_notm}} Catalog or the Red Hat Marketplace. OpenShift customers who are already familiar with the [**OC CLI**](#x2051424){: term} and the Red Hat Marketplace may prefer to use that option. Otherwise, use the IBM Cloud Catalog to deploy to an IKS or OpenShift cluster in IBM Cloud. Not running an OpenShift or Kubernetes cluster in IBM Cloud? The {{site.data.keyword.blockchainfull_notm}} Platform 2.5 can be installed on your OpenShift or Kubernetes cluster in your cloud or on-prem.
+
+<div class=solutionBoxContainer>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-create-service-instance">
+      <div>
+        <p><strong><img src="../images/IBMCloud.png" alt="IBM Cloud icon" width="25" style="width:25px; border-style: none"/> Deploy from {{site.data.keyword.cloud_notm} Catalog</p>
+        <p class="bx--type-caption">Use the {{site.data.keyword.cloud_notm} Catalog to deploy the {{site.data.keyword.blockchainfull_notm}} to an OpenShift or {{site.data.keyword.cloud_notm} Kubernetes service cluster in IBM Cloud.</p>
+      </div>
+    </a>
+  </div>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain?topic=blockchain-deploy-ocp-rhm">
+      <div>
+        <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/> Deploy from Red Hat Marketplace</p>
+        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the {{site.data.keyword.blockchainfull_notm}} to an OpenShift cluster in IBM Cloud.</p>
+      </div>
+    </a>
+  </div>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-get-started-console-ocp#get-started-console-ocp-step-two-deploy-console">
+      <div>
+        <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/><img src="../images/certified-kubernetes.png " alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>Deploy to another cloud or on-prem</p>
+        <p class="bx--type-caption"><strong>(Multicloud)</strong> Deploy the {{site.data.keyword.blockchainfull_notm}} to your OpenShift or Kubernetes cluster in your cloud or on-prem.</p>
+      </div>
+    </a>
+</div>
+</staging-rhm>
 ## Deploy a Kubernetes cluster on {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks-deploy-cluster}
 
