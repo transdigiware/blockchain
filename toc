@@ -56,7 +56,6 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .topicgroup}
 	Developing smart contracts and applications
-		write-powerful-smart-contracts.md
 		vscode-extension.md
 		best_practices.md
 
