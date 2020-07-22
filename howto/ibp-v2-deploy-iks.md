@@ -167,7 +167,7 @@ As both {{site.data.keyword.IBM_notm}} Kubernetes Service clusters and OpenShift
 
 **Note that if you want high availability or disaster recovery, you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.**
 
-### Free {{site.data.keyword.IBM_notm}} Kubernetes Service clusters
+### Free {{site.data.keyword.IBM_notm}} Kubernetes service clusters
 {: #ibp-v2-deploy-iks-deploy-cluster-free}
 
 The {{site.data.keyword.IBM_notm}} Kubernetes service offers a free cluster that can be used for 30 days. Note that the free cluster offers limited storage and transaction throughput, and that it is not possible to migrate data from free clusters to paid clusters. For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.
