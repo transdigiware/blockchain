@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-07-22"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -59,7 +59,7 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform console and your Kubernetes cluster do not communicate directly about the resources that are available, the process for deploying components by using the console must follow this pattern:
 
 1. **Size the deployment that you want to make**. The **Resource allocation** panels for the CA, peer, and ordering node in the console offer default CPU, memory, and storage allocations for each node. You may need to adjust these values according to your use case. If you are unsure, start with default allocations and adjust them as you understand your needs. Similarly, the **Resource reallocation** panel displays the existing resource allocations. For a sense of how much storage and compute you will need in your cluster, refer to the chart after step 3 that contains the current defaults for the peer, orderer, and CA:
-2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your cluster. For more information about how to increase the size of a cluster, see scaling [Kubernetes](/docs/containers?topic=containers-ca#ca){: external} or [Openshift](/docs/openshift?topic=openshift-ca){: external} clusters. If you have enough space in your cluster, you can continue with step 3.
+2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your cluster. For more information about how to increase the size of a cluster, see scaling [Kubernetes](/docs/containers?topic=containers-ca#ca){: external} or [OpenShift](/docs/openshift?topic=openshift-ca){: external} clusters. If you have enough space in your cluster, you can continue with step 3.
 3. **Use the console to deploy or resize your node**. If your Kubernetes pod is large enough to accommodate the new size of the node, the reallocation should proceed smoothly. If the worker node that the pod is running on is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
