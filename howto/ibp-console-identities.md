@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-17"
+lastupdated: "2020-07-27"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -165,7 +165,7 @@ Before a certificate expires, you must enroll a new certificate for the identity
 6. If this is an MSP **admin** identity, and the associated MSP was not created with the `Node OU` configuration enabled, then you also need to update the MSP with the new admin signed certificate. When an organization MSP is created and the Node OU configuration is enabled, the admin role is inserted directly into the generated admin certificate and therefore the MSP does not need to be updated. To find out whether the MSP was created with Node OU enabled, open the MSP in the Organizations tab and examine the setting of the **Node OU** field. When the Node OU configuration is not enabled, you need to perform the following additional steps:
   ![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 2. Node OU configuration for MSP" caption-side="bottom"}
   - Add the new certs to the organization MSP definition. See [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-steps){: external} for more instructions.
-  - Update any channels that this MSP organization is part of. Refer to the topic on
+  - Update any channels that this organization MSP is part of. Refer to the topic on
   [Adding a new channel admin certificate](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-existing-channel) for details.
 
 If the certificates were generated from the Fabric CA client or Fabric SDKs, then they need to be renewed where they were generated. You can then use the updated certificates when you follow instructions in step six above.

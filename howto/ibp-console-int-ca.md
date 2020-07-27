@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-07-27"
 
 keywords: intermediate CA, root CA, parent server, Certificate Authority
 
@@ -36,7 +36,7 @@ For customers who prefer to include intermediate CAs in their network, the {{sit
 
 Intermediate CAs are optional. Because an intermediate CA has its root certificate issued by a root CA or another intermediate authority, a “chain of trust” is established for any certificate that is issued by all CAs in the chain. Having one or more intermediate CAs provides added security and allows you to protect your root of trust. This ability to track back to the root CA not only allows the function of CAs to scale while still providing security, it also limits the exposure of the root CA, which, if compromised, would endanger the entire chain of trust. If an intermediate CA is compromised, on the other hand, there will be a much smaller exposure. A key benefit is that after the intermediate CAs are up and running, the root CA can be effectively turned off, limiting its vulnerability even more.
 
-Another reason to include an intermediate CA would be when you have a very large organization with multiple departments and you don’t want a single CA to generate certificates for all of the departments. Intermediate CAs provide a mechanism for scoping the certificates that a CA manages to a smaller department or sub-group. This pattern though incurs significant overheard if there will only be a small number of members in the organization.
+Another reason to include an intermediate CA would be when you have a very large organization with multiple departments and you don’t want a single CA to generate certificates for all of the departments. Intermediate CAs provide a mechanism for scoping the certificates that a CA manages to a smaller department or sub-group. This pattern though incurs significant overhead if there will only be a small number of members in the organization.
 
 As an alternative to deploying multiple intermediate CAs, you can limit the scope of a CA by [overriding the CA configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment&locale=en#ibp-console-adv-deployment-ca-customization-why) to specify available `affiliations` (similar to departments) instead. When a CA is configured with affiliations, the affiliation of the registrar must be equal to or a prefix of the affiliation of the identity being registered. See the Fabric CA topic on [registering identities](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} for more details.
 
