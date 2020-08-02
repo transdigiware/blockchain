@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-08-02"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -92,6 +92,8 @@ As you monitor your pods and notice that more storage is needed, you can increas
 - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 
 Users can allocate more storage to their running network by resizing the existing storage PVCs or by deploying nodes with new PVCs.
+
+
 
 
 ## Deleting components
