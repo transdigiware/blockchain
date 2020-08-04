@@ -21,7 +21,6 @@ subcollection: blockchain
 {:pre: .pre}
 
 # Deploy a smart contract on the network
-
 {: #ibp-console-smart-contracts}
 
 
