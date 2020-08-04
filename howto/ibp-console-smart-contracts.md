@@ -297,4 +297,3 @@ In order to use private data with {{site.data.keyword.blockchainfull_notm}} Plat
 
 Your channel is now configured to use private data.
 
-
