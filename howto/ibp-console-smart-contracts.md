@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-08-04"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -297,4 +297,5 @@ In order to use private data with {{site.data.keyword.blockchainfull_notm}} Plat
 3. **Configure anchor peers.** Because cross organizational [gossip](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} must be enabled for private data to work, an anchor peer must exist for each organization in the collection definition. Refer to this information for [how to configure anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers) on your network.
 
 Your channel is now configured to use private data.
+
 
