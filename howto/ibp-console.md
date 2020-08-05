@@ -20,6 +20,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 {:script: data-hd-video='script'}
+{:video: .video}
 
 # About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-console-overview}
