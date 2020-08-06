@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-05"
+lastupdated: "2020-08-06"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
 
@@ -27,7 +27,11 @@ subcollection: blockchain
 
 Watch the following video for an introduction to blockchain and the {{site.data.keyword.blockchainfull}} Platform:
 
-![Key concepts and introduction to IBM Blockchain Platform](https://www.youtube.com/embed/AvQa1W38J4I){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+<p>
+  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
+<iframe class="embed-responsive-item" id="youtubeplayer2" title="Key concepts and introduction to IBM Blockchain Platform" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/AvQa1W38J4I" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+</div>
+</p>
 
 ### Video transcript
 {: #transcript-key-concepts}
