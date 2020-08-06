@@ -273,11 +273,12 @@ If the organization MSP was not created with [Node OU](#ibp-console-organization
 3. Open the **Organizations** tab.
 4. Locate the MSP tile for the organization and click the **Export** icon.
 5. Open the downloaded MSP JSON file in a text editor.
-6. Edit the `admins` element by pasting the new base64-encoded certificate string that you generated in the previous section to the end of the list of comma-separated admin certificates. If the identity was created by using the console, you can open the identity file that you exported and use the string from the `cert` field. 
+6. Edit the `admins` element by pasting the new base64-encoded certificate string that you generated in the previous section to the end of the list of comma-separated admin certificates. If the identity was created by using the console, you can open the identity file that you exported and use the string from the `cert` field.
 7. Save your changes.
 8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
 9. In the side panel, click **Add file** and select the updated MSP JSON file.
 10. Click **Update MSP definition**.
+11. If this organization MSP is a member of an ordering service consortium, you need to update the ordering service. From the **Nodes** tab, open the ordering service tile. Delete the existing consortium member which contains the original MSP definition, and then re-add the consortium with the new admin certificate by clicking **Add organization** and browsing to the new MSP JSON file from step six above. 
 
 ### Adding a new channel admin certificate
 {: #ibp-console-organizations-new-admins-existing-channel}
