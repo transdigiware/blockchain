@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-27"
+lastupdated: "2020-08-06"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -21,7 +21,6 @@ subcollection: blockchain
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
 {:pre: .pre}
-
 
 # FAQs
 {: #ibp-v2-faq}
