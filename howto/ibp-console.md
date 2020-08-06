@@ -25,6 +25,15 @@ subcollection: blockchain
 # About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-console-overview}
 
+The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} is the next generation of {{site.data.keyword.blockchainfull_notm}} Platform offerings, which gives you total control over your deployments, certificates, and private keys. It includes the new {{site.data.keyword.blockchainfull_notm}} Platform console, a user interface that can simplify and accelerate the process of deploying components into a Kubernetes cluster on {{site.data.keyword.cloud_notm}} managed and controlled by you. For more information about deploying an Kubernetes cluster on {{site.data.keyword.cloud_notm}}, see [Kubernetes](/docs/blockchain/reference?topic=blockchain-k8s-overview).
+{:shortdesc}
+
+A key benefit of the platform is that {{site.data.keyword.IBM_notm}} tests the open source code for security vulnerabilities daily and provides 24x7x365 support with SLAs appropriate for production environments.
+
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.15 - v1.18 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform 2.5](/docs/blockchain-sw-25?topic=blockchain-sw-25-get-started-console-ocp).
+
+If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-images).
+
 Watch the following video for an introduction to blockchain and the {{site.data.keyword.blockchainfull}} Platform:
 
 <p>
@@ -74,15 +83,6 @@ Because you only pay for the compute you use, it’s painless to transition from
 
 The world is moving too fast to keep doing things the old way. Go to cloud dot IBM dot com today and check out the IBM blockchain platform.
 
-
-The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} is the next generation of {{site.data.keyword.blockchainfull_notm}} Platform offerings, which gives you total control over your deployments, certificates, and private keys. It includes the new {{site.data.keyword.blockchainfull_notm}} Platform console, a user interface that can simplify and accelerate the process of deploying components into a Kubernetes cluster on {{site.data.keyword.cloud_notm}} managed and controlled by you. For more information about deploying an Kubernetes cluster on {{site.data.keyword.cloud_notm}}, see [Kubernetes](/docs/blockchain/reference?topic=blockchain-k8s-overview).
-{:shortdesc}
-
-A key benefit of the platform is that {{site.data.keyword.IBM_notm}} tests the open source code for security vulnerabilities daily and provides 24x7x365 support with SLAs appropriate for production environments.
-
-If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.15 - v1.18 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform 2.5](/docs/blockchain-sw-25?topic=blockchain-sw-25-get-started-console-ocp).
-
-If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract containers images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-images).
 
 ## What the {{site.data.keyword.blockchainfull_notm}} Platform offers
 {: #ibp-console-overview-capabilities}
