@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-09"
+lastupdated: "2020-08-07"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -150,14 +150,14 @@ Note that after a peer is removed from a channel, it might still show as being j
 
 As noted in the [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external} topic in the Fabric documentation, there are three levels of capabilities: for the **orderer**, **application**, and **channel**.
 
-While all capabilities can be edited as part of a channel configuration update request, you have the opportunity to edit these capabilities in several places:
+While all capabilities can be edited as part of a channel configuration update request, you have the opportunity to edit these capabilities in a few places:
 
   * **Channel and orderer**: in the [system channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities-system-channel) by ordering service admins.
   * **Application and orderer**: during [channel creation](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities-application-channels).
 
-Note that what you see in this section will depend on the configuration of your channel and the Fabric level of your peers and ordering nodes, as **only valid and possible capability upgrades will appear**. For example, if your channel, orderer, and application capabilities are already at the most recent level, the capabilities section in the channel update will be hidden. Similarly, you will not see potential capability updates if your nodes in the channel are not at a sufficient Fabric level to process the capability.
+Note that what you see in this section will depend on the configuration of your channel and the Fabric level of your peers and ordering nodes, as **only valid and possible capability upgrades will appear**. For example, if your channel, orderer, and application capabilities are already at the highest level, you will only see the capability levels that have been selected. Similarly, you will not see potential capability updates if your nodes in the channel are not at a sufficient Fabric level to process the capability. Note that the **default** orderer capability shown is inherited from the system channel, as noted above, while the default application capability is set to a reasonable level that will ensure that peers who attempt to join the channel will not crash. The application capability can always be updated later.
 
-To ensure that you will always be able to see and propose updates to the latest capabilities, **it is a best practice to upgrade your peers and ordering nodes to the latest Fabric version as soon as it is available in the console**. From a channel management perspective, it is also a best practice to discuss capability updates with other organizations before proposing a change. This will allow organizations to update nodes, as necessary, before the channel update request is submitted.
+To ensure that you will always be able to see and propose updates to get a channel to the latest capability levels, **it is a best practice to upgrade your peers and ordering nodes to the latest Fabric version as soon as it is available in the console**. From a channel management perspective, it is also a best practice to discuss capability updates with other organizations before proposing a change. This will allow organizations to update nodes, as necessary, before the channel update request is submitted.
 {:important}
 
 #### Capabilities in the system channel
@@ -172,11 +172,11 @@ To edit these capabilities, click on the **Settings** button inside the ordering
 #### Capabilities in application channels
 {: #ibp-console-govern-capabilities-application-channels}
 
-Application capabilities define the way transactions are handled exclusively by the peers. As a result, these capabilities are not inherited from the system channel (which is managed by the ordering service) and you will see the full list of capabilities, starting with `1.1`, when creating a channel. Note that the Fabric version of all peers in the channel must be at least at the level of the application capability level and the channel capability level inherited from the ordering service. When creating a channel, you might see that the default application capability is lower than the highest available level. This is done in cases where a new Fabric version with a new application capability has been released but it is not expected that most peers will be at the new Fabric version.
+Application capabilities define the way transactions are handled exclusively by the peers. As a result, these capabilities are not inherited from the system channel (which is managed by the ordering service) and you will see the full list of capabilities, starting with `1.1`, when creating a channel. Note that the Fabric version of all peers in the channel must be at least at the level of the application capability level and the channel capability level inherited from the ordering service. When creating a channel, the default application capability might be lower than the highest available level. This is done in cases where a new Fabric version with a new application capability has been released but it is not expected that most peers will be at the new Fabric version. 
 
 Like the orderer and channel capabilities, the application capability level can be edited through a channel configuration update. The orderer capability can also be specified during the creation of a channel, but will require the approval of the ordering service.
 
-If you are using the SDK to create or edit a channel, take caution to not submit a configuration update with an invalid application capability. Because application capabilities are not validated by the ordering service, an invalid application capability will not be flagged and the configuration update will be approved. Because the peers cannot process an application capability that does not exist, the peers will crash when attempting to read the configuration block containing the invalid capability. Because the peers will be unable to progress beyond this configuration block, it will not be possible to reverse this configuration block and submit another one to "fix" the problem. A channel in this state would be unrepairable.
+If you are using the SDK to create or edit a channel, take caution to not submit a configuration update with an invalid application capability. Because application capabilities are not validated by the ordering service, an invalid application capability will not be flagged and the configuration update will be approved. Because the peers cannot process capabilities that do not exist, the peers will crash when attempting to read the configuration block containing an invalid capability. Because the peers will be unable to progress beyond this configuration block, it will not be possible to reverse this configuration block and submit another one to "fix" the problem. A channel in this state would be unrepairable. In this situation, the peer must be upgraded to a Fabric version compatible with the capability.
 {:important}
 
 ## Tuning your ordering service
