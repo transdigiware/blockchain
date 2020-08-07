@@ -94,8 +94,8 @@ subcollection: blockchain
 
 
 
-## 	Getting started
-{: #sitemap_	getting_started}
+## Getting started
+{: #sitemap_getting_started}
 
 
 [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-get-started-ibp)
@@ -236,8 +236,8 @@ subcollection: blockchain
 [An example network](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-example-network)
 
 
-## 	Getting started tutorials
-{: #sitemap_	getting_started_tutorials}
+## Getting started tutorials
+{: #sitemap_getting_started_tutorials}
 
 
 [Build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network)
@@ -331,8 +331,8 @@ subcollection: blockchain
 [{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain?topic=blockchain-ibp-videos)
 
 
-## 	Pricing
-{: #sitemap_	pricing}
+## Pricing
+{: #sitemap_pricing}
 
 
 [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing)
@@ -385,8 +385,8 @@ subcollection: blockchain
 [Hyperledger Fabric Security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-fabric)
 
 
-## 	High availability
-{: #sitemap_	high_availability}
+## High availability
+{: #sitemap_high_availability}
 
 
 [High availability (HA)](/docs/blockchain?topic=blockchain-ibp-console-ha)
@@ -536,8 +536,8 @@ subcollection: blockchain
 [Chaincode support statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-chaincode-support-statement)
 
 
-## 	IBM Blockchain Platform console
-{: #sitemap_	ibm_blockchain_platform_console}
+## IBM Blockchain Platform console
+{: #sitemap_ibm_blockchain_platform_console}
 
 
 [Administering your console](/docs/blockchain?topic=blockchain-ibp-console-manage-console)
@@ -674,8 +674,8 @@ subcollection: blockchain
 * [Setting logging levels](/docs/blockchain?topic=blockchain-operations_service#operations_service_log_level_set)
 
 
-## 	Developing smart contracts and applications
-{: #sitemap_	developing_smart_contracts_and_applications}
+## Developing smart contracts and applications
+{: #sitemap_developing_smart_contracts_and_applications}
 
 
 [Developing smart contracts with {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools](/docs/blockchain?topic=blockchain-develop-vscode)
@@ -715,8 +715,8 @@ subcollection: blockchain
 * [Best practices when using CouchDB](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)
 
 
-## 	Advanced tutorials
-{: #sitemap_	advanced_tutorials}
+## Advanced tutorials
+{: #sitemap_advanced_tutorials}
 
 
 [Creating an intermediate Certificate Authority (CA)](/docs/blockchain?topic=blockchain-ibp-ica)
@@ -745,8 +745,8 @@ subcollection: blockchain
 * [Using multiple partitions](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
 
 
-## 		Using Ansible Playbooks
-{: #sitemap_		using_ansible_playbooks}
+## Using Ansible Playbooks
+{: #sitemap_using_ansible_playbooks}
 
 
 [Getting started with Ansible playbooks on the IBM Blockchain Platform](/docs/blockchain?topic=blockchain-ansible)
@@ -772,8 +772,8 @@ subcollection: blockchain
 * [Summary](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-summary)
 
 
-## 	Monitoring your network
-{: #sitemap_	monitoring_your_network}
+## Monitoring your network
+{: #sitemap_monitoring_your_network}
 
 
 [IBM Cloud LogDNA](/docs/blockchain?topic=blockchain-ibp-LogDNA)
@@ -794,6 +794,8 @@ subcollection: blockchain
   * [Create dashboards for the CA and ordering nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-ca-os)
 * [Step four: Configure alerts to monitor resource usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-alerts)
 * [Summary](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-summary)
+
+[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network){: external}
 
 
 ## Building a network with APIs
@@ -836,8 +838,8 @@ subcollection: blockchain
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 
 
-## 	Upgrading your Enterprise Plan network
-{: #sitemap_	upgrading_your_enterprise_plan_network}
+## Upgrading your Enterprise Plan network
+{: #sitemap_upgrading_your_enterprise_plan_network}
 
 
 [Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-enterprise-upgrade)
@@ -871,8 +873,8 @@ subcollection: blockchain
 * [Editing the peer configuration](/docs/blockchain?topic=blockchain-orderer-mapping#orderer-mapping-code-snippet)
 
 
-## 	Enterprise Plan
-{: #sitemap_	enterprise_plan}
+## Enterprise Plan
+{: #sitemap_enterprise_plan}
 
 
 [Getting started with Enterprise Plan](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan)
