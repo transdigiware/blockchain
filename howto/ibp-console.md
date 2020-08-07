@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-06"
+lastupdated: "2020-08-07"
 
-keywords: key features, build, operate, grow, architecture, multizone clusters, compliance
+keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
 subcollection: blockchain
 
