@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-08-06"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -21,7 +21,6 @@ subcollection: blockchain
 {:pre: .pre}
 
 # Deploy a smart contract on the network
-
 {: #ibp-console-smart-contracts}
 
 
@@ -87,10 +86,11 @@ Because Fabric v2.x peers do not have a "shim" (the external dependencies that a
 
 When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-package){: external}. For v2.x commands, see [2.x peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external}.
 
+
 ### Vendoring smart contracts
 {: #ibp-console-smart-contracts-write-package-vendor}
 
-To vendor the shim for a Go smart contract, navigate to your smart contract source folder. Then initialize the Go module by issuing:
+To vendor the shim for a Go smart contract, navigate to your smart contract source folder. Then, initialize the Go module by issuing:
 
 ```
 go mod init

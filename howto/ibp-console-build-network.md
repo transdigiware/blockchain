@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-08-06"
 
-keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network
+keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
 subcollection: blockchain
 
@@ -20,6 +20,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 {:script: data-hd-video='script'}
+{:video: .video}
 
 # Build a network
 {: #ibp-console-build-network}
@@ -350,7 +351,7 @@ Watch the following video to learn about the process to create the ordering serv
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/lapmfN_tucg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: ordering service" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/lapmfN_tucg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 </div>
 </p>
 
@@ -518,7 +519,7 @@ Perform the following steps from your console:
 
 1. From the **Nodes** tab, click **Add ordering service**.
 2. Make sure the option to **Create an ordering service** is selected. Then click **Next**.
-3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **One ordering node** and click **Next**. For the purpose of this tutorial, do not choose any of the **Advanced deployment options**  (only available in paid clusters) can be safely ignored for purposes of this tutorial.. Click **Next**. For more information about these options, see the links below.
+3. Give your ordering service a **Display name** of `Ordering Service` and, if in a paid cluster, choose whether you want your ordering service to have one node (sufficient for testing) or five nodes (good for production). Choose **One ordering node** and click **Next**. For the purpose of this tutorial, do not choose any of the **Advanced deployment options**  (only available in paid clusters). Click **Next**. For more information about these options, see the links below.
    * [Multizone Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone) (Multizone HA) This option is only visible when your cluster is configured with multiple zones.
    * [Use your own CA certificate and private key](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-third-party-ca)
    * [Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
@@ -558,7 +559,7 @@ Watch the following video to learn how to add a peer organization to the consort
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/VVjHSSW7PLg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: ordering service" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/VVjHSSW7PLg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 </div>
 </p>
 

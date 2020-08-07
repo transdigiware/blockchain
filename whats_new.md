@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-07-21"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -21,6 +21,9 @@ subcollection: blockchain
 
 # What's new
 {: #whats-new}
+
+
+
 
 ## June 18, 2020
 {: #whats-new-06-18-2020}
@@ -260,7 +263,7 @@ For more information about Hyperledger Fabric v1.4.0, see [Hyperledger Fabric do
 
 **Grow distributed networks with ease with newly enabled multicloud flexibility**
 
-*	Connect to nodes running in any environment (on-premises, public, hybrid clouds)
+*	Connect to nodes running in any environment (on-prem, public, hybrid clouds)
 *	Easily connect a single peer to multiple industry networks
 *	Start small, pay as you grow for what you use with no upfront investment, and upgrade easily through Kubernetes
 

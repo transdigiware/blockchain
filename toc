@@ -119,4 +119,5 @@ IBM Blockchain Platform for IBM Cloud
 	release-notes.md
 	howto/ibp-v2-troubleshooting.md
 	ibmblockchain_support.md
+	sitemap.md
 	{: .navgroup-end}

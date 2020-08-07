@@ -33,7 +33,7 @@ This tutorial describes how to configure {{site.data.keyword.la_full_notm}} serv
 ## Step one: Configure cluster-level logging
 {: #ibp-LogDNA-kubernetes}
 
-You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-kube){: external} tutorial. If you are using an OpenShift cluster on {{site.data.keyword.cloud_notm}}, when you are ready to you need to configure the LogDNA agent, you can refer to these [instructions](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_agent_os_cluster){: external}.
+You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-kube){: external} tutorial. If you are using an OpenShift cluster on {{site.data.keyword.cloud_notm}} you will need to configure the LogDNA agent. Refer to these [instructions](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_agent_os_cluster){: external}.
 
 ## Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes
 {: #ibp-LogDNA-ibp}

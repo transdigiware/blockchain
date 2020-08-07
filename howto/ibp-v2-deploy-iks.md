@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-08-06"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -20,6 +20,8 @@ subcollection: blockchain
 {:term: .term}
 {:pre: .pre}
 {:gif: data-image-type='gif'}
+
+
 
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks}
@@ -149,6 +151,7 @@ For a sense of how much storage and compute you will need in your cluster, refer
 If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
 
+
 ## Deploy a Kubernetes cluster on {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks-deploy-cluster}
 
@@ -164,7 +167,7 @@ As both {{site.data.keyword.IBM_notm}} Kubernetes Service clusters and OpenShift
 
 **Note that if you want high availability or disaster recovery, you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.**
 
-### Free {{site.data.keyword.IBM_notm}} Kubernetes Service clusters
+### Free {{site.data.keyword.IBM_notm}} Kubernetes service clusters
 {: #ibp-v2-deploy-iks-deploy-cluster-free}
 
 The {{site.data.keyword.IBM_notm}} Kubernetes service offers a free cluster that can be used for 30 days. Note that the free cluster offers limited storage and transaction throughput, and that it is not possible to migrate data from free clusters to paid clusters. For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.
@@ -206,19 +209,14 @@ If you already have a cluster, you can link your service instance to it by click
 
 If your cluster is available, select it and click **Next**. It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, click **Launch the IBM Blockchain Platform console** to open the console.
 
-
-
 ### Blockchain component deployment
 {: #ibp-v2-deploy-components}
 
 You are now ready to start exploring the console.
 
-
-
 <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster assuming Hyperledger Fabric v2.x images are used by the peer.
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-20.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 2: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
-
 
 - **Pod**: When each Certificate Authority, peer, ordering service, or smart contract is deployed, a new Pod is created in a worker node in your cluster. Every time you deploy a smart contract, a new pod is launched for the smart contract.
 - **App containers**: Containers are created inside the pods for each node that is deployed.
@@ -227,7 +225,6 @@ You are now ready to start exploring the console.
 <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> The following illustration shows how the {{site.data.keyword.blockchainfull_notm}} Platform components are deployed to the Kubernetes cluster assuming Hyperledger Fabric v1.4 images are used by the peer.
 
 ![{{site.data.keyword.blockchainfull_notm}} Platform and the Kubernetes Service](../images/IBP-IKS-Diagram-14.svg "Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}"){: caption="Figure 3: Deploying the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}." caption-side="bottom"}
-
 
 - **Pod**: When each Certificate Authority, peer, or ordering service is deployed, a new Pod is created in a worker node in your cluster.
 - **App containers**: Containers are created inside the pods for each node that is deployed.
@@ -350,6 +347,8 @@ After you create the storage class, run the `kubectl patch storageclass` command
 
 - See [Pricing](/docs/blockchain?topic=blockchain-ibp-saas-pricing) if you need to revisit the {{site.data.keyword.blockchainfull_notm}} Platform pricing information.
 - Your current {{site.data.keyword.cloud_notm}} usage information is available on your [usage tile](https://cloud.ibm.com/billing/){: external} of the {{site.data.keyword.cloud_notm}} dashboard and your bill is visible under [billing information](https://cloud.ibm.com/billing/billing-items){: external}. See this topic on [Billing](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-billing) for more details about how {{site.data.keyword.blockchainfull_notm}} Platform billing works.
+
+
 
 ## Deleting a service instance
 {: #ibp-v2-deploy-iks-delete-service-instance}
