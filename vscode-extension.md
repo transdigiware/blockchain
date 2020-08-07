@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-27"
+lastupdated: "2020-08-07"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -94,7 +94,7 @@ The following set of steps can be used to install the CodeReady Workspaces and c
 
 1. Log in as the administrator of your OpenShift 4.3 cluster.
 2. In the navigation bar, click **Operators** > **Operator Hub**. Ensure you have selected the project from the twistie at the top of the page, where you want the operator to be installed.
-3. Search for **CodeReady Workspaces** and then click **Install**.
+3. Search for **CodeReady Workspaces** and then, click **Install**.
 4. When the operator is successfully installed, it is visible from the **Installed Operators** tab and the status is `Succeeded`.
 5. From the table of Installed Operators, click **Red Hat CodeReady Workspaces** > **CodeReady Workspaces cluster**.
 6. Red Hat CodeReady Workspaces are based on the open **Eclipse Che** project that uses Kubernetes and containers to provide any member of a development or IT team with a consistent, secure, and zero-configuration development environment. Click **Create CheCluster**.
