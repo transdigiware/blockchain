@@ -98,7 +98,7 @@ subcollection: blockchain
 
 {{site.data.keyword.blockchainfull_notm}} Platform manages most of the certificate operations without users needing to handle their certificates. However, there are times when you will have to manage the certificates that allow you to communicate with the network, such as developing applications or expanding your network with a remote peer or renewing certificates before they expire. The following is a short guide to your Certificate Authority, and the underlying certificate infrastructure. This information can help you understand the certificates that you will be working with and the tasks you need to perform.
 
-## Certificate authorities
+## Certificate Authorities (CAs)
 {: ##cert-mgmt-network-ca}
 
 Certificate authorities (CAs) provide identity on the network. A CA can be considered as a publicly trusted notary that acts as an anchor of trust among multiple parties. All entities in the network are given a certificate signed by a root CA that encapsulates their digital identity. This certificate is the root of trust for all the sign and verify operations that are performed on the network. For more details about how certificate authorities are used to establish identity, see [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.1/identity/identity.html){: external}.
@@ -114,8 +114,6 @@ You can use the CA in the console to enroll and generate the private key and cer
 You can also generate certificates from the command line by using the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/deployguide/use_CA.html){: external}. The Fabric CA client returns certificates inside a Membership Service Provider (MSP) folder. This folder contains the root certificate that the CA signed, intermediate certificates if an intermediate CA is being used, a private key, and your signCert. For more information about MSP and what the MSP folder contains, see [Membership Service Providers](https://hyperledger-fabric.readthedocs.io/en/release-2.1/membership/membership.html){: external}.
 
 When you create a new CA, you specify an enroll ID and secret for the admin of the CA, which "registers" the admin identity.  You can also register identities of peer nodes, ordering nodes, and client applications by clicking **Register User**
-
-The following table describes the types of certificates used by the platform and how they can be renewed.
 
 Automatic certificate renewal is not available for certificates that were generated before the helm-to-operator migration.
 {: important}
@@ -150,11 +148,19 @@ Organization MSP admin certificates cannot be automatically renewed. Instead you
 #### Certificate types and actions
 {: #cert-mgmt-cert-types}
 
-When certificates expire, nodes can no longer process transactions and your applications can no longer interact with your network. Therefore, before a certificate expires, you need to enroll a new certificate for the identity, a process referred to as "certificate renewal". The following tables desribes the types of certificates that you need to manage, how to view their expiry date, and how to maintain them.
+When certificates expire, nodes can no longer process transactions and your applications can no longer interact with your network. Therefore, before a certificate expires, you need to enroll a new certificate for the identity, a process referred to as "certificate renewal".   
+
+The following tables describes the types of certificates that you need to manage, how to view their expiry date, and how to maintain them. Click a tab to view the certificates for the **CA**, **peer**, or **orderer** certificates.
+
+If a certificate expires within five years, the expiration date is visible from the console.
+{: note}
+
+**Enrollment and TLS certificates**  
 
 |  Certificate | Description| How generated |	 Default Expiration |	How to view expiration | How to renew | What to do if expired |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | **CA TLS certificate** | This certificate is used to trust the CA server. It is the public key that must be shared with all members in the organization that want to transact with any node in the organization. When any client or node submits a transaction to another node, it must include this certificate as part of the transaction to prevent “man in the middle” attacks. | Generated when the CA is first started because TLS is enabled.| 1 year | **2.5.x:** Console CA node **TLS Cert Expiry** field | **2.5.x:** Automatic renewal is attempted 30 days before expiry. <br><br> **2.1.x**, or if **automatic renewal fails:** Open a support ticket.|Open a support ticket |
+| **CA TLS root certificate** | This certificate is used to trust the CA server. It is the public key that must be shared with all members in the organization that want to transact with any node in the organization. When any client or node submits a transaction to another node, it must include this certificate as part of the transaction to prevent “man in the middle” attacks. | Generated when the CA is first started because TLS is enabled.| 1 year | **2.5.x:** Console CA node **TLS Cert Expiry** field | **2.5.x:** Automatic renewal is attempted 30 days before expiry. <br><br> **2.1.x**, or if **automatic renewal fails:** Open a support ticket.|Open a support ticket |
 {: class="simple-tab-table"}
 {: caption="Table 1. How to manage the CA certificates" caption-side="top"}
 {: #simpletabtable1}
@@ -182,14 +188,17 @@ When certificates expire, nodes can no longer process transactions and your appl
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
 
+
+**Admin certificates and certificates from an external CA**  
+
 | Certificate |	 Description |	How generated	| Default Expiration| How to view expiration	| How to renew|  Update MSP | Update node admin | Update channel |	What to do if expired|
 |-----|-----|-----|-----|-----|-----|-----|
 | **Peer admin certificate** | This is the admin certificate that is used to administer the peer and install smart contracts on the peer. It can also be configured to manage the channel that the peer belongs to. The associated admin identity is registered with the organization CA before the node and organization MSP are created.   | Generated when you create the organization MSP and provide the admin identity enroll ID and secret. In addition to being part of the peer node configuration, this MSP certificate can also be included in the channel that the peer joins as a channel member or the channel administrator. | 1 year | **Wallet tab:** Click the peer admin identity tile to view the expiration date of the certificate and private key. <br><br> **Peer node:** Open peer tile and the admin cert expiration date is visible in the left column.  <br><br>**MSP tab:** Open peer organization MSP tile and the admin certificate serial number and expiry date are listed in left column.<br><br>**Channel details tab:** Open channel and click member tile to view exipiration date.| [Enroll new identity](#cert-mgmt-manual-enroll)<br><br> or <br><br>[Bulk admin certificate update using Ansible](#cert-mgmt-bulk-ansible) |   No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Append the admin certificate to the MSP definition](#cert-mgmt-manual-update-msp).| No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Update the admin identity for the peer node](#cert-mgmt-manual-update-node) <br><br> and <br><br>[Update channel member on ordering service](#cert-mgmt-manual-update-os-channel-member). | No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Update channel](#cert-mgmt-manual-update-channel)| See [Expired admin certificates](#ibp-console-identities-expired-certs-admin).|
 | **Orderer admin certificate** | This is the admin certificate that is used to administer the ordering service and submit or approve channel updates. The associated admin identity is registered with the organization CA before the node and organization MSP are created.   | Generated when you create the organization MSP and provide the admin identity enroll ID and secret. In addition to being part of the ordering service configuration, this MSP certificate can also be included in the ordering service channels. | 1 year | **Wallet tab:** Click the ordering service admin identity tile to view the expiration date of the certificate and private key. <br><br> **Ordering node:** Open the ordering service and then the ordering node tile to view the admin cert expiration date that is visible in the left column.  <br><br>**MSP tab:** Open the ordering service organization MSP tile and the admin certificate serial number and expiry date are listed in left column.| [Enroll new identity](#cert-mgmt-manual-enroll)<br><br> or <br><br>[Bulk admin certificate update using Ansible](#cert-mgmt-bulk-ansible) |   No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Append the admin certificate to the MSP definition](#cert-mgmt-manual-update-msp).| No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Update the admin identity for the ordering service](#cert-mgmt-manual-update-node)<br><br>and<br><br> [Update ordering service admin](#cert-mgmt-manual-update-os-admin). | No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Update channel](#cert-mgmt-manual-update-channel).| See [Expired admin certificates](#ibp-console-identities-expired-certs-admin). |
 {: caption="Table 4. How to manage the admin certificates" caption-side="top"}
 {: #simpletabtable4}
-{: tab-title="Admin"}
-{: tab-group="IAM-simple"}
+{: tab-title="Admin certificates"}
+{: tab-group="IAM-simple2"}
 {: class="simple-tab-table"}
 
 | Certificate |	 Description |	How generated	| Default Expiration| How to view expiration	| How to renew|  Update MSP | Update node admin | Update channel |	What to do if expired|
@@ -197,8 +206,8 @@ When certificates expire, nodes can no longer process transactions and your appl
 | Node or MSP Admin certificates from an external CA | Some customers prefer to use admin certificates generated by their own third-party CA.  | These certificates are generated externally and then [manually added](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp) to an MSP JSON file.  | Depends on certificate provider |  | Request new certs from the third-party provider in an out of band operation. |  [Append the admin certificate to the MSP definition](#cert-mgmt-manual-update-msp)| No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Update the admin identity for the node](#cert-mgmt-manual-update-node). <br><br> If this is a peer organization MSP admin, [Update channel member on ordering service](#cert-mgmt-manual-update-os-channel-member). <br><br> If this an ordering orgnaization MSP, [Update ordering service admin](#cert-mgmt-manual-update-os-admin). | No action is required when Node OU is enabled for the MSP.<br><br> Otherwise, [Update channel](#cert-mgmt-manual-update-channel). | | |
 {: caption="Table 5. How to manage certificates from an external CA" caption-side="top"}
 {: #simpletabtable5}
-{: tab-title="External"}
-{: tab-group="IAM-simple"}
+{: tab-title="External certificates"}
+{: tab-group="IAM-simple2"}
 {: class="simple-tab-table"}
 
 ### Manual certificate renewal
@@ -297,7 +306,7 @@ WIP
 ### Expired certificates
 {: #ibp-console-identities-expired-certs}
 
-When certificates expire, it is possible that peer, orderer, and channel operations will fail but it is still possible to update the certificates.
+When certificates expire, it is likely that peer, orderer, and channel operations will fail but it is still possible to update the certificates.
 
 #### Admin certificates
 {: #ibp-console-identities-expired-certs-admin}
