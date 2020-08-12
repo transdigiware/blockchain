@@ -166,8 +166,8 @@ The following tables describe the types of certificates that you need to manage,
 
 | Certificate |	 Description |	How generated	| Default Expiration| How to view expiration | How to renew| 	What to do if expired|
 |-----|-----|-----|-----|-----|-----|-----|
-| **Orderer enrollment certificate (signcert)** | The signing certificate that the orderer uses to sign transactions. |Generated when the ordering node is deployed based on the ordering service enroll ID and secret that is provided.| 1 year |  [TODO](https://github.ibm.com/ibp/operator/issues/1680) Open console ordering node and view **Enrollment Cert Expiry** field. | [Automatic renewal](#cert-mgmt-auto-renewal) is attempted 30 days before expiry. <br><br> If **automatic renewal** fails: Open a support ticket.|Open a support ticket |
-|**Orderer TLS certificate (signcert)** | When TLS is enabled on a network, each node must register and enroll with the TLS CA. This is the TLS certificate for the ordering node from that process and is required for the ordering node to start.| Generated when the ordering node is deployed.| **2.5.x:** 10 years[^how-to-view3]<br><br>**2.1.x:** 1 year | Open console ordering node and view **TLS Cert Expiry** field. | Open a support ticket | Open a support ticket |
+| **Orderer enrollment certificate (signcert)** | The signing certificate that the orderer uses to sign transactions. |Generated when the ordering node is deployed based on the ordering service enroll ID and secret that is provided.| 1 year |  [TODO](https://github.ibm.com/ibp/operator/issues/1680) Open console ordering node and view **Enrollment Cert Expiry** field. | [Automatic renewal](#cert-mgmt-auto-renewal) is attempted 30 days before expiry. <br><br> If **automatic renewal** fails: Open a support ticket.|[Open a support ticket](#ibp-console-identities-expired-certs-ecerts-orderer) |
+|**Orderer TLS certificate (signcert)** | When TLS is enabled on a network, each node must register and enroll with the TLS CA. This is the TLS certificate for the ordering node from that process and is required for the ordering node to start.| Generated when the ordering node is deployed.| **2.5.x:** 10 years[^how-to-view3]<br><br>**2.1.x:** 1 year | Open console ordering node and view **TLS Cert Expiry** field. | Open a support ticket | [Open a support ticket](#ibp-console-identities-expired-certs-ecerts-orderer) |
 {: caption="Table 3. How to manage the orderer certificates" caption-side="top"}
 
 [^how-to-view3]: If a certificate expires in more than five years, the expiration date is not visible from the console.
@@ -299,12 +299,14 @@ WIP - for channel updates only.
 ### Expired certificates
 {: #ibp-console-identities-expired-certs}
 
-When certificates expire, it is likely that peer, orderer, and channel operations will fail but it is still possible to update the certificates. The process to address them depends on whether they are MSP admin certificates or enrollment certificates and whether Node OU was enabled for the associated MSP or not.
+When certificates expire, it is likely that peer, orderer, and channel operations will fail but it is still possible to update the certificates. The process to address them depends on whether they are MSP admin certificates or enrollment certificates.
 
-#### Admin certificates
+#### How to fix expired Admin certificates
 {: #ibp-console-identities-expired-certs-admin}
 
-If the peer or orderer **admin** certificates have expired, you need to generate certificates for a new admin identity. Register and enroll a new peer or orderer admin identity with the same CA that the existing peer or orderer admin was registered with.
+If the peer or orderer **admin** certificates have expired, you need to generate certificates for a new admin identity. The overall process depends on whether Node OU is enabled for the MSP that the admin cert belongs to. Review the topic on how to [Update MSPs to support Node OU](#cert-mgmt-auto-renewal-nodeou) and we strongly recommend that you enable it now if it is not already enabled and then return to this step.
+
+Register and enroll a new peer or orderer admin identity with the same CA that the existing peer or orderer admin was registered with.
 
 1. Open the peer or orderer organization CA.
 2. Click **Register user** and specify a new enroll ID and secret.
@@ -313,14 +315,14 @@ If the peer or orderer **admin** certificates have expired, you need to generate
 5. Right-click the action menu for the new user and select **Enroll identity**.
 6. Ensure the **Root Certificate Authority** is selected and provide the enroll ID and secret that you specified when you register the new user.
 7. Specify a unique display name for this new identity and export the identity to your wallet.
-8. Using this exported certificate, follow the manual update steps [2](#cert-mgmt-manual-update-msp) - [6](#cert-mgmt-manual-update-channel) to update the admin certificates in the MSP, orderer, and channel. Before attempting these steps, review the next section that describes the ordering node override that needs to be configured if any of the organization certificates on the channel have expired.
+8. Using this exported certificate, follow the manual update steps [2](#cert-mgmt-manual-update-msp) - [6](#cert-mgmt-manual-update-channel) to update the admin certificates in the MSP, peer, orderer, and channel. **Before attempting these steps, review the next section that describes the ordering node override that needs to be configured if any ordering node admin certificates or ordering org admin certificates on the channel have expired.**
 
 ##### Override orderer configuration to allow expired certs for channel updates
 {: #ibp-console-identities-expired-certs-orderer-override}
 
-If Node OU is not enabled for the MSP that was updated, then after the admin certificate is updated in the MSP, any channels that the MSP belongs to also have to be updated manually. But, if any of the organization certificates on a channel have expired, you need to override the ordering service configuration to temporarily allow expired certificates.  
+If Node OU was not enabled for the MSP that was updated, then after the admin certificate is updated in the MSP, any channels that the MSP belongs to also have to be updated manually. But, if any any ordering node admin certificates have expired, or any of the organization certificates on a channel have expired, you need to override the ordering service configuration to temporarily allow expired certificates.  
 
-Fabric includes a setting that allows the channel to ignore expiration checks in order for channel updates to be applied to fix expired certificates. You need to override the `NoExpirationChecks` setting on each ordering node in the ordering service.
+Fabric includes a [setting](https://hyperledger-fabric.readthedocs.io/en/release-2.1/raft_configuration.html#certificate-expiration-related-authentication){:external} that allows the channel to ignore expiration checks in order for channel updates to be applied to fix expired certificates. You need to override the `NoExpirationChecks` setting on each ordering node in the ordering service.
 1. Open the ordering service and click the **Ordering nodes** tab.
 1. Open the first ordering node and click the **Settings** icon.
 1. In the side panel, click **Edit configuration JSON (Advanced)**
@@ -348,20 +350,24 @@ Now you are able to update the expired certificates in the channel, see steps [5
   }
   ```
 
-#### Enrollment or TLS certificates
+#### How to fix expired enrollment and TLS certificates
 {: #ibp-console-identities-expired-certs-ecerts}
 
-**Peer**  
+##### Peer
+{: #ibp-console-identities-expired-certs-ecerts-peer}
+
 If your peer enrollment certificates have expired, the recommended solution is to simply deploy a new peer and configure it on the network in the same way the existing peer is configured, namely:
 - Join it to the same channel or channels.
-- If the previous peer was an anchor peer, make this peer an [anchor peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-join-peer)) as well.
+- Make this peer an [anchor peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-join-peer), if the previous peer was an anchor peer.
 - Install the same smart contracts on it.
-- To enable client applications to address the new peer, [download a new connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) that includes the new peer.
+- Download a new [connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) that includes the new peer for client applications to address the new peer.
 
- If this process is not an option, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance.  
+If deploying a new peer is not an option, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance.  
 
-**Orderer**  
-If orderer **TLS** certificates have expired,
+##### Orderer
+{: #ibp-console-identities-expired-certs-ecerts-orderer}
+
+If your ordering node enrollment and TLS certificates have expired,
 you need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.
 
 ## Next steps
@@ -370,9 +376,9 @@ you need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-s
 ### Update MSPs to support Node OU
 {: #cert-mgmt-auto-renewal-nodeou}
 
-When you register a user with the CA, you need to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} Platform when  Fabric v1.4.3 was included and contains support for **Node OUs** in MSPs and channels. This new capability means that when the MSP admin identity is **enrolled** during MSP creation, the generated signed certificate includes the `admin` type as an OU inside the certificate instead of including the signed certificate of the admin identity in the `admincerts` folder of the MSP. You can learn more about the benefits of Node OUs in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.
+When you register a user with the CA, you need to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate and MSPs can be configured to recognize these roles. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} Platform when Fabric v1.4.3 was included and contains support for **Node OUs** in MSPs and channels. This new capability means that when the MSP admin identity is **enrolled** during MSP creation, the generated signed certificate includes the `admin` type as an OU inside the certificate instead of including the signed certificate of the admin identity in the `admincerts` folder of the MSP. You can learn more about the benefits of Node OUs in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.
 
-Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OU support was added to the platform in December 2019, do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if the Node OU configuration was not enabled when the organization MSP was created, additional steps are required after certificate renewal to update the MSP and any channels that the organization is part of. Therefore, if your MSPs currently are not configured with Node OU support, it is strongly recommended that you add Node OU support now, to avoid the extra updates steps that are required in one year when the certificates expire again.
+Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OU support was added to the platform in December 2019, do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert, or certificate,  for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if the Node OU configuration was not enabled when the organization MSP was created, additional steps are required after certificate renewal to update the MSP and any channels that the MSP is part of. Therefore, if your MSPs currently are not configured with Node OU support, it is strongly recommended that you add Node OU support now, to avoid the extra updates steps that are required in one year when the certificates expire again.
 
 To determine whether your organization MSP is enabled with the Node OU configuration, open the MSP in the **Organizations** tab and examine the **Node OU** setting.
 
@@ -445,7 +451,7 @@ To enable it, complete the following steps for each MSP where it is not enabled:
 5. From the Organizations tab, open the MSP tile click the **Settings** icon.
 6. In the side panel, click **Add file** and select the updated MSP JSON file.
 7. Click Update MSP definition. Peer and ordering nodes that include this MSP as their node admin are automatically updated and restarted.
-8. Every channel that uses this MSP needs to be updated with this new definition. See steps [5](#cert-mgmt-manual-update-os-channel-member) and [6](#cert-mgmt-manual-update-channel) for details.
+8. Every channel that uses this MSP needs to be updated with this new definition.
 
 After you have completed these steps, you no longer have to update the MSP or the channels that it participates in when the associated admin certificate expires. Now when you generate a new admin certificate for the identity, the new certificate contains the `admin` type and is automatically recognized by the MSP and channel as an admin identity.
 
