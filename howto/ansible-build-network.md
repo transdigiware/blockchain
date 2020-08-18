@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-13"
+lastupdated: "2020-08-17"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -114,7 +114,7 @@ These instructions assume you have configured [Docker](/docs/blockchain-sw-25?to
   The following command invokes the `01-create-ordering-organization-components.yml` playbook.
 
   ```
-  docker run --rm -v <FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>:/playbooks mydockerorg/ansible ansible-playbook /playbooks/<PLAYBOOK>.yml"
+  docker run --rm -v <FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>:/playbooks mydockerorg/ansible ansible-playbook /playbooks/<PLAYBOOK>.yml
   ```
   {: codeblock}
 

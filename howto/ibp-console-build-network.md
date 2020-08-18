@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-06"
+lastupdated: "2020-08-17"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -111,7 +111,7 @@ Watch the following video to learn about the process to create the peer's organi
 </div>
 </p>
 
-### Video transcript
+## Video transcript
 {: #transcript-peer-video}
 {: script}
 {: notoc}
@@ -355,7 +355,7 @@ Watch the following video to learn about the process to create the ordering serv
 </div>
 </p>
 
-### Video transcript
+## Video transcript
 {: #transcript-orderer-video}
 {: script}
 {: notoc}
@@ -563,7 +563,7 @@ Watch the following video to learn how to add a peer organization to the consort
 </div>
 </p>
 
-### Video transcript
+## Video transcript
 {: #transcript-channel-video}
 {: script}
 {: notoc}

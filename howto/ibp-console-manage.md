@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-22"
+lastupdated: "2020-08-17"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -45,9 +45,9 @@ Your console opens in your browser.
 ## Adding and removing users from the console
 {: #ibp-console-manage-console-add-remove}
 
-Every user that accesses the console must be assigned an access policy with an {{site.data.keyword.cloud}} Identity and Access Management (IAM) user role defined. The policy determines what actions the user can perform within the console. The {{site.data.keyword.blockchainfull}} Platform console is provisioned with the email address of the {{site.data.keyword.cloud_notm}} owner as the console administrator.  By default, this {{site.data.keyword.cloud_notm}} user is given the **Manager** role for the {{site.data.keyword.blockchainfull_notm}} Platform service in IAM. The console administrator can then grant other users access to the console by using the IAM UI. For more information about IAM，see [What is IAM](/docs/iam?topic=iam-iamoverview#iamoverview){: external}.  
+Every user that accesses the console must be assigned an access policy with an {{site.data.keyword.cloud}} Identity and Access Management (IAM) user role defined. The policy determines what actions the user can perform within the console. The {{site.data.keyword.blockchainfull}} Platform console is provisioned with the email address of the {{site.data.keyword.cloud_notm}} owner as the console administrator.  By default, this {{site.data.keyword.cloud_notm}} user is given the **Manager** role for the {{site.data.keyword.blockchainfull_notm}} Platform service in IAM. The console administrator can then grant other users access to the console by using the IAM UI. For more information about IAM，see [What is IAM](/docs/account?topic=account-iamoverview){: external}.  
 
-For instructions on how to add new user see [Inviting users to an account](https://cloud.ibm.com/docs/iam?topic=iam-iamuserinv){: external} with the following additional details:
+For instructions on how to add new user see [Inviting users to an account](/docs/account?topic=account-iamuserinv){: external} with the following additional details:
 
 - Under **Assign users additional access**, click **IAM services**.
 - Under **What type of access to you want to assign?**, type **Blockchain Platform**.
@@ -78,7 +78,7 @@ If you need to modify a user's role:
  6. Under **Assign service access roles**, choose a role for the user, which can be **Manager**, **Writer**, and **Reader**.
  7. Click **Assign**.
 
-When you need to remove a user's access to the console, follow instructions in the [IAM Removing users topic](/docs/iam?topic=iam-remove#remove){: external}.
+When you need to remove a user's access to the console, follow instructions in the [IAM Removing users topic](/docs/account?topic=account-remove){: external}.
 
 ### Assigning access roles to individual or groups of users in IAM
 {: #ibp-console-manage-console-users-groups}
