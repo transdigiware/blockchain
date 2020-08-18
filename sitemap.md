@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-17"
+lastupdated: "2020-08-18"
 
 keywords: site map
 subcollection: blockchain
@@ -138,7 +138,8 @@ subcollection: blockchain
 
 
 [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview)
-* [Video transcript](/docs/blockchain?topic=blockchain-ibp-console-overview#transcript-key-concepts)
+
+[Video transcript](/docs/blockchain?topic=blockchain-ibp-console-overview#transcript-key-concepts)
 
 [What the {{site.data.keyword.blockchainfull_notm}} Platform offers](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities)
 

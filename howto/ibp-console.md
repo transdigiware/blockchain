@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-17"
+lastupdated: "2020-08-18"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -42,7 +42,7 @@ Watch the following video for an introduction to blockchain and the {{site.data.
 </div>
 </p>
 
-### Video transcript
+## Video transcript
 {: #transcript-key-concepts}
 {: script}
 {: notoc}
