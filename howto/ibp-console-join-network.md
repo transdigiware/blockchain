@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-06-25"
+lastupdated: "2020-08-19"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -378,9 +378,9 @@ Because the console uses peers to gather information about the channels that the
 
 When you have created your CAs, identities, MSPs, ordering service, a peer, have added your peer organization to the consortium, and have imported the MSPs of any organizations who will be joined to this channel, navigate to the **Channels** tab in the left navigation. This is where channel creation and management are handled.
 
-When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.
+When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.  
 
-#### Creating the channel
+**Creating the channel**
 {: #ibp-console-build-network-channels-create}
 
 Perform the following steps from your console:

@@ -251,7 +251,6 @@ subcollection: blockchain
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ca-admin)
   * [Using your CA to register identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
   * [Creating the peer organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
-  * [Creating a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-peer-create)
 * [Step two: Create the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer)
 * [Video transcript](/docs/blockchain?topic=blockchain-ibp-console-build-network#transcript-orderer-video)
   * [Ordering in the console](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ordering-console)
