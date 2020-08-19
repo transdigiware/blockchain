@@ -113,7 +113,6 @@ Watch the following video to learn about the process to create the peer's organi
 
 ## Video transcript
 {: #transcript-peer-video}
-{: script}
 {: notoc}
 
 Hello everyone, and welcome to this demonstration of how to create a peer using the IBM Blockchain platform console. I’ll be following the process from the IBM Blockchain platform documentation, which you can see here. At the end of this tutorial, you will have created this structure, representing the components related to org1. In our next video, we’ll create an ordering service. And after that, a channel, to complete the infrastructure of our network.
@@ -355,7 +354,6 @@ Watch the following video to learn about the process to create the ordering serv
 
 ## Video transcript
 {: #transcript-orderer-video}
-{: script}
 {: notoc}
 
 Hello everyone, and welcome to this demonstration of how to create an ordering service using the ibm blockchain platform console. if you watched our other video on how to create a peer, much of this flow will seem similar to you. You still have to create a Certificate Authority first, use it to create identities and an organization, and then finally use those identities to create the ordering service itself. Once again, this information and more is present in our series of tutorials taking you through a full end to end where you create all of the nodes and identities, create a channel, join a channel, and deploy a smart contract. By the end of this video you'll have a configuration that looks like THIS, only without the channel, which we’ll create in our next demonstration.
@@ -563,7 +561,6 @@ Watch the following video to learn how to add a peer organization to the consort
 
 ## Video transcript
 {: #transcript-channel-video}
-{: script}
 {: notoc}
 
 Hello again, and welcome to this demonstration of how to create a channel using the IBM Blockchain Platform console. If you've watched our videos on creating a peer and an ordering service, you should have a deployment that looks similar to this one, with one peer org, two CAs and an ordering service.

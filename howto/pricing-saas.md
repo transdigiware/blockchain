@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-06"
+lastupdated: "2020-08-19"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -56,9 +56,9 @@ Developers can get started with the free [extension for VS Code](https://marketp
 ### Find out how to preview the platform free for 30 days
 {: #ibp-saas-pricing-free}
 
-You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes **free** cluster.
+You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes **free** cluster.  
 
-#### Limitations of the free preview
+**Limitations of the free preview**  
 {: #ibp-saas-pricing-free-limits}
 
 * Performance will be limited by throughput, storage, and functionality. Read more about the [limitations of free clusters](/docs/containers?topic=containers-cs_ov#cluster_types).
@@ -75,8 +75,8 @@ The following capabilities are only available on a paid cluster:
 - Overriding node configuration during or after deployment by using the console or APIs.
 - Adding or removing ordering nodes to an ordering service. The free offering only supports a single node Raft ordering service.
 
-
-#### How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free
+  
+**How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free**  
 {: #ibp-saas-pricing-free-howto}
 
 1. Get an [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration?target=%2Fcatalog%2Fservices%2Fblockchain){:external}.
