@@ -261,6 +261,7 @@ subcollection: blockchain
   * [Deploy the ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
 * [Step three: Join the consortium hosted by the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org)
 * [Video transcript](/docs/blockchain?topic=blockchain-ibp-console-build-network#transcript-channel-video)
+  * [Add the organization to the consortium](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
 * [Step four: Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)
   * [Creating a channel: `channel1`](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1)
 * [Step five: Join your peer to the channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-join-peer)

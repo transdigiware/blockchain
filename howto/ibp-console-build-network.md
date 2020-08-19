@@ -103,7 +103,7 @@ For each organization that you want to create with the console, you should deplo
 
 In this tutorial, we create two organizations, one which will own a peer and another which will own an ordering service. Each organization needs a CA to issue its certificates, therefore we need to create **two CAs**. For the purpose of this tutorial, **we will create only one CA at a time**.
 
-Watch the following video to learn about the process to create the peer's organization and the peer (for video tutorials on how how to create an ordering service and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}):
+Watch the following video to learn about the process to create the peer's organization and the peer (for video tutorials on how how to create an ordering service and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -344,7 +344,7 @@ In a paid cluster, you have the option between creating a one node ordering serv
 
 However, just as with the peer, before we can create an ordering service, we need to create a CA to supply the identities and the MSP of our ordering service organization.
 
-Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}):
+Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -551,7 +551,7 @@ As we noted earlier, a peer organization must be known to the ordering service b
 
 Because only ordering service admins can add peer organizations to the consortium, you will either need to **be** the ordering service admin or **send** MSP information to the ordering service admin.
 
-Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel (for video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}):
+Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel (for video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -587,6 +587,9 @@ To initiate a channel update, click the update button. This will allow you to ed
 
 So now that we have created a channel and joined a peer to it, we can install and instantiate a smart contract. We can add other members to our channel. We have everything we need to start transacting using the IBM Blockchain platform console. Thank you for watching, and happy block chaining.
 
+
+### Add the organization to the consortium
+{: #ibp-console-build-network-add-org-consortium}
 
 
 
