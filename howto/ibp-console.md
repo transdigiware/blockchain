@@ -44,6 +44,7 @@ Watch the following video for an introduction to blockchain and the {{site.data.
 
 ## Video transcript
 {: #transcript-key-concepts}
+{: script}
 {: notoc}
 
 By now you’ve probably heard of the IBM Blockchain Platform, the leading permissioned enterprise blockchain solution in the world. But what is a permissioned blockchain? And what is the IBM Blockchain Platform? The modern world is interwoven and interactive place.

@@ -210,14 +210,14 @@ For more information about MSPs, see [managing organizations](/docs/blockchain?t
 
 After you have [created a CA](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-create-CA-org2CA), used it to register identities, and created the [peer organization MSP](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-create-peers-org2), you're ready to create a peer.
 
-#### What role do peers play?
+**What role do peers play?**
 {: #ibp-console-join-network-peer-role}
 
 It's important to remember that organizations themselves do not maintain ledgers. Peers do. Organizations also use peers to sign transaction proposals and approve channel configuration updates. Because having at least two peers on a channel makes them highly available, having at least two peers joined to a channel is considered a best practice for production level implementations. In this tutorial, we'll only show the process for creating a single peer.
 
 From a resource allocation perspective, it is possible to join the same peers to multiple channels. The design of the peer ensures that the data from one channel cannot pass to another through the peer. However, because the peer will store a separate ledger for each channel, it is necessary to ensure that the peer has enough processing power and storage to handle the transaction and data load.
 
-#### Deploying your peer
+**Deploying your peer**
 {: #ibp-console-join-network-deploy-peer-role}
 
 Use your console to perform the following steps:
