@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-17"
+lastupdated: "2020-08-20"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -103,7 +103,7 @@ For each organization that you want to create with the console, you should deplo
 
 In this tutorial, we create two organizations, one which will own a peer and another which will own an ordering service. Each organization needs a CA to issue its certificates, therefore we need to create **two CAs**. For the purpose of this tutorial, **we will create only one CA at a time**.
 
-Watch the following video to learn about the process to create the peer's organization and the peer (for video tutorials on how how to create an ordering service and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}):
+Watch the following video to learn about the process to create the peer's organization and the peer (for video tutorials on how how to create an ordering service and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -111,7 +111,7 @@ Watch the following video to learn about the process to create the peer's organi
 </div>
 </p>
 
-## Video transcript
+### Video transcript
 {: #transcript-peer-video}
 {: script}
 {: notoc}
@@ -279,13 +279,11 @@ After you have created the MSP, you should be able to see the peer organization 
 
 For more information about MSPs, see [managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations).
 
-### Creating a peer
-{: #ibp-console-build-network-peer-create}
+**Creating a peer**
 
 After you have [created the Org1 CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA), used it to register Org1 identities, and created the [Org1 MSP](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1), you're ready to create a peer for Org1.
 
-#### What role do peers play?
-{: #ibp-console-build-network-peer-role}
+**What role do peers play?**  
 
 It's important to remember that organizations themselves do not maintain ledgers. Peers do. Organizations also use peers to sign transaction proposals and approve channel configuration updates. Because having at least two peers per organization on a channel makes them highly available, having three peers per organization joined to a channel is considered a best practice for production level implementations because it ensures high availability even while a peer is down for maintenance. In this tutorial though, we'll only show the process for creating a single peer. You can replicate the process to suit your own business needs.
 
@@ -347,7 +345,7 @@ In a paid cluster, you have the option between creating a one node ordering serv
 
 However, just as with the peer, before we can create an ordering service, we need to create a CA to supply the identities and the MSP of our ordering service organization.
 
-Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}):
+Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -355,7 +353,7 @@ Watch the following video to learn about the process to create the ordering serv
 </div>
 </p>
 
-## Video transcript
+### Video transcript
 {: #transcript-orderer-video}
 {: script}
 {: notoc}
@@ -555,7 +553,7 @@ As we noted earlier, a peer organization must be known to the ordering service b
 
 Because only ordering service admins can add peer organizations to the consortium, you will either need to **be** the ordering service admin or **send** MSP information to the ordering service admin.
 
-Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel (for video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}):
+Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel. For video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -563,7 +561,7 @@ Watch the following video to learn how to add a peer organization to the consort
 </div>
 </p>
 
-## Video transcript
+### Video transcript
 {: #transcript-channel-video}
 {: script}
 {: notoc}
@@ -592,6 +590,9 @@ To initiate a channel update, click the update button. This will allow you to ed
 
 So now that we have created a channel and joined a peer to it, we can install and instantiate a smart contract. We can add other members to our channel. We have everything we need to start transacting using the IBM Blockchain platform console. Thank you for watching, and happy block chaining.
 
+
+### Add the organization to the consortium
+{: #ibp-console-build-network-add-org-consortium}
 
 
 
@@ -630,7 +631,7 @@ Because the console uses peers to gather information about the channels that the
 
 When you have created your CAs, identities, MSPs, ordering service, a peer, and have added your peer organization to the consortium, navigate to the **Channels** tab in the left navigation. This is where channel creation and management are handled.
 
-When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.
+When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.  
 
 #### Creating the channel
 {: #ibp-console-build-network-channels-create}

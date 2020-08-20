@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-17"
+lastupdated: "2020-08-19"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -753,7 +753,7 @@ When running the Fabric CA client enroll command, it is possible the command fai
 ```
 Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
 ```
-{:codeblock}
+{:codeblock}  
 
 **Solution:**
 
@@ -778,9 +778,9 @@ will fail and produce the following error:
 
 ```
 !pw@9.12.19.115: event not found
-```
+```  
 
-#### **Solution:**
+**Solution:**
 {: #ibp-v2-apis-config-enroll-error2-solution}
 
 You need to either encode the special character or surround the url with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:

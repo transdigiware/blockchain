@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-06-25"
+lastupdated: "2020-08-19"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -210,14 +210,14 @@ For more information about MSPs, see [managing organizations](/docs/blockchain?t
 
 After you have [created a CA](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-create-CA-org2CA), used it to register identities, and created the [peer organization MSP](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-create-peers-org2), you're ready to create a peer.
 
-#### What role do peers play?
+**What role do peers play?**
 {: #ibp-console-join-network-peer-role}
 
 It's important to remember that organizations themselves do not maintain ledgers. Peers do. Organizations also use peers to sign transaction proposals and approve channel configuration updates. Because having at least two peers on a channel makes them highly available, having at least two peers joined to a channel is considered a best practice for production level implementations. In this tutorial, we'll only show the process for creating a single peer.
 
 From a resource allocation perspective, it is possible to join the same peers to multiple channels. The design of the peer ensures that the data from one channel cannot pass to another through the peer. However, because the peer will store a separate ledger for each channel, it is necessary to ensure that the peer has enough processing power and storage to handle the transaction and data load.
 
-#### Deploying your peer
+**Deploying your peer**
 {: #ibp-console-join-network-deploy-peer-role}
 
 Use your console to perform the following steps:
@@ -378,9 +378,9 @@ Because the console uses peers to gather information about the channels that the
 
 When you have created your CAs, identities, MSPs, ordering service, a peer, have added your peer organization to the consortium, and have imported the MSPs of any organizations who will be joined to this channel, navigate to the **Channels** tab in the left navigation. This is where channel creation and management are handled.
 
-When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.
+When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.  
 
-#### Creating the channel
+**Creating the channel**
 {: #ibp-console-build-network-channels-create}
 
 Perform the following steps from your console:
