@@ -553,7 +553,7 @@ As we noted earlier, a peer organization must be known to the ordering service b
 
 Because only ordering service admins can add peer organizations to the consortium, you will either need to **be** the ordering service admin or **send** MSP information to the ordering service admin.
 
-Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel (for video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
+Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel. For video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
 <p>
   <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
@@ -633,7 +633,7 @@ When you have created your CAs, identities, MSPs, ordering service, a peer, and 
 
 When you first navigate to this tab, it will be empty except for the **Create channel** and **Join channel** buttons. This is because you haven't created a channel and joined a peer to it yet.  
 
-**Creating the channel**  
+#### Creating the channel
 {: #ibp-console-build-network-channels-create}
 
 Perform the following steps from your console:
