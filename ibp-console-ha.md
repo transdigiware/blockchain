@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-07"
+lastupdated: "2020-08-21"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -252,7 +252,7 @@ The following node-specific guidance is provided to help plan your disaster reco
 |:---------|---------|
 | CAs must be stopped and backed up following the instructions provided in this topic. | You can restore a CA without impacting the peers or the ordering nodes ability to process transactions. |
 {: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
-{: #simpletabtable5}
+{: #simpletabtable1}
 {: tab-title="Certificate Authority (CA)"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
@@ -261,7 +261,7 @@ The following node-specific guidance is provided to help plan your disaster reco
 |:---------|:-----------------------|:----------------------------|
 | Peers must be stopped and backed up one at a time, following the instructions provided in this topic. It is recommended that you have more than one peer per channel, so they can be stopped and backed up individually. | Transaction processing on the peers will not stop, as long as you have more than one peer per organization.  | If the peers include private data collections, it is recommended that you coordinate the backup of the ordering nodes and all connected peer nodes during the same window (see the Ordering Service tab). |
 {: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
-{: #simpletabtable5}
+{: #simpletabtable2}
 {: tab-title="Peers"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
@@ -270,7 +270,7 @@ The following node-specific guidance is provided to help plan your disaster reco
 |:---------|:-----------------------|:--------|
 | To back up the ordering service, all the ordering nodes need to be stopped. You can do this by scaling down the deployments replica sets to 0, but you need to scale down the deployment for all nodes, back each one up, then scale back up all fives nodes. | Since the ordering service is down, transaction processing stops. | **If you are not using private data collections**, you can provision _new_ peers and rejoin the channels. The peers will sync up with the latest data from the  ordering service, then you can reinstall any chaincode. <br>Or, you can restore the peers from a backup older than the ordering nodes. In this case, the peers will only have to catch up from the last backup, which is faster. And you will only need to install any chaincode installed since the last backup. <br><br> **If you are using private data collections**, the peers must be restored to exactly the same block height as the orderers. The best way to ensure this is to backup all peers while the ordering service is also down for backup. |
 {: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
-{: #simpletabtable5}
+{: #simpletabtable3}
 {: tab-title="Ordering service"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
