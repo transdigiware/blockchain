@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-06"
+lastupdated: "2020-08-22"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -208,6 +208,9 @@ But if the `"certificateAuthorities"` section is empty and client application ne
 
 If the organization MSP was manually created by using certificates from an external CA, then there is no reason to add the CA to the connection profile. You cannot register and enroll users with an external CA from a client application.
 
+
+
+
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}
 
@@ -278,7 +281,7 @@ If the organization MSP was not created with [Node OU](#ibp-console-organization
 8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
 9. In the side panel, click **Add file** and select the updated MSP JSON file.
 10. Click **Update MSP definition**.
-11. If this organization MSP is a member of an ordering service consortium, you need to update the ordering service. From the **Nodes** tab, open the ordering service tile. Delete the existing consortium member which contains the original MSP definition, and then re-add the consortium with the new admin certificate by clicking **Add organization** and browsing to the new MSP JSON file from step six above. 
+11. If this organization MSP is a member of an ordering service consortium, you need to update the ordering service. From the **Nodes** tab, open the ordering service tile. Delete the existing consortium member which contains the original MSP definition, and then re-add the consortium with the new admin certificate by clicking **Add organization** and browsing to the new MSP JSON file from step six above.
 
 ### Adding a new channel admin certificate
 {: #ibp-console-organizations-new-admins-existing-channel}
@@ -297,6 +300,7 @@ First, perform the same steps as above for [Updating the organization MSP defini
 3. Click the channel member that you want to update.
 4. With the **Existing MSP ID** tab selected, browse to the updated MSP.
 5. Click **Update MSP definition**.
+
 
 ## Manually building an MSP JSON file
 {: #console-organizations-build-msp}
