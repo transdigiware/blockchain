@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-08-24"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -32,6 +32,8 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 {: #08-25-2020}
 
 **CA, Peer, and ordering node patch 1.4.7-2, 2.1.1-2**
+
+Miscellaneous bug fixes and security patches.  
 
 Certificate expiration dates have been added throughout the component details, making it easier to monitor and track certificate expiration dates. In addition, it is now possible to enable Node OU support for your MSPs and channels through the console. Read more about [Node OU support](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-nodeou), why this is important, and how to simplify certificate renewal for the MSPs on your network.
 
