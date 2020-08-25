@@ -46,6 +46,7 @@ This release also includes improved usability and security by using **Hyperledge
 
 
 
+
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020) for more details on the new features that are included in this release.
 
 
