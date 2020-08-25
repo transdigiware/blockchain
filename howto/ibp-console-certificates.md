@@ -153,7 +153,7 @@ Enabling Node OU support for an MSP definition is a two-part process. First, you
 3. Scroll down and click the channel member MSP definition that you just enabled Node OU support for.  The checkbox to enable Node OU support is selected by default.
 3. Select the existing MSP definition and the associated identity and click **Update MSP definition**.
 
-Because you likely still have admin certificates in the MSP that will expire, you still need to follow the manual steps in this topic to update them. But after you complete that process, it is not required again next year, since you have now enabled the Node OU support on the MSP.
+Because you likely still have admin certificates in the MSP that will expire, you still need to follow the manual steps in this topic to update them. But after you complete that process, you do not have follow the manual steps again next year after the certificates expire, since you have now enabled the Node OU support on the MSP.
 {: important}
 
 ## Certificate renewal and expiration
@@ -315,7 +315,7 @@ Before attempting these steps, be aware that these actions trigger a restart of 
 8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
 9. In the side panel, click **Add file** and select the updated MSP JSON file.
 10. Notice that the `Node OU` checkbox is selected for you which means that Node OU support will be enabled on the MSP and that you will not have to repeat this process again _in another year_ when the certificates expire. For now though, you still need to complete all of the steps in this manual renewal process.
-    ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 6. Import MSP with Node OU enabled" caption-side="bottom"}
+    ![Node OU checkbox]([Node OU checkbox](../images/nodeou-checkbox.png "Node OU checkbox")){: caption="Figure 6. Update MSP with Node OU enabled" caption-side="bottom"}
 11. Click **Update MSP definition**. All Peer and ordering nodes in this console that include this MSP as their node admin are automatically updated with the new MSP and restarted.
 12. **Export this updated MSP**, and in an out of band action, share the file with all of the members of the network who must import it into their console. It is important for them to import the updated MSP, so when they create a new channel, they are using the MSP definition with the latest admin certificate.  
 
