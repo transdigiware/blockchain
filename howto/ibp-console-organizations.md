@@ -229,6 +229,8 @@ If you need to add a new admin certificate to an existing organization MSP defin
 
 
 
+>
+
 ## Manually building an MSP JSON file
 {: #console-organizations-build-msp}
 
