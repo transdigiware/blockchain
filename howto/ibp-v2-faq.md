@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-17"
+lastupdated: "2020-08-25"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -163,6 +163,8 @@ See the port information in the Security topic that addresses this for the [cons
 {: faq}
 
 Yes. The Raft ordering service nodes are configured to use TLS communication. TLS is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and as well as between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
+
+
 
 ## What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-offchain-db}

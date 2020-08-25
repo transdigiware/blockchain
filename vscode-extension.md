@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-07"
+lastupdated: "2020-08-25"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -79,7 +79,7 @@ While the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling t
 - If you plan to work on Go smart contracts, you need to configure the Go extension to the editor in your developer workspace.
 
 ### Choose your Developer Tooling environment
-{: #develop-vscode-crw}
+{: #develop-vscode-crw-choose}
 
 <img usemap="#home_map" border="0" class="image" id="image_ztx_crb_f1b" src="images/rh-crw.png" width="188" h alt="Install Developer Tooling into Red Hat CodeReady Workspaces in the cloud." style="width:188px;" /><map name="home_map" id="home_map"><area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw" alt="Install Developer Tooling into Red Hat CodeReady Workspaces in the cloud" title="Install Developer Tooling into Red Hat CodeReady Workspaces in the cloud" shape="rect" coords="1,-4,187,71" /></map>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img usemap="#home_map2" border="0" class="image" id="image_ztx_crb_f1b" src="images/visual-studio.png" width="188" alt="Install the  {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension into Visual Studio on your local system." style="width:188px;" /><map name="home_map2" id="home_map"><area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-install" alt="Install the {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension into Visual Studio on your local system" title="Install the {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension into Visual Studio on your local system" shape="rect" coords="-2, 0, 192, 68" /></map>
 

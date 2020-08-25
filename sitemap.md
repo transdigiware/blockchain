@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-20"
+lastupdated: "2020-08-25"
 
 keywords: site map
 subcollection: blockchain
@@ -139,8 +139,6 @@ subcollection: blockchain
 
 [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview)
 
-[Video transcript](/docs/blockchain?topic=blockchain-ibp-console-overview#transcript-key-concepts)
-
 [What the {{site.data.keyword.blockchainfull_notm}} Platform offers](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities)
 
 [Supported {{site.data.keyword.cloud_notm}} configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg)
@@ -246,13 +244,11 @@ subcollection: blockchain
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
   * [The structure of this network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-structure)
 * [Step one: Create a peer organization and a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
-  * [Video transcript](/docs/blockchain?topic=blockchain-ibp-console-build-network#transcript-peer-video)
   * [Creating your peer organization's CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ca-admin)
   * [Using your CA to register identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
   * [Creating the peer organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
 * [Step two: Create the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer)
-  * [Video transcript](/docs/blockchain?topic=blockchain-ibp-console-build-network#transcript-orderer-video)
   * [Ordering in the console](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ordering-console)
   * [Creating your ordering service organization CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
@@ -260,7 +256,6 @@ subcollection: blockchain
   * [Creating the ordering service organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
   * [Deploy the ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
 * [Step three: Join the consortium hosted by the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org)
-  * [Video transcript](/docs/blockchain?topic=blockchain-ibp-console-build-network#transcript-channel-video)
   * [Add the organization to the consortium](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
 * [Step four: Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)
   * [Creating a channel: `channel1`](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1)
@@ -614,7 +609,7 @@ subcollection: blockchain
 * [Exporting and importing in bulk](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-bulk-export-import)
 * [Gathering certificates or credentials](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-start-here)
   * [Exporting and importing admin identities into the Wallet](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes-admin-identities)
-  * [Importing an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-msp)
+* [Importing an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-msp)
 * [Importing a peer](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-peer)
   * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-peer-before-you-begin)
   * [How to import a peer](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-peer-howto)
@@ -634,10 +629,6 @@ subcollection: blockchain
 * [Enrolling an identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll)
 * [Using your TLS CA](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca)
 * [Certificate renewal and expiration](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-expiration)
-  * [Automatic certificate renewal](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-cert-renewal)
-  * [Manual certificate renewal](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-manual-cert-renewal)
-  * [Expired certificates](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-expired-certs)
-* [Using the command line to view certificate expiration](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-cli-expiration)
 * [Storing identities in your console wallet](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet)
   * [Adding identities](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-add)
   * [Viewing and updating identities](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-update-identities)
@@ -652,14 +643,49 @@ subcollection: blockchain
 * [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile)
   * [Including a certificate authority in a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile-ca)
 * [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp)
-  * [Adding a new peer or orderer admin certificate](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins)
-  * [Adding a new channel admin certificate](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins-existing-channel)
 * [Manually building an MSP JSON file](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-build-msp)
 * [Importing an MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-import-msp)
 * [Adding an organization to a consortium](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-add-consortium)
 * [Creating and editing a channel](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-channel)
   * [Updating an MSP in a channel definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-update-channel)
 * [Removing an organization](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-remove)
+
+[Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates)
+* [Certificate authorities](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-network-ca)
+  * [Registration with the Network Monitor](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel)
+  * [Generating client-side certificates (enrollment)](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enrollment)
+  * [Generating certificates using the Network Monitor](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-certs-panel)
+  * [Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)
+  * [Certificate expiration](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-expiration)
+* [Using TLS Certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-tls)
+  * [Retrieving domain name from TLS certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-retrieve-domain)
+* [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)
+* [Enrollment and registration by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient)
+  * [Enrolling by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-app-caclient)
+  * [Registering by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#register-app-caclient)
+
+[Managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt)
+* [Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-cert-mgmt##cert-mgmt-network-ca)
+* [Overview](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-overview)
+* [Node OU support](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-nodeou)
+* [Certificate renewal and expiration](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-renew-expiration)
+  * [Automatic certificate renewal](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-auto-renewal)
+  * [Certificate types and actions](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-cert-types)
+* [Manual certificate renewal](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-renewal)
+  * [Step one: Enroll new identity](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-enroll)
+  * [Step two: Update organization MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-msp)
+  * [Step three: Associate new admin identity on peer or ordering service](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-node-identity)
+  * [Step four: Update peer organization MSP on application channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel-peer)
+  * [Step five: Update channel member on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-channel-member)
+  * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-admin)
+  * [Step seven: Update orderer organization MSP on channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel)
+* [Bulk admin certificate renewal with Ansible playbooks](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-bulk-ansible)
+* [Expired certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs)
+  * [How to fix expired Admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin)
+  * [How to fix expired enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-ecerts)
+* [Using the command line to view certificate expiration](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-cli-expiration)
+* [Export an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-export-msp)
+* [Import an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-import-msp)
 
 [Managing deployed components](/docs/blockchain?topic=blockchain-ibp-console-govern-components)
 * [Considerations when reallocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources)
@@ -684,7 +710,7 @@ subcollection: blockchain
 * [Before you begin](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-before)
   * [What are the benefits of CodeReady Workspaces?](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-why)
   * [Current limitations of the CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-limits)
-  * [Choose your Developer Tooling environment](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw)
+  * [Choose your Developer Tooling environment](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-choose)
 * [Install Developer Tooling into Red Hat CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw)
   * [Next steps](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-next)
 * [Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension for free](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-install)
@@ -1140,6 +1166,8 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[25 Aug 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-25-2020)
 
 [14 July 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#07-14-2020)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-13"
+lastupdated: "2020-08-25"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -140,18 +140,23 @@ You will need to:
 * **Select a CA**. This should be the CA used to create your MSP.
 * **Enter an enroll ID and secret**. Again, if you created an enroll ID and secret for your existing ordering nodes, you may use the same enroll ID and secret here.
 * **Select an MSP**. If you are adding to an ordering service you created in your console, reuse the MSP you used when creating that ordering service. If the new node is being added to an ordering service created elsewhere, use the MSP you exported to that console.
+* **Choose a Fabric version for the new node**. Note that this must be the same Fabric version used by the other nodes in the ordering service. If you choose a different Fabric version, the new node will be unable to join the consenter set.
 * **Associate identity**. You will only have to associate an identity if you are using a different MSP from the MSP that was originally used when creating the ordering service.
+
+The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who to want specify a custom domain name that can be used to address the ordering service endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
+{:tip}
 
 **Task: Create an ordering service**
 
-  |  | **Display name** | **MSP ID** | **Enroll ID** | **Secret** |
+  |  | **Display name** | **MSP ID** | **Enroll ID** | **Secret** | **Version**
   | ------------------------- |-----------|-----------|-----------|-----------|
-  | **Add another node** | Ordering Service_2 ||||
-  | **CA** | Ordering Service2 CA ||||
-  | **Ordering Service Identity** | |  | OS2 | OS2pw |
-  | **Organization MSP** | Ordering Service2 MSP | os2msp |||
-  | **Administrator certificate** | Ordering Service2 MSP ||||
-  | **Associate identity** | Ordering Service2 MSP Admin   |||||
+  | **Add another node** | Ordering Service_2 |||||
+  | **CA** | Ordering Service2 CA |||||
+  | **Ordering Service Identity** | |  | OS2 | OS2pw ||
+  | **Organization MSP** | Ordering Service2 MSP | os2msp ||||
+  | **Fabric version** ||||| Version of nodes in existing ordering service |
+  | **Administrator certificate** | Ordering Service2 MSP |||||
+  | **Associate identity** | Ordering Service2 MSP Admin   ||||||
   {: caption="Table 2. Create an ordering service" caption-side="bottom"}
 
 After reviewing the **Summary** page, click **Add another node**. This will submit the creation request.

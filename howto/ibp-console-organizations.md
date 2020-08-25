@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-06"
+lastupdated: "2020-08-25"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -208,6 +208,7 @@ But if the `"certificateAuthorities"` section is empty and client application ne
 
 If the organization MSP was manually created by using certificates from an external CA, then there is no reason to add the CA to the connection profile. You cannot register and enroll users with an external CA from a client application.
 
+
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}
 
@@ -223,80 +224,12 @@ To update your MSP:
 - Click **Update MSP definition**.
 - Re-export this MSP to all of the members of the network.
 
-If you need to add a new admin certificate to an existing organization MSP definition, refer to the following tasks:
-- Add the certificate of an additional member of the peer's organization who can list and install a smart contract on a peer. See this section for [instructions](#ibp-console-organizations-new-admins).
-- Add the certificate of an additional member of the channel's operator organization who can instantiate a smart contract on an **existing** channel and can submit and approve updates to the channel. See this section for [instructions](#ibp-console-organizations-new-admins-existing-channel).
+If you need to add a new admin certificate to an existing organization MSP definition, refer to the topic on [managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt).
 
-### Adding a new peer or orderer admin certificate
-{: #ibp-console-organizations-new-admins}
 
-Because peer and orderer administrators can change over time, or because admin certificates expire every year, you will need to update your MSP admin certificates. You can add new peer or orderer administrators by updating their associated organization MSP definition to include the admin certificates of additional admin identities or new certificates to replace expired ones. Recall that a peer admin identity is required to install a smart contract on a peer and list the smart contracts that are already installed on the peer. When the certificate expires, the peer admin will no longer be able to install smart contracts on the peer.
 
-When you update an organization MSP definition with a new admin cert, the associated peer or orderer nodes are also updated with the modified MSP definition. This update process includes an automatic restart of the associated nodes, which means they are unavailable for a brief period of time while they restart. If client applications are sending transactions to the nodes during this period, the transactions might need to be resubmitted. Note that imported peer or ordering nodes, or nodes that were not created by using your console, are not updated.
-{: important}
 
-#### Before you begin
-{: #ibp-console-organizations-new-admins-before}
 
-In order to complete this process, you need to generate new certificates for the admin identity. If you already have the certificates because you re-enrolled an existing admin identity after its certificate expired, you can skip this section. Otherwise, you need to register and enroll the new peer or orderer admin identity with the same CA that the existing peer or orderer admin was registered with.
-
-1. Follow the steps to [register a new peer or orderer admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register).
-2. Follow the steps to [enroll the new admin identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll), which generates the Certificate and private key for the new admin identity. Be sure to download the generated certificate and private key PEM files to your file system and add the identity to your Wallet.
-3. If the certificate was not created by the console, for example if the Fabric CA client or Fabric SDK was used to generate the certificate, then you need to convert the certificate string from PEM format to base64 format by running the following command:
-
-```
-export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
-cat <certificate.pem> | base64 $FLAG
-```
-{: codeblock}
-
-Replace `<certificate.pem>` with the name of the certificate PEM file that you downloaded.
-
-#### Node Organizational Unit (OU) support
-{: #ibp-console-organizations-nodeous}
-
-Recall that when you register a user with the CA, you need to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} Platform when  Fabric v1.4.3 was included and contains support for **Node OUs** in MSPs and channels. This new capability means that when the MSP admin identity is **enrolled** during MSP creation, the generated signed certificate includes the `admin` type as an OU inside the certificate instead of including the signed certificate of the admin identity in the `admincerts` folder of the MSP. You can learn more about the benefits of Node OUs in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.
-
-Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OU support was added to the platform in December 2019,  do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert for the MSP admin was placed in the `admincerts` folder. The platform supports both patterns, but if the Node OU configuration was not enabled when the organization MSP was created, additional steps are required after certificate renewal to update the MSP and any channels that the organization is part of. The detailed steps are included later in this section.
-
-To determine whether your organization MSP is enabled with the Node OU configuration, open the MSP in the **Organizations** tab and examine the **Node OU** setting.
-
-![Node OU configuration for MSP](../images/nodeou.png "Node OU configuration for MSP"){: caption="Figure 4. Node OU configuration for MSP" caption-side="bottom"}
-
-#### Updating the organization MSP definition
-{: #ibp-console-organizations-new-admins-steps}
-
-If the organization MSP was not created with [Node OU](#ibp-console-organizations-nodeous) support enabled, then you also need to update the associated organization MSP definition with the new public admin certificate. When an organization MSP is created and Node OU configuration is enabled, the admin role is inserted directly into the generated admin certificate and therefore the MSP does not need to be updated.  When the Node OU configuration is not enabled, you need to perform the following additional steps:
-
-1. Open the **Nodes** tab in your console.
-2. Find the node that requires the admin certificate update. The MSP name is listed on the tile. Make a note of the MSP name.
-3. Open the **Organizations** tab.
-4. Locate the MSP tile for the organization and click the **Export** icon.
-5. Open the downloaded MSP JSON file in a text editor.
-6. Edit the `admins` element by pasting the new base64-encoded certificate string that you generated in the previous section to the end of the list of comma-separated admin certificates. If the identity was created by using the console, you can open the identity file that you exported and use the string from the `cert` field.
-7. Save your changes.
-8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
-9. In the side panel, click **Add file** and select the updated MSP JSON file.
-10. Click **Update MSP definition**.
-11. If this organization MSP is a member of an ordering service consortium, you need to update the ordering service. From the **Nodes** tab, open the ordering service tile. Delete the existing consortium member which contains the original MSP definition, and then re-add the consortium with the new admin certificate by clicking **Add organization** and browsing to the new MSP JSON file from step six above. 
-
-### Adding a new channel admin certificate
-{: #ibp-console-organizations-new-admins-existing-channel}
-
-Follow these instructions when you need to insert a new admin certificate for one that expired or add a new admin certificate of another member from the same organization who can instantiate a smart contract on an existing channel and can submit and approve channel updates. This task requires you to download and edit the existing MSP definition and add the new admin certificate and then update the MSP for the channel member.
-
-If you need to add a new organization as a channel admin, see this topic on [Updating a channel configuration](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel).
-{: note}
-
-As with all channel updates, this update needs to be performed by a channel operator and the change will follow the channel update approval process according to the policy that was configured when the channel was created.
-
-First, perform the same steps as above for [Updating the organization MSP definition](#ibp-console-organizations-new-admins-steps). Then, if the organization MSP was not created with the [Node OU](#ibp-console-organizations-nodeous) configuration enabled, you also need to update the associated channels that include the organization definition with the new public admin certificate. When the `Node OU` configuration is enabled, the admin role is inserted directly into the generated certificate and the channel MSP does not need to be updated. When the `Node OU` configuration is not enabled on the MSP, you need to perform the following steps:
-
-1. Open the channel to be updated in the console.
-2. Click **Channel details** and scroll down to **Channel members**.
-3. Click the channel member that you want to update.
-4. With the **Existing MSP ID** tab selected, browse to the updated MSP.
-5. Click **Update MSP definition**.
 
 ## Manually building an MSP JSON file
 {: #console-organizations-build-msp}
