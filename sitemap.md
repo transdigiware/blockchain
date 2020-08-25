@@ -172,7 +172,7 @@ subcollection: blockchain
 
 [May 20, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-05-20-2020)
 
-[March 24, 2020](/docs/blockchain?topic=blockchain-whats-new#pg-whats-new-03-24-2020)
+[March 24, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-03-24-2020)
 
 [February 14, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-2-14-2019)
 

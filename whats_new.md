@@ -59,7 +59,7 @@ If you are an Enterprise customer who is migrating to the {{site.data.keyword.bl
 {: note}
 
 ## March 24, 2020
-{: #pg-whats-new-03-24-2020}
+{: #whats-new-03-24-2020}
 
 
 
