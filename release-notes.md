@@ -35,7 +35,7 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 
 Miscellaneous bug fixes and security patches.  
 
-Certificate expiration dates have been added throughout the component details, making it easier to monitor and track certificate expiration dates. See [Certificate Management](/docs/blockchain?topic=blockchain-cert-mgmt) to learn more about your responsibilities. In addition, it is now possible to enable Node OU support for your MSPs and channels through the console. Read more about [Node OU support](https://test.cloud.ibm.com/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-nodeou), why this is important, and how to simplify certificate renewal for the MSPs on your network.
+Certificate expiration dates have been added throughout the component details, making it easier to monitor and track certificate expiration dates. See [Certificate Management](/docs/blockchain?topic=blockchain-cert-mgmt) to learn more about your responsibilities. In addition, it is now possible to enable Node OU support for your MSPs and channels through the console. Read more about [Node OU support](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-nodeou), why this is important, and how to simplify certificate renewal for the MSPs on your network.
 
 
 
