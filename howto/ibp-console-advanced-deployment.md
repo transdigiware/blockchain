@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-19"
+lastupdated: "2020-08-25"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -757,7 +757,7 @@ A common use case would be to override some of the default timeouts, or peer pri
 {: codeblock}
 
 #### Providing your own customizations when you create a peer
-{: #ibp-console-adv-deployment-peer-create-json}
+{: #ibp-console-adv-deployment-peer-create-json-own}
 
 After you click **Create a peer** on the nodes tab and step through the peer configuration panels, you can click **Edit configuration** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can still insert your own customizations.
 

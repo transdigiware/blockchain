@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-22"
+lastupdated: "2020-08-25"
 
 keywords: Pricing, pricing examples
 
@@ -60,8 +60,8 @@ For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes,
 | **Total Resources** |  | **vCPU:** 1.65<br> **RAM:** 3.9GB<br> **Storage:** 240GB|  **vCPU:** 1.2<br> **RAM:** 3.0GB<br> **Storage:** 120GB|
 | **Approximate Total Cost** <br> (per hour) | |**IBP:** 1.65vCPU x .29/hr = $0.48 USD  <br> **IKS***:** **$0.31 USD <br> **Storage:** $0.05 USD** <br><br>** **Total:** 0.84 USD/hr <br> <br> ***IKS 4x16 single node cluster with IP allocation (Shared hardware)| **IBP:** 1.2vCPU x .29/hr = $0.35 USD  <br> **IKS***:** **$0.13 USD <br> **Storage:** $0.03 USD <br><br> **Total:** 0.51 USD/hr  <br> <br> ***IKS 2x4 single node cluster with IP allocation (Shared hardware)|
 | **Approximate Total Cost** <br> (per month) | |**IBP:** $346 USD  <br> **IKS:** $224 USD <br> **Storage:**$36 USD <br><br> **Total Base Cost:** $606 USD|  **IBP:** $252 USD  <br> **IKS:** $94 USD <br> **Storage:**$22 USD <br><br> **Total Base Cost:** $368 USD | |
-{: caption="Table 1. Pricing Scenarios" caption-side="top"}
-{: #simpletabtable5}
+{: caption="Table 1. Functional Test/Demo Pricing Scenarios" caption-side="top"}
+{: #simpletabtable1}
 {: tab-title="Functional Test/Demo"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
@@ -73,8 +73,8 @@ For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes,
 | **Approximate Total Cost** <br> (per hour) | |**IBP:** 9.6vCPU x .29/hr = $2.79 USD  <br> **IKS***:** **$1.59 USD <br> **Storage** (Bronze): $0.81 USD <br><br> **Total:** $5.19 USD/hr <br> <br> *** IKS 1 zone x 3 node - 8 x 32 cluster with IP allocation (Shared hardware)| **IBP:** 4.5vCPU x .29/hr = $1.31 USD  <br> **IKS***:** **$0.90 USD <br> **Storage** (Bronze): $0.31 USD <br><br> **Total:** 2.52 USD/hr <br><br> *** IKS 1 zone x 3 node - 4 x 16 cluster with IP allocation (Shared hardware)|
 | **Approximate Total Cost** <br> (per month) | |**IBP:** $2,008 USD  <br> **IKS:** $1,145 USD <br> **Storage** (Bronze):$584 USD  <br><br>**Total Base Cost:** $3,737 USD|  **IBP:** $944 USD  <br> **IKS:** $648 USD <br> **Storage** (Bronze):$224 USD <br><br> **Total Base Cost:** $1,816 USD |
 | **Optional upgrades** | | **HA CA (PostgreSQL):** +$40 USD/month <br><br> **HSM (when available):** +$1,250 USD/month <br><br> **Storage (Silver):**+$224 USD/month <br> <br> **LogDNA:** $1.50/GB/Month (7 day search) <br><br> **Sysdig:** 0.035/hour/node (up to 20 containers)|**HA CA (PostgreSQL):** +$40 USD/month <br><br> **HSM (when available):** +$1,250 USD/month <br><br> **Storage (Silver):**+$105 USD/month  <br><br> **LogDNA:** $1.50/GB/Month (7 day search) <br><br> **Sysdig:** 0.035/hour/node (up to 20 containers) | |
-{: caption="Table 1. Pricing Scenarios" caption-side="top"}
-{: #simpletabtable5}
+{: caption="Table 2. Pilot Pricing Scenarios" caption-side="top"}
+{: #simpletabtable2}
 {: tab-title="Pilot"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
@@ -87,8 +87,8 @@ For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes,
 | **Approximate Total Cost** <br> (per hour) | |**IBP:** 12.8vCPU x .29/hr = $3.71 USD  <br> **IKS***:** **$2.74 USD <br> **Storage** (Silver): $1.21 USD  <br><br> **Total:** $7.67 USD/hr <br> <br> *** IKS 3 zone x 3 node - 4x16 cluster with IP allocation and load balancer (Shared hardware)| **IBP:** 7.6vCPU x .29/hr = $2.20 USD  <br> **IKS***:** **$1.85 USD <br> **Storage** (Silver): $0.46 USD <br><br> **Total:** $4.51 USD/hr <br><br> *** IKS 3 zones x  2 node - 4 x16 cluster with IP allocation and load balancer (Shared hardware)|
 | **Approximate Total Cost** <br> (per month) | **HA CA PostgreSQL config:** <br>5 GB disk, 1 GB RAM, 10GB for backups, 1 vCPU|**IBP:** $2,671 USD  <br> **IKS:** $1,972 USD <br> **Storage** (Silver):$871 USD <br> **HA CA (PostGreSql):** $40 USD <br>**Storage costs for backups:**$224 USD <br><br>**Total Base Cost:** $5,778 USD <br><br> **LogDNA:** $1.50/GB/Month (7 day search)<br> <br> **Sysdig:** 0.035/hour/node (up to 20 containers)|  **IBP:** $1,584 USD  <br> **IKS:** $1,332 USD <br> **Storage**(Silver):$331 USD <br> <br> **HA CA (PostGreSql):** $40 USD <br>**Storage costs for backups:**$180 USD <br><br> **Total Base Cost:** $3,467 USD <br><br> **LogDNA:** $1.50/GB/Month (7 day search) <br><br> **Sysdig:** 0.035/hour/node (up to 20 containers) |
 | **Optional upgrades** | | **HSM (when available):** +$1,250 USD/month <br><br> **Dedicated  IKS hardware:** +$1,848 USD/month <br>|**HSM (when available):** +$1,250 USD/month <br><br> **Dedicated  IKS hardware:** +$1,236 USD/month  | |
-{: caption="Table 1. Pricing Scenarios" caption-side="top"}
-{: #simpletabtable5}
+{: caption="Table 3. Pre-Production/Production Pricing Scenarios" caption-side="top"}
+{: #simpletabtable3}
 {: tab-title="Pre-Production/Production"}
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}

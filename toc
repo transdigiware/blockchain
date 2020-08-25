@@ -51,6 +51,7 @@ IBM Blockchain Platform for IBM Cloud
 		howto/ibp-console-import-nodes.md
 		howto/ibp-console-identities.md
 		howto/ibp-console-organizations.md
+		howto/ibp-console-certificates.md
 		howto/ibp-console-govern-components.md
 		howto/ibp-v2-operations-service.md
 

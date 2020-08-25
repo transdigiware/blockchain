@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-08-25"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -405,9 +405,9 @@ After the local test in the previous step is successful, you are ready to deploy
   {: codeblock}
     These instructions are obviously for the Docker registry. If you are using the {{site.data.keyword.IBM_notm}} Container Registry, then you need to set up your own image pull secret in your cluster (doing so will allow you to deploy containers to Kubernetes namespaces other than default). This also implies that you'll need to define a corresponding image pull secret entry in the deployment YAML file. See the following links for further details:
 
-      - [Using an image pull secret to access images in other IBM Cloud accounts or external private registries from non-default Kubernetes namespaces](https://cloud.ibm.com/docs/containers?topic=containers-registry#other)
-      - [Copying an existing image pull secret](https://cloud.ibm.com/docs/containers?topic=containers-registry#copy_imagePullSecret)
-      - [Referring to the image pull secret in your pod deployment](https://cloud.ibm.com/docs/containers?topic=containers-images#pod_imagePullSecret)
+      - [Using an image pull secret to access images in other IBM Cloud accounts or external private registries from non-default Kubernetes namespaces](/docs/containers?topic=containers-registry#other)
+      - [Copying an existing image pull secret](/docs/containers?topic=containers-registry#copy_imagePullSecret)
+      - [Referring to the image pull secret in your pod deployment](/docs/containers?topic=containers-images#pod_imagePullSecret)
 3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>  Copy and paste the following text to a file named `service.yaml`:
 
   ```yaml
@@ -508,7 +508,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   When you create this deployment on your Kubernetes infrastructure, Kubernetes will attempt to download your Docker image from the specified image registry. You could replace `<DOCKER-IMAGE>` with something similar to `us.icr.io/ns/hsm-proxy:latest`. This tells the Kubernetes environment that the hsm-proxy:latest image should be downloaded from a server whose hostname is `us.icr.io`.
 
-  If you are deploying to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](https://cloud.ibm.com/docs/containers?topic=containers-registry){: external}.
+  If you are deploying to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, then more than likely you will be using the IBM Container Registry as your private image repository. For details on how to leverage this service for hosting your images, see [Setting up an image registry](/docs/containers?topic=containers-registry){: external}.
 
 5. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, run the following commands using the Kubernetes CLI from your HSM client:
 
