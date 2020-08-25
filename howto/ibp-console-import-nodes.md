@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-07"
+lastupdated: "2020-08-25"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -115,10 +115,10 @@ To import a new identity, open the **Wallet** tab and click **Add identity**. If
 
 After you complete the **Add identity** panel, you can view the new admin identity in your Wallet and select this identity when importing any nodes it is associated with. You will also be able to use this identity when creating new MSPs and components.
 
-### Importing an organization MSP definition
+## Importing an organization MSP definition
 {: #ibp-console-import-msp}
 
-Because MSPs define an organization, they are used when creating channels, creating nodes (to identify which organization the node will belong to), and validating signatures. For the latter reason, **your MSP must be known (in other words, exported and then imported) by every member of every channel you belong to unless your organization will not be involved in validation or endorsement**.
+Because MSPs define an organization, they are required when creating channels, creating nodes (to identify which organization the node will belong to), and validating signatures. For the latter reason, **your MSP must be known (in other words, exported and then imported) by every member of every channel you belong to unless your organization will not be involved in validation or endorsement**.
 
 To act as an administrator for an organization, you must have an identity in your Wallet listed in the MSP as an admin of the organization. This means either importing the identity listed in the MSP or by following the process listed in [Updating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-govern-update-msp). This MSP can then be exported to the console where the added identity was created, making the exported identity able to act as an admin of the organization.
 
@@ -138,6 +138,8 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
  1. Navigate to the **Organizations** tab and click **Import MSP**.
  2. Browse to the MSP JSON file and click **Add file**.
  3. Click **Import MSP**.
+ 4. If the MSP is not enabled for **Node OU** support, then the checkbox to enable it is displayed and is automatically selected. Node OU support greatly simplifies the certificate renewal process, among other things, and is recommended. If you are the _originator_ of the MSP, you should go ahead and enable the Node OU support now. If another organization shared the MSP with you and you see the checkbox, it means that the organization that shared the MSP with you does not have Node OU support enabled. In order for Node OU to work properly, it has to be enabled on the MSP on all consoles where it is being used. Therefore, to avoid problems you should not enable it and uncheck the check box.
+    ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
  Repeat these steps for each organization that is included in your channel.
 

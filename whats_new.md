@@ -58,7 +58,7 @@ If you are an Enterprise customer who is migrating to the {{site.data.keyword.bl
 {: note}
 
 ## March 24, 2020
-{: #whats-new-03-24-2020}
+{: #pg-whats-new-03-24-2020}
 
 
 
@@ -74,7 +74,6 @@ The following enhancements are included in this latest release:
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020) for more details on the new features that are included in this release.
 
 We've streamlined the documentation. If you are an existing customer, you might notice that a new `Tutorials` section was added in the table of contents under `Learn`. We've aggregated all of the tutorials in a single location under the Tutorials heading to make them easier to find.
-
 
 
 ## February 14, 2020

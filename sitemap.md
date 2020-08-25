@@ -172,7 +172,7 @@ subcollection: blockchain
 
 [May 20, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-05-20-2020)
 
-[March 24, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-03-24-2020)
+[March 24, 2020](/docs/blockchain?topic=blockchain-whats-new#pg-whats-new-03-24-2020)
 
 [February 14, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-2-14-2019)
 
@@ -609,7 +609,7 @@ subcollection: blockchain
 * [Exporting and importing in bulk](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-bulk-export-import)
 * [Gathering certificates or credentials](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-start-here)
   * [Exporting and importing admin identities into the Wallet](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-nodes-admin-identities)
-  * [Importing an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-msp)
+* [Importing an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-msp)
 * [Importing a peer](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-peer)
   * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-peer-before-you-begin)
   * [How to import a peer](/docs/blockchain?topic=blockchain-ibp-console-import-nodes#ibp-console-import-peer-howto)
