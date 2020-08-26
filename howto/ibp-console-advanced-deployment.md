@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-08-26"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1340,7 +1340,9 @@ Configuring a node to use HSM is a three-part process:
 2. **Set up a PKCS #11 proxy**. The proxy enables the node to communicate with the HSM. [See Setting up a PKCS #11 proxy for HSM](#ibp-console-adv-deployment-pkcs11-proxy) for your HSM.
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
-### Setting up a PKCS #11 proxy for your HSM
+
+
+### Setting up an PKCS #11 proxy for your HSM
 {: #ibp-console-adv-deployment-pkcs11-proxy}
 
 An HSM is a hardware appliance that provides cryptographic processing services. In the context of a blockchain network, an HSM is used to generate and store private keys inside a tamper-resistent device. After you deploy the HSM, you need to also deploy a PKCS #11 proxy that allows the blockchain node to communicate with the HSM.  These instructions describe how to build the proxy image, how to deploy it to your cluster, and how to configure it.

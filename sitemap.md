@@ -576,7 +576,7 @@ subcollection: blockchain
 * [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
   * [What capability does HSM add to my blockchain node?](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-capability)
   * [Considerations when using HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-considerations)
-  * [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy)
+  * [Setting up an PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy)
   * [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node)
 
 [Advanced channel deployment and management](/docs/blockchain?topic=blockchain-ibp-console-govern)
