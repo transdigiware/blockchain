@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-08-26"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -137,8 +137,9 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
 
  1. Navigate to the **Organizations** tab and click **Import MSP**.
  2. Browse to the MSP JSON file and click **Add file**.
- 3. Click **Import MSP**.
- 4. If the MSP is not enabled for **Node OU** support, then the checkbox to enable it is displayed and is automatically selected. Node OU support greatly simplifies the certificate renewal process, among other things, and is recommended. If you are the _originator_ of the MSP, you should go ahead and enable the Node OU support now. If another organization shared the MSP with you and you see the checkbox, it means that the organization that shared the MSP with you does not have Node OU support enabled. In order for Node OU to work properly, it has to be enabled on the MSP on all consoles where it is being used. Therefore, to avoid problems you should not enable it and uncheck the check box.
+ 3. Click **Import MSP**.  
+ 
+ **Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to uncheck the Node OU check box.
     ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
  Repeat these steps for each organization that is included in your channel.
