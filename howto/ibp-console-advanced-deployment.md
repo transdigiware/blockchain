@@ -1342,7 +1342,7 @@ Configuring a node to use HSM is a three-part process:
 
 
 
-### Setting up an PKCS #11 proxy for your HSM
+### Setting up a PKCS #11 proxy for your HSM
 {: #ibp-console-adv-deployment-pkcs11-proxy}
 
 An HSM is a hardware appliance that provides cryptographic processing services. In the context of a blockchain network, an HSM is used to generate and store private keys inside a tamper-resistent device. After you deploy the HSM, you need to also deploy a PKCS #11 proxy that allows the blockchain node to communicate with the HSM.  These instructions describe how to build the proxy image, how to deploy it to your cluster, and how to configure it.
