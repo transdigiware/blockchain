@@ -138,7 +138,7 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
  1. Navigate to the **Organizations** tab and click **Import MSP**.
  2. Browse to the MSP JSON file and click **Add file**.
  3. Click **Import MSP**.  
- 
+
  **Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to uncheck the Node OU check box.
     ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
