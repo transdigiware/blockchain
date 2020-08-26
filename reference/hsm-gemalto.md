@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-08-26"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -65,7 +65,6 @@ Because only the private keys of node identities are secured in the HSM, when yo
   After the secure communications are configured, you can register the client with the HSM server and then assign the HSM partition to the client.
 
 - [Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy](#ibp-hsm-gemalto-part-four)
-
   You need to customize a set of `.yaml` files that are provided in these instructions in order to build the Docker image.
 
 - [Part Five: Deploy the Docker image onto your Kubernetes cluster](#ibp-hsm-gemalto-part-five)
@@ -80,7 +79,8 @@ These instructions require that [Docker](https://docs.docker.com/install/){: ext
 
 When the entire HSM configuration is complete, it will resemble the following diagram:
 
-![HSM with single partitions](../images/hsm_1proxy.svg "HSM with single partitions"){: caption="Figure 1. An example configuration of an HSM with a single partition. " caption-side="bottom"}
+![HSM with single partition](../images/hsm_1proxy.svg "HSM with single partitions"){: caption="Figure 1. An example configuration of an HSM with a single partition. " caption-side="bottom"}
+
 
 The steps in this topic focus specifically on the creation of the HSM and the HSM client in the middle and right columns of the diagram. After that process is complete you can follow instructions for [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to deploy the PKCS #11 proxy and configure a node with HSM. When you deploy a CA, peer, or ordering node to use the HSM, you provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. It is the combination of the PKCS #11 proxy and the HSM client that allows the node to store and retrieve the node private key from the HSM.
 
@@ -231,6 +231,8 @@ In this section you will get the HSM server certificate and create the HSM clien
    - Copy `server.pem` to `configs/server.pem`  
    - Copy `/usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>Key.pem` to `configs/key.pem`  
    - Copy `/usr/safenet/lunaclient/cert/client/<CLIENT_ADDRESS>.pem` to `configs/cert.pem`  
+
+
 
 ### Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy
 {: #ibp-hsm-gemalto-part-four}
@@ -542,6 +544,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   Save the value of the PCKS #11 proxy address for later when you configure a blockchain node to use HSM as it represents the **HSM proxy endpoint**.
   {: important}
+
 
 ### What's next
 {: #ibp-hsm-gemalto-next-steps}
