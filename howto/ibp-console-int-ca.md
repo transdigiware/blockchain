@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-27"
+lastupdated: "2020-08-26"
 
 keywords: intermediate CA, root CA, parent server, Certificate Authority
 
@@ -275,7 +275,7 @@ Your completed JSON looks similar to:
 You've registered the intermediate CA and intermediate TLS CA identities with the root CA and have built the JSON for the CA override. You are now ready to deploy the intermediate CA.
 
 1. From the **Nodes** tab, click **Add Certificate Authority** followed by **Create a Certificate Authority**.
-2. Give your intermediate CA a meaningful name and then provide the intermediate CA admin enroll ID and secret that you registered with the root CA. For example `icaadmin` and `icaadminpw`. You can leave the **Advanced deployment options** unchecked, none are required for an intermediate CA.
+2. Give your intermediate CA a meaningful name and then provide the intermediate CA admin enroll ID and secret that you registered with the root CA. For example `icaadmin` and `icaadminpw`. You can leave the **Advanced deployment options** deselected, none are required for an intermediate CA.
 3. On the **Summary** panel, click **Edit configuration JSON (Advanced)**.
 4. Delete the existing content from the **Configuration JSON** box and paste the JSON that you built in [Part Two](#ibp-ica-part-two), then click **Add Certificate Authority**.
 

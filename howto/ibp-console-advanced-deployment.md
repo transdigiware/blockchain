@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-08-26"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1339,6 +1339,8 @@ Configuring a node to use HSM is a three-part process:
 	- If you want to try out SoftHSM or learn more about the PCKS #11 proxy, continue to Part 2 **Set up a PKCS #11 proxy**.
 2. **Set up a PKCS #11 proxy**. The proxy enables the node to communicate with the HSM. [See Setting up a PKCS #11 proxy for HSM](#ibp-console-adv-deployment-pkcs11-proxy) for your HSM.
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
+
+
 
 ### Setting up a PKCS #11 proxy for your HSM
 {: #ibp-console-adv-deployment-pkcs11-proxy}
