@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-08-26"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -229,9 +229,9 @@ All new nodes are deployed using Hyperledger Fabric v1.4.3. If you have an exist
 ## 21 August 2019
 {: #08-21-2019}
 
-**Peer node patch `1.4.1-3`**
+**Peer node patch `1.4.1-3`**  
 
-With this patch, you now have the ability to upload additional admin identities for a peer. See [Adding new peer admin certificates](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-new-admins) for more information.
+With this patch, you now have the ability to upload additional admin identities for a peer. See [Adding new peer admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt) for more information.
 
 **Select peer zone** ({{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} only)  
 
