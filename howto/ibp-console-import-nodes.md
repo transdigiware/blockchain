@@ -68,9 +68,9 @@ In cases where users want to export and import all of the peers, CAs, ordering s
 
 While exporting and importing components in bulk is highly convenient for some use cases, there are important considerations to keep in mind:
 
-- While you have the option to check or uncheck the boxes representing peers, CAs, ordering services, MSPs, and identities, you cannot, for example, choose to export only some peers and not others. If the peer box is checked, every peer will be included in the ZIP, and likewise for other components.
+- While you have the option to check or deselect the boxes representing peers, CAs, ordering services, MSPs, and identities, you cannot, for example, choose to export only some peers and not others. If the peer box is checked, every peer will be included in the ZIP, and likewise for other components.
 - If a console has already imported some of the information contained in a bulk transfer, for example a few of the peers, duplicate representations of these components will appear in the console after performing the import. These duplicates do no harm, but it is a best practice to only have one representation of a component at a time. The same duplication will not occur when importing ordering nodes.
-- The **Identities** box is left unchecked in the export panel by default for reasons we discussed earlier: these identities contain private keys, therefore it is inadvisable to export them unless it is necessary to do so. Also, unlike MSPs and nodes, **the console does not permit duplicate identities**. If you attempt to import a bulk data ZIP that includes an identity that already exists in your console, the import will fail. Note once again that **all** identities will be sent in the bulk transfer, regardless of the other boxes you check. For example, if you only leave the peer box selected, and select identities, every identity in your Wallet will be sent, not just the identities relevant to the peer.
+- The **Identities** box is left deselected in the export panel by default for reasons we discussed earlier: these identities contain private keys, therefore it is inadvisable to export them unless it is necessary to do so. Also, unlike MSPs and nodes, **the console does not permit duplicate identities**. If you attempt to import a bulk data ZIP that includes an identity that already exists in your console, the import will fail. Note once again that **all** identities will be sent in the bulk transfer, regardless of the other boxes you check. For example, if you only leave the peer box selected, and select identities, every identity in your Wallet will be sent, not just the identities relevant to the peer.
 - However, if you do choose to export identities along with nodes, the associations between identities and nodes will persist along with the transfer. That is, you will not have to perform the extra step of clicking on nodes and associating an admin identity with them.
 - It is necessary that all of the members of a channel have the MSPs of all of the other members of a channel to allow for the validation of signatures. However, note that by selecting the MSPs button, **all** MSPs in your console would be exported, not just the MSPs relevant to a particular channel.
 
@@ -139,7 +139,7 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
  2. Browse to the MSP JSON file and click **Add file**.
  3. Click **Import MSP**.  
 
- **Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to uncheck the Node OU check box.
+ **Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to deselect the Node OU check box.
     ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
  Repeat these steps for each organization that is included in your channel.

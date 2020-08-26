@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-08-26"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -443,7 +443,7 @@ You can also import the {{site.data.keyword.blockchainfull_notm}} Platform netwo
 You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to use the extension to automatically discover the console and import the nodes.
 
 1. Navigate to the **Settings** tab in the left navigation. You can see a section that is called **Bulk data management** that contains two buttons. The **Export** button opens a panel on the right.  
-2. Check the box to export your identities. You can uncheck the other options.
+2. Check the box to export your identities. You can deselect the other options.
 3. Click **Export** to download the identities to your local file system in .zip file. Extract the file when the download is complete.
 
 You can then import the nodes of your network into the extension.
@@ -453,7 +453,7 @@ You can then import the nodes of your network into the extension.
 
 1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
 2. Select **Add an {{site.data.keyword.blockchainfull_notm}} Platform environment**.
-3. Select **Yes** when asked whether to connect to a {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
+3. Select **Yes** when asked whether to connect to an {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
 4. Select **Log in with username and password** or another method.
 5. Enter your {{site.data.keyword.cloud_notm}} username (email address).
 6. Enter your {{site.data.keyword.cloud_notm}} password.
@@ -466,7 +466,7 @@ You can then import the nodes of your network into the extension.
 
 1. Hover your mouse over the **Fabric Environments** pane and click **+**, **Add Environment**.
 2. Select **Add an {{site.data.keyword.blockchainfull_notm}} Platform environment**.
-3. Select **No** when asked whether to connect to a {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
+3. Select **No** when asked whether to connect to an {{site.data.keyword.blockchainfull_notm}} Platform service instance on {{site.data.keyword.cloud_notm}}.
 4. Enter the URL of the {{site.data.keyword.blockchainfull_notm}} Platform Console software instance.
 5. Enter the **User ID** for the console instance.
 6. Enter the **Password** for the console instance.
