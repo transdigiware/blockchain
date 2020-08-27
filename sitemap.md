@@ -130,7 +130,27 @@ subcollection: blockchain
   * [Configuring a custom storage class](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-custom)
 * [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr)
 * [Pricing and Billing information](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-pricing-billing)
-* [Deleting a service instance](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-delete-service-instance)
+* [Choose your deployment process](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-deploy-process)
+
+
+## Deployment options
+{: #sitemap_deployment_options}
+
+
+[Deploy from {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic)
+* [Deploy a Kubernetes cluster on {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-deploy-cluster)
+  * [Free {{site.data.keyword.IBM_notm}} Kubernetes Service clusters](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-deploy-cluster-free)
+* [Create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-create-service-instance)
+  * [Step one: Create and name the instance](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-create-service-instance-create)
+  * [Step two: Link the instance to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-steps)
+  * [Blockchain component deployment](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-components)
+* [(Optional) Add additional users to the console](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-add-users)
+* [Next steps](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-next-steps)
+* [Updating the Kubernetes version of your cluster](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-updating-kubernetes)
+* [How to assign Kubernetes access roles](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-k8x-access-roles)
+* [Post-install instructions](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-post-install)
+  * [Returning to your console from {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-rtn-to-console)
+* [Deleting a service instance](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-delete-service-instance)
 
 
 ## About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
@@ -167,6 +187,8 @@ subcollection: blockchain
 
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
+
+[August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
 
 [June 18, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-06-18-2020)
 

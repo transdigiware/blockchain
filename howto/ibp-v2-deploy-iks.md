@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-08-27"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -21,7 +21,117 @@ subcollection: blockchain
 {:pre: .pre}
 {:gif: data-image-type='gif'}
 
-
+<style>
+<!--
+    #tutorials { /* hide the page header */
+        display: none !important;
+    }
+    .allCategories {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    .categoryBox {
+        flex-grow: 1 !important;
+        width: calc(33% - 20px) !important;
+        text-decoration: none !important;
+        margin: 0 10px 20px 0 !important;
+        padding: 16px !important;
+        border: 1px #dfe6eb solid !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important;
+        text-align: center !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+    }
+    .solutionBoxContainer {}
+    .solutionBoxContainer a {
+        text-decoration: none !important;
+        border: none !important;
+    }
+    .solutionBox {
+        display: inline-block !important;
+        width: 100% !important;
+        margin: 0 10px 20px 0 !important;
+        padding: 16px !important;
+        background-color: #f4f4f4 !important;
+    }
+    @media screen and (min-width: 960px) {
+        .solutionBox {
+        width: calc(50% - 3%) !important;
+        }
+        .solutionBox.solutionBoxFeatured {
+        width: calc(50% - 3%) !important;
+        }
+        .solutionBoxContent {
+        height: 350px !important;
+        }
+    }
+    @media screen and (min-width: 1298px) {
+        .solutionBox {
+        width: calc(33% - 2%) !important;
+        }
+        .solutionBoxContent {
+        min-height: 350px !important;
+        }
+    }
+    .solutionBox:hover {
+        border: 1px rgb(136, 151, 162)solid !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important;
+    }
+    .solutionBoxContent {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .solutionBoxTitle {
+        margin: 0rem !important;
+        margin-bottom: 5px !important;
+        font-size: 14px !important;
+        font-weight: 900 !important;
+        line-height: 16px !important;
+        height: 37px !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-box-align: inherit !important;
+    }
+    .solutionBoxDescription {
+        flex-grow: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .descriptionContainer {
+    }
+    .descriptionContainer p {
+        margin: 0 !important;
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0 !important;
+        max-height: 70px !important;
+    }
+    .architectureDiagramContainer {
+        flex-grow: 1 !important;
+        min-width: calc(33% - 2%) !important;
+        padding: 0 16px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        background-color: #f4f4f4;
+    }
+    .architectureDiagram {
+        max-height: 175px !important;
+        padding: 5px !important;
+        margin: 0 auto !important;
+    }
+-->
+</style>
 
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks}
@@ -87,12 +197,12 @@ Before you begin:
 - Ensure that you have an [{{site.data.keyword.cloud_notm}} paid account](https://cloud.ibm.com/catalog/services/blockchain){: external}. If you do not have an account:
    1. Click the **Sign up** button.
    2. After you create a free trial account, upgrade it to a **Pay-As-You-Go** type by going to **Manage** > **Billing and Usage** > **Billing** in the {{site.data.keyword.cloud_notm}} console, and clicking **Add Credit Card**.
-   3. Ensure that the user has both Administrator and Manager roles for the Kubernetes cluster that they will link to their blockchain service instance. See these steps on [how to assign Kubernetes access roles](#ibp-v2-deploy-iks-k8x-access-roles) for more information.
+   3. Ensure that the user has both Administrator and Manager roles for the Kubernetes cluster that they will link to their blockchain service instance. See these steps on [how to assign Kubernetes access roles](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-k8x-access-roles) for more information.
 
 When you plan to use the service instance in the context of a broader organization-wide solution, it is recommended that the participating organizations use a functional email address to create their network. In this case, access to the network does not depend on any single individual's availability.
 {:tip}
 
-- If you plan to use an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}, ensure the version of Kubernetes it is running is between v1.15 - v1.18. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-updating-kubernetes).
+- If you plan to use an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}, ensure the version of Kubernetes it is running is between v1.15 - v1.18. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-updating-kubernetes).
 
 - Zero downtime is an important goal of your blockchain network. Review the topic on [High Availability](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-ha) for considerations when configuring your Kubernetes cluster and blockchain components.
 
@@ -348,20 +458,37 @@ After you create the storage class, run the `kubectl patch storageclass` command
 - See [Pricing](/docs/blockchain?topic=blockchain-ibp-saas-pricing) if you need to revisit the {{site.data.keyword.blockchainfull_notm}} Platform pricing information.
 - Your current {{site.data.keyword.cloud_notm}} usage information is available on your [usage tile](https://cloud.ibm.com/billing/){: external} of the {{site.data.keyword.cloud_notm}} dashboard and your bill is visible under [billing information](https://cloud.ibm.com/billing/billing-items){: external}. See this topic on [Billing](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-billing) for more details about how {{site.data.keyword.blockchainfull_notm}} Platform billing works.
 
+## Choose your deployment process
+{: #ibp-v2-deploy-iks-deploy-process}
 
+From your {{site.data.keyword.cloud_notm}} account, you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform service from either the {{site.data.keyword.cloud_notm}} Catalog or the Red Hat Marketplace.
 
-## Deleting a service instance
-{: #ibp-v2-deploy-iks-delete-service-instance}
+- **IBM Cloud Catalog** Use the IBM Cloud Catalog to deploy blockchain to an {{site.data.keyword.IBM_notm}} Kubernetes service or OpenShift cluster in {{site.data.keyword.cloud_notm}}. With this [software-as-a-service](#x4585386){: term} option, {{site.data.keyword.IBM_notm}} manages the maintenance and the updates to the console for you, but you can choose when to update your blockchain components.
+- **Red Hat Marketplace** OpenShift customers who are already familiar with the OpenShift Container (OC) [CLI](#x2051424){: term} and the Red Hat Marketplace may prefer to use this option. Note that with this option, you are responsible for the maintenance of your console and blockchain components.
+- **Multicloud** Not running an OpenShift or Kubernetes cluster in IBM Cloud? The {{site.data.keyword.blockchainfull_notm}} Platform 2.5 can be installed on your OpenShift or Kubernetes cluster in your cloud or on-prem. With this option as well, you are responsible for the maintenance of your console and blockchain components.  
 
-When you no longer need your service instance it can be deleted from your Kubernetes cluster to free up resources.  You can use the {{site.data.keyword.cloud_notm}} dashboard to delete your {{site.data.keyword.blockchainfull_notm}} Platform service instance.
-
-If the service instance contains organizations that are participating in an active network, you should remove the organization from the network before you delete the service instance. See [Removing an organization](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-remove) for more details.
-{: important}
-
-1. In your browser, open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. You need to log in with you {{site.data.keyword.IBM_notm}} ID.
-2. Under the **Services** twistie, locate the service instance you want to delete and click **Delete** on the Actions menu.
-
-**Choose this option carefully.** If you delete a service instance, the storage associated with each node is deleted and cannot be restored. All your ledger data will be deleted.
-{: important}
-
-If your service instance deletion fails, it could be because the Kubernetes cluster is not accessible. If this occurs, open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) to request the service instance deletion.
+<div class=solutionBoxContainer>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-create-service-instance">
+      <div>
+        <p><strong><img src="../images/IBMCloud.png" alt="IBM Cloud icon" width="25" style="width:25px; border-style: none"/> Deploy from IBM Cloud Catalog</p>
+        <p class="bx--type-caption">Use the IBM Cloud Catalog to deploy the Platform to an OpenShift or IBM Kubernetes service cluster in IBM Cloud.</p>
+      </div>
+    </a>
+  </div>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm">
+      <div>
+        <p><strong><img src="../images/logo_redhat.png" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/> Deploy from Red Hat Marketplace</p>
+        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the IBM Blockchain  Platform to an OpenShift cluster in IBM Cloud.</p>
+      </div>
+    </a>
+  </div>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-get-started-console-ocp#get-started-console-ocp-step-two-deploy-console">
+      <div>
+        <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>&nbsp;&nbsp;<img src="../images/kubernetes.png " alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>&nbsp;&nbsp; Deploy to another cloud or on-prem</p>
+        <p class="bx--type-caption"><strong>(Multicloud)</strong> Deploy the IBM Blockchain Platform to your OpenShift or Kubernetes cluster in your cloud or on-prem.</p>
+      </div>
+    </a>
+</div>
