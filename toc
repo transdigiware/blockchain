@@ -10,6 +10,11 @@ IBM Blockchain Platform for IBM Cloud
 		index.md
 		howto/ibp-v2-deploy-iks.md
 
+		{: .topicgroup}
+		Deployment options
+			howto/ibp-v2-deploy-iks-ic.md
+			[Deploy from Red Hat Marketplace](/blockchain-sw-25/blockchain-sw-25-deploy-ocp-rhm){: external}
+
 	howto/ibp-console.md
 	whats_new.md
 	blockchain_component_overview.md

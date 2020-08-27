@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-08-27"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -151,7 +151,7 @@ The ability to override the CA configuration by using the console or APIs is ava
 #### Why would I want to override a CA configuration?
 {: #ibp-console-adv-deployment-ca-customization-why}
 
-You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case.  For example, you might want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or change the default certificate expiration. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden by editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
+You can use the console to configure resource allocation, HSM, or the CA database and then edit the generated `JSON` adding additional parameters and fields for your use case.  For example, you might want to register additional users with the CA when the CA is created, or specify custom affiliations for your organizations. You can also customize the CSR names that are used when certificates are issued by the CA or add affiliations. These are just a few suggestions of customizations you might want to make but the full list of parameters is provided below. This list contains all of fields that can be overridden by editing the `JSON` when a CA is deployed. For more information about what each field is used for you can refer to the [Fabric CA documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/serverconfig.html){: external}.
 
 ```json
 {
