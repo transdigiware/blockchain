@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-27"
+lastupdated: "2020-08-28"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -325,7 +325,7 @@ From your {{site.data.keyword.cloud_notm}} account, you can deploy the {{site.da
 
 <div class=solutionBoxContainer>
   <div class="solutionBox">
-    <a href = "/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-create-service-instance">
+    <a href = "/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-create-service-instance">
       <div>
         <p><strong><img src="../images/IBMCloud.png" alt="IBM Cloud icon" width="25" style="width:25px; border-style: none"/> Deploy from IBM Cloud Catalog</p>
         <p class="bx--type-caption">Use the IBM Cloud Catalog to deploy the Platform to an OpenShift or IBM Kubernetes service cluster in IBM Cloud.</p>
