@@ -268,6 +268,7 @@ For more information about updating your applications to support mutual TLS, see
 
 ![Network preferences](images/network_preferences_ep_tmp.png "Network preferences"){: caption="Figure 17. Network preferences" caption-side="bottom"}
 
+
 ## Update network name
 {: #ibp-dashboard-network-name}
 

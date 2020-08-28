@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-27"
+lastupdated: "2020-08-28"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1022,7 +1022,7 @@ The need to customize the ordering node configuration is less common than the pe
 {: codeblock}
 
 #### Providing your own customizations when you create an ordering service
-{: #ibp-console-adv-deployment-orderer-create-json}
+{: #ibp-console-adv-deployment-orderer-create-json-custom}
 
 After you click **Add ordering service** on the nodes tab and step through the ordering service configuration panels, you can click **Edit configuration JSON** on the Summary panel to view and edit the `JSON`. Note that if you do not select any advanced options in the console, then the generated `JSON` is empty, but you can insert your own customizations.
 
