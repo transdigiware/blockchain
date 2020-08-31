@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-08-31"
 
 keywords: intermediate CA, root CA, parent server, Certificate Authority
 
@@ -38,7 +38,9 @@ Intermediate CAs are optional. Because an intermediate CA has its root certifica
 
 Another reason to include an intermediate CA would be when you have a very large organization with multiple departments and you don’t want a single CA to generate certificates for all of the departments. Intermediate CAs provide a mechanism for scoping the certificates that a CA manages to a smaller department or sub-group. This pattern though incurs significant overhead if there will only be a small number of members in the organization.
 
-As an alternative to deploying multiple intermediate CAs, you can limit the scope of a CA by [overriding the CA configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment&locale=en#ibp-console-adv-deployment-ca-customization-why) to specify available `affiliations` (similar to departments) instead. When a CA is configured with affiliations, the affiliation of the registrar must be equal to or a prefix of the affiliation of the identity being registered. See the Fabric CA topic on [registering identities](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} for more details.
+As an alternative to deploying multiple intermediate CAs, you can limit the scope of a CA by [overriding the CA configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization) to specify available `affiliations` (similar to departments) instead. When a CA is configured with affiliations, the affiliation of the registrar must be equal to or a prefix of the affiliation of the identity being registered. See the Fabric CA topic on [registering identities](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#registering-a-new-identity){: external} for more details.
+
+
 
 The following diagram illustrates how the root CA issues the certificates for the intermediate CA and the intermediate CA then issues the certificates for the nodes and users in the organization.
 ![Intermediate CA](../images/int_ca.svg "Intermediate CA"){: caption="Figure 1. Intermediate CA in the network." caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-08-31"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1307,7 +1307,7 @@ After you create the `JSON` file with all of the certificates for the ordering n
 You have gathered all of your peer or ordering service certificates from your third-party CA, created their corresponding organization MSP definition and created a peer or ordering service. If you are following along in the tutorials, you can return to the next step.
 - If you created the peer node, the next step is to [Create the node that orders transactions](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer).
 - If you created the node to join an existing network, the next step is to [Add your organization to list of organizations that can transact](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-add-org2).
-- If you created an ordering service, the next step is to [Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel#ibp-console-build-network-create-channel).
+- If you created an ordering service, the next step is to [Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel).
 
 ## Configuring a node to use a Hardware Security Module (HSM)
 {: #ibp-console-adv-deployment-cfg-hsm}
