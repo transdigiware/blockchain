@@ -63,8 +63,6 @@ See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#
 
 
 
-
-
 ## May 20, 2020
 {: #whats-new-05-20-2020}
 
@@ -73,26 +71,19 @@ In addition to being able to link your {{site.data.keyword.blockchainfull_notm}}
 If you are an Enterprise customer who is migrating to the {{site.data.keyword.blockchainfull_notm}} Platform, you must link your blockchain service instance to an {{site.data.keyword.cloud_notm}} Kubernetes service cluster. OpenShift clusters are not supported for Enterprise migration.
 {: note}
 
-
-
 ## March 24, 2020
 {: #whats-new-03-24-2020}
 
-
-
-The following enhancements are included in this latest release: 
+The following enhancements are included in this latest release:
 - Support for Hyperledger Fabric v1.4.6
 - Hardware Security Module (HSM) support for node identities
 - Support for adding and removing ordering nodes from an existing ordering service
 - Ability to override default CA, peer, ordering node configuration
 - Full Java smart contract development support
 
-
-
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020) for more details on the new features that are included in this release.
 
 We've streamlined the documentation. If you are an existing customer, you might notice that a new `Tutorials` section was added in the table of contents under `Learn`. We've aggregated all of the tutorials in a single location under the Tutorials heading to make them easier to find.
-
 
 
 ## February 14, 2020
@@ -352,4 +343,5 @@ This release also debuts some improvements to the documentation table of content
 {: #whats-new-8-11-2017}
 
 {{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan. For more information, see [About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
+
 
