@@ -108,7 +108,7 @@ To update the email address of the console administrator that was configured whe
 
 When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you might need to view logs to debug an issue.
 
-If you need to view your {{site.data.keyword.IBM_notm}} Cloud account or {{site.data.keyword.blockchainfull_notm}} Platform service instance logs on the {{site.data.keyword.IBM_notm}} cluster, open a support ticket.
+If you need to obtain all {{site.data.keyword.IBM_notm}}-side log references to IBM Blockchain Platform from your instance or {{site.data.keyword.cloud_notm}} account, open a support ticket.
 {: note}
 
 ### Viewing your console logs
