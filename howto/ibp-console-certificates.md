@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-08-31"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -102,7 +102,7 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull_notm}} Platform manages most of the certificate operations without users needing to handle their certificates. However, there are times when you need to manage the certificates that allow you to communicate with the network, such as developing applications or renewing certificates before they expire. This topic is a short guide to your Certificate Authority, and the underlying certificate infrastructure. This information can help you understand the certificates that you will be working with and the tasks you are responsible for.
 
 ## Certificate Authorities (CAs)
-{: ##cert-mgmt-network-ca}
+{: #cert-mgmt-network-ca}
 
 Certificate authorities (CAs) provide identity on the network. A CA can be considered as a publicly trusted notary that acts as an anchor of trust among multiple parties. All entities in the network are given a certificate that is signed by a root CA that encapsulates their digital identity. This certificate is the root of trust for all the sign and verify operations that are performed on the network. For more details about how certificate authorities are used to establish identity, see [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.1/identity/identity.html){: external}.
 

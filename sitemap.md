@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-08-31"
 
 keywords: site map
 subcollection: blockchain
@@ -678,7 +678,7 @@ subcollection: blockchain
   * [Registering by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#register-app-caclient)
 
 [Managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt)
-* [Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-cert-mgmt##cert-mgmt-network-ca)
+* [Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-network-ca)
 * [Overview](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-overview)
 * [Node OU support](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-nodeou)
 * [Certificate renewal and expiration](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-renew-expiration)

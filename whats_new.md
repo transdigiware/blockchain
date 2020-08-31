@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-27"
+lastupdated: "2020-08-31"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -22,16 +22,16 @@ subcollection: blockchain
 # What's new
 {: #whats-new}
 
+
+
 ## August 27, 2020
 {: #whats-new-08-19-2020}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto OpenShift clusters from the Red Hat Marketplace, an open cloud catalog that makes it easier to discover and access certified software. Red Hat certified {{site.data.keyword.blockchainfull_notm}} Platform operator images are available in the marketplace and accessible from your OpenShift web console. This new deployment option is immediately available to deploy on any Red Hat OpenShift 4.3+ cluster, and provides a fast, integrated experience for deploying the blockchain console that can be used to create Certificate Authorities (CAs), peers, and ordering nodes, in the public cloud. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm) to learn how.
 
 
-
 ## June 18, 2020
 {: #whats-new-06-18-2020}
-
 
 
 {{site.data.keyword.blockchainfull_notm}} Platform  provides tighter integration with Red Hat solutions, including additional integration with Red Hat OpenShift 4.3 and support for Red Hat CodeReady Workspaces. This latest release also makes available a set of Ansible Content Collections to help accelerate the deployment of blockchain solutions.
@@ -54,6 +54,8 @@ This release also includes improved usability and security by using **Hyperledge
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020) for more details on the new features that are included in this release.
 
 
+
+
 ## May 20, 2020
 {: #whats-new-05-20-2020}
 
@@ -65,16 +67,12 @@ If you are an Enterprise customer who is migrating to the {{site.data.keyword.bl
 ## March 24, 2020
 {: #whats-new-03-24-2020}
 
-
-
-The following enhancements are included in this latest release: 
+The following enhancements are included in this latest release:
 - Support for Hyperledger Fabric v1.4.6
 - Hardware Security Module (HSM) support for node identities
 - Support for adding and removing ordering nodes from an existing ordering service
 - Ability to override default CA, peer, ordering node configuration
 - Full Java smart contract development support
-
-
 
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020) for more details on the new features that are included in this release.
 
@@ -338,3 +336,5 @@ This release also debuts some improvements to the documentation table of content
 {: #whats-new-8-11-2017}
 
 {{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan. For more information, see [About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
+
+
