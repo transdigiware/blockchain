@@ -130,7 +130,7 @@
     "ibp-v2-faq-free-cluster": [
         "Can I use Blockchain for free",
         "Can I use IBP for free",
-        "a free trial of IBM Blockchain", 
+        "a free trial of IBM Blockchain",
         "Blockchain free trial",
         "free trial for Blockchain Platform",
         "Can I use IBM Blockchain Platform for free",
@@ -299,7 +299,7 @@
         "Can't login to IBP, unauthorized error",
         "blockchain 401 unathorized error",
         "IBP console 401 error",
-        "getting 401 error in blockchain console", 
+        "getting 401 error in blockchain console",
         "401 error when logging into BC console"
     ],
     "ibp-v2-troubleshooting-console-helm-reset": [
@@ -438,5 +438,13 @@
         "encountered an error starting the chaincode container in blockchain",
         "failed chaincode migration in blockchain",
         "chaincode migration fails in blockchain console"
+    ],
+    "#ibp-v2-faq-cert-mgmt": [
+        "rotate certificates",
+        "renew certificate",
+        "certificate expiration warning",
+        "automatic certificate renewal failed",
+        "certificate expired",
+        "view certificate expiration date"
     ]
 }
