@@ -108,9 +108,6 @@ To update the email address of the console administrator that was configured whe
 
 When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you might need to view logs to debug an issue.
 
-In addition to the console and node logs, {{site.data.keyword.IBM_notm}} keeps logs regarding {{site.data.keyword.cloud_notm}} account activity on the {{site.data.keyword.blockchainfull_notm}} Platform instance. These logs are not available in customer clusters or their containers. If you need these service management logs, open a support ticket.
-{: note}
-
 ### Viewing your console logs
 {: #ibp-console-manage-console-logs}
 

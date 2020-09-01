@@ -1341,10 +1341,6 @@ Configuring a node to use HSM is a three-part process:
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
 
-You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or odering node, you can configure it to use the HSM that you have configured here.
-See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
-
-
 
 ### Setting up a PKCS #11 proxy for your HSM
 {: #ibp-console-adv-deployment-pkcs11-proxy}
