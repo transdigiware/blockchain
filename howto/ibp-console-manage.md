@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-09-01"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -108,7 +108,7 @@ To update the email address of the console administrator that was configured whe
 
 When you use the {{site.data.keyword.blockchainfull_notm}} Platform console, you might need to view logs to debug an issue.
 
-If you need to obtain all {{site.data.keyword.IBM_notm}}-side log references to IBM Blockchain Platform from your instance or {{site.data.keyword.cloud_notm}} account, open a support ticket.
+In addition to the console and node logs, {{site.data.keyword.IBM_notm}} keeps logs regarding {{site.data.keyword.cloud_notm}} account activity on the {{site.data.keyword.blockchainfull_notm}} Platform instance. These logs are not available in customer clusters or their containers. If you need these service management logs, open a support ticket.
 {: note}
 
 ### Viewing your console logs
