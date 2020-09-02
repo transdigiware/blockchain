@@ -120,7 +120,6 @@ The {{site.data.keyword.IBM_notm}} Kubernetes service offers a free cluster that
 
 For instructions on what to do when your Kubernetes cluster expires, see this topic on [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
 
-
 ## Create an {{site.data.keyword.blockchainfull_notm}} Platform service instance in {{site.data.keyword.cloud_notm}}
 {: #ibp-v2-deploy-iks-create-service-instance}
 
