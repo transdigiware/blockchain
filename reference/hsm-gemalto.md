@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-01"
+lastupdated: "2020-09-02"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -148,9 +148,8 @@ These instructions require that [Docker](https://docs.docker.com/install/){: ext
 When the entire HSM configuration is complete, it resembles the following diagram:
 
 ![HSM with single partition](../images/hsm_1proxy.svg "HSM with single partitions"){: caption="Figure 1. An example configuration of an HSM with a single partition. " caption-side="bottom"}
+The steps in this topic focus specifically on the creation of the HSM and the HSM client in the middle and right columns of the diagram. After that process is complete you can follow instructions for [Configuring a node to use a Hardware Security Module (HSM)](docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to deploy the PKCS #11 proxy and configure a node with HSM. When you deploy a CA, peer, or ordering node to use the HSM, you provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. It is the combination of the PKCS #11 proxy and the HSM client that allows the node to store and retrieve the node private key from the HSM.
 
-
-The steps in this topic focus specifically on the creation of the HSM and the HSM client in the middle and right columns of the diagram. After that process is complete you can follow instructions for [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to deploy the PKCS #11 proxy and configure a node with HSM. When you deploy a CA, peer, or ordering node to use the HSM, you provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. It is the combination of the PKCS #11 proxy and the HSM client that allows the node to store and retrieve the node private key from the HSM.
 
 ### Part One: Set up the HSM device and HSM client
 {: #ibp-hsm-gemalto-part-one}

@@ -117,6 +117,7 @@ IBM Blockchain Platform for IBM Cloud
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/ibp_regions.md
+	responsibilities.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}
@@ -127,4 +128,3 @@ IBM Blockchain Platform for IBM Cloud
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
-
