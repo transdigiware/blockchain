@@ -46,6 +46,7 @@ subcollection: blockchain
 - [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-ldap)
 - [What is the process for rotating certificates on a periodic basis?](#ibp-v2-faq-cert-mgmt)
 
+
 **For developers**
 
 - [What languages are supported for smart contracts?](#ibp-v2-faq-v2-IBP-Overview-1-4)
