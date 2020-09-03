@@ -740,7 +740,7 @@ subcollection: blockchain
   * [Interacting with your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-submitting-transactions)
   * [Connecting your applications to the preconfigured network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exploring-connection-details)
 * [Step five: Debug a smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-development-mode)
-* [Step six: Test an instantiated <version2.2.next>a deployed</version2.2.next> smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
+* [Step six: Test an instantiated  smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
 * [Step seven: Connect to your {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp)
   * [Invoke a smart contract that has been instantiated on your channels](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-invoke)
   * [Install and instantiate a smart contract from VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)

@@ -348,7 +348,7 @@ If you changed your smart contract code and then repackaged it, you can upgrade 
 ### Interacting with your smart contract
 {: #develop-vscode-submitting-transactions}
 
-After a smart contract is installed and instantiated , you can submit transactions to the functions inside your smart contract by using the **Fabric Gateways** pane:
+After a smart contract is installed and instantiated,  you can submit transactions to the functions inside your smart contract by using the **Fabric Gateways** pane:
 
 1. Ensure that your smart contract is installed and instantiated, and that you are connected to the network.
 2. In the **Fabric Gateways** pane, expand the **Channels** dropdown. Click the channel that the smart contract is instantiated on.
@@ -401,7 +401,7 @@ Use the following steps to debug your smart contract:
 To modify your smart contract while debugging, click the **restart** button after you make changes to your smart contract. Restarting debugging means that you don't need to instantiate the contract again.
 
 
-## Step six: Test an instantiated <version2.2.next>a deployed</version2.2.next> smart contract
+## Step six: Test an instantiated  smart contract
 {: #develop-vscode-testing-instantiated-smart-contract}
 
 You can generate tests for smart contracts that are instantiated on the networks that you connect to. The tests can be generated as either **JavaScript** or **TypeScript** for Node projects, or **Java** for Java projects.
