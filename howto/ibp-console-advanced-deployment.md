@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-02"
+lastupdated: "2020-09-03"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1634,7 +1634,7 @@ Before attempting these steps you should have:
 
 Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
-When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. 
+When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. This option is only available on paid clusters.
 
 ![Configuring a node to use HSM](../images/hsm-cfg.png "Configuring a node to use HSM"){: caption="Figure 1. Configuring a node to use HSM" caption-side="bottom"}
 
