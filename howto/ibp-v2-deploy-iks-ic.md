@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-02"
+lastupdated: "2020-09-03"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud
 
@@ -127,8 +127,8 @@ After you have deployed a Kubernetes cluster on {{site.data.keyword.cloud_notm}}
 
 Creating a {{site.data.keyword.blockchainfull_notm}} Platform service instance is a two step process.
 
-1. Create and name the instance.
-2. Link the instance to your cluster in {{site.data.keyword.cloud_notm}}.
+- Create and name the instance.
+- Link the instance to your cluster in {{site.data.keyword.cloud_notm}}.
 
 ### Step one: Create and name the instance
 {: #ibp-v2-deploy-iks-create-service-instance-create}
@@ -153,7 +153,8 @@ If you already have a cluster, you can link your service instance to it by click
 - Check to make sure you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and retry.
 - If you have a multi-zone region ([MZR](#x9774820){: term}) cluster you need to enable [VLAN spanning](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning).
 
-If your cluster is available, select it and click **Next**. It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, click **Launch the IBM Blockchain Platform console** to open the console.
+If your cluster is available, select it and click **Next**. It might take a few minutes for the console to finish being linked to your cluster. When the linking process has finished, click **Launch the IBM Blockchain Platform console** to open the console. You are now ready to start exploring the console.
+
 
 
 
@@ -161,8 +162,6 @@ If your cluster is available, select it and click **Next**. It might take a few 
 
 ### Blockchain component deployment
 {: #ibp-v2-deploy-components}
-
-You are now ready to start exploring the console.
 
 
 
