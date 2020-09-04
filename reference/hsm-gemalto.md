@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-02"
+lastupdated: "2020-09-03"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -139,7 +139,7 @@ Because only the private keys of node identities are secured in the HSM, when yo
 
   After you customize the `service.yaml` and `deployment.yaml` files according to your environment, you can then deploy the Docker image to your cluster.
 
-These instructions require that [Docker](https://docs.docker.com/install/){: external} is installed on the machine where the HSM client is running and that you are familiar with the process for building Docker images. They also presume you are comfortable with using the Kubernetes CLI to administer your Kubernetes cluster.
+This process requires [Docker](https://docs.docker.com/install/){: external} to be installed on the machine where the HSM client is running and that you are familiar with the process for building Docker images. It also presumes you are comfortable with using the Kubernetes CLI to administer your Kubernetes cluster.
 
  If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloud_notm}} HSM, both services need to be deployed from the same {{site.data.keyword.cloud_notm}} account and on the same VLAN. If they are not on the same VLAN, then VLAN spanning must be enabled.
 {: important}
@@ -149,7 +149,7 @@ When the entire HSM configuration is complete, it resembles the following diagra
 
 ![HSM with single partition](../images/hsm_1proxy.svg "HSM with single partitions"){: caption="Figure 1. An example configuration of an HSM with a single partition. " caption-side="bottom"}
 
-The steps in this topic focus specifically on the creation of the HSM and the HSM client in the middle and right columns of the diagram. After that process is complete you can follow instructions for [Configuring a node to use a Hardware Security Module (HSM)](docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to deploy the PKCS #11 proxy and configure a node with HSM. When you deploy a CA, peer, or ordering node to use the HSM, you provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. It is the combination of the PKCS #11 proxy and the HSM client that allows the node to store and retrieve the node private key from the HSM.
+The steps in this topic focus specifically on the creation of the HSM and the HSM client in the middle and right columns of the diagram. After that process is complete you can follow instructions for [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to deploy the PKCS #11 proxy and configure a node with HSM. When you deploy a CA, peer, or ordering node to use the HSM, you provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. It is the combination of the PKCS #11 proxy and the HSM client that allows the node to store and retrieve the node private key from the HSM.
 
 
 ### Part One: Set up the HSM device and HSM client
@@ -157,10 +157,10 @@ The steps in this topic focus specifically on the creation of the HSM and the HS
 
 1. Provision the HSM and configure it with at least one partition. For example, you can follow instructions for [Provisioning {{site.data.keyword.cloud_notm}} HSM](/docs/hardware-security-modules?topic=hardware-security-modules-provisioning-ibm-cloud-hsm){: external}.
 
-   Be sure to record the `Label` and `PIN` for the partition. You will need to provide these values later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value through these instructions as `<HSM_ADDRESS>`.
+   Be sure to record the `Label` and `PIN` for the partition. You will need to provide these values later when you configure a blockchain node to use this HSM partition. Also, save the IP address associated with the HSM device. We will refer to this value throughout these instructions as `<HSM_ADDRESS>`.
    {: important}
 
-2. [Install the HSM client](/docs/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value through these instructions as `<CLIENT_ADDRESS>`.
+2. [Install the HSM client](/docs/hardware-security-modules?topic=hardware-security-modules-installing-the-ibm-cloud-hsm-client){: external} on your local machine. **Make sure the client version that you are running matches the HSM server version.** Record the IP address or fully qualified host name where the HSM client is running. We will refer to this value throughout these instructions as `<CLIENT_ADDRESS>`.
 
   The client runs on AIX, Linux, Oracle Solaris, or Microsoft Windows, but is not supported on MacOS.
   {: tip}
@@ -617,9 +617,13 @@ After the local test in the previous step is successful, you are ready to deploy
 ### What's next
 {: #ibp-hsm-gemalto-next-steps}
 
-After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the  PKCS #11 proxy, you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  You need to provide the **HSM proxy endpoint**, and the **Label** and **PIN** for the partition.
+After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the  **PKCS #11 proxy**, you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.  You need to provide the **HSM proxy endpoint**, and the **Label** and **PIN** for the partition.
 
 ![Configuring a node to use HSM](../images/hsm-cfg.png "Configuring a node to use HSM"){: caption="Figure 2. Configuring a node to use HSM" caption-side="bottom"}
+
+
+
+When the node is deployed, a private key for the specified node enroll ID and secret is generated by the HSM and stored securely in the appliance.
 
 ## Using multiple partitions
 {: #ibp-hsm-gemalto-multiple-partitions}

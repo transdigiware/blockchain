@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-09-04"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -66,7 +66,7 @@ If you need help with Hyperledger Fabric or your applications, you can make use 
 
 The response to your support case depends on your [{{site.data.keyword.cloud_notm}} support plan](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
 
-- If you purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicate more urgency and are responded to more quickly by the support team. Ensure that the ticket severity is  assigned based on the published criteria that is defined in[Case severity and response times](/docs/get-support?topic=get-support-escalation#support-case-severity){: external}.  For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
+- If you purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicate more urgency and are responded to more quickly by the support team. Ensure that the ticket severity is  assigned based on the published criteria that is defined in [Case severity and response times](/docs/get-support?topic=get-support-support-case-severity){: external}.  For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
 - If you do not purchase support, your {{site.data.keyword.cloud_notm}} Pay-As-You-Go or Subscription account comes with a free **Basic Support** plan. In this case, your support case is automatically registered as Sev-4.
 
 Before you open a support ticket, you need to [gather your logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logs).
