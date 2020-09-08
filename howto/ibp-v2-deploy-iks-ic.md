@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-03"
+lastupdated: "2020-09-08"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud
 
@@ -125,7 +125,7 @@ For instructions on what to do when your Kubernetes cluster expires, see this to
 
 After you have deployed a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, you're ready to create an instance of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
-Creating a {{site.data.keyword.blockchainfull_notm}} Platform service instance is a two step process.
+Creating an {{site.data.keyword.blockchainfull_notm}} Platform service instance is a two step process.
 
 - Create and name the instance.
 - Link the instance to your cluster in {{site.data.keyword.cloud_notm}}.
