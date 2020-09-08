@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-04"
+lastupdated: "2020-09-08"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -140,7 +140,7 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
  3. Click **Import MSP**.  
 
 
- **Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to deselect the Node OU check box.
+**Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to deselect the Node OU check box.
     ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
  Repeat these steps for each organization that is included in your channel.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-09-08"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -128,16 +128,10 @@ Each peer or orderer node that you deploy needs to generate a public TLS certifi
 
 When creating a peer or orderer with your console, you can also use the TLS CA to specify an additional domain name for each node. Enter the new domain name in the **TLS CSR hostname** field when deploying your orderer or peer. This hostname will be added to the list of common names in the TLS certificate issued to your node.
 
-
 ## Certificate renewal and expiration
 {: #ibp-console-identities-expiration}
 
 Certificates expire and need to be renewed regularly in a process referred to as "certificate rotation". In a production network, you need to monitor the expiration dates of the various certificates and make plans to renew them before they expire. The platform attempts to automatically renew the enrollment certificates of the peer and ordering nodes 30 days before they expire, but you are responsible for manually renewing the organization admin certificates for your nodes, system channels and application channels. It is recommended that you review the topic on [managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt) to learn more about what is required.
-
-
-
-
-
 
 ## Storing identities in your console wallet
 {: #ibp-console-identities-wallet}

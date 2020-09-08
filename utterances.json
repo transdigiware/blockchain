@@ -440,11 +440,11 @@
         "chaincode migration fails in blockchain console"
     ],
     "#ibp-v2-faq-cert-mgmt": [
-        "rotate certificates",
-        "renew certificate",
-        "certificate expiration warning",
-        "automatic certificate renewal failed",
-        "certificate expired",
-        "view certificate expiration date"
+        "rotate blockchain certificates",
+        "renew blockchain certificate",
+        "blockchain certificate expiration warning",
+        "automatic blockchain certificate renewal failed",
+        "blockchain certificate expired",
+        "view blockchain certificate expiration date"
     ]
 }

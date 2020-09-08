@@ -208,7 +208,6 @@ But if the `"certificateAuthorities"` section is empty and client application ne
 
 If the organization MSP was manually created by using certificates from an external CA, then there is no reason to add the CA to the connection profile. You cannot register and enroll users with an external CA from a client application.
 
-
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}
 
@@ -227,11 +226,6 @@ To update your MSP:
 - It is very important to re-export this MSP now and share it with all of the members of the consortium so they can import it into their console and ensure they are using the latest copy of the MSP definition and certificates.  
 
 If you need to add a new admin certificate to an existing organization MSP definition, refer to the topic on [managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt).
-
-
-
-
-
 
 ## Manually building an MSP JSON file
 {: #console-organizations-build-msp}
