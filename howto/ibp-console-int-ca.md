@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-09-08"
 
 keywords: intermediate CA, root CA, parent server, Certificate Authority
 
@@ -297,7 +297,7 @@ Your intermediate CA is now operational and can be used to register and enroll i
 
 When you build organization MSP definitions for your peer or ordering nodes, you can now reference the intermediate CA as the "root CA" instead of your root CA.
 ![Int CA MSP](../images/int-ca-msp.png "MSP using intermediate CA"){: caption="Figure 3. MSP using intermediate CA" caption-side="bottom"}
-If you want to learn more about creating MSPs, see [Managing organizations](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-organizations).
+If you want to learn more about creating MSPs, see [Managing organizations](/docs/blockchain?topic=blockchain-ibp-console-organizations).
 
 ### Scale down the root CA
 {: #ibp-ica-next-steps-scale}

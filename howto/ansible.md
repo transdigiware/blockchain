@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-09-08"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -37,7 +37,7 @@ Customers who are interested in automating their {{site.data.keyword.blockchainf
 Ansible is a powerful open source automation language and in the context of the {{site.data.keyword.blockchainfull_notm}} Platform can be used to script deployments. It is a configuration management tool that automates the network deployment across multiple hosts by the use of Ansible **playbooks**.
 Playbooks declare configurations and orchestrate the steps of any manual ordered process, synchronously or asynchronously.
 
-Each playbook is composed of one or more **plays** in a list. The goal of a playbook is to map a group of hosts to some well-defined roles, represented by actions that Ansible calls **tasks**. Bascially, a task is simply a call to an Ansible module.
+Each playbook is composed of one or more **plays** in a list. The goal of a playbook is to map a group of hosts to some well-defined roles, represented by actions that Ansible calls **tasks**. Basically, a task is simply a call to an Ansible module.
 
 Ansible Content Collections, or simply **collections**, are the mechanism for distributing, maintaining, and consuming the automation. Combining multiple types of Ansible content (playbooks, roles, modules, and plug-ins) into a collection, adds flexibility and scalability for automating your blockchain network deployment. The open source collections are published in [Ansible Galaxy](https://galaxy.ansible.com/){: external} where they can be freely downloaded. Check out their [documentation](https://galaxy.ansible.com/docs/) for more education.
 

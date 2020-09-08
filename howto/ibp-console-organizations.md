@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-09-08"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -212,7 +212,7 @@ If the organization MSP was manually created by using certificates from an exter
 ## Updating an organization MSP definition
 {: #ibp-console-govern-update-msp}
 
-It is possible that you will need to update an organization MSP definition, such as the display name or the certificates that are included inside the MSP.
+It is possible that you will need to update an organization MSP definition, such as the display name, or certificates that are included inside the MSP. You can also enable Node OU support on the MSP. Enabling Node OU support is recommended because it greatly simplifies the steps required after certificates are renewed.
 
 It is recommended that you do not change the `msp_id` field as this might cause breaking changes to your network.
 {: important}
@@ -220,9 +220,11 @@ It is recommended that you do not change the `msp_id` field as this might cause 
 To update your MSP:
 
 - Export the existing MSP definition from the **Organizations** tab and edit the generated JSON file to modify the display name, the existing certificates, or add new certificates.
-- Click your MSP definition in the **Organizations** tab to open it, click the **Settings** icon, and then click **Add file** to upload the new JSON file.
+- Click your MSP definition in the **Organizations** tab to open it and then click the **Settings** icon.
+- If the MSP was created in this console and Node OU support is not enabled, the **Node OU** checkbox is selected because you have the opportunity to enable the support now.   If you only want to enable Node OU support on the MSP, you do not need to add a new JSON file, you can go ahead and click **Update MSP definition** now.  This action inserts the `"fabric_node_ous":` section into the JSON along with the appropriate certificates for the organization. Be aware that this action also updates the organization admin certificates on the nodes configured with this MSP definition and each node is restarted to reflect the update. The **Node OU** checkbox is not visible on imported MSPs.
+- (Optional) If you made updates to the MSP JSON definition, click **Add file** to upload the new JSON file.
 - Click **Update MSP definition**.
-- Re-export this MSP to all of the members of the network.
+- It is very important to re-export this MSP now and share it with all of the members of the consortium so they can import it into their console and ensure they are using the latest copy of the MSP definition and certificates.  
 
 If you need to add a new admin certificate to an existing organization MSP definition, refer to the topic on [managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt).
 
@@ -254,6 +256,7 @@ Create a JSON file by using the following format:
 
 ```json
 {
+    "name": "<organization_name>",
     "display_name": "<organization_name>",
     "msp_id": "<organization_id>",
     "type": "msp",
@@ -286,7 +289,6 @@ Create a JSON file by using the following format:
         }
     },
     "host_url": "<url>",
-    "external": false
 }
 ```
 {:codeblock}
@@ -296,7 +298,7 @@ Create a JSON file by using the following format:
 - **root_certs**: Paste in an array that contains one or more root certificates from the external CA in `base64` format. You must provide either a CA root certificate or an intermediate CA certificate. You can also provide both.
 - **admins**: Paste in the signing certificate of the organization admin in `base64` format.
 - **tls_root_certs**: Paste in an array that contains one or more root certificates from the TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
-- **ou_root_cert**:
+- **ou_root_cert**: Specify the trusted CA root certificate for each role. Typically this value would be the same as the **root_certs**.
 - **host_url**: Specify the URL of the blockchain console where this MSP will collect signatures.
 - **fabric_node_OUs**: Fabric-specific OUs that enable identity classification. `NodeOUs` contain information for how to distinguish clients, peers, and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP considers an identity valid only if it is an identity of type `client`, a `peer`, an `admin`, or an `orderer`. An identity should have only one of these special OUs, which are assigned to an identity when it is registered with the CA. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation. Or learn more about using [Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external} in Fabric.
 
