@@ -30,6 +30,10 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 ## 25 Aug 2020
 {: #08-25-2020}
 
+
+
+
+
 **CA, Peer, and ordering node patch 1.4.7-2, 2.1.1-2**
 
 Miscellaneous bug fixes and security patches.  
