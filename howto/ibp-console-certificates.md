@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-09-08"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -88,7 +88,6 @@ subcollection: blockchain
 {:user_ID: data-hd-keyref="user_ID"}
 {:vb.net: .ph data-hd-programlang='vb.net'}
 {:video: .video}
-
 
 
 # Managing certificates
@@ -512,8 +511,4 @@ Share the JSON file with all of the members of the network who must import it in
 {: #cert-mgmt-import-msp}
 
 When another organization member shares their MSP with you, importing it into your console is important to ensure you are using the latest version of their organization MSP. Navigate to the **Organizations** tab and click **Import MSP defintion**. Browse to the MSP definition that was shared with you and click **Import MSP defintion**.
-
-
-
-
 
