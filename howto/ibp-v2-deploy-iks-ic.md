@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-09"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud
 
@@ -116,7 +116,7 @@ As both {{site.data.keyword.IBM_notm}} Kubernetes Service clusters and OpenShift
 ### Free {{site.data.keyword.IBM_notm}} Kubernetes Service clusters
 {: #ibp-v2-deploy-iks-deploy-cluster-free}
 
-The {{site.data.keyword.IBM_notm}} Kubernetes service offers a free cluster that can be used for 30 days. Note that the free cluster offers limited storage and transaction throughput, and that it is not possible to migrate data from free clusters to paid clusters. For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cluster_types#cluster_types){: external}.
+The {{site.data.keyword.IBM_notm}} Kubernetes service offers a free cluster that can be used for 30 days. Note that the free cluster offers limited storage and transaction throughput, and that it is not possible to migrate data from free clusters to paid clusters. For more information about the differences between the free and paid Kubernetes clusters on {{site.data.keyword.cloud_notm}}, see [Comparison of free and standard clusters](/docs/containers?topic=containers-cs_ov#cluster_types){: external}.
 
 For instructions on what to do when your Kubernetes cluster expires, see this topic on [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration).
 
