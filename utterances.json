@@ -439,7 +439,7 @@
         "failed chaincode migration in blockchain",
         "chaincode migration fails in blockchain console"
     ],
-    "#ibp-v2-faq-cert-mgmt": [
+    "ibp-v2-faq-cert-mgmt": [
         "rotate blockchain certificates",
         "renew blockchain certificate",
         "blockchain certificate expiration warning",
