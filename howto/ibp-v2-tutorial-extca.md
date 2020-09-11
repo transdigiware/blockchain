@@ -1,0 +1,359 @@
+---
+
+copyright:
+   years: 2020
+lastupdated: "2020-09-11"
+
+keywords: external CA, certificate, private key, MSP
+
+subcollection: blockchain
+
+content-type: tutorial
+services:
+account-plan: paid  
+completion-time: 30m
+
+---
+
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
+{:android: data-hd-operatingsystem="android"}
+{:apikey: data-credential-placeholder='apikey'}
+{:app_key: data-hd-keyref="app_key"}
+{:app_name: data-hd-keyref="app_name"}
+{:app_secret: data-hd-keyref="app_secret"}
+{:app_url: data-hd-keyref="app_url"}
+{:authenticated-content: .authenticated-content}
+{:beta: .beta}
+{:c#: data-hd-programlang="c#"}
+{:codeblock: .codeblock}
+{:curl: .ph data-hd-programlang='curl'}
+{:deprecated: .deprecated}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
+{:generic: data-hd-operatingsystem="generic"}
+{:generic: data-hd-programlang="generic"}
+{:gif: data-image-type='gif'}
+{:go: .ph data-hd-programlang='go'}
+{:help: data-hd-content-type='help'}
+{:hide-dashboard: .hide-dashboard}
+{:hide-in-docs: .hide-in-docs}
+{:important: .important}
+{:ios: data-hd-operatingsystem="ios"}
+{:java: #java .ph data-hd-programlang='java'}
+{:java: .ph data-hd-programlang='java'}
+{:java: data-hd-programlang="java"}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:javascript: data-hd-programlang="javascript"}
+{:new_window: target="_blank"}
+{:note: .note}
+{:objectc data-hd-programlang="objectc"}
+{:org_name: data-hd-keyref="org_name"}
+{:php: data-hd-programlang="php"}
+{:pre: .pre}
+{:preview: .preview}
+{:python: .ph data-hd-programlang='python'}
+{:python: data-hd-programlang="python"}
+{:route: data-hd-keyref="route"}
+{:row-headers: .row-headers}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:ruby: data-hd-programlang="ruby"}
+{:runtime: architecture="runtime"}
+{:runtimeIcon: .runtimeIcon}
+{:runtimeIconList: .runtimeIconList}
+{:runtimeLink: .runtimeLink}
+{:runtimeTitle: .runtimeTitle}
+{:screen: .screen}
+{:script: data-hd-video='script'}
+{:service: architecture="service"}
+{:service_instance_name: data-hd-keyref="service_instance_name"}
+{:service_name: data-hd-keyref="service_name"}
+{:shortdesc: .shortdesc}
+{:space_name: data-hd-keyref="space_name"}
+{:step: data-tutorial-type='step'}
+{:subsection: outputclass="subsection"}
+{:support: data-reuse='support'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:swift: .ph data-hd-programlang='swift'}
+{:swift: data-hd-programlang="swift"}
+{:table: .aria-labeledby="caption"}
+{:term: .term}
+{:tip: .tip}
+{:tooling-url: data-tooling-url-placeholder='tooling-url'}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:tutorial: data-hd-content-type='tutorial'}
+{:unity: .ph data-hd-programlang='unity'}
+{:url: data-credential-placeholder='url'}
+{:user_ID: data-hd-keyref="user_ID"}
+{:vb.net: .ph data-hd-programlang='vb.net'}
+{:video: .video}
+
+
+# Use certificates from an external Certificate Authority
+{: #ibp-tutorial-extca}
+{: toc-content-type="tutorial"}
+{: toc-completion-time="30m"} 
+
+In this tutorial, you learn how to use certificates that from an external Certificate Authority (CA) with your IBM Blockchain Platform network. You gather the required certificates for a peer or ordering node and then build a Membership Service Provider (MSP) definition that is used to build your blockchain components.
+{: shortdesc}
+
+Instead of using an {{site.data.keyword.blockchainfull}} Platform CA as your peer or ordering service CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. To use an external CA, the CA needs to issue certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format. The core requirement for certificates is that they are ECDSA with Curve P256 and that the private key uses the PKCS #8 standard.
+
+
+
+
+The process to use these certificates with the {{site.data.keyword.blockchainfull_notm}} Platform includes:
+1. Gather certificates
+1. Build MSP definition
+1. Import MSP into console
+1. Create and import the organization admin identity to the wallet
+1. Deploy blockchain node
+
+## Before you begin
+{: #ibp-tutorial-extca-prereqs}
+
+
+
+
+
+* [Install the {{site.data.keyword.blockchainfull}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-deploy-process).
+
+
+
+
+## Gather certificates
+{: #ibp-tutorial-extca-gather-certs}
+{: step}
+
+
+
+First, you need to set up a Kubernetes cluster on the {{site.data.keyword.containershort_notm}} service. {{site.data.keyword.containershort_notm}} delivers powerful tools by combining Docker and Kubernetes technologies, an intuitive user experience, and built-in security and isolation to automate the deployment, operation, scaling, and monitoring of containerized apps in a cluster of compute hosts.
+
+First, you need to gather following certificates from the external CA and save them as individual `.PEM` files or `base64` encode them. When you request these certificates from the third-party CA, you need to request a specific Node Organizational Unit (OU) attribute for some certificates as indicated in the **Node OU** column in the following tables.
+
+When you create a peer or ordering node, you need to provide the following four certificates in `.PEM` format. When you request these certificates from the third-party CA, you need to request a specific Node Organizational Unit (OU) attribute for some certificates as indicated in the **Node OU** column.
+
+| Node certificates | Description | Node OU| Format |
+| ------------------|-------------|--------|--------|
+| **1. Peer or ordering node identity certificate** |The signing certificate from your external CA that the peer or ordering node uses. |"peer" or "orderer" | PEM|
+| **2. Peer or ordering node identity private key**| The private key corresponding to the signed certificate from your third-party CA that this peer or ordering node uses.| |PEM|
+| **3. Peer or ordering service TLS CA certificate**| The public signing certificate created by your external TLS CA that is used by the peer or ordering node. The certificate needs to contain the x.509 Subject alternative name (SAN) for the peer or ordering nodes. If you are using the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html) to enroll the identity, you specify the SAN by passing the `--csr.hosts` parameter on the `enroll` command. If the hostname is not yet known, you can specify a wildcard with the domain name, for example: `--csr.hosts '*.ibpv2-cluster.us-south.containers.appdomain.cloud,127.0.0.1'`.| |PEM|
+|**4.Peer or ordering service TLS CA private key**| The private key corresponding to the signed certificate from your TLS CA that is used by the peer or ordering node for secure communications with other members on the network.| |PEM |
+{: caption="Table 1. Node certificates" caption-side="bottom"}
+
+When you build the organization MSP definition you need to provide the following certificates in PEM format. If required, you can convert the contents of a certificate file, `<cert.pem>` from `PEM` format into a base64 string by running the following command on your local machine:
+
+```
+export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
+cat <cert.pem> | base64 $FLAG
+```
+{: codeblock}
+
+| MSP certificates | Description | Node OU| Format|
+|------------------|-------------|--------|-------|
+| **1. CA root certificate**| The root certificate of your external CA. You can also provide an intermediate CA root certificate or both.| |base64 |
+| **2. TLS CA root certificate**|  The root certificate of your external TLS CA. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you can also provide both.| |base64|
+| **3. Intermediate CA TLS certificate**: (Optional) | The TLS certificate if your TLS certificate is issued by an intermediate TLS CA. Upload the intermediate TLS CA certificate. You must provide either a TLS CA root certificate or an intermediate TLS CA certificate, you may also provide both.| |base64|
+|**4. Peer or ordering service admin identity certificate**| The signing certificate from your external CA that the admin identity of this peer or ordering service uses.| "admin"  | base64|
+|**5. Peer or ordering service admin identity private key**| The private key corresponding to the signed certificate from your external CA that the admin identity of this peer or ordering service uses.| | base64|
+{: caption="Table 2. MSP certificates" caption-side="bottom"}
+
+
+### Consideration when using an external CA to generate certificates
+{: #ibp-tutorial-extca-gather-certs-pkcs1}
+
+If a generated private key is in PKCS #1 format, before it can be used by the console, it needs to be converted to PKCS #8 format by running the following openssl command:
+```
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in identity.1.pem -out identity.8.pem
+```
+{: codeblock}
+
+Replace:
+- `identity.1.pem` with the name of the PKCS #1 private key `.PEM` file.
+- `identity.8.pem` with the name that you want to give your PKCS #8 private key `.PEM` file.
+
+## Build MSP definition
+{: #ibp-tutorial-extca-build-msp}
+{: step}
+
+An MSP definition contains the list of trusted identities for your organization and is the mechanism that allows other members of the blockchain consortium to verify the identity of your nodes and applications. Because MSPs define an organization, they are required when you create channels, create nodes (to identify which organization the node  belongs to), and validate signatures. The MSP definition requires that all certificates are encoded in `base64` format.
+
+To build the MSP definition, create a JSON by copying the following text and saving it to a file of type JSON:
+```
+{
+    "name": "<organization_name>",
+    "display_name": "<organization_name>",
+    "msp_id": "<organization_id>",
+    "type": "msp",
+    "admins": [
+        "<admins>"
+    ],
+    "root_certs": [
+        "<root_certs>"
+    ],
+    "tls_root_certs": [
+        "<tls_root_certs>"
+    ],
+    "fabric_node_ous": {
+        "enable": true,
+        "admin_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "admin"
+        },
+        "client_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "client"
+        },
+        "orderer_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "orderer"
+        },
+        "peer_ou_identifier": {
+            "certificate": "<ou_root_cert>",
+            "organizational_unit_identifier": "peer"
+        }
+    },
+    "host_url": "<url>",
+}
+```
+{: codeblock}
+
+Replace the following values:
+- **organization_name**: Specify any name to be used to identify this MSP definition in the console.
+- **organization_id**: Specify an ID that is used to represent this MSP internally in the console.
+- **root_certs**: Paste in an array that contains one or more root certificates from the external CA in `base64` format. You must provide either a CA root certificate or an intermediate CA certificate. You can also provide both. This is certificate `1` in the MSP certificates table.
+- **admins**: Paste in the signing certificate of the organization admin identity in `base64` format. This is certificate `4` in the MSP certificates table.
+- **tls_root_certs**: Paste in an array that contains one or more root certificates from the TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both. This is certificate `2` in the MSP certificates table.
+- **ou_root_cert**: Specify the trusted CA root certificate for each role. Typically this value would be the same as the **root_certs**. This is certificate `1` in the MSP certificates table.
+- **host_url**: Specify the URL of the blockchain console where this MSP collects signatures.
+- **fabric_node_OUs**: Fabric-specific Organization Units (OUs) that enable identity classification. `NodeOUs` contain information for how to distinguish clients, peers, and orderers based on their OU. If the check is enforced, by setting Enabled to true, the MSP considers an identity valid only if it is an identity of type `client`, a `peer`, an `admin`, or an `orderer`. An identity should have only one of these special OUs, which are assigned to an identity when it is registered with the CA. See this topic for an example of [how to specify the `fabric_node_OU` in an MSP](https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html#configuration-query){: external} in the Fabric Service Discovery documentation. Or learn more about using [Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external} in Fabric.
+
+The following additional fields are also available in your MSP definition but are not required:
+- **intermediate_certs**: (if an intermediate CA was used) Paste in an array that contains one or more certificates from the external intermediate CA in `base64` format. You must provide either a CA root certificate or an intermediate CA certificate, you can also provide both.
+- **tls_intermediate_certs**: (if an intermediate TLS CA was used) Paste in an array that contains one or more certificates from the intermediate TLS CA in `base64` format. You must provide either an external TLS CA root certificate or an external intermediate TLS CA certificate, you can also provide both.
+- **organizational_unit_identifiers**: A list of Organizational Units (OU) that valid members of this MSP should include in their X.509 certificate. This is an optional configuration parameter that is used when multiple organizations leverage the same root of trust and intermediate CAs, and they have reserved an OU field for their members. An organization is often divided up into multiple organizational units (OUs), each of which has a certain set of responsibilities. For example, the ORG1 organization might have both ORG1-MANUFACTURING and ORG1-DISTRIBUTION OUs to reflect these separate lines of business. When a CA issues X.509 certificates, the OU field in the certificate specifies the line of business to which the identity belongs. See this topic in the Fabric documentation on [Identity Classification](https://hyperledger-fabric.readthedocs.io/en/latest/msp.html#identity-classification){: external} for more information.
+- **revocation_list**: A list of certificates that are no longer valid. For X.509-based identities, these identifiers are pairs of strings that are known as Subject Key Identifier (SKI) and Authority Key Identifier (AKI), and are checked whenever the X.509 certificate is being used to make sure that the certificate has not been revoked. See this topic in the Fabric documentation for more information about [Certificate Revocation Lists](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html?highlight=revocation%20list#revoking-a-certificate-or-identity){: external}.
+
+For example, your MSP JSON file looks similar to:
+
+```json
+{
+    "name": "org1msp",
+    "display_name": "org1msp",
+    "msp_id": "org1msp",
+    "type": "msp",
+    "admins": [
+        "LS0tLS1CRUd...LS0tLQo="
+    ],
+    "root_certs": [
+        "LS0tLS1CRUd...LS0tLS0K"
+    ],
+    "intermediate_certs": [],
+    "tls_root_certs": [
+        "LS0tLS1CRUd...LS0y=g"
+    ],
+    "tls_intermediate_certs": [],
+    "fabric_node_ous": {
+        "admin_ou_identifier": {
+            "certificate": "LS0tLS1CRUd...LS0tLS0K",
+            "organizational_unit_identifier": "admin"
+        },
+        "client_ou_identifier": {
+            "certificate": "LS0tLS1CRUd...LS0tLS0K",
+            "organizational_unit_identifier": "client"
+        },
+        "enable": true,
+        "orderer_ou_identifier": {
+            "certificate": "LS0tLS1CRUd...LS0tLS0K",
+            "organizational_unit_identifier": "orderer"
+        },
+        "peer_ou_identifier": {
+            "certificate": "LS0tLS1CRUd...LS0tLS0K",
+            "organizational_unit_identifier": "peer"
+        }
+    },
+    "host_url": "https://ibpconsole-console.0defdaa0c51eab4bf04a1-0000.us-south.containers.appdomain.cloud:443",
+}
+```
+{:codeblock}
+
+## Import MSP into console
+{: #ibp-tutorial-extca-import-msp}
+{: step}
+
+You have gathered your certificates and built your MSP. Before you can deploy a peer or ordering node that you need to import the MSP JSON file into you {{site.data.keyword.blockchainfull_notm}} Platform console.
+
+1. Navigate to the **Organizations** tab and click **Import MSP**.
+2. Browse to the MSP JSON file and click **Add file**.
+3. Click **Import MSP**.  
+
+## Create and import the organization admin identity to the wallet
+{: #ibp-tutorial-extca-import-admin}
+{: step}
+
+To act as an administrator for an organization, you must have an identity in your console wallet that is listed in the MSP definition as the admin of the organization. This means that you need to import the identity listed in the MSP definition `admins` section, including both the public and private key for the identity.
+
+1. To import the identity, open the **Wallet** tab and click **Add identity**.
+2. Give the identity a name.
+3. Click **Add certificate** and browse to the `.pem` files for the organization admin identity certificate and private key.
+
+## Deploy blockchain node
+{: #ibp-tutorial-extca-deploy-node}
+{: step}
+
+You've gathered all the certificates, created and imported the MSP, and imported the organization admin identity, you are now ready to deploy a peer or ordering node. The process to deploy a peer or ordering node are slightly different:
+
+### Deploy peer
+{: #ibp-tutorial-extca-deploy-peer}
+
+1. From the **Nodes** tab, click **Add peer > Create peer**.
+2. Provide a name for your peer.
+3. Under **Advanced deployment options**, check **Use your own CA certificate and private key** and click **Next**.
+4. In the **Certificate** field, click **Add certificate** and browse to the peer enrollment certificate `.pem` file. This is certificate `1` in the Node certificates table.
+5. In the **Private key** field, click **Add certificate** and browse to the peer enrollment private key  `.pem` file. This is certificate `2` in the Node certificates table.
+6. In the **MSP** drop-down list, select the MSP that you imported into the console.
+7. Select a Fabric version for your peer and click **Next**.
+8. Provide the TLS certificate and key for the node.  In the **Certificate** field, click **Add certificate** and browse to the peer TLS certificate `.pem` file. This is certificate `3` in the Node certificates table.
+9. In the **Private key** field, click **Add certificate** and browse to the peer TLS private key  `.pem` file. This is certificate `4` in the Node certificates table. Click **Next**..
+10. From the **Peer administrator identity** drop-down list, select the organization admin identity that you imported into the wallet.
+11. Review the details on the **Summary** panel and click **Add peer**.
+
+### Deploy ordering service
+{: #ibp-tutorial-extca-deploy-orderer}
+
+1. From the **Nodes** tab, click **Add ordering service > Create ordering service**.
+2. Provide a name for your ordering service and select the number of ordering nodes that you want to deploy.
+3. Under **Advanced deployment options**, check **Use your own CA certificate and private key** and click **Next**.
+4. In the **Certificate** field, click **Add certificate** and browse to the peer enrollment certificate `.pem` file. This is certificate `1` in the Node certificates table.
+5. In the **Private key** field, click **Add certificate** and browse to the peer enrollment private key  `.pem` file. This is certificate `2` in the Node certificates table.
+6. In the **MSP** drop-down list, select the MSP that you imported into the console.
+7. Select a Fabric version for your peer and click **Next**.
+8. Provide the TLS certificate and key for the node.  In the **Certificate** field, click **Add certificate** and browse to the peer TLS certificate `.pem` file. This is certificate `3` in the Node certificates table.
+9. In the **Private key** field, click **Add certificate** and browse to the peer TLS private key  `.pem` file. This is certificate `4` in the Node certificates table. Click **Next**..
+10. From the **Orderer administrator identity** drop-down list, select the organization admin identity that you imported into the wallet.
+11. Review the details on the **Summary** panel and click **Add ordering service**.
+
+Instead of creating an ordering service, if you prefer to contribute a single ordering node to an existing Raft ordering service, open the ordering service and click the **Ordering nodes** tab. Click **Add ordering node**, give it a name then and following the preceding steps.
+{: note}
+
+It takes several minutes for peer and ordering node deployment to complete. When it is successful, you can see a green box on the node tile in the console. You might need to refresh your browser for the box to turn from gray to green.
+
+## Next steps
+{: #ibp-tutorial-extca-next-steps}
+
+Your blockchain nodes are ready to be used on the network. In order for the peer to participate on the network, the peer organization needs to be part of a consortium on an ordering service so that the peer can join a channel.
+
+1. Navigate to the **Nodes** tab.
+2. Scroll down to the ordering service and click the tile to open it.
+3. Under **Consortium Members**, click **Add organization**.
+4. From the drop-down list, select the MSP that you imported into the console.
+5. Click Add organization.
+
+You can now install smart contracts on your peer and join it to an existing channel.
+

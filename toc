@@ -69,6 +69,7 @@ IBM Blockchain Platform for IBM Cloud
 	Advanced tutorials
 		howto/ibp-console-int-ca.md
 		reference/hsm-gemalto.md
+		howto/ibp-v2-tutorial-extca.md
 
 		{: .topicgroup}
 		Using Ansible Playbooks
