@@ -773,18 +773,6 @@ subcollection: blockchain
   * [Create organization MSPs using the intermediate CA](/docs/blockchain?topic=blockchain-ibp-ica#ibp-ica-next-steps-msp)
   * [Scale down the root CA](/docs/blockchain?topic=blockchain-ibp-ica#ibp-ica-next-steps-scale)
 
-[Use certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
-* [Gather certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs)
-  * [Consideration when using an external CA to generate certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs-pkcs1)
-* [Build MSP definition](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-build-msp)
-* [Import MSP into console](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-msp)
-* [Create and import the organization admin identity to the wallet](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-admin)
-* [Deploy blockchain node](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-node)
-  * [Deploy peer](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-peer)
-  * [Deploy ordering service](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-orderer)
-* [Next steps](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-next-steps)
-
 [IBM Cloud Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto)
 * [Why would I want to use an HSM with my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-why)
 * [Using {{site.data.keyword.cloud_notm}} HSM](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-using)
@@ -806,6 +794,18 @@ subcollection: blockchain
   * [Sequencing restorations](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-sequence)
   * [Restoring a peer](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-peer)
   * [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
+
+[Use certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
+* [Gather certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs)
+  * [Consideration when using an external CA to generate certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs-pkcs1)
+* [Build MSP definition](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-build-msp)
+* [Import MSP into console](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-msp)
+* [Create and import the organization admin identity to the wallet](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-admin)
+* [Deploy blockchain node](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-node)
+  * [Deploy peer](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-peer)
+  * [Deploy ordering service](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-orderer)
+* [Next steps](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-next-steps)
 
 
 ## Using Ansible Playbooks

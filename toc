@@ -68,9 +68,9 @@ IBM Blockchain Platform for IBM Cloud
 	{: .topicgroup}
 	Advanced tutorials
 		howto/ibp-console-int-ca.md
-    howto/ibp-v2-tutorial-extca.md
-		reference/hsm-gemalto.md<backuprestore>
-		howto/backup-restore.md</backuprestore>
+		reference/hsm-gemalto.md<staging-backuprestore>
+		howto/backup-restore.md</staging-backuprestore>
+		howto/ibp-v2-tutorial-extca.md
 
 		{: .topicgroup}
 		Using Ansible Playbooks
