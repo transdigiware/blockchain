@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-02"
+lastupdated: "2020-09-11"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -256,7 +256,7 @@ Before you deploy the console, ensure that you understand the following consider
 ## Video tutorial
 {: #ibp-v2-deploy-video}
 
-Watch the following [video series]( http://ibm.biz/BlockchainPlatformSeries) to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform console and how you can get started to deploy {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
+Watch the following [video series](http://ibm.biz/BlockchainPlatformSeries) to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform console and how you can get started to deploy {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
 ## Before you begin
 {: #ibp-v2-deploy-iks-prereq}
