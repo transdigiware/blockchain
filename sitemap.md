@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-11"
+lastupdated: "2020-09-13"
 
 keywords: site map
 subcollection: blockchain
@@ -784,28 +784,6 @@ subcollection: blockchain
   * [Part Five: Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-five)
   * [What's next](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
 * [Using multiple partitions](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Backing up and restoring components and networks](/docs/blockchain?topic=blockchain-backup-restore)
-* [ Overview](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-overview)
-  * [Scheduling snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-schedule-snapshot)
-* [Taking snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-take-snapshot)
-  * [Peer snapshot](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-peer-snapshot)
-* [Restoring nodes](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore)
-  * [Sequencing restorations](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-sequence)
-  * [Restoring a peer](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-peer)
-  * [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
-
-[Use certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
-* [Gather certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs)
-  * [Consideration when using an external CA to generate certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs-pkcs1)
-* [Build MSP definition](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-build-msp)
-* [Import MSP into console](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-msp)
-* [Create and import the organization admin identity to the wallet](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-admin)
-* [Deploy blockchain node](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-node)
-  * [Deploy peer](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-peer)
-  * [Deploy ordering service](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-orderer)
-* [Next steps](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-next-steps)
 
 
 ## Using Ansible Playbooks

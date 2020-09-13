@@ -2,7 +2,7 @@
 
 copyright:
    years: 2020
-lastupdated: "2020-09-11"
+lastupdated: "2020-09-13"
 
 keywords: external CA, certificate, private key, MSP
 
@@ -95,7 +95,7 @@ completion-time: 30m
 {:video: .video}
 
 
-# Use certificates from an external Certificate Authority
+# Using certificates from an external Certificate Authority
 {: #ibp-tutorial-extca}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
@@ -297,7 +297,7 @@ You have gathered your certificates and built your MSP. Before you can deploy a 
 {: #ibp-tutorial-extca-import-admin}
 {: step}
 
-To be able to act as an administrator for an organization, import the identity that is listed in the MSP JSON `"admins"` section into your console wallet, including both the public and private key. When you subsequently deploy a peer or ordering node, you can designate this identity to be the node admin. 
+To be able to act as an administrator for an organization, import the identity that is listed in the MSP JSON `"admins"` section into your console wallet, including both the public and private key. When you subsequently deploy a peer or ordering node, you can designate this identity to be the node admin.
 
 1. To import the identity, open the **Wallet** tab and click **Add identity**.
 2. Give the identity a name.
