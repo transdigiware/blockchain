@@ -44,11 +44,6 @@ In the Swagger UI, click the **Authorize** button and the authorization window p
 
 Using Basic Auth authentication, any credentials that you specify in the Authorize window are stored after you click the **Authorize** and then **Done** buttons and are passed on each REST api call.
 
-**Figure 3** shows the process to authorize Swagger APIs:
-
-![Authorize APIs](../images/swaggerUIAuthorize.gif "Authorize APIs"){: caption="Figure 2. Authorize APIs" caption-side="bottom"}{: gif}
-
-
 ## Trying out APIs
 {: #ibp-swagger-try-out}
 
