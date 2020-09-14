@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-11"
+lastupdated: "2020-09-14"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -288,6 +288,8 @@ You can use the console to configure resource allocation, HSM, or the CA databas
 ```        
 {: codeblock}
 
+
+
 #### Providing your own customizations when you create a CA
 {: #ibp-console-adv-deployment-ca-create-json}
 
@@ -438,6 +440,7 @@ After a CA is deployed, a subset of the fields can be updated as well. Click the
 
 Only the following fields can be updated:
 
+
 ```json
 {
 	"ca":{
@@ -511,7 +514,7 @@ Only the following fields can be updated:
 		},
 		"cfg": {
 			"identities": {
-				"passwordattempts": 10
+				"passwordattempts": 10,
 			}
 		},
 		"metrics": {
@@ -528,6 +531,9 @@ Only the following fields can be updated:
 ```
 {: codeblock}
 
+
+
+
 Paste the modified `JSON` that contains only the parameters that you want to update into the **Configuration JSON** box. For example, if you only needed to update the value for the `passwordattempts` field you would paste in this `JSON`:
 
 ```json
@@ -542,6 +548,8 @@ Paste the modified `JSON` that contains only the parameters that you want to upd
 }
 ```
 {: codeblock}
+
+
 
 The ability to update a CA configuration is not available for CAs that have been imported into the console.
 {: note}
