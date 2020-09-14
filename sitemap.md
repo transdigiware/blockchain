@@ -838,45 +838,30 @@ subcollection: blockchain
 
 [IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network){: external}
 
-
-## Building a network with APIs
-{: #sitemap_building_a_network_with_apis}
-
-
 [Building a network with APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis)
-
-[Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
-
-[Authentication](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
-* [Retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials)
-* [Retrieving an access token](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-token)
-
-[Forming your API request](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-form-api-request)
-
-[Limitations](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-limitations)
-
-[Building a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis)
-* [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
-
-[Creating a node with a custom configuration](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom)
-
-[Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis)
-
-[Operating your CA with the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-fabric-ca-client)
-* [Set up the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-setup-fabric-ca-client)
-* [Generate certificates with your CA admin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-enroll-ca-admin)
-* [Registering the component identity with the CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component)
-* [Registering your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-admin)
-* [Generating the admin Membership Service Provider (MSP) folder](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-enroll-admin)
-* [Registering the component identity with the TLS CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component-tls)
-* [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-troubleshooting)
-
-[Creating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-msp)
-
-[Creating a configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config)
-* [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
-* [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
-* [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
+* [Authentication](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
+  * [Retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials)
+  * [Retrieving an access token](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-token)
+* [Forming your API request](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-form-api-request)
+* [Limitations](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-limitations)
+* [Building a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis)
+  * [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
+* [Creating a node with a custom configuration](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom)
+* [Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis)
+* [Operating your CA with the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-fabric-ca-client)
+  * [Set up the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-setup-fabric-ca-client)
+  * [Generate certificates with your CA admin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-enroll-ca-admin)
+  * [Registering the component identity with the CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component)
+  * [Registering your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-admin)
+  * [Generating the admin Membership Service Provider (MSP) folder](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-enroll-admin)
+  * [Registering the component identity with the TLS CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component-tls)
+  * [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-troubleshooting)
+* [Creating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-msp)
+* [Creating a configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config)
+  * [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
+  * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
+  * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 
 
 ## Upgrading your Enterprise Plan network
