@@ -247,3 +247,4 @@ Create a new CA by using the {{site.data.keyword.blockchainfull_notm}} Platform 
 8. You have the opportunity to configure resource allocation for the node. The resources that you specify here are used for each replica set.  If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
 9. Review the Summary page, then click **Add certificate authority**.
 
+
