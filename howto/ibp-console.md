@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-04"
+lastupdated: "2020-09-15"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -192,6 +192,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 Check out this [blog](https://www.ibm.com/blogs/blockchain/2020/06/ibm-blockchain-platform-2-5-a-new-era-of-multi-party-systems/){: external} on how blockchain is creating the new era of multi-party systems.
 
 This offering is intended for experienced Fabric users who want to build and manage their own networks.
+
+Have questions and want to speak to an {{site.data.keyword.blockchainfull_notm}} Platform expert? [Schedule a consult](https://www.ibm.com/cloud/blockchain-platform/developer?schedulerform){: external} now to learn more about how blockchain can transform your business.
 
 ## Supported {{site.data.keyword.cloud_notm}} configuration
 {: #ibp-console-overview-supported-cfg}
