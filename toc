@@ -79,7 +79,8 @@ IBM Blockchain Platform for IBM Cloud
 	Monitoring your network
 		reference/logdna.md
 		reference/sysdig.md
-		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)	
+		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
+	
 	howto/ibp-v2-apis.md
 
 	{: .topicgroup}
