@@ -10,7 +10,7 @@ subcollection: blockchain
 
 ---
 
-{{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
 {:apikey: data-credential-placeholder='apikey'}
