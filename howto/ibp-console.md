@@ -211,6 +211,7 @@ Have questions and want to speak to an {{site.data.keyword.blockchainfull_notm}}
 | Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
 
+
 [Virtual Private Cloud](#x4585403){: term} (VPC) infrastructure is currently not supported.
 {: note}
 
