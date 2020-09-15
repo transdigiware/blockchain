@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-15"
 
 keywords: site map
 subcollection: blockchain
@@ -811,32 +811,6 @@ subcollection: blockchain
 * [Next steps](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-next-steps)
   * [Generated identities](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-import-identities)
 * [Summary](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-summary)
-
-
-## Monitoring your network
-{: #sitemap_monitoring_your_network}
-
-
-[IBM Cloud LogDNA](/docs/blockchain?topic=blockchain-ibp-LogDNA)
-* [Step one: Configure cluster-level logging](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-kubernetes)
-* [Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp)
-  * [View node logs](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp-nodes)
-  * [View smart contract logs](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp-smart-contract)
-* [Summary](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-summary)
-
-[{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-before)
-* [Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-provision)
-* [Step two: Configure the {{site.data.keyword.mon_full_notm}} dashboard for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure)
-* [Step three: Create a new dashboard](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-db)
-  * [Copy the **Overview by Container**  dashboard](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-create-new-db)
-  * [Configure panels to view CPU and Memory usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-edit-CPU-and-mem)
-  * [Configure panels to view disk usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-edit-disk)
-  * [Create dashboards for the CA and ordering nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-ca-os)
-* [Step four: Configure alerts to monitor resource usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-alerts)
-* [Summary](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-summary)
-
-[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network){: external}
 
 
 ## Building a network with APIs

@@ -238,10 +238,6 @@ Click the upper right corner and open the drop-down menu and then the **Network 
 
 The web inactivity timeout is set to **Off** by default. If you turn the web inactivity timeout to **On**, any member of the network will be logged out automatically after 10 minutes of inactivity. When the web inactivity timer reaches 10 minutes, the web inactivity timeout function ends the inactive web sessions to ensure security of the network member's account. Clicking a link or refreshing the Network Monitor resets the web inactivity timer. Before reaching 10 minutes, closing the browser window or tab also ends the web session.
 
-**Figure 16** shows the "Network preferences" window:
-
-![Network preferences](images/network_preferences.gif "Network preferences"){: caption="Figure 16. Network preferences" caption-side="bottom"}{: gif}
-
 ### Mutual TLS (for Enterprise Plan networks)
 {: #ibp-dashboard-mutual-tls}
 
@@ -264,7 +260,7 @@ For more information about updating your applications to support mutual TLS, see
 
 
 
-**Figure 17** shows the "Network preferences" window:
+**Figure 16** shows the "Network preferences" window:
 
 ![Network preferences](images/network_preferences_ep_tmp.png "Network preferences"){: caption="Figure 17. Network preferences" caption-side="bottom"}
 

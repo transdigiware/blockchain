@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-09-14"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -37,7 +37,6 @@ To use Swagger APIs to create or join a network, you need a basic authentication
     1. Give the credential a name, for example, *CreateJoin*.
     2. Enter **{"type": "service_instance_token"}** in the "Add inline configuration parameter" field.
     3. Click the **Add** button.
-    ![Retrieve service credentials](../images/service_credentials.gif "Retreive service credentials"){: gif}
 4. After the new credential is created, click **View credentials** under the **ACTIONS** header of this credential. The contents of the credential looks similar to the following example:
 
     ```
