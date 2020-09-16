@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-06"
+lastupdated: "2020-09-16"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -62,6 +62,8 @@ In this tutorial, we go through the steps to use the {{site.data.keyword.blockch
 
 
 ## Before you begin
+{: #ibp-console-smart-contracts-before}
+
 
 Before you can install a smart contract, ensure that you have the following things ready.
 

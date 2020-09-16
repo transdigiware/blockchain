@@ -295,6 +295,7 @@ subcollection: blockchain
 
 [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts)
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-before)
 * [Step one: Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package)
   * [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor)
 * [Step two: Install a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)
@@ -877,6 +878,7 @@ subcollection: blockchain
 * [If you cannot update your application](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-manual)
 
 [Getting started with the upgrade tool](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool)
+* [Before you begin](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-before)
   * [Prerequisites](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-prerequisites)
   * [Considerations and limitations](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-considerations)
 * [Upload connection information](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-connection-info)
