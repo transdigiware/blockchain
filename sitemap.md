@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-15"
+lastupdated: "2020-09-16"
 
 keywords: site map
 subcollection: blockchain
@@ -408,9 +408,7 @@ subcollection: blockchain
   * [Multizone HA](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
   * [Multi-region HA](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-region)
 * [Disaster recovery (DR)](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-dr)
-  * [Stopping nodes to prepare for a backup](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-stop-nodes)
-  * [Node considerations](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-dr-node-considerations)
-  * [Recovery objectives](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-dr-rec-obj)
+  * [Backup and recovery](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-stop-nodes)
 
 [Setting up multiregion High Availability (HA) deployments for peers](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr)
 * [Overview](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr#ibp-console-hadr-overview)
