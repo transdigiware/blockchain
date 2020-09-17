@@ -795,7 +795,6 @@ subcollection: blockchain
 * [Why would I want to use an Ansible playbook?](/docs/blockchain?topic=blockchain-ansible#ansible-why)
 * [Considerations and Limitations](/docs/blockchain?topic=blockchain-ansible#ansible-limits)
 * [Getting started](/docs/blockchain?topic=blockchain-ansible#ansible-getting-started)
-  * [Build the Docker image](/docs/blockchain?topic=blockchain-ansible#ansible-docker-build)
 * [Next steps](/docs/blockchain?topic=blockchain-ansible#ansible-next-steps)
 * [Where to find support](/docs/blockchain?topic=blockchain-ansible#ansible-support)
 

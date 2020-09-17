@@ -120,7 +120,7 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-Example curl commands are provided for each API in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference doc](/apidocs/blockchain){: external}.
+Example cURL commands are provided for each API in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference doc](/apidocs/blockchain){: external}.
 
 ## Limitations
 {: #ibp-v2-apis-limitations}
@@ -429,7 +429,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 
 1. Download the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external} to your local file system.
 
-  The easiest way to get the Fabric CA client is to download all of the Fabric tool binaries directly. Navigate to a directory where you would like to download the binaries with your command line, and fetch them by running the following [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} command.
+  The easiest way to get the Fabric CA client is to download all of the Fabric tool binaries directly. Navigate to a directory where you would like to download the binaries with your command line, and fetch them by running the following [cURL](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} command.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.3 1.4.3 -d -s

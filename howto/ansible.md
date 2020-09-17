@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-17"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -90,24 +90,6 @@ If you do not have Docker installed, see [install Docker](https://docs.docker.co
 Advanced users can review the [Ansible collection documentation](https://ibm-blockchain.github.io/ansible-collection/installation.html){: external} for other installation options.
 
 
-
-### Build the Docker image
-{: #ansible-docker-build}
-
-
-
-When you build a Docker image, you are creating an executable container that includes all of the prerequisites to run the Ansible playbooks.
-
-1. Copy the sample Dockerfile from [GitHub](https://github.com/IBM-Blockchain/ansible-collection/blob/master/docker/Dockerfile){: external} and save it to your local system as `Dockerfile`.
-
-2. Next, use the Dockerfile to build the Docker image. The following command builds the image and tags it with the name `mydockerorg/ansible`. We reference that tag later when we run the Docker image.
-  ```
-  docker build -t mydockerorg/ansible -f Dockerfile .
-
-  ```
-  {: codeblock}
-
-  The command can take several minutes to complete while it downloads and installs all of the prerequisites to the image.
 
 ## Next steps
 {: #ansible-next-steps}
