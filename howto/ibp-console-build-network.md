@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-17"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -105,11 +105,7 @@ In this tutorial, we create two organizations, one which will own a peer and ano
 
 Watch the following video to learn about the process to create the peer's organization and the peer (for video tutorials on how how to create an ordering service and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-<p>
-  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/PAC0PPPFxLE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
-</p>
+![Deployment tutorial series: peer](https://www.youtube.com/embed/PAC0PPPFxLE){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Video transcript
 {: #transcript-peer-video}
@@ -348,11 +344,7 @@ However, just as with the peer, before we can create an ordering service, we nee
 
 Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-<p>
-  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: ordering service" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/lapmfN_tucg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
-</p>
+![Deployment tutorial series: ordering service](https://www.youtube.com/embed/lapmfN_tucg){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Video transcript
 {: #transcript-orderer-video}
@@ -556,11 +548,7 @@ Because only ordering service admins can add peer organizations to the consortiu
 
 Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel. For video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-<p>
-  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: ordering service" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/VVjHSSW7PLg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
-</p>
+![Deployment tutorial series: channel](https://www.youtube.com/embed/VVjHSSW7PLg){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Video transcript
 {: #transcript-channel-video}
