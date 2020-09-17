@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-19"
+lastupdated: "2020-09-17"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -78,7 +78,7 @@ You can authenticate with {{site.data.keyword.blockchainfull_notm}} Platform by 
 
 Call the {{site.data.keyword.iamshort}} API to retrieve your access token.
 
-```cURL
+```bash
 curl -X POST \
   "https://iam.cloud.ibm.com/identity/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -111,7 +111,7 @@ When you make an API call to the service, structure your API request according t
 
 To build your request, pair an API endpoint with the appropriate authentication credentials in the following format:
 
-```cURL
+```bash
 curl -X <API method> \
     <API_endpoint>/<API> \
     -H 'authorization: Bearer <access_token>' \
