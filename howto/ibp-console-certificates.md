@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-17"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -132,7 +132,6 @@ Because this functionality was not yet available when the {{site.data.keyword.bl
 If your certificates have already expired, you are not able to complete these steps, but should come back and do this after you renew the certificates.
 {: note}
 
-    
 **Pre-requisite:** Before you can take advantage of Node OU support, ensure that your CAs are at Fabric v1.4.3 or higher. Open the CA tile to view the Fabric version. If the CA is not at v1.4.3 or higher, you should [upgrade](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) it now.
 
   ![View CA Fabric version](../images/ca-fabric-version.png "View CA Fabric version"){: caption="Figure 2. View CA Fabric version" caption-side="bottom"}
@@ -145,6 +144,8 @@ Enabling Node OU support for an MSP definition is a two-part process. First, you
   ![View Node OU status on MSP tile](../images/msp-nodeou.png "View Node OU status on MSP tile"){: caption="Figure 3. View Node OU status on MSP tile" caption-side="bottom"}
 2. Click the **Settings** icon for the MSP.  The checkbox to add Node OU is selected by default. You do not have to add a new JSON file, you can simply click **Update MSP definition** to enable Node OU support for the MSP.  
   ![Node OU checkbox](../images/nodeou-checkbox.png "Node OU checkbox"){: caption="Figure 4. Node OU checkbox" caption-side="bottom"}
+
+ 
 
 **Part two: Enable Node OU support for the MSP on a channel:**  
 
