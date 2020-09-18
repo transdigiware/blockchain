@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-18"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -107,10 +107,8 @@ Watch the following video to learn about the process to create the peer's organi
 
 ![Deployment tutorial series: peer](https://www.youtube.com/embed/PAC0PPPFxLE){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### Video transcript
-{: #transcript-peer-video}
-{: script}
-{: notoc}
+### Video script
+{: #video-script}{: notoc}
 
 Hello everyone, and welcome to this demonstration of how to create a peer using the IBM Blockchain platform console. I’ll be following the process from the IBM Blockchain platform documentation, which you can see here. At the end of this tutorial, you will have created this structure, representing the components related to org1. In our next video, we’ll create an ordering service. And after that, a channel, to complete the infrastructure of our network.
 
