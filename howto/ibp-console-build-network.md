@@ -411,11 +411,10 @@ However, just as with the peer, before we can create an ordering service, we nee
 
 Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-![Deployment tutorial series: ordering service](https://www.youtube.com/embed/lapmfN_tucg){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Deployment tutorial series: orderer](https://www.youtube.com/embed/lapmfN_tucg){: video output="iframe" data-script="#video-transcript-orderer" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### Video transcript
-{: #transcript-orderer-video}
-{: script}
+### Video script
+{: #video-transcript-orderer}
 {: notoc}
 
 Hello everyone, and welcome to this demonstration of how to create an ordering service using the ibm blockchain platform console. if you watched our other video on how to create a peer, much of this flow will seem similar to you. You still have to create a Certificate Authority first, use it to create identities and an organization, and then finally use those identities to create the ordering service itself. Once again, this information and more is present in our series of tutorials taking you through a full end to end where you create all of the nodes and identities, create a channel, join a channel, and deploy a smart contract. By the end of this video you'll have a configuration that looks like THIS, only without the channel, which we’ll create in our next demonstration.
@@ -615,11 +614,10 @@ Because only ordering service admins can add peer organizations to the consortiu
 
 Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel. For video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-![Deployment tutorial series: channel](https://www.youtube.com/embed/VVjHSSW7PLg){: video output="iframe" id="youtubeplayer" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Deployment tutorial series: orderer](https://www.youtube.com/embed/VVjHSSW7PLg){: video output="iframe" data-script="#video-transcript-channel" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### Video transcript
-{: #transcript-channel-video}
-{: script}
+### Video script
+{: #video-transcript-channel}
 {: notoc}
 
 Hello again, and welcome to this demonstration of how to create a channel using the IBM Blockchain Platform console. If you've watched our videos on creating a peer and an ordering service, you should have a deployment that looks similar to this one, with one peer org, two CAs and an ordering service.
