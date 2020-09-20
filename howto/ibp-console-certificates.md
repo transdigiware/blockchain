@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-20"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -145,7 +145,7 @@ Enabling Node OU support for an MSP definition is a two-part process. First, you
 2. Click the **Settings** icon for the MSP.  The checkbox to add Node OU is selected by default. You do not have to add a new JSON file, you can simply click **Update MSP definition** to enable Node OU support for the MSP.  
   ![Node OU checkbox](../images/nodeou-checkbox.png "Node OU checkbox"){: caption="Figure 4. Node OU checkbox" caption-side="bottom"}
 
- 
+
 
 **Part two: Enable Node OU support for the MSP on a channel:**  
 
