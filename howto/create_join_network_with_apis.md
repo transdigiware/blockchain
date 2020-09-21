@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-14"
+lastupdated: "2020-09-21"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -158,7 +158,7 @@ If you are invited to join a blockchain network, you will receive a network invi
     {:codeblock}
 
 3. Navigate to your `swagger_url` to use the Swagger UI to issue the Join API, or programmatically submit the Join request using the `swagger_url`. Replace `/api-docs` with  ``/api/v1/networks/[network_id]]/join``
-and fill in the `network_id` by using the value from your invitation email. The resulting url would look similar to:
+and fill in the `network_id` by using the value from your invitation email. The resulting URL would look similar to:
 
     ```
     https://ibmblockchain-v2-tor.1.secure.blockchain.ibm.com/api/v1/networks/56102acee0e4487889ef09db681bada0/join

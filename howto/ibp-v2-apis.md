@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -511,7 +511,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```  
   {:codeblock}
 
-**Tip:** If the value of the enrollment url, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the url with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
+**Tip:** If the value of the enrollment URL, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the URL with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
 
   ```
   ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname ca
@@ -768,7 +768,7 @@ Review the parameters that you specified on your `enroll` command and ensure tha
 #### **Problem:** Error with CA URL when running the `enroll` command
 {: #ibp-v2-apis-config-enroll-error2}
 
-The Fabric CA client enroll command can fail if the enrollment url, the `-u` parameter value, contains a special character. For example, the following command with the enroll ID and password of `admin:C25A06287!0`,
+The Fabric CA client enroll command can fail if the enrollment URL, the `-u` parameter value, contains a special character. For example, the following command with the enroll ID and password of `admin:C25A06287!0`,
 
 ```
 ./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
@@ -783,7 +783,7 @@ will fail and produce the following error:
 **Solution:**
 {: #ibp-v2-apis-config-enroll-error2-solution}
 
-You need to either encode the special character or surround the url with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
+You need to either encode the special character or surround the URL with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
 
 ```
 ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA

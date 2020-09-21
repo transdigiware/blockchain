@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-14"
+lastupdated: "2020-09-21"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -39,7 +39,7 @@ The nodes of the {{site.data.keyword.blockchainfull_notm}} Platform are based on
 
 A CA is similar to a publicly trusted notary that acts as an anchor of trust among multiple parties, with each organization in a consortium maintaining their own CA. Your CA creates the identities that belong to your organization and issue each identity a signing certificate and private key. These keys are what allow all of your nodes and applications to sign and verify their actions. For more information about how CAs are used to establish identity, see [the identity topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html){: external} in the Hyperledger Fabric documentation.
 
-When you create a CA by using the {{site.data.keyword.blockchainfull_notm}} Platform console, two CAs are created with the same endpoint url: a root CA and a TLS CA. The root CA provides keys to your nodes and applications. The TLS CA provides certificates that are used to protect the communication within your network. To learn more about TLS on your network, see [Using your TLS CA](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca).
+When you create a CA by using the {{site.data.keyword.blockchainfull_notm}} Platform console, two CAs are created with the same endpoint URL: a root CA and a TLS CA. The root CA provides keys to your nodes and applications. The TLS CA provides certificates that are used to protect the communication within your network. To learn more about TLS on your network, see [Using your TLS CA](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-tlsca).
 
 When you create your nodes, you need to use your root CA to create the following identities that are required to deploy, operate, and interact with your network:
 - **CA admin:** Your CA contains a default CA admin identity. This identity has an enroll ID and secret, which are analogous to a username and password, that you specify during the deployment of your CA. You can use this admin username and password to operate your CA and create new identities. The CA admin of your root CA is also the admin of the TLS CA.
