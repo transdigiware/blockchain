@@ -44,6 +44,7 @@ While it is a best practice to periodically back up your Certificate Authority, 
 
 The following node-specific guidance is provided to help plan your disaster recovery strategy.
 
+
 ### Backup considerations for each node type
 {: #backup-restore-node-considerations}
 
