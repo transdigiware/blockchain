@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-09-16"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -32,6 +32,7 @@ If you are operating the upgrade tool on behalf of multiple organizations, you n
 {: important}
 
 ## Before you begin
+{: #enterprise-upgrade-tool-before}
 
 ### Prerequisites
 {: #enterprise-upgrade-tool-prerequisites}

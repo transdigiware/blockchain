@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-21"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -111,7 +111,7 @@ If this is a new node, wait a few more minutes for the deployment to complete. Y
 The node status in the tile for the peer or ordering node is yellow, meaning the status of the node cannot be detected. Ideally, when you hover over any node, the node status should be `Running`.
 {: tsSymptoms}
 
-This condition only occurs on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations url is required for the node health checker to run. The node itself is likely `Running`, but because the operations url was not specified, its status cannot be determined.
+This condition only occurs on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined.
 {: tsCauses}
 
 You can resolve this problem by performing the following steps:
@@ -427,7 +427,7 @@ To re-establish communications between the node and the proxy, restart the faili
 Replace:
 - `<NAMESPACE>` with the namespace where the associated pods are deployed.
 To find the namespace, open any CA node in your console and click the Settings icon. View the value of the Certificate Authority endpoint URL. For example: https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054.
-The namespace is the first part of the url beginning with the letter n and followed by a random string of six alphanumeric characters. So in this example, the value of the namespace is `n2734d0`.
+The namespace is the first part of the URL beginning with the letter n and followed by a random string of six alphanumeric characters. So in this example, the value of the namespace is `n2734d0`.
 - `<PODNAME>` with the **Name** of the failing pod that is visible in the list of pods returned by the previous command.
 
 ## Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?

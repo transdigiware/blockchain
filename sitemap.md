@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-15"
+lastupdated: "2020-09-22"
 
 keywords: site map
 subcollection: blockchain
@@ -254,12 +254,14 @@ subcollection: blockchain
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
   * [The structure of this network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-structure)
 * [Step one: Create a peer organization and a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
+  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-peer)
   * [Creating your peer organization's CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ca-admin)
   * [Using your CA to register identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
   * [Creating the peer organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
   * [Creating a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-peer-create)
 * [Step two: Create the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer)
+  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-orderer)
   * [Ordering in the console](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ordering-console)
   * [Creating your ordering service organization CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
@@ -267,6 +269,7 @@ subcollection: blockchain
   * [Creating the ordering service organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
   * [Deploy the ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
 * [Step three: Join the consortium hosted by the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org)
+  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-channel)
   * [Add the organization to the consortium](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
 * [Step four: Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)
   * [Creating a channel: `channel1`](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1)
@@ -295,6 +298,7 @@ subcollection: blockchain
 
 [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts)
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-before)
 * [Step one: Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package)
   * [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor)
 * [Step two: Install a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)
@@ -408,9 +412,7 @@ subcollection: blockchain
   * [Multizone HA](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-zone)
   * [Multi-region HA](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-multi-region)
 * [Disaster recovery (DR)](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-dr)
-  * [Stopping nodes to prepare for a backup](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-stop-nodes)
-  * [Node considerations](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-dr-node-considerations)
-  * [Recovery objectives](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-dr-rec-obj)
+  * [Backup and recovery](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-stop-nodes)
 
 [Setting up multiregion High Availability (HA) deployments for peers](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr)
 * [Overview](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr#ibp-console-hadr-overview)
@@ -785,6 +787,19 @@ subcollection: blockchain
   * [What's next](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
 * [Using multiple partitions](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
 
+[Using certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca)
+* [Objectives](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-objectives)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
+* [Gather certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs)
+  * [Consideration when using an external CA to generate certificates](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs-pkcs1)
+* [Build MSP definition](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-build-msp)
+* [Import MSP into the console](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-msp)
+* [Create and import the organization admin identity to the wallet](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-import-admin)
+* [Deploy a blockchain node](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-node)
+  * [Deploy peer](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-peer)
+  * [Deploy ordering service](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-deploy-orderer)
+* [Next steps](/docs/blockchain?topic=blockchain-ibp-tutorial-extca#ibp-tutorial-extca-next-steps)
+
 
 ## Using Ansible Playbooks
 {: #sitemap_using_ansible_playbooks}
@@ -796,7 +811,6 @@ subcollection: blockchain
 * [Why would I want to use an Ansible playbook?](/docs/blockchain?topic=blockchain-ansible#ansible-why)
 * [Considerations and Limitations](/docs/blockchain?topic=blockchain-ansible#ansible-limits)
 * [Getting started](/docs/blockchain?topic=blockchain-ansible#ansible-getting-started)
-  * [Build the Docker image](/docs/blockchain?topic=blockchain-ansible#ansible-docker-build)
 * [Next steps](/docs/blockchain?topic=blockchain-ansible#ansible-next-steps)
 * [Where to find support](/docs/blockchain?topic=blockchain-ansible#ansible-support)
 
@@ -811,6 +825,51 @@ subcollection: blockchain
 * [Next steps](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-next-steps)
   * [Generated identities](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-import-identities)
 * [Summary](/docs/blockchain?topic=blockchain-ansible-build#ansible-build-summary)
+
+
+## Monitoring your network
+{: #sitemap_monitoring_your_network}
+
+
+[IBM Cloud LogDNA](/docs/blockchain?topic=blockchain-ibp-LogDNA)
+* [Step one: Configure cluster-level logging](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-kubernetes)
+* [Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp)
+  * [View node logs](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp-nodes)
+  * [View smart contract logs](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp-smart-contract)
+* [Summary](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-summary)
+
+[{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-before)
+* [Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-provision)
+* [Step two: Configure the {{site.data.keyword.mon_full_notm}} dashboard for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure)
+* [Step three: Create a new dashboard](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-db)
+  * [Copy the **Overview by Container**  dashboard](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-create-new-db)
+  * [Configure panels to view CPU and Memory usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-edit-CPU-and-mem)
+  * [Configure panels to view disk usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-edit-disk)
+  * [Create dashboards for the CA and ordering nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-ca-os)
+* [Step four: Configure alerts to monitor resource usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-alerts)
+* [Summary](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-summary)
+
+[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network){: external}
+
+
+## Backing up and restoring components and networks
+{: #sitemap_backing_up_and_restoring_components_and_networks}
+
+
+[Backing up and restoring components and networks](/docs/blockchain?topic=blockchain-backup-restore)
+
+[ Overview](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-overview)
+* [Backup considerations for each node type](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-node-considerations)
+* [Scheduling snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-schedule-snapshot)
+
+[Taking snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-take-snapshot)
+* [Node snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-peer-snapshot)
+
+[Restoring nodes](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore)
+* [Sequencing restorations](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-sequence)
+* [Restoring a peer](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-peer)
+* [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
 
 
 ## Building a network with APIs
@@ -879,6 +938,7 @@ subcollection: blockchain
 * [If you cannot update your application](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-manual)
 
 [Getting started with the upgrade tool](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool)
+* [Before you begin](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-before)
   * [Prerequisites](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-prerequisites)
   * [Considerations and limitations](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-considerations)
 * [Upload connection information](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-connection-info)

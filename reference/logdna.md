@@ -69,7 +69,7 @@ This same process can be used to view the logs of ordering nodes, peers and CAs.
 
 If you are not getting any results, you might need to filter on your namespace for the blockchain nodes to be visible in the Kubernetes dashboard. To find the namespace, open any Certificate Authority tile in your blockchain console and click the **Info and usage** tab. View the value of the **API URL**. For example: `https://nf85a2a-znorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
-The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.  Then run the kubectl command:
+The namespace is the first part of the URL beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.  Then run the kubectl command:
 ```
 kubectl get po -n <NAMESPACE>
 ```
@@ -102,7 +102,7 @@ The process to view the logs for a smart contract is similar to how you view you
   ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 2.How to find peer fabric version" caption-side="bottom"}
 
 
-#### <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image  
+#### <img src="../images/1-4_Pill.png" alt="version 1.4" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image  
 {: #ibp-LogDNA-ibp-smart-contract-14}
 
 When your peer is using the Hyperledger Fabric v1.4 image, additional strings are required in the search input box.
@@ -119,14 +119,14 @@ pod:n4c817fpeer1org1-55885d5666-zq55t app:fluentd marbles 1.0.0
 
 ![Filtering on smart contract](../images/logDNAsc.png "Filtering logs by smart contract"){: caption="Figure 3.Filtering logs by smart contract" caption-side="bottom"}
 
-#### <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image  
+#### <img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image  
 {: #ibp-LogDNA-ibp-smart-contract-2x}
 
 In order to filter on the smart contract logs, you need to provide the name of the pod where the smart contract is running. Complete the following steps to get the name of the smart contract pod:
 
 **Find your cluster namespace**  
 
-If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://n2734d0-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example, the value of the namespace is `n2734d0`.
+If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://n2734d0-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the URL beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example, the value of the namespace is `n2734d0`.
 
 **Find the smart contract pod**  
 

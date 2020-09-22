@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-03"
+lastupdated: "2020-09-17"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -315,6 +315,8 @@ Selecting **Teardown** will completely remove the local Fabric network. **Note:*
 
 Selecting **Delete** will perform a **Teardown** as well as remove the network from the **Fabric Environments** pane.
 
+
+
 ### Deploying your smart contract to the preconfigured network
 {: #develop-vscode-deploy-smart-contract}
 
@@ -342,8 +344,6 @@ If you changed your smart contract code and then repackaged it, you can upgrade 
 3. Install the new version of the smart contract to a peer on the same network.
 4. Right-click the instantiated smart contract, and select **Upgrade Smart Contract**.
 5. (Optional) Run a transaction after the new smart contract is instantiated.
-
-
 
 ### Interacting with your smart contract
 {: #develop-vscode-submitting-transactions}

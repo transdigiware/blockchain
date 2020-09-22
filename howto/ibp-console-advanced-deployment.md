@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-15"
+lastupdated: "2020-09-21"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1428,7 +1428,7 @@ COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11
 COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
 
 ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
-#ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
+# ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
 EXPOSE 2345
 
 ### YOUR HSM LIBRARY BUILD GOES HERE ###
@@ -1648,7 +1648,7 @@ When you deploy a new node from the console, ensure that you select the advanced
 ![Configuring a node to use HSM](../images/hsm-cfg.png "Configuring a node to use HSM"){: caption="Figure 1. Configuring a node to use HSM" caption-side="bottom"}
 
 On the HSM configuration panel, enter the following values:
-- **HSM proxy endpoint** -Enter the url for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
+- **HSM proxy endpoint** -Enter the URL for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
 - **HSM PIN** - Enter the PIN for the HSM slot.  
 

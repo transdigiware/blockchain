@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-09-21"
 
 keywords: view Logs, logs of a specific network component, monitor blockchain network
 
@@ -32,12 +32,12 @@ This tutorial shows how to view and monitor the status information of your {{sit
 You can issue an HTTP **HEAD** request against one of your network nodes to check the node status. A network node can be a peer, an orderer, or a CA in your blockchain network. A **HEAD** request is similar to a GET request and sends just the headers without bodies. You can get a 200 response if the node works normally.
 
 1. In the "Overview" screen of the Network Monitor, click **Connection Profile**. Then, you can click **Raw JSON** to view the connection profile in your web browser or click **Download** to save the connection profile locally.
-2. In the connection profile, find the url information of the network node that you want to check. For example, the url of the `fabric-orderer-20190b` orderer is `grpcs://fft-zbc02b.4.secure.blockchain.ibm.com:20190`.
-    ![Orderer url example](../images/orderer_url.png "Orderer url example")
-3. Replace **grpcs** with **https** in the url. In the example above, the url becomes `https://fft-zbc02b.4.secure.blockchain.ibm.com:20190`.
-4. Issue the **HEAD** request against the url with a tool such as curl or Chrome Postman app.
+2. In the connection profile, find the URL information of the network node that you want to check. For example, the URL of the `fabric-orderer-20190b` orderer is `grpcs://fft-zbc02b.4.secure.blockchain.ibm.com:20190`.
+    ![Orderer URL example](../images/orderer_url.png "Orderer URL example")
+3. Replace **grpcs** with **https** in the URL. In the example above, the URL becomes `https://fft-zbc02b.4.secure.blockchain.ibm.com:20190`.
+4. Issue the **HEAD** request against the URL with a tool such as curl or Chrome Postman app.
     - If you get a 200 status response, your network node works normally.
-    - If the **HEAD** request fails with a connection error, your network node might not be running, the node url is wrong, or a firewall blocks your access to the node.  You must resolve this error; otherwise, your applications cannot connect the node.
+    - If the **HEAD** request fails with a connection error, your network node might not be running, the node URL is wrong, or a firewall blocks your access to the node.  You must resolve this error; otherwise, your applications cannot connect the node.
 
 The following example shows a **HEAD** request with a 200 response in curl. Note that you can ignore the grpc error because the HTTP **HEAD** request checks whether the node is accessible. If yes, the grpc request to the node also works in your application.
 

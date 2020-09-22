@@ -69,6 +69,7 @@ IBM Blockchain Platform for IBM Cloud
 	Advanced tutorials
 		howto/ibp-console-int-ca.md
 		reference/hsm-gemalto.md
+		howto/ibp-v2-tutorial-extca.md
 
 		{: .topicgroup}
 		Using Ansible Playbooks
@@ -80,7 +81,9 @@ IBM Blockchain Platform for IBM Cloud
 		reference/logdna.md
 		reference/sysdig.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
-	
+
+	howto/backup-restore.md
+
 	howto/ibp-v2-apis.md
 
 	{: .topicgroup}
@@ -126,4 +129,4 @@ IBM Blockchain Platform for IBM Cloud
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
-
+	

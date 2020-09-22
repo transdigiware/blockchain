@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-21"
+lastupdated: "2020-09-16"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -212,72 +212,8 @@ When you need to restore a backup, the backups would need to be restored on ever
 
 If you are using CA replica sets and your PostgreSQL database resides in {{site.data.keyword.cloud_notm}}, backups are included in the service. See the topic on [Managing Backups](/docs/databases-for-postgresql?topic=cloud-databases-dashboard-backups){: external} for more information. Otherwise, you need to work with your third-party PostgreSQL database provider to manage the database backups according to your DR needs.
 
-### Stopping nodes to prepare for a backup
+### Backup and recovery
 {: #ibp-console-ha-stop-nodes}
 
-If you are not using Portworx as your storage solution, you can use the following `kubectl` command to stop the nodes before you take the backup, for example:
-
-   ```
-   kubectl scale deployment <my-deployment> --replicas=0
-   ```
-   {:codeblock}
-
-   Run the backup.
-   Restart the nodes:
-
-   ```
-   kubectl scale deployment <my-deployment> --replicas=1
-   ```
-   {:codeblock}
-
-This example assumes your environment is running with a 1 replica. Currently, replica sets are only supported for CAs.
-{: note}
-
-You can find your deployments by running the command:
-
-   ```
-   kubectl get deployment -n <NAMESPACE>
-   ```
-   {:codeblock}
-
-   where `<NAMESPACE>` can be determined by running the command `kubectl get namespace` and choose the namespace value that begins with `n`.
-
-### Node considerations
-{: #ibp-console-ha-dr-node-considerations}
-
-The following node-specific guidance is provided to help plan your disaster recovery strategy.
-
-
-|  Backup  | Restore |
-|:---------|---------|
-| CAs must be stopped and backed up following the instructions provided in this topic. | You can restore a CA without impacting the peers or the ordering nodes ability to process transactions. |
-{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
-{: #simpletabtable1}
-{: tab-title="Certificate Authority (CA)"}
-{: tab-group="IAM-simple"}
-{: class="simple-tab-table"}
-
-|  Backup  | Transaction processing | Private data considerations |
-|:---------|:-----------------------|:----------------------------|
-| Peers must be stopped and backed up one at a time, following the instructions provided in this topic. It is recommended that you have more than one peer per channel, so they can be stopped and backed up individually. | Transaction processing on the peers will not stop, as long as you have more than one peer per organization.  | If the peers include private data collections, it is recommended that you coordinate the backup of the ordering nodes and all connected peer nodes during the same window (see the Ordering Service tab). |
-{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
-{: #simpletabtable2}
-{: tab-title="Peers"}
-{: tab-group="IAM-simple"}
-{: class="simple-tab-table"}
-
-|  Backup  | Transaction processing | Restore |
-|:---------|:-----------------------|:--------|
-| To back up the ordering service, all the ordering nodes need to be stopped. You can do this by scaling down the deployments replica sets to 0, but you need to scale down the deployment for all nodes, back each one up, then scale back up all fives nodes. | Since the ordering service is down, transaction processing stops. | **If you are not using private data collections**, you can provision _new_ peers and rejoin the channels. The peers will sync up with the latest data from the  ordering service, then you can reinstall any chaincode. <br>Or, you can restore the peers from a backup older than the ordering nodes. In this case, the peers will only have to catch up from the last backup, which is faster. And you will only need to install any chaincode installed since the last backup. <br><br> **If you are using private data collections**, the peers must be restored to exactly the same block height as the orderers. The best way to ensure this is to backup all peers while the ordering service is also down for backup. |
-{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
-{: #simpletabtable3}
-{: tab-title="Ordering service"}
-{: tab-group="IAM-simple"}
-{: class="simple-tab-table"}
-
-### Recovery objectives
-{: #ibp-console-ha-dr-rec-obj}
-
-Customers are responsible for back up and recovery of their clusters. Because the components in the {{site.data.keyword.IBM_notm}} cluster ([operational tooling instance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)) (that is, the "console") are continuously replicated, their **Recovery Point Objective (RPO)** is less than one hour. The **Recovery Time Objective (RTO)** for components in the {{site.data.keyword.IBM_notm}} cluster is 24 hours.
-
+For information about backing up your components and how to recover corrupted components or networks, see [Backing up and restoring components and networks](/docs/blockchain?topic=blockchain-backup-restore).
 

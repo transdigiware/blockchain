@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-09-17"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -44,7 +44,7 @@ The Ansible scripts can be used to build the following network that includes two
 Before using the playbook, you need to complete the following steps:
 - [Link an instance of the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-create-service-instance) to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}.
 - Review the topic on [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ansible).
-- Install Docker and create the [Docker image](/docs/blockchain?topic=blockchain-ansible#ansible-docker-build).
+- Install [Docker](https://docs.docker.com/get-docker/){: external}.
 
 ## Step one: Gather console connection information
 {: #ansible-build-console}
@@ -106,7 +106,7 @@ There is also a common variables file, `common-vars.yml`. You do not need to edi
 ## Step four: Run a playbook
 {: #ansible-build-run-playbook}
 
-These instructions assume you have configured [Docker](/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible#ansible-docker-build) to work with the Ansible playbooks. If you have installed all of the prerequisites locally on your system instead, you can refer to the [Ansible documentation](https://ibm-blockchain.github.io/ansible-collection/tutorials/building.html#exploring-the-playbooks){: external} for instructions on how to run the playbooks.
+These instructions assume that you have installed [Docker](https://docs.docker.com/get-docker/){: external}) in order to use the Ansible playbooks. If you have installed all of the prerequisites locally on your system instead, you can refer to the [Ansible documentation](https://ibm-blockchain.github.io/ansible-collection/tutorials/building.html#exploring-the-playbooks){: external} for instructions on how to run the playbooks.
 {: note}
 
 1. We use a Docker command to run the first playbook that creates an ordering organization named **Ordering Org**, with a certificate authority named **Ordering Org CA**, and finally a single node ordering service named **Ordering Service**. If you have not already, go ahead and modify the console connection variables inside the `ordering-org-vars.yml` by using the instructions from the previous section. You are now ready to run an Ansible playbook from Docker.
@@ -114,20 +114,20 @@ These instructions assume you have configured [Docker](/docs/blockchain-sw-25?to
   The following command invokes the `01-create-ordering-organization-components.yml` playbook.
 
   ```
-  docker run --rm -v <FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>:/playbooks mydockerorg/ansible ansible-playbook /playbooks/<PLAYBOOK>.yml
+  docker run --rm -v <FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>:/playbooks ibmcom/ibp-ansible ansible-playbook /playbooks/<PLAYBOOK>.yml
   ```
   {: codeblock}
 
   where:
   - `--rm` tells Docker to remove the container when the command completes.
   - `-v <FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>` is used to mount the `tutorial` folder into the Docker container. Replace `<FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>` with the fully qualified path to where the `tutorial` folder resides on your local system. When you run the command from the `tutorial` folder you can replace this value with `$PWD`.
-  - `mydockerorg/ansible` represents the tag of the Docker image file that you built.
+  - `ibmcom/ibp-ansible` represents the tag of the Docker image published by {{site.data.keyword.IBM_notm}}.
   - `<PLAYBOOK>` is used to designate which playbook to run.
 
   For example:
   ```
   cd tutorial
-  docker run --rm -v $PWD:/playbooks mydockerorg/ansible ansible-playbook /playbooks/01-create-ordering-organization-components.yml
+  docker run --rm -v $PWD:/playbooks ibmcom/ibp-ansible ansible-playbook /playbooks/01-create-ordering-organization-components.yml
   ```
   {: codeblock}
 
@@ -146,7 +146,7 @@ These instructions assume you have configured [Docker](/docs/blockchain-sw-25?to
 
 2. The same instructions can be repeated for the next playbook, `02-create-endorsing-organization-components.yml`. This playbook creates an endorsing organization named **Org1**, with a certificate authority named **Org1 CA**, and then a peer named **Org1 Peer**. When you open the playbook, notice in the comments that this playbook uses a different variables file `org1-vars.yml`. Edit that file with your console connection information. And then run that playbook:
   ```
-  docker run --rm -v $PWD:/playbooks mydockerorg/ansible ansible-playbook /playbooks/02-create-endorsing-organization-components.yml"
+  docker run --rm -v $PWD:/playbooks ibmcom/ibp-ansible ansible-playbook /playbooks/02-create-endorsing-organization-components.yml"
   ```
   {: codeblock}
 
@@ -172,14 +172,14 @@ At this point you've experienced how powerful the Ansible playbooks can be for p
 Before running any script, you need to update the console connection settings in the `ordering-org-var.yml`, `org1-vars.yml` and `org2-vars.yml` files. Go ahead and try out the `build_network.sh` script by running the following Docker command from your `tutorial` folder:
 
 ```
-docker run --rm -v "$PWD:/tutorials" mydockerorg/ansible /tutorials/build_network.sh -i build
+docker run --rm -v "$PWD:/tutorials" ibmcom/ibp-ansible /tutorials/build_network.sh -i build
 ```
 {: codeblock}
 
 If you are paying close attention, you might notice that the playbooks will run even if the artifacts that you are deploying already exist. In that case, you can see in the `PLAY RECAP` status that `changed=0`, meaning the playbook detected that the node already exists and did not try to recreate it. You can also run the `build_network.sh` with the `destroy` option to remove all the nodes and metadata that were created when you ran the `build_network.sh` script with the `build` option. Give it a try now by running the command:
 
 ```
-docker run --rm -v "$PWD:/tutorials" mydockerorg/ansible /tutorials/build_network.sh -i destroy
+docker run --rm -v "$PWD:/tutorials" ibmcom/ibp-ansible /tutorials/build_network.sh -i destroy
 ```
 {: codeblock}
 

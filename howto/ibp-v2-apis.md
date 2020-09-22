@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-19"
+lastupdated: "2020-09-21"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -78,7 +78,7 @@ You can authenticate with {{site.data.keyword.blockchainfull_notm}} Platform by 
 
 Call the {{site.data.keyword.iamshort}} API to retrieve your access token.
 
-```cURL
+```bash
 curl -X POST \
   "https://iam.cloud.ibm.com/identity/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -111,7 +111,7 @@ When you make an API call to the service, structure your API request according t
 
 To build your request, pair an API endpoint with the appropriate authentication credentials in the following format:
 
-```cURL
+```bash
 curl -X <API method> \
     <API_endpoint>/<API> \
     -H 'authorization: Bearer <access_token>' \
@@ -120,7 +120,7 @@ curl -X <API method> \
 ```
 {: codeblock}
 
-Example curl commands are provided for each API in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference doc](/apidocs/blockchain){: external}.
+Example cURL commands are provided for each API in the [{{site.data.keyword.blockchainfull_notm}} Platform API reference doc](/apidocs/blockchain){: external}.
 
 ## Limitations
 {: #ibp-v2-apis-limitations}
@@ -429,7 +429,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 
 1. Download the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external} to your local file system.
 
-  The easiest way to get the Fabric CA client is to download all of the Fabric tool binaries directly. Navigate to a directory where you would like to download the binaries with your command line, and fetch them by running the following [Curl](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} command.
+  The easiest way to get the Fabric CA client is to download all of the Fabric tool binaries directly. Navigate to a directory where you would like to download the binaries with your command line, and fetch them by running the following [cURL](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} command.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.3 1.4.3 -d -s
@@ -511,7 +511,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```  
   {:codeblock}
 
-**Tip:** If the value of the enrollment url, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the url with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
+**Tip:** If the value of the enrollment URL, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the URL with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
 
   ```
   ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname ca
@@ -768,7 +768,7 @@ Review the parameters that you specified on your `enroll` command and ensure tha
 #### **Problem:** Error with CA URL when running the `enroll` command
 {: #ibp-v2-apis-config-enroll-error2}
 
-The Fabric CA client enroll command can fail if the enrollment url, the `-u` parameter value, contains a special character. For example, the following command with the enroll ID and password of `admin:C25A06287!0`,
+The Fabric CA client enroll command can fail if the enrollment URL, the `-u` parameter value, contains a special character. For example, the following command with the enroll ID and password of `admin:C25A06287!0`,
 
 ```
 ./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
@@ -783,7 +783,7 @@ will fail and produce the following error:
 **Solution:**
 {: #ibp-v2-apis-config-enroll-error2-solution}
 
-You need to either encode the special character or surround the url with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
+You need to either encode the special character or surround the URL with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
 
 ```
 ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA

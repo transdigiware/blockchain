@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-02"
+lastupdated: "2020-09-21"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -123,7 +123,7 @@ Navigate to the **Settings** tab in the console browser to change the logging se
 
 Set the amount of collected logs by using the drop-down list under each log type. For example, **Error** and **Warning** collect the least amount of logs, while **Debug** and **All** collect the most.
 
-You can view only the console logs if you are logged in as a console administrator. To view the logs from the **Settings** tab, replace the word `settings` in the browser URL with `api/v1/logs`. For example, if your console url is `localhost:3001/settings`, you can view your logs by navigating to `localhost:3001/api/v1/logs`. Client and server logs are collected in separate files. The most recent logs are at the top of the page.
+You can view only the console logs if you are logged in as a console administrator. To view the logs from the **Settings** tab, replace the word `settings` in the browser URL with `api/v1/logs`. For example, if your console URL is `localhost:3001/settings`, you can view your logs by navigating to `localhost:3001/api/v1/logs`. Client and server logs are collected in separate files. The most recent logs are at the top of the page.
 
 ### Viewing your node logs
 {: #ibp-console-manage-console-node-logs}
@@ -135,7 +135,7 @@ The logs of your peers, ordering nodes, and Certificate Authorities (CAs) are co
 
 To more easily locate your node logs, it is recommended to filter on the namespace that was used when the nodes were deployed. To find the namespace, open any CA node in your console and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://n2734d0-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 
-The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `n2734d0`.
+The namespace is the first part of the URL beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `n2734d0`.
 
 1. Open the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/resources){: external} and navigate to the overview screen of your {{site.data.keyword.IBM_notm}} Kubernetes Service cluster.
 2. Above the cluster overview screen, click **Kubernetes Dashboard**.
@@ -155,14 +155,14 @@ If you encounter issues with your smart contract, you can view the smart contrac
 
   ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 1.How to find peer fabric version" caption-side="bottom"}
 
-#### <img src="../images/2-x_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image
+#### <img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image
 {: #ibp-console-manage-console-container-logs-2x}
 
 If your peer is based on the Hyperleder Fabric v2.x image, you can run the following set of kubectl commands to view the smart contract logs.
 
 **Find your cluster namespace**  
 
-If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://nf85a2a-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the url beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.
+If you don't already know it, you need to find your Kubernetes cluster namespace.  From the console, open any CA node and click the **Info and Usage** icon. View the value of the **API URL**. For example: `https://nf85a2a-soorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`. The namespace is the first part of the URL beginning with the letter `n` and followed by a random string of six alphanumeric characters. So in the example above the value of the namespace is `nf85a2a`.
 
 **Find the smart contract pod**  
 
@@ -202,7 +202,7 @@ kubectl  logs -f chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4 -n nf8
 ```
 {:codeblock}
 
-#### <img src="../images/1-4_Pill.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image
+#### <img src="../images/1-4_Pill.png" alt="version 1.4" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image
 {: #ibp-console-manage-console-container-logs-14}
 
 Use these instructions when the peer is based on a Fabric v1.4 image.

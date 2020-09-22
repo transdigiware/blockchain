@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-18"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -10,17 +10,85 @@ subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
+{:android: data-hd-operatingsystem="android"}
+{:apikey: data-credential-placeholder='apikey'}
+{:app_key: data-hd-keyref="app_key"}
+{:app_name: data-hd-keyref="app_name"}
+{:app_secret: data-hd-keyref="app_secret"}
+{:app_url: data-hd-keyref="app_url"}
+{:authenticated-content: .authenticated-content}
+{:beta: .beta}
+{:c#: data-hd-programlang="c#"}
 {:codeblock: .codeblock}
-{:note: .note}
-{:term: .term}
+{:curl: .ph data-hd-programlang='curl'}
+{:deprecated: .deprecated}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
+{:generic: data-hd-operatingsystem="generic"}
+{:generic: data-hd-programlang="generic"}
+{:gif: data-image-type='gif'}
+{:go: .ph data-hd-programlang='go'}
+{:help: data-hd-content-type='help'}
+{:hide-dashboard: .hide-dashboard}
+{:hide-in-docs: .hide-in-docs}
 {:important: .important}
-{:tip: .tip}
+{:ios: data-hd-operatingsystem="ios"}
+{:java: #java .ph data-hd-programlang='java'}
+{:java: .ph data-hd-programlang='java'}
+{:java: data-hd-programlang="java"}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:javascript: data-hd-programlang="javascript"}
+{:new_window: target="_blank"}
+{:note: .note}
+{:objectc data-hd-programlang="objectc"}
+{:org_name: data-hd-keyref="org_name"}
+{:php: data-hd-programlang="php"}
 {:pre: .pre}
+{:preview: .preview}
+{:python: .ph data-hd-programlang='python'}
+{:python: data-hd-programlang="python"}
+{:route: data-hd-keyref="route"}
+{:row-headers: .row-headers}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:ruby: data-hd-programlang="ruby"}
+{:runtime: architecture="runtime"}
+{:runtimeIcon: .runtimeIcon}
+{:runtimeIconList: .runtimeIconList}
+{:runtimeLink: .runtimeLink}
+{:runtimeTitle: .runtimeTitle}
+{:screen: .screen}
 {:script: data-hd-video='script'}
+{:service: architecture="service"}
+{:service_instance_name: data-hd-keyref="service_instance_name"}
+{:service_name: data-hd-keyref="service_name"}
+{:shortdesc: .shortdesc}
+{:space_name: data-hd-keyref="space_name"}
+{:step: data-tutorial-type='step'}
+{:subsection: outputclass="subsection"}
+{:support: data-reuse='support'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:swift: .ph data-hd-programlang='swift'}
+{:swift: data-hd-programlang="swift"}
+{:table: .aria-labeledby="caption"}
+{:term: .term}
+{:tip: .tip}
+{:tooling-url: data-tooling-url-placeholder='tooling-url'}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:tutorial: data-hd-content-type='tutorial'}
+{:unity: .ph data-hd-programlang='unity'}
+{:url: data-credential-placeholder='url'}
+{:user_ID: data-hd-keyref="user_ID"}
+{:vb.net: .ph data-hd-programlang='vb.net'}
 {:video: .video}
+
 
 # Build a network
 {: #ibp-console-build-network}
@@ -105,15 +173,10 @@ In this tutorial, we create two organizations, one which will own a peer and ano
 
 Watch the following video to learn about the process to create the peer's organization and the peer (for video tutorials on how how to create an ordering service and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-<p>
-  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: peer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/PAC0PPPFxLE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
-</p>
+![Deployment tutorial series: peer](https://www.youtube.com/embed/PAC0PPPFxLE){: video output="iframe" data-script="#video-transcript-peer" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### Video transcript
-{: #transcript-peer-video}
-{: script}
+### Video script
+{: #video-transcript-peer}
 {: notoc}
 
 Hello everyone, and welcome to this demonstration of how to create a peer using the IBM Blockchain platform console. I’ll be following the process from the IBM Blockchain platform documentation, which you can see here. At the end of this tutorial, you will have created this structure, representing the components related to org1. In our next video, we’ll create an ordering service. And after that, a channel, to complete the infrastructure of our network.
@@ -348,15 +411,10 @@ However, just as with the peer, before we can create an ordering service, we nee
 
 Watch the following video to learn about the process to create the ordering service's organization and the ordering service (for video tutorials on how how to create a peer and a channel, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-<p>
-  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: ordering service" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/lapmfN_tucg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
-</p>
+![Deployment tutorial series: orderer](https://www.youtube.com/embed/lapmfN_tucg){: video output="iframe" data-script="#video-transcript-orderer" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### Video transcript
-{: #transcript-orderer-video}
-{: script}
+### Video script
+{: #video-transcript-orderer}
 {: notoc}
 
 Hello everyone, and welcome to this demonstration of how to create an ordering service using the ibm blockchain platform console. if you watched our other video on how to create a peer, much of this flow will seem similar to you. You still have to create a Certificate Authority first, use it to create identities and an organization, and then finally use those identities to create the ordering service itself. Once again, this information and more is present in our series of tutorials taking you through a full end to end where you create all of the nodes and identities, create a channel, join a channel, and deploy a smart contract. By the end of this video you'll have a configuration that looks like THIS, only without the channel, which we’ll create in our next demonstration.
@@ -556,15 +614,10 @@ Because only ordering service admins can add peer organizations to the consortiu
 
 Watch the following video to learn how to add a peer organization to the consortium, create the channel, and join a peer to the channel. For video tutorials on how how to create a peer and an ordering service, see [video series](https://developer.ibm.com/series/ibm-blockchain-platform-console-video-series/){: external}:
 
-<p>
-  <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-<iframe class="embed-responsive-item" id="youtubeplayer2" title="Deployment tutorial series: ordering service" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/VVjHSSW7PLg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-</div>
-</p>
+![Deployment tutorial series: orderer](https://www.youtube.com/embed/VVjHSSW7PLg){: video output="iframe" data-script="#video-transcript-channel" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-### Video transcript
-{: #transcript-channel-video}
-{: script}
+### Video script
+{: #video-transcript-channel}
 {: notoc}
 
 Hello again, and welcome to this demonstration of how to create a channel using the IBM Blockchain Platform console. If you've watched our videos on creating a peer and an ordering service, you should have a deployment that looks similar to this one, with one peer org, two CAs and an ordering service.
