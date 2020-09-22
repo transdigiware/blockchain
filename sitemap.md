@@ -853,6 +853,25 @@ subcollection: blockchain
 [IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network){: external}
 
 
+## Backing up and restoring components and networks
+{: #sitemap_backing_up_and_restoring_components_and_networks}
+
+
+[Backing up and restoring components and networks](/docs/blockchain?topic=blockchain-backup-restore)
+
+[ Overview](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-overview)
+* [Backup considerations for each node type](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-node-considerations)
+* [Scheduling snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-schedule-snapshot)
+
+[Taking snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-take-snapshot)
+* [Node snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-peer-snapshot)
+
+[Restoring nodes](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore)
+* [Sequencing restorations](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-sequence)
+* [Restoring a peer](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-peer)
+* [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
+
+
 ## Building a network with APIs
 {: #sitemap_building_a_network_with_apis}
 
