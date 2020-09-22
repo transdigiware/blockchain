@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-22"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -247,8 +247,8 @@ The following diagram summarizes the process for updating peer admin certificate
 The following diagram summarizes the process for updating orderer organization admin certificates on your network. Click a box to view the instructions.
 
 
-<img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f12" src="../images/orderer-admin-cert-renewal.png" width="750" alt="Orderer organization admin certificate renewal process." style="width:750px;" />
-<map name="home_map1" id="home_map1">
+<img usemap="#home_map2" border="0" class="image" id="image_ztx_crb_f13" src="../images/orderer-admin-cert-renewal.png" width="750" alt="Orderer organization admin certificate renewal process." style="width:750px;" />
+<map name="home_map2" id="home_map2">
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-enroll" alt="Enroll a new identity" title="Enroll a new identity" shape="rect" coords="98, 234, 170, 265" />
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin" alt="Register a new user" title="Register a new user and enroll a new identity" shape="rect" coords="100, 314, 172, 383" />
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-msp" alt="Update MSP" title="Update MSP" shape="rect" coords="250, 181, 325, 232" />
