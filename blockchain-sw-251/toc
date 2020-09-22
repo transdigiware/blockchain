@@ -73,6 +73,7 @@ IBM Blockchain Platform 2.5.1
 	{: .topicgroup}
 	Developing smart contracts and applications
 		vscode-extension.md
+		write-powerful-smart-contracts.md
 		best_practices.md
 
 	{: .topicgroup}
