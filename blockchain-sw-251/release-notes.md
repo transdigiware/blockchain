@@ -7,7 +7,7 @@ lastupdated: "2020-09-22"
 
 keywords: release note, latest changes, Hyperledger Fabric, multicloud
 
-subcollection: blockchain-sw-25
+subcollection: blockchain-sw-251
 
 ---
 
@@ -26,20 +26,24 @@ subcollection: blockchain-sw-25
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-release-notes-saas-20">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-release-notes-saas-20">2.1.3</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-release-notes-saas-20">2.5</a>
     </p>
 </div>
 
 
-Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform 2.5.
+Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform 2.5.1.
 {:shortdesc}
 
-See [Installing patches](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-icp-manage#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.
+See [Installing patches](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.
 
 ## 25 Aug 2020
 {: #08-25-2020}
 
 
+<blockchain-sw-251>## 9 Sept 2020
+{: #08-25-2020}
 
+</blockchain-sw-251>
 
 
 **CA, Peer, and ordering node patch 1.4.7-2, 2.1.1-2**
@@ -56,7 +60,7 @@ Certificate expiration dates have been added throughout the component details, m
 
 Miscellaneous bug fixes and security patches.
 
-
+<blockchain-sw-251>Users who installed the {{site.data.keyword.blockchainfull_notm}} Platform 2.5 before July 14, 2020 should install the [2.5 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack). If you install the {{site.data.keyword.blockchainfull_notm}} Platform 2.5 after July 14, 2020, the platform will contain all the bug fixes and improvements that are provided by the fix pack, and you do not need to apply the fix pack.</blockchain-sw-251>
 
 
 ## 18 June 2020
@@ -87,7 +91,7 @@ Leveraging the Fabric v2 **external chaincode launcher** capability, when you de
 ### Multizone-capable storage
 {: #06-18-2020-Multizone}
 
-If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
+If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.<blockchain-sw-251>See [Multizone-capable Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-ha#ibp-console-ha-multi-zone-storage) for more information.</blockchain-sw-251>
 
 ### Kubernetes version upgrade
 {: #06-18-2020-k8s}

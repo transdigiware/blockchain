@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-22"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -41,15 +41,32 @@ The Ansible scripts can be used to build the following network that includes two
 ## Prerequisites
 {: #ansible-build-prereqs}
 
-Before using the playbook, you need to complete the following steps:
+Before using the playbook, you need to complete the following steps:<blockchain-sw-251>
+- Deploy an instance of the {{site.data.keyword.blockchainfull_notm}} Platform to your Kubernetes cluster.</blockchain-sw-251>
 - [Link an instance of the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-create-service-instance) to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}.
 - Review the topic on [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ansible).
-- Install [Docker](https://docs.docker.com/get-docker/){: external}.
+- Install [Docker](https://docs.docker.com/get-docker/){: external}.<blockchain-sw-251>
+- If you have not already installed the prerequisites locally, install [Docker](https://docs.docker.com/get-docker/){: external}.</blockchain-sw-251>
 
 ## Step one: Gather console connection information
 {: #ansible-build-console}
 
-After you deploy an {{site.data.keyword.blockchainfull_notm}} Platform service instance, you need to gather the connection information for the console.
+After you deploy an {{site.data.keyword.blockchainfull_notm}} Platform service instance, you need to gather the connection information for the console.<blockchain-sw-251>If your cluster is running in a Red Hat OpenShift or Kubernetes cluster that is not in {{site.data.keyword.cloud_notm}}, you need to perform the following steps:
+
+1. **Determine the URL of your {{site.data.keyword.blockchainfull_notm}}  Platform console.**
+   The URL is of the format `https://<NAMESPACE>-ibpconsole-console.<DOMAIN>` where:
+
+    - `<NAMESPACE>` is the name of the namespace that you created for your cluster. If you are running OpenShift Container Platform, it is the name of your project.
+    - `<DOMAIN>` is the name of your cluster domain that you specified in the `DOMAIN:` field of your `ibp-console.yaml` file when you deployed the service. If you deployed an instance of the service by using the Ansible playbook, it is the value of `<console_domain>` that you specified in the `install-ibp.yml` file.
+
+   Your console URL looks similar to the following example:
+   ```
+   https://blockchain-project-ibpconsole-console.xyz.abc.com
+
+   ```
+2. (Optional) Get an [API key](#x8051010){: term} and `secret` that you can use to access your {{site.data.keyword.blockchainfull_notm}} Platform console. If you want to skip getting an API key and secret, you can also use your console **username** and **password** instead of an API key and secret, although that would not be recommended in a production setting.
+
+ If you prefer to use an API `key` and `secret`, then you need to use the [{{site.data.keyword.blockchainfull_notm}} Platform REST APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#console-icp-manage-api-key) to generate them. Save the value of the `"api_key"` and `"api_secret"` to be used in step three.</blockchain-sw-251>
 
 When your cluster is running in {{site.data.keyword.cloud_notm}}, you need to create **service credentials** for the {{site.data.keyword.blockchainfull_notm}} Platform service instance. The Ansible playbooks use the {{site.data.keyword.blockchainfull_notm}} Platform REST APIs to interact with the console. The REST APIs use the **API key** (api_key) and **API endpoint** (api_endpoint) to authenticate with the server and retrieve a Cloud Identity and Access Management (IAM) access token. The values of the `api_endpoint` and `api_key` for the console can be found in the generated **service credentials**.  
 
@@ -81,7 +98,14 @@ The first thing that you notice is that the playbook `.yml` files are numbered. 
 
 The next thing to notice is the set of variable files `ordering-org-vars.yml` (Ordering Org), `org1-vars.yml` (Org1), and `org2-vars.yml` (Org2) that define the {{site.data.keyword.blockchainfull_notm}} Platform console connection details for each organization. These variable files are used by the playbook when you run it. This means that before you run a playbook, if it uses a variable file, you need to customize the associated variable file with the connection information that you gathered in the previous step. When a playbook requires a variables file, it is included in the playbook .yml file.
 
-The variable files include the following four fields that define your connection information to your console:
+The variable files include the following four fields that define your connection information to your console:<blockchain-sw-251>
+```
+api_endpoint: https://ibp-console.example.org:32000
+api_authtype: basic
+api_key: xxxxxxxx
+api_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+</blockchain-sw-251>
 ```
 api_endpoint: https://ibp-console.example.org:32000
 api_authtype: ibmcloud
@@ -97,7 +121,12 @@ You need to replace the fields with the following values:
 - `api_key` - to the value of api_key contained in the service credentials.
 - `api_secret` - This value is not used for clusters in {{site.data.keyword.cloud_notm}}. No value is required here.   
 
-Refer to [Gather console connection information](#ansible-build-console) for instructions on how to get the service credentials.
+Refer to [Gather console connection information](#ansible-build-console) for instructions on how to get the service credentials.<blockchain-sw-251>
+- `api_endpoint` - Set this value to the URL of your {{site.data.keyword.blockchainfull_notm}} Platform console.
+- `api_authtype` - This value must be set to `basic`.
+- `api_key` - Set this value to the value of your console username or API key.
+- `api_secret` - Set this value to the value of your console password or API secret.
+</blockchain-sw-251>
 
 You can go ahead now and modify the `ordering-org-vars.yml` (Ordering Org), `org1-vars.yml` (Org1), and `org2-vars.yml` files with your console connection information.
 

@@ -1,8 +1,8 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="blockchain-sw-25" category="blockchain" audience="service" href="/docs/blockchain-sw-25/index.html" path="blockchain-sw-25"}
-IBM Blockchain Platform 2.5
+{: .toc subcollection="blockchain-sw-251" category="blockchain" audience="service" href="/docs/blockchain-sw-251/index.html" path="blockchain-sw-251"}
+IBM Blockchain Platform 2.5.1
 
 	{: .navgroup id="learn"}
 	index.md
@@ -110,4 +110,3 @@ IBM Blockchain Platform 2.5
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
-	

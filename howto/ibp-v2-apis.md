@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-22"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -147,7 +147,7 @@ You can use APIs to create blockchain components in your instance of the {{site.
   - You also need to [register an organization administrator](#ibp-v2-apis-config-register-admin) and then [generate certificates for the admin](#ibp-v2-apis-config-enroll-admin) inside an MSP folder. You do not have to complete this step if you have already registered your admin identity.
   - [Register the new component with your TLS CA](#ibp-v2-apis-config-register-component-tls).
 
-  You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/blockchain/?topic=blockchain-ibp-console-identities). 
+  You can also complete these steps by using your {{site.data.keyword.blockchainfull_notm}} Platform console. For more information, see [Creating and managing identities](/docs/blockchain/?topic=blockchain-ibp-console-identities). <blockchain-sw-251>see [Creating and managing identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-identities).</blockchain-sw-251>
 
 3. [Create an MSP definition for your organization](#ibp-v2-apis-msp) by calling [`POST /ak/api/v2/components/msp`](/apidocs/blockchain?#import-an-msp).
 
@@ -167,7 +167,11 @@ for more information.
 {: note}
 
 
-
+<blockchain-sw-251>
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table on [user roles](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-role-mapping)
+for more information.
+{: note}
+</blockchain-sw-251>
 
 ### Creating a node within a specific zone
 {: #ibp-v2-apis-zone}
@@ -180,7 +184,9 @@ If you are using a multizone cluster, you can use the APIs to deploy a blockchai
   You can also find the zones of your worker nodes by using the kubectl CLI. Navigate to the **Access** panel and follow the instructions under **Gain access to your cluster** to connect to your cluster by using the {{site.data.keyword.cloud_notm}} and kubectl CLI tools. When you are connected, use the command `kubectl get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `zone` field under the `LABELS` column.
 
 
-
+<blockchain-sw-251>
+1. Find the zones where your worker nodes are located by using your Kubernetes cluster CLI. If you are using OpenShift Container Platform, after you connect to your cluster by using the CLI, use the command `oc get nodes --show-labels` to get the full list of nodes and zones of your cluster. You will be to find the zone that each worker node is located after `failure-domain.beta.kubernetes.io/zone` field under the `LABELS` column.
+</blockchain-sw-251>
 
 2. To create a node within a specific zone, provide the zone name to the [Create an ordering service](/apidocs/blockchain#create-an-ordering-service) or [Create a peer](/apidocs/blockchain#create-a-peer) API calls by using the zone field of the request body. The anti-affinity policy of the {{site.data.keyword.blockchainfull_notm}} Platform console will automatically deploy your component to different worker nodes within each zone based on the resources available.
 
@@ -417,7 +423,11 @@ for more information.
 {: note}
 
 
-
+<blockchain-sw-251>
+The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table on [user roles](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-role-mapping)
+for more information.
+{: note}
+</blockchain-sw-251>
 
 ## Operating your CA with the Fabric CA client
 {: #ibp-v2-apis-config-fabric-ca-client}

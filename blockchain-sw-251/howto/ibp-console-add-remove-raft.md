@@ -6,7 +6,7 @@ lastupdated: "2020-09-22"
 
 keywords: network components, Kubernetes, channel update, channels, governance, channel configuration, orderer, ordering node, ordering service, raft, tutorial
 
-subcollection: blockchain-sw-25
+subcollection: blockchain-sw-251
 
 ---
 

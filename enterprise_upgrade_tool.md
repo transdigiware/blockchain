@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-22"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -87,7 +87,15 @@ When you use the upgrade tool to create your peer and orderer nodes on the new p
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
+| **Console**                    | 1.2           | 2.4                   | 10                     |<blockchain-sw-251>| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
+|--------------------------------|---------------|-----------------------|------------------------|
+| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **CA**                         | 0.1           | 0.2                   | 20                     |
+| **Ordering node**              | 0.35          | 0.7                   | 100                    |
+| **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
+| **Webhook**                    | 0.1           | 0.2                   | 0                      |</blockchain-sw-251>
 
 {: caption="Table 1. Default resources for nodes on IBM Blockchain Platform 2.0" caption-side="bottom"}
 

@@ -116,7 +116,7 @@ The following diagram shows all of the certificates that need to be managed and 
 
 The left column includes the certificates for the blockchain CA, peer, and ordering nodes. There are two certificates that are included on the CA node, the CA root certificate and the CA TLS cert. The root certificate is included here for completeness, but because it expires in 15 years, update instructions are not provided. The peer and ordering nodes are similar in that they both contain an **enrollment certificate** (the public key or signed certificate), their **TLS certificate** that enables them to transact with other nodes in their organization, and their **MSP admin certificate**, which represents the admin identity that is allowed to administer the node.  
 
-The {{site.data.keyword.blockchainfull_notm}} Platform  can automatically renew the enrollment certs for the peer and ordering nodes and the TLS certificate for the peer. But the MSP admin identities have to be manually renewed. If the MSP is enabled for Node Organizational Units (Node OUs), no further action is required. More information about Node OU support and how to determine whether the MSP is enabled for it is provided in this topic.
+The {{site.data.keyword.blockchainfull_notm}} Platform <blockchain-sw-251>2.5 and higher</blockchain-sw-251> can automatically renew the enrollment certs for the peer and ordering nodes and the TLS certificate for the peer. But the MSP admin identities have to be manually renewed. If the MSP is enabled for Node Organizational Units (Node OUs), no further action is required. More information about Node OU support and how to determine whether the MSP is enabled for it is provided in this topic.
 
 The right column shows the certificates that are relevant to the system channel and the application channel. When the MSP is not enabled for Node OU support, additional steps are required to update these certificates on the system and application channels and are provided here.
 
@@ -458,13 +458,13 @@ If your peer enrollment or TLS certificates have expired, the recommended soluti
 - Install the same smart contracts on it.
 - Download a new [connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) that includes the new peer for client applications to address the new peer.
 
-If deploying a new peer is not an option, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance.  
+If deploying a new peer is not an option, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)<blockchain-sw-251>[support ticket](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-cases)</blockchain-sw-251> for assistance.  
 
 #### Orderer
 {: #ibp-console-identities-expired-certs-ecerts-orderer}
 
 If your ordering node enrollment and TLS certificates have expired,
-you need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.
+you need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.<blockchain-sw-251>you need to [contact IBM Support](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.</blockchain-sw-251>
 
 ## Using the command line to view certificate expiration
 {: #ibp-console-identities-cli-expiration}

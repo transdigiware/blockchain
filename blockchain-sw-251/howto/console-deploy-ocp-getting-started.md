@@ -6,7 +6,7 @@ lastupdated: "2020-09-22"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
-subcollection: blockchain-sw-25
+subcollection: blockchain-sw-251
 
 ---
 
@@ -134,10 +134,10 @@ subcollection: blockchain-sw-25
 # Getting started
 {: #deploy-ocp-getting-started}
 
-Deploy the {{site.data.keyword.blockchainfull}} Platform 2.5 onto a Kubernetes cluster that is running on OpenShift Container Platform. The {{site.data.keyword.blockchainfull_notm}} Platform uses a [Kubernetes Operator](https://www.openshift.com/learn/topics/operators){: external} to install the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster and manage the deployment and your blockchain nodes. After the {{site.data.keyword.blockchainfull_notm}} Platform console is running on your cluster, you can use the console to create blockchain nodes and operate a multicloud blockchain network.
+Deploy the {{site.data.keyword.blockchainfull}} Platform 2.5.1 onto a Kubernetes cluster that is running on OpenShift Container Platform. The {{site.data.keyword.blockchainfull_notm}} Platform uses a [Kubernetes Operator](https://www.openshift.com/learn/topics/operators){: external} to install the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster and manage the deployment and your blockchain nodes. After the {{site.data.keyword.blockchainfull_notm}} Platform console is running on your cluster, you can use the console to create blockchain nodes and operate a multicloud blockchain network.
 {:shortdesc}
 
-If you prefer to automate the installation of the service, check out the [Ansible Playbook](/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible-install-ibp) that can be used to complete all of these steps for you.
+If you prefer to automate the installation of the service, check out the [Ansible Playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp) that can be used to complete all of these steps for you.
 {: tip}
 
 ## Resources required
@@ -154,7 +154,15 @@ The resources for the CA, peer, and ordering nodes need to be multiplied by the 
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
+| **Console**                    | 1.2           | 2.4                   | 10                     |<blockchain-sw-251>| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
+|--------------------------------|---------------|-----------------------|------------------------|
+| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **CA**                         | 0.1           | 0.2                   | 20                     |
+| **Ordering node**              | 0.35          | 0.7                   | 100                    |
+| **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
+| **Webhook**                    | 0.1           | 0.2                   | 0                      |</blockchain-sw-251>
 
 {: caption="Table 1. Default resource allocations" caption-side="bottom"}
 ** These values can vary slightly. Actual VPC allocations are visible in the blockchain console when a node is deployed.  
@@ -187,7 +195,9 @@ kubectl patch storageclass
 ```
 {: codeblock}
 
-
+<blockchain-sw-251>If you prefer not to choose a persistent storage option, the default storage class of your namespace or OpenShift project is used. `Host-local` volume storage is not supported.
+{: note}
+</blockchain-sw-251>
 ### Considerations when choosing your persistent storage
 {: ibp-storage-considerations}
 
@@ -209,7 +219,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
 
 <div class=solutionBoxContainer>
   <div class="solutionBox">
-    <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm">
+    <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm">
       <div>
         <p><strong><img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/> Deploy from Red Hat Marketplace</p>
         <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster in the cloud or on-prem.</p>
@@ -217,7 +227,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
     </a>
   </div>
   <div class="solutionBox">
-    <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp">
+    <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp">
       <div>
         <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/> Deploy to your OpenShift cluster</p>
         <p class="bx--type-caption"> Manually deploy the IBM Blockchain  Platform service to your OpenShift cluster in your cloud.</p>
@@ -225,7 +235,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
     </a>
   </div>
   <div class="solutionBox">
-      <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-firewall">
+      <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall">
         <div>
           <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/> Deploy to your OpenShift cluster on-prem</p>
           <p class="bx--type-caption"> Manually deploy the IBM Blockchain Platform to your OpenShift cluster on-prem behind a firewall.</p>
@@ -233,7 +243,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
       </a>
   </div>    
   <div class="solutionBox">
-        <a href = "/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible-install-ibp">
+        <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp">
           <div>
             <p><strong><img src="../images/ansible.png" alt="Ansible icon" width="50" style="width:50px; border-style: none"/> Deploy from Ansible</p>
             <p class="bx--type-caption"> Automate the deployment of the IBM Blockchain  Platform to your OpenShift cluster  using an Ansible playbook.</p>
