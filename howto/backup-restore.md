@@ -410,6 +410,7 @@ deployment.apps/peera scaled
 Once the pod is back up, the peer is now restored, with the same peer channel membership, installed smart contracts, and ledger height as when the snapshot was taken. Because the peer immediately starts pulling new blocks from the ordering service or other peers once it comes up, the ledger height might increase.
 
 
+
 ### Restoring an ordering node
 {: #backup-restore-restore-orderer}
 
