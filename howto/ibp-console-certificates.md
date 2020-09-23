@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -116,7 +116,7 @@ The following diagram shows all of the certificates that need to be managed and 
 
 The left column includes the certificates for the blockchain CA, peer, and ordering nodes. There are two certificates that are included on the CA node, the CA root certificate and the CA TLS cert. The root certificate is included here for completeness, but because it expires in 15 years, update instructions are not provided. The peer and ordering nodes are similar in that they both contain an **enrollment certificate** (the public key or signed certificate), their **TLS certificate** that enables them to transact with other nodes in their organization, and their **MSP admin certificate**, which represents the admin identity that is allowed to administer the node.  
 
-The {{site.data.keyword.blockchainfull_notm}} Platform <blockchain-sw-251>2.5 and higher</blockchain-sw-251> can automatically renew the enrollment certs for the peer and ordering nodes and the TLS certificate for the peer. But the MSP admin identities have to be manually renewed. If the MSP is enabled for Node Organizational Units (Node OUs), no further action is required. More information about Node OU support and how to determine whether the MSP is enabled for it is provided in this topic.
+The {{site.data.keyword.blockchainfull_notm}} Platform  can automatically renew the enrollment certs for the peer and ordering nodes and the TLS certificate for the peer. But the MSP admin identities have to be manually renewed. If the MSP is enabled for Node Organizational Units (Node OUs), no further action is required. More information about Node OU support and how to determine whether the MSP is enabled for it is provided in this topic.
 
 The right column shows the certificates that are relevant to the system channel and the application channel. When the MSP is not enabled for Node OU support, additional steps are required to update these certificates on the system and application channels and are provided here.
 
@@ -125,9 +125,9 @@ The right column shows the certificates that are relevant to the system channel 
 
 When you register a user with the CA, you need to select a user **Type** of `client`, `peer`, `orderer`, or `admin`, that is used to confer a "role" onto the identity. Roles are referred to as **Organizational Units (OU)** inside a certificate and MSPs can be configured to recognize these roles. The `admin` and `orderer` types were added to the {{site.data.keyword.blockchainfull_notm}} Platform when Fabric v1.4.3 was included and contains support for **Node OUs** in MSPs and channels.
 
-This new capability means that when the MSP admin identity is enrolled during MSP creation, the generated signed certificate includes the admin type as an OU inside the certificate. This admin designation means that the sign cert of the identity does not need to be included in the MSP defining the organization. You can learn more about the benefits of Node OUs in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.  
+This new capability means that when the MSP admin identity is enrolled during MSP creation, the generated signed certificate includes the admin type as an OU inside the certificate. This admin designation means that the signed cert of the identity does not need to be included in the MSP defining the organization. You can learn more about the benefits of Node OUs in the Fabric documentation on the [Membership Service Provider](https://hyperledger-fabric.readthedocs.io/en/release-1.4/membership/membership.html#node-ou-roles-and-msps){: external}.  
 
-Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OU support was added to the platform in December 2019, do not contain the `admin` OU in their signing certificate. Instead, when the MSP was created, the signed cert, or certificate, for the MSP admin was placed in the `admins` section. The platform supports both patterns, but if the Node OU configuration was not enabled when the organization MSP was created, additional steps are required after certificate renewal to update the MSP and any channels that the MSP is part of. Therefore, if your MSPs currently are not configured with Node OU support, it is recommended that you add Node OU support now, to avoid the extra updates steps that are required in one year when the certificates expire again.
+Because this functionality was not yet available when the {{site.data.keyword.blockchainfull_notm}} Platform service was initially offered, all MSP admin identities that were enrolled before Node OU support was added to the platform in December 2019, do not contain the `admin` OU in their signed certificate. Instead, when the MSP was created, the signed cert, or certificate, for the MSP admin was placed in the `admins` section. The platform supports both patterns, but if the Node OU configuration was not enabled when the organization MSP was created, additional steps are required after certificate renewal to update the MSP and any channels that the MSP is part of. Therefore, if your MSPs currently are not configured with Node OU support, it is recommended that you add Node OU support now, to avoid the extra updates steps that are required in one year when the certificates expire again.
 
 If your certificates have already expired, you are not able to complete these steps, but should come back and do this after you renew the certificates.
 {: note}
@@ -458,13 +458,13 @@ If your peer enrollment or TLS certificates have expired, the recommended soluti
 - Install the same smart contracts on it.
 - Download a new [connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) that includes the new peer for client applications to address the new peer.
 
-If deploying a new peer is not an option, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)<blockchain-sw-251>[support ticket](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-cases)</blockchain-sw-251> for assistance.  
+If deploying a new peer is not an option, you can open a [support ticket](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance.  
 
 #### Orderer
 {: #ibp-console-identities-expired-certs-ecerts-orderer}
 
 If your ordering node enrollment and TLS certificates have expired,
-you need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.<blockchain-sw-251>you need to [contact IBM Support](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.</blockchain-sw-251>
+you need to [contact IBM Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases) for assistance with updating your certificates.
 
 ## Using the command line to view certificate expiration
 {: #ibp-console-identities-cli-expiration}
