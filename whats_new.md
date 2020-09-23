@@ -28,7 +28,7 @@ subcollection: blockchain
 ## August 27, 2020
 {: #whats-new-08-19-2020}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto OpenShift clusters from the Red Hat Marketplace, an open cloud catalog that makes it easier to discover and access certified software. Red Hat certified {{site.data.keyword.blockchainfull_notm}} Platform operator images are available in the marketplace and accessible from your OpenShift web console. This new deployment option is immediately available to deploy on any Red Hat OpenShift 4.3+ cluster, and provides a fast, integrated experience for deploying the blockchain console that can be used to create Certificate Authorities (CAs), peers, and ordering nodes, in the public cloud. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm) to learn how.
+The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto OpenShift clusters from the Red Hat Marketplace, an open cloud catalog that makes it easier to discover and access certified software. Red Hat certified {{site.data.keyword.blockchainfull_notm}} Platform operator images are available in the marketplace and accessible from your OpenShift web console. This new deployment option is immediately available to deploy on any Red Hat OpenShift 4.3+ cluster, and provides a fast, integrated experience for deploying the blockchain console that can be used to create Certificate Authorities (CAs), peers, and ordering nodes, in the public cloud. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm) to learn how.
 
 
 ## June 18, 2020
@@ -39,7 +39,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto 
 
 **IBM Blockchain Platform Ansible Playbooks**  
 
-The {{site.data.keyword.blockchainfull_notm}} Platform  improvements are designed to enable enterprises to launch production blockchain networks faster. This release helps organizations accelerate deployment through support of Ansible, an open source tool that automates provisioning, configuration management, and application deployment. **Ansible Content Collections** are packages of modules, plug-ins, and other Ansible content that automate these processes. The platform has published a set of Ansible Content Collections to help organizations deploy blockchain components and networks with greater speed. See [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible) to learn more.
+The {{site.data.keyword.blockchainfull_notm}} Platform  improvements are designed to enable enterprises to launch production blockchain networks faster. This release helps organizations accelerate deployment through support of Ansible, an open source tool that automates provisioning, configuration management, and application deployment. **Ansible Content Collections** are packages of modules, plug-ins, and other Ansible content that automate these processes. The platform has published a set of Ansible Content Collections to help organizations deploy blockchain components and networks with greater speed. See [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible) to learn more.
 
 **Red Hat CodeReady Workspaces**  
 
