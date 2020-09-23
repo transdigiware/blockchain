@@ -460,10 +460,6 @@ subcollection: blockchain
 
 [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-7)
 
-[Where can a customer deploy the {{site.data.keyword.blockchainfull_notm}} Platform and how will {{site.data.keyword.IBM_notm}} support those deployment environments?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-sw-support)
-
-[Does {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x and 2.5 run on OpenShift on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-saas-ocp)
-
 [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
 
 [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
@@ -472,7 +468,7 @@ subcollection: blockchain
 
 [Do you support using certificates from non-IBM Certificate Authorities?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-external-certs)
 
-[I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} <blockchain-sw-251>v2.1.x or 2.5</blockchain-sw-251>. Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
+[I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
 
 [Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-multicloud)
 
@@ -487,8 +483,6 @@ subcollection: blockchain
 [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-ports)
 
 [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
-
-[Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
 
 [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
 
@@ -1270,17 +1264,7 @@ subcollection: blockchain
 
 [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting)
 
-[My deployment fails when I try apply the security and access policies to my namespace](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-policies)
-
-[My deployment fails when I try apply the custom resource definition of the console or operator](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr)
-
-[Extracting the TLS certificate from the Kubernetes webhook fails](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-wh-extract)
-
 [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-chrome-v77)
-
-[Why am I not able to log in to the console from my Chrome browser on Mac OS Catalina?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-catalina)
-
-[Why is my channel creation failing or I am unable to add a new organization to my ordering service with the error "Unable to get system channel"?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-accept-tls)
 
 [When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-status-unavailable)
 
@@ -1289,8 +1273,6 @@ subcollection: blockchain
 [Why am I getting the error `Unable to get system channel` when I open my ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshoot-ordering-service)
 
 [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
-
-[Why is my Node.js smart contract instantiation failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-instantiate)
 
 [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 
@@ -1319,8 +1301,6 @@ subcollection: blockchain
 [How can I view my smart contract container logs?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry2)
 
 [Why is my CA, peer, or ordering node that is configured to use HSM not working?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-hsm-proxy)
-
-[My CA failed to upgrade, how can I fix it?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-ca-upgrade-fails)
 
 [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-endorsement-sig-failure)
 

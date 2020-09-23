@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -19,6 +19,7 @@ subcollection: blockchain
 {:term: .term}
 {:tip: .tip}
 {:pre: .pre}
+
 
 # Deploy from Red Hat Marketplace
 {: #deploy-ocp-rhm}
@@ -38,13 +39,7 @@ With just a few simple steps, you can get started with the {{site.data.keyword.b
 Currently you cannot deploy Certificate Authorities (CAs), peers, and ordering nodes directly, you should use the console to deploy those nodes instead. This tutorial only includes instructions for installing the console.
 {: important}
 
-To learn more about the Marketplace see the [Red Hat documentation](https://marketplace.redhat.com){: external}.<blockchain-sw-251>
-
-## Limitations
-{: #deploy-ocp-rhm-limitations}
-
-- This deployment option is not available on OpenShift Container Platform on LinuxONE.
-- This deployment option is only available for {{site.data.keyword.blockchainfull_notm}} Platform 2.5 and higher. </blockchain-sw-251>
+To learn more about the Marketplace see the [Red Hat documentation](https://marketplace.redhat.com){: external}.
 - This deployment option is not available for on-prem installations.
 - IBM Blockchain Platform 2.5. is only supported on Red Hat OpenShift 4.3+.
 - You are responsible for the management of health monitoring, logging, and resource usage of your blockchain components.
@@ -471,7 +466,7 @@ When you access your console, you can use the **nodes** tab of your console UI t
 
 To learn how to manage the users that can access the console, view the logs of your console and your blockchain components, see [Administering your console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage){: external}.
 
-<blockchain-sw-251>Ready to automate the entire deployment process? Check out the [Ansible Playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp){: external} that can be used to complete all of the steps in this topic for you.</blockchain-sw-251>
+
 
 ## Support
 {: #deploy-ocp-rhm-support}

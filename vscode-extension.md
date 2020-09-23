@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -20,18 +20,11 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
+
 # Developing smart contracts with {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools
 {: #develop-vscode}
 
-<blockchain-sw-251><div style="background-color: #f4f4f4; padding-left: 20px; border-bottom: 2px solid #0f62fe; padding-top: 12px; padding-bottom: 4px; margin-bottom: 16px;">
-  <p style="line-height: 10px;">
-    <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
-    <a href="/docs/blockchain-sw?topic=blockchain-sw-develop-vscode">2.1.2</a>,
-    <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-develop-vscode">2.1.3</a>
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-develop-vscode">2.5</a>
-    </p>
-</div>
-</blockchain-sw-251>
+
 
 The {{site.data.keyword.blockchainfull}} Platform Developer Tools provide an environment within Visual Studio Code or Red Hat CodeReady Workspaces for developing, packaging, and testing smart contracts. You can use the tools to create your smart contract project and get started developing your business logic. You can then use the tools to test your smart contract either on your local machine by using a preconfigured instance of Hyperledger Fabric, or by connecting to an {{site.data.keyword.blockchainfull_notm}} Platform network, before you deploy the smart contract to the {{site.data.keyword.blockchainfull_notm}} Platform. This tutorial describes how to install and use the Developer Tools.  
 
@@ -42,15 +35,7 @@ The {{site.data.keyword.blockchainfull}} Platform Developer Tools provide an env
 <area href="/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="317, 70, 442, 122" />
 <area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy" alt="Deploy locally to test and debug" title="Deploy locally to test and debug" shape="rect" coords="316, 135, 442, 192"/>
 <area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="459, 69, 583, 126" />
-<area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp" alt="Deploy to {{site.data.keyword.cloud_notm}}" title="Deploy to {{site.data.keyword.cloud_notm}}" shape="rect" coords="605, 54, 744, 221" /></map>  <blockchain-sw-251>
-<img usemap="#home_map1" border="0" class="image" id="image_ztx_crb_f1b2" src="images/SmartContractflow-25.png" width="750" alt="Click a box to get more details on the process." style="width:750px;" />
-<map name="home_map1" id="home_map1">
-<area href="/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-creating-a-project" alt="Create a smart contract project" title="Create a Smart contract project" shape="rect" coords="28, 70, 153, 130" />
-<area href="/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-creating-a-project" alt="Develop smart contract code in VS Code" title="Develop smart contract in VS Code" shape="rect" coords="167, 70, 304, 134" />
-<area href="/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#packaging-a-smart-contract" alt="Package the smart contract" title="Package the smart contract" shape="rect" coords="317, 70, 442, 122" />
-<area href="/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-deploy" alt="Deploy locally to test and debug" title="Deploy locally to test and debug" shape="rect" coords="316, 135, 442, 192"/>
-<area href="/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-exporting-deleting-smart-contract-package" alt="Export the package" title="Export the package" shape="rect" coords="459, 69, 583, 126" />
-<area href="/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-connecting-ibp" alt="Deploy to {{site.data.keyword.cloud_notm}}" title="Deploy to {{site.data.keyword.cloud_notm}}" shape="rect" coords="605, 54, 744, 221" /></map>  </blockchain-sw-251>
+<area href="/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp" alt="Deploy to {{site.data.keyword.cloud_notm}}" title="Deploy to {{site.data.keyword.cloud_notm}}" shape="rect" coords="605, 54, 744, 221" /></map>  
 
 
 
@@ -79,9 +64,7 @@ This option is beneficial to customers who operate in highly regulated spaces an
 **Familiar development experience**  
 The workspace uses the open source **Eclipse Theia IDE** that serves as the editor component of the CodeReady Workspaces, and includes all of the popular packages, tools, and utilities similar to VS Code and supports VS Code extensions. The workspace is also preconfigured with the prerequisite tooling that is required by the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling and can be customized for your development team, such as version control so that you can import projects from **GitHub**.
 
-<blockchain-sw-251>CodeReady Workspaces are included with the [{{site.data.keyword.cloud_notm}} Pak for Applications](https://www.ibm.com/cloud/cloud-pak-for-applications).
-{: tip}
-</blockchain-sw-251>
+
 
 ### Current limitations of the CodeReady Workspaces
 {: #develop-vscode-crw-limits}

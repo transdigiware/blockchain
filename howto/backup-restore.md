@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+
 
 # Backing up and restoring components and networks
 {: #backup-restore}
@@ -110,7 +111,7 @@ When a snapshot is being taken the node continues to function as normal.
 Because the process for taking a snapshot is the same for all nodes, only one set of instructions is shown here.
 {: tip}
 
-After your node is provisioned, you can get the persistent volumes that are associated with it and the namespace<blockchain-sw-251>project</blockchain-sw-251> the component is deployed into by issuing:
+After your node is provisioned, you can get the persistent volumes that are associated with it and the namespace the component is deployed into by issuing:
 
 
 ```
@@ -118,11 +119,7 @@ kubectl get pvc --all-namespaces
 ```
 {: codeblock}
 
-<blockchain-sw-251>
-```
-kubectl get pvc -n <project>
-```
-{: codeblock}</blockchain-sw-251>
+
 
 Which produces a list of nodes and their persistent volumes similar to this example:
 

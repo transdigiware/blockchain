@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -19,6 +19,7 @@ subcollection: blockchain
 {:pre: .pre}
 {:external: target="_blank" .external}
 
+
 # Release notes
 {: #release-notes-saas-20}
 
@@ -31,10 +32,7 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 {: #08-25-2020}
 
 
-<blockchain-sw-251>## 9 Sept 2020
-{: #08-25-2020}
 
-</blockchain-sw-251>
 
 
 **CA, Peer, and ordering node patch 1.4.7-2, 2.1.1-2**
@@ -51,7 +49,7 @@ Certificate expiration dates have been added throughout the component details, m
 
 Miscellaneous bug fixes and security patches.
 
-<blockchain-sw-251>Users who installed the {{site.data.keyword.blockchainfull_notm}} Platform 2.5 before July 14, 2020 should install the [2.5 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack). If you install the {{site.data.keyword.blockchainfull_notm}} Platform 2.5 after July 14, 2020, the platform will contain all the bug fixes and improvements that are provided by the fix pack, and you do not need to apply the fix pack.</blockchain-sw-251>
+
 
 
 ## 18 June 2020
@@ -82,7 +80,7 @@ Leveraging the Fabric v2 **external chaincode launcher** capability, when you de
 ### Multizone-capable storage
 {: #06-18-2020-Multizone}
 
-If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.<blockchain-sw-251>See [Multizone-capable Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-ha#ibp-console-ha-multi-zone-storage) for more information.</blockchain-sw-251>
+If your Kubernetes cluster is configured to use multizone-capable storage, new peer and ordering nodes can be deployed that leverage multizone storage, effectively extending their high availability across cluster zones. See [Multizone-capable Storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-multizone) for more information.
 
 ### Kubernetes version upgrade
 {: #06-18-2020-k8s}
@@ -108,7 +106,7 @@ You now have the option to configure an intermediate CA using the console or API
 
 The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) to learn how.
 
-<blockchain-sw-251>Users who installed the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 before May 20, 2020 should install the [v2.1.3 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack). If you installed the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 after May 20, 2020, the platform will contain all the bug fixes and improvements that are provided by the fix pack, and you do not need to apply the fix pack.</blockchain-sw-251>
+
   
 
 ## 16 April 2020
@@ -134,10 +132,7 @@ If you plan to use AWS HSM, you must include the `immutable` and `AltId` paramet
 {: note}
 
 
-<blockchain-sw-251>
-**Support for OpenShift Container Platform v4.2 on LinuxONE on s390x**
 
-Enables IBM Z environments to participate fully in a multicloud architecture. Existing IBM Z applications running on Linux on IBM Z and z/OS can be extended to create a comprehensive multi-organizatioal blockchain network. </blockchain-sw-251>
 
 **Hyperledger Fabric v1.4.6**
 

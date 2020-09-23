@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -21,6 +21,7 @@ subcollection: blockchain
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
 {:pre: .pre}
+
 
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
@@ -75,7 +76,7 @@ The following capabilities are only available on a paid cluster:
 - Overriding node configuration during or after deployment by using the console or APIs.
 - Adding or removing ordering nodes to an ordering service. The free offering only supports a single node Raft ordering service.
 
-  
+
 **How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free**  
 {: #ibp-saas-pricing-free-howto}
 
@@ -148,15 +149,7 @@ The values in the following table are useful to estimate the hourly cost of your
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
-| **Console**                    | 1.2           | 2.4                   | 10                     |<blockchain-sw-251>| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
-|--------------------------------|---------------|-----------------------|------------------------|
-| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
-| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
-| **CA**                         | 0.1           | 0.2                   | 20                     |
-| **Ordering node**              | 0.35          | 0.7                   | 100                    |
-| **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-| **Webhook**                    | 0.1           | 0.2                   | 0                      |</blockchain-sw-251>
 
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 

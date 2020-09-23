@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: intermediate CA, root CA, parent server, Certificate Authority
 
@@ -20,6 +20,7 @@ subcollection: blockchain
 {:support: data-reuse='support'}
 {:tip: .tip}
 {:pre: .pre}
+
 
 # Creating an intermediate Certificate Authority (CA)
 {: #ibp-ica}

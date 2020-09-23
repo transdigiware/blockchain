@@ -2,7 +2,7 @@
 
 copyright:
    years: 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: external CA, certificate, private key, MSP
 
@@ -95,6 +95,7 @@ completion-time: 30m
 {:video: .video}
 
 
+
 # Using certificates from an external Certificate Authority
 {: #ibp-tutorial-extca}
 {: toc-content-type="tutorial"}
@@ -124,8 +125,7 @@ While it is always possible to use a CA that you create with the console to gene
 
 
 * [Install the {{site.data.keyword.blockchainfull}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-deploy-process).
-<blockchain-sw-251>* [Install the {{site.data.keyword.blockchainfull}} Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp#get-started-console-ocp-step-two-deploy-console).
-* This tutorial requires use of the {{site.data.keyword.blockchainfull_notm}} Platform console. Therefore, after you deploy the platform, ensure that you can successfully log in to the console.</blockchain-sw-251>
+
 
 
 

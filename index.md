@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: IBM Blockchain Platform offerings, VS code extension, IBM Cloud
 
@@ -88,6 +88,7 @@ subcollection: blockchain
 {:user_ID: data-hd-keyref="user_ID"}
 {:vb.net: .ph data-hd-programlang='vb.net'}
 {:video: .video}
+
 
 
 # Getting started with {{site.data.keyword.blockchainfull_notm}} Platform
