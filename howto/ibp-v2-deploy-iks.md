@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -325,15 +325,7 @@ For a sense of how much storage and compute you will need in your cluster, refer
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
-| **Console**                    | 1.2           | 2.4                   | 10                     |<blockchain-sw-251>| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
-|--------------------------------|---------------|-----------------------|------------------------|
-| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
-| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
-| **CA**                         | 0.1           | 0.2                   | 20                     |
-| **Ordering node**              | 0.35          | 0.7                   | 100                    |
-| **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-| **Webhook**                    | 0.1           | 0.2                   | 0                      |</blockchain-sw-251>
 
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
