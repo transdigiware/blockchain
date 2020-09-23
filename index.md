@@ -105,18 +105,18 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 
 {{site.data.keyword.blockchainfull_notm}} Platform provides different offerings that allow you to deploy your network in the environment of your choice. You need to decide if you want to deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5 or if you want to use the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 
-| |{{site.data.keyword.blockchainfull_notm}} Platform for anywhere 2.5 | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} |
+| |{{site.data.keyword.blockchainfull_notm}} Platform for anywhere (2.5) | {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} |
 |----|---|----|
 | Where do you want to deploy the platform?|  Multiple Kubernetes distributions on a private, public, or hybrid **multicloud** <br><br> See [Supported Platforms](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about#console-ocp-about-prerequisites) | A Kubernetes cluster on {{site.data.keyword.cloud_notm}} <br><br> See [Supported configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg) |  
 | What are my deployment options? | <ul><li> Full platform </li> <li> [Only {{site.data.keyword.blockchainfull_notm}} images](#get-started-ibp-images) </li> </ul>| <ul><li> Full platform </li> </ul>
-| How is it billed? |Contact us for  [pricing](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-sw-pricing) |[$0.29 USD per allocated CPU hour](/docs/blockchain?topic=blockchain-ibp-saas-pricing)  |
+| How is it billed? |Contact us for [pricing](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-sw-pricing) |[$0.29 USD per allocated CPU hour](/docs/blockchain?topic=blockchain-ibp-saas-pricing)  |
 | Can I connect with Peers in other clouds? |  Yes| Yes |
 | Can my data center be [on-prem](#x4561212){: term} and behind a firewall? | Yes| No |
 | Can I use a console UI to deploy and manage my blockchain components? | Yes | Yes|
 | Are APIs available for node management? | Yes | Yes|
 | Does the product integrate with the {{site.data.keyword.blockchainfull_notm}} Platform VSCode extension to develop and test my smart contracts?| Yes | Yes|
 | I am an experienced Fabric customer. Are peer, CA, orderer, and smart contract images available and supported? | Yes | No |
-| Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform 2.5>](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about#console-ocp-about-offers) | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
+| Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform 2.5] (/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about#console-ocp-about-offers) | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
 | Ready to get started? | See [Step one: Install the IBM Blockchain Platform](/docs/blockchain-sw-25?topic=blockchain-sw-25-get-started-console-ocp#get-started-console-ocp-step-two-deploy-console) | See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks) |
 {: caption="Table 1. Which offering is right for your business?" caption-side="bottom"}
 
