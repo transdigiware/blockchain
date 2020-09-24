@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -58,12 +58,12 @@ For an overview of the channel creation process that ignores the advanced option
 ## Advanced options
 {: #ibp-console-govern-update-channel-available-parameters-advanced}
 
-By clicking the box under advanced options, users can access parameters that users should take caution in updating. Note that if you are attempting to change any parameter that requires the signature of ordering service admins (for example, the **Block cutting parameters** or **ordering service consenters**) and are one of the ordering service admins on this channel, you will see a field for the ordering service organization. Select the MSP of the relevant ordering service organization from the drop-down list (if you are not an ordering service admin, the MSP will have to be exported to you). If you are not an admin of the ordering service organization, you can still make a request to change one of the block cutting parameters, but the request will be sent, and will need to be signed, by an ordering service admin.
+By clicking the box under advanced options, users can access parameters that users should take caution in updating. Note that if you are attempting to change any parameter that requires the signature of ordering service admins (for example, the **Block cutting parameters** or **ordering service consenters**) and are one of the ordering service admins on this channel, you will see a field for the ordering service organization. Select the MSP of the relevant ordering service organization from the drop-down list (if you are not an ordering service admin, the MSP will have to be exported to you). If you are not an admin of the ordering service organization, you can still make a request to change one of the block cutting parameters, but the request must be signed by an ordering service admin.
 
 If the signature of an ordering service org admin is required, you will not see a pending tile for the channel in your console until the ordering service org has signed the request. When you see the tile, you can join your peer to it.
 {:tip}
 
-* **Capabilities**. If you're unfamiliar with capabilities, see [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external} in the Fabric documentation. Currently, only **application** and **orderer** capabilities can be set during channel creation. For information about **channel** capabilities (which are a level of capabilities that span both ordering nodes and peers and do not refer to "capabilities on the channel") and how to change them, check out the [Capabilities](#ibp-console-govern-capabilities) section below.
+* **Capabilities**. If you're unfamiliar with capabilities, check out [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external} in the Fabric documentation. Note that there is a strict relationship between the Fabric version of your nodes and the levels of certain capabilities that must be followed to ensure that nodes do not crash and desired functionalities are available. Currently, only **application** and **orderer** capabilities can be set during channel creation. For information about **channel** capabilities (which are a level of capabilities that span both ordering nodes and peers and do not refer to "capabilities on the channel") and how to change them, check out the [Capabilities](#ibp-console-govern-capabilities) section below.
 
 * **Block cutting parameters**. These fields determine the conditions under which the ordering service cuts a new block. For information on how these fields affect when blocks are cut, see the [Block cutting parameters](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning-batch-size) section below. Note that changing these parameters will require the signature of an ordering service admin. If you are an ordering service admin, you can sign this update using the **Ordering service organization** panel.
 
@@ -121,7 +121,7 @@ First thing you will see is the **Organization updating channel** panel. Here yo
 If your console is at a build before `2.1.3-104`, you will not see the **ordering service administrator** option. To see the version of your build, click on the support icon in the upper right corner (it resembles a question mark). The version will be listed below **IBM Blockchain Platform version** on the upper left.
 {: tip}
 
-If you are attempting to change any parameter that requires the signature of ordering service admins (for example, the **Block cutting parameters** or **ordering service consenters**) and are one of the ordering service admins on this channel, you will see a field for the ordering service organization. Select the MSP of the relevant ordering service organization from the drop-down list. If you are not an admin of the ordering service organization, you can still make a request to change these fields, but the request will need to be signed by an ordering service admin.
+If you are attempting to change any parameter that requires the signature of ordering service admins (for example, the **Block cutting parameters** or **ordering service consenters**) and are one of the ordering service admins on this channel, you will see a field for the ordering service organization. Select the MSP of the relevant ordering service organization from the drop-down list. If you are not an admin of the ordering service organization, you can still make a request to change these fields, but the request must be signed by an ordering service admin.
 
 When you are done making your updates, the **Review channel information** panel will allow you to review your changes and then submit them.
 
@@ -149,12 +149,19 @@ Note that after a peer is removed from a channel, it might still show as being j
 #### Capabilities
 {: #ibp-console-govern-capabilities}
 
-As noted in the [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external} topic in the Fabric documentation, there are three levels of capabilities: for the **orderer**, **application**, and **channel**.
+For a thorough look at what capabilities are how they work, check out [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external}.
+{: tip}
+
+The capability levels of a channel and the Fabric versions in the nodes on that channel must be coordinated in order for nodes and channels to function properly. That is because both nodes and capabilities work together to ensure that transactions are handled deterministically (that is, that all of the nodes process a transaction the same way). While the Fabric versions of a node are compatible with lower levels of capabilities, capabilities cannot be processed by lower levels of nodes. If a v1.4.x node attempts to read a configuration block containing a v2.x capability, the node will crash. For this reason, the console will attempt to ascertain the nodes that will be affected by a capability update and either warn you (or stop you) from updating a capability if it will cause a node to crash. More on this later.
+
+Because of this, all of the nodes in a channel must be at least at the level of the capabilities relevant to the node.
+
+Which capabilities are relevant to which nodes? For peers, the relevant capabilities are the `application` and `channel` capabilities, while the `orderer` and `channel` capabilities are relevant to the ordering service.
 
 While all capabilities can be edited as part of a channel configuration update request, you have the opportunity to edit these capabilities in a few places:
 
-  * **Channel and orderer**: in the [system channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities-system-channel) by ordering service admins.
-  * **Application and orderer**: during [channel creation](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities-application-channels).
+  * **Channel and orderer**: in the [system channel](#ibp-console-govern-capabilities-system-channel) by ordering service admins.
+  * **Application and orderer**: during [channel creation](#ibp-console-govern-capabilities-application-channels).
 
 Note that what you see in this section will depend on the configuration of your channel and the Fabric level of your peers and ordering nodes, as **only valid and possible capability upgrades will appear**. For example, if your channel, orderer, and application capabilities are already at the highest level, you will only see the capability levels that have been selected. Similarly, you will not see potential capability updates if your nodes in the channel are not at a sufficient Fabric level to process the capability. Note that the **default** orderer capability shown is inherited from the system channel, as noted above, while the default application capability is set to a reasonable level that will ensure that peers who attempt to join the channel will not crash. The application capability can always be updated later.
 
@@ -164,20 +171,24 @@ To ensure that you will always be able to see and propose updates to get a chann
 #### Capabilities in the system channel
 {: #ibp-console-govern-capabilities-system-channel}
 
-Because the ordering service is involved in the validation of the orderer and channel capabilities, these capability levels exist in the system channel maintained by the ordering service. By default, any channel that is created on this ordering service inherits these capability levels. Because only the orderer capability (and not the channel capability) is apparent when creating a channel, it is important to communicate the **channel** capability level to consortium members so they can ensure that the level of their peers is at the Fabric version of the capability level or higher.
+Because the ordering service is involved in the validation of the `orderer` and `channel` capabilities, these capability levels exist in the system channel maintained by the ordering service. By default, any channel that is created on this ordering service inherits these capability levels. Because only the `orderer` capability (and not the `channel` capability) is apparent when creating a channel, it is important to communicate the **channel** capability level to consortium members so they can ensure that the level of their peers is at the Fabric version of the capability level or higher.
 
-In order to edit the orderer or channel capabilities in the system channel, you must be an ordering service admin (your MSP can be added as an ordering service admin through the tile representing the ordering service on the **Nodes** tab). Note that capability versions can only advance. **You cannot go back to a previous capability or downgrade from a default capability level to a lower version**.
+In order to edit the `orderer` or `channel` capabilities in the system channel, your organization must be an ordering service administrator.
+{: tip}
 
-To edit these capabilities, click on the **Settings** button inside the ordering service. Then click **Capabilities**. Note that the channel and orderer capabilities, as well as the application capabilities, can also be edited through a channel configuration update. However, an ordering service admin will have to sign any configuration update that edits the orderer or channel capabilities.
+To edit these capabilities, click on the **Settings** button inside the ordering service. Then click **Capabilities**. Note that the channel and orderer capabilities, as well as the application capabilities, can also be edited through a channel configuration update. However, an ordering service admin will have to sign any configuration update that edits the `orderer` or `channel` capabilities. Note that capability versions can only advance. **You cannot go back to a previous capability or downgrade from a default capability level to a lower version**.
+
+It is not possible to update the `orderer` or `channel` capabilities to a level that will crash your ordering nodes. If you want to update your capabilities on the system channel screen, you must first upgrade your nodes.
+{: important}
 
 #### Capabilities in application channels
 {: #ibp-console-govern-capabilities-application-channels}
 
-Application capabilities define the way transactions are handled exclusively by the peers. As a result, these capabilities are not inherited from the system channel (which is managed by the ordering service) and you will see the full list of capabilities, starting with `1.1`, when creating a channel. Note that the Fabric version of all peers in the channel must be at least at the level of the application capability level and the channel capability level inherited from the ordering service. When creating a channel, the default application capability might be lower than the highest available level. This is done in cases where a new Fabric version with a new application capability has been released but it is not expected that most peers will be at the new Fabric version. 
+Application capabilities define the way transactions are handled exclusively by the peers. As a result, these capabilities are not inherited from the system channel (which is managed by the ordering service) and the full list of capabilities can be seen, starting with `1.1`, when creating a channel. Note that the Fabric version of all peers in the channel must be at least at the level of the application capability level and the channel capability level inherited from the ordering service. When creating a channel, the default application capability might be lower than the highest available level. This is done in cases where a new Fabric version with a new application capability has been released but it is not expected that most peers will be at the new Fabric version. 
 
 Like the orderer and channel capabilities, the application capability level can be edited through a channel configuration update. The orderer capability can also be specified during the creation of a channel, but will require the approval of the ordering service.
 
-If you are using the SDK to create or edit a channel, take caution to not submit a configuration update with an invalid application capability. Because application capabilities are not validated by the ordering service, an invalid application capability will not be flagged and the configuration update will be approved. Because the peers cannot process capabilities that do not exist, the peers will crash when attempting to read the configuration block containing an invalid capability. Because the peers will be unable to progress beyond this configuration block, it will not be possible to reverse this configuration block and submit another one to "fix" the problem. A channel in this state would be unrepairable. In this situation, the peer must be upgraded to a Fabric version compatible with the capability.
+If you are using the SDK to create or edit a channel, take caution to not submit a channel configuration with an invalid `application` capability. Because application capabilities are not validated by the ordering service, invalid application capabilities are not flagged. Because the peers cannot process capabilities that do not exist, the peers will crash when attempting to read the configuration block containing an invalid capability. Because the peers will be unable to progress beyond this configuration block, it will not be possible to reverse this configuration block and submit another one to "fix" the problem. A channel in this state is unrepairable.
 {:important}
 
 ## Tuning your ordering service
