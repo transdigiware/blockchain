@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -42,6 +42,7 @@ subcollection: blockchain
 - [What is the recommended way to manage private keys?](#ibp-v2-faq-hsm)
 - [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
 - [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-ports)
+- [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](#ibp-v2-faq-sizing)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
 - [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-offchain-db)
 - [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-ldap)
@@ -165,12 +166,17 @@ The {{site.data.keyword.blockchainfull_notm}} platform gives customers total con
 
 See the port information in the Security topic that addresses this for the [console](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-ports) and the [customer Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-ports). 
 
+## How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?
+{: #ibp-v2-faq-sizing}
+{: faq}
+
+After you understand how many CAs, peers, and ordering nodes are required, you can examine the default resource allocations table for [OpenShift](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-resources-required) or [Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-resources-required) to get an approximate estimate of the CPUs (VPCs) required for your network. If you are purchasing {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}, you can estimate your cost through this method, but you also have the ability to scale dynamically if more sources are needed. If you plan to deploy the platform outside of {{site.data.keyword.cloud_notm}}, you will need to buy licenses per VPC (CPU) based on expected usage. As a reminder, these are only sold per VPC so you should always round up the number of VPCs if you plan to use fractional parts. For example, if you estimate that you will need 11.2 VPCs then you should license 12 VPCs.
+
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}
 {: faq}
 
 Yes. The Raft ordering service nodes are configured to use TLS communication. TLS is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and as well as between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
-
 
 
 ## What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?

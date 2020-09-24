@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1109,7 +1109,7 @@ The ability to update an ordering node configuration is not available for orderi
 ## Using certificates from an external CA with your peer or ordering service
 {: #ibp-console-adv-deployment-third-party-ca}
 
-Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. To use an external CA, the CA needs to issue certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format. You need to generate your private keys using the PKCS #8 standard.
+Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. To use an external CA, the CA needs to issue certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format. You need to generate your private keys using the PKCS #8 standard. For a quick tutorial, see [Using certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca).
 
 ### Before you begin
 {: #ibp-console-adv-deployment-third-party-ca-prereq}

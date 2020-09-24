@@ -479,6 +479,8 @@ subcollection: blockchain
 
 [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-ports)
 
+[How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-sizing)
+
 [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
 
 [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
@@ -691,7 +693,6 @@ subcollection: blockchain
   * [Step five: Update channel member on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-channel-member)
   * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-admin)
   * [Step seven: Update orderer organization MSP on channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel)
-* [Bulk admin certificate renewal with Ansible playbooks](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-bulk-ansible)
 * [Expired certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs)
   * [How to fix expired Admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin)
   * [How to fix expired enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-ecerts)
