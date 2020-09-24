@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: site map
 subcollection: blockchain
@@ -254,14 +254,12 @@ subcollection: blockchain
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
   * [The structure of this network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-structure)
 * [Step one: Create a peer organization and a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
-  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-peer)
   * [Creating your peer organization's CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ca-admin)
   * [Using your CA to register identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
   * [Creating the peer organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
   * [Creating a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-peer-create)
 * [Step two: Create the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer)
-  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-orderer)
   * [Ordering in the console](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ordering-console)
   * [Creating your ordering service organization CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
@@ -269,7 +267,6 @@ subcollection: blockchain
   * [Creating the ordering service organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
   * [Deploy the ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
 * [Step three: Join the consortium hosted by the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org)
-  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-channel)
   * [Add the organization to the consortium](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
 * [Step four: Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)
   * [Creating a channel: `channel1`](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1)

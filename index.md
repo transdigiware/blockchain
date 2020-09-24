@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: IBM Blockchain Platform offerings, VS code extension, IBM Cloud
 
@@ -116,7 +116,7 @@ Before you use an {{site.data.keyword.blockchainfull_notm}} Platform offering, r
 | Are APIs available for node management? | Yes | Yes|
 | Does the product integrate with the {{site.data.keyword.blockchainfull_notm}} Platform VSCode extension to develop and test my smart contracts?| Yes | Yes|
 | I am an experienced Fabric customer. Are peer, CA, orderer, and smart contract images available and supported? | Yes | No |
-| Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform 2.5] (/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about#console-ocp-about-offers) | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
+| Where can I learn more? |See [About {{site.data.keyword.blockchainfull_notm}} Platform 2.5](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about#console-ocp-about-offers) | See [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities) |
 | Ready to get started? | See [Step one: Install the IBM Blockchain Platform](/docs/blockchain-sw-25?topic=blockchain-sw-25-get-started-console-ocp#get-started-console-ocp-step-two-deploy-console) | See [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks) |
 {: caption="Table 1. Which offering is right for your business?" caption-side="bottom"}
 
