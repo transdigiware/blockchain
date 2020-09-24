@@ -20,8 +20,10 @@ subcollection: blockchain
 {:pre: .pre}
 
 
+
 # Managing deployed components
 {: #ibp-console-govern-components}
+
 
 
 
