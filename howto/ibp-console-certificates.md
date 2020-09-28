@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-25"
+lastupdated: "2020-09-28"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -353,7 +353,9 @@ You can verify that this process is successful by opening the channel member til
 
 If this is a peer admin MSP that is an ordering service consortium member, the ordering service admin needs to update the ordering service system channel. Because the ordering service system channel serves as a template for new application channels, taking this action keeps it current as the associated MSPs are updated. Before attempting these steps, the ordering service admin should have already imported the updated MSP from step two into their console.
 
-From the **Nodes** tab, the ordering service admin opens the ordering service tile. Delete the existing consortium member that contains the original MSP definition, and then add the consortium again with the new admin certificate by clicking **Add organization**.  Browse to the new MSP JSON file from [step two](#cert-mgmt-manual-update-msp).
+1. From the **Nodes** tab, the ordering service admin opens the ordering service tile.
+2. Delete the existing consortium member that contains the original MSP definition, and then add the consortium again with the new admin certificate by clicking **Add organization**.  Browse to the new MSP JSON file from [step two](#cert-mgmt-manual-update-msp).
+  ![Update Ordering service consortium member](../images/del-add-node.png "Update Ordering service consortium member"){: caption="Figure 7. Ordering service admin MSP update" caption-side="bottom"}
 
 ### Step six: Update ordering service admin on ordering service system channel
 {: #cert-mgmt-manual-update-os-admin}
@@ -362,7 +364,7 @@ If the updated certificate is for the ordering service MSP admin, you need to up
 
 1. From the **Nodes** tab, open the ordering service tile.
 2. Under **Ordering service administrators** click the **Settings** icon on the ordering service organization MSP tile.
-  ![Ordering service admin MSP update](../images/os-msp-gear-icon.png "Ordering service admin MSP update"){: caption="Figure 7. Ordering service admin MSP update" caption-side="bottom"}
+  ![Ordering service admin MSP update](../images/os-msp-gear-icon.png "Ordering service admin MSP update"){: caption="Figure 8. Ordering service admin MSP update" caption-side="bottom"}
 3. From the **Existing MSP ID** tab, select the MSP that needs to be updated and then select the **original identity** to sign the request. You must use the original identity for this step because it's the only one with permission to make channel updates. This action replaces the existing MSP definition for the ordering service admin with the updated MSP with the new admin certificate.
 
 ### Step seven: Update orderer organization MSP on channel  
@@ -506,12 +508,19 @@ You can find the expiration date in the **Validity** section and follows `Not Af
 
 MSPs can be exported from the console to your local file system. Navigate to the **Organizations** tab and click the MSP that you want to export. Click the **Export** icon to download the MSP to a JSON file on your local system.
 
-![How to export MSP](../images/export-msp.png "How to export MSP"){: caption="Figure 8. How to export MSP" caption-side="bottom"}
+![How to export MSP](../images/export-msp.png "How to export MSP"){: caption="Figure 9. How to export MSP" caption-side="bottom"}
 
 Share the JSON file with all of the members of the network who must import it into their console. It is important for them to import the updated MSP, so that when they create a new channel, they are using the MSP definition with the latest admin certificate.
 
 ## Import an MSP
 {: #cert-mgmt-import-msp}
 
-When another organization member shares their MSP with you, importing it into your console is important to ensure you are using the latest version of their organization MSP. Navigate to the **Organizations** tab and click **Import MSP definition**. Browse to the MSP definition that was shared with you and click **Import MSP definition**.
+When another organization member shares their MSP with you, importing it into your console is important to ensure you are using the latest version of their organization MSP.
+1. Navigate to the **Organizations** tab and click **Import MSP definition**.
+2. Browse to the MSP JSON file that was shared with you and click **Import MSP definition**.
+
+If you previously imported the MSP into your console, you need to update the definition.
+1. On the **Organizations** tab and click the MSP tile.
+2. Click the **Settings** icon and then **Add file** to browse to the new JSON file.
+3. Click **Update MSP**.  If you created any nodes in your console that use this MSP, they are updated with the new MSP and restarted.
 
