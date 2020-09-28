@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-28"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -90,7 +90,7 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:cluster-admins
+- system:serviceaccounts: <PROJECT_NAME>
 - system:authenticated
 kind: SecurityContextConstraints
 metadata:
