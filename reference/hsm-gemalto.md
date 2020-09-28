@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-28"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -406,7 +406,7 @@ Next we build a Docker image that contains the HSM client that will run on your 
 3. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Now, run the following command to build the Docker image:
 
    ```
-   docker build -t test -f Dockerfile .
+   docker build -t hsm-client:v1 -f Dockerfile .
    ```
    {: codeblock}
 

@@ -90,7 +90,7 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:serviceaccounts: <PROJECT_NAME>
+- system:serviceaccounts:<PROJECT_NAME>
 kind: SecurityContextConstraints
 metadata:
   name: <PROJECT_NAME>
