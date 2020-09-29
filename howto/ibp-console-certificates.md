@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-09-29"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -389,7 +389,7 @@ Orderer organization admin identities cannot update an application channel. Ther
 
 After the change is approved by the orderer organization admin identity, you can verify that this process is successful, by opening the channel member tile again and viewing the updated expiration date.
 
-Because the console only shows CA TLS certificate expiration dates if they are within five years, it is possible that the expiration date of the CA TLS certificate is not visible when you open the CA tile. In this case, renewal is therefore not required.
+Because the console only shows CA TLS certificate expiration dates if they are within five years, it is possible that the expiration date of the CA TLS certificate is not visible when you open the CA tile. If you've just successfully renewed the certificate, the expiration date is no longer visible on the page.
 {: tip}
 
 ## Bulk admin certificate renewal with Ansible playbooks
