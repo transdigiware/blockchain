@@ -211,7 +211,6 @@ The following tables describe the types of certificates that you need to manage,
 {: caption="Table 3. How to manage the orderer certificates" caption-side="top"}
 [^how-to-view3]: If a certificate expires in more than five years, the expiration date is not visible from the console.
 
-
 **Peer admin certificate:**  
 
 The following diagram summarizes the process for updating peer admin certificates on your network. Click a box to view the instructions.
