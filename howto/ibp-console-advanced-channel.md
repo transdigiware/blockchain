@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-09-30"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -152,11 +152,10 @@ Note that after a peer is removed from a channel, it might still show as being j
 For a thorough look at what capabilities are how they work, check out [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external}.
 {: tip}
 
-The capability levels of a channel and the Fabric versions in the nodes on that channel must be coordinated in order for nodes and channels to function properly. That is because both nodes and capabilities work together to ensure that transactions are handled deterministically (that is, that all of the nodes process a transaction the same way). While the Fabric versions of a node are compatible with lower levels of capabilities, capabilities cannot be processed by lower levels of nodes. If a v1.4.x node attempts to read a configuration block containing a v2.x capability, the node will crash. For this reason, the console will attempt to ascertain the nodes that will be affected by a capability update and either warn you (or stop you) from updating a capability if it will cause a node to crash. More on this later.
+The capability levels of a channel and the Fabric versions in the nodes on that channel must be coordinated in order for nodes and channels to function properly. That is because both nodes and capabilities work together to ensure that transactions are handled deterministically (that is, that all of the nodes process a transaction the same way). While the Fabric versions of a node are compatible with lower levels of capabilities, capabilities cannot be processed by lower levels of nodes.
 
-Because of this, all of the nodes in a channel must be at least at the level of the capabilities relevant to the node.
-
-Which capabilities are relevant to which nodes? For peers, the relevant capabilities are the `application` and `channel` capabilities, while the `orderer` and `channel` capabilities are relevant to the ordering service.
+The `application` and `channel` capabilities are relevant to peers, while the `orderer` and `channel` capabilities are relevant to the ordering service.
+{: tip}
 
 While all capabilities can be edited as part of a channel configuration update request, you have the opportunity to edit these capabilities in a few places:
 
@@ -178,7 +177,7 @@ In order to edit the `orderer` or `channel` capabilities in the system channel, 
 
 To edit these capabilities, click on the **Settings** button inside the ordering service. Then click **Capabilities**. Note that the channel and orderer capabilities, as well as the application capabilities, can also be edited through a channel configuration update. However, an ordering service admin will have to sign any configuration update that edits the `orderer` or `channel` capabilities. Note that capability versions can only advance. **You cannot go back to a previous capability or downgrade from a default capability level to a lower version**.
 
-It is not possible to update the `orderer` or `channel` capabilities to a level that will crash your ordering nodes. If you want to update your capabilities on the system channel screen, you must first upgrade your nodes.
+It is not possible to update the `orderer` or `channel` capabilities to a level that will crash your ordering nodes.
 {: important}
 
 #### Capabilities in application channels
