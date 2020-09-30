@@ -354,6 +354,7 @@ subcollection: blockchain
 * [Default resource allocations](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)
 * [Billing](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-billing)
   * [{{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform charges](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-iks-ibp)
+  * [Storage usage](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-storage)
 * [Optimizing the cost of your nodes](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-shutdown)
 
 [Pricing](/docs/blockchain?topic=blockchain-ibp-pricing)

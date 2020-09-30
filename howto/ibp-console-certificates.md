@@ -185,9 +185,9 @@ The following tables describe the types of certificates that you need to manage,
 
 **CA TLS certificate:** 
 
-|  Certificate | Description| How generated |	 Default expiration |	How to view expiration | How to renew | Impact if expires | What to do if expired |
-|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| **CA TLS certificate** | Used to trust the CA server. Contains the public key that must be shared with all members in the organization that want to transact with any node in the organization. When any client or node submits a transaction to another node, it must include this certificate as part of the transaction to prevent “man in the middle” attacks. | Generated when the CA is first started because TLS is enabled.| 1 year | If it expires within five years, the expiration date is visible from the console. Open CA node and view **TLS Cert Expiration** field[^how-to-view2]   | Open a support ticket.| Transactions continue.<br><br>- Cannot register or enroll new identities, but transaction traffic does not stop.<br><br>- Automatic certificate renewal fails.<br><br>- Cannot renew other certificates without fixing CA TLS certificate first. |Open a support ticket. |
+|  Certificate | Description| How generated |	 Default expiration |	How to view expiration | How to renew |  What to do if expired |
+|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| **CA TLS certificate** | Used to trust the CA server. Contains the public key that must be shared with all members in the organization that want to transact with any node in the organization. When any client or node submits a transaction to another node, it must include this certificate as part of the transaction to prevent “man in the middle” attacks. | Generated when the CA is first started because TLS is enabled.| 1 year | If it expires within five years, the expiration date is visible from the console. Open CA node and view **TLS Cert Expiration** field[^how-to-view2]   | Open a support ticket.| Open a support ticket. |
 {: caption="Table 1. How to manage the CA certificates" caption-side="top"}
 
 [^how-to-view2]: If a certificate expires in more than five years, the expiration date is not visible from the console.
@@ -316,7 +316,7 @@ Before attempting these steps, be aware that these actions trigger a restart of 
 8. In the **Organizations** tab, open the MSP tile for the peer and click the **Settings** icon.
 9. In the side panel, click **Add file** and select the updated MSP JSON file.
 10. Notice that the `Node OU` checkbox is selected for you, which means that Node OU support will be enabled on the MSP and that you will not have to repeat this process again _in another year_ when the certificates expire. For now though, you still need to complete all of the steps in this manual renewal process.
-    ![Node OU checkbox](../images/nodeou-checkbox.png "Node OU checkbox"){: caption="Figure 6. Update MSP with Node OU enabled" caption-side="bottom"}
+    ![Node OU checkbox](../images/nodeou-checkbox.png "Node OU checkbox"){: caption="Figure 6. Update MSP with Node OU enabled" caption-side="bottom"}>
 11. Click **Update MSP definition**. All Peer and ordering nodes in this console that include this MSP as their node admin are automatically updated with the new MSP and restarted.
 12. **Export this updated MSP**, and in an out of band action, share the file with all of the members of the network who must import it into their console. It is important for them to import the updated MSP, so when they create a new channel, they are using the MSP definition with the latest admin certificate.  
 
@@ -363,7 +363,7 @@ If the updated certificate is for the ordering service MSP admin, you need to up
 
 1. From the **Nodes** tab, open the ordering service tile.
 2. Under **Ordering service administrators** click the **Settings** icon on the ordering service organization MSP tile.
-  ![Ordering service admin MSP update](../images/os-msp-gear-icon.png "Ordering service admin MSP update"){: caption="Figure 8. Ordering service admin MSP update" caption-side="bottom"}
+  ![Ordering service admin MSP update](../images/os-msp-gear-icon.png "Ordering service admin MSP update"){: caption="Figure 7. Ordering service admin MSP update" caption-side="bottom"}
 3. From the **Existing MSP ID** tab, select the MSP that needs to be updated and then select the **original identity** to sign the request. You must use the original identity for this step because it's the only one with permission to make channel updates. This action replaces the existing MSP definition for the ordering service admin with the updated MSP with the new admin certificate.
 
 ### Step seven: Update orderer organization MSP on channel  
