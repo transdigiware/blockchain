@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-30"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -217,8 +217,6 @@ Current state data is stored in a database on the peers for efficient reads and 
 ## Transaction
 {: #glossary-transaction}
 The mechanism that participants on the blockchain network use to interact with assets. A transaction either creates new chaincode or invokes an operation in an existing chaincode.
-
-
 
 ## User
 {: #glossary-user}
