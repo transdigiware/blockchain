@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-10-01"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -186,7 +186,7 @@ The following tables describe the types of certificates that you need to manage,
 **CA TLS certificate:** 
 
 |  Certificate | Description| How generated |	 Default expiration |	How to view expiration | How to renew |  What to do if expired |
-|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|----------------------|
 | **CA TLS certificate** | Used to trust the CA server. Contains the public key that must be shared with all members in the organization that want to transact with any node in the organization. When any client or node submits a transaction to another node, it must include this certificate as part of the transaction to prevent “man in the middle” attacks. | Generated when the CA is first started because TLS is enabled.| 1 year | If it expires within five years, the expiration date is visible from the console. Open CA node and view **TLS Cert Expiration** field[^how-to-view2]   | Open a support ticket.| Open a support ticket. |
 {: caption="Table 1. How to manage the CA certificates" caption-side="top"}
 
@@ -506,7 +506,7 @@ You can find the expiration date in the **Validity** section and follows `Not Af
 
 MSPs can be exported from the console to your local file system. Navigate to the **Organizations** tab and click the MSP that you want to export. Click the **Export** icon to download the MSP to a JSON file on your local system.
 
-![How to export MSP](../images/export-msp.png "How to export MSP"){: caption="Figure 9. How to export MSP" caption-side="bottom"}
+![How to export MSP](../images/export-msp.png "How to export MSP"){: caption="Figure 8. How to export MSP" caption-side="bottom"}
 
 Share the JSON file with all of the members of the network who must import it into their console. It is important for them to import the updated MSP, so that when they create a new channel, they are using the MSP definition with the latest admin certificate.
 

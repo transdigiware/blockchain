@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-29"
+lastupdated: "2020-10-01"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -170,7 +170,7 @@ See the port information in the Security topic that addresses this for the [cons
 {: #ibp-v2-faq-sizing}
 {: faq}
 
-After you understand how many CAs, peers, and ordering nodes are required, you can examine the default resource allocations table for [OpenShift](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-resources-required) or [Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-resources-required) to get an approximate estimate of the CPUs (VPCs) required for your network. If you are purchasing {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}, you can estimate your cost through this method, but you also have the ability to scale dynamically if more sources are needed.
+After you understand how many CAs, peers, and ordering nodes are required, you can examine the default resource allocations table for  your [nodes](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources) to get an approximate estimate of the CPUs (VPCs) required for your network. If you are purchasing {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}, you can estimate your cost through this method, but you also have the ability to scale dynamically if more sources are needed.
 
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}
