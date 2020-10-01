@@ -490,6 +490,8 @@ subcollection: blockchain
 
 [What is the process for rotating certificates on a periodic basis?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cert-mgmt)
 
+[How can I back up and restore components and networks?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-backup-restore)
+
 [What languages are supported for smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-4)
 
 [What version of the {{site.data.keyword.blockchainfull_notm}} Platform works with the Ansible collection?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ansible-version)
