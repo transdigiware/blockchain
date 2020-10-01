@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-23"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -23,6 +23,7 @@ subcollection: blockchain
 {:tsResolve: .tsResolve}
 {:support: data-reuse='support'}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
+
 
 # Troubleshooting
 {: #ibp-v2-troubleshooting}

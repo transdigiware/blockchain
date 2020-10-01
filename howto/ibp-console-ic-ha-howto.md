@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-09-23"
 
 keywords: HA, highly availability, multiregion
 
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:pre: .pre}
+
 
 # Setting up multiregion High Availability (HA) deployments for peers
 {: #ibp-console-hadr-mr}

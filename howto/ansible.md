@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-23"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -22,6 +22,7 @@ subcollection: blockchain
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
 {:pre: .pre}
+
 
 # Getting started with Ansible playbooks on the IBM Blockchain Platform
 {: #ansible}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-10-01"
 
 keywords: site map
 subcollection: blockchain
@@ -254,14 +254,12 @@ subcollection: blockchain
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
   * [The structure of this network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-structure)
 * [Step one: Create a peer organization and a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
-  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-peer)
   * [Creating your peer organization's CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ca-admin)
   * [Using your CA to register identities](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
   * [Creating the peer organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
   * [Creating a peer](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-peer-create)
 * [Step two: Create the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer)
-  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-orderer)
   * [Ordering in the console](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-ordering-console)
   * [Creating your ordering service organization CA](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
   * [Associating the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
@@ -269,7 +267,6 @@ subcollection: blockchain
   * [Creating the ordering service organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
   * [Deploy the ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
 * [Step three: Join the consortium hosted by the ordering service](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org)
-  * [Video script](/docs/blockchain?topic=blockchain-ibp-console-build-network#video-transcript-channel)
   * [Add the organization to the consortium](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
 * [Step four: Create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel)
   * [Creating a channel: `channel1`](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel1)
@@ -357,6 +354,7 @@ subcollection: blockchain
 * [Default resource allocations](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-default)
 * [Billing](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-billing)
   * [{{site.data.keyword.cloud_notm}} and {{site.data.keyword.blockchainfull_notm}} Platform charges](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-iks-ibp)
+  * [Storage usage](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-storage)
 * [Optimizing the cost of your nodes](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-shutdown)
 
 [Pricing](/docs/blockchain?topic=blockchain-ibp-pricing)
@@ -482,6 +480,8 @@ subcollection: blockchain
 
 [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-ports)
 
+[How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-sizing)
+
 [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
 
 [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
@@ -489,6 +489,8 @@ subcollection: blockchain
 [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ldap)
 
 [What is the process for rotating certificates on a periodic basis?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cert-mgmt)
+
+[How can I back up and restore components and networks?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-backup-restore)
 
 [What languages are supported for smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-4)
 
@@ -562,7 +564,7 @@ subcollection: blockchain
   * [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)
   * [Viewing your smart contract container logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs)
   * [Using LogDNA to view the node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logdna)
-* [Installing patches for your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
+* [Updating your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
 * [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration)
 
 [Advanced deployment options](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment)
@@ -694,9 +696,8 @@ subcollection: blockchain
   * [Step five: Update channel member on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-channel-member)
   * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-admin)
   * [Step seven: Update orderer organization MSP on channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel)
-* [Bulk admin certificate renewal with Ansible playbooks](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-bulk-ansible)
 * [Expired certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs)
-  * [How to fix expired Admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin)
+  * [How to fix expired organization admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin)
   * [How to fix expired enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-ecerts)
 * [Using the command line to view certificate expiration](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-cli-expiration)
 * [Export an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-export-msp)
@@ -1213,6 +1214,8 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[1 Oct 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-01-2020)
 
 [25 Aug 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-25-2020)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-09-23"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -19,6 +19,7 @@ subcollection: blockchain
 {:term: .term}
 {:tip: .tip}
 {:pre: .pre}
+
 
 # Security
 {: #ibp-security}

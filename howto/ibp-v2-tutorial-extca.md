@@ -2,7 +2,7 @@
 
 copyright:
    years: 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: external CA, certificate, private key, MSP
 
@@ -93,6 +93,7 @@ completion-time: 30m
 {:user_ID: data-hd-keyref="user_ID"}
 {:vb.net: .ph data-hd-programlang='vb.net'}
 {:video: .video}
+
 
 
 # Using certificates from an external Certificate Authority

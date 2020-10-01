@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-09-23"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -18,6 +18,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 {:external: target="_blank" .external}
+
 
 # Data residency
 {: #console-icp-about-data-residency}

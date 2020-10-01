@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-14"
+lastupdated: "2020-09-23"
 
 keywords: high availability, CA, PostgreSQL, replica sets, zone
 
@@ -89,6 +89,7 @@ subcollection: blockchain
 {:user_ID: data-hd-keyref="user_ID"}
 {:vb.net: .ph data-hd-programlang='vb.net'}
 {:video: .video}
+
 
 
 # Building a high availability Certificate Authority (CA)

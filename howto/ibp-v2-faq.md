@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-10-01"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -21,6 +21,7 @@ subcollection: blockchain
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
 {:pre: .pre}
+
 
 # FAQs
 {: #ibp-v2-faq}
@@ -41,10 +42,12 @@ subcollection: blockchain
 - [What is the recommended way to manage private keys?](#ibp-v2-faq-hsm)
 - [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
 - [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-ports)
+- [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](#ibp-v2-faq-sizing)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
 - [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-offchain-db)
 - [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-ldap)
 - [What is the process for rotating certificates on a periodic basis?](#ibp-v2-faq-cert-mgmt)
+- [How can I back up and restore components and networks?](#ibp-v2-faq-backup-restore)
 
 
 **For developers**
@@ -164,12 +167,17 @@ The {{site.data.keyword.blockchainfull_notm}} platform gives customers total con
 
 See the port information in the Security topic that addresses this for the [console](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-ports) and the [customer Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-ports). 
 
+## How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?
+{: #ibp-v2-faq-sizing}
+{: faq}
+
+After you understand how many CAs, peers, and ordering nodes are required, you can examine the default resource allocations table for  your [nodes](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources) to get an approximate estimate of the CPUs (VPCs) required for your network. If you are purchasing {{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}}, you can estimate your cost through this method, but you also have the ability to scale dynamically if more sources are needed.
+
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}
 {: faq}
 
 Yes. The Raft ordering service nodes are configured to use TLS communication. TLS is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and as well as between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
-
 
 
 ## What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?
@@ -197,7 +205,15 @@ Also, you cannot configure the blockchain console login authentication to use an
 {: faq}
 {: support}
 
-Just like passwords need to be regularly updated, identity certificates need to be renewed, a process also referred to as "certificate rotation". The platform displays certificate expiration dates for components throughout the console.  When a certificate expires, transactions on the the network will fail because the identity can no longer be trusted.  It is your responsibility to monitor those expiration dates and manage your certificate renewal accordingly. The process varies depending on the type of certificate, when it was generated, and for organization admin certificates, whether Node OU support was enabled on the MSP when the identity was enrolled. The platform attempts to renew the peer and ordering node enrollment certificates 30 days before they expire. See [Managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt) to learn more about the types of certificates that you need to monitor and how to renew them.
+Just like passwords need to be regularly updated, identity certificates need to be renewed, a process also referred to as "certificate rotation". The platform displays certificate expiration dates for components throughout the console.  When a certificate expires, transactions on the network will fail because the identity can no longer be trusted.  It is your responsibility to monitor those expiration dates and manage your certificate renewal accordingly. The process varies depending on the type of certificate, when it was generated, and for organization admin certificates, whether Node OU support was enabled on the MSP when the identity was enrolled. The platform attempts to renew the peer and ordering node enrollment certificates 30 days before they expire. See [Managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt) to learn more about the types of certificates that you need to monitor and how to renew them.
+
+## How can I back up and restore components and networks?
+{: #ibp-v2-faq-backup-restore}
+{: faq}
+
+As with anything that is deployed to a Kubernetes-based cluster, backups of components and networks in the {{site.data.keyword.blockchainfull}} Platform are a matter of backing up its [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){: external}. These volumes are where ledgers and other types of storage are mounted so they can be used by nodes.
+
+As a result, "backing up" a component or a network is the process of saving a copy of the relevant persistent volumes, while "restoring" a component or network involves bringing up components and pointing them to these saved volumes. For more information, check out [Backing up and restoring components and networks](/docs/blockchain?topic=blockchain-backup-restore){: external}.
 
 ## What languages are supported for smart contracts?
 {: #ibp-v2-faq-v2-IBP-Overview-1-4}

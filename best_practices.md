@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-07"
+lastupdated: "2020-09-23"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -22,6 +22,7 @@ subcollection: blockchain
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
 {:pre: .pre}
+
 
 # Best practices for application development
 {: #best-practices-app}
@@ -190,4 +191,5 @@ data to an external database, see the [Off chain data sample](https://github.com
 ## Resources
 
 You can go to [{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/) for tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications. Application developers can use the [Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns) to learn about common patterns for interacting with blockchain networks.
+
 

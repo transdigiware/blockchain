@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-01"
+lastupdated: "2020-09-23"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -19,6 +19,7 @@ subcollection: blockchain
 {:javascript: data-hd-programlang="javascript"}
 {:tip: .tip}
 {:pre: .pre}
+
 
 # Creating applications
 {: #ibp-console-app}

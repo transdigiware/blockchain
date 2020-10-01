@@ -3,7 +3,7 @@
 copyright:
   years: 2020
 
-lastupdated: "2020-05-19"
+lastupdated: "2020-09-23"
 
 subcollection: blockchain
 
@@ -23,6 +23,7 @@ subcollection: blockchain
 
 This page describes known issues that you might encounter when you use {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}.
 {:shortdesc}
+
 
 
 

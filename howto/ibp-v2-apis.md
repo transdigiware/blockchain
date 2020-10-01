@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-23"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -22,6 +22,7 @@ subcollection: blockchain
 {:faq: data-hd-content-type='faq'}
 {:pre: .pre}
 {:curl: #curl .ph data-hd-programlang='curl'}
+
 
 # Building a network with APIs
 {: #ibp-v2-apis}

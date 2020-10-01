@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-23"
 
 keywords: IBM Blockchain Platform, blockchain
 

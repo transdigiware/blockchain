@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-03"
+lastupdated: "2020-09-30"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -409,6 +409,7 @@ Next we build a Docker image that contains the HSM client that will run on your 
    docker build -t test -f Dockerfile .
    ```
    {: codeblock}
+   
 
 4. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Before you deploy the Docker image to your Kubernetes cluster, it is recommended that you first try to run the image locally. Run the following command to verify that the image was built successfully:
 

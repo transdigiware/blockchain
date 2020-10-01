@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-23"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -19,6 +19,7 @@ subcollection: blockchain
 {:tip: .tip}
 {:pre: .pre}
 {:external: target="_blank" .external}
+
 
 # Developing smart contracts with {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools
 {: #develop-vscode}
