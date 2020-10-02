@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-01"
+lastupdated: "2020-10-02"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -241,6 +241,7 @@ The following diagram summarizes the process for updating peer admin certificate
 The following diagram summarizes the process for updating orderer organization admin certificates on your network. Click a box to view the instructions.
 
 
+
 <img usemap="#home_map2" border="0" class="image" id="image_ztx_crb_f13" src="../images/orderer-admin-cert-renewal.png" width="750" alt="Orderer organization admin certificate renewal process." style="width:750px;" />
 <map name="home_map2" id="home_map2">
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-enroll" alt="Enroll a new identity" title="Enroll a new identity" shape="rect" coords="98, 234, 170, 265" />
@@ -253,6 +254,9 @@ The following diagram summarizes the process for updating orderer organization a
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-import-msp" alt="Import MSP JSON" title="Import MSP JSON" shape="rect" coords="581, 112, 658, 160" />
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel" alt="Update orderer member MSP on channel" title="Update orderer member MSP on channel" shape="rect" coords="669, 112, 754, 182" />
 <area href="/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-orderer-override" alt="Override NoExpirationChecks on each ordering node" title="Override NoExpirationChecks on each ordering node" shape="rect" coords="405, 255, 534, 338" /></map>
+
+
+
 
 | Certificate |	 Description |	How generated	| Default expiration| How to view expiration	| How to renew|  Update MSP | Update node admin | Update system channel |	Share with network | What to do if expired|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -363,7 +367,7 @@ If the updated certificate is for the ordering service MSP admin, you need to up
 
 1. From the **Nodes** tab, open the ordering service tile.
 2. Under **Ordering service administrators** click the **Settings** icon on the ordering service organization MSP tile.
-  ![Ordering service admin MSP update](../images/os-msp-gear-icon.png "Ordering service admin MSP update"){: caption="Figure 7. Ordering service admin MSP update" caption-side="bottom"}
+  ![Ordering service admin MSP update](../images/os-msp-gear-icon.png "Ordering service admin MSP update"){: caption="Figure 8. Ordering service admin MSP update" caption-side="bottom"}
 3. From the **Existing MSP ID** tab, select the MSP that needs to be updated and then select the **original identity** to sign the request. You must use the original identity for this step because it's the only one with permission to make channel updates. This action replaces the existing MSP definition for the ordering service admin with the updated MSP with the new admin certificate.
 
 ### Step seven: Update orderer organization MSP on channel  
@@ -506,7 +510,7 @@ You can find the expiration date in the **Validity** section and follows `Not Af
 
 MSPs can be exported from the console to your local file system. Navigate to the **Organizations** tab and click the MSP that you want to export. Click the **Export** icon to download the MSP to a JSON file on your local system.
 
-![How to export MSP](../images/export-msp.png "How to export MSP"){: caption="Figure 8. How to export MSP" caption-side="bottom"}
+![How to export MSP](../images/export-msp.png "How to export MSP"){: caption="Figure 9. How to export MSP" caption-side="bottom"}
 
 Share the JSON file with all of the members of the network who must import it into their console. It is important for them to import the updated MSP, so that when they create a new channel, they are using the MSP definition with the latest admin certificate.
 
