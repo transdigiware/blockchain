@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-02"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -46,7 +46,7 @@ Application clients must ensure that their transaction proposals are validated a
 
 If a chaincode is not running, the first transaction proposal that is sent to this chaincode starts the chaincode. While the chaincode is starting, all other proposals are rejected with an error that indicates that the chaincode is starting. This is different from transaction invalidation. If any proposal is rejected while the chaincode is starting, application clients need to resend the rejected proposals after the chaincode starts. Application clients can use a message queue to avoid losing transaction proposals.
 
-You can use a channel-based event service to monitor transactions and build message queues. The [channelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html){: external} class can register listeners based on transaction, block, and chaincode events. Channel-based listeners from the channel eventhub can scale to multiple channels and distinguish between traffic on different channels.
+You can use a channel-based event service to monitor transactions and build message queues. The [channelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html){: external} class can register listeners based on transaction, block, and chaincode events. Channel-based listeners from the channel EventHub can scale to multiple channels and distinguish between traffic on different channels.
 
 It is recommended that you use the channelEventHub rather than the old EventHub class. EventHub is single threaded and contains events from all channels that might slow down or even hang listeners across channels. The eventHub class also provides no guarantee that an event will be delivered, and provides no way of retrieving events from a certain point, such as a block number, to track events that were missed.
 
@@ -191,5 +191,4 @@ data to an external database, see the [Off chain data sample](https://github.com
 ## Resources
 
 You can go to [{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/) for tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications. Application developers can use the [Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns) to learn about common patterns for interacting with blockchain networks.
-
 

@@ -696,6 +696,7 @@ subcollection: blockchain
   * [Step five: Update channel member on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-channel-member)
   * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-admin)
   * [Step seven: Update orderer organization MSP on channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel)
+* [Bulk admin certificate renewal with Ansible playbooks](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-bulk-ansible)
 * [Expired certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs)
   * [How to fix expired organization admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin)
   * [How to fix expired enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-ecerts)

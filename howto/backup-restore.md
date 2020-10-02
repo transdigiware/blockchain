@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-02"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -54,7 +54,7 @@ Consult the following chart to help you plan your strategy for taking backups:
 |  Backup  | Restore |
 |:---------|---------|
 | CAs must be stopped and backed up following the instructions that are provided in this topic. | You can restore a CA without impacting the peers or the ordering nodes ability to process transactions. |
-{: caption="Table 3. Considerations for node backup and restore" caption-side="top"}
+{: caption="Table 3. Considerations for node backup and restore - CA" caption-side="top"}
 {: #simpletabtable1}
 {: tab-title="Certificate Authority (CA)"}
 {: tab-group="IAM-simple"}
@@ -63,7 +63,7 @@ Consult the following chart to help you plan your strategy for taking backups:
 |  Backup  | Transaction processing | Private data considerations |
 |:---------|:-----------------------|:----------------------------|
 | Ideally, all peers in the network should be backed up daily at the same time. If the peers have a CouchDB state database, CouchDB must be backed up before the peer pod. Ordering nodes should be backed up after the peers. If peers have data that the ordering service does not, synchronization of components cannot occur. | Unless the peers are scaled down to zero as part of backing up private data, transaction processing can continue. | If the peers include private data collections, the peer and ordering nodes must be using Fabric version v.2.2.1 or higher, otherwise every node must be backed up at exactly the same ledger height. This can be achieved by scaling down the resources of the peers to zero as part of the backup. For more information, see [Scheduling snapshots](#backup-restore-schedule-snapshot). |
-{: caption="Table 3. Considerations for node back up and restore" caption-side="top"}
+{: caption="Table 3. Considerations for node back up and restore - Peer" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Peers"}
 {: tab-group="IAM-simple"}
@@ -72,7 +72,7 @@ Consult the following chart to help you plan your strategy for taking backups:
 |  Backup  | Transaction processing | Restore |
 |:---------|:-----------------------|:--------|
 | Ideally, all nodes in the ordering service should be backed up daily at the same time. The ordering service should be backed up after the peers to ensure that the restoration of components can occur later. | Transaction processing continues as normal during a backup. If a restoration is necessary, the ordering service must be brought down. | **If you are not using private data collections**, you can provision _new_ peers and rejoin the channels. The peers can sync up with the latest data from the ordering service, then you can reinstall any smart contracts. <br>Or, you can restore the peers from a backup older than the ordering nodes. In this case, the peers only must catch up from the last backup, which is faster. Any smart contracts installed since the last backup must be reinstalled. <br><br> **If you are using private data collections**, the peers must be restored to exactly the same block height as the orderers. The best way to ensure this is to back up all peers while the ordering service is also down for the backup. |
-{: caption="Table 3. Considerations for node back up and restore" caption-side="top"}
+{: caption="Table 3. Considerations for node back up and restore - Ordering service" caption-side="top"}
 {: #simpletabtable3}
 {: tab-title="Ordering service"}
 {: tab-group="IAM-simple"}

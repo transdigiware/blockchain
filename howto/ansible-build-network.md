@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-02"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -234,7 +234,7 @@ Using the wallet identities from the preceeding table, you can now follow the st
 | Associate an identity with peers |
 |----------------------------------|
 | <ul><li>Navigate to the **Nodes** tab.</li><li>Open the **Org1 Peer** and click **Associate identity**.</li><li>Select the **Org1 Admin** from the drop-down list and click **Associate identity**.</li><li>If you created the second endorsing organization (Org2) for the peers, repeat these steps for the **Org2 Peer** by associating the **Org2 Admin** identity.</li></ul>  |
-{: caption="Table 3. Peer identities" caption-side="top"}
+{: caption="Table 2. Peer identities" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Peer nodes"}
 {: tab-group="IAM-simple"}
@@ -243,7 +243,7 @@ Using the wallet identities from the preceeding table, you can now follow the st
 | Associate an identity with the ordering service |
 |-------------------------------------------------|
 | <ul><li>Navigate to the **Nodes** tab.</li><li>Open the **Ordering Service** and click **Associate identity**.</li><li>Select the **Ordering Org Admin** from the drop-down list and click **Associate identity**.</li></ul> |
-{: caption="Table 4. Ordering service identities" caption-side="top"}
+{: caption="Table 2. Ordering service identities" caption-side="top"}
 {: #simpletabtable3}
 {: tab-title="Ordering service"}
 {: tab-group="IAM-simple"}

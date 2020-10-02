@@ -391,6 +391,7 @@ Orderer organization admin identities cannot update an application channel. Ther
 After the change is approved by the orderer organization admin identity, you can verify that this process is successful, by opening the channel member tile again and viewing the updated expiration date.
 
 ## Bulk admin certificate renewal with Ansible playbooks
+{: #cert-mgmt-bulk-ansible}
 
 If your network contains a large number of channels that need to be updated, or if you prefer to automate the process of updating the peer organization MSP or orderer organization MSP on the ordering service, system channel, and application channel, a set of Ansible playbooks is available to script this process. **These playbooks can only be used if the certificates have not expired**. See the playbooks under [Adding an administrator certificate](https://ibm-blockchain.github.io/ansible-collection/tasks/addadmincert.html){: external} for instructions.
 
