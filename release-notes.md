@@ -122,15 +122,8 @@ If you plan to use AWS HSM, you must include the `immutable` and `AltId` paramet
 ## 24 March 2020
 {: #03-24-2020}
 
-
-
-
-
 {{site.data.keyword.IBM_notm}} is in the process of migrating existing {{site.data.keyword.blockchainfull_notm}} Platform consoles to v2.1.3, therefore, the new features described in this list may not yet be available in your console. Unsure what version you are currently using? Click the question mark icon in the upper right corner of the console. The {{site.data.keyword.blockchainfull_notm}} Platform version is visible under the page heading. Existing customers will receive a Cloud notification with more details about when their console will be migrated.
 {: note}
-
-
-
 
 **Hyperledger Fabric v1.4.6**
 
@@ -163,7 +156,6 @@ In order to use Java chaincode, developers should be aware that:
 **v2 APIs available**
 
 New {{site.data.keyword.blockchainfull_notm}} Platform console APIs using the route `/v2/` are now available. Use of the earlier `/v1/` APIs continues to be supported. See [{{site.data.keyword.blockchainfull_notm}} Platform APIs](https://cloud.ibm.com/apidocs/blockchain) for more information.
-
 
 **High Availability Certificate Authority**
 
