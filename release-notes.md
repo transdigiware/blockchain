@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-10-06"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -28,6 +28,9 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.
 
+
+
+
 ## 1 Oct 2020
 {: #10-01-2020}
 
@@ -35,13 +38,8 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 
 Miscellaneous bug fixes and security patches.  
 
-
 ## 25 Aug 2020
 {: #08-25-2020}
-
-
-
-
 
 **CA, Peer, and ordering node patch 1.4.7-2, 2.1.1-2**
 
@@ -49,15 +47,12 @@ Miscellaneous bug fixes and security patches.
 
 Certificate expiration dates have been added throughout the component details, making it easier to monitor and track certificate expiration dates. See [Certificate Management](/docs/blockchain?topic=blockchain-cert-mgmt) to learn more about your responsibilities. In addition, it is now possible to enable Node OU support for your MSPs and channels through the console. Read more about [Node OU support](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-nodeou), why this is important, and how to simplify certificate renewal for the MSPs on your network.
 
-
 ## 14 July 2020
 {: #07-14-2020}
 
 **CA, Peer, and ordering node patch 1.4.7-1, 2.1.1-1**  
 
 Miscellaneous bug fixes and security patches.
-
-
 
 
 ## 18 June 2020
@@ -69,8 +64,7 @@ Miscellaneous bug fixes and security patches.
 
 **To be certain that your peers have no database corruption**, you should reprovision your peers.
 
-Miscellaneous bug fixes and security patches. 
-
+Miscellaneous bug fixes and security patches.
 If you are running **OpenShift Container Platform 3.11** in {{site.data.keyword.cloud_notm}}, it is recommended that you [upgrade your cluster to 4.3](https://docs.openshift.com/container-platform/4.3/migration/migrating_3_4/planning-migration-3-to-4.html){: external} now in order to fully take advantage of the new features. After you upgrade your cluster, follow instructions to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh) to experience the latest functionality in this release.
 {: important}
 
@@ -94,7 +88,6 @@ If your Kubernetes cluster is configured to use multizone-capable storage, new p
 {: #06-18-2020-k8s}
 
 {{site.data.keyword.blockchainfull_notm}} Platform requires **Kubernetes v1.15 - v1.18**. If your existing Kubernetes cluster is running v1.14 or lower, you need to upgrade your cluster before you can update your existing blockchain components to this latest release.
-  
 
 ## 20 May 2020
 {: #05-20-2020}
@@ -113,9 +106,6 @@ You now have the option to configure an intermediate CA using the console or API
 {: #05-20-2020-connx-profile}
 
 The generated connection profile that client applications use to connect to the network has been streamlined and is now downloadable from the **Organizations** tab. See [Downloading a connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) to learn how.
-
-
-  
 
 ## 16 April 2020
 {: #04-16-2020}
@@ -319,3 +309,6 @@ When you add a peer or orderer node, you have the option to use certificates fro
 **Tuning orderer performance**
 
 New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
+
+
+
