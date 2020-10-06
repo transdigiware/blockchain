@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-05"
+lastupdated: "2020-10-06"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -32,7 +32,7 @@ There are various actions that you can take to manage your console behavior. Thi
 ## Refreshing your console
 {: #ibp-console-refresh}
 
-If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull}} Platform` on the Welcome back panel, or recently upgraded your OpenShift Container platform 3.11 to 4.3, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. It can also be used to upgrade to a newer release of the console, if one is available.
+If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull}} Platform` on the Welcome back panel, or recently upgraded your OpenShift Container platform 3.11 to  4.3, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. It can also be used to upgrade to a newer release of the console, if one is available.
 
 To access this button:
 1. Log in to {{site.data.keyword.cloud_notm}} and  open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. Ensure that you log in with your {{site.data.keyword.IBM_notm}} ID.

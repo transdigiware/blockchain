@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-06"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -89,7 +89,7 @@ Both development environments include the same rich functionality of the {{site.
 ## Install Developer Tooling into Red Hat CodeReady Workspaces
 {: #develop-vscode-crw}
 
-The following set of steps can be used to install the CodeReady Workspaces and configure it with the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling on an OpenShift 4.3 cluster.
+The following set of steps can be used to install the CodeReady Workspaces and configure it with the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling on an OpenShift 4.3+ cluster.
 
   - If you prefer to install the tooling on your local system, see [Install {{site.data.keyword.blockchainfull_notm}} Platform VS Code extension](#develop-vscode-install).
 
