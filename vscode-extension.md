@@ -488,7 +488,7 @@ You also need to import your admin identities into the wallet pane and associate
 7. Enter name for your peer or orderer admin identity.
 8. Select **Provide a JSON identity file from the {{site.data.keyword.blockchainfull_notm}} Platform** and then browse to the admin identity that you exported from your console. If the identity is the administrator of multiple nodes in your network, you can associate the identity with multiple nodes.
 
-When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to install and instantiate </version2.5.next> or deploy <version2.5.next>smart contracts.
+When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to install and instantiate smart contracts.
 
 ### Adding wallets and users
 {: #develop-vscode-add-a-wallet}
