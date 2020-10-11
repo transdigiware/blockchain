@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-11"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -318,13 +318,6 @@ You can stop or restart the preconfigured network while it is running:
 Selecting **Teardown** will completely remove the local Fabric network. **Note:** This removal results in the loss of the ledger and world state data.
 
 Selecting **Delete** will perform a **Teardown** as well as remove the network from the **Fabric Environments** pane.
-
-### VS Code Extension v2: Deploying your smart contract
-{: #develop-vscode-deploy-smart-contract-v2}
-
-If you are using the VS Code Extension v2, smart contracts can be deployed using the new **deploy view**. This view replaces the install, instantiate, upgrade flow of deploying smart contracts that was used in the Fabric v1.x smart contract lifecycle. Instead, the new deployment steps (install, approve, commit) are all handled by the "deploy" view.
-
-If you are using an earlier version of the VS Code extension with a `.cds` smart contract, you cannot use these steps. Refer to [Deploying your smart contract to the preconfigured network](#develop-vscode-deploy-smart-contract)
 
 ### Deploying your smart contract to the preconfigured network
 {: #develop-vscode-deploy-smart-contract}
