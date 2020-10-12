@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-12"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -527,11 +527,21 @@ It is not possible to migrate from a free cluster to a paid cluster. After 30 da
 I see what looks like an error in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that a pod has unbound immediate persistent volume claims and am worried that my node has failed to deploy.
 {: tsSymptoms}
 
-More time is needed for the node to come up.
+More time is needed for the node to come up or you've possibly exceeded the maximum number of storage instances for your {{site.data.keyword.cloud_notm}} account.
 {: tsCauses}
 
-Unbound immediate persistent volume claims are a normal part of the deployment process for any node, reflecting that the persistent volume claim has been made but that the node itself has not yet deployed. Wait a few minutes for the node to deploy.
+Unbound immediate persistent volume claims are a normal part of the deployment process for any node, reflecting that the persistent volume claim has been made but that the node itself has not yet deployed. Wait a few minutes for the node to deploy. If it is still not resolved, run the following kubectl command to describe the persistent volume claim for your namespace:
 {: tsResolve}
+```
+kubectl describe pvc <pvc_name> -n <namespace>
+```
+{: codeblock}
+
+If you see the following error, it is likely that you have reached your limit of storage volumes:  
+
+`Backend Error:Your order will exceed the maximum number of storage volumes allowed. Please contact Sales. Type:StorageOrderFailed, RC:500, Recommended Action(s):Wait a few minutes, then try re-creating your PVC. If the problem persists, open an {{site.data.keyword.cloud_notm}} support case.`
+
+See the troubleshooting topic on [File storage and block storage: PVC remains in a pending state](/docs/containers?topic=containers-cs_troubleshoot_storage#file_pvc_pending) for more details.
 
 ## After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?
 {: #ibp-v2-troubleshooting-crash-loop-backoff}
