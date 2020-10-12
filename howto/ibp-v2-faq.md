@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-01"
+lastupdated: "2020-10-07"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -298,13 +298,13 @@ See [Find out how to preview the platform free for 30 days](/docs/blockchain?top
 {: #ibp-v2-faq-ocp-versions}
 {: faq}
 
-Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} supports linking to Red Hat OpenShift Container Platform 4.3 clusters.
+Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} supports linking to Red Hat OpenShift Container Platform 4.3 clusters. 
 
 ## Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-ocp-trial}
 {: faq}
 
-Currently a free trial option is not available. We are looking into enabling this as an option for customers in future releases.
+A free 30 day trial is available in the [Red Hat Marketplace.](https://marketplace.redhat.com/en-us/products/ibm-blockchain).{: external} See [Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm) to learn more. See [Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm) to learn more.
 
 ## Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-ocp-migrate}

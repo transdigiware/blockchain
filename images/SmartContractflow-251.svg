@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Smart_Contracts" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 831 210.6" style="enable-background:new 0 0 831 210.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#DCDCDC;stroke:#DCDCDC;}
+	.st1{fill:#011688;}
+	.st2{fill:#FFFFFF;stroke:#857B7B;}
+	.st3{fill:#010F5E;}
+	.st4{font-family:'IBMPlexSans';}
+	.st5{font-size:12px;}
+	.st6{enable-background:new    ;}
+	.st7{fill:#FFFFFF;}
+	.st8{fill:none;stroke:#857B7B;}
+	.st9{fill:#857B7B;}
+	.st10{font-family:'IBMPlexSans-Bold';}
+	.st11{font-size:15px;}
+	.st12{font-family:'IBMPlexSans-SemiBold';}
+</style>
+<path id="Rectangle" class="st0" d="M0.5,32.6H649v177.5H0.5V32.6z"/>
+<path id="Rectangle-2" class="st1" d="M660.3,32.6H831v177.5H660.3V32.6z"/>
+<path id="Rectangle-3" class="st2" d="M17.9,55.3h135v55h-135L17.9,55.3z"/>
+<g>
+	<text transform="matrix(1 0 0 1 44.49 78.87)" class="st3 st4 st5">Create a smart </text>
+	<text transform="matrix(1 0 0 1 42.64 93.27)" class="st3 st4 st5">contract project</text>
+</g>
+<path id="Rectangle-4" class="st2" d="M178.8,55.3h135v55h-135L178.8,55.3z"/>
+<g>
+	<text transform="matrix(1 0 0 1 199.01 78.87)" class="st3 st4 st5">Develop contract </text>
+	<text transform="matrix(1 0 0 1 199.1106 93.27)" class="st6"><tspan x="0" y="0" class="st3 st4 st5">code in developer</tspan><tspan x="34.5" y="14.4" class="st3 st4 st5">tools</tspan></text>
+</g>
+<path id="Rectangle-5" class="st2" d="M338,55.3h135v55H338V55.3z"/>
+<g>
+	<text transform="matrix(1 0 0 1 371.18 78.87)" class="st3 st4 st5">Package the </text>
+	<text transform="matrix(1 0 0 1 366 93.27)" class="st3 st4 st5">smart contract</text>
+</g>
+<path id="Rectangle-6" class="st2" d="M336.5,134.3h135v55h-135V134.3z"/>
+<g>
+	<text transform="matrix(1 0 0 1 358.03 158.49)" class="st3 st4 st5">Deploy locally to </text>
+	<text transform="matrix(1 0 0 1 363.82 172.89)" class="st3 st4 st5">test and debug</text>
+</g>
+<path id="Rectangle-7" class="st2" d="M497.9,55.3h135v55h-135V55.3z"/>
+<g>
+	<text transform="matrix(1 0 0 1 537.47 78.87)" class="st3 st4 st5">Export the</text>
+	<text transform="matrix(1 0 0 1 542.85 93.27)" class="st3 st4 st5">package</text>
+</g>
+<path id="Rectangle-8" class="st7" d="M678.9,55.3h135v55h-135V55.3z"/>
+<g>
+	<text transform="matrix(1 0 0 1 720.78 78.87)" class="st3 st4 st5">Deploy to</text>
+	<text transform="matrix(1 0 0 1 718.2401 93.27)" class="st3 st4 st5">IBM Cloud</text>
+</g>
+<path class="st8" d="M153.7,82.8h16.8"/>
+<path class="st9" d="M169,87.8l8.6-5l-8.6-5V87.8z"/>
+<path class="st8" d="M312.7,82.8h16.8"/>
+<path class="st9" d="M328,87.8l8.6-5l-8.6-5V87.8z"/>
+<path class="st8" d="M245.2,161.8v-44.3"/>
+<path class="st9" d="M250.2,118.9l-5-8.6l-5,8.6H250.2z"/>
+<path class="st8" d="M471.4,82.8h16.8"/>
+<path class="st9" d="M486.8,87.8l8.6-5l-8.6-5V87.8z"/>
+<path class="st8" d="M630.7,82.8h40.8"/>
+<path class="st9" d="M670,87.8l8.6-5l-8.6-5V87.8z"/>
+<path class="st8" d="M245.2,161.8h91.5 M404.2,134.3v-24"/>
+<text transform="matrix(1 0 0 1 17.79 194.43)" class="st9 st10 st5">Developer Tools</text>
+<text transform="matrix(1 0 0 1 677.59 196.62)" class="st7 st4 st5">Service on IBM Cloud</text>
+<text transform="matrix(1 0 0 1 0.5 12.74)" class="st1 st4 st11">Typical </text>
+<text transform="matrix(1 0 0 1 52.19 12.74)" class="st1 st12 st11">smart contract</text>
+<text transform="matrix(1 0 0 1 154.58 12.74)" class="st1 st4 st11"> development workflow with IBM Blockchain Platform</text>
+</svg>
