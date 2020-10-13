@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-10-13"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -40,8 +40,7 @@ Currently you cannot deploy Certificate Authorities (CAs), peers, and ordering n
 {: important}
 
 To learn more about the Marketplace see the [Red Hat documentation](https://marketplace.redhat.com){: external}.
-- This deployment option is not available for on-prem installations.
-- IBM Blockchain Platform 2.5. is only supported on Red Hat OpenShift 4.3+.
+- IBM Blockchain Platform 2.5.1 is only supported on Red Hat OpenShift 4.4+.
 - You are responsible for the management of health monitoring, logging, and resource usage of your blockchain components.
 - IBM Blockchain Platform is not supported on OpenShift Online.
 - Mutual TLS is not supported between your applications and your blockchain nodes.
@@ -148,7 +147,7 @@ Note that this tutorial only includes instructions for deploying an instance of 
 Click **Create Instance** on the **IBP Console** tile.
 ![Blockchain instances available in Red Hat Marketplace](../images/IBPConsole.png "Create instance on the IBPConsole tile"){: caption="Figure 2. Click Create Instance on the IBP Console tile" caption-side="bottom"}
 
-A page opens with a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the [Advanced deployment options](#console-deploy-ocp-rhm-advanced) in case any of the other options are relevant to your configuration,  For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
+A page opens with a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the [Advanced deployment options](#console-deploy-ocp-rhm-advanced) in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
 {: important}
 
 ```yaml
