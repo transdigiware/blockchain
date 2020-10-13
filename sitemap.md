@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-13"
 
 keywords: site map
 subcollection: blockchain
@@ -1334,10 +1334,3 @@ subcollection: blockchain
 [Resources and support forums](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)
 
 [Submitting support cases](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)
-
-
-## Signed images
-{: #sitemap_signed_images}
-
-
-[Signed images](/docs/blockchain?topic=blockchain-signed-images)
