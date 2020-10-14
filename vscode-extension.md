@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-11"
+lastupdated: "2020-10-14"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -260,9 +260,6 @@ If you want to control which files in the project are packaged, you can create a
 Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (Go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using v2.0 of the Developer tooling.
 
 
-
-To repackage a smart contract, open the original project where the smart contract was created and click **Package Open Project**. Alternatively, you can use the [peer cli commands](https://hyperledger-fabric.readthedocs.io/en/release-2.0/commands/peerchaincode.html#peer-chaincode-package){: external} to repackage the smart contract using the correct file format. For more information, see [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor).
-{: important}
 
 ### Exporting, importing, and deleting a smart contract package
 {: #develop-vscode-exporting-deleting-smart-contract-package}
