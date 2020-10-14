@@ -84,6 +84,8 @@ For your planning purposes, the following SDK and smart contract compatibility m
 ### SDKs
 {: #ibp-console-app-compat-sdk}
 
+Click the **Java SDK** or **Node SDK** tab for details.
+
 | Version |Peer Fabric image  | Java |
 |:--------|:------------------|:-----|
 |[Java SDK Version 2.2](https://github.com/hyperledger/fabric-gateway-java/tree/release-2.2) | 2.2 | Java 8<br><br>Java 11|
@@ -107,6 +109,9 @@ For your planning purposes, the following SDK and smart contract compatibility m
 ### Smart contracts
 {: #ibp-console-app-compat-sc}
 
+Click the **Java Smart contract** or **Node Smart contract** tab for details.
+
+
 | Peer Fabric image  | Java runtime   | Contract API |
 |:-------------------|:---------------|:-------------|
 |v2.2                | Java 11 runtime| [v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4)<br><br> [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x) |
@@ -114,7 +119,7 @@ For your planning purposes, the following SDK and smart contract compatibility m
 {: caption="Table 2. Java Smart contract" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Java Smart contract"}
-{: tab-group="IAM-simple"}
+{: tab-group="IAM-simple2"}
 {: class="simple-tab-table"}
 
 | Peer Fabric image  | Node runtime   | Contract API
@@ -123,11 +128,11 @@ For your planning purposes, the following SDK and smart contract compatibility m
 |v1.4                | Node 8 runtime | [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4)|
 {: caption="Table 2. Node Smart contract" caption-side="top"}
 {: #simpletabtable2}
-{: tab-title="Java Smart contract"}
-{: tab-group="IAM-simple"}
+{: tab-title="Node Smart contract"}
+{: tab-group="IAM-simple2"}
 {: class="simple-tab-table"}
 
-For more details, see:
+For more details on smart contract-API compatibility, see:
 - [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md)
 - [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-14"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -166,6 +166,23 @@ You may receive this error if this version of the smart contract already exists 
 {: tsResolve}
 
 
+
+## Why is my Node.js smart contract instantiation failing?
+{: #ibp-v2-troubleshooting-nodejs-instantiate}
+
+{: tsSymptoms}
+Instantiating a Node.js smart contract fails with the timeout error:
+```
+[endorser] SimulateProposal -> ERRO 0ba [channel2][37876c5f] failed to invoke chaincode name:"lscc" , error: timeout expired while starting chaincode myassetc:0.0.1 for transaction
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch
+	/go/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:75
+```
+
+{: tsCauses}
+When running the {{site.data.keyword.blockchainfull_notm}} Platform on s390x architecture, it is possible that Node.js smart contract instantiation can fail if the default timeout is too short.
+
+{: tsResolve}
+Customers should wait for five minutes after the failure occurs and then retry the instantiation again. It will then work successfully on the subsequent attempt.
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}
