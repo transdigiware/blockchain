@@ -333,6 +333,8 @@ subcollection: blockchain
 
 [Using indexes with CouchDB](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-couchdb)
 
+[Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
+
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform getting started videos
 {: #sitemap__platform_getting_started_videos}

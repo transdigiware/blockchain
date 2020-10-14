@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-14"
 
-keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
+keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
 subcollection: blockchain
 
@@ -581,4 +581,17 @@ If you are using low level SDK APIs to connect to your network, there are additi
 {: #console-app-couchdb}
 
 If you use CouchDB as your state database, you can perform JSON data queries from your smart contracts against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contracts. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state. To learn how to use indexes with your smart contracts and your applications, see [Best practices when using CouchDB](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices).
+
+
+## Clock synchronization
+{: #console-app-clock}
+
+Synchronizing your application with a Network Time Protocol (NTP) server is important because it ensures that all time-based activities occur synchronously everywhere on the network.  The {{site.data.keyword.blockchainfull_notm}} Platform runs in {{site.data.keyword.cloud_notm}} and uses an internal NTP server `servertime.service.softlayer.com`.  
+
+The NTP server that you need to synchronize your application with depends on where your application is running:
+
+- If your application is running in {{site.data.keyword.cloud_notm}} Classic infrastructure, set your NTP server to `servertime.service.softlayer.com`.
+- If your application is running in {{site.data.keyword.cloud_notm}} VPC infrastructure, set your NTP server to `time.adn.networklayer.com`.
+- If your application is not running in {{site.data.keyword.cloud_notm}}, set your NTP server to `time-a.nist.gov` or `time-b.nist.gov`.
+
 
