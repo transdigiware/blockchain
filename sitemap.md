@@ -1268,6 +1268,13 @@ subcollection: blockchain
 [3 April 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-03-2019)
 
 
+## Known issues
+{: #sitemap_known_issues}
+
+
+[Known issues](/docs/blockchain?topic=blockchain-known-issues-saas)
+
+
 ## Troubleshooting
 {: #sitemap_troubleshooting}
 
