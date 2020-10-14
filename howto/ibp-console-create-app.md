@@ -114,8 +114,8 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 |Contract API | Peer Fabric image  | Java runtime   |
 |:-------------------|:---------------|:-------------|
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4), [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x)|v2.2 | Java 11 runtime |
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4)<br><br> [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x)|v1.4 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4),  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x)|v2.2 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4),  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x)|v1.4 | Java 11 runtime |
 {: caption="Table 2. Java Smart contract" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Java Smart contract"}
