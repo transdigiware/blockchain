@@ -38,7 +38,7 @@ You can learn more about how applications and smart contracts work together in t
 
 Developing an application might require coordination between two distinct users of your network, The network operator and the application developer:
 - **The network operator** is the administrator who uses the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy the nodes of your organization and installs the smart contracts on your network.
-- **The application developer** builds the client application that is consumed by users. The developer uses the [Hyperledger Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-1.4/getting_started.html#hyperledger-fabric-sdks){: external} to invoke transactions written in the smart contracts.
+- **The application developer** builds the client application that is consumed by users. The developer uses the [Hyperledger Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-2.2/getting_started.html#hyperledger-fabric-sdks){: external} to invoke transactions written in the smart contracts.
 
 If you are the **network operator**, you need to complete the following steps before the application developer can interact with your network:
 1. Use your organization CA to [register an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities).
@@ -58,14 +58,14 @@ The connection profile that you downloaded from the {{site.data.keyword.blockcha
 
 The application developer can use two programming models to interact with the network:
 
-**High-Level Fabric SDK APIs**
+**High-Level Fabric contract APIs**
 
 Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is supported for applications that are written in **Node.js**, **Java**, and **Go**.
 
 Client applications can leverage the capabilities of the Go SDK, but currently only the high-level programming model in the [gateway package](https://godoc.org/github.com/hyperledger/fabric-sdk-go/pkg/gateway) is supported. Direct usage of the rest of the Go SDK is not yet supported.
 {: note}
 
-If you want to take advantage of the High-Level Fabric SDK APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
+If you want to take advantage of the High-Level Fabric contract-APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
 
 - [Generate certificates for your application](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll) by using the SDK.
 - [Invoke a smart contract from the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke).
@@ -74,6 +74,64 @@ If you want to take advantage of the High-Level Fabric SDK APIs, you can use thi
 **Low-Level Fabric SDK APIs**
 
 If you want to continue to use your existing smart contract and application code, or use the other Fabric SDK languages that are provided by the Hyperledger community, you can use the [low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level) to connect to your network.
+
+</staging>
+## Application compatibility
+{: #ibp-console-app-compat}
+
+For your planning purposes, the following SDK and smart contract compatibility matrices have been tested and validated.
+
+### SDKs
+{: #ibp-console-app-compat-sdk}
+
+| Version |Peer Fabric image  | Java |
+|:--------|:------------------|:-----|
+|[Java SDK Version 2.2](https://github.com/hyperledger/fabric-gateway-java/tree/release-2.2) | 2.2 | Java 8<br><br>Java 11|
+|[Java SDK Version 1.4](https://github.com/hyperledger/fabric-gateway-java/tree/release-1.4) | 1.4 | Java 8<br><br>Java 11|
+{: caption="Table 1. Java SDK" caption-side="top"}
+{: #simpletabtable1}
+{: tab-title="Java SDK"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+| Version |Peer Fabric image  | Node |
+|:--------|:------------------|:-----|
+|[Node SDK Version 2.2](https://github.com/hyperledger/fabric-sdk-node/tree/release-2.2) | 2.2 | Node 10 LTS<br><br> Node 12 LTS|
+|[Node SDK Version 1.4](https://github.com/hyperledger/fabric-sdk-node/tree/release-1.4)| 2.2, 1.4  | Node 10 LTS<br><br> Node 12 LTS|
+{: caption="Table 1. Node SDK" caption-side="top"}
+{: #simpletabtable1}
+{: tab-title="Node SDK"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+### Smart contracts
+{: #ibp-console-app-compat-sc}
+
+| Peer Fabric image  | Java runtime   | Contract API |
+|:-------------------|:---------------|:-------------|
+|v2.2                | Java 11 runtime| [v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4)<br><br> [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x) |
+|v1.4                | Java 11 runtime| [v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4)<br><br> [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x) |
+{: caption="Table 2. Java Smart contract" caption-side="top"}
+{: #simpletabtable2}
+{: tab-title="Java Smart contract"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+| Peer Fabric image  | Node runtime   | Contract API
+|:-------------------|:---------------|:-------------|
+|v2.2                | Node 12 runtime| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4) <br><br> [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.x) |
+|v1.4                | Node 8 runtime | [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4)|
+{: caption="Table 2. Node Smart contract" caption-side="top"}
+{: #simpletabtable2}
+{: tab-title="Java Smart contract"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+For more details, see:
+- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md)
+- [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md)
+
+</staging>
 
 ## Registering an application identity
 {: #ibp-console-app-identities}
@@ -586,7 +644,7 @@ If you use CouchDB as your state database, you can perform JSON data queries fro
 ## Clock synchronization
 {: #console-app-clock}
 
-Synchronizing your application with a Network Time Protocol (NTP) server is important because it ensures that all time-based activities occur synchronously everywhere on the network.  The {{site.data.keyword.blockchainfull_notm}} Platform runs in {{site.data.keyword.cloud_notm}} and uses an internal NTP server `servertime.service.softlayer.com`.  
+Synchronizing your application with a Network Time Protocol (NTP) server is important because it ensures that all time-based activities occur synchronously everywhere on the network. NTP is widely used to synchronize a computer to Internet time servers or other sources.  The {{site.data.keyword.blockchainfull_notm}} Platform runs in {{site.data.keyword.cloud_notm}} and uses an internal NTP server `servertime.service.softlayer.com`.  
 
 The NTP server that you need to synchronize your application with depends on where your application is running:
 

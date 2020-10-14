@@ -319,6 +319,10 @@ subcollection: blockchain
 
 [Learning resources](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
 
+[Application compatibility](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat)
+* [SDKs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sdk)
+* [Smart contracts](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sc)
+
 [Registering an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities)
 
 [Downloading your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile)
