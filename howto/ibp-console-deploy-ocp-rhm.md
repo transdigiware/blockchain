@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-13"
+lastupdated: "2020-10-14"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -40,7 +40,7 @@ Currently you cannot deploy Certificate Authorities (CAs), peers, and ordering n
 {: important}
 
 To learn more about the Marketplace see the [Red Hat documentation](https://marketplace.redhat.com){: external}.
-- IBM Blockchain Platform 2.5.1 is only supported on Red Hat OpenShift 4.4+.
+- IBM Blockchain Platform 2.5.1 is supported on Red Hat OpenShift 4.4+.
 - You are responsible for the management of health monitoring, logging, and resource usage of your blockchain components.
 - IBM Blockchain Platform is not supported on OpenShift Online.
 - Mutual TLS is not supported between your applications and your blockchain nodes.
