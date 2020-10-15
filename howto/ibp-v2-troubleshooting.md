@@ -41,7 +41,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
-- [Why is my smart contract installation failing with a timeout?](#ibp-v2-troubleshooting-sc-install)
+- [Why is my smart contract installation failing with an error on my peer?](#ibp-v2-troubleshooting-sc-install)
 - [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
@@ -166,21 +166,22 @@ You may receive this error if this version of the smart contract already exists 
 - If you are still experiencing problems after the node is up, [check your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.
 {: tsResolve}
 
-## Why is my smart contract installation failing with a timeout?
+## Why is my smart contract installation failing with an error on my peer?
 {: #ibp-v2-troubleshooting-sc-install}
 
 {: tsSymptoms}
-Installing a smart contract fails with the timeout error.
+Installing a smart contract on a peer fails with an error similar to the following:
 
-The peer logs show:
 ```
-Error: install failed with status: 500 - error in simulation: failed to execute transaction 3323a35628a32dd82033da: error sending: timeout expired while executing transaction
+An error occurred when installing smart contract on peer.
+error in simulation: failed to execute transaction
+421fac...2fda: error sending: timeout expired while executing transaction.
 ```
 
 {: tsCauses}
-When running the {{site.data.keyword.blockchainfull_notm}} Platform on s390x architecture, or in an environment with constrained resources, it is possible that smart contract installation can fail if the default timeout is too short on the peer where the smart contract is being installed.
+When running the {{site.data.keyword.blockchainfull_notm}} Platform on s390x architecture, or in an environment with constrained resources, it is possible that smart contract installation can fail on a peer if the default timeout is too short on the peer that is running the Fabric v2x image.
 
-You need to override the peer configuration to extend the time out.
+In some cases, if you simply wait several minutes and then refresh the **Smart contracts** tab in the console, you can see that the smart contract was successfully installed. If that does not work, you need to override the peer configuration to extend the time out.
 {: tsResolve}
 
 1. From the console, open the peer tile and click the **Settings** icon.
@@ -197,7 +198,7 @@ You need to override the peer configuration to extend the time out.
   ```
   {: codeblock}
 
-The peer restarts and then you can retry the smart contract installation.
+The peer restarts and then you can retry the smart contract installation. Because the original installation failed you need to specify a new smart contract name and version. 
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}
