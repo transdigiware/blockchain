@@ -161,7 +161,7 @@ subcollection: blockchain
 [Getting started](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-deploy)
 
 [Architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)
-* [IBM Blockchain Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-iks)
+* [{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-iks)
 * [IBM Blockchain Platform on Red Hat OpenShift Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-ocp)
 
 [Integrating with {{site.data.keyword.cloud_notm}} and other third-party services](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-v2-deploy-iks-integrations)
@@ -711,10 +711,15 @@ subcollection: blockchain
 * [Export an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-export-msp)
 * [Import an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-import-msp)
 
-[Managing deployed components](/docs/blockchain?topic=blockchain-ibp-console-govern-components)
+[Upgrading and deleting deployed nodes](/docs/blockchain?topic=blockchain-ibp-console-govern-components)
 * [Considerations when reallocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources)
   * [Monitoring file storage](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-monitor-storage)
   * [Adding storage](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-add-storage)
+* [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade)
+  * [Step one: Backup your ledger](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-one-ledger)
+  * [Step two: Upgrade your nodes one at a time](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
+  * [Step three: Update SDKs and smart contracts](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-three)
+  * [Step four: Update capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
 * [Deleting components](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-delete)
 
 [Operating nodes with operations service](/docs/blockchain?topic=blockchain-operations_service)

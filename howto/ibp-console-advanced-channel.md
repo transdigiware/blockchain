@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-10-15"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -64,6 +64,10 @@ If the signature of an ordering service org admin is required, you will not see 
 {:tip}
 
 * **Capabilities**. If you're unfamiliar with capabilities, check out [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external} in the Fabric documentation. Note that there is a strict relationship between the Fabric version of your nodes and the levels of certain capabilities that must be followed to ensure that nodes do not crash and desired functionalities are available. Currently, only **application** and **orderer** capabilities can be set during channel creation. For information about **channel** capabilities (which are a level of capabilities that span both ordering nodes and peers and do not refer to "capabilities on the channel") and how to change them, check out the [Capabilities](#ibp-console-govern-capabilities) section below.
+
+* **Lifecycle endorsement policy**. (Only available on networks using v2.0 `application` capabilities) This defines how many channel members must approve a smart contract definition before the smart contract can be used on the channel. This is different from the endorsement policy of the smart contract itself as it has nothing to do with the transactions invoke against the smart contract. Rather, the lifecycle endorsement policy is the criteria by which the organizations on the channel collaboratively decide to use a particular smart contract and agree on certain parameters. It is possible to make the lifecycle endorsement policy **ALL** (which means every channel member must approve the definition), **ANY** (which means any channel member can approve the definition), or to define a specific set of organizations. Note that if you don't specify a lifecycle endorsement policy, it defaults to **MAJORITY**, which means that a majority of **Admins** on the channel will have to approve smart contract definitions. For more information about smart contract lifecycle endorsement, see [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
+
+* **Smart contract endorsement policy**. (Only available on networks using v2.0 capabilities) If a smart contract definition does not define an endorsement policy for its transactions, the endorsement policy defined here will become the endorsement policy of the smart contract. By default this policy is **MAJORITY**, which means a majority of endorsing organizations will have to approve transactions that are invoked against this smart contract. However, as with the lifecycle endorsement policy, it is possible to make the endorsement policy **ALL**, **ANY**, or to define a specific set of organizations. For more information about default endorsement policies, see [Install and propose a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-install-propose).
 
 * **Block cutting parameters**. These fields determine the conditions under which the ordering service cuts a new block. For information on how these fields affect when blocks are cut, see the [Block cutting parameters](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning-batch-size) section below. Note that changing these parameters will require the signature of an ordering service admin. If you are an ordering service admin, you can sign this update using the **Ordering service organization** panel.
 
@@ -149,10 +153,15 @@ Note that after a peer is removed from a channel, it might still show as being j
 #### Capabilities
 {: #ibp-console-govern-capabilities}
 
-For a thorough look at what capabilities are how they work, check out [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-1.4/capabilities_concept.html){: external}.
+For a thorough look at what capabilities are how they work, check out [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-2.2/capabilities_concept.html){: external}.
 {: tip}
 
-The capability levels of a channel and the Fabric versions in the nodes on that channel must be coordinated in order for nodes and channels to function properly. That is because both nodes and capabilities work together to ensure that transactions are handled deterministically (that is, that all of the nodes process a transaction the same way). While the Fabric versions of a node are compatible with lower levels of capabilities, capabilities cannot be processed by lower levels of nodes.
+The capability levels of a channel and the Fabric versions in the nodes on that channel must be coordinated in order for nodes and channels to function properly. That is because both nodes and capabilities work together to ensure that transactions are handled deterministically (that is, that all of the nodes process a transaction the same way). While the Fabric versions of a node are compatible with lower levels of capabilities, capabilities cannot be processed by lower levels of nodes. If a v1.4.x node attempts to read a configuration block containing a v2.x capability, the node will crash. For this reason, the console will attempt to ascertain the nodes that will be affected by a capability update and either warn you (or stop you) from updating a capability if it will cause a node to crash. More on this later.
+
+Because of this, all of the nodes in a channel must be at least at the level of the capabilities relevant to the node. Therefore, if the organizations in your channel want to "move to v2.0", this is in practice a two step process:
+
+1. Upgrade all of the nodes in the channel. For more information, check out [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade).
+2. Update the relevant capabilities of the channel. Do not attempt to edit the capabilities until you are sure your nodes are at the appropriate Fabric versions.
 
 The `application` and `channel` capabilities are relevant to peers, while the `orderer` and `channel` capabilities are relevant to the ordering service.
 {: tip}
@@ -177,13 +186,32 @@ In order to edit the `orderer` or `channel` capabilities in the system channel, 
 
 To edit these capabilities, click on the **Settings** button inside the ordering service. Then click **Capabilities**. Note that the channel and orderer capabilities, as well as the application capabilities, can also be edited through a channel configuration update. However, an ordering service admin will have to sign any configuration update that edits the `orderer` or `channel` capabilities. Note that capability versions can only advance. **You cannot go back to a previous capability or downgrade from a default capability level to a lower version**.
 
-It is not possible to update the `orderer` or `channel` capabilities to a level that will crash your ordering nodes.
+It is not possible to update the `orderer` or `channel` capabilities to a level that will crash your ordering nodes. If you want to update your capabilities on the system channel screen, you must first upgrade your nodes.
 {: important}
 
 #### Capabilities in application channels
 {: #ibp-console-govern-capabilities-application-channels}
 
-Application capabilities define the way transactions are handled exclusively by the peers. As a result, these capabilities are not inherited from the system channel (which is managed by the ordering service) and the full list of capabilities can be seen, starting with `1.1`, when creating a channel. Note that the Fabric version of all peers in the channel must be at least at the level of the application capability level and the channel capability level inherited from the ordering service. When creating a channel, the default application capability might be lower than the highest available level. This is done in cases where a new Fabric version with a new application capability has been released but it is not expected that most peers will be at the new Fabric version. 
+Application capabilities define the way transactions are handled exclusively by the peers. As a result, these capabilities are not inherited from the system channel (which is managed by the ordering service) and the full list of capabilities can be seen, starting with `1.1`, when creating a channel. Note that the Fabric version of all peers in the channel must be at least at the level of the application capability level and the channel capability level inherited from the ordering service. When creating a channel, the default application capability might be lower than the highest available level. This is done in cases where a new Fabric version with a new application capability has been released but it is not expected that most peers will be at the new Fabric version. You will see the default application capability in the **Review channel information** screen before creating the channel.
+
+If you attempt create a channel with a `orderer` capability other than the default, the channel creation request must be signed by an ordering service organization. If this capability is incompatible with the Fabric version of your ordering nodes, the console blocks the signature from completing, as a successful signature would crash any ordering nodes at the lower Fabric version. You must upgrade all of the relevant nodes before the channel creation request can be signed.
+
+Similarly, the console will block any attempt to join a peer to a channel with an `application` or `channel` capability it is incompatible with to prevent the peer from crashing. The peer must be upgraded before it can be joined to the channel.
+
+Because channel creation requests cannot be edited, if a capability is selected in error, a new channel creation request must be made.
+{tip}
+
+The following table shows the compatibility levels of peer image versions with the application capability level of a channel and which smart contract deployment process is used:
+
+| | Channel application capability 1.4 |  Channel application capability 2.x |
+|-| -----------------------------------|-------------------------------------|
+| **Peer image 1.4.x** | ![Checkmark icon](../../icons/checkmark-icon.svg) Uses legacy smart contract deployment flow and requires smart contract in .cds file format. |  Not possible |
+| **Peer image 2.x** | ![Checkmark icon](../../icons/checkmark-icon.svg) Uses legacy smart contract deployment flow and requires smart contract in .cds file format.  | ![Checkmark icon](../../icons/checkmark-icon.svg) Uses Fabric 2.x smart contract lifecycle and requires smart contract in .tgz file format. |
+{: caption="Table 1. Peer image version vs. channel application capability level" caption-side="bottom"}
+
+- A peer that runs a Fabric 1.4.x image can join a channel that is configured with application capability 1.4.x. But that peer cannot join a channel that is configured with application capability 2.x.
+- If a channel application capability level is upgraded to 2.x before the peer 1.4.x image is upgraded to 2.x, the peer stops functioning and needs to be upgraded to the 2.x image.
+- It is possible for a peer that is running a 2.x image to join a channel with application capability 1.4 and another channel with application capability 2.x at the same time. But smart contracts on the peer in `.cds` format use the [legacy smart contract deployment](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) process where they have to be instantiated on the channel with application capability 1.4. Smart contracts on the peer in `.tgz` format follow  the [Fabric 2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2) process on the channel with application capability 2.x.
 
 Like the orderer and channel capabilities, the application capability level can be edited through a channel configuration update. The orderer capability can also be specified during the creation of a channel, but will require the approval of the ordering service.
 
