@@ -296,21 +296,8 @@ subcollection: blockchain
   * [Creating a channel: `channel2`](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-build-network-create-channel1)
 * [Next steps](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-next-steps)
 
-[Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts)
+[Deploy a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts)
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-before)
-* [Step one: Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package)
-  * [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor)
-* [Step two: Install a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)
-* [Step three: Instantiate a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)
-* [Step four: Send transactions by using your client applications](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK)
-  * [Connect with SDK](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel)
-* [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)
-  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse-user-type)
-* [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)
-  * [How to upgrade a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade-howto)
-  * [Considerations when you upgrade smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade-considerations)
-* [Private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)
 
 
 ## Creating applications
@@ -467,9 +454,13 @@ subcollection: blockchain
 
 [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-7)
 
+[What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
+
 [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
 
 [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+
+[How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
 
 [What database do the peers use for their ledger?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
 
@@ -1244,6 +1235,13 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[20 October 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020)
+* [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-upgrade)
+* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-lc)
+* [Improvements for HSM support](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-hsm)
+* [Certificate renewal enhancements](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-cert-renew)
+* [Remove registered user from CA](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-delete-user)
 
 [1 Oct 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-01-2020)
 
