@@ -1353,296 +1353,321 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
-	-  If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform including the PKCS #11 proxy. After that is completed you can skip to Part 3 **Configure the node to use HSM**.
+	-  If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform. After that is completed you can skip to Part 3 **Configure the node to use HSM**.
 	- If you want to use the [openCryptoki HSM](https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxce/lxce_stackoverview.html){: external} with your Z environment, you should complete these [instructions in GitHub](https://github.com/IBM-Blockchain/HSM/tree/master/Z-HSM) and then skip to Part 3 **Configure the node to use HSM**.
-	
-	- If you want to try out SoftHSM or learn more about the PCKS #11 proxy, continue to Part 2 **Set up a PKCS #11 proxy**.  
-2. **Set up a PKCS #11 proxy**. The proxy enables the node to communicate with the HSM. [See Setting up a PKCS #11 proxy for HSM](#ibp-console-adv-deployment-pkcs11-proxy) for your HSM.
+2. **Configure an HSM client image** or **Set up a PKCS #11 proxy (Deprecated)** [See Build a Docker image](#ibp-console-adv-deployment-hsm-build-docker).
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
+### Before you begin
+{: #ibp-console-adv-deployment-hsm-before}
 
+- The Kubernetes CLI is required to configure the HSM. If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}} see [Getting started with {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) or [Installing the OpenShift CLI](/docs/openshift?topic=openshift-openshift-cli).
+- You need access to a container registry, such as Docker or the [{{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started).
 
-### Setting up a PKCS #11 proxy for your HSM
-{: #ibp-console-adv-deployment-pkcs11-proxy}
+### Build a Docker image
+{: #ibp-console-adv-deployment-hsm-build-docker}
 
-An HSM is a hardware appliance that provides cryptographic processing services. In the context of a blockchain network, an HSM is used to generate and store private keys inside a tamper-resistent device. After you deploy the HSM, you need to also deploy a PKCS #11 proxy that allows the blockchain node to communicate with the HSM.  These instructions describe how to build the proxy image, how to deploy it to your cluster, and how to configure it.
+There are two ways to configure HSM on your blockchain network: by **publishing an HSM client image to a container registry**, or by **configuring a PKCS #11 proxy**. The use of a PKCS #11 proxy has been deprecated in favor of building an HSM client image which is simpler to configure and provides better overall performance. Both processes are supported, however if you are configuring a new HSM device, it is recommended that you build and publish the HSM client image. Both sets of instructions are provided, starting with **Build an HSM client image**. If you still prefer to use a PKCS #11 proxy, you can refer to those [instructions](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy) instead.  
 
-The HSM and the proxy can reside anywhere, but, assuming your cluster has access to the same private network where your HSM is found, a best practice would be for the proxy to be running on the same cluster as your blockchain network.
-{: tip}
-
-Before attempting these instructions you should already have a [DockerHub login](https://hub.docker.com/signup/){: external}.
-{: important}
-
-#### Why is a proxy required?
-{: #ibp-console-adv-deployment-pkcs11-proxy-why}
-
-The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is based on Hyperledger Fabric which supports devices that use the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external}. Therefore, after deploying an HSM, you need to configure a PKCS #11 proxy to set up the communications between the appliance and the nodes on the network. One PKCS #11 proxy can communicate with multiple partitions on an HSM. When a user is enrolled, their private key is generated by the HSM and stored in the partition. A single partition can store multiple keys, although the exact number varies by HSM provider. Organizations can share a slot or partition, but it is more likely that each organization would want their own partition or potentially even their own HSM.
-
-#### Building the proxy image
-{: #ibp-console-adv-deployment-pkcs11-proxy-build-img}
-
-The first step is to build a Docker image for the PKCS #11 proxy and add the HSM-specific library to the image.
-
-- The following example shows the process for adding the `SoftHSM` drivers to the image. (`SoftHSM` is a software version of HSM that can be used for HSM simulation and testing, but if you are using your own HSM, you need to replace it with the library from your HSM provider.)  If you are using {{site.data.keyword.cloud_notm}} HSM, the proxy instructions are included in the [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto).
-
-If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a docker registry that you can access from behind your firewall.
+It is not possible to migrate an existing node, that uses HSM with a PKCS #11 proxy, to use the HSM client image. To take advantage of the HSM client image, you need to deploy a new CA, peer, or ordering node.
 {: note}
 
-Starting under `### YOUR HSM LIBRARY BUILD GOES HERE ###`, edit the code for your HSM, and save it to a file named `Dockerfile`. If you are not using `SoftHSM` to try out the process, you should remove the section that starts with the label `### EXAMPLE CONFIGURATION FOR SOFTHSM ###` and ends with `### EXAMPLE CONFIGURATION FOR SOFTHSM ENDS HERE###`.
+**Build an HSM client image**
+{: #ibp-console-adv-deployment-hsm-client}
+
+Next we build a Docker file that contains the HSM client image. These instructions assume that you have successfully configured your HSM appliance and HSM client. Use these steps to generate an image that is consumable by the {{site.data.keyword.blockchainfull_notm}} Platform operator.
+
+- Step one: Modify the HSM client configuration.
+- Step two: Build the HSM client image.
+- Step three: Push the docker image to your container registry.
+- Step four: Create a Kubernetes secret `hsmcrypto`.
+- Step five: Create the HSM configmap.
+
+#### Step one: Modify the HSM client configuration
+{: #ibp-console-adv-deployment-hsm-client-cfg}
+
+Each HSM has its own configuration file that is typically named `Chrystoki.conf`.  This is the main configuration file for the HSM integration and controls many aspects of the HSM client operation. After you install the HSM client, you need to modify the `etc/Chrystoki.conf` file to point to the `hsm` folder that contains the  HSM shared object library and cryptographic material. The paths specified in `Chrystoki.conf` represent the location where the {{site.data.keyword.blockchainfull_notm}} Platform operator mounts these files on the containers. You need to modify parameters inside the `Chrystoki2` and `LunaSA Client` sections as follows:
+
+**Chrystoki2 settings**  
+- **LibUnix:** Name of the Chrystoki2 library on x86 Linux/UNIX operating systems. The actual name of the library depends on the type of HSM you are using.
+- **LibUNIX64:** Name of the Chrystoki2 library on 64-bit Linux/UNIX operating systems. The actual name of the library depends on the type of HSM you are using.  
+
+**LunaSA Client  settings** Typically no changes would be required here unless you have explicitly modified the names of these files.
+- **ClientPrivKeyFile:** Name of the HSM client private key.
+- **ClientCertFile:**  Name of the HSM client certificate.
+- **ServerCAFile:**  Name of the HSM server certificate.
+
+The following example shows what the file would look like if you were using {{site.data.keyword.cloud_notm}} HSM. It provides the path to the HSM shared object, certificate and keys. Note that the naming of these files depends on the HSM library that is being used.
 
 ```
+Chrystoki2 = {
+   LibUNIX = /hsm/libCryptoki2.so;
+   LibUNIX64 = /hsm/libCryptoki2_64.so;
+}
+...
+LunaSA Client = {
+...
+   ClientPrivKeyFile = /hsm/key.pem;
+   ClientCertFile = /hsm/cert.pem;
+   ServerCAFile = /hsm/cafile.pem;
+...
+}
+```
+{: codeblock}
 
-########## Build the pkcs11 proxy ##########
+
+#### Step two: Build the HSM client image
+{: #ibp-console-adv-deployment-hsm-client-docker}
+
+The HSM client image can be built with a Docker file similar to the following:
+
+- The following Docker file is for {{site.data.keyword.cloud_notm}} HSM. If you are not using {{site.data.keyword.cloud_notm}} HSM, you need to build your own Docker file.
+- You should be aware that this Docker file automatically accepts the Gemalto client license.
+- Note that the `64` folder inside the Docker file is required for installing the HSM client.
+
+```
 FROM registry.access.redhat.com/ubi8/ubi-minimal as builder
-ARG ARCH=amd64
 
-ARG VERSION=2032875
+## This directory contains the installation files for gemalto/luna client
+COPY 64 64
 
 RUN microdnf install -y \
-	git \
-	make \
-	cmake \
-	openssl-devel \
-	gcc;
+   gcc \
+   gcc-c++ \
+   openssh-clients \
+   bind-utils \
+   iputils \
+   && cd 64 && \
+   # NOTE we are accepting the license for installing gemalto client here
+   # please take a look at the license before moving forward
+   echo "y" | ./install.sh -p sa
 
-RUN if [ "${ARCH}" == "amd64" ]; then ARCH="x86_64"; fi && \
-	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-2.4.2-2.fc30.${ARCH}.rpm && \
-	rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-devel-2.4.2-2.fc30.${ARCH}.rpm
-
-
-RUN git clone https://github.com/SUNET/pkcs11-proxy && \
-	cd pkcs11-proxy && \
-	git checkout ${VERSION} && \
-	cmake . && \
-	make && \
-	make install
-
-########## FINAL image - Build softhsm client ##########
+### Final image ###
 
 FROM registry.access.redhat.com/ubi8/ubi-minimal
-ARG ARCH=amd64
 
-RUN microdnf install -y \
-	shadow-utils \
-	&& microdnf clean all \
-	&& groupadd -g 7051 ibp-user \
-	&& useradd -u 7051 -g ibp-user -s /bin/bash ibp-user \
-	&& mkdir /licenses \
-	&& if [ "${ARCH}" == "amd64" ]; then ARCH="x86_64"; fi \
-	&& rpm -ivh https://kojipkgs.fedoraproject.org/packages/libseccomp/2.4.2/2.fc30/${ARCH}/libseccomp-2.4.2-2.fc30.${ARCH}.rpm \
-	&& microdnf remove shadow-utils \
-	&& microdnf clean all;
-
-COPY --from=builder /usr/local/bin/pkcs11-daemon /usr/local/bin/pkcs11-daemon
-COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0.1 /usr/local/lib/libpkcs11-proxy.so.0.1
-COPY --from=builder /usr/local/lib/libpkcs11-proxy.so.0 /usr/local/lib/libpkcs11-proxy.so.0
-COPY --from=builder /usr/local/lib/libpkcs11-proxy.so /usr/local/lib/libpkcs11-proxy.so
-
-ENV PKCS11_DAEMON_SOCKET="tcp://0.0.0.0:2345"
-# ENV PKCS11_PROXY_TLS_PSK_FILE="/tls.psk"
-EXPOSE 2345
-
-### YOUR HSM LIBRARY BUILD GOES HERE ###
-
-ENV LIBRARY_LOCATION="/usr/lib64/softhsm/libsofthsm.so"
-
-### YOUR HSM LIBRARY BUILD ENDS HERE ###
-
-### EXAMPLE CONFIGURATION FOR SOFTHSM ###
-
-ENV SLOT 0
-ENV LABEL test
-ENV PIN 5678
-ENV SO_PIN 5678
-ENV ARCH x86_64
-ENV DEBUG_OUTPUT 1
-
-RUN microdnf update && \
-    microdnf install -y shadow-utils && \
-    rpm -ivh https://kojipkgs.fedoraproject.org/packages/softhsm/2.5.0/4.fc30/${ARCH}/softhsm-2.5.0-4.fc30.${ARCH}.rpm
-RUN mkdir -p /var/lib/softhsm/tokens/
-RUN softhsm2-util --slot ${SLOT} --init-token --label ${LABEL} --pin ${PIN} --so-pin ${SO_PIN}
-
-### EXAMPLE CONFIGURATION FOR SOFTHSM ENDS HERE###
-
-### ###
-
-CMD ["sh", "-c", "pkcs11-proxy $LIBRARY_LOCATION -"]
+# Copy the library files from builder
+COPY --from=builder /usr/lib/libCryptoki2_64.so /usr/lib/libCryptoki2_64.so
+COPY --from=builder /usr/lib/libCryptoki2_64.so.2 /usr/lib/libCryptoki2_64.so.2
+COPY --from=builder /usr/lib/libCryptoki2_64.so.6.3.0 /usr/lib/libCryptoki2_64.so.6.3.0
 ```
 {: codeblock}
 
-Run the following command to build the image:
+Now, run the following command to build the Docker image:
 
 ```
-docker build -t pkcs11-proxy:v1 -f Dockerfile .
+docker build -t hsm-client:v1 -f Dockerfile .
 ```
 {: codeblock}
-After the image is built, the next step is to push the image to your docker registry (for example, Docker Hub). This command will look similar to:
+
+
+#### Step three: Push the docker image to your container registry
+{: #ibp-console-adv-deployment-hsm-client-push}
+
+After the image is built, the next step is to push the image to your docker registry (for example, Docker Hub). The commands look similar to:
 
 ```
 docker login -u <DOCKER_HUB_ID> -p <DOCKER_HUB_PWD>
-docker tag pkcs11-proxy:v1 <DOCKER_HUB_ID>/pkcs11-proxy:v1
-docker push <DOCKER_HUB_ID>/pkcs11-proxy:v1
+docker tag hsm-client:v1 <DOCKER_HUB_ID>/hsm-client:v1
+docker push <DOCKER_HUB_ID>/hsm-client:v1
 ```
 {: codeblock}
 
 - Replace `<DOCKER_HUB_ID>` with your Docker Hub id.
 - Replace `<DOCKER_HUB_PWD>` with your Docker Hub password.
 
-#### Deploying the proxy to your cluster
-{: #ibp-console-adv-deployment-pkcs11-proxy-deploy}
-
-In order to use HSM with any blockchain node, you need to configure a PKCS #11 proxy that enables communications between the HSM and your blockchain nodes. The following steps guide you through the process of building an image for the proxy, deploying it, and configuring the communications with your blockchain node.
-
-##### **Step one:**  Create a new namespace
-{: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s1}
 
 
-On your Kubernetes cluster you need to create a namespace for HSM.
+**Create a Kubernetes image pull secret**
+
+If the HSM client image that you published is not public, then the operator requires an `image pull secret` that contains a valid username and password (or access token) for the container registry. If the image is public, the imagepullsecret is not required and you can skip this command. To build the image pull secret named `hsm-docker-secret`, run the following command in the namespace or project where you deployed the service:
+
 ```
-kubectl create ns hsm
+kubectl create secret docker-registry hsm-docker-secret --docker-server=<DOCKER_REGISTRY_SERVER> --docker-username=<DOCKER_USER> --docker-password=<DOCKER_PASSWORD> --docker-email=<DOCKER_EMAIL> -n <NAMESPACE>
 ```
 {: codeblock}
 
+Replace:
+- `DOCKER_REGISTRY_SERVER` - Registry server url where the HSM client image is hosted.
+- `DOCKER_USER` - Valid username with access to HSM client image in the container registry.
+- `DOCKER_PASSWORD` - Valid password or access token for the HSM client image in the container registry.
+- `DOCKER_EMAIL` - Email address for container registry user.
+- `NAMESPACE` - Name of the  project or namespace that is visible on the console **Support** page.
+
+  These instructions are obviously for the Docker registry. If you are using the {{site.data.keyword.IBM_notm}} Container Registry, then you need to set up your own image pull secret in your cluster:
+
+    - [Using an image pull secret to access images in other IBM Cloud accounts or external private registries from non-default Kubernetes namespaces](/docs/containers?topic=containers-registry#other)
+    - [Copying an existing image pull secret](/docs/containers?topic=containers-registry#copy_imagePullSecret)
+    - [Referring to the image pull secret in your pod deployment](/docs/containers?topic=containers-images#pod_imagePullSecret)
 
 
-##### **Step two:** Create a Kubernetes secret
-{: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s2}
+#### Step four: Create a Kubernetes secret `hsmcrypto`
+{: #ibp-console-adv-deployment-hsm-client-crypto}
 
-Create an image pull secret for pulling the image from my.repo.docker.hub. The command might look something like:
+In order for a CA, peer, or ordering node to be able to communicate with the HSM client image you need to
+create a Kubernetes secret named `hsmcrypto` that contains the keys and configuration files for the HSM that you are using. When the console deploys a node that is configured with HSM, it uses this secret to access the HSM client image keys and configuration files.
+
+The Kubernetes secret needs to be created in the {{site.data.keyword.blockchainfull_notm}}  Platform service instance namespace that is visible on the console **Support** page.    If you are using the {{site.data.keyword.cloud_notm}} HSM, the command would be:
 
 ```
-kubectl create secret docker-registry docker-pull-secret --docker-username=<DOCKER_HUB_ID> --docker-password=<DOCKER_HUB_PWD> --docker-email=<EMAIL> --docker-server=<<DOCKER_HUB_ID>:pkcs11-proxy:v1
+$ kubectl create secret generic hsmcrypto -n <NAMESPACE> --from-file=Chrystoki.conf --from-file=cert.pem --from-file=key.pem --from-file=server.pem
 ```
 {: codeblock}
 
-- Replace `<DOCKER_HUB_ID>` with the Docker user name.
-- Replace `<DOCKER_HUB_PWD>` with the Docker password.
-- Replace `<EMAIL>` with your Docker Hub email address.
+Replace `<NAMESPACE>` with the name of your  service instance namespace or OpenShift project If you are not using {{site.data.keyword.cloud_notm}} HSM, you need to replace the values of the `--from-file` parameters with the set of certificates and configuration files that are required for your HSM client image.
 
-For example:
+When successful, the output looks similar to:
 ```
-kubectl create secret docker-registry docker-pull-secret --docker-username=dockeruser --docker-password=dockerpwd --docker-email=dockeruser@example.com --docker-server=dockeruser/pkcs11-proxy:v1 -n hsm
+secret/hsmcrypto created
+```
+
+To verify the contents of the secret, run the command:
+```
+kubectl get secret -n <namespace> hsmcrypto -o yaml
 ```
 {: codeblock}
 
-##### **Step three:** Deploy the proxy pod
-{: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s3}
+You should see results similar to:
+```
+apiVersion: v1
+data:
+  Chrystoki.conf: ""
+  cafile.pem: ""
+  cert.pem: ""
+  key.pem: ""
+  server.pem: ""
+kind: Secret
+metadata:
+  name: hsmcrypto
+  namespace: <NAMESPACE>
+```
 
-After the secret is created with the name `docker-pull-secret`, you can use the following file to deploy the proxy pod. Copy and edit the `yaml` below and save it to a file named `pod.yaml`.
 
-- Replace `<DOCKER_HUB_ID>` with your DockerHub login.
+#### Step five: Create the HSM configmap
+{: #ibp-console-adv-deployment-hsm-configmap}
+
+
+Because the console needs to know the configuration settings to use for your HSM, you need to create a Kubernetes [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){:external} to store these values. The {{site.data.keyword.blockchainfull_notm}} Platform operator uses the HSM configuration passed in this configmap to get the details about the HSM client image, such as what image pull secret to use, and the folder mounts that are required. Based on the information provided, when a CA, peer, or ordering node is deployed with HSM enabled, the operator mounts required the files for the HSM client image.
+
+Copy the following text and save it to a file named `ibp-hsm-config.yaml`:
 
 ```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pkcs11-proxy
-  namespace: hsm
-  labels:
-    app: pkcs11
-spec:
-  imagePullSecrets:
-  - name: docker-pull-secret
-  containers:
-  - name: proxy
-    command:
-      - sh
-      - -c
-      - pkcs11-daemon $LIBRARY_LOCATION
-    image: <DOCKER_HUB_ID>/pkcs11-proxy:v1
-    imagePullPolicy: Always
-    readinessProbe:
-      tcpSocket:
-        port: 2345
-      initialDelaySeconds: 5
-      periodSeconds: 10
-    livenessProbe:
-      tcpSocket:
-        port: 2345
-      initialDelaySeconds: 15
-      periodSeconds: 20
+version: v1
+type: hsm
+library:
+  image: <HSM_IMAGE_URL>
+  auth:
+    imagePullSecret: <IMAGE_PULL_SECRET>
+  filepath: <HSM_LIBRARY_FILE_PATH>
+envs:  
+- name: <ENVIRONMENT_VARIABLE_NAME>
+  value: <ENVIRONMENT_VARIABLE_VALUE>
+mountpaths:
+- mountpath: <MOUNTPATH>
+  name: <MOUNTPATH_NAME>
+  secret: <HSM_CRYPTO_SECRET>
+  paths:
+  - key: <KEY>
+    path: <PATH>
+  - key: <KEY>
+    path: <PATH>
+- mountpath: <MOUNTPATH>
+  name: <MOUNTPATH_NAME>
+  secret: <HSM_CRYPTO_SECRET>
+  paths:
+  - key: <KEY>
+    path: <PATH>
+  - key: <KEY>
+    path: <PATH>
 ```
 {: codeblock}
 
-Deploy the file on the cluster in the `hsm` namespace by running the following command:
+Replace the following values:
+- `HSM_IMAGE_URL`: URL of the HSM client image that you published to your container registry.
+- `IMAGE_PULL_SECRET`: (Optional)  Name of the image pull secret `hsm-docker-secret` that you created in the same namespace as your service. Only required if the HSM client image is not publicly available. **Important:** If an image pull secret is not required, set this value to `""`. 
+- `ENVIRONMENT_VARIABLE_NAME` - If there are any environment variables that need to be set for the HSM client, specify them individually.
+- `ENVIRONMENT_VARIABLE_VALUE` - Value that corresponds to the `ENVIRONMENT_VARIABLE_NAME`.
+- `HSM_LIBRARY_FILE_PATH`: Path to the HSM library file, for example, `/usr/lib/libCryptoki2_64.so`.
+- `MOUNTPATH`: Location where the file or folder should be mounted.
+- `MOUNTPATH_NAME`: Name you want to use for the `mountpath`.
+- `KEY`:  Name of the HSM client private key.
+- `PATH`: Mount location of the HSM client private key file.
+- `HSM_CRYPTO_SECRET`: Name of the Kubernetes secret that contains the keys and configuration files for the HSM that is used by the `mountpath`.
 
-```
-kubectl create -f pod.yaml -n hsm
-```
-{: codeblock}
+Each HSM likely has a different set of keys that are required by the HSM client. Optionally replicate the "`key`" and "`path`" sections according to the number required by your HSM client. Similarly, if multiple sets of folders need to be mounted, you can replicate the "`mountpath`" section.  
 
-Verify that the pod is running and passes the liveliness and readiness probes by running the command:
-```
-kubectl describe pod pkcs11-proxy -n hsm
-```
-{: codeblock}
-
-If the pod starts successfully you will see something similar to:
-
-```
-Type    Reason     Age   From                  Message
-  ----    ------     ----  ----                  -------
-  Normal  Scheduled  19s   default-scheduler     Successfully assigned hsm/pkcs11-proxy to 10.95.42.51
-  Normal  Pulling    18s   kubelet, 10.95.42.51  pulling image "pamaibm/pkcs11-proxy:v1"
-  Normal  Pulled     7s    kubelet, 10.95.42.51  Successfully pulled image "pamaibm/pkcs11-proxy:v1"
-  Normal  Created    7s    kubelet, 10.95.42.51  Created container
-  Normal  Started    7s    kubelet, 10.95.42.51  Started container
-```
-{: codeblock}
-
-
-##### **Step four:** Configure communication between the proxy and the blockchain components
-{: #ibp-console-adv-deployment-pkcs11-proxy-deploy-s4}
-
-After verifying that the pod is running, we need to configure communications between the proxy and the blockchain components by using the Kubernetes service. The `ClusterIP` service is used to ensure that the proxy is not exposed to outside the cluster. If required, you can add networking rules for all members who can access the proxy. Copy the `yaml` below and save it to a file named `service.yaml`.
+For example, if you are using {{site.data.keyword.cloud_notm}} HSM, the file looks similar to:
 
 ```yaml
+version: v1
+type: hsm
+library:
+  image: us.icr.io/hsm/gemalto-client:v1.2.3-amd64
+  auth:
+    imagePullSecret: hsm-docker-secret
+  filepath: /usr/lib/libCryptoki2_64.so
+mountpaths:
+- mountpath: /hsm
+  name: hsmcrypto
+  paths:
+  - key: cafile.pem
+    path: cafile.pem
+  - key: cert.pem
+    path: cert.pem
+  - key: key.pem
+    path: key.pem
+  - key: server.pem
+    path: server.pem
+  secret: hsmcrypto
+- mountpath: /etc/Chrystoki.conf
+  name: hsmconfig
+  secret: hsmcrypto
+  subpath: Chrystoki.conf
+```
+{: external}
+
+In this example, the first `mountpath` contains four configuration files (cafile.pem, cert.pem, key.pem, server.pem) and the `hsmcrypto` secret, and all of them are mounted to the mountpath `/hsm`. The actual name of the mountpath is `hsmcrypto`, and it contains an exact mapping of the key value pair to the Kubernetes secret and the location to mount it to. For example, `cafile.pem` is read from the path `cafile.pem` in the hsmcrypto mountpath using the `hsmcrypto` secret and mounted to `/hsm/cafile.pem`.  
+
+A second mountpath is included for the HSM `/etc/Chrystoki.conf` file. Because the HSM requires its config file in the `/etc` folder, which is a system directory, we need to use the `subpath` parameter to avoid replacing the entire `/etc` directory. If the subpath is not used, the entire `/etc` directory is replaced with the volume being mounted.  
+
+Run the following command to create the configmap named `ibp-hsm-config` in your cluster namespace or project:
+```
+kubectl create configmap ibp-hsm-config --from-file=ibp-hsm-config.yaml -n <NAMESPACE>
+```
+{: codeblock}
+
+The output looks similar to:
+
+```
+configmap/ibp-hsm-config created
+```
+
+To view the contents of the configmap, run the command:
+```
+kubectl get configmap ibp-hsm-config -n <NAMESPACE>
+```
+{: codeblock}
+
+The output looks similar to:
+
+```
 apiVersion: v1
-kind: Service
+data:
+  ibp-hsm-config.yaml: |+
+    library:
+      auth:
+        imagePullSecret: <>
+...
+    type: hsm
+    version: v1
+
+kind: ConfigMap
 metadata:
-  name: pkcs11-proxy
-  namespace: hsm
-  labels:
-    app: pkcs11
-spec:
-  ports:
-  - name: http
-    port: 2345
-    protocol: TCP
-    targetPort: 2345
-  selector:
-    app: pkcs11
-  type: ClusterIP
-```
-{: codeblock}
-
-Create the `ClusterIP` service by running the command:
-
-```
-kubectl create -f service.yaml -n hsm
-```
-{: codeblock}
-
-When this command is successful you should see something similar to:
-```
-service/pkcs11-proxy created
+...
 ```
 
 
-After creating the service you need to get the ClusterIP address by running the command:
-```
-kubectl get service -n hsm pkcs11-proxy -o wide
-```
-{: codeblock}
-
-You will see results similar to:
-```
-NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
-pkcs11-proxy   ClusterIP   172.21.106.217   <none>        2345/TCP   16s   app=pkcs11
-```
-
-Save the value of the  `CLUSTER-IP` address and `PORT` because they will be used to form the `HSM proxy endpoint` in the next step.
+Congratulations. You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
 
 ### Configuring a CA, peer, or ordering node to use the HSM
 {: #ibp-console-adv-deployment-cfg-hsm-node}
@@ -1656,17 +1681,15 @@ Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
 When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. This option is only available on paid clusters.
 
-![Configuring a node to use HSM](../images/hsm-cfg.png "Configuring a node to use HSM"){: caption="Figure 1. Configuring a node to use HSM" caption-side="bottom"}
+If you published an HSM client image and created the HSM configmap, the **Use HSM client image** toggle is visible. When it is on you can enter the following values:
 
-On the HSM configuration panel, enter the following values:
-- **HSM proxy endpoint** - Enter the URL for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
 - **HSM PIN** - Enter the PIN for the HSM slot.  
 
+If you prefer to use an HSM that was configured with a PKCS #11 proxy, or did not create the HSM configmap, an additional field is required:
+- **HSM proxy endpoint** -Enter the URL for the PKCS #11 proxy that begins with `tcp://` and includes the `CLUSTER-IP` address and `PORT`. For example, `tcp://172.21.106.217:2345`.
 
-
-
-Lastly, on the CA **Summary** panel, you can override the default HSM configuration, for example if you want to customize which crypto library implementation to use. Click **Edit configuration JSON (Advanced)** on the **Summary** panel to view the `JSON`. Scroll down to the `BCCSP (Blockchain Crypto Service Provider) section` where you can modify the crypto library settings. For example, if you are using AWS HSM, you also need to include additional parameters in the BCCSP section of the configuration for your node. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/hsm.html#example) for details.
+Lastly, on the CA **Summary** panel, you can override the default HSM configuration, for example if you want to customize which crypto library implementation to use. Click **Edit configuration JSON (Advanced)** on the **Summary** panel to view the `JSON`. Scroll down to the `BCCSP (Blockchain Crypto Service Provider) section` where you can modify the crypto library settings.
 
 Because the HSM implementation currently only supports HSMs that implement the PKCS #11 standard, you cannot modify the `bccsp.default` that is set to `PKCS11`.
 {: note}
