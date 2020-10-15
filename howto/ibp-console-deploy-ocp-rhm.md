@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-15"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 # Deploy from Red Hat Marketplace
 {: #deploy-ocp-rhm}
 
-The Red Hat Marketplace can be used to deploy the {{site.data.keyword.blockchainfull}} Platform 2.5 operator onto a Kubernetes cluster on OpenShift Container Platform 4.3+. This operator can be used to deploy instances of the Certificate Authority (CA), peer, and ordering nodes, as well as the {{site.data.keyword.blockchainfull_notm}} Platform console that can be used to manage the blockchain components on your network. This deployment option is available for OpenShift clusters that are running in {{site.data.keyword.cloud_notm}} or your cloud.
+The Red Hat Marketplace can be used to deploy the {{site.data.keyword.blockchainfull}} Platform 2.5.1 operator onto a Kubernetes cluster on OpenShift Container Platform 4.3+. This operator can be used to deploy instances of the Certificate Authority (CA), peer, and ordering nodes, as well as the {{site.data.keyword.blockchainfull_notm}} Platform console that can be used to manage the blockchain components on your network. This deployment option is available for OpenShift clusters that are running in {{site.data.keyword.cloud_notm}} or your cloud.
 {:shortdesc}
 
 ## What is the Red Hat Marketplace?
@@ -32,7 +32,7 @@ The Red Hat Marketplace can be used to deploy the {{site.data.keyword.blockchain
 
 The Red Hat Marketplace is available directly from your OpenShift web console and provides an open cloud catalog that makes it easier to discover and access certified software for container-based environments in public clouds. With automated deployment, software is immediately available to deploy on any Red Hat OpenShift cluster, providing a fast, integrated experience. Discover and buy certified software, and quickly deploy. Access open source and proprietary software, with responsive support, streamlined billing and contracting, simplified governance, and single-dashboard visibility across clouds. Built in partnership by Red Hat and {{site.data.keyword.IBM_notm}}, this marketplace helps organizations deliver enterprise software and improve workload portability.
 
-The marketplace provides a simplified alternative method for deploying an instance of the {{site.data.keyword.blockchainfull_notm}} Platform to your cluster instead of the [manual deployment steps](/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp) or by using [Ansible playbook](/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible) scripts.
+The marketplace provides a simplified alternative method for deploying an instance of the {{site.data.keyword.blockchainfull_notm}} Platform to your cluster instead of the [manual deployment steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp) or by using [Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible) scripts.
 
 With just a few simple steps, you can get started with the {{site.data.keyword.blockchainfull_notm}} Platform. After you install the operator to your OpenShift project, you can create a subscription that allows you to deploy the blockchain console UI.
 
@@ -45,7 +45,7 @@ To learn more about the Marketplace see the [Red Hat documentation](https://mark
 - IBM Blockchain Platform is not supported on OpenShift Online.
 - Mutual TLS is not supported between your applications and your blockchain nodes.
 - You can not use the ESR version of Firefox to log in to the IBM Blockchain Platform console.
-- The free trial cannot be upgraded to the paid version. After 30 days, access to the product is removed. See [Free trial](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-sw-pricing#ibp-software-pricing-free) for more information.
+- The free trial cannot be upgraded to the paid version. After 30 days, access to the product is removed. See [Free trial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-sw-pricing#ibp-software-pricing-free) for more information.
 
 ## Before you begin
 {: #deploy-ocp-rhm-prerequisites}
@@ -428,8 +428,18 @@ In your browser, you can see the console login screen:
 Ensure that you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and log in.
 {: important}
 
-The administrator who provisions the console can grant access to other users and restrict the actions they can perform. For more information, see [Managing users from the console](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-icp-manage#console-icp-manage-users){: external} in the {{site.data.keyword.blockchainfull_notm}} Platform 2.5  documentation.
+The administrator who provisions the console can grant access to other users and restrict the actions they can perform. For more information, see [Managing users from the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-users){: external} in the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1documentation.
 
+## Upgrading your deployment
+{: #console-deploy-ocp-rhm-upgrade-deployment}
+
+When you deployed the IBM Blockchain operator, you had the option of whether to allow upgrades to this operator to be made automatically or manually. The former is the default option, and if you left it selected, your operate will update whenever a new version is available. These updates may be applied at any time and could include updates to the console or the nodes, or a combination of both. If you chose to manually update your operator, you will be prompted with a message when a new version is available. If you approve of the update request, the update will proceed. For more information about what is in each release, check out the [release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20). Note that if you get behind by more than one release that each release will be applied in the order they became available. This could cause an update to take longer to finish.
+
+More often than not, updates pushed to the operated will result in the console being updated, which means that the pod the console is contained in will restart. While the pod is restarting, the console will be unavailable. However, this will not affect any transactions that are taking place, as transaction throughput is dependent on node availability, not console availability.
+
+In the rare cases where an update causes nodes to restart (for example, if the spec of a node is changed), it might be temporarily impossible to drive transactions, depending on the nodes being updated and the structure of your own deployment.
+
+If your update fails, the old version of the operator should continue to function. To resolve the update failure, you will need to open a support ticket in [RedHat support](https://marketplace.redhat.com/en-us/support){: external}.
 
 ## Removing your deployment
 {: #console-deploy-ocp-rhm-remove-deployment}
@@ -460,16 +470,16 @@ And then remove any instances or the IBM Blockchain operator using the OpenShift
 ## Next steps
 {: #console-deploy-ocp-rhm-next-steps}
 
-When you access your console, you can use the **nodes** tab of your console UI to create CAs, peers, or an ordering service. See the [Build a network tutorial](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-build-network#ibp-console-build-network){: external} to get started with the console.
+When you access your console, you can use the **nodes** tab of your console UI to create CAs, peers, or an ordering service. See the [Build a network tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network){: external} to get started with the console.
 
-To learn how to manage the users that can access the console, view the logs of your console and your blockchain components, see [Administering your console](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-icp-manage#console-icp-manage){: external}.
+To learn how to manage the users that can access the console, view the logs of your console and your blockchain components, see [Administering your console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage){: external}.
 
 
 
 ## Support
 {: #deploy-ocp-rhm-support}
 
-Support is provided for the paid version of the Red Hat Marketplace offering and support cases can be opened through the Red Hat Marketplace [support portal](https://marketplace.redhat.com/en-us/support).  Customers using the trial version from Red Hat Marketplace, can refer to [self-help resources](/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-support#blockchain-support-resources) for assistance.
+Support is provided for the paid version of the Red Hat Marketplace offering and support cases can be opened through the Red Hat Marketplace [support portal](https://marketplace.redhat.com/en-us/support).  Customers using the trial version from Red Hat Marketplace, can refer to [self-help resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-resources) for assistance.
 
 ## Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
 {: #deploy-ocp-rhm-project}
