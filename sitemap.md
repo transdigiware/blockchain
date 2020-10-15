@@ -177,6 +177,8 @@ subcollection: blockchain
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
 
+[October 20, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-20-2020)
+
 [August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
 
 [June 18, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-06-18-2020)
@@ -571,7 +573,7 @@ subcollection: blockchain
   * [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)
   * [Viewing your smart contract container logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs)
   * [Using LogDNA to view the node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logdna)
-* [Updating your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
+* [Upgrading your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
 * [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration)
 
 [Advanced deployment options](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment)

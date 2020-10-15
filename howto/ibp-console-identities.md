@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-10-15"
 
 keywords: create identities, manage identities, Certificate Authorities, register, enroll, TLS CA, wallet, certificate expiration
 
@@ -88,7 +88,11 @@ Clicking **Register user** opens a series of side panels:
 4. Enter the **Maximum Enrollments** allowed for this identity. If not specified, the value defaults to unlimited enrollments.
 5. On the last side panel, add the **Attributes** of the identity you are creating.
 
-After you click **Register**, the new identity will be added to the list of **Authenticated users** that have been created by your CA. The identities are listed by their **Enroll ID**, along with their **Type** and **Affiliation**. Clicking on an identity in the table opens a side panel that displays the number of **Maximum Enrollments** and **Attributes** that were created during registration.  
+After you click **Register**, the new identity will be added to the list of **Authenticated users** that have been created by your CA. The identities are listed by their **Enroll ID**, along with their **Type** and **Affiliation**. Clicking on an identity in the table opens a side panel that displays the number of **Maximum Enrollments** and **Attributes** that were created during registration.
+
+**Deleting a user**  
+If you need to delete a registered user, click the action menu next to any user and select
+**Delete user**. If that option is not available, it can be enabled on your CA by overriding the CA configuration. See an example of how to enable this feature in [Modifying a CA configuration after deployment](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-modify-json). Note this action does not revoke the associated certificates for the user. If you need to do that you would need to insert the associated signed certificate into the organization MSP under the `"revocation_list":` section. And then update that MSP definition everywhere that it occurs on the network.
 
 ### Creating new CA admins
 {: #ibp-console-identities-ca-admin}

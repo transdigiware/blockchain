@@ -140,11 +140,10 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
  2. Browse to the MSP JSON file and click **Add file**.
  3. Click **Import MSP**.  
 
+**Note:** Under some circumstances, it is possible that the Node OU checkbox may be visible and checked when you import an MSP into your console. If that occurs, it is recommended that you leave it checked so that it enables Fabric Node OU support for the MSP, which simplifies the certificate renewal process for you in the future.
 
-**Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to deselect the Node OU check box.
-    ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
- Repeat these steps for each organization that is included in your channel.
+Repeat these steps for each organization that is included in your channel.
 
 ## Importing a peer
 {: #ibp-console-import-peer}
