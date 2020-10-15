@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-15"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -131,6 +131,9 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 {: tab-title="Node Smart contract"}
 {: tab-group="IAM-simple2"}
 {: class="simple-tab-table"}
+
+Java and Node runtime versions are determined by {{site.data.keyword.blockchainfull_notm}} Platform peer Fabric image and cannot be changed. Be aware that these runtimes are different from the default Hyperledger Fabric runtimes.
+{: note}
 
 For more details on smart contract-API compatibility, see:
 - [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md)
