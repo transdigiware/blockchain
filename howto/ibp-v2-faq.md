@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-10-15"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -102,7 +102,7 @@ View the Support page by clicking the question mark icon <img src="../images/sup
 {: faq}
 
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Hyperledger Fabric v1.4.7 and v2.x.
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} uses Hyperledger Fabric v1.4.9 and v2.2.1.
 
 
 
@@ -341,7 +341,7 @@ The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are
 {: support}
 
 Your existing Kubernetes cluster works with the {{site.data.keyword.blockchainfull_notm}} Platform if it satisfies the following conditions:
-- It is running Kubernetes version v1.15 - v1.18.
+- It is running Kubernetes version v1.16 - v1.18.
 - There are enough available resources in the cluster.
 
 ## Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?

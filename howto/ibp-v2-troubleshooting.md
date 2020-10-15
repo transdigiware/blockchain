@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-15"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -41,6 +41,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Why is my smart contract installation failing with a timeout?](#ibp-v2-troubleshooting-sc-install)
 - [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
@@ -165,24 +166,38 @@ You may receive this error if this version of the smart contract already exists 
 - If you are still experiencing problems after the node is up, [check your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.
 {: tsResolve}
 
-
-
-## Why is my Node.js smart contract instantiation failing?
-{: #ibp-v2-troubleshooting-nodejs-instantiate}
+## Why is my smart contract installation failing with a timeout?
+{: #ibp-v2-troubleshooting-sc-install}
 
 {: tsSymptoms}
-Instantiating a Node.js smart contract fails with the timeout error:
+Installing a smart contract fails with the timeout error.
+
+The peer logs show:
 ```
-[endorser] SimulateProposal -> ERRO 0ba [channel2][37876c5f] failed to invoke chaincode name:"lscc" , error: timeout expired while starting chaincode myassetc:0.0.1 for transaction
-github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch
-	/go/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:75
+Error: install failed with status: 500 - error in simulation: failed to execute transaction 3323a35628a32dd82033da: error sending: timeout expired while executing transaction
 ```
 
 {: tsCauses}
-When running the {{site.data.keyword.blockchainfull_notm}} Platform on s390x architecture, it is possible that Node.js smart contract instantiation can fail if the default timeout is too short.
+When running the {{site.data.keyword.blockchainfull_notm}} Platform on s390x architecture, or in an environment with constrained resources, it is possible that smart contract installation can fail if the default timeout is too short on the peer where the smart contract is being installed.
 
+You need to override the peer configuration to extend the time out.
 {: tsResolve}
-Customers should wait for five minutes after the failure occurs and then retry the instantiation again. It will then work successfully on the subsequent attempt.
+
+1. From the console, open the peer tile and click the **Settings** icon.
+2. Click **Edit configuration JSON (Advanced)**.
+3. In the **Configuration updates** box paste the following text and click **Update peer**.
+  ```
+  {
+   "chaincode":{
+      "startuptimeout":"300s",
+      "installTimeout":"600s",
+      "executetimeout":"30s"
+    }
+  }
+  ```
+  {: codeblock}
+
+The peer restarts and then you can retry the smart contract installation.
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}
