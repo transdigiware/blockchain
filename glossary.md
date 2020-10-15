@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-10-15"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -26,7 +26,9 @@ subcollection: blockchain
 This topic defines {{site.data.keyword.blockchainfull}} Platform-specific terms that appear in this documentation. For a deeper understanding of terms, and for a glossary of terms that relate to Hyperledger Fabric concepts, refer to the [Hyperledger Fabric glossary](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
 {:shortdesc}
 
-
+## Approve
+{: #glossary-propose}
+Referring to a step in the Hyperledger Fabric v2.x chaincode lifecycle, a smart contract definition is approved by organizations on the channel. After the number of approvals that are specified in the channel lifecycle endorsement policy are satisfied, the smart contract definition can be committed to a channel, and the peers where it is installed can begin to process requests.
 
 ## Asset
 {: #glossary-asset}
@@ -56,7 +58,9 @@ Consisting of a subset of network members who want to transact privately. Channe
 {: #glossary-client}
 The client represents the entity that acts on behalf of a user. It must connect to a peer for communicating with the blockchain. The client might connect to any peer of its choice. Clients create and thus invoke transactions. The client submits an actual transaction invocation to the endorsers, and broadcasts transaction proposals to the ordering service.
 
-
+## Commit
+{: #glossary-commit}
+Referring to a step in the Hyperledger Fabric v2.x chaincode lifecycle, after the number of approvals that are specified in the channel lifecycle endorsement policy are satisfied, the smart contract definition can be committed to a channel, and the peers where it is installed can begin to process requests.
 
 ## Connection profile
 {: #glossary-connection-profile}
@@ -134,7 +138,9 @@ Comprised of a literal "chain of blocks" that store the immutable, sequenced rec
 {: #glossary-leveldb}
 A key-value store that can be used as an option for the state database for your peers. LevelDB stores the current state as key-value pairs, and does not support the use of indexes or rich queries.
 
-
+## Lifecycle endorsement policy
+{: #glossary-lifecycle-ep}
+On a channel, the lifecycle endorsement policy specifies which organizations can approve a smart contract definition and how many of them are required to approve the definition or update. The default lifecycle endorsement policy requires a majority of all organizations on the channel to approve.
 
 ## Member
 {: #glossary-member}
@@ -168,7 +174,9 @@ The node that collects transactions from network members, orders the transaction
 {: #glossary-organization}
 See [Member](#glossary-member).
 
-
+## Out of band
+{: #glossary-out-of-band}
+An expression used to refer to sharing network artifacts outside of the console UI, for example by email or some other file transfer mechanism. After submitting a smart contract proposal, the originator can share the smart contract package and package id with other channel members in an out of band operation by emailing this information to them.
 
 ## Participant
 {: #glossary-participant}
@@ -178,7 +186,9 @@ Any organization, individual, application, or device that interact with the bloc
 {: #glossary-peer}
 A blockchain network resource that provides the services to execute and validate transactions, and maintain ledgers. The peer runs chaincode and is the holder of transaction history and the current state of assets on the network’s channels, that is, the ledger. They are owned and managed by organizations and are joined to channels.
 
-
+## Propose
+{: #glossary-propose}
+Referring to a step in the Hyperledger Fabric v2.x chaincode lifecycle, a smart contract definition is proposed to a channel for approval by the organizations that are specified in the channel lifecycle endorsement policy. A smart contract proposal contains a smart contract definition name, version, package, endorsement policy, and optionally a private data collection.
 
 ## Quorum
 {: #glossary-quorum}
@@ -208,7 +218,17 @@ The certificate that any entities, whether organizations or admins, attach to th
 {: #glossary-smart-contracts}
 See [Chaincode](#glossary-chaincode).
 
+## Smart contract definition
+{: #glossary-smart-contract-def}
+Used by the Hyperledger Fabric v2.x chaincode lifecycle, the smart contract definition contains the elements that members of an organization agree to before a smart contract can be committed to a channel. The definition is composed of a smart contract definition name, version, endorsement policy, and private data collection. Changes to the version, endorsement policy, and private data collection must be approved by the organizations that are specified in the channel lifecycle endorsement policy before the updated version can become active on the channel.
 
+## Smart contract endorsement policy
+{: #glossary-transaction-ep}
+See [Endorsement policy](#glossary-endorsement-policy).
+
+## Smart contract package
+{: #glossary-smart-contract-pkg}
+Used by the Hyperledger Fabric v2.x chaincode lifecycle, the smart contract package contains the business logic that reads from or writes to the smart contract ledger. The package is attached to a smart contract definition proposal. Smart contract packages can only be installed on peers that are running a Fabric v2.x or higher image.
 
 ## State database
 {: #glossary-state-database}

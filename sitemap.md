@@ -1126,6 +1126,8 @@ subcollection: blockchain
 
 [Glossary](/docs/blockchain?topic=blockchain-glossary)
 
+[Approve](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
+
 [Asset](/docs/blockchain?topic=blockchain-glossary#glossary-asset)
 
 [Block](/docs/blockchain?topic=blockchain-glossary#glossary-block)
@@ -1139,6 +1141,8 @@ subcollection: blockchain
 [Channel](/docs/blockchain?topic=blockchain-glossary#glossary-channel)
 
 [Client](/docs/blockchain?topic=blockchain-glossary#glossary-client)
+
+[Commit](/docs/blockchain?topic=blockchain-glossary#glossary-commit)
 
 [Connection profile](/docs/blockchain?topic=blockchain-glossary#glossary-connection-profile)
 
@@ -1178,6 +1182,8 @@ subcollection: blockchain
 
 [LevelDB](/docs/blockchain?topic=blockchain-glossary#glossary-leveldb)
 
+[Lifecycle endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-lifecycle-ep)
+
 [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member)
 
 [MSP](/docs/blockchain?topic=blockchain-glossary#glossary-msp)
@@ -1194,9 +1200,13 @@ subcollection: blockchain
 
 [Organization](/docs/blockchain?topic=blockchain-glossary#glossary-organization)
 
+[Out of band](/docs/blockchain?topic=blockchain-glossary#glossary-out-of-band)
+
 [Participant](/docs/blockchain?topic=blockchain-glossary#glossary-participant)
 
 [Peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer)
+
+[Propose](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
 
 [Quorum](/docs/blockchain?topic=blockchain-glossary#glossary-quorum)
 
@@ -1211,6 +1221,12 @@ subcollection: blockchain
 [SignCert](/docs/blockchain?topic=blockchain-glossary#glossary-sign-cert)
 
 [Smart contracts](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts)
+
+[Smart contract definition](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-def)
+
+[Smart contract endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-transaction-ep)
+
+[Smart contract package](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-pkg)
 
 [State database](/docs/blockchain?topic=blockchain-glossary#glossary-state-database)
 
