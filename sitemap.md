@@ -763,7 +763,7 @@ subcollection: blockchain
   * [Step one: Backup your ledger](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-one-ledger)
   * [Step two: Upgrade your nodes one at a time](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
   * [Step three: Update SDKs and smart contracts](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-three)
-  * [Step four: Update capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
+  * [Step four: Update capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-four-rolling-upgrade)
 * [Deleting components](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-delete)
 
 [Operating nodes with operations service](/docs/blockchain?topic=blockchain-operations_service)
@@ -1369,6 +1369,8 @@ subcollection: blockchain
 
 
 [Known issues](/docs/blockchain?topic=blockchain-known-issues-saas)
+
+[Nil pointer when creating HSM-configmap](/docs/blockchain?topic=blockchain-known-issues-saas#known-issues-hsm-configmap)
 
 
 ## Troubleshooting

@@ -363,7 +363,7 @@ The available regions for {{site.data.keyword.blockchainfull_notm}} Platform are
 {: support}
 
 Your existing Kubernetes cluster works with the {{site.data.keyword.blockchainfull_notm}} Platform if it satisfies the following conditions:
-- It is running Kubernetes version v1.16 - v1.18.
+- It is running Kubernetes version v1.16 - v1.19.
 - There are enough available resources in the cluster.
 
 ## Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?

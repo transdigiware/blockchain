@@ -1677,6 +1677,9 @@ Before attempting these steps you should have:
 - Created a partition and PIN for the slot.
 - Deployed the HSM client image or the HSM proxy for your organization.
 
+When a node is configured with HSM, a temporary Kubernetes job is started to run this HSM "enrollment" process. Before configuring a node to use HSM, ensure that you have enough resources in your cluster to support this job that takes approximately 0.1CPU and 100Mi memory.
+{: important}
+
 Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
 When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. This option is only available on paid clusters.

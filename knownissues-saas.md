@@ -3,7 +3,7 @@
 copyright:
   years: 2020
 
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-16"
 
 subcollection: blockchain
 
@@ -26,8 +26,10 @@ This page describes known issues that you might encounter when you use {{site.da
 
 
 
+
+
 ## Nil pointer when creating HSM-configmap
-{: known-issues-hsm-configmap}
+{: #known-issues-hsm-configmap}
 
 Creating the HSM configmap fails with the error:
 ```

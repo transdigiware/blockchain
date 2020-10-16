@@ -75,6 +75,14 @@ If you want to take advantage of the High-Level Fabric contract-APIs, you can us
 
 If you want to continue to use your existing smart contract and application code, or use the other Fabric SDK languages that are provided by the Hyperledger community, you can use the [low-level Fabric SDK APIs](#ibp-console-app-low-level) to connect to your network.
 
+The Hyperledger Fabric SDKs require network access to the following components:
+
+    - The CA for your organization. (You should never need to access the CA for another organization).
+    - All organizations peers (where all organizations are the organizations required for endorsing transactions).
+    - All ordering service nodes for all channels that you are transacting on.
+
+You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs.
+
 ## Application compatibility
 {: #ibp-console-app-compat}
 
@@ -109,7 +117,6 @@ Click the **Java SDK** or **Node SDK** tab for details.
 {: #ibp-console-app-compat-sc}
 
 Click the **Java Smart contract** or **Node Smart contract** tab for details.
-
 
 |Contract API | Peer Fabric image  | Java runtime   |
 |:-------------------|:---------------|:-------------|

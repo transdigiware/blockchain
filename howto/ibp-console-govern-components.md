@@ -172,7 +172,7 @@ If any of your smart contracts are written in Golang, its shim must be re-vendor
 For a look at how the new lifecycle is administered in the console, check out [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2){: external}. For a look at the possibilities the new lifecycle opens up, check out [Writing powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts){: external}.
 
 ### Step four: Update capabilities
-{: #ibp-console-govern-components-upgrade-step-two-rolling-upgrade}
+{: #ibp-console-govern-components-upgrade-step-four-rolling-upgrade}
 
 Once your nodes, SDKs, and smart contracts have been upgraded to use the latest Fabric version, you can update your channel configuration to use the latest capabilities. Note that the Fabric version of your nodes must be at least at the corresponding capability level of the channel the node is joined to.
 
