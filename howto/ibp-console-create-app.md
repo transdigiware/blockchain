@@ -77,9 +77,9 @@ If you want to continue to use your existing smart contract and application code
 
 The Hyperledger Fabric SDKs require network access to the following components:
 
-    - The CA for your organization. (You should never need to access the CA for another organization).
-    - All organizations peers (where all organizations are the organizations required for endorsing transactions).
-    - All ordering service nodes for all channels that you are transacting on.
+- The CA for your organization. (You should never need to access the CA for another organization).
+- All organizations peers (where all organizations are the organizations required for endorsing transactions).
+- All ordering service nodes for all channels that you are transacting on.
 
 You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs.
 
