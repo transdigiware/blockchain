@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -166,7 +166,7 @@ It is a best practice to upgrade your SDK to the latest version as part of a gen
 
 If you previously had a smart contract running on a peer that was joined to a channel with application capability v1.4, and you upgrade your peer image to v2.x and the channel application capability v2.x, your existing smart contract continues to run and process requests. However, after you upgrade your peer image to v2.x and channel application capability v2.x, there is no longer a way to update the original smart contract. Instead, when an update is required, you need to repackage the smart contract in the new `.tar.gz` or `.tgz` format and propose the definition to the channel using the new smart contract lifecycle process. For more information, check out [Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg){: external}.
 
-If any of your smart contracts are written in Golang, its shim must be re-vendored before it can be used with the new lifecycle. For more information, check out [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor){: external}.
+If any of your smart contracts are written in Golang, its shim must be re-vendored before it can be used with the new lifecycle. For more information, check out [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor){: external}.
 {: important}
 
 For a look at how the new lifecycle is administered in the console, check out [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2){: external}. For a look at the possibilities the new lifecycle opens up, check out [Writing powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts){: external}.
