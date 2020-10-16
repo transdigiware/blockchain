@@ -160,14 +160,10 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 {: #develop-vscode-prerequisites}
 
 - Windows 10, Linux, or Mac OS are currently the supported operating systems.
-- [VS Code version 1.38 or greater](https://code.visualstudio.com/){: external}.
-
 - [VS Code version 1.38 or greater](https://code.visualstudio.com/){: external}, or version 1.40 or greater if you want to use Fabric v2.x Lifecycle.
-
 - [Docker version v17.06.2-ce or greater](https://www.docker.com/get-started){: external}.
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
-- If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}.
-- If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}. Note that if you are using Fabric v2.x, you will need Go version v1.13 or higher instead. 
+- If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}. Note that if you are using Fabric v2.x, you will need Go version v1.13 or higher instead.
 - If you are developing Node smart contracts, you need to install [Node ^10.15.3 or ^12.15.0 and npm v6.x or greater](https://nodejs.org/en/download/){: external}.
 
 Considerations if you are developing Java smart contracts:
@@ -192,12 +188,6 @@ If you are using Windows, you also must ensure the following:
 ### Install the extension
 {: #develop-vscode-installing-the-extension}
 
-
-1. Go to the [Visual Studio Code extension marketplace page](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} or search for **{{site.data.keyword.blockchainfull_notm}} Platform** in the extensions panel within Visual Studio Code.
-2. Click **Install**.
-3. Restart Visual Studio Code to complete installation of the extension.  
-
-
 **To install v2 of the extension:**  
 
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
@@ -214,7 +204,6 @@ It is currently not possible to upgrade v1 of the extension to v2.
 1. Go to the [Visual Studio Code extension marketplace page](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} or search for **{{site.data.keyword.blockchainfull_notm}} Platform** in the extensions panel within Visual Studio Code.
 2. Click **Install**.
 3. Restart Visual Studio Code to complete installation of the extension.  
-
 
 After the installation, you can use the {{site.data.keyword.blockchainfull_notm}} icon on the left side of VS Code to open the {{site.data.keyword.blockchainfull_notm}} Platform panel.
 
@@ -241,7 +230,7 @@ You can use the extension to create a new smart contract project in Visual Studi
 2. Select the smart contract type to generate. The **Default Contract** example is recommended for first-time users and demonstrates how to perform create, read, update and delete operations to the public ledger that's shared by all network members.
 The **Private Data Contract** example demonstrates how to perform create, read, update, delete, and verify operations to a collection, that is private to a single network member.
 3. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** You can use the VS Code extension to create and test Java smart contracts locally. If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
-4. **If you selected JavaScript, TypeScript, or Java**, s Select an asset to be managed by the example contract. For example, ***bond***.
+4. **If you selected JavaScript, TypeScript, or Java**, select an asset to be managed by the example contract. For example, ***bond***.
 5. Create a folder with the name of your project and open it.
 6. Select how to open your new project. The project folder should now open.
 
@@ -249,7 +238,6 @@ When the project opens, you can find the new smart contract in the explorer wind
 - The source code of the smart contract. If you selected to create a JavaScript or TypeScript contract, the extension builds a basic smart contract by using the `fabric-contract-api` with a series of functions that manage your example asset. For example, if you selected ***bond***, you can find the functions of `createBond`, `updateBond`, `readBond`, `bondExists`, and `deleteBond`.
 - A test file.
 - The accompanying smart contract dependencies.
-
 
 ### Do I need to update my smart contract for Fabric v2.x?
 {: #develop-vscode-creating-a-project-v2}
@@ -261,12 +249,10 @@ However, if the smart contract was written using the low level APIs provided by 
 
 
 If you want to run your existing smart contract on a channel with application capability 2.x or higher, then you need to repackage the smart contract to the `.tar.gz` format so that it can be installed on peers running Fabric v2.x or higher images.
- 
 
 ## Step three: Package a smart contract
 {: #packaging-a-smart-contract}
 
-You need to package a smart contract into the `.cds` format before you can install it on your {{site.data.keyword.blockchainfull_notm}} Platform network or the preconfigured Hyperledger Fabric network. Complete the following steps to package your smart contract:
 You need to package a smart contract before you can install it on your {{site.data.keyword.blockchainfull_notm}} Platform network or the preconfigured Hyperledger Fabric network. Fabric v1.4 requires smart contract packages to be in the `.cds` format, and v2.x requires the `.tar.gz` format. Complete the following steps to package your smart contract:
 
 1. Open your smart contract project in VS Code by clicking **File** and then click **Open ...**. You can also click **Open Workspace** if you saved your project as a workspace. Ensure that you have the smart contract project open in the file viewer.
@@ -288,8 +274,6 @@ If you want to control which files in the project are packaged, you can create a
 /build/
 ```
 
-Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (Go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts written in Java or Node.js, nor for smart contracts written and packaged using v2.0 of the Developer tooling.
-
 
 
 ### Exporting, importing, and deleting a smart contract package
@@ -310,7 +294,7 @@ You can also click **Delete Package** to remove the smart contract package from 
 ## Step four: Deploy a smart contract to a preconfigured Hyperledger Fabric network
 {: #develop-vscode-deploy}
 
-You can use the VS Code extension to deploy your smart contract to a preconfigured Hyperledger Fabric network that the extension creates on your local machine. You can then install, instantiate, and test your smart contract before you deploy it to a live network. If you are using the VS Code Extension v1, you can then install, instantiate, and test your smart contract before you deploy it to a live network. If you are using the VS Code Extension v2, which uses the new Fabric 2.x lifecycle process, you can then install then "approve" and "commit" (also referred to throughout this topic as "deploy") a smart contract on a channel, as opposed to instantiating it. 
+You can use the VS Code extension to deploy your smart contract to a preconfigured Hyperledger Fabric network that the extension creates on your local machine. If you are using the VS Code Extension v1, you can then install, instantiate, and test your smart contract before you deploy it to a live network. If you are using the VS Code Extension v2, which uses the new Fabric 2.x lifecycle process, you can then install then "approve" and "commit" (also referred to throughout this topic as "deploy") a smart contract on a channel, as opposed to instantiating it.
 
 This option to deploy a smart contract to a preconfigured network is currently not available if you are running your developer environment from Red Hat CodeReady Workspaces. Instead, you can use an existing {{site.data.keyword.blockchainfull_notm}} Platform network. See the instructions in [Step seven](#develop-vscode-connecting-ibp) to connect to that network.
 
@@ -385,10 +369,10 @@ There are three steps to deploying a smart contract using the deploy view.
 
 **At this point, you smart contract is now "committed" on the channel.** If you have changed your smart contract code and then repackaged it, you can use the deploy view and follow the same steps as above to upgrade the smart contract definition that you have deployed to the network.
 
-### Deploying your smart contract to the preconfigured networkVS Code Extension v1: Deploying your smart contract 
+### VS Code Extension v1: Deploying your smart contract
 {: #develop-vscode-deploy-smart-contract}
 
-You can deploy any packages in the **Smart Contracts** pane to a running preconfigured network. Follow these steps if you are using an earlier version of the VS Code extension and a `.cds` smart contract package. 
+You can deploy any packages in the **Smart Contracts** pane to a running preconfigured network. Follow these steps if you are using an earlier version of the VS Code extension and a `.cds` smart contract package.
 
 First, you need to install the smart contract on a peer:
 
@@ -416,10 +400,10 @@ If you changed your smart contract code and then repackaged it, you can upgrade 
 ### Interacting with your smart contract
 {: #develop-vscode-submitting-transactions}
 
-After a smart contract is installed and instantiated,  or committed to a channel, you can submit transactions to the functions inside your smart contract by using the **Fabric Gateways** pane:
+After a smart contract is installed and instantiated, or committed to a channel, you can submit transactions to the functions inside your smart contract by using the **Fabric Gateways** pane:
 
-1. Ensure that your smart contract is installed and instantiated  or committed to a channel, and that you are connected to the network.
-2. In the **Fabric Gateways** pane, expand the **Channels** dropdown. Click the channel that the smart contract is instantiated  or committed on.
+1. Ensure that your smart contract is installed and instantiated or committed to a channel, and that you are connected to the network.
+2. In the **Fabric Gateways** pane, expand the **Channels** dropdown. Click the channel that the smart contract is instantiated or committed on.
 3. Expand the smart contract that you want to interact with. You can find the list of transactions that are listed beneath your smart contract.
 4. Right-click the transaction to submit, and select **Submit Transaction**. For example, if you created and packaged the example bonds smart contract, click **createBond**.
 5. Enter any arguments that the transaction requires, and press **Enter**. For example, enter `["bond01","100"]` to create your first bond.
@@ -471,15 +455,13 @@ To modify your smart contract while debugging, click the **restart** button afte
 ## Step six: Test an instantiated or committed smart contract
 {: #develop-vscode-testing-instantiated-smart-contract}
 
-You can generate tests for smart contracts that are instantiated  or committed  on the channels that you connect to. The tests can be generated as either **JavaScript** or **TypeScript** for Node projects, or **Java** for Java projects.
-The tests can be generated as either **JavaScript** or **TypeScript** for Node projects, **Java** for Java projects, or **Go** for Go projects.
-Generated tests can then be run or debugged.
+You can generate tests for smart contracts that are instantiated or committed on the channels that you connect to. The tests can be generated as either **JavaScript** or **TypeScript** for Node projects, **Java** for Java projects, or **Go** for Go projects. Generated tests can then be run or debugged.
 
 1. Ensure that the smart contract is instantiated or committed on the channel.
 2. In the **Fabric Gateways** pane, right-click the smart contract under the list of channels to generate tests for.
 3. Select **Generate Smart Contract Tests**.
-4. Select the language for the test file, either **JavaScript**, **TypeScript** or **Java**, either **JavaScript**, **TypeScript**, **Java**, or **Go**depending on the smart contract language. The {{site.data.keyword.blockchainfull_notm}} Platform extension installs the required dependencies and builds the test file.
-5. Make sure you have either the [Node Test Runner extension](https://marketplace.visualstudio.com/items?itemName=oshri6688.javascript-test-runner) or [Java Test Runner extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Java Test Runner extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) or [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go) installed.
+4. Select the language for the test file, either **JavaScript**, **TypeScript**, **Java**, or **Go**, depending on the smart contract language. The {{site.data.keyword.blockchainfull_notm}} Platform extension installs the required dependencies and builds the test file.
+5. Make sure you have either the [Node Test Runner extension](https://marketplace.visualstudio.com/items?itemName=oshri6688.javascript-test-runner), [Java Test Runner extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) or [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go) installed.
 
 After the test file is built, the tests can be run by clicking the **Run Tests** button in the file.
 
@@ -491,7 +473,7 @@ You can also use the extension to interact with your network on the {{site.data.
 ### Invoke a smart contract that has been instantiated or committed on your channels
 {: #develop-vscode-connecting-ibp-invoke}
 
-You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were installed and instantiated  or committed on your channnel.
+You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were installed and instantiated or committed on your channnel.
 
 Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is associated with your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to [build and download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) to your local file system. Then, [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities) by using your CA and save the enrollID and secret. Use the following steps to connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code.
 
@@ -507,14 +489,14 @@ Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is asso
 10. Enter the enrollID and secret of the application identity that you created with the console. A new identity is created in the **Fabric Wallets** pane.
 11. You can now connect to your instance of your {{site.data.keyword.blockchainfull_notm}} Platform network. Click the connection name and select the name of the wallet that you created. You can also associate the wallet that you created with the gateway by right-clicking the gateway and selecting **Associate A Wallet**. This allows the connection to use the same wallet each time when it connects.
 
-After you connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code, you can see the list of channels joined by your organization peers under the gateway. Under each channel, you can see the list of smart contracts that are instantiated  or committed on each channel and the transactions within each smart contract. You can submit transactions to your network by right-clicking a function and selecting **Submit Transaction** and passing the required arguments. You can also generate a test file for the smart contracts that are instantiated on your channels.
+After you connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code, you can see the list of channels joined by your organization peers under the gateway. Under each channel, you can see the list of smart contracts that are instantiated or committed on each channel and the transactions within each smart contract. You can submit transactions to your network by right-clicking a function and selecting **Submit Transaction** and passing the required arguments. You can also generate a test file for the smart contracts that are instantiated on your channels.
 
 
-### Install and instantiate  or deploy  a smart contract from VS Code
+### Install and instantiate or deploy a smart contract from VS Code
 {: #develop-vscode-connecting-ibp-install-instantiate}
 
 
-You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to install and instantiate  or deploy smart contracts on your network.
+You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to install and instantiate or deploy smart contracts on your network.
 
 You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to use the extension to automatically discover the console and import the nodes.
 
@@ -550,7 +532,7 @@ You can then import the nodes of your network into the extension.
 8. Enter a name for your environment.
 9. Select the CAs and peers that belong to your organization, along with the ordering nodes of your channels, click **OK** when done.
 
-In steps 5 and 6, you can alternatively enter an API key and secret that you generate using the [{{site.data.keyword.blockchainfull_notm}} Platform REST APIs](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-apis#console-icp-manage-create-api-key).[{{site.data.keyword.blockchainfull_notm}} Platform REST APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#console-icp-manage-create-api-key).
+In steps 5 and 6, you can alternatively enter an API key and secret that you generate using the [{{site.data.keyword.blockchainfull_notm}} Platform REST APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#console-icp-manage-create-api-key).
 {: tip}
 
 You also need to import your admin identities into the wallet pane and associate them with your nodes. You need to associate an admin identity with your peers, CA, and an ordering node before you can connect with your network.
@@ -564,7 +546,7 @@ You also need to import your admin identities into the wallet pane and associate
 7. Enter name for your peer or orderer admin identity.
 8. Select **Provide a JSON identity file from the {{site.data.keyword.blockchainfull_notm}} Platform** and then browse to the admin identity that you exported from your console. If the identity is the administrator of multiple nodes in your network, you can associate the identity with multiple nodes.
 
-When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to install and instantiate  or deploy smart contracts.
+When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to install and instantiate or deploy smart contracts.
 
 ### Adding wallets and users
 {: #develop-vscode-add-a-wallet}
