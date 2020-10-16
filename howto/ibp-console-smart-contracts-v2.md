@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -304,7 +304,7 @@ All lifecycle actions are managed from the **Channels** tab in the console.
 
 6. On the **Smart contract endorsement policy** panel, you can designate how many organizations need to endorse a smart contract transaction before it can be committed to the ledger.  The default smart contract endorsement policy is inherited from the application endorsement policy of the channel, but can be overridden here by selecting specific organizations and the required number, or by pasting in your own policy JSON. Remember, this smart contract  endorsement policy becomes part of the proposal that must be agreed to by the other channel members before the smart contract can be committed to the channel. The endorsement policy must follow the format that is specified in the Fabric documentation [endorsement policy syntax](https://hyperledger-fabric.readthedocs.io/en/release-2.2/endorsement-policies.html#endorsement-policy-syntax){: external}.
 
-7. If your smart contract includes Fabric private data collections, you need to upload the associated collection configuration JSON file on the **Additional private data collection** panel. Otherwise, you can skip this step. For more information, see [private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-v2-private-data).
+7. If your smart contract includes Fabric private data collections, you need to upload the associated collection configuration JSON file on the **Additional private data collection** panel. Otherwise, you can skip this step. For more information, see [private data](#ibp-console-smart-contracts-v2-private-data).
 
 8. Your smart contract proposal definition is listed on the **Summary panel**. Everything that you selected on the previous panels become part of the proposal definition. It also includes the list of organization members that will receive the proposal notification. Once a proposal is created, the definition cannot be modified.
   Proposal definitions cannot be modified after they are created. If, after creating the proposal you realize that changes are required to the definition, you need to create a new proposal. However, you are permitted to update the package on the proposal.

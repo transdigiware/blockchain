@@ -364,6 +364,13 @@ subcollection: blockchain
 [Invoking a smart contract by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke)
 
 [Running the Commercial Paper sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)
+* [Prerequisites](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-prereq)
+* [Step one: Download the sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-one-download-sample)
+* [Step two: Install and Propose smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-two-install-propose)
+* [Step three: Generate certificates for your wallet](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-three-generate-certificates)
+* [Step four: Use the connection profile to build a Fabric gateway](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-four-gateway)
+* [Step five: Invoke the smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
+* [Step six: Operate the sample as Digibank](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 
 [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
 
