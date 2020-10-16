@@ -314,7 +314,7 @@ While you can use the following steps to renew certificates before or after they
 3. In the drop-down box for each certificate type, select **Re-enroll certificate** if the certificate has not expired, or **Enroll certificate** if it has already expired.
 4. When you click **Update certificates**, the peer is restarted. Verify the renewal is successful by clicking the refresh icon and examining the updated enrollment and TLS certificate expiration dates.
 
-  ![Certificate refresh button](../images/cert-refresh.png "Certificate refresh button"){:  7. Certificate refresh button" caption-side="bottom"}
+  ![Certificate refresh button](../images/cert-refresh.png "Certificate refresh button"){: caption="Figure 7. Certificate refresh button" caption-side="bottom"}
 
 While the console does not allow you to set custom expiration dates for certificates, notice that the Peer TLS certificate expiration date is in 15 years, so that renewal of this TLS certificate is not required again next year.  However, the peer enrollment certificate expires again in one year, so you will need to renew it again before that date.
 {: note}

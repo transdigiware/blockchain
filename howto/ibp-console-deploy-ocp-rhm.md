@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -433,9 +433,9 @@ The administrator who provisions the console can grant access to other users and
 ## Upgrading your deployment
 {: #console-deploy-ocp-rhm-upgrade-deployment}
 
-When you deployed the IBM Blockchain operator, you had the option of whether to allow upgrades to this operator to be made automatically or manually. The former is the default option, and if you left it selected, your operate will update whenever a new version is available. These updates may be applied at any time and could include updates to the console or the nodes, or a combination of both. If you chose to manually update your operator, you will be prompted with a message when a new version is available. If you approve of the update request, the update will proceed. For more information about what is in each release, check out the [release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20). Note that if you get behind by more than one release that each release will be applied in the order they became available. This could cause an update to take longer to finish.
+When you deployed the IBM Blockchain operator, you had the option of whether to allow upgrades to this operator to be made automatically or manually. The former is the default option, and if you left it selected, your operator will update whenever a new version is available. These updates may be applied at any time and could include updates to the console or the nodes, or a combination of both. If you chose to manually update your operator, you will be prompted with a message when a new version is available. If you approve of the update request, the update will proceed. For more information about what is in each release, check out the [release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20). Note that if you get behind by more than one release that each release will be applied in the order they became available. This could cause an update to take longer to finish.
 
-More often than not, updates pushed to the operated will result in the console being updated, which means that the pod the console is contained in will restart. While the pod is restarting, the console will be unavailable. However, this will not affect any transactions that are taking place, as transaction throughput is dependent on node availability, not console availability.
+More often than not, updates pushed to the operator will result in the console being updated, which means that the pod the console is contained in will restart. While the pod is restarting, the console will be unavailable. However, this will not affect any transactions that are taking place, as transaction throughput is dependent on node availability, not console availability.
 
 In the rare cases where an update causes nodes to restart (for example, if the spec of a node is changed), it might be temporarily impossible to drive transactions, depending on the nodes being updated and the structure of your own deployment.
 
