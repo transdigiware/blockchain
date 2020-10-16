@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -151,7 +151,7 @@ The generated connection profile that client applications use to connect to the 
 ### Support for AWS HSM
 {: #04-16-2020-AWS-HSM}
 
-If you plan to use AWS HSM, you must include the `immutable` and `AltId` parameters in your BCCSP configuration. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/hsm.html#example) for details.
+If you plan to use AWS HSM, you must include the `immutable` and `AltId` parameters in your BCCSP configuration. See [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/hsm.html#example) for details.
 
 **Miscellaneous bug fixes**
 

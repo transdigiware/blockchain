@@ -620,7 +620,7 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 |-----------------|-----------------------|
 | **Peer container CPU and memory** | When you anticipate a high transaction throughput right away. |
 | **Peer storage** | When you anticipate installing many smart contracts on this peer and to join it to many channels. Recall that this storage will also be used to store smart contracts from all channels the peer is joined to. Keep in mind that we estimate a "small" transaction to be in the range of 10,000 bytes (10k). As the default storage is 100G, this means that as many as 10 million total transactions will fit in peer storage before it will need to be expanded (as a practical matter, the maximum number will be less than this, as transactions can vary in size and the number does not include smart contracts). While 100G might therefore seem like much more storage than is needed, keep in mind that storage is relatively inexpensive, and that the process for increasing it is more difficult (require command line) than increasing CPU or memory. |
-| **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat by using [indexes](https://hyperledger-fabric.readthedocs.io/en/release-1.4/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
+| **CouchDB container CPU and memory** | When you anticipate a high volume of queries against a large state database. This effect can be mitigated somewhat by using [indexes](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_as_state_database.html#couchdb-indexes){: external}. Nevertheless, high volumes might strain CouchDB, which can lead to query and transaction timeouts. |
 | **CouchDB (ledger data) storage** | When you expect high throughput on many channels and don't plan to use indexes. However, like the peer storage, the default CouchDB storage is 100G, which is significant. |
 | **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
 | **Smart contract launcher container CPU and memory** | Because the smart contract launcher container streams logs from smart contracts back to a peer, the more smart contracts are running the greater the load on the smart contract launcher. |
@@ -641,7 +641,7 @@ The ability to override the peer configuration by using the console or APIs is a
 #### Why would I want to override a peer configuration?
 {: #ibp-console-adv-deployment-peer-customization-why}
 
-A common use case would be to override some of the default timeouts, or peer private data settings. Additionally you can customize the gossip configuration. These are just a few suggestions of customizations you might want to make, but the full list of available overrides is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a peer is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample peer configuration file](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/core.yaml){: external} options.
+A common use case would be to override some of the default timeouts, or peer private data settings. Additionally you can customize the gossip configuration. These are just a few suggestions of customizations you might want to make, but the full list of available overrides is provided below. This list contains all of fields that can be overridden via editing the `JSON` when a peer is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample peer configuration file](https://github.com/hyperledger/fabric/blob/release-2.2/sampleconfig/core.yaml){: external} options.
 
 ```json
 {
@@ -998,7 +998,7 @@ The ability to override the ordering service configuration by using the console 
 #### Why would I want to override an ordering service configuration?
 {: #ibp-console-adv-deployment-orderer-customization-why}
 
-The need to customize the ordering node configuration is less common than the peer or CA. A common use case could be to override default timeouts or the default HSM settings. This list contains all of fields that can be overridden by editing the `JSON` when an ordering node is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample orderer configuration file](https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/orderer.yaml){: external} options.
+The need to customize the ordering node configuration is less common than the peer or CA. A common use case could be to override default timeouts or the default HSM settings. This list contains all of fields that can be overridden by editing the `JSON` when an ordering node is deployed from the console. For more information about what each field is used for you can refer to the [Fabric sample orderer configuration file](https://github.com/hyperledger/fabric/blob/release-2.2/sampleconfig/orderer.yaml){: external} options.
 
 ```json
 {
@@ -1119,7 +1119,7 @@ The ability to update an ordering node configuration is not available for orderi
 ## Using certificates from an external CA with your peer or ordering service
 {: #ibp-console-adv-deployment-third-party-ca}
 
-Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. To use an external CA, the CA needs to issue certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format. You need to generate your private keys using the PKCS #8 standard. For a quick tutorial, see [Using certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca).
+Instead of using an {{site.data.keyword.blockchainfull_notm}} Platform Certificate Authority as your peer or ordering service's CA, you can use certificates from an external CA, one that is not hosted by {{site.data.keyword.IBM_notm}}. To use an external CA, the CA needs to issue certificates in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-2.2/identity/identity.html#digital-certificates){: external} format. You need to generate your private keys using the PKCS #8 standard. For a quick tutorial, see [Using certificates from an external Certificate Authority](/docs/blockchain?topic=blockchain-ibp-tutorial-extca).
 
 ### Before you begin
 {: #ibp-console-adv-deployment-third-party-ca-prereq}

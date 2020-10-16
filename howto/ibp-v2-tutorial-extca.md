@@ -2,7 +2,7 @@
 
 copyright:
    years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-16"
 
 keywords: external CA, certificate, private key, MSP
 
@@ -49,6 +49,7 @@ completion-time: 30m
 {:javascript: .ph data-hd-programlang='javascript'}
 {:javascript: data-hd-programlang="javascript"}
 {:new_window: target="_blank"}
+{:note .note}
 {:note: .note}
 {:objectc data-hd-programlang="objectc"}
 {:org_name: data-hd-keyref="org_name"}
@@ -135,7 +136,7 @@ While it is always possible to use a CA that you create with the console to gene
 
 
 
-You need to request the following set of certificates from the external CA in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html#digital-certificates){: external} format. When you request the certificates from your provider, the core requirement for the certificates is that they are ECDSA with Curve P256 and that the private key uses the PKCS #8 standard. Also when you request the certificates, you need to specify a Node Organizational Unit (OU) attribute for some certificates as indicated in the **Node OU** column in the following tables. Certificates can be in the format of a `.pem` file or a `base64` encoded string.
+You need to request the following set of certificates from the external CA in [X.509](https://hyperledger-fabric.readthedocs.io/en/release-2.2/identity/identity.html#digital-certificates){: external} format. When you request the certificates from your provider, the core requirement for the certificates is that they are ECDSA with Curve P256 and that the private key uses the PKCS #8 standard. Also when you request the certificates, you need to specify a Node Organizational Unit (OU) attribute for some certificates as indicated in the **Node OU** column in the following tables. Certificates can be in the format of a `.pem` file or a `base64` encoded string.
 
 When you create a peer or ordering node, you need to provide the following four certificates in `PEM` format. When you request these certificates from the third-party CA, you need to request a specific Node Organizational Unit (OU) attribute for some certificates as indicated in the **Node OU** column.
 

@@ -22,7 +22,7 @@ subcollection: blockchain
 # Operating nodes with operations service
 {: #operations_service}
 
-The {{site.data.keyword.blockchainfull}} Platform includes an Operations Service feature that was introduced in Hyperledger Fabric v1.4.0. The feature provides a RESTful “operations” API for operators to perform node health checks, pull operational metrics from the peer and orderer nodes, and manage logging levels. The peer and the orderer nodes host an HTTP server that offers the RESTful “operations” API.  For more information about the Operations Service provided by Hyperledger Fabric, see [The Operations Service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html){: external}.
+The {{site.data.keyword.blockchainfull}} Platform includes an Operations Service feature that was introduced in Hyperledger Fabric v1.4.0. The feature provides a RESTful “operations” API for operators to perform node health checks, pull operational metrics from the peer and orderer nodes, and manage logging levels. The peer and the orderer nodes host an HTTP server that offers the RESTful “operations” API.  For more information about the Operations Service provided by Hyperledger Fabric, see [The Operations Service](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html){: external}.
 {:shortdesc}
 
 
@@ -30,7 +30,7 @@ The {{site.data.keyword.blockchainfull}} Platform includes an Operations Service
 {: #operations_service_consideration_limitation}
 
 - All peer and orderer nodes are configured with `clientAuthRequired: false` so that the health checker can be accessed. Because `clientAuthRequired` is set to `false` and also mutual TLS is enabled, when you access the REST server, you need to pass the TLS identities to be able to authenticate. This setting ensures that only users with the appropriate keys can see the corresponding logs.
-- Only the metrics pulling model that is based on [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#prometheus){: external} is supported for now.
+- Only the metrics pulling model that is based on [Prometheus](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html#prometheus){: external} is supported for now.
 
 ## Before you begin
 {: #operations_service_before_you_begin}
@@ -110,7 +110,7 @@ curl -k https://169.46.208.93:3210/healthz
 ```
 {:codeblock}
 
-For more information about health checks, see [Health checks](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#health-checks){: external}.
+For more information about health checks, see [Health checks](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html#health-checks){: external}.
 
 
 ## Viewing the metrics
@@ -131,7 +131,7 @@ curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcert
 {:codeblock}
 
 
-For more information about metrics, see [Metrics](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#metrics){: external}.
+For more information about metrics, see [Metrics](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html#metrics){: external}.
 
 
 ## Viewing logging levels
@@ -158,7 +158,7 @@ You can see the result that is similar to the following example:
 ## Setting logging levels
 {: #operations_service_log_level_set}
 
-To change the existing logging level setting, run the following command, which uses the `PUT` method with JSON body that consists of a single attribute named `spec`. Replace `<log-level>` with your expected logging levels. For more information about the logging levels that you can set, see [Logging specification](https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html#logging-specification){: external} in Hyperledger Fabric documentation.
+To change the existing logging level setting, run the following command, which uses the `PUT` method with JSON body that consists of a single attribute named `spec`. Replace `<log-level>` with your expected logging levels. For more information about the logging levels that you can set, see [Logging specification](https://hyperledger-fabric.readthedocs.io/en/release-2.2/logging-control.html#logging-specification){: external} in Hyperledger Fabric documentation.
 
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
@@ -172,4 +172,4 @@ curl -X PUT  https://169.46.208.93:3210/logspec -d '{"spec":"chaincode=debug:inf
 
 After you set a new logging level, you can use the [view logging level command](#operations_service_log_level_view) to check your settings.
 
-For more information about log level configuration, see [Log level management](https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html#log-level-management){: external} in Hyperledger Fabric documentation.
+For more information about log level configuration, see [Log level management](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html#log-level-management){: external} in Hyperledger Fabric documentation.
