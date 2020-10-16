@@ -427,7 +427,7 @@ You can then use the Fabric SDKs and the connection profile to enroll your admin
 You can use the **Debug** view to iteratively develop and debug your smart contracts locally, without having to repackage and upgrade the smart contract after every change. Debugging a smart contract allows you to run through the smart contract transactions with breakpoints and output, ensuring the transactions work as intended.
 
 You need to install some prerequisites depending on which language you are using:
-- If you are developing Go smart contracts, install the [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
+- If you are developing Go smart contracts, install the [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.Go).
 - If you are developing Java smart contracts, install the [Language Support for Java extension](https://marketplace.visualstudio.com/items?itemName=redhat.java) and the [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 Use the following steps to debug your smart contract:
@@ -461,7 +461,7 @@ You can generate tests for smart contracts that are instantiated or committed on
 2. In the **Fabric Gateways** pane, right-click the smart contract under the list of channels to generate tests for.
 3. Select **Generate Smart Contract Tests**.
 4. Select the language for the test file, either **JavaScript**, **TypeScript**, **Java**, or **Go**, depending on the smart contract language. The {{site.data.keyword.blockchainfull_notm}} Platform extension installs the required dependencies and builds the test file.
-5. Make sure you have either the [Node Test Runner extension](https://marketplace.visualstudio.com/items?itemName=oshri6688.javascript-test-runner), [Java Test Runner extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) or [Go extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go) installed.
+5. Make sure you have either the [Node Test Runner extension](https://marketplace.visualstudio.com/items?itemName=oshri6688.javascript-test-runner), [Java Test Runner extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) or [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.Go) installed.
 
 After the test file is built, the tests can be run by clicking the **Run Tests** button in the file.
 
