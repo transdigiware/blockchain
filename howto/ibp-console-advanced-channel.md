@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -136,7 +136,7 @@ Because cross organizational [gossip](https://hyperledger-fabric.readthedocs.io/
 
 Note that while anchor peers are a channel configuration parameter, they are not set through the normal process of creating and editing a channel configuration.
 
-To configure a peer to be an anchor peer, click the **Channels** tab and open the channel where the smart contract was instantiated.
+To configure a peer to be an anchor peer, click the **Channels** tab and open the channel where the smart contract was deployed.
  - Click the **Channel details** tab.
  - Scroll down to the Anchor peers table and click **Add anchor peer**.
  - Select at least one peer from each organization in collection definition that you want to serve as the anchor peer for the organization. For redundancy reasons, you can consider selecting more than one peer from each organization in the collection.
@@ -211,7 +211,7 @@ The following table shows the compatibility levels of peer image versions with t
 
 - A peer that runs a Fabric 1.4.x image can join a channel that is configured with application capability 1.4.x. But that peer cannot join a channel that is configured with application capability 2.x.
 - If a channel application capability level is upgraded to 2.x before the peer 1.4.x image is upgraded to 2.x, the peer stops functioning and needs to be upgraded to the 2.x image.
-- It is possible for a peer that is running a 2.x image to join a channel with application capability 1.4 and another channel with application capability 2.x at the same time. But smart contracts on the peer in `.cds` format use the [legacy smart contract deployment](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) process where they have to be instantiated on the channel with application capability 1.4. Smart contracts on the peer in `.tgz` format follow  the [Fabric 2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2) process on the channel with application capability 2.x.
+- It is possible for a peer that is running a 2.x image to join a channel with application capability 1.4 and another channel with application capability 2.x at the same time. But smart contracts on the peer in `.cds` format use the [legacy smart contract deployment](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) process where they have to be instantiated on the channel with `application` capability 1.4. Smart contracts on the peer in `tar.gz` format follow  the [Fabric 2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2) process on the channel with `application` capability 2.x.
 
 Like the orderer and channel capabilities, the application capability level can be edited through a channel configuration update. The orderer capability can also be specified during the creation of a channel, but will require the approval of the ordering service.
 

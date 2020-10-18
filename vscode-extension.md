@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -308,7 +308,7 @@ Before you can deploy a smart contract, use the following steps to deploy the pr
 3. In the **Fabric Environments** pane, click **1 Org Local Fabric**. If Docker is running, the local Hyperledger Fabric instance should be downloaded and started.
 4. Click **1 Org Local Fabric - Org1** in the **Fabric Gateways** pane to connect to the local network. Select the **org1Admin** identity to connect with. You can create a new identity by right-clicking the Certificate Authority node in the **Fabric Environments** pane. This new identity can then be added to a wallet and be associated with **1 Org Local Fabric** connection.
 
-The VS Code extension creates a basic Fabric network that includes one orderer, one peer, and one certificate authority. The peer is joined to a channel named `mychannel`. You can find the list of nodes, organizations, and channels that belong to the network in the **Fabric Environments** pane. Above these nodes, you can find the list of smart contracts that are installed on your peers and instantiated on your channels.
+The VS Code extension creates a basic Fabric network that includes one orderer, one peer, and one certificate authority. The peer is joined to a channel named `mychannel`. You can find the list of nodes, organizations, and channels that belong to the network in the **Fabric Environments** pane. Above these nodes, you can find the list of smart contracts that are deployed on your channels.
 
 Use the following steps to create a new one organization or two organization network:
 
@@ -400,9 +400,9 @@ If you changed your smart contract code and then repackaged it, you can upgrade 
 ### Interacting with your smart contract
 {: #develop-vscode-submitting-transactions}
 
-After a smart contract is installed and instantiated, or committed to a channel, you can submit transactions to the functions inside your smart contract by using the **Fabric Gateways** pane:
+After a smart contract is deployed to a channel, you can submit transactions to the functions inside your smart contract by using the **Fabric Gateways** pane:
 
-1. Ensure that your smart contract is installed and instantiated or committed to a channel, and that you are connected to the network.
+1. Ensure that your smart contract is deployed to a channel, and that you are connected to the network.
 2. In the **Fabric Gateways** pane, expand the **Channels** dropdown. Click the channel that the smart contract is instantiated or committed on.
 3. Expand the smart contract that you want to interact with. You can find the list of transactions that are listed beneath your smart contract.
 4. Right-click the transaction to submit, and select **Submit Transaction**. For example, if you created and packaged the example bonds smart contract, click **createBond**.
@@ -473,7 +473,7 @@ You can also use the extension to interact with your network on the {{site.data.
 ### Invoke a smart contract that has been instantiated or committed on your channels
 {: #develop-vscode-connecting-ibp-invoke}
 
-You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were installed and instantiated or committed on your channnel.
+You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were deployed on your channnel.
 
 Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is associated with your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to [build and download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) to your local file system. Then, [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities) by using your CA and save the enrollID and secret. Use the following steps to connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code.
 
@@ -492,11 +492,11 @@ Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is asso
 After you connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code, you can see the list of channels joined by your organization peers under the gateway. Under each channel, you can see the list of smart contracts that are instantiated or committed on each channel and the transactions within each smart contract. You can submit transactions to your network by right-clicking a function and selecting **Submit Transaction** and passing the required arguments. You can also generate a test file for the smart contracts that are instantiated on your channels.
 
 
-### Install and instantiate or deploy a smart contract from VS Code
+### Deploy a smart contract from VS Code
 {: #develop-vscode-connecting-ibp-install-instantiate}
 
 
-You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to install and instantiate or deploy smart contracts on your network.
+You can also import the {{site.data.keyword.blockchainfull_notm}} Platform network into the **Fabric Environments** pane of the extension. You can then use the extension to deploy smart contracts on your network.
 
 You can export nodes from your console and then import them from another console. You can use the same process to export nodes from your console and then import them into the **Fabric Environments** pane. The easiest way is to use the extension to automatically discover the console and import the nodes.
 
@@ -546,7 +546,7 @@ You also need to import your admin identities into the wallet pane and associate
 7. Enter name for your peer or orderer admin identity.
 8. Select **Provide a JSON identity file from the {{site.data.keyword.blockchainfull_notm}} Platform** and then browse to the admin identity that you exported from your console. If the identity is the administrator of multiple nodes in your network, you can associate the identity with multiple nodes.
 
-When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to install and instantiate or deploy smart contracts.
+When you have associated an admin identity with your peers, CA, and an ordering node, you can connect to your network and use the extension to deploy smart contracts.
 
 ### Adding wallets and users
 {: #develop-vscode-add-a-wallet}

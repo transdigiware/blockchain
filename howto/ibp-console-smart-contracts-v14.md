@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: smart contract, private data, private data collection, anchor peer, instantiation, install smart contract
 
@@ -101,6 +101,9 @@ subcollection: blockchain
 
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing the blockchain network. Additionally, application developers might be interested in the sections that reference how to create a smart contract.
 
+While the terms "smart contract" and "chaincode" are often used interchangeably, "smart contracts" refers to the business logic that governs transactions and access to its data, while "chaincode" refers to the larger infrastructure of packages and other code that encompasses a smart contract.
+{: important}
+
 Smart contracts are installed on peers and then instantiated on channels. **All members that want to submit transactions or read data by using a smart contract need to install the contract on their peer.** A smart contract is defined by its name and version. Therefore, both the name and version of the installed contract need to be consistent across all peers on the channel that plan to run the smart contract.
 
 After a smart contract is installed on the peers, a single network member instantiates the contract on the channel. The network member needs to have joined the channel in order to perform this action. Instantiation updates the ledger with the initial data that is used by the smart contract, and then starts smart contract pods. The peers can then use the smart contract.
@@ -122,7 +125,7 @@ In this tutorial, we go through the steps to use the {{site.data.keyword.blockch
 Before you can install a smart contract, ensure that you have the following things ready.
 
 - You must either [build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) or [join a network](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) by using your {{site.data.keyword.blockchainfull_notm}} Platform console.
-- Because smart contracts are installed onto peers, ensure that you [add peers](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to your console.  
+- Because smart contracts are installed onto peers, ensure that you [add peers](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-peer-org1) to your console.
 - Smart contracts are instantiated on a channel. Therefore, you must [create a channel](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-create-channel) or [join a channel](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-join-peer-org2) by using your console.
 - The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
 
@@ -136,12 +139,12 @@ The {{site.data.keyword.blockchainfull_notm}} console manages the *deployment* o
 - When you are ready to start building smart contracts, you can use the [{{site.data.keyword.blockchainfull_notm}} Visual Studio code extension](/docs/blockchain?topic=blockchain-develop-vscode) to start building your own smart contract project. You can also use that extension to [connect directly to your network from Visual Studio Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp) and explore the inline tutorials.
 - For a quick tutorial on developing smart contracts, see [Develop a smart contract with the IBM Blockchain Platform VS Code extension](https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/){: external}.
 - For a more in-depth end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorial/commercial_paper.html){: external}.
-- To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode4ade.html#chaincode-access-control){: external}.
+- To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html#chaincode-access-control){: external}.
 
 Because Fabric v2.x peers do not have a "shim" (the external dependencies that allowed smart contracts to run on earlier versions of Fabric), you will have to vendor the shim and then repackage any smart contracts written in Golang (Go) that you installed on peers deployed using the 1.4.x Fabric image. Without this vendoring and repackaging, the smart contract will not run on a peer using a Fabric 2.x image. You will not need to do this on smart contracts that are written in Java or Node.js, nor for smart contracts written and packaged using the 2.0 package. See [Vendoring smart contracts](#ibp-console-smart-contracts-write-package-vendor) for details.
 {: important}
 
-When you are ready to deploy your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer CLI commands](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchaincode.html#peer-chaincode-package){: external}.
+When you are ready to install and instantiate your smart contract to the {{site.data.keyword.blockchainfull_notm}} platform, the smart contract must be packaged into `.cds` format. For more information, see [Packaging smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract). Alternatively, you can use peer CLI commands to build the package. For v1.4.x commands, see [1.4.x peer CLI commands](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchaincode.html#peer-chaincode-package){: external}.
 
 ### Vendoring smart contracts
 {: #ibp-console-smart-contracts-write-package-vendor}
@@ -318,7 +321,7 @@ When you follow the steps to [instantiate a smart contract](#ibp-console-smart-c
 
 Click the **Advanced** button if you want to specify a policy in JSON format. You can use this method to specify more complicated endorsement policies, such as requiring that a certain member of the channel must validate a transaction, along with a majority of other members. You can find additional [examples of advanced endorsement policies](https://hyperledger-fabric.readthedocs.io/en/release-2.2/arch-deep-dive.html#example-endorsement-policies){: external} in the Hyperledger Fabric documentation. For more information about writing endorsement policies in JSON, see [Hyperledger Fabric Node SDK documentation](https://hyperledger.github.io/fabric-sdk-node/release-2.2/global.html#ChaincodeInstantiateUpgradeRequest){: external}.
 
-Endorsement policies are not updated automatically when new organizations join the channel and install a smart contract. For example, if the endorsement policy requires two of five organizations to endorse a transaction, the policy will not be updated to require two out of six organizations when a new organization joins the channel. Instead, the new organization will not be listed on the policy, and they will not be able to endorse transactions. You can add another organization to an endorsement policy by upgrading the relevant chaincode and updating the policy.
+Endorsement policies are not updated automatically when new organizations join the channel and install a smart contract. For example, if the endorsement policy requires two of five organizations to endorse a transaction, the policy will not be updated to require two out of six organizations when a new organization joins the channel. Instead, the new organization will not be listed on the policy, and they will not be able to endorse transactions. You can add another organization to an endorsement policy by upgrading the relevant smart contract and updating the policy.
 
 ### What does the user type have to do with the smart contract endorsement policy?
 {: #ibp-console-smart-contracts-endorse-user-type}
@@ -410,7 +413,7 @@ After you upgrade the smart contract, you will change the version of the contrac
 
 4. What happens when I remove an organization from my private data collection?
 
-   The peers in that organization continue to store data in the private data collection until its ledger reaches the block that removes its membership from the collection. After that occurs, the peers will not receive private data in any future transactions, and _clients_ of that organization will no longer be able to query the private data via chaincode from any peer.
+   The peers in that organization continue to store data in the private data collection until its ledger reaches the block that removes its membership from the collection. After that occurs, the peers will not receive private data in any future transactions, and _clients_ of that organization will no longer be able to query the private data using a smart contract from any peer.
 
 ## Private data
 {: #ibp-console-smart-contracts-private-data}
@@ -420,7 +423,7 @@ Private data is a feature of Hyperledger Fabric networks at version 1.2 or highe
 In order to use private data with {{site.data.keyword.blockchainfull_notm}} Platform, the following three conditions must be satisfied:  
 1. **Define the private data collection.** A private data collection file can be added to your smart contract. Then, at run time, your client application can use private data-specific chaincode APIs to input and retrieve data from the collection. For more information about how to use private data collections with your smart contract, see the Fabric SDK tutorial on [Using private data](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-private-data.html){: external} in the Fabric SDK documentation.  
 
-2. **Install and instantiate the smart contract.** After you define the smart contract private data collection, you need to install the smart contract on the peers that are members of the channel. When you instantiate the smart contract on the channel by using the console, you need to upload the collection configuration JSON file. For more information on how to [create a collection definition JSON file](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-private-data.html){: external} see the Fabric SDK documentation topic.
+2. **Deploy the smart contract.** After you define the smart contract private data collection, you need to install the smart contract on the peers that are members of the channel. When you instantiate the smart contract on the channel by using the console, you need to upload the collection configuration JSON file. For more information on how to [create a collection definition JSON file](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-private-data.html){: external} see the Fabric SDK documentation topic.
 
   Instead of using the console to install and instantiate your smart contract with a collection config file, you can also use the Fabric SDK. Those instructions are also available under [How to use private data](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-private-data.html){: external} in the Node SDK documentation.  
 

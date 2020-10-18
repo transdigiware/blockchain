@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -94,7 +94,7 @@ For the peer pods:
 For the ordering node pods:
 - Ordering node snapshots daily at 5:00 a.m. The two-hour gap allows sufficient time for all of the peers to be snapshotted from every organization before ordering nodes are snapshotted.
 
-If you are using **private data collections** in your applications, your nodes must be running Hyperledger Fabric 2.2.1 or higher in order to back up peer and ordering nodes while they are running. When restoring from a backup, the peers must be restored from a lower block height than the ordering nodes. While peers can catch up to the block height of the ordering service, the ordering service does not have the actual private data corresponding (in a private data transaction, only hashes of the data are committed to the public ledger), rendering the data for these blocks unavailable. Fabric v2.2.1 and higher has a configurable option to lower the priority for the reconciliation of missing private data. Earlier versions constantly attempt to reconcile the missing private data, potentially blocking out reconciliation of other private data. On earlier versions of Hyperledger Fabric, you must back up ordering nodes and peers at exactly the same block heights to avoid this issue. This can be accomplished by scaling the both the peer and ordering node pods to 0 before taking the backup.
+If you are using **private data collections** in your applications, your nodes must be running Hyperledger Fabric 2.2.1 or higher in order to back up peer and ordering nodes while they are running. When restoring from a backup, the peers must be restored from a lower block height than the ordering nodes. While peers can catch up to the block height of the ordering service, the ordering service does not have the actual private data (in a private data transaction, only hashes of the data are committed to the public ledger), rendering the data for these blocks unavailable. Fabric v2.2.1 and higher has a configurable option to lower the priority for the reconciliation of missing private data. Earlier versions constantly attempt to reconcile the missing private data, potentially blocking out reconciliation of other private data. On earlier versions of Hyperledger Fabric, you must back up ordering nodes and peers at exactly the same block heights to avoid this issue. This can be accomplished by scaling the both the peer and ordering node pods to 0 before taking the backup.
 
 ## Taking snapshots
 {: #backup-restore-take-snapshot}

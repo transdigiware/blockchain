@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: site map
 subcollection: blockchain
@@ -811,7 +811,7 @@ subcollection: blockchain
 * [Step six: Test an instantiated or committed smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
 * [Step seven: Connect to your {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp)
   * [Invoke a smart contract that has been instantiated or committed on your channels](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-invoke)
-  * [Install and instantiate or deploy a smart contract from VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)
+  * [Deploy a smart contract from VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)
   * [Adding wallets and users](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-add-a-wallet)
 
 [Writing powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts)

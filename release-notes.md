@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -179,7 +179,7 @@ Hyperledger Fabric includes many configuration options for a CA, peer, or orderi
 
 **Full Java smart contract development support**
 
-In addition to smart contracts written in JavaScript, TypeScript, and Go programming languages, it is now possible to install and instantiate Java smart contracts from the console. Moreover, Java can be freely mixed and matched with other application and smart contract programming languages, including JavaScript, TypeScript, and Go. This heterogeneous programming language support enables an organization to capitalize on the full range of its development skills.
+In addition to smart contracts written in JavaScript, TypeScript, and Go programming languages, it is now possible to deploy Java smart contracts from the console. Moreover, Java can be freely mixed and matched with other application and smart contract programming languages, including JavaScript, TypeScript, and Go. This heterogeneous programming language support enables an organization to capitalize on the full range of its development skills.
 
 In order to use Java chaincode, developers should be aware that:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -136,7 +136,7 @@ For instructions on how to add new user see [Inviting users to an account](/docs
 
  Permissions are cumulative. If you select a **Manager** role, the user will also be able to perform all **Writer** and **Reader** actions, you are not required to additionally check those roles.   Likewise, a user with the `Writer` role will be able to perform all of the actions in the **Reader** role. For console access, you need to only select a role under the **Service Access Roles**, you do not need to select anything under the **Platform Access Roles**. Check the corresponding role under **Assign platform access role** when it is important that the service instance is visible in the invited user's {{site.data.keyword.cloud_notm}} dashboard.
 
-After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
+After you add new users to the console, the users might not be able to view all the nodes, channels, or smart contracts other users have deployed. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 If you need to modify a user's role:
@@ -221,12 +221,15 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
-If you encounter issues with your smart contract, you can view the smart contract, or chaincode, logs to debug an issue.  The process to view the logs depends on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
+If you encounter issues with your smart contract, you can view the smart contract logs to debug an issue.  The process to view the logs depends on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
 
   ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 1.How to find peer fabric version" caption-side="bottom"}
 
 #### <img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image
 {: #ibp-console-manage-console-container-logs-2x}
+
+While the terms "smart contract" and "chaincode" are often used interchangeably, "smart contracts" refers to the business logic that governs transactions and access to its data, while "chaincode" refers to the larger infrastructure of packages and other code that encompasses a smart contract.
+{: important}
 
 If your peer is based on the Hyperleder Fabric v2.x image, you can run the following set of kubectl commands to view the smart contract logs.
 
@@ -236,7 +239,7 @@ If you don't already know it, you need to find your Kubernetes cluster namespace
 
 **Find the smart contract pod**  
 
-Next, get a list of all of the chaincode pods running in your cluster:
+Next, get a list of all of the smart contract pods running in your cluster:
 
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
@@ -262,7 +265,7 @@ kubectl  logs -f <SMART_CONTRACT_POD> -n <NAMESPACE>
 {:codeblock}
 
 Replace
-- `<SMART_CONTRACT_POD>` with the name of the pod where the chaincode is running.
+- `<SMART_CONTRACT_POD>` with the name of the pod where the smart contract is running.
 - `<NAMESPACE>` with the name of your cluster namespace.
 
 For example:

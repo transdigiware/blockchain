@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: blockchain components, ca, certificate authorities, peer, ordering service, orderer, channel, smart contract, applications
 
@@ -88,7 +88,7 @@ Before businesses can transact with each other, a common understanding about rul
 
 The same need exists in blockchain networks. The industry term for these business models on blockchain networks is "smart contracts". Fabric networks contain these contracts in a larger structure that is known as "chaincode", which includes not just the business logic but the underlying infrastructure that validates the identities of the users that attempt to invoke the smart contract.
 
-Where contracts in the business world are signed and filed with law firms, smart contracts are installed on peers and "instantiated" on a channel.
+Where contracts in the business world are signed and filed with law firms, smart contracts are installed on peers and deployed on a channel.
 
 For more information about smart contracts, see [Smart contracts](https://hyperledger-fabric.readthedocs.io/en/release-2.2/smartcontract/smartcontract.html){: external}.
 

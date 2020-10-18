@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -601,7 +601,7 @@ Complete the following steps with the upgrade tool to retry a failed chaincode m
 
 1. Fix your chaincode source code to resolve the problem that caused the migration failure. You can test your chaincode by installing and instantiating it on a test network to confirm that the chaincode can build correctly.
 
-2. Install and instantiate the updated chaincode on your Enterprise Plan network with a different **version**.
+2. Deploy the updated chaincode on your Enterprise Plan network with a different **version**.
 
 3. After you have installed the updated chaincode, you can refresh the migration tool in your browser to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 

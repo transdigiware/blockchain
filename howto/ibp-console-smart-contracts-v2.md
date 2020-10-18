@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-18"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -94,12 +94,15 @@ subcollection: blockchain
 
 # Deploy a smart contract using Fabric v2.x
 {: #ibp-console-smart-contracts-v2}
-<img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Using **Hyperledger Fabric v2.x chaincode lifecycle**, learn how to create and package a smart contract and how to propose the smart contract definition to channel members on a channel that runs `application capability 2.x`. Learn how to install the smart contract package on peers that run a Fabric 2.x image. Finally, see how channel members can approve and commit the smart contract definition to the channel.
+<img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Using the **Hyperledger Fabric v2.x chaincode lifecycle**, learn how to create and package a smart contract and how to propose the smart contract definition to channel members on a channel that runs `application capability 2.x`. Learn how to install the smart contract package on peers that run a Fabric 2.x image. Finally, see how channel members can approve and commit the smart contract definition to the channel.
 {: shortdesc}
 
-If you prefer to continue to use the legacy smart contract deployment process, see [Deploy a smart contract using Fabric v1.4](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14).  
+While the terms "smart contract" and "chaincode" are often used interchangeably, "smart contracts" refers to the business logic that governs transactions and access to its data, while "chaincode" refers to the larger infrastructure of packages and other code that encompasses a smart contract.
+{: important}
 
-Instead of a single organization administrator making decisions for all organizations about when a smart contract is updated, what it contains, and where it runs, Fabric v2.0 introduced a new distributed process to manage the lifecycle of a smart contract that allows for decentralizing the governance of smart contracts on a channel. The process for installing, proposing, and updating a smart contract is known as the "lifecycle" of a smart contract. This lifecycle is necessarily ongoing, as it encompasses changes to the smart contract itself as well as updates to a channel, as for example when a new member starts using the smart contract, and is managed through a combination of processes inside and outside the console.  
+If you prefer to continue to use the legacy smart contract deployment process, see [Deploy a smart contract using Fabric v1.4](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14).
+
+Instead of a single organization administrator making decisions for all organizations about when a smart contract is updated, what it contains, and where it runs, Fabric v2.0 introduced a new distributed process to manage the lifecycle of a smart contract that allows for decentralizing the governance of smart contracts on a channel. The process for installing, proposing, and updating a smart contract is known as the "lifecycle" of a smart contract. This lifecycle is necessarily ongoing, as it encompasses changes to the smart contract itself as well as updates to a channel, as for example when a new member starts using the smart contract, and is managed through a combination of processes inside and outside the console.
 
 **Lifecycle process overview**  
 
@@ -123,7 +126,7 @@ For more information about advanced channel options, which includes setting the 
 As a reminder, to leverage the smart contract lifecycle process, the peers on the channel must be running a Fabric v2.x image. The Fabric level of a peer is visible in the console by clicking a peer node to open it.
   ![Peer version](../images/peer-version.png "How to find the Fabric version of the peer"){: caption="Figure 1. How to find the Fabric version of the peer" caption-side="bottom"}
 
-If your peer is running a Fabric v1.4.x image, you cannot use this tutorial to manage your smart contract. Instead, see the [Deploy a smart contract using Fabric v1.4](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) tutorial for instructions on how to install and instantiate the smart contract on the channel or upgrade the peer to use a Fabric v2.x image.
+If your peer is running a Fabric v1.4.x image, you cannot use this tutorial to manage your smart contract. Instead, see the [Deploy a smart contract using Fabric v1.4](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) tutorial for instructions on how to deploy the smart contract on the channel or upgrade the peer to use a Fabric v2.x image.
 
 ### Create channel and join peers
 {: #ibp-console-smart-contracts-v2-before-peer}
@@ -148,7 +151,7 @@ Because only peer admin identities are allowed to install a smart contract on a 
 ### Can I continue to use the Fabric SDK to deploy my smart contracts?
 {: #ibp-console-smart-contracts-v2-sdk}
 
-If your client applications are using the Fabric v1.4 SDK to install and instantiate smart contracts, those functions will no longer work when the peers are running on a channel with the Fabric 2.0 application capability enabled. In this case, you can only use the Fabric v1.4 or v2.x SDKs with the {{site.data.keyword.blockchainfull_notm}} Platform to submit transactions or queries against smart contracts. The **SDKs cannot be used to submit administrative transactions such as installing a smart contract, proposing a smart contract definition, approving it, or committing it to a channel.** Instead, customers can use the console UI, the [Fabric CLI](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html), or [Ansible playbooks](/docs/blockchain?topic=blockchain-ansible-build) to perform these administrative tasks.
+If your client applications are using the Fabric v1.4 SDK to deploy smart contracts, those functions will no longer work when the peers are running on a channel with the Fabric 2.0 application capability enabled. In this case, you can only use the Fabric v1.4 or v2.x SDKs with the {{site.data.keyword.blockchainfull_notm}} Platform to submit transactions or queries against smart contracts. The **SDKs cannot be used to submit administrative transactions such as installing a smart contract, proposing a smart contract definition, approving it, or committing it to a channel.** Instead, customers can use the console UI, the [Fabric CLI](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html), or [Ansible playbooks](/docs/blockchain?topic=blockchain-ansible-build) to perform these administrative tasks.
 
 ### What happens to my existing smart contracts?
 {: #ibp-console-smart-contracts-v2-existing-sc}
@@ -165,7 +168,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console manages the *depl
 - For a quick tutorial on developing smart contracts, see [Develop a smart contract with the IBM Blockchain Platform VS Code extension](https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/){: external}.
 - For guidance on how to leverage the smart contract lifecycle to satisfy a wider set of business use cases, see [Writing powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts).
 - For a more in-depth end-to-end tutorial about using an application to interact with smart contracts, see [Hyperledger Fabric Commercial Paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorial/commercial_paper.html){: external}.
-- To learn about how to incorporate access control mechanisms into your smart contract, see [Chaincode for Developers](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode4ade.html#chaincode-access-control){: external}.
+- To learn about how to incorporate access control mechanisms into your smart contract, see [Writing Your First Chaincode](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode4ade.html#chaincode-access-control){: external}.
 
 When they are tested and ready to be deployed on the network, smart contracts must be packaged into a `.tgz` or `tar.gz` format in order to be uploaded to the console. Because the smart contract packaging uses the `tar` format, organizations can easily inspect their contents by using widely available tooling. When it is important to review the smart contract package before approving the definition, the package can be shared out of band with organization members. There is no way to share the package from the console. You can use either the [IBM Developer Tooling](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases/tag/v2.0.0-beta.3) or the [peer lifecycle chaincode package](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package) CLI to package your smart contract.
 
