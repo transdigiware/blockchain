@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-19"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -179,7 +179,7 @@ If you are using Windows, you also must ensure the following:
 
 - Docker for Windows is configured to use Linux containers (by default).
 - You installed the C++ Build Tools for Windows from [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools#windows-build-tools){: external}.
-- You installed OpenSSL v1.0.2 from [Win32 OpenSSL](https://www.openssl.org/community/binaries.html){: external}.
+- You installed [OpenSSL v1.0.2](https://www.openssl.org/community/binaries.html){: external}.
   - Install the normal version, not the version marked as "light".
   - Install the Win64 version into C:\OpenSSL-Win64 on 64-bit systems.
 
@@ -189,6 +189,8 @@ If you are using Windows, you also must ensure the following:
 {: #develop-vscode-installing-the-extension}
 
 **To install v2 of the extension:**  
+
+**Note:** This version of the extension is only compatible with the new Fabric 2 lifecycle (install, approve, commit) and requires channels to be using v2 capabilities. If you plan on interacting with channels which have v1 capabilities you should use the v1 extension instead!
 
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
 2. Select the most recent v2 release of the extension (tagged 2.0.x), scroll down to the **Assets** twistie and download the `.vsix` file.
@@ -229,8 +231,8 @@ You can use the extension to create a new smart contract project in Visual Studi
 1. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
 2. Select the smart contract type to generate. The **Default Contract** example is recommended for first-time users and demonstrates how to perform create, read, update and delete operations to the public ledger that's shared by all network members.
 The **Private Data Contract** example demonstrates how to perform create, read, update, delete, and verify operations to a collection, that is private to a single network member.
-3. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** You can use the VS Code extension to create and test Java smart contracts locally. If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
-4. **If you selected JavaScript, TypeScript, or Java**, select an asset to be managed by the example contract. For example, ***bond***.
+3. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
+4. **If you selected JavaScript, TypeScript, Java, or Go (only in the v2 extension)**, select an asset to be managed by the example contract. For example, ***bond***.
 5. Create a folder with the name of your project and open it.
 6. Select how to open your new project. The project folder should now open.
 
@@ -305,7 +307,7 @@ Before you can deploy a smart contract, use the following steps to deploy the pr
 
 1. Ensure that Docker is running on your machine.
 2. Open the **{{site.data.keyword.blockchainfull_notm}} Platform** tab in VS Code.
-3. In the **Fabric Environments** pane, click **1 Org Local Fabric**. If Docker is running, the local Hyperledger Fabric instance should be downloaded and started.
+3. In the **Fabric Environments** pane, click **1 Org Local Fabric**. If Docker is running, the local instance should be started once the Hyperledger Fabric images are downloaded.
 4. Click **1 Org Local Fabric - Org1** in the **Fabric Gateways** pane to connect to the local network. Select the **org1Admin** identity to connect with. You can create a new identity by right-clicking the Certificate Authority node in the **Fabric Environments** pane. This new identity can then be added to a wallet and be associated with **1 Org Local Fabric** connection.
 
 The VS Code extension creates a basic Fabric network that includes one orderer, one peer, and one certificate authority. The peer is joined to a channel named `mychannel`. You can find the list of nodes, organizations, and channels that belong to the network in the **Fabric Environments** pane. Above these nodes, you can find the list of smart contracts that are deployed on your channels.
@@ -423,6 +425,8 @@ You can then use the Fabric SDKs and the connection profile to enroll your admin
 
 ## Step five: Debug a smart contract
 {: #develop-vscode-development-mode}
+
+**Note:** This functionality is currently not available in the v2 extension. 
 
 You can use the **Debug** view to iteratively develop and debug your smart contracts locally, without having to repackage and upgrade the smart contract after every change. Debugging a smart contract allows you to run through the smart contract transactions with breakpoints and output, ensuring the transactions work as intended.
 
