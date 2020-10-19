@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-19"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -46,6 +46,7 @@ subcollection: blockchain
 - [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-ports)
 - [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](#ibp-v2-faq-sizing)
 - [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](#ibp-v2-faq-raft-tls)
+- [Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](#ibp-v2-faq-interoperability)
 - [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-offchain-db)
 - [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-ldap)
 - [What is the process for rotating certificates on a periodic basis?](#ibp-v2-faq-cert-mgmt)
@@ -201,6 +202,19 @@ After you understand how many CAs, peers, and ordering nodes are required, you c
 
 Yes. The Raft ordering service nodes are configured to use TLS communication. TLS is embedded in the trust model of Hyperledger Fabric. By default, server-side TLS is enabled for all communications using TLS certificates. TLS is used to encrypt the communication between your nodes and as well as between your nodes and your applications. TLS prevents man-in-the-middle and session hijacking attacks. All {{site.data.keyword.blockchainfull_notm}} Platform components use TLS to communicate with each other.
 
+## Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?
+{: #ibp-v2-faq-interoperability}
+{: faq}
+
+Yes. Hyperledger Fabric networks consist of many distributed members owning one or more nodes. There are multiple deployment options:
+
+* {{site.data.keyword.blockchainfull_notm}} Platform for IBM Cloud with console
+* {{site.data.keyword.blockchainfull_notm}} Platform v2.x (Full Platform)
+* {{site.data.keyword.blockchainfull_notm}} Images
+* Open source Hyperledger Fabric images or a non-IBM product
+
+Containers deployed from any of the above sources can be connected on a single channel and transact. You can join IBM Blockchain Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the IBM Blockchain Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI. For more information about what is supported, see [Support for IBM Blockchain Platform](https://www.ibm.com/support/pages/node/1072956){: external}. For instructions on how to configure interoperability see [Connect the IBM Blockchain Platform to Hyperledger Fabric components](https://developer.ibm.com/tutorials/hyperledger-fabric-and-ibm-blockchain-peer-interoperability/){: external}.
+
 
 ## What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?
 {: #ibp-v2-faq-offchain-db}
@@ -242,25 +256,25 @@ As a result, "backing up" a component or a network is the process of saving a co
 {: faq}
 {: support}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in Node.js, Golang, JavaScript, and Java. The new Hyperledger Fabric programming model currently supports JavaScript, TypeScript, Java, and Golang. If you are interested in preserving your existing application code, or by using Fabric SDKs for *Go*, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in Node.js, Golang (Go), JavaScript, and Java. The new Hyperledger Fabric programming model currently supports JavaScript, TypeScript, Java, and Go. If you are interested in preserving your existing application code, or by using Fabric SDKs for *Go*, you can still connect to your {{site.data.keyword.blockchainfull_notm}} Platform network by using the lower-level Fabric SDK APIs.
 
 ## What version of the {{site.data.keyword.blockchainfull_notm}} Platform works with the Ansible collection?
 {: #ibp-v2-faq-ansible-version}
 {: faq}
 
-Both versions 2.1.3 and 2.5 of the {{site.data.keyword.blockchainfull_notm}} Platform can be used with the Ansible collection to deploy a Hyperledger Fabric network.
+Versions 2.1.3 and 2.5.x of the {{site.data.keyword.blockchainfull_notm}} Platform can be used with the Ansible collection to deploy a Hyperledger Fabric network.
 
 ## How do I get support for running the {{site.data.keyword.blockchainfull_notm}} Platform Ansible playbook?
 {: #ibp-v2-faq-ansible-support}
 {: faq}
 
-Ansible is an open source technology and this product is not officially supported by {{site.data.keyword.IBM_notm}}. For support related to the usage of the {{site.data.keyword.blockchainfull_notm}}  Platform and Ansible playbooks please use the [GitHub repository](https://github.com/IBM-Blockchain/ansible-role-blockchain-platform-manager/issues){: external}.
+Ansible is an open source technology and this product is not officially supported by {{site.data.keyword.IBM_notm}}. For support related to the usage of the {{site.data.keyword.blockchainfull_notm}}  Platform and Ansible playbooks use the [GitHub repository](https://github.com/IBM-Blockchain/ansible-role-blockchain-platform-manager/issues){: external}.
 
 ## Do I need OpenShift to run CodeReady Workspace?
 {: #ibp-v2-faq-codeready-openshift}
 {: faq}
 
-Yes, OpenShift is a prerequisite to running CodeReady as you will have to deploy your workspace into an OpenShift cluster.
+Yes, OpenShift is a prerequisite to running CodeReady because you have to deploy your workspace into an OpenShift cluster.
 
 ## How often do updates get rolled out for the CodeReady Workspace extension?
 {: #ibp-v2-faq-codeready-updates}
@@ -268,11 +282,11 @@ Yes, OpenShift is a prerequisite to running CodeReady as you will have to deploy
 
 Updates are scheduled to coincide with the VS Code extension and should be available every two weeks.
 
-## How can I test out my smart contracts?
+## How can I test my smart contract that are running in CodeReady workspace?
 {: #ibp-v2-faq-test-smart-contracts}
 {: faq}
 
-Currently this can be achieved by connecting to a Fabric network running outside of the CodeReady Workspaces extension. In our next release we plan to introduce a simple way to deploy a Fabric network from within the extension.
+Currently this can be achieved by connecting to a Fabric network running outside of the CodeReady Workspaces extension. In a subsequent release we plan to introduce a simple way to deploy a Fabric network from within the extension.
 
 ## How can I find the examples and tutorials within the VSCode extension?
 {: #ibp-v2-faq-vscode-tutorials}
@@ -326,8 +340,8 @@ Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.ke
 {: #ibp-v2-faq-ocp-trial}
 {: faq}
 
-A free 30 day trial is available in the [Red Hat Marketplace.](https://marketplace.redhat.com/en-us/products/ibm-blockchain){: external}. See [Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm) to learn more.
-
+A free 30 day trial is available in the [Red Hat Marketplace.](https://marketplace.redhat.com/en-us/products/ibm-blockchain){: external}. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm) to learn more.
+             
 ## Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-ocp-migrate}
 {: faq}

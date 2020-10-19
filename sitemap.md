@@ -537,6 +537,8 @@ subcollection: blockchain
 
 [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
 
+[Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
+
 [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
 
 [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ldap)
@@ -555,7 +557,7 @@ subcollection: blockchain
 
 [How often do updates get rolled out for the CodeReady Workspace extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-updates)
 
-[How can I test out my smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
+[How can I test my smart contract that are running in CodeReady workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
 
 [How can I find the examples and tutorials within the VSCode extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-vscode-tutorials)
 

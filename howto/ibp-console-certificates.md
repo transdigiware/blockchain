@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-19"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -216,7 +216,7 @@ The following tables describe the types of certificates that you need to manage,
 
 **Peer admin certificate:**  
 
-The following diagram summarizes the process for updating peer admin certificates on your network. Click a box to view the instructions.
+The following diagram summarizes the process for updating peer admin certificates on your network. Click a circle to view the instructions.
 
 <img usemap="#home_map" border="0" class="image" id="image_ztx_crb_f1b" src="../images/peer-admin-nodes.png" width="750" alt="Peer admin certificate renewal process." style="width:750px;" />
 <map name="home_map" id="home_map">
@@ -239,7 +239,7 @@ The following diagram summarizes the process for updating peer admin certificate
 
 **Ordering service MSP admin certificate:**
 
-The following diagram summarizes the process for updating orderer organization admin certificates on your network. Click a box to view the instructions.
+The following diagram summarizes the process for updating orderer organization admin certificates on your network. Click a circle to view the instructions.
 
 <img usemap="#home_map2" border="0" class="image" id="image_ztx_crb_f13" src="../images/orderer-admin-nodesv2.png" width="750" alt="Orderer organization admin certificate renewal process." style="width:750px;" />
 <map name="home_map2" id="home_map2">
