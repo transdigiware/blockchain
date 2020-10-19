@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-19"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -575,7 +575,7 @@ When you deploy a peer, the following advanced deployment options are available:
 * [Hardware Security Module](#ibp-console-adv-deployment-cfg-hsm) - Configure the peer to use an HSM to generate and store private keys.
 * [Peer configuration override](#ibp-console-adv-deployment-peer-create-json) - Choose this option when you want to override peer configuration.
 
-You also have the ability to choose the version of Fabric that will be used to deploy your peer. It is recommended to always choose the latest version, as this version will have the latest fixes and improvements. However, note that you might have to re-vendor your smart contract if it was written in Golang. For more information, see [Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg). Also, it is currently not possible to enable any v2.0 [Fabric capabilities](https://hyperledger-fabric.readthedocs.io/en/release-2.0/capabilities_concept.html){: external}.
+You also have the ability to choose the version of Fabric that will be used to deploy your peer. It is recommended to always choose the latest version, as this version will have the latest fixes and improvements. However, note that you might have to re-vendor your smart contract if it was written in Golang. For more information, see [Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg).
 {: important}
 
 ### State database
@@ -1584,7 +1584,7 @@ mountpaths:
 
 Replace the following values:
 - `HSM_IMAGE_URL`: URL of the HSM client image that you published to your container registry.
-- `IMAGE_PULL_SECRET`: (Optional)  Name of the image pull secret `hsm-docker-secret` that you created in the same namespace as your service. Only required if the HSM client image is not publicly available. **Important:** If an image pull secret is not required, set this value to `""`. 
+- `IMAGE_PULL_SECRET`: (Optional)  Name of the image pull secret `hsm-docker-secret` that you created in the same namespace as your service. Only required if the HSM client image is not publicly available. **Important:** If an image pull secret is not required, set this value to `""`.
 - `ENVIRONMENT_VARIABLE_NAME` - If there are any environment variables that need to be set for the HSM client, specify them individually.
 - `ENVIRONMENT_VARIABLE_VALUE` - Value that corresponds to the `ENVIRONMENT_VARIABLE_NAME`.
 - `HSM_LIBRARY_FILE_PATH`: Path to the HSM library file, for example, `/usr/lib/libCryptoki2_64.so`.
@@ -1624,7 +1624,7 @@ mountpaths:
   secret: hsmcrypto
   subpath: Chrystoki.conf
 ```
-{: external}
+{: codeblock}
 
 In this example, the first `mountpath` contains four configuration files (cafile.pem, cert.pem, key.pem, server.pem) and the `hsmcrypto` secret, and all of them are mounted to the mountpath `/hsm`. The actual name of the mountpath is `hsmcrypto`, and it contains an exact mapping of the key value pair to the Kubernetes secret and the location to mount it to. For example, `cafile.pem` is read from the path `cafile.pem` in the hsmcrypto mountpath using the `hsmcrypto` secret and mounted to `/hsm/cafile.pem`.  
 
@@ -1684,7 +1684,7 @@ Then you are ready to deploy a new CA, peer, or ordering node that uses the HSM.
 
 When you deploy a new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**. This option is only available on paid clusters.
 
-If you published an HSM client image and created the HSM configmap, the **Use HSM client image** toggle is visible. When it is on you can enter the following values:
+If you published an HSM client image and created the HSM configmap, the **Use HSM client image** toggle is visible. When it is on, you can enter the following values:
 
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
 - **HSM PIN** - Enter the PIN for the HSM slot.  

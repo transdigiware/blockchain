@@ -477,7 +477,7 @@ Whenever channel members agree to an update in the business logic, and channel m
 
 2. What happens when I remove an organization from my private data collection?
 
-   The peers in that organization continue to store data in the private data collection until its ledger reaches the block that removes its membership from the collection. After that occurs, the peers will not receive private data in any future transactions, and _clients_ of that organization will no longer be able to query the private data via chaincode from any peer.
+   The peers in that organization continue to store data in the private data collection until its ledger reaches the block that removes its membership from the collection. After that occurs, the peers will not receive private data in any future transactions, and _clients_ of that organization will no longer be able to query the private data via a smart contract from any peer.
 
 ## Private data
 {: #ibp-console-smart-contracts-v2-private-data}

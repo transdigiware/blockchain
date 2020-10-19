@@ -172,7 +172,7 @@ Considerations if you are developing Java smart contracts:
 - Gradle v4.x is used to build Java smart contracts.
 - Custom Gradle versions can be used by using a Gradle wrapper.
 - Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later (if deploying on a peer using a Fabric 1.4.x image; peer using a Fabric 2.x image do not require a shim), as this version is the first version that includes support for Java 11.
-- For an example of a Java smart contract, see the [FabCar Java smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar/java){: external} from Fabric v1.4.
+- For an example of a Java smart contract, see the [Basic asset transfer smart contract](https://github.com/hyperledger/fabric-samples/tree/master/asset-transfer-basic/chaincode-java){: external}.
 
 
 If you are using Windows, you also must ensure the following:
@@ -190,7 +190,7 @@ If you are using Windows, you also must ensure the following:
 
 **To install v2 of the extension:**  
 
-**Note:** This version of the extension is only compatible with the new Fabric 2 lifecycle (install, approve, commit) and requires channels to be using v2 capabilities. If you plan on interacting with channels which have v1 capabilities you should use the v1 extension instead!
+**Note:** This version of the extension is only compatible with the new Fabric 2 lifecycle (install, approve, commit) and requires channels to be using v2 capabilities. If you plan on interacting with channels that have v1 capabilities you should use the v1 extension instead.
 
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
 2. Select the most recent v2 release of the extension (tagged 2.0.x), scroll down to the **Assets** twistie and download the `.vsix` file.
@@ -426,7 +426,7 @@ You can then use the Fabric SDKs and the connection profile to enroll your admin
 ## Step five: Debug a smart contract
 {: #develop-vscode-development-mode}
 
-**Note:** This functionality is currently not available in the v2 extension. 
+**Note:** This functionality is currently not available in the v2 extension.
 
 You can use the **Debug** view to iteratively develop and debug your smart contracts locally, without having to repackage and upgrade the smart contract after every change. Debugging a smart contract allows you to run through the smart contract transactions with breakpoints and output, ensuring the transactions work as intended.
 

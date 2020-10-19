@@ -168,6 +168,8 @@ You may receive this error if this version of the smart contract already exists 
 
 ## Why is my smart contract installation failing with an error on my peer?
 {: #ibp-v2-troubleshooting-sc-install}
+{: troubleshoot}
+{: support}
 
 {: tsSymptoms}
 Installing a smart contract on a peer fails with an error similar to the following:

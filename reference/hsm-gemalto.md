@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-19"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -148,11 +148,14 @@ This process requires [Docker](https://docs.docker.com/install/){: external} to 
 When the entire HSM configuration is complete, it resembles the following diagram:
 
 **HSM configured with an HSM client image**  
+
 ![HSM configured with an HSM client image](../images/hsm_2proxy.svg "HSM configured with an HSM client image"){: caption="Figure 1. An example configuration of an HSM configured with an HSM client image. "caption-side="bottom"}
+
 The steps in this topic focus specifically on the creation of the Cloud HSM and the HSM Client in the diagram.  When you deploy a CA, peer, or ordering node to use the HSM, you need to provide the label and PIN of the HSM partition. This configuration assumes you enabled HSM on your Kubernetes cluster when you deployed the service.  
 
-**(Deprecated) HSM configured with a PKCS #11 proxy**
-![HSM configured with a PKCS #11 proxy](../images/hsm_1proxy.svg "HSM configured with a PKCS #11 proxy"){: caption="Figure 1. An example configuration of an HSM configured with a PKCS #11 proxy. "caption-side="bottom"}  
+**(Deprecated) HSM configured with a PKCS #11 proxy**  
+
+![HSM configured with a PKCS #11 proxy](../images/hsm_1proxy.svg "HSM configured with a PKCS #11 proxy"){: caption="Figure 2. An example configuration of an HSM configured with a PKCS #11 proxy. "caption-side="bottom"}  
 
 When you choose to deploy the PKCS #11 proxy and configure a node with HSM, you need to provide the PKCS #11 proxy endpoint URL, along with the label and PIN of the HSM partition. It is the combination of the PKCS #11 proxy and the HSM client that allows the node to store and retrieve the node private key from the HSM.
 
@@ -521,7 +524,7 @@ mountpaths:
 
 Replace the following values:
 - `HSM_IMAGE_URL`: URL of the HSM client image that you published to your container registry.
-- `IMAGE_PULL_SECRET`: (Optional)  Name of the image pull secret `hsm-docker-secret` that you created in the same namespace as your service. Only required if the HSM client image is not publicly available. **Important:** If an image pull secret is not required, set this value to `""`. 
+- `IMAGE_PULL_SECRET`: (Optional)  Name of the image pull secret `hsm-docker-secret` that you created in the same namespace as your service. Only required if the HSM client image is not publicly available. **Important:** If an image pull secret is not required, set this value to `""`.
 - `ENVIRONMENT_VARIABLE_NAME` - If there are any environment variables that need to be set for the HSM client, specify them individually.
 - `ENVIRONMENT_VARIABLE_VALUE` - Value that corresponds to the `ENVIRONMENT_VARIABLE_NAME`.
 - `HSM_LIBRARY_FILE_PATH`: Path to the HSM library file, for example, `/usr/lib/libCryptoki2_64.so`.
@@ -561,7 +564,7 @@ mountpaths:
   secret: hsmcrypto
   subpath: Chrystoki.conf
 ```
-{: external}
+{: codeblock}
 
 In this example, the first `mountpath` contains four configuration files (cafile.pem, cert.pem, key.pem, server.pem) and the `hsmcrypto` secret, and all of them are mounted to the mountpath `/hsm`. The actual name of the mountpath is `hsmcrypto`, and it contains an exact mapping of the key value pair to the Kubernetes secret and the location to mount it to. For example, `cafile.pem` is read from the path `cafile.pem` in the hsmcrypto mountpath using the `hsmcrypto` secret and mounted to `/hsm/cafile.pem`.  
 
@@ -614,7 +617,7 @@ After you have used these instructions to configure your {{site.data.keyword.clo
 When a node is configured with HSM, a temporary Kubernetes job is started to run this HSM "enrollment" process. Before configuring a node to use HSM, ensure that you have enough resources in your cluster to support this job that takes approximately 0.1CPU and 100Mi memory.
 {: important}
 
-On the **HSM configuration** panel, the **Use HSM client image** toggle is visible. When it is on you can enter the following values:
+On the **HSM configuration** panel, the **Use HSM client image** toggle is visible. When it is on, you can enter the following values:
 
 - **HSM label** - Enter the name of the HSM partition to be used for this node.
 - **HSM PIN** - Enter the PIN for the HSM slot.  

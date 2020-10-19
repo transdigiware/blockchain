@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-19"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -44,7 +44,7 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 
 Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
 
-If a chaincode is not running, the first transaction proposal that is sent to this chaincode starts the chaincode. While the chaincode is starting, all other proposals are rejected with an error that indicates that the chaincode is starting. This is different from transaction invalidation. If any proposal is rejected while the chaincode is starting, application clients need to resend the rejected proposals after the chaincode starts. Application clients can use a message queue to avoid losing transaction proposals.
+If a smart contract is not running, the first transaction proposal that is sent to the smart contract starts the smart contract. While the smart contract is starting, all other proposals are rejected with an error that indicates that the smart contract is starting. This is different from transaction invalidation. If any proposal is rejected while the smart contract is starting, application clients need to resend the rejected proposals after the smart contract starts. Application clients can use a message queue to avoid losing transaction proposals.
 
 You can use a channel-based event service to monitor transactions and build message queues. The [channelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-2.2/ChannelEventHub.html){: external} class can register listeners based on transaction, block, and chaincode events. Channel-based listeners from the channel EventHub can scale to multiple channels and distinguish between traffic on different channels.
 
@@ -169,7 +169,7 @@ channel.sendInstantiateProposal(request, 300000);
 ## Best practices when using CouchDB
 {: #best-practices-app-couchdb-indices}
 
-If you use CouchDB as your state database, you can perform JSON data queries from your chaincode against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your chaincode. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state.
+If you use CouchDB as your state database, you can perform JSON data queries from your smart contract against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contract. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state.
 
 For more information about CouchDB and how to set up indexes, see [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_as_state_database.html){: external} in the Hyperledger Fabric documentation. You can also find an example that uses an index with chaincode in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html){: external}.
 
