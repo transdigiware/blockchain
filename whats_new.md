@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-19"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -300,7 +300,7 @@ For more information about Hyperledger Fabric v1.4.0, see [Hyperledger Fabric do
 - New tutorials for using the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta are available in the **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** subsection under the **HOW TO** category.
   * [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) guides you through the process of hosting a network by creating an orderer and peer.
   * [Join a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) explains how to  joining an existing network by creating a peer and joining it to a channel.
-  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts) provides information on how to write a smart contract and deploy it on your network.
+  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) provides information on how to write a smart contract and deploy it on your network.
 - The {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta offering is based on Hyperledger Fabric v1.4 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
 
 - The {{site.data.keyword.blockchainfull_notm}} Visual Studio Code extension is available from the Visual Studio Code Marketplace. Developers can use the extension to create, test, and deploy smart contracts to an instance of Hyperledger Fabric. The extension is compatible with Hyperledger Fabric 1.3 and greater. For information about using the VS Code extension, see [Tools for smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode).  

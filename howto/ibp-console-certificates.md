@@ -279,7 +279,8 @@ Otherwise, if certificates expire within five years, their expiration date is vi
 
 To manually renew certificates, see:
 - [CA TLS certificate](#cert-mgmt-ca-tls)
-- [Peer and ordering node enrollment and TLS certificates](#cert-mgmt-enroll-tls)
+- [Peer enrollment and TLS Certificates](#cert-mgmt-enroll-tls-peer)
+- [Ordering node enrollment and TLS certificates](#cert-mgmt-enroll-tls-ordering-node)
 - [MSP Admin certificate](#cert-mgmt-manual-renewal-admin)
 - [Certificates from an external CA](#cert-mgmt-manual-ext-ca)
 
