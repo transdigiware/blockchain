@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-19"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -58,7 +58,8 @@ The connection profile that you downloaded from the {{site.data.keyword.blockcha
 
 The application developer can use two programming models to interact with the network:
 
-**High-Level Fabric contract APIs**
+### High-Level Fabric contract APIs
+{: #ibp-console-app-high-level}
 
 Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is supported for applications that are written in **Node.js**, **Java**, and **Go**.
 
@@ -71,11 +72,15 @@ If you want to take advantage of the High-Level Fabric contract-APIs, you can us
 - [Invoke a smart contract from the SDK](#ibp-console-app-invoke).
 - Learn about application development by deploying the [commercial paper tutorial](#ibp-console-app-commercial-paper) to the nodes managed from your console. This tutorial provides more background on how to use Fabric Wallets and Gateways.
 
-**Low-Level Fabric SDK APIs**
+### Low-Level Fabric SDK APIs**
+{: #ibp-console-app-low-level}
 
 If you want to continue to use your existing smart contract and application code, or use the other Fabric SDK languages that are provided by the Hyperledger community, you can use the [low-level Fabric SDK APIs](#ibp-console-app-low-level) to connect to your network.
 
-The Hyperledger Fabric SDKs require network access to the following components:
+### Network considerations
+{: #ibp-console-app-networking}
+
+Regardless of whether you choose to use the high-Level Fabric contract APIs, or the  low-Level Fabric SDK APIs, both require network access to the following components:
 
 - The CA for your organization. (You should never need to access the CA for another organization).
 - All organizations peers (where all organizations are the organizations required for endorsing transactions).

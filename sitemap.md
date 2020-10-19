@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-19"
 
 keywords: site map
 subcollection: blockchain
@@ -350,6 +350,9 @@ subcollection: blockchain
 [Creating applications](/docs/blockchain?topic=blockchain-ibp-console-app)
 
 [Learning resources](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
+* [High-Level Fabric contract APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-high-level)
+* [Low-Level Fabric SDK APIs**](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
+* [Network considerations](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-networking)
 
 [Application compatibility](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat)
 * [SDKs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sdk)
