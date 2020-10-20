@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-20"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -277,7 +277,7 @@ When you plan to use the service instance in the context of a broader organizati
 
 - If you plan to use a Hardware Security Module (HSM) to generate and store the private key for your peer and ordering nodes, you can configure the HSM before you deploy the platform. Along with deploying the HSM device itself, you also need to publish an HSM client image to a container registry, or else configure a PKCS #11 proxy (deprecated) so the blockchain components can access the HSM partition. If you decide to publish an HSM client image to a container registry, you can enable HSM support for the platform by providing the image URL when you link the service to your cluster.  See the instructions in [Configuring a node to use a Hardware Security Module](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to learn how to deploy the HSM and publish the HSM client image. If the HSM device is not yet available, you can always come back later and enable the HSM support for the platform when it is ready.
 
-- Zero downtime is an important goal of your blockchain network. Review the topic on [High Availability](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-ha) for considerations when configuring your Kubernetes cluster and blockchain components.
+- Zero downtime is an important goal of your blockchain network. Review the topic on [High Availability](/docs/blockchain?topic=blockchain-ibp-console-ha) for considerations when configuring your Kubernetes cluster and blockchain components.
 
 - If your plan to use a Kubernetes cluster that contains multiple zones, ensure that [`VLAN spanning`](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.  This setting allows worker nodes to communicate between zones.
 
