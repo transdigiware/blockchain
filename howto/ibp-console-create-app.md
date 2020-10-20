@@ -86,7 +86,7 @@ Regardless of whether you choose to use the high-Level Fabric contract APIs, or 
 - All organizations peers (where all organizations are the organizations required for endorsing transactions).
 - All ordering service nodes for all channels that you are transacting on.
 
-You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs. The hostname and port for each node are visible in the console. Open the CA, peer, or ordering node tile and then click the **Info and usage** tab. T The **API URL** field contains the hostname and port for the node.
+You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs. The hostname and port for each node are visible in the console. Open the CA, peer, or ordering node tile and then click the **Info and usage** tab. The **API URL** field contains the hostname and port for the node.
 
 ## Application compatibility
 {: #ibp-console-app-compat}
