@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-20"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -80,13 +80,13 @@ If you want to continue to use your existing smart contract and application code
 ### Network considerations
 {: #ibp-console-app-networking}
 
-Regardless of whether you choose to use the high-Level Fabric contract APIs, or the  low-Level Fabric SDK APIs, both require network access to the following components:
+Regardless of whether you choose to use the high-Level Fabric contract APIs, or the low-Level Fabric SDK APIs, both require network access to the following components:
 
 - The CA for your organization. (You should never need to access the CA for another organization).
 - All organizations peers (where all organizations are the organizations required for endorsing transactions).
 - All ordering service nodes for all channels that you are transacting on.
 
-You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs.
+You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs. The hostname and port for each node are visible in the console. Open the CA, peer, or ordering node tile and then click the **Info and usage** tab. T The **API URL** field contains the hostname and port for the node.
 
 ## Application compatibility
 {: #ibp-console-app-compat}
