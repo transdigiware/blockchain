@@ -446,5 +446,22 @@
         "automatic blockchain certificate renewal failed",
         "blockchain certificate expired",
         "view blockchain certificate expiration date"
+    ],
+    "ibp-v2-faq-ldap": [
+        "integrate LDAP registry with blockchain",
+        "blockchain support LDAP",
+        "add users to blockchain user registry",
+        "configure LDAP users with blockchain",
+        "use certificates from LDAP on blockchain network",
+        "use lightweight directory access protocol with blockchain"
+    ],
+    "ibp-v2-faq-sizing": [
+        "estimate blockchain resources",
+        "blockchain resources required",
+        "default blockchain resource allocations",
+        "how to size blockchain resources",
+        "how much CPU required for blockchain",
+        "how much storage required for blockchain",
+        "how much memory required for blockchain"
     ]
 }
