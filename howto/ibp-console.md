@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-22"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -194,7 +194,7 @@ Have questions and want to speak to an {{site.data.keyword.blockchainfull_notm}}
 ## Supported {{site.data.keyword.cloud_notm}} configuration
 {: #ibp-console-overview-supported-cfg}
 
-**Reminder:** {{site.data.keyword.containerlong_notm}} 1.15 is no longer supported after **September 12, 2020**.  Customers can only upgrade their 1.14 clusters to 1.15 until that date. After September 12, 2020, **any clusters or worker nodes running 1.14 can no longer be upgraded and become unusable**. If you have any clusters running 1.14, then before September 12, 2020, you must upgrade the cluster and worker nodes to 1.15 and then ideally to 1.16 as well in order for them to remain functional and supported. To get started, see [1.14 to 1.15 version considerations](/docs/containers?topic=containers-cs_versions#cs_v115) and  [1.15 to 1.16 considerations](/docs/containers?topic=containers-cs_versions#cs_v116). For the actual steps that are required, see [Updating clusters, worker nodes, and cluster components](/docs/containers?topic=containers-update#update). For the list of {{site.data.keyword.containerlong_notm}} supported versions and expiration dates see the [release history](/docs/containers?topic=containers-cs_versions#release-history).
+**Reminder:** {{site.data.keyword.containerlong_notm}} 1.15 is no longer supported. If your {{site.data.keyword.blockchainfull_notm}} Platform instance is linked to an {{site.data.keyword.containerlong_notm}} 1.15 cluster, you must immediately upgrade it to {{site.data.keyword.containerlong_notm}} 1.16.  Customers can only upgrade their 1.15 clusters to 1.16 until January 29, 2021. After January 29, 2021, **any clusters or worker nodes running 1.15 can no longer be upgraded and become unusable**. Be aware that  {{site.data.keyword.containerlong_notm}} 1.16 is already deprecated, therefore now is a good time to upgrade to 1.17 which is supported until March 2021. To get started, see [1.15 to 1.16 version considerations](/docs/containers?topic=containers-cs_versions#cs_v116) and  [1.16 to 1.17 considerations](/docs/containers?topic=containers-cs_versions#cs_v117). For the actual steps that are required, see [Updating clusters, worker nodes, and cluster components](/docs/containers?topic=containers-update#update). For the list of {{site.data.keyword.containerlong_notm}} supported versions and expiration dates see the [release history](/docs/containers?topic=containers-cs_versions#release-history).
 {: important}
 
 | | |
