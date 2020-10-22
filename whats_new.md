@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-22"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -25,8 +25,8 @@ subcollection: blockchain
 
 
 
-## October 20, 2020
-{: #whats-new-10-20-2020}
+## November 02, 2020
+{: #whats-new-11-02-2020}
 
 
 
@@ -54,7 +54,7 @@ Because all actions on a blockchain network depend on the existence of valid and
 
 
 
-See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020) for more details on the new features that are included in this release.
+See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
 
 
 ## August 27, 2020
@@ -363,6 +363,5 @@ This release also debuts some improvements to the documentation table of content
 {: #whats-new-8-11-2017}
 
 {{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan. For more information, see [About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
-
 
 

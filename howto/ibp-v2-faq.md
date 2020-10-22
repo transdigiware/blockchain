@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-22"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -60,7 +60,7 @@ subcollection: blockchain
 - [How do I get support for running the IBM Blockchain Platform Ansible playbook?](#ibp-v2-faq-ansible-support)
 - [Do I need OpenShift to run CodeReady Workspace?](#ibp-v2-faq-codeready-openshift)
 - [How often do updates get rolled out for the CodeReady Workspace extension?](#ibp-v2-faq-codeready-updates)
-- [How can I test out my smart contracts?](#ibp-v2-faq-test-smart-contracts)
+- [How can I test my smart contracts?](#ibp-v2-faq-test-smart-contracts)
 - [How can I find the examples and tutorials within the VSCode extension?](#ibp-v2-faq-vscode-tutorials)
 - [Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](#ibp-v2-faq-mon-client-app)
 
@@ -325,8 +325,7 @@ The following capabilities are only available on a paid cluster:
 - Configuring a Certificate Authority (CA) for high availability by using a PostgreSQL database and replica sets.
 - Selecting a specific Kubernetes zone when deploying a node.
 - Overriding node configuration during or after deployment by using the console or APIs.
-- Adding or removing ordering nodes to an ordering service. The free offering only supports a single node Raft ordering service.
-  
+- Adding or removing ordering nodes to an ordering service. The free offering only supports a single node Raft ordering service.  
 
 See [Find out how to preview the platform free for 30 days](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-free) for more information on how to get started.
 
@@ -341,7 +340,7 @@ Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.ke
 {: faq}
 
 A free 30 day trial is available in the [Red Hat Marketplace.](https://marketplace.redhat.com/en-us/products/ibm-blockchain){: external}. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm) to learn more.
-             
+
 ## Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?
 {: #ibp-v2-faq-ocp-migrate}
 {: faq}
@@ -403,5 +402,4 @@ By default {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.ke
 {: faq}
 
 No. When the {{site.data.keyword.blockchainfull_notm}} Platform is configured with a multizone cluster in {{site.data.keyword.cloud_notm}} Kubernetes service, you can choose which zone a particular component (peer or ordering node) is deployed to, or you can let the console decide.  Then, when the node is subsequently deployed, Kubernetes "pins" the associated pod to the chosen zone. Pinning means that Kubernetes will not provision the pod in another zone in the event of a whole zone failure. And because the pods are pinned to specific zones, there is no need to access the same storage from another zone. Therefore, MZR storage is not required for {{site.data.keyword.blockchainfull_notm}} Platform nodes.
-
 

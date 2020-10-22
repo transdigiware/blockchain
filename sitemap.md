@@ -177,7 +177,7 @@ subcollection: blockchain
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
 
-[October 20, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-20-2020)
+[November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
 
 [August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
 
@@ -1323,12 +1323,12 @@ subcollection: blockchain
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
 
-[20 October 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020)
-* [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-upgrade)
-* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-lc)
-* [Improvements for HSM support](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-hsm)
-* [Certificate renewal enhancements](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-cert-renew)
-* [Remove registered user from CA](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020-delete-user)
+[02 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020)
+* [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-upgrade)
+* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-lc)
+* [Improvements for HSM support](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-hsm)
+* [Certificate renewal enhancements](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-cert-renew)
+* [Remove registered user from CA](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-delete-user)
 
 [1 Oct 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-01-2020)
 
