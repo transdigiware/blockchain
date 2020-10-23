@@ -307,6 +307,7 @@ subcollection: blockchain
 [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2)
 * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before)
   * [Ensure peer is running Fabric v2.x image](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-fabimage)
+  * [Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-update-consortium)
   * [Create channel and join peers](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-peer)
   * [Export and Import Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-msps)
   * [Peer admin identity](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-peer-admin)

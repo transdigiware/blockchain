@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-23"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -128,6 +128,13 @@ As a reminder, to leverage the smart contract lifecycle process, the peers on th
 
 If your peer is running a Fabric v1.4.x image, you cannot use this tutorial to manage your smart contract. Instead, see the [Deploy a smart contract using Fabric v1.4](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) tutorial for instructions on how to deploy the smart contract on the channel or upgrade the peer to use a Fabric v2.x image.
 
+### Update MSPs in consortium to add organization-level endorsement policy
+{: #ibp-console-smart-contracts-v2-update-consortium}
+
+To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
+
+The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
+
 ### Create channel and join peers
 {: #ibp-console-smart-contracts-v2-before-peer}
 
@@ -142,8 +149,6 @@ A benefit of the decentralized nature of smart contract lifecycle governance is 
 {: #ibp-console-smart-contracts-v2-peer-admin}
 
 Because only peer admin identities are allowed to install a smart contract on a peer, if you plan to  propose a smart contract definition, you need to have the peer admin identity in your console wallet. The peer admin identity is generated when the peer organization MSP is created and it is associated with the peer node during node deployment. If you are unsure, open the peer tile, and in the left column, view the name of the admin identity under **Associated identity for peer**. That is the identity that must be in in your wallet and is required when you propose a smart contract definition.
-
-
 
 ## Limitations
 {: #ibp-console-smart-contracts-v2-limitations}
@@ -276,7 +281,6 @@ After you have completed these steps, you need to repackage your smart contract 
 
 Fabric-contract-api and fabric-shim node modules must be at v1.4.5 or greater to work with Node version 12. If you are using a smart contract that was originally written to work with Fabric 1.4, check the node modules before deploying your smart contract on a peer that runs a Fabric v2.x image.
 {: tip}
-
 
 ### Versioning smart contract definition and packages
 {: #ibp-console-smart-contracts-v2-pkg-best-practice}
@@ -495,4 +499,3 @@ Your channel is now configured to use private data.
 {: #ibp-console-smart-contracts-v2-implicit-colln}
 
 Along with the new chaincode lifecycle, Fabric v2.0 introduced the support for "implicit data collections".  Whereas private data collections keep ledger data private among selected organization members, implicit data collections eliminate the need to define a collection when only a per-organization collection is required. Each organization on the channel has a private data collection that their own organization peers can use. This collection is implicit, because unlike private data collections, it does not need to be explicitly defined when a smart contract is deployed. To take advantage of this capability, the channel must be configured with application capability v2.x and the peers on the channel must be deployed with a Fabric v2.x image.  To learn more about the capability, see [Referencing implicit collections from chaincode](https://hyperledger-fabric.readthedocs.io/en/v2.2.0/private-data-arch.html#referencing-implicit-collections-from-chaincode){: external}. To learn how to implement this capability in a smart contract, see the [Secured asset transfer](https://github.com/hyperledger/fabric-samples/tree/master/asset-transfer-secured-agreement){: external} sample.
-

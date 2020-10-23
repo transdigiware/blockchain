@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-23"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -158,10 +158,11 @@ For a thorough look at what capabilities are how they work, check out [Channel c
 
 The capability levels of a channel and the Fabric versions in the nodes on that channel must be coordinated in order for nodes and channels to function properly. That is because both nodes and capabilities work together to ensure that transactions are handled deterministically (that is, that all of the nodes process a transaction the same way). While the Fabric versions of a node are compatible with lower levels of capabilities, capabilities cannot be processed by lower levels of nodes. If a v1.4.x node attempts to read a configuration block containing a v2.x capability, the node will crash. For this reason, the console will attempt to ascertain the nodes that will be affected by a capability update and either warn you (or stop you) from updating a capability if it will cause a node to crash. More on this later.
 
-Because of this, all of the nodes in a channel must be at least at the level of the capabilities relevant to the node. Therefore, if the organizations in your channel want to "move to v2.0", this is in practice a two step process:
+Because of this, all of the nodes in a channel must be at least at the level of the capabilities relevant to the node. Therefore, if the organizations in your channel want to "move to v2.0", this is in practice a three step process:
 
 1. Upgrade all of the nodes in the channel. For more information, check out [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 2. Update the relevant capabilities of the channel. Do not attempt to edit the capabilities until you are sure your nodes are at the appropriate Fabric versions.
+3. To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated. The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of [deploying the smart contract using the v2.x lifecycle](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
 
 The `application` and `channel` capabilities are relevant to peers, while the `orderer` and `channel` capabilities are relevant to the ordering service.
 {: tip}
@@ -247,4 +248,3 @@ Set the **Timeout** value to the amount of time, in seconds, to wait after the f
 
 When you modify these parameters, you do not affect the behavior of existing channels on the orderer; rather, any changes you make to the orderer configuration apply only to new channels you create on this orderer.
 {:important}
-
