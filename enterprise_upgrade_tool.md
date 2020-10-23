@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-23"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -88,7 +88,6 @@ When you use the upgrade tool to create your peer and orderer nodes on the new p
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-
 {: caption="Table 1. Default resources for nodes on IBM Blockchain Platform 2.0" caption-side="bottom"}
 
 ## Upload connection information
@@ -140,7 +139,7 @@ You need to upload the connection information of your Enterprise Plan network an
     }
     ```
 
-- **Optional:** If you want to use a Hardware Security Module (HSM) to store the private keys of your blockchain nodes, you can use the **HSM configuration** field to provide the connection information of your HSM. If you plan on using an HSM, you need to set up your own HSM on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to complete the [steps to build an HSM client image](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-client) that your nodes will use to communicate with the HSM. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm). You can return to this page after you have deployed the proxy.
+- **Optional:** If you want to use a Hardware Security Module (HSM) to store the private keys of your blockchain nodes, you can use the **HSM configuration** field to provide the connection information of your HSM. If you plan on using an HSM, you need to set up your own HSM on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to complete the [steps to build an HSM client image](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) that your nodes will use to communicate with the HSM. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm). You can return to this page after you have deployed the proxy.
 
   You need to provide the endpoint of your PKCS #11 proxy, as well as the label and pin of your HSM slot, to the **HSM configuration** field. For example, the following JSON provides the connection information for two slots in the same HSM:
   ```json
