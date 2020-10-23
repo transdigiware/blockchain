@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-23"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -74,6 +74,9 @@ This topic describes common issues that can occur when you use the {{site.data.k
 **Issues with upgrading your Enterprise Plan network**  
 
 - [How can I retry a chaincode migration?](#ibp-v2-troubleshooting-upgrade-tool)
+
+
+
 
 
 
@@ -608,5 +611,4 @@ Complete the following steps with the upgrade tool to retry a failed chaincode m
 3. After you have installed the updated chaincode, you can refresh the migration tool in your browser to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 
 If you cannot change the chaincode version, you need to use the upgrade tool to delete the upgraded peer on the new platform and then use the tool to create a new peer. After you have fixed the chaincode source code and installed and instantiated it on your Enterprise Plan network, you can use the tool to install a fixed version of your chaincode on the new peer.
-
 
