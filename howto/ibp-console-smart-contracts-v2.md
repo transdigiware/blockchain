@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-10-26"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -162,6 +162,10 @@ If your client applications are using the Fabric v1.4 SDK to deploy smart contra
 {: #ibp-console-smart-contracts-v2-existing-sc}
 
 If you previously had a smart contract running on a peer that was joined to a channel with application capability v1.4, and you upgrade your peer image to v2.x and the channel application capability v2.x, **your existing smart contract continues to run and process requests**. However, after you upgrade your peer image to v2.x and channel application capability v2.x, there is no longer a way to update the original smart contract. Instead, when an update is required, you need to repackage the smart contract in the new `.tar.gz` or `.tgz` format and propose the definition to the channel using the new smart contract lifecycle process.
+
+You cannot use the console to deploy a smart contract that contains an `init` function. If your smart contract needs to include the `init` function, the only way to deploy it is by using the Fabric [peer lifecycle chaincode install](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-install command){: external} or the [{{site.data.keyword.blockchainfull_notm}} Platform collection for Ansible](https://ibm-blockchain.github.io/ansible-collection/){: external}. You can also refer to the [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html#step-three-approve-a-chaincode-definition-for-your-organization){: external} for more details on how to use an `init` function with the Fabric chaincode lifecycle.
+{: note}
+
 
 ## Step one: Write and package your smart contract
 {: #ibp-console-smart-contracts-v2-pkg}
