@@ -146,7 +146,7 @@ Note that this tutorial only includes instructions for deploying an instance of 
 Click **Create Instance** on the **IBP Console** tile.
 ![Blockchain instances available in Red Hat Marketplace](../images/IBPConsole.png "Create instance on the IBPConsole tile"){: caption="Figure 2. Click Create Instance on the IBP Console tile" caption-side="bottom"}
 
-A page opens with a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the [Advanced deployment options](#console-deploy-ocp-rhm-advanced) in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
+A page opens with a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
 {: important}
 
 ```yaml
@@ -223,7 +223,7 @@ When you are satisfied with your edits to the specification, click **Create**.
 The console can take a few minutes to deploy.
 {: note}
 
-After the console has been created, you can verify the console deployment succeeded. See [Verify the console installation](#console-deploy-ocp-verify-install) for instructions on verifying and accessing the console.
+After the console has been created, you can verify the console deployment succeeded. See [Step three: Verify the console installation](#console-deploy-ocp-verify-install) for instructions on verifying and accessing the console.
 
 ### Advanced deployment options
 {: #console-deploy-ocp-rhm-advanced}
@@ -469,7 +469,7 @@ And then remove any instances or the IBM Blockchain operator using the OpenShift
 ## Next steps
 {: #console-deploy-ocp-rhm-next-steps}
 
-When you access your console, you can use the **nodes** tab of your console UI to create CAs, peers, or an ordering service. See the [Build a network tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network){: external} to get started with the console.
+When you access your console, you can use the **Nodes** tab of your console UI to create CAs, peers, or an ordering service. See the [Build a network tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network){: external} to get started with the console.
 
 To learn how to manage the users that can access the console, view the logs of your console and your blockchain components, see [Administering your console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage){: external}.
 
