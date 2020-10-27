@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-27"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -293,7 +293,8 @@ The process to renew the CA TLS certificate is same regardless of whether it has
 
 1. Open the CA tile and click the **Settings** icon.
 2. Click **Renew TLS certificate**. The certificate is replaced and the CA is restarted.
-3. After the CA restarts, it is recommended that you update all of the associated nodes that are currently using the original TLS certificate to secure their communications. Click the **Settings** icon again and then click **Update associated nodes**. All of the nodes in the list of associated nodes need to be updated.
+3. After the CA is restarted, click the **Refresh certificates** icon next to the CA **Settings** icon to update the console.
+4. For your network to work, it is required that you update all of the associated nodes that are currently using the original TLS certificate with the new TLS certificate to secure their communications. Click the **Settings** icon again and this time click **Update associated nodes**. All of the nodes in the list of associated nodes need to be updated.
 
 This update requires a brief restart of the associated nodes. For zero downtime and to ensure nodes are still available to process transactions, it is recommended that the updates are performed on one node at a time.
 {: important}
@@ -373,7 +374,6 @@ In order to update the application channel, you need to have the channel member 
 4. To submit this update request to the channel members, you need to select the ordering service MSP from the drop-down list and then the associated orderer organization admin identity from your wallet. When you click **Update consenter** a channel update notification is sent to the consortium members for approval.
 5. After enough channel members approve this update according to the channel update policy, the ordering node can resume participation in the consenter set.
 6. Repeat these steps for every channel that includes this ordering node as a consenter.
-
 
 ### Considerations for a single node ordering service
 {: #cert-mgmt-manual-renewal-os1}
@@ -541,7 +541,6 @@ In order to update the application channel, you need to have the channel member 
 5. After enough channel members approve this update according to the channel update policy, the ordering node can resume participation in the consenter set.
 6. Repeat these steps for every channel that includes this ordering node as a consenter.
 
-
 ### Peer and ordering node organization admin certificates
 {: #cert-mgmt-manual-ext-ca-admin}
 
@@ -665,4 +664,3 @@ If you previously imported the MSP into your console, you need to update the def
 1. On the **Organizations** tab and click the MSP tile.
 2. Click the **Settings** icon and then **Add file** to browse to the new JSON file.
 3. Click **Update MSP**.  If you created any nodes in your console that use this MSP, they are updated with the new MSP and restarted.
-
