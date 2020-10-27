@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-27"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -53,7 +53,7 @@ To learn more about the Marketplace see the [Red Hat documentation](https://mark
 You must have the cluster administrator role to install the operators from the Red Hat Marketplace.
 {: note}
 
-1. These instructions assume you already have a Kubernetes cluster available in OpenShift Container Platform v4.3+ and that you have created a project for your {{site.data.keyword.blockchainfull_notm}} deployment. Unsure how to create a project? See [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](#deploy-ocp-rhm-project).
+1. These instructions assume you already have a Kubernetes cluster available in OpenShift Container Platform v4.4+ and that you have created a project for your {{site.data.keyword.blockchainfull_notm}} deployment. Unsure how to create a project? See [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](#deploy-ocp-rhm-project).
 2. Browse to the [Red Hat Marketplace](https://marketplace.redhat.com/en-us){: external} and log in or create a new account.
 3. Follow the [instructions](https://marketplace.redhat.com/en-us/documentation/clusters#register-openshift-cluster-with-red-hat-marketplace) to register your OpenShift cluster with the Red Hat Marketplace.
 4. When prompted `Would you like to go back to the Red Hat Marketplace now? [Y/n]`, type `Y` and the Red Hat Marketplace page is opened in your browser.
@@ -106,7 +106,6 @@ volumes:
 priority: 1
 ```
 {:codeblock}
-
 
 Run the following commands to add the file to your cluster and add the constraint to your project.
 
@@ -509,4 +508,3 @@ You can also use the CLI to find the available storage classes for your namespac
 kubectl get storageclasses
 ```
 {:codeblock}
-
