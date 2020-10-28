@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-10-28"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -74,7 +74,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform improvements are designed
 
 **Red Hat CodeReady Workspaces**  
 
-The platform expands its developer tool ecosystem with **Red Hat CodeReady Workspaces**, that help organizations speed up and simplify the setup of blockchain development environments. Red Hat CodeReady Workspaces provide a preconfigured and shared runtime environment that enables cloud-native blockchain development to be performed across teams. Red Hat CodeReady Workspaces offer strong security and adhere to enterprise-grade compliance for cloud-native development. Read about the [benefits of CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-why) to learn more.
+The platform expands its developer tool ecosystem with **Red Hat CodeReady Workspaces**, that help organizations speed up and simplify the set up of blockchain development environments. Red Hat CodeReady Workspaces provide a preconfigured and shared runtime environment that enables cloud-native blockchain development to be performed across teams. Red Hat CodeReady Workspaces offer strong security and adhere to enterprise-grade compliance for cloud-native development. Read about the [benefits of CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-why) to learn more.
 
 **Hyperledger Fabric 2.0 images**
 

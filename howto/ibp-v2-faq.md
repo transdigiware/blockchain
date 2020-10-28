@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-10-28"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -159,7 +159,7 @@ You cannot currently deploy blockchain nodes to multiple hosted cloud providers.
 {: faq}
 {: support}
 
-You are responsible for the health monitoring and resource allocation of the blockchain nodes in your Kubernetes cluster. While requests against the nodes are being actively processed, you should be monitoring for spikes in resource consumption to avoid problems. {{site.data.keyword.IBM_notm}} recommends that you configure Sysdig and setup alerts to track when blockchain nodes are reaching their limits. See the tutorial on [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig) for more details.
+You are responsible for the health monitoring and resource allocation of the blockchain nodes in your Kubernetes cluster. While requests against the nodes are being actively processed, you should be monitoring for spikes in resource consumption to avoid problems. {{site.data.keyword.IBM_notm}} recommends that you configure Sysdig and set up alerts to track when blockchain nodes are reaching their limits. See the tutorial on [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig) for more details.
 
 You should be aware that JavaScript and TypeScript smart contracts require more resources than contracts written in Golang. Therefore, when you are allocating resources to your cluster, it is important to ensure adequate resources are available to your smart contract pods when they are deployed on a channel and during transaction processing. The pods containing the smart contracts will consume as much resources as they need to function.
 {: tip}
