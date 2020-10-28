@@ -36,7 +36,7 @@ The marketplace provides a simplified alternative method for deploying an instan
 
 With just a few simple steps, you can get started with the {{site.data.keyword.blockchainfull_notm}} Platform. After you install the operator to your OpenShift project, you can create a subscription that allows you to deploy the blockchain console UI.
 
-Currently you cannot deploy Certificate Authorities (CAs), peers, and ordering nodes directly, you should use the console to deploy those nodes instead. This tutorial only includes instructions for installing the console.
+Currently, you cannot deploy Certificate Authorities (CAs), peers, and ordering nodes directly, you should use the console to deploy those nodes instead. This tutorial only includes instructions for installing the console.
 {: important}
 
 To learn more about the Marketplace see the [Red Hat documentation](https://marketplace.redhat.com){: external}.
@@ -44,7 +44,7 @@ To learn more about the Marketplace see the [Red Hat documentation](https://mark
 - You are responsible for the management of health monitoring, logging, and resource usage of your blockchain components.
 - IBM Blockchain Platform is not supported on OpenShift Online.
 - Mutual TLS is not supported between your applications and your blockchain nodes.
-- You can not use the ESR version of Firefox to log in to the IBM Blockchain Platform console.
+- You cannot use the ESR version of Firefox to log in to the IBM Blockchain Platform console.
 - The free trial cannot be upgraded to the paid version. After 30 days, access to the product is removed. See [Free trial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-sw-pricing#ibp-software-pricing-free) for more information.
 
 ## Before you begin
@@ -53,7 +53,7 @@ To learn more about the Marketplace see the [Red Hat documentation](https://mark
 You must have the cluster administrator role to install the operators from the Red Hat Marketplace.
 {: note}
 
-1. These instructions assume you already have a Kubernetes cluster available in OpenShift Container Platform v4.4+ and that you have created a project for your {{site.data.keyword.blockchainfull_notm}} deployment. Unsure how to create a project? See [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](#deploy-ocp-rhm-project).
+1. These instructions assume you already have a Kubernetes cluster available in OpenShift Container Platform v4.4+ and that you have created a project for your {{site.data.keyword.blockchainfull_notm}} deployment. Unsure how to create a project? See [Create a project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](#deploy-ocp-rhm-project).
 2. Browse to the [Red Hat Marketplace](https://marketplace.redhat.com/en-us){: external} and log in or create a new account.
 3. Follow the [instructions](https://marketplace.redhat.com/en-us/documentation/clusters#register-openshift-cluster-with-red-hat-marketplace) to register your OpenShift cluster with the Red Hat Marketplace.
 4. When prompted `Would you like to go back to the Red Hat Marketplace now? [Y/n]`, type `Y` and the Red Hat Marketplace page is opened in your browser.
@@ -65,7 +65,7 @@ You must have the cluster administrator role to install the operators from the R
 ## Step one: Apply the Security Context Constraint
 {: #deploy-ocp-rhm-scc}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to your project. The `ibp-scc.yaml` file is provided here for you to copy and edit to define the security policies for your project. Before attempting this step you should be logged in to the `oc` CLI.   
+The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to your project. The `ibp-scc.yaml` file is provided here for you to copy and edit to define the security policies for your project. Before attempting this step, you should be logged in to the `oc` CLI.   
 
 Copy and save the following security context constraint object to your local system as `ibp-scc.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
 
@@ -136,9 +136,9 @@ There are four instances available listed under "Provided APIs":
 
 **Which instance should I choose?**
 
-It is recommended that all customers deploy an instance of the **IBP Console** to simplify the deployment and management of their blockchain networks. The console itself is free. You are only billed for the blockchain nodes that you create by using the console.
+All customers need to deploy an instance of the **IBP Console** to simplify the deployment and management of their blockchain networks. The console itself is free. You are only billed for the blockchain nodes that you create by using the console.
 
-Note that this tutorial only includes instructions for deploying an instance of the **IBP Console**. Currently you cannot deploy Certificate Authorities (CAs), peers, and ordering nodes directly, you should use the console to deploy those nodes instead.
+Note that this tutorial only includes instructions for deploying an instance of the **IBP Console**. Currently, you cannot deploy Certificate Authorities (CAs), peers, and ordering nodes directly, you should use the console to deploy those nodes instead.
 {: important}
 
 Click **Create Instance** on the **IBP Console** tile.
@@ -207,7 +207,7 @@ spec:
 - Accept the IBM Blockchain Platform license by replacing `<ACCEPT>` with the text `accept`.
 - Replace `<EMAIL>` with the email address that you want to use for the console administrator.
 - Replace `<PASSWORD>` with the password of your choice. This password becomes the default password for the console administrator but they are required to change it the first time they log in.
-- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value from your OpenShift web console URL. Examine the URL for the current page. It will be similar to: `https://console-openshift-console.pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`. The value of the domain then would be `pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud`, after you remove `console-openshift-console` and `/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`.  
+- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value from your OpenShift web console URL. Examine the URL for the current page. It is similar to: `https://console-openshift-console.pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`. The value of the domain then would be `pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud`, after you remove `console-openshift-console` and `/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`.  
 
 
 You also need to make additional edits to the file depending on your choices in the deployment process. For example, if you created a new storage class for your network, provide the storage class that you created to the `class:` field.
@@ -221,7 +221,7 @@ When you are satisfied with your edits to the specification, click **Create**.
 The console can take a few minutes to deploy.
 {: note}
 
-After the console has been created, you can verify the console deployment succeeded. See [Step three: Verify the console installation](#console-deploy-ocp-verify-install) for instructions on verifying and accessing the console.
+After the console has been created, you can verify that the console deployment succeeded. See [Step three: Verify the console installation](#console-deploy-ocp-verify-install) for instructions on verifying and accessing the console.
 
 ### Advanced deployment options
 {: #console-deploy-ocp-rhm-advanced}
@@ -317,7 +317,7 @@ You can use a Certificate Authority or tool to create the TLS certificates for t
 **Proxy hostname:** ``<PROJECT_NAME>-ibpconsole-proxy.<DOMAIN>``  
 
 - Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
-- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value from your OpenShift web console URL. Examine the URL for the current page. It will be similar to: `https://console-openshift-console.pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`. The value of the domain then would be `pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud`, after you remove `console-openshift-console` and `/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`.
+- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value from your OpenShift web console URL. Examine the URL for the current page. It is similar to: `https://console-openshift-console.pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`. The value of the domain then would be `pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud`, after you remove `console-openshift-console` and `/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`.
 
 Navigate to the TLS certificates that you plan to use on your local system. Name the TLS certificate `tlscert.pem` and the corresponding private key `tlskey.pem`. Run the following command to create the Kubernetes secret and add it to your OpenShift project. The TLS certificate and key need to be in PEM format.
 ```
@@ -390,7 +390,7 @@ kubectl get pods -n <PROJECT_NAME>
 {:codeblock}
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
-Then, use the following command to get the logs from one of the four containers listed above:
+Then, use the following command to get the logs from one of the four containers:
 ```
 kubectl logs -f <pod_name> <container_name> -n <PROJECT_NAME>
 ```
@@ -408,12 +408,12 @@ kubectl logs -f ibpconsole-55cf9db6cc-856nz optools -n blockchain-project
 
 Congratulations! You have deployed the IBM Blockchain Platform operator. The only thing left to do is to deploy the console user interface (UI). First, click on **IBM Blockchain** in the **Installed Operators** page.
 
-You can find the URL of the deployed console from the OpenShift cluster dashboard.
+You can find the URL of your blockchain console from the OpenShift cluster dashboard.
 
 1. Click **Workloads** in the left navigation.
 2. Click **Config Maps**.
-3. You will see several config maps, including `<CONSOLE_NAME>`, `<CONSOLE_NAME>-console` and a `<CONSOLE_NAME>-deployer`. Click on the one that's just the `<CONSOLE_NAME>`, for example, `ibpconsole`.
-4. In the **Data** section, you will see the **HOST_URL** field. This is the URL of your console that you can now use to log in. It will look similar to the following example:
+3. You see several config maps, including `<CONSOLE_NAME>`, `<CONSOLE_NAME>-console`, and a `<CONSOLE_NAME>-deployer`. Click the one that's just the `<CONSOLE_NAME>`, for example, `ibpconsole`.
+4. In the **Data** section, you see the **HOST_URL** field. This is the URL of your console that you can now use to log in. It looks similar to the following example:
 
   ```
   https://blockchain-project-ibpconsole-console.xyz.abc.com
@@ -429,28 +429,17 @@ Ensure that you are not using the ESR version of Firefox. If you are, switch to 
 
 The administrator who provisions the console can grant access to other users and restrict the actions they can perform. For more information, see [Managing users from the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-users){: external} in the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 documentation.
 
-## Upgrading your deployment
-{: #console-deploy-ocp-rhm-upgrade-deployment}
-
-When you deployed the IBM Blockchain operator, you had the option of whether to allow upgrades to this operator to be made automatically or manually. The former is the default option, and if you left it selected, your operator will update whenever a new version is available. These updates may be applied at any time and could include updates to the console or the nodes, or a combination of both. If you chose to manually update your operator, you will be prompted with a message when a new version is available. If you approve of the update request, the update will proceed. For more information about what is in each release, check out the [release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20). Note that if you get behind by more than one release that each release will be applied in the order they became available. This could cause an update to take longer to finish.
-
-More often than not, updates pushed to the operator will result in the console being updated, which means that the pod the console is contained in will restart. While the pod is restarting, the console will be unavailable. However, this will not affect any transactions that are taking place, as transaction throughput is dependent on node availability, not console availability.
-
-In the rare cases where an update causes nodes to restart (for example, if the spec of a node is changed), it might be temporarily impossible to drive transactions, depending on the nodes being updated and the structure of your own deployment.
-
-If your update fails, the old version of the operator should continue to function. To resolve the update failure, you will need to open a support ticket in [RedHat support](https://marketplace.redhat.com/en-us/support){: external}.
-
 ## Removing your deployment
 {: #console-deploy-ocp-rhm-remove-deployment}
 
-If you want to delete the IBM Blockchain Platform operator or any instances you have deployed, the simplest way to do this is through the OpenShift UI.
+If you want to delete the IBM Blockchain Platform operator or any instances you have deployed, the simplest way is through the OpenShift UI.
 
 If you want to delete the operator, make sure to delete any instances associated with it first.
 {: important}
 
-To delete an instance, navigate to the **Operators** tab and then click on **Installed Operators**. From here, click on **IBM Blockchain** and then the **All instances** tab. Find the instance you want to delete and click on the settings button to the right of the instance. Then click **Delete** (the name of your instance).
+To delete an instance, navigate to the **Operators** tab and then click  **Installed Operators**. From here, click **IBM Blockchain** and then the **All instances** tab. Find the instance you that want to delete and click the settings button to the right of the instance. Then, click **Delete** (the name of your instance).
 
-To delete the operator, navigate back to the **Installed Operators** page and click the settings button to the right of the IBM Blockchain Platform operator. Then click **Uninstall Operator**.
+To delete the operator, navigate back to the **Installed Operators** page and click the settings button to the right of the IBM Blockchain Platform operator. Then, click **Uninstall Operator**.
 
 Alternatively, you can use the CLI to switch to the OpenShift project that you created for your blockchain network:
 
@@ -459,7 +448,7 @@ Alternatively, you can use the CLI to switch to the OpenShift project that you c
   ```
   {:codeblock}
 
-And then remove any instances or the IBM Blockchain operator using the OpenShift CLI. For example, this command would delete the operator:
+And then remove any instances or the IBM Blockchain operator by using the OpenShift CLI. For example, this command would delete the operator:
 
   ```
   kubectl delete deployment ibp-operator
@@ -480,7 +469,7 @@ To learn how to manage the users that can access the console, view the logs of y
 
 Support is provided for the paid version of the Red Hat Marketplace offering and support cases can be opened through the Red Hat Marketplace [support portal](https://marketplace.redhat.com/en-us/support).  Customers using the trial version from Red Hat Marketplace, can refer to [self-help resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-resources) for assistance.
 
-## Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
+## Create a project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
 {: #deploy-ocp-rhm-project}
 
 Before you can deploy the operator, you need to create a project for your deployment of {{site.data.keyword.blockchainfull_notm}} Platform. You can create a new project by using the OpenShift web console or OpenShift CLI. The new project needs to be created by a cluster administrator.
