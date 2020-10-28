@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-10-28"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -61,9 +61,9 @@ The application developer can use two programming models to interact with the ne
 ### High-Level Fabric contract APIs
 {: #ibp-console-app-high-level}
 
-Starting with Fabric v1.4, users can take advantage of a simplified application and smart contract programming model. The new model reduces the number of steps and amount of code that is required to submit a transaction. This model is supported for applications that are written in **Node.js**, **Java**, and **Go**.
+Starting with Fabric v1.4, a simplified application and smart contract programming model, known as the `fabric-network` API, was introduced, and is now the recommended way to develop applications. The new model reduces the number of steps and amount of code that is required to submit a transaction and is supported for applications that are written in **Node.js**, **Java**, and **Go**. For information about migrating your applications created using the v1.4 SDK to the 2.x SDK, check out [Migrating client applications from v1.4 to v2.0](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-migration.html){: external}.
 
-Client applications can leverage the capabilities of the Go SDK, but currently only the high-level programming model in the [gateway package](https://godoc.org/github.com/hyperledger/fabric-sdk-go/pkg/gateway) is supported. Direct usage of the rest of the Go SDK is not yet supported.
+Client applications can leverage the capabilities of the Go SDK, but currently only the high-level programming model in the [gateway package](https://godoc.org/github.com/hyperledger/fabric-sdk-go/pkg/gateway){: external} is supported. Direct usage of the rest of the Go SDK is not yet supported.
 {: note}
 
 If you want to take advantage of the High-Level Fabric contract-APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
@@ -100,8 +100,8 @@ Click the **Java SDK** or **Node SDK** tab for details.
 
 | Version |Peer Fabric image  | Java |
 |:--------|:------------------|:-----|
-|[Java SDK Version 2.2](https://github.com/hyperledger/fabric-gateway-java/tree/release-2.2) | 2.2 | Java 8<br><br>Java 11|
-|[Java SDK Version 1.4](https://github.com/hyperledger/fabric-gateway-java/tree/release-2.2) | 1.4 | Java 8<br><br>Java 11|
+|[Java SDK Version 2.2](https://github.com/hyperledger/fabric-gateway-java/tree/release-2.2){: external} | 2.2 | Java 8<br><br>Java 11|
+|[Java SDK Version 1.4](https://github.com/hyperledger/fabric-gateway-java/tree/release-2.2){: external} | 1.4 | Java 8<br><br>Java 11|
 {: caption="Table 1. Java SDK" caption-side="top"}
 {: #simpletabtable1}
 {: tab-title="Java SDK"}
@@ -110,8 +110,8 @@ Click the **Java SDK** or **Node SDK** tab for details.
 
 | Version |Peer Fabric image  | Node |
 |:--------|:------------------|:-----|
-|[Node SDK Version 2.2](https://github.com/hyperledger/fabric-sdk-node/tree/release-2.2) | 2.2 | Node 10 LTS<br><br> Node 12 LTS|
-|[Node SDK Version 1.4](https://github.com/hyperledger/fabric-sdk-node/tree/release-1.4)| 2.2, 1.4  | Node 10 LTS<br><br> Node 12 LTS|
+|[Node SDK Version 2.2](https://github.com/hyperledger/fabric-sdk-node/tree/release-2.2){: external} | 2.2 | Node 10 LTS<br><br> Node 12 LTS|
+|[Node SDK Version 1.4](https://github.com/hyperledger/fabric-sdk-node/tree/release-1.4){: external} | 2.2, 1.4  | Node 10 LTS<br><br> Node 12 LTS|
 {: caption="Table 1. Node SDK" caption-side="top"}
 {: #simpletabtable1}
 {: tab-title="Node SDK"}
@@ -125,8 +125,8 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 |Contract API | Peer Fabric image  | Java runtime   |
 |:-------------------|:---------------|:-------------|
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4),  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x)|v2.2 | Java 11 runtime |
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4),  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x)|v1.4 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x){: external} |v2.2 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x){: external} |v1.4 | Java 11 runtime |
 {: caption="Table 2. Java Smart contract" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Java Smart contract"}
@@ -135,8 +135,8 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 | Contract API       | Peer Fabric image  | Node runtime    |
 |:-------------------|:---------------|:--------------------|
-| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4),  [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.x) |v2.2  | Node 12 runtime|
-| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4) |v1.4| Node 8 runtime |
+| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.x){: external} |v2.2  | Node 12 runtime|
+| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external} |v1.4| Node 8 runtime |
 {: caption="Table 2. Node Smart contract" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Node Smart contract"}
@@ -147,8 +147,8 @@ Java and Node runtime versions are determined by {{site.data.keyword.blockchainf
 {: note}
 
 For more details on smart contract-API compatibility, see:
-- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md)
-- [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md)
+- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md){: external}
+- [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md){: external}
 
 ## Registering an application identity
 {: #ibp-console-app-identities}
@@ -177,7 +177,7 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 
 In order to take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
-To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor) in the Node SDK documentation for more information.
+To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor){: external} in the Node SDK documentation for more information.
 {: tip}
 
 Click the **Organization MSP** tile for the organization that your client application interacts with. Click **Create connection profile** to open a side panel where you can build and download your connection profile.
@@ -196,7 +196,6 @@ The connection profile that is downloaded from the {{site.data.keyword.blockchai
 {: note}
 
 The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information in the "certificateAuthorities": section.
-
 
 
 
@@ -415,7 +414,7 @@ You can find the commercial paper smart contract inside the `contract` folder of
 
 Smart contracts running on peers using the Fabric v1.4.x image must be packaged in [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}. These smart contracts are installed and then instantiated on a channel. For information on using smart contracts with Fabric v1.4.x peers, check out [Deploy a smart contract using Fabric v1.4.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14).
 
-Smart contracts running on peers using a Fabric x2.x image must be packed using the [.tar.gz format](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html#step-one-packaging-the-smart-contract). These smart contracts must be installed and proposed by you, then approved by other channel members before being committed on the channel. For information on using smart contracts with Fabric v2.x peers, check out [Deploying a smart contract using Fabric 2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
+Smart contracts running on peers using a Fabric x2.x image must be packed using the [.tar.gz format](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html#step-one-packaging-the-smart-contract){: external}. These smart contracts must be installed and proposed by you, then approved by other channel members before being committed on the channel. For information on using smart contracts with Fabric v2.x peers, check out [Deploying a smart contract using Fabric 2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
 
 You can use the [{{site.data.keyword.blockchainfull_notm}} VS code extension](/docs/blockchain?topic=blockchain-develop-vscode) to package the smart contract. After you install the extension, use Visual Studio Code to open the `contracts` folder in your workspace. Open the _{{site.data.keyword.blockchainfull_notm}} Platform_ tab. In the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane, go to the smart contract packages section and click **Package Open Project**. The VS code extension uses the files in the `contracts` folder to create a new package named `papernet-js@.0.0.1.cds`. Right-click this package to export it to your local file system. You can then use your console to install your smart contract and either instantiate or propose it.
 
@@ -678,5 +677,4 @@ The NTP server that you need to synchronize your application with depends on whe
 - If your application is running in {{site.data.keyword.cloud_notm}} Classic infrastructure, set your NTP server to `servertime.service.softlayer.com`.
 - If your application is running in {{site.data.keyword.cloud_notm}} VPC infrastructure, set your NTP server to `time.adn.networklayer.com`.
 - If your application is not running in {{site.data.keyword.cloud_notm}}, set your NTP server to `time-a.nist.gov` or `time-b.nist.gov`.
-
 
