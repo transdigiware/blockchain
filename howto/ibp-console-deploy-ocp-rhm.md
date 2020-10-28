@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-27"
+lastupdated: "2020-10-28"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -125,9 +125,7 @@ scc "blockchain-project" added to: ["system:serviceaccounts:blockchain-project"]
 ## Step two: Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #deploy-ocp-rhm-console}
 
-Congratulations! You have deployed the IBM Blockchain Platform operator. The only thing left to do is to deploy the console user interface (UI).
-
-First, click on **IBM Blockchain** in the **Installed Operators** page. There are four instances available listed under "Provided APIs":
+There are four instances available listed under "Provided APIs":
 
 ![Blockchain instances available in Red Hat Marketplace](../images/rhm-operators.png "Blockchain instances available in Red Hat Marketplace"){: caption="Figure 1. Blockchain instances available in Red Hat Marketplace" caption-side="bottom"}
 
@@ -146,7 +144,7 @@ Note that this tutorial only includes instructions for deploying an instance of 
 Click **Create Instance** on the **IBP Console** tile.
 ![Blockchain instances available in Red Hat Marketplace](../images/IBPConsole.png "Create instance on the IBPConsole tile"){: caption="Figure 2. Click Create Instance on the IBP Console tile" caption-side="bottom"}
 
-A page opens with a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
+The YAML view shows a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
 {: important}
 
 ```yaml
@@ -408,7 +406,9 @@ kubectl logs -f ibpconsole-55cf9db6cc-856nz optools -n blockchain-project
 ## Step four: Log in to the console
 {: #deploy-ocp-rhm-log-in}
 
-You can find the URL of the deployed console from the OpenShift cluster UI.
+Congratulations! You have deployed the IBM Blockchain Platform operator. The only thing left to do is to deploy the console user interface (UI). First, click on **IBM Blockchain** in the **Installed Operators** page.
+
+You can find the URL of the deployed console from the OpenShift cluster dashboard.
 
 1. Click **Workloads** in the left navigation.
 2. Click **Config Maps**.
