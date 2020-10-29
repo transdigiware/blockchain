@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-10-29"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -627,7 +627,7 @@ If you don't know what channels are, they're the place where transactions involv
 
 Since we’re creating a channel, you might be tempted to click over to the channels tab. But there's actually a step we need to do first, which is to add org1 to the consortium. Now what is the consortium? A consortium is the list of organizations that are allowed to create channels on a particular ordering service. Once an organization is added to this list, which is maintained by the admins of the ordering service, an organization will be able to create a channel. To do that, we must click into the Ordering Service and click Add Organization under the Consortium members header. Then we must select the org1msp, as this is our peer organization. Then click submit. Easy as that. Org1 is now a member of the consortium and allowed to create channels on this ordering service.
 
-Now let’s create the channel. Navigate to the channel tab and click create channel. After reviewing the information on the prerequisites panel, decide whether you want to create your channel using any of the advanced options. For the purpose of this demonstration, we will not be modifying any of these fields, so this box will stay unchecked. Note that even if you select 2.x as the Fabric version of your nodes, you will not be able to use the new smart contract lifecycle unless the the 2.0 application capability has been selected. If you want to learn more about any of the other advanced options, check out the documentation on advanced channel creation and management. Note that these advanced options can be changed later.
+Now let’s create the channel. Navigate to the channel tab and click create channel. After reviewing the information on the prerequisites panel, decide whether you want to create your channel using any of the advanced options. For the purpose of this demonstration, we will not be modifying any of these fields, so this box will stay unchecked. Note that even if you select 2.x as the Fabric version of your nodes, you will not be able to use the new smart contract lifecycle unless the 2.0 application capability has been selected. If you want to learn more about any of the other advanced options, check out the documentation on advanced channel creation and management. Note that these advanced options can be changed later.
 
 On the channel details page, give this channel a name, channel1. And specify the ordering service it will be hosted on, Ordering Service. These two fields cannot be changed later, so in the case of the channel name make sure to choose a name that will be relevant to the way in which the channel will be used. Also, choose a unique since each channel hosted on an ordering service must have a different name. On the Organizations panel select the organizations who will be joining peers to the channel. In this case that is Org1, so select Org1 MSP from the drop down list. Make this organization an operator. Do not add any ordering service organizations here. Note that during the creation of a channel, all organizations that are added must already be members of the consortium.
 
