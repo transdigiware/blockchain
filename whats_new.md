@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-10-30"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -55,6 +55,7 @@ Because all actions on a blockchain network depend on the existence of valid and
 
 
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
+
 
 
 ## August 27, 2020
