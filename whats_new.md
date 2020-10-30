@@ -57,7 +57,6 @@ Because all actions on a blockchain network depend on the existence of valid and
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
 
 
-
 ## August 27, 2020
 {: #whats-new-08-19-2020}
 
