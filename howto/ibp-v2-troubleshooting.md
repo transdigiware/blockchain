@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-10-30"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -542,6 +542,7 @@ All contracts were lost after the procedure to upgrade the smart contract contai
 
 [Delete all the peer pods](#ibp-troubleshooting-delete-peer). This deletion triggers the peer to be created again and restarts the proxy.
 {: tsResolve}
+
 
 
 ## My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?

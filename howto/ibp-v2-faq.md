@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-10-30"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -51,7 +51,6 @@ subcollection: blockchain
 - [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-ldap)
 - [What is the process for rotating certificates on a periodic basis?](#ibp-v2-faq-cert-mgmt)
 - [How can I back up and restore components and networks?](#ibp-v2-faq-backup-restore)
-
 
 **For developers**
 

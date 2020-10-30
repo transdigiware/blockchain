@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-10-30"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -30,6 +30,7 @@ When you create a channel, there are a number of advanced options that allow you
 {:shortdesc}
 
 **Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing channels.
+
 
 The roles played by the various participants in channel creation, as well as the underlying method used to create and update the channel configuration, is inherited from the [Hyperledger Fabric processes for creating and editing a channel](https://hyperledger-fabric.readthedocs.io/en/release-2.2/configtx.html){: external}.
 {:tip}
