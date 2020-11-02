@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-10-19"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -272,7 +272,7 @@ The SDK can then use service discovery to receive the list of peers and ordering
 
 After you update your application to take advantage of service discovery, you can get [started with the upgrade tool](/docs/blockchain/reference?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool) and start creating nodes on the new platform. You can continue to use your Enterprise Plan connection profile and submit transactions to your Enterprise Plan network.
 
-After all of the organizations in your network have created nodes on the new platform, and you have used the tool to migrate your chaincode, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to download a new connection profile. The {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile can be downloaded from the **Organization MSP** tile on the **Organizations** panel. You can use the connection profile for all of your channels if you joined the same peers to each channel. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Chaincode is referred to as smart contracts on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console UI.
+After all of the organizations in your network have created nodes on the new platform, and you have used the tool to migrate your chaincode, you can use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to download a new connection profile. The {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile can be downloaded from the **Organization MSP** tile on the **Organizations** panel. You can use the connection profile for all of your channels if you joined the same peers to each channel. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK-panel). Chaincode is referred to as smart contracts on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console UI.
 
 After you import the new connection profile, you need to use the Certificate Authority on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 to enroll a new identity for your application. Your application can then use service discovery to submit transactions to your nodes on the new platform and the nodes that remain on Enterprise Plan.
 

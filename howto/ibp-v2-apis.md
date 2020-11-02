@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-18"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -126,7 +126,7 @@ Example cURL commands are provided for each API in the [{{site.data.keyword.bloc
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.15 - v1.18 container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform.
+You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.16 - v1.19 container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform.
 
 ## Building a network by using APIs
 {: #ibp-v2-apis-build-with-apis}
@@ -160,7 +160,7 @@ You can use APIs to create blockchain components in your instance of the {{site.
 
 7. If you want to use the console to operate your blockchain components, you must import your administrator identity into your console wallet. Use the wallet tab to import the certificate and private key of your node admin into the console and create an identity. You then need to use the console to associate this identity with the components you created. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
-8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
+8. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and deploy smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 
 The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
@@ -410,7 +410,7 @@ You can also use the APIs to import {{site.data.keyword.blockchainfull_notm}} co
 
 5. If you plan to use the {{site.data.keyword.blockchainfull_notm}} Platform console to operate your blockchain components, you must import your component administrator identities into your console wallet. For more information, see [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](#ibp-v2-apis-admin-console).
 
-6. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and install or instantiate smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
+6. After you deploy your network, you can use the Fabric SDKs, the Peer CLI, or the console UI to create channels and deploy smart contracts. If you need to programmatically create a channel, you must provide the consortium name. For {{site.data.keyword.blockchainfull}} Platform, the consortium name must be set to `SampleConsortium`.
 
 
 The service credential that is used for API authentication must have the `Manager` role in IAM to be able to create components. See the table on [user roles](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
@@ -430,7 +430,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
 
 1. Download the [Fabric CA client](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-client){: external} to your local file system.
 
-  The easiest way to get the Fabric CA client is to download all of the Fabric tool binaries directly. Navigate to a directory where you would like to download the binaries with your command line, and fetch them by running the following [cURL](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html#install-curl){: external} command.
+  The easiest way to get the Fabric CA client is to download all of the Fabric tool binaries directly. Navigate to a directory where you would like to download the binaries with your command line, and fetch them by running the following [cURL](https://hyperledger-fabric.readthedocs.io/en/release-2.2/prereqs.html#install-curl){: external} command.
 
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.3 1.4.3 -d -s
@@ -519,7 +519,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```
   {:codeblock}
 
-  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see the [Membership Service Providers](https://hyperledger-fabric.readthedocs.io/en/release-1.4/msp.html){: external} concept topic in the Fabric documentation.
+  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see the [Membership Service Providers](https://hyperledger-fabric.readthedocs.io/en/release-2.2/msp.html){: external} concept topic in the Fabric documentation.
 
   If the `enroll` command fails, see the [Troubleshooting topic](#ibp-v2-apis-config-troubleshooting) for possible causes.
 

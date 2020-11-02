@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-16"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -140,11 +140,10 @@ The exports and imports of MSPs are performed in the **Organizations** tab.
  2. Browse to the MSP JSON file and click **Add file**.
  3. Click **Import MSP**.  
 
+**Note:** Under some circumstances, it is possible that the Node OU checkbox may be visible and checked when you import an MSP into your console. If that occurs, it is recommended that you leave it checked so that it enables Fabric Node OU support for the MSP, which simplifies the certificate renewal process for you in the future.
 
-**Note:** Node OU support should not be enabled when you import an MSP. To avoid problems you need to deselect the Node OU check box.
-    ![Import MSP with Node OU enabled](../images/import-msp-nodeou.png "Import MSP with Node OU enabled"){: caption="Figure 2. Import MSP with Node OU enabled" caption-side="bottom"}
 
- Repeat these steps for each organization that is included in your channel.
+Repeat these steps for each organization that is included in your channel.
 
 ## Importing a peer
 {: #ibp-console-import-peer}
@@ -240,7 +239,7 @@ After you have imported the ordering service into the console, you can add new o
 ## Importing nodes from a locally deployed network
 {: #ibp-console-import-icp}
 
-You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, and Kubernetes v1.15 - v1.18 environments into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using an allowlist, to allow the console outside the cluster to communicate with your nodes.
+You can import nodes that were created through {{site.data.keyword.cloud_notm}}, Red Hat OpenShift, and Kubernetes v1.16 - v1.19 environments into blockchain consoles that have been deployed on other clusters or on {{site.data.keyword.cloud_notm}}. However, you need to ensure that the port used by the gRPC URL of your nodes is exposed from outside the cluster. If you are deploying your network behind a firewall, you need to enable a passthru, for example by using an allowlist, to allow the console outside the cluster to communicate with your nodes.
 
 As an example, you can find the JSON file of a peer below. To communicate with the peer from another console, you need to ensure that the `grpcwp_url` port, port 32403 in this example, is open to external traffic.
 

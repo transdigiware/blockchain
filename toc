@@ -23,7 +23,12 @@ IBM Blockchain Platform for IBM Cloud
 	Getting started tutorials
 		howto/ibp-console-build-network.md
 		howto/ibp-console-join-network.md
-		howto/ibp-console-smart-contracts.md
+
+		{: .topicgroup}
+		Deploy a smart contract
+			howto/ibp-console-smart-contracts.md
+			howto/ibp-console-smart-contracts-v2.md
+			howto/ibp-console-smart-contracts-v14.md
 
 		howto/ibp-console-create-app.md
 		reference/videos.md
@@ -63,6 +68,7 @@ IBM Blockchain Platform for IBM Cloud
 	{: .topicgroup}
 	Developing smart contracts and applications
 		vscode-extension.md
+		write-powerful-smart-contracts.md
 		best_practices.md
 
 	{: .topicgroup}
@@ -119,15 +125,16 @@ IBM Blockchain Platform for IBM Cloud
 	reference/v10_fabric.md
 	reference/k8s.md
 	reference/ibp_regions.md
+	reference/hsm-pkcs11.md
+	reference/hsm-pkcs11-ic.md
 	[IBM Cloud storage](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
 	glossary.md
 	{: .navgroup-end}
 
 	{: .navgroup id="help"}
 	release-notes.md
+	knownissues-saas.md
 	howto/ibp-v2-troubleshooting.md
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
-
-	

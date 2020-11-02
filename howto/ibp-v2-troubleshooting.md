@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-30"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -41,6 +41,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
+- [Why is my smart contract installation failing with an error on my peer?](#ibp-v2-troubleshooting-sc-install)
 - [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
@@ -73,6 +74,9 @@ This topic describes common issues that can occur when you use the {{site.data.k
 **Issues with upgrading your Enterprise Plan network**  
 
 - [How can I retry a chaincode migration?](#ibp-v2-troubleshooting-upgrade-tool)
+
+
+
 
 
 
@@ -165,7 +169,41 @@ You may receive this error if this version of the smart contract already exists 
 - If you are still experiencing problems after the node is up, [check your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)  for errors.
 {: tsResolve}
 
+## Why is my smart contract installation failing with an error on my peer?
+{: #ibp-v2-troubleshooting-sc-install}
+{: troubleshoot}
+{: support}
 
+{: tsSymptoms}
+Installing a smart contract on a peer fails with an error similar to the following:
+
+```
+An error occurred when installing smart contract on peer.
+error in simulation: failed to execute transaction
+421fac...2fda: error sending: timeout expired while executing transaction.
+```
+
+{: tsCauses}
+When running the {{site.data.keyword.blockchainfull_notm}} Platform on s390x architecture, or in an environment with constrained resources, it is possible that smart contract installation can fail on a peer if the default timeout is too short on the peer that is running the Fabric v2x image.
+
+In some cases, if you simply wait several minutes and then refresh the **Smart contracts** tab in the console, you can see that the smart contract was successfully installed. You can customize how long the console waits for the installation to complete by changing the console settings with the [APIs](/apidocs/blockchain#edit-settings). See the `fabric_lc_install_cc_timeout_ms` setting. In some cases, it is the peer itself that is timing out and you need to override the peer configuration to extend its time out.
+{: tsResolve}
+
+1. From the console, open the peer tile and click the **Settings** icon.
+2. Click **Edit configuration JSON (Advanced)**.
+3. In the **Configuration updates** box paste the following text and click **Update peer**.
+  ```
+  {
+   "chaincode":{
+      "startuptimeout":"300s",
+      "installTimeout":"600s",
+      "executetimeout":"30s"
+    }
+  }
+  ```
+  {: codeblock}
+
+The peer restarts and then you can retry the smart contract installation. Because the original installation failed you need to specify a new smart contract name and version. 
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}
@@ -304,7 +342,7 @@ When I try to invoke a smart contract from the Fabric SDK, the transaction fails
 error: [Network]: _initializeInternalChannel: no suitable peers available to initialize from Failed to submit transaction: Error: no suitable peers available to initialize from
 ```
 
-This error occurs if you have not configured an anchor peer on your channel. Unless you have manually updated your connection profile, your application needs to use the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external} feature to learn about the peers it needs to submit the transaction to.
+This error occurs if you have not configured an anchor peer on your channel. Unless you have manually updated your connection profile, your application needs to use the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} feature to learn about the peers it needs to submit the transaction to.
 {: tsCauses}
 
 Use the following steps to [configure anchor peers on your channel](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
@@ -442,7 +480,7 @@ When I invoke a smart contract to submit a transaction, the transaction returns 
 returned error: VSCC error: endorsement policy failure, err: signature set did not satisfy policy
 ```
 
-If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse) and [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade).
+If you have recently joined a channel and installed the smart contract, this error occurs if you have not added your organization to the endorsement policy. Because your organization is not on the list of organizations who can endorse a transaction from the smart contract, the endorsement from your peers is rejected by the channel. If you encounter this problem, you can change the endorsement policy by upgrading the smart contract. For more information, see [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-install-propose) and [Versioning a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-versioning).
 {: tsCauses}
 
 ## Why are the transactions I submit from VS Code failing with a No endorsement plan available error?
@@ -459,7 +497,7 @@ Error submitting transaction: No endorsement plan available for {"chaincodes":[{
 This error occurs if you are using the Fabric Service Discovery feature but did not configure any anchor peers on your channel.
 {: tsCauses}
 
-Follow step three of the [private data topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
+Follow step three of the [private data topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-private-data) in the Deploy a smart contract tutorial to configure your anchor peers.
 {: tsResolve}
 
 ## Why are the transactions I submit from VS Code failing with an endorsement failure?
@@ -504,6 +542,7 @@ All contracts were lost after the procedure to upgrade the smart contract contai
 
 [Delete all the peer pods](#ibp-troubleshooting-delete-peer). This deletion triggers the peer to be created again and restarts the proxy.
 {: tsResolve}
+
 
 
 ## My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?
@@ -568,10 +607,9 @@ Complete the following steps with the upgrade tool to retry a failed chaincode m
 
 1. Fix your chaincode source code to resolve the problem that caused the migration failure. You can test your chaincode by installing and instantiating it on a test network to confirm that the chaincode can build correctly.
 
-2. Install and instantiate the updated chaincode on your Enterprise Plan network with a different **version**.
+2. Deploy the updated chaincode on your Enterprise Plan network with a different **version**.
 
 3. After you have installed the updated chaincode, you can refresh the migration tool in your browser to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
 
 If you cannot change the chaincode version, you need to use the upgrade tool to delete the upgraded peer on the new platform and then use the tool to create a new peer. After you have fixed the chaincode source code and installed and instantiated it on your Enterprise Plan network, you can use the tool to install a fixed version of your chaincode on the new peer.
-
 

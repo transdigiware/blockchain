@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-11-02"
 
 keywords: site map
 subcollection: blockchain
@@ -161,7 +161,7 @@ subcollection: blockchain
 [Getting started](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-deploy)
 
 [Architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)
-* [IBM Blockchain Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-iks)
+* [{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-iks)
 * [IBM Blockchain Platform on Red Hat OpenShift Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-ocp)
 
 [Integrating with {{site.data.keyword.cloud_notm}} and other third-party services](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-v2-deploy-iks-integrations)
@@ -176,6 +176,8 @@ subcollection: blockchain
 
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
+
+[November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
 
 [August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
 
@@ -294,21 +296,52 @@ subcollection: blockchain
   * [Creating a channel: `channel2`](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-build-network-create-channel1)
 * [Next steps](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-next-steps)
 
-[Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts)
+
+## Deploy a smart contract
+{: #sitemap_deploy_a_smart_contract}
+
+
+[Deploy a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts)
 * [Sample network tutorial series](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-before)
-* [Step one: Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package)
-  * [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor)
-* [Step two: Install a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-install)
-* [Step three: Instantiate a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)
-* [Step four: Send transactions by using your client applications](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK)
-  * [Connect with SDK](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel)
-* [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)
-  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse-user-type)
-* [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)
-  * [How to upgrade a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade-howto)
-  * [Considerations when you upgrade smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade-considerations)
-* [Private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)
+
+[Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before)
+  * [Ensure peer is running Fabric v2.x image](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-fabimage)
+  * [Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-update-consortium)
+  * [Create channel and join peers](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-peer)
+  * [Export and Import Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-msps)
+  * [Peer admin identity](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-peer-admin)
+* [Limitations](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-limitations)
+  * [Can I continue to use the Fabric SDK to deploy my smart contracts?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-sdk)
+  * [What happens to my existing smart contracts?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-existing-sc)
+* [Step one: Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg)
+  * [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor)
+  * [Versioning smart contract definition and packages](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg-best-practice)
+* [Step two: Install and Propose smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-install-propose)
+* [Step three: Approve smart contract definition](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-approve)
+* [Step four: Commit smart contract definition](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-commit)
+* [How do I?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-faq)
+* [Specifying a smart contract endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-endorse)
+  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-endorse-user-type)
+* [Versioning a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-versioning)
+* [Important considerations when you update smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-upgrade-considerations)
+* [Private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-private-data)
+* [Implicit data collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-implicit-colln)
+
+[Deploy a smart contract using Fabric v1.4 (Legacy)](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-before)
+* [Step one: Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-write-package)
+  * [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-write-package-vendor)
+* [Step two: Install a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-install)
+* [Step three: Instantiate a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-instantiate)
+* [Step four: Send transactions by using your client applications](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK)
+  * [Connect with SDK](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK-panel)
+* [Specifying an endorsement policy](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-endorse)
+  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-endorse-user-type)
+* [Upgrading a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade)
+  * [How to upgrade a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-howto)
+  * [Considerations when you upgrade smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-considerations)
+* [Private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data)
 
 
 ## Creating applications
@@ -318,6 +351,13 @@ subcollection: blockchain
 [Creating applications](/docs/blockchain?topic=blockchain-ibp-console-app)
 
 [Learning resources](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
+* [High-Level Fabric contract APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-high-level)
+* [Low-Level Fabric SDK APIs**](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
+* [Network considerations](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-networking)
+
+[Application compatibility](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat)
+* [SDKs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sdk)
+* [Smart contracts](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sc)
 
 [Registering an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities)
 
@@ -328,10 +368,19 @@ subcollection: blockchain
 [Invoking a smart contract by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke)
 
 [Running the Commercial Paper sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)
+* [Prerequisites](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-prereq)
+* [Step one: Download the sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-one-download-sample)
+* [Step two: Install and Propose smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-two-install-propose)
+* [Step three: Generate certificates for your wallet](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-three-generate-certificates)
+* [Step four: Use the connection profile to build a Fabric gateway](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-four-gateway)
+* [Step five: Invoke the smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
+* [Step six: Operate the sample as Digibank](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 
 [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
 
 [Using indexes with CouchDB](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-couchdb)
+
+[Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
 
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform getting started videos
@@ -459,9 +508,13 @@ subcollection: blockchain
 
 [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-7)
 
+[What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
+
 [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
 
 [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+
+[How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
 
 [What database do the peers use for their ledger?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
 
@@ -485,6 +538,8 @@ subcollection: blockchain
 
 [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
 
+[Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
+
 [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
 
 [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ldap)
@@ -503,7 +558,7 @@ subcollection: blockchain
 
 [How often do updates get rolled out for the CodeReady Workspace extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-updates)
 
-[How can I test out my smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
+[How can I test my smart contract that are running in CodeReady workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
 
 [How can I find the examples and tutorials within the VSCode extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-vscode-tutorials)
 
@@ -565,7 +620,7 @@ subcollection: blockchain
   * [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)
   * [Viewing your smart contract container logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs)
   * [Using LogDNA to view the node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logdna)
-* [Updating your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
+* [Upgrading your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
 * [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration)
 
 [Advanced deployment options](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment)
@@ -594,7 +649,8 @@ subcollection: blockchain
 * [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
   * [What capability does HSM add to my blockchain node?](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-capability)
   * [Considerations when using HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-considerations)
-  * [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy)
+  * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-before)
+  * [Build a Docker image](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker)
   * [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node)
 
 [Advanced channel deployment and management](/docs/blockchain?topic=blockchain-ibp-console-govern)
@@ -690,6 +746,11 @@ subcollection: blockchain
   * [Automatic certificate renewal](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-auto-renewal)
   * [Certificate types and actions](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-cert-types)
 * [Manual certificate renewal](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-renewal)
+* [Renew the CA TLS certificate](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-ca-tls)
+* [Renew Peer enrollment and TLS Certificates](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-enroll-tls-peer)
+* [Renew ordering node enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-enroll-tls-ordering-node)
+  * [Considerations for a single node ordering service](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-renewal-os1)
+* [Renew MSP Admin certificate](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-renewal-admin)
   * [Step one: Enroll new identity](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-enroll)
   * [Step two: Update organization MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-msp)
   * [Step three: Associate new admin identity on peer or ordering service](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-node-identity)
@@ -697,18 +758,25 @@ subcollection: blockchain
   * [Step five: Update channel member on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-channel-member)
   * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-os-admin)
   * [Step seven: Update orderer organization MSP on channel](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-update-channel)
+* [Certificates from an external CA](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-ext-ca)
+  * [Peer and ordering node enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-ext-ca-enrollment-tls)
+  * [Peer and ordering node organization admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-manual-ext-ca-admin)
 * [Bulk admin certificate renewal with Ansible playbooks](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-bulk-ansible)
 * [Expired certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs)
   * [How to fix expired organization admin certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin)
-  * [How to fix expired enrollment and TLS certificates](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-ecerts)
 * [Using the command line to view certificate expiration](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-cli-expiration)
 * [Export an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-export-msp)
 * [Import an MSP](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-import-msp)
 
-[Managing deployed components](/docs/blockchain?topic=blockchain-ibp-console-govern-components)
+[Upgrading and deleting deployed nodes](/docs/blockchain?topic=blockchain-ibp-console-govern-components)
 * [Considerations when reallocating resources](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources)
   * [Monitoring file storage](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-monitor-storage)
   * [Adding storage](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-add-storage)
+* [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade)
+  * [Step one: Backup your ledger](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-one-ledger)
+  * [Step two: Upgrade your nodes one at a time](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
+  * [Step three: Update SDKs and smart contracts](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-three)
+  * [Step four: Update capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-four-rolling-upgrade)
 * [Deleting components](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-delete)
 
 [Operating nodes with operations service](/docs/blockchain?topic=blockchain-operations_service)
@@ -736,19 +804,30 @@ subcollection: blockchain
   * [Install the extension](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-installing-the-extension)
 * [Step one: Guided tutorials in VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-guided-tutorials)
 * [Step two: Create a smart contract project](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-creating-a-project)
+  * [Do I need to update my smart contract for Fabric v2.x?](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-creating-a-project-v2)
 * [Step three: Package a smart contract](/docs/blockchain?topic=blockchain-develop-vscode#packaging-a-smart-contract)
   * [Exporting, importing, and deleting a smart contract package](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exporting-deleting-smart-contract-package)
 * [Step four: Deploy a smart contract to a preconfigured Hyperledger Fabric network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy)
   * [Deploying a preconfigured Hyperledger Fabric network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-and-disconnecting)
-  * [Deploying your smart contract to the preconfigured network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract)
+  * [VS Code Extension v2: Deploying your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract-v2)
+  * [VS Code Extension v1: Deploying your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract)
   * [Interacting with your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-submitting-transactions)
   * [Connecting your applications to the preconfigured network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exploring-connection-details)
 * [Step five: Debug a smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-development-mode)
-* [Step six: Test an instantiated  smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
+* [Step six: Test an instantiated or committed smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
 * [Step seven: Connect to your {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp)
-  * [Invoke a smart contract that has been instantiated on your channels](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-invoke)
-  * [Install and instantiate  a smart contract from VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)
+  * [Invoke a smart contract that has been instantiated or committed on your channels](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-invoke)
+  * [Deploy a smart contract from VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)
   * [Adding wallets and users](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-add-a-wallet)
+
+[Writing powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts)
+* [What's new in the new lifecycle](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-new-vs-old)
+* [Packages and definitions](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-packages-definitions)
+  * [Taking advantage of the ability for each organization to use a separate package](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-packages-definitions-separate)
+* [Updating smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-updating)
+* [Putting it all together](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-summary)
+* [Smart contract development tooling](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-tooling)
+* [Installing a package and proposing a definition](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-installing-proposing)
 
 [Best practices for application development](/docs/blockchain?topic=blockchain-best-practices-app)
 * [Application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability)
@@ -784,8 +863,7 @@ subcollection: blockchain
   * [Part One: Set up the HSM device and HSM client](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-one)
   * [Part Two: Configure communications between the HSM server and client](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-two)
   * [Part Three: Register the client with the HSM server](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-three)
-  * [Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
-  * [Part Five: Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-five)
+  * [Part Four: Build a Docker image](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
   * [What's next](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
 * [Using multiple partitions](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
 
@@ -1109,11 +1187,27 @@ subcollection: blockchain
 [Enterprise Plan](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-se)
 
 
+## HSM PKCS #11 proxy
+{: #sitemap_hsm_pkcs_#11_proxy}
+
+
+[HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy)
+
+
+## IBM Cloud HSM PKCS #11 proxy
+{: #sitemap_ibm_cloud_hsm_pkcs_#11_proxy}
+
+
+[IBM Cloud HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic)
+
+
 ## Glossary
 {: #sitemap_glossary}
 
 
 [Glossary](/docs/blockchain?topic=blockchain-glossary)
+
+[Approve](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
 
 [Asset](/docs/blockchain?topic=blockchain-glossary#glossary-asset)
 
@@ -1128,6 +1222,8 @@ subcollection: blockchain
 [Channel](/docs/blockchain?topic=blockchain-glossary#glossary-channel)
 
 [Client](/docs/blockchain?topic=blockchain-glossary#glossary-client)
+
+[Commit](/docs/blockchain?topic=blockchain-glossary#glossary-commit)
 
 [Connection profile](/docs/blockchain?topic=blockchain-glossary#glossary-connection-profile)
 
@@ -1167,6 +1263,8 @@ subcollection: blockchain
 
 [LevelDB](/docs/blockchain?topic=blockchain-glossary#glossary-leveldb)
 
+[Lifecycle endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-lifecycle-ep)
+
 [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member)
 
 [MSP](/docs/blockchain?topic=blockchain-glossary#glossary-msp)
@@ -1183,9 +1281,13 @@ subcollection: blockchain
 
 [Organization](/docs/blockchain?topic=blockchain-glossary#glossary-organization)
 
+[Out of band](/docs/blockchain?topic=blockchain-glossary#glossary-out-of-band)
+
 [Participant](/docs/blockchain?topic=blockchain-glossary#glossary-participant)
 
 [Peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer)
+
+[Propose](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
 
 [Quorum](/docs/blockchain?topic=blockchain-glossary#glossary-quorum)
 
@@ -1201,6 +1303,12 @@ subcollection: blockchain
 
 [Smart contracts](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts)
 
+[Smart contract definition](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-def)
+
+[Smart contract endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-transaction-ep)
+
+[Smart contract package](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-pkg)
+
 [State database](/docs/blockchain?topic=blockchain-glossary#glossary-state-database)
 
 [Transaction](/docs/blockchain?topic=blockchain-glossary#glossary-transaction)
@@ -1215,6 +1323,13 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[02 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020)
+* [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-upgrade)
+* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-lc)
+* [Improvements for HSM support](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-hsm)
+* [Certificate renewal enhancements](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-cert-renew)
+* [Remove registered user from CA](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-delete-user)
 
 [1 Oct 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-01-2020)
 
@@ -1262,6 +1377,15 @@ subcollection: blockchain
 [3 April 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-03-2019)
 
 
+## Known issues
+{: #sitemap_known_issues}
+
+
+[Known issues](/docs/blockchain?topic=blockchain-known-issues-saas)
+
+[Nil pointer when creating HSM-configmap](/docs/blockchain?topic=blockchain-known-issues-saas#known-issues-hsm-configmap)
+
+
 ## Troubleshooting
 {: #sitemap_troubleshooting}
 
@@ -1277,6 +1401,8 @@ subcollection: blockchain
 [Why am I getting the error `Unable to get system channel` when I open my ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshoot-ordering-service)
 
 [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
+
+[Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
 
 [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 

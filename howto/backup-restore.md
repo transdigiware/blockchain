@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-20"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -39,12 +39,11 @@ Because an ordering node cannot pull blocks from a peer, **all peers must be bac
 
 If you're using CouchDB, which is mounted in a separate pod than the peer, back up the persistent volume associated with CouchDB before the volume associated with the peer pod. This is because the peer checks on CouchDB after booting and if anything is missing from CouchDB, the peer can push transactions to it which CouchDB integrates into the database. However, any transactions in the state database cannot be pushed back to the peer.
 
-As a rule, it is a good practice to schedule backups (also known as "snapshots") to happen at the same time across the network. For example, if all of the peers in the network are using CouchDB, schedule all of the CouchDB persistent volumes to be backed up at the same time, followed by all of the peer persistent volumes (again, at the same time), and then the ordering node persistent volumes (if multiple organizations are contributing ordering nodes, these snapshots must be coordinated with other organizations). For an example of a backup schedule a network might choose to adopt, check out [Example snapshot schedule](#backup-restore-example).
+As a rule, it is a good practice to schedule backups (also known as "snapshots") to happen at the same time across the network. For example, if all of the peers in the network are using CouchDB, schedule all of the CouchDB persistent volumes to be backed up at the same time, followed by all of the peer persistent volumes (again, at the same time), and then the ordering node persistent volumes (if multiple organizations are contributing ordering nodes, these snapshots must be coordinated with other organizations). For an example of a backup schedule a network might choose to adopt, check out [Scheduling snapshots](#backup-restore-schedule-snapshot).
 
-While it is a best practice to periodically back up your Certificate Authority, these backups do not have to be coordinated with the rest of the network. CAs with a local database have a single persistent volume. If you are using `PostGreSQL`, the CA has an additional persistent volume associated with it that must also be backed up. For information about how to take backups of a `PostGreSQL` database, check out [Managing Backups](https://cloud.ibm.com/docs/databases-for-postgresql?topic=cloud-databases-dashboard-backups){: external} from the Databases for PostgreSQL documentation.
+While it is a best practice to periodically back up your Certificate Authority, these backups do not have to be coordinated with the rest of the network. CAs with a local database have a single persistent volume. If you are using `PostGreSQL`, the CA has an additional persistent volume associated with it that must also be backed up. For information about how to take backups of a `PostGreSQL` database, check out [Managing Backups](/docs/databases-for-postgresql?topic=cloud-databases-dashboard-backups){: external} from the Databases for PostgreSQL documentation.
 
 The following node-specific guidance is provided to help plan your disaster recovery strategy.
-
 
 ### Backup considerations for each node type
 {: #backup-restore-node-considerations}
@@ -95,7 +94,7 @@ For the peer pods:
 For the ordering node pods:
 - Ordering node snapshots daily at 5:00 a.m. The two-hour gap allows sufficient time for all of the peers to be snapshotted from every organization before ordering nodes are snapshotted.
 
-If you are using **private data collections** in your applications, your nodes must be running Hyperledger Fabric 2.2.1 or higher in order to back up peer and ordering nodes while they are running. When restoring from a backup, the peers must be restored from a lower block height than the ordering nodes. While peers can catch up to the block height of the ordering service, the ordering service does not have the actual private data corresponding (in a private data transaction, only hashes of the data are committed to the public ledger), rendering the data for these blocks unavailable. Fabric v2.2.1 and higher has a configurable option to lower the priority for the reconciliation of missing private data. Earlier versions constantly attempt to reconcile the missing private data, potentially blocking out reconciliation of other private data. On earlier versions of Hyperledger Fabric, you must back up ordering nodes and peers at exactly the same block heights to avoid this issue. This can be accomplished by scaling the both the peer and ordering node pods to 0 before taking the backup.
+If you are using **private data collections** in your applications, your nodes must be running Hyperledger Fabric 2.2.1 or higher in order to back up peer and ordering nodes while they are running. When restoring from a backup, the peers must be restored from a lower block height than the ordering nodes. While peers can catch up to the block height of the ordering service, the ordering service does not have the actual private data (in a private data transaction, only hashes of the data are committed to the public ledger), rendering the data for these blocks unavailable. Fabric v2.2.1 and higher has a configurable option to lower the priority for the reconciliation of missing private data. Earlier versions constantly attempt to reconcile the missing private data, potentially blocking out reconciliation of other private data. On earlier versions of Hyperledger Fabric, you must back up ordering nodes and peers at exactly the same block heights to avoid this issue. This can be accomplished by scaling the both the peer and ordering node pods to 0 before taking the backup.
 
 ## Taking snapshots
 {: #backup-restore-take-snapshot}
@@ -187,7 +186,7 @@ Source:
 Events:        <none>
 ```
 
-You can then order snapshots for that volume, which can be done by using either the CLI or the cluster UI. For information on how to take the snapshot, see [Ordering Snapshots](https://cloud.ibm.com/docs/FileStorage?topic=FileStorage-ordering-snapshots){: external}.
+You can then order snapshots for that volume, which can be done by using either the CLI or the cluster UI. For information on how to take the snapshot, see [Ordering Snapshots](/docs/FileStorage?topic=FileStorage-ordering-snapshots){: external}.
 
 In this case, "ordering" refers to the "order to take snapshots" and not "ordering nodes").
 {: tip}
@@ -205,7 +204,7 @@ You might need more or less than 5 GB of space, depending on the size of the pod
 Taking a snapshot incurs charges on your account. Press `y` to accept the charges and order the snapshot.
 
 Alternatively, you can enable snapshots to be taken on a regular schedule for a particular volume. For information on how to set of a snapshot schedule, see
-[Adding a Snapshot schedule](https://cloud.ibm.com/docs/FileStorage?topic=FileStorage-managingSnapshots#addschedule){: external}.
+[Adding a Snapshot schedule](/docs/FileStorage?topic=FileStorage-managingSnapshots#addschedule){: external}.
 
 Again, for our example, we use the CLI to set up a daily snapshot of a CouchDB volume at 3:00 a.m. and retain seven snapshots.
 
@@ -328,7 +327,7 @@ Note that `peera` is not ready.
 
 Use the commands in the [Peer snapshot](#backup-restore-peer-snapshot) section to find the persistent volumes that are associated with the peer. Peers using CouchDB have two volumes.
 
-For each volume, list the available snapshots for that volume. For information on how to list available snapshots, see [Listing all Snapshots with Space Used Information and Management functions](https://cloud.ibm.com/docs/FileStorage?topic=FileStorage-managingSnapshots#listing-all-snapshots-with-space-used-information-and-management-functions){: external}.
+For each volume, list the available snapshots for that volume. For information on how to list available snapshots, see [Listing all Snapshots with Space Used Information and Management functions](/docs/FileStorage?topic=FileStorage-managingSnapshots#listing-all-snapshots-with-space-used-information-and-management-functions){: external}.
 
 For our example, we use CLI and restore a specific snapshot from our volume ID for the CouchDB pod that is associated with `peera`:
 
@@ -344,7 +343,7 @@ id          user_name             created                     size_bytes   notes
 167189176   IBM02SEV2046428_106   2020-09-03T03:00:00-05:00   143089      
 ```
 
-Pick the snapshot you'd like to restore from the list, keeping in mind that the CouchDB backup must be older than the peer pod backup, and restore it. For information on how to restore the snapshot, see [Restoring storage volume to a specific point-in-time by using a snapshot](https://cloud.ibm.com/docs/FileStorage?topic=FileStorage-managingSnapshots#restoring-storage-volume-to-a-specific-point-in-time-by-using-a-snapshot){: external}.
+Pick the snapshot you'd like to restore from the list, keeping in mind that the CouchDB backup must be older than the peer pod backup, and restore it. For information on how to restore the snapshot, see [Restoring storage volume to a specific point-in-time by using a snapshot](/docs/FileStorage?topic=FileStorage-managingSnapshots#restoring-storage-volume-to-a-specific-point-in-time-by-using-a-snapshot){: external}.
 
 Restore by using the snapshot:
 

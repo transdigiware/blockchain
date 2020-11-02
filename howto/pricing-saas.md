@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-11-02"
 
 keywords: pricing model, hourly, per hour, VPC, CPU, vCPU, virtual core, cost, scalability, estimation, optimize your cost, billing, free, trial, preview, pricing examples
 
@@ -17,7 +17,6 @@ subcollection: blockchain
 {:note: .note}
 {:important: .important}
 {:tip: .tip}
-{:gif: data-image-type='gif'}
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
 {:pre: .pre}
@@ -26,7 +25,7 @@ subcollection: blockchain
 # Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 {: #ibp-saas-pricing}
 
-This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.7 and v2.x.
+This guide helps you understand the pricing model for {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}}, and how much you will pay when you develop and grow your blockchain network of peers, ordering nodes, and Certificate Authorities components, which are based on Hyperledger Fabric v1.4.9 and v2.2.1.
 {:shortdesc}
 
 ## Pricing model
@@ -75,7 +74,6 @@ The following capabilities are only available on a paid cluster:
 - Selecting a specific Kubernetes zone when deploying a node.
 - Overriding node configuration during or after deployment by using the console or APIs.
 - Adding or removing ordering nodes to an ordering service. The free offering only supports a single node Raft ordering service.
-
 
 **How to preview {{site.data.keyword.IBM_notm}} Blockchain Platform for free**  
 {: #ibp-saas-pricing-free-howto}
@@ -150,7 +148,6 @@ The values in the following table are useful to estimate the hourly cost of your
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 

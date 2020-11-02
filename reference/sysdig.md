@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-10-23"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -38,7 +38,7 @@ Monitoring the resource allocation for your blockchain nodes is a key part of op
 
 This tutorial uses the Free 30-day Trial version of the service, but more advanced features are available in the **Graduated tier** which you can explore if your requirements merit.
 
-The {{site.data.keyword.mon_full_notm}} service is currently only available in a subset of [regions](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-endpoints#endpoints_regions).  It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance.
+It is recommended that the Sysdig monitoring instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance. See [Enabling Platform Metrics](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling) for more information.
 {: note}
 
 ## Before you begin

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-04"
+lastupdated: "2020-10-16"
 
 keywords: IBM Blockchain Platform, support case, Hyperledger Fabric Community, Cloud tickets, Rocket Chat, dWAnswers
 
@@ -45,7 +45,7 @@ If your problem cannot be solved by any of the [free digital support resources](
   [{{site.data.keyword.blockchainfull_notm}} Service docs](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp), provides guidance on how to start with {{site.data.keyword.blockchainfull_notm}} Platform. You can find corresponding topics from the table of contents or search any term from the search bar.
 
 **Hyperledger Fabric resources**  
-  [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}, the [Fabric community wiki](https://wiki.hyperledger.org/display/fabric){: external}, and the [Fabric Jira dashboard](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} provide more details about the Fabric stack.
+  [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/){: external}, the [Fabric community wiki](https://wiki.hyperledger.org/display/fabric){: external}, and the [Fabric Jira dashboard](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104){: external} provide more details about the Fabric stack.
 
   You can also talk to a Fabric expert in [Rocket.Chat](https://chat.hyperledger.org/channel/fabric){: external} to get answers to questions about Fabric.
 

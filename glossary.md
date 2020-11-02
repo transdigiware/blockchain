@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-10-18"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -23,10 +23,12 @@ subcollection: blockchain
 
 
 
-This topic defines {{site.data.keyword.blockchainfull}} Platform-specific terms that appear in this documentation. For a deeper understanding of terms, and for a glossary of terms that relate to Hyperledger Fabric concepts, refer to the [Hyperledger Fabric glossary](https://hyperledger-fabric.readthedocs.io/en/release-1.4/glossary.html){: external}.
+This topic defines {{site.data.keyword.blockchainfull}} Platform-specific terms that appear in this documentation. For a deeper understanding of terms, and for a glossary of terms that relate to Hyperledger Fabric concepts, refer to the [Hyperledger Fabric glossary](https://hyperledger-fabric.readthedocs.io/en/release-2.2/glossary.html){: external}.
 {:shortdesc}
 
-
+## Approve
+{: #glossary-propose}
+Referring to a step in the Hyperledger Fabric v2.x smart contract lifecycle, a smart contract definition is approved by organizations on the channel. After the number of approvals that are specified in the channel lifecycle endorsement policy are satisfied, the smart contract definition can be committed to a channel, and the peers where it is installed can begin to process requests.
 
 ## Asset
 {: #glossary-asset}
@@ -46,7 +48,7 @@ The ledger’s chain is a transaction log structured as hash-linked blocks of tr
 
 ## Chaincode
 {: #glossary-chaincode}
-Also known as **smart contracts**, chaincode are the pieces of software that contain a set of functions to query or update the ledger.
+Where **smart contracts** contain the business logic that governs the interactions for a set of assets, "chaincode" describes the larger set of packages and infrastructure that encompass the smart contract.
 
 ## Channel
 {: #glossary-channel}
@@ -56,7 +58,9 @@ Consisting of a subset of network members who want to transact privately. Channe
 {: #glossary-client}
 The client represents the entity that acts on behalf of a user. It must connect to a peer for communicating with the blockchain. The client might connect to any peer of its choice. Clients create and thus invoke transactions. The client submits an actual transaction invocation to the endorsers, and broadcasts transaction proposals to the ordering service.
 
-
+## Commit
+{: #glossary-commit}
+Referring to a step in the Hyperledger Fabric v2.x smart contract lifecycle, after the number of approvals that are specified in the channel lifecycle endorsement policy are satisfied, the smart contract definition can be committed to a channel, and the peers where it is installed can begin to process requests.
 
 ## Connection profile
 {: #glossary-connection-profile}
@@ -80,7 +84,7 @@ The group of non-orderer organizations listed on the orderer system channel. The
 
 ## CouchDB
 {: #glossary-couchdb}
-A document store that can be used as the state database of your peers. Using CouchDB allows you to use rich queries and deploy indexes with your chaincode.
+A document store that can be used as the state database of your peers. Using CouchDB allows you to use rich queries and deploy indexes with your smart contract.
 
 ## Current state
 {: #glossary-current-state}
@@ -92,11 +96,11 @@ A member can be dynamically added to the network by a user with **registrar** pr
 
 ## Endorsement
 {: #glossary-endorsement}
-The process by which chaincode transactions are validated. Endorsement rules are implemented by specifying endorsement policies.
+The process by which transactions are validated. Endorsement rules are implemented by specifying endorsement policies, which define the organizations that must approve of a transaction.
 
 ## Endorsement policy
 {: #glossary-endorsement-policy}
-Defines the peer nodes on a channel that must execute transactions that are attached to a specific chaincode application, and the required combination of responses (endorsements). A policy could require that a transaction be endorsed by a minimum number of endorsing peers, a minimum percentage of endorsing peers, or by all endorsing peers that are assigned to a specific chaincode application. Policies can be curated based on the application and the desired level of resilience against misbehavior, whether deliberate or not, by the endorsing peers. A submitted transaction must satisfy the endorsement policy before it is marked as valid by committing peers. A distinct endorsement policy to install and instantiate transactions is also required.
+Defines the peer nodes on a channel that must execute transactions that are attached to a specific application, and the required combination of responses (endorsements). A policy could require that a transaction be endorsed by a minimum number of endorsing peers, a minimum percentage of endorsing peers, or by all endorsing peers that are assigned to a specific application. Policies can be curated based on the application and the desired level of resilience against misbehavior, whether deliberate or not, by the endorsing peers. A submitted transaction must satisfy the endorsement policy before it is marked as valid by committing peers. A distinct endorsement policy to deploy transactions is also required.
 
 ## Genesis block
 {: #glossary-genesis-block}
@@ -104,7 +108,7 @@ The configuration block that initializes a blockchain network or channel, and al
 
 ## Gossip
 {: #glossary-gossip}
-Hyperledger Fabric allows peers to gather important network information from each other without having to rely on the ordering service. The [gossip data dissemination protocol](https://hyperledger-fabric.readthedocs.io/en/release-1.4/gossip.html){: external} provides a secure, reliable, and scalable way for peers to exchange messages between each other. For example, if peers miss some blocks because of delays, network outages, or other reasons, they can sync up to the current ledger state by using gossip messaging to contact other peers in possession of these missing blocks.
+Hyperledger Fabric allows peers to gather important network information from each other without having to rely on the ordering service. The [gossip data dissemination protocol](https://hyperledger-fabric.readthedocs.io/en/release-2.2/gossip.html){: external} provides a secure, reliable, and scalable way for peers to exchange messages between each other. For example, if peers miss some blocks because of delays, network outages, or other reasons, they can sync up to the current ledger state by using gossip messaging to contact other peers in possession of these missing blocks.
 
 ## HSM
 {: #glossary-hsm}
@@ -112,15 +116,15 @@ Hardware Security Module. Provides on-demand encryption, key management, and key
 
 ## Hyperledger Fabric
 {: #glossary-hyperledger-fabric}
-[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external} is a business blockchain framework that the Linux Foundation hosts to serve as a foundation for developing blockchain applications or solutions with a modular architecture. Hyperledger Fabric components such as consensus and membership services are plug-and-play.
+[Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.2/){: external} is a business blockchain framework that the Linux Foundation hosts to serve as a foundation for developing blockchain applications or solutions with a modular architecture. Hyperledger Fabric components such as consensus and membership services are plug-and-play.
 
 ## Install
 {: #glossary-install}
-The process of placing a chaincode on a peer’s file system. You must install the chaincode on every peer that will run this chaincode.
+The process of placing a smart contract on a peer’s file system. You must install the smart contract on every peer that wants to access or change the data governed under the smart contract.
 
 ## Instantiate
 {: #glossary-instantiate}
-The process of starting and initializing a chaincode container on a specific channel. After chaincode is installed on the Peers and every Peer has joined the channel, the chaincode must be instantiated on the channel. Instantiation performs any necessary initialization of the chaincode, which includes setting the key value pairs that comprise a chaincode's initial world state. After instantiation, peers that have the chaincode installed can accept chaincode invocations.
+The process of starting and initializing a smart contract container on a channel with peers running Fabric v1.4.x and v1.4 capabilities. After a smart contract is installed on the peers and every peer has joined the channel, the smart contract must be instantiated on the channel. Instantiation performs any necessary initialization of the smart contract, which includes setting the key value pairs that comprise a smart contract's initial world state. After instantiation, peers that have the smart contract installed can interact with the data governed by the smart contract. Starting in Fabric v2.x, the instantiation process has been replaced with a [propose, approve, and commit model](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
 
 ## Kafka
 {: #glossary-kafka}
@@ -134,7 +138,9 @@ Comprised of a literal "chain of blocks" that store the immutable, sequenced rec
 {: #glossary-leveldb}
 A key-value store that can be used as an option for the state database for your peers. LevelDB stores the current state as key-value pairs, and does not support the use of indexes or rich queries.
 
-
+## Lifecycle endorsement policy
+{: #glossary-lifecycle-ep}
+On a channel, the lifecycle endorsement policy specifies which organizations can approve a smart contract definition and how many of them are required to approve the definition or update. The default lifecycle endorsement policy requires a majority of all organizations on the channel to approve.
 
 ## Member
 {: #glossary-member}
@@ -168,7 +174,9 @@ The node that collects transactions from network members, orders the transaction
 {: #glossary-organization}
 See [Member](#glossary-member).
 
-
+## Out of band
+{: #glossary-out-of-band}
+An expression used to refer to sharing network artifacts outside of the console UI, for example by email or some other file transfer mechanism. After submitting a smart contract proposal, the originator can share the smart contract package and package id with other channel members in an out of band operation by emailing this information to them.
 
 ## Participant
 {: #glossary-participant}
@@ -176,9 +184,11 @@ Any organization, individual, application, or device that interact with the bloc
 
 ## Peer
 {: #glossary-peer}
-A blockchain network resource that provides the services to execute and validate transactions, and maintain ledgers. The peer runs chaincode and is the holder of transaction history and the current state of assets on the network’s channels, that is, the ledger. They are owned and managed by organizations and are joined to channels.
+A blockchain network resource that provides the services to execute and validate transactions, and maintain ledgers. The peer runs smart contract and is the holder of transaction history and the current state of assets on ledgers. They are owned and managed by organizations and are joined to channels.
 
-
+## Propose
+{: #glossary-propose}
+Referring to a step in the Hyperledger Fabric v2.x smart contract lifecycle, a smart contract definition is proposed to a channel for approval by the organizations that are specified in the channel lifecycle endorsement policy. A smart contract proposal contains a smart contract definition name, version, package, endorsement policy, and optionally a private data collection.
 
 ## Quorum
 {: #glossary-quorum}
@@ -208,15 +218,25 @@ The certificate that any entities, whether organizations or admins, attach to th
 {: #glossary-smart-contracts}
 See [Chaincode](#glossary-chaincode).
 
+## Smart contract definition
+{: #glossary-smart-contract-def}
+Used by the Hyperledger Fabric v2.x smart contract lifecycle, the smart contract definition contains the elements that members of an organization agree to before a smart contract can be committed to a channel. The definition is composed of a smart contract definition name, version, endorsement policy, and private data collection. Changes to the version, endorsement policy, and private data collection must be approved by the organizations that are specified in the channel lifecycle endorsement policy before the updated version can become active on the channel.
 
+## Smart contract endorsement policy
+{: #glossary-transaction-ep}
+See [Endorsement policy](#glossary-endorsement-policy).
+
+## Smart contract package
+{: #glossary-smart-contract-pkg}
+Used by the Hyperledger Fabric v2.x smart contract lifecycle, the smart contract package contains the business logic that reads from or writes to the smart contract ledger. The package is attached to a smart contract definition proposal. Smart contract packages can only be installed on peers that are running a Fabric v2.x or higher image.
 
 ## State database
 {: #glossary-state-database}
-Current state data is stored in a database on the peers for efficient reads and queries from chaincode. You can select to use either LevelDB or CouchDB as the state database of your peers.
+Current state data is stored in a database on the peers for efficient reads and queries from smart contracts. You can select to use either LevelDB or CouchDB as the state database of your peers.
 
 ## Transaction
 {: #glossary-transaction}
-The mechanism that participants on the blockchain network use to interact with assets. A transaction either creates new chaincode or invokes an operation in an existing chaincode.
+Changes to the ledger are achieved by invoking "transactions", which either involve assets or changes to the configuration of a channel. "Asset" transactions usually involve a smart contract governing the rules of a transaction between counter-parties, while the rules governing configuration transactions are established in the configuration of the channel itself.
 
 ## User
 {: #glossary-user}

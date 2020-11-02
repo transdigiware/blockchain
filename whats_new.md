@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-30"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -25,12 +25,42 @@ subcollection: blockchain
 
 
 
+## November 02, 2020
+{: #whats-new-11-02-2020}
+
+
+
+{{site.data.keyword.blockchainfull_notm}} Platform  now supports the Fabric v2.x smart contract lifecycle that allows for decentralized governance of smart contract definitions on a channel. The platform has been updated to support Kubernetes v1.16-v1.18 and OpenShift container Platform 4.4, 4.5.
+
+**Support for Fabric v2.x lifecycle**
+
+The series of processes around installing, managing, and using smart contracts, collectively known as the "lifecycle" of the smart contract, has been updated. This new lifecycle allows organizations to collaborate in the channel-level decision making process regarding smart contracts, eliminate the need for smart contract fingerprint matches, and allow smart contracts to be written with only the code relevant to an organization's business role.
+
+The {{site.data.keyword.IBM_notm}} Developer tooling has been updated to support generation of Fabric v2.x smart contract packages as well as testing smart contracts by using the new lifecycle process. Learn more about how to [deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2) and [how to write powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts) that leverage the new governance.
+
+**New process for enabling Hardware Security Module (HSM) support**
+
+A new process for configuring an HSM to work with your blockchain nodes is available and offers faster performance over the use of the existing HSM PKCS #11 proxy which is now deprecated. Current customers who are using the PKCS #11 proxy should check out the new process in the [Advanced deployment](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) options.
+
+**Ability to upgrade existing nodes and channel application capability to Fabric v2.x**
+
+You continue to have the option to select the Fabric v1.4 or v2.x image when creating your CAs, peers, and ordering nodes. However, you now have the ability to upgrade your existing nodes that are running Fabric v1.4.x to the Fabric v2.x image. If you have peers using the Fabric v1.4.x image, you must upgrade your nodes and update your channel capabilities to take advantage of the new smart contract lifecycle.
+
+For information about upgrading nodes, check out [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade). For information about updating the capabilities of your channels, check out [Capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities).
+
+**Enhancements to the certificate renewal process**
+
+Because all actions on a blockchain network depend on the existence of valid and verifiable certificates, renewing certificate is vital to avoiding network outages. To streamline the certificate renewal process, the console now allows you to renew your CA TLS certificate, and peer and ordering node enrollment and TLS certificates. While it is preferable to renew certificates before they expire, it is possible to restore components whose certificates have already expired in many cases. Learn more about the new options in [Certificate management](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-cert-types).
+
+
+
+See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
 
 
 ## August 27, 2020
 {: #whats-new-08-19-2020}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto OpenShift clusters from the Red Hat Marketplace, an open cloud catalog that makes it easier to discover and access certified software. Red Hat certified {{site.data.keyword.blockchainfull_notm}} Platform operator images are available in the marketplace and accessible from your OpenShift web console. This new deployment option is immediately available to deploy on any Red Hat OpenShift 4.3+ cluster, and provides a fast, integrated experience for deploying the blockchain console that can be used to create Certificate Authorities (CAs), peers, and ordering nodes, in the public cloud. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-rhm) to learn how.
+The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto OpenShift clusters from the Red Hat Marketplace, an open cloud catalog that makes it easier to discover and access certified software. Red Hat certified {{site.data.keyword.blockchainfull_notm}} Platform operator images are available in the marketplace and accessible from your OpenShift web console. This new deployment option is immediately available to deploy on any Red Hat OpenShift 4.3+ cluster, and provides a fast, integrated experience for deploying the blockchain console that can be used to create Certificate Authorities (CAs), peers, and ordering nodes, in the public cloud. See [Deploy from Red Hat Marketplace](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm) to learn how.
 
 
 ## June 18, 2020
@@ -40,11 +70,11 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can now be deployed onto 
 
 **IBM Blockchain Platform Ansible Playbooks**  
 
-The {{site.data.keyword.blockchainfull_notm}} Platform improvements are designed to enable enterprises to launch production blockchain networks faster. This release helps organizations accelerate deployment through support of Ansible, an open source tool that automates provisioning, configuration management, and application deployment. **Ansible Content Collections** are packages of modules, plug-ins, and other Ansible content that automate these processes. The platform has published a set of Ansible Content Collections to help organizations deploy blockchain components and networks with greater speed. See [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain-sw-25?topic=blockchain-sw-25-ansible) to learn more.
+The {{site.data.keyword.blockchainfull_notm}} Platform improvements are designed to enable enterprises to launch production blockchain networks faster. This release helps organizations accelerate deployment through support of Ansible, an open source tool that automates provisioning, configuration management, and application deployment. **Ansible Content Collections** are packages of modules, plug-ins, and other Ansible content that automate these processes. The platform has published a set of Ansible Content Collections to help organizations deploy blockchain components and networks with greater speed. See [Getting started with Ansible playbooks on the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible) to learn more.
 
 **Red Hat CodeReady Workspaces**  
 
-The platform expands its developer tool ecosystem with **Red Hat CodeReady Workspaces**, that help organizations speed up and simplify the setup of blockchain development environments. Red Hat CodeReady Workspaces provide a preconfigured and shared runtime environment that enables cloud-native blockchain development to be performed across teams. Red Hat CodeReady Workspaces offer strong security and adhere to enterprise-grade compliance for cloud-native development. Read about the [benefits of CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-why) to learn more.
+The platform expands its developer tool ecosystem with **Red Hat CodeReady Workspaces**, that help organizations speed up and simplify the set up of blockchain development environments. Red Hat CodeReady Workspaces provide a preconfigured and shared runtime environment that enables cloud-native blockchain development to be performed across teams. Red Hat CodeReady Workspaces offer strong security and adhere to enterprise-grade compliance for cloud-native development. Read about the [benefits of CodeReady Workspaces](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-crw-why) to learn more.
 
 **Hyperledger Fabric 2.0 images**
 
@@ -143,14 +173,14 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Kubernetes service integration.** Leverage services such as Grafana and Prometheus for logging and Kibana for monitoring.
 - **Up-to-date Fabric key features**. Leverage the latest features of Hyperledger Fabric v1.4.1:
   - [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
-  - [Private data collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
+  - [Private data collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
   - [Service discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, allowing you to dynamically discover and update how your application interacts with your network.
   - [Channel access control lists](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} that allow you additional control of the governance of your channels and smart contracts.
 
 **OPERATE --- Total control of your deployments**
 - **Deploy only the components you need**. Connect a peer to multiple channels and networks, or host an ordering service that business partners can connect to.
 - **Maintain complete control of your identities**. Store and manage the keys that are used to administer your nodes in your own secure environment.
-- **Unified operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one console** without having to rely on {{site.data.keyword.IBM_notm}} or other vendors to manage your orderers or Certificate Authority. You can also add or remove members from a blockchain consortium, create and join channels, and install and instantiate smart contracts from your console.
+- **Unified operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one console** without having to rely on {{site.data.keyword.IBM_notm}} or other vendors to manage your orderers or Certificate Authority. You can also add or remove members from a blockchain consortium, create and join channels, and deploy smart contracts from your console.
 - **Host or join a network**. Deploy peers hosted in your cluster to multiple channels on multiple clouds, or invite other organizations to join your consortium or channels while the organizations manage their nodes independently across infrastructures.
 - **Manage access** of the users who can administer or monitor your nodes.
 - **Direct access to the logs** of your nodes from your Kubernetes service. Use any supported third-party service to extract and analyze your logs.
@@ -170,8 +200,8 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - Updated tutorials for using the {{site.data.keyword.blockchainfull_notm}} Platform are available in the **{{site.data.keyword.blockchainfull_notm}} Platform console** subsection under the **HOW TO** category.
   * [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) guides you through the process of hosting a network by creating CAs, an ordering service, and a peer.
   * [Join a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) explains how to join an existing network by creating a peer and joining it to a channel.
-  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) provides information on how to write a smart contract and deploy it on your network.
-- The {{site.data.keyword.blockchainfull_notm}} Platform offering is based on Hyperledger Fabric v1.4.1 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
+  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) provides information on how to write a smart contract and deploy it on your network.
+- The {{site.data.keyword.blockchainfull_notm}} Platform offering is based on Hyperledger Fabric v1.4.1 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
 
 For more information about Hyperledger Fabric v1.4.1, see [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/){: external}. For more information about {{site.data.keyword.cloud_notm}} Private, see [{{site.data.keyword.cloud_notm}} Private v3.2 documentation](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/kc_welcome_containers.html){: external}.
 
@@ -188,14 +218,14 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - **Up-to-date Fabric key features**. Leverage the latest features of Hyperledger Fabric v1.4.1:
   -  [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-1.4/orderer/ordering_service.html#raft){: external}
   - **{{site.data.keyword.cloud_notm}} service integration.** Leverage the built-in {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.cloud_notm}} Kubernetes Service Dashboard, {{site.data.keyword.IBM_notm}} Log Analysis with LogDNA, and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
-  - [**Private data** collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
+  - [**Private data** collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
   - [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-1.4/discovery-overview.html){: external}, allowing you to dynamically discover and update how your application interacts with your network.
   - [Channel Access Control Lists](https://hyperledger-fabric.readthedocs.io/en/release-1.4/access_control.html){: external} that allow you additional control of the governance of your channels and smart contracts.
 
 **OPERATE --- Total control of your deployments**
 - **Deploy only the components you need**. Connect a peer to multiple channels and networks, or host an ordering service that business partners can connect to.
 - **Maintain complete control of your identities**. Store and manage the keys that are used to administer your nodes without storing your private keys on the {{site.data.keyword.cloud_notm}}.
-- **Centralized operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one central console** without having to rely on {{site.data.keyword.IBM_notm}} or other vendors to manage your orderers or Certificate Authority. You can also add or remove members from a blockchain consortium, create and join channels, and install and instantiate smart contracts from your console.
+- **Centralized operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one central console** without having to rely on {{site.data.keyword.IBM_notm}} or other vendors to manage your orderers or Certificate Authority. You can also add or remove members from a blockchain consortium, create and join channels, and deploy smart contracts from your console.
 - **Host or join a network**. Deploy peers hosted in your cluster to multiple channels on multiple clouds, or invite other organizations to join your consortium or channels while the organizations manage their nodes independently across infrastructures.
 - **Manage access** of the users who can administer or monitor your nodes.
 - **Direct access to the logs** of your nodes from the {{site.data.keyword.IBM_notm}} Kubernetes service. Use the {{site.data.keyword.la_full_notm}} service or a third-party service to extract and analyze your logs.
@@ -213,8 +243,8 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 - New tutorials for using the {{site.data.keyword.blockchainfull_notm}} Platform are available in the **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** subsection under the **HOW TO** category.
   * [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) guides you through the process of hosting a network by creating an orderer and peer.
   * [Join a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) explains how to join an existing network by creating a peer and joining it to a channel.
-  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) provides information on how to write a smart contract and deploy it on your network.
-- The {{site.data.keyword.blockchainfull_notm}} Platform offering is based on Hyperledger Fabric v1.4.1 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
+  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) provides information on how to write a smart contract and deploy it on your network.
+- The {{site.data.keyword.blockchainfull_notm}} Platform offering is based on Hyperledger Fabric v1.4.1 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
 
 ## May 9, 2019
 {: #whats-new-5-09-2019}
@@ -270,8 +300,8 @@ For more information about Hyperledger Fabric v1.4.0, see [Hyperledger Fabric do
 - New tutorials for using the {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta are available in the **{{site.data.keyword.blockchainfull_notm}} Platform 2.0** subsection under the **HOW TO** category.
   * [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) guides you through the process of hosting a network by creating an orderer and peer.
   * [Join a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network) explains how to  joining an existing network by creating a peer and joining it to a channel.
-  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts) provides information on how to write a smart contract and deploy it on your network.
-- The {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta offering is based on Hyperledger Fabric v1.4 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
+  * [Deploy a smart contract on the network](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14) provides information on how to write a smart contract and deploy it on your network.
+- The {{site.data.keyword.blockchainfull_notm}} Platform free 2.0 beta offering is based on Hyperledger Fabric v1.4 and supports peer-to-peer gossip, service discovery, and private data. Visit this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data) to learn how to configure private data on your network.
 
 - The {{site.data.keyword.blockchainfull_notm}} Visual Studio Code extension is available from the Visual Studio Code Marketplace. Developers can use the extension to create, test, and deploy smart contracts to an instance of Hyperledger Fabric. The extension is compatible with Hyperledger Fabric 1.3 and greater. For information about using the VS Code extension, see [Tools for smart contracts](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode).  
 
@@ -333,6 +363,5 @@ This release also debuts some improvements to the documentation table of content
 {: #whats-new-8-11-2017}
 
 {{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan. For more information, see [About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
-
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-16"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -20,20 +20,23 @@ subcollection: blockchain
 {:pre: .pre}
 
 
-
-# Managing deployed components
+# Upgrading and deleting deployed nodes
 {: #ibp-console-govern-components}
-
-
 
 
 
 After creating CAs, peers, and ordering nodes, you need to monitor the resources used by the nodes and potentially reallocate resources.
 {:shortdesc}
 
-**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing< their components in the blockchain network.
+**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, managing, and upgrading their components in the blockchain network.
 
+After a node has been created, there are three main ways to update it.
 
+1. **Update its configuration**. Just as it is possible to override configuration parameters when deploying a node, it is possible to edit many parameters and redeploy the node. For more information, see our topic on [Advanced deployment options](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment).
+2. **Increase the resources allocated to it**. If you notice that the performance of a node is beginning to lag or that its storage is beginning to run out, you can choose whether to deploy a larger node and join it to channels or whether to increase the resources allocated to your existing node.
+3. **Upgrade its Fabric version**. Every node is deployed using a release version of Hyperledger Fabric. When new versions of Fabric become available on the IBM Blockchain Platform, **Upgrade available** is visible on the tile representing the node. While upgrading to a new version of Fabric is always recommended, unless is rendered necessary by the capabilities of channels you want to join, it is typically optional. For more information, check out [Upgrading to a new version of Fabric](#ibp-console-govern-components-upgrade).
+
+In this topic, we'll cover the process for [reallocating resources](#ibp-console-govern-components-reallocate-resources), upgrading to a new version of Fabric, and [deleting nodes](#ibp-console-govern-components-delete).
 
 ## Considerations when reallocating resources
 {: #ibp-console-govern-components-reallocate-resources}
@@ -60,7 +63,7 @@ If you want to increase the CPU and memory for a node, use the **Resource alloca
 
 The method you will use to increase storage will depend on the storage class you chose for your cluster.  Refer to the [Kubernetes](/docs/containers?topic=containers-kube_concepts#kube_concepts){: external} or [OpenShift](/docs/openshift?topic=openshift-kube_concepts) storage options in the {{site.data.keyword.cloud_notm}} documentation. If you are about to exhaust the storage on your peer or ordering node, you might need to deploy a new peer or ordering node with a larger file system and let it sync via your other components on the same channels.
 
-In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the console if you have resources available in your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. However, storage must be increased using the {{site.data.keyword.cloud_notm}} CLI. For a tutorial on how to do this, see Changing the size and IOPS of your existing storage device on your [Kubernetes ](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external} or [OpenShift](/docs/openshift?topic=openshift-block_storage#block_change_storage_configuration){: external} cluster.
+In {{site.data.keyword.cloud_notm}}, CPU and memory can be increased using the console if you have resources available in your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. However, storage must be increased using the {{site.data.keyword.cloud_notm}} CLI. For a tutorial on how to do this, see Changing the size and IOPS of your existing storage device on your [Kubernetes](/docs/containers?topic=containers-file_storage#file_change_storage_configuration){: external} or [OpenShift](/docs/openshift?topic=openshift-block_storage#block_change_storage_configuration){: external} cluster.
 
 
 
@@ -100,6 +103,80 @@ As you monitor your pods and notice that more storage is needed, you can increas
 Users can allocate more storage to their running network by resizing the existing storage PVCs or by deploying nodes with new PVCs.
 
 
+## Upgrading to a new version of Fabric
+{: #ibp-console-govern-components-upgrade}
+
+There are several considerations for upgrading nodes and channels from Fabric version v1.4.x to v2.x. For a deeper look at those considerations, see the [Fabric documentation on upgrading](https://hyperledger-fabric.readthedocs.io/en/release-2.2/upgrade_to_newest_version.html){: external}.
+{: tip}
+
+While some new versions of Fabric are released where only the Fabric version of nodes must be upgraded in order to get the latest Fabric features, some new Fabric versions contain new channel capabilities that must also be updated.
+
+In these cases, the process of "updating to the latest" release is, at a high level, a two step process:
+
+1. Upgrade the Fabric version of all nodes.
+2. Update the channels to the new capability levels. For information about how to edit channels to use the latest capabilities, check out [Capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities).
+
+You must upgrade nodes before you update the channels. If a node attempts to read a configuration block containing a capability level it does not understand (which is true in cases where the capability is a higher level than the node version), the node will crash **on all channels**. The node must then be upgraded to the appropriate Fabric version before it can be used again.
+{: important}
+
+At a high level, the process of upgrading a node involves two main steps:
+
+1. Backing up the persistent volumes associated with the node. These backups ensure that in the case of an upgrade failure in which the peer pod is corrupted that the node can be re-deployed using the ledger. For more information, see [Backup considerations for each node type](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-node-considerations).
+2. Upgrading the Fabric versions of the nodes one at a time (also known as a "rolling upgrade").
+
+It may also be necessary to update SDKs and smart contracts before you can take advantage of the latest Fabric features. For more information, check out [Step three: Update SDKs and smart contracts](#ibp-console-govern-components-upgrade-step-three).
+{: tip}
+
+### Step one: Backup your ledger
+{: #ibp-console-govern-components-upgrade-step-one-ledger}
+
+It is recommended to take regular backups of the persistent volumes of your nodes as part of the normal process of network administration. For example, in our topic on backing up and restoring components and networks, an [example schedule](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-schedule-snapshot) is provided which recommends that backups be taken of the ordering nodes and the peers (including the state database of the peer, if using CouchDB) each night.
+
+However, if you are not taking regular backups, it is recommended that you minimally take a backup before attempting to upgrade a node, as it allows for a node to be restored to an earlier running state in cases where the upgrade fails. For information about how to backup your nodes by taking a snapshot of the relevant persistent volumes, check out [Taking snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-take-snapshot).
+
+### Step two: Upgrade your nodes one at a time
+{: #ibp-console-govern-components-upgrade-step-two-rolling-upgrade}
+
+If you are upgrading both peer and ordering node binaries, it is a best practice to upgrade the ordering nodes first, as ensuring that the ordering nodes (and by extension, the ordering service) is functioning correctly is more important to the health of your network as a whole than the functioning of any particular peer.
+{: tip}
+
+The process for upgrading a node is relatively straightforward. First, make sure you are using the console where the node was created. You cannot use the console to update imported nodes. When a node upgrade is available, the **Upgrade available** appears on the tile representing the node on the **Nodes** panel. If **Upgrade available** does not appear on the tile when it should be there, make sure your console is using the latest version using the [**Refresh cluster**](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh) feature. <blockchain-sw-25>If **Upgrade available** does not appear on the tile when it should be there, make sure you have upgraded to the latest version of the console.</blockchain-sw-25>
+
+You can then update the node:
+
+1. Click on the tile representing the node.
+2. The upgrade panel can be accessed either by clicking the **Info and usage** tab, next to the **Upgrade available** notice, or the **Fabric version** box. Clicking either one opens the **Upgrade Fabric version** side panel.
+3. On the **Upgrade Fabric version** side panel, review the version of your node and the version you are upgrading to. If this is right, click **Next**.
+4. On the next panel, confirm the information and enter the name of the node being upgraded.
+
+The node will be unavailable during the upgrade. The status was turn grey and will read **Status unknown** or **Unavailable**. When the upgrade has completed, the status will turn green and be **Ready**. If the upgrade fails and the node lapses into an unrecoverable state, follow the instructions for [Restoring nodes](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore) from a snapshot.
+
+To upgrade from a v1.4.x peer to a 2.x peer, the databases of all peers (which include not just the state database but the history database and other internal databases for the peer) must be rebuilt using the v2.x data format. Depending on the size of your ledgers and the number of channels your peer is joined to, the process of rebuilding your state databases can take quite a bit of time (several hours, in some cases), and is a mandatory part of the upgrade process. The time it takes to upgrade varies not just on the number of blocks, but on your network speed and the average size of the blocks in your channels. Note that the node is down during upgrade as the pods are rebuilt. When the upgrade has completed, access to the node is restored.
+{: tip}
+
+**It is a best practice to only upgrade one node of each type at a time**. In other words, if you need to upgrade both peers and ordering node, it is alright if you start a peer upgrade and an ordering node upgrade at the same time. However, do not attempt to upgrade multiple peers or multiple ordering nodes at the same time, as this threatens the availability of your components.
+
+It is not possible to upgrade an ordering node if any node in your ordering service is down for any reason. Coordinate with all of the administrators of your ordering service before attempting to upgrade.
+
+### Step three: Update SDKs and smart contracts
+{: #ibp-console-govern-components-upgrade-step-three}
+
+It is a best practice to upgrade your SDK to the latest version as part of a general upgrade of your network. While the SDK will always be compatible with equivalent releases of Fabric and lower, it might be necessary to upgrade to the latest SDK to leverage the latest Fabric features. Also, after upgrading, it's possible your client application may experience errors. Consult the your Fabric SDK documentation for information about how to upgrade.
+{: tip}
+
+If you previously had a smart contract running on a peer that was joined to a channel with application capability v1.4, and you upgrade your peer image to v2.x and the channel application capability v2.x, your existing smart contract continues to run and process requests. However, after you upgrade your peer image to v2.x and channel application capability v2.x, there is no longer a way to update the original smart contract. Instead, when an update is required, you need to repackage the smart contract in the new `.tar.gz` or `.tgz` format and propose the definition to the channel using the new smart contract lifecycle process. For more information, check out [Write and package your smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg){: external}.
+
+If any of your smart contracts are written in Golang, its shim must be re-vendored before it can be used with the new lifecycle. For more information, check out [Vendoring smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor){: external}.
+{: important}
+
+For a look at how the new lifecycle is administered in the console, check out [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2){: external}. For a look at the possibilities the new lifecycle opens up, check out [Writing powerful smart contracts](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts){: external}.
+
+### Step four: Update capabilities
+{: #ibp-console-govern-components-upgrade-step-four-rolling-upgrade}
+
+Once your nodes, SDKs, and smart contracts have been upgraded to use the latest Fabric version, you can update your channel configuration to use the latest capabilities. Note that the Fabric version of your nodes must be at least at the corresponding capability level of the channel the node is joined to.
+
+For more information about capabilities and how to update a channel configuration to enable them, check out [Capabilities](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities).
 
 ## Deleting components
 {: #ibp-console-govern-components-delete}

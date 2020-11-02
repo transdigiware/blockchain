@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -10,16 +10,86 @@ subcollection: blockchain
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
+{:android: data-hd-operatingsystem="android"}
+{:apikey: data-credential-placeholder='apikey'}
+{:app_key: data-hd-keyref="app_key"}
+{:app_name: data-hd-keyref="app_name"}
+{:app_secret: data-hd-keyref="app_secret"}
+{:app_url: data-hd-keyref="app_url"}
+{:authenticated-content: .authenticated-content}
+{:beta: .beta}
+{:c#: data-hd-programlang="c#"}
 {:codeblock: .codeblock}
-{:note: .note}
-{:important: .important}
-{:tip: .tip}
+{:curl: .ph data-hd-programlang='curl'}
+{:deprecated: .deprecated}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
+{:generic: data-hd-operatingsystem="generic"}
+{:generic: data-hd-programlang="generic"}
+{:gif: data-image-type='gif'}
+{:go: .ph data-hd-programlang='go'}
 {:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
+{:hide-dashboard: .hide-dashboard}
+{:hide-in-docs: .hide-in-docs}
+{:important: .important}
+{:ios: data-hd-operatingsystem="ios"}
+{:java: #java .ph data-hd-programlang='java'}
+{:java: .ph data-hd-programlang='java'}
+{:java: data-hd-programlang="java"}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:javascript: data-hd-programlang="javascript"}
+{:new_window: target="_blank"}
+{:note .note}
+{:note: .note}
+{:objectc data-hd-programlang="objectc"}
+{:org_name: data-hd-keyref="org_name"}
+{:php: data-hd-programlang="php"}
 {:pre: .pre}
+{:preview: .preview}
+{:python: .ph data-hd-programlang='python'}
+{:python: data-hd-programlang="python"}
+{:route: data-hd-keyref="route"}
+{:row-headers: .row-headers}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:ruby: data-hd-programlang="ruby"}
+{:runtime: architecture="runtime"}
+{:runtimeIcon: .runtimeIcon}
+{:runtimeIconList: .runtimeIconList}
+{:runtimeLink: .runtimeLink}
+{:runtimeTitle: .runtimeTitle}
+{:screen: .screen}
+{:script: data-hd-video='script'}
+{:service: architecture="service"}
+{:service_instance_name: data-hd-keyref="service_instance_name"}
+{:service_name: data-hd-keyref="service_name"}
+{:shortdesc: .shortdesc}
+{:space_name: data-hd-keyref="space_name"}
+{:step: data-tutorial-type='step'}
+{:subsection: outputclass="subsection"}
+{:support: data-reuse='support'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:swift: .ph data-hd-programlang='swift'}
+{:swift: data-hd-programlang="swift"}
+{:table: .aria-labeledby="caption"}
+{:term: .term}
+{:tip: .tip}
+{:tooling-url: data-tooling-url-placeholder='tooling-url'}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:tutorial: data-hd-content-type='tutorial'}
+{:unity: .ph data-hd-programlang='unity'}
+{:url: data-credential-placeholder='url'}
+{:user_ID: data-hd-keyref="user_ID"}
+{:vb.net: .ph data-hd-programlang='vb.net'}
+{:video: .video}
+
 
 # Administering your console
 {: #ibp-console-manage-console}
@@ -32,7 +102,7 @@ There are various actions that you can take to manage your console behavior. Thi
 ## Refreshing your console
 {: #ibp-console-refresh}
 
-If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull}} Platform` on the Welcome back panel, or recently upgraded your OpenShift Container platform 3.11 to  4.3, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. It can also be used to upgrade to a newer release of the console, if one is available.
+If you are having trouble connecting to your console after you click `Launch the {{site.data.keyword.blockchainfull}} Platform` on the Welcome back panel, or recently upgraded your OpenShift Container platform 3.11 to 4.x, the **Refresh cluster** button is a useful mechanism to renew the connection between your console and your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. It can also be used to upgrade to a newer release of the console, if one is available.
 
 To access this button:
 1. Log in to {{site.data.keyword.cloud_notm}} and  open [{{site.data.keyword.cloud_notm}} Resource list](https://cloud.ibm.com/resources){: external}. Ensure that you log in with your {{site.data.keyword.IBM_notm}} ID.
@@ -66,7 +136,7 @@ For instructions on how to add new user see [Inviting users to an account](/docs
 
  Permissions are cumulative. If you select a **Manager** role, the user will also be able to perform all **Writer** and **Reader** actions, you are not required to additionally check those roles.   Likewise, a user with the `Writer` role will be able to perform all of the actions in the **Reader** role. For console access, you need to only select a role under the **Service Access Roles**, you do not need to select anything under the **Platform Access Roles**. Check the corresponding role under **Assign platform access role** when it is important that the service instance is visible in the invited user's {{site.data.keyword.cloud_notm}} dashboard.
 
-After you add new users to the console, the users might not be able to view all the nodes, channels, or chaincode, which other users deploy. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
+After you add new users to the console, the users might not be able to view all the nodes, channels, or smart contracts other users have deployed. To work with these components, each user needs to import the associated identities into their own console wallet. For more information, see [Storing identities in your console wallet](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-wallet).
 {:important}
 
 If you need to modify a user's role:
@@ -143,7 +213,7 @@ The namespace is the first part of the URL beginning with the letter `n` and fol
 4. On the left navigation, click **Pods** to view the list of node pods that you have deployed.
 5. Click on a pod. Then click **Logs** on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
 
-#### Viewing nodes logs on a Red Hat OpenShift 4.3 cluster
+#### Viewing nodes logs on a Red Hat OpenShift 4.x cluster
 {: #ibp-console-manage-console-node-logs-ocp43}
 
 See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-viewing.html#cluster-logging-viewing-logs-console_cluster-logging-viewing){: external}.
@@ -151,12 +221,15 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 ### Viewing your smart contract container logs
 {: #ibp-console-manage-console-container-logs}
 
-If you encounter issues with your smart contract, you can view the smart contract, or chaincode, logs to debug an issue.  The process to view the logs depends on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
+If you encounter issues with your smart contract, you can view the smart contract logs to debug an issue.  The process to view the logs depends on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
 
   ![How to find peer fabric version](../images/peerversion.png "How to find peer fabric version"){: caption="Figure 1.How to find peer fabric version" caption-side="bottom"}
 
 #### <img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image
 {: #ibp-console-manage-console-container-logs-2x}
+
+While the terms "smart contract" and "chaincode" are often used interchangeably, "smart contracts" refers to the business logic that governs transactions and access to its data, while "chaincode" refers to the larger infrastructure of packages and other code that encompasses a smart contract.
+{: important}
 
 If your peer is based on the Hyperleder Fabric v2.x image, you can run the following set of kubectl commands to view the smart contract logs.
 
@@ -166,7 +239,7 @@ If you don't already know it, you need to find your Kubernetes cluster namespace
 
 **Find the smart contract pod**  
 
-Next, get a list of all of the chaincode pods running in your cluster:
+Next, get a list of all of the smart contract pods running in your cluster:
 
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
@@ -192,7 +265,7 @@ kubectl  logs -f <SMART_CONTRACT_POD> -n <NAMESPACE>
 {:codeblock}
 
 Replace
-- `<SMART_CONTRACT_POD>` with the name of the pod where the chaincode is running.
+- `<SMART_CONTRACT_POD>` with the name of the pod where the smart contract is running.
 - `<NAMESPACE>` with the name of your cluster namespace.
 
 For example:
@@ -216,7 +289,7 @@ Use these instructions when the peer is based on a Fabric v1.4 image.
 
 All of your smart contract logs are visible in this window and can be downloaded using the download icon on the panel.
 
-##### Viewing smart contract logs on a Red Hat OpenShift 4.3 cluster
+##### Viewing smart contract logs on a Red Hat OpenShift 4.x cluster
 {: #ibp-console-manage-console-container-logs-ocp43}
 
 See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-viewing.html#cluster-logging-viewing-logs-console_cluster-logging-viewing){: external}. Access the logs for the peer pod where the smart contract is running and select the `dind` container.
@@ -227,17 +300,15 @@ See the Red Hat OpenShift [documentation](https://docs.openshift.com/container-p
 By default, the logs of your nodes are collected locally within your cluster. You can also use {{site.data.keyword.cloud_notm}} services or a third-party service to collect, store, and analyze the logs from your network. For more information, see Logging and monitoring cluster health for the [{{site.data.keyword.IBM_notm}} Kubernetes Service](/docs/containers?topic=containers-health#health){: external} or [OpenShift](/docs/openshift?topic=openshift-health){: external}. It is recommended that you take advantage of the [{{site.data.keyword.cloud_notm}} LogDNA](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-kube#kube){: external} service that
 allows you to easily parse the logs in real time. See this [tutorial](/docs/blockchain?topic=blockchain-ibp-LogDNA) on using LogDNA with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
-## Updating your nodes
+## Upgrading your nodes
 {: #ibp-console-manage-patch}
 
-The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Update available** text on a node tile is the indicator that such an update is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20), these updates are optional, but recommended. You cannot update nodes that have been imported into the console.
+The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Upgrade available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20), these upgrades are optional, but recommended. You cannot upgrade nodes that have been imported into the console.
 
-Updates are applied to nodes one at a time. While the update is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure another node of the same type is available to process requests. Installing updates on a node takes about a minute to complete and when it  is complete, the node is ready to process requests.
+The best practice is to apply upgrades to one node at a time. While the upgrade is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure another node of the same type is available to process requests. Upgrading a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
 {:note}
 
-To apply an update to a node, open the node tile and click the **Update available** button. You cannot update nodes that you imported to the console.
-
-
+For information about how to upgrade a node, check out [Upgrading to the latest version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 
 ## Kubernetes cluster expiration
 {: #ibp-console-manage-console-cluster-expiration}

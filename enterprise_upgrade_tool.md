@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-23"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -88,7 +88,6 @@ When you use the upgrade tool to create your peer and orderer nodes on the new p
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-
 {: caption="Table 1. Default resources for nodes on IBM Blockchain Platform 2.0" caption-side="bottom"}
 
 ## Upload connection information
@@ -126,7 +125,7 @@ You need to upload the connection information of your Enterprise Plan network an
     - Select a role of **Manager**.
     - You can leave the  **Select Service ID** dropdown and the **Add inline configuration parameter** field blank.
     - Click the **Add** button.
-  4. After the new credential is created, click **View credentials** under the **ACTIONS** header of this credential. The contents of the credential looks similar to the following example:
+  4. After the new credential is created, click **View credentials** under the **ACTIONS** header of this credential. The contents of the credential look similar to the following example:
 
     ```json
     {
@@ -140,7 +139,7 @@ You need to upload the connection information of your Enterprise Plan network an
     }
     ```
 
-- **Optional:** If you want to use a Hardware Security Module (HSM) to store the private keys of your blockchain nodes, you can use the **HSM configuration** field to provide the connection information of your HSM. If you plan on using an HSM, you need to set up your own HSM on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to complete the [steps to deploy a PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy) that your nodes will use to communicate with the HSM. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm). You can return to this page after you have deployed the proxy.
+- **Optional:** If you want to use a Hardware Security Module (HSM) to store the private keys of your blockchain nodes, you can use the **HSM configuration** field to provide the connection information of your HSM. If you plan on using an HSM, you need to set up your own HSM on {{site.data.keyword.cloud_notm}} or in the environment of your choice. You then need to complete the [steps to build an HSM client image](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) that your nodes will use to communicate with the HSM. For more information, see [Configuring a node to use an HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm). You can return to this page after you have deployed the proxy.
 
   You need to provide the endpoint of your PKCS #11 proxy, as well as the label and pin of your HSM slot, to the **HSM configuration** field. For example, the following JSON provides the connection information for two slots in the same HSM:
   ```json
@@ -256,7 +255,7 @@ On the **Migrate chaincode** panel, you can find the name and version of the cha
 
 You can use the **Select Chaincode File** button to upload a chaincode from your local file system. If your chaincode consists of multiple files, contains CouchDB indexes, or uses external dependencies, you can upload your chaincode using a .zip file. Select the peers on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 that you would like to install the chaincode. You need to wait until all the peers have synced with your Enterprise Plan network before you can migrate your chaincode. When your peers are ready, click **Migrate**. The upgrade tool installs the chaincode with a new version to identify the chaincode that was installed by the upgrade tool. This version is displayed in the upgrade tool UI (the old version with **_V2** appended). If you use an automated build process to package and install your chaincode, the version installed by the upgrade tool may disrupt your normal processes.
 
-All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to install and instantiate your chaincode.
+All channel members need to complete this step using the upgrade tool before you can move to the next step. You can skip this step if you used the Fabric SDKs to deploy your chaincode.
 {: important}
 
 ### Step Two: Upgrade to the migrated chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console
@@ -265,13 +264,13 @@ In order to invoke the chaincode on your {{site.data.keyword.blockchainfull_notm
 
 In order to upgrade the chaincode, you need to import the ordering service JSON file into your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console. The organization that migrated the ordering service, PeerOrg1, needs to send you this file in an out of band operation. For more information, see [How to import an ordering service](/docs/blockchain/reference?topic=blockchain-ibp-console-import-nodes#ibp-console-import-orderer-process). You can skip this step if you are upgrading the chaincode as the organization that migrated the ordering service.
 
-Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and navigate to the smart contracts tab. Scroll down to the **Instantiated smart contracts** table and find the migrated chaincode. Click **Upgrade** from the network menu on the right side of the row. The chaincode takes a few minutes to upgrade. For more information, see [Deploy a smart contract on the network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts). Only one network member needs to use the console to upgrade the chaincode. After you migrate the chaincode you can continue to upgrade your chaincode using the upgrade tool or the Fabric SDKs. However, you can no longer use the Network Monitor or the APIs to upgrade chaincode.
+Open your {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console and navigate to the smart contracts tab. Scroll down to the **Instantiated smart contracts** table and find the migrated chaincode. Click **Upgrade** from the network menu on the right side of the row. The chaincode takes a few minutes to upgrade. For more information, see [Deploy a smart contract on the network tutorial](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts-v14). Only one network member needs to use the console to upgrade the chaincode. After you migrate the chaincode you can continue to upgrade your chaincode using the upgrade tool or the Fabric SDKs. However, you can no longer use the Network Monitor or the APIs to upgrade chaincode.
 
 If you encounter an error starting the chaincode container when you upgrade your chaincode using the {{site.data.keyword.blockchainfull_notm}} Platform console, you need to follow the steps in this [troubleshooting topic](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-upgrade-tool) to retry the chaincode migration.
 
 ### Step Three: Connect to the smart contract with the SDK
 
-After the chaincode has been upgraded on your channels, you can use the console to download a new connection profile for your application. To download a connection profile, navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel). Your application needs to be updated to use service discovery in order to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile to submit a transaction. To use service discovery, you also need to add an anchor peer to your channels. Use the console to add one of your peers on the new platform as an anchor peer to each channel that you joined. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
+After the chaincode has been upgraded on your channels, you can use the console to download a new connection profile for your application. To download a connection profile, navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to build and download your connection profile. For more information, see [Connect with SDK](/docs/blockchain/reference?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK-panel). Your application needs to be updated to use service discovery in order to use the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 connection profile to submit a transaction. To use service discovery, you also need to add an anchor peer to your channels. Use the console to add one of your peers on the new platform as an anchor peer to each channel that you joined. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
 
 ## Removing upgraded nodes
 

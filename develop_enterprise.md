@@ -17,7 +17,6 @@ subcollection: blockchain
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:gif: data-image-type='gif'}
 
 # Deploying business networks to Enterprise Plan
 {: #deploying-a-business-network}
