@@ -18,7 +18,6 @@ subcollection: blockchain
 {:important: .important}
 {:tip: .tip}
 {:external: target="_blank" .external}
-{:gif: data-image-type='gif'}
 
 # Using the Network Monitor
 {: #ibp-dashboard}

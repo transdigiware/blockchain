@@ -15,7 +15,6 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:gif: data-image-type='gif'}
 
 # Interacting with the network using Swagger APIs
 {: #ibp-swagger}

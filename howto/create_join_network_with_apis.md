@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-11-02"
 
 keywords: Swagger APIs, create a network, join a network, authentication credential
 
@@ -15,7 +15,6 @@ subcollection: blockchain
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:gif: data-image-type='gif'}
 
 # Creating or joining a network with Swagger APIs
 {: #swagger-network}
