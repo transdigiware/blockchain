@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-11-02"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -105,7 +105,6 @@ The connection profile that is downloaded from the {{site.data.keyword.blockchai
 {: note}
 
 The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information in the "certificateAuthorities": section.
-
 
 ### Including a certificate authority in a connection profile
 {: #ibp-console-organizations-connx-profile-ca}
@@ -221,7 +220,7 @@ To update your MSP:
 
 - Export the existing MSP definition from the **Organizations** tab and edit the generated JSON file to modify the display name, the existing certificates, or add new certificates.
 - Click your MSP definition in the **Organizations** tab to open it and then click the **Settings** icon.
-- If the MSP was created in this console and Node OU support is not enabled, the **Node OU** checkbox is selected because you have the opportunity to enable the support now.   If you only want to enable Node OU support on the MSP, you do not need to add a new JSON file, you can go ahead and click **Update MSP definition** now.  This action inserts the `"fabric_node_ous":` section into the JSON along with the appropriate certificates for the organization. Be aware that this action also updates the organization admin certificates on the nodes configured with this MSP definition and each node is restarted to reflect the update. The **Node OU** checkbox is not visible on imported MSPs.
+- If the MSP was created in this console and Node OU support is not enabled, the **Node OU** checkbox is selected because you have the opportunity to enable the support now.   If you only want to enable Node OU support on the MSP, you do not need to add a new JSON file, you can go ahead and click **Update MSP definition** now.  This action inserts the `"fabric_node_ous":` section into the JSON along with the appropriate certificates for the organization. Be aware that this action also updates the organization admin certificates on the nodes configured with this MSP definition and each node is restarted to reflect the update.
 - (Optional) If you made updates to the MSP JSON definition, click **Add file** to upload the new JSON file.
 - Click **Update MSP definition**.
 - It is very important to re-export this MSP now and share it with all of the members of the consortium so they can import it into their console and ensure they are using the latest copy of the MSP definition and certificates.  
@@ -410,4 +409,3 @@ If you want to stop using an instance of the {{site.data.keyword.blockchainfull_
   After you remove your ordering nodes from the consenter set of each channel, you can remove your nodes from the ordering service. Navigate to the **Nodes** tab and click the ordering service of your network. On the **Ordering service** panel, click the **Ordering nodes** tab. Click your ordering node and then click **Delete**. Because Raft consensus requires that a majority of ordering nodes are up to maintain a quorum, you need to remove one ordering node at a time. After you have deleted your ordering nodes, you can remove your organization from the set of ordering service administrators. Find your organization MSP definition on the list of **Orderer administrators** and click the **Delete** icon in the corner of the organization definition tile.
 
 After you complete these steps, your organization will no longer affect the governance of the network. You can safely delete your [service instance of the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-delete-service-instance).
-
