@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-29"
+lastupdated: "2020-11-06"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -60,7 +60,8 @@ You must have the cluster administrator role to install the operators from the R
 5. Click **My software** > **Visit the Marketplace**.
 6. In the search bar, type **blockchain** to load the blockchain tile.
 7. Click **Purchase** or **Free trial** to get started. From the **Purchase complete** page, click **Install now**. This installs the IBM Blockchain Platform operator into your cluster. Note that during the installation process you are required to select which OpenShift project to deploy the operator to from the **Namespace scope** drop-down list. After the operator is installed, your cluster connects back to Red Hat Marketplace and then becomes a target cluster for installing and managing the operator from Red Hat Marketplace.
-8. Continue to [Step one: Apply the Security Context Constraint](#deploy-ocp-rhm-scc).
+8. If your OpenShift cluster is behind a firewall, see [Deploy from Red Hat Marketplace (airgap installation)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm-fw).
+9. Continue to [Step one: Apply the Security Context Constraint](#deploy-ocp-rhm-scc).
 
 ## Step one: Apply the Security Context Constraint
 {: #deploy-ocp-rhm-scc}
