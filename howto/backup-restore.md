@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-11-09"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -25,7 +25,8 @@ subcollection: blockchain
 
 Users might want to back up their components individually or the network generally for a number of reasons. While it's a best practice to back up components before upgrading them to a new Fabric version, network backups can be useful for cases in which a flawed smart contract causes invalid transactions to be written to the ledger. While a proper development and testing cycle for a smart contract catches these errors, it might be necessary to reinstate a previous version of the network before the invalid transactions were written.
 
-The process that is described in this topic covers both scenarios (component backups are a subset of the more general process for backing up the network). However, it does not describe how to restore deleted components or environments.
+**Taking snapshots as described in this topic does not protect against the deletion of a component or entire environment by a user**. This is because restoring a deleted component or environment requires more information than is stored in a snapshot. Also, when a component or environment is deleted, the original volumes (which contain things like certificates) and all snapshot data are deleted.
+{: important}
 
 ##  Overview
 {: #backup-restore-overview}
@@ -427,4 +428,3 @@ In our example, the flow you would take is:
 3.  Restore each ordering node to its 5:00 a.m. snapshot taken the same day as the peer snapshots you restored.
 4.  Scale all five ordering service deployments up to `1` and wait for five minutes after they have started to sync up.
 5.  Scale all peer deployments up to `1`.
-
