@@ -121,6 +121,7 @@ This condition can occur on peer and ordering nodes that were *imported* to the 
 This problem also occurs if you migrated your {{site.data.keyword.cloud_notm}} Kubernetes cluster Ingress from {{site.data.keyword.containerlong_notm}} Ingress to the community Kubernetes Ingress image, or vis versa.
 {: tsCauses}
 
+{: tsResolve}
 If you imported the node, You can resolve this problem by performing the following steps:
  1. Click the node tile to open it.
  2. Click the **Settings** icon.
@@ -133,7 +134,7 @@ If you imported the node, You can resolve this problem by performing the followi
  9. Associate the same identity you noted in step three.
  10. Click **Add peer** or **Add ordering service**.
 The health checker can now run against the node and report the status of the node.
-{: tsResolve}
+
 
 If you migrated your cluster Ingress, you need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh)  
 
