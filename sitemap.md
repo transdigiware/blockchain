@@ -991,6 +991,8 @@ subcollection: blockchain
 * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 
+[Prior versions of the APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-priors)
+
 
 ## Upgrading your Enterprise Plan network
 {: #sitemap_upgrading_your_enterprise_plan_network}

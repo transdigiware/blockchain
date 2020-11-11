@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-10"
+lastupdated: "2020-11-11"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -1083,3 +1083,11 @@ If you want to use the {{site.data.keyword.blockchainfull_notm}} Platform consol
 - **Private Key:** Upload your admins private key. If you followed the instructions above, you can find this key in the `$HOME/fabric-ca-client/peer-admin/msp/keystore/` folder.
 
 After you import your admin identity, you can associate this identity with the components that you create. You can then use the console to operate your network.
+
+## Prior versions of the APIs
+{: #ibp-v2-apis-priors}
+
+The current version of the API is `v2`. If you need to access the `v1` version of the APIs, a Swagger `.yaml` file is available that can be imported into the [Swagger editor](http://editor.swagger.io){: external}.
+
+- [v1](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v1.yaml)
+- [v2](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v2.yaml)
