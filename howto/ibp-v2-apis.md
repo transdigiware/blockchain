@@ -1090,5 +1090,5 @@ After you import your admin identity, you can associate this identity with the c
 
 The current version of the API is `v2`. If you need to access the `v1` version of the APIs, a Swagger `.yaml` file is available that can be imported into the [Swagger editor](http://editor.swagger.io){: external}.
 
-- [v1](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v1.yaml)
-- [v2](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v2.yaml)
+- [v1](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v1.yaml){: external}
+- [v2](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v2.yaml){: external}
