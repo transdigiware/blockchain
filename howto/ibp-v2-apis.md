@@ -1084,6 +1084,7 @@ If you want to use the {{site.data.keyword.blockchainfull_notm}} Platform consol
 
 After you import your admin identity, you can associate this identity with the components that you create. You can then use the console to operate your network.
 
+
 ## Prior versions of the APIs
 {: #ibp-v2-apis-priors}
 
