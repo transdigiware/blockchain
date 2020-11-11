@@ -133,9 +133,9 @@ If you imported the node, You can resolve this problem by performing the followi
  9. Associate the same identity you noted in step three.
  10. Click **Add peer** or **Add ordering service**.
 The health checker can now run against the node and report the status of the node.
+{: tsResolve}
 
 If you migrated your cluster Ingress, you need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh)  
-{: tsResolve}
 
 
 ## Why am I getting the error `Unable to get system channel` when I open my ordering service?
