@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-11-11"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -112,14 +112,16 @@ If this is a new node, wait a few more minutes for the deployment to complete. Y
 ## When I hover over my node, the status is `Status undetectable`, what does this mean?
 {: #ibp-v2-troubleshooting-status-undetectable}
 {: troubleshoot}
+{: support}
 
 The node status in the tile for the peer or ordering node is yellow, meaning the status of the node cannot be detected. Ideally, when you hover over any node, the node status should be `Running`.
 {: tsSymptoms}
 
-This condition only occurs on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined.
+This condition can occur on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined.
+This problem also occurs if you migrated your {{site.data.keyword.cloud_notm}} Kubernetes cluster Ingress from {{site.data.keyword.containerlong_notm}} Ingress to the community Kubernetes Ingress image, or vis versa.
 {: tsCauses}
 
-You can resolve this problem by performing the following steps:
+If you imported the node, You can resolve this problem by performing the following steps:
  1. Click the node tile to open it.
  2. Click the **Settings** icon.
  3. Click **Associate identity**, view and make note of the identity that is associated with this node. Click **Cancel** to close this panel.
@@ -131,6 +133,8 @@ You can resolve this problem by performing the following steps:
  9. Associate the same identity you noted in step three.
  10. Click **Add peer** or **Add ordering service**.
 The health checker can now run against the node and report the status of the node.
+
+If you migrated your cluster Ingress, you need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh)  
 {: tsResolve}
 
 
