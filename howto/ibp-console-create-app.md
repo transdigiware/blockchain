@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-11-11"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -646,7 +646,7 @@ Go to the `digibank/application` directory. You can follow the directions that a
 
 If you are interested in preserving your existing application code, or by using Fabric SDKs for languages other than Node.js, you can still connect to your network by using lower-level Fabric SDK APIs. Use the console to [download your connection profile](#ibp-console-app-profile). You can then import the endpoints of the peers and ordering nodes of your channel directly from the connection profile, or use the node endpoint information to manually add peer and orderer objects. You will also need to use your CA to [create an application identity](#ibp-console-app-identities), and then use the CA endpoint information enroll on the client side, or generate certificates using your console.
 
-The [Fabric Node SDK](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external} documentation provides a tutorial on how to [connect to your network using a connection profile](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-network-config.html){: external}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a signing certificate and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs' [Fabric Client class](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Client.html){: external} using the code below:
+The [Fabric Node SDK](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external} documentation provides a tutorial on how to [connect to your network using a connection profile](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-commonconnectionprofile.html){: external}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a signing certificate and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs' [Fabric Client class](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Client.html){: external} using the code below:
 
 ```javascript
 fabric_client.createUser({
