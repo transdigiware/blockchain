@@ -958,6 +958,8 @@ subcollection: blockchain
 
 [Building a network with APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis)
 
+[Swagger](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-swagger)
+
 [Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
 
 [Authentication](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
@@ -990,8 +992,6 @@ subcollection: blockchain
 * [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
 * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
-
-[Prior versions of the APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-priors)
 
 
 ## Upgrading your Enterprise Plan network
