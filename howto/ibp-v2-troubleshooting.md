@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-11"
+lastupdated: "2020-11-12"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -136,7 +136,7 @@ If you imported the node, You can resolve this problem by performing the followi
 The health checker can now run against the node and report the status of the node.
 
 
-If you migrated your cluster Ingress, you need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh)  
+If you migrated your cluster Ingress, you need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh).
 
 
 ## Why am I getting the error `Unable to get system channel` when I open my ordering service?
