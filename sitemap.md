@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-10"
+lastupdated: "2020-11-12"
 
 keywords: site map
 subcollection: blockchain
@@ -957,6 +957,8 @@ subcollection: blockchain
 
 
 [Building a network with APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis)
+
+[Swagger](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-swagger)
 
 [Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
 
