@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-13"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -288,18 +288,23 @@ peerc           1/1     1            1           20h
 peerorg1ca      1/1     1            1           48d
 ```
 
-Then scale down the node. In this example, scale down `peera`:
+Then scale down the node by setting the `replicas` value to `0`.
+
 
 ```
-kubectl scale --replicas 0 deployment/peera
+kubectl patch <component> <componentName> --type merge --patch '{"spec":{"replicas":0}}' -n <namespace>
 ```
 {: codeblock}
 
-A successful scale down looks similar to:
+
+Where `<component>` is one of: `ibppeer`, `ibporderer`, or `ibpca`.
+
+In this example, scale down `peera`:
 
 ```
-deployment.apps/peera scaled
+kubectl patch <ibppeer> peera --type merge --patch '{"spec":{"replicas":0}}' -n n3392fd
 ```
+{: codeblock}
 
 Then look at your deployments again to make sure that the peer is scaled down:
 
@@ -395,22 +400,25 @@ peerc           1/1     1            1           20h
 peerorg1ca      1/1     1            1           48d
 ```
 
-Then scale the `peera` pod back up:
+Then scale the `peera` pod back up by setting the replicas value to `1`.
+
 
 ```
-kubectl scale --replicas 1 deployment/peera
+kubectl patch <component> <componentName> --type merge --patch '{"spec":{"replicas":1}}' -n <namespace>
 ```
 {: codeblock}
 
-You'll receive a response similar to:
+
+Where `<component>` is, once again, one of: `ibppeer`, `ibporderer`, or `ibpca`.
+
+In this example, scale up `peera`:
 
 ```
-deployment.apps/peera scaled
+kubectl patch <ibppeer> peera --type merge --patch '{"spec":{"replicas":1}}' -n n3392fd
 ```
+{: codeblock}
 
 Once the pod is back up, the peer is now restored, with the same peer channel membership, installed smart contracts, and ledger height as when the snapshot was taken. Because the peer immediately starts pulling new blocks from the ordering service or other peers once it comes up, the ledger height might increase.
-
-
 
 ### Restoring an ordering node
 {: #backup-restore-restore-orderer}
