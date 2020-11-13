@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-11-13"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -290,7 +290,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 - Chrome Version 85.0.4183.121 (Official Build) (64-bit)
 - Safari Version 13.0.3 (15608.3.10.1.4)
 
-
 ### Resources required
 {: #ibp-v2-deploy-iks-resources-required}
 
@@ -328,8 +327,9 @@ For a sense of how much storage and compute you will need in your cluster, refer
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+
+Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
 
 If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
