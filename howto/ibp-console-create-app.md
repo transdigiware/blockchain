@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-11"
+lastupdated: "2020-11-17"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -664,7 +664,24 @@ If you are using low level SDK APIs to connect to your network, there are additi
 ## Using indexes with CouchDB
 {: #console-app-couchdb}
 
-If you use CouchDB as your state database, you can perform JSON data queries from your smart contracts against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contracts. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state. To learn how to use indexes with your smart contracts and your applications, see [Best practices when using CouchDB](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices).
+If you use CouchDB as your state database, you can perform JSON data queries from your smart contract against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contract. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state.
+
+For more information about CouchDB and how to set up indexes, see [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_as_state_database.html){: external} in the Hyperledger Fabric documentation. You can also find an example that uses an index with chaincode in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html){: external}.
+
+Avoid using chaincode for queries that will result in a scan of the entire CouchDB database. Full length database scans result in long response times and will degrade the performance of your network. You can take some of the following steps to avoid and manage large queries:
+- Set up indexes with your chaincode.
+- All fields in the index must also be in the selector or sort sections of your query for the index to be used.
+- More complex queries will have a lower performance and will be less likely to use an index.
+- You should try to avoid operators that will result in a full table scan or a full index scan, such as `$or`, `$in` , and `$regex`.
+
+You can find examples that demonstrate how queries use indexes and what type of queries will have the best performance in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}.
+
+Peers on the {{site.data.keyword.blockchainfull_notm}} Platform have a set queryLimit, and will only return 10,000 entries from the state database. If your query hits the queryLimit, you can use multiple queries to get the remaining results. If you need more results from a range query, start subsequent queries with the last key that is returned by the previous query. If you need more results from JSON queries, sort your query by using one of the variables in your data, then use the last value from the previous query in a 'greater than' filter for the next query.
+
+Do not query the entire database for the purpose of aggregation or reporting. If you want to build a dashboard or collect large amounts of data as part of your application, you can query an off chain database that replicates the data from your blockchain network. This allows you to understand the data on the blockchain without degrading the performance of your network or disrupting transactions.
+
+You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store by using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-2.2/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
+data to an external database, see the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
 
 
 ## Clock synchronization
@@ -678,3 +695,12 @@ The NTP server that you need to synchronize your application with depends on whe
 - If your application is running in {{site.data.keyword.cloud_notm}} VPC infrastructure, set your NTP server to `time.adn.networklayer.com`.
 - If your application is not running in {{site.data.keyword.cloud_notm}}, set your NTP server to `time-a.nist.gov` or `time-b.nist.gov`.
 
+
+## Additional Resources
+{: #console-app-resources}
+
+[{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/)   
+- For tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications.
+
+[Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)  
+- For application developers who want to learn about common patterns for interacting with blockchain networks.

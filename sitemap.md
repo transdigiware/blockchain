@@ -382,6 +382,8 @@ subcollection: blockchain
 
 [Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
 
+[Additional Resources](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-resources)
+
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform getting started videos
 {: #sitemap__platform_getting_started_videos}
@@ -834,9 +836,7 @@ subcollection: blockchain
   * [Managing transactions](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-managing-transactions)
   * [Opening and closing network connections](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connections)
   * [Highly available applications](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)
-* [Enabling mutual TLS](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-mutual-tls)
 * [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk)
-* [Best practices when using CouchDB](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)
 
 
 ## Advanced tutorials
