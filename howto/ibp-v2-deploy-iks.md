@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-13"
+lastupdated: "2020-11-17"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -210,7 +210,6 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.blockchainfull_notm}} Platform console, a user interface that can simplify and accelerate your journey to deploy and manage blockchain components. This tutorial describes how to get started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and use the console to deploy and manage blockchain components in your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. To learn more about Kubernetes see this [overview](/docs/blockchain/reference?topic=blockchain-k8s-overview "Kubernetes").
 {:shortdesc}
 
-
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
 If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution (OKD), or Kubernetes, see [Getting started with IBM Blockchain Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp).
@@ -244,7 +243,7 @@ Before you deploy the console, ensure that you understand the following consider
 - You have the option to link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to a free Kubernetes cluster for evaluation of the offering, however capacity and performance are limited, none of your data can be migrated, and the cluster is deleted after 30 days.
 - You are responsible for the management of health monitoring, security, and logging of your Kubernetes cluster. See this [information](/docs/containers?topic=containers-responsibilities_iks){: external} for details on what {{site.data.keyword.cloud_notm}} manages and what you are responsible for.
 - You are also responsible for monitoring the resource usage of your Kubernetes cluster by using the Kubernetes dashboard. If you need to increase storage capacity of your cluster, see this information on how to modify your existing volume:
-  - [IBM file storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
+  - [IBM File Storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
   - [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
   - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster.
@@ -339,12 +338,15 @@ If you plan to deploy a five node Raft ordering service, note that the total of 
 
 {{site.data.keyword.blockchainfull_notm}} Platform requires persistent storage for each CA, peer, and ordering node. When you deploy a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it uses a pre-configured storage class that is backed by [{{site.data.keyword.cloud_notm}} File Storage](/docs/FileStorage?topic=FileStorage-getting-started). You have the option to upgrade your storage class, change your backing storage, or use third-party services.
 
-Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}. If you make no changes, the `default` storage class is the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers).
+Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}.
+
+The the `default` storage class is `Gold` File Storage backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers) except on Kubernetes v1.16 clusters, where the `default` storage class is `Bronze` File Storage. See [Deciding on the File Storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} for more details. If you need to change your default storage class, see [Ordering File Storage with pre-defined IOPS Tiers (Endurance)](/docs/FileStorage?topic=FileStorage-orderingConsole#endurance) and then follow instructions to [configure a custom storage class](#ibp-console-storage-custom).
+{: important}
 
 ### Provision persistent storage
 {: #ibp-console-storage-provision}
 
-If you are linking to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}, review the topic on [Planning highly available persistent storage](/docs/openshift?topic=openshift-storage_planning#choose_storage_solution){: external}. If you are linking to an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, you can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. In both cases, you need to provision persistent storage. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in your Kubernetes cluster on {{site.data.keyword.cloud_notm}} use file storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
+If you are linking to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}, review the topic on [Planning highly available persistent storage](/docs/openshift?topic=openshift-storage_planning#choose_storage_solution){: external}. If you are linking to an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, you can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. In both cases, you need to provision persistent storage. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in your Kubernetes cluster on {{site.data.keyword.cloud_notm}} use File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
 
 ### Multizone-capable storage
 {: #ibp-console-storage-multizone}
@@ -367,7 +369,7 @@ After you deploy blockchain nodes to your cluster, you should not change the `de
 {: important}
 
 If you need to increase storage capacity of your cluster, see this information on how to modify your existing volume:
-  - [IBM file storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
+  - [IBM File Storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
   - [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
   - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 

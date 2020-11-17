@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-11-17"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud
 
@@ -182,7 +182,6 @@ If your cluster is available, select it and click **Next**. It might take a few 
 - **App containers**: Containers are created inside the pods for each node that is deployed.
 - **Persistent Storage**: Storage for each node is dynamically provisioned from the Kubernetes cluster `default` storage class every time a node is deployed.
 
-
 ## (Optional) Add additional users to the console
 {: #ibp-v2-deploy-iks-add-users}
 
@@ -191,7 +190,7 @@ By default, the console uses [{{site.data.keyword.cloud_notm}} Identity and Acce
 ## Next steps
 {: #ibp-v2-deploy-iks-next-steps}
 
-- Before you create any nodes, you need to decide on the storage plug-in for your Kubernetes cluster. If you are just getting started and trying things out, the default Bronze File Storage that is pre-selected for you when you provision the cluster is suitable. No further action is required at this time.  But, when you are ready to deploy a cluster for formal testing or Production usage, you need to decide on the appropriate storage plug-in for your needs. Review this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to get started.
+- Before you create any nodes, you need to decide on the storage plug-in for your Kubernetes cluster. If you are just getting started and trying things out, `Bronze` file storage is suitable. However, if your cluster is running Kubernetes v1.17 or higher, `Gold` file storage is preselected for your cluster by default. To change the default storage for your cluster, see this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 
 - Now that your console is ready to use, you can go ahead to the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
 Consider bookmarking the URL of your console so you can come back at a later time if needed. Otherwise, you can follow the steps in the [Post-install instructions](#ibp-v2-deploy-iks-post-install) to get back to it from your browser.
