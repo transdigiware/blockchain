@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-10-18"
+lastupdated: "2020-11-17"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, join a network, system channel
 
@@ -51,7 +51,6 @@ You are currently on the second part of our three-part tutorial series. This tut
 You can use the steps in these tutorials to build a network with multiple organizations in one cluster for the purposes of development and testing. Use the **Build a network** tutorial if you want to form a blockchain consortium by creating an ordering service and adding organizations. Use the **Join a network** tutorial to connect a peer to the network. Following the tutorials with different consortium members allows you to create a truly **distributed** blockchain network.
 
 **Looking for a way to script the deployment of your nodes?** If you are already familiar with the manual process to deploy the components with the console, you can check out the [Ansible playbooks](/docs/blockchain?topic=blockchain-ansible), a powerful tool for scripting the deployment of components in your blockchain network.
-
 
 
 This tutorial is meant to show how to join a peer to an **existing** network. It presumes that an ordering service has already been created using another {{site.data.keyword.blockchainfull_notm}} Platform console (it is possible to join peers created in the {{site.data.keyword.blockchainfull_notm}} Platform to any network running Hyperledger Fabric based components using the Fabric APIs or the CLI, but we will not show that process here). If you don't have an existing network to join, visit the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to learn how to create one. The **Join a network** tutorial takes you through the steps to create the following `Org2` blockchain components, highlighted in the blue box:
@@ -238,7 +237,7 @@ Use your console to perform the following steps:
    * Select the **Enroll ID** for the peer identity that you created for your peer from the drop-down list, `peer2`, and enter its associated **secret**, `peer2pw`.
    * Then, select `Org2 MSP` from the drop-down list
    * The **TLS Certificate Signing Request (CSR) hostname** is an option available to advanced users who want to specify a custom domain name that can be used to address the peer endpoint. Custom domain names are not a part of this tutorial, so leave the **TLS CSR hostname** blank for now.
-   * In the **Fabric version** drop down list, the best practice is to select the **highest available version**, as it will contain the latest bug fixes. It might also be necessary to select the highest version in order to have access to the latest features. Note that if you select any version higher than v2.0, no smart contract container will be deployed along with your peer. Instead, each smart contract will be deployed into its own pod when it is deployed on the channel or invoked for the first time. Smart contracts written in Golang running on peers created using a Fabric v1.4.x image must be upgraded to be compatible on channels using v2.0 capabilities. See this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor) on vendoring the shim for more information.
+   * In the **Fabric version** drop down list, the best practice is to select the **highest available version**, as it will contain the latest bug fixes. It might also be necessary to select the highest version in order to have access to the latest features. Note that if you select any version higher than v2.0, no smart contract container will be deployed along with your peer. Instead, each smart contract will be deployed into its own pod when it is deployed on the channel or invoked for the first time. Golang smart contracts that are currently running on a Fabric v1.4 peer need to be upgraded if you plan to run them on a Fabric v2.x peer. See this [topic](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor) on vendoring the shim for more information.
    * Click **Next**.
 7. The last side panel asks you to **Associate an identity** to make it the admin of your peer. For the purpose of this tutorial, make your organization admin, `Org2 MSP Admin`, the admin of your peer as well. It is possible to register and enroll a different identity with the `Org2 CA` and make that identity the admin of your peer, but this tutorial uses the `Org2 MSP Admin` identity.
 8. Review the summary and click **Add peer**.  The **Edit configuration JSON** button allows you to override configuration settings for the peer. For this tutorial, the default settings are sufficient.  See [Customizing a peer configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-peer-create-json) to learn more about the options that are available.
@@ -419,4 +418,3 @@ After you have joined your peer to a channel, use the following steps to deploy 
 
 - [Deploy a smart contract on your network using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2) using the console.
 - After you have installed and instantiated your smart contract, you can [submit transactions using your client application](/docs/blockchain?topic=blockchain-ibp-console-app). The [commercial paper sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper) can be used to deploy an example smart contract and submit transactions from sample application code.
-
