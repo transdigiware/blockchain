@@ -1326,6 +1326,8 @@ subcollection: blockchain
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
 
+[19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
+
 [02 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020)
 * [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-upgrade)
 * [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-lc)
