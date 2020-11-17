@@ -378,6 +378,8 @@ subcollection: blockchain
 
 [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
 
+[Highly available applications](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-ha)
+
 [Using indexes with CouchDB](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-couchdb)
 
 [Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
@@ -835,8 +837,8 @@ subcollection: blockchain
 * [Application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability)
   * [Managing transactions](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-managing-transactions)
   * [Opening and closing network connections](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connections)
-  * [Highly available applications](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)
 * [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk)
+* [Resources](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-resources)
 
 
 ## Advanced tutorials
