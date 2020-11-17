@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-02"
+lastupdated: "2020-11-13"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -72,6 +72,8 @@ Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform 
 | **Console**                    | 1.2           | 2.4                   | 10                     |
 {: caption="Table 2. Default resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform" caption-side="bottom"}
 ** Actual VPC allocations are visible in the blockchain console when a node is deployed.
+
+Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
 
 While users of a free cluster **must use default sizes** for the containers associated with their nodes, users of paid clusters can set these values while the node is being created by clicking the **Resource allocation** box during the creation of their nodes. If this box is not checked, the default resource allocations, which can be seen below, will be used.
 

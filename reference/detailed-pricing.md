@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-11-17"
 
 keywords: Pricing, pricing examples
 
@@ -36,6 +36,7 @@ The costs that are provided in this topic are based on the usage of **{{site.dat
 If you need to first learn more about the basic elements that factor into the cost a blockchain network, review the topic on [Pricing for {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-saas-pricing).
 {: note}
 
+
 ## Scenario comparisons
 {: #ibp-pricing-details-tabs}
 
@@ -51,7 +52,7 @@ Click a tab to view the details for a configuration. Each tab contains two optio
 
 For example, consider the scenario where a group of _organizations_ want to transact on a blockchain network. The network might include buyers, suppliers, distributors, and banks. If you are **hosting** a network, you could host the ordering service and some organizations such as the buyers, and suppliers. Or, if you are a distributor, you might prefer to simply **join** the existing network. The tables below includes the costs for each type of scenario.
 
-Storage costs are calculated based on {{site.data.keyword.cloud_notm}} File Storage costs.<br>
+All storage costs are calculated based on {{site.data.keyword.cloud_notm}} Bronze File Storage costs.<br>
 For {{site.data.keyword.blockchainfull_notm}} Platform cost estimation purposes, **1 VPC = 1 CPU = 1 vCPU = 1 Core**.
 
 | | Assumptions | Cost to Host | Cost to Join |

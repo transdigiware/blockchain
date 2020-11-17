@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-11-17"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud
 
@@ -110,7 +110,7 @@ For more information about the {{site.data.keyword.IBM_notm}} Kubernetes Service
 
 For more information about OpenShift, see [About the OpenShift Kubernetes Engine](https://docs.openshift.com/container-platform/4.3/welcome/oke_about.html){: external}.
 
-As both {{site.data.keyword.IBM_notm}} Kubernetes Service clusters and OpenShift clusters are based on Kubernetes, you will find that many of the underlying decisions about hardware and storage types will be the same regardless of which cluster provider you choose. Note that the Kubernetes version of the cluster you deploy must be between v1.16 - v1.19 to be compatible with the {{site.data.keyword.blockchainfull_notm}} Platform.
+As both {{site.data.keyword.IBM_notm}} Kubernetes Service clusters and OpenShift clusters are based on Kubernetes, you will find that many of the underlying decisions about hardware and storage types will be the same regardless of which cluster provider you choose. Note that the Kubernetes version of the cluster you deploy must be v1.17 - v1.19 to be compatible with the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 **Note that if you want high availability or disaster recovery, you will need to make a decision about the storage class you are using. The `default` storage class on the cluster will be used by the dynamic provisioning. So, customers can set any storage class as the default. For more information, see [Deciding on the file storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external}.**
 
@@ -182,7 +182,6 @@ If your cluster is available, select it and click **Next**. It might take a few 
 - **App containers**: Containers are created inside the pods for each node that is deployed.
 - **Persistent Storage**: Storage for each node is dynamically provisioned from the Kubernetes cluster `default` storage class every time a node is deployed.
 
-
 ## (Optional) Add additional users to the console
 {: #ibp-v2-deploy-iks-add-users}
 
@@ -191,7 +190,7 @@ By default, the console uses [{{site.data.keyword.cloud_notm}} Identity and Acce
 ## Next steps
 {: #ibp-v2-deploy-iks-next-steps}
 
-- Before you create any nodes, you need to decide on the storage plug-in for your Kubernetes cluster. If you are just getting started and trying things out, the default Bronze File Storage that is pre-selected for you when you provision the cluster is suitable. No further action is required at this time.  But, when you are ready to deploy a cluster for formal testing or Production usage, you need to decide on the appropriate storage plug-in for your needs. Review this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to get started.
+- Before you create any nodes, you need to decide on the storage plug-in for your Kubernetes cluster. If you are just getting started and trying things out, `Bronze` file storage is suitable. However, if your cluster is running Kubernetes v1.17 or higher, `Gold` File Storage is preselected for your cluster by default. To change the default storage for your cluster, see this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 
 - Now that your console is ready to use, you can go ahead to the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network).
 Consider bookmarking the URL of your console so you can come back at a later time if needed. Otherwise, you can follow the steps in the [Post-install instructions](#ibp-v2-deploy-iks-post-install) to get back to it from your browser.
@@ -199,7 +198,7 @@ Consider bookmarking the URL of your console so you can come back at a later tim
 ## Updating the Kubernetes version of your cluster
 {: #ibp-v2-deploy-iks-updating-kubernetes}
 
-If you use an existing {{site.data.keyword.cloud_notm}} Kubernetes service cluster, ensure that it is running Kubernetes v1.16 - v1.19.
+If you use an existing {{site.data.keyword.cloud_notm}} Kubernetes service cluster, ensure that it is running Kubernetes v1.17 - v1.19.
 
 You can check the Kubernetes version of your cluster in the [Kubernetes clusters page](https://cloud.ibm.com/kubernetes/clusters){: external} on {{site.data.keyword.cloud_notm}}, which lists all your clusters in a table.
 

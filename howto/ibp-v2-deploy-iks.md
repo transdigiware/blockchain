@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-11-17"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -210,7 +210,6 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.blockchainfull_notm}} Platform console, a user interface that can simplify and accelerate your journey to deploy and manage blockchain components. This tutorial describes how to get started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} and use the console to deploy and manage blockchain components in your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. To learn more about Kubernetes see this [overview](/docs/blockchain/reference?topic=blockchain-k8s-overview "Kubernetes").
 {:shortdesc}
 
-
 **Target audience:** This topic is designed for system administrators who are responsible for setting up a Kubernetes cluster on {{site.data.keyword.cloud_notm}} and for deploying {{site.data.keyword.blockchainfull_notm}} Platform.
 
 If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution (OKD), or Kubernetes, see [Getting started with IBM Blockchain Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp).
@@ -244,12 +243,12 @@ Before you deploy the console, ensure that you understand the following consider
 - You have the option to link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to a free Kubernetes cluster for evaluation of the offering, however capacity and performance are limited, none of your data can be migrated, and the cluster is deleted after 30 days.
 - You are responsible for the management of health monitoring, security, and logging of your Kubernetes cluster. See this [information](/docs/containers?topic=containers-responsibilities_iks){: external} for details on what {{site.data.keyword.cloud_notm}} manages and what you are responsible for.
 - You are also responsible for monitoring the resource usage of your Kubernetes cluster by using the Kubernetes dashboard. If you need to increase storage capacity of your cluster, see this information on how to modify your existing volume:
-  - [IBM file storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
+  - [IBM File Storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
   - [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
   - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 - You are responsible for managing and securing your certificates and private keys. {{site.data.keyword.IBM_notm}} does not store your certificates in the Kubernetes cluster.
 - {{site.data.keyword.blockchainfull_notm}} Platform is available in select regions. Refer to this topic on [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations) for an updated list.
-- {{site.data.keyword.blockchainfull_notm}} Platform is compatible with a Kubernetes cluster on {{site.data.keyword.cloud_notm}} running Kubernetes v1.16 - v1.19.
+- {{site.data.keyword.blockchainfull_notm}} Platform is compatible with a Kubernetes cluster on {{site.data.keyword.cloud_notm}} running Kubernetes v1.17 - v1.19.
 - If you do not want to use the default Bronze File storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more. Note that when your Kubernetes cluster is configured to use any of the IBM Cloud storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Kubernetes clusters that are configured with private VLANs are not supported.
@@ -273,7 +272,7 @@ Before you begin:
 When you plan to use the service instance in the context of a broader organization-wide solution, it is recommended that the participating organizations use a functional email address to create their network. In this case, access to the network does not depend on any single individual's availability.
 {:tip}
 
-- If you plan to use an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}, ensure the version of Kubernetes it is running is between v1.16 - v1.19. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-updating-kubernetes).
+- If you plan to use an existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}, ensure the version of Kubernetes it is running is between v1.17 - v1.19. For more information about how to determine what version of Kubernetes your cluster is running and how to upgrade the version, see [Updating the Kubernetes version of your cluster](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-updating-kubernetes).
 
 - If you plan to use a Hardware Security Module (HSM) to generate and store the private key for your peer and ordering nodes, you can configure the HSM before you deploy the platform. Along with deploying the HSM device itself, you also need to publish an HSM client image to a container registry, or else configure a PKCS #11 proxy (deprecated) so the blockchain components can access the HSM partition. If you decide to publish an HSM client image to a container registry, you can enable HSM support for the platform by providing the image URL when you link the service to your cluster.  See the instructions in [Configuring a node to use a Hardware Security Module](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm) to learn how to deploy the HSM and publish the HSM client image. If the HSM device is not yet available, you can always come back later and enable the HSM support for the platform when it is ready.
 
@@ -289,7 +288,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 
 - Chrome Version 85.0.4183.121 (Official Build) (64-bit)
 - Safari Version 13.0.3 (15608.3.10.1.4)
-
 
 ### Resources required
 {: #ibp-v2-deploy-iks-resources-required}
@@ -328,8 +326,9 @@ For a sense of how much storage and compute you will need in your cluster, refer
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
-
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+
+Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
 
 If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
@@ -339,12 +338,15 @@ If you plan to deploy a five node Raft ordering service, note that the total of 
 
 {{site.data.keyword.blockchainfull_notm}} Platform requires persistent storage for each CA, peer, and ordering node. When you deploy a standard Kubernetes cluster in {{site.data.keyword.cloud_notm}}, it uses a pre-configured storage class that is backed by [{{site.data.keyword.cloud_notm}} File Storage](/docs/FileStorage?topic=FileStorage-getting-started). You have the option to upgrade your storage class, change your backing storage, or use third-party services.
 
-Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}. If you make no changes, the `default` storage class is the [Bronze-level File Storage](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers).
+Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}.
+
+The the `default` storage class is `Gold` File Storage backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers) except on Kubernetes v1.16 clusters, where the `default` storage class is `Bronze` File Storage. See [Deciding on the File Storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} for more details. If you need to change your default storage class, see [Ordering File Storage with pre-defined IOPS Tiers (Endurance)](/docs/FileStorage?topic=FileStorage-orderingConsole#endurance) and then follow instructions to [configure a custom storage class](#ibp-console-storage-custom).
+{: important}
 
 ### Provision persistent storage
 {: #ibp-console-storage-provision}
 
-If you are linking to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}, review the topic on [Planning highly available persistent storage](/docs/openshift?topic=openshift-storage_planning#choose_storage_solution){: external}. If you are linking to an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, you can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. In both cases, you need to provision persistent storage. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in your Kubernetes cluster on {{site.data.keyword.cloud_notm}} use file storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
+If you are linking to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}, review the topic on [Planning highly available persistent storage](/docs/openshift?topic=openshift-storage_planning#choose_storage_solution){: external}. If you are linking to an {{site.data.keyword.cloud_notm}} Kubernetes Service cluster, you can choose from several [Kubernetes storage options](/docs/containers?topic=containers-storage_planning#choose_storage_solution){: external} and decide on the storage type that best fits your use case. In both cases, you need to provision persistent storage. Be aware that you are charged separately for your storage usage, so you can factor in the cost of the various storage options when you make your selection. All of the predefined storage classes in your Kubernetes cluster on {{site.data.keyword.cloud_notm}} use File Storage as the backing storage. For more information, see [{{site.data.keyword.cloud_notm}} File Storage pricing](/docs/FileStorage?topic=FileStorage-about#billing).
 
 ### Multizone-capable storage
 {: #ibp-console-storage-multizone}
@@ -367,7 +369,7 @@ After you deploy blockchain nodes to your cluster, you should not change the `de
 {: important}
 
 If you need to increase storage capacity of your cluster, see this information on how to modify your existing volume:
-  - [IBM file storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
+  - [IBM File Storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
   - [Portworx](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/resize-pvc/)
   - [Block storage](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#expandingcapacity)
 
