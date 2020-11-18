@@ -363,6 +363,8 @@ subcollection: blockchain
 
 [Downloading your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile)
 
+[Service discovery](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-sd)
+
 [Enrolling by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll)
 
 [Invoking a smart contract by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke)

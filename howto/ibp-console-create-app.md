@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-11-18"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -175,11 +175,6 @@ The connection profile that is downloaded from the {{site.data.keyword.blockchai
 
 The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external} spans multiple components, with the client applications collecting endorsements from peers and sending endorsed transactions to the ordering service. The connection profile provides your application with the endpoints of the peers and ordering nodes that it needs to submit a transaction. It also contains information about your organization, such as your Certificate Authorities and your MSP ID. The Fabric SDKs can read the connection profile directly, without you having to write code that manages the transaction and endorsement flow.
 
-In order to take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
-
-To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor){: external} in the Node SDK documentation for more information.
-{: tip}
-
 Click the **Organization MSP** tile for the organization that your client application interacts with. Click **Create connection profile** to open a side panel where you can build and download your connection profile.
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
@@ -198,6 +193,15 @@ The connection profile that is downloaded from the {{site.data.keyword.blockchai
 The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information in the "certificateAuthorities": section.
 
 
+
+## Service discovery
+{: #ibp-console-app-sd}
+
+Service discovery allows your applications to dynamically find the peer and ordering endpoints of your network. If you do not use service discovery, you need to manually add the endpoint information of peer and ordering nodes on your channel to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.  
+
+Before you can take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers on the channel. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
+
+Later in this topic, we use the connection profile to build a Fabric gateway that is configured for [service discovery](#ibp-console-app-sd-cfg).
 
 ## Enrolling by using the SDK
 {: #ibp-console-app-enroll}
@@ -480,7 +484,7 @@ Save the following code block as `enrollUser.js` in the ``/magnetocorp/applicati
   ```
   {:codeblock}
 
-Take moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
+Take a moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
 
 ```javascript
 const FabricCAServices = require('fabric-ca-client');
@@ -544,6 +548,8 @@ You will need to import the path class to build the gateway from the connection 
 ```javascript
 const path = require('path');
 ```
+{: codeblock}
+
 The `Gateway` class is used to construct a gateway that you will used to submit your transaction.
 
 ```javascript
@@ -560,7 +566,7 @@ const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 
 After importing your wallet, use the following code to pass your connection profile and wallet to the new gateway. You need to make the following **Edits** to the code so it resembles the code snippet below. The lines that print logs have been removed for brevity.
 - Update the `userName` to match the value that you selected for your `identityLabel` in `enrollUser.js`.
-- Update the discovery options to take advantage of service discovery on your network. Set `discovery: { enabled: true, asLocalhost: false }`.  
+- Update the discovery options to take advantage of service discovery on your network. Set `discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }`.  
 - Update the section importing your connection profile. The console connection profile is in JSON format rather than a YAML file used by the sample.  
 
 ```javascript
@@ -575,7 +581,7 @@ const connectionProfile = JSON.parse(ccpJSON);
 let connectionOptions = {
   identity: userName,
   wallet: wallet,
-  discovery: { enabled: true, asLocalhost: false }
+  discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }
 };
 
 await gateway.connect(connectionProfile, connectionOptions);
@@ -583,6 +589,19 @@ await gateway.connect(connectionProfile, connectionOptions);
 {:codeblock}
 
 This code snippet uses the gateway to open gRPC connections to the peer and orderer nodes, and interact with your network.
+
+#### Configuring service discovery
+{: #ibp-console-app-sd-cfg}
+
+Fabric [service discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} allows your applications to dynamically find the peer and ordering endpoints of your network and the peers on the channel outside your organization that need to endorse a transaction. If you do not configure service discovery, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.
+
+To configure a client application to use service discovery, set the following options on the `gateway.connect()` call we configure `connectionOptions` that include:
+```
+discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }
+```
+
+Setting `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN` ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor){: external} in the Node SDK documentation for more information.
+
 
 ### Step five: Invoke the smart contract
 {: #ibp-console-app-commercial-paper-step-five-invoke}
