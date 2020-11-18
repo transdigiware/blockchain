@@ -1412,6 +1412,8 @@ subcollection: blockchain
 
 [Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
 
+[Why is my Node.js smart contract endorsement failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
+
 [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 
 [My nodes, channels, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
