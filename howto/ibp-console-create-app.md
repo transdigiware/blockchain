@@ -595,7 +595,7 @@ This code snippet uses the gateway to open gRPC connections to the peer and orde
 
 Fabric [service discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} allows your applications to dynamically find the peer and ordering endpoints of your network and the peers on the channel outside your organization that need to endorse a transaction. If you do not configure service discovery, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.
 
-To configure a client application to use service discovery, set the following options on the `gateway.connect()` call we configure `connectionOptions` that include:
+To configure a client application to use service discovery, set the following options on the `gateway.connect()` call by defining   `connectionOptions` that include:
 ```
 discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }
 ```
@@ -724,7 +724,7 @@ The NTP server that you need to synchronize your application with depends on whe
 {: #console-app-resources}
 
 [{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/)   
-- For tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications.
+For tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications.  
 
-[Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)  
-- For application developers who want to learn about common patterns for interacting with blockchain networks.
+[Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)    
+For application developers who want to learn about common patterns for interacting with blockchain networks.
