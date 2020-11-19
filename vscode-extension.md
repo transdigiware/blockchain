@@ -160,7 +160,7 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 {: #develop-vscode-prerequisites}
 
 - Windows 10, Linux, or Mac OS are currently the supported operating systems.
-- [VS Code version 1.38 or greater](https://code.visualstudio.com/){: external}, or version 1.40 or greater if you want to use Fabric v2.x Lifecycle.
+- VS Code [version 1.39 or lower](https://code.visualstudio.com/updates/v1_39) if you plan to use V1 of the extension, or [version 1.40 or greater](https://code.visualstudio.com/) if you want to use Fabric v2.x Lifecycle.
 - [Docker version v17.06.2-ce or greater](https://www.docker.com/get-started){: external}.
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
 - If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}. Note that if you are using Fabric v2.x, you will need Go version v1.13 or higher instead.
@@ -195,17 +195,18 @@ If you are using Windows, you also must ensure the following:
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
 2. Select the most recent v2 release of the extension (tagged 2.0.x), scroll down to the **Assets** twistie and download the `.vsix` file.
 3. Navigate to the extensions panel within Visual Studio Code.
-4. Click **...** in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
-5. Restart Visual Studio Code to complete installation of the extension.
+4. Click the **...** in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
+5. If you are upgrading the extension, you will need to restart VS Code to complete installation of the extension.  
 
 It is currently not possible to upgrade v1 of the extension to v2.
 {: note}
 
 **To install v1 of the extension:**
 
-1. Go to the [Visual Studio Code extension marketplace page](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} or search for **{{site.data.keyword.blockchainfull_notm}} Platform** in the extensions panel within Visual Studio Code.
-2. Click **Install**.
-3. Restart Visual Studio Code to complete installation of the extension.  
+1. Ensure that you are running VS Code version 1.39 or lower.
+2. Go to the [Visual Studio Code extension marketplace page](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} or search for **{{site.data.keyword.blockchainfull_notm}} Platform** in the extensions panel within Visual Studio Code.
+3. Click **Install**.
+4. If you are upgrading the extension, you will need to restart VS Code to complete installation of the extension.  
 
 After the installation, you can use the {{site.data.keyword.blockchainfull_notm}} icon on the left side of VS Code to open the {{site.data.keyword.blockchainfull_notm}} Platform panel.
 
