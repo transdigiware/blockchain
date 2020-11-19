@@ -219,6 +219,8 @@ The peer restarts and then you can retry the smart contract installation. Becaus
 
 ## Why is my Node.js smart contract endorsement failing?
 {: #ibp-v2-troubleshooting-nodejs-endorsement}
+{: troubleshoot}
+{: support}
 
 {: tsSymptoms}
 My Node.js smart contract endorsement fails with the error:
