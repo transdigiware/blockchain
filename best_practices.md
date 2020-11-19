@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-11-17"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -45,7 +45,7 @@ The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs
 ### Managing transactions
 {: #best-practices-app-managing-transactions}
 
-Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app) to handle component failure. You can also [increase the timeout values](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
+Application clients must ensure that their transaction proposals are validated and that the proposals complete successfully. A proposal can be delayed or lost for multiple reasons, such as a network outage or a component failure. You should code your application for [high availability](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-ha) to handle component failure. You can also [increase the timeout values](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk) in your application to prevent proposals from timing out before the network can respond.
 
 If a smart contract is not running, the first transaction proposal that is sent to the smart contract starts the smart contract. While the smart contract is starting, all other proposals are rejected with an error that indicates that the smart contract is starting. This is different from transaction invalidation. If any proposal is rejected while the smart contract is starting, application clients need to resend the rejected proposals after the smart contract starts. Application clients can use a message queue to avoid losing transaction proposals.
 
@@ -82,27 +82,6 @@ When you manage the connections between your application and your network, you m
   {:codeblock}
 
   You can also find these variables with the recommended settings in the `"peers"` section of your network connection profile. The recommended options are imported into your application automatically if you use the connection profile with the SDK to connect to your network endpoints. You can find more information on how to use a Connection Profile in the [Node SDK documentation](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-commonconnectionprofile.html){: external}. The [Fabric `Gateway` class](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.Gateway.html){: external} also provides a connection point for an application to access the Fabric network.
-
-### Highly available applications
-{: #best-practices-app-ha-app}
-
-As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well. Install chaincode on both peers and add them to your channels. Then, be prepared to submit transaction proposals to both peer endpoints when setting up your network and building your peer target list. Enterprise Plan networks have multiple orderers for failover, which allows your client application to send endorsed transactions to a different orderer if one orderer is not available. If you use your connection profile instead to add network endpoints manually, ensure that your profile is up-to-date and that the additional peers and orderers have been added to the relevant channel in the `channels` section of the profile. The SDK can then add the components that are joined on the channel by using the connection profile.
-
-
-## Enabling mutual TLS
-{: #best-practices-app-mutual-tls}
-
-If you are running Enterprise Plan networks that are at Fabric V1.1 level, you have the option of [enabling mutual TLS](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences) for your applications. If you enable mutual TLS, you need to update your applications to support this function. Otherwise, your applications cannot communicate with your network.
-
-In the Connection Profile, locate the `certificateAuthorities` section where you can find the following attributes that are necessary to enroll and get the certificates to communicate with your network by using mutual TLS.
-
-- `url`: URL for connecting to the CA that can give out mutual TLS certificates
-- `enrollId`: Enroll ID to use for getting a certificate
-- `enrollSecret`: Enroll secret to use for getting a certificate
-- `x-tlsCAName`: CA name to use for getting certificate that allows the application to communicate with Mutual TLS.
-
-For more information about updating your applications to support mutual TLS, check out [the `Client` class](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Client.html){: external}.
-
 
 ## (Optional) Setting timeout values in Fabric SDKs
 {: #best-practices-app-set-timeout-in-sdk}
@@ -167,28 +146,12 @@ channel.sendInstantiateProposal(request, 300000);
 
 For the v.2x lifecycle, check out the documentation on how to [propose](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Proposal.html){: external}, [endorse](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Endorser.html){: external}, and [commit](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Commit.html){: external} a chaincode.
 
-## Best practices when using CouchDB
-{: #best-practices-app-couchdb-indices}
-
-If you use CouchDB as your state database, you can perform JSON data queries from your smart contract against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contract. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state.
-
-For more information about CouchDB and how to set up indexes, see [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_as_state_database.html){: external} in the Hyperledger Fabric documentation. You can also find an example that uses an index with chaincode in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html){: external}.
-
-Avoid using chaincode for queries that will result in a scan of the entire CouchDB database. Full length database scans result in long response times and will degrade the performance of your network. You can take some of the following steps to avoid and manage large queries:
-- Set up indexes with your chaincode.
-- All fields in the index must also be in the selector or sort sections of your query for the index to be used.
-- More complex queries will have a lower performance and will be less likely to use an index.
-- You should try to avoid operators that will result in a full table scan or a full index scan, such as `$or`, `$in` , and `$regex`.
-
-You can find examples that demonstrate how queries use indexes and what type of queries will have the best performance in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}.
-
-Peers on the {{site.data.keyword.blockchainfull_notm}} Platform have a set queryLimit, and will only return 10,000 entries from the state database. If your query hits the queryLimit, you can use multiple queries to get the remaining results. If you need more results from a range query, start subsequent queries with the last key that is returned by the previous query. If you need more results from JSON queries, sort your query by using one of the variables in your data, then use the last value from the previous query in a 'greater than' filter for the next query.
-
-Do not query the entire database for the purpose of aggregation or reporting. If you want to build a dashboard or collect large amounts of data as part of your application, you can query an off chain database that replicates the data from your blockchain network. This allows you to understand the data on the blockchain without degrading the performance of your network or disrupting transactions.
-
-You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store by using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-2.2/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
-data to an external database, see the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
 
 ## Resources
+{: #best-practices-resources}
 
-You can go to [{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/) for tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications. Application developers can use the [Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns) to learn about common patterns for interacting with blockchain networks.
+[{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/)   
+- For tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications.
+
+[Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)  
+- For application developers who want to learn about common patterns for interacting with blockchain networks.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-18"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -26,7 +26,21 @@ subcollection: blockchain
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.9 and v2.2.1.
 {:shortdesc}
 
-See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.
+
+
+[Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)  
+For instructions on how to apply patches to your existing blockchain nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.   
+
+## 19 Nov 2020
+{: #11-19-2020}
+
+**Certificate Authority (CA) patch 1.4.9-2, Peer and ordering node patch 1.4.9-2, 2.2.1-2**
+
+Miscellaneous bug fixes and security patches.  
+
+
+When you link a new {{site.data.keyword.blockchainfull_notm}} Platform service instance to a Kubernetes cluster that uses [community Kubernetes Ingress](/docs/containers?topic=containers-ingress-types), the cluster Automatic Load Balancer (ALB) pods need to be restarted which can take five to ten minutes. If the restarts have not completed before you create your first blockchain Certificate Authority (CA), peer, or ordering node, the initial green status indicator on the new node can take slightly longer than you are accustomed to while the pods restart. Existing blockchain service instances are not impacted.
+
 
 
 ## 02 Nov 2020

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-11-18"
 
 keywords: IBM Blockchain Platform, blockchain
 
@@ -96,10 +96,10 @@ To configure your client application to use Service Discovery, when you start yo
 
 Starting with Fabric 1.4, you can take advantage of a new, simplified Fabric SDK programing model. The new model introduces high-level APIs that take advantage of service discovery and reduce the number of steps that are required to submit a transaction. Updating your applications to use the new programming model makes it easier to use the new platform and is the recommended path for your applications in the long term.
 
-To learn more about the new programming model, see the [Creating applications](/docs/blockchain/reference?topic=blockchain-ibp-console-app#ibp-console-app) tutorial or the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. If you need additional updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
+To learn more about the new programming model, see the [Creating applications](/docs/blockchain/reference?topic=blockchain-ibp-console-app#ibp-console-app) tutorial or the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. If you need additional help updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
 {: javascript}
 
-To learn more about the new programming model, see the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. For documentation on the new APIs, see the [Hyperledger Fabric Gateway SDK for Java](https://hyperledger.github.io/fabric-gateway-java/). If you need additional updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
+To learn more about the new programming model, see the [Developing applications topic](https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html){: external} in the Hyperledger Fabric documentation. For documentation on the new APIs, see the [Hyperledger Fabric Gateway SDK for Java](https://hyperledger.github.io/fabric-gateway-java/). If you need additional help updating your applications to use the new programming model, engage [{{site.data.keyword.blockchainfull_notm}} services](https://www.ibm.com/blockchain/services){: external}.
 {: java}
 
 ### Option two: Patch your applications to use service discovery with the low-level APIs

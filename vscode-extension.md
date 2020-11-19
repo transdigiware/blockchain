@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-11-19"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -160,7 +160,7 @@ Before you install the {{site.data.keyword.blockchainfull_notm}} Platform VS Cod
 {: #develop-vscode-prerequisites}
 
 - Windows 10, Linux, or Mac OS are currently the supported operating systems.
-- [VS Code version 1.38 or greater](https://code.visualstudio.com/){: external}, or version 1.40 or greater if you want to use Fabric v2.x Lifecycle.
+- VS Code [version 1.39 or lower](https://code.visualstudio.com/updates/v1_39) if you plan to use V1 of the extension, or [version 1.40 or greater](https://code.visualstudio.com/) if you want to use Fabric v2.x Lifecycle.
 - [Docker version v17.06.2-ce or greater](https://www.docker.com/get-started){: external}.
 - [Docker Compose v1.14.0 or greater](https://docs.docker.com/compose/install/){: external}.
 - If you are developing Go smart contracts, you need to install [Go version v1.12 or greater](https://golang.org/dl/){: external}. Note that if you are using Fabric v2.x, you will need Go version v1.13 or higher instead.
@@ -195,17 +195,18 @@ If you are using Windows, you also must ensure the following:
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
 2. Select the most recent v2 release of the extension (tagged 2.0.x), scroll down to the **Assets** twistie and download the `.vsix` file.
 3. Navigate to the extensions panel within Visual Studio Code.
-4. Click **...** in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
-5. Restart Visual Studio Code to complete installation of the extension.
+4. Click the **...** in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
+5. If you are upgrading the extension, you will need to restart VS Code to complete installation of the extension.  
 
 It is currently not possible to upgrade v1 of the extension to v2.
 {: note}
 
 **To install v1 of the extension:**
 
-1. Go to the [Visual Studio Code extension marketplace page](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} or search for **{{site.data.keyword.blockchainfull_notm}} Platform** in the extensions panel within Visual Studio Code.
-2. Click **Install**.
-3. Restart Visual Studio Code to complete installation of the extension.  
+1. Ensure that you are running VS Code version 1.39 or lower.
+2. Go to the [Visual Studio Code extension marketplace page](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform){: external} or search for **{{site.data.keyword.blockchainfull_notm}} Platform** in the extensions panel within Visual Studio Code.
+3. Click **Install**.
+4. If you are upgrading the extension, you will need to restart VS Code to complete installation of the extension.  
 
 After the installation, you can use the {{site.data.keyword.blockchainfull_notm}} icon on the left side of VS Code to open the {{site.data.keyword.blockchainfull_notm}} Platform panel.
 
@@ -244,9 +245,15 @@ When the project opens, you can find the new smart contract in the explorer wind
 ### Do I need to update my smart contract for Fabric v2.x?
 {: #develop-vscode-creating-a-project-v2}
 
-Although support for Fabric 2.0 networks was added to the platform, you can still run your existing smart contracts on your peers that run a v1.4 image on a channel with an application capability level of 1.4 or lower. Should you later decide to upgrade your peer to a v2.x image and update your channel application capability level to 2.0, your smart contracts will still continue to function as normal. No updates are required to the smart contract itself.
+Although support for Fabric 2.0 networks was added to the platform, you can still run your existing smart contracts on your peers that run a v1.4 image on a channel with an application capability level of 1.4 or lower. Should you later decide to upgrade your peer to a v2.x image and update your channel application capability level to 2.0, your Go and Java smart contracts will still continue to function as normal. No updates are required to these smart contracts.  
 
-However, if the smart contract was written using the low level APIs provided by the Fabric Chaincode Shim API, your smart contract needs to contain an `Init` function that is used to initialize the chaincode.  This function is required by the smart contract interface, but does not necessarily need to invoked by your applications. But if your smart contract does use the `Init` function to initialize your ledger, you need to move that initialization logic into the smart contract itself and call it separately. For example, the smart contract can use a reserved key to check if the smart contract has already been initialized or not. If not, then call the initialization logic, otherwise proceed as usual.  
+If your smart contract was written in Node, then you might need to update it. By default, a Fabric v1.4 peer will create a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for a smart contract to work with Node v12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater. If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and Compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md) for more information.
+```
+npm install --save fabric-contract-api@latest-1.4 fabric-shim@latest-1.4
+```
+{: codeblock}
+
+If the smart contract was written using the **low level APIs** provided by the Fabric Chaincode Shim API, your smart contract needs to contain an `Init` function that is used to initialize the chaincode.  This function is required by the smart contract interface, but does not necessarily need to invoked by your applications. But if your smart contract does use the `Init` function to initialize your ledger, you need to move that initialization logic into the smart contract itself and call it separately. For example, the smart contract can use a reserved key to check if the smart contract has already been initialized or not. If not, then call the initialization logic, otherwise proceed as usual.  
 
 
 
@@ -571,4 +578,3 @@ You can also add new users to the wallets that have already been created:
   - If you are connecting to a network on the {{site.data.keyword.blockchainfull_notm}} Platform, you can download an identity from your {{site.data.keyword.blockchainfull_notm}} console, either by exporting an identity from your wallet or by enrolling and then exporting an identity using your Certificate Authority. You can then upload the JSON file directly to VS Code.
   - If you use a certificate and private key, browse to the certificate and private key.
   - If you use an enrollment ID and secret, choose the gateway to enroll with and enter the enrollment ID and secret.
-

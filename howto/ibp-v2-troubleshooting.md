@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-12"
+lastupdated: "2020-11-19"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -42,6 +42,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
 - [Why did my smart contract installation, instantiation or upgrade fail?](#ibp-console-smart-contracts-troubleshoot-entry1)
 - [Why is my smart contract installation failing with an error on my peer?](#ibp-v2-troubleshooting-sc-install)
+- [Why is my Node.js smart contract endorsement failing?](#ibp-v2-troubleshooting-nodejs-endorsement)
 - [Why is the smart contract that I installed on the peer not listed in the UI?](#ibp-console-build-network-troubleshoot-missing-sc)
 - [My channel, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 - [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](#ibp-v2-troubleshooting-create-msp)
@@ -117,7 +118,7 @@ If this is a new node, wait a few more minutes for the deployment to complete. Y
 The node status in the tile for the peer or ordering node is yellow, meaning the status of the node cannot be detected. Ideally, when you hover over any node, the node status should be `Running`.
 {: tsSymptoms}
 
-This condition can occur on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined.
+This condition can occur on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined. This problem can also occur if you are using {{site.data.keyword.cloud_notm}} Kubernetes service v1.16, or if you migrated your {{site.data.keyword.cloud_notm}} Kubernetes cluster Ingress from {{site.data.keyword.containerlong_notm}} Ingress to the community Kubernetes Ingress image, or vis versa.
 {: tsCauses}
 
 {: tsResolve}
@@ -134,6 +135,15 @@ You can resolve this problem by performing the following steps:
  9. Associate the same identity you noted in step three.
  10. Click **Add peer** or **Add ordering service**.
 The health checker can now run against the node and report the status of the node.
+
+
+**If you are running {{site.data.keyword.cloud_notm}} Kubernetes service v1.16:**
+1. [Update your cluster](/docs/containers?topic=containers-update) to v1.17 or higher.
+2. Delete the failing component.
+3. Deploy the component again.
+
+**If you migrated your cluster Ingress:**
+You need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh).
 
 
 ## Why am I getting the error `Unable to get system channel` when I open my ordering service?
@@ -206,6 +216,28 @@ In some cases, if you simply wait several minutes and then refresh the **Smart c
   {: codeblock}
 
 The peer restarts and then you can retry the smart contract installation. Because the original installation failed you need to specify a new smart contract name and version. 
+
+## Why is my Node.js smart contract endorsement failing?
+{: #ibp-v2-troubleshooting-nodejs-endorsement}
+{: troubleshoot}
+{: support}
+
+{: tsSymptoms}
+My Node.js smart contract endorsement fails with the error:
+```
+Error: endorsement failure during query. response: status:500 message:"error in simulation: failed to execute transaction 6cbcf9f94bdef3fc68abba5604e46293ae: could not launch chaincode nodecc:1.1: error building chaincode: error building image: external builder failed: external builder failed to build: external builder 'ibp-builder' failed: exit status 3"
+```
+
+{: tsCauses}
+By default, a Fabric v1.4 peer creates a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for the smart contract to work with Node 12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater.
+
+{: tsResolve}
+If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and Compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md) for more information.
+```
+npm install --save fabric-contract-api@latest-1.4 fabric-shim@latest-1.4
+```
+{: codeblock}
+
 
 ## Why is the smart contract that I installed on the peer not listed in the UI?
 {: #ibp-console-build-network-troubleshoot-missing-sc}

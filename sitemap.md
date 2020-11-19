@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-11-19"
 
 keywords: site map
 subcollection: blockchain
@@ -12,6 +12,7 @@ subcollection: blockchain
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -20,6 +21,7 @@ subcollection: blockchain
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -37,7 +39,6 @@ subcollection: blockchain
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -71,7 +72,6 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -83,6 +83,7 @@ subcollection: blockchain
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
@@ -363,6 +364,8 @@ subcollection: blockchain
 
 [Downloading your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile)
 
+[Service discovery](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-sd)
+
 [Enrolling by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll)
 
 [Invoking a smart contract by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke)
@@ -378,9 +381,13 @@ subcollection: blockchain
 
 [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
 
+[Highly available applications](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-ha)
+
 [Using indexes with CouchDB](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-couchdb)
 
 [Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
+
+[Additional Resources](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-resources)
 
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform getting started videos
@@ -833,10 +840,8 @@ subcollection: blockchain
 * [Application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability)
   * [Managing transactions](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-managing-transactions)
   * [Opening and closing network connections](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connections)
-  * [Highly available applications](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-ha-app)
-* [Enabling mutual TLS](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-mutual-tls)
 * [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk)
-* [Best practices when using CouchDB](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices)
+* [Resources](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-resources)
 
 
 ## Advanced tutorials
@@ -1295,9 +1300,11 @@ subcollection: blockchain
 
 [Raft](/docs/blockchain?topic=blockchain-glossary#glossary-raft)
 
+[SDK](/docs/blockchain?topic=blockchain-glossary#glossary-sdk)
+
 [Service credentials](/docs/blockchain?topic=blockchain-glossary#glossary-service-credentials)
 
-[SDK](/docs/blockchain?topic=blockchain-glossary#glossary-sdk)
+[Service discovery](/docs/blockchain?topic=blockchain-glossary#glossary-sd)
 
 [Shim](/docs/blockchain?topic=blockchain-glossary#glossary-shim)
 
@@ -1325,6 +1332,8 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
 
 [02 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020)
 * [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-upgrade)
@@ -1405,6 +1414,8 @@ subcollection: blockchain
 [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
 
 [Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
+
+[Why is my Node.js smart contract endorsement failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
 
 [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 

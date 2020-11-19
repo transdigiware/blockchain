@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-11"
+lastupdated: "2020-11-19"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -51,7 +51,8 @@ If you are the **network operator**, you need to complete the following steps be
 
 If you are the **application developer**, use the information that is provided by the network operator to complete following steps:
 1. Generate a certificate and private key by using the enroll ID and secret of the application identity, along with CA endpoint information inside your connection profile.
-2. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
+2. Configure a connection by using the Fabric SDK gateway and enable [service discovery](/docs/blockchain?topic=blockchain-glossary#glossary-sd).
+3. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
 
 The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network by using the Node.js (JavaScript and TypeScript), Java, and Go Fabric SDKs.
 {: note}
@@ -125,8 +126,8 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 |Contract API | Peer Fabric image  | Java runtime   |
 |:-------------------|:---------------|:-------------|
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x){: external} |v2.2 | Java 11 runtime |
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.x){: external} |v1.4 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.2){: external} |v2.2 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.2){: external} |v1.4 | Java 11 runtime |
 {: caption="Table 2. Java Smart contract" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Java Smart contract"}
@@ -135,7 +136,7 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 | Contract API       | Peer Fabric image  | Node runtime    |
 |:-------------------|:---------------|:--------------------|
-| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.x){: external} |v2.2  | Node 12 runtime|
+| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.2){: external} |v2.2  | Node 12 runtime|
 | [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external} |v1.4| Node 8 runtime |
 {: caption="Table 2. Node Smart contract" caption-side="top"}
 {: #simpletabtable2}
@@ -175,11 +176,6 @@ The connection profile that is downloaded from the {{site.data.keyword.blockchai
 
 The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external} spans multiple components, with the client applications collecting endorsements from peers and sending endorsed transactions to the ordering service. The connection profile provides your application with the endpoints of the peers and ordering nodes that it needs to submit a transaction. It also contains information about your organization, such as your Certificate Authorities and your MSP ID. The Fabric SDKs can read the connection profile directly, without you having to write code that manages the transaction and endorsement flow.
 
-In order to take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
-
-To configure your client application to use Service Discovery, when you start your gateway with the `gateway.connect()` call, you need to set the queryHandlerOptions to `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN`. This configuration ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor){: external} in the Node SDK documentation for more information.
-{: tip}
-
 Click the **Organization MSP** tile for the organization that your client application interacts with. Click **Create connection profile** to open a side panel where you can build and download your connection profile.
 
   ![Create connection profile panel](../images/create-connx-profile.png "Create connection profile panel")
@@ -198,6 +194,15 @@ The connection profile that is downloaded from the {{site.data.keyword.blockchai
 The generated connection profile only supports Fabric CAs. If you manually built your organization MSP with certificates from an external CA, the connection profile will not include any information in the "certificateAuthorities": section.
 
 
+
+## Service discovery
+{: #ibp-console-app-sd}
+
+Service discovery allows your applications to dynamically find the peer and ordering endpoints of your network. If you do not use service discovery, you need to manually add the endpoint information of peer and ordering nodes on your channel to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.  
+
+Before you can take advantage of the [Service Discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} feature of Hyperledger Fabric, you must configure anchor peers on the channel. Service discovery allows your application to learn which peers on the channel outside your organization need to endorse a transaction. Without service discovery, you will need to get the endpoint information of these peers out of band from other organizations and add them to your connection profile. For more information, see [Configuring anchor peers](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-channels-anchor-peers).
+
+Later in this topic, we use the connection profile to build a Fabric gateway that is configured for [service discovery](#ibp-console-app-sd-cfg).
 
 ## Enrolling by using the SDK
 {: #ibp-console-app-enroll}
@@ -275,7 +280,7 @@ The wallets that are used by the Fabric SDKs are different from the wallet in th
 After you generate the application signing certificate and private key and store them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was deployed on. You can use the steps below to invoke a smart contract with the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external}.
 
 
-1. Save the file below on your local machine as `invoke.js`. Save the file in the same directory as `enrollUser.js`
+1. Save the text below on your local machine as `invoke.js` in the same directory as `enrollUser.js`.
 
     ```javascript
     'use strict';
@@ -325,8 +330,8 @@ After you generate the application signing certificate and private key and store
     {:codeblock}
 
 2. Edit `invoke.js` to replace the following values:
-  - Replace  ``<channel_name>`` with the name of the channel the smart contract was deployed on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
-  - Replace ``<smart_contract_name>`` with the name of the installed smart contract. You can get this value from your network operator.
+  - Replace  `<channel_name>` with the name of the channel the smart contract was deployed on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
+  - Replace `<smart_contract_name>` with the name of the installed smart contract. You can get this value from your network operator.
   - Edit the contents of `submitTransaction` to invoke a function inside your smart contract. The `invoke.js` file is written to invoke the [fabcar smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar){: external}. If you want to run the file below to submit a transaction, install fabcar and instantiate the smart contract on one of your channels.
 
 3. Navigate to `invoke.js` using a terminal and run `node invoke.js`. If the command runs successfully, you should see the following output:
@@ -480,7 +485,7 @@ Save the following code block as `enrollUser.js` in the ``/magnetocorp/applicati
   ```
   {:codeblock}
 
-Take moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
+Take a moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
 
 ```javascript
 const FabricCAServices = require('fabric-ca-client');
@@ -544,6 +549,8 @@ You will need to import the path class to build the gateway from the connection 
 ```javascript
 const path = require('path');
 ```
+{: codeblock}
+
 The `Gateway` class is used to construct a gateway that you will used to submit your transaction.
 
 ```javascript
@@ -560,7 +567,7 @@ const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 
 After importing your wallet, use the following code to pass your connection profile and wallet to the new gateway. You need to make the following **Edits** to the code so it resembles the code snippet below. The lines that print logs have been removed for brevity.
 - Update the `userName` to match the value that you selected for your `identityLabel` in `enrollUser.js`.
-- Update the discovery options to take advantage of service discovery on your network. Set `discovery: { enabled: true, asLocalhost: false }`.  
+- Update the discovery options to take advantage of service discovery on your network. Set `discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }`.  
 - Update the section importing your connection profile. The console connection profile is in JSON format rather than a YAML file used by the sample.  
 
 ```javascript
@@ -575,7 +582,7 @@ const connectionProfile = JSON.parse(ccpJSON);
 let connectionOptions = {
   identity: userName,
   wallet: wallet,
-  discovery: { enabled: true, asLocalhost: false }
+  discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }
 };
 
 await gateway.connect(connectionProfile, connectionOptions);
@@ -583,6 +590,19 @@ await gateway.connect(connectionProfile, connectionOptions);
 {:codeblock}
 
 This code snippet uses the gateway to open gRPC connections to the peer and orderer nodes, and interact with your network.
+
+#### Configuring service discovery
+{: #ibp-console-app-sd-cfg}
+
+Fabric [service discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} allows your applications to dynamically find the peer and ordering endpoints of your network and the peers on the channel outside your organization that need to endorse a transaction. If you do not configure service discovery, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.
+
+To configure a client application to use service discovery, set the following options on the `gateway.connect()` call by defining   `connectionOptions` that include:
+```
+discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }
+```
+
+Setting `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN` ensures that requests from the client application are distributed across available peers. See [DefaultQueryHandlerStrategies](https://hyperledger.github.io/fabric-sdk-node/release-2.2/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor){: external} in the Node SDK documentation for more information.
+
 
 ### Step five: Invoke the smart contract
 {: #ibp-console-app-commercial-paper-step-five-invoke}
@@ -661,10 +681,32 @@ fabric_client.createUser({
 
 If you are using low level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. For more information, see [Best practices for application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability).
 
+## Highly available applications
+{: #console-app-ha}
+
+As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well. Install chaincode on both peers and add them to your channels. Then, be prepared to submit transaction proposals to both peer endpoints when setting up your network and building your peer target list. Enterprise Plan networks have multiple orderers for failover, which allows your client application to send endorsed transactions to a different orderer if one orderer is not available. If you use your connection profile instead to add network endpoints manually, ensure that your profile is up-to-date and that the additional peers and orderers have been added to the relevant channel in the `channels` section of the profile. The SDK can then add the components that are joined on the channel by using the connection profile.
+
 ## Using indexes with CouchDB
 {: #console-app-couchdb}
 
-If you use CouchDB as your state database, you can perform JSON data queries from your smart contracts against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contracts. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state. To learn how to use indexes with your smart contracts and your applications, see [Best practices when using CouchDB](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-couchdb-indices).
+If you use CouchDB as your state database, you can perform JSON data queries from your smart contract against the channel's state data. It is strongly recommended that you create indexes for your JSON queries and use them in your smart contract. Indexes allow your applications to retrieve data efficiently when your network adds additional blocks of transactions and entries in the world state.
+
+For more information about CouchDB and how to set up indexes, see [CouchDB as the State Database](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_as_state_database.html){: external} in the Hyperledger Fabric documentation. You can also find an example that uses an index with chaincode in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html){: external}.
+
+Avoid using chaincode for queries that will result in a scan of the entire CouchDB database. Full length database scans result in long response times and will degrade the performance of your network. You can take some of the following steps to avoid and manage large queries:
+- Set up indexes with your chaincode.
+- All fields in the index must also be in the selector or sort sections of your query for the index to be used.
+- More complex queries will have a lower performance and will be less likely to use an index.
+- You should try to avoid operators that will result in a full table scan or a full index scan, such as `$or`, `$in` , and `$regex`.
+
+You can find examples that demonstrate how queries use indexes and what type of queries will have the best performance in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}.
+
+Peers on the {{site.data.keyword.blockchainfull_notm}} Platform have a set queryLimit, and will only return 10,000 entries from the state database. If your query hits the queryLimit, you can use multiple queries to get the remaining results. If you need more results from a range query, start subsequent queries with the last key that is returned by the previous query. If you need more results from JSON queries, sort your query by using one of the variables in your data, then use the last value from the previous query in a 'greater than' filter for the next query.
+
+Do not query the entire database for the purpose of aggregation or reporting. If you want to build a dashboard or collect large amounts of data as part of your application, you can query an off chain database that replicates the data from your blockchain network. This allows you to understand the data on the blockchain without degrading the performance of your network or disrupting transactions.
+
+You can use block or chaincode events from your application to write transaction data to an off-chain database or analytics engine. For each block received, the block listener application would iterate through the block transactions and build a data store by using the key/value writes from each valid transaction's `rwset`. The [Peer channel-based event services](https://hyperledger-fabric.readthedocs.io/en/release-2.2/peer_event_services.html) provide replayable events to ensure the integrity of downstream data stores. For an example of how you can use an event listener to write
+data to an external database, see the [Off chain data sample](https://github.com/hyperledger/fabric-samples/tree/release-1.4/off_chain_data) in the Fabric Samples.
 
 
 ## Clock synchronization
@@ -678,3 +720,12 @@ The NTP server that you need to synchronize your application with depends on whe
 - If your application is running in {{site.data.keyword.cloud_notm}} VPC infrastructure, set your NTP server to `time.adn.networklayer.com`.
 - If your application is not running in {{site.data.keyword.cloud_notm}}, set your NTP server to `time-a.nist.gov` or `time-b.nist.gov`.
 
+
+## Additional Resources
+{: #console-app-resources}
+
+[{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/)   
+For tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications.  
+
+[Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)    
+For application developers who want to learn about common patterns for interacting with blockchain networks.
