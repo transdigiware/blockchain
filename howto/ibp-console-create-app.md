@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-18"
+lastupdated: "2020-11-19"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -51,7 +51,8 @@ If you are the **network operator**, you need to complete the following steps be
 
 If you are the **application developer**, use the information that is provided by the network operator to complete following steps:
 1. Generate a certificate and private key by using the enroll ID and secret of the application identity, along with CA endpoint information inside your connection profile.
-2. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
+2. Configure a connection by using the Fabric SDK gateway and enable [service discovery](/docs/blockchain?topic=blockchain-glossary#glossary-sd).
+3. Use the connection profile, channel name, smart contract name, and application keys to invoke the smart contract.  
 
 The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network by using the Node.js (JavaScript and TypeScript), Java, and Go Fabric SDKs.
 {: note}
@@ -279,7 +280,7 @@ The wallets that are used by the Fabric SDKs are different from the wallet in th
 After you generate the application signing certificate and private key and store them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was deployed on. You can use the steps below to invoke a smart contract with the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external}.
 
 
-1. Save the file below on your local machine as `invoke.js`. Save the file in the same directory as `enrollUser.js`
+1. Save the text below on your local machine as `invoke.js` in the same directory as `enrollUser.js`.
 
     ```javascript
     'use strict';
@@ -329,8 +330,8 @@ After you generate the application signing certificate and private key and store
     {:codeblock}
 
 2. Edit `invoke.js` to replace the following values:
-  - Replace  ``<channel_name>`` with the name of the channel the smart contract was deployed on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
-  - Replace ``<smart_contract_name>`` with the name of the installed smart contract. You can get this value from your network operator.
+  - Replace  `<channel_name>` with the name of the channel the smart contract was deployed on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
+  - Replace `<smart_contract_name>` with the name of the installed smart contract. You can get this value from your network operator.
   - Edit the contents of `submitTransaction` to invoke a function inside your smart contract. The `invoke.js` file is written to invoke the [fabcar smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar){: external}. If you want to run the file below to submit a transaction, install fabcar and instantiate the smart contract on one of your channels.
 
 3. Navigate to `invoke.js` using a terminal and run `node invoke.js`. If the command runs successfully, you should see the following output:

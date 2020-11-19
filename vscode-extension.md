@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-18"
+lastupdated: "2020-11-19"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -246,7 +246,11 @@ When the project opens, you can find the new smart contract in the explorer wind
 
 Although support for Fabric 2.0 networks was added to the platform, you can still run your existing smart contracts on your peers that run a v1.4 image on a channel with an application capability level of 1.4 or lower. Should you later decide to upgrade your peer to a v2.x image and update your channel application capability level to 2.0, your Go and Java smart contracts will still continue to function as normal. No updates are required to these smart contracts.  
 
-If your smart contract was written in Node, then you might need to update it. By default, a Fabric v1.4 peer will create a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for a smart contract to work with Node v12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater. If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running `npm install` before deploying the smart contract on a Fabric v2.x peer. See [Support and Compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md) for more information.  
+If your smart contract was written in Node, then you might need to update it. By default, a Fabric v1.4 peer will create a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for a smart contract to work with Node v12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater. If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and Compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md) for more information.
+```
+npm install --save fabric-contract-api@latest-1.4 fabric-shim@latest-1.4
+```
+{: codeblock}
 
 If the smart contract was written using the **low level APIs** provided by the Fabric Chaincode Shim API, your smart contract needs to contain an `Init` function that is used to initialize the chaincode.  This function is required by the smart contract interface, but does not necessarily need to invoked by your applications. But if your smart contract does use the `Init` function to initialize your ledger, you need to move that initialization logic into the smart contract itself and call it separately. For example, the smart contract can use a reserved key to check if the smart contract has already been initialized or not. If not, then call the initialization logic, otherwise proceed as usual.  
 

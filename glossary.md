@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-11-19"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -198,13 +198,18 @@ In a Raft ordering service, a quorum represents the number of nodes that must be
 {: #glossary-raft}
 Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external} in `etcd`. Raft follows a “leader and follower” model, where a leader node is elected (per channel) and its decisions are replicated by the followers. Raft ordering services should be easier to set up and manage than Kafka-based ordering services and a cluster of these nodes can be created using the {{site.data.keyword.blockchainfull_notm}} Platform.
 
+## SDK
+{: #glossary-sdk}
+The Hyperledger Fabric supports two Software Development Kits (SDKs). A Node SDK and Java SDK.  The Node SDK can be installed via NPM and the Java SDK via Maven.  The SDKs have their own git repositories, that is, [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} and  [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}, with documentation for the available APIs. The Hyperledger Fabric Client SDKs enable interaction between your client application and your blockchain network.
+
 ## Service credentials
 {: #glossary-service-credentials}
 Service credentials are in JSON format and contain the API endpoint information and enrollIDs/secrets for your network resources, that is, CAs, ordering nodes, and peers. Your application interacts with network resources through these API endpoints.
 
-## SDK
-{: #glossary-sdk}
-The Hyperledger Fabric supports two Software Development Kits (SDKs). A Node SDK and Java SDK.  The Node SDK can be installed via NPM and the Java SDK via Maven.  The SDKs have their own git repositories, that is, [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} and  [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}, with documentation for the available APIs. The Hyperledger Fabric Client SDKs enable interaction between your client application and your blockchain network.
+## Service discovery
+{: #glossary-sd}
+
+Fabric [service discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} allows your client applications to dynamically find the peer and ordering endpoints of your network. If you do not configure service discovery in your application, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application.
 
 ## Shim
 {: #glossary-shim}
@@ -245,4 +250,3 @@ A user is a participant in a blockchain network that has indirect access to the 
 ## World state
 {: #glossary-world-state}
 See [Current state](#glossary-current-state).
-
