@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-11-20"
 
 keywords: best practices, develop applications, connectivity, availability, mutual TLS, CouchDB
 
@@ -36,6 +36,9 @@ This guide is for users who understand the basics of application development and
 
 For information about how to migrate your applications built using the Fabric v1.4 SDK to the v2.x SDK, check out [Migrating client applications from v1.4 to v2.0](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-migration.html){: external}. The v1.4 SDK provides both the `fabric-network` and `fabric-client` APIs for developing client applications that interact with smart contracts deployed to a Hyperledger Fabric blockchain. The `fabric-network` implements the Fabric programming model, which provides consistency across programming languages, and is the preferred API. The `fabric-client` API is a lower-level, legacy API that is significantly more complex to use. Starting with v2.1, `fabric-network` is the only recommended API for developing client applications.
 {: important}
+
+[Creating applications tutorial](/docs/blockchain?topic=blockchain-ibp-console-app)  
+See this end-to-end tutorial for more instructions on how to write applications following recommended patterns.
 
 ## Application connectivity and availability
 {: #best-practices-app-connectivity-availability}
