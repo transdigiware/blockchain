@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-11-20"
 
 keywords: high availability, CA, PostgreSQL, replica sets, zone
 
@@ -14,6 +14,7 @@ subcollection: blockchain
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -22,6 +23,7 @@ subcollection: blockchain
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -39,12 +41,12 @@ subcollection: blockchain
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:javascript: data-hd-programlang="javascript"}
 {:new_window: target="_blank"}
+{:note .note}
 {:note: .note}
 {:objectc data-hd-programlang="objectc"}
 {:org_name: data-hd-keyref="org_name"}
@@ -72,7 +74,6 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -84,6 +85,7 @@ subcollection: blockchain
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
@@ -247,5 +249,4 @@ Create a new CA by using the {{site.data.keyword.blockchainfull_notm}} Platform 
 7. Choose the number of replica sets you need. Two replica sets ensure that if one CA replica becomes unavailable, the other is always immediately ready to process requests. Three replica sets provide even greater redundancy. If two of the three replica sets are unavailable, the third is ready to process requests. Because each additional replica set requires additional CPU and memory, you need to ensure you have adequate resources available to accommodate the number you choose. This value can be updated later as well.
 8. You have the opportunity to configure resource allocation for the node. The resources that you specify here are used for each replica set.  If you want to learn more about how to allocate resources in {{site.data.keyword.cloud_notm}} for your node, see this topic on [allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
 9. Review the Summary page, then click **Add certificate authority**.
-
 

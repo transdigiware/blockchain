@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-11-20"
 
 keywords: HA, highly availability, multiregion
 
@@ -102,4 +102,3 @@ Your network is now configured such that a failure in any single region will not
 To maximize your HA even further, consider the following additional options:
 - Export the peers that you created in clusters two and three and import them into the console in cluster one. Then, everything can be managed from a single cluster.
 - However, cluster one can fail. Therefore, to further account for a cluster failure, you can import all your peers into each of the three consoles. Then if a cluster containing any one console fails, everything can still be managed from the consoles in the other two clusters.
-

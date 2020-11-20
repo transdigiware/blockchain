@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-11-20"
 
 keywords: smart contract, private data, private data collection, anchor peer
 
@@ -48,4 +48,3 @@ Select the tutorial that corresponds to your channel configuration:
 
 *** Fabric v2.0 introduced a new distributed process to manage the lifecycle of a smart contract that allows for decentralizing the governance of smart contracts on a channel. Whenever possible, it is recommended that customers should move to using the new smart contract lifecycle to avoid any interruption of service in later upgrades when Fabric no longer supports the v1.4 process for installing and instantiating smart contracts.
 {: important}
-

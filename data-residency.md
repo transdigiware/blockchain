@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-11-20"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -123,4 +123,3 @@ Therefore, to preserve data residency, the end user's browser and the Kubernetes
 For a deeper understanding of the flow of data on the {{site.data.keyword.blockchainfull_notm}} Platform network, refer to the [Fabric documentation on transaction flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external}.
 
 You can get more information about Private data collections and Zero Knowledge Proof in the white paper about [Private and confidential transactions with Hyperledger Fabric](https://developer.ibm.com/tutorials/cl-blockchain-private-confidential-transactions-hyperledger-fabric-zero-knowledge-proof/){: external}.
-
