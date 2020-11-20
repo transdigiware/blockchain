@@ -35,7 +35,6 @@ subcollection: blockchain
 
 **Planning for your network**
 
-
 - [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](#ibp-v2-faq-hippa)
 - [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-ports)
 - [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](#ibp-v2-faq-sizing)
