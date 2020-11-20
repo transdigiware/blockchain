@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-11-20"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -355,7 +355,7 @@ Attempt to link your cluster again. If it continues to fail, you should [Contact
 {: #ibp-console-transientfailure}
 {: troubleshoot}
 
-The following error appears on the console: "All SubConns are in TransientFailutre."
+The following error is shown on the console: "All SubConns are in TransientFailutre."
 {: tsSymptoms}
 
 An Out of Memory (OOM) situation can cause this error.
