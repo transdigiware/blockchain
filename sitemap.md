@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-11-20"
 
 keywords: site map
 subcollection: blockchain
@@ -515,27 +515,9 @@ subcollection: blockchain
 
 [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-7)
 
-[What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
-
-[How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
-
 [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
 
-[How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
-
-[What database do the peers use for their ledger?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
-
-[Do you support using certificates from non-IBM Certificate Authorities?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-external-certs)
-
-[I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
-
-[Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-multicloud)
-
-[Is there a best practice for monitoring my blockchain resources?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-res)
-
-[If service discovery is on, will an endorsement request be routed to any peer on the network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-service-discovery)
-
-[What is the recommended way to manage private keys?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hsm)
+[Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
 
 [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hippa)
 
@@ -543,17 +525,55 @@ subcollection: blockchain
 
 [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-sizing)
 
-[Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
+[How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-pricing)
 
-[Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
+[What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-free-cluster)
+
+[What regions or locations are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-9)
+
+[What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-storage)
+
+[Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-mzr-storage)
+
+[What versions of Red Hat OpenShift are supported?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-versions)
+
+[Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-trial)
+
+[Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-multicloud)
+
+[How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
+
+[How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
+
+[I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
+
+[Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-migrate)
+
+[Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-5)
+
+[What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-8)
+
+[Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Infrastructure-4-2)
+
+[What database do the peers use for their ledger?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
 
 [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
+
+[If service discovery is on, will an endorsement request be routed to any peer on the network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-service-discovery)
+
+[Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
+
+[How can I back up and restore components and networks?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-backup-restore)
+
+[What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
+
+[Do you support using certificates from non-IBM Certificate Authorities?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-external-certs)
+
+[What is the recommended way to manage private keys?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hsm)
 
 [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ldap)
 
 [What is the process for rotating certificates on a periodic basis?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cert-mgmt)
-
-[How can I back up and restore components and networks?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-backup-restore)
 
 [What languages are supported for smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-4)
 
@@ -565,39 +585,19 @@ subcollection: blockchain
 
 [How often do updates get rolled out for the CodeReady Workspace extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-updates)
 
-[How can I test my smart contract that are running in CodeReady workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
+[How can I test my smart contract that is running in CodeReady workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
 
 [How can I find the examples and tutorials within the VSCode extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-vscode-tutorials)
 
 [Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-client-app)
 
-[How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-pricing)
-
-[What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-free-cluster)
-
-[What versions of Red Hat OpenShift are supported?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-versions)
-
-[Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-trial)
-
-[Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-migrate)
-
-[How can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-invoice)
-
-[Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-5)
-
-[What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-8)
-
-[What regions or locations are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-9)
-
-[Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Infrastructure-4-2)
-
 [Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-customer-logs)
 
 [Do we have access to logging services and what logs are available to me?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)
 
-[What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-storage)
+[Where can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-invoice)
 
-[Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-mzr-storage)
+[Is there a best practice for monitoring my blockchain resources?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-res)
 
 
 ## Disclaimer

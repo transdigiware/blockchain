@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-11-20"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -255,4 +255,3 @@ As an example, you can find the JSON file of a peer below. To communicate with t
 }
 ```
 {: codeblock}
-

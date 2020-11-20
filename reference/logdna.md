@@ -38,7 +38,7 @@ You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service
 ## Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes
 {: #ibp-LogDNA-ibp}
 
-Using the {{site.data.keyword.la_full_notm}} service makes viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs simple. The search input box located at the bottom of the LogDNA page can be used to filter the logs. See the following examples.
+Using the {{site.data.keyword.la_full_notm}} service makes viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs simple. The search input box located at the end of the LogDNA page can be used to filter the logs. See the following examples.
 
 ### View node logs
 {: #ibp-LogDNA-ibp-nodes}
