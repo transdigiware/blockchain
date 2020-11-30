@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-11-30"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -316,7 +316,7 @@ For information about how to upgrade a node, check out [Upgrading to the latest 
 
 If you are using a free {{site.data.keyword.cloud_notm}} Kubernetes service cluster, it will expire after 30 days. When this happens, you can no longer access your console. All of the associated nodes and certificates are deleted as well. You can have only one free cluster at a time. Therefore, before you can create another blockchain service instance, you need to ensure that the expired cluster and its associated service instance have been deleted from {{site.data.keyword.cloud_notm}}. To confirm if they have already been deleted or to manually delete these resources, follow these steps:
 
-1. In your {{site.data.keyword.cloud_notm}} dashboard, click the main menu icon and open the **Resource List**.
+1. In your {{site.data.keyword.cloud_notm}} dashboard, click the menu icon ![menu icon](../../icons/icon_hamburger.svg) and open the **Resource List**.
 2. Scroll to the **Services** twistie and expand it to view your service instance.
 3. If your instance is listed, click the action menu for the service instance, then **Delete**, to delete this service instance.
 4. Scroll to the **Kubernetes Clusters** twistie and expand it to view your free cluster.
