@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-12-01"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -13,6 +13,7 @@ subcollection: blockchain
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -21,6 +22,7 @@ subcollection: blockchain
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -38,7 +40,6 @@ subcollection: blockchain
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -72,7 +73,6 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -84,6 +84,7 @@ subcollection: blockchain
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
@@ -358,7 +359,7 @@ In order to update the ordering service, you must have the ordering service orga
 {: note}
 
 1. Go back to the **Ordering service** page and scroll down to the **Ordering service consenters** table.
-2. Click the action menu ![action menu](../images/actions.png) next to the URL, and click **Update orderer certificates**.
+2. Click the action menu ![action menu](../../icons/overflow-menu.svg) next to the URL, and click **Update orderer certificates**.
 3. After you copy and paste the name of the ordering service consenter set, displayed at the top of the side panel, and click **Update consenter**, the base-64 encoded TLS certificate is added to the consenter set of the ordering service system channel.  
 
 **Update the consenter set on the application channel (TLS certificate renewal only)**
@@ -369,7 +370,7 @@ In order to update the application channel, you need to have the channel member 
 {: note}
 
 1. From the **Channels** tab, open the application channel that you need to update and click the **Channel details** tab.
-2. Scroll down to the **Ordering service consenters** table and click the action menu ![action menu](../images/actions.png), next to the URL and click **Update orderer certificates**.
+2. Scroll down to the **Ordering service consenters** table and click the action menu ![action menu](../../icons/overflow-menu.svg), next to the URL and click **Update orderer certificates**.
 3. Copy and paste the name of the consenter set, displayed at the top of the side panel.  
 4. To submit this update request to the channel members, you need to select the ordering service MSP from the drop-down list and then the associated orderer organization admin identity from your wallet. When you click **Update consenter** a channel update notification is sent to the consortium members for approval.
 5. After enough channel members approve this update according to the channel update policy, the ordering node can resume participation in the consenter set.
@@ -524,7 +525,7 @@ In order to update the ordering service, you must have the ordering service orga
 {: note}
 
 1. Go back to the **Ordering service** page and scroll down to the **Ordering service consenters** table.
-2. Click the action menu ![action menu](../images/actions.png) next to the URL, and click **Update orderer certificates**.
+2. Click the action menu ![action menu](../../icons/overflow-menu.svg) next to the URL, and click **Update orderer certificates**.
 3. After you copy and paste the name of the ordering service consenter set, displayed at the top of the side panel, and click **Update consenter**, the base-64 encoded TLS certificate is added to the consenter set of the ordering service system channel.  
 
 **Update the consenter set on the application channel (TLS certificate renewal only)**
@@ -535,7 +536,7 @@ In order to update the application channel, you need to have the channel member 
 {: note}
 
 1. From the **Channels** tab, open the application channel that you need to update and click the **Channel details** tab.
-2. Scroll down to the **Ordering service consenters** table and click the action menu ![action menu](../images/actions.png), next to the URL and click **Update orderer certificates**.
+2. Scroll down to the **Ordering service consenters** table and click the action menu ![action menu](../../icons/overflow-menu.svg), next to the URL and click **Update orderer certificates**.
 3. Copy and paste the name of the consenter set, displayed at the top of the side panel.  
 4. To submit this update request to the channel members, you need to select the ordering service MSP from the drop-down list and then the associated orderer organization admin identity from your wallet. When you click **Update consenter** a channel update notification is sent to the consortium members for approval.
 5. After enough channel members approve this update according to the channel update policy, the ordering node can resume participation in the consenter set.

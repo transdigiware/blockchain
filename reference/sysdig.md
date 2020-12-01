@@ -3,7 +3,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-12-01"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -74,7 +74,7 @@ The following sets of instructions are based on the default dashboard named **Ov
 {: #ibp-sysdig-configure-create-new-db}
 1. Click the **Dashboards** tab in the {{site.data.keyword.mon_full_notm}} web UI.
 2. Under the **My Dashboards** twistie, click **Overview by Container**.
-3. In the top right corner of the panel, click **Options** ![three dots icon](../images/actions.png), then **Copy Dashboard**.
+3. In the top right corner of the panel, click **Options** ![action menu](../../icons/overflow-menu.svg), then **Copy Dashboard**.
 4. Give the Dashboard a name, **Blockchain Operations - Peers** and click **Copy and Open**.
 5. Now we need to filter the data on the page to only include the peer containers. In the top right corner, click **Edit Scope**.
 6. Click the **Everywhere** drop down list and specify the filter  `container.name contains peer`.
