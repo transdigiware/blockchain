@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-12-01"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -57,7 +57,7 @@ We can use an example consortium to illustrate how data is distributed on the {{
 
 ![An example consortium](images/data_res_use_case.svg "An example consortium"){: caption="Figure 1. An example blockchain consortium with one ordering service and four organizations. The four organizations are all members of one channel, Channel X. " caption-side="bottom"}
 
-Each peer joined to channel X stores a copy of the channel ledger, which is displayed in **Figure 1** as ledger X. Because peers from the United States and Germany are joined to the channel, the data on the channel ledger resides in both geographies. The blockchain portion of the ledger is also stored by the ordering service that is located in the United States.
+Each peer joined to channel X stores a copy of the channel ledger, which is displayed in **Figure 1** as Ledger X. Because peers from the United States and Germany are joined to the channel, the data on the channel ledger resides in both geographies. The blockchain portion of the ledger is also stored by the ordering service that is located in the United States.
 
 If two organizations in the consortium create a second channel, Channel Y, a second ledger is created and stored on the peers of channel members. Only the organizations that joined the channel have a copy of the channel data.
 
