@@ -108,7 +108,7 @@ On the second side panel, click the **Add Attribute** button. Provide an **attri
 
 You can generate the signing certificate and private key for each user that is registered with your CA. If you registered additional admin identities with your CA, you can generate the certificate and key for the admin identity and then include the certificate when you [create your organization MSP](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-msp).
 
-Before you enroll an identity, you need to [Associate the identity of the CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) to be able to operate the CA. If the identity is not set, you will not be able to view the **Registered Users** table on the CA panel. In the Registered users table, navigate to the action menu![action menu](../../icons/overflow-menu.svg) for the user and click **Enroll identity**  to generate the certificate and key for any user registered with the CA.
+Before you enroll an identity, you need to [Associate the identity of the CA admin](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-ca-identity) to be able to operate the CA. If the identity is not set, you will not be able to view the **Registered Users** table on the CA panel. In the Registered users table, navigate to the action menu ![action menu](../../icons/overflow-menu.svg) for the user and click **Enroll identity**  to generate the certificate and key for any user registered with the CA.
 
 - Under the **Certificate Authorities** dropdown, select **Root Certificate Authority**.
 - Enter the user's **Enroll secret**.
