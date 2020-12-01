@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-13"
+lastupdated: "2020-11-30"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1587,8 +1587,8 @@ Replace the following values:
 - `HSM_LIBRARY_FILE_PATH`: Path to the HSM library file, for example, `/usr/lib/libCryptoki2_64.so`.
 - `MOUNTPATH`: Location where the file or folder should be mounted.
 - `MOUNTPATH_NAME`: Name you want to use for the `mountpath`.
-- `KEY`:  Name of the HSM client private key.
-- `PATH`: Mount location of the HSM client private key file.
+- `KEY`:  Name of the key inside the `hsmcrypto` Kubernetes secret.
+- `PATH`: Mount location of the file path where the key should be mounted.
 - `HSM_CRYPTO_SECRET`: Name of the Kubernetes secret that contains the keys and configuration files for the HSM that is used by the `mountpath`.
 
 Each HSM likely has a different set of keys that are required by the HSM client. Optionally replicate the "`key`" and "`path`" sections according to the number required by your HSM client. Similarly, if multiple sets of folders need to be mounted, you can replicate the "`mountpath`" section.  
