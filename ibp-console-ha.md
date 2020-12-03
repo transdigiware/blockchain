@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-03"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -177,15 +177,15 @@ The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spre
 
 This scenario offers the highest level of HA possible.
 
-![Blockchain HA multi-region options](images/HA_Diagram_3.svg "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
+![Blockchain HA multi-region options](images/HA_Diagram3.png "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
 
    **Region failure.**
 
    **Multi-region clusters with multiple work nodes and anti-affinity**:
 
-   The likelihood of a full regional failure is low. However, to account for this failure, you can set up multiple clusters in different regions where each cluster has its own linked console. If an entire region fails, redundant peers or ordering nodes in the cluster in the other regions can service the work load. For production environments, configuring your blockchain **peers** and **ordering nodes** across multiple regions provides the maximum HA coverage available.
+   The likelihood of a full regional failure is low. However, to account for this failure, you can set up multiple clusters in different regions where each cluster has its own linked console. If an entire region fails, redundant peers or ordering nodes in the other regions can service the work load. For production environments, configuring your blockchain **peers** and **ordering nodes** across multiple regions provides the maximum HA coverage available.
 
-   This scenario uses redundant peers and ordering nodes across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment.  
+   This scenario uses redundant peers and ordering nodes across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment. The five ordering nodes are spread across three clusters in a 2-1-2 pattern, meaning two nodes in Region 1, one node in Region 2, and two nodes in Region 3. This configuration allows any single region, or all of the ordering nodes in a region to go down, while still maintaining a quorum of nodes in the Raft cluster. 
 
    See the topics on setting up multi-region HA deployments for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform [peers](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr) and [ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os) across multiple regions.
 
