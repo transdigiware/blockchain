@@ -85,10 +85,9 @@ The following table contains a list of options to consider as you plan for incre
 | Anti-affinity (peers) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | |
 | Multi-zone (peers) |  |  | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 |Raft ordering service | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Anti-affinity (ordering nodes) |  | ![Checkmark icon](../icons/checkmark-icon.svg) | | |
-| Multi-zone (ordering nodes) |  |  | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Ordering nodes | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) + anti-affinity | ![Checkmark icon](../icons/checkmark-icon.svg) + anti-affinity | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | CA replica sets | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  | |
-| Anti-affinity** (CA replica sets) |  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Anti-affinity (CA replica sets) |  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 |Development or Test environment | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | | |
 | Production environment | | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: row-headers}
@@ -177,7 +176,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spre
 
 This scenario offers the highest level of HA possible.
 
-![Blockchain HA multi-region options](images/HA_Diagram3.png "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
+![Blockchain HA multi-region options](images/HA-Diagram3.png "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
 
    **Region failure.**
 
@@ -185,7 +184,7 @@ This scenario offers the highest level of HA possible.
 
    The likelihood of a full regional failure is low. However, to account for this failure, you can set up multiple clusters in different regions where each cluster has its own linked console. If an entire region fails, redundant peers or ordering nodes in the other regions can service the work load. For production environments, configuring your blockchain **peers** and **ordering nodes** across multiple regions provides the maximum HA coverage available.
 
-   This scenario uses redundant peers and ordering nodes across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment. The five ordering nodes are spread across three clusters in a 2-1-2 pattern, meaning two nodes in Region 1, one node in Region 2, and two nodes in Region 3. This configuration allows any single region, or all of the ordering nodes in a region to go down, while still maintaining a quorum of nodes in the Raft cluster. 
+   This scenario uses redundant peers and ordering nodes across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment. The five ordering nodes are spread across three clusters in a 2-1-2 pattern, meaning two nodes in Region 1, one node in Region 2, and two nodes in Region 3. This configuration allows any single region, or all of the ordering nodes in a region to go down, while still maintaining a quorum of nodes in the Raft cluster.
 
    See the topics on setting up multi-region HA deployments for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform [peers](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr) and [ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os) across multiple regions.
 
