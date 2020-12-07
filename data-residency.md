@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-04"
+lastupdated: "2020-12-07"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -38,9 +38,11 @@ Each approach provides an increased level of isolation and protection for your d
 ## How data is shared within an {{site.data.keyword.blockchainfull_notm}} Platform network
 {: #console-icp-about-data-residency-fabric}
 
-The architecture of Hyperledger Fabric that underlies the {{site.data.keyword.blockchainfull_notm}} Platform is centered around three key components: an ordering service (made up of ordering nodes), Certificate Authorities (CA), and peers. Additionally, organizations send transactions to these nodes from client applications using the [Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-2.2/getting_started.html){: external}. When considering data residency, it is important to understand how these components interact with and store data.
+The architecture of Hyperledger Fabric that underlies the {{site.data.keyword.blockchainfull_notm}} Platform is centered around three key components: an ordering service (made up of ordering nodes), Certificate Authorities (CA), and peers. Additionally, organizations send transactions to these nodes from client applications that use the [Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-2.2/getting_started.html){: external}. When considering data residency, it is important to understand how these components interact with and store data.
 
-**Peers** are used by members of the consortium to store the blockchain [ledger](https://hyperledger-fabric.readthedocs.io/en/release-2.2/ledger/ledger.html){: external}. The blockchain ledger consists of two parts. The first is the world state, which stores the latest value for all data in the ledger in key-value pairs. The second is the blockchain record of every transaction. Peers receive state updates in the form of new blocks from the ordering service. They then use the blocks and the world state to confirm (or commit) transactions, update the world state and add the log of transactions on the blockchain. The ordering service establishes the order of transactions for all the peers on the [consortium](/docs/blockchain?topic=blockchain-glossary#glossary-consortium) and stores a copy of the blockchain portion of the ledger.
+**Peers** are used by members of the consortium to store the blockchain [ledger](https://hyperledger-fabric.readthedocs.io/en/release-2.2/ledger/ledger.html){: external}. The blockchain ledger consists of two parts. The first is the world state, which stores the latest value for all data in the ledger in key-value pairs. The second is the blockchain record of every transaction. Peers receive state updates in the form of new blocks from the ordering service. They then use the blocks and the world state to confirm (or commit) transactions, update the world state and add the log of transactions on the blockchain.
+
+**Ordering nodes** form a Raft ordering cluster on the ordering service which establishes the order of transactions for all the peers on the channel. Each ordering node stores a copy of the blockchain portion of the channel ledger.
 
 **Channels** are a mechanism for transmitting data within a network. You cannot participate in a blockchain network without joining a channel. Channels can be used by members of the network to create logical separation between business applications and even to boost performance by limiting traffic. They can also be used by subsets of organizations in the consortium to transact privately and separate data.
 
@@ -99,11 +101,12 @@ Creating a separate channel can prevent transaction details from being shared wi
 
 Org C and Org D can also create a channel with all of the infrastructure within the same country. This requires that the peers joined to the channel, the applications, and the ordering service all reside within the same region. In this scenario, none of the data that is stored on the channel ledger will leave the region and be stored outside the country.
 
-![Creating a separate channel](images/data_res_separate_channel.svg "Creating a separate channel"){: caption="Figure 5. Org C and Org D create a new channel using an ordering service located in Germany. All data is stored in the country on ledger Y." caption-side="bottom"}
+![Creating a separate channel](images/data_res_separate_channel.svg "Creating a separate channel"){: caption="Figure 5. Org C and Org D create a new channel using an ordering service located in Germany. All data is stored in the country on Ledger Y." caption-side="bottom"}
 
 In **Figure 5**, Org C and Org D have created a new channel for data that must not leave Germany. This requires the creation of a new ordering service located in Germany to ensure that the orderer's copy of the channel ledger is stored inside the country. Since in this case the ordering service, the OrgC-peer, and the OrgD-peer are located in Germany, Org C and Org D can now keep the data public on the channel if they choose, or they could still decide to use private data collections to prevent the full transaction data from being stored on the ordering service.
 
 Creating a channel with all of the components in one country ensures that all of the data resides within one region, including the key value pairs, the blockchain transaction log, and the hashes of any private data. However, this option requires the overhead to maintain a new channel and the costs that are associated with maintaining the ordering service.
+
 
 ## Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #console-icp-about-data-residency-considerations}
