@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-03"
+lastupdated: "2020-12-07"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -31,7 +31,7 @@ Use these release notes that are grouped by date to learn about the latest chang
 [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)  
 For instructions on how to apply patches to your existing blockchain nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.   
 
-## 08 December 2020
+## 08 Dec 2020
 {: #12-08-2020}
 
 **Certificate Authority (CA) patch 1.4.9-3, Peer and ordering node patch 1.4.9-3, 2.2.1-3**

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-02"
+lastupdated: "2020-12-07"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -341,7 +341,7 @@ If you plan to deploy a five node Raft ordering service, note that the total of 
 
 Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}.
 
-The the `default` storage class is `Gold` File Storage backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers) except on Kubernetes v1.16 clusters, where the `default` storage class is `Bronze` File Storage. See [Deciding on the File Storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} for more details. If you need to change your default storage class, see [Ordering File Storage with pre-defined IOPS Tiers (Endurance)](/docs/FileStorage?topic=FileStorage-orderingConsole#endurance) and then follow instructions to [configure a custom storage class](#ibp-console-storage-custom).
+For {{site.data.keyword.cloud_notm}} Kubernetes service, the `default` storage class is `Gold` File Storage backed by [Endurance File Storage](/docs/FileStorage?topic=FileStorage-about#provisioning-with-endurance-tiers) except on Kubernetes v1.16 clusters, where the `default` storage class is `Bronze` File Storage. See [Deciding on the File Storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} for more details. OpenShift clusters default to `Gold` [Block Storage](/docs/openshift?topic=openshift-block_storage#block_predefined_storageclass). If you need to change your default storage class, see [Ordering File Storage with pre-defined IOPS Tiers (Endurance)](/docs/FileStorage?topic=FileStorage-orderingConsole#endurance) and then follow instructions to [configure a custom storage class](#ibp-console-storage-custom).
 {: important}
 
 ### Provision persistent storage

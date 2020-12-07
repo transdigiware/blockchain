@@ -1333,7 +1333,7 @@ subcollection: blockchain
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
 
-[08 December 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
+[08 Dec 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
 
 [19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
 
