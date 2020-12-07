@@ -107,6 +107,8 @@ subcollection: blockchain
 * [Next steps](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-next-steps)
 * [Getting support](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-getting-support)
 
+[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain){: external}
+
 [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks)
 * [What is the Blockchain Service?](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-blockhain-service)
 * [Considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations)
