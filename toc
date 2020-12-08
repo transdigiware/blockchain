@@ -8,7 +8,6 @@ IBM Blockchain Platform for IBM Cloud
 	{: .topicgroup}
 	Getting started
 		index.md
-		[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain)
 		howto/ibp-v2-deploy-iks.md
 
 		{: .topicgroup}
@@ -17,6 +16,7 @@ IBM Blockchain Platform for IBM Cloud
 			[Deploy from Red Hat Marketplace](/blockchain-sw-251/blockchain-sw-251-deploy-ocp-rhm){: external}
 
 	howto/ibp-console.md
+	[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain)
 	whats_new.md
 	blockchain_component_overview.md
 
