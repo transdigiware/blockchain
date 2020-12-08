@@ -45,6 +45,7 @@ IBM Blockchain Platform for IBM Cloud
 	High availability
 		ibp-console-ha.md
 		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-os.md
 		howto/ibp-console-ha-ca.md
 
 	data-residency.md
