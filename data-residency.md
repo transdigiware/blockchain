@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-08"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -42,7 +42,7 @@ The architecture of Hyperledger Fabric that underlies the {{site.data.keyword.bl
 
 **Peers** are used by members of the consortium to store the blockchain [ledger](https://hyperledger-fabric.readthedocs.io/en/release-2.2/ledger/ledger.html){: external}. The blockchain ledger consists of two parts. The first is the world state, which stores the latest value for all data in the ledger in key-value pairs. The second is the blockchain record of every transaction. Peers receive state updates in the form of new blocks from the ordering service. They then use the blocks and the world state to confirm (or commit) transactions, update the world state and add the log of transactions on the blockchain.
 
-**Ordering nodes** form a Raft ordering cluster on the ordering service which establishes the order of transactions for all the peers on the channel. Each ordering node stores a copy of the blockchain portion of the channel ledger.
+**Ordering nodes** form a Raft ordering cluster on the ordering service, which establishes the order of transactions for all the peers on the channel. Each ordering node stores a copy of the blockchain portion of the channel ledger.
 
 **Channels** are a mechanism for transmitting data within a network. You cannot participate in a blockchain network without joining a channel. Channels can be used by members of the network to create logical separation between business applications and even to boost performance by limiting traffic. They can also be used by subsets of organizations in the consortium to transact privately and separate data.
 
@@ -79,7 +79,7 @@ Org C and Org D can use the [private data feature](https://hyperledger-fabric.re
 
 In **Figure 3**, Org C and Org D have created a private data collection, the OrgC-OrgD collection, that allows the organizations to transact without having to share data with Org A, Org B, or the ordering service. The key value state data inside this collection is only stored on the peers of Org C and Org D and does not leave Germany. However, a hash of the data within the collection is stored on ledger X and shared with the broader channel. This means that a hash of the data in the OrgC-OrgD collection is stored on the peers and the ordering service in the United States.
 
-When considering private data, it is important to understand the difference between **hashed data** and **encrypted data**. Encryption uses a two way function to transform data into a form that hides its original value, but can be converted back to the original state. As an example, when data is sent over a network that is secured using TLS, the data is encrypted using a TLS certificate. It is then sent over the network as crypto text, and then decrypted by the recipient. The encrypted text contains all the original data, and can be decrypted using a private key. However, hashing is a one way function that uses data to create a unique string of numbers and letters. The hashed data cannot be converted back to the original form using the hash. To verify the data that created the hash, a recipient needs to create a new hash of the original data using the same hash function, and verify that the hash values match. A third party cannot use the hash without a copy of the original data.  
+When considering private data, it is important to understand the difference between **hashed data** and **encrypted data**. Encryption uses a two-way function to transform data into a form that hides its original value, but can be converted back to the original state. As an example, when data is sent over a network that is secured using TLS, the data is encrypted using a TLS certificate. It is then sent over the network as crypto text, and then decrypted by the recipient. The encrypted text contains all the original data, and can be decrypted using a private key. However, hashing is a one-way function that uses data to create a unique string of numbers and letters. The hashed data cannot be converted back to the original form using the hash. To verify the data that created the hash, a recipient needs to create a new hash of the original data using the same hash function, and verify that the hash values match. A third party cannot use the hash without a copy of the original data.  
 
 It is important to be aware with this option that while Orgs A and B cannot see the actual ledger data because it is hashed, they are still able to see that Orgs C and D are transacting and can see the volume of transactions that are occurring between them.
 
@@ -92,7 +92,7 @@ Org C and Org D can also use private data collections in the context of a separa
 
 ![Using private data with a separate channel](images/data_res_private_data_channel.svg "Using private data with a separate channel"){: caption="Figure 4. Org C and Org D form a separate channel, Channel Y, and use a private data collection. Hashes of data in the collection are stored on ledger Y, and is only stored by the peers in Germany but not on the peers in the United States." caption-side="bottom"}
 
-In **Figure 4**, Org C and Org D have formed a new channel, Channel Y, that does not contain any members in the United States. As a result, hashes of data in the OrgC-OrgD collection is stored on ledger Y instead of ledger X, and is not stored on the peers in the United States. Because the ordering service is located in the United States, a hash of the data created in Germany still leaves the country.
+In **Figure 4**, Org C and Org D have formed a new channel, Channel Y, that does not contain any members in the United States. As a result, hashes of data in the OrgC-OrgD collection is stored on ledger Y instead of ledger X, and is not stored on the peers in the United States. Because the ordering service is located in the United States, a hash of the data that is created in Germany still leaves the country.
 
 Creating a separate channel can prevent transaction details from being shared with other organizations in the consortium. If the organizations in Germany used a shared channel, Org A and Org B would be able to see the number of transaction hashes that are committed to the channel ledger by the private data collection. This might provide those organizations visibility into the fact that Orgs C and D are transacting and the volume of transactions that are generated between them. Consider though that forming a new channel requires additional management overhead to create and update. Forming a new channel also makes it harder for Org C and Org D to share data with Org A and Org B.
 
@@ -103,7 +103,7 @@ Org C and Org D can also create a channel with all of the infrastructure within 
 
 ![Creating a separate channel](images/data_res_separate_channel.svg "Creating a separate channel"){: caption="Figure 5. Org C and Org D create a new channel using an ordering service located in Germany. All data is stored in the country on Ledger Y." caption-side="bottom"}
 
-In **Figure 5**, Org C and Org D have created a new channel for data that must not leave Germany. This requires the creation of a new ordering service located in Germany to ensure that the orderer's copy of the channel ledger is stored inside the country. Since in this case the ordering service, the OrgC-peer, and the OrgD-peer are located in Germany, Org C and Org D can now keep the data public on the channel if they choose, or they could still decide to use private data collections to prevent the full transaction data from being stored on the ordering service.
+In **Figure 5**, Org C and Org D have created a new channel for data that must not leave Germany. This requires the creation of a new ordering service that is located in Germany to ensure that the orderer's copy of the channel ledger is stored inside the country. Since in this case the ordering service, the OrgC-peer, and the OrgD-peer are located in Germany, Org C and Org D can now keep the data public on the channel if they choose, or they could still decide to use private data collections to prevent the full transaction data from being stored on the ordering service.
 
 Creating a channel with all of the components in one country ensures that all of the data resides within one region, including the key value pairs, the blockchain transaction log, and the hashes of any private data. However, this option requires the overhead to maintain a new channel and the costs that are associated with maintaining the ordering service.
 
