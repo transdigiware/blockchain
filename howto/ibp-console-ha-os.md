@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-10"
 
 keywords: high availability, Ordering Service, Raft
 
@@ -93,7 +93,7 @@ completion-time: 45m
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -115,7 +115,7 @@ The diagram shows a multiregion ordering service that includes five ordering nod
 Throughout this tutorial we refer to two types of nodes: "ordering nodes" and "worker nodes". Ordering nodes belong to a Raft ordering service cluster. Worker nodes refer to the Kubernetes component that hosts the pods where the ordering nodes are deployed.
 {: note}
 
-After you understand how to spread the ordering nodes across regions, it is possible for separate organizations to contribute ordering nodes and generate certificates by using their own CAs. This advanced configuration is not covered in this tutorial, but is you can learn more about it in the [Next steps](#ibp-console-hadr-mr-os-next).
+After you understand how to spread the ordering nodes across regions, it is possible for separate organizations to contribute ordering nodes and generate certificates by using their own CAs. This advanced configuration is not covered in this tutorial, but you can learn more about it in the [Next steps](#ibp-console-hadr-mr-os-next).
 
 Although you cannot choose which worker node an ordering node is deployed to, the console is configured with an `anti-affinity` policy. This means that for high availability, whenever you deploy a blockchain node on a multi-node cluster, the console attempts to spread ordering nodes that belong to the same organization across the worker nodes if sufficient resources are available. If your cluster is configured with multiple zones, you can designate which zone the ordering node is deployed to when you create it, or you can let the console choose for you. In this case, it also leverages the anti-affinity policy across zones.
 
@@ -560,5 +560,3 @@ The following screen capture shows what the ordering service looks like on the c
   * From the **Nodes** tab, open the `Multiregion Ordering Service` and click the trash can ![trash can](../../icons/icon_trash.svg).
   * From the **Wallet** tab, open `Multiregion OS CA Admin` and click **Remove identity**.
   * From the **Wallet** tab, open `Multiregion OS MSP Admin` and click **Remove identity**.
-
-
