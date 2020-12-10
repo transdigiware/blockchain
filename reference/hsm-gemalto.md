@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-30"
+lastupdated: "2020-12-10"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -88,7 +88,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -472,7 +472,6 @@ data:
   cafile.pem: ""
   cert.pem: ""
   key.pem: ""
-  server.pem: ""
 kind: Secret
 metadata:
   name: hsmcrypto

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-10"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -88,7 +88,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -207,8 +207,14 @@ Have questions and want to speak to an {{site.data.keyword.blockchainfull_notm}}
 | Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
 
+
+
+
+
+
 [Virtual Private Cloud](#x4585403){: term} (VPC) infrastructure is currently not supported.
 {: note}
+
 
 ## Considerations
 {: #ibp-console-overview-considerations}
