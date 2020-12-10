@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="blockchain" category="blockchain" audience="service" href="/docs/blockchain/index.html" product-page="https://www.ibm.com/cloud/blockchain-platform" console-page="/developer/blockchain/dashboard" path="blockchain"}
+{: .toc subcollection="blockchain" category="blockchain" audience="service" href="/docs/blockchain/index.html" console-page="/developer/blockchain/dashboard" product-page="https://www.ibm.com/cloud/blockchain-platform" console-page="/developer/blockchain/dashboard" path="blockchain"}
 IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="learn"}
@@ -16,6 +16,7 @@ IBM Blockchain Platform for IBM Cloud
 			[Deploy from Red Hat Marketplace](/blockchain-sw-251/blockchain-sw-251-deploy-ocp-rhm){: external}
 
 	howto/ibp-console.md
+	[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain)
 	whats_new.md
 	blockchain_component_overview.md
 
@@ -44,6 +45,7 @@ IBM Blockchain Platform for IBM Cloud
 	High availability
 		ibp-console-ha.md
 		howto/ibp-console-ic-ha-howto.md
+		howto/ibp-console-ha-os.md
 		howto/ibp-console-ha-ca.md
 
 	data-residency.md
@@ -138,3 +140,4 @@ IBM Blockchain Platform for IBM Cloud
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
+

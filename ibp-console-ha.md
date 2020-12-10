@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-12-03"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -64,7 +64,7 @@ Finally, your peer redundancy strategy needs to take into account your smart con
 ### Ordering service considerations
 {: #ibp-console-ha-ordering-service}
 
-{{site.data.keyword.blockchainfull_notm}} Platform  is built upon Hyperledger Fabric v1.4.9 and v2.2.1  that includes the Raft [ordering service](#x9826021){: term}. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft-based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node Raft-based orderer, with no HA, or five orderers in a single region that are automatically configured for HA via Raft.
+{{site.data.keyword.blockchainfull_notm}} Platform  is built upon Hyperledger Fabric v1.4.9 and v2.2.1  that includes the Raft [ordering service](#x9826021){: term}. Raft is a crash fault tolerant (CFT) ordering service based on an implementation of [Raft protocol](https://raft.github.io/raft.pdf){: external}. By design, Raft ordering nodes automatically synchronize data between them using Raft-based consensus. In {{site.data.keyword.blockchainfull_notm}} Platform, an organization network operator can choose to stand up either a single node Raft-based orderer, with no HA, or five orderers in a single region or across multiple regions that are automatically configured for HA via Raft.
 
 
 ### Certificate Authority (CA) considerations
@@ -82,13 +82,12 @@ The following table contains a list of options to consider as you plan for incre
 |-----|-----|-----|-----|-----|
 | Redundant peers | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Redundant anchors peers on a channel| ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg)|
-| Anti-affinity*** (peers) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | |
-| Multi-zone (peers)*** |  |  | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Anti-affinity (peers) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | |
+| Multi-zone (peers) |  |  | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 |Raft ordering service | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Anti-affinity*** (ordering nodes) |  | ![Checkmark icon](../icons/checkmark-icon.svg) | | |
-| Multi-zone (ordering nodes)*** |  |  | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Ordering nodes | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) + anti-affinity | ![Checkmark icon](../icons/checkmark-icon.svg) + anti-affinity | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | CA replica sets | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  | |
-| Anti-affinity** (CA replica sets) |  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Anti-affinity (CA replica sets) |  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 |Development or Test environment | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | | |
 | Production environment | | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: row-headers}
@@ -177,17 +176,17 @@ The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spre
 
 This scenario offers the highest level of HA possible.
 
-![Blockchain HA multi-region options](images/HA_Diagram_3.svg "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
+![Blockchain HA multi-region options](images/HA-Diagram3.png "Blockchain HA options"){: caption="Figure 3. Blockchain HA multi-region options" caption-side="bottom"}
 
    **Region failure.**
 
    **Multi-region clusters with multiple work nodes and anti-affinity**:
 
-   The likelihood of a full regional failure is low. However, to account for this failure, you can set up multiple clusters in different regions where each cluster has its own linked console. If an entire region fails, redundant peers in the cluster in the other regions can service the work load. For production environments, configuring your blockchain **peers** across multiple regions provides the maximum HA coverage available.
+   The likelihood of a full regional failure is low. However, to account for this failure, you can set up multiple clusters in different regions where each cluster has its own linked console. If an entire region fails, redundant peers or ordering nodes in the other regions can service the work load. For production environments, configuring your blockchain **peers** and **ordering nodes** across multiple regions provides the maximum HA coverage available.
 
-   This scenario uses redundant peers across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment.  
+   This scenario uses redundant peers and ordering nodes across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment. The five ordering nodes are spread across three clusters in a 2-1-2 pattern, meaning two nodes in Region 1, one node in Region 2, and two nodes in Region 3. This configuration allows any single region, or all of the ordering nodes in a region to go down, while still maintaining a quorum of nodes in the Raft cluster.
 
-   See this topic on [Setting up multi-region HA deployments](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr) for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform peers across multiple regions.
+   See the topics on setting up multi-region HA deployments for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform [peers](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr) and [ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os) across multiple regions.
 
 ## Disaster recovery (DR)
 {: #ibp-console-ha-dr}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-09"
 
 keywords: site map
 subcollection: blockchain
@@ -170,6 +170,11 @@ subcollection: blockchain
 [Compliance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-compliance)
 
 [Getting support](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-support)
+
+
+## What is blockchain?
+
+[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain){: external}
 
 
 ## What's new
@@ -476,6 +481,30 @@ subcollection: blockchain
   * [Step two: Export the metadata and identities from cluster one](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr#ibp-console-hadr-export-meta1)
   * [Step three: Import the metadata and identities in to cluster two and three](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr#ibp-console-hadr-import-meta23)
   * [Step four: Create new peers in cluster two and three and join a channel](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr#ibp-console-hadr-create-new-peers)
+
+[Setting up multiregion High Availability (HA) deployments for the ordering service](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-prereq)
+* [Deploy the ordering service in Region 1](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1)
+  * [Create the ordering service CA](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-ca)
+  * [Associate the CA admin identity](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-ca-admin)
+  * [Use your CA to register identities](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-ca-reg)
+  * [Create the ordering service organization MSP definition](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-msp)
+  * [Create single node ordering service in Region 1.](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-osn1)
+  * [Add second ordering node in Region 1](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-osn2)
+  * [Add the `OS2-Region1` node to the orderer system channel](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-osn2-system)
+  * [Export components](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-export)
+* [Add a new ordering node in Region 2](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2)
+  * [Import components](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-import)
+  * [Add third ordering node from Region 2](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3)
+  * [Add the `OS3-Region2` node to the orderer system channel](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3-system)
+  * [Export the ordering node](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3-export)
+* [Add two new ordering nodes in Region 3](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3)
+  * [Import components](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3-import)
+  * [Add fourth and fifth ordering nodes from Region 3](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3)
+  * [Add the ordering nodes to the orderer system channel](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3-system)
+  * [Export the ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3-export)
+* [Update the ordering service in Region 1, Region 2, and Region 3.](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-update)
+* [Next steps](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-next)
 
 [Building a high availability Certificate Authority (CA)](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca)
 * [Configuring CA replica sets](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca#ibp-console-build-ha-ca-replica-sets)
@@ -1332,6 +1361,8 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[08 Dec 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
 
 [19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
 
