@@ -32,6 +32,7 @@ Blockchain networks allow multiple organizations to use a distributed ledger to 
 1. [Private data collections on a shared channel](#console-icp-about-data-residency-fabric)
 2. [Private data collections on a separate channel](#console-icp-about-data-residency-use-case)
 3. [A separate channel with all of the nodes on the channel within a single country](#console-icp-about-data-residency-use-case-channel)
+4. [A separate channel with only ordering nodes from one country](#console-icp-about-data-residency-raft)
 
 Each approach provides an increased level of isolation and protection for your data, but requires additional effort to implement and manage. To help you understand how each option can be used to achieve data residency, we provide an overview of how data is shared within a Hyperledger Fabric network. We then present an example use case to illustrate how organizations within a blockchain consortium would use each option to separate their data and prevent it from leaving their region.
 
@@ -107,6 +108,17 @@ In **Figure 5**, Org C and Org D have created a new channel for data that must n
 
 Creating a channel with all of the components in one country ensures that all of the data resides within one region, including the key-value pairs, the blocks, and the hashes of any private data. However, this option requires the overhead to maintain a new channel and the costs that are associated with maintaining the ordering service.
 
+
+## Option four: A separate channel with only ordering nodes from one country
+{: #console-icp-about-data-residency-raft}
+
+When you initially deploy an ordering service, you create a set of ordering nodes that will be available to the application channels for transaction processing. A major benefit of the Raft ordering service is that you can configure a channel to only use specific ordering nodes from the ordering service. That's why the console includes an Advanced Channel creation option to select a subset of ordering nodes to include in the channel consenter set, where each ordering node that you select will contain a copy of the channel ledger. Therefore, it is possible to restrict the channel ledger locations to only nodes that reside in country.
+
+![Spreading ordering nodes across countries](images/data_res_4.png "Spreading ordering nodes across countries"){: caption="Figure 6. Org C and Org D create a Channel Y using ordering nodes only located in Germany. All data is stored in the country on Ledger Y." caption-side="bottom"}
+
+In **Figure 6**, the ordering nodes that participate in the Raft ordering service are spread across the two countries. Two ordering nodes are located in the United States, and three ordering nodes are in Germany for a total of five ordering nodes. When **Channel X** is created, all five ordering nodes are included in the consenter set, which would _not_ meet a data residency requirement as the ledger data is spread across both countries. **Channel Y** however only includes the three ordering nodes that reside in Germany, which guarantees that all ledger data for this channel stays in country. A minimum of three ordering nodes is recommended because this configuration allows for one node to go down and two nodes to be available to maintain "quorum", the minimum number of nodes that must be available (out of the total number) for the ordering service to process transactions. A more robust configuration would be to include five ordering nodes in Germany for **Channel Y**, which means that two nodes could go down without losing quorum.
+
+The easiest way to achieve this configuration is to spread the ordering nodes across Kubernetes clusters in different regions, a process that is described in the [Setting up multiregion High Availability (HA) deployments for the ordering service](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os) tutorial.
 
 ## Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #console-icp-about-data-residency-considerations}

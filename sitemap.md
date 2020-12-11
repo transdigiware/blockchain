@@ -531,6 +531,8 @@ subcollection: blockchain
 
 [Option three: A channel with all components in one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-channel)
 
+[Option four: A separate channel with only ordering nodes from one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-raft)
+
 [Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-considerations)
 
 [Reference material](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-reference)
