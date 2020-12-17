@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-10"
+lastupdated: "2020-12-17"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -253,7 +253,7 @@ Before you deploy the console, ensure that you understand the following consider
 - The default storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}} is `Gold`, if your cluster is running Kubernetes v1.17 or higher, and `Bronze` if you are running Kubernetes v1.16. If you do not want to use the default File Storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Kubernetes clusters that are configured with private VLANs are not supported.
-- Only the Kubernetes cluster "Classic" infrastructure is supported. [Virtual Private Clouds](#x4585403){: term} (VPC) are currently not supported.  
+- Only the Kubernetes cluster "Classic" infrastructure is supported. [Virtual Private Clouds](#x4585403){: term} (VPC) are currently not supported. 
 
 ## Video tutorial
 {: #ibp-v2-deploy-video}
@@ -331,7 +331,7 @@ For a sense of how much storage and compute you will need in your cluster, refer
 
 Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
 
-If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes single worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
+If you plan to deploy a five node Raft ordering service, note that the total of your deployment will increase by a factor of five. So a total of 1.75 CPU, 3.5 GB of memory, and 500 GB of storage for the five Raft nodes. A 4x16 Kubernetes two worker node cluster is minimally recommended to allow plenty of CPU for the Raft cluster and any other nodes you deploy.
 {:tip}
 
 ## Persistent storage considerations
