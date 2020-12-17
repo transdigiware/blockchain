@@ -358,17 +358,21 @@ Attempt to link your cluster again. If it continues to fail, you should [Contact
 {: troubleshoot}
 {: support}
 
-When deploying a new IKS cluster (deployed after 12/1/2020, and, in clusters with more than node, only affects clusters at version 1.18 or higher) and new environment, the console is unable to connect to components that are provisioned. The component status does not turn green even though the POD shows as running fine via the IKS UI or CLI. You may also see errors connecting to the proxy URL such as the following reported by the console:
+When deploying a new IKS cluster (deployed after 12/1/2020, and, in clusters with more than node, only affects clusters at version 1.18 or higher) and new environment, the console is unable to connect to components that are provisioned. The component status does not turn green even though the POD shows as running fine via the IKS UI or CLI.
+{: tsSymptoms}
+
+You may also see errors connecting to the proxy URL such as the following reported by the console:
 ```
 "stitch_msg": "unable to get block: grpc web proxy's message: "Response closed without headers". This can happen when encountering CORS or untrusted TLS issues with the grpc web proxy.",
 ```
-{: tsSymptoms}
 
 On 12/1/2020, IKS changed the default ingress image from the legacy IKS specific one to the Kubernetes community image. This new ingress requires the Amazon Load Balancer (ALB) to function, which cannot happen unless the replica set, which requires two nodes, is satisfied. If the ALB cannot come online, the console cannot connect to the cluster. In addition, if the IKS cluster version is 1.18 or higher, there is no default ingress class specified so the ingress class and annotations must be specified manually. This change was not made to existing clusters deployed before 12/1/2020, but was changed for all new clusters.
 {: tsCauses}
 
 Add an additional node to the cluster or a second node to each zone in a multi-zone cluster (a best practice for production networks) or edit the replica set and scale it down to one replica (a sufficient solution for development deployments). This will allow the ALB update to deploy (as long as the cluster version is 1.17). If the cluster version is 1.18 or higher, you must manually add the necessary ingress changes.
 {: tsResolve}
+
+**Diagnosing the issue**  
 
 The main symptom of this issue is that the customer is able to deploy IBP to their cluster and can launch the console, but the first peer or ordering node they provision will never show as online in the UI. If the customer checks the IKS UI or CLI, the pod will show that it is running. Confirm that the cluster was created after 12/1/2020 and, for the second issue, is version 1.18 or higher. To get the cluster created date, find the cluster in bloodhound and drill down on the main instance.
 
@@ -418,10 +422,7 @@ spec:
   ingressClassName: public-iks-k8s-nginx
 ```
 
-### Resolving the Issue
-{: #ibp-v2-troubleshooting-deployment-ingress-resolve}
-{: troubleshoot}
-{: support}
+**Resolving the issue**  
 
 To resolve the issue, you must either add a second node to the cluster (or a second node to each zone in a multi-zone cluster) or edit the replica set and scale it down to one replica. This will allow the ALB update to deploy and as long as the cluster version is 1.17, should resolve the issue.
 

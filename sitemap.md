@@ -1463,7 +1463,6 @@ subcollection: blockchain
 [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-helm-reset)
 
 [Console unable to connect to cluster components after deployment](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-ingress)
-* [Resolving the Issue](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-ingress-resolve)
 
 [Why am I getting an error “all SubConns are in TransientFailure” on the console?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-transientfailure)
 
