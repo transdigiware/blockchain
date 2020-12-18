@@ -443,15 +443,13 @@ Indicating the ALB. Then, scale it down by issuing:
 ```
 kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
 ```
+{: codeblock}
 
-You should see a response similar to:
+You should see a response similar to the following output that indicates that the replica set has been scaled down:
 
 ```
 replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
 ```
-
-Indicating that the replica set has been scaled down.
-
 
 If the cluster version is v1.18 or higher, you'll also need to manually add the necessary ingress changes by doing the following for each component:
 
@@ -476,6 +474,7 @@ annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
 ```
+{: codeblock}
 
 And by adding the following in the spec section:
 
@@ -483,20 +482,23 @@ And by adding the following in the spec section:
 spec:
   ingressClassName: public-iks-k8s-nginx
 ```
+{: codeblock}
 
 To verify the fix, first issuing the follow command to see if ingress gets an IP address:
 
 ```
 kubectl get ingress --all-namespaces
 ```
+{: codeblock}
 
 Each entry should have an IP address listed.
 
-You can test the connectivity by issuing:
+You can test the connectivity by issuing the following command:
 
 ```
 curl -kv https://<component-proxy-url>/settings
 ```
+{: codeblock}
 
 Where the `component-proxy-url` matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command for the given component.
 
