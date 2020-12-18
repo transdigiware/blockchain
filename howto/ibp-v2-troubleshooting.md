@@ -50,7 +50,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
 - [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
-- [Console unable to connect to cluster components after deployment](#ibp-v2-troubleshooting-deployment-ingress)
+- [Why is my console unable to connect to cluster components after deployment?](#ibp-v2-troubleshooting-deployment-ingress)
 - [Why am I getting an error “all SubConns are in TransientFailure” on the console?](#ibp-console-transientfailure)
 
 **Issues with your Nodes**  
@@ -353,7 +353,7 @@ helm reset
 
 Attempt to link your cluster again. If it continues to fail, you should [Contact Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
-## Console unable to connect to cluster components after deployment
+## Why is my console unable to connect to cluster components after deployment?
 {: #ibp-v2-troubleshooting-deployment-ingress}
 {: troubleshoot}
 {: support}
@@ -438,7 +438,7 @@ You should see a response similar to:
 public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
 ```
 
-Indicating the ALB. Then, scale it down by issuing:
+Note `-alb1`, indicating that this is the ALB. Scale down the ALB replica set by issuing:
 
 ```
 kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
