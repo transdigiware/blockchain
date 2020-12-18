@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-10"
+lastupdated: "2020-12-18"
 
 keywords: site map
 subcollection: blockchain
@@ -530,6 +530,8 @@ subcollection: blockchain
 [Option two: Private data collections on a separate channel](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-private-data-channel)
 
 [Option three: A channel with all components in one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-channel)
+
+[Option four: A separate channel with only ordering nodes from one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-raft)
 
 [Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-considerations)
 
@@ -1459,6 +1461,8 @@ subcollection: blockchain
 [When I log in to my console, why am I getting a 401 Unauthorized error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-401)
 
 [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-helm-reset)
+
+[Why is my console unable to connect to cluster components after deployment?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-ingress)
 
 [Why am I getting an error “all SubConns are in TransientFailure” on the console?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-transientfailure)
 
