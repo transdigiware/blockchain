@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-17"
+lastupdated: "2020-12-18"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -494,7 +494,8 @@ Each entry should have an IP address listed.
 
 You can test the connectivity by issuing:
 
-```curl -kv https://<component-proxy-url>/settings
+```
+curl -kv https://<component-proxy-url>/settings
 ```
 
 Where the `component-proxy-url` matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command for the given component.
