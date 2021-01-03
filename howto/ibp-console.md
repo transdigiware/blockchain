@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-10"
+  years: 2019, 2021
+lastupdated: "2021-01-03"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -316,7 +316,7 @@ A single instance of the console, also known as Operational Tooling, is created 
 - The {{site.data.keyword.blockchainfull_notm}} Platform peers and orderers are automatically configured to expose a `/metrics` endpoint that Prometheus can use to scrape a wide variety of blockchain metric data. Read more about using [Prometheus in {{site.data.keyword.cloud_notm}}](/docs/cloud-foundry?topic=cloud-foundry-monitoring#prometheus){: external}.
 
 **Storage**  
-- Utilize {{site.data.keyword.cloud_notm}} [File Storage](/docs/FileStorage?topic=FileStorage-about) when blockchain nodes are provisioned. See the topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
+- Utilize {{site.data.keyword.cloud_notm}} [File](/docs/FileStorage?topic=FileStorage-getting-started) or [Block](/docs/BlockStorage?topic=BlockStorage-getting-started) storage when blockchain nodes are provisioned. See the topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more about how blockchain integrates with {{site.data.keyword.cloud_notm}} storage options.
 
 - Set up [Portworx](/docs/containers?topic=containers-portworx#portworx) to manage local persistent storage across your containerized databases, or share data between pods across multiple zones.
 
