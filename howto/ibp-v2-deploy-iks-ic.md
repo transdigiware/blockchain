@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-20"
+  years: 2019, 2021
+lastupdated: "2021-01-04"
 
-keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud
+keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud, VPC infrastructure
 
 subcollection: blockchain
 
@@ -88,7 +88,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
