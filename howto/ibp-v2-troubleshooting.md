@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-18"
+  years: 2019, 2021
+lastupdated: "2021-01-04"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -358,7 +358,7 @@ Attempt to link your cluster again. If it continues to fail, you should [Contact
 {: troubleshoot}
 {: support}
 
-When deploying a new IKS cluster (deployed after 12/1/2020, and, in clusters with more than node, only affects clusters at version 1.18 or higher) and new environment, the console is unable to connect to components that are provisioned. The component status does not turn green even though the POD shows as running fine via the IKS UI or CLI.
+When deploying a new {{site.data.keyword.containerlong_notm}} cluster (deployed after 12/1/2020, and, in clusters with more than node, only affects clusters at version 1.18 or higher) and new environment, the console is unable to connect to components that are provisioned. The component status does not turn green even though the POD shows as running fine via the {{site.data.keyword.containerlong_notm}} UI or CLI.
 {: tsSymptoms}
 
 You may also see errors connecting to the proxy URL such as the following reported by the console:
@@ -366,7 +366,7 @@ You may also see errors connecting to the proxy URL such as the following report
 "stitch_msg": "unable to get block: grpc web proxy's message: "Response closed without headers". This can happen when encountering CORS or untrusted TLS issues with the grpc web proxy.",
 ```
 
-On 12/1/2020, IKS changed the default ingress image from the legacy IKS specific one to the Kubernetes community image. This new ingress requires the Amazon Load Balancer (ALB) to function, which cannot happen unless the replica set, which requires two nodes, is satisfied. If the ALB cannot come online, the console cannot connect to the cluster. In addition, if the IKS cluster version is 1.18 or higher, there is no default ingress class specified so the ingress class and annotations must be specified manually. This change was not made to existing clusters deployed before 12/1/2020, but was changed for all new clusters.
+On 12/1/2020, {{site.data.keyword.containerlong_notm}} changed the default ingress image from the legacy {{site.data.keyword.containerlong_notm}} specific one to the Kubernetes community image. This new ingress requires the Amazon Load Balancer (ALB) to function, which cannot happen unless the replica set, which requires two nodes, is satisfied. If the ALB cannot come online, the console cannot connect to the cluster. In addition, if the {{site.data.keyword.containerlong_notm}} cluster version is 1.18 or higher, there is no default ingress class specified so the ingress class and annotations must be specified manually. This change was not made to existing clusters deployed before 12/1/2020, but was changed for all new clusters.
 {: tsCauses}
 
 Add an additional node to the cluster or a second node to each zone in a multi-zone cluster (a best practice for production networks) or edit the replica set and scale it down to one replica (a sufficient solution for development deployments). This will allow the ALB update to deploy (as long as the cluster version is 1.17). If the cluster version is 1.18 or higher, you must manually add the necessary ingress changes.
@@ -374,7 +374,7 @@ Add an additional node to the cluster or a second node to each zone in a multi-z
 
 **Diagnosing the issue**  
 
-The main symptom of this issue is that the customer is able to deploy IBP to their cluster and can launch the console, but the first peer or ordering node they provision will never show as online in the UI. If the customer checks the IKS UI or CLI, the pod will show that it is running. Confirm that the cluster was created after 12/1/2020 and, for the second issue, is version 1.18 or higher. To get the cluster created date, find the cluster in bloodhound and drill down on the main instance.
+The main symptom of this issue is that the customer is able to deploy IBP to their cluster and can launch the console, but the first peer or ordering node they provision will never show as online in the UI. If the customer checks the {{site.data.keyword.containerlong_notm}} UI or CLI, the pod will show that it is running. Confirm that the cluster was created after 12/1/2020 and, for the second issue, is version 1.18 or higher. To get the cluster created date, find the cluster in bloodhound and drill down on the main instance.
 
 You can also check the number of nodes in the cluster or have the customer check the ALB replica sets and make sure there isn't one that has pods in a pending state by issuing:
 
@@ -389,7 +389,7 @@ Look for the replicas that look like this:
 public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`
 ```
 
-Notice `alb` in the name. If the current and ready state do not match desired then you could have a stuck ALB update.
+Notice `alb` in the name. If the current state and ready state do not match the desired state, then the ALB update could be stuck.
 
 If the cluster was created after 12/1/2020 and is version 1.18 or higher, the customer can check the ingress configuration by issuing
 
