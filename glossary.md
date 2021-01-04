@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-19"
+  years: 2017, 2021
+lastupdated: "2021-01-04"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -64,7 +64,7 @@ Referring to a step in the Hyperledger Fabric v2.x smart contract lifecycle, aft
 
 ## Connection profile
 {: #glossary-connection-profile}
-The Connection profile is visible in the "Overview" screen of the Network Monitor when you click the **Connection Profile** button. The information is available in JSON format and contains the API endpoint information and enrollIDs/secrets for your network resources, that is, peers, ordering nodes, and CAs. Your application interacts with network resources through these API endpoints.
+A connection profile is used by the Fabric Client SDKs to connect to the network. A connection profile can be downloaded from the [Organizations tile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile).
 
 ## Consensus
 {: #glossary-consensus}
@@ -154,14 +154,6 @@ An abbreviation of **Membership Service Provider**, which provides the definitio
 {: #glossary-network}
 An instance of an {{site.data.keyword.blockchainfull_notm}} Platform service on {{site.data.keyword.cloud_notm}}.
 
-## Network credentials
-{: #glossary-network-credentials}
-Visible from the "APIs" screen of the Network Monitor. Credentials include your "key" (Username) and "secret" (Password) in the Swagger UI. You need to use these network credentials to authenticate before you try out the REST APIs.
-
-## Network Monitor
-{: #glossary-network-monitor}
-The GUI dashboard the {{site.data.keyword.blockchainfull_notm}} Platform for Enterprise networks, which allows users to view and manage the blockchain network.
-
 ## Node
 {: #glossary-node}
 The communication entity of the blockchain. There are three types of nodes: CA, peer, and ordering node.
@@ -177,10 +169,6 @@ See [Member](#glossary-member).
 ## Out of band
 {: #glossary-out-of-band}
 An expression used to refer to sharing network artifacts outside of the console UI, for example by email or some other file transfer mechanism. After submitting a smart contract proposal, the originator can share the smart contract package and package id with other channel members in an out of band operation by emailing this information to them.
-
-## Participant
-{: #glossary-participant}
-Any organization, individual, application, or device that interact with the blockchain network. Under the participant umbrella there are two distinct groupings, which are members and users.
 
 ## Peer
 {: #glossary-peer}
@@ -200,7 +188,7 @@ Raft is a crash fault tolerant (CFT) ordering service based on an implementation
 
 ## SDK
 {: #glossary-sdk}
-The Hyperledger Fabric supports two Software Development Kits (SDKs). A Node SDK and Java SDK.  The Node SDK can be installed via NPM and the Java SDK via Maven.  The SDKs have their own git repositories, that is, [Fabric Node SDK](https://github.com/hyperledger/fabric-sdk-node){: external} and  [Fabric Java SDK](https://github.com/hyperledger/fabric-sdk-java){: external}, with documentation for the available APIs. The Hyperledger Fabric Client SDKs enable interaction between your client application and your blockchain network.
+Hyperledger Fabric Client Software Development Kits (SDKs) enable interaction between your client application and your blockchain network. Fabric supports three  SDKs: [Go](https://github.com/hyperledger/fabric-sdk-go){: external}, [Node](https://github.com/hyperledger/fabric-sdk-node){: external}, and [Java](https://github.com/hyperledger/fabric-sdk-java){: external}) that include documentation for the available APIs.
 
 ## Service credentials
 {: #glossary-service-credentials}
@@ -245,7 +233,7 @@ Changes to the ledger are achieved by invoking "transactions", which either invo
 
 ## User
 {: #glossary-user}
-A user is a participant in a blockchain network that has indirect access to the ledger through a trust relationship to an existing member.
+A user is a participant in a blockchain network that has indirect access to the ledger through a trust relationship with a Certificate Authority.
 
 ## World state
 {: #glossary-world-state}

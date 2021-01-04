@@ -93,30 +93,6 @@ IBM Blockchain Platform for IBM Cloud
 	howto/backup-restore.md
 
 	howto/ibp-v2-apis.md
-
-	{: .topicgroup}
-	Upgrading your Enterprise Plan network
-		enterprise_upgrade.md
-		enterprise_app_upgrade.md
-		enterprise_upgrade_tool.md
-		orderer_mapping.md
-
-	{: .topicgroup}
-	Enterprise Plan
-		get_start.md
-		enterprise_plan.md
-		v10_dashboard.md
-		develop_enterprise.md
-		howto/prebuilt_samples.md
-		howto/create_channel.md
-		howto/install_instantiate_chaincode.md
-		howto/swagger_apis.md
-		howto/create_join_network_with_apis.md
-		howto/monitor_network.md
-		certificates.md
-		howto/pricing.md
-		howto/paying_mode.md
-		knownissues.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}

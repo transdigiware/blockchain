@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-03"
+lastupdated: "2021-01-04"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -229,11 +229,6 @@ Before you deploy the console, ensure that you understand the following consider
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster on {{site.data.keyword.cloud_notm}}, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - You can preview the {{site.data.keyword.blockchainfull_notm}} Platform at no charge for 30 days when you link your {{site.data.keyword.blockchainfull_notm}} Platform service instance to an {{site.data.keyword.cloud_notm}} Kubernetes free cluster. Performance will be limited by throughput, storage and functionality. {{site.data.keyword.cloud_notm}} will delete your cluster after 30 days and you cannot migrate any nodes or data from a free cluster to a paid cluster. If you choose a paid Kubernetes cluster instead of the limited free cluster, you will incur charges for the Kubernetes service to your {{site.data.keyword.cloud_notm}} account.
 - Kubernetes clusters that are configured with private VLANs are not supported.
-
-## Migration
-{: #ibp-console-overview-migration}
-
-Currently, migration from any {{site.data.keyword.blockchainfull_notm}} Platform offering to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} is not possible.
 
 ## License and pricing
 {: #ibp-console-overview-license-and-pricing}

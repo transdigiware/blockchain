@@ -74,10 +74,6 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has unbound immediate persistent volume claims. Is this an error?](#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 - [After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?](#ibp-v2-troubleshooting-crash-loop-backoff)
 
-**Issues with upgrading your Enterprise Plan network**  
-
-- [How can I retry a chaincode migration?](#ibp-v2-troubleshooting-upgrade-tool)
-
 
 
 
@@ -780,22 +776,4 @@ This node has failed to deploy.
 The node has failed to deploy. There can be several reasons for this, but you must go to your console, delete the node, and attempt to redeploy it. Make sure you are using the correct MSP, enroll ID, and secret.
 {: tsResolve}
 
-
-## How can I retry a chaincode migration?
-{: #ibp-v2-troubleshooting-upgrade-tool}
-{: troubleshoot}
-
-When I used the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 console to upgrade my chaincode, I encountered an error starting the chaincode container. How can I retry the chaincode migration?
-{: tsCauses}
-
-Complete the following steps with the upgrade tool to retry a failed chaincode migration:
-{: tsResolve}
-
-1. Fix your chaincode source code to resolve the problem that caused the migration failure. You can test your chaincode by installing and instantiating it on a test network to confirm that the chaincode can build correctly.
-
-2. Deploy the updated chaincode on your Enterprise Plan network with a different **version**.
-
-3. After you have installed the updated chaincode, you can refresh the migration tool in your browser to see the new chaincode in the **Migrate Chaincode** panel. You can then use the upgrade tool to install the updated chaincode on your peers on {{site.data.keyword.blockchainfull_notm}} Platform 2.0.
-
-If you cannot change the chaincode version, you need to use the upgrade tool to delete the upgraded peer on the new platform and then use the tool to create a new peer. After you have fixed the chaincode source code and installed and instantiated it on your Enterprise Plan network, you can use the tool to install a fixed version of your chaincode on the new peer.
 
