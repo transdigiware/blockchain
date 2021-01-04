@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-03"
+lastupdated: "2021-01-04"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -281,7 +281,7 @@ When you plan to use the service instance in the context of a broader organizati
 
 - If you plan to use a Kubernetes cluster that contains multiple zones, ensure that [`VLAN spanning`](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} is enabled in your account.  This setting allows worker nodes to communicate between zones.
 
-- Add **Storage Manage** access in the classic infrastructure list of permissions. At the top of the IBM Cloud dashboard, navigate to **Manage > Access (IAM)**, then choose **Users**, then click on the link for a specific user. Inside the **Classic infrastructure** tab click on the **Permissions** tab. The **Storage Manage** setting can be found under **Services**.
+- The user who links the service to the Kubernetes cluster must have **Storage Manage** permissions. From the {{site.data.keyword.cloud_notm}} dashboard, navigate to **Manage > Access (IAM)**, then choose **Users**, and click the user who will link the service to the Kubernetes cluster. Click the **Classic infrastructure** tab, expand the **Services** twistie, and select **Storage Manage**. Click **Apply** to add this permission for the user.
 
 ### Browsers
 {: #ibp-v2-deploy-iks-browsers}
