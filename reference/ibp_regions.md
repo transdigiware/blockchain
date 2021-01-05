@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-06-02"
+  years: 2017, 2021
+lastupdated: "2021-01-04"
 
 keywords: data centers, IBM Cloud regions, available locations
 
@@ -49,19 +49,3 @@ To deploy the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data
 {: caption="Table 1. {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} locations" caption-side="bottom"}
 
 You can link an instance of the {{site.data.keyword.blockchainfull_notm}} Platform operational tooling to a cluster that is deployed at any location. However, all nodes provisioned by the console will be deployed in the location of the cluster. For example, if the Kubernetes cluster is located in Toronto and the linked console is in Washington, D.C., when you use the console to deploy a peer, the peer will reside in Toronto. For more information about the relationship between the operational tools and your cluster, see the [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture).
-
-## Enterprise Plan
-{: #ibp-regions-locations-se}
-
-Table 2 and Figure 2 show the {{site.data.keyword.cloud_notm}} regions and locations that **Enterprise Plan** supports.
-
-| Geography | Location |
-|--------|----------|
-| North America | Dallas |
-| Europe | London |
-| Asia Pacific | Tokyo |
-| Europe | Frankfurt |
-| Asia Pacific | Melbourne |
-| South America | São Paulo |
-| North America | Toronto |
-{: caption="Table 2. Enterprise Plan locations" caption-side="bottom"}

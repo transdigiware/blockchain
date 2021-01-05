@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-20"
+  years: 2019, 2021
+lastupdated: "2021-01-04"
 
 keywords: import nodes, another console, import a CA, import a peer, import admin identities, import an ordering service node
 
@@ -54,7 +54,6 @@ As you will see below, there are two ways to export and import components and id
 
 While importing nodes provides the ability to perform many of the actions that can be performed on the console where a node or identity was created, there are a few limitations on the ability to administer imported components:
 
-- You cannot import nodes from Enterprise plan networks.
 - All nodes to be imported must have been deployed by using the {{site.data.keyword.blockchainfull_notm}} Platform console or [{{site.data.keyword.blockchainfull_notm}} APIs](https://cloud.ibm.com/apidocs/blockchain){: external}.
 - You cannot patch nodes that have been imported into the console.
 - You cannot delete nodes that you imported into the console from the cluster where they were deployed. You can only remove the node from the console it was imported to.

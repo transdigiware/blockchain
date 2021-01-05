@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-03"
+lastupdated: "2021-01-05"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -78,7 +78,7 @@ After you clone the Ansible collection to your local system, open the `ansible-c
   ```
   {: codeblock}
 
-The first thing that you notice is that the playbook `.yml` files are numbered. Because the playbooks build on each other, the numbers help you understand the order that they should be run. When you want to change some of the configuration properties, you can edit the `.yml` files and insert your own custom values, for example, if you want to customize a node name or use a different enrollment id. Each playbook includes either a **role** or a **task**. A role includes a set of tasks that in turn call the associated [modules](https://ibm-blockchain.github.io/ansible-collection/modules.html) that submit the requests to your cluster.
+The first thing that you notice is that the playbook `.yml` files are numbered. Because the playbooks build on each other, the numbers help you understand the order that they should be run. When you want to change some of the configuration properties, you can edit the `.yml` files and insert your own custom values, for example, if you want to customize a node name or use a different enrollment ID. Each playbook includes either a **role** or a **task**. A role includes a set of tasks that in turn call the associated [modules](https://ibm-blockchain.github.io/ansible-collection/modules.html) that submit the requests to your cluster.
 
 The next thing to notice is the set of variable files `ordering-org-vars.yml` (Ordering Org), `org1-vars.yml` (Org1), and `org2-vars.yml` (Org2) that define the {{site.data.keyword.blockchainfull_notm}} Platform console connection details for each organization. These variable files are used by the playbook when you run it. This means that before you run a playbook, if it uses a variable file, you need to customize the associated variable file with the connection information that you gathered in the previous step. When a playbook requires a variables file, it is included in the playbook .yml file.
 
@@ -110,7 +110,7 @@ There is also a common variables file, `common-vars.yml`. You do not need to edi
 These instructions assume that you have installed [Docker](https://docs.docker.com/get-docker/){: external}) in order to use the Ansible playbooks. If you have installed all of the prerequisites locally on your system instead, you can refer to the [Ansible documentation](https://ibm-blockchain.github.io/ansible-collection/tutorials/building.html#exploring-the-playbooks){: external} for instructions on how to run the playbooks.
 {: note}
 
-1. We use a Docker command to run the first playbook that creates an ordering organization named **Ordering Org**, with a certificate authority named **Ordering Org CA**, and finally a single node ordering service named **Ordering Service**. If you have not already, go ahead and modify the console connection variables inside the `ordering-org-vars.yml` by using the instructions from the previous section. You are now ready to run an Ansible playbook from Docker.
+1. We use a Docker command to run the first playbook that creates an ordering organization that is named **Ordering Org**, with a certificate authority named **Ordering Org CA**, and finally a single node ordering service named **Ordering Service**. If you have not already, go ahead and modify the console connection variables inside the `ordering-org-vars.yml` by using the instructions from the previous section. You are now ready to run an Ansible playbook from Docker.
 
   The following command invokes the `01-create-ordering-organization-components.yml` playbook.
 
@@ -122,7 +122,7 @@ These instructions assume that you have installed [Docker](https://docs.docker.c
   where:
   - `--rm` tells Docker to remove the container when the command completes.
   - `-v <FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>` is used to mount the `tutorial` folder into the Docker container. Replace `<FULLY-QUALIFIED-PATH-TO-PLAYBOOKS>` with the fully qualified path to where the `tutorial` folder resides on your local system. When you run the command from the `tutorial` folder you can replace this value with `$PWD`.
-  - `ibmcom/ibp-ansible` represents the tag of the Docker image published by {{site.data.keyword.IBM_notm}}.
+  - `ibmcom/ibp-ansible` represents the tag of the Docker image that is published by {{site.data.keyword.IBM_notm}}.
   - `<PLAYBOOK>` is used to designate which playbook to run.
 
   For example:
@@ -162,22 +162,22 @@ By now, you are probably interested in scripting these commands together to stan
 ## Step five: Run a script
 {: #ansible-build-run-script}
 
-At this point you've experienced how powerful the Ansible playbooks can be for programmatically deploying network components, creating channels and installing and instantiating smart contracts.  But it is likely that you will want to script them together to build reproducible networks. That's why in the `tutorial` folder a set of scripts are provided  that run groups of playbooks together in a logical order:
+At this point you've experienced how powerful the Ansible playbooks can be for programmatically deploying network components, creating channels and installing and instantiating smart contracts.  But it is likely that you will want to script them together to build reproducible networks. That's why in the `tutorial` folder a set of scripts are provided that run groups of playbooks together in a logical order:
 
 - `build_network.sh` - This is a script that runs a set of playbooks that create an entire simple network, the same one that can be created if you manually build the network by completing the [Build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network) tutorial.  When you call the script with the `build` option, it configures a single node ordering service, a peer organization and a peer. It installs the `fabcar` smart contract on the peer, creates a channel and joins the peer to the channel.  If you run the script with the `destroy` option it removes all of these artifacts from your cluster. For details, see [Building a network](https://ibm-blockchain.github.io/ansible-collection/tutorials/building.html).
 
 - `join_network.sh` - Run this script when you want to join a peer organization to an existing channel.  For more details see [Joining a network](https://ibm-blockchain.github.io/ansible-collection/tutorials/joining.html).
 
-- `deploy_smart_contract.sh` - This script can be used to install a smart contract on one or more peers in your organization and instantiate it on a channel. For more details see [Deploying the smart contract](https://ibm-blockchain.github.io/ansible-collection/tutorials/deploying.html#deploying-the-smart-contract).
+- `deploy_smart_contract.sh` - This script can be used to install a smart contract on one or more peers in your organization and instantiate it on a channel. For more details, see [Deploying the smart contract](https://ibm-blockchain.github.io/ansible-collection/tutorials/deploying.html#deploying-the-smart-contract).
 
-Before running any script, you need to update the console connection settings in the `ordering-org-var.yml`, `org1-vars.yml` and `org2-vars.yml` files. Go ahead and try out the `build_network.sh` script by running the following Docker command from your `tutorial` folder:
+Before running any script, you need to update the console connection settings in the `ordering-org-var.yml`, `org1-vars.yml`, and `org2-vars.yml` files. Go ahead and try out the `build_network.sh` script by running the following Docker command from your `tutorial` folder:
 
 ```
 docker run --rm -v "$PWD:/tutorials" ibmcom/ibp-ansible /tutorials/build_network.sh -i build
 ```
 {: codeblock}
 
-If you are paying close attention, you might notice that the playbooks will run even if the artifacts that you are deploying already exist. In that case, you can see in the `PLAY RECAP` status that `changed=0`, meaning the playbook detected that the node already exists and did not try to recreate it. You can also run the `build_network.sh` with the `destroy` option to remove all the nodes and metadata that were created when you ran the `build_network.sh` script with the `build` option. Give it a try now by running the command:
+If you are paying close attention, you might notice that the playbooks will run even if the artifacts that you are deploying already exist. In that case, you can see in the `PLAY RECAP` status that `changed=0`, meaning the playbook detected that the node exists and did not try to re-create it. You can also run the `build_network.sh` with the `destroy` option to remove all the nodes and metadata that were created when you ran the `build_network.sh` script with the `build` option. Give it a try now by running the command:
 
 ```
 docker run --rm -v "$PWD:/tutorials" ibmcom/ibp-ansible /tutorials/build_network.sh -i destroy
@@ -192,8 +192,8 @@ docker run --rm -v "$PWD:/tutorials" ibmcom/ibp-ansible /tutorials/build_network
 | **Increasing the wait timeout** | Some clusters perform faster than others. The scripts use a default wait timeout of **600** seconds, which is sufficient for most environments. The wait timeout represents the maximum amount of time the playbook waits for the underlying transactions to complete before it logs a failure. If you need to increase the timeout, open the associated variables file (`ordering-org-vars.yml`, `org1-vars.yml`, or `org2-vars.yml`) and modify the value of the `wait_timeout:` parameter.|
 | **Customizing organization names** | The playbooks use the organization names that are defined in the  `common-vars.yml` file. When you are ready to configure your own organizations, you can edit the file and specify the preferred organization names for your network. |
 | **Customizing the name of the ordering service** | The default ordering service name is defined in the `common-vars.yml` file in the `ordering_service_name` parameter. Edit this value to specify the preferred name of the ordering service. |
-| **Adjusting how many ordering nodes are created for an ordering service** |By default, the `01-create-ordering-organization-components.yml` playbook is configured to create a single node ordering service. If your cluster has the resources to support additional ordering nodes in the ordering service, you can modify how many ordering nodes are created when the ordering service is deployed by editing the `01-create-ordering-organization-components.yml` playbook and specifying the number of ordering nodes you want to deploy in the `ordering_service_nodes:` parameter. |
-| **Adjusting node resources** | You can customize the resources allocated to a node by editing the `resources` block of it's associated module. For example, to modify the CPU and memory allocated to a CA node, navigate to your clone of the  [certificate_authority](https://github.com/IBM-Blockchain/ansible-collection/blob/master/plugins/modules/certificate_authority.py) module on your local system. Scroll down to the `resources` section and modify the values assigned to `cpu` and `memory`. Likewise, you can modify peer resources in your clone of the  [peer](https://github.com/IBM-Blockchain/ansible-collection/blob/master/plugins/modules/peer.py) module or the ordering service resources in the [ordering service](https://github.com/IBM-Blockchain/ansible-collection/blob/master/plugins/modules/ordering_service.py) module. |
+| **Adjusting how many ordering nodes are created for an ordering service** |By default, the `01-create-ordering-organization-components.yml` playbook is configured to create a single node ordering service. If your cluster has the resources to support additional ordering nodes in the ordering service, you can modify how many ordering nodes are created when the ordering service is deployed by editing the `01-create-ordering-organization-components.yml` playbook and specifying the number of ordering nodes that you want to deploy in the `ordering_service_nodes:` parameter. |
+| **Adjusting node resources** | You can customize the resources that are allocated to a node by editing the `resources` block of its associated module. For example, to modify the CPU and memory that is allocated to a CA node, navigate to your clone of the  [certificate_authority](https://github.com/IBM-Blockchain/ansible-collection/blob/master/plugins/modules/certificate_authority.py) module on your local system. Scroll down to the `resources` section and modify the values that are assigned to `cpu` and `memory`. Likewise, you can modify peer resources in your clone of the [peer](https://github.com/IBM-Blockchain/ansible-collection/blob/master/plugins/modules/peer.py) module or the ordering service resources in the [ordering service](https://github.com/IBM-Blockchain/ansible-collection/blob/master/plugins/modules/ordering_service.py) module. |
 | **Using your own smart contract** | By default, the `19-install-chaincode.yml` and `20-instantiate-chaincode.yml` playbooks use the `fabcar` sample smart contract. When you are ready to deploy your own smart contract, you need to: <br><ol><li>Include the smart contract package in the `tutorial` directory and name it using the format `<SMART-CONTRACT-NAME>@<VERSION>.cds`.</li><li> Refer to your smart contract by replacing the value of the  `smart_contract_base_name:` and `smart_contract_version:` parameters in the `common-vars.yml` file.</li></ol> |
 | **Using your own enroll ID and secrets** | When the playbooks deploy a node, it uses the enroll IDs specified in the [01-create-ordering-organization-components.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/01-create-ordering-organization-components.yml) and  [02-create-endorsing-organization-components.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/02-create-endorsing-organization-components.yml) files. The associated enroll secrets are provided in the corresponding variable files [ordering-org-vars.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/ordering-org-vars.yml), [org1-vars.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/org1-vars.yml), and [org2-vars.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/org2-vars.yml). You can customize the values of the enroll ID and secrets in these files according to your needs. |
 {: caption="Table 1. Hints and tips for using the Ansible collection" caption-side="bottom"}
@@ -205,7 +205,7 @@ Now that you have used the playbooks to deploy your components or even scripted 
 
 ### Generated identities
 {: #ansible-build-import-identities}
-The following table lists the names of the `JSON` files that contain the identities generated by the `build_network.sh` script with the `build` option or the `join_network.sh` script for the case of Org 2. If you customized organization names inside the playbook `.yml` files, it is possible that your JSON files will be named differently. In order to operate the nodes from the console, you need to import all of the generated identities into the console wallet using the following process:
+The following table lists the names of the `JSON` files that contain the identities that are generated by the `build_network.sh` script with the `build` option or the `join_network.sh` script for the case of Org 2. If you customized organization names inside the playbook `.yml` files, it is possible that your JSON files will be named differently. In order to operate the nodes from the console, you need to import all of the generated identities into the console wallet by using the following process:
 
 1. Navigate to the console wallet and click **Add identity**.
 2. Click the **Upload JSON** tab and browse to the generated identities in the `tutorial` folder and click **Add identity**.
@@ -220,7 +220,7 @@ The following table lists the names of the `JSON` files that contain the identit
 When you run the `build_network.sh` script with the `destroy` option, all of the nodes and associated metadata are removed from your cluster, but any identities that you manually imported into the console wallet are not removed. Before you run the `build_network.sh` script again with the `build` option, you need to manually remove each identity, by opening it in the wallet and then clicking **Remove identity**.
 {: important}
 
-Using the wallet identities from the preceeding table, you can now follow the steps in the table below to associate identities for each node type.
+Using the wallet identities from the preceding table, you can now follow the steps in the table below to associate identities for each node type.
 
 | Associate an identity with CAs |
 |:-------------------------------|

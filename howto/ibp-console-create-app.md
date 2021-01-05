@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-30"
+  years: 2019, 2021
+lastupdated: "2021-01-04"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -591,7 +591,7 @@ await gateway.connect(connectionProfile, connectionOptions);
 
 This code snippet uses the gateway to open gRPC connections to the peer and orderer nodes, and interact with your network.
 
-#### Configuring service discovery
+#### Enabling service discovery
 {: #ibp-console-app-sd-cfg}
 
 Fabric [service discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external} allows your applications to dynamically find the peer and ordering endpoints of your network and the peers on the channel outside your organization that need to endorse a transaction. If you do not configure service discovery, the endpoint information of peer and ordering nodes on your channel needs to be added manually to your connection profile or your application. You would need to edit your connection profile or update your application each time a node is added or removed from your network.
@@ -684,7 +684,7 @@ If you are using low level SDK APIs to connect to your network, there are additi
 ## Highly available applications
 {: #console-app-ha}
 
-As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well. Install chaincode on both peers and add them to your channels. Then, be prepared to submit transaction proposals to both peer endpoints when setting up your network and building your peer target list. Enterprise Plan networks have multiple orderers for failover, which allows your client application to send endorsed transactions to a different orderer if one orderer is not available. If you use your connection profile instead to add network endpoints manually, ensure that your profile is up-to-date and that the additional peers and orderers have been added to the relevant channel in the `channels` section of the profile. The SDK can then add the components that are joined on the channel by using the connection profile.
+As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well by downloading a [connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) and [enabling service discovery](#ibp-console-app-sd-cfg). Install smart contracts on both peers and join the peers to your channels. 
 
 ## Using indexes with CouchDB
 {: #console-app-couchdb}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-02"
+  years: 2019, 2021
+lastupdated: "2021-01-04"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions
 
@@ -54,7 +54,6 @@ content-type: faq
 - [How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](#ibp-v2-faq-v2-fabric-upgrade)
 - [I am currently using Hyperledger Fabric v1.4 and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?](#ibp-v2-faq-migrate-raft)
 - [Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-ocp-migrate)
-- [Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-IBP-Overview-1-5)
 - [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](#ibp-v2-faq-v2-IBP-Overview-1-8)
 - [Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-v2-Infrastructure-4-2)
 
@@ -243,13 +242,6 @@ Yes. The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyw
 {: faq}
 
 No. There is currently no way to migrate existing components to a new Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}.
-
-
-## Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?
-{: #ibp-v2-faq-v2-IBP-Overview-1-5}
-{: faq}
-
-Enterprise Plan customers are now able to upgrade their networks to {{site.data.keyword.blockchainfull_notm}} Platform in {{site.data.keyword.cloud_notm}}. See [Upgrading to the IBM Blockchain Platform for IBM Cloud](/docs/blockchain?topic=blockchain-enterprise-upgrade) for more information.
 
 
 ## What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?

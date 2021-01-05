@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-01-05"
 
 keywords: site map
 subcollection: blockchain
@@ -154,8 +154,6 @@ subcollection: blockchain
 [Supported {{site.data.keyword.cloud_notm}} configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg)
 
 [Considerations](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-considerations)
-
-[Migration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-migration)
 
 [License and pricing](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-license-and-pricing)
 
@@ -419,12 +417,6 @@ subcollection: blockchain
   * [Storage usage](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-storage)
 * [Optimizing the cost of your nodes](/docs/blockchain?topic=blockchain-ibp-saas-pricing#ibp-saas-pricing-shutdown)
 
-[Pricing](/docs/blockchain?topic=blockchain-ibp-pricing)
-* [Network basic components](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-components)
-* [Key elements of pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-key-elements)
-* [Enterprise Plan pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-enterprise-plan)
-  * [Example Enterprise Plan pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-enterprise-plan-pricing)
-
 [Detailed pricing scenarios](/docs/blockchain?topic=blockchain-ibp-detailed-pricing)
 * [Scenario comparisons](/docs/blockchain?topic=blockchain-ibp-detailed-pricing#ibp-pricing-details-tabs)
 
@@ -579,8 +571,6 @@ subcollection: blockchain
 [I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
 
 [Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-migrate)
-
-[Can I upgrade from V1.0 to the new {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-5)
 
 [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-8)
 
@@ -761,20 +751,6 @@ subcollection: blockchain
 * [Creating and editing a channel](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-create-channel)
   * [Updating an MSP in a channel definition](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-update-channel)
 * [Removing an organization](/docs/blockchain?topic=blockchain-ibp-console-organizations#console-organizations-remove)
-
-[Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates)
-* [Certificate authorities](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-network-ca)
-  * [Registration with the Network Monitor](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel)
-  * [Generating client-side certificates (enrollment)](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enrollment)
-  * [Generating certificates using the Network Monitor](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-certs-panel)
-  * [Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)
-  * [Certificate expiration](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-expiration)
-* [Using TLS Certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-tls)
-  * [Retrieving domain name from TLS certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-retrieve-domain)
-* [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)
-* [Enrollment and registration by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient)
-  * [Enrolling by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-app-caclient)
-  * [Registering by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#register-app-caclient)
 
 [Managing certificates](/docs/blockchain?topic=blockchain-cert-mgmt)
 * [Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-network-ca)
@@ -1030,160 +1006,6 @@ subcollection: blockchain
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 
 
-## Upgrading your Enterprise Plan network
-{: #sitemap_upgrading_your_enterprise_plan_network}
-
-
-[Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-enterprise-upgrade)
-* [Before you begin](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-considerations)
-* [Upgrade Overview](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview)
-* [Step one: Have your Enterprise Plan network upgraded to Fabric v1.4](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-one)
-* [Step two: Update your applications to use service discovery](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-two)
-* [Step three: Get started with the upgrade tool](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-three)
-* [Step four: Migrate your chaincode to {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-four)
-* [Step five: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-five)
-* [Step six: Delete your Enterprise Plan network](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-overview-six)
-* [Upgrading a network that uses Hyperledger Composer](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-composer)
-* [Support](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade-support)
-
-[Updating your applications](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications)
-* [Step one: Prepare for the breaking changes from Fabric v1.4](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-one)
-* [Step two: Upgrade your version of the Fabric SDK](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-two)
-* [Step three: Update your applications to use service discovery](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-three)
-  * [Option one: Update your application to use the new Fabric SDK programming model](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-new-apis)
-  * [Option two: Patch your applications to use service discovery with the low-level APIs](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-patch)
-* [Step four: Download a new connection profile from {{site.data.keyword.blockchainfull_notm}} Platform 2.0](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-four)
-* [If you cannot update your application](/docs/blockchain?topic=blockchain-enterprise-upgrade-applications#enterprise-upgrade-applications-manual)
-
-[Getting started with the upgrade tool](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool)
-* [Before you begin](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-before)
-  * [Prerequisites](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-prerequisites)
-  * [Considerations and limitations](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-considerations)
-* [Upload connection information](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-connection-info)
-* [Migrating your smart contracts](/docs/blockchain?topic=blockchain-enterprise-upgrade-tool#enterprise-upgrade-tool-smart-contracts)
-
-[Mapping to existing ordering nodes](/docs/blockchain?topic=blockchain-orderer-mapping)
-* [Editing the peer configuration](/docs/blockchain?topic=blockchain-orderer-mapping#orderer-mapping-code-snippet)
-
-
-## Enterprise Plan
-{: #sitemap_enterprise_plan}
-
-
-[Getting started with Enterprise Plan](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan)
-* [Creating a network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-create-network)
-* [Joining a network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-join-nw)
-* [Configuring network resources and environment](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-config)
-* [Retrieving network credentials and connection profile](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-retrieve-credentials)
-  * [Retrieving from the service instance page](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-retrieve-svc-ins)
-  * [Retrieving in the Network Monitor](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-retrieve-nw)
-* [Enabling applications to interact with the network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-enable-apps)
-* [Monitoring network resources](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-monitor-resources)
-* [Leaving a network](/docs/blockchain?topic=blockchain-getting-started-with-enterprise-plan#getting-started-with-enterprise-plan-leave-nw)
-
-[About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about)
-* [Pricing](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about-pricing)
-
-[Using the Network Monitor](/docs/blockchain?topic=blockchain-ibp-dashboard)
-* [Left navigation pane](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-left-navigation)
-* [Overview](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-overview)
-  * [Node actions](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-node-actions)
-  * [Connection Profile](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-connection-profile)
-  * [Add peers](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-peers)
-* [Members](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members)
-  * [Add members to Enterprise Plan networks](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-members-tab)
-  * [Certificates](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-certificates)
-* [Channels](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-channels)
-* [Notifications](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-notifications)
-* [Certificate Authority](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-ca)
-* [APIs](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-apis)
-* [Develop Code](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-write-code)
-* [Install code](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-chaincode)
-* [Try samples](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-samples)
-* [Get help](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support)
-  * [Blockchain resources and support forums](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-support-forums)
-  * [Fabric release notes](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-release-notes)
-* [Network preferences](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-preferences)
-  * [Web inactivity timeout](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-web-inactivity-timeout)
-  * [Mutual TLS (for Enterprise Plan networks)](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-mutual-tls)
-* [Update network name](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard-network-name)
-
-[Deploying business networks to Enterprise Plan](/docs/blockchain?topic=blockchain-deploying-a-business-network)
-* [Before you begin](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-enterprise-plan-before-begin)
-* [Step one: Create a connection profile for {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-create-connection-profile)
-* [Step two: Retrieve your connection profile](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-retrieve-connection-profile)
-* [Step three: Add channel information](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-add-channel-information)
-* [Step Four: Prepare your peers](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-prepare-peers)
-* [Step five: Create your channel](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-create-your-channel)
-* [Step six: Create a new identity to administer your business network](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-add-new-identity-enterprise-plan)
-* [Step seven: Deploy the business network](/docs/blockchain?topic=blockchain-deploying-a-business-network#deploying-a-business-network-deploy-business-network-enterprise-plan)
-
-[Deploying sample applications](/docs/blockchain?topic=blockchain-deploying-sample-applications)
-
-[Creating or updating a channel](/docs/blockchain?topic=blockchain-ibp-create-channel)
-* [Creating a channel](/docs/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel)
-* [Updating a channel](/docs/blockchain?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel)
-
-[Installing, instantiating, and updating a chaincode](/docs/blockchain?topic=blockchain-install-instantiate-chaincode)
-* [Installing a chaincode](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-install-cc)
-* [Instantiate a chaincode](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-instantiate-cc)
-* [Specifying chaincode endorsement policies](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-endorsement-policy)
-* [Updating a chaincode](/docs/blockchain?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc)
-
-[Interacting with the network using Swagger APIs](/docs/blockchain?topic=blockchain-ibp-swagger)
-* [Retrieving network credentials](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-retrieving-network-credentials)
-* [Authorizing Swagger APIs](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-authorizing-swagger)
-* [Trying out APIs](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-try-out)
-* [Disabling API access](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-turn-off)
-* [Troubleshooting tips](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-troubleshooting)
-  * [401 Unauthorized](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-401)
-  * [400 Error: Bad Request](/docs/blockchain?topic=blockchain-ibp-swagger#ibp-swagger-400)
-
-[Creating or joining a network with Swagger APIs](/docs/blockchain?topic=blockchain-swagger-network)
-* [Retrieving basic auth credential for API](/docs/blockchain?topic=blockchain-swagger-network#swagger-network-retrieve-id-token)
-* [Checking available network locations](/docs/blockchain?topic=blockchain-swagger-network#swagger-network-check-location)
-
-[Monitoring a blockchain network](/docs/blockchain?topic=blockchain-monitor-blockchain-network)
-* [Monitoring peers, orderers, and CAs](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-nodes)
-* [Using your network logs](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-using-logs)
-* [Monitoring channels](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channnels)
-  * [Channel Overview](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-overview)
-  * [Members](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-members)
-  * [Chaincode](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-channel-cc)
-* [Monitoring chaincode](/docs/blockchain?topic=blockchain-monitor-blockchain-network#monitor-blockchain-network-monitor-chaincode)
-
-[Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates)
-* [Certificate authorities](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-network-ca)
-  * [Registration with the Network Monitor](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-ca-panel)
-  * [Generating client-side certificates (enrollment)](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enrollment)
-  * [Generating certificates using the Network Monitor](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-certs-panel)
-  * [Uploading signing certificates to {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-upload-certs)
-  * [Certificate expiration](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-expiration)
-* [Using TLS Certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-tls)
-  * [Retrieving domain name from TLS certificates](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-retrieve-domain)
-* [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp)
-* [Enrollment and registration by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-register-caclient)
-  * [Enrolling by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#managing-certificates-enroll-app-caclient)
-  * [Registering by using the Fabric CA client](/docs/blockchain?topic=blockchain-managing-certificates#register-app-caclient)
-
-[Pricing](/docs/blockchain?topic=blockchain-ibp-pricing)
-* [Network basic components](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-components)
-* [Key elements of pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-key-elements)
-* [Enterprise Plan pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-enterprise-plan)
-  * [Example Enterprise Plan pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing-enterprise-plan-pricing)
-
-[Paying mode](/docs/blockchain?topic=blockchain-paying-mode)
-* [Prerequisites](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-prereq)
-* [Paying your own fees](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-pay-your-own)
-* [Paying for other network members](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-pay-for-others)
-  * [Known limitations](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-limitation)
-* [Letting a member pay for you](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-let-other-pay)
-  * [Known limitation](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-let-other-pay-limitation)
-* [Transferring billings to other members](/docs/blockchain?topic=blockchain-paying-mode#paying-mode-transfer-billing)
-
-[Known issues](/docs/blockchain?topic=blockchain-known-issues)
-
-
 ## Hyperledger Fabric
 {: #sitemap_hyperledger_fabric}
 
@@ -1221,8 +1043,6 @@ subcollection: blockchain
 [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations)
 
 [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-ibp)
-
-[Enterprise Plan](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-se)
 
 
 ## HSM PKCS #11 proxy
@@ -1309,10 +1129,6 @@ subcollection: blockchain
 
 [Network](/docs/blockchain?topic=blockchain-glossary#glossary-network)
 
-[Network credentials](/docs/blockchain?topic=blockchain-glossary#glossary-network-credentials)
-
-[Network Monitor](/docs/blockchain?topic=blockchain-glossary#glossary-network-monitor)
-
 [Node](/docs/blockchain?topic=blockchain-glossary#glossary-node)
 
 [Ordering node](/docs/blockchain?topic=blockchain-glossary#glossary-orderer)
@@ -1320,8 +1136,6 @@ subcollection: blockchain
 [Organization](/docs/blockchain?topic=blockchain-glossary#glossary-organization)
 
 [Out of band](/docs/blockchain?topic=blockchain-glossary#glossary-out-of-band)
-
-[Participant](/docs/blockchain?topic=blockchain-glossary#glossary-participant)
 
 [Peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer)
 
@@ -1495,8 +1309,6 @@ subcollection: blockchain
 [After I deploy a node in the console, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has unbound immediate persistent volume claims. Is this an error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 
 [After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-crash-loop-backoff)
-
-[How can I retry a chaincode migration?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-upgrade-tool)
 
 
 ## Getting support
