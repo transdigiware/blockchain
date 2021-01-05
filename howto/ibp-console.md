@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-01-05"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -152,7 +152,7 @@ The world is moving too fast to keep doing things the old way. Go to cloud dot I
 ## What the {{site.data.keyword.blockchainfull_notm}} Platform offers
 {: #ibp-console-overview-capabilities}
 
-This latest release is tailored to experienced {{site.data.keyword.blockchainfull_notm}} and Hyperledger Fabric users and lets them host and join {{site.data.keyword.blockchainfull_notm}} networks. If you are an existing Enterprise Plan customer, instead of {{site.data.keyword.IBM_notm}} managing your network, you now have total control with the ability to provision, monitor, and manage your components inside your own Kubernetes cluster.
+This latest release is tailored to experienced {{site.data.keyword.blockchainfull_notm}} and Hyperledger Fabric users and lets them host and join {{site.data.keyword.blockchainfull_notm}} networks.
 
 The {{site.data.keyword.blockchainfull_notm}} Platform includes the following key features:
 
