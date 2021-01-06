@@ -198,7 +198,6 @@ docker run --rm -v "$PWD:/tutorials" ibmcom/ibp-ansible /tutorials/build_network
 | **Using your own enroll ID and secrets** | When the playbooks deploy a node, it uses the enroll IDs specified in the [01-create-ordering-organization-components.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/01-create-ordering-organization-components.yml) and  [02-create-endorsing-organization-components.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/02-create-endorsing-organization-components.yml) files. The associated enroll secrets are provided in the corresponding variable files [ordering-org-vars.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/ordering-org-vars.yml), [org1-vars.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/org1-vars.yml), and [org2-vars.yml](https://github.com/IBM-Blockchain/ansible-collection/blob/master/tutorial/org2-vars.yml). You can customize the values of the enroll ID and secrets in these files according to your needs. |
 {: caption="Table 1. Hints and tips for using the Ansible collection" caption-side="bottom"}
 
-
 ## Next steps
 {: #ansible-build-next-steps}
 
