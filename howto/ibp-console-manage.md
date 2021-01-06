@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-05"
+lastupdated: "2021-01-06"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -212,7 +212,7 @@ The namespace is the first part of the URL beginning with the letter `n` and fol
 2. Above the cluster overview screen, click **Kubernetes Dashboard**.
 3. Inside the Kubernetes dashboard, use the left navigation **Namespace** drop-down list to change to the namespace for your {{site.data.keyword.blockchainfull_notm}} Platform service instance that you discovered above.
 4. On the left navigation, click **Pods** to view the list of node pods that you have deployed.
-5. Click on a pod. Then click **Logs** on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
+5. Click on a pod. Then click the **View logs** icon on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
 
 #### Viewing nodes logs on a Red Hat OpenShift 4.x cluster
 {: #ibp-console-manage-console-node-logs-ocp43}
