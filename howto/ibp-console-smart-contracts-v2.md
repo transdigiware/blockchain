@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-01"
+  years: 2019, 2021
+lastupdated: "2021-01-07"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -88,7 +88,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -140,6 +140,9 @@ The best practice to add this endorsement policy to the MSP is to delete the MSP
 {: #ibp-console-smart-contracts-v2-before-peer}
 
 Because the lifecycle of a smart contract begins by installing the smart contract on a peer that is joined to a channel, you need to create a channel and include the organization members. **The channel must be configured to run with the [Fabric 2.0 application capability](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-capabilities-application-channels) level**. Second, you need to deploy at least one peer (that must be running the Fabric v2.x image) for your organization and join it to the channel. If you haven't already created a channel and joined at least one peer to it, see the [Build a network](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network-structure) tutorial for instructions.
+
+If you are creating a **new** channel, ensure that you select **Advanced channel configuration** so that you have the opportunity to specify the Channel Application Capability 2.0.0 or higher.
+{: important}
 
 ### Export and Import Membership Service Providers (MSPs)
 {: #ibp-console-smart-contracts-v2-before-msps}
