@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-11"
+  years: 2017, 2021
+lastupdated: "2021-01-08"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -111,7 +111,7 @@ We've streamlined the documentation. If you are an existing customer, you might 
 ## February 14, 2020
 {: #whats-new-2-14-2019}
 
-Enterprise Plan users can now upgrade their networks to the latest version of the {{site.data.keyword.blockchainfull_notm}} Platform, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. As part of the upgrade process, {{site.data.keyword.IBM_notm}} will upgrade your Enterprise Plan network from Fabric v1.1 to Fabric v1.4.3 and migrate your ordering service from Kafka to Raft consensus. You can then use the self guided upgrade tool to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network. For more information about the upgrade process, see [Upgrading to the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-enterprise-upgrade#enterprise-upgrade).
+Enterprise Plan users can now upgrade their networks to the latest version of the {{site.data.keyword.blockchainfull_notm}} Platform, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. As part of the upgrade process, {{site.data.keyword.IBM_notm}} will upgrade your Enterprise Plan network from Fabric v1.1 to Fabric v1.4.3 and migrate your ordering service from Kafka to Raft consensus. You can then use the self guided upgrade tool to create new nodes on the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 side by side with your Enterprise Plan network.
 
 If possible, Enterprise Plan customers are encouraged to migrate to the {{site.data.keyword.blockchainfull_notm}} Platform 2.0 right away. If you do not need to preserve your ledger data on Enterprise Plan, you are encouraged to skip the upgrade process and create a new network on the {{site.data.keyword.blockchainfull_notm}} for {{site.data.keyword.cloud_notm}}. If you are ready to create a new network, go to [Getting Started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain/reference?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks).
 
@@ -191,7 +191,7 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 
 **GROW --- Scalability and flexibility**
 - **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
-- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
+- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/blockchain-sw?topic=blockchain-sw-ibp-sw-pricing).
 - **Disaster recovery and multizone high availability.** This ability duplicates your Kubernetes deployment across zones, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Run Anywhere**. Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on any environment supported by {{site.data.keyword.cloud_notm}} Private.
 
@@ -236,7 +236,7 @@ This {{site.data.keyword.blockchainfull_notm}} Platform release includes the fol
 
 **GROW --- Scalability and flexibility**
 - **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
-- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/blockchain?topic=blockchain-ibp-pricing#ibp-pricing).
+- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information see [Pricing](/docs/blockchain?topic=blockchain-ibp-saas-pricing).
 - **Disaster recovery and multizone high availability.** This option duplicates your Kubernetes deployment across zones, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Run Anywhere** (instructions coming soon). Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Private, and third-party public clouds.
 
@@ -314,7 +314,7 @@ The table of contents is enhanced by grouping all getting started topics togethe
 ## December 7, 2018
 {: #whats-new-12-07-2018}
 
-The *Operate Starter Plan Network* and *Operate Enterprise Plan Network* topics are combined and replaced by a single tutorial about [Using the Network Monitor](/docs/blockchain?topic=blockchain-ibp-dashboard#ibp-dashboard).
+The *Operate Starter Plan Network* and *Operate Enterprise Plan Network* topics are combined and replaced by a single tutorial about Using the Network Monitor.
 
 ## November 27, 2018
 {: #whats-new-11-27-2018}
@@ -354,7 +354,7 @@ This release also debuts some improvements to the documentation table of content
 ## May 15, 2018
 {: #whats-new-5-15-2018}
 
-{{site.data.keyword.blockchainfull_notm}} Platform upgrades Enterprise Plan from Hyperledger Fabric v1.0.0 to v1.1.0. For more information, see [About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform upgrades Enterprise Plan from Hyperledger Fabric v1.0.0 to v1.1.0.
 
 ## March, 18, 2018
 {: #whats-new-3-18-2018}
@@ -364,6 +364,6 @@ This release also debuts some improvements to the documentation table of content
 ## August 11, 2017
 {: #whats-new-8-11-2017}
 
-{{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan. For more information, see [About Enterprise Plan](/docs/blockchain?topic=blockchain-enterprise-plan-about#enterprise-plan-about).
+{{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan.
 
 
