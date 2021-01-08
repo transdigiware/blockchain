@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-07"
+lastupdated: "2021-01-08"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -530,6 +530,22 @@ Whenever channel members agree to an update in the business logic, and channel m
 2. What happens when I remove an organization from my private data collection?
 
    The peers in that organization continue to store data in the private data collection until its ledger reaches the block that removes its membership from the collection. After that occurs, the peers will not receive private data in any future transactions, and _clients_ of that organization will no longer be able to query the private data via a smart contract from any peer.
+
+3. What happens to the existing `chaincode-execution` pod after I update my smart contract?
+
+    Whenever a transaction is submitted to a smart contract installed on peer, a `chaincode-execution` pod is launched if one does not already exist for it. When you deploy a new version of your smart contract, the `chaincode-execution` pod for the previous version of the smart contract continues to run but is no longer required. To save cluster resources, you can manually delete the `chaincode-execution` pods for the prior smart contract versions. From your cluster namespace, run the following command to see the list of `chaincode-execution` pods that are currently running:
+    ```
+    kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
+    ```
+    {: codeblock}
+
+    Replace `<NAMESPACE>` with the name of your cluster namespace. Your smart contract name and version is visible in the output under the `LABELS` column next to `chaincode-id`. To delete the pod, run the following command:
+
+    ```
+    kubectl delete po <CHAINCODE-EXECUTION-POD> -n <NAMESPACE>
+    ```
+    {: codeblock}
+    Replace `<CHAINCODE-EXECUTION-POD>` with the name of the `chaincode-execution` pod for the prior version of the smart contract visible in the output of the previous command.
 
 ## Private data
 {: #ibp-console-smart-contracts-v2-private-data}
