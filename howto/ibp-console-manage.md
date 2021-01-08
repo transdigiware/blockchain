@@ -175,12 +175,12 @@ To update the email address of the console administrator that was configured whe
 ## Configuring node logging
 {: #ibp-console-manage-logger}
 
-For debugging purposes, Fabric logging control includes "loggers" that direct peer and ordering node output along with an associated "log level"  to the node log.  When the default `Information` log level for a component is not sufficient for debugging, the console includes the ability to customize the logging level for the node and smart contracts.
+For debugging and analysis purposes, users can adjust default and custom "loggers" that control the "log level" of peer and ordering node output for particular node functions or events. When the default `Information` log level for a component is not sufficient for debugging, the console includes the ability to customize the logging level for the node and smart contracts.
 
 ### Before you begin
 {: #ibp-console-logger-before}
 
-A certificate from the peer or ordering node's TLS Certificate Authority (CA) must exist in the console wallet before you can modify the log setting for the node. **You need to have the enroll ID and secret available for at least one of the CA users.** (The user type does not matter.) Then, complete the following steps to generate the TLS certificate:
+A certificate from the peer or ordering node's TLS Certificate Authority (CA) must exist in the console wallet before you can modify a log setting on the node. **You need to have the enroll ID and secret available for at least one of the CA users.** (The user type does not matter.) Then, complete the following steps to generate the TLS certificate:
 
 1. From the console, open the CA that is associated with the node. If you imported the node and its associated CA is not in your console, you need to open the CA from the console where it resides.
 2. Click the actions menu icon ![menu icon](../../icons/overflow-menu.svg) next to the user and then click **Enroll identity**.
