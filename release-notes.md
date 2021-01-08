@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-05"
+lastupdated: "2021-01-08"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -31,7 +31,17 @@ Use these release notes that are grouped by date to learn about the latest chang
 [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)  
 For instructions on how to apply patches to your existing blockchain nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.   
 
+## 12 Jan 2021
+{: #01-12-2021}
 
+**Certificate Authority (CA) patch 1.4.9-4, Peer and ordering node patch 1.4.9-4, 2.2.1-4**
+
+Miscellaneous bug fixes and security patches.
+
+### New logging configuration panel
+{: #01-12-2021-logger-ui}
+
+A new panel is available to override peer and ordering node log levels for specific component loggers.
 
 ## 08 Dec 2020
 {: #12-08-2020}

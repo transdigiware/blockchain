@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-01-08"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -171,6 +171,52 @@ The users that you add in IAM are simply email addresses of users who can log in
 If the console is used by multiple people or organizations, it is recommended that you create a functional email address to access your network. The use of a functional email allows you to continue to access the console even when the original administrator leaves your organization or has their email address suspended. Only a single email address can be used as the administrator contact.
 
 To update the email address of the console administrator that was configured when the console was deployed, you must be logged in as the console administrator. Navigate to the **Users** tab and click **Configure** on the **{{site.data.keyword.IBM_notm}} ID** tile. In the panel that opens, specify a new email address for the console administrator.
+
+## Configuring node logging
+{: #ibp-console-manage-logger}
+
+For debugging purposes, Fabric logging control includes "loggers" that direct peer and ordering node output along with an associated "log level"  to the node log.  When the default `Information` log level for a component is not sufficient for debugging, the console includes the ability to customize the logging level for the node and smart contracts.
+
+### Before you begin
+{: #ibp-console-logger-before}
+
+A certificate from the peer or ordering node's TLS Certificate Authority (CA) must exist in the console wallet before you can modify the log setting for the node. **You need to have the enroll ID and secret available for at least one of the CA users.** (The user type does not matter.) Then, complete the following steps to generate the TLS certificate:
+
+1. From the console, open the CA that is associated with the node. If you imported the node and its associated CA is not in your console, you need to open the CA from the console where it resides.
+2. Click the actions menu icon ![menu icon](../../icons/overflow-menu.svg) next to the user and then click **Enroll identity**.
+3. On the side panel that opens, select **TLS Certificate Authority** from the **Certificate Authority** list.
+4. Enter the **Enroll secret** that is associated with the **Enroll ID** for the user and click **Next**.
+6. Provide a display name for the identity and then **Export** the identity to your file system.
+7. Click **Add identity to Wallet**.
+
+The TLS certificate now exists in your console wallet and you are ready to customize the node logging.
+
+### Customize logging
+{: #ibp-console-logger-custom}
+
+The process to customize the log settings is the same for a peer or ordering node. Open the node and click the **Settings** ![gear](../images/gear.svg "Settings") icon. Click **Log settings** to open the panel.
+
+![Log settings panel](../images/log-settings.png "Log settings panel"){: caption="Figure 1. Log settings" caption-side="bottom"}
+
+If you prefer a different default logging level than `Information` for all loggers on the node, select a new logging level (`Fatal`, `Panic`, `Error`, `Warning`, `Information`, `Debug`) from the **Default logging level** list. All loggers for the node will use use the selected default log level unless overridden on this panel by providing the specific log levels for the loggers that you need for debugging. There is no “master list” of loggers, and this panel does not validate whether the loggers exist. You can see the names of the available loggers in the node logs, or you can read the Fabric source code to discover what loggers are available. For ease of use, the following set of logging specification strings is provided and can be pasted into the **Logging specification** field on the **Advanced** tab to customize the logging according to your debug needs:
+
+| Debug type | Logging specification |
+|------------|------------------------------|
+| Smart contracts | `info:dockercontroller,endorser,chaincode,chaincode.platform=debug`|
+| Private data | `info:kvledger,ledgerstorage,transientstore,pvtdatastorage,gossip.privdata=debug`|
+| Ledger and state database | `info:kvledger,lockbasedtxmgr,ledgerstorage,stateleveldb,statecouchdb,couchdb=debug` |
+| Full debug, with the noisy components set to info |`debug:cauthdsl,policies,msp,grpc,peer.gossip.mcs,gossip,leveldbhelper=info`|
+{: caption="Table 2. Useful logging specification strings" caption-side="bottom"}
+
+A word on the logging specification syntax. Notice that the terms are separated by a colon. If a term does not include a specific logger, for example `info:` then it is applied as the default log level, regardless of what is specified on the **Simple** tab. This means that the string `info:dockercontroller,endorser,chaincode,chaincode.platform=debug` sets the **Default log level** to `Information` for all loggers and then the `dockercontroller`, `endorser`, `chaincode`,and `chaincode.platform` loggers are set to `Debug`.
+{: important}
+
+Note that smart contract logging is the responsibility of the developer who defines the smart contract loggers. Debug your smart contracts by providing the name of the smart contract logger and the desired log level on the **Simple** or **Advanced** tabs.
+
+When you need to reset the logging for the node back to the Fabric default, delete any custom logger settings on the **Simple** and **Advanced** tabs and set the **Default log level** to `Information`.
+{: tip}
+
+See the Fabric topic on [Logging Control](https://hyperledger-fabric.readthedocs.io/en/release-2.2/logging-control.html){:external} for more information. Read on for more information on how to view the node and smart contract logs.
 
 ## Viewing your logs
 {: #ibp-console-manage-logs}

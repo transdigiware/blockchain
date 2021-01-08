@@ -643,6 +643,9 @@ subcollection: blockchain
 * [Adding and removing users from the console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)
   * [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
   * [Assigning access roles to individual or groups of users in IAM](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-users-groups)
+* [Configuring node logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logger)
+  * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-before)
+  * [Customize logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-custom)
 * [Viewing your logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logs)
   * [Viewing your console logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logs)
   * [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)
@@ -1177,6 +1180,9 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[12 Jan 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021)
+* [New logging configuration panel](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021-logger-ui)
 
 [08 Dec 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
 
