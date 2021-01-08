@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-08-25"
+  years: 2019, 2021
+lastupdated: "2021-01-08"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, orderer, ordering node, ordering service, tutorial
 
@@ -245,7 +245,7 @@ As a result, when you delete a node, a check is performed to see if it is a cons
 As part of this same process, make sure to reach out to the other console operators to let them know that the node has been deleted so they can remove the tile from their console.
 
 
-Note: if you remove all of the ordering nodes that originally formed the consenter set of a channel, you might have to create a mapping from the old ordering nodes to the new nodes by editing the configuration of any new peers you attempt to join to the channel. For more information, see [Mapping to existing ordering nodes](/docs/blockchain?topic=blockchain-orderer-mapping).
+Note: if you remove all of the ordering nodes that originally formed the consenter set of a channel, you might have to create a mapping from the old ordering nodes to the new nodes by editing the configuration of any new peers you attempt to join to the channel. For more information, see [Mapping to existing ordering nodes](#ibp-console-add-remove-orderer-mapping).
 {: important}
 
 
@@ -283,4 +283,3 @@ Note that you may have to edit the configuration of a peer multiple times, depen
 
 Don't copy the configuration snippet used as an override for one peer and use it on any other peers. Similarly, don't open the configuration of the peer and copy the section from that peer into another peer. **Use the code snippet provided on the Join a peer to a channel screen and paste it into the peer configuration** for each peer. This will ensure that the orderer override will work properly.
 {: important}
-
