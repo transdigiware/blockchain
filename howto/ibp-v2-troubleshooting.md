@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-01-08"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -50,7 +50,6 @@ This topic describes common issues that can occur when you use the {{site.data.k
 - [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](#ibp-v2-troubleshooting-update-channel)
 - [When I log in to my console, why am I getting a 401 unauthorized error?](#ibp-v2-troubleshooting-console-401)
 - [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](#ibp-v2-troubleshooting-console-helm-reset)
-- [Why is my console unable to connect to cluster components after deployment?](#ibp-v2-troubleshooting-deployment-ingress)
 - [Why am I getting an error “all SubConns are in TransientFailure” on the console?](#ibp-console-transientfailure)
 
 **Issues with your Nodes**  
@@ -349,154 +348,6 @@ helm reset
 
 Attempt to link your cluster again. If it continues to fail, you should [Contact Support](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases).
 
-## Why is my console unable to connect to cluster components after deployment?
-{: #ibp-v2-troubleshooting-deployment-ingress}
-{: troubleshoot}
-{: support}
-
-When deploying a new {{site.data.keyword.containerlong_notm}} cluster (deployed after 12/1/2020, and, in clusters with more than node, only affects clusters at version 1.18 or higher) and new environment, the console is unable to connect to components that are provisioned. The component status does not turn green even though the POD shows as running fine via the {{site.data.keyword.containerlong_notm}} UI or CLI.
-{: tsSymptoms}
-
-You may also see errors connecting to the proxy URL such as the following reported by the console:
-```
-"stitch_msg": "unable to get block: grpc web proxy's message: "Response closed without headers". This can happen when encountering CORS or untrusted TLS issues with the grpc web proxy.",
-```
-
-On 12/1/2020, {{site.data.keyword.containerlong_notm}} changed the default ingress image from the legacy {{site.data.keyword.containerlong_notm}} specific one to the Kubernetes community image. This new ingress requires the Amazon Load Balancer (ALB) to function, which cannot happen unless the replica set, which requires two nodes, is satisfied. If the ALB cannot come online, the console cannot connect to the cluster. In addition, if the {{site.data.keyword.containerlong_notm}} cluster version is 1.18 or higher, there is no default ingress class specified so the ingress class and annotations must be specified manually. This change was not made to existing clusters deployed before 12/1/2020, but was changed for all new clusters.
-{: tsCauses}
-
-Add an additional node to the cluster or a second node to each zone in a multi-zone cluster (a best practice for production networks) or edit the replica set and scale it down to one replica (a sufficient solution for development deployments). This will allow the ALB update to deploy (as long as the cluster version is 1.17). If the cluster version is 1.18 or higher, you must manually add the necessary ingress changes.
-{: tsResolve}
-
-**Diagnosing the issue**  
-
-The main symptom of this issue is that the customer is able to deploy IBP to their cluster and can launch the console, but the first peer or ordering node they provision will never show as online in the UI. If the customer checks the {{site.data.keyword.containerlong_notm}} UI or CLI, the pod will show that it is running. Confirm that the cluster was created after 12/1/2020 and, for the second issue, is version 1.18 or higher. To get the cluster created date, find the cluster in bloodhound and drill down on the main instance.
-
-You can also check the number of nodes in the cluster or have the customer check the ALB replica sets and make sure there isn't one that has pods in a pending state by issuing:
-
-```
-kubectl get replicasets -n kube-system
-```
-{: codeblock}
-
-Look for the replicas that look like this:
-
-```
-public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`
-```
-
-Notice `alb` in the name. If the current state and ready state do not match the desired state, then the ALB update could be stuck.
-
-If the cluster was created after 12/1/2020 and is version 1.18 or higher, the customer can check the ingress configuration by issuing
-
-```
-kubectl get ingress --all-namespaces`
-```
-{: codeblock}
-
-Find the ingress matching the node you are having issues with, then dump the current ingress configuration by issuing:
-
-```
-kubectl get ingress <componentname> -n <namespace> -o yaml
-```
-{: codeblock}
-
-Where `componentname` is the name of the component and the `namespace` is the relevant namespace.
-
-Verify that the following is missing from the configuration:
-
-```
-annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
-```
-
-And:
-
-```
-spec:
-  ingressClassName: public-iks-k8s-nginx
-```
-
-**Resolving the issue**  
-
-To resolve the issue, you must either add a second node to the cluster (or a second node to each zone in a multi-zone cluster) or edit the replica set and scale it down to one replica. This will allow the ALB update to deploy and as long as the cluster version is 1.17, should resolve the issue.
-
-To scale the replica set to one, first find the replica set by issuing:
-```
-kubectl get replicasets -n kube-system | grep -i alb
-```
-{: codeblock}
-
-You should see a response similar to:
-
-```
-public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
-```
-
-Note `-alb1`, indicating that this is the ALB. Scale down the ALB replica set by issuing:
-
-```
-kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
-```
-{: codeblock}
-
-You should see a response similar to the following output that indicates that the replica set has been scaled down:
-
-```
-replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
-```
-
-If the cluster version is v1.18 or higher, you'll also need to manually add the necessary ingress changes by doing the following for each component:
-
-First, get and edit the ingress name by issuing:
-
-```
-kubectl get ingress --all-namespaces
-```
-{: codeblock}
-
-And then:
-
-```
-kubectl -n <namespace> edit ingress <ingress-name>
-```
-{: codeblock}
-
-Then, edit ingress definition with the following changes by changing the annotations to:
-
-```
-annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
-```
-{: codeblock}
-
-And by adding the following in the spec section:
-
-```
-spec:
-  ingressClassName: public-iks-k8s-nginx
-```
-{: codeblock}
-
-To verify the fix, first issuing the follow command to see if ingress gets an IP address:
-
-```
-kubectl get ingress --all-namespaces
-```
-{: codeblock}
-
-Each entry should have an IP address listed.
-
-You can test the connectivity by issuing the following command:
-
-```
-curl -kv https://<component-proxy-url>/settings
-```
-{: codeblock}
-
-Where the `component-proxy-url` matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command for the given component.
 
 
 ## Why am I getting an error “all SubConns are in TransientFailure” on the console?
