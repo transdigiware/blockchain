@@ -533,7 +533,7 @@ Whenever channel members agree to an update in the business logic, and channel m
 
 3. What happens to the existing `chaincode-execution` pod after I update my smart contract?
 
-    Whenever a transaction is submitted to a smart contract installed on peer, a `chaincode-execution` pod is launched if one does not already exist for it. When you deploy a new version of your smart contract, the `chaincode-execution` pod for the previous version of the smart contract continues to run but is no longer required. To save cluster resources, you can manually delete the `chaincode-execution` pods for the prior smart contract versions. From your cluster namespace, run the following command to see the list of `chaincode-execution` pods that are currently running:
+    Whenever a transaction is submitted to a smart contract installed on peer, a `chaincode-execution` pod is launched if one does not already exist. When you deploy a new version of your smart contract, the `chaincode-execution` pod for the previous version of the smart contract continues to run but is no longer required. To save cluster resources, you can manually delete the `chaincode-execution` pods for the prior smart contract versions. From your cluster namespace, run the following command to see the list of `chaincode-execution` pods that are currently running:
     ```
     kubectl get pod -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
     ```

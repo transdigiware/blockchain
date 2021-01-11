@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-08"
+lastupdated: "2021-01-11"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -41,7 +41,7 @@ Miscellaneous bug fixes and security patches.
 ### New logging configuration panel
 {: #01-12-2021-logger-ui}
 
-A new panel is available to override peer and ordering node log levels for specific component loggers.
+A new panel is available to override peer and ordering node log levels for specific component loggers. See [Configuring node logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logger) for more information.
 
 ## 08 Dec 2020
 {: #12-08-2020}
