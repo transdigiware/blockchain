@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-08"
+lastupdated: "2021-01-11"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -535,14 +535,14 @@ Whenever channel members agree to an update in the business logic, and channel m
 
     Whenever a transaction is submitted to a smart contract installed on peer, a `chaincode-execution` pod is launched if one does not already exist for it. When you deploy a new version of your smart contract, the `chaincode-execution` pod for the previous version of the smart contract continues to run but is no longer required. To save cluster resources, you can manually delete the `chaincode-execution` pods for the prior smart contract versions. From your cluster namespace, run the following command to see the list of `chaincode-execution` pods that are currently running:
     ```
-    kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
+    kubectl get pod -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
     ```
     {: codeblock}
 
     Replace `<NAMESPACE>` with the name of your cluster namespace. Your smart contract name and version is visible in the output under the `LABELS` column next to `chaincode-id`. To delete the pod, run the following command:
 
     ```
-    kubectl delete po <CHAINCODE-EXECUTION-POD> -n <NAMESPACE>
+    kubectl delete pod <CHAINCODE-EXECUTION-POD> -n <NAMESPACE>
     ```
     {: codeblock}
     Replace `<CHAINCODE-EXECUTION-POD>` with the name of the `chaincode-execution` pod for the prior version of the smart contract visible in the output of the previous command.
