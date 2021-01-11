@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-23"
+  years: 2021
+lastupdated: "2021-01-11"
 
 keywords: HSM, PKCS11 proxy
 
@@ -13,6 +13,7 @@ subcollection: blockchain
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -21,6 +22,7 @@ subcollection: blockchain
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -38,7 +40,6 @@ subcollection: blockchain
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -72,7 +73,6 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -84,10 +84,11 @@ subcollection: blockchain
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -123,7 +124,7 @@ The first step is to build a Docker image for the PKCS #11 proxy and add the HSM
 
 - The following example shows the process for adding the `SoftHSM` drivers to the image. (`SoftHSM` is a software version of HSM that can be used for HSM simulation and testing, but if you are using your own HSM, you need to replace it with the library from your HSM provider.)  If you are using {{site.data.keyword.cloud_notm}} HSM, the proxy instructions are included in the [tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto).
 
-If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a docker registry that you can access from behind your firewall.
+If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a Docker registry that you can access from behind your firewall.
 {: note}
 
 Starting under `### YOUR HSM LIBRARY BUILD GOES HERE ###`, edit the code for your HSM, and save it to a file named `Dockerfile`. If you are not using `SoftHSM` to try out the process, you should remove the section that starts with the label `### EXAMPLE CONFIGURATION FOR SOFTHSM ###` and ends with `### EXAMPLE CONFIGURATION FOR SOFTHSM ENDS HERE###`.
@@ -215,7 +216,7 @@ Run the following command to build the image:
 docker build -t pkcs11-proxy:v1 -f Dockerfile .
 ```
 {: codeblock}
-After the image is built, the next step is to push the image to your docker registry (for example, Docker Hub). This command will look similar to:
+After the image is built, the next step is to push the image to your Docker registry (for example, Docker Hub). This command will look similar to:
 
 ```
 docker login -u <DOCKER_HUB_ID> -p <DOCKER_HUB_PWD>

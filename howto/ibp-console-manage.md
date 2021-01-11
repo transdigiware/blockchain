@@ -205,8 +205,8 @@ If you prefer a different default logging level than `Information` for all logge
 |Peer| Smart contracts | `info:dockercontroller,endorser,chaincode,chaincode.platform=debug`|
 |Peer| Private data | `info:kvledger,ledgerstorage,transientstore,pvtdatastorage,gossip.privdata=debug`|
 |Peer| Ledger and state database | `info:kvledger,lockbasedtxmgr,ledgerstorage,stateleveldb,statecouchdb,couchdb=debug` |
-| Peer| Full debug, with the noisy components set to `info` |`debug:cauthdsl,policies,msp,grpc,peer.gossip.mcs,gossip,leveldbhelper=info`|
-| Ordering node | Full debug, with the noisy components set to `info`| `debug:cauthdsl,policies,msp,grpc,orderer.consensus.etcdraft,orderer.common.cluster,orderer.common.cluster.step,common.configtx,blkstorage=info`|
+|Peer| Full debug, with the noisy components set to `info` |`debug:cauthdsl,policies,msp,grpc,peer.gossip.mcs,gossip,leveldbhelper=info`|
+|Ordering node | Full debug, with the noisy components set to `info`| `debug:cauthdsl,policies,msp,grpc,orderer.consensus.etcdraft,orderer.common.cluster,orderer.common.cluster.step,common.configtx,blkstorage=info`|
 {: caption="Table 2. Useful logging specification strings" caption-side="bottom"}
 
 A word on the logging specification syntax. Notice that the terms are separated by a colon. If a term does not include a specific logger, for example `info:` then it is applied as the default log level, regardless of what is specified on the **Simple** tab. This means that the string `info:dockercontroller,endorser,chaincode,chaincode.platform=debug` sets the **Default log level** to `Information` for all loggers and then the `dockercontroller`, `endorser`, `chaincode`,and `chaincode.platform` loggers are set to `Debug`.
@@ -351,7 +351,7 @@ allows you to easily parse the logs in real time. See this [tutorial](/docs/bloc
 ## Upgrading your nodes
 {: #ibp-console-manage-patch}
 
-The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Upgrade available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20), these upgrades are optional, but recommended. You cannot upgrade nodes that have been imported into the console.
+The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric Docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Upgrade available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20), these upgrades are optional, but recommended. You cannot upgrade nodes that have been imported into the console.
 
 The best practice is to apply upgrades to one node at a time. While the upgrade is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure another node of the same type is available to process requests. Upgrading a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
 {:note}
