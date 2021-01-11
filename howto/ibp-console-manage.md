@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-08"
+lastupdated: "2021-01-11"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -200,12 +200,13 @@ The process to customize the log settings is the same for a peer or ordering nod
 
 If you prefer a different default logging level than `Information` for all loggers on the node, select a new logging level (`Fatal`, `Panic`, `Error`, `Warning`, `Information`, `Debug`) from the **Default logging level** list. All loggers for the node will use use the selected default log level unless overridden on this panel by providing the specific log levels for the loggers that you need for debugging. There is no “master list” of loggers, and this panel does not validate whether the loggers exist. You can see the names of the available loggers in the node logs, or you can read the Fabric source code to discover what loggers are available. For ease of use, the following set of logging specification strings is provided and can be pasted into the **Logging specification** field on the **Advanced** tab to customize the logging according to your debug needs:
 
-| Debug type | Logging specification |
-|------------|------------------------------|
-| Smart contracts | `info:dockercontroller,endorser,chaincode,chaincode.platform=debug`|
-| Private data | `info:kvledger,ledgerstorage,transientstore,pvtdatastorage,gossip.privdata=debug`|
-| Ledger and state database | `info:kvledger,lockbasedtxmgr,ledgerstorage,stateleveldb,statecouchdb,couchdb=debug` |
-| Full debug, with the noisy components set to info |`debug:cauthdsl,policies,msp,grpc,peer.gossip.mcs,gossip,leveldbhelper=info`|
+| Component  | Debug type |  Logging specification |
+|------------|-----------|-------------------|
+|Peer| Smart contracts | `info:dockercontroller,endorser,chaincode,chaincode.platform=debug`|
+|Peer| Private data | `info:kvledger,ledgerstorage,transientstore,pvtdatastorage,gossip.privdata=debug`|
+|Peer| Ledger and state database | `info:kvledger,lockbasedtxmgr,ledgerstorage,stateleveldb,statecouchdb,couchdb=debug` |
+| Peer| Full debug, with the noisy components set to `info` |`debug:cauthdsl,policies,msp,grpc,peer.gossip.mcs,gossip,leveldbhelper=info`|
+| Ordering node | Full debug, with the noisy components set to `info`| `debug:cauthdsl,policies,msp,grpc,orderer.consensus.etcdraft,orderer.common.cluster,orderer.common.cluster.step,common.configtx,blkstorage=info`|
 {: caption="Table 2. Useful logging specification strings" caption-side="bottom"}
 
 A word on the logging specification syntax. Notice that the terms are separated by a colon. If a term does not include a specific logger, for example `info:` then it is applied as the default log level, regardless of what is specified on the **Simple** tab. This means that the string `info:dockercontroller,endorser,chaincode,chaincode.platform=debug` sets the **Default log level** to `Information` for all loggers and then the `dockercontroller`, `endorser`, `chaincode`,and `chaincode.platform` loggers are set to `Debug`.
