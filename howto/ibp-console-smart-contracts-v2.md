@@ -348,6 +348,8 @@ All lifecycle actions are managed from the **Channels** tab in the console.
 2. Because the console allows you to act as multiple organizations from a single console, you must first select the organization that is proposing this smart contract definition and the associated peer admin identity. A peer admin identity is required to install a smart contract. Not sure? Open the peer CA and verify that the identity associated with the peer has the type `admin` in the list of CA users.
 
 3. On the next panel, browse to your smart contract package and click **Add file**.  You can install a new package or browse to an existing package that was installed on another peer in your organization.
+  Smart contract packages can also be installed on a peer node directly by using the **Install smart contract** button. If you used that option, instead of clicking **Add file**, click the **Existing package** tab and select the package that you installed on your peer.
+  {: note}
 
 4. On the **Smart contract details** panel you can specify a unique name and version to use for this smart contract definition. The console extracts these values from the package name itself but you can override them and specify any values that your organization prefers.
   Be careful how you name your proposal. If a proposal with the same name already exists on the channel, this proposal replaces it.
@@ -454,6 +456,8 @@ Based on the preceding steps, the following table provides a summary of the life
 | **A new organization joins the channel** and wants to approve a smart contract proposal. | From the **Channels** tab, click the tile of the proposed smart contract and click **Begin approval process**. After providing the identity from your wallet, click **Add file** to upload the package or **Existing package** to select a package already installed on another peer in your organization, and optionally choose which peers to install it on. |
 | **A new organization joins the channel** and wants their peers to be able to endorse transactions for a committed smart contract. |From the **Channels** tab, click the tile of the committed smart contract and click **Begin approval process**. After providing the identity from your wallet, click **Add file** to upload the package or **Existing package** to select a package that is already installed on another peer in your organization, and optionally choose which peers to install it on. | |
 {: caption="Table 2. Frequent smart contract tasks" caption-side="bottom"}
+
+More details on the lifecycle deployment scenarios are available in the [Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html?highlight=Fabric%20chaincode%20lifecycle#deployment-scenarios){: external}
 
 ## Specifying a smart contract endorsement policy
 {: #ibp-console-smart-contracts-v2-endorse}
