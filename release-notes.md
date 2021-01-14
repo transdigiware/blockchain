@@ -43,8 +43,6 @@ Miscellaneous bug fixes and security patches.
 
 A new panel is available to override peer and ordering node log levels for specific component loggers. See [Configuring node logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logger) for more information.
 
-/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-logger
-
 ## 08 Dec 2020
 {: #12-08-2020}
 
@@ -375,5 +373,3 @@ When you add a peer or orderer node, you have the option to use certificates fro
 **Tuning orderer performance**
 
 New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
-
-
