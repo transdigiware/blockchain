@@ -181,6 +181,8 @@ subcollection: blockchain
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
 
+[January 14, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-01-14-2021)
+
 [November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
 
 [August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
@@ -826,8 +828,8 @@ subcollection: blockchain
   * [Exporting, importing, and deleting a smart contract package](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exporting-deleting-smart-contract-package)
 * [Step four: Deploy a smart contract to a preconfigured Hyperledger Fabric network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy)
   * [Deploying a preconfigured Hyperledger Fabric network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-and-disconnecting)
-  * [Deploying your smart contract (V2 channel capabilities)](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract-v2)
-  * [Deploying your smart contract (V1 channel capabilities)](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract)
+  * [Deploying your smart contract (channel application capability V2)](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract-v2)
+  * [Deploying your smart contract (channel application capability V1)](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract)
   * [Interacting with your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-submitting-transactions)
   * [Connecting your applications to the preconfigured network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exploring-connection-details)
 * [Step five: Test a deployed smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)

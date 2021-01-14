@@ -283,7 +283,7 @@ You need to package a smart contract before you can install it on your {{site.da
 
 1. Open your smart contract project in VS Code by clicking **File** and then click **Open ...**. You can also click **Open Workspace** if you saved your project as a workspace. Ensure that you have the smart contract project open in the file viewer.
 2. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab.
-3. In the **Smart Contracts** pane, click the overflow menu and select **Package Open Project**. You are asked for the name of the package and the version. You will also need need to select whether you want to package it as a `.tar.gz` (for deploying to a V2 channel) or `.cds` (for deploying to a V1 channel). To find out the channel capabibilities/version, hover your mouse over the channel in the **Fabric Environments** panel that you wish to deploy to. This will display a tooltip containing the channel capabilities.
+3. In the **Smart Contracts** pane, click the overflow menu and select **Package Open Project**. You are asked for the name of the package and the version. You will also need need to select whether you want to package it as a `.tar.gz` (for deploying to a channel with V2 application capability) or `.cds` (for deploying to a channel with V1 application capability). To find out the channel capabibilities/version, hover your mouse over the channel in the **Fabric Environments** panel that you wish to deploy to. This will display a tooltip containing the channel capabilities.
   - If you have one smart contract project, it is packaged automatically and be displayed in the **Smart Contracts** pane.
   - If you have multiple smart contract folders open, you are asked which one to package.
   - If you have no smart contract folders open, you get an error message.
@@ -358,12 +358,12 @@ Selecting **Teardown** will completely remove the local Fabric network. **Note:*
 
 Selecting **Delete** will perform a **Teardown** as well as remove the network from the **Fabric Environments** pane.
 
-### Deploying your smart contract (V2 channel capabilities)
+### Deploying your smart contract (channel application capability V2)
 {: #develop-vscode-deploy-smart-contract-v2}
 
 Smart contracts can be deployed using the **deploy view**. This view handles all the deployment steps (install, approve, commit) which are required by the [smart contract] lifecycle on V2 enabled channels.
 
-Follow these steps if you have a V2 channel and a `.tar.gz` smart contract package.
+Follow these steps if you have a channel that is configured with the application capability V2 or higher and a `.tar.gz` smart contract package.
 
 To launch the deploy view:
 
@@ -396,7 +396,7 @@ There are three steps to deploying a smart contract using the deploy view.
 
 **At this point, you smart contract is now "committed" on the channel.** If you have changed your smart contract code and then repackaged it, you can use the deploy view and follow the same steps as above to upgrade the smart contract definition that you have deployed to the network.
 
-### Deploying your smart contract (V1 channel capabilities)
+### Deploying your smart contract (channel application capability V1)
 {: #develop-vscode-deploy-smart-contract}
 
 Follow these steps if you have a V1 channel and a `.cds` smart contract package.
