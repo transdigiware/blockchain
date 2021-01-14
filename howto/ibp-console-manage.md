@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-05"
+lastupdated: "2021-01-11"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -172,6 +172,53 @@ If the console is used by multiple people or organizations, it is recommended th
 
 To update the email address of the console administrator that was configured when the console was deployed, you must be logged in as the console administrator. Navigate to the **Users** tab and click **Configure** on the **{{site.data.keyword.IBM_notm}} ID** tile. In the panel that opens, specify a new email address for the console administrator.
 
+## Configuring node logging
+{: #ibp-console-manage-logger}
+
+For debugging and analysis purposes, users can adjust default and custom "loggers" that control the "log level" of peer and ordering node output for particular node functions or events. When the default `Information` log level for a component is not sufficient for debugging, the console includes the ability to customize the logging level for the node and smart contracts.
+
+### Before you begin
+{: #ibp-console-logger-before}
+
+A certificate from the peer or ordering node's TLS Certificate Authority (CA) must exist in the console wallet before you can modify a log setting on the node. **You need to have the enroll ID and secret available for at least one of the CA users.** (The user type does not matter.) Then, complete the following steps to generate the TLS certificate:
+
+1. From the console, open the CA that is associated with the node. If you imported the node and its associated CA is not in your console, you need to open the CA from the console where it resides.
+2. Click the actions menu icon ![menu icon](../../icons/overflow-menu.svg) next to the user and then click **Enroll identity**.
+3. On the side panel that opens, select **TLS Certificate Authority** from the **Certificate Authority** list.
+4. Enter the **Enroll secret** that is associated with the **Enroll ID** for the user and click **Next**.
+6. Provide a display name for the identity and then **Export** the identity to your file system.
+7. Click **Add identity to Wallet**.
+
+The TLS certificate now exists in your console wallet and you are ready to customize the node logging.
+
+### Customize logging
+{: #ibp-console-logger-custom}
+
+The process to customize the log settings is the same for a peer or ordering node. Open the node and click the **Settings** ![gear](../images/gear.svg "Settings") icon. Click **Log settings** to open the panel.
+
+![Log settings panel](../images/log-settings.png "Log settings panel"){: caption="Figure 1. Log settings" caption-side="bottom"}
+
+If you prefer a different default logging level than `Information` for all loggers on the node, select a new logging level (`Fatal`, `Panic`, `Error`, `Warning`, `Information`, `Debug`) from the **Default logging level** list. All loggers for the node will use use the selected default log level unless overridden on this panel by providing the specific log levels for the loggers that you need for debugging. There is no “master list” of loggers, and this panel does not validate whether the loggers exist. You can see the names of the available loggers in the node logs, or you can read the Fabric source code to discover what loggers are available. For ease of use, the following set of logging specification strings is provided and can be pasted into the **Logging specification** field on the **Advanced** tab to customize the logging according to your debug needs:
+
+| Component  | Debug type |  Logging specification |
+|------------|-----------|-------------------|
+|Peer| Smart contracts | `info:dockercontroller,endorser,chaincode,chaincode.platform=debug`|
+|Peer| Private data | `info:kvledger,ledgerstorage,transientstore,pvtdatastorage,gossip.privdata=debug`|
+|Peer| Ledger and state database | `info:kvledger,lockbasedtxmgr,ledgerstorage,stateleveldb,statecouchdb,couchdb=debug` |
+|Peer| Full debug, with the noisy components set to `info` |`debug:cauthdsl,policies,msp,grpc,peer.gossip.mcs,gossip,leveldbhelper=info`|
+|Ordering node | Full debug, with the noisy components set to `info`| `debug:cauthdsl,policies,msp,grpc,orderer.consensus.etcdraft,orderer.common.cluster,orderer.common.cluster.step,common.configtx,blkstorage=info`|
+{: caption="Table 2. Useful logging specification strings" caption-side="bottom"}
+
+A word on the logging specification syntax. Notice that the terms are separated by a colon. If a term does not include a specific logger, for example `info:` then it is applied as the default log level, regardless of what is specified on the **Simple** tab. This means that the string `info:dockercontroller,endorser,chaincode,chaincode.platform=debug` sets the **Default log level** to `Information` for all loggers and then the `dockercontroller`, `endorser`, `chaincode`,and `chaincode.platform` loggers are set to `Debug`.
+{: important}
+
+Note that smart contract logging is the responsibility of the developer who defines the smart contract loggers. Debug your smart contracts by providing the name of the smart contract logger and the desired log level on the **Simple** or **Advanced** tabs.
+
+When you need to reset the logging for the node back to the Fabric default, delete any custom logger settings on the **Simple** and **Advanced** tabs and set the **Default log level** to `Information`.
+{: tip}
+
+See the Fabric topic on [Logging Control](https://hyperledger-fabric.readthedocs.io/en/release-2.2/logging-control.html){:external} for more information. Read on for more information on how to view the node and smart contract logs.
+
 ## Viewing your logs
 {: #ibp-console-manage-logs}
 {: help}
@@ -212,7 +259,7 @@ The namespace is the first part of the URL beginning with the letter `n` and fol
 2. Above the cluster overview screen, click **Kubernetes Dashboard**.
 3. Inside the Kubernetes dashboard, use the left navigation **Namespace** drop-down list to change to the namespace for your {{site.data.keyword.blockchainfull_notm}} Platform service instance that you discovered above.
 4. On the left navigation, click **Pods** to view the list of node pods that you have deployed.
-5. Click on a pod. Then click **Logs** on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
+5. Click on a pod. Then click the **View logs** icon on the top menu to open the logs of your node. Above the logs, you can use the drop-down menu after **Logs from** to view the logs from the different containers within the pod. For example, your peer and the state database (CouchDB for example) run in different containers and generate different logs.
 
 #### Viewing nodes logs on a Red Hat OpenShift 4.x cluster
 {: #ibp-console-manage-console-node-logs-ocp43}
@@ -304,7 +351,7 @@ allows you to easily parse the logs in real time. See this [tutorial](/docs/bloc
 ## Upgrading your nodes
 {: #ibp-console-manage-patch}
 
-The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Upgrade available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20), these upgrades are optional, but recommended. You cannot upgrade nodes that have been imported into the console.
+The underlying {{site.data.keyword.IBM_notm}} Hyperledger Fabric Docker images for the peer, CA, and ordering nodes might need to be updated over time, for example, with security updates or to a new Fabric point release. The **Upgrade available** text on a node tile is the indicator that such a patch is available and can be installed on the node whenever you are ready. Unless otherwise noted in the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20), these upgrades are optional, but recommended. You cannot upgrade nodes that have been imported into the console.
 
 The best practice is to apply upgrades to one node at a time. While the upgrade is being applied, the node is unavailable to process requests or transactions. Therefore, to avoid any disruption of service, whenever possible you should ensure another node of the same type is available to process requests. Upgrading a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
 {:note}

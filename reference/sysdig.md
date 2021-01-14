@@ -1,9 +1,8 @@
-
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-01"
+  years: 2019, 2021
+lastupdated: "2021-01-12"
 
 keywords:  sysdig, monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -145,4 +144,3 @@ As a general guideline, we recommend that you configure alerts for when your nod
 {: #ibp-sysdig-summary}
 
 This tutorial has provided some basic steps for getting started using Sysdig to monitor your blockchain node resource allocation. You now have three dashboards that you can use to monitor the resource allocation of your peer, CA, and ordering nodes in your Kubernetes cluster. With a graduated tier purchase of the  {{site.data.keyword.mon_full_notm}} service, you can edit your charts and add more segmentations to further scope the data. You've also configured alerts for when nodes approach exceeding their allocated resources. Combined, these actions allow you to monitor your blockchain nodes, alerting you when resources are constrained, so that you can take the appropriate action to scale your network.
-

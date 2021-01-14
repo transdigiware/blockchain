@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-05"
+lastupdated: "2021-01-13"
 
 keywords: site map
 subcollection: blockchain
@@ -643,6 +643,9 @@ subcollection: blockchain
 * [Adding and removing users from the console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)
   * [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
   * [Assigning access roles to individual or groups of users in IAM](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-users-groups)
+* [Configuring node logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logger)
+  * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-before)
+  * [Customize logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-custom)
 * [Viewing your logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logs)
   * [Viewing your console logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logs)
   * [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)
@@ -1178,6 +1181,9 @@ subcollection: blockchain
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
 
+[12 Jan 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021)
+* [New logging configuration panel](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021-logger-ui)
+
 [08 Dec 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
 
 [19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
@@ -1275,8 +1281,6 @@ subcollection: blockchain
 [When I log in to my console, why am I getting a 401 Unauthorized error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-401)
 
 [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-helm-reset)
-
-[Why is my console unable to connect to cluster components after deployment?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-ingress)
 
 [Why am I getting an error “all SubConns are in TransientFailure” on the console?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-transientfailure)
 

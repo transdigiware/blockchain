@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2020
+  years: 2017, 2021
 lastupdated: "2019-08-27"
 
 keywords: Log analysis, logDNA, viewing logs, monitoring
@@ -43,7 +43,7 @@ Using the {{site.data.keyword.la_full_notm}} service makes viewing your {{site.d
 ### View node logs
 {: #ibp-LogDNA-ibp-nodes}
 
-When you deploy a peer, Certificate Authority (CA), or ordering node,  a new pod is created in your Kubernetes cluster.  You can use the name of the pod to filter the logs by node. For example, to view the logs of a peer node simply add the text `pod:<pod_name_of_peer_node>` to the search input box, replacing `<pod_name_of_peer_node>` with the name of the peer node pod.  The pod name of your node can be obtained by using kubectl commands such as 'kubectl get pod', or it is visible in your Kubernetes dashboard.
+When you deploy a peer, Certificate Authority (CA), or ordering node,  a new pod is created in your Kubernetes cluster.  You can use the name of the pod to filter the logs by node. For example, to view the logs of a peer node simply add the text `pod:<pod_name_of_peer_node>` to the search input box, replacing `<pod_name_of_peer_node>` with the name of the peer node pod.  The pod name of your node can be obtained by using kubectl commands such as `kubectl get pod`, or it is visible in your Kubernetes dashboard.
 
 ```
 kubectl get po

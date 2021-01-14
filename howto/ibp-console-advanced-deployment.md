@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-10"
+  years: 2021
+lastupdated: "2021-01-11"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1381,7 +1381,7 @@ Next we build a Docker file that contains the HSM client image. These instructio
 
 - Step one: Modify the HSM client configuration.
 - Step two: Build the HSM client image.
-- Step three: Push the docker image to your container registry.
+- Step three: Push the Docker image to your container registry.
 - Step four: Create a Kubernetes secret `hsmcrypto`.
 - Step five: Create the HSM configmap.
 
@@ -1461,10 +1461,10 @@ docker build -t hsm-client:v1 -f Dockerfile .
 ```
 {: codeblock}
 
-#### Step three: Push the docker image to your container registry
+#### Step three: Push the Docker image to your container registry
 {: #ibp-console-adv-deployment-hsm-client-push}
 
-After the image is built, the next step is to push the image to your docker registry (for example, Docker Hub). The commands look similar to:
+After the image is built, the next step is to push the image to your Docker registry (for example, Docker Hub). The commands look similar to:
 
 ```
 docker login -u <DOCKER_HUB_ID> -p <DOCKER_HUB_PWD>
