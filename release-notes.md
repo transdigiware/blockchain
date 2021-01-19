@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-14"
+lastupdated: "2021-01-19"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -373,5 +373,6 @@ When you add a peer or orderer node, you have the option to use certificates fro
 **Tuning orderer performance**
 
 New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
+
 
 
