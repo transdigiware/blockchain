@@ -177,9 +177,10 @@ If you are using Windows, you also must ensure the following:
 
 - Docker for Windows is configured to use Linux containers (by default).
 - You installed the C++ Build Tools for Windows from [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools#windows-build-tools){: external}.
-- You installed [OpenSSL v1.0.2](https://www.openssl.org/community/binaries.html){: external}.
+- You installed [OpenSSL v1.0.2](https://www.openssl.org/community/binaries.html){: external} if you are working with smart contracts that use Fabric v1.4 dependencies and want to run the generated functional tests.
   - Install the normal version, not the version marked as "light".
   - Install the Win64 version into C:\OpenSSL-Win64 on 64-bit systems.
+
 
 **If you installed Node and npm by using a manager such as 'nvm' or 'nodenv', you need to set the default or global version. You can then restart VS Code for the version to be detected by the Prerequisites page.**
 
