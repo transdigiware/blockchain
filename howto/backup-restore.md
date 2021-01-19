@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-13"
+lastupdated: "2021-01-19"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -54,7 +54,7 @@ Consult the following chart to help you plan your strategy for taking backups:
 |  Backup  | Restore |
 |:---------|---------|
 | CAs must be stopped and backed up following the instructions that are provided in this topic. | You can restore a CA without impacting the peers or the ordering nodes ability to process transactions. |
-{: caption="Table 3. Considerations for node backup and restore - CA" caption-side="top"}
+{: caption="Table 1. Considerations for node backup and restore - CA" caption-side="top"}
 {: #simpletabtable1}
 {: tab-title="Certificate Authority (CA)"}
 {: tab-group="IAM-simple"}
@@ -63,7 +63,7 @@ Consult the following chart to help you plan your strategy for taking backups:
 |  Backup  | Transaction processing | Private data considerations |
 |:---------|:-----------------------|:----------------------------|
 | Ideally, all peers in the network should be backed up daily at the same time. If the peers have a CouchDB state database, CouchDB must be backed up before the peer pod. Ordering nodes should be backed up after the peers. If peers have data that the ordering service does not, synchronization of components cannot occur. | Unless the peers are scaled down to zero as part of backing up private data, transaction processing can continue. | If the peers include private data collections, the peer and ordering nodes must be using Fabric version v.2.2.1 or higher, otherwise every node must be backed up at exactly the same ledger height. This can be achieved by scaling down the resources of the peers to zero as part of the backup. For more information, see [Scheduling snapshots](#backup-restore-schedule-snapshot). |
-{: caption="Table 3. Considerations for node back up and restore - Peer" caption-side="top"}
+{: caption="Table 2. Considerations for node back up and restore - Peer" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Peers"}
 {: tab-group="IAM-simple"}
@@ -145,7 +145,7 @@ kubectl describe pv <VOLUME>
 ```
 {: codeblock}
 
-If you are using the CLI to manage snapshots, you'll need the `volumeId` value. If you are using the cluster UI, you'll need the `Username` Value. For an example volume named `pvc-494ba122-3501-4413-b719-cbb4b3a8f91b`, you would issue this command:
+If you are using the CLI to manage snapshots, you'll need the `volumeId` value. If you are using the cluster UI, you'll need the `Username` value. For an example volume named `pvc-494ba122-3501-4413-b719-cbb4b3a8f91b`, you would issue this command:
 
 ```
 kubectl describe pv pvc-494ba122-3501-4413-b719-cbb4b3a8f91b
@@ -189,7 +189,7 @@ Events:        <none>
 
 You can then order snapshots for that volume, which can be done by using either the CLI or the cluster UI. For information on how to take the snapshot, see [Ordering Snapshots](/docs/FileStorage?topic=FileStorage-ordering-snapshots){: external}.
 
-In this case, "ordering" refers to the "order to take snapshots" and not "ordering nodes").
+In this case, "ordering" refers to the "order to take snapshots" and not "ordering nodes".
 {: tip}
 
 For our example, we use the CLI and order a single snapshot by using 5 GB of space by issuing:
@@ -199,7 +199,7 @@ ibmcloud sl file snapshot-order 155617812 -s 5
 ```
 {: codeblock}
 
-You might need more or less than 5 GB of space, depending on the size of the pod and the resources that have been used on it.
+You might need more or less than 5 GB of space, depending on the size of the pod and the resources that have been used on it. The amount of space that is required depends on the size of your transactions, the quantity of transactions, and how many snapshots (or backups) that you want to keep. To determine how much storage you are using, [monitor](/docs/blockchain?topic=blockchain-ibp-sysdig) the disk space that is consumed by your nodes so that you know when to add storage. You can use this data to inform how much storage is being used, and how fast it is growing. Also, if you monitor the size of each snapshot, you can use the snapshot size along with the number of snapshots you want to keep to determine when more snapshot space is required.
 {: tip}
 
 Taking a snapshot incurs charges on your account. Press `y` to accept the charges and order the snapshot.
