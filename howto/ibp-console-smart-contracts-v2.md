@@ -118,6 +118,7 @@ In the diagram, Org2 and Org4 approve the smart contract definition. Org3 abstai
 
 For more information about advanced channel options, which includes setting the lifecycle policy for the channel and the default endorsement policy that will be set for a smart contract if none is specified, check out the [Advanced options](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-available-parameters-advanced) section of our topic on channels.
 
+
 ## Before you begin
 {: #ibp-console-smart-contracts-v2-before}
 
@@ -355,7 +356,7 @@ All lifecycle actions are managed from the **Channels** tab in the console.
   Be careful how you name your proposal. If a proposal with the same name already exists on the channel, this proposal replaces it.
   {: tip}
 
-5. On the **Install smart contract** panel, you can install the smart contract on all your peers on the channel or just a subset. In a production network, for redundancy reasons, you should install the smart contract on at least two peers, or three when you want to maintain redundancy but still allow for one peer to go down for maintenance. 
+5. On the **Install smart contract** panel, you can install the smart contract on all your peers on the channel or just a subset. In a production network, for redundancy reasons, you should install the smart contract on at least two peers, or three when you want to maintain redundancy but still allow for one peer to go down for maintenance.
   Since you are proposing the smart contract, it must be installed on at least one peer.
   {: note}
 
