@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-14"
+lastupdated: "2021-01-19"
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
 
@@ -57,7 +57,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools can be in
 If you are an existing Red Hat OpenShift customer, CodeReady Workspaces are available at no cost with an OpenShift subscription and can be accessed by joining the [Red Hat developer](https://developers.redhat.com/register/) program. Built on the open **Eclipse Che** project, Red Hat CodeReady Workspaces use Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and preconfigured development environment. The user experience is as fast and familiar as the IDE on their laptop.
 
 **Browser interface**  
-The CodeReady Workspaces use the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools to build a repeatable workspace, that is designed for development teams to collaborate on smart contract or client applications. Instead of the tooling running on your local machine, it runs in an OpenShift cluster and is accessible through a web browser. It includes the same benefits of running the tooling locally including access to tutorials and samples, as well as the syntax highlighting and code completion that you expect from the IDE.
+The CodeReady Workspaces use the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools to build a repeatable workspace that is designed for development teams to collaborate on smart contract or client applications. Instead of the tooling running on your local machine, it runs in an OpenShift cluster and is accessible through a web browser. It includes the same benefits of running the tooling locally including access to tutorials and samples, as well as the syntax highlighting and code completion that you expect from the IDE.
 
 **Collaboration**  
 Teams of developers can work in the same shareable preconfigured environment. Onboarding new developers is streamlined as they avoid spending time configuring a local development environment and can get started quickly.
@@ -75,7 +75,7 @@ The workspace uses the open source **Eclipse Theia IDE** that serves as the edit
 
 While the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tooling that runs in the CodeReady Workspaces is exactly the same experience as when you run on your local system, the following features will not work in the CodeReady Workspaces and are not currently supported. Bi-weekly updates to the tooling are planned to address these features.
 
-- Creation of a local Fabric network from a template (1 organization, or 2 organizations)
+- Creation of a local Fabric network from a template (one organization, or two organizations)
 
   If you want to deploy and test your smart contracts, instead of using a local Fabric network, you can build an {{site.data.keyword.blockchainfull_notm}} Platform network outside of Red Hat CodeReady Workspaces, and then use the **Add Environment** command to import it into the {{site.data.keyword.blockchainfull_notm}} Platform extension. Detailed steps are included later in this topic.
   {: note}
@@ -134,7 +134,7 @@ The following set of steps can be used to install the CodeReady Workspaces and c
 
   This file can be further customized according to your developer environment needs, for example to check out Hyperledger Fabric samples from GitHub. Learn more about Devfiles in the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.1/html/end-user_guide/workspaces-overview_crw#what-is-a-devfile_making-a-workspace-portable-using-a-devfile){: external}.
 
-9. Click the **YAML** tile, and paste the edited sample into the `YAML` box. Then,  click **Create & Open**. It takes several minutes for the workspace to load. After it loads successfully, click the blockchain icon to launch the Developer Tooling.
+9. Click the **YAML** tile, and paste the edited sample into the `YAML` box. Then, click **Create & Open**. It takes several minutes for the workspace to load. After it loads successfully, click the blockchain icon to launch the Developer Tooling.
 
   ![CodeReady Workspaces UI](images/crw.png "CodeReady Workspaces UI"){: caption="Figure 2. CodeReady Workspaces UI" caption-side="bottom"}  
 
@@ -169,7 +169,7 @@ Considerations if you are developing Java smart contracts:
 - Java 11 is required to execute Java smart contracts.
 - Gradle v4.x is used to build Java smart contracts.
 - Custom Gradle versions can be used by using a Gradle wrapper.
-- Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later (if deploying on a peer using a Fabric 1.4.x image; peer using a Fabric 2.x image do not require a shim), as this version is the first version that includes support for Java 11.
+- Java smart contracts must use fabric-chaincode-shim at v1.4.6 or later (if deploying on a peer that uses a Fabric 1.4.x image; peers that use a Fabric 2.x image do not require a shim), as this version is the first version that includes support for Java 11.
 - For an example of a Java smart contract, see the [Basic asset transfer smart contract](https://github.com/hyperledger/fabric-samples/tree/master/asset-transfer-basic/chaincode-java){: external}.
 
 
@@ -213,7 +213,7 @@ To navigate to the tutorials from within VS Code, click the blockchain icon in t
 You can use the extension to create a new smart contract project in Visual Studio Code. The extension creates a basic smart contract that manages an example asset in the language of your choice. You can use the structure of the example as a starting point for developing your own business logic. The extension provides all the dependencies that are required to deploy your smart contract to an instance of Hyperledger Fabric.
 
 1. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab. Click the overflow menu in the smart contracts pane and click **Create New Project**.
-2. Select the smart contract type to generate. The **Default Contract** example is recommended for first-time users and demonstrates how to perform create, read, update and delete operations to the public ledger that's shared by all network members.
+2. Select the smart contract type to generate. The **Default Contract** example is recommended for first-time users and demonstrates how to perform create, read, update, and delete operations to the public ledger that's shared by all network members.
 The **Private Data Contract** example demonstrates how to perform create, read, update, delete, and verify operations to a collection, that is private to a single network member.
 3. Select the language that you want to create a smart contract in. The current options are JavaScript, TypeScript, Go, and Java. **Note:** If you are deploying the smart contracts to a production network, JavaScript and TypeScript smart contracts require more resources than contracts written in Go.
 4. Select an asset to be managed by the example contract. For example, ***bond***.
@@ -283,7 +283,7 @@ You need to package a smart contract before you can install it on your {{site.da
 
 1. Open your smart contract project in VS Code by clicking **File** and then click **Open ...**. You can also click **Open Workspace** if you saved your project as a workspace. Ensure that you have the smart contract project open in the file viewer.
 2. Click the **{{site.data.keyword.blockchainfull_notm}}** icon to open the **{{site.data.keyword.blockchainfull_notm}}** tab.
-3. In the **Smart Contracts** pane, click the overflow menu and select **Package Open Project**. You are asked for the name of the package and the version. You will also need need to select whether you want to package it as a `.tar.gz` (for deploying to a channel with V2 application capability) or `.cds` (for deploying to a channel with V1 application capability). To find out the channel capabibilities/version, hover your mouse over the channel in the **Fabric Environments** panel that you wish to deploy to. This will display a tooltip containing the channel capabilities.
+3. In the **Smart Contracts** pane, click the overflow menu and select **Package Open Project**. You are asked for the name of the package and the version. You will also need to select whether you want to package it as a `.tar.gz` (for deploying to a channel with V2 application capability) or `.cds` (for deploying to a channel with V1 application capability). To find out the channel capabibilities/version, hover your mouse over the channel in the **Fabric Environments** panel that you wish to deploy to. This will display a tooltip containing the channel capabilities.
   - If you have one smart contract project, it is packaged automatically and be displayed in the **Smart Contracts** pane.
   - If you have multiple smart contract folders open, you are asked which one to package.
   - If you have no smart contract folders open, you get an error message.
@@ -320,7 +320,7 @@ You can also click **Delete Package** to remove the smart contract package from 
 ## Step four: Deploy a smart contract to a preconfigured Hyperledger Fabric network
 {: #develop-vscode-deploy}
 
-You can use the VS Code extension to deploy your smart contract to a preconfigured Hyperledger Fabric network that the extension creates on your local machine. If you are deploying to a V1 capability enabled channel, you need to install and instantiate your smart contract. If you are deploying to a V2 capability enabled channel which uses the new Fabric 2.x lifecycle process, you need to install then "approve" and "commit" a smart contract, as opposed to instantiating it.
+You can use the VS Code extension to deploy your smart contract to a preconfigured Hyperledger Fabric network that the extension creates on your local machine. If you are deploying to a V1 capability enabled channel, you need to install and instantiate your smart contract. If you are deploying to a V2 capability enabled channel that uses the new Fabric 2.x lifecycle process, you need to install then "approve" and "commit" a smart contract, as opposed to instantiating it.
 
 This option to deploy a smart contract to a preconfigured network is currently not available if you are running your developer environment from Red Hat CodeReady Workspaces. Instead, you can use an existing {{site.data.keyword.blockchainfull_notm}} Platform network. See the instructions in [Step seven](#develop-vscode-connecting-ibp) to connect to that network.
 
@@ -344,7 +344,7 @@ Use the following steps to create a new one organization or two organization net
 4. Select **1 Org template (1 CA, 1 peer, 1 channel)**. Alternatively, if you want a larger network or have generated a **Private Data Contract** then select **2 Org template (2 CAs, 2 peers, 1 channel)**.
 5. Select **V2_0** when asked to choose the channel capability version to use for the network. Alternatively, if you wish to have v1 channel capabilities select the other option.
 
-This will then take a few minutes to create a local Fabric network including the environment, gateways and wallets.
+This will then take a few minutes to create a local Fabric network including the environment, gateways, and wallets.
 
 #### Stopping, restarting, tearing down and deleting a preconfigured network
 {: #develop-vscode-stop-Fabric-runtime}
@@ -352,7 +352,7 @@ This will then take a few minutes to create a local Fabric network including the
 You can stop or restart the preconfigured network while it is running:
 
 1. In the **Fabric Environments** pane, click the overflow menu.
-2. Select **Restart**, **Stop**, **Teardown** to stop, restart or teardown the container.
+2. Select **Restart**, **Stop**, **Teardown** to stop, restart, or teardown the container.
 
 Selecting **Teardown** will completely remove the local Fabric network. **Note:** This removal results in the loss of the ledger and world state data.
 
@@ -361,17 +361,17 @@ Selecting **Delete** will perform a **Teardown** as well as remove the network f
 ### Deploying your smart contract (channel application capability V2)
 {: #develop-vscode-deploy-smart-contract-v2}
 
-Smart contracts can be deployed using the **deploy view**. This view handles all the deployment steps (install, approve, commit) which are required by the [smart contract] lifecycle on V2 enabled channels.
+Smart contracts can be deployed by using the **deploy view**. This view handles all the deployment steps (install, approve, commit) which are required by the smart contract lifecycle on channels that are enabled with application capability v2.0 or higher.
 
-Follow these steps if you have a channel that is configured with the application capability V2 or higher and a `.tar.gz` smart contract package.
+Follow these steps if you have your channel is configured with application capability V2 or higher and a `.tar.gz` smart contract package.
 
 To launch the deploy view:
 
 1. Check that you are connected to the network in the **Fabric Environments** pane.
-2. Expand the channel you want to deploy your smart contract to.
+2. Expand the channel that you want to deploy your smart contract to.
 2. Click **+ Deploy smart contract**.
 
-There are three steps to deploying a smart contract using the deploy view.
+There are three steps to deploying a smart contract by using the deploy view.
 
 #### Step 1: Choose a smart contract to deploy
 {: #develop-vscode-deploy-smart-contract-v2-choose}
@@ -392,19 +392,19 @@ There are three steps to deploying a smart contract using the deploy view.
 
 1. Click **Deploy** to automatically install, approve, and commit the smart contract on all of the networks peers.
 2. (Optional) Use the **Perform commit** toggle to enable or disable committing this smart contract definition to the channel.
-3. (Optional) Use the **Additional peers to endorse commit transactions** dropdown to select or deselect any available additional peers you need to approve this smart contract definition.
+3. (Optional) Click **Additional peers to endorse commit transactions** to select or deselect any available additional peers that you need to approve this smart contract definition.
 
 **At this point, you smart contract is now "committed" on the channel.** If you have changed your smart contract code and then repackaged it, you can use the deploy view and follow the same steps as above to upgrade the smart contract definition that you have deployed to the network.
 
 ### Deploying your smart contract (channel application capability V1)
 {: #develop-vscode-deploy-smart-contract}
 
-Follow these steps if you have a V1 channel and a `.cds` smart contract package.
+Follow these steps if you have a channel that is configured with the application capability v1.x and a smart contract package that is in `.cds` format.
 
 To launch the deploy view:
 
 1. Check that you are connected to the network in the **Fabric Environments** pane.
-2. Expand the channel you want to deploy your smart contract to.
+2. Expand the channel that you want to deploy your smart contract to.
 2. Click **+ Deploy smart contract**.
 
 There are three steps to deploying a smart contract using the deploy view.
@@ -473,7 +473,7 @@ You can also use the extension to interact with your network on the {{site.data.
 ### Invoke a smart contract that has been instantiated or committed on your channels
 {: #develop-vscode-connecting-ibp-invoke}
 
-You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were deployed on your channnel.
+You can download your connection profile from the {{site.data.keyword.blockchainfull_notm}} Platform console to build a gateway in the **Fabric Gateways** pane. You can then use the gateway to invoke the smart contracts that were deployed on your channel.
 
 Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is associated with your instance of the {{site.data.keyword.blockchainfull_notm}} Platform. Navigate to the **Organizations** tab and click the **Organization MSP** tile for the organization that your client application will interact with. Click **Create connection profile** to open a side panel that allows you to [build and download your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile) to your local file system. Then, [create an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities) by using your CA and save the enrollID and secret. Use the following steps to connect to the {{site.data.keyword.blockchainfull_notm}} Platform from VS Code.
 
@@ -485,7 +485,7 @@ Open the {{site.data.keyword.blockchainfull_notm}} Platform console that is asso
 6. Hover your mouse over the **Fabric Wallets** pane and click **+**.
 7. Choose **Create a new wallet and add an identity** from the options. Provide a name for your wallet and your identity.
 8. Enter the MSP ID of your organization.
-9. Select the **Select a gateway and provide an enrollment ID and secret** option and choose the gateway that you created above.
+9. Click **Select a gateway and provide an enrollment ID and secret** option and choose the gateway that you created above.
 10. Enter the enrollID and secret of the application identity that you created with the console. A new identity is created in the **Fabric Wallets** pane.
 11. You can now connect to your instance of your {{site.data.keyword.blockchainfull_notm}} Platform network. Click the connection name and select the name of the wallet that you created. You can also associate the wallet that you created with the gateway by right-clicking the gateway and selecting **Associate A Wallet**. This allows the connection to use the same wallet each time when it connects.
 
