@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-08"
+lastupdated: "2021-01-19"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -25,6 +25,10 @@ subcollection: blockchain
 
 
 
+## January 19, 2021
+{: #whats-new-01-19-2021}
+
+The {{site.data.keyword.blockchainfull}} Platform extension for VS Code V2.0 is now available for download from the Visual Studio Marketplace. This new version includes support for Fabric v2.0 lifecycle along with updated tutorials. [Download the extension](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform) from the marketplace to get started then visit our [Developer Tooling](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-install) topic for more information.
 
 ## November 02, 2020
 {: #whats-new-11-02-2020}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-13"
+lastupdated: "2021-01-19"
 
 keywords: site map
 subcollection: blockchain
@@ -180,6 +180,8 @@ subcollection: blockchain
 
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
+
+[January 19, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-01-19-2021)
 
 [November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
 
@@ -826,13 +828,12 @@ subcollection: blockchain
   * [Exporting, importing, and deleting a smart contract package](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exporting-deleting-smart-contract-package)
 * [Step four: Deploy a smart contract to a preconfigured Hyperledger Fabric network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy)
   * [Deploying a preconfigured Hyperledger Fabric network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-and-disconnecting)
-  * [VS Code Extension v2: Deploying your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract-v2)
-  * [VS Code Extension v1: Deploying your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract)
+  * [Deploying your smart contract (channel application capability V2)](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract-v2)
+  * [Deploying your smart contract (channel application capability V1)](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-deploy-smart-contract)
   * [Interacting with your smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-submitting-transactions)
   * [Connecting your applications to the preconfigured network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-exploring-connection-details)
-* [Step five: Debug a smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-development-mode)
-* [Step six: Test an instantiated or committed smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
-* [Step seven: Connect to your {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp)
+* [Step five: Test a deployed smart contract](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
+* [Step six: Connect to your {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp)
   * [Invoke a smart contract that has been instantiated or committed on your channels](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-invoke)
   * [Deploy a smart contract from VS Code](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)
   * [Adding wallets and users](/docs/blockchain?topic=blockchain-develop-vscode#develop-vscode-add-a-wallet)
