@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-10"
+  years: 2019, 2021
+lastupdated: "2021-01-21"
 
 keywords: high availability, Ordering Service, Raft
 
@@ -110,7 +110,7 @@ In this tutorial, you learn how to set up a Raft ordering service with five orde
 
 ![Architectural diagram](../images/mr-ha-os.png "Multiregion ordering service"){: caption="Figure 1. A diagram that shows the architecture of a multiregion ordering service" caption-side="bottom"}
 
-The diagram shows a multiregion ordering service that includes five ordering nodes that are spread across three Kubernetes clusters in three different regions. For simplicity, this tutorial assumes that all of the ordering nodes are contributed by the same organization. The setup requires a single Certificate Authority (CA), created in one cluster and imported into the blockchain consoles on the other two clusters.  \
+The diagram shows a multiregion ordering service that includes five ordering nodes that are spread across three Kubernetes clusters in three different regions. For simplicity, this tutorial assumes that all of the ordering nodes are contributed by the same organization. The setup requires a single Certificate Authority (CA), created in one cluster and imported into the blockchain consoles on the other two clusters. 
 
 Throughout this tutorial we refer to two types of nodes: "ordering nodes" and "worker nodes". Ordering nodes belong to a Raft ordering service cluster. Worker nodes refer to the Kubernetes component that hosts the pods where the ordering nodes are deployed.
 {: note}
