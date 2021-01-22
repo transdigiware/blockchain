@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-20"
+lastupdated: "2021-01-22"
 
 keywords: site map
 subcollection: blockchain
@@ -96,7 +96,6 @@ subcollection: blockchain
 
 
 
-
 ## Getting started
 {: #sitemap_getting_started}
 
@@ -141,6 +140,7 @@ subcollection: blockchain
 * [Post-install instructions](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-post-install)
   * [Returning to your console from {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-rtn-to-console)
 * [Deleting a service instance](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-delete-service-instance)
+* [Deploy from Red Hat Marketplace](/blockchain-sw-251/blockchain-sw-251-deploy-ocp-rhm){: external}{: external}
 
 
 ## About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
