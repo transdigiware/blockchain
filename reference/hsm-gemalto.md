@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-11"
+lastupdated: "2021-01-27"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -96,8 +96,6 @@ subcollection: blockchain
 {: #ibp-hsm-gemalto}
 {: help}
 {: support}
-
-
 
 {{site.data.keyword.cloud_notm}} includes an [HSM](#x6704988){: term}
 service that provides cryptographic processing for key generation, encryption, decryption, and key storage. This document describes how to use that service with the {{site.data.keyword.blockchainfull}} Platform.

@@ -52,7 +52,7 @@ IBM Blockchain Platform for IBM Cloud
 	howto/ibp-v2-faq.md
 	needtoknow.md
 	{: .navgroup-end}
-	
+
 	{: .navgroup id="howto"}
 	{: .topicgroup}
 	IBM Blockchain Platform console
