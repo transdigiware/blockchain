@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-01-27"
 
-keywords: vs code extension, Visual Studio Code extension, smart contract, development tools
+keywords: vs code, Visual Studio Code extension, smart contract, development tools, code ready workspaces
 
 subcollection: blockchain
 
