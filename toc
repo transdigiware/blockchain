@@ -97,11 +97,9 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .navgroup id="reference"}
 	[API reference](https://cloud.ibm.com/apidocs/blockchain)
-
-
-	[What is Blockchain Technology?](https://www.ibm.com/blockchain/what-is-blockchain)
 	reference/v10_fabric.md
 	reference/k8s.md
+	[IBM Developer](https://developer.ibm.com/technologies/blockchain/)
 	reference/ibp_regions.md
 	reference/hsm-pkcs11.md
 	reference/hsm-pkcs11-ic.md
