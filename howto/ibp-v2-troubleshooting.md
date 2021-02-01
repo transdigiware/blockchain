@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-08"
+lastupdated: "2021-02-01"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -115,7 +115,7 @@ If this is a new node, wait a few more minutes for the deployment to complete. Y
 The node status in the tile for the peer or ordering node is yellow, meaning the status of the node cannot be detected. Ideally, when you hover over any node, the node status should be `Running`.
 {: tsSymptoms}
 
-This condition can occur on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined. This problem can also occur if you are using {{site.data.keyword.cloud_notm}} Kubernetes service v1.16, or if you migrated your {{site.data.keyword.cloud_notm}} Kubernetes cluster Ingress from {{site.data.keyword.containerlong_notm}} Ingress to the community Kubernetes Ingress image, or vis versa.
+This condition can occur on peer and ordering nodes that were *imported* to the console and the health checker cannot run against the node. This status happens because an `operations_url` was not specified when the node was imported. An operations URL is required for the node health checker to run. The node itself is likely `Running`, but because the operations URL was not specified, its status cannot be determined. This problem can also occur if you migrated your {{site.data.keyword.cloud_notm}} Kubernetes cluster Ingress from {{site.data.keyword.containerlong_notm}} Ingress to the community Kubernetes Ingress image, or vis versa.
 {: tsCauses}
 
 {: tsResolve}
@@ -132,12 +132,6 @@ You can resolve this problem by performing the following steps:
  9. Associate the same identity you noted in step three.
  10. Click **Add peer** or **Add ordering service**.
 The health checker can now run against the node and report the status of the node.
-
-
-**If you are running {{site.data.keyword.cloud_notm}} Kubernetes service v1.16:**
-1. [Update your cluster](/docs/containers?topic=containers-update) to v1.17 or higher.
-2. Delete the failing component.
-3. Deploy the component again.
 
 **If you migrated your cluster Ingress:**
 You need to [refresh your blockchain console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-refresh).
