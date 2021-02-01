@@ -35,7 +35,7 @@ The {{site.data.keyword.blockchainfull}} Platform extension for VS Code V2.0 is 
 
 
 
-{{site.data.keyword.blockchainfull_notm}} Platform  now supports the Fabric v2.x smart contract lifecycle that allows for decentralized governance of smart contract definitions on a channel. The platform has been updated to support Kubernetes v1.17-v1.18 and OpenShift container Platform 4.4, 4.5.
+{{site.data.keyword.blockchainfull_notm}} Platform  now supports the Fabric v2.x smart contract lifecycle that allows for decentralized governance of smart contract definitions on a channel. The platform has been updated to support Kubernetes v1.17-v1.19 and OpenShift container Platform 4.4, 4.5.
 
 **Support for Fabric v2.x lifecycle**
 
