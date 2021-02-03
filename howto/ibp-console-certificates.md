@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-01"
+  years: 2019, 2021
+lastupdated: "2021-02-03"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -73,6 +73,8 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
+{:swift-ios: .ph data-hd-programlang='iOS Swift'}
+{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -88,7 +90,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -121,6 +123,9 @@ The left column includes the certificates for the blockchain CA, peer, and order
 The {{site.data.keyword.blockchainfull_notm}} Platform  can automatically renew the enrollment certs for the peer and ordering nodes and the TLS certificate for the peer. But the MSP admin identities have to be manually renewed. If the MSP is enabled for Node Organizational Units (Node OUs), no further action is required. More information about Node OU support and how to determine whether the MSP is enabled for it is provided in this topic.
 
 The right column shows the certificates that are relevant to the system channel and the application channel. When the MSP is not enabled for Node OU support, additional steps are required to update these certificates on the system and application channels and are provided here.
+
+Because the certificate renewal process is different for peers and ordering nodes, the certificate renewal tooling described in this topic cannot be used on networks where the peers and ordering nodes share the same organization MSP definition.
+{: important}
 
 ## Node OU support
 {: #cert-mgmt-nodeou}
