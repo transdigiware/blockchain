@@ -21,20 +21,6 @@ IBM Blockchain Platform for IBM Cloud
 	blockchain_component_overview.md
 
 	{: .topicgroup}
-	Getting started tutorials
-		howto/ibp-console-build-network.md
-		howto/ibp-console-join-network.md
-
-		{: .topicgroup}
-		Deploy a smart contract
-			howto/ibp-console-smart-contracts.md
-			howto/ibp-console-smart-contracts-v2.md
-			howto/ibp-console-smart-contracts-v14.md
-
-		howto/ibp-console-create-app.md
-		reference/videos.md
-
-	{: .topicgroup}
 	Pricing
 		howto/pricing-saas.md
 		reference/detailed-pricing.md
@@ -51,6 +37,36 @@ IBM Blockchain Platform for IBM Cloud
 	data-residency.md
 	howto/ibp-v2-faq.md
 	needtoknow.md
+	{: .navgroup-end}
+
+	{: .navgroup id="tutorial"}
+	{: .topicgroup}
+	Getting started
+		howto/ibp-console-build-network.md
+		howto/ibp-console-join-network.md
+		reference/videos.md
+
+	{: .topicgroup}
+	Deploy a smart contract
+		howto/ibp-console-smart-contracts.md
+		howto/ibp-console-smart-contracts-v2.md
+		howto/ibp-console-smart-contracts-v14.md
+
+	howto/ibp-console-create-app.md
+
+	{: .topicgroup}
+	Certificate Authority (CA) options
+		howto/ibp-console-int-ca.md
+		howto/ibp-v2-tutorial-extca.md
+
+	{: .topicgroup}
+	Hardware Security Module (HSM)
+		reference/hsm-gemalto.md
+
+	{: .topicgroup}
+	Ansible Playbooks
+		howto/ansible.md
+		howto/ansible-build-network.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}

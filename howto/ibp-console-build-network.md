@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-04"
+  years: 2019, 2021
+lastupdated: "2021-02-03"
 
 keywords: getting started tutorials, create a CA, enroll, register, create an MSP, wallet, create a peer, create ordering service, Raft, ordering service, blockchain network, blockchain
 
@@ -73,6 +73,8 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
+{:swift-ios: .ph data-hd-programlang='iOS Swift'}
+{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -88,7 +90,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -156,6 +158,9 @@ This configuration is sufficient both for testing applications and smart contrac
   Channels allow sets of organizations to transact without exposing their data to organizations that are not members of the channel. Each channel has its own ledger, collectively managed by the peers joined to that channel. The tutorial creates one channel that is joined by both organizations, and shows how to instantiate a smart contract on the channel that the organizations can use to transact.
 
 This configuration isn't mandatory. The {{site.data.keyword.blockchainfull_notm}} Platform is highly customizable. If you have resources available in your Kubernetes cluster, you can use the console to deploy components in an endless array of configurations. This tutorial provides the steps that you need to build your own network, with references to topics that provide a deeper dive into the {{site.data.keyword.blockchainfull_notm}} Platform and the console.
+
+You can deploy multiple peers that belong to the same organization MSP and multiple orderers that belong to a different organization MSP. But the console does not prevent you from configuring peers and ordering nodes that belong to a single same organization MSP. While it might seem that a single organization MSP for all your nodes would greatly simplify deployment of your network, this configuration is problematic. Because the process to renew certificates is different for peer and ordering nodes, when the renewal process is attempted after the node certificates expire in one year, **certificate renewal will fail**.  For that reason, using the same MSP for your peers and ordering nodes is strongly discouraged.
+{: important}
 
 In this **Build a network** tutorial, we build only a portion of the network above, a simple network that can be used to host an ordering service and a single peer organization and peer on a single channel. The following illustration shows the portion of the network above that we will build:
 ![Simple network structure](../images/ibp2-simple-network.svg "Simple network structure"){: caption="Figure 2. Simple network structure" caption-side="bottom"}
