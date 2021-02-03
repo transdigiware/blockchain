@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-02-03"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -31,16 +31,14 @@ After you install smart contracts and deploy your nodes, you can use client appl
 
 **Target audience:** This topic is designed for application developers who are interested in learning more about how to create a client application that interacts with a blockchain network.
 
-## Learning resources
+## Overview
 {: #ibp-console-app-learning-resources}
 
-You can learn more about how applications and smart contracts work together in the Commercial Paper sample. Go to the topic on how to [Run the commercial paper sample on the {{site.data.keyword.blockchainfull_notm}} Platform](#ibp-console-app-commercial-paper) to learn to deploy and invoke the commercial paper contract.
-
-Developing an application might require coordination between two distinct users of your network, The network operator and the application developer:
+Developing an application might require coordination between two distinct users of your network, the network operator and the application developer:
 - **The network operator** is the administrator who uses the {{site.data.keyword.blockchainfull_notm}} Platform console to deploy the nodes of your organization and installs the smart contracts on your network.
 - **The application developer** builds the client application that is consumed by users. The developer uses the [Hyperledger Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-2.2/getting_started.html#hyperledger-fabric-sdks){: external} to invoke transactions written in the smart contracts.
 
-If you are the **network operator**, you need to complete the following steps before the application developer can interact with your network:
+If you are the **network operator**, you will need to complete the following steps before the application developer can interact with your network:
 1. Use your organization CA to [register an application identity](#ibp-console-app-identities).
 2. [Download the connection profile](#ibp-console-app-profile) from the organizations panel.
 3. Send the application developer the following objects and information:
@@ -57,34 +55,54 @@ If you are the **application developer**, use the information that is provided b
 The connection profile that you downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can be used to connect to your network by using the Node.js (JavaScript and TypeScript), Java, and Go Fabric SDKs.
 {: note}
 
-The application developer can use two programming models to interact with the network:
+The application developer can use two programming models to interact with the network, either the High-Level Programming Model APIs or the Low-Level Fabric SDK APIs.
 
-### High-Level Fabric contract APIs
+### High-Level Programming Model APIs
 {: #ibp-console-app-high-level}
 
-Starting with Fabric v1.4, a simplified application and smart contract programming model, known as the `fabric-network` API, was introduced, and is now the recommended way to develop applications. The new model reduces the number of steps and amount of code that is required to submit a transaction and is supported for applications that are written in **Node.js**, **Java**, and **Go**. For information about migrating your applications created using the v1.4 SDK to the 2.x SDK, check out [Migrating client applications from v1.4 to v2.0](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-migration.html){: external}.
+Starting with Fabric v1.4, a simplified _application_ and _smart contract_ programming model, known as the `fabric-network` API, was introduced, and is now the recommended way to develop applications. The new model reduces the number of steps and amount of code that is required to submit a transaction and is supported for applications that are written in **Node.js**, **Java**, and **Go**. The Fabric High-Level Programming Model APIs include the **High-level Fabric Gateway SDKs** for writing client applications and the **High-Level Fabric contract APIs** for writing smart contracts. This tutorial focuses on using the **High-level Fabric Gateway SDKs**.  
+
+{{site.data.keyword.IBM_notm}} recommends and supports the High-level Fabric Gateway SDKs that allow client applications to interact with {{site.data.keyword.blockchainfull_notm}} Platform networks. These SDKs, available for Node, Java, and Go, allow a client application to invoke smart contracts for the purpose of submitting transactions and evaluating queries. It is recommended that administrative tasks, such as creating channels, deploying smart contracts, are done by using the console, APIs, or Ansible scripts.  
+
+The SDKs use the concept of a "Gateway" object to represent the connection of a single identity (user) to a blockchain network. For performance reasons, applications need to keep a gateway object instance in scope for as long as it is required, and can use it to submit multiple transactions across different smart contracts and network channels. If an application needs to handle multiple user identities, then a separate gateway object instance should be maintained for each identity.
+{: important}
+
+Refer to the SDK documentation for each language for details:
+
+- [Java](https://hyperledger.github.io/fabric-gateway-java/release-2.2/){: external}
+- [Node](https://hyperledger.github.io/fabric-sdk-node/release-2.2/){: external}
+- [Go](https://pkg.go.dev/github.com/hyperledger/fabric-sdk-go/pkg/gateway){: external}
+
+For best practices and examples of how to use the SDKs see the Fabric [Asset Transfer Sample](https://github.com/hyperledger/fabric-samples/tree/master/asset-transfer-basic){: external}  
+
+For information about migrating your applications created using the v1.4 SDK to the 2.x SDK, check out [Migrating client applications from v1.4 to v2.0](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-migration.html){: external}.    
 
 Client applications can leverage the capabilities of the Go SDK, but currently only the high-level programming model in the [gateway package](https://godoc.org/github.com/hyperledger/fabric-sdk-go/pkg/gateway){: external} is supported. Direct usage of the rest of the Go SDK is not yet supported.
 {: note}
 
-If you want to take advantage of the High-Level Fabric contract-APIs, you can use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
+If you want to take advantage of the High-Level Fabric contract-APIs, you can also use this tutorial to complete the following actions on an {{site.data.keyword.blockchainfull_notm}} Platform network:
 
 - [Generate certificates for your application](#ibp-console-app-enroll) by using the SDK.
 - [Invoke a smart contract from the SDK](#ibp-console-app-invoke).
-- Learn about application development by deploying the [commercial paper tutorial](#ibp-console-app-commercial-paper) to the nodes managed from your console. This tutorial provides more background on how to use Fabric Wallets and Gateways.
+- Learn about application development by deploying the [commercial paper tutorial](#ibp-console-app-commercial-paper) to the nodes managed from your console.
 
 ### Low-Level Fabric SDK APIs**
 {: #ibp-console-app-low-level}
 
-If you want to continue to use your existing smart contract and application code, or use the other Fabric SDK languages that are provided by the Hyperledger community, you can use the [low-level Fabric SDK APIs](#ibp-console-app-low-level) to connect to your network.
+If you want to continue to use your existing smart contract and application code, or use the other Fabric SDK languages that are provided by the Hyperledger community, you can use the [low-level Fabric SDK APIs](#ibp-console-app-low-level-api) to connect to your network.
 
-### Network considerations
+## Application connectivity and availability
+{: #ibp-console-app-transx}
+
+The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external} spans multiple components, with the client applications playing a unique role. The SDK submits transaction proposals to the peers for endorsement. It then collects the endorsed proposals to be sent to the ordering service, which then sends blocks of transactions to the peers to be added to channel ledgers. Developers of production applications need to be prepared to manage their interactions between the SDK and their networks for efficiency and availability.
+
+## Network considerations
 {: #ibp-console-app-networking}
 
 Regardless of whether you choose to use the high-Level Fabric contract APIs, or the low-Level Fabric SDK APIs, both require network access to the following components:
 
 - The CA for your organization. (You should never need to access the CA for another organization).
-- All organizations peers (where all organizations are the organizations required for endorsing transactions).
+- All organizations peers (where all organizations are the organizations that are required for endorsing transactions).
 - All ordering service nodes for all channels that you are transacting on.
 
 You must ensure that the hostnames of these components are resolvable by DNS lookup (or `/etc/hosts` if you cannot correctly configure DNS). You must also ensure that all of the network ports for these components are accessible to the systems that are running your applications that are using the Hyperledger Fabric SDKs. The hostname and port for each node are visible in the console. Open the CA, peer, or ordering node tile and then click the **Info and usage** tab. The **API URL** field contains the hostname and port for the node.
@@ -126,8 +144,8 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 |Contract API | Peer Fabric image  | Java runtime   |
 |:-------------------|:---------------|:-------------|
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.2){: external} |v2.2 | Java 11 runtime |
-|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.2){: external} |v1.4 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external}, [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.2){: external} |v2.2 | Java 11 runtime |
+|[v1.4](https://github.com/hyperledger/fabric-chaincode-java/tree/release-1.4){: external}, [v2.2](https://github.com/hyperledger/fabric-chaincode-java/tree/release-2.2){: external} |v1.4 | Java 11 runtime |
 {: caption="Table 2. Java Smart contract" caption-side="top"}
 {: #simpletabtable2}
 {: tab-title="Java Smart contract"}
@@ -136,7 +154,7 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 
 | Contract API       | Peer Fabric image  | Node runtime    |
 |:-------------------|:---------------|:--------------------|
-| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external},  [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.2){: external} |v2.2  | Node 12 runtime|
+| [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external}, [v2.2](https://github.com/hyperledger/fabric-chaincode-node/tree/release-2.2){: external} |v2.2  | Node 12 runtime|
 | [v1.4](https://github.com/hyperledger/fabric-chaincode-node/tree/release-1.4){: external} |v1.4| Node 8 runtime |
 {: caption="Table 2. Node Smart contract" caption-side="top"}
 {: #simpletabtable2}
@@ -144,7 +162,7 @@ Click the **Java Smart contract** or **Node Smart contract** tab for details.
 {: tab-group="IAM-simple2"}
 {: class="simple-tab-table"}
 
-Java and Node runtime versions are determined by {{site.data.keyword.blockchainfull_notm}} Platform peer Fabric image and cannot be changed. Be aware that these runtimes are different from the default Hyperledger Fabric runtimes.
+Java and Node runtime versions are determined by {{site.data.keyword.blockchainfull_notm}} Platform peer Fabric image and cannot be changed. These runtimes are different from the default Hyperledger Fabric runtimes.
 {: note}
 
 For more details on smart contract-API compatibility, see:
@@ -158,7 +176,7 @@ Applications need to sign the transactions they submit to {{site.data.keyword.bl
 
 The network operator needs to use the organization's CA to [register an application identity](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-register), which can then be used by the application developer to generate a certificate and private key. The operator can provide the enroll ID and secret of the identity, along the CA endpoint information, to be used by the SDK to generate certificates. By enrolling on the client side, the application developer ensures that no other party has access to the private key of the application. During registration, the network operator can set an enrollment limit of one for additional security. After the application developer enrolls, the enroll ID and secret cannot be used to generate another private key.
 
-If you are less worried about security, the network operator can enroll an application identity by using the [CA tab](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll). The operator can then download the identity or export it to the console wallet. In order to use the certificates from the SDK, you need to convert the keys from base64 into PEM format. You can decode the certs by running the following command on your local machine:
+If you are less worried about security, the network operator can enroll an application identity by using the [CA tab](/docs/blockchain?topic=blockchain-ibp-console-identities#ibp-console-identities-enroll). The operator can then download the identity or export it to the console wallet. In order to use the certificates from the SDK, you need to convert the keys from base64 into PEM format. You can decode the certs by running the following command on your local system:
 
 ```
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -169,10 +187,7 @@ echo <base64_string> | base64 --decode $FLAG > <key>.pem
 ## Downloading your connection profile
 {: #ibp-console-app-profile}
 
-A client application connects to a network via one or more gateway peers. The gateway peers are the peers that are specified in the **connection profile**, and they are used to perform **service discovery** to find all of the endorsing peers in the network that will endorse transactions. Service discovery ensures that the request is sent to a peer that is currently available to process requests.
-
-The connection profile that is downloaded from the {{site.data.keyword.blockchainfull_notm}} Platform console can only be used to connect to your network using the Node.js (JavaScript and TypeScript) and Java Fabric SDKs.
-{: note}
+A client application connects to a network via one or more gateway peers. The gateway peers are the peers that are specified in the **connection profile**, and they are used to perform **service discovery** to find all of the endorsing peers in the network that will endorse transactions. Service discovery ensures that the request is sent to a peer that is available to process requests.
 
 The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external} spans multiple components, with the client applications collecting endorsements from peers and sending endorsed transactions to the ordering service. The connection profile provides your application with the endpoints of the peers and ordering nodes that it needs to submit a transaction. It also contains information about your organization, such as your Certificate Authorities and your MSP ID. The Fabric SDKs can read the connection profile directly, without you having to write code that manages the transaction and endorsement flow.
 
@@ -207,9 +222,9 @@ Later in this topic, we use the connection profile to build a Fabric gateway tha
 ## Enrolling by using the SDK
 {: #ibp-console-app-enroll}
 
-Once the network operator provides the enroll ID and secret of the application identity and the network connection profile, an application developer can use the Fabric SDKs or the Fabric CA client to generate client-side certificates. You can use the following steps to enroll an application identity using the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external}.
+Once the network operator provides the enroll ID and secret of the application identity and the network connection profile, an application developer can use the Fabric SDKs or the Fabric CA client to generate client-side certificates. You can use the following steps to enroll an application identity by using the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external}.
 
-1. Save the connection profile to your local machine and rename it `connection.json`.
+1. Save the connection profile to your local system and rename it `connection.json`.
 2. Save the following code block as `enrollUser.js` in the same directory as your connection profile:
 
     ```javascript
@@ -277,10 +292,10 @@ The wallets that are used by the Fabric SDKs are different from the wallet in th
 ## Invoking a smart contract by using the SDK
 {: #ibp-console-app-invoke}
 
-After you generate the application signing certificate and private key and store them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was deployed on. You can use the steps below to invoke a smart contract with the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external}.
+After you generate the application signing certificate and private key and store them in a wallet, you are ready to submit a transaction. You need to know the name of the smart contract and the name of the channel it was deployed on. You can use the following steps to invoke a smart contract with the [Fabric SDK for Node.js](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external}.
 
 
-1. Save the text below on your local machine as `invoke.js` in the same directory as `enrollUser.js`.
+1. Save the following text on your local machine as `invoke.js` in the same directory as `enrollUser.js`.
 
     ```javascript
     'use strict';
@@ -332,7 +347,7 @@ After you generate the application signing certificate and private key and store
 2. Edit `invoke.js` to replace the following values:
   - Replace  `<channel_name>` with the name of the channel the smart contract was deployed on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
   - Replace `<smart_contract_name>` with the name of the installed smart contract. You can get this value from your network operator.
-  - Edit the contents of `submitTransaction` to invoke a function inside your smart contract. The `invoke.js` file is written to invoke the [fabcar smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar){: external}. If you want to run the file below to submit a transaction, install fabcar and instantiate the smart contract on one of your channels.
+  - Edit the contents of `submitTransaction` to invoke a function inside your smart contract. The `invoke.js` file is written to invoke the [FabCar smart contract](https://github.com/hyperledger/fabric-samples/tree/release-1.4/chaincode/fabcar){: external}. If you want to run the following file to submit a transaction, install FabCar and instantiate the smart contract on one of your channels.
 
 3. Navigate to `invoke.js` using a terminal and run `node invoke.js`. If the command runs successfully, you should see the following output:
 
@@ -352,7 +367,7 @@ The [commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/rel
 
 You can also deploy the commercial paper tutorial sample code onto an {{site.data.keyword.blockchainfull_notm}} Platform network. This allows you to quickly get started interacting with your network and use the sample to download the necessary dependencies. The sample code also includes examples of how you can import certificates into a [wallet](https://hyperledger-fabric.readthedocs.io/en/release-2.2/developapps/wallet.html){: external} and use your connection profile to build a [Fabric gateway](https://hyperledger-fabric.readthedocs.io/en/release-2.2/developapps/gateway.html){: external}. The tutorial can be used by two different organizations to complete different transactions with a single asset. If you used the [Build a network tutorial](/docs/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network) to deploy two peer organizations that are connected to a channel, you can interact with the tutorial by using both organizations.
 
-Follow the steps below to deploy the sample on your network. You can review the tutorial in the Fabric Documentation [commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorial/commercial_paper.html){: external} for more details about the smart contracts and the application structure.
+Use the following steps to deploy the sample on your network. You can review the tutorial in the Fabric Documentation [commercial paper tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorial/commercial_paper.html){: external} for more details about the smart contracts and the application structure.
 
 ### Prerequisites
 {: #ibp-console-app-commercial-paper-prereq}
@@ -377,7 +392,7 @@ After you download the Fabric Samples, run the following commands to ensure that
 
 ```
 cd fabric-samples
-git checkout v1.4.6
+git checkout v1.4.9
 ```
 {:codeblock}
 
@@ -388,7 +403,7 @@ cd $HOME/fabric-samples/commercial-paper
 ```
 {:codeblock}
 
-The tutorial contains two sample organizations, **magnetocorp** and **digibank**. Each organization has its own sample application code, stored in two separate folders under the `organization` directory.
+The tutorial contains two sample organizations, **magnetocorp** and **digibank**. Each organization has its own sample application code, which is stored in two separate folders under the `organization` directory.
 
 ```
 ls organization
@@ -419,7 +434,7 @@ You can find the commercial paper smart contract inside the `contract` folder of
 
 Smart contracts running on peers using the Fabric v1.4.x image must be packaged in [.cds format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4noah.html#packaging){: external}. These smart contracts are installed and then instantiated on a channel. For information on using smart contracts with Fabric v1.4.x peers, check out [Deploy a smart contract using Fabric v1.4.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14).
 
-Smart contracts running on peers using a Fabric x2.x image must be packed using the [.tar.gz format](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html#step-one-packaging-the-smart-contract){: external}. These smart contracts must be installed and proposed by you, then approved by other channel members before being committed on the channel. For information on using smart contracts with Fabric v2.x peers, check out [Deploying a smart contract using Fabric 2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
+Smart contracts running on peers using a Fabric v2.x image must be packed using the [.tar.gz format](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html#step-one-packaging-the-smart-contract){: external}. These smart contracts must be installed and proposed by you, then approved by other channel members before being committed on the channel. For information on using smart contracts with Fabric v2.x peers, check out [Deploying a smart contract using Fabric 2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
 
 You can use the [{{site.data.keyword.blockchainfull_notm}} VS code extension](/docs/blockchain?topic=blockchain-develop-vscode) to package the smart contract. After you install the extension, use Visual Studio Code to open the `contracts` folder in your workspace. Open the _{{site.data.keyword.blockchainfull_notm}} Platform_ tab. In the _{{site.data.keyword.blockchainfull_notm}} Platform_ pane, go to the smart contract packages section and click **Package Open Project**. The VS code extension uses the files in the `contracts` folder to create a new package named `papernet-js@.0.0.1.cds`. Right-click this package to export it to your local file system. You can then use your console to install your smart contract and either instantiate or propose it.
 
@@ -493,14 +508,14 @@ const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
 ```
 {:codeblock}
 
-The file then uses the `FileSystemWallet` class to build a wallet on your local filesystem. You can edit the line below to store the wallet in a different location.
+The file then uses the `FileSystemWallet` class to build a wallet on your local filesystem. You can edit the following line to store the wallet in a different location.
 
 ```javascript
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet')
 ```
 {:codeblock}
 
-After creating the wallet, the code snippet uses the enroll ID and secret to enroll by using your organization CA. It then creates an identity for the signing certificate and private key and imports them into the wallet. Notice how the file passes your organization MSP ID into the wallet as well.
+After you create the wallet, the code snippet uses the enroll ID and secret to enroll by using your organization CA. It then creates an identity for the signing certificate and private key and imports them into the wallet. Notice how the file passes your organization MSP ID into the wallet as well.
 
 ```javascript
 // Enroll the admin user, and import the new identity into the wallet.
@@ -534,9 +549,9 @@ You can find the wallet that was created in the `identity` folder of the `magnet
 ### Step four: Use the connection profile to build a Fabric gateway
 {: #ibp-console-app-commercial-paper-step-four-gateway}
 
-The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external} spans multiple components, with the client applications playing a unique role. Your application needs to connect to the peers that need to endorse the transaction and needs to connect to the ordering service that will order the transaction and add it into a block. You can provide the endpoints of these nodes to your application by using your connection profile to construct a Fabric gateway. The gateway then conducts the low level interactions with your Fabric network. To learn more, visit the [Fabric gateway](https://hyperledger-fabric.readthedocs.io/en/release-2.2/developapps/gateway.html){: external} topic in the Fabric documentation.
+The Hyperledger Fabric [Transaction Flow](https://hyperledger-fabric.readthedocs.io/en/release-2.2/txflow.html){: external} spans multiple components, with the client applications playing a unique role. Your application needs to connect to the peers that need to endorse the transaction and needs to connect to the ordering service that will order the transaction and add it into a block. You can provide the endpoints of these nodes to your application by using your connection profile to construct a Fabric gateway. The gateway then conducts the low-level interactions with your Fabric network. To learn more, visit the [Fabric gateway](https://hyperledger-fabric.readthedocs.io/en/release-2.2/developapps/gateway.html){: external} topic in the Fabric documentation.
 
-You have already downloaded your connection profile and used it to connect to your organization's Certificate Authority. Now we will use the connection profile to build a gateway.
+You have already downloaded your connection profile and used it to connect to your organization's Certificate Authority. Now we use the connection profile to build a gateway.
 
 Open the file `issue.js` in a text editor. Before you edit the file, notice that it imports the `FileSystemWallet` and `Gateway` classes from fabric-network library.
 
@@ -551,21 +566,21 @@ const path = require('path');
 ```
 {: codeblock}
 
-The `Gateway` class is used to construct a gateway that you will used to submit your transaction.
+The `Gateway` class is used to construct a gateway that you will use to submit your transaction.
 
 ```javascript
 const gateway = new Gateway()
 ```
 {:codeblock}
 
-The `FileSystemWallet` class is used to load the wallet you created in the previous step. **Edit** the line below if you changed the location of the wallet on your filesystem.
+The `FileSystemWallet` class is used to load the wallet you created in the previous step. **Edit** the following line if you changed the location of the wallet on your file system.
 
 ```javascript
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 ```
 {:codeblock}
 
-After importing your wallet, use the following code to pass your connection profile and wallet to the new gateway. You need to make the following **Edits** to the code so it resembles the code snippet below. The lines that print logs have been removed for brevity.
+After you import your wallet, use the following code to pass your connection profile and wallet to the new gateway. You need to make the following **Edits** to the code so it resembles the code snippet below. The lines that print logs have been removed for brevity.
 - Update the `userName` to match the value that you selected for your `identityLabel` in `enrollUser.js`.
 - Update the discovery options to take advantage of service discovery on your network. Set `discovery: { enabled: true, asLocalhost: false, strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN }`.  
 - Update the section importing your connection profile. The console connection profile is in JSON format rather than a YAML file used by the sample.  
@@ -607,16 +622,16 @@ Setting `strategy: DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN` ensure
 ### Step five: Invoke the smart contract
 {: #ibp-console-app-commercial-paper-step-five-invoke}
 
-After configuring the gateway to connect to the network managed by your console, we will edit the portion of the `issue.js` file that connects to the commercial paper smart contract. You need to provide the gateway the contract name and the channel where the smart contract was deployed.
+After you configure the gateway to connect to the network managed by your console, we will edit the portion of the `issue.js` file that connects to the commercial paper smart contract. You need to provide the gateway the contract name and the channel where the smart contract was deployed.
 
-**Edit** the line below, replacing `mychannel` with your channel name.
+**Edit** the following line, and replace `mychannel` with your channel name.
 
 ```javascript
 const network = await gateway.getNetwork('mychannel');
 ```
 {:codeblock}
 
-Following a line of code that prints a message to your console, you can find a line that provides the gateway the smart contract name. **Edit** the line below to change the name `papercontract` to the name of the contract you installed.
+Following a line of code that prints a message to your console, you can find a line that provides the gateway the smart contract name. **Edit** the following line to change the name `papercontract` to the name of the contract you installed.
 
 ```javascript
 const contract = await network.getContract('papercontract', 'org.papernet.commercialpaper');
@@ -637,7 +652,7 @@ gateway.disconnect();
 ```
 {:codeblock}
 
-This command closes the gRPC connections opened by your gateway. Closing connections will save network resources and improve performance.
+This command closes the gRPC connections opened by your gateway. Closing connections save network resources and improve performance.
 
 After completing the edits from this step and **Step four**, save `issue.js` and close it. Submit the transaction that creates the new commercial paper by using the following command:
 
@@ -662,11 +677,11 @@ After you create the commercial paper by operating as Magnetocorp, you can buy a
 Go to the `digibank/application` directory. You can follow the directions that are provided in **Step three** to create to generate the certificates and wallet that will sign the transaction as Digibank. You can then use the `buy.js` file to purchase the commercial paper from Magnetocorp, and then use `redeem.js` to redeem the paper. You can follow **Step four** and **Step five** to edit those files so that they point to the correct connection profile, channel and smart contract.
 
 ## Connecting to your network by using low-level Fabric SDK APIs
-{: #ibp-console-app-low-level}
+{: #ibp-console-app-low-level-api}
 
 If you are interested in preserving your existing application code, or by using Fabric SDKs for languages other than Node.js, you can still connect to your network by using lower-level Fabric SDK APIs. Use the console to [download your connection profile](#ibp-console-app-profile). You can then import the endpoints of the peers and ordering nodes of your channel directly from the connection profile, or use the node endpoint information to manually add peer and orderer objects. You will also need to use your CA to [create an application identity](#ibp-console-app-identities), and then use the CA endpoint information enroll on the client side, or generate certificates using your console.
 
-The [Fabric Node SDK](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external} documentation provides a tutorial on how to [connect to your network using a connection profile](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-commonconnectionprofile.html){: external}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a signing certificate and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs' [Fabric Client class](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Client.html){: external} using the code below:
+The [Fabric Node SDK](https://hyperledger.github.io/fabric-sdk-node/release-2.2/index.html){: external} documentation provides a tutorial on how to [connect to your network using a connection profile](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-commonconnectionprofile.html){: external}. The tutorial uses the CA endpoint information in your connection profile to generate keys using the SDK. You can also use your console to generate a signing certificate and private key and convert the keys into PEM format. You can then set a user context by passing your keys directly to the SDKs' [Fabric Client class](https://hyperledger.github.io/fabric-sdk-node/release-2.2/Client.html){: external} using the following code:
 
 ```javascript
 fabric_client.createUser({
@@ -679,12 +694,12 @@ fabric_client.createUser({
 ```
 {:codeblock}
 
-If you are using low level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. For more information, see [Best practices for application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability).
+If you are using low-level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. For more information, see [Best practices for application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability).
 
 ## Highly available applications
 {: #console-app-ha}
 
-As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well by downloading a [connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) and [enabling service discovery](#ibp-console-app-sd-cfg). Install smart contracts on both peers and join the peers to your channels. 
+As a high availability best practice, it is strongly recommended that you deploy a minimum of two peers per organization for failover. You need to adapt your applications for high availability as well by downloading a [connection profile](/docs/blockchain?topic=blockchain-ibp-console-organizations#ibp-console-organizations-connx-profile) and [enabling service discovery](#ibp-console-app-sd-cfg). Install smart contracts on both peers and join the peers to your channels.
 
 ## Using indexes with CouchDB
 {: #console-app-couchdb}
@@ -701,7 +716,7 @@ Avoid using chaincode for queries that will result in a scan of the entire Couch
 
 You can find examples that demonstrate how queries use indexes and what type of queries will have the best performance in the [Fabric CouchDB tutorial](https://hyperledger-fabric.readthedocs.io/en/release-2.2/couchdb_tutorial.html#use-best-practices-for-queries-and-indexes){: external}.
 
-Peers on the {{site.data.keyword.blockchainfull_notm}} Platform have a set queryLimit, and will only return 10,000 entries from the state database. If your query hits the queryLimit, you can use multiple queries to get the remaining results. If you need more results from a range query, start subsequent queries with the last key that is returned by the previous query. If you need more results from JSON queries, sort your query by using one of the variables in your data, then use the last value from the previous query in a 'greater than' filter for the next query.
+Peers on the {{site.data.keyword.blockchainfull_notm}} Platform have a set queryLimit, and will only return 10,000 entries from the state database. If your query reaches the queryLimit, you can use multiple queries to get the remaining results. If you need more results from a range query, start subsequent queries with the last key that is returned by the previous query. If you need more results from JSON queries, sort your query by using one of the variables in your data, then use the last value from the previous query in a 'greater than' filter for the next query.
 
 Do not query the entire database for the purpose of aggregation or reporting. If you want to build a dashboard or collect large amounts of data as part of your application, you can query an off chain database that replicates the data from your blockchain network. This allows you to understand the data on the blockchain without degrading the performance of your network or disrupting transactions.
 

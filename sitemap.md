@@ -594,10 +594,13 @@ subcollection: blockchain
 
 [Creating applications](/docs/blockchain?topic=blockchain-ibp-console-app)
 
-[Learning resources](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
-* [High-Level Fabric contract APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-high-level)
+[Overview](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
+* [High-Level Programming Model APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-high-level)
 * [Low-Level Fabric SDK APIs**](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
-* [Network considerations](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-networking)
+
+[Application connectivity and availability](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-transx)
+
+[Network considerations](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-networking)
 
 [Application compatibility](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat)
 * [SDKs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sdk)
@@ -622,7 +625,7 @@ subcollection: blockchain
 * [Step five: Invoke the smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
 * [Step six: Operate the sample as Digibank](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 
-[Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
+[Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level-api)
 
 [Highly available applications](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-ha)
 
@@ -918,11 +921,6 @@ subcollection: blockchain
 * [Installing a package and proposing a definition](/docs/blockchain?topic=blockchain-write-powerful-smart-contracts#write-powerful-smart-contracts-installing-proposing)
 
 [Best practices for application development](/docs/blockchain?topic=blockchain-best-practices-app)
-* [Application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability)
-  * [Managing transactions](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-managing-transactions)
-  * [Opening and closing network connections](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connections)
-* [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-set-timeout-in-sdk)
-* [Resources](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-resources)
 
 
 ## Advanced tutorials
