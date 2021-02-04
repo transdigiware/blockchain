@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-03"
+lastupdated: "2021-02-04"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -694,7 +694,7 @@ fabric_client.createUser({
 ```
 {:codeblock}
 
-If you are using low-level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. For more information, see [Best practices for application connectivity and availability](/docs/blockchain?topic=blockchain-best-practices-app#best-practices-app-connectivity-availability).
+If you are using low-level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. 
 
 ## Highly available applications
 {: #console-app-ha}
