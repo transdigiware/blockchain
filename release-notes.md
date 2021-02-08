@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-02-08"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -233,7 +233,7 @@ New {{site.data.keyword.blockchainfull_notm}} Platform console APIs using the ro
 
 When a CA is deployed, replica sets can be configured to ensure High Availability of the node. Note that CA replica sets require a PostgreSQL database. Learn more in the [Building a high availability Certificate Authority (CA)](/docs/blockchain?topic=blockchain-ibp-console-build-ha-ca) tutorial.
 
-## 6 Feburary 2020
+## 6 February 2020
 {: #02-06-2020}
 
 **Update default resource allocation**
@@ -373,3 +373,6 @@ When you add a peer or orderer node, you have the option to use certificates fro
 **Tuning orderer performance**
 
 New orderer tuning parameters are available in the console to give you more control over your orderer throughput and performance. See this topic on [Tuning your orderer](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-orderer-tuning) for instructions on how to configure the parameters.
+
+
+

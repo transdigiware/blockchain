@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-01"
+lastupdated: "2021-02-08"
 
 keywords: getting started tutorials, videos, web browsers, integration, storage
 
@@ -73,8 +73,6 @@ subcollection: blockchain
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift-ios: .ph data-hd-programlang='iOS Swift'}
-{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -225,7 +223,7 @@ After you link your {{site.data.keyword.blockchainfull_notm}} Platform to your K
 - **Flexible Kubernetes based deployment:** You can take advantage of the compute (CPU, memory, storage) options for your Kubernetes cluster and leverage built-in HA and DR options.
 
 ## What is the Blockchain Service?
-{: #ibp-v2-deploy-iks-blockhain-service}
+{: #ibp-v2-deploy-iks-blockchain-service}
 
 The following diagram illustrates the three elements of the {{site.data.keyword.blockchainfull_notm}} Platform:
 

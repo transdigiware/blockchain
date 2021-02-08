@@ -107,7 +107,7 @@ subcollection: blockchain
 * [Getting support](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-getting-support)
 
 [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks)
-* [What is the Blockchain Service?](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-blockhain-service)
+* [What is the Blockchain Service?](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-blockchain-service)
 * [Considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations)
 * [Video tutorial](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-video)
 * [Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-prereq)
@@ -1283,7 +1283,7 @@ subcollection: blockchain
 
 [24 March 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020)
 
-[6 Feburary 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-06-2020)
+[6 February 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-06-2020)
 
 [11 December 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-11-2019)
 

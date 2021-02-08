@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-02-08"
 
 keywords: smart contract, private data, private data collection, anchor peer, implicit collections
 
@@ -118,7 +118,6 @@ In the diagram, Org2 and Org4 approve the smart contract definition. Org3 abstai
 
 For more information about advanced channel options, which includes setting the lifecycle policy for the channel and the default endorsement policy that will be set for a smart contract if none is specified, check out the [Advanced options](/docs/blockchain?topic=blockchain-ibp-console-govern#ibp-console-govern-update-channel-available-parameters-advanced) section of our topic on channels.
 
-
 ## Before you begin
 {: #ibp-console-smart-contracts-v2-before}
 
@@ -135,7 +134,7 @@ If your peer is running a Fabric v1.4.x image, you cannot use this tutorial to m
 
 To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
 
-The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
+The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsement policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
 
 ### Create channel and join peers
 {: #ibp-console-smart-contracts-v2-before-peer}
@@ -356,7 +355,7 @@ All lifecycle actions are managed from the **Channels** tab in the console.
   Be careful how you name your proposal. If a proposal with the same name already exists on the channel, this proposal replaces it.
   {: tip}
 
-5. On the **Install smart contract** panel, you can install the smart contract on all your peers on the channel or just a subset. In a production network, for redundancy reasons, you should install the smart contract on at least two peers, or three when you want to maintain redundancy but still allow for one peer to go down for maintenance.
+5. On the **Install smart contract** panel, you can install the smart contract on all your peers on the channel or just a subset. In a production network, for redundancy reasons, you should install the smart contract on at least two peers, or three when you want to maintain redundancy but still allow for one peer to go down for maintenance. 
   Since you are proposing the smart contract, it must be installed on at least one peer.
   {: note}
 

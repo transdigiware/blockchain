@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-10-30"
+  years: 2019, 2021
+lastupdated: "2021-02-08"
 
 keywords: network components, IBM Cloud Kubernetes Service, batch timeout, channel update, channels, Raft, channel configuration, access control
 
@@ -163,7 +163,7 @@ Because of this, all of the nodes in a channel must be at least at the level of 
 
 1. Upgrade all of the nodes in the channel. For more information, check out [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 2. Update the relevant capabilities of the channel. Do not attempt to edit the capabilities until you are sure your nodes are at the appropriate Fabric versions.
-3. To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated. The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of [deploying the smart contract using the v2.x lifecycle](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
+3. To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated. The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsement policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of [deploying the smart contract using the v2.x lifecycle](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
 
 The `application` and `channel` capabilities are relevant to peers, while the `orderer` and `channel` capabilities are relevant to the ordering service.
 {: tip}
