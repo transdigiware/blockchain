@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-02-08"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -209,7 +209,7 @@ The following table lists the names of the `JSON` files that contain the identit
 
 1. Navigate to the console wallet and click **Add identity**.
 2. Click the **Upload JSON** tab and browse to the generated identities in the `tutorial` folder and click **Add identity**.
-3. Repeat these steps for each identity file in the table below.
+3. Repeat these steps for each identity file in the following table.
 
 |  | **Ordering Org**    | **Org1** | **Org2** |
 |--|-----------------|------|------|
@@ -220,7 +220,7 @@ The following table lists the names of the `JSON` files that contain the identit
 When you run the `build_network.sh` script with the `destroy` option, all of the nodes and associated metadata are removed from your cluster, but any identities that you manually imported into the console wallet are not removed. Before you run the `build_network.sh` script again with the `build` option, you need to manually remove each identity, by opening it in the wallet and then clicking **Remove identity**.
 {: important}
 
-Using the wallet identities from the preceding table, you can now follow the steps in the table below to associate identities for each node type.
+Using the wallet identities from the preceding table, you can now follow the steps in the following table to associate identities for each node type.
 
 | Associate an identity with CAs |
 |:-------------------------------|
