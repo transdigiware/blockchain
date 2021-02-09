@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-02-09"
 
-keywords: getting started tutorials, videos, web browsers, integration, storage, IBM Cloud, VPC infrastructure
+keywords: getting started tutorials, videos, integration, storage, IBM Cloud, VPC infrastructure
 
 subcollection: blockchain
 
