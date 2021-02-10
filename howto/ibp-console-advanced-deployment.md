@@ -1365,6 +1365,7 @@ Configuring a node to use HSM is a three-part process:
 - The Kubernetes CLI is required to configure the HSM. If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}} see [Getting started with {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) or [Installing the OpenShift CLI](/docs/openshift?topic=openshift-openshift-cli).
 - You need access to a container registry, such as Docker or the [{{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started).
 
+
 ### Build a Docker image
 {: #ibp-console-adv-deployment-hsm-build-docker}
 
@@ -1628,6 +1629,18 @@ mountpaths:
 In this example, the first `mountpath` contains four configuration files (cafile.pem, cert.pem, key.pem, server.pem) and the `hsmcrypto` secret, and all of them are mounted to the mountpath `/hsm`. The actual name of the mountpath is `hsmcrypto`, and it contains an exact mapping of the key value pair to the Kubernetes secret and the location to mount it to. For example, `cafile.pem` is read from the path `cafile.pem` in the hsmcrypto mountpath using the `hsmcrypto` secret and mounted to `/hsm/cafile.pem`.  
 
 A second mountpath is included for the HSM `/etc/Chrystoki.conf` file. Because the HSM requires its config file in the `/etc` folder, which is a system directory, we need to use the `subpath` parameter to avoid replacing the entire `/etc` directory. If the subpath is not used, the entire `/etc` directory is replaced with the volume being mounted.  
+
+Run the following command to create the configmap named `ibp-hsm-config` in your cluster namespace or project:
+```
+kubectl create configmap ibp-hsm-config --from-file=ibp-hsm-config.yaml -n <NAMESPACE>
+```
+{: codeblock}
+
+The output looks similar to:
+
+```
+configmap/ibp-hsm-config created
+```
 
 
 
