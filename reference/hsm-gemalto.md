@@ -567,6 +567,7 @@ In this example, the first `mountpath` contains four configuration files (cafile
 A second mountpath is included for the HSM `/etc/Chrystoki.conf` file. Because the HSM requires its config file in the `/etc` folder, which is a system directory, we need to use the `subpath` parameter to avoid replacing the entire `/etc` directory. If the subpath is not used, the entire `/etc` directory is replaced with the volume being mounted.  
 
 Run the following command to create the configmap named `ibp-hsm-config` in your cluster namespace or project:
+
 ```
 kubectl create configmap ibp-hsm-config --from-file=ibp-hsm-config.yaml -n <NAMESPACE>
 ```
