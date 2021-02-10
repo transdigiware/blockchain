@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-10"
 
 keywords: getting started tutorials, videos, integration, storage
 
@@ -283,7 +283,12 @@ When you plan to use the service instance in the context of a broader organizati
 
 - The user who links the service to the Kubernetes cluster must have **Storage Manage** permissions. From the {{site.data.keyword.cloud_notm}} dashboard, navigate to **Manage > Access (IAM)**, then choose **Users**, and click the user who will link the service to the Kubernetes cluster. Click the **Classic infrastructure** tab, expand the **Services** twistie, and select **Storage Manage**. Click **Apply** to add this permission for the user.
 
+### Browsers
+{: #ibp-v2-deploy-iks-browsers}
+The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
+- Chrome Version 85.0.4183.121 (Official Build) (64-bit)
+- Safari Version 13.0.3 (15608.3.10.1.4)
 
 ### Resources required
 {: #ibp-v2-deploy-iks-resources-required}

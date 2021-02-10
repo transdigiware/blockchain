@@ -111,6 +111,7 @@ subcollection: blockchain
 * [Considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-considerations)
 * [Video tutorial](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-video)
 * [Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-prereq)
+  * [Browsers](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-browsers)
   * [Resources required](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-resources-required)
 * [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage)
   * [Provision persistent storage](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage-provision)
