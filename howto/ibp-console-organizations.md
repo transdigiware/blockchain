@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-02"
+  years: 2019, 2021
+lastupdated: "2021-02-11"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -67,6 +67,9 @@ You can click an MSP definition in the organizations tab to view all of the node
 Use the **Organizations** tab to generate an MSP definition for your organization. When you click **Create MSP definition**, a panel will open in which you will enter all the necessary information for your MSP.
 
 - The **MSP definition details** tab is where you provide a display name and an MSP ID for the MSP. Use the tooltip to learn about the restrictions for the MSP ID.
+
+If your organization is joining an ordering service with other organizations, to avoid confusion, it is strongly recommended that every organization have a unique MSP ID. In other words, you should never use the same MSP ID to represent different organizations on a network.
+{: important}
 
 - The **Root Certificate Authority details** tab is where the CA for your organization is specified. This is the CA that you use to register all of the identities associated for your organization. Before creating an MSP, you must register the admin of the MSP. If you use intermediate CAs, this is the CA that you used to create those CAs. Select your CA from the list of CAs managed by using your console. If you created a CA using the console, selecting a CA will also display the root TLS certificate of your TLS CA, which was deployed alongside your CA.
 
