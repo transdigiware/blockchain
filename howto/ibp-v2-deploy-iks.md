@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-02-10"
 
-keywords: getting started tutorials, videos, web browsers, integration, storage
+keywords: getting started tutorials, videos, integration, storage
 
 subcollection: blockchain
 

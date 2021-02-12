@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-02-09"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -400,7 +400,7 @@ To avoid problems, do not mix Fabric v1.4 and v2.x nodes in your Raft cluster. A
 Before an organization admin certificate expires, you must enroll the identity again to generate a new certificate and public key by using the associated CA. These instructions assume that you have the original enroll ID and secret that was specified when the user was originally registered. If the certificates were generated with the console, you can use the following instructions:
 1. Open the CA tile. ***
 2. Locate the enroll ID for the identity in the table and click **Enroll identity** from the action menu.
-3. After you verify that you have selected the correct CA, **Root Certificate Authority**, or **TLS Certificate Authority** according to the type of certificate that you are renewing, provide the enroll ID and secret that was specified when the user was initially registered. If the enroll ID and secret are not available, follow the same steps for an expired [admin certificate](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin).
+3. After you verify that you have selected the correct CA, **Root Certificate Authority**, or **TLS Certificate Authority**, according to the type of certificate that you are renewing, provide the enroll ID and secret that was specified when the user was initially registered. If the enroll ID and secret are not available, follow the same steps for an expired [admin certificate](/docs/blockchain?topic=blockchain-cert-mgmt#ibp-console-identities-expired-certs-admin).
 4. Because the certificate and private key are never stored by the console, you must download them and store them securely and **export** the identity.
 5. Click **Add identity to wallet**. Wallet identities cannot be replaced,  you need to either delete the existing wallet identity or give this one a different name.
 
