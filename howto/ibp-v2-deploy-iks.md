@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-10"
+lastupdated: "2021-02-12"
 
 keywords: getting started tutorials, videos, integration, storage
 
@@ -326,7 +326,15 @@ For a sense of how much storage and compute you will need in your cluster, refer
 | **CA**                         | 0.1           | 0.2                   | 20                     |
 | **Ordering node**              | 0.35          | 0.7                   | 100                    |
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
+| **Console**                    | 1.2           | 2.4                   | 10                     |<blockchain-sw-251>| **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
+|--------------------------------|---------------|-----------------------|------------------------|
+| **Peer (Hyperledger Fabric v1.4)**                       | 1.1           | 2.8                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **Peer (Hyperledger Fabric v2.x)**                       | 0.7           | 2.0                   | 200 (includes 100GB for peer and 100GB for state database)|
+| **CA**                         | 0.1           | 0.2                   | 20                     |
+| **Ordering node**              | 0.35          | 0.7                   | 100                    |
+| **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
+| **Webhook**                    | 0.1           | 0.2                   | 0                      |</blockchain-sw-251>
 {: caption="Table 2. Recommended resources for nodes on {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
