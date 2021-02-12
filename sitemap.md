@@ -100,11 +100,17 @@ subcollection: blockchain
 {: #sitemap_getting_started}
 
 
-[Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-get-started-ibp)
-* [Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-console-ocp-which-ibp)
-  * [{{site.data.keyword.blockchainfull_notm}} images](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-images)
-* [Next steps](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-next-steps)
-* [Getting support](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-getting-support)
+[Getting started with {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain?topic=blockchain-get-started-console-ocp)
+* [Are you a Red Hat Marketplace customer?](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-rhm)
+* [Already have an {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x network and want to upgrade?](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-upgrade)
+* [Is {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 suitable for you?](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-suitable)
+  * [Developer Tools](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-dev-tools)
+  * [{{site.data.keyword.blockchainfull_notm}} images](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-images)
+* [Before you begin](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-set-up-ocp)
+* [Step one: Install the {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-step-two-deploy-console)
+* [Step two: Grant console access to other users](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-step-four-add-console-admin)
+* [Step three: Use the console to create your components](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-build-network)
+* [Step four: Connect networks across clouds](/docs/blockchain?topic=blockchain-get-started-console-ocp#get-started-console-ocp-import-nodes)
 
 [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks)
 * [What is the Blockchain Service?](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-v2-deploy-iks-blockchain-service)
@@ -1034,21 +1040,33 @@ subcollection: blockchain
 * [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
 
 
-## Building a network with APIs
-{: #sitemap_building_a_network_with_apis}
+## Using the {{site.data.keyword.blockchainfull_notm}} Platform APIs
+{: #sitemap_using_the__platform_apis}
 
 
-[Building a network with APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis)
+[Using the {{site.data.keyword.blockchainfull_notm}} Platform APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis)
 
 [Swagger](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-swagger)
 
-[Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
+[Prerequisites](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
 
-[Authentication](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
-* [Retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials)
-* [Retrieving an access token](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-token)
+[Connect to your console using API keys](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-api-key)
+* [Create an API key](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-create-api-key)
+* [Example curl request: Create API key](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-create-api-key-example)
+* [View API keys](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-view-api-keys)
+* [Example curl request: view API keys](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-view-api-key-example)
+* [Delete API keys](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-delete-api-keys)
+* [Example curl request: delete API key](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-delete-api-keys-example)
 
-[Forming your API request](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-form-api-request)
+[Managing users using the APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-users-apis)
+* [List users](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-list-users-api)
+* [Example curl request: list users](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-list-users-api-example)
+* [Edit users](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-edit-users-api)
+* [Example curl request: edit a user](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-edit-users-api-example)
+* [Add users](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-add-users-api)
+* [Example curl request: add a user](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-add-users-api-example)
+* [Remove users](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-manage-remove-users-api)
+* [Example curl request: remove a user](/docs/blockchain?topic=blockchain-ibp-v2-apis#console-icp-remove-add-users-api-example)
 
 [Limitations](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-limitations)
 
