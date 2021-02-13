@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-09-23"
+  years: 2018, 2021
+lastupdated: "2021-02-13"
 
 keywords: IBM Blockchain Platform, video series, videos, getting started videos, demo videos
 
@@ -142,7 +142,9 @@ You can watch the getting started video series to learn more about how to use {{
 
 ## Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
 
-
+<blockchain-sw-251>
+## Getting started with {{site.data.keyword.blockchainfull_notm}} Platform 2.5.2
+</blockchain-sw-251>
 {: #ibp-videos-ibp-v2}
 
 Watch the following [video series]( http://ibm.biz/BlockchainPlatformSeries) to learn more about the {{site.data.keyword.blockchainfull_notm}} Platform and how you can get started to build your own network.
@@ -181,4 +183,3 @@ Watch the following [video series]( http://ibm.biz/BlockchainPlatformSeries) to 
     </a>
   </div>
 </div>
-
