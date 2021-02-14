@@ -57,8 +57,6 @@ For information about upgrading nodes, check out [Upgrading to a new version of 
 
 Because all actions on a blockchain network depend on the existence of valid and verifiable certificates, renewing certificate is vital to avoiding network outages. To streamline the certificate renewal process, the console now allows you to renew your CA TLS certificate, and peer and ordering node enrollment and TLS certificates. While it is preferable to renew certificates before they expire, it is possible to restore components whose certificates have already expired in many cases. Learn more about the new options in [Certificate management](/docs/blockchain?topic=blockchain-cert-mgmt#cert-mgmt-cert-types).
 
-
-
 See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
 
 ## August 27, 2020
