@@ -2,8 +2,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-20"
+  years: 2019, 2021
+lastupdated: "2021-02-14"
 
 keywords: high availability, CA, PostgreSQL, replica sets, zone
 
@@ -89,7 +89,7 @@ subcollection: blockchain
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2021
+lastupdated: "2021-02-14"
 
 keywords: smart contract, lifecycle, package, definition
 
@@ -123,5 +123,5 @@ For more information, see [Developing smart contracts with {{site.data.keyword.b
 ## Installing a package and proposing a definition
 {: #write-powerful-smart-contracts-installing-proposing}
 
-For information about how to use the console to install smart contract packages and propose and commit smart contract definitions on a channel, see [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).<blockchain-sw-251>[Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2).<blockchain-sw-251>
+For information about how to use the console to install smart contract packages and propose and commit smart contract definitions on a channel, see [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).<blockchain-sw-252>[Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-smart-contracts-v2).<blockchain-sw-252>
 

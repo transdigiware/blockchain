@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-11"
+lastupdated: "2021-02-14"
 
 keywords: HSM, PKCS11 proxy
 
@@ -122,7 +122,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform HSM implementation is bas
 
 The first step is to build a Docker image for the PKCS #11 proxy and add the HSM-specific library to the image.
 
-- The following example shows the process for adding the `SoftHSM` drivers to the image. (`SoftHSM` is a software version of HSM that can be used for HSM simulation and testing, but if you are using your own HSM, you need to replace it with the library from your HSM provider.)  If you are using {{site.data.keyword.cloud_notm}} HSM, the proxy instructions are included in the [tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto).
+- The following example shows the process for adding the `SoftHSM` drivers to the image. (`SoftHSM` is a software version of HSM that can be used for HSM simulation and testing, but if you are using your own HSM, you need to replace it with the library from your HSM provider.)  If you are using {{site.data.keyword.cloud_notm}} HSM, the proxy instructions are included in the [tutorial](/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-hsm-gemalto).
 
 If you are running the platform behind a firewall, you need to pull the proxy image to a machine that has internet access and then push the image to a Docker registry that you can access from behind your firewall.
 {: note}

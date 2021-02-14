@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2020
+  years: 2021
 
-lastupdated: "2020-10-16"
+lastupdated: "2021-02-14"
 
 subcollection: blockchain
 
@@ -45,6 +45,5 @@ Creating the HSM configmap fails with the error:
 ```
 
 This error is caused by not specifying a value for the `<IMAGE_PULL_SECRET>` in the [HSM configmap](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-configmap). Even if your HSM client image is public and no image pull secret is required, you still need to provide a value of `""` for the `<IMAGE_PULL_SECRET>` field.
-
 
 

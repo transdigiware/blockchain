@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-13"
+lastupdated: "2021-02-14"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -100,9 +100,9 @@ The {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_
 
 A key benefit of the platform is that {{site.data.keyword.IBM_notm}} tests the open source code for security vulnerabilities daily and provides 24x7x365 support with SLAs appropriate for production environments.
 
-If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.17 - v1.19 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform 2.5.2](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp).
+If you are interested in learning more about how to use {{site.data.keyword.blockchainfull_notm}} Platform on Red Hat OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.17 - v1.19 container platform on x86_64 hardware, see [Getting started with IBM Blockchain Platform 2.5.2](/docs/blockchain-sw-252?topic=blockchain-sw-252-get-started-console-ocp).
 
-If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract container images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images).
+If you are an experienced Hyperledger Fabric customer and are interested in learning more about how to use the {{site.data.keyword.blockchainfull_notm}} peer, CA, orderer, and smart contract container images, see [Using the {{site.data.keyword.blockchainfull_notm}} images ](/docs/blockchain-sw-252?topic=blockchain-sw-252-blockchain-images).
 
 Watch the following video for an introduction to blockchain and the {{site.data.keyword.blockchainfull}} Platform:
 
@@ -160,7 +160,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Deploy easily**. Use Ansible Playbooks or the Red Hat Marketplace to deploy networks quicker than ever before.
 - **Easily code** your [smart contracts](#x8888420){: term} in Node.js, Golang, Java, or JavaScript. Use the {{site.data.keyword.blockchainfull_notm}} Platform Developer Tools to easily develop smart contracts locally or use Red Hat CodeReady Workspaces to develop them in the cloud. Leverage **SDK integration** with the console, and learn from our rich tutorials and samples.
 - **Simplified DevOps** allows you to move from development to test to production in a single environment by scaling up your Kubernetes resources to add more components.
-- **Up-to-date Fabric key features**. Choose which version of Hyperledger Fabric you want to use when deploying peers or ordering nodes. Leverage the latest features of Hyperledger Fabric v1.4.9 and v2.2.1<blockchain-sw-251>v1.4.9 and v2.2.1</blockchain-sw-251>:
+- **Up-to-date Fabric key features**. Choose which version of Hyperledger Fabric you want to use when deploying peers or ordering nodes. Leverage the latest features of Hyperledger Fabric v1.4.9 and v2.2.1:
   - [Smart contract lifecycle](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html){: external}
   - [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-2.2/orderer/ordering_service.html#raft){: external}
   - [Private data collections](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
@@ -171,19 +171,19 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 **OPERATE --- Total control of your deployments**
 - **Host or join a network**. Deploy peers that are hosted in your cluster to multiple channels on multiple clouds, or invite other organizations to join your consortium or channels while the organizations manage their nodes independently across infrastructures.
 - **Maintain complete control of your identities**. Store and manage the keys that are used to administer your nodes. Optionally, use a [Hardware Security Module (HSM)](#x6704988){: term} to generate and store the private key of your nodes.
-- **Run Anywhere**. Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, <blockchain-sw-251>it is possible to run your components on any Kubernetes v1.17 - v1.19 container platform on x86_64 or s390x.</blockchain-sw-251>it is possible to run your components on any environment supported by {{site.data.keyword.cloud_notm}} and third-party public clouds.
+- **Run Anywhere**. Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on any environment supported by {{site.data.keyword.cloud_notm}} and third-party public clouds.
 - **Unified operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one console**. You can also add or remove members from a blockchain consortium, create and join channels, and deploy smart contracts from your console.
 - **Dynamic signature collection** that allows better control over collaborative governance over channel configurations.
 - **Elimination of Docker-in-Docker for smart contracts** allows smart contract pods to be run more securely, without peers needing privileged access.
 - **Manage access** of the users who can administer or monitor your nodes.
-- **Interact directly with your pods** using <blockchain-sw-251>your Kubernetes service</blockchain-sw-251>the Kubernetes dashboard.
+- **Interact directly with your pods** using the Kubernetes dashboard.
 - **Direct access to the logs** of your nodes from your {{site.data.keyword.IBM_notm}} Kubernetes service. Use the {{site.data.keyword.la_full_notm}} or any supported third-party service to extract and analyze your logs.
 - **Kubernetes service integration.** Leverage services such as LogDNA for logging and Prometheus and Sysdig for monitoring. Leverage the built-in {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.cloud_notm}} Kubernetes Service and OpenShift dashboards, {{site.data.keyword.la_full_notm}}, and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
 - **Upgrade the Fabric version of your nodes.** Nodes running Fabric version 1.4.x can be [upgraded to 2.x](/docs/blockchain?topic=blockchain-ibp-console-govern-components#ibp-console-govern-components-upgrade). After which, the capabilities of your channels can also be increased to v2.0, allowing full access to the latest Fabric features like the smart contract lifecycle.
 
 **GROW --- Scalability and flexibility**
 - **Choose your compute**. You have the flexibility to decide the amount of CPU, memory, and storage you want to provision in your Kubernetes cluster. For more information, see [Allocating resources](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-allocate-resources).
-- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information, see [Pricing](/docs/blockchain?topic=blockchain-ibp-saas-pricing)<blockchain-sw-251>[Pricing](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-sw-pricing)</blockchain-sw-251>.
+- **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information, see [Pricing](/docs/blockchain?topic=blockchain-ibp-saas-pricing).
 - **Disaster recovery and multi-region high availability (HA).** This option duplicates your Kubernetes deployment across zones and  regions, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Connect to other Fabric networks**: Join {{site.data.keyword.blockchainfull_notm}} Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the {{site.data.keyword.blockchainfull_notm}} Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI.
 

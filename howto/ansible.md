@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-13"
+lastupdated: "2021-02-14"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -27,7 +27,7 @@ subcollection: blockchain
 # Getting started with Ansible playbooks on the IBM Blockchain Platform
 {: #ansible}
 
-Customers who are interested in automating their {{site.data.keyword.blockchainfull}} Platform network deployments can use Ansible playbooks to <blockchain-sw-251>deploy an instance of the service and</blockchain-sw-251> build out their networks.
+Customers who are interested in automating their {{site.data.keyword.blockchainfull}} Platform network deployments can use Ansible playbooks to  build out their networks.
 {:shortdesc}
 
 **Target audience:** This topic is designed for network creators and system administrators who are responsible for planning and configuring {{site.data.keyword.blockchainfull_notm}} networks on {{site.data.keyword.cloud_notm}} or on their own Kubernetes cluster and are new to Ansible playbooks.
@@ -44,8 +44,7 @@ Ansible Content Collections, or simply **collections**, are the mechanism for di
 
 {{site.data.keyword.blockchainfull_notm}} Platform offers an Ansible collection that includes the pertinent roles, modules, and documentation for rapidly deploying, replicating, and tearing down blockchain networks in a reproducible fashion.
 
-<blockchain-sw-251>The collection includes two main types of playbooks. The first type of playbook is used to automate the installation of the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 or 2.5.x service on a Kubernetes or OpenShift cluster, not in {{site.data.keyword.cloud_notm}}. By configuring a few simple parameters in a file, you can automate the installation of the platform. The second set of playbooks can be used to automate the tasks that you would otherwise perform from the console UI or by using the APIs, for example deploy a Certificate Authority (CA). But the playbooks are more robust than just that. The playbooks automate a logical series of tasks that you would repeatedly perform in the console, for example create a CA, register identities, create an organization MSP definition, and create a peer. And all of these steps can be performed by running a single playbook.
-</blockchain-sw-251>
+
 The Ansible collection includes a set of playbooks that automate the tasks that you would otherwise perform from the console UI or by using the APIs, for example deploy a Certificate Authority (CA). But the playbooks are more robust than just that. The playbooks automate a logical series of tasks that you would repeatedly perform in the console, for example create a CA, register identities, create an organization MSP definition, and create a peer. And all of these steps can be performed by running a single playbook.
 
 This tutorial series is designed for users who are unfamiliar with how to use Ansible playbooks. Experienced Ansible users can go directly to the collection [documentation](https://ibm-blockchain.github.io/ansible-collection/){: external} to get started.
@@ -54,23 +53,14 @@ This tutorial series is designed for users who are unfamiliar with how to use An
 ## How does the {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection work?
 {: #ansible-how}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection uses the [IBM Blockchain Platform REST APIs](https://cloud.ibm.com/apidocs/blockchain). <blockchain-sw-251>The collection includes a playbook that automates the installation of the {{site.data.keyword.blockchainfull_notm}} Platform software into a Kubernetes or Red Hat OpenShift cluster.
-
-It also</blockchain-sw-251>It includes an entire set of playbooks that can be used to deploy your peer, Certificate Authority (CA), and ordering service nodes, create organizations, identities, channels, and deploy smart contracts. And when you need to start over, there are scripts for tearing it all back down. These playbooks will run on your blockchain network that is running on {{site.data.keyword.cloud_notm}} or on your own Kubernetes cluster where the {{site.data.keyword.blockchainfull_notm}} Platform is installed.
+The {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection uses the [IBM Blockchain Platform REST APIs](https://cloud.ibm.com/apidocs/blockchain). It includes an entire set of playbooks that can be used to deploy your peer, Certificate Authority (CA), and ordering service nodes, create organizations, identities, channels, and deploy smart contracts. And when you need to start over, there are scripts for tearing it all back down. These playbooks will run on your blockchain network that is running on {{site.data.keyword.cloud_notm}} or on your own Kubernetes cluster where the {{site.data.keyword.blockchainfull_notm}} Platform is installed.
 
 ## Why would I want to use an Ansible playbook?
 {: #ansible-why}
 
 The Ansible playbooks include a set of modules that you can use to automate the deployment of your nodes, registering of identities, channel creation, and smart contracts installation and instantiation.
 
-<blockchain-sw-251>There are two main scenarios that the playbooks address:
-
-- **Deploying the {{site.data.keyword.blockchainfull_notm}} Platform on a Kubernetes cluster**.  If you are using your own Kubernetes distribution, you can purchase an [{{site.data.keyword.blockchainfull_notm}} 2.5.2 license](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp) and then use the `install-ibp.yml` playbook to deploy the platform onto your Kubernetes cluster. The alternative is to install the service manually by following instructions for [OpenShift Container Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp) or [Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp).
-
-  This option is not applicable if you are planning to install the {{site.data.keyword.blockchainfull_notm}} Platform service from the {{site.data.keyword.cloud_notm}} catalog because the Cloud catalog installs it for you.
-  {: note}
-
-- **Deploying your blockchain network** </blockchain-sw-251>After you deploy the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, or on your supported Kubernetes distribution, there are three ways to build your network. To understand the benefit of using the Ansible playbooks, we compare the options:
+After you deploy the {{site.data.keyword.blockchainfull_notm}} Platform to a Kubernetes cluster on {{site.data.keyword.cloud_notm}}, or on your supported Kubernetes distribution, there are three ways to build your network. To understand the benefit of using the Ansible playbooks, we compare the options:
 
   1. **Deploy your nodes and configure your network manually using the console user interface.** This option is most useful for getting started and learning about the platform and how the console works. It requires stepping through multiple panels to configure all the settings for your nodes, organizations, channels, and smart contracts.
 
@@ -78,7 +68,7 @@ The Ansible playbooks include a set of modules that you can use to automate the 
 
   3. **Use the {{site.data.keyword.blockchainfull_notm}} Platform Ansible Collection**. After you are familiar with the process to set up the various nodes, organizations, channels, and smart contracts, you might want to automate the process. The Ansible playbooks provide a simple, straightforward, way to build and deploy a reproducible network. For getting started, a set of scripts is provided that stitches the relevant playbooks together into a single executable shell script of deployments to perform on your network. Configuration is done through editing `.yml` files.  The Ansible playbooks also automate some of the tasks performed by the Fabric APIs, such as creating a channel, joining a peer to a channel, and installing and instantiating smart contracts. Even more, there are playbooks available for tearing down the configuration so you can reset your network as needed. This option is a great option for setting up networks for POCs, demos, development, and test networks.
 
-  The Ansible playbooks provide an easy-to-use, automated process to <blockchain-sw-251>install the platform, and </blockchain-sw-251>replicate your blockchain networks on-demand. All components that are deployed with the playbooks are also visible in the console where you can interact with them as normal and govern your network.
+  The Ansible playbooks provide an easy-to-use, automated process to replicate your blockchain networks on-demand. All components that are deployed with the playbooks are also visible in the console where you can interact with them as normal and govern your network.
 
 ## Considerations and Limitations
 {: #ansible-limits}
@@ -100,27 +90,12 @@ If you do not have Docker installed, see [install Docker](https://docs.docker.co
 
 Advanced users can review the [Ansible collection documentation](https://ibm-blockchain.github.io/ansible-collection/installation.html){: external} for other installation options.
 
-<blockchain-sw-251>
-The Ansible collection documentation provides the complete set of steps for installing the collection.
 
-- If you plan to use the playbooks to **install the {{site.data.keyword.blockchainfull_notm}} Platform service** on your Kubernetes or OpenShift cluster, you need to install all of the [prerequisites](https://ibm-blockchain.github.io/ansible-collection/installation.html#requirements) on the machine where you will run Ansible.
-- If you only plan to run the playbooks to **deploy components on an existing Kubernetes or OpenShift cluster**, an easier option is to run the playbooks from a Docker image. Because using a Docker image completely bypasses the need for the prerequisite setup (the prereqs are part of the Docker image), this approach is by far the simplest option and is the process that is used in the corresponding tutorial. This option does require that you install Docker before proceeding. To determine whether Docker is installed, run the command `docker --version`. If it is installed, you'll see something similar to:
-
-  ```
-  Docker version 18.09.2, build 6247962
-  ```
-If Docker is not installed, see [install Docker](https://docs.docker.com/get-docker/){: external} to download and install it. You can also check out the [Docker site](https://www.docker.com/){: external} for more education and documentation.
-
-Advanced users can review the [Ansible collection documentation](https://ibm-blockchain.github.io/ansible-collection/installation.html){: external} for other installation options.
-</blockchain-sw-251>
 
 ## Next steps
 {: #ansible-next-steps}
 
-After the image is successfully built, it can be used to run a playbook. To get started with the playbooks see<blockchain-sw-251>:
-
-- [Installing the {{site.data.keyword.blockchainfull_notm}} Platform using an Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp), if you want to use the Ansible playbook to install an instance of the {{site.data.keyword.blockchainfull_notm}} Platform service to your Kubernetes cluster.
-- </blockchain-sw-251> [Building an {{site.data.keyword.blockchainfull_notm}} Platform network using Ansible playbooks](/docs/blockchain?topic=blockchain-ansible-build) if you already have an existing instance of the {{site.data.keyword.blockchainfull_notm}} Platform deployed and want to use the Ansible playbooks to deploy your network components.
+After the image is successfully built, it can be used to run a playbook. To get started with the playbooks see [Building an {{site.data.keyword.blockchainfull_notm}} Platform network using Ansible playbooks](/docs/blockchain?topic=blockchain-ansible-build) if you already have an existing instance of the {{site.data.keyword.blockchainfull_notm}} Platform deployed and want to use the Ansible playbooks to deploy your network components.
 
 ## Where to find support
 {: #ansible-support}

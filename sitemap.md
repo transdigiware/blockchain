@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-13"
+lastupdated: "2021-02-14"
 
 keywords: site map
 subcollection: blockchain
@@ -140,7 +140,7 @@ subcollection: blockchain
 * [Post-install instructions](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-post-install)
   * [Returning to your console from {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-rtn-to-console)
 * [Deleting a service instance](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks-ic#ibp-v2-deploy-iks-delete-service-instance)
-* [Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm){: external}{: external}
+* [Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-252?topic=blockchain-sw-252-deploy-ocp-rhm){: external}{: external}
 
 
 ## About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}
@@ -1323,19 +1323,7 @@ subcollection: blockchain
 
 [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting)
 
-[My deployment fails when I try apply the security and access policies to my namespace](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-policies)
-
-[My deployment fails when I try apply the custom resource definition of the console or operator](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr)
-
-[Extracting the TLS certificate from the Kubernetes webhook fails](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-wh-extract)
-
-[Why is my console upgrade from 2.5 to 2.5.1 failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshootingconsole-upgrade-fails)
-
 [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-chrome-v77)
-
-[Why am I not able to log in to the console from my Chrome browser on Mac OS Catalina?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-catalina)
-
-[Why is my channel creation failing or I am unable to add a new organization to my ordering service with the error "Unable to get system channel"?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-accept-tls)
 
 [When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-status-unavailable)
 
@@ -1346,8 +1334,6 @@ subcollection: blockchain
 [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
 
 [Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
-
-[Why is my Node.js smart contract instantiation failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-instantiate)
 
 [Why is my Node.js smart contract endorsement failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
 
@@ -1378,8 +1364,6 @@ subcollection: blockchain
 [How can I view my smart contract container logs?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry2)
 
 [Why is my CA, peer, or ordering node that is configured to use HSM not working?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-hsm-proxy)
-
-[My CA failed to upgrade, how can I fix it?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-ca-upgrade-fails)
 
 [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-endorsement-sig-failure)
 
