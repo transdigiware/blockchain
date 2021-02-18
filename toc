@@ -107,6 +107,7 @@ IBM Blockchain Platform for IBM Cloud
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 
 	howto/backup-restore.md
+	howto/planning-updates-maint.md
 
 	howto/ibp-v2-apis.md
 	{: .navgroup-end}
