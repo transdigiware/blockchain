@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-14"
+lastupdated: "2021-02-22"
 
 keywords: vs code, Visual Studio Code extension, smart contract, development tools, code ready workspaces
 
@@ -323,7 +323,7 @@ You can also click **Delete Package** to remove the smart contract package from 
 
 You can use the VS Code extension to deploy your smart contract to a preconfigured Hyperledger Fabric network that the extension creates on your local machine. If you are deploying to a V1 capability enabled channel, you need to install and instantiate your smart contract. If you are deploying to a V2 capability enabled channel that uses the new Fabric 2.x lifecycle process, you need to install then "approve" and "commit" a smart contract, as opposed to instantiating it.
 
-This option to deploy a smart contract to a preconfigured network is currently not available if you are running your developer environment from Red Hat CodeReady Workspaces. Instead, you can use an existing {{site.data.keyword.blockchainfull_notm}} Platform network. See the instructions in [Step seven](#develop-vscode-connecting-ibp) to connect to that network.
+This option to deploy a smart contract to a preconfigured network is currently not available if you are running your developer environment from Red Hat CodeReady Workspaces. Instead, you can use an existing {{site.data.keyword.blockchainfull_notm}} Platform network. See the instructions in [Step six](#develop-vscode-connecting-ibp) to connect to that network.
 
 ### Deploying a preconfigured Hyperledger Fabric network
 {: #develop-vscode-connecting-and-disconnecting}
