@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-03-08"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1355,7 +1355,6 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
 	- If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform. After that is completed you can skip to Part 3 **Configure the node to use HSM**. 
-	- If you want to use the [openCryptoki HSM](https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxce/lxce_stackoverview.html){: external} with your Z environment, you should complete these [instructions in GitHub](https://github.com/IBM-Blockchain/HSM/tree/master/Z-HSM) and then skip to Part 3 **Configure the node to use HSM**. 
 2. **Configure an HSM client image** or **Set up a PKCS #11 proxy (Deprecated)** [See Build a Docker image](#ibp-console-adv-deployment-hsm-build-docker).
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
@@ -1544,8 +1543,6 @@ metadata:
 {: #ibp-console-adv-deployment-hsm-configmap}
 
 
-Because the console needs to know the configuration settings to use for your HSM, you need to create a Kubernetes [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){:external} to store these values. The {{site.data.keyword.blockchainfull_notm}} Platform operator uses the HSM configuration passed in this configmap to get the details about the HSM client image, such as what image pull secret to use, and the folder mounts that are required. Based on the information provided, when a CA, peer, or ordering node is deployed with HSM enabled, the operator mounts required the files for the HSM client image.
-
 
 
 
@@ -1642,33 +1639,6 @@ The output looks similar to:
 ```
 configmap/ibp-hsm-config created
 ```
-
-To view the contents of the configmap, run the command:
-```
-kubectl get configmap ibp-hsm-config -n <NAMESPACE>
-```
-{: codeblock}
-
-The output looks similar to:
-
-```
-apiVersion: v1
-data:
-  ibp-hsm-config.yaml: |+
-    library:
-      auth:
-        imagePullSecret: <>
-...
-    type: hsm
-    version: v1
-
-kind: ConfigMap
-metadata:
-...
-```
-
-Congratulations. You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
-
 
 ### Configuring a CA, peer, or ordering node to use the HSM
 {: #ibp-console-adv-deployment-cfg-hsm-node}
