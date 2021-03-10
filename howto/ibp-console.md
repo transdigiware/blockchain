@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-14"
+lastupdated: "2021-03-10"
 
 keywords: key features, build, operate, grow, architecture, multizone clusters, compliance, about
 
@@ -201,19 +201,11 @@ Have questions and want to speak to an {{site.data.keyword.blockchainfull_notm}}
 |----|----|
 | Kubernetes | <ul><li>v1.17 - v1.19</ul> |
 | Orchestration Service| <ul><li>Kubernetes</li><li>OpenShift Container Platform on IBM Cloud 4.4, 4.5</li></ul> |
-| Infrastructure| <ul><li>Classic</li></ul>|
+| Infrastructure| <ul><li>Classic</li><li>VPC</li></ul>|
 | Hardware Security Module [(HSM)](#x6704988){: term} | <ul><li>Tested with [Cloud HSM ](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) <li> Support any HSM that implements the [PKCS #11 standard](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html){: external} </ul> |
 | [VLAN](#x2438470){: term} | <ul><li>[VLAN spanning](/docs/vlans?topic=vlans-vlan-spanning#manage-vlan-spanning){: external} must be enabled for multi-zone clusters. <li>Because  private ingress is not supported, a cluster with only private VLANs is not supported as a public internet connection is required for a connection between the {{site.data.keyword.blockchainfull_notm}} cluster and the customer Kubernetes cluster. A cluster with private and public VLANs configured is supported. </ul> |
 | Storage | <ul><li>File <li> Block <li> Portworx <li> Object (For backups only, not intended for live storage)</ul> |
 {: caption="Table 1. Supported {{site.data.keyword.cloud_notm}} configuration" caption-side="bottom"}
-
-
-
-
-
-
-[Virtual Private Cloud](#x4585403){: term} (VPC) infrastructure is currently not supported.
-{: note}
 
 
 ## Considerations

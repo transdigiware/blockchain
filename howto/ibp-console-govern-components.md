@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-12"
+lastupdated: "2021-03-10"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -75,9 +75,7 @@ Note that you do not need to adjust the CPU, memory, or storage for your smart c
 ### Monitoring file storage
 {: #ibp-console-govern-components-monitor-storage}
 
-
-
-To view your consumption of file storage, navigate to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. Click on the menu icon ![action menu](../../icons/overflow-menu.svg). Then click  **Classic infrastructure**> **Storage** > **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped to your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
+If you are using **Classic infrastructure**, to view your consumption of file storage, navigate to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. Click on the menu icon ![action menu](../../icons/overflow-menu.svg). Then click **Classic infrastructure** > **Storage** > **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped to your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
 
 You will see something that looks like this:
 
@@ -93,7 +91,7 @@ ibmcloud sl file volume-list --column id --column notes
 
 This will allow you to map the output from the pods to the nodes you have deployed.
 
-
+If you are using VPC infrastructure, see [Monitoring block storage volumes](/docs/vpc?topic=vpc-monitor-block-storage-vpc) for more details.
 
 ### Adding storage
 {: #ibp-console-govern-components-add-storage}
