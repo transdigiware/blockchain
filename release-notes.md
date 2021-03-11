@@ -34,6 +34,11 @@ For instructions on how to apply patches to your existing blockchain nodes. Patc
 
 
 
+## 22 Feb 2021
+{: #02-22-2021}
+
+**Certificate Authority (CA) patch 1.4.9-5, Peer and ordering node patch 1.4.9-5 and 2.2.1-5**
+
 ## 12 Jan 2021
 {: #01-12-2021}
 

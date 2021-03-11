@@ -1248,6 +1248,8 @@ subcollection: blockchain
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
 
+[22 Feb 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-22-2021)
+
 [12 Jan 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021)
 * [New logging configuration panel](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021-logger-ui)
 
