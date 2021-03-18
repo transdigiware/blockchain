@@ -97,7 +97,9 @@ subcollection: blockchain
 # Running the {{site.data.keyword.blockchainfull_notm}} Platform with self-managed Kubernetes smart contracts
 {: #ibp-smart-contracts-k8s-self-managed}
 
+This tutorial shows how to use Fabric chaincode containers to run smart contracts in your own Kubernetes namespace.
 The aim of this is to show how with {{site.data.keyword.blockchainfull_notm}} Platform 2.5.2, the Chaincode containers that run smart contracts can be run in a namespace of your own choosing in Kubernetes. This is a new feature of {{site.data.keyword.blockchainfull_notm}} Platform and is made possible by the underlying Hyperledger Fabric - External Chaincode and Chaincode-as-a-server features.
+{: shortdesc}
 
 Objectives:
 - Set up an Ansible based environment to use for configuration
@@ -111,14 +113,12 @@ Objectives:
 ## Before you begin
 {: #ibp-smart-contracts-k8s-self-managed-before}
 
-First, access to {{site.data.keyword.cloud_notm}} to set up the free Kubernetes cluster. Free access to the Kubernetes cluster valid for 28 days. After Kubernetes cluster setup finishes, install the {{site.data.keyword.blockchainfull_notm}} Platform into the cluster.
+Access to {{site.data.keyword.cloud_notm}} to set up the free Kubernetes cluster. Free access to the Kubernetes cluster valid for 28 days. After Kubernetes cluster setup finishes, install the {{site.data.keyword.blockchainfull_notm}} Platform into the cluster.
 
-### Suitable Python Environment
+### Python
 {: #ibp-smart-contracts-k8s-self-managed-before-python}
 
-Ansible is a main feature for this setup. As Ansible is written in Python, therefore, getting a Python environment is essential. Setup of Python can be time consuming and awkward. The easier way to do this successfully is to use pipenv.
-
-To get started, use the following sequence of commands:
+This tutorial requires Ansible, which depends on Python. To simplify the configuration of Python you can use pipenv. For example, run the following commands:
 
 ```bash
 pipenv --python 3.8
@@ -475,7 +475,7 @@ A command will prompt and if you enter `contract nodecontract`, this connects to
 Then, if you enter `metadata` it issues a transaction to query the metadata of the contract (if it works, then, you get a full end-end connectivity)
 
 ```
- contract nodecontract
+contract nodecontract
 Contract set to nodecontract
 [default] fred@caaschannel:nodecontract - $ metadata
 (node:22057) [DEP0123] DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. This will be ignored in a future versi
@@ -491,7 +491,7 @@ on.
 ```
 {: codeblock}
 
-Following is a simple asset creation example for creating an asset:
+Following is a simple example for creating an asset:
 ```
 submit createMyAsset '["007","Bond James Bond"]'
 {
@@ -515,7 +515,7 @@ Submitted readMyAsset  007
 
 Reading an asset that does not exist (or maybe not have clearance to know about?)
 ```
- evaluate readMyAsset '["004"]'ß
+evaluate readMyAsset '["004"]'ß
 Submitted readMyAsset  004
 Error: error in simulation: transaction returned with failure: Error: The my asset 004 does not exist
 ```

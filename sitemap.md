@@ -588,7 +588,7 @@ subcollection: blockchain
 
 [Running the {{site.data.keyword.blockchainfull_notm}} Platform with self-managed Kubernetes smart contracts](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed)
 * [Before you begin](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before)
-  * [Suitable Python Environment](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-python)
+  * [Python](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-python)
   * [More tools](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-tools)
   * [Hyperledger Fabric Peer Commands](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-hyperledger)
 * [API Keys](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-api)
