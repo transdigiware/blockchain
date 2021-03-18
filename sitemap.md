@@ -1159,6 +1159,12 @@ subcollection: blockchain
 
 [IBM Cloud HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic)
 
+[Build PKCS #11 Docker image](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-build)
+
+[Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-deploy-k8s)
+
+[Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-next-steps)
+
 
 ## Glossary
 {: #sitemap_glossary}
