@@ -96,7 +96,6 @@ subcollection: blockchain
 
 
 
-
 ## Getting started
 {: #sitemap_getting_started}
 
