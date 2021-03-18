@@ -1138,6 +1138,20 @@ subcollection: blockchain
 
 [HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy)
 
+[Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy)
+
+[Why is a proxy required?](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-why)
+
+[Building the proxy image](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-build-img)
+
+[Deploying the proxy to your cluster](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy)
+* [**Step one:**  Create a new namespace](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s1)
+* [**Step two:** Create a Kubernetes secret](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s2)
+* [**Step three:** Deploy the proxy pod](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s3)
+* [**Step four:** Configure communication between the proxy and the blockchain components](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s4)
+
+[Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-next-steps)
+
 
 ## IBM Cloud HSM PKCS #11 proxy
 {: #sitemap_ibm_cloud_hsm_pkcs_#11_proxy}
