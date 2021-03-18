@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-14"
+lastupdated: "2021-03-18"
 
 keywords: IBM Blockchain Platform, release, new features
 
@@ -22,6 +22,7 @@ subcollection: blockchain
 
 # What's new
 {: #whats-new}
+
 
 
 

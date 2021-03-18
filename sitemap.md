@@ -585,6 +585,22 @@ subcollection: blockchain
   * [Considerations when you upgrade smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-considerations)
 * [Private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data)
 
+[Running the {{site.data.keyword.blockchainfull_notm}} Platform with self-managed Kubernetes smart contracts](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before)
+  * [Suitable Python Environment](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-python)
+  * [More tools](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-tools)
+  * [Hyperledger Fabric Peer Commands](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-hyperledger)
+* [API Keys](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-api)
+* [Node.js smart contract](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs)
+  * [Chaincode-as-a-server](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs-chaincode)
+  * [Dockerfile](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs-dockerfile)
+* [Secret to pull the docker image](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-secret)
+* [{{site.data.keyword.blockchainfull_notm}} Platform Configuration](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-ibpconfig)
+  * [Playbook details](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-ibpconfig-playbook)
+* [Checkpoint](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-checkpoint)
+* [Create identities](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-createidentities)
+* [Using these identities](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-usingidentities)
+
 
 ## Creating applications
 {: #sitemap_creating_applications}
