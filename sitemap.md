@@ -103,7 +103,6 @@ subcollection: blockchain
 
 [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-get-started-ibp)
 * [Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-console-ocp-which-ibp)
-  * [Developer Tools](/docs/blockchain?topic=blockchain-ibp-console-ha#ibp-console-ha-stop-nodes)
   * [{{site.data.keyword.blockchainfull_notm}} images](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-images)
 * [Next steps](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-next-steps)
 * [Getting support](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-getting-support)
@@ -539,7 +538,6 @@ subcollection: blockchain
 * [Next steps](/docs/blockchain?topic=blockchain-ibp-console-join-network#ibp-console-join-network-next-steps)
 
 [{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain?topic=blockchain-ibp-videos)
-* [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-transaction-flow)
 
 
 ## Deploy a smart contract
@@ -719,7 +717,6 @@ subcollection: blockchain
 * [Adding and removing users from the console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)
   * [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
   * [Assigning access roles to individual or groups of users in IAM](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-users-groups)
-* [Updating the administrator email address](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)
 * [Configuring node logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logger)
   * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-before)
   * [Customize logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-custom)
@@ -1060,9 +1057,6 @@ subcollection: blockchain
 * [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
 
 [Creating a node with a custom configuration](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom)
-* [Example: Creating a custom Certificate Authority](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
-* [Create a high availability CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
-* [Deploy a node that uses an HSM](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
 
 [Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis)
 
@@ -1079,9 +1073,6 @@ subcollection: blockchain
 
 [Creating a configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config)
 * [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
-* [Provide your component enroll ID and secret](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
-* [Provide the signCert of your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
-* [CSR (Certificate Signing Request) hosts](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
 * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 
@@ -1131,32 +1122,12 @@ subcollection: blockchain
 
 [HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy)
 
-[Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Why is a proxy required?](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Building the proxy image](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Deploying the proxy to your cluster](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-* [**Step one:**  Create a new namespace](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
-* [**Step two:** Create a Kubernetes secret](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
-* [**Step three:** Deploy the proxy pod](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
-* [**Step four:** Configure communication between the proxy and the blockchain components](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
-
-[Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
 
 ## IBM Cloud HSM PKCS #11 proxy
 {: #sitemap_ibm_cloud_hsm_pkcs_#11_proxy}
 
 
 [IBM Cloud HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic)
-
-[Build PKCS #11 Docker image](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
 
 
 ## Glossary
