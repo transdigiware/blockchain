@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-03-21"
 
 keywords: smart contract, chaincode, Dockerfile, playbook, docker image, Hyperledger Fabric
 
@@ -97,8 +97,7 @@ subcollection: blockchain
 # Running the {{site.data.keyword.blockchainfull_notm}} Platform with self-managed Kubernetes smart contracts
 {: #ibp-smart-contracts-k8s-self-managed}
 
-This tutorial shows how to use Fabric chaincode containers to run smart contracts in your own Kubernetes namespace.
-The aim of this is to show how with {{site.data.keyword.blockchainfull_notm}} Platform 2.5.2, the Chaincode containers that run smart contracts can be run in a namespace of your own choosing in Kubernetes. This is a new feature of {{site.data.keyword.blockchainfull_notm}} Platform and is made possible by the underlying Hyperledger Fabric - External Chaincode and Chaincode-as-a-server features.
+This tutorial shows how to use Fabric chaincode containers to run smart contracts in your own Kubernetes namespace. This feature of {{site.data.keyword.blockchainfull_notm}} Platform is made by the underlying [Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.2/whatis.html) - [External Chaincode](https://hyperledger-fabric.readthedocs.io/en/release-2.2/cc_service.html) and Chaincode-as-a-server features.
 {: shortdesc}
 
 Objectives:
@@ -108,36 +107,58 @@ Objectives:
 - Provision the Kubernetes resources needed to run the Docker image
 - Create the secrets needed to retrieve the image
 - Deployment of the actual chaincode
-- Testing it!
+- Testing it
 
 ## Before you begin
 {: #ibp-smart-contracts-k8s-self-managed-before}
 
-Access to {{site.data.keyword.cloud_notm}} to set up the free Kubernetes cluster. Free access to the Kubernetes cluster valid for 28 days. After Kubernetes cluster setup finishes, install the {{site.data.keyword.blockchainfull_notm}} Platform into the cluster.
+This tutorial assumes you have already installed {{site.data.keyword.blockchainfull_notm}} Platform with a free developed Kubernetes cluster. Free access to the Kubernetes cluster valid for 28 days. As an alternative, you can choose an environment that is similar to the Kubernetes cluster setup.
 
 ### Python
 {: #ibp-smart-contracts-k8s-self-managed-before-python}
 
-This tutorial requires Ansible, which depends on Python. To simplify the configuration of Python you can use pipenv. For example, run the following commands:
+This tutorial requires Ansible, which depends on Python. To simplify the configuration of Python, you can use pipenv. For example, run the following commands:
 
 ```bash
 pipenv --python 3.8
-pipenv install fabric-sdk-py
+pipenv install fabric-sdk-py 
 pipenv install 'openshift==0.11.2'
 pipenv install jq
-ansible-galaxy collection install ibm.blockchain_platform community.kubernetes moreati.jq ibmcloud.collection
+ansible-galaxy collection install ibm.blockchain_platform community.kubernetes ibmcloud.collection
 # add --force to get upgrade to new versions of these collections
+# note used to use moreati.jq but believed not to be required
 ```
 {: codeblock}
 
-Finally, run `pipenv shell` to get into a shell that has the mandate python configuration.
+Finally, run `pipenv shell` to get into a shell that has the required python configuration.
 
-### More tools
+### Login to {{site.data.keyword.cloud_notm}}
+{: #ibp-smart-contracts-k8s-self-managed-before-login}
+
+If {{site.data.keyword.cloud_notm}} CLI and the plug-ins for the Container Registry and Kubernetes Service is not yet installed, refer to the installation instructions as follows:
+
+- [{{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started) and 
+- [Container Registry and Kubernetes Service plug-ins](https://cloud.ibm.com/docs/cli?topic=cli-install-devtools-manually)
+
+
+When the installation for {{site.data.keyword.cloud_notm}} CLI and Container Registry and Kubernetes Service plug-ins is completed, you can now log in to the {{site.data.keyword.cloud_notm}} to complete the following steps:
+1. Go to the cluster overpage and click **Actions**.
+2. Then, click **Connect via CLI**. 
+3. You can now see a set of similar instructions depending on the location of the cluster:
+
+```bash
+ibmcloud login -a test.cloud.ibm.com -r us-south -g default
+ibmcloud ks cluster config --cluster avaluewillbehere
+ibmcloud cr login
+```
+{: codeblock}
+
+4. You can now use the `kubectl` command.
+
+### Additional tools
 {: #ibp-smart-contracts-k8s-self-managed-before-tools}
 
-- Nodejs (version 12+). Suggested that uses `nvm` for this
-- [{{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
-- Install the Container Registry and Kubernetes Service [plug-ins](https://cloud.ibm.com/docs/cli?topic=cli-install-devtools-manually)
+- Suggest by using `nvm` for Nodejs (version 12+)
 - Docker for building the containers
 - More NodeJS utilities that are required are listed as follows. Install them as needed.
 
@@ -147,7 +168,13 @@ Finally, run `pipenv shell` to get into a shell that has the mandate python conf
 A copy of the [Hyperleger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.2/cc_service.html) Peer Commands is required. Use script `getPeer.sh` to get them.
 
 ```bash
-getPeer.sh
+./scripts/getPeer.sh
+```
+{: codeblock}
+
+This gives the output for the environment variables that requires for setting to ensure the `FABRIC_CFG_PATH` is set correctly. You can check the version of the peer to verify whether the installation is done correctly.
+
+```bash
 peer version
 
 # output. need to have 2.2.1 or later
@@ -162,20 +189,19 @@ peer:
 ```
 {: codeblock}
 
+### API Keys
+{: #ibp-smart-contracts-k8s-self-managed-before-api}
 
-## API Keys
-{: #ibp-smart-contracts-k8s-self-managed-api}
+Two API keys are needed:
 
-There are also 2 required API keys for {{site.data.keyword.blockchainfull_notm}} console service credentials that need to be created:
-
-1. {{site.data.keyword.cloud_notm}} API Key that can be [created from the web ui](https://test.cloud.ibm.com/docs/account?topic=account-service_credentials)
-2. A [User API Key](https://test.cloud.ibm.com/docs/account?topic=account-userapikey#manage-user-keys)
+- {{site.data.keyword.blockchainfull_notm}} Platform console service credentials that can be [created from the web ui](/docs/account?topic=account-service_credentials)
+- {{site.data.keyword.cloud_notm}} API key. To learn how to create a user API key, see [Managing user API keys](/docs/account?topic=account-userapikey#manage-user-keys) for details.
 
 
 Create a `.env` file that is similar to this:
 
 ```
-# .env file
+# .env file 
 CLOUD_API_KEY=a8aUjPRMrIgLhQXGWcl9tR_FxtdQvjQtmPXnKrFHQIK5
 IBP_KEY=xxxxxxxxxxxxxxxxxxxx
 IBP_ENDPOINT=https://xxxxxxxxxxxxxxxxxxxxxxxxx-ibpconsole-console.so01.blockchain.test.cloud.ibm.com
@@ -189,15 +215,29 @@ export $(grep -v '^#' .env | xargs)
 ```
 {: codeblock}
 
+## Quick start
+{: #ibp-smart-contracts-k8s-self-managed-quickstart}
+These listed commands are placed in a makefile that can run as follows:
+
+- `make nodecontract` builds and publishes the Docker image for the Node.js contract
+- `make javacontract` builds and publishes the Docker image for the Java contract
+- `make gocontract` builds and publishes the Docker image for the Go contract 
+- `make network` builds the network of Peers, Orderers, and CAs
+- `make tls` creates the X509 certificates that require to work with TLS between chaincode and peer
+- `make iamsetup` creates the secret key to pull from the container registry 
+- `make nodedeploy` deploys the Node chaincode definition to the peer, and stands up the chaincode container in a separate Kubernetes namespace from {{site.data.keyword.blockchainfull_notm}} Platform
+- `make javadeploy` deploys the Java chaincode definition to the peer, and stands up the chaincode container in a separate Kubernetes namespace from {{site.data.keyword.blockchainfull_notm}} Platform
+- `make identity` creates an application identity for client applications to use
+
 ## Node.js smart contract
 {: #ibp-smart-contracts-k8s-self-managed-nodejs}
 
-To demonstrate how to deploy a contract, here uses an example, which is the basic getting started contract that is found in the Fabric Docs and the {{site.data.keyword.blockchainfull_notm}} Platform VSCode extensions. The key is the Dockerfile that is also part of the contract, and some minor changes to the package.json
+To demonstrate how to deploy a contract, this tutorial uses an example, which is the basic getting started contract that is found in the Fabric Docs and the {{site.data.keyword.blockchainfull_notm}} Platform VSCode extensions. The key is using the Dockerfile to package up the contract and some minor changes to the package.json file.
 
 ### Chaincode-as-a-server
 {: #ibp-smart-contracts-k8s-self-managed-nodejs-chaincode}
 
-Under normal circumstances, the Peers start (directly or indirectly in the case like {{site.data.keyword.blockchainfull_notm}} Platform) the chaincode processes running. In this case, when the chaincode starts it 'calls back' to the peer to 'register'.
+Under normal circumstances, the Peers start (directly or indirectly in the case like {{site.data.keyword.blockchainfull_notm}} Platform) the chaincode processes running. In this case, when the chaincode starts, it 'calls back' to the peer to 'register'.
 
 Here becomes a different situation whereas the chaincode process becomes a server, and it is up to the peer to connect to it when it needs to 'register'.
 
@@ -205,22 +245,24 @@ After the initial 'registration' is complete, there should be no difference betw
 
 The key is to add the following script to the package.json scripts section.
 
-```
- "start:server": "fabric-chaincode-node server --chaincode-address=$CHAINCODE_SERVER_ADDRESS --chaincode-id=$CHAINCODE_ID"
+```json
+ "start:server": "fabric-chaincode-node server --chaincode-address=$CHAINCODE_SERVER_ADDRESS --chaincode-id=$CHAINCODE_ID --chaincode-tls-key-file=/hyperledger/privatekey.pem --chaincode-tls-client-cacert-file=/hyperledger/rootcert.pem --chaincode-tls-cert-file=/hyperledger/cert.pem"
 ```
 {: codeblock}
 
-Suggest adding `echo $CHAINCODE_SERVER_ADDRESS $CHAINCODE_ID && ` before the command `fabric-chaincode-node` for debugging purposes.
+Suggesting to add `echo $CHAINCODE_SERVER_ADDRESS $CHAINCODE_ID && ` before the command `fabric-chaincode-node` for debugging purposes.
 
-*Note* There are NO changes to the actual contract or libraries used. The only change is the preceding command in the `package.json`
+The actual contract or libraries that are used has NO changes. The only change is the previous command in the `package.json`
+{: important}
+
+The TLS settings are referring to the files that mount into the chaincode when they deploy into Kubernetes. The actual locations are arbitrary and you can alter them based on your setting requirements.
 
 ### Dockerfile
 {: #ibp-smart-contracts-k8s-self-managed-nodejs-dockerfile}
 
+1. The Dockerfile is a relatively simple node.js file that you can create based on your needs.
 
-The Dockerfile is a relatively simple node.js file where you can develop as your need.
-
-```
+```docker
 FROM node:12.15-alpine
 
 WORKDIR /usr/src/app
@@ -239,19 +281,19 @@ CMD ["npm", "run", "start:server"]
 ```
 {: codeblock}
 
-Notice that the PORT is set as 9999 and run the command. Most important is to ensure that the command is running and the port is set up. The port can be of your own choice and 9999 is used in the following example.
+The PORT in the example is set as 9999 to run the command. The port can be set of your own choice and 9999 is used throughout this tutorial. The most important is to ensure that the command is running and the port is set up. 
 
-Then, you need to build and push this to a registry. The registry used in the container registry that is connected to the IBM Kubernetes Cluster.
+2. Then, you need to build and push it to a registry. The registry that is used in this tutorial is the container registry that connects to the {{site.data.keyword.IBM_notm}} Kubernetes Cluster.
 
-```
+```bash 
 docker build -t caasdemo-node .
 docker tag caasdemo-node stg.icr.io/ibp_demo/caasdemo-node:latest
 ```
 {: codeblock}
 
+Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image
 
-```
-ibmcloud cr login
+```bash
 docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
 ```
 {: codeblock}
@@ -260,30 +302,30 @@ docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
 ## Secret to pull the docker image
 {: #ibp-smart-contracts-k8s-self-managed-secret}
 
-See [Creating an image pull secret with different IAM API key credentials for more control or access to images in other {{site.data.keyword.cloud_notm}} accounts](https://cloud.ibm.com/docs/containers?topic=containers-registry#other_registry_accounts) for more information.
+A Kubernetes secret needs to create with credentials of how to pull images from the Container Registry. Learn how to [create an image pull secret with different IAM API key credentials](/docs/containers?topic=containers-registry#other_registry_accounts) for more information.
 
-The required commands are in the `createIAMSecret.sh` script. It needs to run only once.
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform Configuration
 {: #ibp-smart-contracts-k8s-self-managed-ibpconfig}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection is used here. The playbook that creates the Peers or Orders needs to run first.
+Use `ansible-playbooks/000-create-network.yml` to create the Peers, Orderers, and Certificate Authority.
 
 As {{site.data.keyword.blockchainfull_notm}} Platform Playbooks are concerned, the following is the standard.
-```
-ansible-playbook ./config/ansible-playbooks/000-create-network.yml \
+
+```bash
+ansible-playbook ./ansible-playbooks/000-create-network.yml \
     --extra-vars api_key=${IBP_KEY} \
     --extra-vars api_endpoint=${IBP_ENDPOINT} \
     --extra-vars api_token_endpoint=${API_TOKEN_ENDPOINT} \
     --extra-vars channel_name=${CHANNEL_NAME} \
-    --extra-vars home_dir=${DIR}
+    --extra-vars home_dir=${DIR} 
 ```
 {: codeblock}
 
-Next step is to set up the chaincode, which is different from the usual as follows:
+Next step is to set up the chaincode.
 
-```
-ansible-playbook ./config/ansible-playbooks/001-setup-k8s-chaincode.yml \
+```bash
+ansible-playbook ./ansible-playbooks/001-setup-k8s-chaincode.yml \
     --extra-vars api_key=${IBP_KEY} \
     --extra-vars api_endpoint=${IBP_ENDPOINT} \
     --extra-vars api_token_endpoint=${API_TOKEN_ENDPOINT} \
@@ -295,12 +337,13 @@ ansible-playbook ./config/ansible-playbooks/001-setup-k8s-chaincode.yml \
 ```
 {: codeblock}
 
+
 ### Playbook details
 {: #ibp-smart-contracts-k8s-self-managed-ibpconfig-playbook}
 
 This is the `001-setup-k8s-chaincode.yml` playbook.
 
-Kubernetes namespace - first is to create a namespace separate from the running {{site.data.keyword.blockchainfull_notm}} Platform instance.
+- Kubernetes namespace - first is to create a namespace separate from the running {{site.data.keyword.blockchainfull_notm}} Platform instance.
 
 ```yaml
     - name: Setup the namepsace
@@ -312,7 +355,7 @@ Kubernetes namespace - first is to create a namespace separate from the running 
 ```
 {: codeblock}
 
-Service instance - most important is the peer to locate the chaincode and connect. This is done from a Service and by using a ClusterIP type service. The port here is the same as previous and is changed if needed.
+- Service instance - the most important is the peer to locate and connects to the chaincode. This is done from a Service and by using a ClusterIP type service. 
 
 ```yaml
     - name: Create a Service object from an inline definition
@@ -338,7 +381,7 @@ Service instance - most important is the peer to locate the chaincode and connec
 ```
 {: codeblock}
 
-'Proxy' chaincode - needs to install a 'proxy' chaincode to indicate where the chaincode is running. The 'code' is a JSON file - `connection.json`. Following are the two steps to create this file and packaging it up as an 'external chaincode'.
+- 'Proxy' chaincode - it needs to install a 'proxy' chaincode to indicate where the chaincode is running. The 'code' is a JSON file - `connection.json`. Following are the two steps to create this file and packaging it as an 'external chaincode'.
 
 ```yaml
     - copy:
@@ -349,11 +392,12 @@ Service instance - most important is the peer to locate the chaincode and connec
 ```
 {: codeblock}
 
-Install, approve, and commit - the chaincode needs to be installed, approved, and committed. This is a standard use of the ansible tasks that can be used sequentially here. However, if this is in a multi organizational environment, this needs to be handled differently.
+- Install, approve, and commit - the chaincode needs to be installed, approved, and committed. This is a standard use of the ansible tasks that can be used sequentially. However, if it is in a multi organizational environment, then, it needs to be handled differently.
 
-Chaincode configuration - the actual running chaincode needs to know its 'name'. This is assigned by the peer in the previous installation step and can be captured in ansible to put into a configmap.
+- Chaincode configuration - the actual running chaincode needs to know its 'name'. This is assigned by the peer during the previous installation step and can be captured in ansible to put into a configmap.
 
-*Note* This is Node chaincode, so the `CHAINCODE_SERVER_ADDRESS` is `0.0.0.0` again with the port 9999.  
+This is a Node chaincode, so the `CHAINCODE_SERVER_ADDRESS` is `0.0.0.0` again with the port 9999.  
+{: important}
 
 ```yaml
     - name: Create a ConfigMap for the chaincode configuration
@@ -373,7 +417,7 @@ Chaincode configuration - the actual running chaincode needs to know its 'name'.
 ```
 {: codeblock}
 
-Deploying the chaincode - Finally, the chaincode is ready for deployment and get it to run.
+- Deploying the chaincode - the chaincode is now ready for deployment and up for running.
 
 ```yaml
     - name: Create a ConfigMap for the chaincode configuration
@@ -416,26 +460,26 @@ Deploying the chaincode - Finally, the chaincode is ready for deployment and get
 
 A few items are tied together:
 
-- The Docker image name of the container and the secret that is used to pull this from the registry
+- The Docker image name of the container and the secret that is used to pull it from the registry
 - The port is used
-- The configmap is used to configure the environment
+- The configmap is used for configuring the environment
 
 ## Checkpoint
 {: #ibp-smart-contracts-k8s-self-managed-checkpoint}
 
 By now, you achieved the following:
 
-- Created and built a Nodejs smart contract and produced a Docker image to host it (the chaincode).
-- This pushed to the docker registry. Created and used the secret for pulling the image.
-- Use Ansible to create the {{site.data.keyword.blockchainfull_notm}} Platform network and installed a proxy chaincode.
-- The config maps from Kubernetes resources created and deployed the service.
+- Able to created and build a Nodejs smart contract and producing a Docker image to host it (the chaincode)
+- Able to push the image to the docker registry. Create and use the secret for pulling the image
+- Use Ansible to create the {{site.data.keyword.blockchainfull_notm}} Platform network and install a proxy chaincode
+- The configmap from Kubernetes resources creates and deploys the service.
 
-Next steps are to create an identity, and use that to submit transactions
+Next steps are to create an identity and use it to submit transactions
 
 ## Create identities
 {: #ibp-smart-contracts-k8s-self-managed-createidentities}
 
-The Ansible playbook `002-create-identity.yml` that creates an identity to make it available for use with Client-side applications.
+The Ansible playbook `002-create-identity.yml` that creates an identity to make it available for use with the Client-side applications.
 
 ```bash
 ansible-playbook ./config/ansible-playbooks/002-create-identity.yml \
@@ -451,16 +495,16 @@ ansible-playbook ./config/ansible-playbooks/002-create-identity.yml \
 ```
 {: codeblock}
 
-The first half of this playbook uses the {{site.data.keyword.blockchainfull_notm}} Platform collection to create the identity. The second half is using a community utility to take the identities from {{site.data.keyword.blockchainfull_notm}} Platform and create a local wallet for use by the Fabric Client SDKs.
+The first half of this playbook uses the {{site.data.keyword.blockchainfull_notm}} Platform collection to create the identity. The second half uses a community utility to take the identities from {{site.data.keyword.blockchainfull_notm}} Platform and create a local wallet for use by the Fabric Client SDKs.
 
 (If `npm install -g @hyperledgendary/weftility` is not yet installed)
 
-The `_cfg` creates the directory that contains a connection profile and a couple of wallets to use with the 'fred' identity.  
+This creates the `_cfg` directory that contains a connection profile and a couple of wallets to use with the 'fred' identity.  
 
 ## Using these identities
 {: #ibp-smart-contracts-k8s-self-managed-usingidentities}
 
-Next, and final step is to send some actual transactions. You can now decide to write your own client app, or use the VSCode extension, or use an already written client-side app.  
+The final step is to send actual transactions. You can now decide to write your own client app, or use the VSCode extension, or use an already written client-side app.  
 
 To begin, install `runhfsc`
 
@@ -470,12 +514,12 @@ runhfsc --gateway ./_cfg/ansible/_gateways/CAASDEMO_CAASOrg1.json --wallet ./_cf
 ```
 {: codeblock}
 
-A command will prompt and if you enter `contract nodecontract`, this connects to {{site.data.keyword.blockchainfull_notm}} Platform.
+Now, you can get a command prompt and by entering `contract nodecontract` to connect to the {{site.data.keyword.blockchainfull_notm}} Platform.
 
-Then, if you enter `metadata` it issues a transaction to query the metadata of the contract (if it works, then, you get a full end-end connectivity)
+Then, by entering `metadata`, it issues a transaction to query the metadata of the contract. (You can get a full end to end connectivity when this function properly.)
 
 ```
-contract nodecontract
+ contract nodecontract
 Contract set to nodecontract
 [default] fred@caaschannel:nodecontract - $ metadata
 (node:22057) [DEP0123] DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. This will be ignored in a future versi
@@ -491,7 +535,8 @@ on.
 ```
 {: codeblock}
 
-Following is a simple example for creating an asset:
+This is a simple example for creating an asset:
+
 ```
 submit createMyAsset '["007","Bond James Bond"]'
 {
@@ -501,7 +546,7 @@ submit createMyAsset '["007","Bond James Bond"]'
 }
 Submitted createMyAsset  007,Bond James Bond
 >
-````
+```
 {: codeblock}
 
 And to read the asset back again
@@ -514,6 +559,7 @@ Submitted readMyAsset  007
 {: codeblock}
 
 Reading an asset that does not exist (or maybe not have clearance to know about?)
+
 ```
 evaluate readMyAsset '["004"]'ß
 Submitted readMyAsset  004

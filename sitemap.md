@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-21"
 
 keywords: site map
 subcollection: blockchain
@@ -589,9 +589,11 @@ subcollection: blockchain
 [Running the {{site.data.keyword.blockchainfull_notm}} Platform with self-managed Kubernetes smart contracts](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed)
 * [Before you begin](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before)
   * [Python](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-python)
-  * [More tools](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-tools)
+  * [Login to {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-login)
+  * [Additional tools](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-tools)
   * [Hyperledger Fabric Peer Commands](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-hyperledger)
-* [API Keys](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-api)
+  * [API Keys](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-api)
+* [Quick start](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-quickstart)
 * [Node.js smart contract](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs)
   * [Chaincode-as-a-server](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs-chaincode)
   * [Dockerfile](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs-dockerfile)
@@ -1352,8 +1354,6 @@ subcollection: blockchain
 
 
 [Known issues](/docs/blockchain?topic=blockchain-known-issues-saas)
-
-[Nil pointer when creating HSM-configmap](/docs/blockchain?topic=blockchain-known-issues-saas#known-issues-hsm-configmap)
 
 
 ## Troubleshooting
