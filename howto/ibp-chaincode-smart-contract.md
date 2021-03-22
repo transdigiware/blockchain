@@ -147,12 +147,12 @@ When the installation for {{site.data.keyword.cloud_notm}} CLI and Container Reg
 2. Then, click **Connect via CLI**. 
 3. You can now see a set of similar instructions depending on the location of the cluster:
 
-    ```bash
-    ibmcloud login -a test.cloud.ibm.com -r us-south -g default
-    ibmcloud ks cluster config --cluster avaluewillbehere
-    ibmcloud cr login
-    ```
-    {: codeblock}
+        ```bash
+        ibmcloud login -a test.cloud.ibm.com -r us-south -g default
+        ibmcloud ks cluster config --cluster avaluewillbehere
+        ibmcloud cr login
+        ```
+        {: codeblock}
 
 4. You can now use the `kubectl` command.
 
@@ -282,17 +282,18 @@ The TLS settings are referring to the files that mount into the chaincode when t
     ```
     {: codeblock}
 
- The PORT in the example is set as 9999 to run the command. The port can be set of your own choice and 9999 is used throughout this tutorial. The most important is to ensure that the command is running and the port is set up. 
+      The PORT in the example is set as 9999 to run the command. The port can be set of your own choice and 9999 is used throughout this tutorial. The most important is to ensure that the command is running and the port is set up. 
 
-2. Then, you need to build and push it to a registry. The registry that is used in this tutorial is the container registry that connects to the {{site.data.keyword.IBM_notm}} Kubernetes Cluster.
-
+<ol start="2">
+  <li>Then, you need to build and push it to a registry. The registry that is used in this tutorial is the container registry that connects to the {{site.data.keyword.IBM_notm}} Kubernetes Cluster.</li>
+</ol>
     ```bash 
     docker build -t caasdemo-node .
     docker tag caasdemo-node stg.icr.io/ibp_demo/caasdemo-node:latest
     ```
     {: codeblock}
 
- Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image
+  Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image
 
     ```bash
     docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
