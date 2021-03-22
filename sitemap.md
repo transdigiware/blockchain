@@ -1355,6 +1355,8 @@ subcollection: blockchain
 
 [Known issues](/docs/blockchain?topic=blockchain-known-issues-saas)
 
+[Peer 1.4 Failure on VPC cluster](/docs/blockchain?topic=blockchain-known-issues-saas#sw-known-issues-peer14-failure)
+
 
 ## Troubleshooting
 {: #sitemap_troubleshooting}
