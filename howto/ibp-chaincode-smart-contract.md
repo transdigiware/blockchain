@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2021
-lastupdated: "2021-03-21"
+lastupdated: "2021-03-22"
 
 keywords: smart contract, chaincode, Dockerfile, playbook, docker image, Hyperledger Fabric
 
@@ -142,16 +142,17 @@ If {{site.data.keyword.cloud_notm}} CLI and the plug-ins for the Container Regis
 
 
 When the installation for {{site.data.keyword.cloud_notm}} CLI and Container Registry and Kubernetes Service plug-ins is completed, you can now log in to the {{site.data.keyword.cloud_notm}} to complete the following steps:
+
 1. Go to the cluster overpage and click **Actions**.
 2. Then, click **Connect via CLI**. 
 3. You can now see a set of similar instructions depending on the location of the cluster:
 
-```bash
-ibmcloud login -a test.cloud.ibm.com -r us-south -g default
-ibmcloud ks cluster config --cluster avaluewillbehere
-ibmcloud cr login
-```
-{: codeblock}
+    ```bash
+    ibmcloud login -a test.cloud.ibm.com -r us-south -g default
+    ibmcloud ks cluster config --cluster avaluewillbehere
+    ibmcloud cr login
+    ```
+    {: codeblock}
 
 4. You can now use the `kubectl` command.
 
@@ -262,41 +263,41 @@ The TLS settings are referring to the files that mount into the chaincode when t
 
 1. The Dockerfile is a relatively simple node.js file that you can create based on your needs.
 
-```docker
-FROM node:12.15-alpine
+    ```docker
+    FROM node:12.15-alpine
 
-WORKDIR /usr/src/app
+    WORKDIR /usr/src/app
 
-# Copy package.json first to check if an npm install is needed
-COPY package.json /usr/src/app
-RUN npm install --production
+    # Copy package.json first to check if an npm install is needed
+    COPY package.json /usr/src/app
+    RUN npm install --production
 
-# Bundle app source
-COPY . /usr/src/app
+    # Bundle app source
+    COPY . /usr/src/app
 
-ENV PORT 9999
-EXPOSE 9999
+    ENV PORT 9999
+    EXPOSE 9999
 
-CMD ["npm", "run", "start:server"]
-```
-{: codeblock}
+    CMD ["npm", "run", "start:server"]
+    ```
+    {: codeblock}
 
-The PORT in the example is set as 9999 to run the command. The port can be set of your own choice and 9999 is used throughout this tutorial. The most important is to ensure that the command is running and the port is set up. 
+ The PORT in the example is set as 9999 to run the command. The port can be set of your own choice and 9999 is used throughout this tutorial. The most important is to ensure that the command is running and the port is set up. 
 
 2. Then, you need to build and push it to a registry. The registry that is used in this tutorial is the container registry that connects to the {{site.data.keyword.IBM_notm}} Kubernetes Cluster.
 
-```bash 
-docker build -t caasdemo-node .
-docker tag caasdemo-node stg.icr.io/ibp_demo/caasdemo-node:latest
-```
-{: codeblock}
+    ```bash 
+    docker build -t caasdemo-node .
+    docker tag caasdemo-node stg.icr.io/ibp_demo/caasdemo-node:latest
+    ```
+    {: codeblock}
 
-Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image
+ Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image
 
-```bash
-docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
-```
-{: codeblock}
+    ```bash
+    docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
+    ```
+    {: codeblock}
 
 
 ## Secret to pull the docker image
