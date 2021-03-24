@@ -123,55 +123,54 @@ To resolve this problem, you can perform the following steps:
 
 1. **Update and deploy ALB.** For clusters with only one single node, you can add a second node to it. For clusters with multizone cluster, you can add a second node to each zone or another option is to edit the replica set and scale it down to 1. To scale-down the replica set to 1, you can perform the following steps: 
 
-    a. To find the existing replica set.
+  - To find the existing replica set.
 
-        ```
-        kubectl get replicasets -n kube-system | grep -i alb
-        public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
-        ```
-        {: codeblock}
+      ```
+      kubectl get replicasets -n kube-system | grep -i alb
+      public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
+      ```
+      {: codeblock}
 
-    b. To scale-down the replica set to 1.
+  - To scale-down the replica set to 1.
 
-        ```
-        kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
-        replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
-        ```
-        {: codeblock}
+      ```
+      kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
+      replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
+      ```
+      {: codeblock}
 
 2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you need to add the ingress changes manually for each peer and orderer by performing the following steps: 
 
-    a. To get and edit the ingress name.
+  - To get and edit the ingress name.
 
-        ```
-        kubectl get ingress --all-namespaces 
-        kubectl -n <name-space> edit ingress <ingress-name> 
-        ```
-        {: codeblock}
+      ```
+      kubectl get ingress --all-namespaces 
+      kubectl -n <name-space> edit ingress <ingress-name> 
+      ```
+      {: codeblock}
 
-    b. To edit the ingress definition, you need to:
+  - To edit the ingress definition, you need to:
 
-        - Change annotations
+      - Change annotations
             
-            ```
-            annotations:
-            nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-            nginx.ingress.kubernetes.io/proxy-ssl-verify: "false" 
-            ```
-            {: codeblock}
+          ```
+          annotations:
+          nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+          nginx.ingress.kubernetes.io/proxy-ssl-verify: "false" 
+          ```
+          {: codeblock}
 
-        - Add in spec section
+      - Add in spec section
             
-            ```
-            spec:
-            ingressClassName: public-iks-k8s-nginx 
-            ```
-            {: codeblock}
+          ```
+          spec:
+          ingressClassName: public-iks-k8s-nginx 
+          ```
+          {: codeblock}
 
 3. **Verify the resolution.** You can now verify the changes by performing the following steps:
 
   - Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each listed entry.
-
   - Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
 
 
