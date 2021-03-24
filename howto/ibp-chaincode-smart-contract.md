@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-24"
 
 keywords: smart contract, chaincode, Dockerfile, playbook, docker image, Hyperledger Fabric
 
@@ -294,12 +294,12 @@ The TLS settings are referring to the files that mount into the chaincode when t
     ```
     {: codeblock}
 
-  Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image.
+     Ensure you login to the container registry (`ibmcloud cr login`) and push the docker image.
 
-    ```bash
-    docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
-    ```
-    {: codeblock}
+      ```bash
+      docker push  stg.icr.io/ibp_demo/caasdemo-node:latest
+      ```
+      {: codeblock}
 
 
 ## Secret to pull the docker image

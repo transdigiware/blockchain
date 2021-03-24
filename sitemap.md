@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-24"
 
 keywords: site map
 subcollection: blockchain
@@ -585,24 +585,6 @@ subcollection: blockchain
   * [How to upgrade a smart contract](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-howto)
   * [Considerations when you upgrade smart contracts](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-considerations)
 * [Private data](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data)
-
-[Running the {{site.data.keyword.blockchainfull_notm}} Platform with self-managed Kubernetes smart contracts](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before)
-  * [Python](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-python)
-  * [Login to {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-login)
-  * [Additional tools](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-tools)
-  * [Hyperledger Fabric Peer Commands](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-hyperledger)
-  * [API Keys](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-before-api)
-* [Quick start](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-quickstart)
-* [Node.js smart contract](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs)
-  * [Chaincode-as-a-server](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs-chaincode)
-  * [Dockerfile](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-nodejs-dockerfile)
-* [Secret to pull the docker image](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-secret)
-* [{{site.data.keyword.blockchainfull_notm}} Platform Configuration](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-ibpconfig)
-  * [Playbook details](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-ibpconfig-playbook)
-* [Checkpoint](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-checkpoint)
-* [Create identities](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-createidentities)
-* [Using these identities](/docs/blockchain?topic=blockchain-ibp-smart-contracts-k8s-self-managed#ibp-smart-contracts-k8s-self-managed-usingidentities)
 
 
 ## Creating applications
@@ -1363,6 +1345,8 @@ subcollection: blockchain
 
 
 [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting)
+
+[Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment (Ingress issue)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-ingress-issue)
 
 [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-chrome-v77)
 
