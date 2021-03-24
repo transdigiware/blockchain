@@ -37,9 +37,7 @@ General problems can occur when you use the console to manage nodes, channels, o
 This topic describes common issues that can occur when you use the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
-
 - [Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment? (Ingress issue)](#ibp-v2-troubleshooting-ingress-issue)
-
 - [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
@@ -93,17 +91,16 @@ You may also see errors connecting to the proxy URL such as the following report
 "stitch_msg": "unable to get block: grpc web proxy's message: "Response closed without headers". This can happen when encountering CORS or untrusted TLS issues with the grpc web proxy.",
 ```
 {: codeblock}
-
 {: tsSymptoms}
 
 This problem can occur when the cluster creation date is after 01 December, 2020 with version 1.18 or higher. Or, when you finish deploying the IBM Blockchain Platform while the IBM Cloud Kubernetes Service user interface or CLI displays the pod is running, but the orderer or peer user interface does not appear online. 
 {: tsCauses}
 
-Before ressolving this problem, you can check the ALB replica set by running `kubectl get replicasets -n kube-system` and look for result similar to this: `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. For clusters created after 01 December, 2020 and version is 1.18 or higher, you can check the ingress configuration by:
+Before ressolving this problem, you can check the application load balancer (ALB) replica set by running `kubectl get replicasets -n kube-system` and look for result similar to `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. For clusters created after 01 December, 2020 with version 1.18 or higher, you can check the ingress configuration by:
 
-1. Run `kubectl get ingress --all-namespaces` to find out the ingress matching nodes that are having issues
+1. Run `kubectl get ingress --all-namespaces` to find out the ingress matching nodes that are having issues.
 
-2. Run `kubectl get ingress <componentname> -n <namespace> -o yaml` to wipe out the current ingress configuration
+2. Run `kubectl get ingress <componentname> -n <namespace> -o yaml` to wipe out the current ingress configuration.
 
 3. Verify if the following configuration is missing:
     ```
@@ -122,11 +119,11 @@ Before ressolving this problem, you can check the ALB replica set by running `ku
     {: codeblock}
 
 To resolve this problem, you can perform the following steps:
+{: tsResolve}
 
 1. **Update and deploy ALB.** Depending on your cluster settings, you can add a second node to it. If it is a multizone cluster, you can add a second node to each zone or edit the replica set and scale it down to 1. To scale down the replica set to 1, you can perform the following steps: 
 
     1.1. To find the replica set.
-    
         ```
         kubectl get replicasets -n kube-system | grep -i alb
         public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
@@ -134,7 +131,6 @@ To resolve this problem, you can perform the following steps:
         {: codeblock}
 
     1.2. To scale down the replica set to 1.
-    
         ```
         kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
         replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
@@ -144,7 +140,6 @@ To resolve this problem, you can perform the following steps:
 2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you will need to manually add the ingress changes for each peer and orderer by performing the following steps: 
 
     2.1. Get and edit the ingress name
-
         ```
         kubectl get ingress --all-namespaces 
         kubectl -n <name-space> edit ingress <ingress-name> 
@@ -154,7 +149,6 @@ To resolve this problem, you can perform the following steps:
     2.2. Edit the ingress definition:
 
         2.2.1. Change annotations
-
             ```
             annotations:
             nginx.ingress.kubernetes.io/backend-protocol: HTTPS
@@ -163,7 +157,6 @@ To resolve this problem, you can perform the following steps:
             {: codeblock}
 
         2.2.2. Add in spec section
-
             ```
             spec:
             ingressClassName: public-iks-k8s-nginx 
@@ -175,7 +168,7 @@ To resolve this problem, you can perform the following steps:
     3.1. Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each entry listed.
 
     3.2. Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
-{: tsResolve}
+
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
