@@ -84,6 +84,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 {: troubleshoot}
 
 When deploying a new IBM Cloud Kubernetes Service cluster and a new IBM Blockchain Platform environment, the IBM Blockchain Platform user interface is unable to connect to the provision components. The component status does not turn green even when the pod shows it is running fine from the IBM Cloud Kubernetes Service user interface or the command line interface (CLI).
+{: tsSymptoms}
 
 You may also see errors connecting to the proxy URL such as the following reported by the IBM Blockchain Platform console:
 
@@ -91,7 +92,6 @@ You may also see errors connecting to the proxy URL such as the following report
 "stitch_msg": "unable to get block: grpc web proxy's message: "Response closed without headers". This can happen when encountering CORS or untrusted TLS issues with the grpc web proxy.",
 ```
 {: codeblock}
-{: tsSymptoms}
 
 This problem can occur when the cluster creation date is after 01 December, 2020 with version 1.18 or higher. Or, when you finish deploying the IBM Blockchain Platform while the IBM Cloud Kubernetes Service user interface or CLI displays the pod is running, but the orderer or peer user interface does not appear online. 
 {: tsCauses}
@@ -121,34 +121,34 @@ Before ressolving this problem, you can check the application load balancer (ALB
 To resolve this problem, you can perform the following steps:
 {: tsResolve}
 
-1. **Update and deploy ALB.** Depending on your cluster settings, you can add a second node to it. If it is a multizone cluster, you can add a second node to each zone or edit the replica set and scale it down to 1. To scale down the replica set to 1, you can perform the following steps: 
+1. **Update and deploy ALB.** For clusters with only one single node, you can add a second node to it. For clusters with multizone cluster, you can add a second node to each zone or another option is to edit the replica set and scale it down to 1. To scale-down the replica set to 1, you can perform the following steps: 
 
-    1.1. To find the replica set.
+    a. To find the existing replica set.
         ```
         kubectl get replicasets -n kube-system | grep -i alb
         public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
         ```
         {: codeblock}
 
-    1.2. To scale down the replica set to 1.
+    b. To scale-down the replica set to 1.
         ```
         kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
         replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
         ```
         {: codeblock}
 
-2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you will need to manually add the ingress changes for each peer and orderer by performing the following steps: 
+2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you will need to add the ingress changes manually for each peer and orderer by performing the following steps: 
 
-    2.1. Get and edit the ingress name
+    a. Get and edit the ingress name
         ```
         kubectl get ingress --all-namespaces 
         kubectl -n <name-space> edit ingress <ingress-name> 
         ```
         {: codeblock}
 
-    2.2. Edit the ingress definition:
+    b. Edit the ingress definition:
 
-        2.2.1. Change annotations
+        - Change annotations
             ```
             annotations:
             nginx.ingress.kubernetes.io/backend-protocol: HTTPS
@@ -156,7 +156,7 @@ To resolve this problem, you can perform the following steps:
             ```
             {: codeblock}
 
-        2.2.2. Add in spec section
+        - Add in spec section
             ```
             spec:
             ingressClassName: public-iks-k8s-nginx 
@@ -165,9 +165,8 @@ To resolve this problem, you can perform the following steps:
 
 3. **Verify the resolution.** You can now verify the changes by performing the following steps:
 
-    3.1. Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each entry listed.
-
-    3.2. Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
+    - Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each listed entry.
+   - Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
 
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
