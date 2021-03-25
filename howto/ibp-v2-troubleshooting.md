@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-03-25"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -151,7 +151,7 @@ To resolve this problem, you can perform the following steps:
 
   - To edit the ingress definition, you need to:
 
-      - Change annotations
+       - Change annotations
             
           ```
           annotations:
@@ -160,7 +160,7 @@ To resolve this problem, you can perform the following steps:
           ```
           {: codeblock}
 
-      - Add in spec section
+       - Add in spec section
             
           ```
           spec:

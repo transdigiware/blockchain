@@ -3,7 +3,7 @@
 copyright:
   years: 2021
 
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-25"
 
 subcollection: blockchain
 
@@ -26,15 +26,5 @@ This page describes known issues that you might encounter when you use {{site.da
 
 
 
-
-
-
-
-
-
-## Peer 1.4 Failure on VPC cluster
-{: #sw-known-issues-peer14-failure}
-
-Peer 1.4 might not work on VPC cluster due to an issue of mtu mismatch in DinD container.
 
 

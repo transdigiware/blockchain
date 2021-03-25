@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-03-25"
 
 keywords: site map
 subcollection: blockchain
@@ -1336,8 +1336,6 @@ subcollection: blockchain
 
 
 [Known issues](/docs/blockchain?topic=blockchain-known-issues-saas)
-
-[Peer 1.4 Failure on VPC cluster](/docs/blockchain?topic=blockchain-known-issues-saas#sw-known-issues-peer14-failure)
 
 
 ## Troubleshooting
