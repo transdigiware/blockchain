@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-03-26"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -93,14 +93,16 @@ You may also see errors connecting to the proxy URL such as the following report
 ```
 {: codeblock}
 
-This problem can occur when the cluster creation date is after 01 December, 2020 with version 1.18 or higher. Or, when you finish deploying the IBM Blockchain Platform while the IBM Cloud Kubernetes Service user interface or CLI displays the pod is running, but the orderer or peer user interface does not appear online. 
+This problem can occur when the cluster is created after 01 December 2020 with version 1.18 or higher. Or, after you finish deploying the IBM Blockchain Platform while the Kubernetes user interface or CLI still displays the pod as running, but the orderer or the peer user interface does not appear online. 
 {: tsCauses}
 
-Before ressolving this problem, you can check the application load balancer (ALB) replica set by running `kubectl get replicasets -n kube-system` and look for result similar to `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. For clusters created after 01 December, 2020 with version 1.18 or higher, you can check the ingress configuration by:
+Before ressolving this problem, you can check the application load balancer (ALB) replica set by running `kubectl get replicasets -n kube-system` and look for result similar to `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. 
 
-1. Run `kubectl get ingress --all-namespaces` to find out the ingress matching nodes that are having issues.
+For clusters created after 01 December 2020 with version 1.18 or higher, you can check the ingress configuration as follow:
 
-2. Run `kubectl get ingress <componentname> -n <namespace> -o yaml` to wipe out the current ingress configuration.
+1. Run `kubectl get ingress --all-namespaces` to find out which are the ingress matching nodes that are having issues.
+
+2. Run `kubectl get ingress <componentname> -n <namespace> -o yaml` to clear the current ingress configuration.
 
 3. Verify if the following configuration is missing:
     ```
@@ -121,7 +123,7 @@ Before ressolving this problem, you can check the application load balancer (ALB
 To resolve this problem, you can perform the following steps:
 {: tsResolve}
 
-1. **Update and deploy ALB.** For clusters with only one single node, you can add a second node to it. For clusters with multizone cluster, you can add a second node to each zone or another option is to edit the replica set and scale it down to 1. To scale-down the replica set to 1, you can perform the following steps: 
+1. **Update and deploy ALB.** For clusters with only one single node, you can add a second node on to it. For clusters with multizone, you can add a second node to each zone. Or, edit the replica set and scale it down to 1. To scale-down the replica set to 1, you can perform the following steps: 
 
   - To find the existing replica set.
 
@@ -139,9 +141,9 @@ To resolve this problem, you can perform the following steps:
       ```
       {: codeblock}
 
-2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you need to add the ingress changes manually for each peer and orderer by performing the following steps: 
+2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you need to manually add the ingress changes to each peer and orderer by performing the following steps: 
 
-  - To get and edit the ingress name.
+  - To get and edit the ingress name, you need to:.
 
       ```
       kubectl get ingress --all-namespaces 
