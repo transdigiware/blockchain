@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-26"
+lastupdated: "2021-03-30"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -112,14 +112,6 @@ For clusters created after 01 December 2020 with version 1.18 or higher, you can
     ```
     {: codeblock}
 
-    and 
-
-    ```
-    spec:
-        ingressClassName: public-iks-k8s-nginx 
-    ```
-    {: codeblock}
-
 To resolve this problem, you can perform the following steps:
 {: tsResolve}
 
@@ -141,36 +133,7 @@ To resolve this problem, you can perform the following steps:
       ```
       {: codeblock}
 
-2. **Fix ingress on clusters with version 1.18 or higher.** For clusters with version 1.18 or higher, you need to manually add the ingress changes to each peer and orderer by performing the following steps: 
-
-  - To get and edit the ingress name, you need to:.
-
-      ```
-      kubectl get ingress --all-namespaces 
-      kubectl -n <name-space> edit ingress <ingress-name> 
-      ```
-      {: codeblock}
-
-  - To edit the ingress definition, you need to:
-
-       - Change annotations
-            
-          ```
-          annotations:
-          nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-          nginx.ingress.kubernetes.io/proxy-ssl-verify: "false" 
-          ```
-          {: codeblock}
-
-       - Add in spec section
-            
-          ```
-          spec:
-          ingressClassName: public-iks-k8s-nginx 
-          ```
-          {: codeblock}
-
-3. **Verify the resolution.** You can now verify the changes by performing the following steps:
+2. **Verify the resolution.** You can now verify the changes by performing the following steps:
 
   - Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each listed entry.
   - Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
