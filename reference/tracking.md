@@ -157,6 +157,7 @@ For example:
 ```
 pod:chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4
 ```
+{: codeblock}
 
 ## Summary
 {: #ibp-tracking-summary}

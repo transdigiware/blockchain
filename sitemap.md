@@ -173,7 +173,7 @@ subcollection: blockchain
 
 ## What is blockchain?
 
-[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain){: external}
+[What is blockchain?](https://www.ibm.com/topics/what-is-blockchain){: external}
 
 
 ## What's new

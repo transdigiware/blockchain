@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-04-05"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -166,8 +166,8 @@ Java and Node runtime versions are determined by {{site.data.keyword.blockchainf
 {: note}
 
 For more details on smart contract-API compatibility, see:
-- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md){: external}
-- [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md){: external}
+- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/main/COMPATIBILITY.md){: external}
+- [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/main/COMPATIBILITY.md){: external}
 
 ## Registering an application identity
 {: #ibp-console-app-identities}

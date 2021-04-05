@@ -49,7 +49,7 @@ You should already have an {{site.data.keyword.blockchainfull_notm}} Platform se
 ## Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service
 {: #ibp-monitoring-provision}
 
-Deploy an instance of the {{site.data.keyword.mon_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Monitoring Getting started tutorial](/docs/monitoring?topic=monitoring-getting-started){: external} tutorial.
+Deploy an instance of the {{site.data.keyword.mon_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Monitoring getting started tutorial](/docs/monitoring?topic=monitoring-getting-started){: external} tutorial.
 
 After you provision the monitoring service, if you click **Edit sources** in the **Monitoring** tab, a curl command is provided to easily configure monitoring of your Kubernetes cluster. Simply login to your Kubernetes cluster from the CLI and run the curl command to configure the monitoring service for your cluster. In **Step two** below, your monitoring instance should be ready to go. If the curl command fails, ensure that your kubectl version is 1.14 or higher.
 {: tip}
@@ -57,7 +57,7 @@ After you provision the monitoring service, if you click **Edit sources** in the
 ## Step two: Configure the Open Dashboard for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform nodes
 {: #ibp-monitoring-configure}
 
-After you have provisioned the {{site.data.keyword.mon_full_notm}} service, click **View {{site.data.keyword.mon_full_notm}}** from the Monitoring tab of the Open Dashboard in {{site.data.keyword.cloud_notm}}.
+After you have provisioned the {{site.data.keyword.mon_full_notm}} service, click **View Open Dashboard** from the Monitoring tab of the Open Dashboard in {{site.data.keyword.cloud_notm}}.
 1. On the **Welcome to {{site.data.keyword.mon_full_notm}}** panel click **Next**.
 2. Choose **Kubernetes | GKE | OpenShift** as the installation method.
 3. If you have not already configured the instance, you can do so now by following the instructions. Otherwise after the service is provisioned and you can click **Go to next step!** then  **Let’s get started** to launch the Open Dashboard.
