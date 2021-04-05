@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2019-08-27"
+lastupdated: "2021-04-05"
 
-keywords: Log analysis, logDNA, viewing logs, monitoring
+keywords: Log analysis, IBM Log Analysis, viewing logs, monitoring, activity tracker
 
 subcollection: blockchain
 
@@ -20,28 +20,28 @@ subcollection: blockchain
 {:tip: .tip}
 {:download: .download}
 
-# IBM Cloud LogDNA
-{: #ibp-LogDNA}
+# {{site.data.keyword.la_full_notm}}
+{: #ibp-tracking}
 {: help}
 {: support}
 
 {{site.data.keyword.cloud_notm}} includes the {{site.data.keyword.la_full_notm}} service which is useful for viewing and parsing the logs of your {{site.data.keyword.blockchainfull}} Platform nodes and smart contract containers.
 {: shortdesc}
 
-This tutorial describes how to configure {{site.data.keyword.la_full_notm}} service to work with your {{site.data.keyword.blockchainfull_notm}} Platform service instance. First, you need to configure cluster-level logging for you Kubernetes cluster. Then, you can access the LogDNA dashboard from the **Logging** tab of the **Observability** dashboard in {{site.data.keyword.cloud_notm}}.
+This tutorial describes how to configure {{site.data.keyword.la_full_notm}} service to work with your {{site.data.keyword.blockchainfull_notm}} Platform service instance. First, you need to configure cluster-level logging for you Kubernetes cluster. Then, you can access the Open Dashboard from the **Logging** tab of the **Observability** dashboard in {{site.data.keyword.cloud_notm}}.
 
 ## Step one: Configure cluster-level logging
-{: #ibp-LogDNA-kubernetes}
+{: #ibp-tracking-kubernetes}
 
-You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-kube){: external} tutorial. If you are using an OpenShift cluster on {{site.data.keyword.cloud_notm}} you will need to configure the LogDNA agent. Refer to these [instructions](/docs/log-analysis?topic=log-analysis-config_agent_os_cluster){: external}.
+You need to deploy an instance of the {{site.data.keyword.la_full_notm}} service in your {{site.data.keyword.cloud_notm}} account. Complete the steps in the [Managing Kubernetes cluster logs with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-kube){: external} tutorial. If you are using an OpenShift cluster on {{site.data.keyword.cloud_notm}} you will need to configure the {{site.data.keyword.la_full_notm}} agent. Refer to these [instructions](/docs/log-analysis?topic=log-analysis-config_agent_os_cluster){: external}.
 
 ## Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes
-{: #ibp-LogDNA-ibp}
+{: #ibp-tracking-ibp}
 
-Using the {{site.data.keyword.la_full_notm}} service makes viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs simple. The search input box located at the end of the LogDNA page can be used to filter the logs. See the following examples.
+Using the {{site.data.keyword.la_full_notm}} service makes viewing your {{site.data.keyword.blockchainfull_notm}} Platform node logs simple. The search input box located at the end of the {{site.data.keyword.la_full_notm}} page can be used to filter the logs. See the following examples.
 
 ### View node logs
-{: #ibp-LogDNA-ibp-nodes}
+{: #ibp-tracking-ibp-nodes}
 
 When you deploy a peer, Certificate Authority (CA), or ordering node,  a new pod is created in your Kubernetes cluster.  You can use the name of the pod to filter the logs by node. For example, to view the logs of a peer node simply add the text `pod:<pod_name_of_peer_node>` to the search input box, replacing `<pod_name_of_peer_node>` with the name of the peer node pod.  The pod name of your node can be obtained by using kubectl commands such as `kubectl get pod`, or it is visible in your Kubernetes dashboard.
 
@@ -56,7 +56,7 @@ ibp-operator-6558fdc54f-c5zmn   1/1     Running   0          65m
 org1ca-74b8f49fb6-z8gvx         1/1     Running   0          60m
 peerorg1-5765d88c85-jglk2       4/4     Running   0          25m
 
-In the LogDNA search box, prepend the name of the pod with the text `pod:` such that the resulting search string in the logDNA dashboard resembles:
+In the {{site.data.keyword.la_full_notm}} search box, prepend the name of the pod with the text `pod:` such that the resulting search string in the tracking dashboard resembles:
 
 ```
 pod:peerorg1-5765d88c85-jglk2
@@ -85,7 +85,7 @@ ibp-operator-6558fdc54f-c5zmn   1/1     Running   0          65m
 org1ca-74b8f49fb6-z8gvx         1/1     Running   0          60m
 peerorg1-5765d88c85-jglk2       4/4     Running   0          25m
 
-In the LogDNA search box, prepend the name of the pod with the text `pod:` and the value of the `namespace`. The resulting search string in the logDNA dashboard would then be:
+In the {{site.data.keyword.la_full_notm}} search box, prepend the name of the pod with the text `pod:` and the value of the `namespace`. The resulting search string in the tracking dashboard would then be:
 
 ```
 pod:nf85a2apeerorg1-5765d88c85-jglk2
@@ -95,7 +95,7 @@ pod:nf85a2apeerorg1-5765d88c85-jglk2
 In this case, `nf85a2apeerorg1-5765d88c85-jglk2` represents the name of the peer pod.
 
 ### View smart contract logs
-{: #ibp-LogDNA-ibp-smart-contract}
+{: #ibp-tracking-ibp-smart-contract}
 
 The process to view the logs for a smart contract is similar to how you view your node logs but varies depending on whether your peer is running a Fabric v1.4 or v2.x image. The Fabric version that the peer is running is visible when you click on a peer node in the console:
 
@@ -103,7 +103,7 @@ The process to view the logs for a smart contract is similar to how you view you
 
 
 #### <img src="../images/1-4_Pill.png" alt="version 1.4" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image  
-{: #ibp-LogDNA-ibp-smart-contract-14}
+{: #ibp-tracking-ibp-smart-contract-14}
 
 When your peer is using the Hyperledger Fabric v1.4 image, additional strings are required in the search input box.
 - Just like when you view node logs, you filter on the pod name, but it needs to be the name of the peer pod where the smart contract is running.
@@ -120,7 +120,7 @@ pod:n4c817fpeer1org1-55885d5666-zq55t app:fluentd marbles 1.0.0
 ![Filtering on smart contract](../images/logDNAsc.png "Filtering logs by smart contract"){: caption="Figure 3.Filtering logs by smart contract" caption-side="bottom"}
 
 #### <img src="../images/2-x_Pill.png" alt="version 2.x" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v2.x peer image  
-{: #ibp-LogDNA-ibp-smart-contract-2x}
+{: #ibp-tracking-ibp-smart-contract-2x}
 
 In order to filter on the smart contract logs, you need to provide the name of the pod where the smart contract is running. Complete the following steps to get the name of the smart contract pod:
 
@@ -147,7 +147,7 @@ chaincode-execution-f3cc736f-94ef-454d-8da3-362a50c653d9   1/1     Running   0  
 ```
 Find your smart contract pod by examining the associated `chaincode-id` that contains the smart contract name and version.
 
-Then in LogDNA, to view the logs for the `myjavacc` version 1.1 smart contract, you can enter the pod name in the search bar as follows:
+Then in {{site.data.keyword.la_full_notm}}, to view the logs for the `myjavacc` version 1.1 smart contract, you can enter the pod name in the search bar as follows:
 ```
 pod:<SMART_CONTACT_POD>
 ```
@@ -159,6 +159,7 @@ pod:chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4
 ```
 
 ## Summary
-{: #ibp-LogDNA-summary}
+{: #ibp-tracking-summary}
 
-Congratulations. In this tutorial you learned how easy it is to use LogDNA to view the logs for your blockchain nodes and smart contracts. To learn more about monitoring your network, check out the tutorial on using [Open Dashboard](/docs/monitoring?topic=monitoring-getting-started) with your blockchain network.
+Congratulations. In this tutorial you learned how easy it is to use {{site.data.keyword.la_full_notm}} to view the logs for your blockchain nodes and smart contracts. To learn more about monitoring your network, check out the tutorial on using [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-monitoring) with your blockchain network.
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-05"
 
 keywords: site map
 subcollection: blockchain
@@ -102,6 +102,7 @@ subcollection: blockchain
 
 [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-get-started-ibp)
 * [Which {{site.data.keyword.blockchainfull_notm}} Platform offering is right for your business?](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-console-ocp-which-ibp)
+  * [Developer Tools](/docs/blockchain?topic=blockchain-get-started-ibp#developer-tools)
   * [{{site.data.keyword.blockchainfull_notm}} images](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-images)
 * [Next steps](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-next-steps)
 * [Getting support](/docs/blockchain?topic=blockchain-get-started-ibp#get-started-ibp-getting-support)
@@ -717,6 +718,7 @@ subcollection: blockchain
 * [Adding and removing users from the console](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-add-remove)
   * [Role to permissions mapping table](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-role-mapping)
   * [Assigning access roles to individual or groups of users in IAM](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-users-groups)
+* [Updating the administrator email address](/docs/blockchain?topic=blockchain-ibp-console-manage-console#updating-the-administrator-email-address)
 * [Configuring node logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-logger)
   * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-before)
   * [Customize logging](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-logger-custom)
@@ -724,7 +726,7 @@ subcollection: blockchain
   * [Viewing your console logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logs)
   * [Viewing your node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-node-logs)
   * [Viewing your smart contract container logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-container-logs)
-  * [Using LogDNA to view the node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-logdna)
+  * [Using {{site.data.keyword.la_full_notm}} to view the node logs](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-tracking)
 * [Upgrading your nodes](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch)
 * [Kubernetes cluster expiration](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-console-cluster-expiration)
 
@@ -755,6 +757,7 @@ subcollection: blockchain
   * [What capability does HSM add to my blockchain node?](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-capability)
   * [Considerations when using HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-considerations)
   * [Before you begin](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-before)
+  * [(Optional) Configure an HSM daemon](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-daemon)
   * [Build a Docker image](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker)
   * [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node)
 
@@ -994,24 +997,24 @@ subcollection: blockchain
 {: #sitemap_monitoring_your_network}
 
 
-[IBM Cloud LogDNA](/docs/blockchain?topic=blockchain-ibp-LogDNA)
-* [Step one: Configure cluster-level logging](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-kubernetes)
-* [Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp)
-  * [View node logs](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp-nodes)
-  * [View smart contract logs](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-ibp-smart-contract)
-* [Summary](/docs/blockchain?topic=blockchain-ibp-LogDNA#ibp-LogDNA-summary)
+[{{site.data.keyword.la_full_notm}}](/docs/blockchain?topic=blockchain-ibp-tracking)
+* [Step one: Configure cluster-level logging](/docs/blockchain?topic=blockchain-ibp-tracking#ibp-tracking-kubernetes)
+* [Step two: View the logs for your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-tracking#ibp-tracking-ibp)
+  * [View node logs](/docs/blockchain?topic=blockchain-ibp-tracking#ibp-tracking-ibp-nodes)
+  * [View smart contract logs](/docs/blockchain?topic=blockchain-ibp-tracking#ibp-tracking-ibp-smart-contract)
+* [Summary](/docs/blockchain?topic=blockchain-ibp-tracking#ibp-tracking-summary)
 
-[{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-sysdig)
-* [Before you begin](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-before)
-* [Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-provision)
-* [Step two: Configure the {{site.data.keyword.mon_full_notm}} dashboard for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure)
-* [Step three: Create a new dashboard](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-db)
-  * [Copy the **Overview by Container**  dashboard](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-create-new-db)
-  * [Configure panels to view CPU and Memory usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-edit-CPU-and-mem)
-  * [Configure panels to view disk usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-edit-disk)
-  * [Create dashboards for the CA and ordering nodes](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-ca-os)
-* [Step four: Configure alerts to monitor resource usage](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-configure-alerts)
-* [Summary](/docs/blockchain?topic=blockchain-ibp-sysdig#ibp-sysdig-summary)
+[{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-monitoring)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-before)
+* [Step one: Provision an instance of the {{site.data.keyword.mon_full_notm}} service](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-provision)
+* [Step two: Configure the Open Dashboard for monitoring your {{site.data.keyword.blockchainfull_notm}} Platform nodes](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure)
+* [Step three: Create a new dashboard](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure-db)
+  * [Copy the **Overview by Container**  dashboard](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure-create-new-db)
+  * [Configure panels to view CPU and Memory usage](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure-edit-CPU-and-mem)
+  * [Configure panels to view disk usage](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure-edit-disk)
+  * [Create dashboards for the CA and ordering nodes](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure-ca-os)
+* [Step four: Configure alerts to monitor resource usage](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-configure-alerts)
+* [Summary](/docs/blockchain?topic=blockchain-ibp-monitoring#ibp-monitoring-summary)
 
 [IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network){: external}
 
@@ -1057,6 +1060,9 @@ subcollection: blockchain
 * [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
 
 [Creating a node with a custom configuration](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom)
+* [Example: Creating a custom Certificate Authority](/docs/blockchain?topic=blockchain-ibp-v2-apis#example-creating-a-custom-certificate-authority)
+* [Create a high availability CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#create-a-high-availability-ca)
+* [Deploy a node that uses an HSM](/docs/blockchain?topic=blockchain-ibp-v2-apis#deploy-a-node-that-uses-an-hsm)
 
 [Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis)
 
@@ -1073,6 +1079,9 @@ subcollection: blockchain
 
 [Creating a configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config)
 * [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
+* [Provide your component enroll ID and secret](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-your-component-enroll-id-and-secret)
+* [Provide the signCert of your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-the-signcert-of-your-organization-administrator)
+* [CSR (Certificate Signing Request) hosts](/docs/blockchain?topic=blockchain-ibp-v2-apis#csr-(certificate-signing-request)-hosts)
 * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 

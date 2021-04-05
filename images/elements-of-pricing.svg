@@ -86,7 +86,7 @@
     Standard plan<tspan class="cls-22"><tspan x="0" y="63">$0.29 USD/VPC-Hr</tspan></tspan><tspan x="0" y="126">Based on number of </tspan><tspan x="0" y="162">VPC hours your </tspan><tspan x="0" y="198">instance uses </tspan><tspan x="0" y="261">1 VPC = 1 CPU</tspan>
   </text>
   <text transform="translate(931.71 209.9)" font-size="23.76" font-family="IBMPlexSans-SemiBold,IBM Plex Sans" font-weight="600">
-    Multi-Zone Region <tspan x="0" y="63">HA and DR</tspan><tspan x="0" y="126">Backup and Restore</tspan><tspan x="0" y="189">HSM</tspan><tspan x="0" y="252">Sysdig</tspan><tspan x="0" y="315">LogDNA</tspan>
+    Multi-Zone Region <tspan x="0" y="63">HA and DR</tspan><tspan x="0" y="126">Backup and Restore</tspan><tspan x="0" y="189">HSM</tspan><tspan x="0" y="252">{{site.data.keyword.mon_full_notm}}</tspan><tspan x="0" y="315">{{site.data.keyword.la_full_notm}}</tspan>
   </text>
   <text class="cls-21" transform="translate(629.62 209.9)">
     Multiple options and <tspan x="0" y="36">tiers determine cost</tspan><tspan class="cls-22"><tspan x="0" y="99">Options:</tspan><tspan class="cls-23" x="93.4" y="99"> File (default), </tspan></tspan><tspan x="0" y="135">Block, Object</tspan><tspan class="cls-22"><tspan x="0" y="198">Tiers:</tspan><tspan class="cls-23" x="62.37" y="198"> Based on </tspan></tspan><tspan x="0" y="261">IOPS/GB (read-write </tspan><tspan x="0" y="297">performance)</tspan>

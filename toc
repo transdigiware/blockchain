@@ -102,8 +102,8 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .topicgroup}
 	Monitoring your network
-		reference/logdna.md
-		reference/sysdig.md
+		reference/tracking.md
+		reference/monitoring.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 
 	howto/backup-restore.md

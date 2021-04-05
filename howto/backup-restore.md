@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-04-05"
 
 keywords: network components, IBM Cloud Kubernetes Service, backup, restore, disaster, peer, orderer, ordering node, LevelDB, CouchDB
 
@@ -199,7 +199,7 @@ ibmcloud sl file snapshot-order 155617812 -s 5
 ```
 {: codeblock}
 
-You might need more or less than 5 GB of space, depending on the size of the pod and the resources that have been used on it. The amount of space that is required depends on the size of your transactions, the quantity of transactions, and how many snapshots (or backups) that you want to keep. To determine how much storage you are using, [monitor](/docs/blockchain?topic=blockchain-ibp-sysdig) the disk space that is consumed by your nodes so that you know when to add storage. You can use this data to inform how much storage is being used, and how fast it is growing. Also, if you monitor the size of each snapshot, you can use the snapshot size along with the number of snapshots you want to keep to determine when more snapshot space is required.
+You might need more or less than 5 GB of space, depending on the size of the pod and the resources that have been used on it. The amount of space that is required depends on the size of your transactions, the quantity of transactions, and how many snapshots (or backups) that you want to keep. To determine how much storage you are using, [monitor](/docs/blockchain?topic=blockchain-ibp-monitoring) the disk space that is consumed by your nodes so that you know when to add storage. You can use this data to inform how much storage is being used, and how fast it is growing. Also, if you monitor the size of each snapshot, you can use the snapshot size along with the number of snapshots you want to keep to determine when more snapshot space is required.
 {: tip}
 
 Taking a snapshot incurs charges on your account. Press `y` to accept the charges and order the snapshot.
