@@ -417,7 +417,7 @@ Actual cost breakdowns are visible from your Invoices in the {{site.data.keyword
 {: faq}
 {: support}
 
-You are responsible for the health monitoring and resource allocation of the blockchain nodes in your Kubernetes cluster. While requests against the nodes are being actively processed, you should be monitoring for spikes in resource consumption to avoid problems. {{site.data.keyword.IBM_notm}} recommends that you configure {{site.data.keyword.mon_full_notm}} and set up alerts to track when blockchain nodes are reaching their limits. See the tutorial on [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-monitoring) for more details.
+You are responsible for the health monitoring and resource allocation of the blockchain nodes in your Kubernetes cluster. While requests against the nodes are being actively processed, you should be monitoring for spikes in resource consumption to avoid problems. {{site.data.keyword.IBM_notm}} recommends that you configure {{site.data.keyword.mon_full_notm}} and set up alerts to track when blockchain nodes are reaching their limits. See the tutorial on [{{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started) for more details.
 
 You should be aware that JavaScript and TypeScript smart contracts require more resources than contracts written in Golang. Therefore, when you are allocating resources to your cluster, it is important to ensure adequate resources are available to your smart contract pods when they are deployed on a channel and during transaction processing. The pods containing the smart contracts will consume as much resources as they need to function.
 {: tip}
