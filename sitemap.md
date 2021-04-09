@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-08"
+lastupdated: "2021-04-09"
 
 keywords: site map
 subcollection: blockchain
@@ -1081,7 +1081,7 @@ subcollection: blockchain
 * [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
 * [Provide your component enroll ID and secret](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-your-component-enroll-id-and-secret)
 * [Provide the signCert of your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-the-signcert-of-your-organization-administrator)
-* [CSR (Certificate Signing Request) hosts](/docs/blockchain?topic=blockchain-ibp-v2-apis#csr-(certificate-signing-request)-hosts)
+* [CSR (Certificate Signing Request) hosts](/docs/blockchain?topic=blockchain-ibp-v2-apis#csr)
 * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-04-09"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -1059,6 +1059,7 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lY
 Copy this string to the `"admincerts"` field under the component section in the configuration file.
 
 ### CSR (Certificate Signing Request) hosts
+{: #csr}
 
 You have the option of providing a custom domain to your component by using the `"csr"` section of the components file.
 
