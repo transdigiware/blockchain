@@ -182,6 +182,8 @@ subcollection: blockchain
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
 
+[April 13, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-04-13-2021)
+
 [January 19, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-01-19-2021)
 
 [November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
@@ -1277,6 +1279,8 @@ subcollection: blockchain
 
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
+
+[13 Apr 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#13-04-2021)
 
 [22 Feb 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-22-2021)
 
