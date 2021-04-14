@@ -13,10 +13,10 @@ IBM Blockchain Platform for IBM Cloud
 		{: .topicgroup}
 		Deployment options
 			howto/ibp-v2-deploy-iks-ic.md
-			[Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm){: external}
+			[Deploy from Red Hat Marketplace](https://cloud.ibm.com/docs/blockchain-sw-252?topic=blockchain-sw-252-deploy-ocp-rhm){: external}
 
 	howto/ibp-console.md
-	[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain)
+	[What is blockchain?](https://www.ibm.com/topics/what-is-blockchain)
 	whats_new.md
 	blockchain_component_overview.md
 
@@ -102,11 +102,12 @@ IBM Blockchain Platform for IBM Cloud
 
 	{: .topicgroup}
 	Monitoring your network
-		reference/logdna.md
-		reference/sysdig.md
+		reference/tracking.md
+		reference/monitoring.md
 		[IBM Blockchain Platform Monitoring with Prometheus](https://developer.ibm.com/technologies/blockchain/tutorials/using-prometheus-metrics-to-monitor-your-ibm-blockchain-platform-network)
 
 	howto/backup-restore.md
+	howto/planning-updates-maint.md
 
 	howto/ibp-v2-apis.md
 	{: .navgroup-end}

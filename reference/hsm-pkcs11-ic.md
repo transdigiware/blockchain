@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-11"
+lastupdated: "2021-03-18"
 
 keywords: HSM, PKCS11 proxy
 
@@ -102,7 +102,7 @@ Use of this process has been deprecated in favor of using an [HSM client image](
 {: deprecated}
 
 ## Build PKCS #11 Docker image
-{: ibp-hsm-build-pkcs11-proxy-ic-build}
+{: #ibp-hsm-build-pkcs11-proxy-ic-build}
 
 This process involves deploying an **HSM** and configuring a partition as well as deploying an **HSM client** that you will use to configure the device. Throughout these instructions you will run some commands from the HSM server and others from the HSM client. For clarity, we prefix these steps with either <img src="../images/icon-hsm-2.png" alt="HSM server" width="30" style="width:30px; border-style: none"/> or <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/>. These steps assume you have already deployed an HSM either from  [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or your own PKCS #11 compliant HSM. The value of the HSM `partition` and `PIN` is required.
 
@@ -247,7 +247,7 @@ Build a PKCS #11 Docker image that contains the HSM client that will run on your
   ```
 
 ## Deploy the Docker image onto your Kubernetes cluster
-{: ibp-hsm-build-pkcs11-proxy-ic-deploy-k8s}  
+{: #ibp-hsm-build-pkcs11-proxy-ic-deploy-k8s}  
 
 After the local test in the previous step is successful, you are ready to deploy the Docker image to your Kubernetes cluster. In order to deploy the image, you need to create the `hsm` namespace, a Kubernetes secret, as well as the `service.yaml` and `deployment.yaml` files.
 1. <img src="../images/icon-hsm-client.png" alt="HSM client" width="30" style="width:30px; border-style: none"/> Create a namespace for HSM on your Kubernetes cluster:
@@ -415,7 +415,7 @@ After the local test in the previous step is successful, you are ready to deploy
   {: important}
 
 ## Next steps
-{: ibp-hsm-build-pkcs11-proxy-ic-next-steps}  
+{: #ibp-hsm-build-pkcs11-proxy-ic-next-steps}  
 
 You are now ready to deploy a new CA, peer, or ordering node that uses the HSM. When you deploy the new node from the console, ensure that you select the advanced deployment option **Hardware security module (HSM)**.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-04-05"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -59,7 +59,7 @@ The Build a network tutorial is useful for learning how to set up a basic networ
 Because your instance of the {{site.data.keyword.blockchainfull_notm}} Platform console and your Kubernetes cluster do not communicate directly about the resources that are available, the process for deploying components by using the console must follow this pattern:
 
 1. **Size the deployment that you want to make**. The **Resource allocation** panels for the CA, peer, and ordering node in the console offer default CPU, memory, and storage allocations for each node. You may need to adjust these values according to your use case. If you are unsure, start with default allocations and adjust them as you understand your needs. Similarly, the **Resource reallocation** panel displays the existing resource allocations. For a sense of how much storage and compute you will need in your cluster, refer to the chart after step 3 that contains the current defaults for the peer, orderer, and CA:
-2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your cluster. For more information about how to increase the size of a cluster, see scaling [Kubernetes](/docs/containers?topic=containers-ca#ca){: external} or [OpenShift](/docs/openshift?topic=openshift-ca){: external} clusters. If you have enough space in your cluster, you can continue with step 3.
+2. **Check whether you have enough resources in your Kubernetes cluster**. If you are using a Kubernetes cluster that is hosted in {{site.data.keyword.cloud_notm}}, we recommend using the [{{site.data.keyword.mon_full_notm}}](hhttps://www.ibm.com/cloud/cloud-monitoring) tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard. If you do not have enough space in your cluster to deploy or resize resources, you need to increase the size of your cluster. For more information about how to increase the size of a cluster, see scaling [Kubernetes](/docs/containers?topic=containers-ca#ca){: external} or [OpenShift](/docs/openshift?topic=openshift-ca){: external} clusters. If you have enough space in your cluster, you can continue with step 3.
 3. **Use the console to deploy or resize your node**. If your Kubernetes pod is large enough to accommodate the new size of the node, the reallocation should proceed smoothly. If the worker node that the pod is running on is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 
 | **Component** (all containers) | CPU**  | Memory (GB) | Storage (GB) |
@@ -84,7 +84,7 @@ While the figures in this topic endeavor to be precise, be aware that there are 
 
 The **Resource allocation** panel in the console provides default values for the various fields that are involved in creating a node. These values are chosen because they represent a good way to get started. However, every use case is different. While this topic provides guidance for ways to think about these values, it ultimately falls to the user to monitor their nodes and find sizings that work for them. Therefore, barring situations in which users are certain that they need values different from the defaults, a practical strategy is to use these defaults at first and adjust them later. For an overview of performance and scale of Hyperledger Fabric, which the {{site.data.keyword.blockchainfull_notm}} Platform is based on, see [Answering your questions on Hyperledger Fabric performance and scale](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/){: external}.
 
-After you have deployed the node, you need to **monitor the resource consumption of the node**. Configure a monitoring tool such as [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to observe the nodes and ensure that adequate resources are available to the node containers when processing transactions.
+After you have deployed the node, you need to **monitor the resource consumption of the node**. Configure a monitoring tool such as [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-monitoring) to observe the nodes and ensure that adequate resources are available to the node containers when processing transactions.
 {: important}
 
 All of the containers that are associated with a node have **CPU** and **memory**, while certain containers that are associated with the peer, ordering node, and CA also have **storage**. For more information about storage, see [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage). Note that when your Kubernetes cluster is configured to use any of the {{site.data.keyword.cloud_notm}} storage classes, the smallest storage amount that can be allocated to a node is 20Gi.
@@ -626,7 +626,7 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
 | **Smart contract launcher container CPU and memory** | Because the smart contract launcher container streams logs from smart contracts back to a peer, the more smart contracts are running the greater the load on the smart contract launcher. |
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default storage allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resources consumed by the pod that contains the smart contract in your cluster by using a tool like [Sysdig](/docs/blockchain?topic=blockchain-ibp-sysdig) to ensure that adequate resources are available.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default storage allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resources consumed by the pod that contains the smart contract in your cluster by using a tool like [{{site.data.keyword.mon_full_notm}}](https://www.ibm.com/cloud/cloud-monitoring) to ensure that adequate resources are available.
 {: important}
 
 For more details on the resource allocation panel in the console see [Allocating resource](#ibp-console-adv-deployment-allocate-resources).
@@ -1355,7 +1355,6 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
 	- If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain?topic=blockchain-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform. After that is completed you can skip to Part 3 **Configure the node to use HSM**. 
-	- If you want to use the [openCryptoki HSM](https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxce/lxce_stackoverview.html){: external} with your Z environment, you should complete these [instructions in GitHub](https://github.com/IBM-Blockchain/HSM/tree/master/Z-HSM) and then skip to Part 3 **Configure the node to use HSM**. 
 2. **Configure an HSM client image** or **Set up a PKCS #11 proxy (Deprecated)** [See Build a Docker image](#ibp-console-adv-deployment-hsm-build-docker).
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
@@ -1364,7 +1363,152 @@ Configuring a node to use HSM is a three-part process:
 
 - The Kubernetes CLI is required to configure the HSM. If you are using a Kubernetes cluster on {{site.data.keyword.cloud_notm}} see [Getting started with {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) or [Installing the OpenShift CLI](/docs/openshift?topic=openshift-openshift-cli).
 - You need access to a container registry, such as Docker or the [{{site.data.keyword.registrylong_notm}}](/docs/Registry?topic=Registry-getting-started).
+<staging-zHSM>
+### (Optional) Configure an HSM daemon
+{: #ibp-console-adv-deployment-hsm-daemon}
 
+If a daemon is used to communicate with your HSM, for example if you are using openCryptoki on Z, follow these instructions to configure the daemon to work with the peer, CA, and ordering nodes. Then, when a node is deployed, it is configured with an HSM client (configured in a later step) that communicates with its own instance of the daemon that submits the requests to read and write the encrypted keys to the HSM device. If you plan to use this approach, you need to build the daemon image.
+
+#### Build the daemon image
+{: #ibp-console-adv-deployment-hsm-daemon-build}
+
+An example of a Docker file image for an openCryptoki daemon would be:
+
+```
+FROM s390x/ubuntu:20.04 as builder
+RUN apt-get update \
+    && apt-get -y install \
+    libtool \
+    libssl-dev \
+    libseccomp-dev \
+    libgflags-dev \
+    libgtest-dev \
+    libltdl7 \
+    curl \
+    procps
+RUN apt-get -y update \
+    && apt-get -y install opencryptoki
+RUN curl --silent -O http://public.dhe.ibm.com/security/cryptocards/pciecc3/EP11/3.0.1/libep11_3.0.1-1_s390x.deb \
+    && dpkg -i libep11_3.0.1-1_s390x.deb
+FROM registry.access.redhat.com/ubi8/ubi
+RUN groupadd -g 1000 pkcs11
+RUN useradd -u 1000 -g pkcs11 -G pkcs11 -s /bin/bash pkcs11
+RUN mkdir /hsm
+##1: copy opencryptoki config files
+COPY --from=builder /etc/opencryptoki /hsm/etc.opencryptoki
+##2: copy all dlls (pkcs11 interface dll, and token type dlls) installed by opencryptoki
+COPY --from=builder /usr/lib/s390x-linux-gnu/opencryptoki /hsm/opencryptoki
+##3: copy ep11 host part library
+COPY --from=builder /usr/lib/libep11.so.3.0.1 /hsm/opencryptoki/stdll/libep11.so.3.0.1
+##4: copy slot manager
+COPY --from=builder /usr/sbin/pkcsconf /hsm/usr.sbin.pkcsconf
+##5: copy slot manager daemon
+COPY --from=builder /usr/sbin/pkcsslotd /hsm/usr.sbin.pkcsslotd
+##6: copy ep11 token storage
+COPY --from=builder /var/lib/opencryptoki /hsm/var.lib.opencryptoki
+##7: copy pidof from builder
+COPY --from=builder /usr/bin/pidof /hsm/pidof
+WORKDIR /hsm
+COPY entrypoint.sh /hsm/entrypoint.sh
+RUN chmod 777 entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
+```
+{: codeblock}
+
+The image must contain the "entrypoint script" that performs any initialization that is required and launches the daemon. The contents of the script will vary by HSM vendor.
+
+A sample entrypoint script for openCryptoki zHSM is provided here for your reference:
+
+```sh
+#!/bin/bash -ux
+mkdir -p /etc/opencryptoki
+mkdir -p /usr/sbin
+mkdir -p /var/lib/opencryptoki
+cp /hsm/etc.opencryptoki/* /etc/opencryptoki/
+cp /hsm/usr.sbin.pkcsconf /usr/sbin/pkcsconf
+cp -rf /hsm/var.lib.opencryptoki/* /var/lib/opencryptoki/
+ln /hsm/opencryptoki/stdll/libep11.so.3.0.1 /hsm/opencryptoki/stdll/libep11.so.3
+ln /hsm/opencryptoki/stdll/libep11.so.3.0.1 /hsm/opencryptoki/stdll/libep11.so
+ln /hsm/opencryptoki/libopencryptoki.so.0.0.0 /hsm/opencryptoki/stdll/libopencryptoki.so.0
+ln /hsm/opencryptoki/libopencryptoki.so.0.0.0 /hsm/opencryptoki/stdll/libopencryptoki.so
+
+# copy files required by HSM to volume
+cp -r /hsm/opencryptoki/stdll/* /stdll/
+
+export LD_LIBRARY_PATH=/hsm/opencryptoki/stdll/
+export OPENCRYPTOKI_TRACE_LEVEL=5
+# launch the opencryptoki slot manager daemon
+echo "pkcsslotd"
+
+# pkcsslotd
+/hsm/usr.sbin.pkcsslotd
+
+# checking the slots information
+echo "pkcsconf -t"
+pkcsconf -t
+# config ep11 slot
+SLOT_NO=${EP11_SLOT_NO:-4}
+SLOT_TOKEN_LABEL=${EP11_SLOT_TOKEN_LABEL:-"CEX6P"}
+SLOT_SO_PIN=${EP11_SLOT_SO_PIN:-"98765432"}
+SLOT_USER_PIN=${EP11_SLOT_USER_PIN:-"98765432"}
+EXISTED_LABEL=$(pkcsconf -t | grep -w ${SLOT_TOKEN_LABEL})
+if [ -z "$EXISTED_LABEL" ]
+then
+  echo "initialized slot: "${SLOT_NO}
+  printf "87654321\n${SLOT_TOKEN_LABEL}\n" | pkcsconf -I -c ${SLOT_NO}
+  printf "87654321\n${SLOT_SO_PIN}\n${SLOT_SO_PIN}\n" | pkcsconf -P -c ${SLOT_NO}
+  printf "${SLOT_SO_PIN}\n${SLOT_USER_PIN}\n${SLOT_USER_PIN}\n" | pkcsconf -u -c ${SLOT_NO}
+  echo "The slot[${SLOT_NO}] initialized!"
+else
+  echo "The slot already initialized!"
+fi
+
+# Determine the process id
+set +x
+touch /shared/daemon-launched
+while true;
+do
+    pid=$(pidof /hsm/usr.sbin.pkcsslotd)
+    if [ -z $pid ]; then
+        echo "pkcsslotd not running"
+        break
+    fi
+    sleep 10
+done
+```
+{: codeblock}
+
+The entrypoint script performs multiple functions:
+
+- **Copy files required by HSM to volume:** The script is responsible for copying any files that are needed by the HSM client to a volume. For example, the openCryptoki implementation for zHSM requires a set of token-specific libraries. These files need to be provided to the HSM client and are required to be mounted on to the CA, peer, and ordering node containers. The following line shows how to copy the files to a mount path (see section 2) from the zHSM entrypoint script:
+
+   ```sh
+   cp -r /hsm/opencryptoki/stdll/* /stdll/
+   ```
+   {: codeblock}
+
+- **Determine the process id:** The {{site.data.keyword.blockchainfull_notm}} Platform operator requires that the following snippet is included at the end of the entrypoint script. The contents of `pid=$(pidof /hsm/usr.sbin.pkcsslotd)` in the following snippet from the script is vendor-specific and needs to be adjusted to determine the process id of the running daemon.
+
+	```sh
+	# Determine the process id
+	set +x
+	touch /shared/daemon-launched
+	while true;
+	do
+	    pid=$(pidof /hsm/usr.sbin.pkcsslotd)
+	    if [ -z $pid ]; then
+	        echo "pkcsslotd not running"
+	        break
+	    fi
+	    sleep 10
+	done
+	```
+	{: codeblock}
+
+- **Start the daemon:** The daemon needs to be started from a location that is not a mountpath (see section 2). In the preceding example, the zHSM is launched from location `/hsm/usr.sbin.pkcsslotd`, which is not a defined mountpath.
+
+You are now ready to build the [HSM Client image](#ibp-console-adv-deployment-hsm-client) as described in the next section.
+</staging-zHSM>
 
 ### Build a Docker image
 {: #ibp-console-adv-deployment-hsm-build-docker}
@@ -1544,10 +1688,14 @@ metadata:
 {: #ibp-console-adv-deployment-hsm-configmap}
 
 
-Because the console needs to know the configuration settings to use for your HSM, you need to create a Kubernetes [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){:external} to store these values. The {{site.data.keyword.blockchainfull_notm}} Platform operator uses the HSM configuration passed in this configmap to get the details about the HSM client image, such as what image pull secret to use, and the folder mounts that are required. Based on the information provided, when a CA, peer, or ordering node is deployed with HSM enabled, the operator mounts required the files for the HSM client image.
 
+<staging-zHSM>
+Because the console needs to know the configuration settings to use for your HSM, you need to create a Kubernetes [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){:external} to store these values. The configMap settings depend on whether you configured a daemon for your HSM or not. In that case, the {{site.data.keyword.blockchainfull_notm}} Platform operator uses the HSM configuration passed in this configmap to get the details about the HSM client image, such as what image pull secret to use, and the folder mounts that are required. Based on the information provided, when a CA, peer, or ordering node is deployed with HSM enabled, the operator mounts required the files for the HSM client image. If you are using a daemon with your HSM, skip ahead to [Configure the operator to work with an HSM daemon](#daemon-configmap).
 
+**Configure the operator to work with an HSM that does not use a daemon**
+{: #x86-configmap}
 
+</staging-zHSM>
 
 Copy the following text and save it to a file named `ibp-hsm-config.yaml`:
 
@@ -1629,7 +1777,71 @@ mountpaths:
 In this example, the first `mountpath` contains four configuration files (cafile.pem, cert.pem, key.pem, server.pem) and the `hsmcrypto` secret, and all of them are mounted to the mountpath `/hsm`. The actual name of the mountpath is `hsmcrypto`, and it contains an exact mapping of the key value pair to the Kubernetes secret and the location to mount it to. For example, `cafile.pem` is read from the path `cafile.pem` in the hsmcrypto mountpath using the `hsmcrypto` secret and mounted to `/hsm/cafile.pem`.  
 
 A second mountpath is included for the HSM `/etc/Chrystoki.conf` file. Because the HSM requires its config file in the `/etc` folder, which is a system directory, we need to use the `subpath` parameter to avoid replacing the entire `/etc` directory. If the subpath is not used, the entire `/etc` directory is replaced with the volume being mounted.  
+<staging-zHSM>
 
+You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
+
+**Configure the operator to work with an HSM daemon**  
+{: #daemon-configmap}
+
+If you configured an HSM daemon, the following sample configuration shows how to configure the openCryptoki zHSM on the operator. You need to customize the settings according to your daemon.   
+
+Copy the following text and save it to a file named `ibp-hsm-config.yaml`:
+
+```yaml
+daemon:
+  image: us.icr.io/ibp-temp/ibp-zdaemon:zhsm-s390x
+  auth:
+    imagePullSecret: regcred
+library:
+  filepath: /hsm/opencryptoki/libopencryptoki.so.0.0.0
+  image: us.icr.io/ibp-temp/ibp-zdaemon:zhsm-s390x
+  auth:
+    imagePullSecret: regcred
+envs:
+  - name: LD_LIBRARY_PATH
+    value: /stdll
+mountpaths:
+  - mountpath: /usr/sbin/pkcsslotd
+    name: pkcsslotd
+    volumeSource:
+      emptyDir:
+        medium: Memory
+  - mountpath: /var/run
+    name: varrun
+    volumeSource:
+      emptyDir:
+        medium: Memory
+  - mountpath: /var/lib/opencryptoki
+    name: tokeninfo
+    usePVC: true
+  - mountpath: /etc/opencryptoki
+    name: opencryptoki-config
+    volumeSource:
+      emptyDir:
+        medium: Memory
+  - mountpath: /var/lock/opencryptoki
+    name: lock
+    volumeSource:
+      emptyDir:
+        medium: Memory
+  - mountpath: /stdll
+    name: stdll
+    volumeSource:
+      emptyDir:
+        medium: Memory
+type: hsm
+version: v1
+```
+{: codeblock}
+
+- In the `daemon:` section, provide the URL of the HSM daemon image that you created. If the image is not hosted publicly, then you need to create the appropriate pull secret and specify it here as well.
+
+- In the `library:` section, provide the URL of the HSM client image that you created in [step two](#ibp-console-adv-deployment-hsm-client-docker). This is the client that the CA, peer, and ordering node will use to talk to the HSM daemon. The `filepath:` is the location of the shared object library in the image. If the image is not hosted publicly then the user must create the appropriate pull secret and specify it as well.
+
+- In the `envs:` section, provide the list of environment variables that are required to configure the HSM.
+
+- In the `mountpaths:` section, provide all the necessary artifacts such as config, shared object libraries, shared memory, etc. that are needed to communicate with the HSM daemon. These settings are vendor-specific as it is your responsibility to know what directories or files need to be mounted. When the CA, peer, and ordering nodes are deployed, these mountpaths will be mounted on to their containers along with the HSM client. Most of these mountpaths can be of type `Memory`, however, if there are files that need to persist, then set `usePVC: true`. When set, the operator stores the files in the mountpath in a persistent medium, by leveraging the PVCs of the CA, peer, and ordering node as the persistent medium.</staging-zHSM>
 
 Run the following command to create the configmap named `ibp-hsm-config` in your cluster namespace or project:
 ```
@@ -1642,33 +1854,6 @@ The output looks similar to:
 ```
 configmap/ibp-hsm-config created
 ```
-
-To view the contents of the configmap, run the command:
-```
-kubectl get configmap ibp-hsm-config -n <NAMESPACE>
-```
-{: codeblock}
-
-The output looks similar to:
-
-```
-apiVersion: v1
-data:
-  ibp-hsm-config.yaml: |+
-    library:
-      auth:
-        imagePullSecret: <>
-...
-    type: hsm
-    version: v1
-
-kind: ConfigMap
-metadata:
-...
-```
-
-Congratulations. You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
-
 
 ### Configuring a CA, peer, or ordering node to use the HSM
 {: #ibp-console-adv-deployment-cfg-hsm-node}

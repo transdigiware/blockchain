@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-04-09"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -74,6 +74,7 @@ You need a basic authentication credential to ensure that you have access to you
     "iam_serviceid_crn": "crn:v1:staging:public:iam-identity::a/9d46037caee397faa45c55e087d26baa::serviceid:ServiceId-774190c5-9c37-4f68-8572-8d6e2aabbc7e",
   }
   ```
+  {: codeblock}
 
 In the service credential, you can find the [API key](#x8051010){: term} (`apikey`) and **API endpoint** (`api_endpoint`) that you need to retrieve a {{site.data.keyword.iamshort}} (IAM) access token.
 
@@ -103,6 +104,7 @@ In the request, replace `<API_KEY>` with the `apikey` value from your service cr
 "expiration":1555558683,
 "scope":"ibm openid"}
 ```
+{: codeblock}
 {: screen}
 
 Use the full `access_token` value, prefixed by the `Bearer` token type, to programmatically work with your blockchain network by using the APIs.
@@ -131,7 +133,7 @@ Example cURL commands are provided for each API in the [{{site.data.keyword.bloc
 ## Limitations
 {: #ibp-v2-apis-limitations}
 
-You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.17 - v1.19 container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform.
+You can only import CA, peer, and ordering nodes that are exported from other {{site.data.keyword.blockchainfull_notm}} Platform consoles running on {{site.data.keyword.cloud_notm}}, OpenShift Container Platform, Red Hat Open Kubernetes Distribution, or any Kubernetes v1.17 - v1.20 container platform on x86_64. The platform is also supported on LinuxONE (s390x) using OpenShift Container Platform.
 
 ## Building a network by using APIs
 {: #ibp-v2-apis-build-with-apis}
@@ -229,6 +231,7 @@ curl -X POST "https://{API-Endpoint}/ak/api/v2/kubernetes/components/fabric-ca" 
       }
     }"
 ```
+{: codeblock}
 
 You use also the `"configoverride"` to create or update a CA with custom settings for your organization. This provides you with more control over the identities and certificates that are created by your CA. For example, you would use the following command to set your organization name and location.
 ```
@@ -274,6 +277,7 @@ curl -X POST \
         }
   }"
 ```
+{: codeblock}
 
 For more information about deploying a customized CA, and which fields you can customize after a CA is created, see [Customizing a CA configuration](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-ca-customization).
 
@@ -337,6 +341,7 @@ curl -X POST \
   }
 }'
 ```
+{: codeblock}
 
 ### Deploy a node that uses an HSM
 
@@ -394,6 +399,7 @@ curl -X POST "https://{API-Endpoint}/ak/api/v2/kubernetes/components/fabric-peer
         }
     }"
 ```
+{: codeblock}
 
 ## Import a network by using APIs
 {: #ibp-v2-apis-import-with-apis}
@@ -549,6 +555,7 @@ A **CA admin** identity was automatically registered for you when you created yo
   └── catls
       └── tls.pem    
   ```
+  {: codeblock}
 
 ### Registering the component identity with the CA
 {: #ibp-v2-apis-config-register-component}
@@ -561,6 +568,7 @@ First, you need to register a component identity with your CA. Your component us
   echo $FABRIC_CA_CLIENT_HOME
   $HOME/fabric-ca-client/ca-admin
   ```
+  {: codeblock}
 
 2. Issue the following command to find your affiliation and your organization name.
   ```
@@ -579,6 +587,7 @@ First, you need to register a component identity with your CA. Your component us
   affiliation: org1
       affiliation: org1.department1
   ```
+  {: codeblock}
 
   Make a note of the second **affiliation** value, for example, `org1.department1`. You need to use this value in the command below.
 
@@ -596,6 +605,7 @@ First, you need to register a component identity with your CA. Your component us
   ```
   fabric-ca-client register --caname ca --id.affiliation org1.department1 --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
   ```
+  {: codeblock}
 
   You need to save the `"enrollid"` and `"enrollsecret"` from the command above for when you create your configuration file.
   {: important}
@@ -610,6 +620,7 @@ First, you need to register a component identity with your CA. Your component us
   2018/06/18 16:53:00 [INFO] TLS Enabled
   Password: peerpw
   ```
+  {: codeblock}
 
 ### Registering your organization administrator
 {: #ibp-v2-apis-config-register-admin}
@@ -638,6 +649,7 @@ Create a new user identity `name` and `secret` for the admin. Make sure to use d
 ```
 fabric-ca-client register --caname ca --id.name peeradmin --id.affiliation org1.department1 --id.type admin --id.secret peeradminpw --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
+{: codeblock}
 
 Make a note of this information. You will use this `name` and `secret` to generate the MSP folder by using the `enroll` command.
 {: important}
@@ -703,6 +715,7 @@ tree
         │   └── cert.pem
         └── user
 ```
+{: codeblock}
 
 You will need to return to this folder when you create your organization MSP definition and configuration files.
 {: important}
@@ -731,6 +744,7 @@ A real call might look similar to the following example:
 ```
 fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname tlsca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
+{: codeblock}
 
 After you enroll, you have the necessary certificates to register your component with the TLS CA. Run the following command to register the ordering node or peer:
 
@@ -744,6 +758,7 @@ This command is similar to the one that you used to register the component ident
 ```
 fabric-ca-client register --caname tlsca --id.affiliation org1.department1 --id.name peertls --id.secret peertlspw --id.type peer --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
+{: codeblock}
 
 You need to save the `"enrollid"` and `"enrollsecret"` from the command above for when you create your configuration file.
 {: important}
@@ -779,12 +794,14 @@ The Fabric CA client enroll command can fail if the enrollment URL, the `-u` par
 ```
 ./fabric-ca-client enroll -u https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241 --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
 ```
+{: codeblock}
 
 will fail and produce the following error:
 
 ```
 !pw@9.12.19.115: event not found
 ```  
+{: codeblock}
 
 **Solution:**
 {: #ibp-v2-apis-config-enroll-error2-solution}
@@ -794,6 +811,7 @@ You need to either encode the special character or surround the URL with the sin
 ```
 ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname PeerOrg1CA
 ```
+{: codeblock}
 
 ## Creating an organization MSP definition
 {: #ibp-v2-apis-msp}
@@ -810,6 +828,8 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   cd $HOME/fabric-ca-client/peer-admin/msp
   ```
+  {: codeblock}
+
   In this MSP directory, open the signCert file of the new user and convert it to base64 format by using the following commands:
 
   ```
@@ -832,6 +852,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   VEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJB
   WVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBa
   ```
+  {: codeblock}
 
   For example:
 
@@ -846,6 +867,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lYR2sxNXRRY3hxa1RpTG9Nd0NnWUlLb1pJemowRUF3SXcKYURFTTlEKaFhTTzRTWjJ2ZHBPL1NQZWtSRUNJQ3hjUmZVSWlkWHFYWGswUGN1OHF2aCtWSkhGeHBLUnQ3dStHZDMzalNSLwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
   ```
+  {: codeblock}
 
   Provide this string to the `admins` field of the API request.
 
@@ -855,6 +877,8 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   cd $HOME/fabric-ca-client/ca-admin/msp
   ```
+  {: codeblock}
+
   In this directory, open the cacerts folder and convert the certificate inside into base64 format by using the following commands:
   ```
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -867,6 +891,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNGekNDQWIyZ0F3SUJBZ0lVQmZnZzcvVnIrL25OVEFNQlQ4UUtHL00wQU8wd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEU1TURVd016RXpNamt3TUZvWERUTTBNRFF5T1RFek1qa3dNRm93YURFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1Sa3dGd1lEVlFRREV4Qm1ZV0p5YVdNdFkyRXRjMlZ5CmRtVnlNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVXMUtvN2lWeVE2VWkwdDVqbU5KaWVuSUwKR3pNM1BDWHlhL2VSQ0NWMmFQb0dTZ1lrVUg2UWN5RjAzbFlMZFU4Y0drNTQ0alViVC9KT1lYeVgzTWc4bHFORgpNRU13RGdZRFZSMFBBUUgvQkFRREFnRUdNQklHQTFVZEV3RUIvd1FJTUFZQkFmOENBUUV3SFFZRFZSME9CQllFCkZDK2lJR0NSb2Zvb3FsVkZoU3dOMmk2MXNJaVBNQW9HQ0NxR1NNNDlCQU1DQTBnQU1FVUNJUURTYW9RL1E0QzkKbFl1VGNhVXVHb3d6YmhUZHBuN2F3S2lHN1Nvd2lSQXVld0lnUWlyM3RNR3IvYWo2aU5lRXJFN2NyOVowQ0gvTwp3QnNQcWd4RVR3MjVqZUU9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
   ```
+  {: codeblock}
 
   Provide this string to the `root_certs` field of the API request.
 
@@ -876,6 +901,8 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   cd $HOME/fabric-ca-client/tlsca-admin/msp
   ```
+  {: codeblock}
+
   In this directory, open the cacerts folder and convert the certificate inside into base64 format by using the following commands:
   ```
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
@@ -888,6 +915,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   ```
   LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHRENDQWI2Z0F3SUJBZ0lVWUVQWnprNXV2b3dobEtacG5JMXplODdIQUlnd0NnWUlLb1pJemowRUF3SXcKWFRFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVE0d0RBWURWUVFERXdWMGJITmpZVEFlCkZ3MHhPVEExTURNeE16STVNREJhRncwek5EQTBNamt4TXpJNU1EQmFNRjB4Q3pBSkJnTlZCQVlUQWxWVE1SY3cKRlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4RHpBTgpCZ05WQkFzVEJrWmhZbkpwWXpFT01Bd0dBMVVFQXhNRmRHeHpZMkV3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPClBRTUJCd05DQUFRdSs2UnZWd2w5T2dDVlAraEVxbjVxdExRVG9LWkw4a1lic0pOeU1JbERoc3hlNWx6cW1zQkoKbTk2eUR2TVV6OSsxL2pzb1M4M1JqMVAwc3M2TnJNb3FvMXd3V2pBT0JnTlZIUThCQWY4RUJBTUNBUVl3RWdZRApWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVVnUEc4anJEK1BxVjdoelc3WDlsbTFrMS91WjR3CkZRWURWUjBSQkE0d0RJY0VxVGJESW9jRUNwbnBkVEFLQmdncWhrak9QUVFEQWdOSUFEQkZBaUVBenk3cHJZaVMKQmlDVWdYeWRkY09WMm9mZmtqaEI0N091QXFjQWNqZS9SWkVDSUdKZFgzZ1ErTDRIN3duY1RoZkwrenU1ejV1UApGUWhXTmlNS3hQWEYrZnYwCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
   ```
+  {: codeblock}
 
   Provide this string to the `tls_root_certs` field of the API request.
 
@@ -967,6 +995,8 @@ You can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-component
     "enrollid": "peer1",
     "enrollsecret": "peer1pw",
   ```
+  {: codeblock}
+
 2. Paste the `name` and `secret` you used to [register your component with your tls CA](#ibp-v2-apis-config-register-component-tls) as the `"enrollid"` and `"enrollsecret"` in the configuration file, under the `"tls"` section:
 
   ```
@@ -975,6 +1005,7 @@ You can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-component
     "enrollid": "peertls",
     "enrollsecret": "peertlspw",
   ```
+  {: codeblock}
 
 ### Provide the signCert of your organization administrator
 
@@ -982,6 +1013,8 @@ Navigate to the MSP directory that was created when your [generated certificates
 ```
 cd $HOME/fabric-ca-client/peer-admin/msp
 ```
+{: codeblock}
+
 In this MSP directory, open the signCert file of the new user and convert it to base64 format by using the following commands:
 
 ```
@@ -995,6 +1028,8 @@ cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
 ```
 LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFbERDQ0EzeWdBd0lCQWdJUUFmMmo2MjdLZGNpSVE0dHlTOCs4a1RBTkJna3Foa2lHOXcwQkFRc0ZBREJoDQpNUXN3Q1FZRFZRUUdFd0pWVXpFVk1CTUdBMVVFQ2hNTVJHbG5hVU5sY25RZ1NXNWpNUmt3RndZRFZRUUxFeEIzDQpkM2N1WkdsbmFXTmxjblF1WTI5dE1TQXdIZ1lEVlFRREV4ZEVhV2RwUTJWeWRDQkhiRzlpWVd3Z1VtOXZkQ0JEDQpRVEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJBWVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBaMmxEWlhKMElGTklRVElnDQpVMlZqZFhKbElGTmxjblpsY2lC
 ```
+{: codeblock}
+
 Not like this:
 
 ```
@@ -1004,6 +1039,7 @@ Vk1CTUdBMVVFQ2hNTVJHbG5hVU5sY25RZ1NXNWpNUmt3RndZRFZRUUxFeEIzDQpkM2N1WkdsbmFX
 VEFlRncweE16QXpNRGd4TWpBd01EQmFGdzB5TXpBek1EZ3hNakF3TURCYU1FMHhDekFKQmdOVkJB
 WVRBbFZUDQpNUlV3RXdZRFZRUUtFd3hFYVdkcFEyVnlkQ0JKYm1NeEp6QWxCZ05WQkFNVEhrUnBa
 ```
+{: codeblock}
 
 For example:
 
@@ -1018,10 +1054,12 @@ This command prints a string that is similar to the following example:
 ```
 LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNuRENDQWtPZ0F3SUJBZ0lVTXF5VDhUdnlwY3lYR2sxNXRRY3hxa1RpTG9Nd0NnWUlLb1pJemowRUF3SXcKYURFTTlEKaFhTTzRTWjJ2ZHBPL1NQZWtSRUNJQ3hjUmZVSWlkWHFYWGswUGN1OHF2aCtWSkhGeHBLUnQ3dStHZDMzalNSLwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
 ```
+{: codeblock}
 
 Copy this string to the `"admincerts"` field under the component section in the configuration file.
 
 ### CSR (Certificate Signing Request) hosts
+{: #csr}
 
 You have the option of providing a custom domain to your component by using the `"csr"` section of the components file.
 

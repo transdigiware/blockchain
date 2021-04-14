@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-12"
+lastupdated: "2021-04-05"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -44,7 +44,7 @@ In this topic, we'll cover the process for [reallocating resources](#ibp-console
 Resizing a node requires the containers to be rebuilt, which can cause a delay in the functioning of the node.
 {:important}
 
-We recommend using the [{{site.data.keyword.cloud_notm}} Sysdig](https://www.ibm.com/cloud/sysdig){: external} tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard to monitor your Kubernetes resource usage. When you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
+We recommend using the [{{site.data.keyword.mon_full_notm}}](https://www.ibm.com/cloud/cloud-monitoring) tool in combination with your {{site.data.keyword.cloud_notm}} Kubernetes dashboard to monitor your Kubernetes resource usage. When you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 {:note}
 
 
@@ -75,9 +75,7 @@ Note that you do not need to adjust the CPU, memory, or storage for your smart c
 ### Monitoring file storage
 {: #ibp-console-govern-components-monitor-storage}
 
-
-
-To view your consumption of file storage, navigate to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. Click on the menu icon ![action menu](../../icons/overflow-menu.svg). Then click  **Classic infrastructure**> **Storage** > **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped to your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
+If you are using **Classic infrastructure**, to view your consumption of file storage, navigate to your Kubernetes cluster on {{site.data.keyword.cloud_notm}}. Click on the menu icon ![action menu](../../icons/overflow-menu.svg). Then click **Classic infrastructure** > **Storage** > **File Storage**. This will display the capacity and usage for each persistent volume claim (PVC). This usage can be mapped to your {{site.data.keyword.blockchainfull_notm}} Platform nodes by clicking on the cell in the **Notes** column.
 
 You will see something that looks like this:
 
@@ -93,7 +91,7 @@ ibmcloud sl file volume-list --column id --column notes
 
 This will allow you to map the output from the pods to the nodes you have deployed.
 
-
+If you are using VPC infrastructure, see [Monitoring block storage volumes](/docs/vpc?topic=vpc-monitor-block-storage-vpc) for more details.
 
 ### Adding storage
 {: #ibp-console-govern-components-add-storage}
@@ -174,7 +172,7 @@ Review the following considerations:
 
 **Node**  
 
-If your smart contract was written in Node, then you might need to update it. By default, a Fabric v1.4 peer will create a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for a smart contract to work with Node v12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater. If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and Compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md) for more information.
+If your smart contract was written in Node, then you might need to update it. By default, a Fabric v1.4 peer will create a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for a smart contract to work with Node v12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater. If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/main/COMPATIBILITY.md) for more information.
 ```
 npm install --save fabric-contract-api@latest-1.4 fabric-shim@latest-1.4
 ```

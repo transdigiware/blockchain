@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-01"
+lastupdated: "2021-04-13"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -37,6 +37,7 @@ General problems can occur when you use the console to manage nodes, channels, o
 This topic describes common issues that can occur when you use the {{site.data.keyword.blockchainfull_notm}} Platform console.  
 
 **Issues with the Console**
+- [Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment? (Ingress issue)](#ibp-v2-troubleshooting-ingress-issue)
 - [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
@@ -76,6 +77,64 @@ This topic describes common issues that can occur when you use the {{site.data.k
 
 
 
+## Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment (Ingress issue)?
+{: #ibp-v2-troubleshooting-ingress-issue}
+{: troubleshoot}
+
+When deploying a new IBM Cloud Kubernetes Service cluster and a new IBM Blockchain Platform environment, the IBM Blockchain Platform user interface is unable to connect to the provision components. The component status does not turn green even when the pod shows it is running fine from the IBM Cloud Kubernetes Service user interface or the command line interface (CLI).
+{: tsSymptoms}
+
+You may also see errors connecting to the proxy URL such as the following reported by the IBM Blockchain Platform console:
+
+```
+"stitch_msg": "unable to get block: grpc web proxy's message: "Response closed without headers". This can happen when encountering CORS or untrusted TLS issues with the grpc web proxy.",
+```
+{: codeblock}
+
+This problem can occur when the cluster is created after 01 December 2020 with version 1.18 or higher. Or, after you finish deploying the IBM Blockchain Platform while the Kubernetes user interface or CLI still displays the pod as running, but the orderer or the peer user interface does not appear online. 
+{: tsCauses}
+
+Before ressolving this problem, you can check the application load balancer (ALB) replica set by running `kubectl get replicasets -n kube-system` and look for result similar to `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. 
+
+For clusters created after 01 December 2020 with version 1.18 or higher, you can check the ingress configuration as follow:
+
+1. Run `kubectl get ingress --all-namespaces` to find out which are the ingress matching nodes that are having issues.
+
+2. Run `kubectl get ingress <componentname> -n <namespace> -o yaml` to clear the current ingress configuration.
+
+3. Verify if the following configuration is missing:
+    ```
+    annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+        nginx.ingress.kubernetes.io/proxy-ssl-verify: "false" 
+    ```
+    {: codeblock}
+
+To resolve this problem, you can perform the following steps:
+{: tsResolve}
+
+1. **Update and deploy ALB.** For clusters with only one single node, you can add a second node on to it. For clusters with multizone, you can add a second node to each zone. Or, edit the replica set and scale it down to 1. To scale-down the replica set to 1, you can perform the following steps: 
+
+  - To find the existing replica set.
+
+      ```
+      kubectl get replicasets -n kube-system | grep -i alb
+      public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h
+      ```
+      {: codeblock}
+
+  - To scale-down the replica set to 1.
+
+      ```
+      kubectl scale --replicas=1 rs/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 -n kube-system
+      replicaset.apps/public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57 scaled
+      ```
+      {: codeblock}
+
+2. **Verify the resolution.** You can now verify the changes by performing the following steps:
+
+  - Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each listed entry.
+  - Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
 
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
@@ -223,7 +282,7 @@ Error: endorsement failure during query. response: status:500 message:"error in 
 By default, a Fabric v1.4 peer creates a Node v8 runtime, and a Fabric v2.x peer creates a Node v12 runtime. In order for the smart contract to work with Node 12 runtime, the `fabric-contract-api` and `fabric-shim` node modules must be at v1.4.5 or greater.
 
 {: tsResolve}
-If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and Compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md) for more information.
+If you are using a smart contract that was originally written to work with Fabric 1.4, update the Node modules by running the following command before deploying the smart contract on a Fabric v2.x peer.  See [Support and compatibility for fabric-chaincode-node](https://github.com/hyperledger/fabric-chaincode-node/blob/main/COMPATIBILITY.md) for more information.
 ```
 npm install --save fabric-contract-api@latest-1.4 fabric-shim@latest-1.4
 ```
@@ -476,11 +535,13 @@ This problem can happen when you try to deploy a CA, peer, or ordering node that
 ```
 {"code":1000,"message":"Private key not found [pkcs11: 0x30: CKR_DEVICE_ERROR]"}"
 ```
+{: codeblock}
+
 or
 ```
 {"code":1000,"message":"Private key not found [pkcs11: 0xB3: CKR_SESSION_HANDLE_INVALID]"}"
 ```
-
+{: codeblock}
 
 This problem happens when the PKCS #11 proxy that is associated with the HSM is unreachable due to a network problem or if the proxy restarts after the node has connected to it.
 {: tsCauses}
@@ -520,6 +581,7 @@ Transactions submitted from VS Code fail with an error similar to:
 ```
 Error submitting transaction: No endorsement plan available for {"chaincodes":[{"name":"hello-world"}]}
 ```
+{: codeblock}
 
 This error occurs if you are using the Fabric Service Discovery feature but did not configure any anchor peers on your channel.
 {: tsCauses}
@@ -538,6 +600,7 @@ Also in the endorsing peer logs I can see the error:
 ```
 UTC [discovery] chaincodeQuery -> ERRO 23c Failed constructing descriptor for chaincode chaincodes:<name:"chaincode-name">,: cannot satisfy any principal combination
 ```
+{: codeblock}
 
 This error occurs when the peer's enroll id type does not match the smart contract endorsement policy that was configured when the smart contract was instantiated on the channel.
 {: tsCauses}

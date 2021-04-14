@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-14"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 

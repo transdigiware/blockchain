@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-03-08"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -480,8 +480,6 @@ metadata:
 {: #ibp-console-adv-deployment-hsm-configmap}
 
 
-Because the console needs to know the configuration settings to use for your HSM, you need to create a Kubernetes [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){:external} to store these values. The {{site.data.keyword.blockchainfull_notm}} Platform operator uses the HSM configuration passed in this configmap to get the details about the HSM client image, such as what image pull secret to use, and the folder mounts that are required. Based on the information provided, when a CA, peer, or ordering node is deployed with HSM enabled, the operator mounts required the files for the HSM client image.
-
 
 
 
@@ -578,33 +576,6 @@ The output looks similar to:
 ```
 configmap/ibp-hsm-config created
 ```
-
-To view the contents of the configmap, run the command:
-```
-kubectl get configmap ibp-hsm-config -n <NAMESPACE>
-```
-{: codeblock}
-
-The output looks similar to:
-
-```
-apiVersion: v1
-data:
-  ibp-hsm-config.yaml: |+
-    library:
-      auth:
-        imagePullSecret: <>
-...
-    type: hsm
-    version: v1
-
-kind: ConfigMap
-metadata:
-...
-```
-
-Congratulations. You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
-
 
 ### What's next
 {: #ibp-hsm-gemalto-next-steps}
