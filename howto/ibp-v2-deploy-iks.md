@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-04-19"
 
 keywords: getting started tutorials, videos, integration, storage
 
@@ -253,7 +253,6 @@ Before you deploy the console, ensure that you understand the following consider
 - The default storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}} is `Gold`. If you do not want to use the default File Storage that is pre-selected for you when you provision a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, you can provision storage of your choice. See this topic on [Persistent storage considerations](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-storage) to learn more.
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Kubernetes clusters that are configured with private VLANs are not supported.
-- Both **Classic** and **Virtual Private Cloud (VPC)** infrastructure are supported. If you prefer VPC [infrastructure isolation](/docs/vpc?topic=vpc-about-vpc#about-vpc), you need to provision the VPC in {{site.data.keyword.cloud_notm}} before you deploy the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Video tutorial
 {: #ibp-v2-deploy-video}

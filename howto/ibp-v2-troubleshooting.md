@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-04-16"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -94,7 +94,7 @@ You may also see errors connecting to the proxy URL such as the following report
 This problem can occur when the cluster is created after 01 December 2020 with version 1.18 or higher. Or, after you finish deploying the IBM Blockchain Platform while the Kubernetes user interface or CLI still displays the pod as running, but the orderer or the peer user interface does not appear online. 
 {: tsCauses}
 
-Before ressolving this problem, you can check the application load balancer (ALB) replica set by running `kubectl get replicasets -n kube-system` and look for result similar to `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. 
+Before resolving this problem, you can check the application load balancer (ALB) replica set by running `kubectl get replicasets -n kube-system` and look for result similar to `public-crbpt86avw0kfob73dpb3g-alb1-875bc4d57    2         2         2       24h`. 
 
 For clusters created after 01 December 2020 with version 1.18 or higher, you can check the ingress configuration as follow:
 
