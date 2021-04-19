@@ -254,8 +254,6 @@ Before you deploy the console, ensure that you understand the following consider
 - If you decide to include {{site.data.keyword.cloud_notm}} multi-zone support in your Kubernetes cluster, you must provision your own storage. See [Using Multizone (MZR) clusters with {{site.data.keyword.blockchainfull_notm}} Platform](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks#ibp-console-mzr) for more details.
 - Kubernetes clusters that are configured with private VLANs are not supported.
 
-
-
 ## Video tutorial
 {: #ibp-v2-deploy-video}
 
