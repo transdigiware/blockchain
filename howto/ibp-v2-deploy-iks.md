@@ -255,6 +255,7 @@ Before you deploy the console, ensure that you understand the following consider
 - Kubernetes clusters that are configured with private VLANs are not supported.
 
 
+
 ## Video tutorial
 {: #ibp-v2-deploy-video}
 
