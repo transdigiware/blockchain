@@ -153,14 +153,14 @@ If you are running a two nodes cluster or a multizone cluster with two nodes in 
       {: codeblock}
 
       For example, you will see multiple replica sets listed as follow:
-        ```
-        $ kubectl get rs -n kube-system | grep alb
-        NAME  DESIRED   CURRENT   READY   AGE
-        public-x-alb1-59db7dbfb4   2         0         0       6d4h
-        public-x-alb1-6486c45c96   2         2         0       3d17h
-        public-x-alb1-d856b94c4    0         0         0       17d
-        ```
-        {: codeblock}
+      ```
+      $ kubectl get rs -n kube-system | grep alb
+      NAME  DESIRED   CURRENT   READY   AGE
+      public-x-alb1-59db7dbfb4   2         0         0       6d4h
+      public-x-alb1-6486c45c96   2         2         0       3d17h
+      public-x-alb1-d856b94c4    0         0         0       17d
+      ```
+      {: codeblock}
 
     - Delete all the replica sets except for the latest one.
       ```
@@ -169,11 +169,11 @@ If you are running a two nodes cluster or a multizone cluster with two nodes in 
       {: codeblock}
 
       Based on the example shown, you need to delete the extra replica sets as follows:
-        ```
-        kubectl delete replicaset -n kube-system public-x-alb1-59db7dbfb4  
-        kubectl delete replicaset -n kube-system public-x-alb1-d856b94c4
-        ```
-        {: codeblock}
+      ```
+      kubectl delete replicaset -n kube-system public-x-alb1-59db7dbfb4  
+      kubectl delete replicaset -n kube-system public-x-alb1-d856b94c4
+      ```
+      {: codeblock}
 
     - Get the list of replica set again to ensure there is only one remaining.
       ```
