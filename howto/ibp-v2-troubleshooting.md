@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-04-28"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -113,6 +113,9 @@ For clusters created after 01 December 2020 with version 1.18 or higher, you can
 To resolve this problem, you can perform the following steps:
 {: tsResolve}
 
+If you are running a two nodes cluster or a multizone cluster with two nodes in each zone, go directly to step 3.
+{: note}
+
 1. **Update and deploy ALB.** For clusters with only one single node, you can add a second node on to it. For clusters with multizone, you can add a second node to each zone. Or, edit the replica set and scale it down to 1. To scale-down the replica set to 1, you can perform the following steps: 
 
   - To find the existing replica set.
@@ -136,6 +139,53 @@ To resolve this problem, you can perform the following steps:
   - Run `kubectl get ingress --all-namespaces` command to check if ingress gets an IP address for each listed entry.
   - Run `curl -kv https://<component-proxy-url>/settings` for testing the connectivity to ensure the component-proxy-url matches the corresponding "Hosts" entry in the `kubectl get ingress --all-namespaces` command.
 
+3. **Get the list of ALB replica set.** If your cluster has only one ALB, you can get the replica set as follows:
+      ```
+      kubectl get replicaset -n kube-system | grep <ALB-name>
+      ```
+      {: codeblock}
+
+  If you have multiple ALBs, perform the following steps for each ALB as follows:
+    - Get the list of all replica sets. 
+      ```
+      kubectl get replicaset -n kube-system | grep alb
+      ```
+      {: codeblock}
+
+      For example, you will see multiple replica sets listed as follow:
+        ```
+        $ kubectl get rs -n kube-system | grep alb
+        NAME  DESIRED   CURRENT   READY   AGE
+        public-x-alb1-59db7dbfb4   2         0         0       6d4h
+        public-x-alb1-6486c45c96   2         2         0       3d17h
+        public-x-alb1-d856b94c4    0         0         0       17d
+        ```
+        {: codeblock}
+
+    - Delete all the replica sets except for the latest one.
+      ```
+      kubectl delete replicaset -n kube-system <replicaset-name>
+      ```
+      {: codeblock}
+
+      Based on the example shown, you need to delete the extra replica sets as follows:
+        ```
+        kubectl delete replicaset -n kube-system public-x-alb1-59db7dbfb4  
+        kubectl delete replicaset -n kube-system public-x-alb1-d856b94c4
+        ```
+        {: codeblock}
+
+    - Get the list of replica set again to ensure there is only one remaining.
+      ```
+      kubectl get replicaset -n kube-system | grep <ALB-name>
+      ```
+      {: codeblock}
+ 
+      Referring to the example, the result will display as follows:
+      ```
+      public-x-alb1-6486c45c96   2         2         2       3d17h
+      ```
+      {: codeblock}
 
 ## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
