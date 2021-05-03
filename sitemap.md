@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-03"
 
 keywords: site map
 subcollection: blockchain
@@ -150,25 +150,25 @@ subcollection: blockchain
 
 [About {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-console-overview)
 
-[What the {{site.data.keyword.blockchainfull_notm}} Platform offers](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities)
+* [What the {{site.data.keyword.blockchainfull_notm}} Platform offers](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-capabilities)
 
-[Supported {{site.data.keyword.cloud_notm}} configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg)
+* [Supported {{site.data.keyword.cloud_notm}} configuration](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-supported-cfg)
 
-[Considerations](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-considerations)
+* [Considerations](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-considerations)
 
-[License and pricing](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-license-and-pricing)
+* [License and pricing](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-license-and-pricing)
 
-[Getting started](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-deploy)
+* [Getting started](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-deploy)
 
-[Architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)
-* [{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-iks)
-* [IBM Blockchain Platform on Red Hat OpenShift Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-ocp)
+* [Architecture reference](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture)
+    * [{{site.data.keyword.blockchainfull_notm}} Platform on {{site.data.keyword.cloud_notm}} Kubernetes Service Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-iks)
+    * [IBM Blockchain Platform on Red Hat OpenShift Architecture](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-architecture-ocp)
 
-[Integrating with {{site.data.keyword.cloud_notm}} and other third-party services](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-v2-deploy-iks-integrations)
+* [Integrating with {{site.data.keyword.cloud_notm}} and other third-party services](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-v2-deploy-iks-integrations)
 
-[Compliance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-compliance)
+* [Compliance](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-compliance)
 
-[Getting support](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-support)
+* [Getting support](/docs/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview-support)
 
 
 ## What is blockchain?
@@ -182,59 +182,59 @@ subcollection: blockchain
 
 [What's new](/docs/blockchain?topic=blockchain-whats-new)
 
-[April 13, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-04-13-2021)
+* [April 13, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-04-13-2021)
 
-[January 19, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-01-19-2021)
+* [January 19, 2021](/docs/blockchain?topic=blockchain-whats-new#whats-new-01-19-2021)
 
-[November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
+* [November 02, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-02-2020)
 
-[August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
+* [August 27, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-08-19-2020)
 
-[June 18, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-06-18-2020)
+* [June 18, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-06-18-2020)
 
-[May 20, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-05-20-2020)
+* [May 20, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-05-20-2020)
 
-[March 24, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-03-24-2020)
+* [March 24, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-03-24-2020)
 
-[February 14, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-2-14-2019)
+* [February 14, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-2-14-2019)
 
-[February 06, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-02-06-2020)
+* [February 06, 2020](/docs/blockchain?topic=blockchain-whats-new#whats-new-02-06-2020)
 
-[October 02, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-02-2019)
-* [Reminders for Starter Plan users](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-02-2019-reminders)
-* [The {{site.data.keyword.blockchainfull_notm}} Platform console UI has been updated](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-02-2019-Console)
+* [October 02, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-02-2019)
+    * [Reminders for Starter Plan users](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-02-2019-reminders)
+    * [The {{site.data.keyword.blockchainfull_notm}} Platform console UI has been updated](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-02-2019-Console)
 
-[August 27, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-8-27-2019)
+* [August 27, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-8-27-2019)
 
-[August 7, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-8-7-2019)
+* [August 7, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-8-7-2019)
 
-[June 18, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-6-18-2019)
+* [June 18, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-6-18-2019)
 
-[May 31, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-5-31-2019)
+* [May 31, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-5-31-2019)
 
-[May 9, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-5-09-2019)
+* [May 9, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-5-09-2019)
 
-[April 23, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-4-23-2019)
+* [April 23, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-4-23-2019)
 
-[February 8, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-2-08-2019)
+* [February 8, 2019](/docs/blockchain?topic=blockchain-whats-new#whats-new-2-08-2019)
 
-[December 7, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-12-07-2018)
+* [December 7, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-12-07-2018)
 
-[November 27, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-27-2018)
+* [November 27, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-27-2018)
 
-[November 13, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-13-2018)
+* [November 13, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-11-13-2018)
 
-[October 4, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-04-2018)
+* [October 4, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-10-04-2018)
 
-[September 4, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-9-04-2018)
+* [September 4, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-9-04-2018)
 
-[June 15, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-6-15-2018)
+* [June 15, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-6-15-2018)
 
-[May 15, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-5-15-2018)
+* [May 15, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-5-15-2018)
 
-[March, 18, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-3-18-2018)
+* [March, 18, 2018](/docs/blockchain?topic=blockchain-whats-new#whats-new-3-18-2018)
 
-[August 11, 2017](/docs/blockchain?topic=blockchain-whats-new#whats-new-8-11-2017)
+* [August 11, 2017](/docs/blockchain?topic=blockchain-whats-new#whats-new-8-11-2017)
 
 
 ## Blockchain component overview
@@ -243,19 +243,19 @@ subcollection: blockchain
 
 [Blockchain component overview](/docs/blockchain?topic=blockchain-blockchain-component-overview)
 
-[Peers](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer)
+* [Peers](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-peer)
 
-[Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca)
+* [Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-ca)
 
-[Ordering services](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer)
+* [Ordering services](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-orderer)
 
-[Channels](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-channels)
+* [Channels](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-channels)
 
-[Smart contracts](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-smart-contracts)
+* [Smart contracts](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-smart-contracts)
 
-[Applications](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-applications)
+* [Applications](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-applications)
 
-[An example network](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-example-network)
+* [An example network](/docs/blockchain?topic=blockchain-blockchain-component-overview#blockchain-component-overview-example-network)
 
 
 ## Pricing
@@ -285,26 +285,26 @@ subcollection: blockchain
 
 [Security](/docs/blockchain?topic=blockchain-ibp-security)
 
-[Security on the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp)
-* [IAM (Identity and Access Management)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-iam)
-* [Ports](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-ports)
-* [Key management](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-keys)
-* [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-msp)
-* [Access control lists (ACLs)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-acls)
-* [API authentication](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-apis)
+* [Security on the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp)
+    * [IAM (Identity and Access Management)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-iam)
+    * [Ports](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-ports)
+    * [Key management](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-keys)
+    * [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-msp)
+    * [Access control lists (ACLs)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-acls)
+    * [API authentication](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-ibp-apis)
 
-[Best practices for security on the customer Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes)
-* [Kubernetes cluster security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-security)
-* [Network security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-network)
-* [Internet Ports](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-ports)
-* [Cluster and Operating System security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-container-os)
-* [Keys and cluster access information](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-keys)
-* [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-msp)
-* [Storage](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-storage)
-* [Data privacy](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-privacy)
-* [GDPR](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-gdpr)
+* [Best practices for security on the customer Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes)
+    * [Kubernetes cluster security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-security)
+    * [Network security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-network)
+    * [Internet Ports](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-ports)
+    * [Cluster and Operating System security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-container-os)
+    * [Keys and cluster access information](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-Kubernetes-keys)
+    * [Membership Service Providers (MSPs)](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-msp)
+    * [Storage](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-storage)
+    * [Data privacy](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-privacy)
+    * [GDPR](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-gdpr)
 
-[Hyperledger Fabric Security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-fabric)
+* [Hyperledger Fabric Security](/docs/blockchain?topic=blockchain-ibp-security#ibp-security-kubernetes-fabric)
 
 
 ## High availability
@@ -371,21 +371,21 @@ subcollection: blockchain
 
 [Data residency](/docs/blockchain?topic=blockchain-console-icp-about-data-residency)
 
-[How data is shared within an {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-fabric)
+* [How data is shared within an {{site.data.keyword.blockchainfull_notm}} Platform network](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-fabric)
 
-[A use case for data residency](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case)
+* [A use case for data residency](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case)
 
-[Option one: Private data collections on a shared channel](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-private-data)
+* [Option one: Private data collections on a shared channel](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-private-data)
 
-[Option two: Private data collections on a separate channel](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-private-data-channel)
+* [Option two: Private data collections on a separate channel](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-private-data-channel)
 
-[Option three: A channel with all components in one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-channel)
+* [Option three: A channel with all components in one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-use-case-channel)
 
-[Option four: A separate channel with only ordering nodes from one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-raft)
+* [Option four: A separate channel with only ordering nodes from one country](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-raft)
 
-[Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-considerations)
+* [Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-considerations)
 
-[Reference material](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-reference)
+* [Reference material](/docs/blockchain?topic=blockchain-console-icp-about-data-residency#console-icp-about-data-residency-reference)
 
 
 ## FAQs
@@ -394,89 +394,89 @@ subcollection: blockchain
 
 [FAQs](/docs/blockchain?topic=blockchain-ibp-v2-faq)
 
-[What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-7)
+* [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-7)
 
-[What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+* [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
 
-[Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
+* [Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-interoperability)
 
-[Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hippa)
+* [Is {{site.data.keyword.blockchainfull_notm}} Platform HIPAA ready?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hippa)
 
-[What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-ports)
+* [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-ports)
 
-[How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-sizing)
+* [How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-sizing)
 
-[How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-pricing)
+* [How does pricing work on the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-pricing)
 
-[What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-free-cluster)
+* [What are the limitations of the free {{site.data.keyword.blockchainfull_notm}} Platform using the  {{site.data.keyword.cloud_notm}} Kubernetes Service free cluster?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-free-cluster)
 
-[What regions or locations are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-9)
+* [What regions or locations are available for the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-9)
 
-[What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-storage)
+* [What persistent file storage does {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} use by default?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-storage)
 
-[Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-mzr-storage)
+* [Do I need multizone region storage for {{site.data.keyword.blockchainfull_notm}} Platform nodes?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-mzr-storage)
 
-[What versions of Red Hat OpenShift are supported?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-versions)
+* [What versions of Red Hat OpenShift are supported?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-versions)
 
-[Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-trial)
+* [Is there a trial option available for using a Red Hat OpenShift cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-trial)
 
-[Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-multicloud)
+* [Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-multicloud)
 
-[How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
+* [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-version)
 
-[How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
+* [How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
 
-[I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
+* [I am currently using Hyperledger Fabric v1.4.x and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} . Can I continue to use Raft?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-migrate-raft)
 
-[Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-migrate)
+* [Can I migrate the blockchain components on my {{site.data.keyword.IBM_notm}} Kubernetes service cluster to a Red Hat OpenShift cluster in {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ocp-migrate)
 
-[What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-8)
+* [What happens when I delete my {{site.data.keyword.blockchainfull_notm}} Platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-8)
 
-[Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Infrastructure-4-2)
+* [Can I use my existing Kubernetes cluster on {{site.data.keyword.cloud_notm}}?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Infrastructure-4-2)
 
-[What database do the peers use for their ledger?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
+* [What database do the peers use for their ledger?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
 
-[What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
+* [What types of off-chain databases are supported with the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-offchain-db)
 
-[If service discovery is on, will an endorsement request be routed to any peer on the network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-service-discovery)
+* [If service discovery is on, will an endorsement request be routed to any peer on the network?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-service-discovery)
 
-[Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
+* [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-raft-tls)
 
-[How can I back up and restore components and networks?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-backup-restore)
+* [How can I back up and restore components and networks?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-backup-restore)
 
-[What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
+* [What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
 
-[Do you support using certificates from non-IBM Certificate Authorities?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-external-certs)
+* [Do you support using certificates from non-IBM Certificate Authorities?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-external-certs)
 
-[What is the recommended way to manage private keys?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hsm)
+* [What is the recommended way to manage private keys?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-hsm)
 
-[Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ldap)
+* [Can I integrate my corporate LDAP server with the Certificate Authority (CA) in the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ldap)
 
-[What is the process for rotating certificates on a periodic basis?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cert-mgmt)
+* [What is the process for rotating certificates on a periodic basis?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cert-mgmt)
 
-[What languages are supported for smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-4)
+* [What languages are supported for smart contracts?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-4)
 
-[What version of the {{site.data.keyword.blockchainfull_notm}} Platform works with the Ansible collection?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ansible-version)
+* [What version of the {{site.data.keyword.blockchainfull_notm}} Platform works with the Ansible collection?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ansible-version)
 
-[How do I get support for running the {{site.data.keyword.blockchainfull_notm}} Platform Ansible playbook?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ansible-support)
+* [How do I get support for running the {{site.data.keyword.blockchainfull_notm}} Platform Ansible playbook?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-ansible-support)
 
-[Do I need OpenShift to run CodeReady Workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-openshift)
+* [Do I need OpenShift to run CodeReady Workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-openshift)
 
-[How often do updates get rolled out for the CodeReady Workspace extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-updates)
+* [How often do updates get rolled out for the CodeReady Workspace extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-codeready-updates)
 
-[How can I test my smart contract that is running in CodeReady workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
+* [How can I test my smart contract that is running in CodeReady workspace?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
 
-[How can I find the examples and tutorials within the VSCode extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-vscode-tutorials)
+* [How can I find the examples and tutorials within the VSCode extension?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-vscode-tutorials)
 
-[Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-client-app)
+* [Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-client-app)
 
-[Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-customer-logs)
+* [Where does {{site.data.keyword.IBM_notm}} store the customer's logs and how long does {{site.data.keyword.IBM_notm}} keep the audit logs for the blockchain platform service?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-customer-logs)
 
-[Do we have access to logging services and what logs are available to me?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)
+* [Do we have access to logging services and what logs are available to me?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)
 
-[Where can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-invoice)
+* [Where can I see the price breakdown for {{site.data.keyword.cloud_notm}} Kubernetes Service, Storage, and Blockchain in my monthly invoice?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-cloud-invoice)
 
-[Is there a best practice for monitoring my blockchain resources?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-res)
+* [Is there a best practice for monitoring my blockchain resources?](/docs/blockchain?topic=blockchain-ibp-v2-faq#ibp-v2-faq-mon-res)
 
 
 ## Disclaimer
@@ -485,11 +485,11 @@ subcollection: blockchain
 
 [Disclaimer](/docs/blockchain?topic=blockchain-disclaimer)
 
-[{{site.data.keyword.IBM_notm}} support statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-support-statement)
+* [{{site.data.keyword.IBM_notm}} support statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-support-statement)
 
-[Open-source statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-open-source-statement)
+* [Open-source statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-open-source-statement)
 
-[Chaincode support statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-chaincode-support-statement)
+* [Chaincode support statement](/docs/blockchain?topic=blockchain-disclaimer#disclaimer-chaincode-support-statement)
 
 
 ## Getting started
@@ -596,46 +596,46 @@ subcollection: blockchain
 
 [Creating applications](/docs/blockchain?topic=blockchain-ibp-console-app)
 
-[Overview](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
-* [High-Level Programming Model APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-high-level)
-* [Low-Level Fabric SDK APIs**](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
+* [Overview](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-learning-resources)
+    * [High-Level Programming Model APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-high-level)
+    * [Low-Level Fabric SDK APIs**](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level)
 
-[Application connectivity and availability](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-transx)
+* [Application connectivity and availability](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-transx)
 
-[Network considerations](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-networking)
+* [Network considerations](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-networking)
 
-[Application compatibility](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat)
-* [SDKs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sdk)
-* [Smart contracts](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sc)
+* [Application compatibility](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat)
+    * [SDKs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sdk)
+    * [Smart contracts](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-compat-sc)
 
-[Registering an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities)
+* [Registering an application identity](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-identities)
 
-[Downloading your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile)
+* [Downloading your connection profile](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-profile)
 
-[Service discovery](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-sd)
+* [Service discovery](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-sd)
 
-[Enrolling by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll)
+* [Enrolling by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-enroll)
 
-[Invoking a smart contract by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke)
+* [Invoking a smart contract by using the SDK](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-invoke)
 
-[Running the Commercial Paper sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)
-* [Prerequisites](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-prereq)
-* [Step one: Download the sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-one-download-sample)
-* [Step two: Install and Propose smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-two-install-propose)
-* [Step three: Generate certificates for your wallet](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-three-generate-certificates)
-* [Step four: Use the connection profile to build a Fabric gateway](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-four-gateway)
-* [Step five: Invoke the smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
-* [Step six: Operate the sample as Digibank](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
+* [Running the Commercial Paper sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper)
+    * [Prerequisites](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-prereq)
+    * [Step one: Download the sample](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-one-download-sample)
+    * [Step two: Install and Propose smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-two-install-propose)
+    * [Step three: Generate certificates for your wallet](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-three-generate-certificates)
+    * [Step four: Use the connection profile to build a Fabric gateway](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-four-gateway)
+    * [Step five: Invoke the smart contract](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
+    * [Step six: Operate the sample as Digibank](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 
-[Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level-api)
+* [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain?topic=blockchain-ibp-console-app#ibp-console-app-low-level-api)
 
-[Highly available applications](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-ha)
+* [Highly available applications](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-ha)
 
-[Using indexes with CouchDB](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-couchdb)
+* [Using indexes with CouchDB](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-couchdb)
 
-[Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
+* [Clock synchronization](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-clock)
 
-[Additional Resources](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-resources)
+* [Additional Resources](/docs/blockchain?topic=blockchain-ibp-console-app#console-app-resources)
 
 
 ## Certificate Authority (CA) options
@@ -1027,17 +1027,17 @@ subcollection: blockchain
 
 [Backing up and restoring components and networks](/docs/blockchain?topic=blockchain-backup-restore)
 
-[ Overview](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-overview)
-* [Backup considerations for each node type](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-node-considerations)
-* [Scheduling snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-schedule-snapshot)
+* [ Overview](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-overview)
+    * [Backup considerations for each node type](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-node-considerations)
+    * [Scheduling snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-schedule-snapshot)
 
-[Taking snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-take-snapshot)
-* [Node snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-peer-snapshot)
+* [Taking snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-take-snapshot)
+    * [Node snapshots](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-peer-snapshot)
 
-[Restoring nodes](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore)
-* [Sequencing restorations](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-sequence)
-* [Restoring a peer](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-peer)
-* [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
+* [Restoring nodes](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore)
+    * [Sequencing restorations](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-sequence)
+    * [Restoring a peer](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-peer)
+    * [Restoring an ordering node](/docs/blockchain?topic=blockchain-backup-restore#backup-restore-restore-orderer)
 
 
 ## Building a network with APIs
@@ -1046,46 +1046,46 @@ subcollection: blockchain
 
 [Building a network with APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis)
 
-[Swagger](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-swagger)
+* [Swagger](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-swagger)
 
-[Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
+* [Before you begin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-prereq)
 
-[Authentication](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
-* [Retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials)
-* [Retrieving an access token](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-token)
+* [Authentication](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-authentication)
+    * [Retrieving service credentials](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-service-credentials)
+    * [Retrieving an access token](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-retrieve-token)
 
-[Forming your API request](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-form-api-request)
+* [Forming your API request](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-form-api-request)
 
-[Limitations](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-limitations)
+* [Limitations](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-limitations)
 
-[Building a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis)
-* [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
+* [Building a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-build-with-apis)
+    * [Creating a node within a specific zone](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-zone)
 
-[Creating a node with a custom configuration](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom)
-* [Example: Creating a custom Certificate Authority](/docs/blockchain?topic=blockchain-ibp-v2-apis#example-creating-a-custom-certificate-authority)
-* [Create a high availability CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#create-a-high-availability-ca)
-* [Deploy a node that uses an HSM](/docs/blockchain?topic=blockchain-ibp-v2-apis#deploy-a-node-that-uses-an-hsm)
+* [Creating a node with a custom configuration](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-custom)
+    * [Example: Creating a custom Certificate Authority](/docs/blockchain?topic=blockchain-ibp-v2-apis#example-creating-a-custom-certificate-authority)
+    * [Create a high availability CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#create-a-high-availability-ca)
+    * [Deploy a node that uses an HSM](/docs/blockchain?topic=blockchain-ibp-v2-apis#deploy-a-node-that-uses-an-hsm)
 
-[Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis)
+* [Import a network by using APIs](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-import-with-apis)
 
-[Operating your CA with the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-fabric-ca-client)
-* [Set up the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-setup-fabric-ca-client)
-* [Generate certificates with your CA admin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-enroll-ca-admin)
-* [Registering the component identity with the CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component)
-* [Registering your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-admin)
-* [Generating the admin Membership Service Provider (MSP) folder](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-enroll-admin)
-* [Registering the component identity with the TLS CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component-tls)
-* [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-troubleshooting)
+* [Operating your CA with the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-fabric-ca-client)
+    * [Set up the Fabric CA client](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-setup-fabric-ca-client)
+    * [Generate certificates with your CA admin](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-enroll-ca-admin)
+    * [Registering the component identity with the CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component)
+    * [Registering your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-admin)
+    * [Generating the admin Membership Service Provider (MSP) folder](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-enroll-admin)
+    * [Registering the component identity with the TLS CA](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-register-component-tls)
+    * [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-troubleshooting)
 
-[Creating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-msp)
+* [Creating an organization MSP definition](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-msp)
 
-[Creating a configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config)
-* [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
-* [Provide your component enroll ID and secret](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-your-component-enroll-id-and-secret)
-* [Provide the signCert of your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-the-signcert-of-your-organization-administrator)
-* [CSR (Certificate Signing Request) hosts](/docs/blockchain?topic=blockchain-ibp-v2-apis#csr)
-* [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
-* [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
+* [Creating a configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config)
+    * [Retrieve the CA connection information](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-connx-info)
+    * [Provide your component enroll ID and secret](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-your-component-enroll-id-and-secret)
+    * [Provide the signCert of your organization administrator](/docs/blockchain?topic=blockchain-ibp-v2-apis#provide-the-signcert-of-your-organization-administrator)
+    * [CSR (Certificate Signing Request) hosts](/docs/blockchain?topic=blockchain-ibp-v2-apis#csr)
+    * [Completing the configuration file](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-config-file)
+    * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain?topic=blockchain-ibp-v2-apis#ibp-v2-apis-admin-console)
 
 
 ## Hyperledger Fabric
@@ -1094,17 +1094,17 @@ subcollection: blockchain
 
 [Hyperledger Fabric](/docs/blockchain?topic=blockchain-hyperledger-fabric)
 
-[Peers](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-peer)
+* [Peers](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-peer)
 
-[Certificate Authority](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-certificate-authority)
+* [Certificate Authority](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-certificate-authority)
 
-[Membership Service Provider](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-membership-service-provider)
+* [Membership Service Provider](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-membership-service-provider)
 
-[Ordering service](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-ordering-service)
+* [Ordering service](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-ordering-service)
 
-[The Fabric SDKs](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-fabric-sdks)
+* [The Fabric SDKs](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-fabric-sdks)
 
-[Transaction flow](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-transaction-flow)
+* [Transaction flow](/docs/blockchain?topic=blockchain-hyperledger-fabric#hyperledger-fabric-transaction-flow)
 
 
 ## Kubernetes
@@ -1113,9 +1113,9 @@ subcollection: blockchain
 
 [Kubernetes](/docs/blockchain?topic=blockchain-k8s-overview)
 
-[Key Kubernetes objects](/docs/blockchain?topic=blockchain-k8s-overview#k8s-overview-key-obj)
+* [Key Kubernetes objects](/docs/blockchain?topic=blockchain-k8s-overview#k8s-overview-key-obj)
 
-[{{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/blockchain?topic=blockchain-k8s-overview#k8s-overview-iks)
+* [{{site.data.keyword.cloud_notm}} Kubernetes Service](/docs/blockchain?topic=blockchain-k8s-overview#k8s-overview-iks)
 
 
 ## {{site.data.keyword.blockchainfull_notm}} Platform locations
@@ -1124,7 +1124,7 @@ subcollection: blockchain
 
 [{{site.data.keyword.blockchainfull_notm}} Platform locations](/docs/blockchain?topic=blockchain-ibp-regions-locations)
 
-[{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-ibp)
+* [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](/docs/blockchain?topic=blockchain-ibp-regions-locations#ibp-regions-locations-ibp)
 
 
 ## HSM PKCS #11 proxy
@@ -1133,19 +1133,19 @@ subcollection: blockchain
 
 [HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy)
 
-[Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy)
+* [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy)
 
-[Why is a proxy required?](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-why)
+* [Why is a proxy required?](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-why)
 
-[Building the proxy image](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-build-img)
+* [Building the proxy image](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-build-img)
 
-[Deploying the proxy to your cluster](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy)
-* [**Step one:**  Create a new namespace](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s1)
-* [**Step two:** Create a Kubernetes secret](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s2)
-* [**Step three:** Deploy the proxy pod](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s3)
-* [**Step four:** Configure communication between the proxy and the blockchain components](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s4)
+* [Deploying the proxy to your cluster](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy)
+    * [**Step one:**  Create a new namespace](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s1)
+    * [**Step two:** Create a Kubernetes secret](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s2)
+    * [**Step three:** Deploy the proxy pod](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s3)
+    * [**Step four:** Configure communication between the proxy and the blockchain components](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s4)
 
-[Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-next-steps)
+* [Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-next-steps)
 
 
 ## IBM Cloud HSM PKCS #11 proxy
@@ -1154,11 +1154,11 @@ subcollection: blockchain
 
 [IBM Cloud HSM PKCS #11 proxy](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic)
 
-[Build PKCS #11 Docker image](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-build)
+* [Build PKCS #11 Docker image](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-build)
 
-[Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-deploy-k8s)
+* [Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-deploy-k8s)
 
-[Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-next-steps)
+* [Next steps](/docs/blockchain?topic=blockchain-ibp-hsm-build-pkcs11-proxy-ic#ibp-hsm-build-pkcs11-proxy-ic-next-steps)
 
 
 ## Glossary
@@ -1167,111 +1167,111 @@ subcollection: blockchain
 
 [Glossary](/docs/blockchain?topic=blockchain-glossary)
 
-[Approve](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
+* [Approve](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
 
-[Asset](/docs/blockchain?topic=blockchain-glossary#glossary-asset)
+* [Asset](/docs/blockchain?topic=blockchain-glossary#glossary-asset)
 
-[Block](/docs/blockchain?topic=blockchain-glossary#glossary-block)
+* [Block](/docs/blockchain?topic=blockchain-glossary#glossary-block)
 
-[CA](/docs/blockchain?topic=blockchain-glossary#glossary-CA)
+* [CA](/docs/blockchain?topic=blockchain-glossary#glossary-CA)
 
-[Chain](/docs/blockchain?topic=blockchain-glossary#glossary-chain)
+* [Chain](/docs/blockchain?topic=blockchain-glossary#glossary-chain)
 
-[Chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode)
+* [Chaincode](/docs/blockchain?topic=blockchain-glossary#glossary-chaincode)
 
-[Channel](/docs/blockchain?topic=blockchain-glossary#glossary-channel)
+* [Channel](/docs/blockchain?topic=blockchain-glossary#glossary-channel)
 
-[Client](/docs/blockchain?topic=blockchain-glossary#glossary-client)
+* [Client](/docs/blockchain?topic=blockchain-glossary#glossary-client)
 
-[Commit](/docs/blockchain?topic=blockchain-glossary#glossary-commit)
+* [Commit](/docs/blockchain?topic=blockchain-glossary#glossary-commit)
 
-[Connection profile](/docs/blockchain?topic=blockchain-glossary#glossary-connection-profile)
+* [Connection profile](/docs/blockchain?topic=blockchain-glossary#glossary-connection-profile)
 
-[Consensus](/docs/blockchain?topic=blockchain-glossary#glossary-consensus)
+* [Consensus](/docs/blockchain?topic=blockchain-glossary#glossary-consensus)
 
-[Consenter set](/docs/blockchain?topic=blockchain-glossary#glossary-consenter)
+* [Consenter set](/docs/blockchain?topic=blockchain-glossary#glossary-consenter)
 
-[Console](/docs/blockchain?topic=blockchain-glossary#glossary-console)
+* [Console](/docs/blockchain?topic=blockchain-glossary#glossary-console)
 
-[Consortium](/docs/blockchain?topic=blockchain-glossary#glossary-consortium)
+* [Consortium](/docs/blockchain?topic=blockchain-glossary#glossary-consortium)
 
-[CouchDB](/docs/blockchain?topic=blockchain-glossary#glossary-couchdb)
+* [CouchDB](/docs/blockchain?topic=blockchain-glossary#glossary-couchdb)
 
-[Current state](/docs/blockchain?topic=blockchain-glossary#glossary-current-state)
+* [Current state](/docs/blockchain?topic=blockchain-glossary#glossary-current-state)
 
-[Dynamic membership](/docs/blockchain?topic=blockchain-glossary#glossary-dynamic-memership)
+* [Dynamic membership](/docs/blockchain?topic=blockchain-glossary#glossary-dynamic-memership)
 
-[Endorsement](/docs/blockchain?topic=blockchain-glossary#glossary-endorsement)
+* [Endorsement](/docs/blockchain?topic=blockchain-glossary#glossary-endorsement)
 
-[Endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-endorsement-policy)
+* [Endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-endorsement-policy)
 
-[Genesis block](/docs/blockchain?topic=blockchain-glossary#glossary-genesis-block)
+* [Genesis block](/docs/blockchain?topic=blockchain-glossary#glossary-genesis-block)
 
-[Gossip](/docs/blockchain?topic=blockchain-glossary#glossary-gossip)
+* [Gossip](/docs/blockchain?topic=blockchain-glossary#glossary-gossip)
 
-[HSM](/docs/blockchain?topic=blockchain-glossary#glossary-hsm)
+* [HSM](/docs/blockchain?topic=blockchain-glossary#glossary-hsm)
 
-[Hyperledger Fabric](/docs/blockchain?topic=blockchain-glossary#glossary-hyperledger-fabric)
+* [Hyperledger Fabric](/docs/blockchain?topic=blockchain-glossary#glossary-hyperledger-fabric)
 
-[Install](/docs/blockchain?topic=blockchain-glossary#glossary-install)
+* [Install](/docs/blockchain?topic=blockchain-glossary#glossary-install)
 
-[Instantiate](/docs/blockchain?topic=blockchain-glossary#glossary-instantiate)
+* [Instantiate](/docs/blockchain?topic=blockchain-glossary#glossary-instantiate)
 
-[Kafka](/docs/blockchain?topic=blockchain-glossary#glossary-kafka)
+* [Kafka](/docs/blockchain?topic=blockchain-glossary#glossary-kafka)
 
-[Ledger](/docs/blockchain?topic=blockchain-glossary#glossary-ledger)
+* [Ledger](/docs/blockchain?topic=blockchain-glossary#glossary-ledger)
 
-[LevelDB](/docs/blockchain?topic=blockchain-glossary#glossary-leveldb)
+* [LevelDB](/docs/blockchain?topic=blockchain-glossary#glossary-leveldb)
 
-[Lifecycle endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-lifecycle-ep)
+* [Lifecycle endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-lifecycle-ep)
 
-[Member](/docs/blockchain?topic=blockchain-glossary#glossary-member)
+* [Member](/docs/blockchain?topic=blockchain-glossary#glossary-member)
 
-[MSP](/docs/blockchain?topic=blockchain-glossary#glossary-msp)
+* [MSP](/docs/blockchain?topic=blockchain-glossary#glossary-msp)
 
-[Network](/docs/blockchain?topic=blockchain-glossary#glossary-network)
+* [Network](/docs/blockchain?topic=blockchain-glossary#glossary-network)
 
-[Node](/docs/blockchain?topic=blockchain-glossary#glossary-node)
+* [Node](/docs/blockchain?topic=blockchain-glossary#glossary-node)
 
-[Ordering node](/docs/blockchain?topic=blockchain-glossary#glossary-orderer)
+* [Ordering node](/docs/blockchain?topic=blockchain-glossary#glossary-orderer)
 
-[Organization](/docs/blockchain?topic=blockchain-glossary#glossary-organization)
+* [Organization](/docs/blockchain?topic=blockchain-glossary#glossary-organization)
 
-[Out of band](/docs/blockchain?topic=blockchain-glossary#glossary-out-of-band)
+* [Out of band](/docs/blockchain?topic=blockchain-glossary#glossary-out-of-band)
 
-[Peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer)
+* [Peer](/docs/blockchain?topic=blockchain-glossary#glossary-peer)
 
-[Propose](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
+* [Propose](/docs/blockchain?topic=blockchain-glossary#glossary-propose)
 
-[Quorum](/docs/blockchain?topic=blockchain-glossary#glossary-quorum)
+* [Quorum](/docs/blockchain?topic=blockchain-glossary#glossary-quorum)
 
-[Raft](/docs/blockchain?topic=blockchain-glossary#glossary-raft)
+* [Raft](/docs/blockchain?topic=blockchain-glossary#glossary-raft)
 
-[SDK](/docs/blockchain?topic=blockchain-glossary#glossary-sdk)
+* [SDK](/docs/blockchain?topic=blockchain-glossary#glossary-sdk)
 
-[Service credentials](/docs/blockchain?topic=blockchain-glossary#glossary-service-credentials)
+* [Service credentials](/docs/blockchain?topic=blockchain-glossary#glossary-service-credentials)
 
-[Service discovery](/docs/blockchain?topic=blockchain-glossary#glossary-sd)
+* [Service discovery](/docs/blockchain?topic=blockchain-glossary#glossary-sd)
 
-[Shim](/docs/blockchain?topic=blockchain-glossary#glossary-shim)
+* [Shim](/docs/blockchain?topic=blockchain-glossary#glossary-shim)
 
-[SignCert](/docs/blockchain?topic=blockchain-glossary#glossary-sign-cert)
+* [SignCert](/docs/blockchain?topic=blockchain-glossary#glossary-sign-cert)
 
-[Smart contracts](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts)
+* [Smart contracts](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contracts)
 
-[Smart contract definition](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-def)
+* [Smart contract definition](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-def)
 
-[Smart contract endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-transaction-ep)
+* [Smart contract endorsement policy](/docs/blockchain?topic=blockchain-glossary#glossary-transaction-ep)
 
-[Smart contract package](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-pkg)
+* [Smart contract package](/docs/blockchain?topic=blockchain-glossary#glossary-smart-contract-pkg)
 
-[State database](/docs/blockchain?topic=blockchain-glossary#glossary-state-database)
+* [State database](/docs/blockchain?topic=blockchain-glossary#glossary-state-database)
 
-[Transaction](/docs/blockchain?topic=blockchain-glossary#glossary-transaction)
+* [Transaction](/docs/blockchain?topic=blockchain-glossary#glossary-transaction)
 
-[User](/docs/blockchain?topic=blockchain-glossary#glossary-user)
+* [User](/docs/blockchain?topic=blockchain-glossary#glossary-user)
 
-[World state](/docs/blockchain?topic=blockchain-glossary#glossary-world-state)
+* [World state](/docs/blockchain?topic=blockchain-glossary#glossary-world-state)
 
 
 ## Release notes
@@ -1280,68 +1280,70 @@ subcollection: blockchain
 
 [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20)
 
-[13 Apr 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#13-04-2021)
+* [05 May 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-may-2021)
 
-[22 Feb 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-22-2021)
+* [13 Apr 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#13-04-2021)
 
-[12 Jan 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021)
-* [New logging configuration panel](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021-logger-ui)
+* [22 Feb 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-22-2021)
 
-[08 Dec 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
+* [12 Jan 2021](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021)
+    * [New logging configuration panel](/docs/blockchain?topic=blockchain-release-notes-saas-20#01-12-2021-logger-ui)
 
-[19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
+* [08 Dec 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-08-2020)
 
-[02 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020)
-* [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-upgrade)
-* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-lc)
-* [Improvements for HSM support](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-hsm)
-* [Certificate renewal enhancements](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-cert-renew)
-* [Remove registered user from CA](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-delete-user)
+* [19 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-19-2020)
 
-[1 Oct 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-01-2020)
+* [02 Nov 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020)
+    * [Fabric v2.x node upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-upgrade)
+    * [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-lc)
+    * [Improvements for HSM support](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-hsm)
+    * [Certificate renewal enhancements](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-cert-renew)
+    * [Remove registered user from CA](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-02-2020-delete-user)
 
-[25 Aug 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-25-2020)
+* [1 Oct 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-01-2020)
 
-[14 July 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#07-14-2020)
+* [25 Aug 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-25-2020)
 
-[18 June 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020)
-* [Fabric peer and ordering node images](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-images)
-* [Elimination of Docker daemon dependency](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-docker)
-* [Multizone-capable storage](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-Multizone)
-* [Kubernetes version upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-k8s)
+* [14 July 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#07-14-2020)
 
-[20 May 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-20-2020)
-* [Support for Intermediate Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-20-2020-ICA)
-* [Updated connection profile](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-20-2020-connx-profile)
+* [18 June 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020)
+    * [Fabric peer and ordering node images](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-images)
+    * [Elimination of Docker daemon dependency](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-docker)
+    * [Multizone-capable storage](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-Multizone)
+    * [Kubernetes version upgrade](/docs/blockchain?topic=blockchain-release-notes-saas-20#06-18-2020-k8s)
 
-[16 April 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-16-2020)
-* [Support for AWS HSM](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-16-2020-AWS-HSM)
+* [20 May 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-20-2020)
+    * [Support for Intermediate Certificate Authorities (CAs)](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-20-2020-ICA)
+    * [Updated connection profile](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-20-2020-connx-profile)
 
-[24 March 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020)
+* [16 April 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-16-2020)
+    * [Support for AWS HSM](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-16-2020-AWS-HSM)
 
-[6 February 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-06-2020)
+* [24 March 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#03-24-2020)
 
-[11 December 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-11-2019)
+* [6 February 2020](/docs/blockchain?topic=blockchain-release-notes-saas-20#02-06-2020)
 
-[15 November 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-15-2019)
+* [11 December 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#12-11-2019)
 
-[06 November 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-06-2019)
+* [15 November 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-15-2019)
 
-[02 October 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-02-2019)
+* [06 November 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#11-06-2019)
 
-[21 August 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-21-2019)
+* [02 October 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-02-2019)
 
-[12 August 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-12-2019)
+* [21 August 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-21-2019)
 
-[10 July 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#07-10-2019)
+* [12 August 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#08-12-2019)
 
-[24 May 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-24-2019)
+* [10 July 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#07-10-2019)
 
-[9 May 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-09-2019)
+* [24 May 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-24-2019)
 
-[17 April 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-17-2019)
+* [9 May 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#05-09-2019)
 
-[3 April 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-03-2019)
+* [17 April 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-17-2019)
+
+* [3 April 2019](/docs/blockchain?topic=blockchain-release-notes-saas-20#04-03-2019)
 
 
 ## Known issues
@@ -1357,65 +1359,65 @@ subcollection: blockchain
 
 [Troubleshooting](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting)
 
-[Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment (Ingress issue)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-ingress-issue)
+* [Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment (Ingress issue)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-ingress-issue)
 
-[Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-chrome-v77)
+* [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-chrome-v77)
 
-[When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-status-unavailable)
+* [When I hover over my node, the status is `Status unavailable` or `Status unknown`, what does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-status-unavailable)
 
-[When I hover over my node, the status is `Status undetectable`, what does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-status-undetectable)
+* [When I hover over my node, the status is `Status undetectable`, what does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-status-undetectable)
 
-[Why am I getting the error `Unable to get system channel` when I open my ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshoot-ordering-service)
+* [Why am I getting the error `Unable to get system channel` when I open my ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshoot-ordering-service)
 
-[Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
+* [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
 
-[Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
+* [Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
 
-[Why is my Node.js smart contract endorsement failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
+* [Why is my Node.js smart contract endorsement failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
 
-[Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
+* [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 
-[My nodes, channels, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
+* [My nodes, channels, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
 
-[Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-create-msp)
+* [Why am I getting the error `Unable to authenticate with the enroll ID and secret you provided` when I create a new organization MSP definition?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-create-msp)
 
-[Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-update-channel)
+* [Why am I getting the error `An error occurred when updating channel` when I try to add an organization to my channel?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-update-channel)
 
-[When I log in to my console, why am I getting a 401 Unauthorized error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-401)
+* [When I log in to my console, why am I getting a 401 Unauthorized error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-401)
 
-[Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-helm-reset)
+* [Why am I getting a `Cluster linking is taking too long` error when I try to link my Kubernetes cluster in {{site.data.keyword.cloud_notm}} to my {{site.data.keyword.blockchainfull_notm}} Platform service instance?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-helm-reset)
 
-[Why am I getting an error “all SubConns are in TransientFailure” on the console?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-transientfailure)
+* [Why am I getting an error “all SubConns are in TransientFailure” on the console?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-transientfailure)
 
-[Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-smart-contract-anchor-peers)
+* [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 
-[Why are my node operations failing after I create my peer or ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry1)
+* [Why are my node operations failing after I create my peer or ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry1)
 
-[Why does my peer or ordering node fail to start?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry2)
+* [Why does my peer or ordering node fail to start?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry2)
 
-[Why does my blockchain node fail to restart?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-restart)
+* [Why does my blockchain node fail to restart?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-restart)
 
-[What is the proper way to clean up a failed node deployment?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-cleanup)
+* [What is the proper way to clean up a failed node deployment?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-cleanup)
 
-[How can I view my smart contract container logs?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry2)
+* [How can I view my smart contract container logs?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry2)
 
-[Why is my CA, peer, or ordering node that is configured to use HSM not working?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-hsm-proxy)
+* [Why is my CA, peer, or ordering node that is configured to use HSM not working?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-hsm-proxy)
 
-[Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-endorsement-sig-failure)
+* [Why are my transactions returning an endorsement policy error: signature set did not satisfy policy?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-endorsement-sig-failure)
 
-[Why are the transactions I submit from VS Code failing with a No endorsement plan available error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-anchor-peer)
+* [Why are the transactions I submit from VS Code failing with a No endorsement plan available error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-anchor-peer)
 
-[Why are the transactions I submit from VS Code failing with an endorsement failure?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-endorsement)
+* [Why are the transactions I submit from VS Code failing with an endorsement failure?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-endorsement)
 
-[How do I delete a peer pod?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshooting-delete-peer)
+* [How do I delete a peer pod?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshooting-delete-peer)
 
-[How can I recover a contract after a failed upgrade of the smart contract container?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshooting-contract-fail)
+* [How can I recover a contract after a failed upgrade of the smart contract container?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-troubleshooting-contract-fail)
 
-[My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-cluster-expired)
+* [My Kubernetes cluster on {{site.data.keyword.cloud_notm}} expired. What does this mean?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-cluster-expired)
 
-[After I deploy a node in the console, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has unbound immediate persistent volume claims. Is this an error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
+* [After I deploy a node in the console, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has unbound immediate persistent volume claims. Is this an error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-unbound-persistent-volume-claim)
 
-[After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-crash-loop-backoff)
+* [After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-crash-loop-backoff)
 
 
 ## Getting support
@@ -1424,6 +1426,6 @@ subcollection: blockchain
 
 [Getting support](/docs/blockchain?topic=blockchain-blockchain-support)
 
-[Resources and support forums](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)
+* [Resources and support forums](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-resources)
 
-[Submitting support cases](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)
+* [Submitting support cases](/docs/blockchain?topic=blockchain-blockchain-support#blockchain-support-cases)

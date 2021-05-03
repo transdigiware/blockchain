@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-05-03"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -91,7 +91,7 @@ ibmcloud sl file volume-list --column id --column notes
 
 This will allow you to map the output from the pods to the nodes you have deployed.
 
-If you are using VPC infrastructure, see [Monitoring block storage volumes](/docs/vpc?topic=vpc-monitor-block-storage-vpc) for more details.
+If you are using VPC infrastructure, see [About block storage for VPC](/docs/vpc?topic=vpc-block-storage-about) for more details.
 
 ### Adding storage
 {: #ibp-console-govern-components-add-storage}
