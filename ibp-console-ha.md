@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-04-29"
 
 keywords: high availability, HA, IBM Cloud, failures, zone failure, region failure, component failure, worker node failure, RTO, RPO
 
@@ -147,7 +147,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spre
 
    **Multizone clusters with multiple worker nodes and anti-affinity**:
 
-   Think of a zone as a data center. A zone failure affects all physical compute hosts and NFS storage. Failures include power, cooling, networking, or storage outages, and natural disasters, like flooding, earthquakes, and hurricanes. To protect against a zone failure, you must have clusters in at least two different zones that are load balanced by an external load balancer. By default when you deploy a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, the cluster is configured with mulit-zone support, including three zones, although you can choose two zones. 
+   Think of a zone as a data center. A zone failure affects all physical compute hosts and NFS storage. Failures include power, cooling, networking, or storage outages, and natural disasters, like flooding, earthquakes, and hurricanes. To protect against a zone failure, you must have clusters in at least two different zones that are load balanced by an external load balancer. By default when you deploy a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, the cluster is configured with multi-zone support, including three zones, although you can choose two zones. 
 
    A single zone is sufficient for a development and test environment if you can tolerate a zone outage. Therefore, to leverage the HA benefits of multiple zones,  when you provision your cluster, ensure that multiple zones are selected. Two zones are better than one, but three are recommended for HA to increase the likelihood that the two additional zones can absorb the workload of any single zone failure.  When redundant peers from the same organization and channel, and ordering nodes, are spread across multiple zones, a failure in any one zone should not affect the ability of the network to process transactions because the workload will shift to the blockchain nodes in the other zones.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-14"
+lastupdated: "2021-05-03"
 
 keywords: IBM Blockchain Platform, Data residency, world state
 
@@ -95,7 +95,7 @@ Org C and Org D can also use private data collections in the context of a separa
 
 In **Figure 4**, Org C and Org D have formed a new channel, Channel Y, that does not contain any members in the United States. As a result, hashes of data in the `OrgC-OrgD` collection is stored on ledger Y instead of ledger X, and is not stored on the peers in the United States. Because the ordering service is located in the United States, a hash of the data that is created in Germany still leaves the country.
 
-Creating a separate channel can prevent transaction details from being shared with other organizations in the consortium. If the organizations in Germany used a shared channel, Org A and Org B would be able to see the number of transaction hashes that are committed to the channel ledger by the private data collection. This might provide those organizations visibility into the fact that Orgs C and D are transacting and the volume of transactions that are generated between them. Consider though that forming a new channel requires additional management overhead to create and update it. Forming a new channel also makes it harder for Org C and Org D to share data with Org A and Org B.
+Creating a separate channel can prevent transaction details from being shared with other organizations in the consortium. If the organizations in Germany used a shared channel, Org A and Org B would be able to see the number of transaction hashes that are committed to the channel ledger by the private data collection. This might provide those organizations visibility into the fact that Orgs C and D are transacting and the volume of transactions that are generated between them. Consider though that forming a new channel requires additional management expense to create and update it. Forming a new channel also makes it harder for Org C and Org D to share data with Org A and Org B.
 
 ## Option three: A channel with all components in one country
 {: #console-icp-about-data-residency-use-case-channel}
@@ -106,7 +106,7 @@ Org C and Org D can also create a channel with all of the infrastructure within 
 
 In **Figure 5**, Org C and Org D have created a new channel for data that must not leave Germany. This requires the creation of a new ordering service that is located in Germany to ensure that the orderer's copy of the channel ledger is stored inside the country. Since in this case the ordering service, the OrgC-peer, and the OrgD-peer are located in Germany, Org C and Org D can now keep the data public on the channel if they choose, or they could still decide to use private data collections to prevent the full transaction data from being stored on the ordering service.
 
-Creating a channel with all of the components in one country ensures that all of the data resides within one region, including the key-value pairs, the blocks, and the hashes of any private data. However, this option requires the overhead to maintain a new channel and the costs that are associated with maintaining the ordering service.
+Creating a channel with all of the components in one country ensures that all of the data resides within one region, including the key-value pairs, the blocks, and the hashes of any private data. However, this option requires the resources to maintain a new channel and the costs that are associated with maintaining the ordering service.
 
 
 ## Option four: A separate channel with only ordering nodes from one country

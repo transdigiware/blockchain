@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-19"
+lastupdated: "2021-05-03"
 
 keywords: getting started tutorials, videos, integration, storage
 
@@ -340,7 +340,7 @@ If you plan to deploy a five node Raft ordering service, note that the total of 
 
 Every cluster on your Kubernetes cluster on {{site.data.keyword.cloud_notm}} comes with predefined, `default` storage class that is used to provision persistent storage on {{site.data.keyword.cloud_notm}}. When you deploy a blockchain node to that cluster by using the {{site.data.keyword.blockchainfull_notm}} Platform console or the APIs, the node uses this `default` storage class to dynamically provision the amount of storage that you specify on {{site.data.keyword.cloud_notm}}.
 
-For {{site.data.keyword.cloud_notm}} Kubernetes service, the `default` storage class is `Gold` File Storage backed by [Endurance File Storage](/docs/FileStorage). See [Deciding on the File Storage configuration](/docs/containers?topic=containers-file_storage#file_predefined_storageclass){: external} for more details. OpenShift clusters default to `Gold` [Block Storage](/docs/openshift?topic=openshift-block_storage#block_predefined_storageclass). If you need to change your default storage class, see [Ordering File Storage with pre-defined IOPS Tiers (Endurance)](/docs/FileStorage?topic=FileStorage-orderingConsole#endurance) and then follow instructions to [configure a custom storage class](#ibp-console-storage-custom).
+For {{site.data.keyword.cloud_notm}} Kubernetes service, the `default` storage class is `Gold` File Storage backed by [Endurance File Storage](/docs/FileStorage). See [Deciding on the File Storage configuration](/docs/containers?topic=containers-kube_concepts#customized_storageclass){: external} for more details. OpenShift clusters default to `Gold` [Block Storage](/docs/openshift?topic=openshift-block_storage#block_predefined_storageclass). If you need to change your default storage class, see [Ordering File Storage with pre-defined IOPS Tiers (Endurance)](/docs/containers?topic=containers-file_storage#file-topology) and then follow instructions to [configure a custom storage class](#ibp-console-storage-custom).
 {: important}
 
 ### Provision persistent storage
@@ -356,7 +356,7 @@ If your Kubernetes cluster is configured with **SDS (Portworx)** storage, you ca
 ### Configuring a custom storage class
 {: #ibp-console-storage-custom}
 
-If you want to use [Performance File Storage](/docs/FileStorage?topic=FileStorage-orderingConsole#performance), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to add a storage class for [Red Hat OpenShift clusters](/docs/openshift?topic=openshift-kube_concepts#dynamic_provisioning){: external} or [{{site.data.keyword.cloud_notm}} Kubernetes service clusters](/docs/containers?topic=containers-kube_concepts#storageclasses){: external}. You can then make the custom storage class the `default` storage class by running the following command:
+If you want to use [Performance File Storage](/docs/containers?topic=containers-file_storage#file_custom_storageclass), or [Portworx](/docs/containers?topic=containers-portworx#portworx) as backing storage, you must create a customized storage class for your cluster. Read about how to add a storage class for [Red Hat OpenShift clusters](/docs/openshift?topic=openshift-kube_concepts#dynamic_provisioning){: external} or [{{site.data.keyword.cloud_notm}} Kubernetes service clusters](/docs/containers?topic=containers-kube_concepts#storageclasses){: external}. You can then make the custom storage class the `default` storage class by running the following command:
 
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
