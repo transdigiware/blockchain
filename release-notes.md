@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-05"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -33,6 +33,8 @@ Use these release notes that are grouped by date to learn about the latest chang
 For instructions on how to apply patches to your existing blockchain nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.11-2`, are available for a node, you should always select the latest patch, `1.4.11-2` in this case, wherever possible because it includes the fixes from the previous patches as well.   
 
 ## 05 May 2021
+{: #05-05-2021}
+
 **Certificate Authority (CA) patch 1.4.9-7, Peer and ordering node patch 1.4.11-1, 2.2.2-2**
 
 Miscellaneous bug fixes and security patches.
