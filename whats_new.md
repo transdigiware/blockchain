@@ -37,8 +37,6 @@ subcollection: blockchain
 - For customers who want to use openCryptoki Hardware Security Module (HSM) on s390x, the platform now supports configuration of HSM with a daemon. For more information, see [Configure an HSM daemon](/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-daemon). 
 
 
-
-
 ## January 19, 2021
 {: #whats-new-01-19-2021}
 
@@ -377,5 +375,4 @@ This release also debuts some improvements to the documentation table of content
 {: #whats-new-8-11-2017}
 
 {{site.data.keyword.blockchainfull_notm}} Platform replaces {{site.data.keyword.blockchainfull_notm}} on Cloud and releases Enterprise Plan.
-
 
