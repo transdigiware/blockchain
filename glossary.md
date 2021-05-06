@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-05-06"
 
 keywords: IBM Blockchain, IBM Blockchain Platform, terms, Fabric, Raft, CouchDB, consortium, MSP
 
@@ -128,7 +128,7 @@ The process of starting and initializing a smart contract container on a channel
 
 ## Kafka
 {: #glossary-kafka}
-A consensus plugin implementation for Hyperledger Fabric that results in a cluster of ordering service nodes in the blockchain network. Kafka implementations and Raft implementations are intended for production networks. However, only Raft ordering service clusters are natively supported and can be created using the {{site.data.keyword.blockchainfull_notm}} Platform.
+A consensus plug-in implementation for Hyperledger Fabric that results in a cluster of ordering service nodes in the blockchain network. Kafka implementations and Raft implementations are intended for production networks. However, only Raft ordering service clusters are natively supported and can be created using the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 ## Ledger
 {: #glossary-ledger}
