@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-05-07"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -38,7 +38,7 @@ This topic describes common issues that can occur when you use the {{site.data.k
 
 **Issues with the Console**
 - [Why is my {{site.data.keyword.blockchainfull_notm}} Platform user interface unable to connect to cluster after deployment? (Ingress issue)](#ibp-v2-troubleshooting-ingress-issue)
-- [Why is my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
+- [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](#ibp-v2-troubleshooting-chrome-v77)
 - [When I hover over my node, the status is `Status unavailable`, what does this mean?](#ibp-v2-troubleshooting-status-unavailable)
 - [When I hover over my node, the status is `Status undetectable`, what does this mean?](#ibp-v2-troubleshooting-status-undetectable)
 - [Why am I getting the error `Unable to get system channel` when I open my ordering service?](#ibp-troubleshoot-ordering-service)
@@ -127,7 +127,7 @@ If you have multiple ALBs, execute the following steps for each ALB as follows:
       ```
       {: codeblock}
 
-     For example, you will see multiple replicas sets listed as followss:
+     For example, you will see multiple replica sets listed as follows:
       ```
       $ kubectl get rs -n kube-system | grep alb
       NAME  DESIRED   CURRENT   READY   AGE
@@ -162,7 +162,7 @@ If you have multiple ALBs, execute the following steps for each ALB as follows:
       ```
       {: codeblock}
 
-## Why is my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
+## Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?
 {: #ibp-v2-troubleshooting-chrome-v77}
 {: troubleshoot}
 
