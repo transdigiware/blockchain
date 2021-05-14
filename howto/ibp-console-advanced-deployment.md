@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-11"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -24,7 +24,7 @@ subcollection: blockchain
 
 
 
-When you deploy a node from the console, there are various advanced deployment options available for each node type. This topic provides more details about each of those options.
+When you deploy a node from the console, there are various advanced deployment options available for each node type. The following topic provides more details about each of those options.
 {:shortdesc}
 
 **Target audience:** This topic is designed for advanced network operators who are familiar with Hyperledger Fabric and are responsible for creating, monitoring, and managing their components in the blockchain network.
@@ -32,7 +32,7 @@ When you deploy a node from the console, there are various advanced deployment o
 ## What types of advanced deployment options are available?
 {: #ibp-console-adv-deployment-options}
 
-The Build a network tutorial is useful for learning how to set up a basic network by using the {{site.data.keyword.blockchainfull_notm}} Platform console. But each use case will have their own customizations that are required for a production network. When you are ready to explore additional configuration settings, this topic describes the optional customizations that are available and the considerations they require. The following table describes the types of customizations you can consider for each node type:
+The Build a network tutorial is useful for learning how to set up a basic network by using the {{site.data.keyword.blockchainfull_notm}} Platform console. But each use case has its own customizations that are required for a production network. When you are ready to explore additional configuration settings, this topic describes the optional customizations that are available and the considerations they require. The following table describes the types of customizations you can consider for each node type:
 
 |  | Description | CA | Peer | Ordering node | When to perform |
 |-----|-----|-----|-----|----|----|

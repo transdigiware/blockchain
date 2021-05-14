@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-11"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -108,8 +108,8 @@ Users can allocate more storage to their running network by resizing the existin
 ## Upgrading to a new version of Fabric
 {: #ibp-console-govern-components-upgrade}
 
-There are several considerations for upgrading nodes and channels from Fabric version v1.4.x to v2.x. For a deeper look at those considerations, see the [Fabric documentation on upgrading](https://hyperledger-fabric.readthedocs.io/en/release-2.2/upgrade_to_newest_version.html){: external}.
-{: tip}
+When updating {{site.data.keyword.blockchainfull_notm}} Platform nodes from 1.4.x to 2.x.x, select 2.2.x or the latest version available. Do not select any version prior to 2.2.x. See the [Fabric documentation on upgrading](https://hyperledger-fabric.readthedocs.io/en/release-2.2/upgrade_to_newest_version.html#upgrading-to-2-2-from-the-1-4-x-long-term-support-release){: external} for more information.
+{: important}
 
 While some new versions of Fabric are released where only the Fabric version of nodes must be upgraded in order to get the latest Fabric features, some new Fabric versions contain new channel capabilities that must also be updated.
 

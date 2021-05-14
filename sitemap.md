@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-05-13"
 
 keywords: site map
 subcollection: blockchain
@@ -1371,9 +1371,9 @@ subcollection: blockchain
 
 * [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
 
-* [Why is my smart contract installation failing with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
+* [Why is my smart contract fail to install with an error on my peer?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
 
-* [Why is my Node.js smart contract endorsement failing?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
+* [Why is my Node.js smart contract fail to endorse?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
 
 * [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 
@@ -1389,9 +1389,9 @@ subcollection: blockchain
 
 * [Why am I getting an error “all SubConns are in TransientFailure” on the console?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-transientfailure)
 
-* [Why is my first invoke of a smart contract returning the following error: no suitable peers available to initialize from?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-smart-contract-anchor-peers)
+* [Why is my first invoke of a smart contract returns the following error: no suitable peers available to initialize from?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-v2-troubleshooting-smart-contract-anchor-peers)
 
-* [Why are my node operations failing after I create my peer or ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry1)
+* [Why are my node operations fail to operate after I create my peer or ordering service?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry1)
 
 * [Why does my peer or ordering node fail to start?](/docs/blockchain?topic=blockchain-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-entry2)
 
