@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-17"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1563,7 +1563,7 @@ LunaSA Client = {
 {: codeblock}
 
 #### Step two: Build the HSM client image
-{: #ibp-console-adv-deployment-hsm-client-docker}
+{: #ibp-console-adv-deployment-hsm-client-docker} 
 
 The HSM client image can be built with a Docker file similar to the following:
 
@@ -1779,7 +1779,7 @@ In this example, the first `mountpath` contains four configuration files (cafile
 A second mountpath is included for the HSM `/etc/Chrystoki.conf` file. Because the HSM requires its config file in the `/etc` folder, which is a system directory, we need to use the `subpath` parameter to avoid replacing the entire `/etc` directory. If the subpath is not used, the entire `/etc` directory is replaced with the volume being mounted.  
 <staging-zHSM>
 
-You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
+You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) for details.
 
 **Configure the operator to work with an HSM daemon**  
 {: #daemon-configmap}
@@ -1837,7 +1837,7 @@ version: v1
 
 - In the `daemon:` section, provide the URL of the HSM daemon image that you created. If the image is not hosted publicly, then you need to create the appropriate pull secret and specify it here as well.
 
-- In the `library:` section, provide the URL of the HSM client image that you created in [step two](#ibp-console-adv-deployment-hsm-client-docker). This is the client that the CA, peer, and ordering node will use to talk to the HSM daemon. The `filepath:` is the location of the shared object library in the image. If the image is not hosted publicly then the user must create the appropriate pull secret and specify it as well.
+- In the `library:` section, provide the URL of the HSM client image that you created in [step two](/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four-docker). This is the client that the CA, peer, and ordering node will use to talk to the HSM daemon. The `filepath:` is the location of the shared object library in the image. If the image is not hosted publicly then the user must create the appropriate pull secret and specify it as well.
 
 - In the `envs:` section, provide the list of environment variables that are required to configure the HSM.
 
