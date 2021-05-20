@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-05-19"
 
 
 keywords: release note, latest changes, Hyperledger Fabric
@@ -35,7 +35,7 @@ For instructions on how to apply patches to your existing blockchain nodes. Patc
 ## 05 May 2021
 {: #05-05-2021}
 
-**Certificate Authority (CA) patch 1.4.9-7, Peer and ordering node patch 1.4.11-1, 2.2.2-2**
+**Certificate Authority (CA) patch 1.4.9-7, Peer and ordering node patch 1.4.11-2, 2.2.2-2**
 
 Miscellaneous bug fixes and security patches.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-08"
+lastupdated: "2021-05-18"
 
 keywords: smart contract, private data, private data collection, anchor peer, instantiation, install smart contract
 
@@ -151,7 +151,7 @@ When you are ready to install and instantiate your smart contract to the {{site.
 {: #ibp-console-smart-contracts-write-package-vendor}
 
 If your smart contract uses the
-[fabric-chaincode-go](https://github.com/hyperledger/fabric-chaincode-go/tree/master/shim) shim or the [Go contract-api](https://github.com/hyperledger/fabric-contract-api-go) you need to repackage the smart contract before it can be installed on a peer that is running a Fabric v2.x image.
+[fabric-chaincode-go](https://github.com/hyperledger/fabric-chaincode-go/tree/main/shim) shim or the [Go contract-api](https://github.com/hyperledger/fabric-contract-api-go) you need to repackage the smart contract before it can be installed on a peer that is running a Fabric v2.x image.
 
 **Why is vendoring the shim required?**  
 

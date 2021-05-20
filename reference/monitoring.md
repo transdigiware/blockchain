@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-05-19"
 
 keywords:  monitoring, resource consumption, resource allocation, disk space, memory usage, disk usage  
 
@@ -37,7 +37,7 @@ Monitoring the resource allocation for your blockchain nodes is a key part of op
 
 This tutorial uses the Free 30-day Trial version of the service, but more advanced features are available in the **Graduated tier** which you can explore if your requirements merit.
 
-It is recommended that the {{site.data.keyword.mon_full_notm}} instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance. See [Enabling Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling){: external}  for more information.
+It is recommended that the {{site.data.keyword.mon_full_notm}} instance reside in the same region as your {{site.data.keyword.blockchainfull_notm}} Platform instance. See [Enabling Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling#platform_metrics_enabling_ui){: external}  for more information.
 {: note}
 
 ## Before you begin
