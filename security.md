@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-04"
 
 keywords: security, encryption, storage, tls, iam, roles, keys
 
@@ -194,7 +194,6 @@ If your {{site.data.keyword.blockchainfull_notm}} Platform instance is linked to
 
 | Type | Description |Storage | Access |
 |------|-------------|--------|--------|
-| **Internal IBM Service Keys** | Generated upon deployment of a component and used to access **nodes**, such as a CA, peer, or ordering service. | These keys are temporarily stored in a Kubernetes secret when code needs to access the component. The secret is deleted once the code has completed its task. | Access is from code via the Kubernetes secret. When the component is deleted, the key is also deleted. Developers of the service and support team members do not have access to these keys. |
 |**Customer Kubernetes cluster access information**| In order for the service components to access and manage the components that are deployed into this cluster, the service components generate a Kubernetes secret for **cluster** access. Each Kubernetes secret is tied to that specific customer cluster. | After generation, these secrets never leave the IBM Kubernetes cluster where the service components are running and are deleted whenever a customer deletes the associated cluster. | Accessed only by the service component code and only in response to customer requests to deploy or manage components via the blockchain console. Developers of the service do not have access to the information in the secrets. |
 {: caption="Table 3. Types of keys and information used to access the customer Kubernetes cluster" caption-side="top"}
 
