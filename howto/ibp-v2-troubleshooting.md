@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-07"
+lastupdated: "2021-05-28"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -695,7 +695,7 @@ If you see the following error, it is likely that you have reached your limit of
 
 `Backend Error:Your order will exceed the maximum number of storage volumes allowed. Please contact Sales. Type:StorageOrderFailed, RC:500, Recommended Action(s):Wait a few minutes, then try re-creating your PVC. If the problem persists, open an {{site.data.keyword.cloud_notm}} support case.`
 
-See the troubleshooting topic on [File storage and block storage: PVC remains in a pending state](/docs/containers?topic=containers-cs_troubleshoot_storage#file_pvc_pending) for more details.
+See the troubleshooting topic on [File storage and block storage: PVC remains in a pending state](/docs/containers?topic=containers-file_pvc_pending) for more details.
 
 ## After I deploy a node, I'm seeing a message in my Kubernetes cluster on {{site.data.keyword.cloud_notm}} reporting that the pod has hit a crash loop backoff. Is this an error?
 {: #ibp-v2-troubleshooting-crash-loop-backoff}
