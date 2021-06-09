@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-09"
 
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
@@ -578,7 +578,7 @@ To re-establish communications between the node and the proxy, restart the faili
 
 Replace:
 - `<NAMESPACE>` with the namespace where the associated pods are deployed.
-To find the namespace, open any CA node in your console and click the Settings icon. View the value of the Certificate Authority endpoint URL. For example: https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054.
+To find the namespace, open any CA node in your console and click the Settings icon. View the value of the Certificate Authority endpoint URL. For example: `https://n2734d0-paorg10524.ibpv2-cluster.us-south.containers.appdomain.cloud:7054`.
 The namespace is the first part of the URL beginning with the letter n and followed by a random string of six alphanumeric characters. So in this example, the value of the namespace is `n2734d0`.
 - `<PODNAME>` with the **Name** of the failing pod that is visible in the list of pods returned by the previous command.
 
