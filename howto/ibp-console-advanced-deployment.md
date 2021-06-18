@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-17"
+lastupdated: "2021-06-18"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1206,7 +1206,7 @@ You can convert the contents of your certificate file, `<cert.pem>` from `PEM` f
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-d"; else echo "-b 0"; fi)
 cat <cert.pem> | base64 $FLAG
 ```
-{:codeblock}
+{: codeblock}
 
 ```json
 [
@@ -1297,7 +1297,7 @@ cat <cert.pem> | base64 $FLAG
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 Save this definition as a ``JSON`` file.
 

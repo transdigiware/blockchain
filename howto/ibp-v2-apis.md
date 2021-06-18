@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-06-18"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -446,7 +446,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   ```
   curl -sSL http://bit.ly/2ysbOFE | bash -s 1.4.3 1.4.3 -d -s
   ```
-  {:codeblock}
+  {: codeblock}
 
   This command installs the binaries in a `bin/` directory.
 
@@ -455,21 +455,21 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   ```
   export PATH=$PATH:<full/path/to/fabric-ca-client/bin>
   ```
-  {:codeblock}
+  {: codeblock}
 
   For example, if you installed the binaries in your home directory you would set your `PATH` as:
 
   ```
   export PATH=$PATH:$HOME/bin
   ```
-  {:codeblock}
+  {: codeblock}
 
 3. Create the folder where you will store the certificates of your CA admin.
 
   ```
   mkdir -p $HOME/fabric-ca-client/ca-admin
   ```
-  {:codeblock}
+  {: codeblock}
 
 4. Set the value of the `$FABRIC_CA_CLIENT_HOME` environment variable to be the path where the CA client will store the generated MSP certificates. Ensure that you remove the configuration material that might be created by earlier attempts. If you didn't run the `enroll` command before, the `msp` folder and the `.yaml` file do not exist.
 
@@ -478,7 +478,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   rm -rf $FABRIC_CA_CLIENT_HOME/fabric-ca-client-config.yaml
   rm -rf $FABRIC_CA_CLIENT_HOME/msp
   ```
-  {:codeblock}
+  {: codeblock}
 
 5. Retrieve the TLS certificate of your CA to be used by the Fabric CA client. If you are using the {{site.data.keyword.blockchainfull_notm}} Platform console, open the CA and click **Settings**, and look for the certificate in base64 format in the **TLS Certificate** field. If your are using the APIs, you can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-components) and find the CA TLS certificate in the `"PEM"` field. If you created the CA by using the `Create a Fabric CA` API, you can also find the TLS certificate in the response body.
 
@@ -490,7 +490,7 @@ You can use the Fabric CA client to operate your CAs. Run the following Fabric C
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
   echo <base64_string> | base64 --decode $FLAG > tls.pem
   ```
-  {:codeblock}
+  {: codeblock}
 
 ### Generate certificates with your CA admin
 {: #ibp-v2-apis-enroll-ca-admin}
@@ -503,14 +503,14 @@ A **CA admin** identity was automatically registered for you when you created yo
   echo $FABRIC_CA_CLIENT_HOME
   $HOME/fabric-ca-client/ca-admin
   ```
-  {:codeblock}
+  {: codeblock}
 
 2. Run the following command to generate certificates:
 
   ```
   fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <ca_name>  --tls.certfiles   <ca_tls_cert_path>
   ```
-  {:codeblock}
+  {: codeblock}
 
   The `<enroll_id>`and `<enroll_password>` in the command are the `enroll_id` and `enroll_secret` you specified when you created the CA. Use the **Certificate Authority Endpoint URL** from your {{site.data.keyword.blockchainfull_notm}} Platform console or the `"ca_url"` returned by your API call as the value for `<ca_url_with_port>`. Leave off the `http://` at the beginning. The `<ca_name>` is the **CA Name** from your console, or the `"ca_name"` returned by the APIs.
 
@@ -521,14 +521,14 @@ A **CA admin** identity was automatically registered for you when you created yo
   ```
   fabric-ca-client enroll -u https://admin:adminpw@9.30.94.174:30167 --caname ca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
   ```  
-  {:codeblock}
+  {: codeblock}
 
 **Tip:** If the value of the enrollment URL, which is the `-u` parameter value, contains a special character, you need to either encode the special character or surround the URL with the single quotation marks. For example, `!` becomes `%21`, or the command looks like:
 
   ```
   ./fabric-ca-client enroll -u 'https://admin:C25A06287!0@ash-zbc07c.4.secure.blockchain.ibm.com:21241' --tls.certfiles $HOME/fabric-ca-remote/cert.pem --caname ca
   ```
-  {:codeblock}
+  {: codeblock}
 
   The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see the [Membership Service Providers](https://hyperledger-fabric.readthedocs.io/en/release-2.2/msp.html){: external} concept topic in the Fabric documentation.
 
@@ -574,13 +574,13 @@ First, you need to register a component identity with your CA. Your component us
   ```
   fabric-ca-client affiliation list --caname <ca_name> --tls.certfiles <ca_tls_cert_path>
   ```
-  {:codeblock}
+  {: codeblock}
 
   Your command might look like the following example:
   ```
   fabric-ca-client affiliation list --caname ca --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
   ```
-  {:codeblock}
+  {: codeblock}
 
   You should see information that is similar to the following example:
   ```
@@ -598,7 +598,7 @@ First, you need to register a component identity with your CA. Your component us
   ```
   fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type <component_type> --id.secret <secret> --tls.certfiles <ca_tls_cert_path>
   ```
-  {:codeblock}
+  {: codeblock}
 
   Create a name and password for the component and then use them to replace `name` and `secret`.  Make a note of this information. Set the `--id.type` to `orderer` if you are deploying an ordering node, or set it to `peer` if you are deploying a peer. The command might look similar to the following example:
 
@@ -635,14 +635,14 @@ Ensure that your `$FABRIC_CA_CLIENT_HOME` is set to the path to the MSP of your 
 echo $FABRIC_CA_CLIENT_HOME
 $HOME/fabric-ca-client/ca-admin
 ```
-{:codeblock}
+{: codeblock}
 
 Register the component admin identity with the CA by running the following command:
 
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type admin --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
-{:codeblock}
+{: codeblock}
 
 Create a new user identity `name` and `secret` for the admin. Make sure to use different values than for the peer or ordering node identity that you registered. The command looks similar to the following example:
 
@@ -662,14 +662,14 @@ After your register the component admin, you can generate certificates by runnin
 ```
 fabric-ca-client enroll -u https://<peer_admin_enroll_id>:<peer_admin_enroll_password>@<ca_url_with_port> --caname <ca_name> -M $HOME/path/to/peer-admin/msp --tls.certfiles <ca_tls_cert_path>
 ```
-{:codeblock}
+{: codeblock}
 
 For example:
 
 ```
 fabric-ca-client enroll -u https://peeradmin:peeradminpw@9.30.94.174:30167 --caname ca -M $HOME/fabric-ca-client/peer-admin/msp --tls.certfiles $HOME/fabric-ca-client/catls/tls.pem
 ```
-{:codeblock}
+{: codeblock}
 
 After this command completes successfully, it generates a new MSP folder in the directory that you specified by using the `-M` flag. This directory contains the certificates that you need to use to operate your components. You can verify that the enroll command worked by using a tree command. Navigate to the directory where you stored your certificates. A tree command should generate a result similar to the following structure:
 
@@ -730,14 +730,14 @@ cd $HOME/fabric-ca-client
 mkdir tlsca-admin
 export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
-{:codeblock}
+{: codeblock}
 
 Run the command below to enroll as your admin against the TLS CA. The enroll ID and password of your TLS CA admin are the same as your default CA. As a result, the command below is the same as you used to enroll as your [CA admin](#ibp-v2-apis-enroll-ca-admin) only with the name of your TLS CA. Your TLS CA name is the **TLS CA Name** value from the CA **settings** panel in your console, or the value of the `"tlsca_name"` returned by the `Create a CA` API.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
 ```
-{:codeblock}
+{: codeblock}
 
 A real call might look similar to the following example:
 
@@ -751,7 +751,7 @@ After you enroll, you have the necessary certificates to register your component
 ```
 fabric-ca-client register --caname <ca_name> --id.name <name> --id.affiliation org1.department1 --id.type peer --id.secret <password> --tls.certfiles <ca_tls_cert_path>
 ```
-{:codeblock}
+{: codeblock}
 
 This command is similar to the one that you used to register the component identity with the CA, except that you need to use the TLS CA name. If you are deploying an ordering node instead of a peer, set `--id.type` to `orderer` instead of `peer`. You must provide this identity a different username and password than the one that you used against your default CA. A real register might look similar to the command below:
 
@@ -774,7 +774,7 @@ When running the Fabric CA client enroll command, it is possible the command fai
 ```
 Error: Failed to read config file at '/Users/chandra/fabric-ca-client/ca-admin/fabric-ca-client-config.yaml': While parsing config: yaml: line 42: mapping values are not allowed in this context
 ```
-{:codeblock}  
+{: codeblock}  
 
 **Solution:**
 
@@ -836,7 +836,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
   cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
   ```
-  {:codeblock}
+  {: codeblock}
 
   **Note:** It is important that the string generated by using the command above is formatted as a single line. It should look similar to:
 
@@ -860,7 +860,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
   cat $HOME/fabric-ca-client/peer-admin/msp/signcerts/cert.pem | base64 $FLAG
   ```
-  {:codeblock}
+  {: codeblock}
 
   This command prints a string that is similar to the following example:
 
@@ -884,7 +884,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
   cat $HOME/<path-to-ca-admin>/msp/cacerts/<ca_root_cert>.pem | base64 $FLAG
   ```
-  {:codeblock}
+  {: codeblock}
 
   This prints the root cert as a base64 encoded sting.
 
@@ -908,7 +908,7 @@ You can use the APIs to create an organization MSP definition by calling [`POST 
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
   cat $HOME/<path-to-tlsca-admin>/msp/cacerts/<tls_root_cert>.pem | base64 $FLAG
   ```
-  {:codeblock}
+  {: codeblock}
 
   The command prints the TLS CA root cert as a base64 encoded sting.
 
@@ -955,7 +955,7 @@ The template for the configuration file can be found below:
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Copy this entire file into a text editor where you can edit it and save it to your local file system as a JSON file. Use the steps below to complete this configuration file and use it to deploy an ordering service or peer.
 
@@ -983,7 +983,7 @@ You can call [`GET /ak/api/v2/components`](/apidocs/blockchain#get-all-component
     "catls": {
       "cacert": ""
   ```
-  {:codeblock}
+  {: codeblock}
 
 ### Provide your component enroll ID and secret
 
@@ -1021,7 +1021,7 @@ In this MSP directory, open the signCert file of the new user and convert it to 
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 cat $HOME/<path-to-peer-admin>/msp/signcerts/cert.pem | base64 $FLAG
 ```
-{:codeblock}
+{: codeblock}
 
 **Note:** It is important that the string generated by using the command above is formatted as a single line. It should look similar to:
 
@@ -1047,7 +1047,7 @@ For example:
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 cat $HOME/fabric-ca-client/peer-admin/msp/signcerts/cert.pem | base64 $FLAG
 ```
-{:codeblock}
+{: codeblock}
 
 This command prints a string that is similar to the following example:
 
@@ -1068,7 +1068,7 @@ You have the option of providing a custom domain to your component by using the 
   "hosts": [""]
   }
 ```
-{:codeblock}
+{: codeblock}
 
 This section is provided for advanced users to specify a custom hostname that can be used to communicate with the peer. Most users can leave this section blank.
 
@@ -1111,7 +1111,7 @@ After you completed all the steps above, your updated configuration file might l
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can leave the other fields blank. After you complete this file, you can pass this file as the `config` field to the request body of the `Create an ordering service` or `Create a peer` API.
 

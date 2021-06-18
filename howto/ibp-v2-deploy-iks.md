@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-06-18"
 
 keywords: getting started tutorials, videos, integration, storage
 
@@ -362,7 +362,7 @@ If you want to use [Performance File Storage](/docs/containers?topic=containers-
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
-{:codeblock}
+{: codeblock}
 
 Replace ``<storageclass>`` with the name of your storage class.
 

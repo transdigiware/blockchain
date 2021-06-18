@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-06-18"
 
 keywords: network components, IBM Cloud Kubernetes Service, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB
 
@@ -247,7 +247,7 @@ If you want to delete all of your smart contract pods, you can issue this comman
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl delete po {} -n <NAMESPACE>
 ```
-{:codeblock}
+{: codeblock}
 
 
 
@@ -260,7 +260,7 @@ First, get a list of all of the smart contract pods running in your cluster:
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
 ```
-{:codeblock}
+{: codeblock}
 
 Replacing `<NAMESPACE>` with the name of your cluster namespace.
 
@@ -284,7 +284,7 @@ To delete a single pod, issue this command, substituting the `<POD_NAME>` for th
 ```
 kubectl delete pod <POD_NAME> -n <NAMESPACE>
 ```
-{:codeblock}
+{: codeblock}
 
 
 
@@ -295,7 +295,7 @@ You can also use kubectl commands to delete all of the nodes in your cluster by 
 ```
 kubectl config set-context --current --namespace=<NAMESPACE>
 ```
-{:codeblock}
+{: codeblock}
 
 
 
@@ -307,7 +307,7 @@ kubectl delete ibpca --all
 kubectl delete ibppeer --all
 kubectl delete ibporderer --all
 ```
-{:codeblock}
+{: codeblock}
 
 You may also choose to only delete all of a single type of node within a namespace, for example, by only issuing `kubectl delete ibppeer --all`.
 

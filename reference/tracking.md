@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-06-18"
 
 keywords: Log analysis, IBM Log Analysis, viewing logs, monitoring, activity tracker
 
@@ -135,7 +135,7 @@ Next, use kubectl commands to get a list of all of the chaincode pods running in
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
 ```
-{:codeblock}
+{: codeblock}
 Replacing `<NAMESPACE>` with the name of your cluster namespace.
 
 You should see results similar to:

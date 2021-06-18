@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-18"
 
 keywords: admin certificate, Node OU, admin identity, expiration
 
@@ -77,6 +77,7 @@ subcollection: blockchain
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
 {:term: .term}
+{:terraform: .ph data-hd-interface='terraform'}
 {:tip: .tip}
 {:tooling-url: data-tooling-url-placeholder='tooling-url'}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -618,13 +619,13 @@ You can also use the command line to check your certificates expiration date. If
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 echo <base64_string> | base64 --decode $FLAG > <key>.pem
 ```
-{:codeblock}
+{: codeblock}
 
 Run the following command to display the PEM encoded certificate in a human-readable form:
 ```
 openssl x509 -in <certificate .pem file> -text
 ```
-{:codeblock}
+{: codeblock}
 
 The certificate looks similar to the following example:
 
