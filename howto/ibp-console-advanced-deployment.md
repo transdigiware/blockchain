@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-07-07"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1039,6 +1039,7 @@ The need to customize the ordering node configuration is less common than the pe
 }
 ```        
 {: codeblock}
+
 
 #### Providing your own customizations when you create an ordering service
 {: #ibp-console-adv-deployment-orderer-create-json-custom}
