@@ -200,7 +200,7 @@ No. When the {{site.data.keyword.blockchainfull_notm}} Platform is configured wi
 {: #ibp-v2-faq-ocp-versions}
 {: faq}
 
-Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} supports linking to Red Hat OpenShift Container Platform 4.4, 4.5 clusters.
+Currently, {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} supports linking to Red Hat OpenShift Container Platform 4.5, 4.6 and 4.7 clusters.
 
 
 
