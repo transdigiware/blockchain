@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 lastupdated: "2019-09-24"
 
 keywords: logging levels, metrics, health check, peer, orderer
@@ -96,7 +96,7 @@ You need to gather the following information from your peer and orderer.
   export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
   echo <base64_string> | base64 --decode $FLAG > <key_name>.pem
   ```
-  {:codeblock}
+  {: codeblock}
 {:important}
 
 
@@ -108,7 +108,7 @@ Run the `curl -k <peer-endpoint>/healthz` or `curl -k <orderer-endpoint>/healthz
 ```
 curl -k https://169.46.208.93:3210/healthz
 ```
-{:codeblock}
+{: codeblock}
 
 For more information about health checks, see [Health checks](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html#health-checks){: external}.
 
@@ -121,14 +121,14 @@ Run the following command to view the peer metrics. To view the orderer metrics 
 ```
 curl -k <peer-endpoint>/metrics --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
 ```
-{:codeblock}
+{: codeblock}
 
 For example:
 
 ```
 curl -k https://169.55.231.152:30766/metrics --cert msp/org1/ca/tls/msp/signcerts/cert.pem --key msp/org1/ca/tls/msp/key.pem  --cacert msp/org1/ca/tls/msp/cacerts/tlsca.pem
 ```
-{:codeblock}
+{: codeblock}
 
 
 For more information about metrics, see [Metrics](https://hyperledger-fabric.readthedocs.io/en/release-2.2/operations_service.html#metrics){: external}.
@@ -142,7 +142,7 @@ Run the following command to view the logging level. You will see the log level 
 ```
 curl -k <peer-endpoint>/logspec --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
 ```
-{:codeblock}
+{: codeblock}
 
 For example:
 ```
@@ -163,7 +163,7 @@ To change the existing logging level setting, run the following command, which u
 ```
 curl -X PUT  <peer-endpoint>/logspec -d '{"spec":"<log-level>"}' --cert <client-tls-cert> --key <client-tls-key> --cacert <peer tls ca-cert>
 ```
-{:codeblock}
+{: codeblock}
 
 For example:
 ```

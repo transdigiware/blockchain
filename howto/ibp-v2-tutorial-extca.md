@@ -2,7 +2,7 @@
 
 copyright:
    years: 2021
-lastupdated: "2021-02-14"
+lastupdated: "2021-06-18"
 
 keywords: external CA, certificate, private key, MSP
 
@@ -82,6 +82,7 @@ completion-time: 30m
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
 {:term: .term}
+{:terraform: .ph data-hd-interface='terraform'}
 {:tip: .tip}
 {:tooling-url: data-tooling-url-placeholder='tooling-url'}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -284,7 +285,7 @@ This is an example MSP JSON file:
     "host_url": "https://ibpconsole-console.0defdaa0c51eab4bf04a1-0000.us-south.containers.appdomain.cloud:443",
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Import MSP into the console
 {: #ibp-tutorial-extca-import-msp}

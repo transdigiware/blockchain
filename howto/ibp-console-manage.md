@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-06-18"
 
 keywords: IBM Blockchain Platform console, administer a console, add users, remove users, modify a user's role, install patches, Kubernetes cluster expiration, iam, refresh cluster, refresh console
 
@@ -77,6 +77,7 @@ subcollection: blockchain
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
 {:term: .term}
+{:terraform: .ph data-hd-interface='terraform'}
 {:tip: .tip}
 {:tooling-url: data-tooling-url-placeholder='tooling-url'}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -292,7 +293,7 @@ Next, get a list of all of the smart contract pods running in your cluster:
 ```
 kubectl get po -n <NAMESPACE> | grep chaincode-execution | cut -d" " -f1 | xargs -I {} kubectl get po {} -n <NAMESPACE> --show-labels
 ```
-{:codeblock}
+{: codeblock}
 Replacing `<NAMESPACE>` with the name of your cluster namespace.
 
 You should see results similar to:
@@ -310,7 +311,7 @@ Then, to view the logs for a specific smart contract pod, run the command:
 ```
 kubectl  logs -f <SMART_CONTRACT_POD> -n <NAMESPACE>
 ```
-{:codeblock}
+{: codeblock}
 
 Replace
 - `<SMART_CONTRACT_POD>` with the name of the pod where the smart contract is running.
@@ -321,7 +322,7 @@ For example:
 kubectl  logs -f chaincode-execution-0a8fb504-78e2-4d50-a614-e95fb7e7c8f4 -n nf85a2a
 
 ```
-{:codeblock}
+{: codeblock}
 
 #### <img src="../images/1-4_Pill.png" alt="version 1.4" width="30" style="width:30px; border-style: none"/> Hyperledger Fabric v1.4 peer image
 {: #ibp-console-manage-console-container-logs-14}

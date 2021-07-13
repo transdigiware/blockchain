@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-07-06"
 
 keywords: getting started tutorials, videos, integration, storage
 
@@ -287,8 +287,8 @@ When you plan to use the service instance in the context of a broader organizati
 {: #ibp-v2-deploy-iks-browsers}
 The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
-- Chrome Version 85.0.4183.121 (Official Build) (64-bit)
-- Safari Version 13.0.3 (15608.3.10.1.4)
+- Chrome Version 91.0.4472.114 (Official Build) (64-bit)
+- Safari Version 14.1.1 (16611.2.7.1.4)
 
 ### Resources required
 {: #ibp-v2-deploy-iks-resources-required}
@@ -362,7 +362,7 @@ If you want to use [Performance File Storage](/docs/containers?topic=containers-
 ```
 kubectl patch storageclass <storageclass> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
-{:codeblock}
+{: codeblock}
 
 Replace ``<storageclass>`` with the name of your storage class.
 

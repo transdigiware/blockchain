@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-07-13"
 
-keywords: getting started tutorials, videos, integration, storage, IBM Cloud, VPC infrastructure
+keywords: getting started tutorials, videos, integration, storage, IBM Cloud
 
 subcollection: blockchain
 
@@ -77,6 +77,7 @@ subcollection: blockchain
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
 {:term: .term}
+{:terraform: .ph data-hd-interface='terraform'}
 {:tip: .tip}
 {:tooling-url: data-tooling-url-placeholder='tooling-url'}
 {:troubleshoot: data-hd-content-type='troubleshoot'}

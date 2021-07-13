@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-06-18"
 
 keywords: organizations, MSPs, create an MSP, MSP JSON file, consortium, system channel, remove an organization
 
@@ -246,7 +246,7 @@ You can convert the contents of your certificate file, `<cert.pem>` from `PEM` f
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 cat <cert.pem> | base64 $FLAG
 ```
-{:codeblock}
+{: codeblock}
 
 
 Create a JSON file by using the following format:
@@ -288,7 +288,7 @@ Create a JSON file by using the following format:
     "host_url": "<url>",
 }
 ```
-{:codeblock}
+{: codeblock}
 
 - **organization_name**: Specify any name to be used to identify this MSP definition in the console.
 - **organization_id**: Specify an ID that is used to represent this MSP internally in the console.
@@ -346,7 +346,7 @@ For example, your JSON file would look similar to:
     "host_url": "https://ibpconsole-console.0defdaa0c51bd4a224eab4bf04a1-0000.us-south.containers.appdomain.cloud:443",
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Save this definition as your MSP definition `JSON` file.
 

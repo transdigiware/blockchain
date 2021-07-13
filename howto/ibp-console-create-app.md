@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-06-18"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract, NTP, time, clock, date
 
@@ -182,7 +182,7 @@ If you are less worried about security, the network operator can enroll an appli
 export FLAG=$(if [ "$(uname -s)" == "Linux" ]; then echo "-w 0"; else echo "-b 0"; fi)
 echo <base64_string> | base64 --decode $FLAG > <key>.pem
 ```
-{:codeblock}
+{: codeblock}
 
 ## Downloading your connection profile
 {: #ibp-console-app-profile}
@@ -272,7 +272,7 @@ Once the network operator provides the enroll ID and secret of the application i
 
     main();
     ```
-    {:codeblock}
+    {: codeblock}
 
 3. Edit `enrollUser.js` to replace the following values:
   - Replace  ``<CA_Name>`` with the name of your organizations CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
@@ -342,7 +342,7 @@ After you generate the application signing certificate and private key and store
       }
     main();
     ```
-    {:codeblock}
+    {: codeblock}
 
 2. Edit `invoke.js` to replace the following values:
   - Replace  `<channel_name>` with the name of the channel the smart contract was deployed on. You can find your CA name under the "Certificate Authorities" section of your connection profile.
@@ -386,7 +386,7 @@ You download the commercial paper sample by cloning the [Fabric Samples reposito
 ```
 git clone https://github.com/hyperledger/fabric-samples.git
 ```
-{:codeblock}
+{: codeblock}
 
 After you download the Fabric Samples, run the following commands to ensure that you are using the version of the samples compatible with Fabric v1.4.12 and v2.2.3.
 
@@ -394,14 +394,14 @@ After you download the Fabric Samples, run the following commands to ensure that
 cd fabric-samples
 git checkout v1.4.9
 ```
-{:codeblock}
+{: codeblock}
 
 You can find the sample in the `commercial paper` folder of `fabric-samples`.
 
 ```
 cd $HOME/fabric-samples/commercial-paper
 ```
-{:codeblock}
+{: codeblock}
 
 The tutorial contains two sample organizations, **magnetocorp** and **digibank**. Each organization has its own sample application code, which is stored in two separate folders under the `organization` directory.
 
@@ -409,7 +409,7 @@ The tutorial contains two sample organizations, **magnetocorp** and **digibank**
 ls organization
 digibank	magnetocorp
 ```
-{:codeblock}
+{: codeblock}
 
 In the course of the tutorial, you will first use the magnetocorp application code to issue a commercial paper. You can then use the digibank application code to buy and redeem the paper. Both directories contain the same smart contract.
 
@@ -418,14 +418,14 @@ Navigate to the application code inside the magnetocorp directory.
 ```
 cd organization/magnetocorp/application
 ```
-{:codeblock}
+{: codeblock}
 
 When you are inside the directory, you can download the application dependencies by running the following command:
 
 ```
 npm install
 ```
-{:codeblock}
+{: codeblock}
 
 ### Step two: Install and Propose smart contract
 {: #ibp-console-app-commercial-paper-step-two-install-propose}
@@ -452,7 +452,7 @@ Use your console to [download your connection profile](#ibp-console-app-profile)
   ```
   mv $HOME/<path_to_creds>/connection.json ../gateway/connection.json
   ```
-  {:codeblock}
+  {: codeblock}
 
 Save the following code block as `enrollUser.js` in the ``/magnetocorp/application`` directory:
 
@@ -498,7 +498,7 @@ Save the following code block as `enrollUser.js` in the ``/magnetocorp/applicati
   }
   main();
   ```
-  {:codeblock}
+  {: codeblock}
 
 Take a moment to study how this file works before we edit it. First, `enrollUser.js` imports the `FileSystemWallet` and `X509WalletMixin` classes from the `fabric-network` library.
 
@@ -506,14 +506,14 @@ Take a moment to study how this file works before we edit it. First, `enrollUser
 const FabricCAServices = require('fabric-ca-client');
 const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
 ```
-{:codeblock}
+{: codeblock}
 
 The file then uses the `FileSystemWallet` class to build a wallet on your local filesystem. You can edit the following line to store the wallet in a different location.
 
 ```javascript
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet')
 ```
-{:codeblock}
+{: codeblock}
 
 After you create the wallet, the code snippet uses the enroll ID and secret to enroll by using your organization CA. It then creates an identity for the signing certificate and private key and imports them into the wallet. Notice how the file passes your organization MSP ID into the wallet as well.
 
@@ -524,7 +524,7 @@ const identity = X509WalletMixin.createIdentity('<msp_id>', enrollment.certifica
 wallet.import('user1', identity);
 console.log('Successfully enrolled client "user1" and imported it into the wallet');
 ```
-{:codeblock}
+{: codeblock}
 
 **Edit** `enrollUser.js` to replace the following values:
 - Replace  `<CA_Name>` with the name of your organization's CA. You can find your CA name in the "organizations" section of your connection profile under "Certificate Authorities". Do not use the "caName" in the "Certificate Authorities" section.
@@ -536,7 +536,7 @@ Save `enrollUser.js` and close it. In the `magnetocorp` directory, run the follo
 ```
 node enrollUser.js
 ```
-{:codeblock}
+{: codeblock}
 
 When the command completes successfully, you should see the following output:
 
@@ -558,7 +558,7 @@ Open the file `issue.js` in a text editor. Before you edit the file, notice that
 ```javascript
 const { FileSystemWallet, Gateway } = require('fabric-network')
 ```
-{:codeblock}
+{: codeblock}
 
 You will need to import the path class to build the gateway from the connection profile you downloaded from your console. **Add** the following line to the file to import the path class:
 ```javascript
@@ -571,14 +571,14 @@ The `Gateway` class is used to construct a gateway that you will use to submit y
 ```javascript
 const gateway = new Gateway()
 ```
-{:codeblock}
+{: codeblock}
 
 The `FileSystemWallet` class is used to load the wallet you created in the previous step. **Edit** the following line if you changed the location of the wallet on your file system.
 
 ```javascript
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 ```
-{:codeblock}
+{: codeblock}
 
 After you import your wallet, use the following code to pass your connection profile and wallet to the new gateway. You need to make the following **Edits** to the code so it resembles the code snippet below. The lines that print logs have been removed for brevity.
 - Update the `userName` to match the value that you selected for your `identityLabel` in `enrollUser.js`.
@@ -602,7 +602,7 @@ let connectionOptions = {
 
 await gateway.connect(connectionProfile, connectionOptions);
 ```
-{:codeblock}
+{: codeblock}
 
 This code snippet uses the gateway to open gRPC connections to the peer and orderer nodes, and interact with your network.
 
@@ -629,28 +629,28 @@ After you configure the gateway to connect to the network managed by your consol
 ```javascript
 const network = await gateway.getNetwork('mychannel');
 ```
-{:codeblock}
+{: codeblock}
 
 Following a line of code that prints a message to your console, you can find a line that provides the gateway the smart contract name. **Edit** the following line to change the name `papercontract` to the name of the contract you installed.
 
 ```javascript
 const contract = await network.getContract('papercontract', 'org.papernet.commercialpaper');
 ```
-{:codeblock}
+{: codeblock}
 
 The gateway now has all the information that it needs to submit a transaction. The following line invokes the `issue` function in the commercial paper contract, with the arguments defining the new commercial paper asset.
 
 ```javascript
 const issueResponse = await contract.submitTransaction('issue', 'MagnetoCorp', '00001', '2020-05-31', '2020-11-30', '5000000');
 ```
-{:codeblock}
+{: codeblock}
 
 After it submits the transaction using the gateway, the `issue.js` file disconnects the gateway connection.
 
 ```javascript
 gateway.disconnect();
 ```
-{:codeblock}
+{: codeblock}
 
 This command closes the gRPC connections opened by your gateway. Closing connections save network resources and improve performance.
 
@@ -659,7 +659,7 @@ After completing the edits from this step and **Step four**, save `issue.js` and
 ```
 node issue.js
 ```
-{:codeblock}
+{: codeblock}
 
 If the transaction is successful, you can see the following output in your terminal:
 
@@ -692,7 +692,7 @@ fabric_client.createUser({
 			signedCertPEM: fs.readFileSync(path.join(__dirname,'./certificate.pem'))
 		}});
 ```
-{:codeblock}
+{: codeblock}
 
 If you are using low-level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. 
 
